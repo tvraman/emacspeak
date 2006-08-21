@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT  applications  (preamble, introduction,(category)+, postamble)>
+<!--         caption    Descriptive caption                        -->
+<!ATTLIST  applications
+             caption    CDATA                              #REQUIRED >
+
+<!--                    Contains applications of a specific named
+                        category                                   -->
+<!ELEMENT  category     (application)+                               >
+<!--         name       Name of this category. Pick a descriptive
+                        name with multiple words, with the first word
+                        capitalized.                               -->
+<!ATTLIST  category
+             name       CDATA                              #REQUIRED >
+<!--                    Contains information about an application. -->
+<!ELEMENT  application  (#PCDATA)                                      >
+<!--         name       Name of this application. Pick a short single
+                        word hyphenated if necessary, all lower
+                        case.                                      -->
+<!ATTLIST  application
+             name       CDATA                              #REQUIRED >
+<!--                    holds doc preamble info                    -->
+<!ELEMENT  preamble     EMPTY                                        >
+<!--         title      Title                                      -->
+<!ATTLIST  preamble
+             title      CDATA                              #REQUIRED >
+
+<!--                    Contains introductory prose                -->
+<!ELEMENT  introduction ANY                                          >
+
+<!--                    Contains concluding text                   -->
+<!ELEMENT  postamble    ANY                                          >

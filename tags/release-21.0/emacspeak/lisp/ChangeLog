@@ -1,0 +1,3950 @@
+2003-05-16 17:33  raman
+
+	* emacspeak-wizards.el: updated with lynx custom setting 
+
+2003-05-07 06:06  rjc5
+
+	* cd-tool.el: Change hardwired "cdstart" command to
+	cd-tool-cdstart-command in a defcustom and make its default be
+	"cdstart" with "cdplay" as a suggested alternative.  
+
+2003-04-29 14:16  raman
+
+	* acss-structure.el, amphetadesk.el, cd-tool.el, dtk-interp.el,
+	dtk-speak.el, dtk-voices.el, eflite-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-analog.el,
+	emacspeak-ansi-color.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-autoload.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-calc.el,
+	emacspeak-calculator.el, emacspeak-c.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-cus-load.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-desktop.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediary.el, emacspeak-ediff.el,
+	emacspeak.el, emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-loaddefs.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-m-player.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-personality.el, emacspeak-preamble.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-rss.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-swbuff.el,
+	emacspeak-table.el, emacspeak-table-ui.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view.el,
+	emacspeak-view-process.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt.el, emacspeak-xslt-process.el, html-outline.el,
+	outloud-voices.el, tapestry.el, voice-setup.el, Makefile,
+	xml-parse.el: Releasing 18.0 
+
+2003-04-28 09:30  raman
+
+	* acss-structure.el, amphetadesk.el, cd-tool.el, dtk-interp.el,
+	dtk-speak.el, dtk-voices.el, eflite-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-analog.el,
+	emacspeak-ansi-color.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-autoload.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-calc.el,
+	emacspeak-calculator.el, emacspeak-c.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-cus-load.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-desktop.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediary.el, emacspeak-ediff.el,
+	emacspeak.el, emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-loaddefs.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-m-player.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-personality.el,
+	emacspeak-preamble.el, emacspeak-pronounce.el, emacspeak-psgml.el,
+	emacspeak-python.el, emacspeak-realaudio.el, emacspeak-redefine.el,
+	emacspeak-reftex.el, emacspeak-remote.el, emacspeak-replace.el,
+	emacspeak-rmail.el, emacspeak-rpm.el, emacspeak-rpm-spec.el,
+	emacspeak-rss.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-swbuff.el, emacspeak-table.el, emacspeak-table-ui.el,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view.el, emacspeak-view-process.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak-xslt.el,
+	html-outline.el, outloud-voices.el, tapestry.el, voice-setup.el,
+	Makefile, xml-parse.el: Releasing 17.6000 
+
+2003-04-20 10:49  raman
+
+	* acss-structure.el, amphetadesk.el, cd-tool.el, dtk-interp.el,
+	dtk-speak.el, dtk-voices.el, eflite-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-analog.el,
+	emacspeak-ansi-color.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-autoload.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-cus-load.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-desktop.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eperiodic.el, emacspeak-erc.el,
+	emacspeak-eshell.el, emacspeak-eterm.el, emacspeak-eudc.el,
+	emacspeak-facemenu.el, emacspeak-filtertext.el, emacspeak.el,
+	emacspeak-find-dired.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-find-func.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imcom.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-loaddefs.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-m-player.el, emacspeak-message.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-personality.el, emacspeak-preamble.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-rpm-spec.el, emacspeak-rss.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-swbuff.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view.el,
+	emacspeak-view-process.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, emacspeak-xslt.el, html-outline.el,
+	outloud-voices.el, tapestry.el, voice-setup.el, Makefile,
+	xml-parse.el: Releasing 17.5200 
+
+2003-04-20 09:39  raman
+
+	* acss-structure.el, amphetadesk.el, cd-tool.el, dtk-interp.el,
+	dtk-speak.el, dtk-voices.el, eflite-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-analog.el,
+	emacspeak-ansi-color.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-autoload.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-cus-load.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-desktop.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eperiodic.el, emacspeak-erc.el,
+	emacspeak-eshell.el, emacspeak-eterm.el, emacspeak-eudc.el,
+	emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-loaddefs.el,
+	emacspeak-m-player.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-personality.el,
+	emacspeak-preamble.el, emacspeak-pronounce.el, emacspeak-psgml.el,
+	emacspeak-python.el, emacspeak-realaudio.el, emacspeak-redefine.el,
+	emacspeak-reftex.el, emacspeak-remote.el, emacspeak-replace.el,
+	emacspeak-rmail.el, emacspeak-rpm-spec.el, emacspeak-rpm.el,
+	emacspeak-rss.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-swbuff.el, emacspeak-table-ui.el, emacspeak-table.el,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, Makefile,
+	emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, emacspeak-xslt.el, html-outline.el,
+	outloud-voices.el, tapestry.el, voice-setup.el, xml-parse.el: 
+	Releasing 17.5100 
+
+2003-04-19 15:58  raman
+
+	* acss-structure.el, amphetadesk.el, cd-tool.el, dtk-interp.el,
+	dtk-speak.el, dtk-voices.el, eflite-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-analog.el,
+	emacspeak-ansi-color.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-autoload.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-cus-load.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-desktop.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-loaddefs.el,
+	emacspeak-make-mode.el, emacspeak-m-player.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-personality.el,
+	emacspeak-preamble.el, emacspeak-pronounce.el, emacspeak-psgml.el,
+	emacspeak-python.el, emacspeak-realaudio.el, emacspeak-redefine.el,
+	emacspeak-reftex.el, emacspeak-remote.el, emacspeak-replace.el,
+	emacspeak-rmail.el, emacspeak-rpm.el, emacspeak-rpm-spec.el,
+	emacspeak-rss.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-swbuff.el, emacspeak-table-ui.el, emacspeak-table.el,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view.el, emacspeak-view-process.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	Makefile, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, emacspeak-xslt.el, html-outline.el,
+	outloud-voices.el, tapestry.el, voice-setup.el, xml-parse.el: 
+	Releasing 17.5000 
+
+2003-01-05 09:22  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-autoload.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-daisy.el, emacspeak-desktop.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-loaddefs.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-m-player.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-rss.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, emacspeak-xslt.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, Makefile, voice-lock.el,
+	voice-settings.el, voice-setup.el, xml-parse.el: Releasing 17.2000 
+
+2002-12-16 18:16  raman
+
+	* emacspeak-url-template.el: 
+	
+	updated nfl 
+
+2002-12-12 17:54  raman
+
+	* emacspeak-aumix.el: #updated autload# 
+
+2002-11-22 17:28  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak.el, emacspeak-ibuffer.el,
+	emacspeak-imcom.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, Makefile, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 17.0 
+
+2002-11-22 15:20  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el, emacspeak.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-m-player.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, Makefile,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.7800 
+
+2002-11-21 08:41  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak.el, emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-m-player.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, Makefile,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.7707 
+
+2002-11-21 08:36  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak.el, emacspeak-ibuffer.el,
+	emacspeak-imcom.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el, Makefile,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el,
+	xml-parse.el: Releasing 16.7705 
+
+2002-11-21 08:29  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak.el, emacspeak-ibuffer.el,
+	emacspeak-imcom.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table.el, emacspeak-table-ui.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el,
+	xml-parse.el, Makefile: Releasing 16.7700 
+
+2002-11-18 20:14  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak.el, emacspeak-eterm.el, emacspeak-eudc.el,
+	emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imcom.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-m-player.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	Makefile, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.7657 
+
+2002-11-18 20:09  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak.el, emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm-spec.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	Makefile, emacspeak-table-ui.el, emacspeak-table.el,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-todo-mode.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.7655 
+
+2002-11-18 20:00  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-c.el, emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak.el, emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-find-func.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-m-player.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-rpm-spec.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table.el, emacspeak-table-ui.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view.el,
+	emacspeak-view-process.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, Makefile,
+	voice-setup.el, xml-parse.el: Releasing 16.7650 
+
+2002-11-18 19:49  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak.el, Makefile,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el,
+	xml-parse.el: Releasing 16.7600 
+
+2002-11-18 19:24  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-calc.el, emacspeak-c.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak.el, emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-m-player.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-todo-mode.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, Makefile, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el,
+	xml-parse.el: Releasing 16.7500 
+
+2002-08-28 19:58  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-m-player.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, Makefile,
+	emacspeak-rpm-spec.el, emacspeak-rpm.el, emacspeak-sawfish.el,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.5000 
+
+2002-07-21 13:47  raman
+
+	* emacspeak-wizards.el: updated ifconfig usage 
+
+2002-05-03 16:31  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak.el, Makefile, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 16.0 
+
+2002-04-27 11:24  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak.el, emacspeak-hide.el,
+	emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imcom.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el, emacspeak-view.el,
+	emacspeak-view-process.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-w3m.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, Makefile,
+	voice-setup.el, xml-parse.el: Releasing 15.90000 
+
+2002-03-29 19:56  raman
+
+	* emacspeak-url-template.el: added my yahoo template 
+
+2002-03-27 18:49  raman
+
+	* emacspeak-speak.el: cleaned up speak-line 
+
+2002-03-23 10:23  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-analog.el, emacspeak-ansi-color.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-browse-kill-ring.el,
+	emacspeak-bs.el, emacspeak-buff-menu.el, emacspeak-buff-sel.el,
+	emacspeak-c.el, emacspeak-calc.el, emacspeak-calculator.el,
+	emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-cmuscheme.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-daisy.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ecb.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el,
+	emacspeak-eperiodic.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak.el, Makefile,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-w3m.el, emacspeak-websearch.el,
+	emacspeak-widget.el, emacspeak-windmove.el, emacspeak-winring.el,
+	emacspeak-wizards.el, emacspeak-wrolo.el, emacspeak-xml-shell.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el, xml-parse.el: Releasing 15.50001 
+
+2002-03-19 10:26  raman
+
+	* emacspeak-analog.el: bind analog find file 
+
+2002-03-18 20:01  raman
+
+	* emacspeak-ocr.el: fixed jpeg scanner 
+
+2002-03-09 20:25  raman
+
+	* emacspeak-ocr.el: dont hardwire file extension for images.  
+
+2002-03-07 10:00  raman
+
+	* emacspeak-daisy.el: intermediate 
+
+2002-01-27 20:03  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, emacspeak.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Releasing 15.4010 
+
+2002-01-27 19:44  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak.el, Makefile,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 15.4008 
+
+2002-01-27 19:41  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak.el, Makefile, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 15.4007 
+
+2002-01-27 19:40  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak.el, Makefile,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 15.4006 
+
+2002-01-27 19:34  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak.el, Makefile, emacspeak-freeamp.el, emacspeak-generic.el,
+	emacspeak-gnuplot.el, emacspeak-gnus.el, emacspeak-gomoku.el,
+	emacspeak-gridtext.el, emacspeak-gud.el, emacspeak-hide.el,
+	emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imcom.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 15.4005 
+
+2002-01-27 19:27  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imcom.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table.el,
+	emacspeak.el, Makefile, emacspeak-table-ui.el,
+	emacspeak-tabulate.el, emacspeak-tapestry.el, emacspeak-tar.el,
+	emacspeak-tcl.el, emacspeak-tdtd.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-url-template.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-websearch.el, emacspeak-widget.el, emacspeak-windmove.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xml-shell.el, emacspeak-xslide.el,
+	emacspeak-xslt-process.el, fast-voice-lock.el, html-outline.el,
+	html-voice.el, jit-voice-lock.el, lazy-voice-lock.el,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 15.4000 
+
+2001-12-13 10:51  raman
+
+	* emacspeak-imcom.el: updated startup 
+
+2001-12-13 10:16  raman
+
+	* emacspeak-imcom.el: added hooks.  
+
+2001-12-13 09:01  raman
+
+	* emacspeak-imcom.el: added imcom-mode 
+
+2001-12-03 19:39  raman
+
+	* emacspeak-aumix.el: 
+	
+	updated group 
+
+2001-11-20 12:05  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak.el, Makefile, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xslide.el, emacspeak-xslt-process.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 15.0 
+
+2001-11-20 11:27  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak.el, emacspeak-generic.el,
+	emacspeak-gnuplot.el, emacspeak-gnus.el, emacspeak-gomoku.el,
+	emacspeak-gridtext.el, emacspeak-gud.el, emacspeak-hide.el,
+	emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xslide.el, emacspeak-xslt-process.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, Makefile, tapestry.el,
+	voice-lock.el, voice-settings.el, voice-setup.el: Releasing
+	14.90000 
+
+2001-11-10 16:45  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak.el, emacspeak-freeamp.el, emacspeak-generic.el,
+	emacspeak-gnuplot.el, emacspeak-gnus.el, emacspeak-gomoku.el,
+	emacspeak-gridtext.el, emacspeak-gud.el, emacspeak-hide.el,
+	emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, Makefile,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xslide.el, emacspeak-xslt-process.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.75000 
+
+2001-11-05 16:04  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-windmove.el, emacspeak-winring.el, emacspeak-wizards.el,
+	emacspeak-wrolo.el, emacspeak-xslide.el, emacspeak-xslt-process.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.70000 
+
+2001-10-23 09:13  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	Makefile, emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.60031 
+
+2001-10-23 08:29  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, Makefile, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el, emacspeak-erc.el,
+	emacspeak-eshell.el, emacspeak-eterm.el, emacspeak-eudc.el,
+	emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.60030 
+
+2001-10-22 17:11  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, Makefile,
+	outloud-css-speech.el, outloud-voices.el, regexp-opt.el,
+	tapestry.el, voice-lock.el, voice-settings.el, voice-setup.el: 
+	Releasing 14.60025 
+
+2001-10-19 20:18  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.def, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.60007 
+
+2001-10-19 20:11  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.def, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.60005 
+
+2001-10-19 20:02  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak.el, emacspeak-erc.el,
+	emacspeak-eshell.el, emacspeak-eterm.el, emacspeak-eudc.el,
+	emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-metapost.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-ocr.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, Makefile,
+	emacspeak-load-path.def, emacspeak-setup.def, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Releasing 14.60000 
+
+2001-10-03 09:34  raman
+
+	* emacspeak-wizards.el: commands.texi needs to be sorted by modules 
+
+2001-09-20 14:28  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak.el, Makefile,
+	emacspeak-load-path.def, emacspeak-setup.def,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Releasing 14.55500 
+
+2001-09-20 14:22  raman
+
+	* emacspeak-advice.el, emacspeak-wizards.el: updated spec file so
+	.texi sources copied to doc directory 
+
+2001-09-11 20:24  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el, emacspeak.el: updated
+	custom links 
+
+2001-09-11 16:59  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-ansi-color.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-browse-kill-ring.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-load-path.el, emacspeak-make-mode.el, emacspeak-man.el,
+	emacspeak-message.el, emacspeak-metapost.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-ocr.el, emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.def, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak-xslt-process.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, regexp-opt.el, tapestry.el, voice-lock.el,
+	voice-settings.el, voice-setup.el: Releasing 14.55000 
+
+2001-09-09 20:08  raman
+
+	* emacspeak-wizards.el: updated tips and wizards 
+
+2001-08-28 17:22  raman
+
+	* emacspeak-url-template.el, emacspeak-w3.el: updated url-template
+	and w3 
+
+2001-08-27 18:51  raman
+
+	* emacspeak-w3.el, emacspeak-websearch.el: added url rewrite link
+	follower and integrated into websearch 
+
+2001-08-26 10:04  raman
+
+	* emacspeak-dired.el: cleaned up dired 
+
+2001-08-26 09:41  raman
+
+	* emacspeak-dired.el, emacspeak-load-path.el, emacspeak-setup.el: 
+	smart pronunciation for dired 
+
+2001-08-24 15:00  raman
+
+	* emacspeak-keymap.el, emacspeak.el: added ability to customize
+	personal keys 
+
+2001-08-20 20:56  raman
+
+	* emacspeak-buff-sel.el, emacspeak-speak.el, emacspeak-wizards.el: 
+	fixed buff-sel 
+
+2001-08-20 20:50  raman
+
+	* emacspeak-speak.el, emacspeak-wizards.el: wrap
+	save-window-excursion in save-excursion so we dont lose point when
+	speaking other window.  
+
+2001-08-20 20:24  raman
+
+	* emacspeak-advice.el, emacspeak-speak.el: updated tutorial advice
+	and emacspeak toggles 
+
+2001-08-19 17:43  raman
+
+	* emacspeak-url-template.el: Added pdf2html conversion url template 
+
+2001-08-18 18:25  raman
+
+	* dtk-speak.el, emacspeak-keymap.el, emacspeak-realaudio.el,
+	emacspeak-sounds.el, emacspeak-speak.el: more flexible setup for
+	switching amongst auditory icon types.  
+
+2001-08-16 15:32  raman
+
+	* emacspeak-speak.el: updated get percent 
+
+2001-08-12 20:45  raman
+
+	* emacspeak-advice.el: experimental --messages use personality
+	'paul-animated 
+
+2001-08-12 20:32  raman
+
+	* emacspeak-advice.el: have next-line and previous-line produce
+	auditory icon to signal start and end of buffer.  
+
+2001-08-12 15:25  raman
+
+	* emacspeak-advice.el: added before advice on next-line and
+	previous-line 
+
+2001-08-12 10:08  raman
+
+	* dtk-tcl.el: optimized replace duplicates 
+
+2001-08-12 09:56  raman
+
+	* emacspeak-pronounce.el: made apply pronunciations more efficient.  
+
+2001-08-12 09:49  raman
+
+	* dtk-tcl.el: eliminated save-match-data in dtk-tcl where not
+	absolutely needed.  
+
+2001-08-12 09:37  raman
+
+	* dtk-tcl.el, emacspeak-setup.def, emacspeak.el: more optimizations
+	to dtk-speak 
+
+2001-08-12 09:26  raman
+
+	* dtk-tcl.el, emacspeak-speak.el: dtk-tcl --dtk-speak optimized.  
+
+2001-08-11 08:15  raman
+
+	* emacspeak-wizards.el: updated message popper 
+
+2001-08-10 12:22  raman
+
+	* Makefile, emacspeak-browse-kill-ring.el, emacspeak.el: added
+	browse kill ring 
+
+2001-08-10 07:54  raman
+
+	* emacspeak-wizards.el: updated pop up messages 
+
+2001-08-08 20:05  raman
+
+	* emacspeak-fix-interactive.el, emacspeak.el: updated how
+	interactive commands are fixed.  
+
+2001-08-05 19:40  raman
+
+	* emacspeak-reftex.el, emacspeak-speak.el: updated reftex 
+
+2001-08-05 18:50  raman
+
+	* emacspeak.el: updated after-init-hook 
+
+2001-08-05 14:23  raman
+
+	* emacspeak-fix-interactive.el: updated emacspeak-fix-interactive
+	with command to fix interactive prompts defined in newly loaded
+	modules.  
+
+2001-08-04 09:36  raman
+
+	* emacspeak-load-path.el, emacspeak-outline.el, emacspeak-setup.el,
+	emacspeak-w3.el: fixed dependencies 
+
+2001-08-04 09:19  raman
+
+	* dtk-tcl.el: cleaned up dtk-tcl 
+
+2001-08-03 09:05  raman
+
+	* emacspeak-wizards.el: updated blank line skipper 
+
+2001-08-01 19:01  raman
+
+	* emacspeak-fix-interactive.el: Added command to fix interactive
+	commands loaded from a specified module.  
+
+2001-07-30 18:44  raman
+
+	* emacspeak-load-path.el, emacspeak-man.el, emacspeak-setup.el: 
+	updated man with -a switch and speech-enabled page navigation.  
+
+2001-07-29 18:25  raman
+
+	* Makefile, emacspeak-ansi-color.el, emacspeak.el: Speech-enables
+	ansi-color 
+
+2001-07-23 20:21  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el, emacspeak-speak.el: 
+	mode line updated again.  
+
+2001-07-23 09:27  raman
+
+	* dtk-interp.el, emacspeak-speak.el: added tts_sync_state 
+
+2001-07-22 19:02  raman
+
+	* dtk-interp.el, dtk-speak.el: cleaned up dtk-interp and
+	tts-with-punct to be more efficient 
+
+2001-07-22 18:08  raman
+
+	* emacspeak-speak.el: dont switch punctuation mode on mode line
+	when it is a simple string.  
+
+2001-07-22 17:51  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el, emacspeak-speak.el: 
+	avoid work in mode line speaker.  
+
+2001-07-22 16:58  raman
+
+	* emacspeak-speak.el: vanila mode line 
+
+2001-07-22 08:34  raman
+
+	* emacspeak-speak.el: updated minor mode line message 
+
+2001-07-21 15:40  raman
+
+	* emacspeak-speak.el: updated emacspeak-speak-version to speak code
+	name and version number.  
+
+2001-07-21 08:16  raman
+
+	* emacspeak-speak.el: updated emacspeak-speak-version to speak code
+	name and version number.  
+
+2001-07-20 20:12  raman
+
+	* .cvsignore, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak.el, fast-voice-lock.el,
+	html-voice.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: updated copyright and added applications.xml
+	applications.xsl 
+
+2001-07-20 19:37  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, Makefile, emacspeak-load-path.def,
+	emacspeak-setup.def, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Releasing 14.49990 
+
+2001-07-20 19:04  raman
+
+	* .cvsignore, .vars, Makefile, README, cd-tool.el,
+	dtk-css-speech.el, dtk-interp.el, dtk-speak.el, dtk-tcl.el,
+	dtk-voices.el, emacspeak-actions.el, emacspeak-advice.el,
+	emacspeak-arc.el, emacspeak-auctex.el, emacspeak-aumix.el,
+	emacspeak-babel.el, emacspeak-bbdb.el, emacspeak-bibtex.el,
+	emacspeak-bookmark.el, emacspeak-bs.el, emacspeak-buff-menu.el,
+	emacspeak-buff-sel.el, emacspeak-c.el, emacspeak-calc.el,
+	emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-cmuscheme.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dictation.el, emacspeak-dictionary.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el,
+	emacspeak-ecb.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-metapost.el, emacspeak-midge.el, emacspeak-mpg123.el,
+	emacspeak-mspools.el, emacspeak-net-utils.el, emacspeak-ocr.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.def, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wizards.el, emacspeak-wrolo.el,
+	emacspeak-xslide.el, emacspeak.el, fast-voice-lock.el,
+	html-outline.el, html-voice.el, jit-voice-lock.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: bringing revision numbers in sync 
+
+2001-07-17 18:15  raman
+
+	* emacspeak-advice.el, emacspeak-widget.el: 
+	
+	emacspeak-advice.el: integrated dabbrev fix from paduch@imm.uran.ru 
+	emacspeak-widget.el: updated with fixes for help-echo 
+
+2001-07-17 09:03  raman
+
+	* emacspeak-widget.el: updated to handle help-echo being a
+	function.  
+
+2001-07-15 10:33  raman
+
+	* emacspeak-widget.el: intermediate snapshot second pass.  
+
+2001-07-15 09:46  raman
+
+	* emacspeak-widget.el: intermediate snapshot 
+
+2001-07-15 08:20  raman
+
+	* emacspeak-widget.el: fixed editable field.  
+
+2001-07-14 20:19  raman
+
+	* emacspeak.el, emacspeak-advice.el: fix transient mark mode by
+	setting mark-even-if-inactive 
+
+2001-07-14 19:36  raman
+
+	* emacspeak-keymap.el: added custom wizard 
+
+2001-07-14 19:35  raman
+
+	* emacspeak-wizards.el: added customization wizard 
+
+2001-07-14 16:16  raman
+
+	* emacspeak-widget.el: updated with widget help command.  
+
+2001-07-14 11:05  raman
+
+	* emacspeak-custom.el: started section to augment custom widgets
+	with emacspeak-help 
+
+2001-07-14 10:11  raman
+
+	* emacspeak-widget.el: updated widget behavior 
+
+2001-07-13 16:27  raman
+
+	* emacspeak-widget.el: intermediate snapshot 
+
+2001-07-13 15:24  raman
+
+	* emacspeak-widget.el: intermediate snapshot 
+
+2001-07-12 19:09  raman
+
+	* emacspeak-widget.el: updated with command for populating widget
+	from minibuffer.  
+
+2001-07-10 20:43  raman
+
+	* emacspeak-websearch.el: updated freshmeat search need search.php
+	now.  
+
+2001-07-08 17:51  raman
+
+	* emacspeak.el: fixed cmuscheme setup 
+
+2001-07-08 17:48  raman
+
+	* emacspeak-cmuscheme.el: added cmuscheme support.  
+
+2001-07-08 17:07  raman
+
+	* Makefile, emacspeak.el: speech-enabled cmuscheme 
+
+2001-07-01 13:52  raman
+
+	* emacspeak-widget.el: updated edit list summarize 
+
+2001-07-01 13:47  raman
+
+	* emacspeak-widget.el: updated widget keymaps.  
+
+2001-06-30 11:17  raman
+
+	* dtk-tcl.el, emacspeak.el: Added patch to allow emacspeak to work
+	under multibyte emacs under explicit user request by setting
+	emacspeak-unibyte 
+
+2001-06-30 10:49  raman
+
+	* emacspeak-widget.el: smart edit lists for widget 
+
+2001-06-28 17:50  raman
+
+	* emacspeak-calendar.el, emacspeak-speak.el: added fancy diary
+	display to diary 
+
+2001-06-27 21:18  raman
+
+	* emacspeak-ecb.el: done advising ecb 
+
+2001-06-27 20:10  raman
+
+	* emacspeak-ecb.el: updated incremental search 
+
+2001-06-27 16:49  raman
+
+	* Makefile, emacspeak-ecb.el, emacspeak.el, emacspeak-ecb.el: added
+	ecb support.  
+
+2001-06-27 14:18  raman
+
+	* dtk-tcl.el: fixed bug in dtk-pause 
+
+2001-06-27 13:58  raman
+
+	* emacspeak-wizards.el: added tts emergency restart wizard 
+
+2001-06-27 10:28  raman
+
+	* dtk-tcl.el: server init cleanups 
+
+2001-06-27 10:16  raman
+
+	* dtk-speak.el: cleaned up 
+
+2001-06-27 09:46  raman
+
+	* dtk-speak.el: cleaned up dtk-initialize 
+
+2001-06-26 08:00  raman
+
+	* emacspeak-erc.el: smart prompting when adding and deleting people
+	from rooms.  
+
+2001-06-13 11:57  raman
+
+	* emacspeak-wizards.el: restored utils 
+
+2001-06-13 11:56  raman
+
+	* emacspeak-wizards.el: restored clipboard code.  
+
+2001-06-12 17:13  raman
+
+	* emacspeak-erc.el: updated compute message 
+
+2001-06-09 19:41  raman
+
+	* emacspeak-url-template.el: added technet cast template for DDJ 
+
+2001-06-09 18:47  raman
+
+	* emacspeak-url-template.el: added technet cast template for DDJ 
+
+2001-06-09 10:32  raman
+
+	* Makefile, emacspeak-advice.el, emacspeak-redefine.el,
+	emacspeak-wizards.el, emacspeak.el, voice-settings.el,
+	emacspeak-metapost.el: speech-enabled metapost mode 
+
+2001-06-08 10:30  raman
+
+	* emacspeak-advice.el: 
+	 updated insertion 
+
+2001-06-07 19:46  raman
+
+	* .cvsignore: fixed signal 
+
+2001-06-07 19:40  raman
+
+	* emacspeak-advice.el: updated advice on signal.  
+
+2001-06-02 21:19  raman
+
+	* emacspeak-websearch.el: added rpmfind 
+
+2001-06-01 10:56  raman
+
+	* emacspeak-erc.el, emacspeak-keymap.el, emacspeak-wizards.el: 
+	updated window wizads 
+
+2001-06-01 09:33  raman
+
+	* emacspeak-wizards.el: updated wizards. recovered lost ones.  
+
+2001-06-01 08:26  raman
+
+	* emacspeak-erc.el, emacspeak-websearch.el: updated 
+
+2001-06-01 08:16  raman
+
+	* emacspeak-erc.el: added list of people to monitor 
+
+2001-05-31 18:07  raman
+
+	* emacspeak-erc.el: erc updates 
+
+2001-05-31 17:29  raman
+
+	* emacspeak-erc.el, emacspeak-websearch.el: erc updates 
+
+2001-05-30 19:41  raman
+
+	* emacspeak-url-template.el: updated url-template 
+
+2001-05-21 14:01  raman
+
+	* emacspeak-vm.el, emacspeak-websearch.el: updated.  
+
+2001-05-20 19:36  raman
+
+	* emacspeak-filtertext.el, emacspeak-setup.def, emacspeak-speak.el: 
+	check for running-xemacs 
+
+2001-05-20 11:01  raman
+
+	* emacspeak-speak.el, emacspeak-wizards.el: factored out more
+	wizards.  
+
+2001-05-20 10:03  raman
+
+	* emacspeak-ocr.el: ocr updates 
+
+2001-05-20 09:11  raman
+
+	* emacspeak-dired.el: updated dired 
+
+2001-05-19 19:19  raman
+
+	* emacspeak-ocr.el: Added commands for updating scanner settings.  
+
+2001-05-19 19:03  raman
+
+	* Makefile, emacspeak-speak.el, emacspeak-wizards.el, emacspeak.el: 
+	Added module wizards 
+
+2001-05-18 21:53  raman
+
+	* emacspeak-advice.el, emacspeak-arc.el,
+	emacspeak-fix-interactive.el, emacspeak-speak.el: cleanups 
+
+2001-05-18 15:30  raman
+
+	* emacspeak-arc.el: sync 
+
+2001-05-18 14:48  raman
+
+	* emacspeak-advice.el, emacspeak-fix-interactive.el: updated
+	fix-interactive 
+
+2001-05-18 14:29  raman
+
+	* emacspeak-advice.el, emacspeak-setup.def: turn off transient mark
+	in xemacs via zmacs-regions 
+
+2001-05-18 11:23  raman
+
+	* emacspeak-speak.el: updated.  
+
+2001-05-18 11:19  raman
+
+	* emacspeak-advice.el: conditional advice 
+
+2001-05-18 10:52  raman
+
+	* emacspeak-arc.el, emacspeak-fix-interactive.el: cleaned up
+	compilation warnings 
+
+2001-05-18 10:46  raman
+
+	* emacspeak-fix-interactive.el: make fix-interactive xemacs aware 
+
+2001-05-18 10:00  raman
+
+	* emacspeak-setup.def: added emacspeak-xemacs-p 
+
+2001-05-13 14:13  raman
+
+	* dtk-tcl.el: updated.  
+
+2001-05-13 13:47  raman
+
+	* cd-tool.el, emacspeak-arc.el, emacspeak-finder.el,
+	emacspeak-keymap.el, emacspeak-man.el, emacspeak-ocr.el,
+	emacspeak-pronounce.el, emacspeak-speak.el, emacspeak-table-ui.el,
+	emacspeak-widget.el: xemacs compatibility 
+
+2001-05-13 09:57  raman
+
+	* _pkg.el: adding xemacs package file.  
+
+2001-05-13 09:51  raman
+
+	* emacspeak-ocr.el, emacspeak-table-ui.el, emacspeak.el: added -q
+	to cvs get 
+
+2001-05-13 09:43  raman
+
+	* emacspeak-ocr.el: updated.  
+
+2001-05-13 09:24  raman
+
+	* emacspeak-table-ui.el: updated keys for xemacs 
+
+2001-05-13 09:03  raman
+
+	* emacspeak-table-ui.el: updating keymaps for xemacs compatibility 
+
+2001-05-12 18:02  raman
+
+	* emacspeak-calendar.el, emacspeak-ocr.el: updated calendar mode
+	line.  
+
+2001-05-12 17:49  raman
+
+	* emacspeak-ocr.el: implemented saving of numbered pages.  
+
+2001-05-12 17:16  raman
+
+	* emacspeak.el: be smart about playing startup sound 
+
+2001-05-12 17:09  raman
+
+	* emacspeak-calendar.el: improved mode line format for calendar.  
+
+2001-05-12 12:31  raman
+
+	* emacspeak-ocr.el: updated keymaps 
+
+2001-05-12 11:46  raman
+
+	* emacspeak-ocr.el: updated keymaps 
+
+2001-05-12 11:29  raman
+
+	* emacspeak-ocr.el: updated keymaps 
+
+2001-05-12 11:00  raman
+
+	* emacspeak-keymap.el: updated keymaps 
+
+2001-05-12 10:57  raman
+
+	* emacspeak-ocr.el, emacspeak-speak.el: ocr: added page navigation.  
+
+2001-05-12 10:41  raman
+
+	* emacspeak-ocr.el: ocr: added page navigation.  
+
+2001-05-11 20:02  raman
+
+	* emacspeak-ocr.el: updated sentinel 
+
+2001-05-11 19:08  raman
+
+	* emacspeak-ocr.el: 
+	
+	fixed command line options for scanimage and tiffcp 
+
+2001-05-11 17:41  raman
+
+	* emacspeak-ocr.el: updated.  
+
+2001-05-11 16:52  raman
+
+	* emacspeak-ocr.el: works.  
+
+2001-05-11 16:12  raman
+
+	* emacspeak-ocr.el: updated ocr front-end 
+
+2001-05-11 08:12  raman
+
+	* emacspeak-ocr.el: added ocr front end 
+
+2001-05-11 07:59  raman
+
+	* Makefile, emacspeak-keymap.el, emacspeak.el: Added OCR front-end 
+
+2001-05-10 20:46  raman
+
+	* emacspeak-advice.el, emacspeak-keymap.el, emacspeak-speak.el: 
+	added phone book lookup.  
+
+2001-05-10 20:16  raman
+
+	* emacspeak-advice.el, emacspeak-keymap.el, emacspeak-speak.el: 
+	updated.  
+
+2001-05-10 13:43  raman
+
+	* emacspeak-aumix.el, emacspeak-sounds.el: updated 
+
+2001-05-09 11:34  raman
+
+	* emacspeak-bs.el: fixed typo in bs 
+
+2001-05-09 10:07  raman
+
+	* emacspeak-advice.el: updated for 21 minibuffer handling.  
+
+2001-05-09 09:57  raman
+
+	* emacspeak-advice.el: updated read-file-name 
+
+2001-05-06 12:41  raman
+
+	* emacspeak-pronounce.el: updated pronunciation dict load and save 
+
+2001-05-04 09:44  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: final 14.0 TopDog Release 
+
+2001-05-01 11:41  raman
+
+	* emacspeak-advice.el: made unessential emacs packages optional.  
+
+2001-05-01 11:35  raman
+
+	* emacspeak-arc.el, emacspeak-c.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el: made unessential emacs packages optional.  
+
+2001-04-30 18:43  raman
+
+	* emacspeak-advice.el, emacspeak-realaudio.el: updated.  
+
+2001-04-30 17:14  raman
+
+	* emacspeak-advice.el: customize window resize icon.  
+
+2001-04-29 20:53  raman
+
+	* emacspeak-finder-inf.el, emacspeak-speak.el: updated.  
+
+2001-04-29 09:33  raman
+
+	* emacspeak-fix-interactive.el, emacspeak-sounds.el: updated advice 
+
+2001-04-28 17:44  raman
+
+	* emacspeak-advice.el: advised zap-to-char 
+
+2001-04-28 17:41  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: pre-release 13.9050 
+
+2001-04-27 19:47  raman
+
+	* emacspeak-advice.el, emacspeak-keymap.el, emacspeak-psgml.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-w3.el,
+	emacspeak-websearch.el: compile check.  
+
+2001-04-27 15:14  raman
+
+	* emacspeak-advice.el: updated window resize hooks.  
+
+2001-04-27 14:55  raman
+
+	* emacspeak-advice.el, emacspeak-sounds.el: added auditory icon for
+	window  size changes 
+
+2001-04-27 14:36  raman
+
+	* emacspeak-keymap.el: bound emacspeak-root 
+
+2001-04-27 14:32  raman
+
+	* emacspeak-speak.el: added root shell convenience.  
+
+2001-04-27 14:15  raman
+
+	* emacspeak-psgml.el: update interactive voice lock in sgml 
+
+2001-04-27 14:05  raman
+
+	* emacspeak-advice.el: nuke around advice on shell 
+
+2001-04-26 17:34  raman
+
+	* emacspeak-websearch.el: updated weather 
+
+2001-04-24 20:44  raman
+
+	* emacspeak-advice.el, emacspeak-ediff.el: updated.  
+
+2001-04-24 15:22  raman
+
+	* emacspeak-advice.el: shutdown icon works.  
+
+2001-04-24 10:45  raman
+
+	* emacspeak-advice.el, emacspeak-mpg123.el: wrap minibuffer set
+	hook in unwind protect 
+
+2001-04-23 20:25  raman
+
+	* emacspeak-sounds.el, emacspeak-speak.el, emacspeak.el: updated
+	shutdown.  
+
+2001-04-23 16:13  raman
+
+	* emacspeak-advice.el: fixed perms 
+
+2001-04-23 08:00  raman
+
+	* emacspeak-keymap.el: updated keymaps.  
+
+2001-04-22 16:13  raman
+
+	* emacspeak.el: updated.  
+
+2001-04-22 16:04  raman
+
+	* emacspeak-gnus.el, emacspeak.el: added cvs convenience 
+
+2001-04-21 09:01  raman
+
+	* emacspeak-gnus.el: Fixed bugs in emacspeak-gnus.el 
+
+2001-04-20 20:36  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: tagged as pre-release 13-8500 
+
+2001-04-20 07:52  raman
+
+	* emacspeak-advice.el, emacspeak-setup.def: disabling transient
+	mark mode when emacspeak is running.  
+
+2001-04-18 07:53  raman
+
+	* emacspeak-calendar.el, emacspeak-gnus.el: updated requires in
+	gnus 
+
+2001-04-17 16:49  raman
+
+	* emacspeak-calendar.el: updated calendar.  
+
+2001-04-15 18:17  raman
+
+	* emacspeak-sounds.el: updated sounds module.  
+
+2001-04-15 14:59  raman
+
+	* emacspeak-aumix.el, emacspeak-entertain.el,
+	emacspeak-entertain.el: updated 
+
+2001-04-14 18:45  raman
+
+	* emacspeak-aumix.el: fixed type of new aumix custom vars.  
+
+2001-04-14 18:32  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-erc.el, emacspeak-eshell.el,
+	emacspeak-eterm.el, emacspeak-eudc.el, emacspeak-facemenu.el,
+	emacspeak-filtertext.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gridtext.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hideshow.el,
+	emacspeak-hyperbole.el, emacspeak-ibuffer.el, emacspeak-imenu.el,
+	emacspeak-info.el, emacspeak-ispell.el, emacspeak-jde.el,
+	emacspeak-keymap.el, emacspeak-kotl.el, emacspeak-load-path.def,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: added realaudio files 
+
+2001-04-13 17:06  raman
+
+	* emacspeak-entertain.el: updated entertain.  
+
+2001-04-13 08:20  raman
+
+	* emacspeak-entertain.el, emacspeak-filtertext.el, emacspeak.el: 
+	filtertext sets case fold search 
+
+2001-04-12 08:54  raman
+
+	* emacspeak-entertain.el, emacspeak.el: updated 
+
+2001-04-10 19:00  raman
+
+	* Makefile: erc.  
+
+2001-04-10 18:58  raman
+
+	* emacspeak-erc.el, emacspeak-url-template.el, emacspeak.el: 
+	speech-enables erc.  
+
+2001-04-09 10:56  raman
+
+	* emacspeak-url-template.el: added India Today 
+
+2001-04-09 09:28  raman
+
+	* emacspeak-url-template.el: fixed headlines 
+
+2001-04-09 08:06  raman
+
+	* emacspeak-url-template.el: synced up 
+
+2001-04-05 13:34  raman
+
+	* dtk-tcl.el: updated how default speech rate is handled.  
+
+2001-03-30 17:07  raman
+
+	* dtk-speak.el, emacspeak-aumix.el, emacspeak-realaudio.el,
+	emacspeak-sounds.el: updated to handle multichannel soundcards.  
+
+2001-03-30 09:38  raman
+
+	* emacspeak-advice.el, emacspeak-speak.el: updated.  
+
+2001-03-29 17:43  raman
+
+	* emacspeak-eudc.el: updated eudc to fix mail bug.  
+
+2001-03-29 17:32  raman
+
+	* emacspeak-advice.el: updated advice 
+
+2001-03-25 09:13  raman
+
+	* emacspeak-advice.el, emacspeak-speak.el: fixed bug in setup of
+	minibuffer hook.  
+
+2001-03-23 11:52  raman
+
+	* emacspeak-speak.el: updated howto browser to handle RH 7.0
+	locations.  
+
+2001-03-21 17:22  raman
+
+	* Makefile, fast-voice-lock.el, jit-voice-lock.el: cleaned up 
+
+2001-03-21 16:36  raman
+
+	* dtk-speak.el: Updated dtk-select-server 
+
+2001-03-21 13:49  raman
+
+	* emacspeak-websearch.el: fixed compiler warnings.  
+
+2001-03-21 13:45  raman
+
+	* emacspeak-speedbar.el: fixed compiler warnings.  
+
+2001-03-21 13:38  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el: cleaning repository.  
+
+2001-03-21 13:37  raman
+
+	* emacspeak-aumix.el, emacspeak-forms.el, emacspeak-load-path.el,
+	emacspeak-setup.el: fixed compiler warnings.  
+
+2001-03-21 13:30  raman
+
+	* dtk-speak.el: Updated dtk-speak to nuke annoying set mark
+	message.  
+
+2001-03-19 08:53  raman
+
+	* emacspeak-advice.el: updated.  
+
+2001-03-15 11:59  raman
+
+	* emacspeak-finder-inf.el: nuking generated file README 
+
+2001-03-15 08:14  raman
+
+	* .cvsignore, dtk-speak.el, emacspeak-aumix.el, emacspeak-forms.el,
+	emacspeak-psgml.el: updated files --nuked possibility of switching
+	speech server locally in a buffer.  
+
+2001-03-14 07:52  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el: nuking generated
+	files 
+
+2001-03-14 07:51  raman
+
+	* emacspeak-load-path.el, emacspeak-psgml.el, emacspeak-setup.el: 
+	
+	emacspeak-psgml.el: fixed advice on navigation commands.  
+
+2001-03-05 18:30  raman
+
+	* .cvsignore, emacspeak-psgml.el, voice-settings.el: updated psgml
+	voice locking.  
+
+2001-03-04 07:39  raman
+
+	* emacspeak-forms.el: Added command to edit default
+	settings.improved emacspeak-forms-speak-current-field 
+
+2001-03-03 18:14  raman
+
+	* emacspeak-aumix.el: Added command to edit default settings.  
+
+2001-02-24 18:25  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: updating 
+
+2001-02-21 15:54  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Tagged as emacspeak 13-7005 
+
+2001-02-15 19:35  raman
+
+	* emacspeak-jde.el: updated jde run support 
+
+2001-02-15 07:44  raman
+
+	* emacspeak-jde.el: updated jde 
+
+2001-02-13 20:47  raman
+
+	* emacspeak-jde.el: updated jde completion.  
+
+2001-02-02 07:47  raman
+
+	* emacspeak-url-template.el, emacspeak-websearch.el: updated search
+	and url template.  
+
+2001-01-13 17:22  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Added auto remote server start for calling from
+	gnudoit 
+
+2001-01-11 08:35  raman
+
+	* emacspeak-keymap.el, emacspeak-speak.el: Implemented speak
+	current host 
+
+2001-01-08 18:30  raman
+
+	* emacspeak-url-template.el: fixed 
+
+2001-01-08 18:27  raman
+
+	* emacspeak.el: use delete-process in kill-emacs-hook 
+
+2001-01-05 07:15  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Stabilizing 13.6000 
+
+2001-01-04 09:12  raman
+
+	* emacspeak-url-template.el: Added w3c lists url template 
+
+2001-01-04 09:02  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el,
+	emacspeak-url-template.el: Added w3c lists url template 
+
+2001-01-04 08:39  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-filtertext.el,
+	emacspeak-find-dired.el, emacspeak-find-func.el,
+	emacspeak-finder-inf.el, emacspeak-finder.el,
+	emacspeak-fix-interactive.el, emacspeak-flyspell.el,
+	emacspeak-folding.el, emacspeak-forms.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-gnuplot.el, emacspeak-gnus.el,
+	emacspeak-gomoku.el, emacspeak-gridtext.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: synchronized files 
+
+2001-01-03 18:23  raman
+
+	* emacspeak-table-ui.el: voiceify table fields.  
+
+2001-01-03 09:16  raman
+
+	* cd-tool.el, dtk-css-speech.el, dtk-interp.el, dtk-speak.el,
+	dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el,
+	emacspeak-dictionary.el, emacspeak-dired.el, emacspeak-dismal.el,
+	emacspeak-dmacro.el, emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eshell.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.el, emacspeak-make-mode.el,
+	emacspeak-man.el, emacspeak-message.el, emacspeak-midge.el,
+	emacspeak-mpg123.el, emacspeak-mspools.el, emacspeak-net-utils.el,
+	emacspeak-oo-browser.el, emacspeak-outline.el,
+	emacspeak-pcl-cvs.el, emacspeak-perl.el, emacspeak-pronounce.el,
+	emacspeak-psgml.el, emacspeak-python.el, emacspeak-realaudio.el,
+	emacspeak-redefine.el, emacspeak-reftex.el, emacspeak-remote.el,
+	emacspeak-replace.el, emacspeak-rmail.el, emacspeak-rpm.el,
+	emacspeak-sawfish.el, emacspeak-setup.el, emacspeak-sgml-mode.el,
+	emacspeak-sh-script.el, emacspeak-solitaire.el,
+	emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tdtd.el,
+	emacspeak-tempo.el, emacspeak-tetris.el, emacspeak-texinfo.el,
+	emacspeak-tnt.el, emacspeak-url-template.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak-xslide.el,
+	emacspeak.el, fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: updated 13.8000 bundle 
+
+2001-01-03 08:50  raman
+
+	* emacspeak-load-path.el, emacspeak-setup.el: added spec file 
+
+2001-01-03 08:16  raman
+
+	* emacspeak-aumix.el, emacspeak-sounds.el, emacspeak.el: updated 
+
+2001-01-03 08:14  raman
+
+	* emacspeak-table-ui.el: Implemented persisting of table filters.  
+
+2000-12-30 15:24  raman
+
+	* emacspeak-aumix.el, emacspeak-sounds.el, emacspeak.el: Added user
+	specific aumix reset capability.  
+
+2000-12-29 20:44  raman
+
+	* emacspeak-aumix.el, emacspeak-sounds.el, emacspeak.el: Updated
+	emacspeak.el with emacspeak entry on kill-emacs-hook to nuke running
+	speech server.  
+
+2000-12-28 20:53  raman
+
+	* emacspeak-gridtext.el, emacspeak.el: Updated 
+
+2000-12-28 20:29  raman
+
+	* Makefile, dtk-tcl.el, emacspeak-gridtext.el, emacspeak-sounds.el,
+	emacspeak-table-ui.el, emacspeak-table.el: Updated table routines.
+	speech server updated to use midi icon when downloading large
+	chunks.  
+
+2000-12-27 15:27  raman
+
+	* Makefile, emacspeak-gridtext.el, emacspeak-keymap.el,
+	emacspeak-speak.el, emacspeak-table-ui.el, emacspeak-table.el,
+	emacspeak.el: Added module gridtext 
+
+2000-12-25 17:09  raman
+
+	* emacspeak-advice.el: updated 
+
+2000-12-25 16:43  raman
+
+	* emacspeak-sounds.el, emacspeak-eshell.el, emacspeak-eterm.el: 
+	updated 
+
+2000-12-20 20:11  raman
+
+	* emacspeak-advice.el: updated 
+
+2000-12-20 18:38  raman
+
+	* emacspeak-advice.el: 
+	
+	Fixed advice on isearch toggle commands.  
+
+2000-12-20 14:39  raman
+
+	* emacspeak-advice.el, emacspeak-redefine.el: 
+	
+	emacspeak-advice.el: cleaned up isearch emacspeak-redefine.el
+	--fixed ding 
+
+2000-12-20 14:21  raman
+
+	* emacspeak-advice.el, emacspeak-redefine.el: 
+	
+	emacspeak-advice.el Added isearch cleanups.  emacspeak-redefine.el:
+	redefines builtin ding in lisp so we can have it produce an auditory
+	icon.  
+
+2000-12-18 19:22  raman
+
+	* emacspeak-dictionary.el, emacspeak-eshell.el,
+	emacspeak-filtertext.el, emacspeak-url-template.el: Updating new
+	files.  
+
+2000-12-18 19:20  raman
+
+	* Makefile, cd-tool.el, dtk-css-speech.el, dtk-interp.el,
+	dtk-speak.el, dtk-tcl.el, dtk-voices.el, emacspeak-actions.el,
+	emacspeak-advice.el, emacspeak-arc.el, emacspeak-auctex.el,
+	emacspeak-aumix.el, emacspeak-babel.el, emacspeak-bbdb.el,
+	emacspeak-bibtex.el, emacspeak-bookmark.el, emacspeak-bs.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calculator.el, emacspeak-calendar.el,
+	emacspeak-checkdoc.el, emacspeak-compile.el, emacspeak-cperl.el,
+	emacspeak-custom.el, emacspeak-dictation.el, emacspeak-dired.el,
+	emacspeak-dismal.el, emacspeak-dmacro.el, emacspeak-ediff.el,
+	emacspeak-enriched.el, emacspeak-entertain.el, emacspeak-eterm.el,
+	emacspeak-eudc.el, emacspeak-facemenu.el, emacspeak-find-dired.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-freeamp.el, emacspeak-generic.el, emacspeak-gnuplot.el,
+	emacspeak-gnus.el, emacspeak-gomoku.el, emacspeak-gud.el,
+	emacspeak-hide.el, emacspeak-hideshow.el, emacspeak-hyperbole.el,
+	emacspeak-ibuffer.el, emacspeak-imenu.el, emacspeak-info.el,
+	emacspeak-ispell.el, emacspeak-jde.el, emacspeak-keymap.el,
+	emacspeak-kotl.el, emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-sawfish.el, emacspeak-setup.def,
+	emacspeak-setup.el, emacspeak-sgml-mode.el, emacspeak-sh-script.el,
+	emacspeak-solitaire.el, emacspeak-sounds.el, emacspeak-speak.el,
+	emacspeak-speedbar.el, emacspeak-sql.el, emacspeak-supercite.el,
+	emacspeak-table-ui.el, emacspeak-table.el, emacspeak-tabulate.el,
+	emacspeak-tapestry.el, emacspeak-tar.el, emacspeak-tcl.el,
+	emacspeak-tdtd.el, emacspeak-tempo.el, emacspeak-tetris.el,
+	emacspeak-texinfo.el, emacspeak-tnt.el, emacspeak-view-process.el,
+	emacspeak-view.el, emacspeak-vm.el, emacspeak-w3.el,
+	emacspeak-websearch.el, emacspeak-widget.el, emacspeak-winring.el,
+	emacspeak-wrolo.el, emacspeak-xslide.el, emacspeak.el,
+	fast-voice-lock.el, html-outline.el, html-voice.el,
+	jit-voice-lock.el, lazy-voice-lock.el, outloud-css-speech.el,
+	outloud-voices.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Updating files with post 13.0 changes 
+
+2000-11-28 20:31  raman
+
+	* emacspeak-bs.el, emacspeak-calculator.el, emacspeak-dictation.el,
+	emacspeak-eudc.el, emacspeak-find-dired.el, emacspeak-freeamp.el,
+	emacspeak-generic.el, emacspeak-hideshow.el, emacspeak-ibuffer.el,
+	emacspeak-sawfish.el, emacspeak-sh-script.el, emacspeak-tdtd.el,
+	emacspeak-xslide.el, jit-voice-lock.el: release 13 with updates 
+
+2000-05-22 17:16  raman
+
+	* emacspeak-websearch.el: 
+	
+	post Emacspeak-2.0 changes Updated rfbd search using post updated
+	altavista to use raging.com 
+
+2000-04-15 19:36  raman
+
+	* fast-voice-lock.el, html-outline.el, html-voice.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Initial revision 
+
+2000-04-15 19:36  raman
+
+	* fast-voice-lock.el, html-outline.el, html-voice.el,
+	lazy-voice-lock.el, outloud-css-speech.el, outloud-voices.el,
+	regexp-opt.el, tapestry.el, voice-lock.el, voice-settings.el,
+	voice-setup.el: Importing Emacspeak into sourceforge  
+
+2000-04-15 19:33  raman
+
+	* emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak.el: Initial
+	revision 
+
+2000-04-15 19:33  raman
+
+	* emacspeak-sounds.el, emacspeak-speak.el, emacspeak-speedbar.el,
+	emacspeak-sql.el, emacspeak-supercite.el, emacspeak-table-ui.el,
+	emacspeak-table.el, emacspeak-tabulate.el, emacspeak-tapestry.el,
+	emacspeak-tar.el, emacspeak-tcl.el, emacspeak-tempo.el,
+	emacspeak-tetris.el, emacspeak-texinfo.el, emacspeak-tnt.el,
+	emacspeak-view-process.el, emacspeak-view.el, emacspeak-vm.el,
+	emacspeak-w3.el, emacspeak-websearch.el, emacspeak-widget.el,
+	emacspeak-winring.el, emacspeak-wrolo.el, emacspeak.el: Importing
+	Emacspeak into sourceforge  
+
+2000-04-15 19:30  raman
+
+	* emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eterm.el, emacspeak-facemenu.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-gnuplot.el, emacspeak-gnus.el, emacspeak-gomoku.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hyperbole.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-setup.def, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-solitaire.el: Initial revision 
+
+2000-04-15 19:30  raman
+
+	* emacspeak-ediff.el, emacspeak-enriched.el,
+	emacspeak-entertain.el, emacspeak-eterm.el, emacspeak-facemenu.el,
+	emacspeak-find-func.el, emacspeak-finder-inf.el,
+	emacspeak-finder.el, emacspeak-fix-interactive.el,
+	emacspeak-flyspell.el, emacspeak-folding.el, emacspeak-forms.el,
+	emacspeak-gnuplot.el, emacspeak-gnus.el, emacspeak-gomoku.el,
+	emacspeak-gud.el, emacspeak-hide.el, emacspeak-hyperbole.el,
+	emacspeak-imenu.el, emacspeak-info.el, emacspeak-ispell.el,
+	emacspeak-jde.el, emacspeak-keymap.el, emacspeak-kotl.el,
+	emacspeak-load-path.def, emacspeak-load-path.el,
+	emacspeak-make-mode.el, emacspeak-man.el, emacspeak-message.el,
+	emacspeak-midge.el, emacspeak-mpg123.el, emacspeak-mspools.el,
+	emacspeak-net-utils.el, emacspeak-oo-browser.el,
+	emacspeak-outline.el, emacspeak-pcl-cvs.el, emacspeak-perl.el,
+	emacspeak-pronounce.el, emacspeak-psgml.el, emacspeak-python.el,
+	emacspeak-realaudio.el, emacspeak-redefine.el, emacspeak-reftex.el,
+	emacspeak-remote.el, emacspeak-replace.el, emacspeak-rmail.el,
+	emacspeak-rpm.el, emacspeak-setup.def, emacspeak-setup.el,
+	emacspeak-sgml-mode.el, emacspeak-solitaire.el: Importing Emacspeak
+	into sourceforge  
+
+2000-04-15 19:27  raman
+
+	* .cvsignore, Makefile, README, cd-tool.el, dtk-css-speech.el,
+	dtk-interp.el, dtk-speak.el, dtk-tcl.el, dtk-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el: 
+	Initial revision 
+
+2000-04-15 19:27  raman
+
+	* .cvsignore, Makefile, README, cd-tool.el, dtk-css-speech.el,
+	dtk-interp.el, dtk-speak.el, dtk-tcl.el, dtk-voices.el,
+	emacspeak-actions.el, emacspeak-advice.el, emacspeak-arc.el,
+	emacspeak-auctex.el, emacspeak-aumix.el, emacspeak-babel.el,
+	emacspeak-bbdb.el, emacspeak-bibtex.el, emacspeak-bookmark.el,
+	emacspeak-buff-menu.el, emacspeak-buff-sel.el, emacspeak-c.el,
+	emacspeak-calc.el, emacspeak-calendar.el, emacspeak-checkdoc.el,
+	emacspeak-compile.el, emacspeak-cperl.el, emacspeak-custom.el,
+	emacspeak-dired.el, emacspeak-dismal.el, emacspeak-dmacro.el: 
+	Importing Emacspeak into sourceforge  
+

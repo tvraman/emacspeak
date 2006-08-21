@@ -1,0 +1,177 @@
+@c $Id$
+@node Installation
+@chapter Installation Instructions
+
+This chapter gives brief and detailed installation instructions
+for configuring, installing and starting Emacspeak.
+
+@menu
+* Obtaining Emacspeak::        Obtaining Emacspeak.
+* Quick Installation::          Default installation  and startup.
+* Configuring and Installing Emacspeak::  Configuring and Installing Emacspeak 
+                                         and its associated files
+@end menu
+
+
+
+@node Obtaining Emacspeak
+@section Obtaining Emacspeak
+
+Emacspeak is available on the Internet at:
+@table @b
+@item WWW
+ http://emacspeak.sf.net
+@item WWW
+ http://www.cs.cornell.edu/home/raman/emacspeak/
+ @item FTP
+   ftp://ftp.cs.cornell.edu/pub/raman/emacspeak
+@item Mail List
+emacspeak@@cs.vassar.edu
+@item List Request
+emacspeak-request@@cs.vassar.edu
+@end table
+
+ The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If you are using Emacspeak,
+you can join the list by sending mail to
+the request address.
+
+@node Quick Installation
+@section Quick Installation
+
+
+Here are the quick installation instructions.
+See the next section for detailed installation instructions.
+
+
+Prepackaged RPM files are available on the Emacspeak site.
+Packages for other Linux distributions such as Debian typically become
+available on the WWW a few days after a new version is released.
+The instructions below are for building and installing Emacspeak from
+the source distribution.
+
+@itemize @bullet
+@item
+ Type @samp{make config} to configure the sources for your site.
+@item
+ Type @samp{make} to compile the files.
+@item Install the system by typing 
+@samp{make install}
+@item
+ Run it by doing one of:
+@itemize @bullet
+@item @samp{emacspeak}
+  
+@item
+Add the line
+@example
+(load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
+@end example
+to the top of your .emacs file.
+@item
+ 
+
+@end itemize
+In the above, @code{<emacspeak-dir>} refers to the directory where you unpacked
+the sources. 
+@end  itemize
+
+
+@node Configuring and Installing Emacspeak
+@section Configuring and Installing Emacspeak
+
+Note: You need GNU Emacs 20.2
+ or later for using newer versions of Emacspeak.
+
+The speech server for the Dectalk is written in TclX.  (For example, see the
+source file @file{dtk-exp}).  
+@itemize @bullet 
+@item Decide where you want the Emacspeak elisp files.  Most Unix packages are
+unpacked and compiled in one directory, and then the executable,
+documentation, and data files are installed in the appropriate system
+directories.  
+
+
+Once you have decided on the appropriate directory, make it if necessary
+and unpack the distribution @code{.tar} file there. 
+
+@item Look through the introductory section of the Makefile to see if you need
+to edit it for your site.
+@item Check the directory prefix for installation.  The default is @file{/usr/local},
+so @file{.info} files go to @file{/usr/local/info} and the executable
+file goes to @file{/usr/local/bin}.  To change this, edit the line
+defining @var{PREFIX}.
+@end itemize
+
+Configure the source files by typing @samp{make config}.  At this point
+you can check that the  speech server is correctly configured by typing
+@example
+tcl dtk-exp
+@end example
+@noindent (assuming you are using the Dectalk Express).  You should hear the
+Dectalk speak and get a TCL prompt if everything is okay.
+
+If you're feeling paranoid, you can perform a couple of additional tests
+at this point. Execute the following commands in the running tcl session
+you just started above.  (Most users will not need to do this; it is a
+sanity check and is useful in tracking problems, especially if you find
+emacspeak beginning to talk and then immediately fall silent.)
+
+@itemize @bullet
+@item
+@example
+q "this is a test."
+d
+@end example
+
+ You should hear the Dectalk speak  the text.
+@item @samp{s}
+ The above command stops speech.
+ You should see a TCL prompt when you execute it.
+  If things appear to hang when you execute @samp{s}
+  i.e. you don't see a TCL prompt
+@enumerate 
+@item The serial cable connecting your speech device is flaky
+@item Your serial port is flaky
+@item The stty settings on the port are incorrect for your system
+@end enumerate
+ 
+In the case of incorrect stty settings please report the problem.  The
+following UNIX command can be used to report the stty settings:
+@example
+stty -a < serial_port
+@end example
+
+@end itemize
+
+Quit this TCL
+session by typing @kbd{C-D}.
+
+Next, compile the elisp files by typing 
+@example
+make emacspeak
+@end example
+Finally, install the documentation and executable files by typing 
+@example
+make PREFIX=<prefix> install 
+@end example
+
+The speech server program and/or output port can also be specified at run time by 
+setting the shell environment variables @var{DTK_PROGRAM} and @var{DTK_PORT}.
+Examples: If using @code{csh} or @code{tcsh} 
+@example
+setenv DTK_PROGRAM "dtk-exp"
+@end example
+@noindent if using @code{sh} or @code{bash}
+@example
+DTK_PROGRAM=dtk-exp
+export DTK_PROGRAM
+@end example
+@noindent Similarly,
+@example
+DTK_PORT=/dev/ttyS0
+@end example
+
+You can always set these variables from a running Emacs session by
+executing
+the Emacs setenv command.
+
