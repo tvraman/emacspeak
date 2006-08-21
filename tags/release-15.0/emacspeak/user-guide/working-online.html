@@ -1,0 +1,1000 @@
+<HTML
+><HEAD
+><TITLE
+>Working online</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Using Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Working with files"
+HREF="working-with-files.html"><LINK
+REL="NEXT"
+TITLE="Productivity"
+HREF="productivity.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Using Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="working-with-files.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="productivity.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="WORKING-ONLINE"
+>5. Working online</A
+></H1
+><P
+>	This section explores many of the tasks you would commonly
+	perform using the Internet, including browsing the web,
+	chatting online, reading e-mail, etc.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BROWSING-THE-INTERNET"
+>5.1. Browsing the Internet</A
+></H2
+><P
+>	The best way to browse the Internet from within Emacs is using
+	<SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+>. <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+>
+	is a full-featured web browser written just for Emacs.
+	It does not come with Emacs, but it can be downloaded from <A
+HREF="ftp://ftp.xemacs.org/pub/xemacs/emacs-w3/w3.tar.gz"
+TARGET="_top"
+>ftp://ftp.xemacs.org/pub/xemacs/emacs-w3/w3.tar.gz</A
+>.
+	The latest release of W3 is version 4.0, and you can get more
+	information about it from the W3 at <A
+HREF="http://www.cs.indiana.edu/elisp/w3/docs.html"
+TARGET="_top"
+>http://www.cs.indiana.edu/elisp/w3/docs.html</A
+>. 
+	</P
+><P
+>	Once you've downloaded W3, you'll need to perform the
+	following tasks to install it:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Open an Emacs shell as root, using the command
+			<B
+CLASS="COMMAND"
+>C-e emacspeak-root</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Use the <B
+CLASS="COMMAND"
+>cd</B
+> command to
+			change to the directory where the
+			<TT
+CLASS="FILENAME"
+>w3.tar.gz</TT
+> file is.
+			</P
+></LI
+><LI
+><P
+>			Uncompress the
+			<TT
+CLASS="FILENAME"
+>w3.tar.gz</TT
+> file, using the
+			following commands:
+			</P
+><P
+></P
+><OL
+TYPE="a"
+><LI
+><P
+>					At the root command prompt,
+					type <B
+CLASS="COMMAND"
+>gunzip
+					w3.tar.gz</B
+>. You'll be left with a
+					file called
+					<TT
+CLASS="FILENAME"
+>w3.tar</TT
+>.
+					</P
+></LI
+><LI
+><P
+>					At the root command prompt,
+					type <B
+CLASS="COMMAND"
+>tar -xvf
+					w3.tar</B
+>. You'll be left with a
+					directory called
+					<TT
+CLASS="FILENAME"
+>w3-4.0pre.46</TT
+>.
+					</P
+></LI
+></OL
+></LI
+><LI
+><P
+>			Change directories to the
+			<TT
+CLASS="FILENAME"
+>w3-4.0pre.46</TT
+> directory.
+			</P
+><P
+>			Note that the next several steps are also
+			covered in extensive detail in the INSTALL
+			file included in the
+			<TT
+CLASS="FILENAME"
+>w3-4.0pre.46</TT
+> directory.
+			If you'd like more detailed instructions,
+			please refer to that file.
+			</P
+></LI
+><LI
+><P
+>			At the command prompt, type
+			<B
+CLASS="COMMAND"
+>/.configure</B
+>. Your makefile
+			will be configued as is
+			appropriate for your system.
+			</P
+></LI
+><LI
+><P
+>			When your machine has finished creating the
+			makefile, type <B
+CLASS="COMMAND"
+>make install</B
+>
+			at the command prompt. The application will be
+			compiled so that it
+			can be executed. 
+			</P
+><P
+>			<SPAN
+CLASS="APPLICATION"
+> W3</SPAN
+> is a native Emacs application. In
+			addition, <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> has
+			already been speech-enabled, and the
+			<TT
+CLASS="FILENAME"
+>emacspeak-w3.el</TT
+> file that provides speech was
+			pre-installed with Emacspeak into your
+			<TT
+CLASS="FILENAME"
+>/emacs/site-lisp/emacspeak/lisp/</TT
+> directory.
+			</P
+></LI
+><LI
+><P
+>			Once your machine has finished making the
+			application, open your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file (located in
+			your home directory) and add the following
+			line:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			(autoload 'w3 "w3" "Interface for w3 on Emacs." t)
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>			Including this line in your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file causes
+			<SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> to load
+			automatically when you start
+			an Emacs session.
+			</P
+></LI
+><LI
+><P
+>			Save and close your <TT
+CLASS="FILENAME"
+>.emacs</TT
+> file
+			when you are finished editing.
+			</P
+></LI
+><LI
+><P
+>			To start using <SPAN
+CLASS="APPLICATION"
+>w3</SPAN
+>,
+			type <B
+CLASS="COMMAND"
+>M-x w3-fetch</B
+> and press
+			Return.
+			</P
+></LI
+><LI
+><P
+>			Supply the start URL.
+			</P
+></LI
+></OL
+><P
+>	When browsing, you will find files that you want to download.
+	Although it is possible to download files using
+	<SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> by pressing "D" when the cursor
+	is over a link, the <SPAN
+CLASS="APPLICATION"
+>wget</SPAN
+>
+	application is a much
+	better way to do downloads. Using
+	the <B
+CLASS="COMMAND"
+>wget</B
+> command to download files is discussed in <A
+HREF="working-with-files.html#DOWNLOADING-FILES"
+>Section 4.1</A
+>, Downloading files.
+	</P
+><P
+>	As a web browser, <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> has many functions that
+	can be accessed by typing <B
+CLASS="COMMAND"
+>M-x w3-</B
+> and then
+	pressing the Tab key.  Emacs will provide you with a list of
+	options to complete the string.
+	</P
+><P
+>	Some of the common commands for navigating in
+	<SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> are listed below:
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>Return</B
+></DT
+><DD
+><P
+>					Pressing <B
+CLASS="COMMAND"
+>Return</B
+> when over a
+					hyperlink follows that
+					hyperlink. Note that if the
+					hyperlink goes to an FTP site,
+					you may get an error.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>Tab</B
+></DT
+><DD
+><P
+>					Tabs between the various links
+					on the page.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>&#60;</B
+></DT
+><DD
+><P
+>					Goes to the beginning of the
+					document.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>&#62;</B
+></DT
+><DD
+><P
+>					Goes to the end of the
+					document.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>M-s</B
+></DT
+><DD
+><P
+>					Saves the current document to
+					the local disk as HTML source,
+					formatted text, LaTeX source,
+					or binary.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>space</B
+></DT
+><DD
+><P
+>					Scrolls down in the buffer.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>backspace</B
+></DT
+><DD
+><P
+>					Scrolls up in the buffer.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>q</B
+></DT
+><DD
+><P
+>					Kills the buffer.
+					</P
+></DD
+></DL
+></DIV
+><P
+>	For a complete listing of <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+>
+	commands, refer to the User's Manual located at <A
+HREF="http://www.cs.indiana.edu/elisp/w3/docs.html"
+TARGET="_top"
+>http://www.cs.indiana.edu/elisp/w3/docs.html</A
+>
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="CHATTING-ONLINE"
+>5.2. Chatting online</A
+></H2
+><P
+>	There are any number of IRC (Internet Relay Chat) applications
+	that you can install, two of which are recommended: AOL
+	Instant Messenger for Emacs (called TNT), and ERC.
+	</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AIM"
+>5.2.1. AOL Instant Messenger for Emacs (TNT)</A
+></H3
+><P
+>	There's a special version of AOL Instant Messenger (AIM)
+	written just for Emacs, called TNT. The main site for TNT is at <A
+HREF="http://sourceforge.net/projects/tnt/"
+TARGET="_top"
+>http://sourceforge.net/projects/tnt/</A
+>, and you
+	can download the necessary files from <A
+HREF="http://download.sourceforge.net/tnt/tnt-2.3.2.tar.gz"
+TARGET="_top"
+>http://download.sourceforge.net/tnt/tnt-2.3.2.tar.gz</A
+>.
+	Don't download any files from AOL's site, as you'll end up
+	with the graphical version of AIM instead of the Emacs
+	version. In addition to installing TNT, you'll also need to set up an
+	Instant Messenger account with AOL, and you can do so at
+	<A
+HREF="http://www.aol.com/aim/homenew.adp"
+TARGET="_top"
+>http://www.aol.com/aim/homenew.adp</A
+>.
+	</P
+><P
+>	Once you've signed up for an account and downloaded the files,
+	you'll need to complete the following steps:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Open an Emacs command shell as root, using the
+			command <B
+CLASS="COMMAND"
+>C-e emacspeak-root</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Change directories using the
+			<B
+CLASS="COMMAND"
+>cd</B
+> command to the directory
+			containing the downloaded file.
+			</P
+></LI
+><LI
+><P
+>			Unzip the file using the command
+			<B
+CLASS="COMMAND"
+>gunzip tnt-2.3.2.tar.gz</B
+>,
+			then expand the resulting tarball using the
+			command <B
+CLASS="COMMAND"
+>tar -xvf tnt-2.3.2.tar</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Change directories into the new
+			<TT
+CLASS="FILENAME"
+>tnt-2.3.2</TT
+> directory.
+			</P
+><P
+>			The next several steps are covered
+			in detail in the INSTALL file that can be
+			found in the <TT
+CLASS="FILENAME"
+>tnt-2.3.2</TT
+>
+			directory. If you'd like more details than are
+			covered here, please refer to that file.
+			</P
+></LI
+><LI
+><P
+>			Copy all the .el and .elc files into a
+			directory that is in your Emacs
+			load-path. Typically this directory is
+			<TT
+CLASS="FILENAME"
+>/emacs/site-lisp/</TT
+> (you should
+			be able to see a number of other .el and .elc
+			files in there). 
+			</P
+></LI
+><LI
+><P
+>			Open your <TT
+CLASS="FILENAME"
+>.emacs</TT
+> file and
+			add the following lines:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			(setq load-path (cons "/full/path/to/tnt" load-path))
+    			(load "tnt")
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>			When you add these lines to your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file, be sure to
+			change the <TT
+CLASS="FILENAME"
+>"full/path/to/tnt"</TT
+> to the
+			directory where you placed the .el and .elc files.
+			</P
+></LI
+><LI
+><P
+>			Save and close your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file.
+			</P
+></LI
+><LI
+><P
+>			Restart Emacs so that the changes take place.
+			</P
+></LI
+></OL
+><P
+>	To start
+	TNT, type <B
+CLASS="COMMAND"
+>M-x tnt</B
+> and follow the instructions.  You'll
+	probably want to read the README file contained in the
+	<TT
+CLASS="FILENAME"
+>tnt-2.3.2</TT
+> directory, as it contains
+	excellent descriptions of all the commands used by TNT.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="ERC"
+>5.2.2. ERC</A
+></H3
+><P
+>	ERC is an IRC (Internet Relay Chat) client written especially for Emacs.  The main
+	site for ERC is located at <A
+HREF="http://sourceforge.net/projects/erc"
+TARGET="_top"
+>http://sourceforge.net/projects/erc</A
+>, and you
+	can download and install the appropriate files as follows:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Go to <A
+HREF="http://prdownloads.sourceforge.net/erc/erc.el"
+TARGET="_top"
+>http://prdownloads.sourceforge.net/erc/erc.el</A
+>.
+			Save the page
+			(it is the ERC application) into a new file
+			called <TT
+CLASS="FILENAME"
+>erc.el</TT
+>.
+			</P
+></LI
+><LI
+><P
+>			Place the new file in your Emacs load-path,
+			typically in the directory
+			<TT
+CLASS="FILENAME"
+>/usr/share/emacs/site-lisp</TT
+>.
+			</P
+></LI
+><LI
+><P
+>			Open your <TT
+CLASS="FILENAME"
+>.emacs</TT
+> file and
+			add the following line:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			(require 'erc)
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></LI
+><LI
+><P
+>			Save and close your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file.
+			</P
+></LI
+><LI
+><P
+>			Exit and restart Emacs so that the changes
+			take place. You won't need to download any
+			Emacspeak-enabled <TT
+CLASS="FILENAME"
+>.el</TT
+> files, as those are already
+			included in your
+			<TT
+CLASS="FILENAME"
+>/emacspeak/lisp</TT
+>
+			directory.
+			</P
+></LI
+></OL
+><P
+>	Once you have installed ERC, it can be started from Emacs
+	using the command <B
+CLASS="COMMAND"
+>M-x erc-select</B
+> to select
+	an IRC server.
+	</P
+><P
+>	For more documentation, refer to the <TT
+CLASS="FILENAME"
+>erc.el</TT
+> file.  It
+	contains installation and usage instructions in the comments at the top of the
+	file.
+	</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="USING-EMAIL"
+>5.3. Using e-mail</A
+></H2
+><P
+>	There are multiple mail programs available for e-mail
+	purposes. One that is recommended is VM (View Mail), an Emacs-native application that allows you to do all the things you'd expect of
+	an e-mail application. Alternatively, you can use
+	<SPAN
+CLASS="APPLICATION"
+>Rmail</SPAN
+>, a slightly less
+	sophisticated but built-in e-mail application. Both
+	are speech-enabled and discussed in this section. 
+	</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="VM"
+>5.3.1. VM</A
+></H3
+><P
+>	Although VM is Emacs-native, it does not come with Emacs. You
+	can download it from the VM homepage at <A
+HREF="http://www.wonderworks.com/vm"
+TARGET="_top"
+>http://www.wonderworks.com/vm</A
+>.  This page also contains
+	links to the VM user's manual, FAQ, and a list of sites where
+	you can download VM, depending on your location. If
+	you want to modifying source code, download one of the
+	sources; otherwise,
+	download one of the binaries as it will be easier to install.
+	</P
+><P
+>	Assuming that you downloaded a binary, it's probably named
+	<TT
+CLASS="FILENAME"
+>vm.elc.gz</TT
+>.  To install, follow these steps:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Open an Emacs shell using the command
+			<B
+CLASS="COMMAND"
+>M-x shell</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Unzip
+			the file using the command <B
+CLASS="COMMAND"
+>gunzip
+			vm.elc.gz</B
+>.  You should be left with a file named
+			<TT
+CLASS="FILENAME"
+>vm.elc</TT
+>.
+			</P
+></LI
+><LI
+><P
+>			Move the file <TT
+CLASS="FILENAME"
+>vm.elc</TT
+> to
+			a directory specified in your Emacs load-path,
+			such as
+			<TT
+CLASS="FILENAME"
+>/usr/share/emacs/site-lisp/</TT
+>.
+			</P
+></LI
+><LI
+><P
+>			Open your <TT
+CLASS="FILENAME"
+>.emacs</TT
+> file and
+			add the following line:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			(autoload 'vm "vm" "Start VM on your primary inbox" t)
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></LI
+><LI
+><P
+>			Save and close your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file. Then restart
+			Emacs so that the changes will take effect.
+			</P
+></LI
+></OL
+><P
+>	If you decide to install the source files instead of the binary, you'll
+	download <TT
+CLASS="FILENAME"
+>vm.tar.gz</TT
+>.  Installation
+	instructions are in the README file included in the download. 
+	</P
+><P
+>	Once you've installed VM, you can start it using the command
+	<B
+CLASS="COMMAND"
+>M-x vm</B
+>.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="RMAIL"
+>5.3.2. Rmail</A
+></H3
+><P
+>	An alternative to <SPAN
+CLASS="APPLICATION"
+>VM</SPAN
+> is <SPAN
+CLASS="APPLICATION"
+>Rmail</SPAN
+>, a built-in Emacs mail
+	reader. As such, you don't need to download or install
+	anything to make it work. To start
+	<SPAN
+CLASS="APPLICATION"
+>Rmail</SPAN
+>, use the command <B
+CLASS="COMMAND"
+>M-x
+	rmail</B
+>.
+	</P
+><P
+> 	There is a chapter about Rmail in the GNU Emacs
+	documentation, available at <A
+HREF="  http://www.gnu.org/manual/emacs-20.3/html_chapter/emacs_31.html"
+TARGET="_top"
+>  http://www.gnu.org/manual/emacs-20.3/html_chapter/emacs_31.html</A
+>.
+	This chapter includes all the information and commands you might need to
+	use Rmail. 
+	</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="working-with-files.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="productivity.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Working with files</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Productivity</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

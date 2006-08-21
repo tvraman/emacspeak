@@ -1,0 +1,31 @@
+@c $Id$
+@node Copyright
+@chapter Copyright
+
+This manual documents  Emacspeak, a speech extension to Emacs. 
+
+Copyright (C)1994 -- 2001 T. V. Raman
+All Rights Reserved. 
+
+
+
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+@titlepage
+
+     @title Emacspeak --The Complete Audio Desktop
+@subtitle User Manual
+@author T. V. Raman 
+     
+     @page
+     @vskip 0pt plus 1filll
+     Copyright @copyright{} 1994--2001 T. V. Raman. All Rights Reserved.
+
+
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+@end titlepage

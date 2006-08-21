@@ -1,0 +1,153 @@
+*Running Speech Server  remotely
+
+** Using RSH 
+
+  Appended below is a simple shell script that is available
+as file remote-tcl in the emacspeak directory.
+
+ When you launch a terminal and log in to another machine,
+
+a) Make sure the other machine can rsh to your desktop machine.
+(you may have to create a .rhosts appropriately depending on your network
+configuration)
+
+b) For now edit script remote-tcl and replace labrador by the name of your
+desktop machine. (eventually we'll get this from the environment)
+Also, make sure the pathname to tcl is correct for your environment.
+
+
+c) set the environment variable DTK_TCL to the complete pathname of the script
+remote-tcl.
+
+d) Make sure remote-tcl is executable --for safety just run it by hand first.
+
+e) If all goes well, launch emacs with emacspeak loaded on the remote machine,
+and turn off speech locally on the local emacspeak sesion in the terminal
+buffer by pressing C-e d q.
+
+Now, the remote emacspeak session will talk as if it were running locally.
+Note: when you switch buffers in the local emacspeak you'll get speech back
+since we only turned it off in the local eterm buffer.
+
+All of this works, but you'll have to think "local" and "remote" carefully.
+
+Also, remember that you will have to send C-e C-e twice for the remote
+emacspeak to see it once.
+For convenience, use command
+emacspeak-keymap-choose-new-emacspeak-prefix
+in the remote session and pick an alternative prefix --I
+typically use C-r
+
+
+Now for the script--
+
+#!/bin/sh
+#$Id$
+#Description: Launch a speech server on  a remote host.
+remote=labrador
+tcl=/usr/local/bin/tcl
+
+rsh $remote $tcl $1
+
+** Using TCP/IP Sockets 
+
+Many network setups will not allow you to RSH from one host
+to another  --this is especially true when using DHCP.
+If you are in a situation where you cannot have the remote
+machine fork an RSH to your local desktop,
+but are able to telnet from the remote host to your local host
+here is how you can still run remote Emacspeak sessions to
+get local speech feedback.
+
+A second advantage with this approach is that you also get auditory
+ icons on the local auditory display.
+
+*** What To Do --Quick Instructions:
+
+
+  1) First launch the speech server for the
+remote side to connect to.
+
+On the local machine:
+From the UNIX shell, change to the Emacspeak installation
+directory and execute 
+
+tcl speech-server  2222 dtk-exp
+
+The above starts the speech server for the Dectalk Express
+listening on port 2222.
+
+
+
+2) Login to the remote machine.
+
+2A If you have remote logged-in 
+ from inside an eterm in your local Emacspeak,
+you will be getting spoken feedback from this eterm.
+In the remote Emacspeak, execute command
+emacspeak-remote-connect-to-server
+and supply the name of your local host  and port (port is
+ 2222 in this example).
+This will result in the remote Emacspeak connecting to your
+ local speech server.
+
+3) Now you can turn off the speech in the eterm buffer from
+your local Emacspeak by pressing C-e d q --
+and you should be setfor using your remote emacspeak with
+local speech output.
+
+4) Closing down
+
+When you are done using the remote emacspeak session
+e.g. you are about to hang up the phone line,
+you should first shut down the speech server. Note: you do
+not need to exit the remote emacspeak--
+I run Emacspeak inside screen and leave it running all the
+time--
+
+To close down the remote speech server cleanly:
+
+A) Restart the speech server on the remote end by pressing
+C-e C-s --this will close down the connection
+to the speech server --and the remote emacspeak will stop talking on
+your local machine.
+
+b) If you did all of the above from within a local emacspeak
+session,
+Turn on speech in the eterm with C-e dq --now you hear
+your eterm talking again.
+c) Do whatever you do to detach your screen, logout etc.
+
+** Caveats:
+
+Note that there are some problems you may encounter  when running
+simultaneous local and remote sessions of Emacspeak.
+
+Here is a summary:
+
+*** Dropped acknowledgements:
+
+The most common problem is that sometimes the remote end will fail to
+get an acknowledgement it is waiting for --this typically happens when
+the remote end first opens the connection to the speech server.
+If this happens, you will find that the remote emacspeak does not
+speak. The solution is to:
+
+a) Power cycle the Dectalk --this results in the Dectalk sending out
+some initial power-up codes that gets the remote speech-server
+unwedged.
+
+b) An alternative solution is to switch to another buffer in the local
+Emacspeak and restart its speech server --you do this as usual
+i.e. C-e C-s
+
+Note that the above problems typically result when both local and
+remote sessions have sent requests to their respective speech servers,
+and one speech server ends up swallowing an acknowledgement that the
+other server is waiting for.
+
+2) Speech from Emacspeak session gets interrupted by speech
+   from another session:
+
+In this case, switch between the two emacspeak sessions and
+hit C-g in each till things get resynced.

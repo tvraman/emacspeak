@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<!DOCTYPE applications
+PUBLIC " applications // t. v. raman 1.0"
+ "applications.dtd">
+<?xml-stylesheet
+href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
+type="text/xsl"?>
+
+
+<applications caption="Speech-enabled applications  on the Emacspeak audio desktop.">
+  <preamble title="Emacspeak --The Complete Audio Desktop"/>
+  <introduction>
+    <h1>Speech-enabled Applications On The Emacspeak Desktop </h1>
+
+    <p>
+      This document enumerates the speech-enabled applications available on the Emacspeak desktop.
+      Note that depending on your Emacs installation,
+      you may need to download and install extra applications to
+      avail yourself of all of the features of the Emacspeak audio
+      desktop.
+      Emacs applications can be located via the various Emacs Lisp
+      archives or by using popular WWW search engines. For
+      one such comprehensive index, see
+      the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html" shape="rect">
+        the Emacs Lisp Library</a>.
+    </p>
+
+    <h2>Applications List</h2>
+
+    <p>
+      Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
+    </p>
+  </introduction>
+  <category name="Multimedia">
+    <application name="aumix">
+      Emacspeak front-end for configuring  the 
+      auditory display.
+    </application>
+    <application name="cd-tool">
+      Control CD player from anywhere on the audio desktop.</application>
+    <application name="freeamp">
+      Ubiquitous access to Freeamp mp3  with a single
+      keystroke.
+    </application>
+    <application name="mpg123">
+      Play mp3 files, with keyboard access to  all   functions.
+    </application>
+    <application name="realaudio">
+      Play RealAudio, RealMedia and mp3  streams. Includes
+      presets  for single click access to
+      favorite streams.
+    </application>
+    <application name="midge">
+      Compose and play MIDI files.</application>
+  </category>
+  <category name="Document Authoring">
+    <application name="xae">
+      XML authoring environment based on PSGML and XSL.
+      Enables structured document authoring and interactive preview.</application>
+    <application name="psgml">
+      Environment for authoring and maintaining XML and SGML
+      documents.
+      Provides structured authoring support including
+      context-sensitive help  based on current DTD.</application>
+    <application name="tdtd">Author and maintain XML and
+      SGML DTD files.</application>
+    <application name="auctex">
+      Authoring environment for TeX
+      and LaTeX documents;
+      template based authoring, voice locking support and structured browsing.
+    </application>
+    <application name="bibtex">
+      Maintain BIBTeX bibliographies.</application>
+    <application name="reftex">
+      Browse cross-references in LaTeX
+      documents.</application> <application
+                                            name="texinfo">Authoring support for creating texinfo
+      documentation.  Texinfo enables the production of both
+      online hypertext and high-quality print documentation
+      from a single source.</application>
+    <application name="metapost">
+      Speech-enabled metapost mode for creating drawings using the
+      metapost language.
+    </application>
+    <application name="enriched">
+      Rich-text authoring to provide a simple word
+      processor.</application>
+  </category>
+  <category name="Messaging">
+    <application name="vm">
+      Mail reader featuring full mime support.
+    </application>
+    <application name="bbdb">
+      Manages email addresses and other contact information by
+      seamlessly integrating with messaging applications.
+    </application>
+    <application name="eudc">
+      Universal Directory Client including LDAP support and
+      seamless integration with messaging applications.</application>
+    <application name="gnus">
+      Usenet news and email client
+      with support for exotic information backends such as
+      Slashdot etc.</application>
+    <application name="message">
+      Email composition   from
+      within other applications.</application>
+    <application name="supercite">
+      Enables flexible citations when composing  email.</application>
+    <application name="tnt">
+      Instant Messenger (AIM) client,
+      with support for multiple parallel chat sessions.</application>
+    <application name="erc">
+      Internet Relay Chat (IRC) client
+      with  voice locking support and parallel chat sessions.</application>
+    <application name="mspools">
+      Interface for working with multiple mail spools;
+      allows easy browsing of automatically archived mail.
+    </application>
+    <application name="mh-e">
+      Interface to the MH suite of email tools.</application>
+    <application name="rmail">
+      Email client.</application>
+  </category>
+  <category name="General Productivity Applications">
+    <application name="search-and-replace">
+      Speech-enabled incremental search
+      is available throughout the audio desktop.
+      Audio formatting is used to aurally highlight search hits,
+      and is used to advantage when providing spoken
+      feedback during  search and replace. </application>
+    <application name="bs">
+      Tool for locating open buffers on the audio desktop.
+    </application>
+    <application name="buff-menu">
+      Browsing and selecting buffers on the audio desktop.</application>
+    <application name="buff-sel">
+      Interactive selection of buffers on the audio desktop.
+    </application>
+    <application name="yasg">
+      Pattern-based selection of open buffers.
+    </application>
+    <application name="browse-kill-ring">
+      Speech-enabled browsable kill ring.
+      Allows easy browsing of Emacs' builtin clipboard faclity.
+    </application>
+    <application name="calc">
+      Calculator  with  financial and
+      scientific functions.</application>
+    <application name="gnuplot">
+      Front-end to Gnuplot  for plotting graphs; integrates with
+      the symbolic calculator.
+    </application>
+    <application name="calculator">
+      Simple but powerful desktop calculator.</application>
+    <application name="calendar">
+      Desktop calendar with an integrated appointment book.
+    </application>
+    <application name="custom">
+      Intuitive interface to customize Emacs' extensive set of
+      customization options.
+    </application>
+    <application name="dictation">
+      Front-end to IBM ViaVoice dictation engine; 
+      spoken text is recognized using Automatic Speech
+      Recognition (ASR),
+      inserted into the current context and
+      spoken back using Text To Speech.
+    </application>
+    <application name="dictionary">
+      Access dictionary servers.
+    </application>
+    <application name="babel">
+      Access Internet  translation services.
+    </application>
+    <application name="dired">
+      Browse and operate on files and folders.
+    </application>
+    <application name="find-dired">
+      Seamless integration between the file browser and 
+      finder.
+    </application>
+    <application name="locate">
+      File browser interface for finding files.
+    </application>
+    <application name="finder">
+      Package browser for locating  installed  applications.
+    </application>
+    <application name="rpm">
+      Client for browsing installed RPM packages.
+    </application>
+    <application name="ediff">
+      Interface for browsing diff output;
+      enables easy merging of different file versions, applying
+      patches etc.
+      Voice locking is used to advantage in 
+      aurally highlighting the differences.</application>
+    <application name="shell">
+      Runs interactive command interpreters like BASH and TCSH.
+    </application>
+    <application name="ansi-colors">
+      Applies Aural CSS ACSS properties to convert ansi color
+      codes to appropriate voice changes to produce
+      audio formatted output.
+    </application>
+    <application name="eterm">
+      Speech-enabled  terminal client for running full-screen
+      applications like VI, Lynx and PINE.
+    </application>
+    <application name="ssh">
+      Front-end to SSH.</application>
+    <application name="efs">
+      Front-end to remote file access using an FTP
+      back-end.</application>
+    <application name="tramp">
+      Front-end to remote file access using SSH backend.</application>
+    <application name="eshell">
+      Command shell implemented in Emacs Lisp, making it
+      independent of the underlying operating system.
+    </application>
+    <application name="outline">
+      Context-sensitive outline support for browsing documents.
+    </application>
+    <application name="folding">
+      Application for structuring and later obtaining
+      structured views of files.
+    </application>
+    <application name="forms">
+      Forms-based interface for manipulating structured data.
+      Useful for system administration tasks  such as managing
+      password databases and browsing log files.
+    </application>
+    <application name="filtertext">
+      Emacspeak client for progressively filtering text.
+    </application>
+    <application name="gridtext">
+      Emacspeak client for overlaying grids on text.
+      Useful in browsing log files and other text output that has
+      columnar structure.
+    </application>
+    <application name="hide">
+      Emacspeak client for hiding and exposing blocks of text.
+      Blocks are automatically recognized by lines having a common
+      prefix.
+      This is used to advantage in imposing dialog structure on
+      email conversations, skipping blocks of commented code etc.
+    </application>
+    <application name="hyperbole">
+      Information management system.
+    </application>
+    <application name="imenu">
+      Generates context-sensitive table of contents.
+    </application>
+    <application name="info">
+      Emacs' online hypertext documentation system.
+      Emacspeak uses audio formatting to highlight menus and hyperlinks.
+    </application>
+    <application name="man">
+      UNIX online manual browser with full aural highlighting and
+      structured browsing.</application>
+    <application name="howto">
+      Emacspeak wizard for browsing Linux HOWTO documents.</application>
+    <application name="ispell">
+      Front-end to interactive spell checker.
+      Errors are aurally highlighted and available corrections
+      automatically spoken.</application>
+    <application name="flyspell">
+      Interactive spell checker that aurally and visually
+      highlights misspelled  words as they are typed.
+    </application>
+    <application name="net-utils">
+      Front-end to networking tools.
+    </application>
+    <application name="oo-browser">
+      Tool for browsing  object oriented software codebases.
+    </application>
+    <application name="ocr">
+      Emacs front-end  to OCR engines.
+      This module provides speech-enabled access to image
+      aquisition and  document recognition tools
+      available on the underlying platform.
+    </application>
+    <application name="vc">
+      Front-end to version control systems like CVS and RCS.</application>
+    <application name="pcl-cvs">
+      Front-end for working with CVS repositories.
+    </application>
+    <application name="pronounce">
+      Emacspeak client for defining custom pronunciations.
+      Pronunciations can be defined on a per-file, per-directory,
+      or per-mode basis and persisted across sessions.
+    </application>
+    <application name="remote">
+      Emacspeak client for running remote sessions.
+      Like the X windows system, Emacspeak supports a
+      remote speech server, allowing an Emacspeak
+      session running on a remote machine to send speech
+      output to a server running on the local machine.
+    </application>
+    <application name="sawfish">
+      Speech-enables the Sawfish window-manager.
+    </application>
+    <application name="speedbar">
+      Context-sensitive browsing tool.
+      Provides seamless browsing of the entire file system or a
+      single file with the same consistent interface.
+    </application>
+    <application name="dismal">
+      Spread-sheet application with suport for customizing
+      spoken feedback on a per-sheet basis.</application>
+    <application name="table-ui">
+      Emacspeak's rich table browsing interface.
+      See Auditory User Interfaces (AUI) at
+      http://www.cs.cornell.edu/home/raman/aui/aui.html
+      for the theoretical underpinnings of this interface.
+    </application>
+    <application name="tar">
+      Front-end for browsing  tar,
+      jar and zip archives.
+    </application>
+    <application name="view">
+      File browser for reading etexts.
+    </application>
+    <application name="bookmark">
+      Create bookmarks that persist across Emacs sessions.
+    </application>
+    <application name="view-process">
+      Front-end for monitoring and controlling  processes.
+    </application>
+    <application name="w3">
+      Standards-compliant WWW browser with Aural CSS support.</application>
+    <application name="url-template">
+      Emacspeak client  that provides programmable  URL templates.
+      Pre-defined templates offer easy access to W3C mailing
+      lists, CNN sites etc.
+    </application>
+    <application name="websearch">
+      Emacspeak websearch client with single click access to
+      popular search engines.
+      Once selected,  the searcher prompts for the relevant input,
+      performs the search, and speaks the  result.
+    </application>
+    <application name="wizards">
+      Emacspeak wizards for performing common tasks.
+    </application>
+    <application name="clipboard">
+      Emacspeak clipboard for cut and paste among different
+      emacspeak sessions, possibly running on different hosts.</application>
+    <application name="help">
+      Speech-enabled online help across the audio desktop.</application>
+  </category>
+  <category name=" Software Development ">
+    <application name="jde">
+      Java Development Environment with interactive debugging  
+      support using the Java Platform Debug Architecture
+      (JPDA). Provides a speech-enabled inspector and wizards.
+    </application>
+    <application name="ecb">
+      Emacs Class Browser with support for Java, C++, C
+      and other popular languages.
+      Provides navigable table of contents as well as a browsable method and
+      function index  for the file being editted.
+    </application>
+    <application name="gud">
+      Unified debugger front-end.
+      Allows interactive debugging with fluent spoken feedback.
+    </application>
+    <application name="c">
+      Editting support for C, C++  and related languages with full aural
+      highlighting and semantic support.
+      Provides contextual spoken feedback using semantic context
+      of code being editted.
+    </application>
+    <application name="compile">
+      Front-end to running batch compiles.
+      Provides easy navigation through the lines containing errors.
+    </application>
+    <application name="perl">
+      Editting support for Perl.
+      Features  aural highlighting and easy access to
+      online help.
+    </application>
+    <application name="python">
+      Editting support for interactive Python development.
+      Features aural highlighting, structured browsing and debugging.
+    </application>
+    <application name="tcl">
+      Support for interactive TCL development including aural highlighting,
+      structured browsing and interactive  help.
+    </application>
+    <application name="sql">
+      support for SQL including aural highlighting and interactive
+      SQL development.
+    </application>
+    <application name="generic">
+      Editting support for JavaScript and  Apache configuration files
+      with voice locking and structured navigation.
+    </application>
+    <application name="hideshow">
+      Hiding and showing blocks of C code.
+    </application>
+    <application name="make-mode">
+      Editting support for creating and maintaining Makefiles.
+    </application>
+    <application name="sh-script">
+      Editting support for shell scripts.
+    </application>
+    <application name="tempo">
+      Support for creating and filling-in templates.
+      Used to implement wizards in JDE, HTML helper mode and friends.
+    </application>
+    <application name="dmacro">
+      Dynamic macro package for template-based editting.
+    </application>
+  </category>
+  <category name="Distractions">
+
+    <application name="entertain">
+      Speech-enabled access to numerous games including Dungeon,
+      gomoku, solitaire,tetris,
+      and Hangman.
+    </application>
+  </category>
+  <postamble>
+    <p>
+      Many shell-based tools., e.g., the napster.pl from
+      Lincoln Stein's Napster package can be run effectively
+      from within an Emacs shell.  In such cases, Emacspeak
+      utilities like <em>filtertext</em> and
+      <em>gridtext</em> can be used to advantage in
+      efficiently scanning and filtering the program output.
+      Finally, note that when using full screen applications
+      like PINE and Lynx when run within the Emacs terminal
+      emulator (provided by package eterm) Emacspeak
+      functions like a traditional screenreader.
+    </p>
+    <p>
+      <strong>
+        <a href= "http://sourceforge.net/projects/emacspeak">
+          Emacspeak Home On Sourceforge 
+          <IMG src="http://sourceforge.net/sflogo.php?group_id=2238"
+               width="88" height="31" border="0" alt="SourceForge Logo"/>
+        </a> </strong></p>
+    <p>
+      <address><a href="mailto:raman@cs.cornell.edu">Email: T. V. Raman</a></address>
+    </p>
+  </postamble>
+</applications>
+    
+<!-- 
+local variables:
+major-mode: xml-mode
+sgml-set-face: nil
+end:
+-->
+
+
+<!--
+
+local variables:
+sgml-set-face: nil
+end:
+
+-->

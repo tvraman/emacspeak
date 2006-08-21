@@ -1,0 +1,15 @@
+#!/usr/bin/tcl
+#$Id$
+#Description: Launch a TTS server on a remote host.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
+# {{{  documentation
+
+# Running TTS server remotely.
+# }}}
+set host [exec hostname]
+puts stderr "running on host <$host>"
+set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
+set tcl /usr/bin/tcl 
+regsub {/ssh-}  $argv0 {/} tts
+puts stderr "Running <ssh $remote  $tcl $tts>"
+exec ssh $remote  $tcl $tts

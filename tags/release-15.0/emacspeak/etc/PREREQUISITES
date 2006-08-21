@@ -1,0 +1,62 @@
+$Id$
+
+Here are the things you *must* have before you attempt 
+to install or run Emacspeak.
+
+* Emacs
+
+You need to have a full emacs installation.
+This means you should have installed both the X and no-X
+versions of Emacs --even if yu plan to run 
+Emacspeak outside the X windows system.
+
+* TCL 
+
+You need to have a full TCL environment installed.
+This includes tclsh, tcl (extended tcl)
+and the associated development libraries and header files.
+
+* Audio
+
+The ability to produce speech.
+
+If you intend to use your sound card to produce speech, 
+first make sure that your sound card is configured and
+working --you wll not make much progress with Emacspeak
+without  this basic capability.
+See the Linux Sound HOWTO and other related documents for
+getting your sound card configured and working.
+
+*  TTS (Text To Speech)
+
+ If using a software TTS system like IBM ViaVoice 
+acquire, install and test that system independent of
+Emacspeak and ensure that it is working correctly.
+
+*  TTS Server
+
+ Confirm that whatever TTS engine you've chosen to use is
+   supported by Emacspeak
+--see the Emacspeak WWW site for what TTS systems are
+   supported.
+
+* Midi  (optional)
+
+ If you intend using software TTS with your sound card
+   providing sound output,
+be aware that many sound cards do not support multiple
+   channels of audio under Linux.
+If you intend to use Emacspeak's auditory icons (this is not
+   essential)
+you will need to get midi configured and working so you can
+   use midi icons in conjunction with the wave device
+   performing TTS.
+
+You should begin installing and configuring Emacspeak 
+only after you've performed *all* of the above steps.
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:
+

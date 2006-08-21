@@ -1,0 +1,566 @@
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
+emacspeak.texi.
+
+INFO-DIR-SECTION Accessibility
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+END-INFO-DIR-ENTRY
+
+
+File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: dis-quote,  Up: Emacspeak Commands
+
+emacspeak-w3
+============
+
+   Commentary: Ensure that speech support for W3 gets installed and
+loaded correctly.  The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3.
+
+ - emacspeak-w3-next-doc-element:
+     Move forward  to the next document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-speak-this-element:
+     Speak document element under point.
+
+ - emacspeak-w3-toggle-table-borders:
+     Toggle drawing of W3 table borders
+
+ - emacspeak-w3-xslt-filter:
+     Extract elements matching specified XPath path locator from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer.  Optional arg url specifies the page to
+     extract table from.  Interactive prefix arg causes url to be read
+     from the minibuffer.
+
+ - emacspeak-w3-url-rewrite-and-follow:
+     Apply a url rewrite rule as specified in the current buffer before
+     following link under point.  If no rewrite rule is defined, first
+     prompt for one.  Rewrite rules are of the form `(from to)' where
+     from and to are strings.  Typically, the rewrite rule is
+     automatically set up by Emacspeak tools like websearch where a
+     rewrite rule is known.  Rewrite rules are useful in jumping
+     directly to the printer friendly version of an article for example.
+     Optional interactive prefix arg  prompts for a rewrite rule even
+     if one is already defined.
+
+ - emacspeak-w3-speak-next-element:
+     Speak next document element.
+
+ - emacspeak-w3-jump-to-submit:
+     Jump to next available submit button.
+
+ - emacspeak-w3-xsl-toggle:
+     Toggle  XSL transformations before displaying HTML.  This uses
+     XSLT Processor xsltproc available as part of the libxslt package.
+
+ - emacspeak-w3-lynx-url-under-point:
+     Display contents of URL under point using LYNX.  The document is
+     displayed in a separate buffer. Note that the hyperlinks in that
+     display are not active- this facility is present only to help me
+     iron out the remaining problems with the table structure
+     extraction code in W3.
+
+ - emacspeak-w3-extract-table:
+     Extract tables from HTML.  Extracts specified table from current
+     WWW page and displays it in a separate buffer.  Optional arg url
+     specifies the page to extract table from.  Interactive prefix arg
+     causes url to be read from the minibuffer.
+
+ - emacspeak-w3-xslt-select:
+     Select transformation to apply.
+
+ - emacspeak-w3-show-anchor-class:
+     Display any class attributes set on corresponding anchor element.
+
+ - emacspeak-w3-jump-to-title-in-content:
+     Jumps to the occurrence of document title in page body.
+
+ - emacspeak-w3-extract-by-class:
+     Extract elements having specified class attribute  from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer.  Optional arg url specifies the page to
+     extract table from.  Interactive prefix arg causes url to be read
+     from the minibuffer.
+
+ - emacspeak-w3-javascript-follow-link:
+     Follow URL hidden inside a javascript link
+
+ - emacspeak-w3-do-onclick:
+     Do  onclick action.
+
+ - emacspeak-w3-previous-doc-element:
+     Move back  to the previous document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-xslt-apply:
+     Apply specified transformation to current page.
+
+
+File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-wizards,  Prev: emacspeak-w3,  Up: Emacspeak Commands
+
+emacspeak-w3search
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3search.
+
+ - emacspeak-websearch-blue-pages:
+     Search IBM Blue Pages
+
+ - emacspeak-websearch-ibm-internal:
+     Search IBM My News
+
+ - emacspeak-websearch-ibm-my-news:
+     Search IBM My News
+
+
+File: emacspeak.info,  Node: emacspeak-wizards,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
+
+emacspeak-wizards
+=================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-wizards.
+
+ - emacspeak-speak-this-buffer-previous-display:
+     ` control e left '
+
+     Speak this buffer as displayed in a `previous' window.  See
+     documentation for command
+     `emacspeak-speak-this-buffer-other-window-display' for the meaning
+     of `previous'.
+
+ - emacspeak-next-frame:
+     ` control right '
+
+     Move to next frame.
+
+ - emacspeak-view-emacspeak-doc:
+     ` control e  cap D  '
+
+     Display a summary of all Emacspeak commands.
+
+ - emacspeak-view-emacspeak-faq:
+     ` control e  cap F  '
+
+     Browse the Emacspeak FAQ.
+
+ - emacspeak-emergency-tts-restart:
+     ` control e x s '
+
+     For use in an emergency.  Will start TTS engine specified by
+     emacspeak-emergency-tts-server.
+
+ - emacspeak-speak-popup-messages:
+     ` control h  cap M  '
+
+     Pop up messages buffer.  If it is already selected then hide it
+     and try to restore previous window configuration.
+
+ - emacspeak-skip-blank-lines-forward:
+     ` shift down '
+
+     Move forward across blank lines.  The line under point is then
+     spoken.  Signals end of buffer.
+
+ - emacspeak-link-current-file:
+     ` control e meta l '
+
+     Link (hard link) file visited in current buffer to new location.
+     Prompts for the new location and preserves modification time
+     when linking.  If location is a directory, the file is copied   to
+     that directory under its current name ; if location names   a file
+     in an existing directory, the specified name is   used.  Signals
+     an error if target already exists.
+
+ - emacspeak-lynx:
+     ` control e x l '
+
+     Launch lynx on  specified URL in a new terminal.
+
+ - emacspeak-select-this-buffer-next-display:
+     ` control e control right '
+
+     Select this buffer as displayed in a `next' frame.  See
+     documentation for command
+     `emacspeak-select-this-buffer-other-window-display' for the
+     meaning of `next'.
+
+ - emacspeak-view-emacspeak-tips:
+     ` control e  cap T  '
+
+     Browse  Emacspeak productivity tips.
+
+ - emacspeak-wizard-get-table-content-from-file:
+     Extract table specified by depth and count from HTML content at
+     file.  Extracted content is placed as a csv file in task.csv.
+
+ - emacspeak-select-this-buffer-previous-display:
+     ` control e control left '
+
+     Select this buffer as displayed in a `previous' window.  See
+     documentation for command
+     `emacspeak-select-this-buffer-other-window-display' for the
+     meaning of `previous'.
+
+ - emacspeak-skip-blank-lines-backward:
+     ` shift up '
+
+     Move backward  across blank lines.  The line under point is   then
+     spoken.  Signals beginning  of buffer.
+
+ - emacspeak-learn-mode:
+     ` control e control h '
+
+     Helps you learn the keys.  You can press keys and hear what they
+     do.  To leave, press C-g.
+
+ - emacspeak-speak-hostname:
+     ` control e meta h '
+
+     Speak host name.
+
+ - emacspeak-cvs-get-project-snapshot:
+     Grab CVS snapshot  of specified project from Sourceforge.
+
+ - emacspeak-symlink-current-file:
+     ` control e meta s '
+
+     Link (symbolic link) file visited in current buffer to new
+     location.  Prompts for the new location and preserves modification
+     time   when linking.  If location is a directory, the file is
+     copied   to that directory under its current name ; if location
+     names   a file in an existing directory, the specified name is
+     used.  Signals an error if target already exists.
+
+ - emacspeak-show-list-variable:
+     ` control e x v '
+
+     Convenience command to view Emacs variables that are long lists.
+     Prompts for a variable name and displays its value in a separate
+     buffer.  Lists are displayed one element per line.  Argument VAR
+     specifies variable whose value is to be displayed.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-speak-run-shell-command:
+     ` control e ! '
+
+     Invoke shell COMMAND and display its output as a table.  The
+     results are placed in a buffer in Emacspeak's table   browsing
+     mode.    Use this for running shell commands that produce tabulated
+      output.  This command should be used for shell commands that
+     produce tabulated output that works with Emacspeak's table
+     recognizer.    Verify this first by running the command in a shell
+     and   executing command `emacspeak-table-display-table-in-region'
+     normally bound to C-e TAB.
+
+ - emacspeak-speak-show-active-network-interfaces:
+     ` control e  cap I  '
+
+     Shows all active network interfaces in the echo area.  With
+     interactive prefix argument ADDRESS it prompts for a specific
+     interface and shows its address. The address is also copied to the
+     kill ring for convenient yanking.
+
+ - emacspeak-generate-documentation:
+     Generate docs for all emacspeak commands.  Prompts for FILENAME in
+     which to save the documentation.  Warning! Contents of file
+     filename will be overwritten.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-frame-read-frame-label:
+     Read a frame label with completion.
+
+ - emacspeak-select-this-buffer-other-window-display:
+     Switch  to this buffer as displayed in a different frame.  Emacs
+     allows you to display the same buffer in multiple windows or
+     frames.  These different windows can display different portions of
+     the buffer.  This is equivalent to leaving a book open at places
+     at once.  This command allows you to move to the places where you
+     have left the book open.  The number used to invoke this command
+     specifies which of the displays you wish to select.  Typically you
+     will have two or at most three such displays open.  The current
+     display is 0, the next is 1, and so on.  Optional argument ARG
+     specifies the display to select.
+
+ - emacspeak-speak-this-buffer-next-display:
+     ` control e right '
+
+     Speak this buffer as displayed in a `previous' window.  See
+     documentation for command
+     `emacspeak-speak-this-buffer-other-window-display' for the meaning
+     of `next'.
+
+ - emacspeak-cvs-get-anonymous:
+     ` control e control down '
+
+     Get latest cvs snapshot of emacspeak.
+
+ - emacspeak-speak-show-memory-used:
+     Convenience command to view state of memory used in this session
+     so far.
+
+ - emacspeak-frame-label-or-switch-to-labelled-frame:
+     ` control e meta f '
+
+     Switch to labelled frame.  With optional PREFIX argument, label
+     current frame.
+
+ - emacspeak-annotate-add-annotation:
+     ` control e x a '
+
+     Add annotation to the annotation working buffer.  Prompt for
+     annotation buffer if not already set.  Interactive prefix arg
+     `reset' prompts for the annotation buffer even if one is already
+     set.  Annotation is entered in a temporary buffer and the
+     annotation is inserted into the working buffer when complete.
+
+ - emacspeak-speak-this-buffer-other-window-display:
+     ` control e / '
+
+     Speak this buffer as displayed in a different frame.  Emacs allows
+     you to display the same buffer in multiple windows or frames.
+     These different windows can display different portions of the
+     buffer.  This is equivalent to leaving a book open at places at
+     once.  This command allows you to listen to the places where you
+     have left the book open.  The number used to invoke this command
+     specifies which of the displays you wish to speak.  Typically you
+     will have two or at most three such displays open.  The current
+     display is 0, the next is 1, and so on.  Optional argument ARG
+     specifies the display to speak.
+
+ - emacspeak-speak-load-directory-settings:
+     Load a directory specific Emacspeak settings file.  This is
+     typically used to load up settings that are specific to an
+     electronic book consisting of many files in the same directory.
+
+ - emacspeak-copy-current-file:
+     ` control e meta c '
+
+     Copy file visited in current buffer to new location.  Prompts for
+     the new location and preserves modification time   when copying.
+     If location is a directory, the file is copied   to that directory
+     under its current name ; if location names   a file in an existing
+     directory, the specified name is   used.  Asks for confirmation if
+     the copy will result in an   existing file being overwritten.
+
+ - emacspeak-clipboard-copy:
+     ` control e control c '
+
+     Copy contents of the region to the emacspeak clipboard.  Previous
+     contents of the clipboard will be overwritten.  The Emacspeak
+     clipboard is a convenient way of sharing information between
+     independent Emacspeak sessions running on the same or different
+     machines.  Do not use this for sharing information within an Emacs
+     session -Emacs' register commands are far more efficient and
+     light-weight.  Optional interactive prefix arg results in Emacspeak
+     prompting for the clipboard file to use.  Argument START and END
+     specifies  region.  Optional argument PROMPT  specifies whether we
+     prompt for the name of a clipboard file.
+
+ - emacspeak-root:
+     ` control e control r '
+
+     Start a root shell or switch to one that already exists.
+
+ - emacspeak-wizard-get-table-content-from-url:
+     Extract table specified by depth and count from HTML content at
+     URL.  Extracted content is placed as a csv file in task.csv.
+
+ - emacspeak-show-personality-at-point:
+     ` control e meta v '
+
+     Show value of property personality at point.
+
+ - emacspeak-speak-browse-linux-howto:
+     ` control e  cap H  '
+
+     Browse a Linux Howto file.  We cleanup underlining, and set up
+     outline mode correctly.
+
+ - emacspeak-previous-frame:
+     ` control left '
+
+     Move to next frame.
+
+ - emacspeak-customize-personal-settings:
+     ` control e f1   control e x c '
+
+     Create a customization buffer for browsing and updating personal
+     customizations.
+
+ - emacspeak-speak-telephone-directory:
+     ` control e x t '
+
+     Lookup and display a phone number.  With prefix arg, opens the
+     phone book for editting.
+
+ - emacspeak-view-emacspeak-news:
+     ` control e  cap N  '
+
+     Display info on recent change to Emacspeak.
+
+ - emacspeak-generate-texinfo-command-documentation:
+     Generate texinfo documentation  for all emacspeak commands into
+     file commands.texi.  Warning! Contents of file commands.texi will
+     be overwritten.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-clipboard-paste:
+     ` control e control y '
+
+     Yank contents of the Emacspeak clipboard at point.  The Emacspeak
+     clipboard is a convenient way of sharing information between
+     independent Emacspeak sessions running on the same or different
+     machines.  Do not use this for sharing information within an Emacs
+     session -Emacs' register commands are far more efficient and
+     light-weight.  Optional interactive prefix arg pastes from the
+     emacspeak table clipboard instead.
+
+ - emacspeak-show-property-at-point:
+     ` control e meta p '
+
+     Show value of PROPERTY at point.  If optional arg property is not
+     supplied, read it interactively.  Provides completion based on
+     properties that are of interest.  If no property is set, show a
+     message and exit.
+
+   Automatically generated documentation for commands defined in module
+nil.
+
+ - emacspeak-speak-current-field:
+     ` control e . '
+
+     Speak current field.  A field is defined currently as a sequence
+     of non-white space characters.  may be made   mode specific later.
+
+
+File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
+
+Acknowledgements.
+*****************
+
+   Thanks.
+
+
+File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgements,  Up: Top
+
+Concept Index
+*************
+
+* Menu:
+
+* character echo:                        Controlling Echo.
+* line echo:                             Controlling Echo.
+* speech settings:                       Speech System.
+* speech system:                         Speech System.
+* tts:                                   Speech System.
+* word echo:                             Controlling Echo.
+
+
+File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
+
+Key Index
+*********
+
+* Menu:
+
+* C-c (:                                 Running Terminal Based Applications.
+* C-c ):                                 Running Terminal Based Applications.
+* C-c 0:                                 Running Terminal Based Applications.
+* C-c 1:                                 Running Terminal Based Applications.
+* C-c C-\:                               Running Terminal Based Applications.
+* C-c C-a:                               Running Terminal Based Applications.
+* C-c C-c:                               Running Terminal Based Applications.
+* C-c C-d:                               Running Terminal Based Applications.
+* C-c C-f:                               Running Terminal Based Applications.
+* C-c C-j:                               Running Terminal Based Applications.
+* C-c C-k:                               Running Terminal Based Applications.
+* C-c C-u:                               Running Terminal Based Applications.
+* C-c C-w:                               Running Terminal Based Applications.
+* C-c C-x C-c:                           Running Terminal Based Applications.
+* C-c C-z:                               Running Terminal Based Applications.
+* C-c e:                                 Running Terminal Based Applications.
+* C-c k:                                 Running Terminal Based Applications.
+* C-c o:                                 Running Terminal Based Applications.
+* control e  cap M:                      Status Information.
+* control e  cap R:                      Reading.
+* control e %:                           Status Information.
+* control e ':                           Reading.
+* control e /:                           Reading.
+* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
+* control e =:                           Status Information.
+* control e [:                           Reading.
+* control e a:                           Status Information.
+* control e b:                           Reading.
+* control e c:                           Reading.
+* control e cap V:                       Status Information.
+* control e control @:                   Status Information.
+* control e control l:                   Status Information.
+* control e control n:                   Reading.
+* control e control o:                   Reading.
+* control e control p:                   Reading.
+* control e control s:                   Miscellaneous.
+* control e control w:                   Status Information.
+* control e d  cap C:                    Speech Output Control.
+* control e d  cap V:                    Miscellaneous.
+* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output Control.
+* control e d a:                         Miscellaneous.
+* control e d c:                         Speech Output Control.
+* control e d d:                         Miscellaneous.
+* control e d f:                         Speech Output Control.
+* control e d i:                         Speech Output Control.
+* control e d k:                         Controlling Echo.
+* control e d l:                         Controlling Echo.
+* control e d m:                         Speech Output Control.
+* control e d p:                         Speech Output Control.
+* control e d q:                         Miscellaneous.
+* control e d r:                         Speech Output Control.
+* control e d RETURN:                    Miscellaneous.
+* control e d s:                         Speech Output Control.
+* control e d SPACE:                     Miscellaneous.
+* control e d t:                         Miscellaneous.
+* control e d w:                         Controlling Echo.
+* control e d z:                         Miscellaneous.
+* control e down:                        Reading.
+* control e f:                           Status Information.
+* control e h:                           Status Information.
+* control e k:                           Status Information.
+* control e l:                           Reading.
+* control e left:                        Reading.
+* control e m:                           Status Information.
+* control e meta control @:              Reading.
+* control e n:                           Reading.
+* control e p:                           Miscellaneous.
+* control e r:                           Reading.
+* control e right:                       Reading.
+* control e SPACE:                       Miscellaneous.
+* control e t:                           Status Information.
+* control e up:                          Reading.
+* control e v:                           Status Information.
+* control e w:                           Reading.
+* control e {:                           Reading.
+* ESCAPE down:                           Reading.
+* ESCAPE next:                           Reading.
+* ESCAPE prior:                          Reading.
+* ESCAPE up:                             Reading.
+* pause   control e s:                   Miscellaneous.
+
+
