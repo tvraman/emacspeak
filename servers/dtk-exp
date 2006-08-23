@@ -1,25 +1,25 @@
 #!/usr/bin/tcl
 # $Id$
-# Description:  Interfacing to a Dectalk via TCL. 
+# Description:  Interfacing to a Dectalk via TCL.
 # Keywords: Emacspeak, Dectalk, TCL
-# {{{ LCD Entry: 
+# {{{ LCD Entry:
 
 # LCD Archive Entry:
-# emacspeak| T. V. Raman |raman@cs.cornell.edu 
+# emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
 # $Date$ |
-#  $Revision$ | 
+#  $Revision$ |
 # Location undetermined
 #
 
 # }}}
-# {{{ Copyright:  
-#Copyright (C) 1995 -- 2001, T. V. Raman 
+# {{{ Copyright:
+#Copyright (C) 1995 -- 2001, T. V. Raman
 # Copyright (c) 1995,   T. V. Raman, Adobe Systems
 # Incorporated.
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-# All Rights Reserved. 
+# All Rights Reserved.
 #
 # This file is not part of GNU Emacs, but the same permissions apply.
 #
@@ -38,17 +38,17 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
-# {{{commandabbreviations 
+# {{{commandabbreviations
 
-#This version uses shortened dtk command strings to improve performance 
+#This version uses shortened dtk command strings to improve performance
 #when running remote sessions.
 #These short-cuts are documented here to preserve ones sanity.
 #:sa == :say
-# c == clause 
+# c == clause
 # w == word
-# le == letter 
-#:to == :tone 
-# :ra == :rate 
+# le == letter
+#:to == :tone
+# :ra == :rate
 # :index == :i
 # reply == r
 # :punct == :pu
@@ -56,12 +56,12 @@
 # s == some
 
 # }}}
-# {{{source common code 
+# {{{source common code
 
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 # }}}
-# {{{ procedures  
+# {{{ procedures
 
 proc version {} {
     global tts
@@ -78,7 +78,7 @@ proc tts_set_punctuations {mode} {
 
 proc tts_set_speech_rate {rate} {
     global tts
-    set factor $tts(char_factor) 
+    set factor $tts(char_factor)
     set tts(say_rate) [round \
                            [expr $rate  * $factor ]]
     set tts(speech_rate) $rate
@@ -109,7 +109,7 @@ proc l {text} {
     set tts(not_stopped) 1
     set r $tts(speech_rate)
     set f  $tts(say_rate)
-    tts_gobble_acknowledgements 
+    tts_gobble_acknowledgements
     puts -nonewline  $tts(write)\
         "\[_]\[:ra $f]\[:sa le]$text\[:sa c]"
         return ""
@@ -170,13 +170,13 @@ proc tts_repeat  {} {
 }
 
 proc tts_pause {} {
-    global tts 
+    global tts
     queue_backup
     s
     return ""
 }
 
-#formerly called tts_stop 
+#formerly called tts_stop
 
 proc s {} {
     global tts
@@ -217,19 +217,19 @@ proc sh  {{duration 50}} {
 
 
 proc tts_split_caps {flag} {
-    global tts 
+    global tts
     set tts(split_caps) $flag
     return ""
 }
 
 proc tts_capitalize {flag} {
-    global tts 
+    global tts
     set tts(capitalize) $flag
     return ""
 }
 
 proc tts_allcaps_beep {flag} {
-    global tts 
+    global tts
     set tts(allcaps_beep) $flag
     return ""
 }
@@ -296,13 +296,13 @@ proc r {rate} {
 }
 
 # }}}
-# {{{ speech task 
+# {{{ speech task
 
 proc speech_task {} {
     global queue tts
     set tts(talking?) 1
     set tts(not_stopped) 1
-    set mode  $tts(punctuations) 
+    set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "\[:sa c]\[:ra $r]\[:pu $mode]"
@@ -327,12 +327,12 @@ proc speech_task {} {
             }
             n {
                 if {$tts(midi)} {
-                    lvarpop event 
-                    catch {eval note $event} err 
+                    lvarpop event
+                    catch {eval note $event} err
                 }
             }
         }
-        if {$tts(talking?) == 0} {break;} 
+        if {$tts(talking?) == 0} {break;}
     }
     set tts(talking?) 0
     tts_gobble_acknowledgements
@@ -340,12 +340,14 @@ proc speech_task {} {
 }
 
 # }}}
-# {{{clean 
+# {{{clean
 
 #preprocess element before sending it out:
 
 proc clean {element} {
     global queue tts
+    #remove any ctrl-s chars
+    regsub -all \023 $element {} element
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element \
             { pound } element
@@ -375,7 +377,7 @@ proc clean {element} {
         regsub -all { '}  $element {[_']} element
         regsub -all {' }  $element {[_']} element
         regsub -all --  {--} $element { [_,]} element
-        regsub -all -- {-}  $element { } element 
+        regsub -all -- {-}  $element { } element
     }
     if {$tts(capitalize) } {
         regsub -all {[A-Z]} $element {[_ :to 440 10]&} element
@@ -393,7 +395,7 @@ proc clean {element} {
             if {[string length $match] <=3} {
                 set abbrev "\[_ $abbrev_tone\]$match"
                 regsub -all {[A-Z]} $abbrev {&[*]} abbrev
-                regsub -all A $abbrev {[ey]} abbrev 
+                regsub -all A $abbrev {[ey]} abbrev
                 regsub $match $element  $abbrev element
             } else {
                 regsub $match $element "$tone[string tolower $match]"  element
@@ -424,7 +426,7 @@ if {[info exists server_p]} {
 }
 #do not die if you see a control-c
 signal ignore {sigint}
-# gobble up garbage that is returned on powerup 
+# gobble up garbage that is returned on powerup
 tts_gobble_acknowledgements
 
 puts -nonewline     $tts(write)  {[:timeout 0]
@@ -437,17 +439,17 @@ puts -nonewline     $tts(write)  {[:timeout 0]
     [:sync] [:np :ra 200]
     This is the Dectalk Express.
     [zhax<15> p'arl],
-    [/dh`ow<100,140> ],  [:np] [  zhax<13>  suw<45>\iy<140,100>]. 
+    [/dh`ow<100,140> ],  [:np] [  zhax<13>  suw<45>\iy<140,100>].
 }
 
 #Start the main command loop:
 commandloop
 
 # }}}
-# {{{ Emacs local variables  
+# {{{ Emacs local variables
 
 ### Local variables:
-### major-mode: tcl-mode 
+### major-mode: tcl-mode
 ### voice-lock-mode: t
 ### folded-file: t
 ### End:
