@@ -215,7 +215,7 @@ print:
 # }}}
 # {{{  Maintainance targets tar  dist 
 
-EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so'
+EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so' --exclude='*/.svn'
 tar:
 	rm -f $(ID)
 	@echo "This is Emacspeak from  `date`" > $(ID)
@@ -316,10 +316,11 @@ MSG="Releasing ${LABEL}"
 
 label: $(DISTFILES)
 	rm -f lisp/emacspeak-loaddefs.el lisp/emacspeak-cus-load.el
-	cvs commit -r ${LABEL} -m ${MSG}  $(DISTFILES)
+	svn commit  -m ${MSG}
+	svn cp https://emacspeak.googlecode.com/svn/trunk http://emacspeak.googlecode.com/svn/tags/release-${LABEL}
 
 release: #supply LABEL=NN.NN
-	$(MAKE) label LABEL=$(LABEL)
+	$(MAKE) label LABEL=$(LABEL) MSG="Releasing version ${LABEL}"
 	$(MAKE) dist 
 	mkdir release; \
 	mv emacspeak.tar release; \
