@@ -102,7 +102,6 @@ Values are alists containing string.pronunciation pairs.")
   (when (stringp key)
     (setq key (intern key )))
   (gethash key emacspeak-pronounce-dictionaries))
-;;;###autoload
 (defun emacspeak-pronounce-add-dictionary-entry  (key string pronunciation)
   "Add dictionary entry.
 This adds pronunciation pair
@@ -153,7 +152,6 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
 ;;; parent stored as a property on child symbol.
 ;;; when dictionary composed for a buffer, inherited dictionaries are
 ;;; also looked up.
-;;;###autoload
 (defun emacspeak-pronounce-add-super  (parent child)
   "Make CHILD inherit PARENT's pronunciations."
   (let ((orig (get child 'emacspeak-pronounce-supers)))
@@ -250,7 +248,6 @@ This is the personality used when speaking  things that have a pronunciation
 applied."
   :group 'emacspeak-pronounce
   :type (voice-setup-custom-menu))
-;;;###autoload
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
@@ -356,7 +353,6 @@ Modifies text and point in buffer."
                      (emacspeak-pronounce-get-dictionary key ))))
       (save-buffer))))
 
-;;;###autoload
 (defvar emacspeak-pronounce-dictionaries-loaded nil
   "Indicates if dictionaries already loaded.")
 ;;;###autoload
@@ -400,6 +396,7 @@ Optional argument FILENAME specifies the dictionary file."
   "Point where we left off reading from the buffer containing the term being defined.")
 
 (make-variable-buffer-local ' emacspeak-pronounce-yank-word-point)
+;;;###autoload
 (defsubst emacspeak-pronounce-yank-word ()
   "Yank word at point into minibuffer."
   (interactive)
@@ -439,6 +436,7 @@ Optional argument FILENAME specifies the dictionary file."
          (define-key now-map  "\C-w"'emacspeak-pronounce-yank-word))
        now-map))))
 
+;;;###autoload
 (defun emacspeak-pronounce-define-local-pronunciation (word  pronunciation )
   "Define buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION."
@@ -486,6 +484,7 @@ Returns a pair of the form (key-type . key)."
      (t (error "Cannot define pronunciations with key type %s" key-type)))
     (cons key-type key)))
 
+;;;###autoload
 (defun emacspeak-pronounce-define-template-pronunciation ()
   "Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
@@ -511,6 +510,7 @@ First loads any persistent dictionaries if not already loaded."
     (when (eq (car key-pair)  'buffer)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
 
+;;;###autoload
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
@@ -535,7 +535,6 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
-;;;###autoload
 (defvar emacspeak-pronounce-pronunciation-table nil
   "Variable holding association list of pronunciations for a buffer.
 Becomes automatically buffer local.")
@@ -654,7 +653,6 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
 
 ;;}}}
 ;;{{{ adding predefined dictionaries to a mode:
-;;;###autoload
 (defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
   "Pushes pronunciations in specified dictionary on to the dictionary
 for the specified mode."
@@ -724,6 +722,7 @@ pronunciation dictionary for the specified key."
          emacspeak-pronounce-dictionaries)
         value)))))
 
+;;;###autoload
 (defun emacspeak-pronounce-edit-pronunciations (key)
   "Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key."
@@ -755,6 +754,7 @@ specified pronunciation dictionary key."
   "Dictionary:  Clear Define Edit Load Refresh Save Toggle"
   "Help message listing emacspeak commands.")
 
+;;;###autoload
 (defun emacspeak-pronounce-dispatch ()
   "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
   (interactive)
