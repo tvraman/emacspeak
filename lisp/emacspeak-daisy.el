@@ -53,7 +53,6 @@
 (require 'xml-parse)
 ;;}}}
 ;;{{{  Customization variables
-;;;###autoload
 (defgroup emacspeak-daisy nil
   "Daisy Digital Talking Books  for the Emacspeak desktop."
   :group 'emacspeak)
@@ -179,6 +178,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
                                             emacspeak-daisy-this-book)))
     (emacspeak-w3-extract-node-by-id path fragment)))
 
+;;;###autoload
 (defun emacspeak-daisy-play-page-range (start end )
   "Play pages in specified page range."
   (interactive
@@ -212,6 +212,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
       (browse-url-of-buffer))
     (kill-buffer result)))
 
+;;;###autoload
 (defun emacspeak-daisy-stop-audio ()
   "Stop audio."
   (interactive)
@@ -596,6 +597,7 @@ navigation buffer that can be used to browse and read the book."
         (setq start (next-single-property-change end 'bookmark))))
     bookmarks))
 
+;;;###autoload
 (defun emacspeak-daisy-save-bookmarks ()
   "Save bookmarks for current book."
   (interactive)
@@ -642,6 +644,7 @@ navigation buffer that can be used to browse and read the book."
          (put-text-property start end
                             'face 'highlight))))))
 
+;;;###autoload
 (defun emacspeak-daisy-mark-position-in-content-under-point ()
   "Mark current position in displayed content.
 No-op if content under point is not currently displayed."
@@ -659,6 +662,7 @@ No-op if content under point is not currently displayed."
     (message "Marked position."))
    (t (message "Content not currently displayed."))))
 
+;;;###autoload
 (defun emacspeak-daisy-play-content-under-point ()
   "Play SMIL content  under point."
   (interactive)
@@ -685,6 +689,7 @@ No-op if content under point is not currently displayed."
       (emacspeak-daisy-play-content  content))
      (t (error "No content under point.")))))
 
+;;;###autoload
 (defun emacspeak-daisy-play-audio-under-point ()
   "Play audio clip under point."
   (interactive)
@@ -694,6 +699,7 @@ No-op if content under point is not currently displayed."
       (emacspeak-daisy-play-audio clip))
      (t (error "No audio clip under point.")))))
 
+;;;###autoload
 (defun emacspeak-daisy-previous-line ()
   "Move to previous line."
   (interactive)
@@ -702,6 +708,7 @@ No-op if content under point is not currently displayed."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'select-object))
 
+;;;###autoload
 (defun emacspeak-daisy-define-outline-pattern (regexp)
   "Define persistent outline regexp for this book."
   (interactive "sOutline regexp:")
@@ -723,6 +730,7 @@ No-op if content under point is not currently displayed."
       (emacspeak-auditory-icon 'save-object)
       (message "Saved outline pattern"))))
 
+;;;###autoload
 (defun emacspeak-daisy-next-line ()
   "Move to next line."
   (interactive)
