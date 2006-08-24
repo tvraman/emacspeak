@@ -70,7 +70,7 @@
             (cond
             ((string-match "[0-9.]+" x)
             (substring x (match-beginning 0) (match-end 0)))
-            (t "")))
+            (t ""))))
   "Version number for Emacspeak.")
 
 (defgroup emacspeak nil
