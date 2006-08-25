@@ -218,7 +218,7 @@ print:
 EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so' --exclude='*/.svn'
 tar:
 	rm -f $(ID)
-	@echo "This is Emacspeak from  `date`" > $(ID)
+	@echo "This is Emacspeak from  `date` SVN Revision `svnversion .`" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
 	@echo "Unpack the  distribution " >> $(ID)
 	@echo "And type make config " >> $(ID)
