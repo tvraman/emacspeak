@@ -215,15 +215,19 @@ print:
 # }}}
 # {{{  Maintainance targets tar  dist 
 
-EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so' --exclude='*/.svn'
-tar:
-	rm -f $(ID)
+
+README:
 	@echo "This is Emacspeak from  `date` SVN Revision `svnversion .`" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
 	@echo "Unpack the  distribution " >> $(ID)
 	@echo "And type make config " >> $(ID)
 	@echo "To configure the source files. Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
+
+EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so' --exclude='*/.svn'
+tar:
+	rm -f $(ID)
+	make ${ID}
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
 			 ${TABLE_SAMPLES} ${REALAUDIO} ${SHOUTCAST} ${FORMS} \
 	${SOUNDS}   
