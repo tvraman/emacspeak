@@ -221,9 +221,8 @@ README:
 	rm -f README
 	@echo "Emacspeak  Revision `svnversion .`" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
-	@echo "Unpack the  distribution " >> $(ID)
-	@echo "And type make config " >> $(ID)
-	@echo "To configure the source files. Then type make" >> $(ID)
+	@echo "Unpack the  distribution And type make config " >> $(ID)
+	@echo "Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
 
 EXCLUDES=--exclude='*/CVS' --exclude='*/.svn' \
