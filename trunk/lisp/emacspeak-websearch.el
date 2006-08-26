@@ -535,7 +535,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key ?F 'foldoc)
 
 (defvar emacspeak-websearch-foldoc-uri
-  "http://wombat.doc.ic.ac.uk/foldoc/foldoc.cgi?action=Search&query="
+  "http://wombat.doc.ic.ac.uk/foldoc/foldoc.cgi?query="
   "*URI for launching a FolDoc  search.")
 
 (defun emacspeak-websearch-foldoc-search (query)
