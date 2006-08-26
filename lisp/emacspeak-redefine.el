@@ -88,16 +88,13 @@ Toggle variable dtk-stop-immediately-while-typing if you want to have
 speech flush as you type."
   (interactive "p")
   (or arg (setq arg 1))
-  (declare (special last-input-char
-                    dtk-stop-immediately-while-typing dtk-program 
+  (declare (special last-command-char dtk-stop-immediately-while-typing  
                     buffer-undo-list  buffer-read-only
-                    emacspeak-character-echo
-                    emacspeak-word-echo))
+                    emacspeak-character-echo emacspeak-word-echo))
   (when buffer-read-only
-    (signal 'buffer-read-only
-            (list (current-buffer))))
+    (signal 'buffer-read-only (list (current-buffer))))
   (cond
-   (last-input-char
+   (last-command-char
     (when (and (listp buffer-undo-list)
                (null (car buffer-undo-list)))
       (pop buffer-undo-list ))
@@ -105,7 +102,7 @@ speech flush as you type."
     (cond
      ((and emacspeak-word-echo
            (interactive-p)
-           (= last-input-char 32 ))
+           (eq last-command-char 32 ))
       (save-excursion
         (condition-case nil
             (forward-word -1)
@@ -114,12 +111,12 @@ speech flush as you type."
      ((and emacspeak-character-echo
            (interactive-p ))
       (when dtk-stop-immediately-while-typing (dtk-stop))
-      (emacspeak-speak-this-char last-input-char )))
-    (and
-     (= (char-syntax  last-input-char) 32)
-     (>= (current-column) fill-column)
-     auto-fill-function
-     (funcall auto-fill-function)))
+      (emacspeak-speak-this-char last-command-char )))
+    (and (char-valid-p last-command-char)
+         (= (char-syntax  last-command-char) 32)
+         (>= (current-column) fill-column)
+         auto-fill-function
+         (funcall auto-fill-function)))
    (t (self-insert-command arg))))
 
 (defun emacspeak-forward-char (&optional arg)
