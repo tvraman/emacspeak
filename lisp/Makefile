@@ -44,7 +44,7 @@ EMACS = emacs
 SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file
-DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/emacspeak-cus-load.el
+DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/cus-load.el
 COMPILE =  -f batch-byte-compile
 # How to compile
 %.elc:  %.el
@@ -239,14 +239,14 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all
 
 all: $(OBJECTS)
-config: emacspeak-loaddefs.el emacspeak-cus-load.el
+config: emacspeak-loaddefs.el cus-load.el
 
 
 # }}}
 # {{{build time target --loaddefs
 
 .PHONY: emacspeak-loaddefs.el
-.PHONY: emacspeak-cus-load.el
+.PHONY: cus-load.el
 
 emacspeak-loaddefs.el:
 	rm -f emacspeak-loaddefs.el
@@ -255,7 +255,7 @@ emacspeak-loaddefs.el:
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-emacspeak-cus-load.el:
+cus-load.el:
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
 # }}}
@@ -454,7 +454,7 @@ elint:
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-load.el
+	rm -f *.elc  emacspeak-loaddefs.el cus-load.el
 
 # }}}
 # {{{ end of file
