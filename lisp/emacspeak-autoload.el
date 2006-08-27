@@ -97,7 +97,8 @@ Emacspeak.")
                (file-exists-p (expand-file-name "cus-load.el"
                                                 emacspeak-lisp-directory)))
       (rename-file  (expand-file-name "cus-load.el" emacspeak-lisp-directory)
-                    emacspeak-auto-custom-file))))
+                    emacspeak-auto-custom-file
+                    'rename))))
                                                 
 
 ;;}}}
