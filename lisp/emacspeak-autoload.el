@@ -58,7 +58,7 @@
 Emacspeak.")
 
 (defvar emacspeak-auto-custom-file
-  (expand-file-name "emacspeak-cus-load.el" emacspeak-lisp-directory)
+  (expand-file-name "cus-load.el" emacspeak-lisp-directory)
   "File that holds automatically generated custom dependencies for
 Emacspeak.")
 
@@ -92,13 +92,7 @@ Emacspeak.")
   (declare (special  emacspeak-auto-custom-file))
   (let ((dtk-quiet t)
         (generated-custom-dependencies-file emacspeak-auto-custom-file))
-    (custom-make-dependencies)
-    (when (and (= emacs-major-version 21)
-               (file-exists-p (expand-file-name "cus-load.el"
-                                                emacspeak-lisp-directory)))
-      (rename-file  (expand-file-name "cus-load.el" emacspeak-lisp-directory)
-                    emacspeak-auto-custom-file
-                    'rename))))
+    (custom-make-dependencies)))
                                                 
 
 ;;}}}
