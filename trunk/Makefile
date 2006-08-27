@@ -321,7 +321,7 @@ LABEL=
 MSG="Releasing ${LABEL}" 
 
 label: $(DISTFILES)
-	rm -f lisp/emacspeak-loaddefs.el lisp/emacspeak-cus-load.el
+	rm -f lisp/emacspeak-loaddefs.el lisp/cus-load.el
 	svn commit  -m ${MSG}
 	svn cp https://emacspeak.googlecode.com/svn/trunk http://emacspeak.googlecode.com/svn/tags/release-${LABEL}
 
