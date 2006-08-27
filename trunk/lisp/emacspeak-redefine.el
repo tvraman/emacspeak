@@ -62,19 +62,15 @@
 
 (defun emacspeak-redefine (function-name )
   "Redefines function-name to its emacspeak version. "
-  (let
-      ((save-name (intern (format "Orig-%s" function-name )))
-       (new-name (intern (format "emacspeak-%s" function-name ))))
+  (let ((save-name (intern (format "Orig-%s" function-name )))
+        (new-name (intern (format "emacspeak-%s" function-name ))))
     (fset   save-name (symbol-function  function-name ))
-    (fset function-name new-name ))
-  )
+    (fset function-name new-name )))
 
 (defun emacspeak-undo-redefinition (function-name)
   "Undo the effect of having called emacs-redefine on function-name. "
-  (let
-      ((restore-name (intern (format "Orig-%s" function-name ))))
-    (fset function-name (symbol-function restore-name )))
-  )
+  (let ((restore-name (intern (format "Orig-%s" function-name ))))
+    (fset function-name (symbol-function restore-name ))))
 
 ;;}}}
 ;;{{{  The new functions: 
@@ -147,16 +143,13 @@ speech flush as you type."
 
 (defun emacspeak-rebind(old-fn new-fn &optional keymap)
   "Rebinds new-fn to all those keys that normally invoke old-fn"
-  (let
-      ((keys (where-is-internal old-fn keymap)))
+  (let ((keys (where-is-internal old-fn keymap)))
     (mapcar
      (if keymap
-         (function
-          (lambda (key)
-            (define-key keymap  key new-fn )))
-       (function
-        (lambda (key)
-          (global-set-key key new-fn ))))
+         #'(lambda (key)
+             (define-key keymap  key new-fn ))
+       #'(lambda (key)
+           (global-set-key key new-fn )))
      keys )))
 
 (defvar emacspeak-functions-that-bypass-function-cell 
@@ -166,18 +159,17 @@ rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
 
 (mapcar 
- (function
-  (lambda (f)
-    (emacspeak-rebind f
-                      (intern (format "emacspeak-%s" f )))))
+ #'(lambda (f)
+     (emacspeak-rebind f
+                       (intern (format "emacspeak-%s" f ))))
  emacspeak-functions-that-bypass-function-cell )
 
 ;;}}}
 ;;{{{  fix ding 
-;;;###autoload
+
 (when (subrp (symbol-function 'ding))
   (fset 'orig-ding (symbol-function 'ding))
-
+;;;###autoload
   (defun ding ( &optional arg)
     "Beep, or flash the screen.
 Also, unless an argument is given,
