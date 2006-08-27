@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 4074 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -60,13 +60,15 @@
 ;;{{{ autoloads
 
 (load-library "emacspeak-loaddefs")
-(load-library "emacspeak-cus-load")
+(load-file
+ (expand-file-name "cus-load.el"
+                   emacspeak-lisp-directory))
 
 ;;}}}
 ;;{{{  Customize groups
 (defconst emacspeak-version
   (format "24.0 Revision %s"
-          (let ((x "$Revision: 4074 $"))
+          (let ((x "$Revision$"))
             (cond
             ((string-match "[0-9.]+" x)
             (substring x (match-beginning 0) (match-end 0)))
