@@ -92,7 +92,13 @@ Emacspeak.")
   (declare (special  emacspeak-auto-custom-file))
   (let ((dtk-quiet t)
         (generated-custom-dependencies-file emacspeak-auto-custom-file))
-    (custom-make-dependencies)))
+    (custom-make-dependencies)
+    (when (and (not (file-exists-p emacspeak-auto-custom-file))
+               (file-exists-p (expand-file-name "cus-load.el"
+                                                emacspeak-lisp-directory)))
+      (rename-file  (expand-file-name "cus-load.el"
+                                      emacspeak-auto-custom-file)))))
+                                                
 
 ;;}}}
 (provide 'emacspeak-autoload)
