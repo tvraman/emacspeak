@@ -93,9 +93,9 @@ speech flush as you type."
   (or arg (setq arg 1))
   (when buffer-read-only
     (signal 'buffer-read-only (list (current-buffer))))
-  (when (and (listp buffer-undo-list)
-             (null (car buffer-undo-list)))
-    (pop buffer-undo-list ))
+  (and (listp buffer-undo-list)
+       (null (car buffer-undo-list))
+       (pop buffer-undo-list ))
   (self-insert-command  arg )
   (when (interactive-p)
     (cond
@@ -109,9 +109,9 @@ speech flush as you type."
      (emacspeak-character-echo
       (when dtk-stop-immediately-while-typing (dtk-stop))
       (emacspeak-speak-this-char last-command-char ))))
-  (and (= (char-syntax  last-command-char) 32)
+  (and auto-fill-function
+       (= (char-syntax  last-command-char) 32)
        (>= (current-column) fill-column)
-       auto-fill-function
        (funcall auto-fill-function)))
 
 (defun emacspeak-forward-char (&optional arg)
