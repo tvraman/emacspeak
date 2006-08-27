@@ -454,7 +454,7 @@ elint:
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-loads.el
+	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-load.el
 
 # }}}
 # {{{ end of file
