@@ -141,16 +141,6 @@ pronunciation dictionaries are stored. ")
 ;;; to add your personal settings. 
 
 ;;}}}
-;;{{{ auxiliarry autoloads
-(mapcar
- #'(lambda (f)
-     (autoload f  "atom-blogger"
-       "Edit/post blogger entries using ATOM." t))
- '(atom-blogger-new-entry atom-blogger-edit-entry
-                          atom-blogger-put-entry
-                          atom-blogger-post-entry
-                          atom-blogger-publish))
-;;}}}
 (emacspeak)
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables 
