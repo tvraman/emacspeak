@@ -261,6 +261,7 @@ install:
 	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/user-guide
 	$(INSTALL) -d $(libdir)/install-guide
+	$(INSTALL) -m 0644  ${ID} $(libdir)
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
 	$(INSTALL) -m 0644  lisp/atom-blogger/*.el    $(libdir)/lisp/atom-blogger
