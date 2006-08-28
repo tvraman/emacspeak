@@ -43,10 +43,19 @@
   (expand-file-name "lisp/" emacspeak-directory)
   "Directory containing lisp files for  Emacspeak.")  
 
-(or (member emacspeak-lisp-directory load-path )
-    (setq load-path
-          (cons emacspeak-lisp-directory 
-                load-path )))
+(unless (member emacspeak-lisp-directory load-path )
+  (setq load-path
+        (cons emacspeak-lisp-directory load-path ))
+  (setq load-path
+        (cons
+         (expand-file-name "atom-blogger" emacspeak-lisp-directory )
+         load-path )))
+
+
+(defvar emacspeak-readme-file
+  (expand-file-name "README"
+                    emacspeak-directory)
+  "README file from where we get SVN revision number.")
 
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
