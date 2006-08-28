@@ -67,12 +67,24 @@
 ;;}}}
 ;;{{{  Customize groups
 (defconst emacspeak-version
-  (format "24.0 Revision %s"
-          (let ((x "$Revision$"))
-            (cond
-            ((string-match "[0-9.]+" x)
-            (substring x (match-beginning 0) (match-end 0)))
-            (t ""))))
+  (format
+   "24.0 %s"
+   (cond
+    ((file-exists-p emacspeak-readme-file)
+     (let ((buffer (find-file-noselect emacspeak-readme-file))
+           (revision nil))
+       (save-excursion
+         (set-buffer buffer)
+         (goto-char (point-min))
+         (setq revision
+               (format "Revision %s"
+                       (third (split-string
+                               (buffer-substring-no-properties
+                                (line-beginning-position)
+                                (line-end-position)))))))
+       (kill-buffer buffer)
+       revision))
+    (t "")))
   "Version number for Emacspeak.")
 
 (defgroup emacspeak nil
