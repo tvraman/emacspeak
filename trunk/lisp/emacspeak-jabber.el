@@ -101,6 +101,15 @@
     ad-do-it))
 
 ;;}}}
+;;{{{ jabber activity:
+
+(defadvice jabber-activity-switch-to (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 ;;{{{ chat buffer:
 
 (defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
