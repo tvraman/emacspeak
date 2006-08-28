@@ -1,24 +1,24 @@
 # $Id$
-# $Author$ 
-# Description:  Makefile for Emacspeak 
-# Keywords: Emacspeak,  TTS,Makefile 
-# {{{ LCD Entry: 
+# $Author$
+# Description:  Makefile for Emacspeak
+# Keywords: Emacspeak,  TTS,Makefile
+# {{{ LCD Entry:
 
 # LCD Archive Entry:
-# emacspeak| T. V. Raman |raman@cs.cornell.edu 
+# emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
 # $Date$ |
-#  $Revision$ | 
+#  $Revision$ |
 # Location undetermined
 #
 
 # }}}
-# {{{ Copyright:  
+# {{{ Copyright:
 
-#Copyright (C) 1995 -- 2003, T. V. Raman 
+#Copyright (C) 1995 -- 2003, T. V. Raman
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-# All Rights Reserved. 
+# All Rights Reserved.
 #
 # This file is not part of GNU Emacs, but the same permissions apply.
 #
@@ -46,14 +46,14 @@
 # and then type
 #    make config SRC=`pwd`
 # Now type
-#    make emacspeak 
+#    make emacspeak
 # to compile the files, then (as superuser)
 #    make install
 # to install them.
 #
 # By default, files are installed in subdirectories of /usr --
 # that is, executables in /usr/bin, .info files in
-# /usr/info, and compiled files in /usr/share/lib/emacs/site-lisp/emacspeak. 
+# /usr/info, and compiled files in /usr/share/lib/emacs/site-lisp/emacspeak.
 # If you want them somewhere else, you may add a "prefix=" parameter to the
 # make install command.  For example, to place files in subdirectories of
 # /usr/local instead of /usr, use this command:
@@ -68,23 +68,23 @@
 # Emacspeak comes with two servers written in TCL:
 # 1) dtk-exp for the Dectalk Express
 # 2) dtk-mv for the MultiVoice and older Dectalk 3 synthesizers
-# emacspeak uses the shell environment variable DTK_PROGRAM to determine 
+# emacspeak uses the shell environment variable DTK_PROGRAM to determine
 # which server to use, and the shell environment variable DTK_PORT
-# to determine the port where the Dectalk is connected. 
-# Examples: If using csh or tcsh 
+# to determine the port where the Dectalk is connected.
+# Examples: If using csh or tcsh
 #    setenv DTK_PROGRAM "dtk-exp"
 # or if using bash
 #    export DTK_PROGRAM=dtk-exp
 # By default the port is /dev/tty00 on ultrix/osf1, and /dev/ttyS0 on linux.
 #
-# Finally, make sure that tcl  is present in your search path by typing 
+# Finally, make sure that tcl  is present in your search path by typing
 #    which tcl
-# Assuming you're using dtk-exp: 
+# Assuming you're using dtk-exp:
 # Check that the dtk-exp can be run by typing
-# <emacspeak-dir>/dtk-exp 
+# <emacspeak-dir>/dtk-exp
 # You should hear the Dectalk speak and get a TCL prompt if everything is okay.
-# Next, check that your serial port is working correctly, and that your stty 
-# settings are correct. You can do this by executing the following sequence 
+# Next, check that your serial port is working correctly, and that your stty
+# settings are correct. You can do this by executing the following sequence
 # of TCL commands in the TCL session you just started:
 #q {this is a test. }; d
 # should speak the text within the braces.
@@ -108,13 +108,13 @@
 # to the start of your .emacs
 # This will start emacspeak every time you use emacs
 # or alternatively set the following alias.
-# If you use csh or tcsh  
+# If you use csh or tcsh
 # alias emacspeak "emacs -q -l <EMACSPEAK_DIR>/emacspeak-setup.el -l $HOME/.emacs"
 # If you use bash (the default under linux)
 # alias emacspeak="emacs -q -l <EMACSPEAK_DIR>/emacspeak-setup.el -l $HOME/.emacs"
-# Note: in all of the above you should replace <EMACSPEAK_DIR> with your 
-# site-specific value. The distribution also creates a shell executable 
-# emacspeak.sh that does the same thing as the alias shown above. 
+# Note: in all of the above you should replace <EMACSPEAK_DIR> with your
+# site-specific value. The distribution also creates a shell executable
+# emacspeak.sh that does the same thing as the alias shown above.
 
 # }}}
 # {{{  Site Configuration
@@ -139,7 +139,7 @@ CP=cp
 
 # }}}
 ############## no user servicable parts beyond this point ###################
-# {{{ setup distribution 
+# {{{ setup distribution
 
 # source files to distribute
 ID = README
@@ -158,7 +158,7 @@ servers/software-dtk/Makefile
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.cpp \
 ${ECI}/VIAVOICE ${ECI}/ALSA ${ECI}/asoundrc \
-${ECI}/Makefile 
+${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/FAQ etc/HELP etc/applications.html   etc/tips.html
@@ -177,7 +177,7 @@ ELISP = lisp/*.el \
 lisp/atom-blogger \
 lisp/xml-forms/*.xml \
 lisp/Makefile
-TEMPLATES = etc/emacspeak.sh.def etc/Makefile 
+TEMPLATES = etc/emacspeak.sh.def etc/Makefile
 MISC=etc/extract-table.pl etc/last-log.pl \
 etc/pdf2text etc/doc2text \
 etc/xls2html etc/ppt2html  \
@@ -188,42 +188,45 @@ INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} ${DTKTTS} \
-${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile 
+${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
 # }}}
-# {{{  User level targets emacspeak info print 
+# {{{  User level targets emacspeak info print
 
 emacspeak:
-	test -f  lisp/emacspeak-loaddefs.el || make config 
+	test -f  lisp/emacspeak-loaddefs.el || make config
 	cd lisp; $(MAKE)  SRC=$(SRC)
 	touch   $(ID)
 	chmod 644 $(ID)
-	@echo "Now check installation of  the speech server. "  
-	@echo "See Makefile for instructions." 
-	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs" 
+	@echo "Now check installation of  the speech server. "
+	@echo "See Makefile for instructions."
+	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs"
 	@echo "See the FAQ for Frequently Asked Questions -- control e cap F in Emacs"
-	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs" 
-	@echo "Use C-h p in Emacs for a package overview" 
-	@echo "Make sure you read the Emacs info pages" 
+	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
+	@echo "Use C-h p in Emacs for a package overview"
+	@echo "Make sure you read the Emacs info pages"
 
 info:
-	cd info; $(MAKE) -k 
+	cd info; $(MAKE) -k
 
 print:
 	@echo "Please change to the info directory and type make print"
 
 # }}}
-# {{{  Maintainance targets tar  dist 
+# {{{  Maintainance targets tar  dist
 
 
 
-README:
-	rm -f README
+README: force
+	@rm -f README
 	@echo "Emacspeak  Revision `svnversion .`" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
 	@echo "Unpack the  distribution And type make config " >> $(ID)
 	@echo "Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
+
+
+force:
 
 EXCLUDES=--exclude='*/CVS' --exclude='*/.svn' \
 --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
@@ -232,18 +235,18 @@ tar:
 	make ${ID}
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
 			 ${TABLE_SAMPLES} ${REALAUDIO} ${SHOUTCAST} ${FORMS} \
-	${SOUNDS}   
+	${SOUNDS}
 
 dist: $(DISTFILES)
 	$(MAKE) tar
 
 # }}}
-# {{{ User level target--  config 
+# {{{ User level target--  config
 
 config:
 	ls .svn> /dev/null  && rm -f README && make README
 	cd etc; $(MAKE) config  SRC=$(SRC)
-	cd lisp; $(MAKE) config 
+	cd lisp; $(MAKE) config
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
@@ -251,8 +254,8 @@ config:
 
 install:
 	$(MAKE) config SRC=$(libdir)
-	  $(INSTALL)  -d $(libparentdir) 
-	  $(INSTALL) -d $(libdir) 
+	  $(INSTALL)  -d $(libparentdir)
+	  $(INSTALL) -d $(libdir)
 	touch $(libdir)/.nosearch
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/xml-forms
@@ -302,11 +305,11 @@ uninstall:
 
 
 # }}}
-# {{{  complete build 
+# {{{  complete build
 
 #targets
-#the complete build 
-all: emacspeak 
+#the complete build
+all: emacspeak
 
 # }}}
 # {{{  user level target-- clean
@@ -316,11 +319,11 @@ clean:
 		cd info; $(MAKE) clean
 
 # }}}
-# {{{ labeling releases 
+# {{{ labeling releases
 
 #label  releases when ready
 LABEL=
-MSG="Releasing ${LABEL}" 
+MSG="Releasing ${LABEL}"
 
 label: $(DISTFILES)
 	rm -f lisp/emacspeak-loaddefs.el lisp/cus-load.el
@@ -329,7 +332,7 @@ label: $(DISTFILES)
 
 release: #supply LABEL=NN.NN
 	$(MAKE) label LABEL=$(LABEL) MSG="Releasing version ${LABEL}"
-	$(MAKE) dist 
+	$(MAKE) dist
 	mkdir release; \
 	mv emacspeak.tar release; \
 	cd release; \
@@ -350,7 +353,7 @@ sed "s@<version>@$(LABEL)@g" \
 	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.bz2"
 
 # }}}
-# {{{ rpm 
+# {{{ rpm
 
 rpm: emacspeak.spec
 	rpm --erase emacspeak || echo ""
@@ -366,18 +369,18 @@ list_dist:
 	ls -1  $(DISTFILES)
 
 # }}}
-# {{{create Changelog in working copy 
+# {{{create Changelog in working copy
 changelog:
 	perl utils/cvs2cl.pl --distributed --prune --fsf
 
 # }}}
 
-# {{{upload to sourceforge 
+# {{{upload to sourceforge
 
 TARBALL=emacspeak-${LABEL}.tar.bz2
 RPM=/usr/src/redhat/RPMS/i386/emacspeak-${LABEL}-1.i386.rpm
 SF_HOME='raman@emacspeak.sf.net:~/www-emacspeak/htdocs'
-sourceforge: 
+sourceforge:
 	mv emacspeak.tar.bz2 ${TARBALL}
 	( echo 'anonymous';			     \
 	  echo prompt;				  \
@@ -389,9 +392,9 @@ sourceforge:
 	scp ${RPM} ${TARBALL} ${SF_HOME}
 
 # }}}
-# {{{ end of file 
+# {{{ end of file
 
-#local variables: 
+#local variables:
 #major-mode: makefile-mode
 #eval:  (fold-set-marks "# {{{" "# }}}")
 #fill-column: 90
