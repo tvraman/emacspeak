@@ -1517,8 +1517,11 @@ semantic to do the work."
     (eval (cadr spec)))
    ((and (listp spec)
          (symbolp (car spec)))
-    (concat (symbol-value (car spec))
-            (ems-process-mode-line-format (cdr spec))))
+    (concat
+     (ems-process-mode-line-format (symbol-value (car spec)))
+     (if (cdr spec)
+         (ems-process-mode-line-format (cdr spec))
+       "")))
    ((and (listp spec)
          (caar spec))
     (concat
