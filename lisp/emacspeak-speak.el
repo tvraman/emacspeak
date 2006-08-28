@@ -1499,17 +1499,14 @@ semantic to do the work."
 (defsubst ems-process-mode-line-format (spec)
   "Process mode line format spec."
   (cond
+;;; leaves
    ((symbolp spec) (symbol-value  spec))
    ((stringp spec) spec)
+;;; leaf + tree:
    ((and (listp spec)
          (stringp (car spec)))
     (concat
      (car spec)
-     (ems-process-mode-line-format (cdr spec))))
-   ((and (listp spec)
-         (symbolp (car spec)))
-    (concat
-     (symbol-value (car spec))
      (ems-process-mode-line-format (cdr spec))))
    ((and (listp spec)
          (symbolp (car spec))
@@ -1520,9 +1517,8 @@ semantic to do the work."
     (eval (cadr spec)))
    ((and (listp spec)
          (symbolp (car spec)))
-    (concat
-     (ems-process-mode-line-format (symbol-value (car spec)))
-     (ems-process-mode-line-format (cdr spec))))
+    (concat (symbol-value (car spec))
+            (ems-process-mode-line-format (cdr spec))))
    ((and (listp spec)
          (caar spec))
     (concat
