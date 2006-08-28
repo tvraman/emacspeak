@@ -68,7 +68,6 @@
 (require 'custom)
 (eval-when (compile)
   (require 'dtk-speak)
-  (require 'emacspeak-load-path)
   (require 'emacspeak-aumix))
 
 ;;}}}

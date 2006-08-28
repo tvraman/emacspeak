@@ -47,6 +47,7 @@
 (require 'widget)
 (require 'wid-edit)
 (require 'thingatpt)
+(require 'emacspeak-load-path)
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
