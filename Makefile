@@ -241,6 +241,7 @@ dist: $(DISTFILES)
 # {{{ User level target--  config 
 
 config:
+	ls .svn> /dev/null  && rm -f README && make README
 	cd etc; $(MAKE) config  SRC=$(SRC)
 	cd lisp; $(MAKE) config 
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
