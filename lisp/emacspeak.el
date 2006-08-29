@@ -291,10 +291,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (eval-after-load
     "finder"
   (progn
-    (load-library "emacspeak-finder-inf")
-    (pushnew
-     (cons 'emacspeak "Audio Desktop")
-     finder-known-keywords)))
+    (load-library "emacspeak-finder-inf")))
 
 ;;}}}
 ;;{{{  Submit bugs
