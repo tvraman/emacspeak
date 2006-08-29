@@ -288,22 +288,13 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 
 ;;; Finder is special -- it needs to conditionally
 ;;; regenerate the database
-(add-hook 'after-load-alist
-          '("finder"
-            (progn
-              (load-library "emacspeak-finder")
-              (unless (file-newer-than-file-p
-                       (expand-file-name
-                        "emacspeak-finder-inf.el"
-                        emacspeak-lisp-directory)
-                       (expand-file-name
-                        "emacspeak.el"
-                        emacspeak-lisp-directory))
-                (emacspeak-finder-compile-keywords))
-              (load-library "emacspeak-finder-inf")
-              (push
-               (cons 'emacspeak "Audio Desktop")
-               finder-known-keywords))))
+(eval-after-load
+    "finder"
+  (progn
+    (load-library "emacspeak-finder-inf")
+    (pushnew
+     (cons 'emacspeak "Audio Desktop")
+     finder-known-keywords)))
 
 ;;}}}
 ;;{{{  Submit bugs
