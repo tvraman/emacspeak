@@ -1,15 +1,15 @@
 ;;; emacspeak-finder.el --- Generate a database of keywords and descriptions for all Emacspeak  packages
 ;;; $Id$
-;;; $Author$ 
-;;; Description: Auditory interface 
+;;; $Author$
+;;; Description: Auditory interface
 ;;; Keywords: Emacspeak, Finder
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2004, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -39,7 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;Inspired by finder.el
-;;{{{ requires 
+;;{{{ requires
 
 (require 'emacspeak-preamble)
 (require 'lisp-mnt)
@@ -52,7 +52,7 @@
   "File where we save the keyword/package associations for Emacspeak")
 
 (defvar emacspeak-finder-preamble
-  (concat 
+  (concat
    ";;;$Id$\n"
    ";;; emacspeak-finder-inf.el --- keyword-to-package mapping\n"
    ";; Keywords: help\n"
@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{ compile emacspeak keywords
 
-(defvar emacspeak-finder-postamble 
+(defvar emacspeak-finder-postamble
   (concat
    "))\n\n"
    "(loop for l  in (reverse emacspeak-finder-package-info) do\n (push l finder-package-info))\n"
@@ -83,12 +83,11 @@ emacspeak-finder-inf.el."
     (let ((processed nil)
           (d emacspeak-lisp-directory)
       (buffer (find-file-noselect  emacspeak-finder-inf-file)))
-      (save-excursion
         (set-buffer buffer)
       (erase-buffer)
       (insert emacspeak-finder-preamble)
       (mapcar
-       (lambda (f) 
+       (lambda (f)
          (if (and (string-match "^[^=.].*\\.el$" f)
                   (not (member f processed)))
              (let (summary keystart keywords)
@@ -116,7 +115,7 @@ emacspeak-finder-inf.el."
       (insert emacspeak-finder-postamble)
       (kill-buffer "*finder-scratch*")
       (eval-buffer) ;; So we get the new keyword list immediately
-      (basic-save-buffer))
+      (basic-save-buffer)
       (kill-buffer nil))))
 
 ;;}}}
@@ -128,11 +127,11 @@ emacspeak-finder-inf.el."
 
 ;;}}}
 (provide 'emacspeak-finder)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
