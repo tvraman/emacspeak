@@ -3047,6 +3047,18 @@ Variable mark-even-if-inactive is set true ."
             ad-return-value))))
 
 ;;}}}
+;;{{{ advice Finder:
+
+(defadvice finder-mode (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (load-library "emacspeak-finder-inf")
+  (when (boundp 'finder-known-keywords)
+  (push
+               (cons 'emacspeak "Audio Desktop")
+               finder-known-keywords))
+  (emacspeak-auditory-icon 'open-object))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
