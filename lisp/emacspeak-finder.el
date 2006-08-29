@@ -45,6 +45,7 @@
 (require 'lisp-mnt)
 
 ;;}}}
+;;{{{ initial
 
 (defvar emacspeak-finder-inf-file
   (concat emacspeak-lisp-directory "/" "emacspeak-finder-inf.el")
@@ -62,6 +63,8 @@
    "(require 'cl)\n"
    "\n(setq emacspeak-finder-package-info '(\n")
   "Preamble inserted at the front of emacspeak-finder-inf.el")
+
+;;}}}
 ;;{{{ compile emacspeak keywords
 
 (defvar emacspeak-finder-postamble 
@@ -78,8 +81,10 @@ emacspeak-finder-inf.el."
                     emacspeak-finder-preamble))
   (save-excursion
     (let ((processed nil)
-          (d emacspeak-lisp-directory))
-      (find-file emacspeak-finder-inf-file)
+          (d emacspeak-lisp-directory)
+      (buffer (find-file-noselect  emacspeak-finder-inf-file)))
+      (save-excursion
+        (set-buffer buffer)
       (erase-buffer)
       (insert emacspeak-finder-preamble)
       (mapcar
@@ -87,7 +92,7 @@ emacspeak-finder-inf.el."
          (if (and (string-match "^[^=.].*\\.el$" f)
                   (not (member f processed)))
              (let (summary keystart keywords)
-               (setq processed (cons f processed))
+               (push f processed)
                (save-excursion
                  (set-buffer (get-buffer-create "*finder-scratch*"))
                  (buffer-disable-undo (current-buffer))
@@ -111,7 +116,7 @@ emacspeak-finder-inf.el."
       (insert emacspeak-finder-postamble)
       (kill-buffer "*finder-scratch*")
       (eval-buffer) ;; So we get the new keyword list immediately
-      (basic-save-buffer)
+      (basic-save-buffer))
       (kill-buffer nil))))
 
 ;;}}}
