@@ -39,6 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;Inspired by finder.el
+;;; Not to be loaded at runtime.
 ;;{{{ requires
 
 ;(require 'emacspeak-preamble)
@@ -117,13 +118,6 @@ emacspeak-finder-inf.el."
       (eval-buffer) ;; So we get the new keyword list immediately
       (basic-save-buffer)
       (kill-buffer nil))))
-
-;;}}}
-;;{{{ advice
-
-(defadvice finder-mode (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-finder)
