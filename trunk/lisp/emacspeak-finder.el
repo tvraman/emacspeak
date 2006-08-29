@@ -41,7 +41,7 @@
 ;;;Inspired by finder.el
 ;;{{{ requires
 
-(require 'emacspeak-preamble)
+;(require 'emacspeak-preamble)
 (require 'lisp-mnt)
 
 ;;}}}
