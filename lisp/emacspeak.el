@@ -284,16 +284,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
 ;;}}}
-;;{{{ finder
-
-;;; Finder is special -- it needs to conditionally
-;;; regenerate the database
-(eval-after-load
-    "finder"
-  (progn
-    (load-library "emacspeak-finder-inf")))
-
-;;}}}
 ;;{{{  Submit bugs
 
 (defconst emacspeak-bug-address
