@@ -3052,11 +3052,12 @@ Variable mark-even-if-inactive is set true ."
 (defadvice finder-mode (after emacspeak pre act comp)
   "Provide auditory feedback"
   (load-library "emacspeak-finder-inf")
-  (when (boundp 'finder-known-keywords)
-  (push
-               (cons 'emacspeak "Audio Desktop")
+  (when(and  (boundp 'finder-known-keywords)
+             (not (eq 'emacspeak (caar finder-known-keywords))))
+  (push (cons 'emacspeak "Audio Desktop")
                finder-known-keywords))
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
 
 ;;}}}
 (provide 'emacspeak-advice)
