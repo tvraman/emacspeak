@@ -42,7 +42,7 @@
 ;;; Not to be loaded at runtime.
 ;;{{{ requires
 
-;(require 'emacspeak-preamble)
+(require 'finder)
 (require 'lisp-mnt)
 
 ;;}}}

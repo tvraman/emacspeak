@@ -239,25 +239,27 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all
 
 all: $(OBJECTS)
-config: emacspeak-loaddefs.el cus-load.el
 
+force:
+
+config: emacspeak-loaddefs.el cus-load.el
 
 # }}}
 # {{{build time target --loaddefs
 
-.PHONY: emacspeak-loaddefs.el
-.PHONY: cus-load.el
+emacspeak-finder-inf.el: force
+	$(EMACS) $(BATCH)-l emacspeak-load-path.el  -l emacspeak-finder.el  -f emacspeak-finder-compile-keywords
 
-emacspeak-loaddefs.el:
-	rm -f emacspeak-loaddefs.el
+emacspeak-loaddefs.el: force
 	echo ";;;Auto generated" > emacspeak-loaddefs.el
 	$(EMACS) $(BATCH)  -l ./emacspeak-load-path.el  \
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-cus-load.el:
+cus-load.el: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
+
 # }}}
 # {{{  Make rules for the various modules
 
