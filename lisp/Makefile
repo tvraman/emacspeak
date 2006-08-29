@@ -242,7 +242,7 @@ all: $(OBJECTS)
 
 force:
 
-config: emacspeak-loaddefs.el cus-load.el
+config: emacspeak-loaddefs.el cus-load.el emacspeak-finder-inf.el
 
 # }}}
 # {{{build time target --loaddefs
