@@ -1151,7 +1151,7 @@ emacspeak-toggle-eterm-autospeak bound to
           (error nil )))
        (emacspeak-eterm-focus-window
         (emacspeak-eterm-speak-window emacspeak-eterm-focus-window))
-       ((and (eq last-input-event 127)
+       ((and (eq last-command-char 127)
              (= new-row emacspeak-eterm-row )
              (= -1 (- new-column emacspeak-eterm-column ))
              current-char)              ;you backspaced?
@@ -1160,7 +1160,7 @@ emacspeak-toggle-eterm-autospeak bound to
         (dtk-tone 500 50))
        ((and (= new-row emacspeak-eterm-row )
              (= 1 (- new-column emacspeak-eterm-column ))) ;you inserted a character:
-        (if (eq 32 last-input-event )
+        (if (eq 32 last-command-char )
             (save-excursion
               (backward-char 2)
               (emacspeak-speak-word nil))
