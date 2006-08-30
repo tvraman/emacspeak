@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -41,7 +41,7 @@
 ;;{{{  Required modules
 
 ;;; Commentary:
-;; 
+;;
 ;;{{{  Introduction
 
 ;;; Flexible hide and show for emacspeak.
@@ -53,7 +53,7 @@
 
 ;;}}}
 ;;; Code:
-(require 'emacspeak-preamble)      
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ voice locking for block header lines
 
@@ -393,6 +393,7 @@ and when you have heard enough navigate easily  to move past the block."
         (setq block (concat "^"
                             (regexp-quote block-prefix)))
         (set-buffer scratch-buffer)
+        (setq buffer-undo-list t)
         (ems-modify-buffer-safely
          (erase-buffer)
          (insert contents)
