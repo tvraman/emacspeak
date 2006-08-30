@@ -42,10 +42,10 @@
         "Emacspeak News Portal Interface"
         (emacspeak   audio desktop rss))
     ("emacspeak-analog.el"
-        "Speech-enable"
+        "Speech-enable analog -- a log viewer"
         (emacspeak  analog ))
     ("emacspeak-ansi-color.el"
-        "Voiceify ansi-color "
+        "Speech-enable ansi-color terminal"
         (emacspeak  ansi-color))
     ("emacspeak-apt-sources.el"
         "speech-enable APT's sources.list file editor"
@@ -66,7 +66,7 @@
         "Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment"
         (emacspeak  audio interface to emacs auctex))
     ("emacspeak-aumix.el"
-        "Setting Audio Mixer"
+        "Configure audio device settings"
         (emacspeak  audio desktop))
     ("emacspeak-autoload.el"
         "Emacspeak Autoload Generator"
@@ -122,9 +122,6 @@
     ("emacspeak-cperl.el"
         "Speech enable CPerl Mode "
         (emacspeak  audio interface to emacs cperl))
-    ("emacspeak-cus-load.el"
-        "automatically extracted custom dependencies"
-        nil)
     ("emacspeak-custom.el"
         "Speech enable interactive Emacs customization "
         (emacspeak  speak  spoken output  custom))
@@ -135,7 +132,7 @@
         "Speech-enable damlite"
         (emacspeak  damlite ))
     ("emacspeak-desktop.el"
-        "Speech-enable Emacspeak  desktop"
+        "Speech-enable desktop"
         (emacspeak   audio desktop  desktop))
     ("emacspeak-dictation.el"
         "Speech enable dictation -- Dictation Interface"
@@ -162,7 +159,7 @@
         "Speech enable Emacs interface to diff and merge"
         (emacspeak  audio interface to emacs  comparing files))
     ("emacspeak-emms.el"
-        "Speech-enable EMMS"
+        "Speech-enable EMMS Multimedia UI"
         (emacspeak  multimedia))
     ("emacspeak-enriched.el"
         "Audio Formatting for Emacs' WYSIWYG RichText  mode"
@@ -234,7 +231,7 @@
         "Speech enable the game of Gomoku"
         (emacspeak  speak  spoken output  gomoku))
     ("emacspeak-gridtext.el"
-        "gridtext"
+        "Overlay Grids To filter columnar text"
         (emacspeak  gridtext))
     ("emacspeak-gud.el"
         "Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB"
@@ -486,7 +483,7 @@
         "Speech enable W3 WWW browser -- includes ACSS Support"
         (emacspeak  w3  www))
     ("emacspeak-w3m.el"
-        nil
+        "speech-enables w3m-el"
         (emacspeak  w3m))
     ("emacspeak-wdired.el"
         "Speech-enable wdired"
