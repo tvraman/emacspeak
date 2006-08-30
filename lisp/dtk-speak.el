@@ -453,15 +453,16 @@ Argument MODE  specifies the current pronunciation mode."
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (inhibit-read-only t))
     (save-excursion
-      (set-buffer dtk-scratch-buffer))
-    (erase-buffer)
-    (insert string)
-    (goto-char (point-min))
+      (set-buffer dtk-scratch-buffer)
+      (buffer-disable-undo)
+      (erase-buffer)
+      (insert string)
+      (goto-char (point-min))
 ;;; dtk will think it's processing a command otherwise:
-    (dtk-fix-brackets 'all)
-    (dtk-fix-backslash)
+      (dtk-fix-brackets 'all)
+      (dtk-fix-backslash)
 ;;; fix control chars
-    (dtk-fix-control-chars)))
+      (dtk-fix-control-chars))))
 
 ;;; Moving  across a chunk of text.
 ;;; A chunk  is specified by a punctuation followed by whitespace
@@ -1005,6 +1006,7 @@ no line --with no white space."
         (this nil))
     (save-excursion
       (set-buffer scratch)
+      (buffer-disable-undo)
       (erase-buffer)
       (insert-file
        (expand-file-name ".servers"
@@ -1648,6 +1650,7 @@ only speak upto the first ctrl-m."
           (voice-lock voice-lock-mode ))
       (save-excursion
         (set-buffer dtk-scratch-buffer )
+        (buffer-disable-undo)
         (let ((inhibit-read-only t))
           (erase-buffer)
                                         ; inherit environment
@@ -1706,6 +1709,7 @@ Optional argument group-count specifies grouping for intonation."
         (inhibit-read-only t))
     (save-excursion
       (set-buffer dtk-scratch-buffer )
+      (buffer-disable-undo)
       (erase-buffer)
       (loop  for element in text
              do
