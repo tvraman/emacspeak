@@ -16,10 +16,8 @@
       <body>
         <xsl:apply-templates select="introduction"/>
         <xsl:call-template  name="toc"/>
+<h2><xsl:value-of select="@caption"/></h2>
         <table>
-          <caption>
-            <xsl:value-of select="@caption"/>
-          </caption>
           <xsl:apply-templates select="category" />
         </table>
         <xsl:apply-templates select="postamble"/>
