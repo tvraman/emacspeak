@@ -1,4 +1,4 @@
-;;; emacspeak-aumix.el --- Setting Audio Mixer
+;;; emacspeak-aumix.el --- Configure audio device settings
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to conveniently set audio display

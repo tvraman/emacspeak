@@ -1,4 +1,5 @@
-;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el
+;;; emacspeak-w3m.el --- speech-enables w3m-el
+;;;$Id$
 ;;{{{ Copyright
 
 ;;; This file is not part of Emacs, but the same terms and
