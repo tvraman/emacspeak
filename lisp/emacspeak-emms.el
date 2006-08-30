@@ -1,4 +1,4 @@
-;;; emacspeak-emms.el --- Speech-enable EMMS
+;;; emacspeak-emms.el --- Speech-enable EMMS Multimedia UI
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to speech-enable EMMS

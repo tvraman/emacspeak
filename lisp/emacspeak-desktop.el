@@ -1,4 +1,4 @@
-;;; emacspeak-desktop.el ---  Speech-enable Emacspeak  desktop
+;;; emacspeak-desktop.el ---  Speech-enable desktop
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  desktop transformation routines
