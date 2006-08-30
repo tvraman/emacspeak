@@ -1,4 +1,4 @@
-;;; emacspeak-analog.el --- Speech-enable
+;;; emacspeak-analog.el --- Speech-enable analog -- a log viewer
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak front-end for ANALOG log analyzer 
@@ -38,8 +38,9 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Commentary:
+
 ;;{{{  Introduction:
+;;; Commentary:
 
 ;;; Speech-enables package analog --convenient log analyzer 
 

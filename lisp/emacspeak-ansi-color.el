@@ -1,4 +1,4 @@
-;;; emacspeak-ansi-color.el --- Voiceify ansi-color 
+;;; emacspeak-ansi-color.el --- Speech-enable ansi-color terminal
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak module for ansi-color
@@ -41,6 +41,7 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
+
 ;;; Module ansi-color (bundled with Emacs 21)
 ;;; handles ansi escape sequences and turns them into
 ;;; appropriate faces.
