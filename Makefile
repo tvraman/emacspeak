@@ -369,12 +369,6 @@ list_dist:
 	ls -1  $(DISTFILES)
 
 # }}}
-# {{{create Changelog in working copy
-changelog:
-	perl utils/cvs2cl.pl --distributed --prune --fsf
-
-# }}}
-
 # {{{upload to sourceforge
 
 TARBALL=emacspeak-${LABEL}.tar.bz2
