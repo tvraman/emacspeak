@@ -1857,6 +1857,7 @@ Indicate change of selection with
           ad-do-it
           (save-excursion
             (set-buffer emacspeak-scratch )
+            (setq buffer-undo-list t)
             (setq case-fold-search nil)
             (erase-buffer)
             (insert  (format " %s " ad-return-value ))
