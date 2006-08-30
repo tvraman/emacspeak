@@ -454,7 +454,7 @@ Argument MODE  specifies the current pronunciation mode."
         (inhibit-read-only t))
     (save-excursion
       (set-buffer dtk-scratch-buffer)
-      (buffer-disable-undo)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (insert string)
       (goto-char (point-min))
@@ -1006,7 +1006,7 @@ no line --with no white space."
         (this nil))
     (save-excursion
       (set-buffer scratch)
-      (buffer-disable-undo)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (insert-file
        (expand-file-name ".servers"
@@ -1650,7 +1650,7 @@ only speak upto the first ctrl-m."
           (voice-lock voice-lock-mode ))
       (save-excursion
         (set-buffer dtk-scratch-buffer )
-        (buffer-disable-undo)
+        (setq buffer-undo-list t)
         (let ((inhibit-read-only t))
           (erase-buffer)
                                         ; inherit environment
@@ -1709,7 +1709,7 @@ Optional argument group-count specifies grouping for intonation."
         (inhibit-read-only t))
     (save-excursion
       (set-buffer dtk-scratch-buffer )
-      (buffer-disable-undo)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (loop  for element in text
              do
