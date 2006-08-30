@@ -289,6 +289,10 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
+<application name="emms">
+      Emacs equivalent  of XMMS --- a versatile multimedia tool.
+      Provides a consistent user interface to a variety of media players.
+    </application>
     <application name="midge">
     Compose and play MIDI files.</application>
     <application name="emms">
