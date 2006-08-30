@@ -1,23 +1,23 @@
 ;;; emacspeak-ispell.el --- Speech enable Ispell -- Emacs' interactive spell checker
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  Emacspeak extension to speech enable ispell
 ;;; Keywords: Emacspeak, Ispell, Spoken Output, Ispell version 2.30
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -43,7 +43,7 @@
 ;;; This module speech enables ispell.
 ;;; Implementation note: This is hard because of how  ispell.el is written
 ;;; Namely, all of the work is done by one huge hairy function.
-;;; This makes advising it hard. 
+;;; This makes advising it hard.
 
 ;;; Original version of this extension was written under emacs-19.28
 ;;; for ispell.el version 2.30
@@ -113,11 +113,12 @@ many available corrections."
         (start (ad-get-arg 3))
         (end (ad-get-arg 4))
         (position 0))
-    (setq line 
+    (setq line
           (ems-set-personality-temporarily start end ispell-highlight-personality
                                            (thing-at-point 'line)))
     (save-excursion
       (set-buffer scratch-buffer)
+      (setq buffer-undo-list t)
       (dtk-set-punctuations 'all)
       (erase-buffer)
       (insert line)
@@ -135,9 +136,9 @@ many available corrections."
       (dtk-speak (buffer-string )))))
 
 ;;}}}
-  
 
-(defadvice ispell-comments-and-strings (around emacspeak pre act comp) 
+
+(defadvice ispell-comments-and-strings (around emacspeak pre act comp)
   "Stop chatter by turning off messages"
   (cond
    ((interactive-p)
@@ -199,11 +200,11 @@ many available corrections."
 ;;}}}
 
 (provide 'emacspeak-ispell)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}

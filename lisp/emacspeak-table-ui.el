@@ -527,6 +527,7 @@ The processed  data and presented using emacspeak table navigation. "
                          (file-name-nondirectory filename)))))
     (save-excursion
       (set-buffer scratch)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (insert-file filename)
       (goto-char (point-min))
@@ -558,7 +559,7 @@ The processed  data and presented using emacspeak table navigation. "
         (buffer (get-buffer-create
                  (format "*%s-table*" buffer-name))))
     (save-excursion
-      (set-buffer scratch)
+      (set-buffer scr(setq buffer-undo-list t)atch)
       (erase-buffer)
       (insert-buffer buffer-name)
       (goto-char (point-min))
