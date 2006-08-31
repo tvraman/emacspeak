@@ -771,35 +771,21 @@ are indicated with auditory icon ellipses."
           (or (text-invisible-p end)
               (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
+      (when dtk-stop-immediately (dtk-stop))
       (cond
        ((string-equal ""  line)         ;blank line
-        (when dtk-stop-immediately (dtk-stop))
-        (dtk-tone 250   75 'force)
-        (when (emacspeak-using-midi-p)
-          (emacspeak-play-midi-icon 'empty-line)))
+        (dtk-tone 250   75 'force))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
-        (when dtk-stop-immediately (dtk-stop))
-        (dtk-tone 300   120 'force)
-        (when (emacspeak-using-midi-p)
-          (emacspeak-play-midi-icon 'blank-line)))
+        (dtk-tone 300   120 'force))
        ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
-        (when dtk-stop-immediately (dtk-stop))
-        (dtk-tone 350   100 'force)
-        (when (emacspeak-using-midi-p)
-          (emacspeak-play-midi-icon 'horizontal-rule)))
+        (dtk-tone 350   100 'force))
        ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-decoration-rule line) ) ;decorative rule
-        (when dtk-stop-immediately (dtk-stop))
-        (dtk-tone 450   100 'force)
-        (when (emacspeak-using-midi-p)
-          (emacspeak-play-midi-icon 'decorative-rule)))
+        (dtk-tone 450   100 'force))
        ((and (not (eq 'all  dtk-punctuation-mode))
              (string-match  emacspeak-unspeakable-rule line) ) ;unspeakable rule
-        (when dtk-stop-immediately (dtk-stop))
-        (dtk-tone 550   100 'force)
-        (when (emacspeak-using-midi-p)
-          (emacspeak-play-midi-icon 'unspeakable-rule)))
+        (dtk-tone 550   100 'force))
        (t (let ((l (length line))
                 (confirm nil))
             (when (or selective-display
@@ -807,13 +793,14 @@ are indicated with auditory icon ellipses."
                       (get-text-property start 'emacspeak-speak-this-long-line)
                       (setq confirm
                             (y-or-n-p
-                             (format "Speak  this  %s long line? " l))))
-              (when confirm             ;update threshold
+                             (format "Speak  this  %s long line?
+  " l))))
+              (when confirm
+                ;;update threshold and record y answer
                 (setq emacspeak-speak-maximum-line-length (1+ l))
-                ;; record the y answer
-                (ems-modify-buffer-safely
-                 (put-text-property start end
-                                    'emacspeak-speak-this-long-line t)))
+                    (ems-modify-buffer-safely
+                     (put-text-property start end
+                                        'emacspeak-speak-this-long-line t)))
               (when (and (null arg)
                          emacspeak-speak-line-column-filter)
                 (setq line
