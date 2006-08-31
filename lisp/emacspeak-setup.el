@@ -91,6 +91,38 @@ emacspeak is compiled or started.")
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
   "Directory where Emacspeak resource files such as
 pronunciation dictionaries are stored. ")
+;;;###autoload
+(defvar emacspeak-readme-file
+  (expand-file-name "README"
+                    emacspeak-directory)
+  "README file from where we get SVN revision number.")
+
+;;;###autoload
+(defconst emacspeak-version
+  (format
+   "24.0 %s"
+   (cond
+    ((file-exists-p emacspeak-readme-file)
+     (let ((buffer (find-file-noselect emacspeak-readme-file))
+           (revision nil))
+       (save-excursion
+         (set-buffer buffer)
+         (goto-char (point-min))
+         (setq revision
+               (format "Revision %s"
+                       (nth 2 (split-string
+                               (buffer-substring-no-properties
+                                (line-beginning-position)
+                                (line-end-position)))))))
+       (kill-buffer buffer)
+       revision))
+    (t "")))
+  "Version number for Emacspeak.")
+
+;;;###autoload
+(defconst emacspeak-codename
+  "LiveDog"
+  "Code name of present release.")
 
 ;;}}}
 ;;{{{ speech rate 
