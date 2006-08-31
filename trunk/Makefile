@@ -44,7 +44,7 @@
 # cd to the  directory where you placed the sources.
 # This directory is referred to henceforth as EMACSPEAK_DIR.
 # and then type
-#    make config SRC=`pwd`
+#    make config 
 # Now type
 #    make emacspeak
 # to compile the files, then (as superuser)

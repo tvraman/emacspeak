@@ -51,12 +51,6 @@
          (expand-file-name "atom-blogger" emacspeak-lisp-directory )
          load-path )))
 
-
-(defvar emacspeak-readme-file
-  (expand-file-name "README"
-                    emacspeak-directory)
-  "README file from where we get SVN revision number.")
-
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
