@@ -1837,10 +1837,6 @@ Second interactive prefix sets clock to new timezone."
                               emacspeak-speak-time-format-string)
                              'personality voice-punctuations-some))))))
 
-(defconst emacspeak-codename
-  "LiveDog"
-  "Code name of present release.")
-
 ;;;###autoload
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
