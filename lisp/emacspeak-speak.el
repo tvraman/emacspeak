@@ -752,25 +752,23 @@ are indicated with auditory icon ellipses."
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
+      (when dtk-stop-immediately (dtk-stop))
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
                  orig (1+ orig)
-                 voice-animate
-                 (buffer-substring  start end ))
+                 voice-animate (buffer-substring  start end ))
               (buffer-substring start end )))
-      (when (and emacspeak-audio-indentation
-                 (null arg ))
+      (when (and emacspeak-audio-indentation (null arg ))
         (let ((limit (line-end-position)))
           (beginning-of-line)
           (skip-syntax-forward " " limit)
           (setq indent  (current-column )))
         (when (eq emacspeak-audio-indentation-method 'tone)
           (emacspeak-indent indent )))
-      (when dtk-stop-immediately (dtk-stop))
-      (when
-          (or (text-invisible-p end)
-              (get-text-property  start 'emacspeak-hidden-block))
+      (when (or
+             (text-invisible-p end)
+             (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string-equal ""  line)         ;blank line
@@ -794,15 +792,13 @@ are indicated with auditory icon ellipses."
                ((or (< l emacspeak-speak-maximum-line-length) 
                     (get-text-property start 'speak-line))
                 t)
-               ((y-or-n-p
-                 (format "Speak  this  %s long line? " l))
+               ((y-or-n-p (format "Speak  this  %s long line? " l))
                 (setq emacspeak-speak-maximum-line-length (1+ l))
                 (ems-modify-buffer-safely
                  (put-text-property start end 'speak-line t))
                 t))))
           (when (or selective-display speakable)
-            (when (and emacspeak-speak-line-column-filter
-                       (null arg))
+            (when (and emacspeak-speak-line-column-filter (null arg))
               (setq line
                     (emacspeak-speak-line-apply-column-filter
                      line emacspeak-speak-line-invert-filter)))
