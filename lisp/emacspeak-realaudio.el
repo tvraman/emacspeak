@@ -455,7 +455,9 @@ commands via single keystrokes."
   (define-key emacspeak-realaudio-mode-map "w"
     'emacspeak-realaudio-write-mp3-clip)
   (define-key emacspeak-realaudio-mode-map [left] 'emacspeak-aumix-wave-decrease)
-  (define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
+  (define-key emacspeak-realaudio-mode-map [right]
+    'emacspeak-aumix-wave-increase)
+  (define-key emacspeak-realaudio-mode-map "q" 'bury-buffer)
   (loop for c in emacspeak-realaudio-trplayer-keys
         do
         (define-key emacspeak-realaudio-mode-map
