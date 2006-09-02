@@ -41,7 +41,7 @@
 ;;;Inspired by finder.el
 ;;; Not to be loaded at runtime.
 ;;{{{ requires
-
+(require 'cl)
 (require 'finder)
 (require 'lisp-mnt)
 
