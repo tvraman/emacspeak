@@ -164,7 +164,7 @@
     (voice-lock-mode 1)
     (emacspeak-speak-line)))
 
-(defadvice custom-newline (after emacspeak pre act comp)
+(defadvice Custom-newline (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)))
