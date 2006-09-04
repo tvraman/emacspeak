@@ -553,10 +553,8 @@ without sending input to the terminal itself."
                     eterm-char-mode
                     buffer-read-only emacspeak-eterm-keymap term-raw-map))
   (emacspeak-eterm-nuke-cached-info )
-  (or (assq 'emacspeak-eterm-review-p  minor-mode-alist)
-      (setq minor-mode-alist
-            (append minor-mode-alist
-                    '((emacspeak-eterm-review-p " Review")))))
+      (setq mode-line-process
+                    '("review"))
   (if eterm-char-mode 
       (cond 
        (emacspeak-eterm-review-p        ;turn it off 
@@ -567,12 +565,10 @@ without sending input to the terminal itself."
         (message "Entering terminal review mode press  q  to return to normal")
         (setq emacspeak-eterm-review-p t)
         (use-local-map emacspeak-eterm-keymap)))
-    (message "Terminal review should be used when eterm is in
-character mode "))
+    (message
+     "Terminal review should be used when eterm is in character mode "))
   (emacspeak-auditory-icon
-   (if emacspeak-eterm-review-p
-       'on
-     'off)))
+   (if emacspeak-eterm-review-p 'on 'off)))
 
 ;;}}}
 ;;{{{  Cut and paste while reviewing:
@@ -1202,12 +1198,9 @@ there is terminal activity.")
    ))
 (defadvice term-line-mode (after emacspeak pre act)
   "Announce that you entered line mode. "
-  (declare (special eterm-char-mode  eterm-line-mode))
   (make-local-variable 'eterm-line-mode)
-  (or (assq 'eterm-line-mode minor-mode-alist)
-      (setq minor-mode-alist
-            (append minor-mode-alist
-                    '((eterm-line-mode " Line")))))
+      (setq mode-line-process
+                    '("line"))
   (setq eterm-char-mode nil 
         eterm-line-mode t )
   (when (interactive-p)
@@ -1215,12 +1208,8 @@ there is terminal activity.")
 
 (defadvice term-char-mode (after emacspeak pre act)
   "Announce you entered character mode. "
-  (declare (special eterm-char-mode  eterm-line-mode))
-  (make-local-variable'term-char-mode)
-  (or (assq 'eterm-char-mode minor-mode-alist)
-      (setq minor-mode-alist
-            (append minor-mode-alist
-                    '((eterm-char-mode " Character")))))
+      (setq mode-line-process
+                    '("char"))
   (setq eterm-char-mode t
         eterm-line-mode nil )
   (emacspeak-eterm-setup-raw-keys)
