@@ -1478,7 +1478,7 @@ semantic to do the work."
     (message  (or
                (which-function)
                "Not inside a function."))))
-
+;;; not used
 (defsubst ems-process-mode-line-format (spec)
   "Process mode line format spec."
   (cond
@@ -1533,7 +1533,7 @@ Interactive prefix arg speaks buffer info."
     (force-mode-line-update)
     (emacspeak-dtk-sync)
     (let ((dtk-stop-immediately nil )
-          (global-info (ems-process-mode-line-format global-mode-string))
+          (global-info (format-mode-line global-mode-string))
           (frame-info nil)
           (recursion-depth (recursion-depth))
           (recursion-info nil)
@@ -1637,49 +1637,25 @@ current coding system, then we return an empty string."
 (defun emacspeak-speak-minor-mode-line ()
   "Speak the minor mode-information."
   (interactive)
-  (declare (special minor-mode-alist
-                    emacspeak-minor-mode-prefix
+  (declare (special minor-mode-alist emacspeak-minor-mode-prefix
                     voice-lock-mode vc-mode))
   (force-mode-line-update)
   (let ((voice-lock-mode t)
-        (info
-         (mapcar
-          #'(lambda(item)
-              (let ((var (car item))
-                    (value (cadr item )))
-                (cond
-                 ((and (boundp var) (eval var ))
-                  (if (symbolp value) (eval value) value))
-                 (t nil))))
-          minor-mode-alist)))
+        (info nil))
     (setq info
-          (mapcar
-           #'(lambda (form)
-               (cond
-                ((and form
-                      (listp form)
-                      (eq :eval (car form)))
-                 (eval (cadr form)))
-                (t form)))
-           info))
-    (setq info (delq nil info))
-    (setq info (delete "" info))
-    (tts-with-punctuations "some"
-                           (dtk-speak
-                            (concat
-                             emacspeak-minor-mode-prefix
-                             vc-mode
-                             (mapconcat #'identity info " ")
-                             (ems-get-buffer-coding-system))))))
-
-;;; obseleted by what-line in simple.el
-
-;;;###autoload
-(defun emacspeak-speak-line-number-obsolete ()
-  "Speak the line number of the current line."
-  (interactive)
-  (message "line %d"
-           (emacspeak-get-current-line-number)))
+          (mapconcat 
+           #'(lambda(item)
+               (let ((var (car item))
+                     (value (cadr item )))
+                 (if (and (boundp var) (eval var))
+                     (format-mode-line  value)
+                   "")))
+           minor-mode-alist
+           " "))
+    (dtk-speak
+     (concat emacspeak-minor-mode-prefix
+             vc-mode info
+             (ems-get-buffer-coding-system)))))
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
