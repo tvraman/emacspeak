@@ -775,15 +775,11 @@ are indicated with auditory icon ellipses."
         (dtk-tone 250   75 'force))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
         (dtk-tone 300   120 'force))
-       ((and (not (eq 'all dtk-punctuation-mode))
-             (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
-        (dtk-tone 350   100 'force))
-       ((and (not (eq 'all dtk-punctuation-mode))
-             (string-match  emacspeak-decoration-rule line) ) ;decorative rule
-        (dtk-tone 450   100 'force))
-       ((and (not (eq 'all  dtk-punctuation-mode))
-             (string-match  emacspeak-unspeakable-rule line) ) ;unspeakable rule
-        (dtk-tone 550   100 'force))
+       ((not (eq 'all dtk-punctuation-mode))
+        (cond
+         ((string-match  emacspeak-horizontal-rule line) (dtk-tone 350   100 t))
+         ((string-match  emacspeak-decoration-rule line) (dtk-tone 450   100 t))
+         ((string-match  emacspeak-unspeakable-rule line) (dtk-tone 550   100 t))))
        (t
         (let*
             ((l (length line))
