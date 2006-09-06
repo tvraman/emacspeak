@@ -745,8 +745,7 @@ are indicated with auditory icon ellipses."
       (beginning-of-line)
       (emacspeak-handle-action-at-point)
       (setq start (point))
-      (end-of-line)
-      (setq end (point))
+      (setq end (line-end-position))
                                         ;determine what to speak based on prefix arg
       (cond
        ((null arg))
@@ -759,6 +758,11 @@ are indicated with auditory icon ellipses."
                  orig (1+ orig)
                  voice-animate (buffer-substring  start end ))
               (buffer-substring start end )))
+      (when (and (null arg)
+                 emacspeak-speak-line-column-filter)
+        (setq line
+              (emacspeak-speak-line-apply-column-filter
+               line emacspeak-speak-line-invert-filter)))
       (when (and emacspeak-audio-indentation (null arg ))
         (let ((limit (line-end-position)))
           (beginning-of-line)
@@ -771,37 +775,33 @@ are indicated with auditory icon ellipses."
              (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
-       ((string-equal ""  line)         ;blank line
+       ((string-equal ""  line)
         (dtk-tone 250   75 'force))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
         (dtk-tone 300   120 'force))
-         ((and (not (eq 'all dtk-punctuation-mode))
-               (string-match  emacspeak-horizontal-rule line))
-          (dtk-tone 350   100 t))
-         ((and (not (eq 'all dtk-punctuation-mode))
-               (string-match  emacspeak-decoration-rule line) )
-          (dtk-tone 450   100 t))
-         ((and (not (eq 'all dtk-punctuation-mode))
-          (string-match  emacspeak-unspeakable-rule line))
-          (dtk-tone 550   100 t))
+       ((and (not (eq 'all dtk-punctuation-mode))
+             (string-match  emacspeak-horizontal-rule line))
+        (dtk-tone 350   100 t))
+       ((and (not (eq 'all dtk-punctuation-mode))
+             (string-match  emacspeak-decoration-rule line) )
+        (dtk-tone 450   100 t))
+       ((and (not (eq 'all dtk-punctuation-mode))
+             (string-match  emacspeak-unspeakable-rule line))
+        (dtk-tone 550   100 t))
        (t
         (let*
             ((l (length line))
              (speakable ;; should we speak this line?
               (cond
-               ((or (< l emacspeak-speak-maximum-line-length)
-                    (get-text-property start 'speak-line)
-                    selective-display)
+               ((or selective-display
+                    (< l emacspeak-speak-maximum-line-length)
+                    (get-text-property start 'speak-line))
                 t)
                ((y-or-n-p (format "Speak  this  %s long line? " l))
                 (setq emacspeak-speak-maximum-line-length (1+ l))
                 (ems-modify-buffer-safely
                  (put-text-property start end 'speak-line t))
                 t))))
-          (when (and emacspeak-speak-line-column-filter (null arg))
-            (setq line
-                  (emacspeak-speak-line-apply-column-filter
-                   line emacspeak-speak-line-invert-filter)))
           (when  speakable
             (cond
              ((and indent
