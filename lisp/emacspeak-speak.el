@@ -790,18 +790,19 @@ are indicated with auditory icon ellipses."
              (speakable ;; should we speak this line?
               (cond
                ((or (< l emacspeak-speak-maximum-line-length) 
-                    (get-text-property start 'speak-line))
+                    (get-text-property start 'speak-line)
+                    selective-display)
                 t)
                ((y-or-n-p (format "Speak  this  %s long line? " l))
                 (setq emacspeak-speak-maximum-line-length (1+ l))
                 (ems-modify-buffer-safely
                  (put-text-property start end 'speak-line t))
                 t))))
-          (when (or selective-display speakable)
-            (when (and emacspeak-speak-line-column-filter (null arg))
-              (setq line
-                    (emacspeak-speak-line-apply-column-filter
-                     line emacspeak-speak-line-invert-filter)))
+          (when (and emacspeak-speak-line-column-filter (null arg))
+            (setq line
+                  (emacspeak-speak-line-apply-column-filter
+                   line emacspeak-speak-line-invert-filter)))
+          (when  speakable
             (cond
              ((and indent
                    (eq 'speak emacspeak-audio-indentation-method )
@@ -2525,7 +2526,6 @@ speak")))
 (defun emacspeak-ask-how-to-speak (unit-name prompt)
   "Argument UNIT-NAME specifies kind of unit that is being spoken.
 Argument PROMPT specifies the prompt to display."
-
   (if prompt
       (message
        (format "Press s to speak start of %s, r for rest of  %s. \
@@ -2535,8 +2535,7 @@ Argument PROMPT specifies the prompt to display."
     (cond
      ((= char ?s) -1)
      ((= char ?r) 1)
-     (t nil )))
-  )
+     (t nil ))))
 
 ;;;###autoload
 (defun emacspeak-speak-buffer-interactively ()
