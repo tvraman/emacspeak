@@ -920,6 +920,22 @@ from English to German.")
                                           url 'speak)))
 
 ;;}}}
+;;{{{ Google Archive Search
+
+(emacspeak-url-template-define
+ "Archive News Search"
+ "http://news.google.com/archivesearch?hl=en&sa=N&q=%s"
+ (list "Archive News Search: ")
+ #'(lambda nil
+     (search-forward "Results" nil t)
+     (emacspeak-speak-line))
+ "Search Google Archive News."
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
+      
+
+;;}}}
 ;;{{{  cnet news
 
 (emacspeak-url-template-define
