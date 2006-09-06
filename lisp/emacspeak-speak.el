@@ -775,17 +775,21 @@ are indicated with auditory icon ellipses."
         (dtk-tone 250   75 'force))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
         (dtk-tone 300   120 'force))
-       ((not (eq 'all dtk-punctuation-mode))
-        (cond
-         ((string-match  emacspeak-horizontal-rule line) (dtk-tone 350   100 t))
-         ((string-match  emacspeak-decoration-rule line) (dtk-tone 450   100 t))
-         ((string-match  emacspeak-unspeakable-rule line) (dtk-tone 550   100 t))))
+         ((and (not (eq 'all dtk-punctuation-mode))
+               (string-match  emacspeak-horizontal-rule line))
+          (dtk-tone 350   100 t))
+         ((and (not (eq 'all dtk-punctuation-mode))
+               (string-match  emacspeak-decoration-rule line) )
+          (dtk-tone 450   100 t))
+         ((and (not (eq 'all dtk-punctuation-mode))
+          (string-match  emacspeak-unspeakable-rule line))
+          (dtk-tone 550   100 t))
        (t
         (let*
             ((l (length line))
              (speakable ;; should we speak this line?
               (cond
-               ((or (< l emacspeak-speak-maximum-line-length) 
+               ((or (< l emacspeak-speak-maximum-line-length)
                     (get-text-property start 'speak-line)
                     selective-display)
                 t)
@@ -1640,7 +1644,7 @@ current coding system, then we return an empty string."
   (let ((voice-lock-mode t)
         (info nil))
     (setq info
-          (mapconcat 
+          (mapconcat
            #'(lambda(item)
                (let ((var (car item))
                      (value (cadr item )))
