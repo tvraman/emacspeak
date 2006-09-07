@@ -710,6 +710,40 @@ the sense of the filter. "
   :type 'string
   :group 'emacspeak)
 
+
+(unless (fboundp 'mode-line-format)
+  (defsubst mode-line-format (spec)
+  "Process mode line format spec."
+  (cond
+;;; leaves
+   ((symbolp spec) (symbol-value  spec))
+   ((stringp spec) spec)
+;;; leaf + tree:
+   ((and (listp spec)
+         (stringp (car spec)))
+    (concat
+     (car spec)
+     (ems-process-mode-line-format (cdr spec))))
+   ((and (listp spec)
+         (symbolp (car spec))
+         (null (car spec)))
+    (ems-process-mode-line-format (cdr spec)))
+   ((and (listp spec)
+         (eq :eval  (car spec)))
+    (eval (cadr spec)))
+   ((and (listp spec)
+         (symbolp (car spec)))
+    (concat
+     (ems-process-mode-line-format (symbol-value (car spec)))
+     (if (cdr spec)
+         (ems-process-mode-line-format (cdr spec))
+       "")))
+   ((and (listp spec)
+         (caar spec))
+    (concat
+     (ems-process-mode-line-format  (symbol-value (cadar spec)))
+     (ems-process-mode-line-format (cdr spec)))))))
+
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
   "Speaks current line.  With prefix ARG, speaks the rest of the line
