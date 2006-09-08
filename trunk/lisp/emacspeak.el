@@ -61,7 +61,7 @@
 
 (load-library "emacspeak-loaddefs")
 (load-file
- (expand-file-name "cus-load.el"
+ (expand-file-name "emacspeak-cus-load.el"
                    emacspeak-lisp-directory))
 
 ;;}}}

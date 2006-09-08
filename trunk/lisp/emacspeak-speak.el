@@ -712,7 +712,7 @@ the sense of the filter. "
 
 
 (unless (fboundp 'mode-line-format)
-  (defsubst mode-line-format (spec)
+  (defun mode-line-format (spec)
   "Process mode line format spec."
   (cond
 ;;; leaves
@@ -723,26 +723,26 @@ the sense of the filter. "
          (stringp (car spec)))
     (concat
      (car spec)
-     (ems-process-mode-line-format (cdr spec))))
+     (mode-line-format (cdr spec))))
    ((and (listp spec)
          (symbolp (car spec))
          (null (car spec)))
-    (ems-process-mode-line-format (cdr spec)))
+    (mode-line-format (cdr spec)))
    ((and (listp spec)
          (eq :eval  (car spec)))
     (eval (cadr spec)))
    ((and (listp spec)
          (symbolp (car spec)))
     (concat
-     (ems-process-mode-line-format (symbol-value (car spec)))
+     (mode-line-format (symbol-value (car spec)))
      (if (cdr spec)
-         (ems-process-mode-line-format (cdr spec))
+         (mode-line-format (cdr spec))
        "")))
    ((and (listp spec)
          (caar spec))
     (concat
-     (ems-process-mode-line-format  (symbol-value (cadar spec)))
-     (ems-process-mode-line-format (cdr spec)))))))
+     (mode-line-format  (symbol-value (cadar spec)))
+     (mode-line-format (cdr spec)))))))
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
