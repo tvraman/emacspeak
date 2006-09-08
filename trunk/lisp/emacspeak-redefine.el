@@ -83,7 +83,7 @@ See  command emacspeak-toggle-word-echo bound to
 Toggle variable dtk-stop-immediately-while-typing if you want to have
 speech flush as you type."
   (interactive "p")
-  (declare (special last-command-char dtk-stop-immediately-while-typing  
+  (declare (special last-command-event dtk-stop-immediately-while-typing  
                     buffer-undo-list  buffer-read-only
                     emacspeak-character-echo emacspeak-word-echo))
   (or arg (setq arg 1))
@@ -96,7 +96,7 @@ speech flush as you type."
   (when (interactive-p)
     (cond
      ((and emacspeak-word-echo
-           (= (char-syntax last-command-char )32 ))
+           (= (char-syntax last-command-event )32 ))
       (save-excursion
         (condition-case nil
             (forward-word -1)
@@ -104,9 +104,9 @@ speech flush as you type."
         (emacspeak-speak-word)))
      (emacspeak-character-echo
       (when dtk-stop-immediately-while-typing (dtk-stop))
-      (emacspeak-speak-this-char last-command-char ))))
+      (emacspeak-speak-this-char last-command-event ))))
   (and auto-fill-function
-       (= (char-syntax  last-command-char) 32)
+       (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
        (funcall auto-fill-function)))
 
