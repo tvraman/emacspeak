@@ -40,10 +40,10 @@
 (require 'easymenu)
 (require 'emacspeak-m-player)
 (require 'custom)
-(require 'url)
 (eval-when-compile
   (condition-case nil
       (require 'w3m)
+    (require 'url)
     (error nil)))
 (eval-when (load)
   (require 'w3m-util)
