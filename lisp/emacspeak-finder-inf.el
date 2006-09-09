@@ -198,8 +198,8 @@
         "Speech enable emacs' code finder"
         (emacspeak  find-func))
     ("emacspeak-finder-inf.el"
-        nil
-        (help))
+        "keyword-to-package mapping"
+        nil)
     ("emacspeak-finder.el"
         "Generate a database of keywords and descriptions for all Emacspeak  packages"
         (emacspeak  finder))
