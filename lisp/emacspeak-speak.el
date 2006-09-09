@@ -1568,7 +1568,7 @@ Interactive prefix arg speaks buffer info."
     (force-mode-line-update)
     (emacspeak-dtk-sync)
     (let ((dtk-stop-immediately nil )
-          (global-info (format-mode-line global-mode-string))
+          (global-info (mode-line-format global-mode-string))
           (frame-info nil)
           (recursion-depth (recursion-depth))
           (recursion-info nil)
@@ -1683,7 +1683,7 @@ current coding system, then we return an empty string."
                (let ((var (car item))
                      (value (cadr item )))
                  (if (and (boundp var) (eval var))
-                     (format-mode-line  value)
+                     (mode-line-format  value)
                    "")))
            minor-mode-alist
            " "))
