@@ -50,8 +50,7 @@ relevant tables bubble to the top.
       <xsl:value-of select="@alt"/>
     </xsl:if>
   </xsl:template>
-  <!-- nuke these -->
-  <xsl:template match="//script|//meta|//iframe|//nolayer|//ilayer|//layer"/>
+  
   <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>

@@ -7,11 +7,12 @@ Identity transform used in all style sheets.
 -->
 
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="iso8859-15"
-  method="html"  indent="yes"/>
+              method="html"  indent="yes"/>
   <!-- {identity default  -->   
-  
+  <!-- nuke these -->  
+  <xsl:template match="//script|//meta|//iframe|//nolayer|//ilayer|//layer|//spacer"/>
   <xsl:template match="*|@*" >
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
@@ -22,12 +23,12 @@ Identity transform used in all style sheets.
   <!-- } -->
 </xsl:stylesheet>
 <!--
-Local Variables:
-mode: xae
-sgml-indent-step: 2
-sgml-indent-data: t
-sgml-set-face: nil
-sgml-insert-missing-element-comment: nil
-folded-file: t
-End:
+    Local Variables:
+    mode: xae
+    sgml-indent-step: 2
+    sgml-indent-data: t
+    sgml-set-face: nil
+    sgml-insert-missing-element-comment: nil
+    folded-file: t
+    End:
 --> 
