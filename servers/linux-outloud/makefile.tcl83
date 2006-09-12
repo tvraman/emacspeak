@@ -5,7 +5,7 @@ PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/servers/linux-outloud
 CFLAGS= -g    -O2 -fPIC  -DPIC -pedantic -ansi -Wall  -I/usr/include/tcl8.3
-LIBS= -ltcl8.3 -ldl  -lstdc++-3-libc6.2-2-2.10.0
+LIBS= -ltcl8.3 -ldl  
 
 TTS=tcleci.so eci.ini VIAVOICE
 ATTS=atcleci.cpp  ALSA asoundrc
