@@ -305,6 +305,9 @@ set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
 notes_initialize
 set tclTTS $env(EMACSPEAK_DIR)/servers/software-dtk
+if [file exists /usr/lib/libaoss.so] {
+    set env(LD_PRELOAD) /usr/lib/libaoss.so
+}
 load $tclTTS/tcldtk.so
 synth   {[:phoneme arpabet speak on ]
     [:pu s ]
