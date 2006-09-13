@@ -566,7 +566,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "*URI for launching a Yahoo Quotes  search.")
 
 (defvar emacspeak-websearch-quotes-csv-yahoo-uri
-  "http://finance.yahoo.com/d/quotes.csv?f=sl1d1t1c1ohgv&s="
+  "http://finance.yahoo.com/d/quotes.csv?f=snl1d1t1c1p2va2bapomwerr1dyj1x&s="
   "*URI for launching a Yahoo Quotes  search.")
 
 (defvar emacspeak-websearch-quotes-yahoo-options
@@ -579,8 +579,8 @@ default."
   :type 'string
   :group 'emacspeak-websearch)
 
-(defvar emacspeak-websearch-lynx-program "lynx"
-  "Name of lynx executable")
+(defvar emacspeak-websearch-curl-program "curl"
+  "Name of curl executable")
 
 (defun emacspeak-websearch-quotes-yahoo-search (query &optional prefix)
   "Perform a Quotes Yahoo .
@@ -599,7 +599,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
     current-prefix-arg))
   (declare (special emacspeak-websearch-quotes-yahoo-uri
                     emacspeak-websearch-quotes-yahoo-options
-                    emacspeak-websearch-lynx-program
+                    emacspeak-websearch-curl-program
                     emacspeak-websearch-personal-portfolio
                     emacspeak-websearch-quotes-csv-yahoo-uri))
   (cond
@@ -614,8 +614,8 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
       (setq process
             (start-process   "lynx"
                              results
-                             emacspeak-websearch-lynx-program
-                             "-dump"
+                             emacspeak-websearch-curl-program
+                             "--silent"
                              uri))
       (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
    (t
@@ -726,7 +726,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    (list
     (emacspeak-websearch-read-query "Stock ticker:")
     current-prefix-arg))
-  (declare (special emacspeak-websearch-lynx-program
+  (declare (special emacspeak-websearch-curl-program
                     emacspeak-websearch-yahoo-charts-uri
                     emacspeak-websearch-yahoo-csv-charts-uri))
   (let (
@@ -769,8 +769,8 @@ Optional second arg as-html processes the results as HTML rather than data."
         (setq process
               (start-process   "lynx"
                                results
-                               emacspeak-websearch-lynx-program
-                               "-dump"
+                               emacspeak-websearch-curl-program
+                               "--silent"
                                uri))
         (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
      (t (browse-url
