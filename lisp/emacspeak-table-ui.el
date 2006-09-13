@@ -535,7 +535,9 @@ The processed  data and presented using emacspeak table navigation. "
                                                (point-max)) nil))
       (loop for i from 0 to (1- (length elements))
             do
-            (setq this-line (thing-at-point 'line))
+            (setq this-line
+                  (buffer-substring (line-beginning-position)
+                                    (line-end-position)))
             (setq fields (split-string this-line ","))
             (setq this-row (make-vector (length fields) nil))
             (loop for j from 0 to (1- (length  fields))
@@ -547,6 +549,7 @@ The processed  data and presented using emacspeak table navigation. "
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer
                                           filename )))
+
 ;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data.
