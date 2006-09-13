@@ -666,7 +666,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   "*URI for locating historical chart data.")
 
 (defvar emacspeak-websearch-yahoo-csv-charts-uri
-  "http://chart.yahoo.com/table.csv?"
+  "http://itable.finance.yahoo.com/table.csv?"
   "*URI for locating historical chart data.")
 
 (defvar emacspeak-websearch-yahoo-company-news-quotes-uri
@@ -770,7 +770,7 @@ Optional second arg as-html processes the results as HTML rather than data."
               (start-process   "lynx"
                                results
                                emacspeak-websearch-curl-program
-                               "--silent"
+                               "--silent" "--location"
                                uri))
         (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
      (t (browse-url
