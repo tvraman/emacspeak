@@ -602,32 +602,30 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
                     emacspeak-websearch-lynx-program
                     emacspeak-websearch-personal-portfolio
                     emacspeak-websearch-quotes-csv-yahoo-uri))
-  (let (
-        )
-    (cond
-     ((null prefix)
-      (let ((uri (concat emacspeak-websearch-quotes-csv-yahoo-uri
-                         (emacspeak-url-encode (format "%s" query))))
-            (results "*quotes-table*")
-            (process nil))
+  (cond
+   ((null prefix)
+    (let ((uri (concat emacspeak-websearch-quotes-csv-yahoo-uri
+                       (emacspeak-url-encode (format "%s" query))))
+          (results "*quotes-table*")
+          (process nil))
 ;;; nuke old results if any
-        (when (get-buffer results )
-          (kill-buffer results))
-        (setq process
-              (start-process   "lynx"
-                               results
-                               emacspeak-websearch-lynx-program
-                               "-dump"
-                               uri))
-        (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
-     (t
-      (browse-url
-       (concat emacspeak-websearch-quotes-yahoo-uri
-               (emacspeak-url-encode query)
-               emacspeak-websearch-quotes-yahoo-options))
-      (emacspeak-websearch-post-process
-       "Symbol"
-       'emacspeak-speak-line)))))
+      (when (get-buffer results )
+        (kill-buffer results))
+      (setq process
+            (start-process   "lynx"
+                             results
+                             emacspeak-websearch-lynx-program
+                             "-dump"
+                             uri))
+      (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
+   (t
+    (browse-url
+     (concat emacspeak-websearch-quotes-yahoo-uri
+             (emacspeak-url-encode query)
+             emacspeak-websearch-quotes-yahoo-options))
+    (emacspeak-websearch-post-process
+     "Symbol"
+     'emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{  koders
