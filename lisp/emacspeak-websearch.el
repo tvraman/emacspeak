@@ -655,10 +655,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 
 (emacspeak-websearch-set-searcher 'company-news
                                   'emacspeak-websearch-company-news)
-(emacspeak-websearch-set-key ?C 'company-news)
+(emacspeak-websearch-set-key ?c 'company-news)
 
 (defvar emacspeak-websearch-company-news-uri
-  "http://biz.yahoo.com/"
+  "http://finance.yahoo.com/q/"
   "*URI for launching a company news lookup")
 
 (defvar emacspeak-websearch-yahoo-charts-uri
@@ -683,16 +683,9 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
     current-prefix-arg))
   (declare (special emacspeak-websearch-company-news-uri
                     emacspeak-websearch-yahoo-company-news-quotes-uri))
-  (let (
-
-        (type nil)
-        (type-char
+  (let ((type-char
          (read-char
           "c Upgrades, h history, n news, r Research, p profile, q Quotes, t insider trades")))
-    (setq type
-          (case type-char
-            (?r "z/a")
-            (otherwise (format "%c" type-char))))
     (cond
      ((char-equal type-char ?h)
       (emacspeak-websearch-yahoo-historical-chart ticker prefix)
@@ -707,9 +700,14 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
      (t
       (browse-url
        (concat emacspeak-websearch-company-news-uri
-               (format "%s/" type)
-               (format "%c/" (aref ticker 0))
-               (format "%s.html" ticker)))
+               (format "%s?"
+                       (case type-char
+                         (?n "h")
+                         (?p "pr")
+                         (?r "ae")
+                         (?c "ao")
+                         (?t "it")))
+               (format "s=%s" ticker)))
       (emacspeak-websearch-post-process
        (format-time-string "%Y")
        'emacspeak-speak-line)))))
