@@ -562,12 +562,13 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key ?q 'quotes-yahoo)
 
 (defvar emacspeak-websearch-quotes-yahoo-uri
-  "http://finance.yahoo.com/q?o=t&s="
+  "http://finance.yahoo.com/q?s="
   "*URI for launching a Yahoo Quotes  search.")
 
 (defvar emacspeak-websearch-quotes-csv-yahoo-uri
-  "http://finance.yahoo.com/d/quotes.csv?f=snl1d1t1c1p2va2bapomwerr1dyj1x&s="
-  "*URI for launching a Yahoo Quotes  search.")
+  "http://quote.yahoo.com/d/quotes.csv?f=snl1d1t1c1p2va2bapomwerr1dyj1x&s="
+  "*URI for launching a Yahoo Quotes  search.
+See http://www.gummy-stuff.org/Yahoo-data.htm and Perl module Finance::Yahoo")
 
 (defvar emacspeak-websearch-quotes-yahoo-options
   "&d=v1"
