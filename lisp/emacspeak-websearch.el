@@ -659,7 +659,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 (emacspeak-websearch-set-key ?c 'company-news)
 
 (defvar emacspeak-websearch-company-news-uri
-  "http://finance.yahoo.com/q/"
+  "http://finance.yahoo.com/q"
   "*URI for launching a company news lookup")
 
 (defvar emacspeak-websearch-yahoo-charts-uri
@@ -682,32 +682,33 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
     (emacspeak-websearch-read-query
      "Enter stock ticker of company to lookup: ")
     current-prefix-arg))
-  (declare (special emacspeak-websearch-company-news-uri
-                    emacspeak-websearch-yahoo-company-news-quotes-uri))
+  (declare (special emacspeak-websearch-company-news-uri))
   (let ((type-char
          (read-char
-          "c Upgrades, h history, n news, r Research, p profile, q Quotes, t insider trades")))
+          "b basic, c Upgrades, h history, i insider, n news, o options, r Research, p profile, q Quotes, t technical")))
     (cond
      ((char-equal type-char ?h)
       (emacspeak-websearch-yahoo-historical-chart ticker prefix)
       (emacspeak-auditory-icon 'select-object)
       (message "Fetching data --just a minute."))
-     ((char-equal type-char ?q)
-      (browse-url
-       (concat
-        emacspeak-websearch-yahoo-company-news-quotes-uri
-        (format "&s=%s" ticker)))
-      (emacspeak-websearch-post-process "Markets close" 'emacspeak-speak-line))
      (t
       (browse-url
        (concat emacspeak-websearch-company-news-uri
                (format "%s?"
                        (case type-char
-                         (?n "h")
-                         (?p "pr")
-                         (?r "ae")
-                         (?c "ao")
-                         (?t "it")))
+                         (?n "/h")
+                         (?p "/pr")
+                         (?r "/ae")
+                         (?c "/ao")
+                         (?i "/it")
+                         (?q "")
+                         (?k "/ks")
+                         (?b "/bc")
+                         (?t "/ta")
+                         (?e "/ce")
+                         (?o "/op")
+                         (?s "/sec")
+                         ))
                (format "s=%s" ticker)))
       (emacspeak-websearch-post-process
        (format-time-string "%Y")
