@@ -1115,7 +1115,8 @@ in completion buffers"
           (forward-word -1)
           (emacspeak-speak-word)))
        (t (emacspeak-auditory-icon 'select-object)
-          (emacspeak-speak-line)))))
+          (emacspeak-speak-region
+           (comint-line-beginning-position) (point))))))
    (t ad-do-it))
   ad-return-value)
 
