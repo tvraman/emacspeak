@@ -1099,6 +1099,17 @@ in completion buffers"
 
 ;;}}}
 ;;{{{  Advice comint:
+
+(defadvice comint-magic-space (after emacspeak pre act)
+  "Speak word or completion."
+  (when (and emacspeak-word-echo  (interactive-p ))
+    (condition-case nil
+        (save-excursion
+          (skip-syntax-backward " ")
+          (backward-char 1)
+          (emacspeak-speak-word))
+      (error nil ))))
+
 (defadvice comint-insert-previous-argument (around emacspeak pre
                                                    act comp)
   "Provide auditory feedback."
