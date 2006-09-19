@@ -1100,15 +1100,24 @@ in completion buffers"
 ;;}}}
 ;;{{{  Advice comint:
 
-(defadvice comint-magic-space (after emacspeak pre act)
+(defadvice comint-magic-space (around emacspeak pre act)
   "Speak word or completion."
-  (when (and emacspeak-word-echo  (interactive-p ))
-    (condition-case nil
+  (cond
+   ((interactive-p)
+    (let ((orig (point))
+          (emacspeak-speak-messages nil)
+          (count (ad-get-arg 0)))
+      (setq count (or count 1))
+      ad-do-it
+      (cond
+       ((= (point) (+ count orig))
         (save-excursion
-          (skip-syntax-backward " ")
-          (backward-char 1)
-          (emacspeak-speak-word))
-      (error nil ))))
+          (forward-word -1)
+          (emacspeak-speak-word)))
+       (t (emacspeak-auditory-icon 'select-object)
+          (emacspeak-speak-line)))))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice comint-insert-previous-argument (around emacspeak pre
                                                    act comp)
