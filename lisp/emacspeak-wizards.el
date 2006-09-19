@@ -2849,6 +2849,20 @@ RIVO is implemented by rivo.pl ---
              command when ))))
 
 ;;}}}
+;;{{{ shell history:
+
+;;;### utoload
+(defun emacspeak-wizards-refresh-shell-history ()
+  "Refresh shell history from disk.
+This is for use in conjunction with bash to allow multiple emacs
+  shell buffers to   share history information."
+  (interactive)
+  (comint-read-input-ring)
+  (emacspeak-auditory-icon 'select-object))
+
+
+
+;;}}}
 ;;{{{ show commentary:
 
 ;;;###autoload
