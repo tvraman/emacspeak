@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Google Send To Phone</title>
+    <style type="text/css">
+      body {
+        font-family: arial, sans-serif;
+        background-color: #FFFFFF;
+        font-size: 80%;
+      }
+      h1 {
+        font-size: 120%;
+        font-weight: bold;
+        background-color: #BBCCED;
+        padding: .5ex 2px .5ex 2px;
+      }
+      a {
+        color: #0000CC;
+      }
+      .small {
+        font-size: small;
+      }
+      .detail {
+        color: gray;
+        font-size: small;
+      }
+      .error {
+        color: red;
+        font-size: small;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body >
+    <h1>Google Send To Phone</h1>
+    <form  action="http://www.google.com/sendtophone" method=post>
+    <input name=gl id=gl value="US" type=hidden />
+    <input name=hl id=hl value="en" type=hidden />
+    <input name=client id=client value="navclient-ffsms" type=hidden />
+    <input name=text id=text value="" type=hidden />
+    <input name=c id=c value="1" type=hidden />
+    <table border=0 cellpadding=4 cellspacing=0>
+      <tr>
+        <td align='left'>
+          To:&nbsp;<input name=mobile_user_id value="" size=20 type=text />&nbsp;<span class=detail>Example: 650-123-1234</span>
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          Carrier:&nbsp;<select name=carrier onchange="updateStats(true);">
+          <option selected=true value="">Select your carrier</option>
+          <option  value="ACS">Alaska Communications Systems</option>
+          <option  value="ALLTEL">Alltel</option>
+          <option  value="ATT">AT&amp;T (now Cingular)</option>
+          <option  value="CELLULARONE">CellularOne</option>
+          <option  value="CINCINNATI_BELL">Cincinnati Bell</option>
+          <option  value="CINGULAR">Cingular</option>
+          <option  value="CRICKET">Cricket Communications</option>
+          <option  value="METROPCS">MetroPCS</option>
+          <option  value="MIDWEST_WIRELESS">Midwest Wireless</option>
+          <option  value="NEXTEL">Nextel</option>
+          <option  value="OMNIPOINT">Omnipoint</option>
+          <option  value="QWEST">Qwest</option>
+          <option  value="SPRINT">Sprint</option>
+          <option  value="SUNCOM">SunCom Wireless</option>
+          <option  value="TMOBILE">T-Mobile</option>
+          <option  value="USCELLULAR">US Cellular</option>
+          <option  value="VERIZON">Verizon</option>
+          <option  value="VIRGIN">Virgin Mobile</option>
+          <option  value="WESTERN_WIRELESS">Western Wireless</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          <input name=ec id=ec checked type=checkbox />
+          <label for=ec>Remember this information</label>
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          Subject (optional):&nbsp;<input name=subject id=subject value="" size=20 maxlength=50 type=text />
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          Text to send:<br />
+          <textarea name=text id=body rows=8 cols=45></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          <span id=num_chars></span> <span id=num_messages></span>
+        </td>
+      </tr>
+      <tr>
+        <td align=left>
+          <input name=send_button id=send_button value="Send" style="font-weight:bold" type=submit />
+        </td>
+      </tr>
+    </table>
+    </form>
+    <p><a target=_blank href=""></a></p>
+    <p>Text message Google for quick answers. <a target=_blank href="http://www.google.com/sms/demo.html">Try it now</a>.</p>
+    <p class=detail>This information may be logged. See <a target=_blank href="http://www.google.com/intl/en/privacy.html">Privacy Policy</a>.</p>
+  </body>
+</html>
