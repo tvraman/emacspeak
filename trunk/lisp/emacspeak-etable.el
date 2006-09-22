@@ -48,8 +48,8 @@
 (require 'emacspeak-preamble)
 (eval-when-compile
   (condition-case nil
-  (require 'table)
-  (error "table.el is only available in newer Emacsuns")))
+      (require 'table)
+    (error "table.el is only available in newer Emacsuns")))
 
 ;;}}}
 ;;{{{ Update command remap list.

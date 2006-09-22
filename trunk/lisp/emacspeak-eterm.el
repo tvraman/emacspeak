@@ -553,8 +553,8 @@ without sending input to the terminal itself."
                     eterm-char-mode
                     buffer-read-only emacspeak-eterm-keymap term-raw-map))
   (emacspeak-eterm-nuke-cached-info )
-      (setq mode-line-process
-                    '("review"))
+  (setq mode-line-process
+        '("review"))
   (if eterm-char-mode 
       (cond 
        (emacspeak-eterm-review-p        ;turn it off 
@@ -1147,7 +1147,7 @@ emacspeak-toggle-eterm-autospeak bound to
           (error nil )))
        (emacspeak-eterm-focus-window
         (emacspeak-eterm-speak-window emacspeak-eterm-focus-window))
-       ((and (or (eq last-command-event 127)         ; xterm/console sends 127
+       ((and (or (eq last-command-event 127) ; xterm/console sends 127
                  (eq last-command-event 'backspace)) ; X sends 'backspace
              (= new-row emacspeak-eterm-row )
              (= -1 (- new-column emacspeak-eterm-column ))
@@ -1200,8 +1200,8 @@ there is terminal activity.")
 (defadvice term-line-mode (after emacspeak pre act)
   "Announce that you entered line mode. "
   (make-local-variable 'eterm-line-mode)
-      (setq mode-line-process
-                    '("line"))
+  (setq mode-line-process
+        '("line"))
   (setq eterm-char-mode nil 
         eterm-line-mode t )
   (when (interactive-p)
@@ -1209,8 +1209,8 @@ there is terminal activity.")
 
 (defadvice term-char-mode (after emacspeak pre act)
   "Announce you entered character mode. "
-      (setq mode-line-process
-                    '("char"))
+  (setq mode-line-process
+        '("char"))
   (setq eterm-char-mode t
         eterm-line-mode nil )
   (emacspeak-eterm-setup-raw-keys)
