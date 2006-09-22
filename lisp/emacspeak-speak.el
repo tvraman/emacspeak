@@ -702,7 +702,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -710,39 +710,38 @@ the sense of the filter. "
   :type 'string
   :group 'emacspeak)
 
-
 (unless (fboundp 'mode-line-format)
   (defun mode-line-format (spec)
-  "Process mode line format spec."
-  (cond
-;;; leaves
-   ((symbolp spec) (symbol-value  spec))
-   ((stringp spec) spec)
-;;; leaf + tree:
-   ((and (listp spec)
-         (stringp (car spec)))
-    (concat
-     (car spec)
-     (mode-line-format (cdr spec))))
-   ((and (listp spec)
-         (symbolp (car spec))
-         (null (car spec)))
-    (mode-line-format (cdr spec)))
-   ((and (listp spec)
-         (eq :eval  (car spec)))
-    (eval (cadr spec)))
-   ((and (listp spec)
-         (symbolp (car spec)))
-    (concat
-     (mode-line-format (symbol-value (car spec)))
-     (if (cdr spec)
-         (mode-line-format (cdr spec))
-       "")))
-   ((and (listp spec)
-         (caar spec))
-    (concat
-     (mode-line-format  (symbol-value (cadar spec)))
-     (mode-line-format (cdr spec)))))))
+    "Process mode line format spec."
+    (cond
+;;; leaves                              ;
+     ((symbolp spec) (symbol-value  spec))
+     ((stringp spec) spec)
+;;; leaf + tree:                        ;
+     ((and (listp spec)
+           (stringp (car spec)))
+      (concat
+       (car spec)
+       (mode-line-format (cdr spec))))
+     ((and (listp spec)
+           (symbolp (car spec))
+           (null (car spec)))
+      (mode-line-format (cdr spec)))
+     ((and (listp spec)
+           (eq :eval  (car spec)))
+      (eval (cadr spec)))
+     ((and (listp spec)
+           (symbolp (car spec)))
+      (concat
+       (mode-line-format (symbol-value (car spec)))
+       (if (cdr spec)
+           (mode-line-format (cdr spec))
+         "")))
+     ((and (listp spec)
+           (caar spec))
+      (concat
+       (mode-line-format  (symbol-value (cadar spec)))
+       (mode-line-format (cdr spec)))))))
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)

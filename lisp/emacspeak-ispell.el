@@ -137,7 +137,6 @@ many available corrections."
 
 ;;}}}
 
-
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
   "Stop chatter by turning off messages"
   (cond

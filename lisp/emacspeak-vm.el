@@ -235,8 +235,6 @@ Note that some badly formed mime messages  cause trouble."
                                  (t "")))))
                   (cdr vm-ml-message-attributes-alist)   " ")))))))
 
-
-
 ;;}}}
 ;;{{{  Moving between messages
 
@@ -707,7 +705,6 @@ text using wvText."
         vm-mime-base64-encoder-program "base64-encode"
         vm-mime-base64-decoder-program "base64-decode")
   t)
-
 
 (when emacspeak-vm-customize-mime-settings
   (emacspeak-vm-customize-mime-settings))

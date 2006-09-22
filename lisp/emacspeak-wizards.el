@@ -2860,8 +2860,6 @@ This is for use in conjunction with bash to allow multiple emacs
   (comint-read-input-ring)
   (emacspeak-auditory-icon 'select-object))
 
-
-
 ;;}}}
 ;;{{{ show commentary:
 

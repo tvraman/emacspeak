@@ -1288,16 +1288,16 @@ in completion buffers"
           'emacspeak-comint-prompt-personality
           'rear-sticky nil)))
       (when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
-       (when (and (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-                  (or
-                   monitor
-                   (eq (selected-window)
-                       (get-buffer-window (process-buffer (ad-get-arg 0))))))
-         (setq emacspeak-speak-comint-output nil)
-         (condition-case nil
-             (emacspeak-speak-region prior (point ))
-           (error (emacspeak-auditory-icon 'scroll)
-                  (dtk-stop ))))
+      (when (and (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
+                 (or
+                  monitor
+                  (eq (selected-window)
+                      (get-buffer-window (process-buffer (ad-get-arg 0))))))
+        (setq emacspeak-speak-comint-output nil)
+        (condition-case nil
+            (emacspeak-speak-region prior (point ))
+          (error (emacspeak-auditory-icon 'scroll)
+                 (dtk-stop ))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
@@ -3075,8 +3075,8 @@ Variable mark-even-if-inactive is set true ."
   (load-library "emacspeak-finder-inf")
   (when(and  (boundp 'finder-known-keywords)
              (not (eq 'emacspeak (caar finder-known-keywords))))
-  (push (cons 'emacspeak "Audio Desktop")
-               finder-known-keywords))
+    (push (cons 'emacspeak "Audio Desktop")
+          finder-known-keywords))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
