@@ -247,7 +247,7 @@ The retrieved entry is placed in a buffer ready for editing.
                atom-blogger-this-auth)
     (error "Not in a correctly initialized Atom Entry."))
   (shell-command-on-region (point-min) (point-max)
-                           (format "%s -k --compressed -H 'Content-type: application/xml' -X POST --data-binary @- -u %s %s"
+                           (format "%s --compressed -H 'Content-type: application/xml' -X POST --data-binary @- -u %s %s"
                                    atom-blogger-curl-program
                                    atom-blogger-this-auth
                                    atom-blogger-this-url))
