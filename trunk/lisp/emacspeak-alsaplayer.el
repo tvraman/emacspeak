@@ -300,7 +300,7 @@ Optional second arg no-refresh is used to avoid getting status twice."
 
 (defun emacspeak-alsaplayer-seek (offset)
   "Absolute seek  alsaplayer"
-  (interactive "sOffset")
+  (interactive "sPosition")
   (emacspeak-alsaplayer-send-command
    (list "--seek"
          offset))
