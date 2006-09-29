@@ -149,9 +149,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
       (read-file-name "MP3 Resource: "
                       (if
-                          (string-match (format ".*%s.*"
-                                                emacspeak-realaudio-shortcuts-directory)
-                                        (expand-file-name default-directory))
+                          (string-match
+                           "mp3" (expand-file-name default-directory))
                           default-directory
                         emacspeak-realaudio-shortcuts-directory)
                       (when (eq major-mode 'dired-mode)
