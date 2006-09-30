@@ -101,7 +101,8 @@
   "Apply personality to specified region, over-writing any current
 personality settings."
   (when (and (integer-or-marker-p start)
-             (integer-or-marker-p end ))
+             (integer-or-marker-p end )
+             (not (= start end)))
     (let ((v (if (listp personality)
                  (remove-duplicates personality :test #'eq)
                personality)))
@@ -113,7 +114,8 @@ personality settings."
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
   (when (and (integer-or-marker-p start)
-             (integer-or-marker-p end ))
+             (integer-or-marker-p end )
+             (not (= start end)))
     (ems-modify-buffer-safely
      (let ((v (if (listp personality)
                   (remove-duplicates personality :test #'eq)
@@ -148,7 +150,8 @@ Existing personality properties on the text range are preserved."
   "Prepend specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
   (when (and (integer-or-marker-p start)
-             (integer-or-marker-p end ))
+             (integer-or-marker-p end )
+             (not (= start end)))
     (ems-modify-buffer-safely
      (let ((v (if (listp personality)
                   (remove-duplicates personality :test #'eq)
@@ -184,7 +187,8 @@ Existing personality properties on the text range are preserved."
 Other existing personality properties on the text range are
 preserved."
   (when (and (integer-or-marker-p start)
-             (integer-or-marker-p end ))
+             (integer-or-marker-p end )
+             (not (= start end)))
     (ems-modify-buffer-safely
      (let ((orig (get-text-property start 'personality object))
            (new nil)
@@ -263,6 +267,7 @@ displayed in the messages area."
         (object (ad-get-arg 4))
         (voice nil))
     (when (and  emacspeak-personality-voiceify-faces
+                (not (= start end))
                 (or (eq prop 'face) (eq prop 'font-lock-face)))
       (condition-case nil
           (progn
@@ -411,7 +416,8 @@ displayed in the messages area."
          (object (ad-get-arg 3))
          (voice nil)
          (face nil))
-    (when (emacspeak-personality-plist-face-p props) ;;; simple minded for now
+    (when (and (not (= start end))
+               (emacspeak-personality-plist-face-p props) );;; simple minded for now
       (put-text-property start end
                          'personality nil object))))
 
