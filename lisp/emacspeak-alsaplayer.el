@@ -420,6 +420,59 @@ Optional second arg watch-pattern specifies line of output to
       (emacspeak-auditory-icon 'yank-object)
       (message "%s" where))))
 
+
+
+(defsubst emacspeak-alsaplayer-get-path ()
+  "Return currently displayed path."
+  (declare (special emacspeak-alsaplayer-buffer))
+  (save-excursion
+    (set-buffer emacspeak-alsaplayer-buffer)
+    (goto-char (point-min))
+    (when (search-forward "path:" nil t)
+      (second
+       (split-string
+        (buffer-substring-no-properties
+         (line-beginning-position)
+         (line-end-position))
+        ": ")))))
+
+(defun emacspeak-alsaplayer-info ()
+  "Speak current path and copy it to kill ring."
+  (interactive)
+  (let ((path (emacspeak-alsaplayer-get-path)))
+    (when path
+      (kill-new path)
+      (emacspeak-auditory-icon 'yank-object)
+      (message "%s" path))))
+
+
+
+
+(defvar emacspeak-alsaplayer-mp3split-program "mp3splt"
+  "Program used to clip mp3 files.")
+
+(defun emacspeak-alsaplayer-clip (path start end)
+  "Invoke mp3splt to clip selected range."
+  (interactive
+   (list
+    (read-file-name "Path:")
+    (read-minibuffer "Start: " emacspeak-alsaplayer-mark)
+    (read-minibuffer "End: ")))
+  (cd (file-name-directory path))
+  (shell-command
+   (format "%s %s %s %s"
+           emacspeak-alsaplayer-mp3split-program
+           path
+           (format "%d.%d"
+                   (/ start 60)
+                   (% start 60))
+           (format "%d.%d"
+                   (/ end 60)
+                   (% end 60)))))
+           
+                    
+
+
   ;;}}}
 ;;{{{ bind keys
 
@@ -428,45 +481,49 @@ Optional second arg watch-pattern specifies line of output to
 (loop for k in
       '(
         ("m" emacspeak-alsaplayer-mark-position)
-        ("w" emacspeak-alsaplayer-where)("." emacspeak-alsaplayer-forward-10-seconds)
-("," emacspeak-alsaplayer-backward-10-seconds)
-(">" emacspeak-alsaplayer-forward-minute)
-("<" emacspeak-alsaplayer-backward-minute)
-("]" emacspeak-alsaplayer-forward-ten-minutes)
-("[" emacspeak-alsaplayer-backward-ten-minutes)
+        ("w" emacspeak-alsaplayer-where)
+        ("x" emacspeak-alsaplayer-clip)
+        ("." emacspeak-alsaplayer-forward-10-seconds)
+        ("i" emacspeak-alsaplayer-info)
+        ("," emacspeak-alsaplayer-backward-10-seconds)
+        (">" emacspeak-alsaplayer-forward-minute)
+        ("<" emacspeak-alsaplayer-backward-minute)
+        ("]" emacspeak-alsaplayer-forward-ten-minutes)
+        ("[" emacspeak-alsaplayer-backward-ten-minutes)
 
-("a"
-  emacspeak-alsaplayer-add-to-queue)
-("A"
-  emacspeak-alsaplayer-replace-queue)
-("c"
-  emacspeak-alsaplayer-clear)
-("g"
-  emacspeak-alsaplayer-seek)
-("j" emacspeak-alsaplayer-jump)
-("l"
-  emacspeak-alsaplayer-launch)
-(" "
-  emacspeak-alsaplayer-pause)
-("n"
-  emacspeak-alsaplayer-next)
-("p"
-  emacspeak-alsaplayer-previous)
-("q"
-  emacspeak-alsaplayer-quit)
-("r" emacspeak-alsaplayer-relative)
-("s"
-  emacspeak-alsaplayer-start)
-("S"
-  emacspeak-alsaplayer-stop)
-("/" emacspeak-alsaplayer-speed)
-("?"
-  emacspeak-alsaplayer-status)
-("v" emacspeak-alsaplayer-volume)
-("l" emacspeak-alsaplayer-launch)
-)
-do
-(emacspeak-keymap-update  emacspeak-alsaplayer-mode-map k))
+        ("a"
+         emacspeak-alsaplayer-add-to-queue)
+        ("A"
+         emacspeak-alsaplayer-replace-queue)
+        ("c"
+         emacspeak-alsaplayer-clear)
+        ("g"
+         emacspeak-alsaplayer-seek)
+        ("j" emacspeak-alsaplayer-jump)
+        ("l"
+         emacspeak-alsaplayer-launch)
+        (" "
+         emacspeak-alsaplayer-pause)
+        ("n"
+         emacspeak-alsaplayer-next)
+        ("p"
+         emacspeak-alsaplayer-previous)
+        ("q"
+         emacspeak-alsaplayer-quit)
+        ("r" emacspeak-alsaplayer-relative)
+        ("s"
+         emacspeak-alsaplayer-start)
+        ("S"
+         emacspeak-alsaplayer-stop)
+        ("/" emacspeak-alsaplayer-speed)
+        ("?"
+         emacspeak-alsaplayer-status)
+        ("v" emacspeak-alsaplayer-volume)
+        ("l" emacspeak-alsaplayer-launch)
+        )
+      do
+      (emacspeak-keymap-update  emacspeak-alsaplayer-mode-map k))
+
 ;;}}}
 (provide 'emacspeak-alsaplayer)
 ;;{{{ end of file 
