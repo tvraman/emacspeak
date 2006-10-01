@@ -338,10 +338,9 @@ Optional second arg watch-pattern specifies line of output to
   "Skip forward by  minutes."
   (interactive "p")
   (emacspeak-alsaplayer-send-command
-   (format
-    "--relative %s"
-            (* 60 (or minutes 1))
-            "position:"))
+   (format "--relative %s"
+            (* 60 (or minutes 1)))
+            "position:")
   (when (interactive-p)
     (emacspeak-speak-line)))
 
