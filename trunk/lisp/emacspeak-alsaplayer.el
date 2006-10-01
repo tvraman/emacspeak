@@ -379,13 +379,56 @@ Optional second arg watch-pattern specifies line of output to
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{  saving positions, marking and clipping:
+
+(defvar emacspeak-alsaplayer-mark nil
+  "Saved mark position.")
+
+
+(defsubst emacspeak-alsaplayer-get-position ()
+  "Return currently displayed position."
+  (declare (special emacspeak-alsaplayer-buffer))
+  (save-excursion
+    (set-buffer emacspeak-alsaplayer-buffer)
+    (goto-char (point-min))
+    (when (search-forward "position:" nil t)
+      (second
+       (split-string
+        (buffer-substring-no-properties
+         (line-beginning-position)
+         (line-end-position))
+        ": ")))))
+
+(defun emacspeak-alsaplayer-mark-position   ()
+  "Mark currently displayed position."
+  (interactive)
+  (declare (special emacspeak-alsaplayer-mark))e
+      (setq emacspeak-alsaplayer-mark
+            (emacspeak-alsaplayer-get-position))
+  (when (and (interactive-p)
+             emacspeak-alsaplayer-mark)
+    (message "mark set at %s"
+             emacspeak-alsaplayer-mark)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defun emacspeak-alsaplayer-where ()
+  "Speak current position and copy it to kill ring."
+  (interactive)
+  (let ((where (emacspeak-alsaplayer-get-position)))
+    (when where
+      (kill-new where)
+      (emacspeak-auditory-icon 'yank-object)
+      (message "%s" where))))
+
+  ;;}}}
 ;;{{{ bind keys
 
 (declaim (special emacspeak-alsaplayer-mode-map))
 
 (loop for k in
       '(
-("." emacspeak-alsaplayer-forward-10-seconds)
+        ("m" emacspeak-alsaplayer-mark-position)
+        ("w" emacspeak-alsaplayer-where)("." emacspeak-alsaplayer-forward-10-seconds)
 ("," emacspeak-alsaplayer-backward-10-seconds)
 (">" emacspeak-alsaplayer-forward-minute)
 ("<" emacspeak-alsaplayer-backward-minute)
@@ -424,7 +467,6 @@ Optional second arg watch-pattern specifies line of output to
 )
 do
 (emacspeak-keymap-update  emacspeak-alsaplayer-mode-map k))
-
 ;;}}}
 (provide 'emacspeak-alsaplayer)
 ;;{{{ end of file 
