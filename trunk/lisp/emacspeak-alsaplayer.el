@@ -105,8 +105,7 @@ Alsaplayer session."
        (format "%s -r -i daemon &"
                emacspeak-alsaplayer-program))
        (current-buffer))
-    (switch-to-buffer buffer)
-    (goto-char (point-min)) 
+    (switch-to-buffer buffer) 
     (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))))
@@ -114,9 +113,12 @@ Alsaplayer session."
 ;;}}}
 ;;{{{  Invoke commands:
 
-(defun emacspeak-alsaplayer-send-command(command &optional no-refresh)
+(defun emacspeak-alsaplayer-send-command(command &optional
+  watch-pattern no-refresh)
   "Send command to Alsaplayer.
-Optional second arg no-refresh is used to avoid getting status
+Optional second arg watch-pattern specifies line of output to
+  focus on.
+Optional third arg no-refresh is used to avoid getting status
   twice."
   (declare (special emacspeak-alsaplayer-buffer))
   (save-excursion
@@ -129,8 +131,11 @@ Optional second arg no-refresh is used to avoid getting status
                    (if no-refresh
                        ""
                      "; alsaplayer --status"))
-             (current-buffer))
-            (goto-char (point-min))))
+             (current-buffer)))
+  (when (and watch-pattern
+             (eq (current-buffer) emacspeak-alsaplayer-buffer))
+    (goto-char (point-min))
+    (search-forward watch-pattern nil t)))
          
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -147,7 +152,8 @@ Optional second arg no-refresh is used to avoid getting status
    (format "--enqueue %s"
            (if (file-directory-p resource)
                (format "%s/*.mp3" resource)
-             resource)))
+             resource))
+   "playlist")
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
@@ -161,25 +167,27 @@ Optional second arg no-refresh is used to avoid getting status
            (format "--replace %s"
            (if (file-directory-p resource)
                (format "%s/*.mp3" resource)
-             resource)))
+             resource))
+           "playlist")
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-status ()
   "Show alsaplayer status"
   (interactive)
-  (declare (special emacspeak-alsaplayer-buffer))
-  (emacspeak-alsaplayer-send-command "--status" 'no-refresh)
-  (when (interactive-p)
-    (switch-to-buffer emacspeak-alsaplayer-buffer)
-    (emacspeak-speak-line))
-  (when  emacspeak-alsaplayer-auditory-feedback
-    (emacspeak-auditory-icon 'open-object)))
+  (emacspeak-alsaplayer-send-command "--status"
+                                     "position:"
+                                     'no-refresh)
+    (when (interactive-p)
+      (emacspeak-speak-line)
+      (when  emacspeak-alsaplayer-auditory-feedback
+        (emacspeak-auditory-icon 'open-object))))
 
-    (defun emacspeak-alsaplayer-pause ()
+(defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command "--pause")
+  (emacspeak-alsaplayer-send-command "--pause"
+                                     "position:")
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'button)))
 
