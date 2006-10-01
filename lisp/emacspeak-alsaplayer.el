@@ -146,9 +146,7 @@ Optional second arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (if (file-directory-p resource)
-               (format
-                "`find %s -iname '*.mp3' -print | sort `"
-                resource)
+               (format "%s/*.mp3" resource)
              resource)))
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
@@ -162,9 +160,7 @@ Optional second arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
            (format "--replace %s"
            (if (file-directory-p resource)
-               (format
-                "`find %s -iname '*.mp3' -print | sort `"
-                resource)
+               (format "%s/*.mp3" resource)
              resource)))
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
