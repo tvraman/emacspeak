@@ -113,13 +113,11 @@ Alsaplayer session."
 ;;}}}
 ;;{{{  Invoke commands:
 
-(defun emacspeak-alsaplayer-send-command(command &optional
-  watch-pattern no-refresh)
+(defun emacspeak-alsaplayer-send-command(command &optional watch-pattern no-refresh)
   "Send command to Alsaplayer.
 Optional second arg watch-pattern specifies line of output to
-  focus on.
-Optional third arg no-refresh is used to avoid getting status
-  twice."
+  focus on.  Optional third arg no-refresh is used to avoid
+  getting status twice."
   (declare (special emacspeak-alsaplayer-buffer))
   (save-excursion
     (set-buffer (get-buffer-create emacspeak-alsaplayer-buffer))
@@ -133,9 +131,9 @@ Optional third arg no-refresh is used to avoid getting status
                      "; alsaplayer --status"))
              (current-buffer)))
   (when (and watch-pattern
-             (eq (current-buffer) emacspeak-alsaplayer-buffer))
+             (eq (current-buffer) (get-buffer emacspeak-alsaplayer-buffer)))
     (goto-char (point-min))
-    (search-forward watch-pattern nil t)))
+    (search-forward watch-pattern  nil t)))
          
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -153,8 +151,10 @@ Optional third arg no-refresh is used to avoid getting status
            (if (file-directory-p resource)
                (format "%s/*.mp3" resource)
              resource))
-   "playlist")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   "playlist_length:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-replace-queue (resource)
@@ -168,8 +168,10 @@ Optional third arg no-refresh is used to avoid getting status
            (if (file-directory-p resource)
                (format "%s/*.mp3" resource)
              resource))
-           "playlist")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+           "playlist"_length:)
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-status ()
@@ -179,8 +181,12 @@ Optional third arg no-refresh is used to avoid getting status
                                      "position:"
                                      'no-refresh)
     (when (interactive-p)
+      (unless (eq (current-buffer)
+                  (get-buffer emacspeak-alsaplayer-buffer))
+        (switch-to-buffer emacspeak-alsaplayer-buffer))
       (emacspeak-speak-line)
       (when  emacspeak-alsaplayer-auditory-feedback
+        (emacspeak-speak-line)
         (emacspeak-auditory-icon 'open-object))))
 
 (defun emacspeak-alsaplayer-pause ()
@@ -188,82 +194,114 @@ Optional third arg no-refresh is used to avoid getting status
   (interactive)
   (emacspeak-alsaplayer-send-command "--pause"
                                      "position:")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
 
 (defun emacspeak-alsaplayer-next ()
   "Next  alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command "--next")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (emacspeak-alsaplayer-send-command "--next"
+                                     "path:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-previous ()
   "Previous  alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command "--previous")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (emacspeak-alsaplayer-send-command "--prev"
+                                     "path:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
     
 (defun emacspeak-alsaplayer-start ()
   "Start  alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command "--start")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (emacspeak-alsaplayer-send-command "--start"
+                                     "position:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-alsaplayer-stop ()
   "Stop  alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command list "--stop")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (emacspeak-alsaplayer-send-command "--stop"
+                                     "position:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'close-object)))
 
 (defun emacspeak-alsaplayer-relative (offset)
   "Relative seek  alsaplayer"
   (interactive "sOffset")
   (emacspeak-alsaplayer-send-command
-   (format  "--relative %s" offset))
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   (format  "--relative %s" offset)
+   "position:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-speed (setting)
   "Set speed in alsaplayer."
   (interactive "sSpeed")
   (emacspeak-alsaplayer-send-command
-   (format "--speed %s" setting))
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   (format "--speed %s" setting)
+   "speed:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-volume (setting)
   "Set volume."
   (interactive "sVolume")
   (emacspeak-alsaplayer-send-command
-   (format "--volume" setting))
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   (format "--volume" setting)
+   "volume:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-seek (offset)
   "Absolute seek  alsaplayer"
   (interactive "sPosition")
   (emacspeak-alsaplayer-send-command
-   (format "--seek %s" offset))
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   (format "--seek %s" offset)
+   "position:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-jump (track)
   "Jump to specified track."
   (interactive "sTrack Number:")
   (emacspeak-alsaplayer-send-command
-   (format "--jump %s" track))
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+   (format "--jump %s" track)
+   "path:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-clear ()
   "Clear or resume alsaplayer"
   (interactive)
-  (emacspeak-alsaplayer-send-command "--clear")
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+  (emacspeak-alsaplayer-send-command "--clear"
+                                     "playlist_length:")
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-alsaplayer-quit ()
@@ -279,20 +317,22 @@ Optional third arg no-refresh is used to avoid getting status
 ;;}}}
 ;;{{{ additional temporal navigation 
 
-(defun emacspeak-alsaplayer-forward-second ( seconds)
+(defun emacspeak-alsaplayer-forward-10-seconds ( )
   "Skip forward by  seconds."
-  (interactive "p")
-  (emacspeak-alsaplayer-send-command
-    (format "--relative %s"
-            (or seconds 1))))
+  (interactive)
+  (emacspeak-alsaplayer-send-command "--relative 10"
+                                     "position:")
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
-(defun emacspeak-alsaplayer-backward-second ( seconds)
-  "Skip backward by  seconds."
-  (interactive "p")
+(defun emacspeak-alsaplayer-backward-10-seconds()
+  "Skip backward by  10 seconds."
+  (interactive)
   (emacspeak-alsaplayer-send-command
-   (format
-    "--relative -%s"
-            (or seconds 1))))
+   "--relative -10"
+   "position:")
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-alsaplayer-forward-minute ( minutes)
   "Skip forward by  minutes."
@@ -300,7 +340,10 @@ Optional third arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
    (format
     "--relative %s"
-            (* 60 (or minutes 1)))))
+            (* 60 (or minutes 1))
+            "position:"))
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-alsaplayer-backward-minute ( minutes)
   "Skip backwards by  minutes."
@@ -308,7 +351,10 @@ Optional third arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
    (format
     "--relative -%s"
-            (* 60 (or minutes 1)))))
+            (* 60 (or minutes 1)))
+   "position:")
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-alsaplayer-forward-ten-minutes ( minutes)
   "Skip forward by  chunks of ten minutes."
@@ -316,7 +362,10 @@ Optional third arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
    (format
     "--relative %s"
-            (* 600 (or minutes 1)))))
+            (* 600 (or minutes 1)))
+   "position:")
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-alsaplayer-backward-ten-minutes ( minutes)
   "Skip backwards by  chunks of minutes."
@@ -324,7 +373,10 @@ Optional third arg no-refresh is used to avoid getting status
   (emacspeak-alsaplayer-send-command
    (format
     "--relative -%s"
-            (* 600 (or minutes 1)))))
+            (* 600 (or minutes 1)))
+   "position:")
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ bind keys
@@ -333,8 +385,8 @@ Optional third arg no-refresh is used to avoid getting status
 
 (loop for k in
       '(
-("." emacspeak-alsaplayer-forward-second)
-("," emacspeak-alsaplayer-backward-second)
+("." emacspeak-alsaplayer-forward-10-seconds)
+("," emacspeak-alsaplayer-backward-10-seconds)
 (">" emacspeak-alsaplayer-forward-minute)
 ("<" emacspeak-alsaplayer-backward-minute)
 ("]" emacspeak-alsaplayer-forward-ten-minutes)
