@@ -499,8 +499,7 @@ Optional second arg watch-pattern specifies line of output to
         ("g"
          emacspeak-alsaplayer-seek)
         ("j" emacspeak-alsaplayer-jump)
-        ("l"
-         emacspeak-alsaplayer-launch)
+        ("l" emacspeak-alsaplayer-launch)
         (" "
          emacspeak-alsaplayer-pause)
         ("n"
