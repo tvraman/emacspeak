@@ -239,7 +239,7 @@ Optional second arg no-refresh is used to avoid getting status
   "Absolute seek  alsaplayer"
   (interactive "sPosition")
   (emacspeak-alsaplayer-send-command
-   (format "--seek" offset))
+   (format "--seek %s" offset))
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'large-movement)))
 
