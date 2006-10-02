@@ -65,8 +65,7 @@
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
-\\{emacspeak-alsaplayer-mode-map}"
-  )
+\\{emacspeak-alsaplayer-mode-map}")
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
@@ -100,12 +99,11 @@ Alsaplayer session."
                     emacspeak-alsaplayer-buffer))  (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-excursion
       (set-buffer buffer)
-      (emacspeak-alsaplayer-mode)
       (shell-command
-       (format "%s -r -i daemon &"
-               emacspeak-alsaplayer-program))
-       (current-buffer))
-    (switch-to-buffer buffer) 
+       (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
+       (current-buffer)))
+    (switch-to-buffer buffer)
+    (emacspeak-alsaplayer-mode)
     (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))))
