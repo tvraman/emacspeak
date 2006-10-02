@@ -149,7 +149,7 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (if (file-directory-p resource)
-               (format "%s/*.mp3" resource)
+               (format "%s/*" resource)
              resource))
    "playlist_length:")
   (when (and emacspeak-alsaplayer-auditory-feedback
@@ -166,7 +166,7 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command
            (format "--replace %s"
            (if (file-directory-p resource)
-               (format "%s/*.mp3" resource)
+               (format "%s/*" resource)
              resource))
            "playlist"_length:)
   (when (and emacspeak-alsaplayer-auditory-feedback
