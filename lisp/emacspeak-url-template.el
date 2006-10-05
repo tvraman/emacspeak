@@ -464,6 +464,22 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ google code search 
+(emacspeak-url-template-define
+ "Code Search From Google"
+ "http://www.google.com/codesearch?q=%s"
+ (list "Google For Code: ")
+ #'(lambda nil
+     (search-forward "results"  )
+     (emacspeak-speak-line))
+ "Search using Google Code Search."
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl (browse-url url))))
+      
+      
+       
+
+;;}}}
 ;;{{{ google music:
 
 (emacspeak-url-template-define
@@ -476,8 +492,7 @@ content."
  "Music search on Google."
  #'(lambda (url)
      (emacspeak-w3-without-xsl
-      (browse-url url)
-      (goto-char (point-min)))))
+      (browse-url url))))
 
 ;;}}}
 ;;{{{  Google Video:
