@@ -285,8 +285,7 @@ for options defined in module  emacspeak-alsaplayer.
 These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-alsaplayer-auditory-feedback
-Turn this on if you want spoken feedback and auditory icons
-from alsaplayer.
+Turn this on if you want spoken feedback and auditory icons from alsaplayer.
 @end defvar
 
 @defvar {User Option} emacspeak-alsaplayer-media-directory
