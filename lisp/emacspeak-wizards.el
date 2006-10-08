@@ -2817,12 +2817,12 @@ dates.")
   (expand-file-name "rivo.pl" emacspeak-etc-directory)
   "Rivo script used by emacspeak.")
 ;;;###autoload
-(defun emacspeak-wizards-rivo (when channel length output directory)
+(defun emacspeak-wizards-rivo (when channel stop-time output directory)
   "Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
   UNIX AT scheduling facility.
 RIVO is implemented by rivo.pl ---
- a Perl script  that can be used to launch realaudio and record
+ a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration."
   (interactive
    (list
@@ -2841,9 +2841,9 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
   (let ((command
-         (format "%s -c %s -l %s -o %s -d %s\n"
+         (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program
-                 channel length output directory)))
+                 channel stop-time output directory)))
     (shell-command
      (format "echo '%s' | at %s"
              command when ))))
