@@ -1,18 +1,20 @@
 #!/usr/bin/perl -w
-#record radio for later playback 
+#record radio for later playback
+#Rewritten to use mplayer
+
 use strict;
 use vars qw(%options);
 use Getopt::Std;
-getopts('c:d:l:o:', \%options);
-die "Usage: $0 -c channel -d directory  -l duration -o output\n"
+getopts('c:d:s:o:', \%options);
+die "Usage: $0 -c channel -d directory  -s stop-time -o output\n"
   unless (defined ($options{d})
           and defined($options{o})
           and defined ($options{c})
-          and defined($options{l}));
+          and defined($options{s}));
 chdir($options{d});
 my $wav="$$.wav";
 $options{o} .=".mp3" unless ($options{o} =~ m/\.mp$/);
-$ENV{TERM}='dumb';
-qx(vsound -t  -f $wav trplayer -t $options{l} $options{c});
+qx(mplayer -quiet -vc null -vo null  -ao pcm:file=$wav -playlist $options{c});
 qx(lame --quiet $wav $options{o});
+qx(echo "pkill mplayer" | at $options{s});
 unlink($wav);
