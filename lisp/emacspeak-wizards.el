@@ -294,7 +294,7 @@ command `emacspeak-table-display-table-in-region' normally bound to
                           nil           ;read
                           'emacspeak-speak-run-shell-command-history)
     current-prefix-arg))
-  (let ((buffer-name (format "*%s-output*" command))
+  (let ((buffer-name (format "%s" command))
         (start nil)
         (end nil))
     (when as-root
