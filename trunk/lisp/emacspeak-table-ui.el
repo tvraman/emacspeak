@@ -958,25 +958,17 @@ table markup.")
 
 ;;}}}
 ;;{{{  define table markup for the various modes of interest
-
-(emacspeak-table-markup-set-table 'xml-mode
-                                  (emacspeak-table-make-markup
-                                   :table-start "<TABLE>\n"
-                                   :table-end "</TABLE>\n"
-                                   :row-start "<TR>\n"
-                                   :row-end "</TR>\n"
-                                   :col-start "<TD>\n"
-                                   :col-end "</TD>\n"
-                                   :col-separator ""))
-(emacspeak-table-markup-set-table 'html-helper-mode
-                                  (emacspeak-table-make-markup
-                                   :table-start "<TABLE>\n"
-                                   :table-end "</TABLE>\n"
-                                   :row-start "<TR>\n"
-                                   :row-end "</TR>\n"
-                                   :col-start "<TD>\n"
-                                   :col-end "</TD>\n"
-                                   :col-separator ""))
+(let ((html-table (emacspeak-table-make-markup
+                   :table-start "<TABLE>\n"
+                   :table-end "</TABLE>\n"
+                   :row-start "<TR>\n"
+                   :row-end "</TR>\n"
+                   :col-start "<TD>\n"
+                   :col-end "</TD>\n"
+                   :col-separator "")))
+  (emacspeak-table-markup-set-table 'xml-mode html-table)
+  (emacspeak-table-markup-set-table 'nxml-mode html-table)
+  (emacspeak-table-markup-set-table 'html-helper-mode html-table))
 
 (emacspeak-table-markup-set-table 'latex2e-mode
                                   (emacspeak-table-make-markup
@@ -1046,8 +1038,7 @@ emacspeak-table-mode. "))
 Use the major  mode of this buffer to  decide what kind of table
 markup to use."
   (interactive)
-  (declare (special emacspeak-table-clipboard
-                    emacspeak-table))
+  (declare (special emacspeak-table-clipboard emacspeak-table))
   (let ((mode  major-mode)
         (markup nil)
         (table (emacspeak-table-elements emacspeak-table-clipboard))
