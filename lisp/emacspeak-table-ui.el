@@ -604,11 +604,11 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 \\[describe-mode] in a buffer that is in emacspeak table mode to read
 the documentation on the table browser."
   (interactive "r")
-  (declare (special emacspeak-table
-                    positions))
-  (let ((workspace (get-buffer-create " table workspace  "))
+  (declare (special emacspeak-table positions))
+  (let ((buffer-undo-list t)
+        (workspace (get-buffer-create " table workspace  "))
         (buffer (get-buffer-create
-                 (format  "*table-%s*"
+                 (format  "table-%s"
                           (or (buffer-name)
                               "scratch"))))
         (table nil)
@@ -664,7 +664,12 @@ the documentation on the table browser."
               (incf i))
         (emacspeak-table-mode)
         (goto-char (point-min))))
-    (switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (rename-buffer
+     (format "%sX%s-%s"
+             (emacspeak-table-num-rows emacspeak-table)
+             (emacspeak-table-num-columns emacspeak-table)
+             (buffer-name buffer) ))))
 
 ;;}}}
 ;;{{{ select default speaking action
