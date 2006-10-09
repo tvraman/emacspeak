@@ -70,45 +70,41 @@
 (defvar emacspeak-table-keymap (make-sparse-keymap)
   "Keymap for using in table browsing mode")
 
-(progn
-  (define-key  emacspeak-table-keymap "\M-l" 'emacspeak-table-ui-filter-load)
-  (define-key  emacspeak-table-keymap "\M-s" 'emacspeak-table-ui-filter-save)
-  (define-key emacspeak-table-keymap "#"
-    'emacspeak-table-sort-on-current-column)
-  (define-key emacspeak-table-keymap "q"
-    'emacspeak-kill-buffer-quietly)
-  (define-key emacspeak-table-keymap "x" 'emacspeak-table-copy-current-element-to-register)
-  (define-key emacspeak-table-keymap "\t"
-    'emacspeak-table-next-column)
-  (define-key emacspeak-table-keymap  '[<shift> tab] 'emacspeak-table-previous-column)
-  (define-key emacspeak-table-keymap "j" 'emacspeak-table-goto)
-  (define-key emacspeak-table-keymap '[up] 'emacspeak-table-previous-row)
-  (define-key emacspeak-table-keymap '[down] 'emacspeak-table-next-row)
-  (define-key emacspeak-table-keymap '[left] 'emacspeak-table-previous-column)
-  (define-key emacspeak-table-keymap '[right] 'emacspeak-table-next-column)
-  (define-key emacspeak-table-keymap "r" 'emacspeak-table-speak-row-header-and-element )
-  (define-key emacspeak-table-keymap "c" 'emacspeak-table-speak-column-header-and-element)
-  (define-key emacspeak-table-keymap " " 'emacspeak-table-speak-current-element)
-  (define-key emacspeak-table-keymap "b"
-    'emacspeak-table-speak-both-headers-and-element)
-  (define-key emacspeak-table-keymap "." 'emacspeak-table-speak-coordinates)
-  (define-key emacspeak-table-keymap "=" 'emacspeak-table-speak-dimensions)
-  (define-key emacspeak-table-keymap "a"
-    'emacspeak-table-select-automatic-speaking-method)
-  (define-key emacspeak-table-keymap "s" 'emacspeak-table-search)
-  (define-key emacspeak-table-keymap "C"
-    'emacspeak-table-search-column)
-  (define-key emacspeak-table-keymap "R" 'emacspeak-table-search-row)
-  (define-key emacspeak-table-keymap "f" 'emacspeak-table-speak-row-filtered)
-  (define-key emacspeak-table-keymap "g" 'emacspeak-table-speak-column-filtered)
-  (define-key emacspeak-table-keymap "h"
-    'emacspeak-table-search-headers)
-  (define-key emacspeak-table-keymap "k" 'emacspeak-table-copy-to-clipboard)
-  (define-key emacspeak-table-keymap "T" 'emacspeak-table-goto-top)
-  (define-key emacspeak-table-keymap "B" 'emacspeak-table-goto-bottom)
-  (define-key emacspeak-table-keymap "L" 'emacspeak-table-goto-left)
-  (define-key emacspeak-table-keymap "E" 'emacspeak-table-goto-right)
-  )
+(loop for binding in
+      '(
+        ( "\M-l" emacspeak-table-ui-filter-load)
+        ( "\M-s" emacspeak-table-ui-filter-save)
+        ("#"
+         emacspeak-table-sort-on-current-column)
+        ("q" emacspeak-kill-buffer-quietly)
+        ("x" emacspeak-table-copy-current-element-to-register)
+        ("\t" emacspeak-table-next-column)
+        ( [<shift> tab] emacspeak-table-previous-column)
+        ("j" emacspeak-table-goto)
+        ([up] emacspeak-table-previous-row)
+        ([down] emacspeak-table-next-row)
+        ([left] emacspeak-table-previous-column)
+        ([right] emacspeak-table-next-column)
+        ("r" emacspeak-table-speak-row-header-and-element )
+        ("c" emacspeak-table-speak-column-header-and-element)
+        (" " emacspeak-table-speak-current-element)
+        ("b" emacspeak-table-speak-both-headers-and-element)
+        ("." emacspeak-table-speak-coordinates)
+        ("=" emacspeak-table-speak-dimensions)
+        ("a" emacspeak-table-select-automatic-speaking-method)
+        ("s" emacspeak-table-search)
+        ("C" emacspeak-table-search-column)
+        ("R" emacspeak-table-search-row)
+        ("f" emacspeak-table-speak-row-filtered)
+        ("g" emacspeak-table-speak-column-filtered)
+        ("h" emacspeak-table-search-headers)
+        ("k" emacspeak-table-copy-to-clipboard)
+        ("T" emacspeak-table-goto-top)
+        ("B" emacspeak-table-goto-bottom)
+        ("L" emacspeak-table-goto-left)
+        ("E" emacspeak-table-goto-right))
+      do
+      (emacspeak-keymap-update emacspeak-table-keymap binding))
 
 (defun emacspeak-table-mode ()
   "Major mode for browsing tables.
