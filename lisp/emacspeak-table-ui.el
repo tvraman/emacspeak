@@ -915,12 +915,14 @@ match, makes the matching row or column current."
 ;;{{{ cutting and pasting tables:
 
 (defun emacspeak-table-copy-current-element-to-register (register)
-  "Speak current table element"
+  "Copy current table element to specified register."
   (interactive "cCopy to register: ")
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
-       (set-register register
-                     (emacspeak-table-current-element emacspeak-table))))
+       (set-register register (emacspeak-table-current-element
+                               emacspeak-table))
+       (message "Copied element to register %c" register)))
+
 ;;; Implementing table editing and table clipboard.
 ;;{{{ variables
 
