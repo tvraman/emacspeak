@@ -14,7 +14,8 @@ die "Usage: $0 -c channel -d directory  -s stop-time -o output\n"
 chdir($options{d});
 my $wav="$$.wav";
 $options{o} .=".mp3" unless ($options{o} =~ m/\.mp$/);
-qx(mplayer -quiet -vc null -vo null  -ao pcm:file=$wav -playlist $options{c});
-qx(lame --quiet $wav $options{o});
 qx(echo "pkill mplayer" | at $options{s});
+qx(mplayer -quiet -vc null -vo null  -ao pcm:file=$wav -playlist $options{c} );
+qx(lame --quiet $wav $options{o});
+
 unlink($wav);
