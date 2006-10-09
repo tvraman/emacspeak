@@ -78,6 +78,7 @@
          emacspeak-table-sort-on-current-column)
         ("q" emacspeak-kill-buffer-quietly)
         ("x" emacspeak-table-copy-current-element-to-register)
+        ("w" emacspeak-table-copy-current-element-to-kill-ring)
         ("\t" emacspeak-table-next-column)
         ( [<shift> tab] emacspeak-table-previous-column)
         ("j" emacspeak-table-goto)
@@ -189,6 +190,7 @@ specifies the filter"
    'point-entered
    'emacspeak-table-point-motion-hook)
   (not-modified)
+  (setq buffer-undo-list t)
   (setq buffer-read-only t)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
@@ -360,30 +362,29 @@ Optional prefix arg prompts for a new filter."
   (let ((voice-lock-mode t))
     (dtk-speak
      (mapconcat
-      (function
-       (lambda (token)
-         (let ((value nil))
-           (cond
-            ((stringp token) token)
-            ((numberp token)
-             (setq value
-                   (emacspeak-table-get-entry-with-headers
-                    (emacspeak-table-current-row emacspeak-table)
-                    token))
-             (put-text-property 0 (length value)
-                                'personality voice-smoothen  value)
-             value)
-            ((and (listp token)
-                  (numberp (first token))
-                  (numberp (second token )))
-             (setq value
-                   (emacspeak-table-get-entry-with-headers
-                    (first token)
-                    (second token)))
-             (put-text-property 0 (length value)
-                                'personality voice-smoothen value)
-             value)
-            (t  (format "%s" token))))))
+      #'(lambda (token)
+          (let ((value nil))
+            (cond
+             ((stringp token) token)
+             ((numberp token)
+              (setq value
+                    (emacspeak-table-get-entry-with-headers
+                     (emacspeak-table-current-row emacspeak-table)
+                     token))
+              (put-text-property 0 (length value)
+                                 'personality voice-smoothen  value)
+              value)
+             ((and (listp token)
+                   (numberp (first token))
+                   (numberp (second token )))
+              (setq value
+                    (emacspeak-table-get-entry-with-headers
+                     (first token)
+                     (second token)))
+              (put-text-property 0 (length value)
+                                 'personality voice-smoothen value)
+              value)
+             (t  (format "%s" token)))))
       emacspeak-table-speak-row-filter
       " "))))
 
@@ -405,21 +406,20 @@ Optional prefix arg prompts for a new filter."
           (read-minibuffer "Specify column filter as a list: " "(")))
   (dtk-speak
    (mapconcat
-    (function
-     (lambda (token)
-       (cond
-        ((stringp token) token)
-        ((numberp token)
-         (emacspeak-table-get-entry-with-headers
-          token
-          (emacspeak-table-current-column emacspeak-table)))
-        ((and (listp token)
-              (numberp (first token))
-              (numberp (second token )))
-         (emacspeak-table-get-entry-with-headers
-          (first token)
-          (second token)))
-        (t  (format "%s" token)))))
+    #'(lambda (token)
+        (cond
+         ((stringp token) token)
+         ((numberp token)
+          (emacspeak-table-get-entry-with-headers
+           token
+           (emacspeak-table-current-column emacspeak-table)))
+         ((and (listp token)
+               (numberp (first token))
+               (numberp (second token )))
+          (emacspeak-table-get-entry-with-headers
+           (first token)
+           (second token)))
+         (t  (format "%s" token))))
     emacspeak-table-speak-column-filter
     " ")))
 
@@ -910,13 +910,25 @@ match, makes the matching row or column current."
 ;;}}}
 ;;{{{ cutting and pasting tables:
 
+(defun emacspeak-table-copy-current-element-to-kill-ring ()
+  "Copy current table element to kill ring."
+  (interactive)
+  (declare (special emacspeak-table ))
+  (and (boundp 'emacspeak-table)
+       (kill-new  (emacspeak-table-current-element emacspeak-table)))
+       (when (interactive-p)
+       (emacspeak-auditory-icon 'delete-object)
+       (message "Copied element to kill ring")))
+
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
   (interactive "cCopy to register: ")
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
        (set-register register (emacspeak-table-current-element
-                               emacspeak-table))
+                               emacspeak-table)))
+       (when (interactive-p)
+         (emacspeak-auditory-icon 'select-object)
        (message "Copied element to register %c" register)))
 
 ;;; Implementing table editing and table clipboard.
