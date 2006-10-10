@@ -1886,7 +1886,16 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "EmacsWiki Search")
 
 ;;}}}
+;;{{{ reuters
 
+(emacspeak-url-template-define
+ "Reuters Finance"
+ "http://today.reuters.com/stocks/Overview.aspx?ticker=%s&fs=1"
+ (list "Ticker: ")
+ nil
+ "Reuters Finance Lookup")
+
+;;}}}
 ;;}}}
 ;;{{{ Interactive commands
 
