@@ -914,22 +914,22 @@ match, makes the matching row or column current."
   "Copy current table element to kill ring."
   (interactive)
   (declare (special emacspeak-table ))
-  (and (boundp 'emacspeak-table)
-       (kill-new  (emacspeak-table-current-element emacspeak-table)))
+  (when (boundp 'emacspeak-table)
+       (kill-new  (emacspeak-table-current-element emacspeak-table))
        (when (interactive-p)
        (emacspeak-auditory-icon 'delete-object)
-       (message "Copied element to kill ring")))
+       (message "Copied element to kill ring"))))
 
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
   (interactive "cCopy to register: ")
   (declare (special emacspeak-table ))
-  (and (boundp 'emacspeak-table)
+  (when  (boundp 'emacspeak-table)
        (set-register register (emacspeak-table-current-element
-                               emacspeak-table)))
+                               emacspeak-table))
        (when (interactive-p)
          (emacspeak-auditory-icon 'select-object)
-       (message "Copied element to register %c" register)))
+       (message "Copied element to register %c" register))))
 
 ;;; Implementing table editing and table clipboard.
 ;;{{{ variables
@@ -966,21 +966,22 @@ table markup.")
 
 ;;}}}
 ;;{{{  define table markup for the various modes of interest
-(let ((html-table (emacspeak-table-make-markup
-                   :table-start "<TABLE>\n"
-                   :table-end "</TABLE>\n"
-                   :row-start "<TR>\n"
-                   :row-end "</TR>\n"
-                   :col-start "<TD>\n"
-                   :col-end "</TD>\n"
-                   :col-separator "")))
+(let ((html-table
+       (emacspeak-table-make-markup
+        :table-start "<TABLE>\n"
+        :table-end "</TABLE>\n"
+        :row-start "<TR>\n"
+        :row-end "</TR>\n"
+        :col-start "<TD>\n"
+        :col-end "</TD>\n"
+        :col-separator "")))
   (emacspeak-table-markup-set-table 'xml-mode html-table)
   (emacspeak-table-markup-set-table 'nxml-mode html-table)
   (emacspeak-table-markup-set-table 'html-helper-mode html-table))
 
 (emacspeak-table-markup-set-table 'latex2e-mode
                                   (emacspeak-table-make-markup
-                                   :table-start "\\begin{tabular}\n"
+                                   :table-start "\\begin{tabular}{}\n"
                                    :table-end "\\end{tabular}\n"
                                    :row-start ""
                                    :row-end "\\\\\n"
@@ -1073,12 +1074,15 @@ markup to use."
         (loop for row across table
               do
               (insert (format "%s" row-start))
+              (let ((current 0)
+                    (final (length row)))
               (loop for column across row
                     do
                     (insert (format "%s %s %s"
                                     col-start column col-end  ))
-                    (insert (format "%s" col-separator)))
-              (insert (format "%s" row-end)))
+                    (incf current)
+                    (unless (= current final)
+                    (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
         (insert (format "%s" table-end))))))
 
 ;;}}}
