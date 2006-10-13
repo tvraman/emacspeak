@@ -293,7 +293,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current                     ;move to parsed item if needed
+    (unless current                ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
@@ -1895,6 +1895,43 @@ If a rewrite rule is defined in the current buffer, we change
                                   (second
                                    emacspeak-w3-url-rewrite-rule)))
       (push redirect minibuffer-history))))
+
+;;}}}
+;;{{{ cleanup with tidy:
+
+(defcustom emacspeak-w3-tidy-program "tidy"
+  "Name of tidy executable"
+  :type 'file
+  :group 'emacspeak-w3)
+
+
+(defcustom emacspeak-w3-tidy-html t
+  "Tidy HTML before rendering."
+  :type 'boolean
+  :group 'emacspeak-w3)
+
+(defun emacspeak-w3-tidy (&optional buff)
+  "Use html tidy to clean up the HTML in the current buffer."
+  (declare (special emacspeak-w3-tidy-html))
+  (when emacspeak-w3-tidy-html
+    (save-excursion
+      (if buff
+          (set-buffer buff)
+        (setq buff (current-buffer)))
+      (setq buffer-undo-list t)
+      (widen)
+      (call-process-region
+       (point-min) (point-max)
+       emacspeak-w3-tidy-program t
+       (list buff nil)
+       nil
+       "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
+       "-asxml" "-quiet" "-clean" "-bare" "-omit"
+       "--drop-proprietary-attributes" "yes" "--hide-comments" "yes"))))
+
+
+(add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
+
 
 ;;}}}
 ;;{{{  emacs local variables
