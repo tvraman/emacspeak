@@ -145,7 +145,6 @@ int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int closeDSP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int eciCallback (void *, int, long, void *);
-int playWaveFile (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
 void
 TclEciFree (ClientData eciHandle)
@@ -348,37 +347,11 @@ Tcleci_Init (Tcl_Interp * interp)
                         TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
                         (ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand (interp, "playWave", playWaveFile, (ClientData) NULL,
-                        NULL);
   Tcl_CreateObjCommand (interp, "closeDSP", closeDSP, (ClientData) eciHandle,
                         TclEciFree);
   //>
   rc = Tcl_Eval (interp, "proc index x {global tts; \
 set tts(last_index) $x}");
-  return TCL_OK;
-}
-
-
-int
-playWaveFile (ClientData unused, Tcl_Interp * interp, int objc,
-              Tcl_Obj * CONST objv[])
-{
-  int length;
-  char *cmd;
-  char *filename;
-  char command[256];
-  if (objc != 3)
-    {
-      Tcl_AppendResult (interp, "Usage: playWave cmd filename", NULL);
-      return TCL_ERROR;
-    }
-  cmd = Tcl_GetStringFromObj (objv[1], &length);
-  filename = Tcl_GetStringFromObj (objv[2], &length);
-  sprintf (command, "%s %s", cmd, filename);
-  close (dsp);
-  dsp = -1;
-  system (command);
-  fprintf (stderr, "Played %s\n", filename);
   return TCL_OK;
 }
 
@@ -408,7 +381,9 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
   if (msg == eciIndexReply /* eciIndexReply */ )
     {
       char buffer[128];
-      sprintf (buffer, "index %ld", lparam);
+      snprintf (buffer,
+                128,
+                "index %ld", lparam);
       rc = Tcl_Eval (interp, buffer);
       if (rc != TCL_OK)
         Tcl_BackgroundError (interp);

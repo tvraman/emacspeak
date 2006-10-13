@@ -774,7 +774,9 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
   if (msg == eciIndexReply)
     {
       char buffer[128];
-      sprintf (buffer, "index %ld", lparam);
+      snprintf (buffer,
+               128,
+               "index %ld", lparam);
       rc = Tcl_Eval (interp, buffer);
       if (rc != TCL_OK)
 	Tcl_BackgroundError (interp);
