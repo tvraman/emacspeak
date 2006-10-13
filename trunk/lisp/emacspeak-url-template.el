@@ -1896,6 +1896,30 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Reuters Finance Lookup")
 
 ;;}}}
+;;{{{ ask 
+
+(emacspeak-url-template-define
+ "ask search mobile"
+ "http://mobile.ask.com/web.jsp?fi_what=%s&fi_Search=Search&form=web"
+ (list "Ask Mobile Search: ")
+ #'(lambda nil
+      (search-forward "results")
+      (emacspeak-speak-rest-of-buffer))
+ "Mobile search using Ask.com")
+ 
+
+(emacspeak-url-template-define
+ "Ask Walking Directions"
+ "http://mobile.ask.com/dd.jsp?fi_st_addr=%s&fi_end_addr=%s&fi_method=Walk&form=dd"
+ (list "Start Address: "
+       "End Address: ")
+ #'(lambda()
+     (search-forward "Time:")
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer))
+ "Walking directions from Ask.com")
+
+;;}}}
 ;;}}}
 ;;{{{ Interactive commands
 
