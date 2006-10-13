@@ -185,7 +185,7 @@ Optional second arg watch-pattern specifies line of output to
       (emacspeak-speak-line)
       (when  emacspeak-alsaplayer-auditory-feedback
         (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'open-object))))
+        (emacspeak-auditory-icon 'select-object))))
 
 (defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
