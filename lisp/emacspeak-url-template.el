@@ -464,7 +464,7 @@ content."
  "Search answers.com")
 
 ;;}}}
-;;{{{ google code search 
+;;{{{ google code search
 (emacspeak-url-template-define
  "Code Search From Google"
  "http://www.google.com/codesearch?q=%s"
@@ -475,9 +475,9 @@ content."
  "Search using Google Code Search."
  #'(lambda (url)
      (emacspeak-w3-without-xsl (browse-url url))))
-      
-      
-       
+
+
+
 
 ;;}}}
 ;;{{{ google music:
@@ -948,7 +948,7 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
-      
+
 
 ;;}}}
 ;;{{{  cnet news
@@ -1896,7 +1896,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Reuters Finance Lookup")
 
 ;;}}}
-;;{{{ ask 
+;;{{{ ask
 
 (emacspeak-url-template-define
  "ask search mobile"
@@ -1906,7 +1906,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
       (search-forward "results")
       (emacspeak-speak-rest-of-buffer))
  "Mobile search using Ask.com")
- 
+
 
 (emacspeak-url-template-define
  "Ask Walking Directions"
@@ -1917,8 +1917,19 @@ Meerkat realy needs an xml-rpc method for getting this.")
      (search-forward "Time:")
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
- "Walking directions from Ask.com")
 
+ "Walking directions from Ask.com"
+
+(emacspeak-url-template-define
+ "Ask Local Search"
+ "http://mobile.ask.com/local.jsp?fi_what=%s&fi_where=%s&fi_Search=Search&form=local)"
+ (list "Find: "
+       "Near: ")
+ #'(lambda nil
+     (search-forward "Sort")
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
+ "Ask Local Search.")
 ;;}}}
 ;;}}}
 ;;{{{ Interactive commands
