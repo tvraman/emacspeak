@@ -1917,8 +1917,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
      (search-forward "Time:")
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
-
- "Walking directions from Ask.com"
+ "Walking directions from Ask.com")
 
 (emacspeak-url-template-define
  "Ask Local Search"
