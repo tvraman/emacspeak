@@ -139,9 +139,7 @@ Optional second arg watch-pattern specifies line of output to
    (list
     (read-file-name "Media Resource: "
                     (if 
-                        (string-match (format ".*%s.*"
-                                              emacspeak-alsaplayer-media-directory)
-                                      (expand-file-name default-directory))
+                        (string-match "mp3" (expand-file-name default-directory))
                         default-directory
                       emacspeak-alsaplayer-media-directory))))
   (emacspeak-alsaplayer-send-command
