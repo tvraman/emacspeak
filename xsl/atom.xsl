@@ -65,9 +65,7 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
     <li>
       <a>
-        <xsl:attribute name="href">
-          #<xsl:value-of select="generate-id(.)"/> 
-        </xsl:attribute>
+        <xsl:attribute name="href">#<xsl:value-of select="generate-id(.)"/></xsl:attribute>
         <xsl:value-of select="atom:title|w3a:title"/>
       </a>
     </li>
