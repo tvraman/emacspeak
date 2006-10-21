@@ -2,5 +2,6 @@
 #Description: Emacspeak tool  to  madplay mp3s
 
 
-madplay --tty-control -o cdda:- "$@"\
- | aplay -f cdr -
+#madplay --tty-control -o cdda:- "$@"\
+ #| aplay -f cdr -
+aoss madplay "$@"
