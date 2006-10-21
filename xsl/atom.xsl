@@ -11,7 +11,7 @@ View an Atom feed as clean HTML
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns:gr="http://www.google.com/schemas/reader/atom/"
                 version="1.0">
-  <xsl:output encoding="iso8859-15" method="xml" indent="yes"/>
+  <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
   
   <xsl:template match="atom:feed|w3a:feed">
     <html>
@@ -22,7 +22,10 @@ View an Atom feed as clean HTML
         </title>
       </head>
       <body>
-        <h1><xsl:value-of select="atom:title|w3a:title"/>
+        <h1><xsl:value-of select="atom:title|w3a:title"
+        disable-output-escaping="yes"/>
+        <xsl:apply-templates
+            select="atom:link[@rel='self']|w3a:link[@rel='self']"/>
         <xsl:apply-templates
             select="atom:link[@rel='service.post']|w3a:link[@rel='service.post']"/>
         </h1>
@@ -58,15 +61,18 @@ View an Atom feed as clean HTML
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
     <p>
       <xsl:apply-templates select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
-      <em><xsl:value-of  select="atom:author/atom:name"/>
+      <em><xsl:value-of  select="atom:author/atom:name" disable-output-escaping="yes"/>
       <xsl:value-of select="atom:issued|w3a:issued"/></em>
     </p>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
     <li>
       <a>
-        <xsl:attribute name="href">#<xsl:value-of select="generate-id(.)"/></xsl:attribute>
-        <xsl:value-of select="atom:title|w3a:title"/>
+        <xsl:attribute name="href">
+          #<xsl:value-of select="generate-id(.)"/> 
+        </xsl:attribute>
+        <xsl:value-of select="atom:title|w3a:title"
+                      disable-output-escaping="yes"/>
       </a>
     </li>
   </xsl:template>
