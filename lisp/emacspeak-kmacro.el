@@ -94,7 +94,7 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-lin)))
+    (emacspeak-speak-mode-line)))
 (defadvice kmacro-call-ring-2nd-repeat (before emacspeak pre act
                                                comp)
   "Provide auditory feedback."
