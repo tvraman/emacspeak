@@ -421,6 +421,19 @@ displayed in the messages area."
       (put-text-property start end
                          'personality nil object))))
 
+(defadvice remove-list-of-text-properties (before emacspeak-personality pre act comp)
+  "Undo any voiceification if needed."
+  (let  ((start (ad-get-arg 0))
+         (end (ad-get-arg 1))
+         (props (ad-get-arg 2))
+         (object (ad-get-arg 3))
+         (voice nil)
+         (face nil))
+    (when (and (not (= start end))
+               (emacspeak-personality-plist-face-p props) );;; simple minded for now
+      (put-text-property start end
+                         'personality nil object))))
+
 ;;}}}
 ;;{{{ advice overlay-put
 
