@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 542 user customizable
+This chapter documents a total of 545 user customizable
   options.
 
 @menu
@@ -2222,6 +2222,14 @@ Can be customized to set up initial default.
 Pronunciation mode to use for W3 buffers.
 @end defvar
 
+@defvar {User Option} emacspeak-w3-tidy-html
+Tidy HTML before rendering.
+@end defvar
+
+@defvar {User Option} emacspeak-w3-tidy-program
+Name of tidy executable
+@end defvar
+
 @defvar {User Option} emacspeak-w3-xsl-keep-result
 Set to a non-empty string  if you want the buffer containing the transformed HTML
 source to be preserved.
@@ -2843,6 +2851,11 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-dired-directory-voice
 Personality used for dired-directory
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-flagged-voice
+Personality used for dired-flagged
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-dired-header-voice
