@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 772 commands.
+This chapter documents a total of 773 commands.
 
 @menu
 * cd-tool::                     
@@ -3453,8 +3453,12 @@ Move to top-left corner of  sub-square above current one.
 Automatically generated documentation
 for commands defined in module  emacspeak-table-ui.
 
+@deffn {Interactive Command} emacspeak-table-copy-current-element-to-kill-ring ()
+Copy current table element to kill ring.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-register (REGISTER)
-Speak current table element
+Copy current table element to specified register.
 
 This function is advised.
 
@@ -5163,12 +5167,12 @@ This is for use in conjunction with bash to allow multiple emacs
   shell buffers to   share history information.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-rivo (WHEN CHANNEL LENGTH OUTPUT DIRECTORY)
+@deffn {Interactive Command} emacspeak-wizards-rivo (WHEN CHANNEL STOP-TIME OUTPUT DIRECTORY)
 Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
   UNIX AT scheduling facility.
 RIVO is implemented by rivo.pl ---
- a Perl script  that can be used to launch realaudio and record
+ a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration.
 @end deffn
 
@@ -5494,7 +5498,7 @@ Pops up an org input area.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 112 URL Templates.
+This section documents a total of 116 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5536,6 +5540,14 @@ Play This American Life  shows on demand.
 @kbd{Archive News Search}
 
 Search Google Archive News.
+
+@kbd{Ask Local Search}
+
+Ask Local Search.
+
+@kbd{Ask Walking Directions}
+
+Walking directions from Ask.com
 
 @kbd{BBC 7 Schedule}
 
@@ -5865,6 +5877,10 @@ Read pulpit from PBS. Published on the Thursday of the week.
 
 Play specified edition of Redhat Linux Show
 
+@kbd{Reuters Finance}
+
+Reuters Finance Lookup
+
 @kbd{Shoutcast Search}
 
 Locate and display Shoutcast streams.
@@ -5979,6 +5995,10 @@ YubNub Command Line
 @kbd{answers.com}
 
 Search answers.com
+
+@kbd{ask search mobile}
+
+Mobile search using Ask.com
 
 @kbd{fedex packages}
 
