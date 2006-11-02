@@ -179,7 +179,9 @@ If we add new icons we should declare them here. ")
 ;;;###autoload
 (defcustom emacspeak-play-program
   (cond
-   ((getenv "EMACSPEAK_PLAY_PROGRAM"))
+   ((getenv "EMACSPEAK_PLAY_PROGRAM")
+    (getenv "EMACSPEAK_PLAY_PROGRAM"))
+   ((file-exists-p "/usr/bin/aplay") "/usr/bin/aplay")
    ((file-exists-p "/usr/bin/play") "/usr/bin/play")
    ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
    ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
