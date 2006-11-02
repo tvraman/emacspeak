@@ -2836,7 +2836,11 @@ s   Sub-square Distribution.
 
 ------------------------------------------------------------
 
-** emacspeak-table-copy-current-element-to-register Speak current table element
+** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
+
+------------------------------------------------------------
+
+** emacspeak-table-copy-current-element-to-register Copy current table element to specified register.
 
 This function is advised.
 
@@ -4440,7 +4444,7 @@ This is for use in conjunction with bash to allow multiple emacs
 Prompts for relevant information and schedules a rivo job using
   UNIX AT scheduling facility.
 RIVO is implemented by rivo.pl ---
- a Perl script  that can be used to launch realaudio and record
+ a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration. 
 
 ------------------------------------------------------------
