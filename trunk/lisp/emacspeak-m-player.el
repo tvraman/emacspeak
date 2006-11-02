@@ -198,6 +198,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (save-excursion
       (set-buffer (process-buffer emacspeak-m-player-process))
       (emacspeak-m-player-mode)
+      (setq buffer-undo-list t)
       (ansi-color-for-comint-mode-on))
     (unless noselect
       (switch-to-buffer (process-buffer emacspeak-m-player-process))
