@@ -99,6 +99,7 @@ Alsaplayer session."
                     emacspeak-alsaplayer-buffer))  (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-excursion
       (set-buffer buffer)
+      (setq buffer-undo-list t)
       (shell-command
        (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
        (current-buffer)))
