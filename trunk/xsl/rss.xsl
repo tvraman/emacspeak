@@ -134,14 +134,14 @@ View an RSS feed as clean HTML
     </xsl:element>
   </xsl:template>
   <xsl:template match="title|description">
-    <xsl:apply-templates/>
+    <xsl:apply-templates disable-output-escaping="yes"/>
   </xsl:template>
   <!-- } -->
   <!-- {identity default  -->
   <xsl:template match="*|@*">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()"/>
+      <xsl:apply-templates select="node()" disable-output-escaping="yes"/>
     </xsl:copy>
   </xsl:template>
   <!-- } -->
