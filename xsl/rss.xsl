@@ -134,7 +134,7 @@ View an RSS feed as clean HTML
     </xsl:element>
   </xsl:template>
   <xsl:template match="title|description">
-    <xsl:apply-templates disable-output-escaping="yes"/>
+    <xsl:value-of select="." disable-output-escaping="yes"/>
   </xsl:template>
   <!-- } -->
   <!-- {identity default  -->
