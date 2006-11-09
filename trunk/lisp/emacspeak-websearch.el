@@ -249,6 +249,7 @@ ARGS specifies additional arguments to SPEAKER if any."
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
+      (kill-all-local-variables)
       (insert-file  form-markup)
       (add-hook 'emacspeak-w3-post-process-hook
                 #'(lambda ()

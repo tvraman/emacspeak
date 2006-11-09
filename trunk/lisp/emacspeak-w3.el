@@ -1349,6 +1349,8 @@ loaded. "
         (emacspeak-xslt-options ""))
     (save-excursion
       (set-buffer buffer)
+      (kill-all-local-variables)
+      (erase-buffer)
       (insert-file-contents location)
       (when prompt-style
         (let ((xslt (read-file-name "XSL: " emacspeak-xslt-directory)))

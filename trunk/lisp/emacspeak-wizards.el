@@ -1732,6 +1732,8 @@ Signals beginning  of buffer."
   (declare (special emacspeak-wizards-curl-program
                     emacspeak-curl-cookie-store))
   (let ((results (get-buffer-create " *curl-download* ")))
+    (erase-buffer)
+    (kill-all-local-variables)
     (shell-command
      (format
       "curl -s --location-trusted --cookie-jar %s --cookie %s '%s' 2>/dev/null"
@@ -1862,10 +1864,9 @@ annotation is inserted into the working buffer when complete."
   (when  (or reset
              (null emacspeak-annotate-working-buffer))
     (setq emacspeak-annotate-working-buffer
-          (get-buffer-create
-           (read-buffer "Annotation working buffer: "
-                        (cadr
-                         (emacspeak-annotate-make-buffer-list))))))
+          (get-buffer-create (read-buffer "Annotation working buffer: "
+                                          (cadr
+                                           (emacspeak-annotate-make-buffer-list))))))
   (let ((annotation nil)
         (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
@@ -1973,6 +1974,9 @@ visiting the xls file."
           (buffer (get-buffer-create " *xl scratch*")))
       (save-excursion
         (set-buffer buffer)
+        (setq buffer-undo-list t)
+        (erase-buffer)
+        (kill-all-local-variables)
         (shell-command
          (format "%s -a -te %s"
                  emacspeak-wizards-xlhtml-program filename)
@@ -2024,7 +2028,10 @@ visiting the ppt file."
            (ppt-buffer (current-buffer))
            (buffer (get-buffer-create " *ppt scratch*")))
        (save-excursion
+         (setq buffer-undo-list t)
          (set-buffer buffer)
+         (erase-buffer)
+         (kill-all-local-variables)
          (shell-command
           (format "%s  %s"
                   emacspeak-wizards-ppthtml-program filename)
@@ -2074,6 +2081,8 @@ visiting the DVI file."
     (let ((filename (buffer-file-name))
           (dvi-buffer (current-buffer))
           (buffer (get-buffer-create " *dvi preview*")))
+      (erase-buffer)
+      (kill-all-local-variables)
       (shell-command
        (format "%s  %s &"
                emacspeak-wizards-dvi2txt-program filename)
