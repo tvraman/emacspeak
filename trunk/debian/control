@@ -1,0 +1,23 @@
+Source: emacspeak
+Section: editors
+Priority: optional
+Maintainer: raman <raman@users.sf.net>
+Build-Depends: debhelper (>= 4.0.0), autotools-dev, emacs, texinfo
+Standards-Version: 3.6.2
+
+Package: emacspeak
+Architecture: any
+Pre-Depends: emacs-snapshot|emacs21
+Depends: tclx8.3, perl-5.005|perl, emacsen-common
+Conflicts: emacspeak-dt (<= 0.30), emacspeak-ss (<= 1.5)
+Suggests: emacspeak-ss, calc, psgml, xsltproc, auctex
+Description: speech output interface to Emacs
+ Emacspeak is a speech output system that will allow someone who
+ cannot see to work directly on a UNIX system.  Emacspeak is built on
+ top of Emacs.  Once you start emacs with emacspeak loaded, you get
+ spoken feedback for everything you do.  Your mileage will vary
+ depending on how well you can use Emacs.  There is nothing that you
+ cannot do inside Emacs :-).  This package includes speech servers
+ written in tcl to support the DECtalk Express and DECtalk MultiVoice
+ speech synthesizers.  For other synthesizers, look for separate
+ speech server packages such as emacspeak-ss.
