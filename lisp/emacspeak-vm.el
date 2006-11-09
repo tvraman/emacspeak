@@ -499,7 +499,12 @@ Leave point at front of decoded attachment."
                                                 emacspeak-speak-embedded-url-pattern
                                                 (cons 're-search-forward
                                                       #'(lambda
-                                                          (url) " Link ")))
+                                                          (url) "
+      Link ")))
+      (emacspeak-pronounce-add-dictionary-entry mode
+                                                emacspeak-speak-rfc-3339-datetime-pattern
+                                                (cons 're-search-forward
+                                                      'emacspeak-speak-decode-rfc-3339-datetime))
       (emacspeak-pronounce-add-dictionary-entry mode
                                                 emacspeak-speak-iso-datetime-pattern
                                                 (cons 're-search-forward
