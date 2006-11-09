@@ -96,7 +96,8 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-program
-                    emacspeak-alsaplayer-buffer))  (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
+                    emacspeak-alsaplayer-buffer))
+  (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-excursion
       (set-buffer buffer)
       (setq buffer-undo-list t)

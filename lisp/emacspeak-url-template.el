@@ -1559,6 +1559,7 @@ plays entire program."
        (save-excursion
          (set-buffer  buffer)
          (erase-buffer)
+         (kill-all-local-variables)
          (shell-command
           (format "xsltproc  %s %s 2>/dev/null"
                   "http://midatlantic.comcastsportsnet.com/baseball-standings.xsl "
