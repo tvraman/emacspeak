@@ -318,9 +318,7 @@ Useful to do this before you listen to an entire buffer."
                 (substring rfc-3339 24 29) ":"))))
          (* 60
             (+ (* 60 (first fields))
-               (second fields)))))
-      (split-string
-       (substring rfc-3339 24 29) ":"))
+               (second fields))))))
     ;; create the decoded date-time
     (condition-case nil
         (format-time-string emacspeak-speak-time-format-string
