@@ -229,6 +229,7 @@ part of the libxslt package."
                      " 2>/dev/null ")))
     (save-excursion
       (set-buffer result)
+      (kill-all-local-variables)
       (erase-buffer)
       (shell-command command
                      (current-buffer)
