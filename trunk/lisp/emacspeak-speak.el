@@ -282,8 +282,29 @@ Useful to do this before you listen to an entire buffer."
 ;;{{{ helper function --decode rfc 3339 date-time
 
 (defvar emacspeak-speak-rfc-3339-datetime-pattern
-  "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\.[0-9]\\{3\\}\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"
+  "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\(\\.[0-9]\\{3\\}\\)?\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"
   "Regexp pattern that matches RFC 3339 date-time.")
+
+(defsubst ems-speak-rfc-3339-tz-offset (rfc-3339)
+  "Return offset in seconds from UTC given an RFC-3339 time.
+  Timezone spec is of the form -08:00 or +05:30 or [zZ] for UTC.
+Value returned is compatible with `encode-time'."
+  (cond
+   ((string-match "[zZ]" (substring rfc-3339 -1))
+    t)
+   (t                           ;compute positive/negative offset
+                                ;in seconds 
+    (let ((fields
+           (mapcar
+            'read
+            (split-string (substring rfc-3339 -5) ":"))))
+      (*
+       (if (string-match "-" (substring rfc-3339 -6))
+           -60
+         60)
+       (+ (* 60 (first fields))
+          (second fields)))))))
+     
 
 (defsubst emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
@@ -294,39 +315,13 @@ Useful to do this before you listen to an entire buffer."
         (hour (read (substring rfc-3339 11 13)))
         (minute (read (substring rfc-3339 14 16)))
         (second (read (substring rfc-3339 17 19)))
-        (fraction (read (substring rfc-3339  20 23)))
-        (tz nil))
-    (cond
-     ((and (= (length rfc-3339) 24)
-           (or (char-equal (aref rfc-3339 23) ?z)
-               (char-equal (aref rfc-3339 23) ?Z)))
-      (setq tz t))
-     ((char-equal (aref rfc-3339 23) ?- ) ; negative offset
-       (let ((fields
-              (mapcar
-               'read
-               (split-string
-                (substring rfc-3339 24 29) ":"))))
-         (* -60
-            (+ (* 60 (first fields))
-               (second fields)))))
-     ((char-equal (aref rfc-3339 23) ?+ ) ; negative offset
-       (let ((fields
-              (mapcar
-               'read
-               (split-string
-                (substring rfc-3339 24 29) ":"))))
-         (* 60
-            (+ (* 60 (first fields))
-               (second fields))))))
+        (tz (ems-speak-rfc-3339-tz-offset rfc-3339)))
     ;; create the decoded date-time
     (condition-case nil
         (format-time-string emacspeak-speak-time-format-string
                             (encode-time second minute hour day month
                                          year tz))
       (error rfc-3339))))
-
-
 
 ;;}}}
 ;;{{{  url link pattern:
