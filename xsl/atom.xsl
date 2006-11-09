@@ -60,8 +60,11 @@ View an Atom feed as clean HTML
     </h2>
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
     <p>
-      <xsl:apply-templates select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
-      <em><xsl:value-of  select="atom:author/atom:name" disable-output-escaping="yes"/>
+      <xsl:apply-templates
+      select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
+      <em><xsl:value-of  select="atom:author/atom:name"
+      disable-output-escaping="yes"/>
+        <xsl:text> at </xsl:text>
       <xsl:value-of select="atom:issued|w3a:issued"/></em>
     </p>
   </xsl:template>
