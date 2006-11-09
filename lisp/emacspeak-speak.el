@@ -246,7 +246,7 @@ Useful to do this before you listen to an entire buffer."
    (emacspeak-auditory-icon 'help)))
 
 ;;}}}
-;;{{{ helper function --decode ISO date-time
+;;{{{ helper function --decode ISO date-time used in ical:
 
 (defvar emacspeak-speak-iso-datetime-pattern
   "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"
@@ -277,6 +277,58 @@ Useful to do this before you listen to an entire buffer."
                             (encode-time second minute hour day month
                                          year))
       (error iso))))
+
+;;}}}
+;;{{{ helper function --decode rfc 3339 date-time
+
+(defvar emacspeak-speak-rfc-3339-datetime-pattern
+  "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\.[0-9]\\{3\\}\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"
+  "Regexp pattern that matches RFC 3339 date-time.")
+
+(defsubst emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
+  "Return a speakable string description."
+  (declare (special emacspeak-speak-time-format-string))
+  (let ((year  (read (substring rfc-3339 0 4)))
+        (month (read (substring rfc-3339 5 7)))
+        (day   (read (substring rfc-3339 8 10)))
+        (hour (read (substring rfc-3339 11 13)))
+        (minute (read (substring rfc-3339 14 16)))
+        (second (read (substring rfc-3339 17 19)))
+        (fraction (read (substring rfc-3339  20 23)))
+        (tz nil))
+    (cond
+     ((and (= (length rfc-3339) 24)
+           (or (char-equal (aref rfc-3339 23) ?z)
+               (char-equal (aref rfc-3339 23) ?Z)))
+      (setq tz t))
+     ((char-equal (aref rfc-3339 23) ?- ) ; negative offset
+       (let ((fields
+              (mapcar
+               'read
+               (split-string
+                (substring rfc-3339 24 29) ":"))))
+         (* -60
+            (+ (* 60 (first fields))
+               (second fields)))))
+     ((char-equal (aref rfc-3339 23) ?+ ) ; negative offset
+       (let ((fields
+              (mapcar
+               'read
+               (split-string
+                (substring rfc-3339 24 29) ":"))))
+         (* 60
+            (+ (* 60 (first fields))
+               (second fields)))))
+      (split-string
+       (substring rfc-3339 24 29) ":"))
+    ;; create the decoded date-time
+    (condition-case nil
+        (format-time-string emacspeak-speak-time-format-string
+                            (encode-time second minute hour day month
+                                         year tz))
+      (error rfc-3339))))
+
+
 
 ;;}}}
 ;;{{{  url link pattern:
