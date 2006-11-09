@@ -144,10 +144,13 @@
     (load-library "w3-speak-table")
     (provide 'w3-speak-table))
   (emacspeak-keymap-remove-emacspeak-edit-commands w3-mode-map)
-  (and
-   emacspeak-pronounce-load-pronunciations-on-startup
-   (emacspeak-pronounce-augment-pronunciations 'w3-mode
-                                               emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
+  (when emacspeak-pronounce-load-pronunciations-on-startup
+    (emacspeak-pronounce-augment-pronunciations 'w3-mode
+                                                emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+    (emacspeak-pronounce-add-dictionary-entry 'w3-mode
+                                              emacspeak-speak-rfc-3339-datetime-pattern
+                                              (cons 're-search-forward
+                                                    'emacspeak-speak-decode-rfc-3339-datetime)))
   (setq url-show-status nil)
   (setq w3-echo-link
         (list 'text 'title 'name 'url))
@@ -1904,7 +1907,6 @@ If a rewrite rule is defined in the current buffer, we change
   :type 'file
   :group 'emacspeak-w3)
 
-
 (defcustom emacspeak-w3-tidy-html t
   "Tidy HTML before rendering."
   :type 'boolean
@@ -1929,9 +1931,7 @@ If a rewrite rule is defined in the current buffer, we change
        "-asxml" "-quiet" "-clean" "-bare" "-omit"
        "--drop-proprietary-attributes" "yes" "--hide-comments" "yes"))))
 
-
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
-
 
 ;;}}}
 ;;{{{  emacs local variables
