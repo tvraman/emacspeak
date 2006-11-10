@@ -527,6 +527,34 @@ Sample text to use comes from variable
     (message "Displayed voice-face mappings in other window.")))
 
 ;;}}}
+;;{{{ interactively silence personalities 
+(defun voice-setup-toggle-silence-personality ()
+  "Toggle audibility of personality under point  .
+If personality at point is currently audible, its
+face->personality map is cached in a buffer local variable, and
+its face->personality map is replaced by face->inaudible.  If
+personality at point is inaudible, and there is a cached value,
+then the original face->personality mapping is restored.  In
+either case, the buffer is refontified to have the new mapping
+take effect."
+  (interactive)
+  (declare (special voice-setup-buffer-face-voice-table))
+  (let* ((personality (get-text-property (point) 'personality))
+         (face (get-text-property (point) 'face))
+         (orig (gethash face voice-setup-buffer-face-voice-table)))
+    (cond
+     ((eq personality  'inaudible)
+      (voice-setup-set-voice-for-face face  orig)
+      (emacspeak-auditory-icon 'open-object))    
+     (t (voice-setup-set-voice-for-face face 'inaudible)
+        (setf
+         (gethash face voice-setup-buffer-face-voice-table)
+         personality)
+        (emacspeak-auditory-icon 'close-object)))
+    (normal-mode)))
+
+
+;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file
 

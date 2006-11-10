@@ -374,6 +374,7 @@ field in the customization buffer.  You can use the notation
         ("\M-s" emacspeak-symlink-current-file)
         ("\M-t" emacspeak-tapestry-describe-tapestry)
         ("\M-v" emacspeak-show-personality-at-point)
+        ("\M-q" voice-setup-toggle-silence-personality)
         ("\M-w" emacspeak-toggle-which-function)
         ("\\" emacspeak-toggle-speak-line-invert-filter)
         ("\d" cd-tool)
