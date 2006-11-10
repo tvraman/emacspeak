@@ -113,7 +113,6 @@
     ("emacspeak-flyspell"  . ("flyspell"))
     ("emacspeak-folding"  . ("folding-prepare"))
     ("emacspeak-forms"  . nil )
-    ("emacspeak-freeamp"  . nil )
     ("emacspeak-generic"  . nil )
     ("emacspeak-gnuplot"  . nil )
     ("emacspeak-gnus"  . nil )

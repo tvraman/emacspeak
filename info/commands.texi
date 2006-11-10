@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 773 commands.
+This chapter documents a total of 770 commands.
 
 @menu
 * cd-tool::                     
@@ -36,7 +36,6 @@ This chapter documents a total of 773 commands.
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
-* emacspeak-freeamp::           
 * emacspeak-gnus::              
 * emacspeak-gomoku::            
 * emacspeak-gridtext::          
@@ -598,14 +597,10 @@ Increase overall volume.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-wave-decrease (&optional GAIN)
-@kbd{ control e control f <left> }
-
 Decrease volume of wave output. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-wave-increase (&optional GAIN)
-@kbd{ control e control f <right> }
-
 Increase volume of wave output. 
 @end deffn
 
@@ -1417,56 +1412,6 @@ Summarize current position in list of records
 
 @deffn {Interactive Command} emacspeak-forms-summarize-current-record ()
 Summarize current record
-@end deffn
-
-@node emacspeak-freeamp
-@section emacspeak-freeamp
-
-Commentary:
-Defines a simple derived mode for interacting with
-freeamp.
-If you use freeamp  as your mp3 player from w3 for
-example,
-put the buffer containing freeamp in freeamp-mode.
-freeamp navigation commands then work via single keystrokes.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-freeamp.
-
-@deffn {Interactive Command} emacspeak-freeamp-freeamp-call-command ()
-@kbd{ control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p }
-
-Call appropriate freeamp command.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-freeamp-freeamp-command (CHAR)
-Execute FreeAmp command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-freeamp-mode ()
-Major mode for freeamp interaction. 
-
-key             binding
----             -------
-
-+		emacspeak-freeamp-freeamp-call-command
--		emacspeak-freeamp-freeamp-call-command
-=		emacspeak-freeamp-freeamp-call-command
-b		emacspeak-freeamp-freeamp-call-command
-f		emacspeak-freeamp-freeamp-call-command
-o		emacspeak-freeamp
-p .. q		emacspeak-freeamp-freeamp-call-command
-s		emacspeak-freeamp-freeamp-call-command
-<left>		emacspeak-aumix-wave-decrease
-<right>		emacspeak-aumix-wave-increase
-
-This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
-during initialization.
 @end deffn
 
 @node emacspeak-gnus
@@ -3857,14 +3802,6 @@ Emacspeak and ACSS
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
-@deffn {Interactive Command} emacspeak-freeamp (RESOURCE)
-@kbd{ control e control f o }
-
-Play specified resource using freeamp.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-freeamp-mode.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-realaudio (&optional IGNORED)
 @kbd{ control e : }
 
@@ -5438,6 +5375,19 @@ for commands defined in module  voice-setup.
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   `voice-setup-sample-text'. 
+@end deffn
+
+@deffn {Interactive Command} voice-setup-toggle-silence-personality ()
+@kbd{ control e meta q }
+
+Toggle audibility of personality under point  .
+If personality at point is currently audible, its
+face->personality map is cached in a buffer local variable, and
+its face->personality map is replaced by face->inaudible.  If
+personality at point is inaudible, and there is a cached value,
+then the original face->personality mapping is restored.  In
+either case, the buffer is refontified to have the new mapping
+take effect.
 @end deffn
 
 @node emacspeak-w3search
