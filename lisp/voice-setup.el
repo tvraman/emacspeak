@@ -528,6 +528,9 @@ Sample text to use comes from variable
 
 ;;}}}
 ;;{{{ interactively silence personalities 
+(defvar voice-setup-buffer-face-voice-table (make-hash-table)
+  "Hash table used to store buffer local face->personality mappings.")
+;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
   "Toggle audibility of personality under point  .
 If personality at point is currently audible, its

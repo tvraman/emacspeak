@@ -449,16 +449,6 @@ element. "
   (require 'emacspeak-realaudio))
 
 ;;}}}
-;;{{{  freeamp for mp3
-(require 'emacspeak-freeamp)
-(defun emacspeak-w3-freeamp ()
-  "View the current buffer using emacspeak's freeamp interface"
-  (let ((tmpname (format "/tmp/mm-%s" (gensym))))
-    (write-region (point-min) (point-max) tmpname)
-    (emacspeak-freeamp tmpname)
-    (delete-file tmpname)))
-
-;;}}}
 ;;{{{ url rewrite
 
 (defvar emacspeak-w3-url-rewrite-rule nil
