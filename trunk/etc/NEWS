@@ -38,6 +38,7 @@ still be found under lisp/obsolete in CVS.
   - emacspeak-oo-browser.el
   - emacspeak-kotl.el
   - emacspeak-wrolo.el
+  - emacspeak-freeamp.el
 
 ** emacspeak-url-template:
 

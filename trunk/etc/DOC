@@ -451,15 +451,11 @@ after saving the settings to have them take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-aumix-wave-decrease	Key Sequence: control e control f <left> 
-
- Decrease volume of wave output.  
+** emacspeak-aumix-wave-decrease Decrease volume of wave output.  
 
 ------------------------------------------------------------
 
-** emacspeak-aumix-wave-increase	Key Sequence: control e control f <right> 
-
- Increase volume of wave output.  
+** emacspeak-aumix-wave-increase Increase volume of wave output.  
 
 ------------------------------------------------------------
 
@@ -1096,45 +1092,6 @@ Assumes that point is at the front of a field value.
 ------------------------------------------------------------
 
 ** emacspeak-forms-summarize-current-record Summarize current record 
-
-------------------------------------------------------------
-
-** emacspeak-freeamp-freeamp-call-command	Key Sequence: control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p 
-
- Call appropriate freeamp command. 
-
-------------------------------------------------------------
-
-** emacspeak-freeamp-freeamp-command Execute FreeAmp command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
-
-------------------------------------------------------------
-
-** emacspeak-freeamp-mode Major mode for freeamp interaction. 
-
-
-key             binding
----             -------
-
-+		emacspeak-freeamp-freeamp-call-command
--		emacspeak-freeamp-freeamp-call-command
-=		emacspeak-freeamp-freeamp-call-command
-b		emacspeak-freeamp-freeamp-call-command
-f		emacspeak-freeamp-freeamp-call-command
-o		emacspeak-freeamp
-p .. q		emacspeak-freeamp-freeamp-call-command
-s		emacspeak-freeamp-freeamp-call-command
-<left>		emacspeak-aumix-wave-decrease
-<right>		emacspeak-aumix-wave-increase
-
-
-
-This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
-during initialization. 
 
 ------------------------------------------------------------
 
@@ -3161,14 +3118,6 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
-** emacspeak-freeamp	Key Sequence: control e control f o 
-
- Play specified resource using freeamp.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-freeamp-mode. 
-
-------------------------------------------------------------
-
 ** emacspeak-realaudio	Key Sequence: control e : 
 
  Start or control streaming audio including MP3 and
@@ -4650,6 +4599,19 @@ during initialization.
 ** voice-setup-list-voices Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   `voice-setup-sample-text'.  
+
+------------------------------------------------------------
+
+** voice-setup-toggle-silence-personality	Key Sequence: control e meta q 
+
+ Toggle audibility of personality under point  .
+If personality at point is currently audible, its
+face->personality map is cached in a buffer local variable, and
+its face->personality map is replaced by face->inaudible.  If
+personality at point is inaudible, and there is a cached value,
+then the original face->personality mapping is restored.  In
+either case, the buffer is refontified to have the new mapping
+take effect. 
 
 ------------------------------------------------------------
 
