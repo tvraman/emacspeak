@@ -304,7 +304,6 @@ field in the customization buffer.  You can use the notation
 (loop for binding in
       '(
         (  "\C-a" emacspeak-toggle-auditory-icons )
-        ( "\C-f" emacspeak-freeamp-prefix-command )
         ( "\M-f" emacspeak-frame-label-or-switch-to-labelled-frame )
         (" " dtk-resume)
         ("!" emacspeak-speak-run-shell-command)

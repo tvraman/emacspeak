@@ -139,7 +139,6 @@ emacspeak-finder.elc \
 emacspeak-flyspell.elc \
 emacspeak-folding.elc \
 emacspeak-forms.elc \
-emacspeak-freeamp.elc \
 emacspeak-generic.elc \
 emacspeak-gnuplot.elc \
 emacspeak-gnus.elc\
@@ -341,7 +340,6 @@ emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
 emacspeak-folding.elc: emacspeak-folding.el dtk-speak.elc voice-setup.elc
 emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc voice-setup.elc
-emacspeak-freeamp.elc: emacspeak-freeamp.el  dtk-speak.elc voice-setup.elc
 emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc voice-setup.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc voice-setup.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
