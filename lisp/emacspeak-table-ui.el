@@ -91,7 +91,7 @@
         ([left] emacspeak-table-previous-column)
         ("\C-b" emacspeak-table-previous-column)
         ([right] emacspeak-table-next-column)
-        ("\C-b" emacspeak-table-next-column)
+        ("\C-f" emacspeak-table-next-column)
         ("r" emacspeak-table-speak-row-header-and-element )
         ("c" emacspeak-table-speak-column-header-and-element)
         (" " emacspeak-table-speak-current-element)
