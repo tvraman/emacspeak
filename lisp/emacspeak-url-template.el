@@ -476,9 +476,6 @@ content."
  #'(lambda (url)
      (emacspeak-w3-without-xsl (browse-url url))))
 
-
-
-
 ;;}}}
 ;;{{{ google music:
 
@@ -948,7 +945,6 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
-
 
 ;;}}}
 ;;{{{  cnet news
@@ -1904,10 +1900,9 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "http://mobile.ask.com/web.jsp?fi_what=%s&fi_Search=Search&form=web"
  (list "Ask Mobile Search: ")
  #'(lambda nil
-      (search-forward "results")
-      (emacspeak-speak-rest-of-buffer))
+     (search-forward "results")
+     (emacspeak-speak-rest-of-buffer))
  "Mobile search using Ask.com")
-
 
 (emacspeak-url-template-define
  "Ask Walking Directions"
