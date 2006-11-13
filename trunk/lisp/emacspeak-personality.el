@@ -417,7 +417,7 @@ displayed in the messages area."
          (voice nil)
          (face nil))
     (when (and (not (= start end))
-               (emacspeak-personality-plist-face-p props) );;; simple minded for now
+               (emacspeak-personality-plist-face-p props) ) ;;; simple minded for now
       (put-text-property start end
                          'personality nil object))))
 
@@ -430,7 +430,7 @@ displayed in the messages area."
          (voice nil)
          (face nil))
     (when (and (not (= start end))
-               (emacspeak-personality-plist-face-p props) );;; simple minded for now
+               (emacspeak-personality-plist-face-p props) ) ;;; simple minded for now
       (put-text-property start end
                          'personality nil object))))
 

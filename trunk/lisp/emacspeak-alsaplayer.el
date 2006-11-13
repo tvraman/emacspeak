@@ -122,14 +122,14 @@ Optional second arg watch-pattern specifies line of output to
   (save-excursion
     (set-buffer (get-buffer-create emacspeak-alsaplayer-buffer))
     (erase-buffer)
-            (shell-command
-             (format "%s %s %s"
-                   emacspeak-alsaplayer-program
-                   command
-                   (if no-refresh
-                       ""
-                     "; alsaplayer --status"))
-             (current-buffer)))
+    (shell-command
+     (format "%s %s %s"
+             emacspeak-alsaplayer-program
+             command
+             (if no-refresh
+                 ""
+               "; alsaplayer --status"))
+     (current-buffer)))
   (when (and watch-pattern
              (eq (current-buffer) (get-buffer emacspeak-alsaplayer-buffer)))
     (goto-char (point-min))
@@ -162,11 +162,11 @@ Optional second arg watch-pattern specifies line of output to
     (read-file-name "New MP3 Resource: "
                     emacspeak-alsaplayer-media-directory)))
   (emacspeak-alsaplayer-send-command
-           (format "--replace %s"
+   (format "--replace %s"
            (if (file-directory-p resource)
                (format "%s/*" resource)
              resource))
-           "playlist"_length:)
+   "playlist"_length:)
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
     (emacspeak-speak-line)
@@ -178,14 +178,14 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command "--status"
                                      "position:"
                                      'no-refresh)
-    (when (interactive-p)
-      (unless (eq (current-buffer)
-                  (get-buffer emacspeak-alsaplayer-buffer))
-        (switch-to-buffer emacspeak-alsaplayer-buffer))
+  (when (interactive-p)
+    (unless (eq (current-buffer)
+                (get-buffer emacspeak-alsaplayer-buffer))
+      (switch-to-buffer emacspeak-alsaplayer-buffer))
+    (emacspeak-speak-line)
+    (when  emacspeak-alsaplayer-auditory-feedback
       (emacspeak-speak-line)
-      (when  emacspeak-alsaplayer-auditory-feedback
-        (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-auditory-icon 'select-object))))
 
 (defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
@@ -337,8 +337,8 @@ Optional second arg watch-pattern specifies line of output to
   (interactive "p")
   (emacspeak-alsaplayer-send-command
    (format "--relative %s"
-            (* 60 (or minutes 1)))
-            "position:")
+           (* 60 (or minutes 1)))
+   "position:")
   (when (interactive-p)
     (emacspeak-speak-line)))
 
@@ -348,7 +348,7 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command
    (format
     "--relative -%s"
-            (* 60 (or minutes 1)))
+    (* 60 (or minutes 1)))
    "position:")
   (when (interactive-p)
     (emacspeak-speak-line)))
@@ -359,7 +359,7 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command
    (format
     "--relative %s"
-            (* 600 (or minutes 1)))
+    (* 600 (or minutes 1)))
    "position:")
   (when (interactive-p)
     (emacspeak-speak-line)))
@@ -370,7 +370,7 @@ Optional second arg watch-pattern specifies line of output to
   (emacspeak-alsaplayer-send-command
    (format
     "--relative -%s"
-            (* 600 (or minutes 1)))
+    (* 600 (or minutes 1)))
    "position:")
   (when (interactive-p)
     (emacspeak-speak-line)))
@@ -380,7 +380,6 @@ Optional second arg watch-pattern specifies line of output to
 
 (defvar emacspeak-alsaplayer-mark nil
   "Saved mark position.")
-
 
 (defsubst emacspeak-alsaplayer-get-position ()
   "Return currently displayed position."
@@ -400,8 +399,8 @@ Optional second arg watch-pattern specifies line of output to
   "Mark currently displayed position."
   (interactive)
   (declare (special emacspeak-alsaplayer-mark))e
-      (setq emacspeak-alsaplayer-mark
-            (emacspeak-alsaplayer-get-position))
+  (setq emacspeak-alsaplayer-mark
+        (emacspeak-alsaplayer-get-position))
   (when (and (interactive-p)
              emacspeak-alsaplayer-mark)
     (message "mark set at %s"
@@ -416,8 +415,6 @@ Optional second arg watch-pattern specifies line of output to
       (kill-new where)
       (emacspeak-auditory-icon 'yank-object)
       (message "%s" where))))
-
-
 
 (defsubst emacspeak-alsaplayer-get-path ()
   "Return currently displayed path."
@@ -441,9 +438,6 @@ Optional second arg watch-pattern specifies line of output to
       (kill-new path)
       (emacspeak-auditory-icon 'yank-object)
       (message "%s" path))))
-
-
-
 
 (defvar emacspeak-alsaplayer-mp3split-program "mp3splt"
   "Program used to clip mp3 files.")
@@ -469,8 +463,7 @@ Optional second arg watch-pattern specifies line of output to
            
                     
 
-
-  ;;}}}
+;;}}}
 ;;{{{ bind keys
 
 (declaim (special emacspeak-alsaplayer-mode-map))
