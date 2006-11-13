@@ -296,7 +296,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current                ;move to parsed item if needed
+    (unless current                     ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))

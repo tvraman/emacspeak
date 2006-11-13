@@ -556,7 +556,6 @@ take effect."
         (emacspeak-auditory-icon 'close-object)))
     (normal-mode)))
 
-
 ;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file

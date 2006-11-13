@@ -292,8 +292,8 @@ Value returned is compatible with `encode-time'."
   (cond
    ((string-match "[zZ]" (substring rfc-3339 -1))
     t)
-   (t                           ;compute positive/negative offset
-                                ;in seconds 
+   (t                                ;compute positive/negative offset
+                                        ;in seconds 
     (let ((fields
            (mapcar
             'read
@@ -747,7 +747,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -759,10 +759,10 @@ the sense of the filter. "
   (defun mode-line-format (spec)
     "Process mode line format spec."
     (cond
-;;; leaves                              ;
+;;; leaves                              ; ;
      ((symbolp spec) (symbol-value  spec))
      ((stringp spec) spec)
-;;; leaf + tree:                        ;
+;;; leaf + tree:                        ; ;
      ((and (listp spec)
            (stringp (car spec)))
       (concat

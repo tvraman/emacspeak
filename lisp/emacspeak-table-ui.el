@@ -921,21 +921,21 @@ match, makes the matching row or column current."
   (interactive)
   (declare (special emacspeak-table ))
   (when (boundp 'emacspeak-table)
-       (kill-new  (emacspeak-table-current-element emacspeak-table))
-       (when (interactive-p)
-       (emacspeak-auditory-icon 'delete-object)
-       (message "Copied element to kill ring"))))
+    (kill-new  (emacspeak-table-current-element emacspeak-table))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'delete-object)
+      (message "Copied element to kill ring"))))
 
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
   (interactive "cCopy to register: ")
   (declare (special emacspeak-table ))
   (when  (boundp 'emacspeak-table)
-       (set-register register (emacspeak-table-current-element
-                               emacspeak-table))
-       (when (interactive-p)
-         (emacspeak-auditory-icon 'select-object)
-       (message "Copied element to register %c" register))))
+    (set-register register (emacspeak-table-current-element
+                            emacspeak-table))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'select-object)
+      (message "Copied element to register %c" register))))
 
 ;;; Implementing table editing and table clipboard.
 ;;{{{ variables
@@ -1082,13 +1082,13 @@ markup to use."
               (insert (format "%s" row-start))
               (let ((current 0)
                     (final (length row)))
-              (loop for column across row
-                    do
-                    (insert (format "%s %s %s"
-                                    col-start column col-end  ))
-                    (incf current)
-                    (unless (= current final)
-                    (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
+                (loop for column across row
+                      do
+                      (insert (format "%s %s %s"
+                                      col-start column col-end  ))
+                      (incf current)
+                      (unless (= current final)
+                        (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
         (insert (format "%s" table-end))))))
 
 ;;}}}
