@@ -1,6 +1,6 @@
 ;;; emacspeak-auctex.el --- Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; DescriptionEmacspeak extensions for auctex-mode
 ;;; Keywords:emacspeak, audio interface to emacs AUCTEX
 ;;{{{  LCD Archive entry: 
@@ -133,13 +133,18 @@ Provide auditory feedback after formatting region"
 ;;}}}
 ;;{{{  Inserting structures
 
+(defadvice TeX-newline (after emacspeak pre act comp)
+  "Provide auditory feedback to indicate indentation."
+  (when (interactive-p)
+    (emacspeak-speak-line)))
+
 (defadvice LaTeX-insert-item (after emacspeak pre act)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice LaTeX-environment (after emacspeak pre act)
-  "Provide auditory feedback, by speaking 
+  "Provide auditory feedback, by speaking
 the opening line of the newly inserted environment. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
