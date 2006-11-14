@@ -30,6 +30,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{  Introduction:
 
@@ -39,11 +40,21 @@
 ;;; that is included in the debian-el package
 ;;; and provides a nice interface to searching and browsing
 ;;; Debian packages.
+;;; Code:
 
 ;;}}}
-;;{{{
+;;{{{  Initial setup
 
-;;; Code:
+
+(defun emacspeak-apt-utils-grab-package-at-point ()
+  "Copy package under point to kill ring."
+  (interactive)
+  (unless (eq major-mode 'apt-utils-mode)
+    (error "Not in APT Info buffer."))
+  (let ((package (apt-utils-package-at)))
+  (emacspeak-auditory-icon 'yank-object)
+  (dtk-speak package)
+  (kill-new package)))
 
 (defsubst emacspeak-apt-utils-speak-package-name ()
   "Speak package name at point."
@@ -56,7 +67,8 @@
 (defadvice apt-utils-mode (after emacspeak pre act comp)
   "Setup Emacspeak extensions"
   (voice-lock-mode 1)
-  (dtk-set-punctuations "all"))
+  (dtk-set-punctuations "all")
+  (define-key apt-utils-mode-map "y" 'emacspeak-apt-utils-grab-package-at-point))
 
 ;;}}}
 ;;{{{ Advice interactive commands to speak.
@@ -183,6 +195,7 @@
    (apt-utils-version-face voice-lighten)
    (apt-utils-broken-face voice-bolden-and-animate)
    ))
+
 ;;}}}
 (provide 'emacspeak-apt-utils)
 ;;{{{ end of file
