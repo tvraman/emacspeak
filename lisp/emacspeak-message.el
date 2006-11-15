@@ -46,6 +46,34 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ voice mapping
+
+(voice-setup-add-map
+ '(
+   (message-cited-text-face voice-bolden)  ;; pre-emacs22
+   (message-header-cc-face voice-bolden)  ;; pre-emacs22
+   (message-header-name-face voice-animate)  ;; pre-emacs22
+   (message-header-newsgroups-face voice-bolden)  ;; pre-emacs22
+   (message-header-other-face voice-bolden)  ;; pre-emacs22
+   (message-header-subject-face voice-bolden)  ;; pre-emacs22
+   (message-header-to-face voice-bolden)  ;; pre-emacs22
+   (message-header-xheader-face voice-bolden)  ;; pre-emacs22
+   (message-mml-face voice-brighten)  ;; pre-emacs22
+   (message-separator-face voice-bolden-extra)  ;; pre-emacs22
+
+   (message-cited-text voice-bolden)
+   (message-header-cc voice-bolden)
+   (message-header-name voice-animate)
+   (message-header-newsgroups voice-bolden)
+   (message-header-other voice-bolden)
+   (message-header-subject voice-bolden)
+   (message-header-to voice-bolden)
+   (message-header-xheader voice-bolden)
+   (message-mml voice-brighten)
+   (message-separator voice-bolden-extra)
+   ))
+
+;;}}}
 ;;{{{  advice interactive commands
 
 (defadvice message-goto-to (after emacspeak pre act comp)
@@ -154,6 +182,33 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
+(defadvice message-beginning-of-line (before emacspeak pre act)
+  "Stop speech first."
+  (when (interactive-p) (dtk-stop )
+        (emacspeak-auditory-icon 'select-object)
+	(dtk-speak "beginning of line")))
+
+(defadvice message-goto-from (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice message-goto-mail-followup-to (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice message-newline-and-reformat (after emacspeak pre act)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'fill-object )
+    (message "newline and reformat")))
+
+
+
 
 (add-hook 'message-mode-hook
           (lambda ()

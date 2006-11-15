@@ -366,8 +366,11 @@ instead of the modeline."
 (defadvice w3m-delete-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+    (if emacspeak-w3m-speak-titles-on-switch 
+        (dtk-speak w3m-current-title)
+      (emacspeak-speak-mode-line))))
 
 (defadvice w3m-delete-other-buffers (after emacspeak pre act comp)
   "Produce auditory icon."
@@ -957,7 +960,7 @@ With prefix argument makes this transformation persistent."
    (w3m-arrived-anchor-face voice-lighten)
    (w3m-anchor-face voice-bolden)
    (w3m-bold-face voice-bolden)
-   (w3m-underline-face voice-brighten)
+   (w3m-underline-face voice-brighten-extra)
    (w3m-header-line-location-title-face voice-bolden)
    (w3m-header-line-location-content-face voice-animate)
    (w3m-form-button-face voice-smoothen)
