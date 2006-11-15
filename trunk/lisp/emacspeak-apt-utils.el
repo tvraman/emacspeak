@@ -45,7 +45,6 @@
 ;;}}}
 ;;{{{  Initial setup
 
-
 (defun emacspeak-apt-utils-grab-package-at-point ()
   "Copy package under point to kill ring."
   (interactive)
