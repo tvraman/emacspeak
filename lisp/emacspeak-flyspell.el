@@ -56,10 +56,12 @@
   :group 'emacspeak
   :group 'flyspell
   :prefix "emacspeak-flyspell-")
+
 (voice-setup-add-map
  '(
    (flyspell-incorrect-face voice-bolden)
    ))
+
 ;;}}}
 ;;{{{ advice
 
@@ -91,11 +93,11 @@
 
 (defun emacspeak-flyspell-highlight-incorrect-word (beg end ignore)
   "Put property personality with value
-`emacspeak-flyspell-highlight-personality' from beg to end"
-  (declare (special emacspeak-flyspell-highlight-personality))
+`voice-animate' from beg to end"
+  (declare (special voice-animate))
   (ems-modify-buffer-safely
    (put-text-property beg end 'personality
-                      emacspeak-flyspell-highlight-personality))
+                      voice-animate))
   (emacspeak-speak-region beg end)
   nil)
 
