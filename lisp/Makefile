@@ -226,7 +226,7 @@ emacspeak-wizards.elc  \
 emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
-emacspeak-xslt-process.elc  \
+emacspeak-xslt-process.elc  
 ADDON_OBJECTS= tapestry.elc   stack-f.elc string.elc xml-parse.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
