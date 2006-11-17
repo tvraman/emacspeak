@@ -293,7 +293,7 @@ Value returned is compatible with `encode-time'."
    ((string-match "[zZ]" (substring rfc-3339 -1))
     t)
    (t                                ;compute positive/negative offset
-                                        ;in seconds 
+                                        ;in seconds
     (let ((fields
            (mapcar
             'read
@@ -304,7 +304,7 @@ Value returned is compatible with `encode-time'."
          60)
        (+ (* 60 (first fields))
           (second fields)))))))
-     
+
 
 (defsubst emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
@@ -767,26 +767,26 @@ the sense of the filter. "
            (stringp (car spec)))
       (concat
        (car spec)
-       (ems-format-mode-line (cdr spec))))
+       (format-mode-line (cdr spec))))
      ((and (listp spec)
            (symbolp (car spec))
            (null (car spec)))
-      (ems-format-mode-line (cdr spec)))
+      (format-mode-line (cdr spec)))
      ((and (listp spec)
            (eq :eval  (car spec)))
       (eval (cadr spec)))
      ((and (listp spec)
            (symbolp (car spec)))
       (concat
-       (ems-format-mode-line (symbol-value (car spec)))
+       (format-mode-line (symbol-value (car spec)))
        (if (cdr spec)
-           (ems-format-mode-line (cdr spec))
+           (format-mode-line (cdr spec))
          "")))
      ((and (listp spec)
            (caar spec))
       (concat
-       (ems-format-mode-line  (symbol-value (cadar spec)))
-       (ems-format-mode-line (cdr spec)))))))
+       (format-mode-line  (symbol-value (cadar spec)))
+       (format-mode-line (cdr spec)))))))
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
