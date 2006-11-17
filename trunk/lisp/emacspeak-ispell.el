@@ -57,19 +57,15 @@
 ;;}}}
 ;;{{{  define personalities
 
-(defcustom ispell-highlight-personality voice-bolden
-  "Voice used to highlight spelling errors. "
-  :type 'symbol
-  :group 'emacspeak-ispell)
+(voice-setup-add-map
+ '(
+   (ispell-highlight-face voice-bolden)
+))
 
 ;;}}}
-;;{{{  first set up voice  highlighting in 2.30:
-(declaim (special ispell-version))
-(when  (string-lessp ispell-version "2.37")
-  (fset 'ispell-highlight-spelling-error
-        (symbol-function 'ispell-highlight-spelling-error-overlay))
+;;{{{  first set up voice  highlighting
 
-  (defadvice ispell-highlight-spelling-error (after emacspeak act )
+(defadvice ispell-highlight-spelling-error (after emacspeak act )
     "Use voice locking to highlight the error.
 Will clobber any existing personality property defined on start end"
     (let ((start (ad-get-arg 0))
@@ -77,10 +73,9 @@ Will clobber any existing personality property defined on start end"
           (highlight (ad-get-arg 2 )))
       (if highlight
           (put-text-property  start end
-                              'personality  ispell-highlight-personality )
+                              'personality  voice-bolden)
         (put-text-property start end
                            'personality  nil ))))
-  )
 
 ;;}}}
 ;;{{{  ispell command loop:
@@ -107,17 +102,19 @@ many available corrections."
 (defadvice ispell-command-loop (before emacspeak pre act )
   "Speak the line containing the incorrect word.
  Then speak  the possible corrections. "
-  (let ((choices  (ad-get-arg 0 ))
-        (scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
+  (let ((scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
+        (choices  (ad-get-arg 0 ))
         (line nil)
         (start (ad-get-arg 3))
         (end (ad-get-arg 4))
         (position 0))
     (setq line
-          (ems-set-personality-temporarily start end ispell-highlight-personality
-                                           (thing-at-point 'line)))
+          (ems-set-personality-temporarily start end voice-bolden
+                                           (thing-at-point
+  'line)))
     (save-excursion
       (set-buffer scratch-buffer)
+      (setq voice-lock-mode t)
       (setq buffer-undo-list t)
       (dtk-set-punctuations 'all)
       (erase-buffer)
@@ -197,7 +194,6 @@ many available corrections."
   ad-return-value)
 
 ;;}}}
-
 (provide 'emacspeak-ispell)
 ;;{{{  emacs local variables
 
