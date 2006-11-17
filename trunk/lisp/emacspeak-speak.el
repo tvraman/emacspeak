@@ -755,8 +755,8 @@ the sense of the filter. "
   :type 'string
   :group 'emacspeak)
 
-(unless (fboundp 'mode-line-format)
-  (defun mode-line-format (spec)
+(unless (fboundp 'format-mode-line)
+  (defun format-mode-line (spec)
     "Process mode line format spec."
     (cond
 ;;; leaves                              ; ;
@@ -767,26 +767,26 @@ the sense of the filter. "
            (stringp (car spec)))
       (concat
        (car spec)
-       (mode-line-format (cdr spec))))
+       (ems-format-mode-line (cdr spec))))
      ((and (listp spec)
            (symbolp (car spec))
            (null (car spec)))
-      (mode-line-format (cdr spec)))
+      (ems-format-mode-line (cdr spec)))
      ((and (listp spec)
            (eq :eval  (car spec)))
       (eval (cadr spec)))
      ((and (listp spec)
            (symbolp (car spec)))
       (concat
-       (mode-line-format (symbol-value (car spec)))
+       (ems-format-mode-line (symbol-value (car spec)))
        (if (cdr spec)
-           (mode-line-format (cdr spec))
+           (ems-format-mode-line (cdr spec))
          "")))
      ((and (listp spec)
            (caar spec))
       (concat
-       (mode-line-format  (symbol-value (cadar spec)))
-       (mode-line-format (cdr spec)))))))
+       (ems-format-mode-line  (symbol-value (cadar spec)))
+       (ems-format-mode-line (cdr spec)))))))
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
@@ -1612,7 +1612,7 @@ Interactive prefix arg speaks buffer info."
     (force-mode-line-update)
     (emacspeak-dtk-sync)
     (let ((dtk-stop-immediately nil )
-          (global-info (mode-line-format global-mode-string))
+          (global-info (format-mode-line global-mode-string))
           (frame-info nil)
           (recursion-depth (recursion-depth))
           (recursion-info nil)
@@ -1727,7 +1727,7 @@ current coding system, then we return an empty string."
                (let ((var (car item))
                      (value (cadr item )))
                  (if (and (boundp var) (eval var))
-                     (mode-line-format  value)
+                     (format-mode-line  value)
                    "")))
            minor-mode-alist
            " "))
