@@ -911,7 +911,7 @@ match, makes the matching row or column current."
       (emacspeak-table-synchronize-display)
       (emacspeak-auditory-icon 'search-hit))
      (t (emacspeak-auditory-icon 'search-miss)))
-    (funcall emacspeak-table-speak-element)))
+    (emacspeak-table-speak-both-headers-and-element)))
 
 ;;}}}
 ;;{{{ cutting and pasting tables:
