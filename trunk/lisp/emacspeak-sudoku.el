@@ -391,6 +391,7 @@ See
   "Pop saved state off stack and redraw board."
   (interactive)
   (declare (special emacspeak-sudoku-history-stack
+                    sudoku-onscreen-instructions
                     start-board
                     current-board))
   (let ((original (sudoku-get-cell-from-point (point))))
