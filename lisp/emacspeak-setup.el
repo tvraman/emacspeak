@@ -121,7 +121,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "LiveDog"
+  "ActiveDog"
   "Code name of present release.")
 
 ;;}}}
