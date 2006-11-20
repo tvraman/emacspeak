@@ -1,0 +1,12 @@
+Note that the working version of emacspeak is found under
+cvs directory emacspeak At the time I first imported
+Emacspeak into sourceforge CVS I thought of importing it as
+a set of separate modules --but soon gave up the idea.  Thus
+the etc info and other subdirs found at top-level are
+obselete and should be nuked --they remain only because the
+CVS server seems to be confused and denies me write access
+to those directories.
+
+
+Note that this applies only to the SourceForge CVS version -- not
+to the  SVN version.

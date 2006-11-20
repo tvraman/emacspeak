@@ -1,0 +1,661 @@
+<HTML
+><HEAD
+><TITLE
+>Requirements</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Installing Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Documentation Conventions"
+HREF="documentation-conventions.html"><LINK
+REL="NEXT"
+TITLE="Installing Emacspeak"
+HREF="installing-emacspeak.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Installing Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="documentation-conventions.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installing-emacspeak.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="REQUIREMENTS"
+>4. Requirements</A
+></H1
+><P
+>	There are a number of things you must have before you install
+	Emacspeak, including Linux, a Linux-compatible sound card,
+	Emacs, and a
+	hardware or software speech synthesizer. You should read this section
+	carefully before installing Emacspeak, because Emacspeak will not function correctly
+	if any of the requirements are missing.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="LINUX-DISTROS"
+>4.1. Linux Distributions</A
+></H2
+><P
+>	This HOWTO assumes that you have already installed Linux on
+	your system.  If not, you may wish to refer to the "Linux
+	Information Sheet" by Michael K. Johnson at <A
+HREF="http://www.linuxdoc.org/HOWTO/INFO-SHEET.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/INFO-SHEET.html</A
+>.
+	It provides an introduction to Linux,
+	discusses some hardware requirements, and also has a section on
+	how to obtain Linux.
+	</P
+><P
+>	There are a number of different Linux
+	distributions (distros) that you can choose from. All of the
+	distros are based upon
+	the same basic Linux code, or kernel, but each distro has a different
+	installation process,
+	features, and support options. Martin Wheeler's "Distributions
+	HOWTO," at <A
+HREF="http://www.linuxdoc.org/HOWTO/Distributions-HOWTO/index.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/Distributions-HOWTO/index.html</A
+>,
+	discusses the pros and cons of a number of Linux distros.
+	You can also find information about each distribution on
+	their respective web sites. Those distros known to support
+	Emacspeak are listed below with their URLs:
+	</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>			Debian Linux - <A
+HREF="http://www.debian.org"
+TARGET="_top"
+>http://www.debian.org</A
+>
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			Mandrake Linux - <A
+HREF="http://www.linux_mandrake.com"
+TARGET="_top"
+>http://www.linux_mandrake.com</A
+>
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			Red Hat Linux - <A
+HREF="http://www.redhat.com"
+TARGET="_top"
+>http://www.redhat.com</A
+>
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			Slackware Linux - <A
+HREF="http://www.slackware.com"
+TARGET="_top"
+>http://www.slackware.com</A
+>
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			SuSE Linux - <A
+HREF="http://www.suse.com"
+TARGET="_top"
+>http://www.suse.com</A
+>
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			TurboLinux - <A
+HREF="http://www.turbolinux.com"
+TARGET="_top"
+>http://www.turbolinux.com</A
+>
+			</P
+></LI
+></UL
+><P
+>	All of the distributions listed above can be downloaded free of charge
+	from their respective web sites. However, the downloads are quite large,
+	so you'll need a fast Internet connection. You will also need
+	access to a CD burner, to burn your own CDs
+	from the images you download. Depending on the distribution,
+	you may also have to download and make a boot floppy. Once you
+	have burned the CDs and created the boot floppy, you can
+	install Linux.  Alternatively, you can purchase the
+	disks at your local computer store for between $30 and $80
+	US. Both of these options are discussed at length in the Linux
+	Installation HOWTO at <A
+HREF="http://www.linuxdoc.org/HOWTO/Installation-HOWTO/overview.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/Installation-HOWTO/overview.html</A
+>,
+	so you may want to refer there before making a decision as to
+	which route to take.
+	</P
+><P
+>	Most methods of installation require sighted assistance.
+	However, if you prefer to install Linux yourself, there are
+	two options.  The first is to install Linux from a DOS machine
+	running JAWS. This option requires two machines, a null modem
+	cable, JAWS for DOS, and a hardware speech
+	synthesizer. More information on this option can be found
+	in <A
+HREF="appendixa.html"
+>Section 8</A
+>, Appendix A.  The
+	second option is installing one of the distributions that
+	includes a Speakup kernel patch.  This option requires a Speakup-enabled
+	distro and a hardware synthesizer. Speakup is a screen reader
+	that is patched into the kernel, so it starts talking
+	at boot and will speak during the entire installation. Currently,
+	Speakup is supported on Debian, Red Hat 7.1, and Slackware.
+	The Speakup option also requires you to download the CD images and make your own CDs.
+	Refer to the Speakup home page at <A
+HREF="http://www.linux-speakup.org"
+TARGET="_top"
+>http://www.linux-speakup.org</A
+> for
+	instructions for this option.
+	</P
+><P
+>	For assistance with installing Linux, Eric Raymond's Linux
+	Installation HOWTO, at <A
+HREF="http://www.linuxdoc.org/HOWTO/Installation-HOWTO"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/Installation-HOWTO</A
+>,
+	is highly recommended reading.
+	In the HOWTO, Eric discusses hardware requirements, choosing a
+	distro, and installing your distro of choice. If Eric's HOWTO
+	does not provide enough installation-specific information,
+	you can refer to the documentation specific to your
+	distribution, available at the URLs given in the distro list. 
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EMACS"
+>4.2. Emacs</A
+></H2
+><P
+>	Because Emacspeak is an Emacs subsystem, you must have Emacs
+	installed for Emacspeak to work.  Most distributions include Emacs by
+	default, so it should be installed on your system when you
+	install Linux. 
+	</P
+><P
+>	If you do not have Emacs on your system or you want to check on the latest version of Emacs, refer to
+	the Emacs homepage at <A
+HREF="http://www.gnu.org/software/emacs/emacs.html"
+TARGET="_top"
+>http://www.gnu.org/software/emacs/emacs.html</A
+>.
+	If you install Emacs on your own or choose to upgrade, be sure
+	to install all of Emacs, including both the X and non-X
+	versions (even if you do not plan to use X). Some Emacs
+	applications depend on packages included in the X version,
+	even if you use those applications in the non-X version of Emacs.
+	</P
+><P
+>	If you would like to learn more about Emacs and how to use it,
+	an excellent place to start is the Emacs Beginner's HOWTO, by
+	Jeremy D. Zawondy.  It's available at <A
+HREF="http://www.linuxdoc.org/HOWTO/Emacs-Beginner-HOWTO.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/Emacs-Beginner-HOWTO.html</A
+>.
+	There is also an online manual available at <A
+HREF="http://www.gnu.org/manual/emacs/index.html"
+TARGET="_top"
+>http://www.gnu.org/manual/emacs/index.html</A
+>.
+	Alternatively, you can try the built-in Emacs tutorial. To
+	start the tutorial, type <B
+CLASS="COMMAND"
+>C-h t</B
+>.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="APPLICATIONS"
+>4.3. Background applications</A
+></H2
+><P
+>	Emacspeak depends on a number of applications. Because each Linux
+	distribution comes with different applications, you may find that
+	your distro does not quite have everything that
+	Emacspeak needs to run properly.  Therefore, before you
+	install anything else, it is important to make
+	sure you have all the necessary applications, as listed below.
+	</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>			<B
+CLASS="COMMAND"
+>Tk, Tcl,</B
+> and <B
+CLASS="COMMAND"
+>Tclx</B
+>: Check
+			to make sure you have these applications.  If
+			not, download and install the following
+			rpms from <A
+HREF="http://www.rpmfind.net"
+TARGET="_top"
+>http://www.rpmfind.net</A
+>:
+			<TT
+CLASS="FILENAME"
+>tcl-8.3.2-7mdk</TT
+>,
+			<TT
+CLASS="FILENAME"
+>tk-8.3.2-7mdk</TT
+>, and
+			<TT
+CLASS="FILENAME"
+>tclx-8.3.2-7mdk</TT
+>.
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			<B
+CLASS="COMMAND"
+>Lesstif</B
+>: If you want to
+			run the Graphical User Interface (GUI) versions of the ViaVoice sample
+			programs, you'll need these packages. For
+			Emacspeak, the Lesstif packages are only
+			useful if you're running Xwindows, or if you
+			want to use the GUI tools.
+			</P
+><P
+>			Lesstif can be downloaded from
+			either the Lesstif home page <A
+HREF="http://www.lesstif.org"
+TARGET="_top"
+>http://www.lesstif.org</A
+> or Sourceforge
+			<A
+HREF="http://sourceforge.net/projects/lesstif"
+TARGET="_top"
+>http://sourceforge.net/projects/lesstif</A
+>.
+			Currently, the latest release of Lesstif is
+			version 0.93.14; however, Marty Moore
+			recommends using the 0.92.32 version.  You can
+			either download the gzipped tarball that
+			contains all the necessary files or download the
+			three individual packages (<TT
+CLASS="FILENAME"
+>lesstif-mwm-0.92.32-1.i386.rpm</TT
+>,
+			<TT
+CLASS="FILENAME"
+>lesstif-clients-0.92.32-1.i386.rpm</TT
+>,
+			and
+			<TT
+CLASS="FILENAME"
+>lesstif-devel-0.92.32-1.i386.rpm</TT
+>).
+			If you choose to use the three individual
+			files, be sure to
+			use the <B
+CLASS="COMMAND"
+>--nodeps</B
+> option when you unpack the
+			RPMs to avoid dependancy errors.
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			<B
+CLASS="COMMAND"
+>sndconfig</B
+>: You will need to
+			run this application from the command line to
+			configure your sound card.  At the command
+			prompt, type <B
+CLASS="COMMAND"
+>sndconfig</B
+> and
+			follow the instructions.
+			</P
+><P
+>			If your sound card is not
+			recognized by sndconfig, refer to <A
+HREF="troubleshooting.html"
+>Section 6</A
+>, Troubleshooting, for
+			more information.
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			<B
+CLASS="COMMAND"
+>stdiom</B
+>: This package is
+			only necessary if you are using ViaVoice as
+			your synthesizer, or if you want to use auditory
+			icons, and your sound card is not a
+			multi-channel card.
+			</P
+><P
+>			For information on auditory icons, refer to
+			the Emacspeak User's Guide.
+			</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SPEECH-SYNTHESIZERS"
+>4.4. Speech Synthesizers</A
+></H2
+><P
+>	To produce speech output, you need two things: something to parse the
+	information on the screen (Emacspeak), and something to
+	produce the sounds you hear as output (a speech synthesizer).
+	Emacspeak can use either a hardware or software synthesizer to
+	produce sound output.  Software
+	synthesizers have the benefit of being either free or very
+	inexpensive. Hardware synthesizers can run from $150 to $1600
+	or more, but they are typically easier to install than
+	software synthesizers.
+	</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="HARDWARE-SYNTHS"
+>4.4.1. Hardware synthesizers</A
+></H3
+><P
+>	Emacspeak supports the following hardware synthesizers:
+	</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Accent
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Apollo
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Braille Lite
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Braille n' Speak
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			DECtalk Express (the original Emacspeak synthesizer) or MultiVoice
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			DoubleTalk PC and AT 
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Internal DECtalk PC and DECtalk PC2
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			LiteTalk
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			Type n' Speak
+			</P
+></LI
+></UL
+><P
+>	Support for the DECtalk Express and MultiVoice synthesizers is built into
+	Emacspeak.  If you have a synthesizer other than a DECtalk
+	Express, you may require additional drivers or "speech
+	servers" to get Emacspeak to work with your synthesizer.
+	</P
+><P
+>	The Internal DECtalk PC and DECtalk PC2 require a kernel
+	driver available from <A
+HREF="ftp://leb.net/pub/blinux/dectalk_pc-0.95.tgz"
+TARGET="_top"
+>ftp://leb.net/pub/blinux/dectalk_pc-0.95.tgz</A
+>. Installation
+	instructions are at <A
+HREF="ftp://leb.net/pub/blinux/dectalk_pc-0.95.README"
+TARGET="_top"
+>ftp://leb.net/pub/blinux/dectalk_pc-0.95.README</A
+>.
+	</P
+><P
+>	The DoubleTalk PC and AT, Braille n' Speak, Type n' Speak,
+	Braille Lite, Apollo, and Accent synthesizers all require an additional speech server that can be
+	downloaded from <A
+HREF="ftp://leb.net/pub/blinux/emacspeak/blinux.emacspeak-ss-1.7.tar.gz"
+TARGET="_top"
+>ftp://leb.net/pub/blinux/emacspeak/blinux.emacspeak-ss-1.7.tar.gz</A
+>.
+	A README file with installation instructions can be found at
+	<A
+HREF="ftp://leb.net/pub/blinux/emacspeak/blinux/emacspeak-ss.README"
+TARGET="_top"
+>ftp://leb.net/pub/blinux/emacspeak/blinux/emacspeak-ss.README</A
+>. 
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="SOFTWARE-SYNTHS"
+>4.4.2. Software synthesizers</A
+></H3
+><P
+>	If you choose to use a software synthesizer, you must
+	make sure your sound card is Linux compatible. In addition, if
+	you want to perform any tasks that require a multi-channel
+	sound card, such as playing auditory cues when you open or close
+	an Emacs buffer, you must make sure that your sound card
+	is multi-channel capable.
+	</P
+><P
+>	There is a complete list of Linux-compatible sound cards
+	available at <A
+HREF="http://www.alsa-project.org"
+TARGET="_top"
+>http://www.alsa-project.org</A
+>.  In addition, you can
+	usually find information on your distribution's web site about which
+	sound cards are supported with each distro.
+	</P
+><P
+>	Once you have ensured that your sound card is Linux compatible,
+	you can install a software synthesizer.  Currently the only
+	one that works with Emacspeak is IBM's ViaVoice Text-to-Speech
+	(TTS), formerly called ViaVoice Outloud. Many Emacspeak users
+	use this software synthesizer, because it is free of
+	charge. Instructions for installing ViaVoice can be found in
+	<A
+HREF="appendixb.html"
+>Section 9</A
+>, Appendix B.
+	</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="documentation-conventions.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installing-emacspeak.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Documentation Conventions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installing Emacspeak</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

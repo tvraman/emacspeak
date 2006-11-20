@@ -1,0 +1,98 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright (C) 1995 -- 2000,    T. V. Raman  
+
+* Emacspeak 11.0 Additions And Changes:
+
+Emacspeak 11.0 provides the following user level enhancements:
+
+*Software speech synthesis:
+
+**Emacspeak now supports the IBM ViaVoice Outloud 
+Beta for Linux. See file linux-outloud/NOTES
+for installation instructions and usage notes.
+
+* Enhancements to single click Websearch:   emacspeak-websearch.el
+
+Module emacspeak-websearch provides single click WWW search
+functionality from anywhere on the Emacspeak audio desktop.
+This release adds support for a few more popular search
+engines --see command emacspeak-websearch-dispatch bound to
+`C-e ?'.
+
+
+
+
+
+* Dired Mode Enhancements:
+
+**  Command emacspeak-dired-speak-file-size  speaks the size
+    of a directory when invoked on a directory line.
+
+** Command emacspeak-dired-show-file-type 
+(bound to "'") displays the type of the current file.
+   
+* Enhancements to PSGML mode:
+
+** Emacspeak now provides simple voice locking for SGML and
+   XML documents.  
+
+*Enhancements to emacspeak-sounds.el:
+
+**Added support for midi icons.  If you have a functioning
+/dev/sequencer, you can have emacspeak produce auditory
+icons using midi synthesis instead of playing wave files.
+Note You need to obtain and install package stdiosynth from
+http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
+
+the documentation in file emacspeak-sounds.el
+
+* Speech-enabled support for midge-mode:
+Midge is a perl utility for composing and playing midi
+files.
+Midge-mode is a major mode for editting midge files.
+
+*Single click CD player:
+
+** Emacspeak provides  single click access 
+to playing audio CDs --see command  `cd-tool'
+bound by default to `C-e DEL'.
+This allows you to play, stop or skip tracks on the CD.
+If you have package  cdda2wav installed, you can also play
+or save selected clips from a CD.
+
+*Single click access to the sound mixer:
+
+**You can set various characteristics of the sound device
+  via command `emacspeak-aumix' bound to "C-e(".
+
+*Speech-enabled MPG player:
+
+**Emacspeak now speech-enables mpg123.el --an emacs
+  front-end to the popular mpg123 MP3 player.
+
+*Speech-enabled reftex mode:
+
+**Allows you to browse structured TeX and LaTeX source
+  documents.
+
+*Speech-enabled BabelFish:
+
+**Module emacspeak-babel.el speech-enables an Emacs
+  interface to Babel-Fish 
+--use this to get documents translated via the Internet.
+
+*Speech-enabled RPM support:
+**Speech-enabled support for browsing the various packages
+installed on a Linux system.
+
+* GnuPlot: Speech-enabled gnuplot mode
+
+Emacspeak now speech-enables gnuplot-mode --an Emacs
+interface to the gnuplot plotting utility.
+
+
+Local variables: mode: outline paragraph-separate: "[ ]*$"
+end:
+

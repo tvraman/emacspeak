@@ -1,0 +1,209 @@
+        @c $Id$
+        @node TTS Servers
+        @chapter Emacspeak TTS Servers
+
+        Emacspeak produces spoken output by communicating with one of many
+        speech servers. This section documents the communication protocol
+        between the client application i.e. Emacspeak, and the TTS
+        server. This section is primarily intended for developers wishing to:
+        @itemize @bullet
+        @item Create new speech servers that comply with this communication
+        protocol 
+        @item Developers of other client applications   who wish to use
+        the various Emacspeak speech servers.
+        @end itemize
+
+        @subsection High-level Overview
+
+        The TTS server reads commands from standard input, and  script
+        @emph{speech-server} can be used  to cause a TTS server to communicate
+        via a TCP socket. Speech server commands are used by the client
+        application to make specific requests of the server; the server
+        listens for these requests in a non-blocking read loop and executes
+        requests as they become available. Requests can be classified
+        as follows:
+        @itemize @bullet
+        @item Commands that send text to be spoken.
+        @item Commands that set @emph{state} of the TTS server.
+        @end itemize
+
+        All commands are of the form 
+        @example
+        commandWord @{arguments@}
+        @end example
+        The braces are optional if the command argument contains no white
+        space.  The speech server maintains a @emph{current state} that
+        determines various characteristics of spoken output such as speech
+        rate, punctuations mode etc. (see set of commands that manipulate
+        speech state for complete list).  The client application @emph{queues} The
+        text and non-speech audio output to be produced before asking the
+        server to @emph{dispatch} the set of queued requests, i.e. start
+        producing output.
+
+        Once the server has been asked to produce output, it removes items
+        from the front of the queue, sends the requisite commands to the
+        underlying TTS engine, and waits for the engine to acknowledge that
+        the request has been completely processed. This is a non-blocking
+        operation, i.e., if the client application generates additional
+        requests, these are processed @emph{immediately}.
+
+        The above design allows the Emacspeak TTS server to be
+        @emph{highly} responsive; Cleint applications can queue large
+        amounts of text (typically queued a clause at a time to
+        achieve the best prosody), ask the TTS server to start speaking,
+        and interrupt the spoken output at any time.
+
+        @subsection Commands That Queue Output.
+
+        This section documents commands that either produce spoken
+        output, or queue output to be produced on demand.
+        Commands that place the request on the queue are clearly marked.
+
+        @example
+        version
+        @end example
+
+        Speaks the @emph{version} of the TTS engine. Produces output
+        immediately.
+
+        @example
+        tts_say text 
+        @end example
+
+        Speaks the specified @emph{text} immediately. The text is not
+        pre-processed in any way, contrast this with the primary way of
+        speaking text which is to queue text before asking the server to
+        process the queue.
+
+        @example
+        l c
+        @end example
+
+        Speak @emph{c} a single character, as a letter.  The character is
+        spoken immediately. This command uses the TTS engine's capability to
+        speak a single character with the ability to flush speech
+        @emph{immediately}.  Client applications wishing to produce
+        character-at-a-time output, e.g., when providing character echo during
+        keyboard input should use this command.
+
+        @example
+        d
+        @end example
+
+        This command is used to @emph{dispatch} all queued requests.
+        It was renamed to a single character command (like many of the
+        commonly used TTS server commands) to work more effectively over
+        slow (9600) dialup lines.
+        The effect of calling this command is for the TTS server to start
+        processing items that have been queued via earlier requests.
+
+        @example
+        tts_pause
+        @end example
+
+        This pauses speech @emph{immediately}.
+        It does not affect queued requests; when command
+        @emph{tts_resume} is called, the output resumes at the point
+        where it was paused. Not all TTS engines provide this capability.
+
+        @example
+        tts_resume
+        @end example
+
+        Resume spoken output if it has been paused earlier.
+
+        @example
+        s
+        @end example
+
+        Stop speech @emph{immediately}.
+        Spoken output is interrupted, and all pending requests are
+        flushed from the queue.
+
+        @example
+        q text
+        @end example
+
+        Queues text to be spoken. No spoken output is produced until a
+        @emph{dispatch} request is received via execution of command
+        @emph{d}.
+
+        @example
+        a filename
+        @end example
+
+        Cues the audio file identified by filename for playing.
+
+        @example
+        t freq length
+        @end example
+
+        Queues a tone to be played at the specified frequency and having the
+        specified length.  Frequency is specified in hertz and length is
+        specified in milliseconds.
+
+        @example
+        sh duration
+        @end example
+
+        Queues the specified duration of silence. Silence is specified in
+        milliseconds.
+
+        @subsection Commands That Set State
+
+        @example
+        tts_reset
+        @end example
+
+        Reset TTS engine to  default settings.
+
+        @example
+        tts_set_punctuations mode
+        @end example
+
+        Sets TTS engine to the specified punctuation mode. Typicaly, TTS
+        servers provide at least three modes:
+        @itemize @bullet
+        @item None: Do not speak punctuation characters.
+        @item some: Speak some punctuation characters. Used for English
+        prose.
+        @item all: Speak out @emph{all} punctuation characters; useful in
+        programming modes.
+        @end itemize
+
+        @example
+        tts_set_speech_rate rate
+        @end example
+
+        Sets speech rate. The interpretation of this value is typically
+        engine specific.
+
+        @example
+        tts_set_character_scale factor
+        @end example
+
+        Scale factor applied to speech rate when speaking individual
+        characters.Thus, setting speech rate to 500 and character
+        scale to 1.2 will cause command @emph{l} to use a speech rate
+        of @emph{500 * 1.2 = 600}.
+
+        @example    
+        tts_split_caps flag
+        @end example
+
+        Set state of @emph{split caps} processing. Turn this on to
+        speak mixed-case (AKA Camel Case) identifiers.
+
+        @example
+        tts_capitalize flag
+        @end example
+
+        Indicate capitalization via a beep tone or voice  pitch.
+
+        @example
+        tts_allcaps_beep flag
+        @end example
+
+        Setting this flag produces  a high-pitched beep when speaking words that are in
+        all-caps, e.g. abbreviations.
+

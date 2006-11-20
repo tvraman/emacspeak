@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Weather Underground Fast Search</title>
+  </head>
+  <body>
+<h1>Weather Underground Fast Search</h1>
+<form action="http://printer.wunderground.com/cgi-bin/findweather/getForecast">
+  Find the Weather for any <b>City</b>, <b>State</b> or <b>ZIP Code</b>, or <b>Airport Code</b> or <b>Country</b>
+  <input type="text" name="query" size="30"/><input type="submit" value="Fast Forecast"/>
+  </form>
+  </body>
+</html>

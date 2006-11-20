@@ -1,0 +1,11 @@
+;;; Special keys 
+(define-key function-key-map "\e[50~" '[f50])
+(define-key function-key-map "\e[51~" '[f51])
+(define-key function-key-map "\e[52~" '[f52])
+(define-key function-key-map "\e[53~" '[f53])
+(define-key function-key-map "\e[54~" '[f54])
+(define-key function-key-map "\e[55~" '[f55])
+(define-key function-key-map "\e[56~" '[f56])
+(define-key function-key-map "\e[57~" '[f57])
+(define-key function-key-map "\e[58~" '[f58])
+(define-key function-key-map "\e[59~" '[f59])

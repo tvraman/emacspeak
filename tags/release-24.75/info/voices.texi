@@ -1,0 +1,155 @@
+@node Voice Lock
+@chapter Voice Lock
+
+@enumerate
+@item
+Emacspeak defines a number of voice overlays such as
+@samp{voice-bolden}, and @samp{voice-lighten} that can be applied to a
+given voice to change what it sounds like.
+
+@item
+Voice overlays are defined in terms of Aural CSS (@uref{http://www.w3.org/tr/css2/aural.html, ACSS}) to
+keep them independent of a specific TTS engine.
+
+@item
+For each such overlay there is a corresponding
+@samp{<overlay-name>-settings} variable that can be customized via
+custom.
+
+@item
+The numbers in @samp{voice-bolden-settings as an example}:
+@end enumerate
+
+@multitable @columnfractions 0.5 0.5
+@item Setting @tab Value
+@item family @tab nil
+@item average-pitch @tab 1
+@item pitch-range @tab 6
+@item stress @tab 6
+@item richness @tab nil
+@item punctuation @tab nil
+@end multitable
+Unset values (@samp{nil}) show up as ``unspecified'' in the customize
+interface.
+
+@enumerate
+@item
+Do not directly customize @samp{voice-bolden} and friends, instead
+customize the corresponding @samp{voice-bolden-settings}, since that
+ensures that all voices that are defined in terms of
+@samp{voice-bolden} get correctly updated.
+
+@item
+Discovering what to customize:
+@end enumerate
+
+Command @samp{emacspeak-show-personality-at-point} (bound by default
+to C-e M-v) will show you the value of properties personality and
+face at point. A recent update I implemented last weekend makes
+this more useful, so make sure you do a CVS update; earlier this
+command used to display the ACSS setting --- now it displays the
+abstract name. Describe-variable on these names should tell you
+what to customize; so as an example:
+
+Put point on a comment line, and hit @samp{C-e M-v}:
+you will hear
+
+@example
+Personality emacspeak-voice-lock-comment-personality
+Face font-lock-comment-delimiter-face
+@end example
+
+Describe-variable of @samp{emacspeak-voice-lock-comment-personality} gives:
+
+@example
+emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
+
+Documentation:
+Personality used for font-lock-comment-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end example
+
+
+
+@menu
+* How It All Works.::
+* What this gives.::
+@end menu
+
+@node How It All Works.
+@section How It All Works
+
+Here is a brief explanation of the connection between
+@samp{voice-bolden} and its associated @samp{voice-bolden-settings}.
+
+
+@enumerate
+@item
+Voice  settings are initially in @samp{voice-bolden-settings} which is a list
+of numbers.
+
+@item
+That list of numbers needs to be translated to appropriate
+device-specific codes to send to the TTS engine.
+
+@item
+You do not want to do this translation @emph{each} time you
+speak something.
+
+@item
+So when @samp{voice-bolden} is defined, the definition happens in
+two steps:
+@end enumerate
+
+@itemize @bullet
+@item
+The list of settings is stored away in
+@samp{voice-bolden-settings},
+@item
+A corresponding voice-name is generated ---
+@samp{acss-a<n>-p<n>-r<n>-s<n>} and the corresponding control codes to
+send to the device are stored away in a hash-table keyed by the above symbol.
+
+@item
+Finally, @samp{voice-bolden} is assigned the above symbol.
+@end itemize
+
+@menu
+* What this gives.::
+@end menu
+
+@node What this gives.
+@section What this gives is
+
+@enumerate
+@item
+The ability to customize the voice via custom by editting
+the list of numbers in @samp{voice-bolden-settings}
+
+@item
+When that list is editted, @samp{voice-bolden} is arranged to be
+updated automatically.
+@end enumerate
+
+The following additional commands from module @xref{emacspeak-wizards},
+are  useful when designing aural styles.
+@enumerate
+
+@item
+emacspeak-wizards-generate-voice-sampler
+
+Generate a buffer containing text that demonstrates the effect of
+various aural settings.
+
+
+
+
+
+
+@item
+emacspeak-wizards-voice-sampler
+
+
+Applied specified aural style to text in current region.
+@end enumerate

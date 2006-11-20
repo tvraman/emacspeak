@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Customizing Linux Console Keymap For Emacspeak</title>
+  </head>
+  <body>
+    <h1>Customizing The Linux Console Keymap For Emacspeak</h1>
+
+<p>
+The keymap files in this directory configure the Linux console
+with additional  keys that make it convenient to use
+Emacspeak.</p>
+
+<h2>HowTo</h2>
+
+<ul>
+<li>Copy file <code>emacspeak.kmap.gz</code> to directory
+<code>/lib/kbd/keymaps/i386/qwerty</code>.</li>
+<li>Copy file <code>emacspeak.enc.gz</code> to directory
+<code>/lib/kbd/keytables/i386/include/</code>.</li>
+<li>As super-user, execute <code>loadkeys
+/lib/kbd/keytables/i386/qwerty/emacspeak.kmap.gz</code>.</li>
+<li>To take full advantage of the new keys, load file
+<a href="../console.el">console.el</a> in your Emacs session.</li>
+</ul>
+
+<h2>What You Get</h2>
+<p>
+Loading this custom keymap makes the PC keyboard feel like a Unix
+keyboard --- in addition to making Emacs convenience keys
+available.</p>
+
+<ul>
+<li>Swap <code>Escape</code> and <code>backquote</code> keys.</li>
+<li>Turn <code>caps-lock</code> into a <code>control</code>
+key.</li>
+<li>Make the <code>left-alt</code> and <code>right-alt</code>
+keys function as Emacs' <code>meta</code> key.</li>
+<li>Turn the  <code>windows-key</code> operate as a
+<code>hyper</code> modifier key.</li>
+<li>Turn the second <code>windows</code> key function as a
+<code>super</code> modifier key.</li>
+<li>In addition, put <code>hyper</code> on
+<code>control-;</code>,
+<code>super</code> on <code>control-'</code> and <code>control-.</code>, and
+<code>ALT</code> on <code>control-,</code>. These latter mappings
+are useful on laptops.</li>
+<li>Defines shifted arrow keys.</li>
+<li>Defines control arrows.</li>
+<li>Defines shifted tab.</li>
+</ul>
+  </body>
+  
+</html>

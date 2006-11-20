@@ -1,0 +1,120 @@
+* Emacspeak And Speechdel  -*- mode:org -*-
+
+** Background
+
+[[http://emacspeak.sf.net][Emacspeak]] speech-enables Emacs by advising core emacs
+functionality.  Speech services are provided by a simple
+Emacspeak speech-server.  Additionally, Emacspeak implements
+speech-extensions for popular emacs modules --- see the 
+[[http://emacspeak.sf.net/applications.html][speech-enabled applications list]].
+
+Emacspeak was first released in 1995, and then (as now), there
+was limited speech access to the Linux GUI.  Therefore, to be
+useful as a complete access solution, Emacspeak has always needed
+to enable the user to *do everything* from within Emacs, not just
+regular editing operations. As a case in point, emacspeak users
+are probably one of the last remaining communities that use Emacs
+for browsing the Web.
+
+** Speech Dispatcher (SpeechD)
+
+The idea of SpeechD --- peech Dispatcher as an intermediate layer
+between speech clients and TTS engines was first floated sometime
+in the late 90's.  Such a common layer is a laudible goal but is
+something that takes time and effort to get right. Additionally,
+you have the challenge of geting existing software e.g.,
+emacspeak, to abandon their own speech abstraction and
+re-implement against a supposedly more generic, but completely
+untested and untried intermediate layer.
+
+The developers of SpeechD initially incorporated some of the
+Emacspeak code into an Emacs wrapper (speechdel) that called
+SpeechD, but later decided to go their own way -- and present
+[[http://www.freebsoft.org/speechd-el][speechdel]] is the result.
+
+Like Emacspeak, speechdel uses Emacs Lisp's advice facility to
+add spoken feedback to core editing commands; speech output is
+produced by calling out to speech-dispatcher.
+
+The summary of feature differences between Emacspeak and speechdel in the
+next section is from examining the speechdel code-base; I have
+not run speechdel since its dependency chain resulting from
+speechd was difficult to resolve on my FC3 64bit machine.
+
+** Emacspeak Features Not Found In SpeechDel
+
+  1) Emacpeak implements Aural CSS [[http://www.w3.org/Press/1998/CSS2-REC][ACSS]], and uses it to  provides
+     the aural analog of =font-lock=.
+
+  2) Emacspeak provides pronunciation
+     dictionaries. Pronunciations can be defined on a per-mode,
+     per-buffer or per-directory basis. Directory and mode
+     specific pronunciations are persisted across sessions. This
+     allows Emacspeak to leverage Emacs' intelligence about the
+     semantics of a given application; thus, you can have
+     it say "p arrow x" for "p->x" when editing C
+     code. Per-directory pronunciations are useful for reading
+     electronic books. Per-buffer pronunciations are useful for
+     succinctly speaking long lines of shell output e.g. when
+     compiling complex software.
+
+  3) By advising core Emacs functionality, Emacs modes work out
+     of the box with Emacspeak. But in most cases, Emacspeak goes
+     one step further by providing light-weight speech-modules
+     that specialize spoken output for a given mode. As an
+     example, advising next-line to speak the current line is
+     sufficient to use =dired-mode= --- but having to listen to
+     the entire line of dired output is not a pleasant
+     experience. The dired-specific module in Emacspeak advises
+     all interactive dired commands to speak the "right"
+     information. As an another example, GUD interaction
+     automatically speaks the line of source-code without leaving
+     the *Gud* buffer.
+     
+  4) Emacspeak comes with many "Emacs Applets" for performing
+     tasks that most users would perform outside of
+     Emacs. Examples include playing CDs, playing multimedia
+     streams etc. Fortunately, I have not had to write too many
+     of these since there are always Emacs users other than
+     myself who also create such Emacs applications --- so where
+     Emacs applications already exist, I merely speech-enable
+     them with a small set of advice definitions, and in some
+     cases add a few additional interacive commands.
+
+  5) Emacs applications are plentiful for most tasks; one
+     exception is the Web. Since emacs/w3 development was
+     abandoned sometime around 1998, I have added significant Web
+     interaction functionality to Emacspeak using Emacs/W3 as the
+     basis. Today, a lot of this has also been ported to
+     Emacs/W3M thanks to other enthusiasts on the Emacspeak
+     mailing list.  Examples include:
+
+    1) WebSearch module --- prompts for query and processes
+       response to focus on the results.
+
+    2) XSLT pre-processing: Allows pre-processing of complex
+       pages before rendering via W3. Used to enable *smart*
+       screen-scrapers using XPath.
+
+    3) URL-Tempaltes: Originally motivated by =webjump.el=, this
+       provides url templates that enable easy access to a
+       variety of Web tasks rangig from looking up flight times
+       to listening to your favorite NPR or BBc show. Think early
+       cut at a "Web Command Line in the minibuffer".
+
+  6) Customization via Custom, including additional
+     keymaps. Comes with additional keymap files for the Linux
+     console to enable =hyper=, =super=, and =alt= prefix
+     keymaps.
+
+  7) Module emacspeak-wizards iplements a large collection of
+     Emacs wizards that enable common tasks that you would
+     otherwise perform at the shell e.g., checking display status
+     on a laptop. The additional prefix keymaps come in handy!
+
+  8)Finally, note that *all* modules (except the core) are loaded
+  on demand.All code is compiled with =byte-compile-dynamic= set to
+  =T=  and individual application-specific modules  are kept
+  completely independent of one another. Given the size of the
+  Emacspeak codebase, this is a  pre-requisite for both efficiency
+  and developer sanity.

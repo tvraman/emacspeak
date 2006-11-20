@@ -1,0 +1,55 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 25.0 Additions And Changes:
+
+Emacspeak 25.0 provides the following user level enhancements:
+
+* user Visible Changes:
+
+**  ssh-<tts_server> 
+
+accepts hostnames of the form host:port.
+This is useful for setting up ones firewall to allow ssh through
+a non-standard port.
+
+**  emacspeak-etable:
+
+Speech-enables Emacs' table.el table editor.
+Note that character echo in the table editor is painfully slow.
+
+
+** emacspeak-org.el:
+
+Completed speech-enabling org-mode, including its simplified
+table editor (orgtbl).
+
+**  emacspeak-wizards:
+
+  - Added a wizard for generating a custom popup input buffer.
+  -  Use this in emacspeak-org.
+** Dropping Obsolete Extensions:
+
+The following extensions have been made obsolete --- they can
+still be found under lisp/obsolete in CVS.
+
+  - emacspeak-hyperbole.el
+  - emacspeak-oo-browser.el
+  - emacspeak-kotl.el
+  - emacspeak-wrolo.el
+  - emacspeak-freeamp.el
+
+** emacspeak-url-template:
+
+  - Added a Google Video searcher
+
+**  emacspeak-emms:
+
+Updated to support emms-2.0.
+
+
+Local variables:
+ mode: org
+ paragraph-separate: "[ ]*$"
+end:
