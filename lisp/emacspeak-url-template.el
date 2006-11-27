@@ -1849,6 +1849,13 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 ;;}}}
 ;;{{{ weather underground
+(emacspeak-url-template-define
+ "rss weather from wunderground"
+ "http://www.wunderground.com/auto/rss_full/%s/%s.xml?units=both"
+ (list "State" "City") nil
+ "Pull RSS weather feed for specified state/city."
+ #'(lambda (url)
+(emacspeak-rss-display url 'speak)))  
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
