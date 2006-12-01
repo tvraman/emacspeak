@@ -742,7 +742,7 @@ browsing table elements"
     (error "Cannot find table associated with this buffer"))
    (t(emacspeak-table-move-right emacspeak-table count )
      (emacspeak-table-synchronize-display)
-     (emacspeak-table-speak-column-header-and-element))))
+     (funcall emacspeak-table-speak-element))))
 
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"
@@ -754,7 +754,7 @@ browsing table elements"
     (error "Cannot find table associated with this buffer"))
    (t (emacspeak-table-move-left emacspeak-table count )
       (emacspeak-table-synchronize-display)
-      (emacspeak-table-speak-column-header-and-element))))
+      (funcall emacspeak-table-speak-element))))
 
 (defun emacspeak-table-goto (row column)
   "Prompt for a table cell coordinates and jump to it."
