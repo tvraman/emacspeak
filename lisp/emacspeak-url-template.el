@@ -66,10 +66,10 @@
   name                                  ;Human-readable name
   template                              ;template URL string
   generators                            ; list of param generator
-  post-action                         ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher
-  )
+  dont-url-encode)
 
 ;;}}}
 ;;{{{ Helpers
@@ -86,7 +86,9 @@
                 (setq input
                       (cond
                        ((stringp g)
-                        (emacspeak-url-encode (read-from-minibuffer g)))
+                        (if (emacspeak-url-template-dont-url-encode ut)
+                            (read-from-minibuffer g)
+                          (emacspeak-url-encode (read-from-minibuffer g))))
                        (t (funcall g))))
                 (setq emacspeak-url-template-current-ut
                       (list (emacspeak-url-template-name ut) input))
@@ -137,7 +139,8 @@ prompting for a template.")
 ;;;###autoload
 (defun emacspeak-url-template-define (name template
                                            &optional generators post-action
-                                           documentation fetcher)
+                                           documentation fetcher
+                                           dont-url-encode)
   "Define a URL template.
 
 name            Name used to identify template
@@ -151,7 +154,8 @@ post-action     Function called to apply post actions.
 fetcher         Unless specified, browse-url retrieves URL.
                 If specified, fetcher is a function of one arg
                 that is called with the URI to retrieve.
-documentation   Documents this template resource. "
+documentation   Documents this template resource.
+dont-url-encode if true then url arguments are not url-encoded "
   (declare (special emacspeak-url-template-table
                     emacspeak-url-template-name-alist))
   (unless (emacspeak-url-template-get  name)
@@ -159,13 +163,14 @@ documentation   Documents this template resource. "
           emacspeak-url-template-name-alist))
   (emacspeak-url-template-set
    name
-   (emacspeak-url-template-constructor :name name
-                                       :template template
-                                       :generators generators
-                                       :post-action  post-action
-                                       :documentation
-                                       documentation
-                                       :fetcher fetcher)))
+   (emacspeak-url-template-constructor
+    :name name
+    :template template
+    :generators generators
+    :post-action  post-action
+    :documentation documentation
+    :fetcher fetcher
+    :dont-url-encode dont-url-encode)))
 
 ;;;###autoload
 (defun emacspeak-url-template-load (file)
@@ -1851,11 +1856,12 @@ Meerkat realy needs an xml-rpc method for getting this.")
 ;;{{{ weather underground
 (emacspeak-url-template-define
  "rss weather from wunderground"
- "http://www.wunderground.com/auto/rss_full/%s/%s.xml?units=both"
- (list "State" "City") nil
+ "http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
+ (list "State/City e.g.: MA/Boston") nil
  "Pull RSS weather feed for specified state/city."
  #'(lambda (url)
-(emacspeak-rss-display url 'speak)))  
+     (emacspeak-rss-display url 'speak))
+ 'dont-url-encode)
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
@@ -1964,6 +1970,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
                     (setq emacspeak-w3-post-process-hook nil))))
     (kill-new url)
     (funcall fetcher   url)))
+
 (defsubst emacspeak-url-template-help-internal (name)
   "Display and speak help."
   (with-output-to-temp-buffer "*Help*"
