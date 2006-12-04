@@ -61,10 +61,12 @@ View an Atom feed as clean HTML
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
     <p>
       <xsl:apply-templates
-      select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
+          select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
       <em><xsl:value-of  select="atom:author/atom:name"
       disable-output-escaping="yes"/>
+      <xsl:if test="atom:issued|w3a:issued">
         <xsl:text> at </xsl:text>
+      </xsl:if>
       <xsl:value-of select="atom:issued|w3a:issued"/></em>
     </p>
   </xsl:template>
@@ -83,17 +85,17 @@ View an Atom feed as clean HTML
       match="atom:content|atom:summary|w3a:content|w3a:summary">
     <xsl:choose>
       <xsl:when test="@type='application/xhtml+xml'">
-    <xsl:copy-of select="node()"/>
+        <xsl:copy-of select="node()"/>
       </xsl:when>
-<xsl:when test="@type='html' or @type='text/html'">
-<xsl:value-of disable-output-escaping="yes"
-    select="node()"/>
-</xsl:when>
-<!-- for legacy atom 0.3-->
-<xsl:when test="@mode='escaped'">
-<xsl:value-of disable-output-escaping="yes"
-    select="node()"/>
-</xsl:when>
+      <xsl:when test="@type='html' or @type='text/html'">
+        <xsl:value-of disable-output-escaping="yes"
+                      select="node()"/>
+      </xsl:when>
+      <!-- for legacy atom 0.3-->
+      <xsl:when test="@mode='escaped'">
+        <xsl:value-of disable-output-escaping="yes"
+                      select="node()"/>
+      </xsl:when>
     </xsl:choose>
   </xsl:template>
   <xsl:template match="xhtml:div">
