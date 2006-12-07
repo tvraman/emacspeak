@@ -287,7 +287,7 @@ proc clean {element} {
         regsub -all {([0-9a-zA-Z])([@!;/:()=\#,.\"])+([0-9a-zA-Z])} $element \
             {\1 `p5 \3} element
         regsub -all {``} $element { `ar } element
-        regsub -all {''} $element { `af} element
+        regsub -all {''} $element { `p3 } element
         regsub -all {' }  $element { `p1  } element
         regsub -all --  {--} $element { `p10  } element
         regsub -all -- {-}  $element { `p1   } element 
