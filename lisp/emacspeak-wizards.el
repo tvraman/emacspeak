@@ -198,7 +198,7 @@ Prompts for the new location and preserves modification time
              location)))
     (copy-file
      file location
-     1                                  ;prompt before overwriting
+     1                                 ;prompt before overwriting
      t                                  ;preserve
                                         ;modification time
      )
@@ -1989,6 +1989,29 @@ visiting the xls file."
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.xls$"
  'emacspeak-wizards-xl-mode)
+
+;;}}}
+;;{{{ pdf wizard 
+
+(defcustom emacspeak-wizards-pdf-to-text-program
+  "pdftotext"
+  "Command for running pdftotext."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(defun emacspeak-wizards-pdf-open (filename)
+  "Open pdf file as text."
+  (interactive "fFilename:")
+  (let ((output-buffer (format "%s"
+                               (file-name-sans-extension
+                                (file-name-nondirectory filename)))))
+    (shell-command
+     (format "pdftotext -layout %s -"
+             filename)
+     output-buffer)
+    (switch-to-buffer output-buffer)
+    (set-buffer-modified-p nil)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ ppt wizard
