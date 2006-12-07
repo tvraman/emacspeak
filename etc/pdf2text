@@ -6,7 +6,7 @@ if which pdftotext   > /dev/null
 then
     tempfile=/tmp/pdftotext-$$.pdf
     cat > $tempfile
-    pdftotext $tempfile - | cat -s 
+    pdftotext -layout $tempfile - | cat -s 
     rm -f $tempfile
     exit 0
 else 
