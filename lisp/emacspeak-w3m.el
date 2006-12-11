@@ -960,6 +960,7 @@ With prefix argument makes this transformation persistent."
    (w3m-arrived-anchor-face voice-lighten)
    (w3m-anchor-face voice-bolden)
    (w3m-bold-face voice-bolden)
+   (w3m-italic-face voice-animate)
    (w3m-underline-face voice-brighten-extra)
    (w3m-header-line-location-title-face voice-bolden)
    (w3m-header-line-location-content-face voice-animate)
