@@ -73,15 +73,15 @@
                  #'(lambda (a b )
                      (string-lessp (cadr a) (cadr b )))))))
 
-(defun calendar-entry-marked-p()
+(defsubst emacspeak-calendar-entry-marked-p()
   "Check if diary entry is marked. "
-  (declare (special diary-entry-marker))
-  (or
-   (get-text-property (point) 'personality)
-   (save-excursion
-     (forward-char 1)
-     (string-equal diary-entry-marker (buffer-substring (point) (+ 1 (point ))))))
-  )
+  (member 'diary
+          (delq nil
+                (mapcar
+                 #'(lambda (overlay)
+                     (overlay-get overlay 'face))
+                 (overlays-at (point))))))
+
 
 (defun emacspeak-speak-calendar-date()
   "Speak the date under point when called in Calendar Mode. "
@@ -89,7 +89,7 @@
   (let ((voice-lock-mode t))
     (emacspeak-dtk-sync)
     (cond
-     ((calendar-entry-marked-p)
+     ((emacspeak-calendar-entry-marked-p)
       (dtk-speak-using-voice emacspeak-calendar-mark-personality
                              (calendar-date-string
                               (calendar-cursor-to-date t ) nil  nil ))
