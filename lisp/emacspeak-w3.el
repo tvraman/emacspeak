@@ -1899,6 +1899,15 @@ If a rewrite rule is defined in the current buffer, we change
   :type 'file
   :group 'emacspeak-w3)
 
+(defcustom emacspeak-w3-tidy-options
+  (list "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
+           "-asxml" "-quiet" "-clean" "-bare" "-omit"
+           "--drop-proprietary-attributes" "yes" "--hide-comments"
+           "yes")
+"Options to pass to tidy program"
+:type '(repeat string)
+:group 'emacspeak-w3)
+
 (defcustom emacspeak-w3-tidy-html t
   "Tidy HTML before rendering."
   :type 'boolean
@@ -1906,7 +1915,8 @@ If a rewrite rule is defined in the current buffer, we change
 
 (defun emacspeak-w3-tidy (&optional buff)
   "Use html tidy to clean up the HTML in the current buffer."
-  (declare (special emacspeak-w3-tidy-html))
+  (declare (special emacspeak-w3-tidy-html
+emacspeak-w3-tidy-program emacspeak-w3-tidy-options))
   (when emacspeak-w3-tidy-html
     (save-excursion
       (if buff
@@ -1914,14 +1924,13 @@ If a rewrite rule is defined in the current buffer, we change
         (setq buff (current-buffer)))
       (setq buffer-undo-list t)
       (widen)
-      (call-process-region
+      (apply 'call-process-region
        (point-min) (point-max)
-       emacspeak-w3-tidy-program t
+       emacspeak-w3-tidy-program
+       t
        (list buff nil)
        nil
-       "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
-       "-asxml" "-quiet" "-clean" "-bare" "-omit"
-       "--drop-proprietary-attributes" "yes" "--hide-comments" "yes"))))
+       emacspeak-w3-tidy-options))))
 
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
 

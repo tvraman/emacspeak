@@ -137,7 +137,6 @@
       table))))
 
 ;;}}}
-
 ;;{{{ map faces to voices
 
 (defvar voice-setup-face-voice-table (make-hash-table)
