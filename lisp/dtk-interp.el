@@ -1,23 +1,23 @@
 ;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  Interfacing to the speech server
 ;;; Keywords: TTS, Dectalk, Speech Server
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
-;;; All Rights Reserved. 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -120,7 +120,7 @@
                                (if force "\nd" ""))))
 
 ;;}}}
-;;{{{  queue 
+;;{{{  queue
 
 (defsubst dtk-interp-queue (text)
   (declare (special dtk-speaker-process))
@@ -172,12 +172,12 @@
 
 (defsubst dtk-interp-sync()
   (declare (special dtk-speaker-process
-                    dtk-punctuation-mode dtk-speech-rate 
+                    dtk-punctuation-mode dtk-speech-rate
                     dtk-capitalize dtk-split-caps
                     dtk-allcaps-beep))
   (process-send-string dtk-speaker-process
                        (format "tts_sync_state %s %s %s %s %s \n"
-                               dtk-punctuation-mode 
+                               dtk-punctuation-mode
                                (if dtk-capitalize 1  0 )
                                (if dtk-allcaps-beep 1  0 )
                                (if dtk-split-caps 1 0 )
@@ -215,7 +215,7 @@
                                factor)))
 
 ;;}}}
-;;{{{  split caps 
+;;{{{  split caps
 
 (defsubst dtk-interp-toggle-split-caps (dtk-split-caps)
   (declare (special dtk-speaker-process))
@@ -228,7 +228,7 @@
 
 (defsubst dtk-interp-toggle-capitalization (dtk-capitalize)
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process 
+  (process-send-string dtk-speaker-process
                        (format "tts_capitalize  %s\n"
                                (if dtk-capitalize  1 0 ))))
 
@@ -237,7 +237,7 @@
 
 (defsubst dtk-interp-toggle-allcaps-beep  (dtk-allcaps-beep)
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process 
+  (process-send-string dtk-speaker-process
                        (format "tts_allcaps_beep  %s\n"
                                (if dtk-allcaps-beep  1 0
                                    ))))
@@ -247,7 +247,7 @@
 
 (defsubst dtk-interp-set-punctuations(mode)
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process  
+  (process-send-string dtk-speaker-process
                        (format "tts_set_punctuations %s\n"
                                mode)))
 
@@ -282,6 +282,6 @@
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}

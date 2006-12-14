@@ -1991,7 +1991,7 @@ visiting the xls file."
  'emacspeak-wizards-xl-mode)
 
 ;;}}}
-;;{{{ pdf wizard 
+;;{{{ pdf wizard
 
 (defcustom emacspeak-wizards-pdf-to-text-program
   "pdftotext"
@@ -2006,7 +2006,7 @@ visiting the xls file."
                                (file-name-sans-extension
                                 (file-name-nondirectory filename)))))
     (shell-command
-     (format "pdftotext -layout %s -"
+     (format "pdftotext -layout %s - | cat -s "
              filename)
      output-buffer)
     (switch-to-buffer output-buffer)
