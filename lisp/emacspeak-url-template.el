@@ -469,6 +469,19 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{  google patent search:
+
+(emacspeak-url-template-define
+ "Patent Search From Google"
+ "http://www.google.com/patents?ie=ISO-8859-1&q=%s"
+ (list "Google For Patents: ")
+ #'(lambda nil
+     (search-forward " Patent Search" nil t)
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer))
+ "Perform patent search via Google")
+
+;;}}}
 ;;{{{ google code search
 (emacspeak-url-template-define
  "Code Search From Google"
