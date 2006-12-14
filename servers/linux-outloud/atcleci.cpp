@@ -72,8 +72,8 @@
 //>
 //< alsa: globals  and defines
 
-#define DEFAULT_FORMAT		SND_PCM_FORMAT_S16
-#define DEFAULT_SPEED		11025
+#define DEFAULT_FORMAT          SND_PCM_FORMAT_S16
+#define DEFAULT_SPEED           11025
 
 /* globals */
 
@@ -136,10 +136,10 @@ static int (*_eciSetVoiceParam) (void *, int, int, int);
 static int (*_eciSetOutputBuffer) (void *, int, short *);
 static int (*_eciSetOutputDevice) (void *, int);
 static void (*_eciRegisterCallback) (void *,
-				     int (*)(void *, int, long, void *),
-				     void *);
+                                     int (*)(void *, int, long, void *),
+                                     void *);
 static int alsa_init ();
-static void alsa_reset ();	//drop handle and reset
+static void alsa_reset ();      //drop handle and reset
 static size_t alsa_configure (void);
 
 extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
@@ -178,7 +178,7 @@ alsa_configure (void)
   if (err < 0)
     {
       fprintf (stderr,
-	       "Broken configuration for this PCM: no configurations available");
+               "Broken configuration for this PCM: no configurations available");
       exit (EXIT_FAILURE);
     }
 
@@ -211,7 +211,7 @@ alsa_configure (void)
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access (AHandle, params,
-				      SND_PCM_ACCESS_RW_INTERLEAVED);
+                                      SND_PCM_ACCESS_RW_INTERLEAVED);
   if (err < 0)
     {
       fprintf (stderr, "Access type not available");
@@ -231,8 +231,8 @@ alsa_configure (void)
     {
       err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
       assert (err >= 0);
-      if (buffer_time > 500000)	//usecs
-	buffer_time = 500000;
+      if (buffer_time > 500000) //usecs
+        buffer_time = 500000;
     }
   //>
   //<Compute period_time:
@@ -240,26 +240,26 @@ alsa_configure (void)
   if (period_time == 0 && period_frames == 0)
     {
       if (buffer_time > 0)
-	period_time = buffer_time / 4;
+        period_time = buffer_time / 4;
       else
-	period_frames = buffer_frames / 4;
+        period_frames = buffer_frames / 4;
     }
   if (period_time > 0)
     err = snd_pcm_hw_params_set_period_time_near (AHandle, params,
-						  &period_time, 0);
+                                                  &period_time, 0);
   else
     err = snd_pcm_hw_params_set_period_size_near (AHandle, params,
-						  &period_frames, 0);
+                                                  &period_frames, 0);
   assert (err >= 0);
   if (buffer_time > 0)
     {
       err = snd_pcm_hw_params_set_buffer_time_near (AHandle, params,
-						    &buffer_time, 0);
+                                                    &buffer_time, 0);
     }
   else
     {
       err = snd_pcm_hw_params_set_buffer_size_near (AHandle, params,
-						    &buffer_frames);
+                                                    &buffer_frames);
     }
   assert (err >= 0);
 
@@ -282,7 +282,7 @@ alsa_configure (void)
   if (chunk_size == buffer_size)
     {
       fprintf (stderr, "Can't use period equal to buffer size (%lu == %lu)",
-	       chunk_size, buffer_size);
+               chunk_size, buffer_size);
       exit (EXIT_FAILURE);
     }
 
@@ -309,7 +309,7 @@ alsa_configure (void)
   if (start_delay <= 0)
     {
       start_threshold =
-	(snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
+        (snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
     }
   else
     start_threshold =
@@ -320,12 +320,12 @@ alsa_configure (void)
     start_threshold = n;
   err =
     snd_pcm_sw_params_set_start_threshold (AHandle, swParams,
-					   start_threshold);
+                                           start_threshold);
   assert (err >= 0);
   if (stop_delay <= 0)
     stop_threshold =
       (snd_pcm_uframes_t) (buffer_size +
-			   (double) rate * stop_delay / 1000000);
+                           (double) rate * stop_delay / 1000000);
   else
     stop_threshold =
       (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
@@ -345,7 +345,7 @@ alsa_configure (void)
 
   //>
   bits_per_sample = snd_pcm_format_physical_width (DEFAULT_FORMAT);
-  bits_per_frame = bits_per_sample * 1;	//mono
+  bits_per_frame = bits_per_sample * 1; //mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
   return chunk_bytes;
 }
@@ -355,7 +355,7 @@ alsa_configure (void)
 
 #ifndef timersub
 
-#define	timersub(a, b, result)                          \
+#define timersub(a, b, result)                          \
   do {                                                  \
     (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;       \
     (result)->tv_usec = (a)->tv_usec - (b)->tv_usec;    \
@@ -385,17 +385,17 @@ xrun (void)
       snd_pcm_status_get_trigger_tstamp (status, &tstamp);
       timersub (&now, &tstamp, &diff);
       fprintf (stderr, "Underrun!!! (at least %.3f ms long)\n",
-	       diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+               diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
       if ((res = snd_pcm_prepare (AHandle)) < 0)
-	{
-	  fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
-	  exit (EXIT_FAILURE);
-	}
-      return;			// ok, data should be accepted again
+        {
+          fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
+          exit (EXIT_FAILURE);
+        }
+      return;                   // ok, data should be accepted again
     }
 
   fprintf (stderr, "read/write error, state = %s",
-	   snd_pcm_state_name (snd_pcm_status_get_state (status)));
+           snd_pcm_state_name (snd_pcm_status_get_state (status)));
   exit (EXIT_FAILURE);
 }
 
@@ -408,17 +408,17 @@ suspend (void)
   fprintf (stderr, "Suspended. Trying resume. ");
   fflush (stderr);
   while ((res = snd_pcm_resume (AHandle)) == -EAGAIN)
-    sleep (1);			/* wait until suspend flag is released */
+    sleep (1);                  /* wait until suspend flag is released */
   if (res < 0)
     {
 
       fprintf (stderr, "Failed. Restarting stream. ");
       fflush (stderr);
       if ((res = snd_pcm_prepare (AHandle)) < 0)
-	{
-	  fprintf (stderr, "suspend: prepare error: %s", snd_strerror (res));
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "suspend: prepare error: %s", snd_strerror (res));
+          exit (EXIT_FAILURE);
+        }
     }
 
   fprintf (stderr, "Done.\n");
