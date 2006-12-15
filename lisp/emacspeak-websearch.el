@@ -1472,19 +1472,19 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 ;;}}}
 ;;{{{ Driving directions from Yahoo
 
-(emacspeak-websearch-set-searcher 'map-directions
-                                  'emacspeak-websearch-map-directions-search)
-(emacspeak-websearch-set-key ?m 'map-directions)
+(emacspeak-websearch-set-searcher 'map-yahoodirections
+                                  'emacspeak-websearch-map-yahoodirections-search)
+(emacspeak-websearch-set-key ?m 'map-yahoodirections)
 
-(defvar emacspeak-websearch-map-directions-uri
+(defvar emacspeak-websearch-map-yahoodirections-uri
   "http://maps.yahoo.com/py/ddResults.py?Pyt=Tmap&doit=1&newname=&newdesc=&Get+Directions=Get+Directions&textonly=1"
   "URI for getting driving directions from Yahoo.")
 
-(defvar emacspeak-websearch-map-maps-uri
+(defvar emacspeak-websearch-map-yahoomaps-uri
   "http://maps.yahoo.com/py/maps.py?Pyt=Tmap&Get%A0Map=Get+Map&"
   "URI for obtaining location maps.")
 
-(defsubst emacspeak-websearch-map-maps-get-location ()
+(defsubst emacspeak-websearch-map-yahoomaps-get-location ()
   "Convenience function for prompting and constructing the route component."
   (concat
    (format "&addr=%s"
@@ -1494,7 +1494,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))))
 
-(defsubst emacspeak-websearch-map-directions-get-locations ()
+(defsubst emacspeak-websearch-map-yahoodirections-get-locations ()
   "Convenience function for prompting and constructing the route component."
   (concat
    (format "&newaddr=%s"
@@ -1510,25 +1510,25 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))))
 
-(defun emacspeak-websearch-map-directions-search (query
+(defun emacspeak-websearch-map-yahoodirections-search (query
                                                   &optional map)
   "Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead."
   (interactive
    (list
     (if current-prefix-arg
-        (emacspeak-websearch-map-maps-get-location)
-      (emacspeak-websearch-map-directions-get-locations))
+        (emacspeak-websearch-map-yahoomaps-get-location)
+      (emacspeak-websearch-map-yahoodirections-get-locations))
     current-prefix-arg))
-  (declare (special emacspeak-websearch-map-directions-uri
+  (declare (special emacspeak-websearch-map-yahoodirections-uri
                     emacspeak-xslt-use-wget-to-download
-                    emacspeak-websearch-map-maps-uri))
+                    emacspeak-websearch-map-yahoomaps-uri))
   (let ((emacspeak-xslt-use-wget-to-download t))
     (cond
      (map
       (browse-url
        (concat
-        emacspeak-websearch-map-maps-uri
+        emacspeak-websearch-map-yahoomaps-uri
         query))
       (emacspeak-websearch-post-process
        "Nearby"
@@ -1536,7 +1536,7 @@ With optional interactive prefix arg MAP shows the location map instead."
      (t
       (emacspeak-w3-extract-table-by-match "Start"
                                            (concat
-                                            emacspeak-websearch-map-directions-uri
+                                            emacspeak-websearch-map-yahoodirections-uri
                                             query)
                                            'speak)))))
 
