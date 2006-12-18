@@ -1373,7 +1373,8 @@ plays entire program."
  #'(lambda (url)
      (funcall emacspeak-media-player url 'play-list)
      (emacspeak-w3-browse-xml-url-with-style
-      (expand-file-name "smil-anchors.xsl" emacspeak-xslt-directory)
+      (expand-file-name "smil-anchors.xsl"
+                        emacspeak-xslt-directory)
       url)))
 
 (emacspeak-url-template-define

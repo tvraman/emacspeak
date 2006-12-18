@@ -8,8 +8,8 @@
 |----------------------+-------+-------+------------|
 | TTS Core             |     6 |  3866 |        6.0 |
 | Emacspeak Core       |    16 | 12174 |       18.9 |
-| Emacspeak Extensions |   159 | 48184 |       75.0 |
-| Total                |   181 | 64224 |       99.9 |
+| Emacspeak Extensions |   160 | 48339 |       75.0 |
+| Total                |   182 | 64379 |       99.9 |
 |----------------------+-------+-------+------------|
 
 
@@ -194,6 +194,7 @@ emacspeak-xml-shell.el
 emacspeak-xslide.el
 emacspeak-xslt.el
 emacspeak-xslt-process.el
+emacspeak-zinf.el
 flite-voices.el
 html-outline.el
 multispeech-voices.el
