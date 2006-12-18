@@ -1,8 +1,8 @@
-;;; emacspeak-freeamp.el --- Control freeamp from Emacs
+;;; emacspeak-zinf.el --- Control zinf from Emacs
 ;;; $Id$
 ;;; $Author$
-;;; Description: Controlling freeamp from emacs 
-;;; Keywords: Emacspeak, freeamp
+;;; Description: Controlling zinf from emacs 
+;;; Keywords: Emacspeak, zinf
 ;;{{{  LCD Archive entry: 
 
 ;;; LCD Archive Entry:
@@ -43,11 +43,9 @@
 ;;; Commentary:
 
 ;;; Defines a simple derived mode for interacting with
-;;; freeamp.
-;;; If you use freeamp  as your mp3 player from w3 for
-;;; example,
-;;; put the buffer containing freeamp in freeamp-mode.
-;;; freeamp navigation commands then work via single keystrokes.
+;;; zinf.
+;;; zinf == zinf is not freeamp
+;;; zinf navigation commands then work via single keystrokes.
 
 ;;; Code:
 
@@ -56,91 +54,97 @@
 
 (require 'emacspeak-preamble)
 ;;}}}
-;;{{{ define a derived mode for freeamp interaction 
-(defvar emacspeak-freeamp-process nil
-  "Process handle to freeamp." )
+;;{{{ define a derived mode for zinf interaction 
+
+(defvar emacspeak-zinf-process nil
+  "Process handle to zinf." )
 
 ;;;###autoload
-(define-prefix-command 'emacspeak-freeamp-prefix-command
-  'emacspeak-freeamp-mode-map)
+(define-prefix-command 'emacspeak-zinf-prefix-command
+  'emacspeak-zinf-mode-map)
 
-(define-derived-mode emacspeak-freeamp-mode fundamental-mode 
-  "Freeamp Interaction"
-  "Major mode for freeamp interaction. \n\n
-\\{emacspeak-freeamp-mode-map}"
-  (setq emacspeak-freeamp-process (get-buffer-process (current-buffer))))
+(define-derived-mode emacspeak-zinf-mode fundamental-mode 
+  "Zinf Interaction"
+  "Major mode for zinf interaction. \n\n
+\\{emacspeak-zinf-mode-map}"
+  (setq emacspeak-zinf-process (get-buffer-process (current-buffer))))
 
-(declaim (special emacspeak-freeamp-mode-map))
+(declaim (special emacspeak-zinf-mode-map))
 
-(defvar emacspeak-freeamp-freeamp-keys
-  (list ?p ?+ ?-  ?f ?b ?s ?= ?q)
-  "Keys accepted by freeamp.")
+(defvar emacspeak-zinf-zinf-keys
+  (list ?p ?+ ?-  ?f ?b ?s ?= ?q
+        ?F ?B ?j ?J ??)
+  "Keys accepted by zinf.")
+
 ;;;###autoload
-(defun emacspeak-freeamp-freeamp-command (char)
-  "Execute FreeAmp command."
-  (interactive "cFreeamp Command:")
-  (declare (special emacspeak-freeamp-process))
-  (let*  ((buffer (process-buffer emacspeak-freeamp-process))
+(defun emacspeak-zinf-zinf-command (char)
+  "Execute Zinf command."
+  (interactive "cZinf Command:")
+  (declare (special emacspeak-zinf-process))
+  (let*  ((buffer (process-buffer emacspeak-zinf-process))
           (mark nil))
     (save-excursion
       (set-buffer buffer)
       (setq mark (point-max))
       (process-send-string
-       emacspeak-freeamp-process
+       emacspeak-zinf-process
        (format "%c" char))
-      (accept-process-output emacspeak-freeamp-process 1)
+      (accept-process-output emacspeak-zinf-process 1)
       (message "%s"
                (buffer-substring mark (point-max))))))
 ;;;###autoload
-(defun emacspeak-freeamp-freeamp-call-command ()
-  "Call appropriate freeamp command."
+(defun emacspeak-zinf-zinf-call-command ()
+  "Call appropriate zinf command."
   (interactive)
-  (emacspeak-freeamp-freeamp-command last-input-char)
+  (emacspeak-zinf-zinf-command last-input-char)
   (when (char-equal last-input-char ?q)
     (emacspeak-aumix-reset)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(define-key emacspeak-freeamp-mode-map  "o" 'emacspeak-freeamp)
-(loop for c in emacspeak-freeamp-freeamp-keys
+(define-key emacspeak-zinf-mode-map  "z" 'emacspeak-zinf)
+(loop for c in emacspeak-zinf-zinf-keys
       do
-      (define-key emacspeak-freeamp-mode-map   (format
+      (define-key emacspeak-zinf-mode-map   (format
                                                 "%c" c)
-        'emacspeak-freeamp-freeamp-call-command))
-(define-key emacspeak-freeamp-mode-map [left]
+        'emacspeak-zinf-zinf-call-command))
+(define-key emacspeak-zinf-mode-map [left]
   'emacspeak-aumix-wave-decrease)
-(define-key emacspeak-freeamp-mode-map [right] 'emacspeak-aumix-wave-increase)
+(define-key emacspeak-zinf-mode-map [right] 'emacspeak-aumix-wave-increase)
 
 ;;}}}
-;;{{{ emacspeak-freeamp
+;;{{{ emacspeak-zinf
+
 ;;;###autoload
-(defun emacspeak-freeamp (resource)
-  "Play specified resource using freeamp.
+(defun emacspeak-zinf (resource)
+  "Play specified resource using zinf.
 Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-freeamp-mode."
+The player is placed in a buffer in emacspeak-zinf-mode."
   (interactive
    (list
     (read-file-name "MP3 Resource: "
                     (when (eq major-mode 'dired-mode)
                       (dired-get-filename)))))
-  (declare (special emacspeak-freeamp-process))
-  (when (and emacspeak-freeamp-process
+  (declare (special emacspeak-zinf-process))
+  (when (and emacspeak-zinf-process
              (eq 'run (process-status
-                       emacspeak-freeamp-process))
+                       emacspeak-zinf-process))
              (y-or-n-p "Stop currently playing music? "))
-    (kill-buffer (process-buffer emacspeak-freeamp-process))
-    (setq emacspeak-freeamp-process nil))
+    (kill-buffer (process-buffer emacspeak-zinf-process))
+    (setq emacspeak-zinf-process nil))
   (let ((process-connection-type nil))
-    (setq emacspeak-freeamp-process
+    (setq emacspeak-zinf-process
           (start-process
-           "freeamp" "freeamp" "freeamp"
+           "zinf" "zinf""aoss"
+           "zinf"
+           "-ui" "cmdline.ui"
            (expand-file-name resource)))
     (switch-to-buffer (process-buffer
-                       emacspeak-freeamp-process))
-    (emacspeak-freeamp-mode)))
+                       emacspeak-zinf-process))
+    (emacspeak-zinf-mode)))
 
 ;;}}}
-(provide 'emacspeak-freeamp)
+(provide 'emacspeak-zinf)
 ;;{{{ end of file 
 
 ;;; local variables:
