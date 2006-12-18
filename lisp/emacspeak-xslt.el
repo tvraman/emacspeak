@@ -1,7 +1,7 @@
 ;;; emacspeak-xslt.el --- Implements Emacspeak  xslt transform engine
 ;;; $Id$
 ;;; $Author$
-;;; Description:  xslt transformation routines 
+;;; Description:  xslt transformation routines
 ;;; Keywords: Emacspeak,  Audio Desktop XSLT
 ;;{{{  LCD Archive entry:
 
@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -51,13 +51,13 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{  xslt 
+;;{{{  xslt
 
 (defgroup emacspeak-xslt nil
   "XSL transformation group."
   :group 'emacspeak)
 
-;;;###autoload 
+;;;###autoload
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
   "Directory holding XSL transformations.")
@@ -94,8 +94,8 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors
                     modification-flag ))
   (let ((command nil)
-        (parameters (when params 
-                      (mapconcat 
+        (parameters (when params
+                      (mapconcat
                        #'(lambda (pair)
                            (format "--param %s %s "
                                    (car pair)
@@ -118,7 +118,7 @@ part of the libxslt package."
               end t)
         (replace-match " ")))
     (shell-command-on-region start end
-                             command 
+                             command
                              (current-buffer)
                              'replace
                              (when emacspeak-xslt-keep-errors
@@ -151,8 +151,8 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        (parameters (when params 
-                      (mapconcat 
+        (parameters (when params
+                      (mapconcat
                        #'(lambda (pair)
                            (format "--param %s %s "
                                    (car pair)
@@ -212,8 +212,8 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        (parameters (when params 
-                      (mapconcat 
+        (parameters (when params
+                      (mapconcat
                        #'(lambda (pair)
                            (format "--param %s %s "
                                    (car pair)
@@ -221,7 +221,7 @@ part of the libxslt package."
                        params
                        " "))))
     (setq command (format
-                   "%s %s    --novalid %s '%s' %s"
+                   "%s %s --html --novalid %s '%s' %s"
                    emacspeak-xslt-program
                    (or parameters "")
                    xsl url
