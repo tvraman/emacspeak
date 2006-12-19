@@ -1372,7 +1372,7 @@ Segment is specified as a two digit number --specifying a blank value
 plays entire program."
  #'(lambda (url)
      (funcall emacspeak-media-player url 'play-list)
-     (emacspeak-w3-browse-xml-url-with-style
+     (emacspeak-w3-browse-url-with-style
       (expand-file-name "smil-anchors.xsl"
                         emacspeak-xslt-directory)
       url)))
