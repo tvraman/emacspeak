@@ -221,7 +221,7 @@ part of the libxslt package."
                        params
                        " "))))
     (setq command (format
-                   "%s %s --html --novalid %s '%s' %s"
+                   "%s %s --novalid %s '%s' %s"
                    emacspeak-xslt-program
                    (or parameters "")
                    xsl url
