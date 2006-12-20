@@ -50,6 +50,21 @@
 ;;}}}
 ;;{{{  Customizations:
 
+(defgroup emacspeak-gnus nil
+  "Emacspeak customizations for the Gnus News/Mail/RSS reader"
+  :group 'emacspeak
+  :group 'gnus
+  :prefix "emacspeak-gnus-")
+
+(defcustom emacspeak-gnus-punctuation-mode  'some
+  "Pronunciation mode to use for gnus buffers."
+  :type '(choice
+          (const  :tag "Ignore" nil)
+          (const  :tag "some" some)
+          (const  :tag "all" all))
+  :group 'emacspeak-gnus)
+
+
 ;;; These customizations to gnus make it convenient to listen to news:
 ;;; You can read news mostly by using the four arrow keys.
 ;;; By default all article headers are hidden, so you hear the real news.
@@ -835,14 +850,16 @@ Helps to prevent words from being spelled instead of spoken."
 
 
 ;;}}}
-;;{{{ rdc: refreshing the pronunciation 
+;;{{{ rdc: refreshing the pronunciation  and punctuation mode
 
 (add-hook 'gnus-article-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-group-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 ;; the following is for summary mode.  By default, the 
@@ -850,26 +867,27 @@ Helps to prevent words from being spelled instead of spoken."
 
 (add-hook 'gnus-agent-mode-hook
           (function (lambda ()
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'message-mode-hook
-          (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-article-edit-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-category-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-score-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-server-mode-hook
           (function (lambda ()
+		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}

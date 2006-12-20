@@ -46,6 +46,23 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ customize
+(defgroup emacspeak-message nil
+  "Emacspeak customizations for message mode"
+  :group 'emacspeak
+  :group 'message
+  :prefix "emacspeak-message-")
+
+(defcustom emacspeak-message-punctuation-mode  'some
+  "Pronunciation mode to use for message buffers."
+  :type '(choice
+          (const  :tag "Ignore" nil)
+          (const  :tag "some" some)
+          (const  :tag "all" all))
+  :group 'emacspeak-message)
+
+
+;;}}}
 ;;{{{ voice mapping
 
 (voice-setup-add-map
@@ -212,9 +229,12 @@
 
 (add-hook 'message-mode-hook
           (lambda ()
+	    (dtk-set-punctuations emacspeak-message-punctuation-mode)
+	    (emacspeak-pronounce-refresh-pronunciations)
             (emacspeak-auditory-icon 'open-object)
             (message "Starting message %s ... done"
                      (buffer-name))))
+
 
 ;;}}}
 (provide  'emacspeak-message)
