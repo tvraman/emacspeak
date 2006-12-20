@@ -369,13 +369,26 @@ instead of the modeline."
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
     (if emacspeak-w3m-speak-titles-on-switch 
-        (dtk-speak w3m-current-title)
+	(dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-delete-other-buffers (after emacspeak pre act comp)
   "Produce auditory icon."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (declare (special w3m-current-title))
+    (emacspeak-auditory-icon 'close-object)
+    (if emacspeak-w3m-speak-titles-on-switch 
+	(dtk-speak w3m-current-title)
+      (emacspeak-speak-mode-line))))
+
+(defadvice w3m-bookmark-kill-entry (around emacspeak pre act comp)
+  "Resets the punctuation mode to the one before the delete"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'ask-question)
+    (let ((current-punct-mode dtk-punctuation-mode))
+      ad-do-it
+      (dtk-set-punctuations current-punct-mode))
+    (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice w3m-bookmark-add-current-url (after emacspeak pre act comp)
   "Produce auditory icon."
@@ -641,7 +654,8 @@ instead of the modeline."
 (defadvice w3m-view-header (after emacspeak pre act comp)
   "Speech enable w3m"
   (when (interactive-p)
-    (declare (special w3m-current-title))
+    (declare (special w3m-current-title
+		      w3m-current-url))
     (cond
      ((string-match "\\`about://header/" w3m-current-url)
       (message"viewing header information for %s "w3m-current-title  )))))
@@ -649,7 +663,8 @@ instead of the modeline."
 (defadvice w3m-view-source (after emacspeak pre act comp)
   "Speech enable w3m"
   (when (interactive-p)
-    (declare (special w3m-current-title))
+    (declare (special w3m-current-title
+		      w3m-current-url))
     (cond
      ((string-match "\\`about://source/" w3m-current-url)
       (message"viewing source for %s "w3m-current-title  )))))
@@ -957,10 +972,14 @@ With prefix argument makes this transformation persistent."
 ;;{{{ tvr: mapping font faces to personalities 
 (voice-setup-add-map
  '(
+   (w3m-italic-face voice-animate)
+   (w3m-insert-face voice-bolden)
+   (w3m-strike-through-face voice-smoothen-extra)
+   (w3m-history-current-url-face voice-lighten)
+   (w3m-current-anchor-face voice-bolden-extra)
    (w3m-arrived-anchor-face voice-lighten)
    (w3m-anchor-face voice-bolden)
    (w3m-bold-face voice-bolden)
-   (w3m-italic-face voice-animate)
    (w3m-underline-face voice-brighten-extra)
    (w3m-header-line-location-title-face voice-bolden)
    (w3m-header-line-location-content-face voice-animate)
@@ -996,7 +1015,8 @@ With prefix argument makes this transformation persistent."
   "Perform a google search to locate documents that link to the
  current page."
   (interactive)
-  (declare (special major-mode))
+  (declare (special major-mode
+		    w3m-current-url))
   (unless (eq major-mode 'w3m-mode)
     (error "This command cannot be used outside w3m buffers."))
   (emacspeak-websearch-google
@@ -1006,6 +1026,7 @@ With prefix argument makes this transformation persistent."
   "Ask Google to find documents similar to this one."
   (interactive)
   (declare (special emacspeak-w3-google-related-uri
+		    w3m-current-url
                     major-mode))
   (unless (eq major-mode 'w3m-mode)
     (error "This command cannot be used outside w3m buffers."))
@@ -1037,7 +1058,8 @@ With prefix argument makes this transformation persistent."
 (defun emacspeak-w3m-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
   (interactive)
-  (declare (special major-mode))
+  (declare (special major-mode
+		    w3m-current-url))
   (unless (eq major-mode 'w3m-mode)
     (error "This command cannot be used outside W3m buffers."))
   (emacspeak-websearch-google
@@ -1051,6 +1073,7 @@ With prefix argument makes this transformation persistent."
   "Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page."
   (interactive "P")
+  (declare (special major-mode))
   (unless (eq major-mode 'w3m-mode)
     (error "Not in W3m buffer."))
   (unless (emacspeak-w3m-url-at-point)
@@ -1074,6 +1097,8 @@ With prefix argument makes this transformation persistent."
   "Transcode current URL via Google.
  Reverse effect with prefix arg for links on a transcoded page."
   (interactive "P")
+  (declare (special w3m-current-url
+		    major-mode))
   (unless (eq major-mode 'w3m-mode)
     (error "Not in W3m buffer."))
   (let ((url-mime-encoding-string "gzip"))
