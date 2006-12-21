@@ -2636,6 +2636,31 @@ Moves to the longest line when called interactively."
       (goto-char where))
     max))
 
+(defun emacspeak-wizards-find-shortest-line-in-region (start end)
+  "Find shortest line in region.
+Moves to the shortest line when called interactively."
+  (interactive "r")
+  (let ((min 1)
+        (where (point)))
+    (save-excursion
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (when
+            (< (- (line-end-position)
+                  (line-beginning-position))
+               min)
+          (setq min (- (line-end-position)
+                       (line-beginning-position)))
+          (setq where (line-beginning-position)))
+        (forward-line 1)))
+    (when (interactive-p)
+      (message "Shortest line is %s columns"
+               min)
+      (goto-char where))
+    min))
+
+
 ;;}}}
 ;;{{{ longest para in region
 ;;;###autoload
