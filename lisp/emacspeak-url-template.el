@@ -1868,14 +1868,25 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 ;;}}}
 ;;{{{ weather underground
+
+(defcustom emacspeak-url-template-weather-city-state
+  "CA/San_Jose"
+  "Default city/state for weather forecasts"
+  :type 'string
+  :group 'emacspeak-url-template)
+
 (emacspeak-url-template-define
  "rss weather from wunderground"
  "http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
- (list "State/City e.g.: MA/Boston") nil
+ (list
+  #'(lambda nil
+      (declare (special emacspeak-url-template-weather-city-state))
+      (read-from-minibuffer "City/State:"
+                            emacspeak-url-template-weather-city-state)))
+ nil
  "Pull RSS weather feed for specified state/city."
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak))
- 'dont-url-encode)
+     (emacspeak-rss-display url 'speak)))     
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
