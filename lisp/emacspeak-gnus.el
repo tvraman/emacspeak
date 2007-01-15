@@ -906,23 +906,23 @@ Helps to prevent words from being spelled instead of spoken."
  ;; rdc 102206
  '(
    (gnus-cite-face-1 voice-bolden)   ;; emacs 21
-   (gnus-cite-1 voice-bolden)
+   (gnus-cite-1 voice-bolden-medium)
    (gnus-cite-face-2 voice-lighten)   ;; emacs 21
    (gnus-cite-2 voice-lighten) 
    (gnus-cite-face-3 voice-lighten-extra)   ;; emacs 21
    (gnus-cite-3 voice-lighten-extra)
    (gnus-cite-face-4 voice-bolden-medium)   ;; emacs 21
-   (gnus-cite-4 voice-bolden-medium)
+   (gnus-cite-4 voice-bolden)
    (gnus-cite-face-5 voice-bolden)   ;; emacs 21
-   (gnus-cite-5 voice-bolden)
+   (gnus-cite-5 voice-bolden-medium)
    (gnus-cite-face-6 voice-lighten)   ;; emacs 21
    (gnus-cite-6 voice-lighten)
    (gnus-cite-face-7 voice-lighten-extra)   ;; emacs 21
    (gnus-cite-7 voice-lighten-extra)
    (gnus-cite-face-8 voice-bolden-medium)   ;; emacs 21
-   (gnus-cite-8 voice-bolden-medium)
+   (gnus-cite-8 voice-bolden)
    (gnus-cite-face-9 voice-bolden)   ;; emacs 21
-   (gnus-cite-9 voice-bolden)
+   (gnus-cite-9 voice-bolden-medium)
    (gnus-cite-face-10 voice-lighten)   ;; emacs 21
    (gnus-cite-10 voice-lighten)
    (gnus-cite-11 voice-lighten-extra)
