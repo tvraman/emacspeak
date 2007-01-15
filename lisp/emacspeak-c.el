@@ -411,6 +411,11 @@ and their meanings. ")
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented function")))
 
+(defadvice c-indent-command (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line )))
+
 ;;}}}
 ;;{{{ Additional keybindings:
 
