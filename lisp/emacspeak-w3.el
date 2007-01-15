@@ -53,6 +53,7 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'emacspeak-webutils)
 
 ;;}}}
 ;;{{{  custom
@@ -162,10 +163,10 @@
           ( "\C-t" emacspeak-w3-toggle-table-borders)
           ("'" emacspeak-speak-rest-of-buffer)
           ("\"" emacspeak-speak-skim-buffer)
-          ("/" emacspeak-w3-google-similar-to-this-page)
+          ("/" emacspeak-webutils-google-similar-to-this-page)
           (";" emacspeak-w3-speak-this-element)
           ("A" emacspeak-w3-browse-atom-at-point)
-          ("C" emacspeak-w3-google-extract-from-cache)
+          ("C" emacspeak-webutils-google-extract-from-cache)
           ("L" emacspeak-w3-lynx-url-under-point)
           ("N" emacspeak-speak-next-personality-chunk)
           ("P" emacspeak-speak-previous-personality-chunk)
@@ -174,19 +175,19 @@
           ("\M- " emacspeak-imenu-speak-this-section)
           ("\M-n" emacspeak-imenu-goto-next-index-position)
           ("\M-p" emacspeak-imenu-goto-previous-index-position)
-          ("\M-r" emacspeak-w3-play-media-at-point)
+          ("\M-r" emacspeak-webutils-play-media-at-point)
           ("\M-s" emacspeak-w3-jump-to-submit)
           ("c" emacspeak-w3-curl-url-under-point)
           ("e" emacspeak-w3-xsl-map)
-          ("g" emacspeak-w3-google-on-this-site)
+          ("g" emacspeak-webutils-google-on-this-site)
           ("hh" emacspeak-w3-show-http-headers)
           ("i" emacspeak-w3-next-parsed-item)
           ("j" imenu)
-          ("l" emacspeak-w3-google-who-links-to-this-page)
+          ("l" emacspeak-webutils-google-who-links-to-this-page)
           ("n" emacspeak-w3-next-doc-element)
           ("p" emacspeak-w3-previous-doc-element)
-          ("t" emacspeak-w3-transcode-via-google)
-          ("T"  emacspeak-w3-jump-to-title-in-content)
+          ("t" emacspeak-webutils-transcode-via-google)
+          ("T"  emacspeak-webutils-jump-to-title-in-content)
           ("y" emacspeak-w3-url-rewrite-and-follow)
           ("z" emacspeak-w3-speak-next-block)
           )
@@ -525,45 +526,6 @@ even if one is already defined."
           (funcall emacspeak-w3-url-executor url)
         (error "Invalid executor %s"
                emacspeak-w3-url-executor))))))
-
-;;}}}
-;;{{{  jump to title in document
-(defun emacspeak-w3-transcode-via-google (&optional untranscode)
-  "Transcode URL under point via Google.
-Reverse effect with prefix arg for links on a transcoded page."
-  (interactive "P")
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in W3 buffer."))
-  (unless (w3-view-this-url 'no-show)
-    (error "Not on a link."))
-  (let ((url-mime-encoding-string "gzip"))
-    (cond
-     ((null untranscode)
-      (browse-url
-       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-               (emacspeak-url-encode
-                (w3-view-this-url 'no-show)))))
-     (t
-      (let ((plain-url nil)
-            (prefix "http://www.google.com/gwt/n?u=")
-            (unhex (url-unhex-string (w3-view-this-url 'no-show))))
-        (setq plain-url (substring  unhex (length prefix)))
-        (when plain-url
-          (browse-url plain-url)))))))
-
-(defun emacspeak-w3-jump-to-title-in-content ()
-  "Jumps to the occurrence of document title in page body."
-  (interactive)
-  (let ((title (buffer-name)))
-    (condition-case nil
-        (progn
-          (goto-char (point-min))
-          (goto-char
-           (search-forward
-            (substring title 0 (min 10 (length title)))))
-          (emacspeak-speak-line)
-          (emacspeak-auditory-icon 'large-movement))
-      (error "Title not found in body."))))
 
 ;;}}}
 ;;{{{ jump to submit button
@@ -1608,65 +1570,6 @@ used as well."
     (kill-buffer src-buffer)))
 
 ;;}}}
-;;{{{  google tool
-
-;;;###autoload
-(defun emacspeak-w3-google-who-links-to-this-page ()
-  "Perform a google search to locate documents that link to the
-current page."
-  (interactive)
-  (declare (special major-mode))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command cannot be used outside W3 buffers."))
-  (emacspeak-websearch-google
-   (format "+link:%s"
-           (url-view-url 'no-show))))
-(defun emacspeak-w3-google-extract-from-cache ()
-  "Extract current  page from the Google cache."
-  (interactive)
-  (declare (special major-mode))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command cannot be used outside W3 buffers."))
-  (emacspeak-websearch-google
-   (format "+cache:%s"
-           (url-view-url 'no-show))))
-
-;;;###autoload
-(defun emacspeak-w3-google-on-this-site ()
-  "Perform a google search restricted to the current WWW site."
-  (interactive)
-  (declare (special major-mode))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command cannot be used outside W3 buffers."))
-  (emacspeak-websearch-google
-   (format "+site:%s %s"
-           (aref
-            (url-generic-parse-url (url-view-url 'no-show))
-            3)
-           (read-from-minibuffer "Search this site for: "))))
-
-(defvar emacspeak-w3-google-related-uri
-  "http://www.google.com/search?hl=en&num=25&q=related:")
-;;;###autoload
-(defun emacspeak-w3-google-similar-to-this-page (url)
-  "Ask Google to find documents similar to this one."
-  (interactive
-   (list
-    (read-from-minibuffer "URL:"
-                          (cond
-                           ((eq major-mode 'w3-mode)
-                            (url-view-url 'no-show))))))
-  (declare (special emacspeak-w3-google-related-uri
-                    major-mode))
-  (browse-url
-   (format
-    "%s%s"
-    emacspeak-w3-google-related-uri
-    url))
-  (emacspeak-websearch-post-process "Similar"
-                                    'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ advice focus on cell
 (defadvice w3-table-focus-on-this-cell (around emacspeak pre act comp)
   "Clone any url rewrite rules."
@@ -1783,23 +1686,6 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-atom-display url 'speak))
      (t (error "No URL under point.")))))
-
-;;}}}
-;;{{{  play url at point
-;;;###autoload
-(defun emacspeak-w3-play-media-at-point ()
-  "Play media url under point "
-  (interactive )
-  (declare (special emacspeak-media-player))
-  (let ((url (w3-view-this-url 'no-show)))
-    (message "Playing media  URL under point")
-    (funcall emacspeak-media-player  url)))
-
-(defun emacspeak-w3-mplayer-play-url-at-point ()
-  "Play url under point using mplayer"
-  (interactive )
-  (let ((url (w3-view-this-url 'no-show)))
-    (emacspeak-m-player url)))
 
 ;;}}}
 ;;{{{ backward compatibility

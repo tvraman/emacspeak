@@ -88,6 +88,7 @@
 
 ;;}}}
 ;;{{{ top-level dispatch
+;;;###autoload
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
@@ -217,7 +218,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                     (apply(quote
                            (, speaker))
                           (, args)))
-                   (t (message "Your search appears to have ffailed."))))))))
+                   (t (message "Your search appears to have failed."))))))))
 
 ;;}}}
 
@@ -271,6 +272,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://www.alltheweb.com/search?avkw=fogg&cat=web&cs=utf-8&_sb_lang=pref"
   "*URI for AllTheWeb search")
 
+;;;###autoload
 (defun emacspeak-websearch-alltheweb-search (query  )
   "Perform an AllTheWeb  search."
   (interactive
@@ -296,6 +298,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://www.altavista.com/sites/search/res_text?sc=on&hl=on&amb=txt&kl=en&search=Search&q="
   "URI for simple Altavista search")
 
+;;;###autoload
 (defun emacspeak-websearch-altavista-search (query)
   "Perform an Altavista search"
   (interactive
@@ -322,6 +325,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://liinwww.ira.uka.de/searchbib/index?partial=on&case=on&results=citation&maxnum=200&query="
   "URI to search the Computer Science Bibliographies.")
 
+;;;###autoload
 (defun emacspeak-websearch-biblio-search (query)
   "Search Computer Science Bibliographies."
   (interactive
@@ -357,6 +361,8 @@ ARGS specifies additional arguments to SPEAKER if any."
                                   'emacspeak-websearch-citeseer-search)
 
 (emacspeak-websearch-set-key 3 'citeseer)
+
+;;;###autoload
 (defun emacspeak-websearch-citeseer-search(term )
   "Perform a CiteSeer search. "
   (interactive
@@ -402,6 +408,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://www.bbc.co.uk/cgi-bin/search/results.pl?q="
   "URI to search the BBC archives.")
 
+;;;###autoload
 (defun emacspeak-websearch-bbc-search (query)
   "Search BBC archives."
   (interactive
@@ -426,6 +433,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://emea-store.blinkx.com/redirectors/SmartFeed.php?max=50&channel=reuters+revs+fox+webvideo+theonenetwork+verdictoncars+londontv+totalvid+inthebox+transmission+ifilms2+cspan+cspan2+bbcxml+bloomberg+cnn+itv+msnbc+forbes+podcast&siteId=3&oId=2100-1032-5793745&ontId=1023&lop=nl.ex&q="
   "URI to search  BlinkX for broadcasts.")
 
+;;;###autoload
 (defun emacspeak-websearch-blinkx-search (query)
   "BlinkX RSS Generator."
   (interactive
@@ -448,6 +456,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://www.podzinger.com/rss.jsp?q="
   "URI to search  Podzinger for broadcasts.")
 
+;;;###autoload
 (defun emacspeak-websearch-podzinger-search (query)
   "Podzinger RSS Generator."
   (interactive
@@ -539,6 +548,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "http://wombat.doc.ic.ac.uk/foldoc/foldoc.cgi?query="
   "*URI for launching a FolDoc  search.")
 
+;;;###autoload
 (defun emacspeak-websearch-foldoc-search (query)
   "Perform a FolDoc search. "
   (interactive
@@ -584,6 +594,7 @@ default."
 (defvar emacspeak-websearch-curl-program "curl"
   "Name of curl executable")
 
+;;;###autoload
 (defun emacspeak-websearch-quotes-yahoo-search (query &optional prefix)
   "Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
@@ -675,6 +686,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   "http://finance.yahoo.com/q?d=t&o=t"
   "URI for looking up detailed quote information. ")
 
+;;;###autoload
 (defun emacspeak-websearch-company-news (ticker &optional prefix)
   "Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades."
@@ -719,6 +731,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
   "Process csv data and put it in emacspeak table mode. "
   (emacspeak-table-view-csv-buffer (process-buffer process)))
 
+;;;###autoload
 (defun emacspeak-websearch-yahoo-historical-chart (ticker
                                                    &optional as-html)
   "Look up historical stock data.
@@ -815,6 +828,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://work.ucsd.edu:5141/cgi-bin/http_webster?isindex="
   "URI for searching the hypertext Webster dictionary.")
 
+;;;###autoload
 (defun emacspeak-websearch-dictionary-hypertext-webster-search (query)
   "Search the Webster Dictionary."
   (interactive
@@ -842,6 +856,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://sourceforge.net/search/?"
   "URI for searching the SourceForge site.")
 
+;;;###autoload
 (defun emacspeak-websearch-sourceforge-search (query)
   "Search SourceForge Site. "
   (interactive
@@ -860,6 +875,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.freshmeat.net/search?q="
   "URI for searching Freshmeat site. ")
 
+;;;###autoload
 (defun emacspeak-websearch-freshmeat-search (query)
   "Search Freshmeat  Site. "
   (interactive
@@ -879,6 +895,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.ctan.org/tools/filesearch?action=/search/&filename="
   "URI for searching CTAN archives for tex and latex utilities. ")
 
+;;;###autoload
 (defun emacspeak-websearch-ctan-search (query)
   "Search CTAN Comprehensive TeX Archive Network   Site. "
   (interactive
@@ -899,6 +916,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://search.cpan.org/search?mode=module&query="
   "URI for searching CPAN  archives for perl modules . ")
 
+;;;###autoload
 (defun emacspeak-websearch-cpan-search (query)
   "Search CPAN  Comprehensive Perl Archive Network   Site. "
   (interactive
@@ -918,6 +936,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.swik.net/project/"
   "URI for locating project communities via swik.")
 
+;;;###autoload
 (defun emacspeak-websearch-swik-search (query)
   "Search swik software community site."
   (interactive
@@ -937,6 +956,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "Sites searched for open source software. ")
 
 ;;; top level dispatcher for searching source locations
+;;;###autoload
 (defun emacspeak-websearch-software-search  ()
   "Search SourceForge, Freshmeat and other sites. "
   (interactive)
@@ -967,6 +987,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://search.britannica.com/search?query="
   "URI for searching Britannica online.")
 
+;;;###autoload
 (defun emacspeak-websearch-britannica-search (query)
   "Search Encyclopedia Britannica."
   (interactive
@@ -994,6 +1015,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://digital.library.upenn.edu/webbin/book/search?"
   "*URI for Gutenberg search")
 
+;;;###autoload
 (defun emacspeak-websearch-gutenberg (type query)
   "Perform an Gutenberg search"
   (interactive
@@ -1080,6 +1102,7 @@ I'm Feeling Lucky button on Google."
   "http://google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
+;;;###autoload
 (defun emacspeak-websearch-accessible-google(query)
   "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
@@ -1096,6 +1119,7 @@ I'm Feeling Lucky button on Google."
 
 (emacspeak-websearch-set-key ?\  'google-lucky)
 
+;;;###autoload
 (defun emacspeak-websearch-google-feeling-lucky (query)
   "Do a I'm Feeling Lucky Google search."
   (interactive
@@ -1109,6 +1133,7 @@ I'm Feeling Lucky button on Google."
 
 (emacspeak-websearch-set-key ?, 'google-specialize)
 
+;;;###autoload
 (defun emacspeak-websearch-google-specialize (specialize query)
   "Perform a specialized Google search. See the Google site for
   what is possible here:
@@ -1156,6 +1181,7 @@ http://www.google.com/options/specialsearches.html "
   "http://froogle.google.com/froogle?q="
   "*URI for Froogle search")
 
+;;;###autoload
 (defun emacspeak-websearch-froogle (query &optional local-flag)
   "Perform a Froogle search.
 Optional interactive  prefix arg local-flag prompts for local
@@ -1224,6 +1250,7 @@ Optional interactive  prefix arg local-flag prompts for local
    (cons "videos" emacspeak-websarch-google-videos-uri))
   "Association list of Google search URIs.")
 
+;;;###autoload
 (defun emacspeak-websearch-google-sak(engine query)
   "Perform a Google query against a specific index."
   (interactive
@@ -1249,6 +1276,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://www.technorati.com/tags/"
   "URI for Technorati tag search.")
 
+;;;###autoload
 (defun emacspeak-websearch-technorati (query)
   "Perform a Technorati tag search."
   (interactive
@@ -1271,6 +1299,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://s.teoma.com/search?qcat=1&qsrc=1&q="
   "*URI for Teoma  search")
 
+;;;###autoload
 (defun emacspeak-websearch-teoma (query )
   "Perform an Teoma  search."
   (interactive
@@ -1296,6 +1325,7 @@ Optional interactive  prefix arg local-flag prompts for local
                     emacspeak-lisp-directory)
   "Markup for Google advanced search form.")
 
+;;;###autoload
 (defun emacspeak-websearch-google-advanced ()
   "Present Google advanced search form simplified for speech interaction."
   (interactive)
@@ -1313,6 +1343,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://www.google.com/xhtml?q="
   "Google mobile search.")
 
+;;;###autoload
 (defun emacspeak-websearch-google-mobile (query)
   "Google mobile search."
   (interactive
@@ -1334,6 +1365,7 @@ Optional interactive  prefix arg local-flag prompts for local
 
 (emacspeak-websearch-set-key ?n 'google-news )
 
+;;;###autoload
 (defun emacspeak-websearch-google-news ()
   "Invoke Google News url template."
   (interactive)
@@ -1357,6 +1389,7 @@ Optional interactive  prefix arg local-flag prompts for local
   :type 'string
   :group 'emacspeak-websearch)
 
+;;;###autoload
 (defun emacspeak-websearch-emaps-search (query &optional use-near)
   "Perform EmapSpeak search.
 Query is a Google Maps query in plain English.
@@ -1438,6 +1471,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                     emacspeak-lisp-directory)
   "Usenet advanced search from google.")
 
+;;;###autoload
 (defun emacspeak-websearch-google-usenet-advanced ()
   "Present Google Usenet advanced search form simplified for speech interaction."
   (interactive)
@@ -1455,6 +1489,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
   "URI for Ask Jeeves  search")
 
+;;;###autoload
 (defun emacspeak-websearch-ask-jeeves (query)
   "Ask Jeeves for the answer."
   (interactive
@@ -1510,6 +1545,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))))
 
+;;;###autoload
 (defun emacspeak-websearch-map-yahoo-directions-search (query
                                                   &optional map)
   "Get driving directions from Yahoo.
@@ -1555,6 +1591,7 @@ With optional interactive prefix arg MAP shows the location map instead."
   "http://news.search.yahoo.com/news/rss?"
   "*RSS URI for launching a Yahoo News search")
 
+;;;###autoload
 (defun emacspeak-websearch-news-yahoo (query &optional no-rss)
   "Perform an Yahoo News search.
 Optional prefix arg no-rss scrapes information from HTML."
@@ -1623,6 +1660,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://search.dmoz.org/cgi-bin/search?search="
   "*URI for launching a Open Directory search")
 
+;;;###autoload
 (defun emacspeak-websearch-open-directory-search (query)
   "Perform an Open Directory search"
   (interactive
@@ -1651,6 +1689,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://rpmfind.net/linux/rpm2html/search.php?query="
   "*URI for RPM  Site search")
 
+;;;###autoload
 (defun emacspeak-websearch-rpm-find (query)
   "Search RPM  catalog  site."
   (interactive
@@ -1679,6 +1718,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                     emacspeak-lisp-directory)
   "Search form for finding recorded books.")
 
+;;;###autoload
 (defun emacspeak-websearch-recorded-books-search ()
   "Present advanced search form for recorded books."
   (interactive)
@@ -1696,6 +1736,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://www.m-w.com/cgi-bin/dictionary?va="
   "URI for searching the Merriam Webster dictionary.")
 
+;;;###autoload
 (defun emacspeak-websearch-merriam-webster-search (query)
   "Search the Merriam Webster Dictionary."
   (interactive
@@ -1722,6 +1763,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://www.srh.noaa.gov/zipcity.php?inputstring="
   "*URI for getting weather forecast.")
 
+;;;###autoload
 (defun emacspeak-websearch-weather (query)
   "Get weather forecast for specified zip code."
   (interactive
@@ -1744,6 +1786,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://search.w3.org/Member/cgi-bin/query?mss=simple&pg=q&what=web&filter=all&fmt=."
   "URI for searching the member area of the W3C site.")
 
+;;;###autoload
 (defun emacspeak-websearch-w3c-search (query)
   "Search the W3C Site."
   (interactive
@@ -1771,6 +1814,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://en.wikipedia.org/wiki/Special:Search?go=Go"
   "URI for searching WikiPedia")
 
+;;;###autoload
 (defun emacspeak-websearch-wikipedia-search (query)
   "Search Wikipedia"
   (interactive
@@ -1795,6 +1839,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://people.yahoo.com/py/psPhoneSearch.py?"
   "*URI for launching a People   search on Yahoo.")
 
+;;;###autoload
 (defun emacspeak-websearch-people-yahoo ()
   "Perform an Yahoo  people search"
   (interactive)
@@ -1821,6 +1866,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://www.podscope.com/search.php?q="
   "*URI for launching a PodScope search")
 
+;;;###autoload
 (defun emacspeak-websearch-podscope ()
   "Perform a PodScope search to locate podcasts."
   (interactive)
@@ -1841,6 +1887,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   "http://search.yahoo.com/bin/search?p="
   "*URI for launching a Yahoo  search")
 
+;;;###autoload
 (defun emacspeak-websearch-yahoo (query)
   "Perform an Yahoo  search"
   (interactive
@@ -1873,6 +1920,7 @@ Results"
   "http://www.xe.com/ucc/convert.cgi?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
   "URI template  for currency conversion.")
 
+;;;###autoload
 (defun emacspeak-websearch-exchange-rate-convertor (conversion-spec)
   "Currency convertor."
   (interactive
@@ -1902,6 +1950,7 @@ Results"
   "http://myrss.com/cgi-bin/search.cgi?__mod=search&__act=&search=Search+Channels&s="
   "URI for My RSS search.")
 
+;;;###autoload
 (defun emacspeak-websearch-my-rss-search (query)
   "My RSS search."
   (interactive
@@ -1927,6 +1976,7 @@ Results"
   "http://www.amazon.com/access"
   "Form for Amazon store search.")
 
+;;;###autoload
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."
   (interactive)
@@ -1946,6 +1996,7 @@ Results"
                     emacspeak-lisp-directory)
   "Form for Ebay store search.")
 
+;;;###autoload
 (defun emacspeak-websearch-ebay-search ()
   "Ebay search."
   (interactive)
@@ -1965,6 +2016,7 @@ Results"
                     emacspeak-lisp-directory)
   "Form for Shoutcast  search.")
 
+;;;###autoload
 (defun emacspeak-websearch-shoutcast-search ()
   "Shoutcast search."
   (interactive)
