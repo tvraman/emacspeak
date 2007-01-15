@@ -50,6 +50,192 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'url)
+(require 'emacspeak-websearch)
+
+;;}}}
+;;{{{ helper functions
+(defun emacspeak-webutils-document-title ()
+  "Returns the document title"
+  (declare (special w3m-current-title
+		   w3m-mode
+		   w3-mode
+		   major-mode))
+  (cond
+   ((eq major-mode 'w3-mode)
+       (buffer-name))
+   ((eq major-mode 'w3m-mode)
+    (w3m-current-title))))
+
+(defun emacspeak-webutils-url-at-point ()
+  "Returns the url under point."
+  (declare (special emacspeak-w3m-url-at-point
+		    w3-view-this-url
+		    w3m-mode
+		    w3-mode
+		    major-mode))
+  (cond
+   ((eq major-mode 'w3-mode)
+    (w3-view-this-url 'no-show))
+   ((eq major-mode 'w3m-mode)
+    (emacspeak-w3m-url-at-point))))
+
+(defun emacspeak-webutils-current-url ()
+  "Returns the current document url."
+  (declare (special w3m-current-url
+		    w3m-mode
+		    w3-mode
+		    major-mode))
+  (cond
+   ((eq major-mode 'w3-mode)
+    (url-view-url 'no-show))
+   ((eq major-mode 'w3m-mode)
+    w3m-current-url)))
+
+(defun emacspeak-webutils-browser-check ()
+  "Check to see if functions are called from a browser buffer"
+  (declare (special major-mode
+		    w3-mode
+		    w3m-mode))
+  (unless (or (eq major-mode 'w3-mode)
+	      (eq major-mode 'w3m-mode))
+    (error "This command cannot be used outside browser buffers.")))
+
+
+;;}}}
+;;{{{  google tools
+
+;;;###autoload
+(defun emacspeak-webutils-google-who-links-to-this-page ()
+  "Perform a google search to locate documents that link to the
+current page."
+  (interactive)
+  (emacspeak-webutils-browser-check)
+  (emacspeak-websearch-google
+   (format "link:%s"
+	   (emacspeak-webutils-current-url))))
+
+;;;###autoload
+(defun emacspeak-webutils-google-extract-from-cache (&optional prefix)
+  "Extract current  page from the Google cache.
+With a prefix argument, extracts url under point."
+  (interactive "P")
+  (emacspeak-webutils-browser-check)
+  (emacspeak-websearch-google
+   (format "cache:%s"
+	   (cond
+	    ((null prefix)
+	     (emacspeak-webutils-current-url))
+	    (t
+	     (emacspeak-webutils-url-at-point))))))
+
+;;;###autoload
+(defun emacspeak-webutils-google-on-this-site ()
+  "Perform a google search restricted to the current WWW site."
+  (interactive)
+  (emacspeak-webutils-browser-check)
+  (emacspeak-websearch-google
+   (format "site:%s %s"
+           (aref
+            (url-generic-parse-url (emacspeak-webutils-current-url))
+            3)
+           (read-from-minibuffer "Search this site for: "))))
+
+(defvar emacspeak-webutils-google-related-uri
+  "http://www.google.com/search?hl=en&num=25&q=related:")
+
+;;;###autoload
+(defun emacspeak-webutils-google-similar-to-this-page (url)
+  "Ask Google to find documents similar to this one."
+  (interactive
+   (list
+    (read-from-minibuffer "URL:"
+			  (emacspeak-webutils-current-url))))
+  (declare (special emacspeak-w3-google-related-uri
+                    major-mode))
+  (browse-url
+   (format
+    "%s%s"
+    emacspeak-webutils-google-related-uri
+    url))
+  (emacspeak-websearch-post-process "Similar"
+                                    'emacspeak-speak-line))
+
+;;;###autoload
+(defun emacspeak-webutils-transcode-via-google (&optional untranscode)
+  "Transcode URL under point via Google.
+ Reverse effect with prefix arg for links on a transcoded page."
+  (interactive "P")
+  (emacspeak-webutils-browser-check)
+  (unless (emacspeak-webutils-url-at-point)
+    (error "Not on a link."))
+  (let ((url-mime-encoding-string "gzip"))
+    (cond
+     ((null untranscode)
+      (browse-url
+       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+	       (emacspeak-url-encode
+		(emacspeak-webutils-url-at-point)))))
+     (t
+      (let ((plain-url nil)
+	    (prefix "http://www.google.com/gwt/n?u=")
+	    (postfix "/&_gwt_noimg=1")
+	    (unhex (url-unhex-string (emacspeak-webutils-url-at-point))))
+	(setq plain-url (substring  unhex (length prefix) (- 0 (length postfix))))
+	(when plain-url
+	  (browse-url plain-url)))))))
+
+;;;###autoload 
+(defun emacspeak-webutils-transcode-current-url-via-google (&optional untranscode)
+  "Transcode current URL via Google.
+  Reverse effect with prefix arg."
+  (interactive "P")
+  (emacspeak-webutils-browser-check)
+;;  (let ((url-mime-encoding-string "gzip"))
+;; removing the above line makes the untranscode work.
+    (cond
+     ((null untranscode)
+      (browse-url
+       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+	       (emacspeak-url-encode (emacspeak-webutils-current-url)))))
+     (t
+      (let ((plain-url nil)
+	    (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&u=")
+	    (unhex (url-unhex-string (emacspeak-webutils-current-url))))
+	(setq plain-url (substring  unhex (length prefix)))
+	(when plain-url
+	  (browse-url plain-url))))))
+
+;;}}}
+;;{{{ 
+
+;;;###autoload
+(defun emacspeak-webutils-jump-to-title-in-content ()
+  "Jumps to the title in web document.
+The first time it is called, it jumps to the first 
+instance  of the title.  Repeated calls jump to further 
+instances."
+  (interactive)
+  (let ((title (emacspeak-webutils-document-title)))
+    (condition-case nil
+        (progn
+          (if (not (eq last-command 'emacspeak-webutils-jump-to-title-in-content))
+              (goto-char (point-min)))
+          (goto-char
+           (search-forward
+            (substring title 0 (min 10 (length title)))))
+          (emacspeak-speak-line)
+          (emacspeak-auditory-icon 'large-movement))
+      (error "Title not found in body."))))
+
+;;;###autoload
+(defun emacspeak-webutils-play-media-at-point ()
+  "Play media url under point "
+  (interactive )
+  (declare (special emacspeak-media-player))
+  (let ((url (emacspeak-webutils-url-at-point)))
+    (message "Playing media  URL under point")
+    (funcall emacspeak-media-player  url)))
 
 ;;}}}
 
