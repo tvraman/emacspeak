@@ -1881,7 +1881,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  (list
   #'(lambda nil
       (declare (special emacspeak-url-template-weather-city-state))
-      (read-from-minibuffer "City/State:"
+      (read-from-minibuffer "State/City:"
                             emacspeak-url-template-weather-city-state)))
  nil
  "Pull RSS weather feed for specified state/city."
