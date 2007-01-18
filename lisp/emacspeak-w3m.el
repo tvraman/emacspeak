@@ -127,6 +127,11 @@ instead of the modeline."
   "Return the url at point in w3m."
   (or (w3m-anchor (point)) (w3m-image (point))))
 
+(defun emacspeak-w3m-current-url ()
+  "Returns the value of w3m-current-url."
+  (eval 'w3m-current-url))
+
+
 ;;}}}
 ;;{{{ anchors
 
@@ -679,6 +684,15 @@ instead of the modeline."
             (when (stringp w3m-current-title)
               (dtk-speak w3m-current-title)))
           t)
+
+;;}}}
+;;{{{ webutils variables
+
+(add-hook 'w3m-fontify-after-hook
+	  (lambda ()
+	    (setq emacspeak-webutils-document-title 'w3m-current-title)
+	    (setq emacspeak-webutils-url-at-point 'emacspeak-w3m-url-at-point)
+	    (setq emacspeak-webutils-current-url 'emacspeak-w3m-current-url)))
 
 ;;}}}
 ;;{{{ buffer select mode
