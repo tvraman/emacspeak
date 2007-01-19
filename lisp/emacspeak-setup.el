@@ -142,6 +142,11 @@ pronunciation dictionaries are stored. ")
   :group 'tts
   :type 'integer)
 
+(defcustom espeak-default-speech-rate 170
+  "Default speech rate for eSpeak."
+  :group 'tts
+  :type 'integer)
+
 (defvar tts-default-speech-rate dectalk-default-speech-rate
   "Setup on a per engine basis.")
 

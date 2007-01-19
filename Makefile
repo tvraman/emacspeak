@@ -151,6 +151,8 @@ FORMS =etc/forms/*.el
 REALAUDIO=realaudio
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
+ESPEAK=servers/linux-espeak/tclespeak.cpp \
+servers/linux-espeak/Makefile
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
 servers/software-dtk/Makefile
@@ -168,6 +170,7 @@ TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp  servers/ssh-dtk-exp\
 servers/dtk-mv \
 servers/dtk-soft \
+servers/espeak \
 servers/outloud  servers/ssh-outloud \
 servers/dsp-outloud \
 servers/tts-lib.tcl \
@@ -277,6 +280,8 @@ install:
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL) -d $(libdir)/servers/linux-espeak
+	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
 	$(INSTALL) -d $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${DTKTTS}  $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers

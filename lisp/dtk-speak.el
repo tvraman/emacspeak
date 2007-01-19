@@ -59,6 +59,7 @@
 (require 'dectalk-voices)
 (require 'outloud-voices)
 (require 'multispeech-voices)
+(require 'espeak-voices)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -113,6 +114,7 @@ dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 multispeech For Multilingual speech server
+espeak      For eSpeak
 The default is dtk-exp.")
 
 (defvar dtk-quiet nil
@@ -1450,6 +1452,8 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "multispeech" tts-name)
     (multispeech-configure-tts))
+   ((string-match "espeak" tts-name)
+    (espeak-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
    (t (dectalk-configure-tts)           ; will become

@@ -56,7 +56,7 @@ COMPILE =  -f batch-byte-compile
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
 outloud-voices.elc multispeech-voices.elc \
-dtk-interp.elc
+espeak-voices.elc dtk-interp.elc
 
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
@@ -275,6 +275,7 @@ acss-structure.elc: acss-structure.el
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc
 outloud-voices.elc: outloud-voices.el voice-setup.elc
 multispeech-voices.elc: multispeech-voices.el voice-setup.elc
+espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
 html-outline.elc: html-outline.el
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el

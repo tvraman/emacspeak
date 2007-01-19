@@ -94,6 +94,7 @@
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'multispeech-voices)
+(require 'espeak-voices)
 (require 'dectalk-voices)
 (require 'string)
 
