@@ -19,6 +19,9 @@ for CL in $* ; do
 	elif [ "$CL" = "-m" ]; then
 		DTK_PROGRAM=multispeech
 		export DTK_PROGRAM
+	elif [ "$CL" = "-e" ]; then
+		DTK_PROGRAM=espeak
+		export DTK_PROGRAM
 	elif [ "$CL" = "-d" ]; then
 		DTK_PROGRAM=dtk-soft
 		export DTK_PROGRAM
