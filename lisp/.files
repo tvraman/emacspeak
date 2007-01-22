@@ -6,17 +6,18 @@
 |----------------------+-------+-------+------------|
 | Layer                | Files | Lines | Percentage |
 |----------------------+-------+-------+------------|
-| TTS Core             |     6 |  3866 |        6.0 |
+| TTS Core             |     7 |  4352 |        6.0 |
 | Emacspeak Core       |    16 | 12174 |       18.9 |
 | Emacspeak Extensions |   160 | 48339 |       75.0 |
-| Total                |   182 | 64379 |       99.9 |
+| Total                |   182 |       64865|       99.9 |
 |----------------------+-------+-------+------------|
 
 
-** TTS Core  6 files 
+** TTS Core  7 files 
 
 acss-structure.el
 dectalk-voices.el
+espeak-voices.el
 outloud-voices.el
 dtk-interp.el
 dtk-speak.el
