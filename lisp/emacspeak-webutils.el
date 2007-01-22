@@ -54,44 +54,20 @@
 (require 'emacspeak-websearch)
 
 ;;}}}
-;;{{{ helper functions
-(defun emacspeak-webutils-document-title ()
-  "Returns the document title"
-  (declare (special w3m-current-title
-		   w3m-mode
-		   w3-mode
-		   major-mode))
-  (cond
-   ((eq major-mode 'w3-mode)
-       (buffer-name))
-   ((eq major-mode 'w3m-mode)
-    (w3m-current-title))))
+;;{{{ variables
+(defvar emacspeak-webutils-document-title nil
+  "Function variable returning the current document title.")
 
-(defun emacspeak-webutils-url-at-point ()
-  "Returns the url under point."
-  (declare (special emacspeak-w3m-url-at-point
-		    w3-view-this-url
-		    w3m-mode
-		    w3-mode
-		    major-mode))
-  (cond
-   ((eq major-mode 'w3-mode)
-    (w3-view-this-url 'no-show))
-   ((eq major-mode 'w3m-mode)
-    (emacspeak-w3m-url-at-point))))
+(defvar emacspeak-webutils-url-at-point nil
+  "Function variable returning the value of the url under point.")
 
-(defun emacspeak-webutils-current-url ()
-  "Returns the current document url."
-  (declare (special w3m-current-url
-		    w3m-mode
-		    w3-mode
-		    major-mode))
-  (cond
-   ((eq major-mode 'w3-mode)
-    (url-view-url 'no-show))
-   ((eq major-mode 'w3m-mode)
-    w3m-current-url)))
+(defvar emacspeak-webutils-current-url nil
+  "Function variable returning the value of the current document url.")
 
+(make-variable-buffer-local 'emacspeak-webutils-document-title)
+(make-variable-buffer-local 'emacspeak-webutils-url-at-point)
+(make-variable-buffer-local 'emacspeak-webutils-current-url)
+;;}}}
 (defun emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode
@@ -113,7 +89,7 @@ current page."
   (emacspeak-webutils-browser-check)
   (emacspeak-websearch-google
    (format "link:%s"
-	   (emacspeak-webutils-current-url))))
+	   (funcall emacspeak-webutils-current-url))))
 
 ;;;###autoload
 (defun emacspeak-webutils-google-extract-from-cache (&optional prefix)
@@ -125,9 +101,9 @@ With a prefix argument, extracts url under point."
    (format "cache:%s"
 	   (cond
 	    ((null prefix)
-	     (emacspeak-webutils-current-url))
+	     (funcall emacspeak-webutils-current-url))
 	    (t
-	     (emacspeak-webutils-url-at-point))))))
+	     (funcall emacspeak-webutils-url-at-point))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-google-on-this-site ()
@@ -137,7 +113,7 @@ With a prefix argument, extracts url under point."
   (emacspeak-websearch-google
    (format "site:%s %s"
            (aref
-            (url-generic-parse-url (emacspeak-webutils-current-url))
+            (url-generic-parse-url (funcall emacspeak-webutils-current-url))
             3)
            (read-from-minibuffer "Search this site for: "))))
 
@@ -150,9 +126,8 @@ With a prefix argument, extracts url under point."
   (interactive
    (list
     (read-from-minibuffer "URL:"
-			  (emacspeak-webutils-current-url))))
-  (declare (special emacspeak-w3-google-related-uri
-                    major-mode))
+			  (funcall emacspeak-webutils-current-url))))
+  (declare (special emacspeak-w3-google-related-uri))
   (browse-url
    (format
     "%s%s"
@@ -167,7 +142,7 @@ With a prefix argument, extracts url under point."
  Reverse effect with prefix arg for links on a transcoded page."
   (interactive "P")
   (emacspeak-webutils-browser-check)
-  (unless (emacspeak-webutils-url-at-point)
+  (unless (funcall emacspeak-webutils-url-at-point)
     (error "Not on a link."))
   (let ((url-mime-encoding-string "gzip"))
     (cond
@@ -175,13 +150,13 @@ With a prefix argument, extracts url under point."
       (browse-url
        (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
 	       (emacspeak-url-encode
-		(emacspeak-webutils-url-at-point)))))
+		(funcall emacspeak-webutils-url-at-point)))))
      (t
       (let ((plain-url nil)
 	    (prefix "http://www.google.com/gwt/n?u=")
-	    (postfix "/&_gwt_noimg=1")
-	    (unhex (url-unhex-string (emacspeak-webutils-url-at-point))))
-	(setq plain-url (substring  unhex (length prefix) (- 0 (length postfix))))
+	    (suffix "&_gwt_noimg=1")
+	    (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
+	(setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
 	(when plain-url
 	  (browse-url plain-url)))))))
 
@@ -192,16 +167,16 @@ With a prefix argument, extracts url under point."
   (interactive "P")
   (emacspeak-webutils-browser-check)
 ;;  (let ((url-mime-encoding-string "gzip"))
-;; removing the above line makes the untranscode work.
+;; removing the above line makes the untranscode work
     (cond
      ((null untranscode)
       (browse-url
        (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-	       (emacspeak-url-encode (emacspeak-webutils-current-url)))))
+	       (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
      (t
       (let ((plain-url nil)
 	    (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&u=")
-	    (unhex (url-unhex-string (emacspeak-webutils-current-url))))
+	    (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
 	(setq plain-url (substring  unhex (length prefix)))
 	(when plain-url
 	  (browse-url plain-url))))))
@@ -216,7 +191,7 @@ The first time it is called, it jumps to the first
 instance  of the title.  Repeated calls jump to further 
 instances."
   (interactive)
-  (let ((title (emacspeak-webutils-document-title)))
+  (let ((title (funcall emacspeak-webutils-document-title)))
     (condition-case nil
         (progn
           (if (not (eq last-command 'emacspeak-webutils-jump-to-title-in-content))
@@ -233,7 +208,7 @@ instances."
   "Play media url under point "
   (interactive )
   (declare (special emacspeak-media-player))
-  (let ((url (emacspeak-webutils-url-at-point)))
+  (let ((url (funcall emacspeak-webutils-url-at-point)))
     (message "Playing media  URL under point")
     (funcall emacspeak-media-player  url)))
 
