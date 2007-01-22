@@ -197,6 +197,14 @@
 (add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
 
 ;;}}}
+;;{{{ webutils variables
+(add-hook 'w3-mode-hook
+	  (lambda ()
+	    (setq emacspeak-webutils-document-title 'buffer-name)
+	    (setq emacspeak-webutils-url-at-point 'w3-view-this-url)
+	    (setq emacspeak-webutils-current-url 'url-view-url)))
+
+;;}}}
 ;;{{{  dump using lynx
 
 (defcustom emacspeak-w3-lynx-program "lynx"
