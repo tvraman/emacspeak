@@ -1868,7 +1868,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 ;;}}}
 ;;{{{ weather underground
-
+;;;###autoload
 (defcustom emacspeak-url-template-weather-city-state
   "CA/San_Jose"
   "Default city/state for weather forecasts"
@@ -1886,7 +1886,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Pull RSS weather feed for specified state/city."
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak)))     
+     (emacspeak-rss-display url 'speak)))
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
