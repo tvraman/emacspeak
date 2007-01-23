@@ -47,7 +47,6 @@ __author__ = 'danderson@google.com (David Anderson)'
 
 import httplib
 import os.path
-import sys
 import optparse
 import getpass
 import base64
@@ -72,6 +71,7 @@ def upload(file, project_name, user_name, password, summary, labels=None):
     file_url: If the upload succeeded, the URL of the file on Google
               Code, None otherwise.
   """
+  if '@' in user_name: user_name = user_name.index[: user_name.index('@')]
   form_fields = [('summary', summary)]
   if labels is not None:
     form_fields.extend([('label', l.strip()) for l in labels])
