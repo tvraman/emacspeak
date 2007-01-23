@@ -166,7 +166,8 @@ Optional second arg watch-pattern specifies line of output to
            (if (file-directory-p resource)
                (format "%s/*" resource)
              resource))
-   "playlist"_length:)
+   "playlist"
+"_length:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
     (emacspeak-speak-line)
@@ -263,7 +264,7 @@ Optional second arg watch-pattern specifies line of output to
   "Set volume."
   (interactive "sVolume")
   (emacspeak-alsaplayer-send-command
-   (format "--volume" setting)
+   (format "--volume %d" setting)
    "volume:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
