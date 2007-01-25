@@ -2040,7 +2040,7 @@ Results"
 
 (defvar emacspeak-usenet-uri
                                         ;"http://groups.google.com/groups?"
-  "http://groups-beta.google.com/group/"
+  "http://groups.google.com/group/"
   "URI to open a group on Usenet archive.")
 ;;;###autoload
 (defun emacspeak-websearch-usenet (group &optional prefix)
