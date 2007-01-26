@@ -83,6 +83,7 @@
 
 (loop for f in
       '(org-mark-ring-goto
+        org-next-link org-previous-link
         org-goto  org-goto-ret
         org-goto-left org-goto-right
         org-goto-quit
