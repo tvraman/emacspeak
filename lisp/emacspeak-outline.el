@@ -1,23 +1,23 @@
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; DescriptionEmacspeak extensions for outline-mode
 ;;; Keywords:emacspeak, audio interface to emacs Outlines
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@crl.dec.com 
+;;; emacspeak| T. V. Raman |raman@crl.dec.com
 ;;; A speech interface to Emacs |
 ;;; $date: $ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -257,12 +257,12 @@ except that the outline section is optionally spoken"
   (define-key outline-mode-prefix-map " " 'emacspeak-outline-speak-this-heading))
 
 (add-hook 'outline-mode-hook 'emacspeak-outline-setup-keys)
-(add-hook 'outline-minor-mode-hook 'emacspeak-outline-setup-keys)          
+(add-hook 'outline-minor-mode-hook 'emacspeak-outline-setup-keys)
 
 ;;}}}
 
 ;;}}}
-;;{{{ foldout specific advice 
+;;{{{ foldout specific advice
 
 (and (locate-library "foldout")
      (require 'foldout))
@@ -293,27 +293,12 @@ except that the outline section is optionally spoken"
    ))
 
 ;;}}}
-;;{{{ advise emacs 20's overlay oriented outliner to put
-;;properties we process
-
-(defadvice outline-flag-region (after emacspeak pre act comp)
-  "Set region to be inaudible if we just hid the region--
-make it audible otherwise. "
-  (ems-modify-buffer-safely
-   (if (ad-get-arg 2)                   ;hiding region
-       (put-text-property (ad-get-arg 0)
-                          (ad-get-arg 1)
-                          'invisible t)
-     (remove-text-properties (ad-get-arg 0)
-                             (ad-get-arg 1)
-                             '(invisible t)))))
-;;}}}
 (provide  'emacspeak-outline)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
