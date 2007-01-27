@@ -325,7 +325,12 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
- (list "BBC 7 Schedule: ")
+ (list
+  #'(lambda ()
+      (read-from-minibuffer
+       "BBC 7 Schedule: "
+       (when (eq major-mode 'calendar-mode)
+         (calendar-day-name (calendar-cursor-to-date))))))
  nil
  "Retrieve BBC7 schedule for specified day."
  #'(lambda (url)
