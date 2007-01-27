@@ -289,6 +289,7 @@
 ;;{{{ fix misc commands:
 (loop for f in
       '(org-occur
+        org-next-link org-previous-link
         org-insert-heading org-insert-todo-heading)
       do
       (eval
