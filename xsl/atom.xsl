@@ -18,25 +18,28 @@ View an Atom feed as clean HTML
       <head>
         <title>
           <xsl:apply-templates select="atom:title|w3a:title"/>
-          
         </title>
       </head>
       <body>
         <h1><xsl:value-of select="atom:title|w3a:title"
         disable-output-escaping="yes"/>
-        <xsl:apply-templates
-            select="atom:link[@rel='self']|w3a:link[@rel='self']"/>
-        <xsl:apply-templates
-            select="atom:link[@rel='service.post']|w3a:link[@rel='service.post']"/>
         </h1>
+        <table>
+          <tr>
+            <xsl:for-each select="atom:link|w3a:link">
+              <td><xsl:apply-templates select="."/></td>
+            </xsl:for-each>
+          </tr>
+        </table>
         <h2>Table Of Contents</h2>
         <ol>
           <xsl:apply-templates select="atom:entry|w3a:entry" mode="toc"/>
         </ol>
         <xsl:apply-templates select="atom:entry|w3a:entry"/>
         <h2>
-          <xsl:apply-templates select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
+          <xsl:value-of select="title"/>
         </h2>
+
         <p>
           <xsl:apply-templates select="atom:tagline|w3a:tagline"/>
           <xsl:apply-templates select="atom:author|w3a:author"/>
@@ -55,9 +58,15 @@ View an Atom feed as clean HTML
         </xsl:attribute>
         <xsl:apply-templates select="atom:title|w3a:title"/>
       </a>
-      <xsl:apply-templates
-          select="atom:link[@rel='service.edit']|w3a:link[@rel='service.edit']"/>
     </h2>
+    
+    <TABLE>
+      <tr>
+        <xsl:for-each select="atom:link|w3a:link">
+          <td><xsl:apply-templates select="."/></td>
+        </xsl:for-each>
+      </tr>
+    </TABLE>
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
     <p>
       <xsl:apply-templates
@@ -109,10 +118,10 @@ View an Atom feed as clean HTML
       </xsl:attribute>
       <xsl:choose>
         <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
+        <xsl:when test="@rel='edit'">[Edit]</xsl:when>
         <xsl:when test="@rel='service.post'">[Post]</xsl:when>
-        <xsl:otherwise>
-          Bookmark:
-        </xsl:otherwise>
+        <xsl:when test="@rel='next'">[Next]</xsl:when>
+        <xsl:when test="@rel='self'">[Bookmark]</xsl:when>
       </xsl:choose>
     </a>
   </xsl:template>
