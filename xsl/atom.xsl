@@ -73,10 +73,10 @@ View an Atom feed as clean HTML
           select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
       <em><xsl:value-of  select="atom:author/atom:name"
       disable-output-escaping="yes"/>
-      <xsl:if test="atom:issued|w3a:issued">
+      <xsl:if test="atom:updated|w3a:updated">
         <xsl:text> at </xsl:text>
       </xsl:if>
-      <xsl:value-of select="atom:issued|w3a:issued"/></em>
+      <xsl:value-of select="atom:updated|w3a:updated"/></em>
     </p>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
