@@ -213,7 +213,17 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{  template resources
+;;{{{  wordnet
 
+(emacspeak-url-template-define
+ "WordNet Search"
+ "http://wordnet.princeton.edu/perl/webwn?s=%s"
+ (list "WordNet Define: ")
+ 'emacspeak-speak-buffer
+ "Look up term in WordNet.")
+
+ 
+;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
