@@ -123,6 +123,7 @@ View an Atom feed as clean HTML
         <xsl:when test="@rel='next'">[Next]</xsl:when>
         <xsl:when test="@rel='self'">[Bookmark]</xsl:when>
         <xsl:when test="@rel='alternate'">[Alternate]</xsl:when>
+        <xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>]</xsl:otherwise>
       </xsl:choose>
     </a>
   </xsl:template>
