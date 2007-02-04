@@ -219,6 +219,7 @@
 
 ;;}}}
 ;;{{{ mapping font faces to personalities 
+
 (voice-setup-add-map
  '(
    (bmk-mgr-sel-folder-face voice-bolden-medium)

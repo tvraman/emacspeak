@@ -1811,8 +1811,8 @@ Optional prefix arg no-rss scrapes information from HTML."
 (emacspeak-websearch-set-key 23 'wikipedia)
 
 (defvar emacspeak-websearch-wikipedia-search-uri
-  "http://en.wikipedia.org/wiki/Special:Search?go=Go"
-  "URI for searching WikiPedia")
+  "http://www.wikiseek.com/results.php?q=%s"
+  "URI for searching Wikipedia")
 
 ;;;###autoload
 (defun emacspeak-websearch-wikipedia-search (query)
@@ -1821,8 +1821,7 @@ Optional prefix arg no-rss scrapes information from HTML."
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
   (declare (special emacspeak-websearch-wikipedia-search-uri))
   (browse-url
-   (concat emacspeak-websearch-wikipedia-search-uri
-           "&search="
+   (format emacspeak-websearch-wikipedia-search-uri
            (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
    query
