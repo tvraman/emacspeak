@@ -1,13 +1,7 @@
 ;;; emacspeak-bmk-mgr.el --- speech-enables bmk-mgr.el
 ;;;$Id: emacspeak-bmk-mgr.el 
-
-
-
-;; how should the below be handled?
 ;;4332 2007-01-21 14:14:20Z tv.raman.tv $
-
-
-
+;; Original Author: rdc1x@comcast.net (Robert D Crawford)
 ;;{{{ Copyright
 
 ;;; This file is not part of Emacs, but the same terms and
@@ -40,6 +34,11 @@
 
 ;;}}}
 
+;;{{{ Introduction
+
+;;; Commentary:
+;;; defines a simple bookmark manager for use with emacs Web browsers.
+;;}}}
 ;;; Code:
 ;;{{{  required modules
 
@@ -78,7 +77,7 @@
 		  (mapconcat 'bmk-mgr-node-name children ", ")))))))))
 
 ;;}}}
-;;{{{  advice interactive commands.
+ ;;{{{  advice interactive commands.
 
 (defadvice bmk-mgr-next-line (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
@@ -218,7 +217,7 @@
       (dtk-speak "Added url at point."))))
 
 ;;}}}
-;;{{{ mapping font faces to personalities 
+ ;;{{{ mapping font faces to personalities 
 
 (voice-setup-add-map
  '(
@@ -233,7 +232,6 @@
   (define-key bmk-mgr-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
-
 (provide 'emacspeak-bmk-mgr)
 ;;{{{ end of file 
 
@@ -245,3 +243,5 @@
 ;;; end: 
 
 ;;}}}
+
+
