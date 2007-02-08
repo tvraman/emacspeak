@@ -1136,14 +1136,14 @@ completion. "
 (make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
 
 (defun emacspeak-w3-id-cache ()
-  "Build CSS class cache for buffer if needed."
+  "Build id class cache for buffer if needed."
   (unless (eq major-mode 'w3-mode)
     (error "Not in W3 buffer."))
   (or emacspeak-w3-buffer-id-cache
       (let ((values nil)
             (buffer
              (emacspeak-xslt-url
-              (expand-file-name "class-values.xsl"
+              (expand-file-name "id-values.xsl"
                                 emacspeak-xslt-directory)
               (url-view-url 'no-show)
               nil
