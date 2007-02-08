@@ -1182,7 +1182,7 @@ Interactive use provides list of id values as completion."
   "Collect a list of ides by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
-  (let ((ides (emacspeak-w3-css-id-cache))
+  (let ((ides (emacspeak-w3-id-cache))
         (result nil)
         (c nil)
         (done nil))
