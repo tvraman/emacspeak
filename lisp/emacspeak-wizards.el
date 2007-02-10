@@ -704,7 +704,7 @@ See /etc/sudoers for how to set up sudo."
   "Get latest cvs snapshot of emacspeak."
   (interactive)
   (error "CVS Repository at SourceForge is no longer
-maintained. Please use SVN root http://emacspeak.googlecode.com/svn"
+maintained. Please use SVN root http://emacspeak.googlecode.com/svn")
   (emacspeak-cvs-sf-get-project-snapshot "emacspeak"))
 
 (defvar emacspeak-cvs-sf-anonymous-cvsroot-pattern
