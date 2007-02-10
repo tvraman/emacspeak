@@ -703,6 +703,8 @@ See /etc/sudoers for how to set up sudo."
 (defun emacspeak-cvs-get-anonymous  ()
   "Get latest cvs snapshot of emacspeak."
   (interactive)
+  (error "CVS Repository at SourceForge is no longer
+maintained. Please use SVN root http://emacspeak.googlecode.com/svn"
   (emacspeak-cvs-sf-get-project-snapshot "emacspeak"))
 
 (defvar emacspeak-cvs-sf-anonymous-cvsroot-pattern
@@ -729,6 +731,7 @@ Typically %s is replaced by project name.")
  %s is replaced by the project name."
   :type 'string
   :group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-cvs-sf-get-project-snapshot  (project &optional module)
   "Grab CVS snapshot  of specified project from sf.
@@ -748,6 +751,7 @@ Ask for module name if prefix argument is given"
     (format emacspeak-cvs-local-directory-pattern
             project))
    (or module project)))
+
 ;;;###autoload
 (defun emacspeak-cvs-gnu-get-project-snapshot  (project &optional module)
   "Grab CVS snapshot  of specified project from gnu.

@@ -1073,6 +1073,37 @@ Tables are specified by containing  match pattern
                    (cons v v ))
                values)))))
 
+
+
+(make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
+
+(defun emacspeak-w3-id-cache ()
+  "Build CSS class cache for buffer if needed."
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in W3 buffer."))
+  (or emacspeak-w3-buffer-id-cache
+      (let ((values nil)
+            (buffer
+             (emacspeak-xslt-url
+              (expand-file-name "class-values.xsl"
+                                emacspeak-xslt-directory)
+              (url-view-url 'no-show)
+              nil
+              'no-comment)))
+        (setq values
+              (save-excursion
+                (set-buffer buffer)
+                (shell-command-on-region (point-min) (point-max)
+                                         "sort  -u"
+                                         (current-buffer))
+                (split-string (buffer-string))))
+        (setq emacspeak-w3-buffer-id-cache
+              (mapcar
+               #'(lambda (v)
+                   (cons v v ))
+               values)))))
+
+
 ;;;###autoload
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
   "Extract elements having specified class attribute from HTML. Extracts
@@ -1090,6 +1121,24 @@ Interactive use provides list of class values as completion."
    prompt-url
    (or (interactive-p)
        speak)))
+
+(defsubst  emacspeak-w3-get-id-list ()
+  "Collect a list of ids by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((ids (emacspeak-w3-id-cache))
+        (result nil)
+        (c nil)
+        (done nil))
+    (while (not done)
+      (setq c
+            (completing-read "Id: "
+                             ids
+                             nil 'must-match))
+      (if (> (length c) 0)
+          (push c result)
+        (setq done t)))
+    result))
 
 (defsubst  emacspeak-w3-css-get-class-list ()
   "Collect a list of classes by prompting repeatedly in the
