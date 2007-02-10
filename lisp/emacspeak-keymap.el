@@ -401,7 +401,7 @@ field in the customization buffer.  You can use the notation
         ("w" emacspeak-speak-word)
         ("{" emacspeak-speak-paragraph)
         ("|" emacspeak-speak-line-set-column-filter)
-        ([(control down)] emacspeak-cvs-get-anonymous)
+        ([(control down)] emacspeak-svn-get-anonymous)
         ([(control left)] emacspeak-select-this-buffer-previous-display)
         ([(control right)] emacspeak-select-this-buffer-next-display)
         ([aleft] emacspeak-speak-this-buffer-previous-display)
