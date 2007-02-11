@@ -11,7 +11,7 @@ PAUSE=40
 VOLUME=-10 # in db (0.3)
 
 # Sampling rate of the generated beep
-RATE=8000
+RATE=16000
 
 usage() {
     echo "Usage: " `basename $0` " [ -f frequency ] [-l duration ] [-r repetitions ]"

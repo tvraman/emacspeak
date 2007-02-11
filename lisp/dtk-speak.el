@@ -1704,8 +1704,7 @@ only speak upto the first ctrl-m."
   "Speak a  list of strings.
 Argument TEXT  is the list of strings to speak.
 Optional argument group-count specifies grouping for intonation."
-
-  (declare (special dtk-speaker-process dtk-stop-immediately))
+  (declare (special dtk-speaker-process))
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
         (counter 1)
@@ -1718,7 +1717,7 @@ Optional argument group-count specifies grouping for intonation."
       (loop  for element in text
              do
              (insert
-              (format "%s%s\n"
+              (format "%s%s "
                       element
                       (cond
                        ((null group-count) "")
