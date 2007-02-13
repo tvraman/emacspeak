@@ -1878,6 +1878,15 @@ emacspeak-w3-tidy-program emacspeak-w3-tidy-options))
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
 
 ;;}}}
+;;{{{ fix css bug:
+
+(defadvice css-expand-value (around fix-bug pre act comp )
+  "Fix problem where bad CSS breaks W3."
+  (condition-case nil
+      ad-do-it
+    (error nil)))
+
+;;}}}
 ;;{{{  emacs local variables
 
 ;;; local variables:
