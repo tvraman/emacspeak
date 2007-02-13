@@ -489,7 +489,7 @@ after saving the settings to have them take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-calendar-date Speak the date under point when called in Calendar Mode.  
+** emacspeak-calendar-speak-date Speak the date under point when called in Calendar Mode.  
 
 ------------------------------------------------------------
 
@@ -3308,32 +3308,11 @@ nested of tables found in the page.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-google-extract-from-cache Extract current  page from the Google cache. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-google-on-this-site Perform a google search restricted to the current WWW site. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-google-similar-to-this-page Ask Google to find documents similar to this one. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-google-who-links-to-this-page Perform a google search to locate documents that link to the
-current page. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-javascript-follow-link Follow URL hidden inside a javascript link 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-jump-to-submit Jump to next available submit button. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-jump-to-title-in-content Jumps to the occurrence of document title in page body. 
 
 ------------------------------------------------------------
 
@@ -3353,10 +3332,6 @@ the table structure extraction code in W3.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-mplayer-play-url-at-point Play url under point using mplayer 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-next-block Move by block level displays. 
 
 ------------------------------------------------------------
@@ -3368,10 +3343,6 @@ specifies by how many eleemnts to move.
 ------------------------------------------------------------
 
 ** emacspeak-w3-next-parsed-item Move to and speak next parsed item. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-play-media-at-point Play media url under point  
 
 ------------------------------------------------------------
 
@@ -3407,11 +3378,6 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-w3-toggle-table-borders Toggle drawing of W3 table borders 
-
-------------------------------------------------------------
-
-** emacspeak-w3-transcode-via-google Transcode URL under point via Google.
-Reverse effect with prefix arg for links on a transcoded page. 
 
 ------------------------------------------------------------
 
@@ -3492,42 +3458,7 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 
 ------------------------------------------------------------
 
-** emacspeak-w3m-google-extract-from-cache Extract url at point from the Google cache. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-google-on-this-site Perform a google search restricted to the current WWW site. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-google-similar-to-this-page Ask Google to find documents similar to this one. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-google-who-links-to-this-page Perform a google search to locate documents that link to the
- current page. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-jump-to-title-in-content Jumps to the occurrence of document title in page body. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-play-stream Load the URL under point in w3m into m-player. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-transcode-current-url-via-google Transcode current URL via Google.
- Reverse effect with prefix arg for links on a transcoded page. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-transcode-via-google Transcode URL under point via Google.
- Reverse effect with prefix arg for links on a transcoded page. 
 
 ------------------------------------------------------------
 
@@ -3709,7 +3640,7 @@ http://www.google.com/options/specialsearches.html
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-map-directions-search Get driving directions from Yahoo.
+** emacspeak-websearch-map-yahoo-directions-search Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead. 
 
 ------------------------------------------------------------
@@ -3818,6 +3749,45 @@ Optional second arg as-html processes the results as HTML rather than data.
 
 ------------------------------------------------------------
 
+** emacspeak-webutils-google-extract-from-cache Extract current  page from the Google cache.
+With a prefix argument, extracts url under point. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-google-on-this-site Perform a google search restricted to the current WWW site. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-google-similar-to-this-page Ask Google to find documents similar to this one. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-google-who-links-to-this-page Perform a google search to locate documents that link to the
+current page. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-jump-to-title-in-content Jumps to the title in web document.
+The first time it is called, it jumps to the first 
+instance  of the title.  Repeated calls jump to further 
+instances. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-play-media-at-point Play media url under point  
+
+------------------------------------------------------------
+
+** emacspeak-webutils-transcode-current-url-via-google Transcode current URL via Google.
+  Reverse effect with prefix arg. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-transcode-via-google Transcode URL under point via Google.
+ Reverse effect with prefix arg for links on a transcoded page. 
+
+------------------------------------------------------------
+
 ** emacspeak-widget-browse-widget-interactively Allows you to browse a widget 
 
 ------------------------------------------------------------
@@ -3908,9 +3878,7 @@ Ask for module name if prefix argument is given
 
 ------------------------------------------------------------
 
-** emacspeak-cvs-get-anonymous	Key Sequence: control e <control down> 
-
- Get latest cvs snapshot of emacspeak. 
+** emacspeak-cvs-get-anonymous Get latest cvs snapshot of emacspeak. 
 
 ------------------------------------------------------------
 
@@ -4263,6 +4231,11 @@ Moves to the longest paragraph when called interactively.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-find-shortest-line-in-region Find shortest line in region.
+Moves to the shortest line when called interactively. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-finder-find Run find-dired on specified switches after prompting for the
 directory to where find is to be launched. 
 
@@ -4344,6 +4317,10 @@ command.
 matches header lines, you can use this command to conveniently
 run `occur' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-pdf-open Open pdf file as text. 
 
 ------------------------------------------------------------
 
@@ -4622,6 +4599,26 @@ take effect.
 ** emacspeak-org-popup-input Pops up an org input area.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-zinf Play specified resource using zinf.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-zinf-mode.
+
+(fn RESOURCE) 
+
+------------------------------------------------------------
+
+** emacspeak-zinf-zinf-call-command Call appropriate zinf command.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-zinf-zinf-command Execute Zinf command.
+
+(fn CHAR) 
 
   
 
