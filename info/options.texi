@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 635 user customizable
+This chapter documents a total of 645 user customizable
   options.
 
 @menu
@@ -32,6 +32,7 @@ This chapter documents a total of 635 user customizable
 * emacspeak-eterm Options::     
 * emacspeak-eudc Options::      
 * emacspeak-forms Options::     
+* emacspeak-gnus Options::      
 * emacspeak-hide Options::      
 * emacspeak-ido Options::       
 * emacspeak-imcom Options::     
@@ -44,6 +45,7 @@ This chapter documents a total of 635 user customizable
 * emacspeak-m-player Options::  
 * emacspeak-madplay Options::   
 * emacspeak-make-mode Options::  
+* emacspeak-message Options::   
 * emacspeak-muse Options::      
 * emacspeak-ocr Options::       
 * emacspeak-outline Options::   
@@ -905,6 +907,17 @@ Personality for read-only fields.
 Personality for read-write fields. 
 @end defvar
 
+@node emacspeak-gnus Options
+@section emacspeak-gnus Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-gnus.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-gnus-punctuation-mode
+Pronunciation mode to use for gnus buffers.
+@end defvar
+
 @node emacspeak-hide Options
 @section emacspeak-hide Options
 
@@ -1316,6 +1329,17 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-makefile-targets-voice
 Personality used for makefile-targets
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@node emacspeak-message Options
+@section emacspeak-message Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-message.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-message-punctuation-mode
+Pronunciation mode to use for message buffers.
 @end defvar
 
 @node emacspeak-muse Options
@@ -2120,6 +2144,10 @@ These options are customizable via Emacs' Custom interface.
 Bookshare user Id.
 @end defvar
 
+@defvar {User Option} emacspeak-url-template-weather-city-state
+Default city/state for weather forecasts
+@end defvar
+
 @node emacspeak-vm Options
 @section emacspeak-vm Options
 
@@ -2224,6 +2252,10 @@ Pronunciation mode to use for W3 buffers.
 
 @defvar {User Option} emacspeak-w3-tidy-html
 Tidy HTML before rendering.
+@end defvar
+
+@defvar {User Option} emacspeak-w3-tidy-options
+Options to pass to tidy program
 @end defvar
 
 @defvar {User Option} emacspeak-w3-tidy-program
@@ -2379,6 +2411,10 @@ Root  of Linux Howtos.
 
 @defvar {User Option} emacspeak-wizards-lynx-program
 Lynx executable.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-pdf-to-text-program
+Command for running pdftotext.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-ppthtml-program
@@ -3150,7 +3186,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} emacspeak-gnus-cite-1-voice
 Personality used for gnus-cite-1
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-cite-10-voice
@@ -3175,12 +3211,12 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 
 @defvar {User Option} emacspeak-gnus-cite-4-voice
 Personality used for gnus-cite-4
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-cite-5-voice
 Personality used for gnus-cite-5
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-cite-6-voice
@@ -3195,12 +3231,12 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 
 @defvar {User Option} emacspeak-gnus-cite-8-voice
 Personality used for gnus-cite-8
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-cite-9-voice
 Personality used for gnus-cite-9
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-cite-face-1-voice
@@ -4165,12 +4201,17 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} emacspeak-w3m-arrived-anchor-personality
 Personality used for w3m-arrived-anchor-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-bold-personality
 Personality used for w3m-bold-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-personality
+Personality used for w3m-current-anchor-face
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-form-button-personality
@@ -4198,9 +4239,29 @@ Personality used for w3m-header-line-location-title-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
+@defvar {User Option} emacspeak-w3m-history-current-url-personality
+Personality used for w3m-history-current-url-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-w3m-image-personality
 Personality used for w3m-image-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-personality
+Personality used for w3m-insert-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-personality
+Personality used for w3m-italic-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-personality
+Personality used for w3m-strike-through-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-tab-selected-personality
