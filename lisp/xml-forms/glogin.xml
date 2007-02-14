@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+
+  <title></title>
+<style type="text/css">
+/*<![CDATA[*/
+ div.c3 {text-align: right}
+ span.c2 {font-size: 100%}
+ span.c1 {font-size: 80%}
+/*]]>*/
+</style>
+</head>
+
+<body>
+  <form id="gaia_loginform" action=
+  "https://www.google.com/accounts/LoginAuth" method="post"
+  onsubmit="return(gaia_onLoginSubmit());" name="gaia_loginform">
+    <script type="text/javascript">
+//<![CDATA[
+<!--
+    function onPreCreateAccount() {
+    
+      return true;
+    
+    }
+
+    function onPreLogin() {
+    
+      
+      if (window["onlogin"] != null) {
+        return onlogin();
+      } else {
+        return true;
+      }
+    
+    }
+  -->
+//]]>
+</script>
+
+    <table id="gaia_table" align="center" border="0" cellpadding=
+    "1" cellspacing="0">
+      <tr>
+        <td colspan="2" align="center">
+          <span class="c1">Sign in with your</span>
+
+          <table>
+            <tr>
+              <td valign="top"><img src="google_transparent.gif"
+              alt="Google" /></td>
+
+              <td valign="middle"><span class=
+              "c2"><b>Account</b></span></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center"></td>
+      </tr>
+
+      <tr>
+        <td nowrap="nowrap">
+          <div class="c3">
+            <span class="gaia le lbl">Email:</span>
+          </div>
+        </td>
+
+        <td><input type="text" name="Email" id="Email" value=
+        "tv.raman.tv@gmail.com" /> <input type="hidden" name=
+        "PersistentCookie" value="yes" /> <span class=
+        "gaia le val"><b>&nbsp;tv.raman.tv@gmail.com</b></span></td>
+      </tr>
+
+      <tr>
+        <td></td>
+
+        <td align="left"></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span class=
+        "gaia le lbl">Password:</span></td>
+
+        <td><input type="password" name="Passwd" id="Passwd" size=
+        "18" class="gaia le val" /></td>
+      </tr>
+
+      <tr>
+        <td></td>
+
+        <td align="left"></td>
+      </tr>
+
+      <tr>
+        <td></td>
+
+        <td align="left"><input type="submit" class=
+        "gaia le button" name="signIn" value="Sign in" /></td>
+      </tr>
+
+      <tr id="ga-fprow">
+        <td colspan="2" nowrap="nowrap" height="33.0" class=
+        "gaia le fpwd" align="center" valign="bottom"><a href=
+        "http://www.google.com/support/accounts/bin/answer.py?answer=48598&amp;fpUrl=https%3A%2F%2Fwww.google.com%2Faccounts%2FForgotPasswd%3FfpOnly%3D1"
+        target="_top">I cannot access my account</a></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center"><span class=
+        "gaia le chusr"><a href=
+        'http://www.google.com/accounts/Logout?continue=https%3A%2F%2Fwww.google.com%2Faccounts%2FLogin&amp;il=true&amp;zx=1t0r68jkdyouh'>
+        Sign in as a different user</a></span></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

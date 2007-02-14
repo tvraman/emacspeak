@@ -484,6 +484,15 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ anonymous google search
+(emacspeak-url-template-define
+ "Anonymous Google Search"
+ "http://www.google.com/accounts/Logout"
+ nil
+ nil
+ "Logout from Google to do an anonymous search.")
+
+;;}}}
 ;;{{{  google patent search:
 
 (emacspeak-url-template-define
