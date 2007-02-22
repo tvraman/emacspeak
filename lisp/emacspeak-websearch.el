@@ -1107,7 +1107,7 @@ I'm Feeling Lucky button on Google."
   "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
    (list
-    (emacspeak-websearch-read-query "Google For: ")))
+    (emacspeak-websearch-read-query "AGoogle For: ")))
   (declare (special emacspeak-websearch-accessible-google-url
                     emacspeak-websearch-google-uri))
   (let ((emacspeak-websearch-google-uri
