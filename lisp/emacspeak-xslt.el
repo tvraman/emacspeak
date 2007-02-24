@@ -208,6 +208,7 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
+					emacspeak-xslt-use-wget-to-download
                     modification-flag
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
@@ -220,14 +221,24 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
-    (setq command (format
-                   "%s %s --novalid %s '%s' %s"
-                   emacspeak-xslt-program
-                   (or parameters "")
-                   xsl url
-                   (if emacspeak-xslt-keep-errors
-                       ""
-                     " 2>/dev/null ")))
+	(if emacspeak-xslt-use-wget-to-download
+		(setq command (format
+					   "wget -q -O - '%s' | %s %s --novalid %s %s %s"
+					   url
+					   emacspeak-xslt-program
+					   (or parameters "")
+					   xsl "-"
+					   (if emacspeak-xslt-keep-errors
+						   ""
+						 " 2>/dev/null ")))
+	  (setq command (format
+					 "%s %s --novalid %s '%s' %s"
+					 emacspeak-xslt-program
+					 (or parameters "")
+					 xsl url
+					 (if emacspeak-xslt-keep-errors
+						 ""
+					   " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (kill-all-local-variables)
