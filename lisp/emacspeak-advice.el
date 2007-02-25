@@ -2734,10 +2734,6 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{  Modify syntax entries for modes where necessary:
 
-(add-hook 'text-mode-hook
-          (function (lambda ()
-                      (modify-syntax-entry 10 " "))))
-
 ;;}}}
 ;;{{{ setup minibuffer hooks:
 (defvar emacspeak-minibuffer-enter-auditory-icon t
