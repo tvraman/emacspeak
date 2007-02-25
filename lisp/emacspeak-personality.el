@@ -107,7 +107,7 @@ personality settings."
                  (remove-duplicates personality :test #'eq)
                personality)))
       (ems-modify-buffer-safely
-       (put-text-property start end 'personality v object)))))
+        (ad-Orig-put-text-property start end 'personality v object)))))
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object )
@@ -127,7 +127,7 @@ Existing personality properties on the text range are preserved."
              start 'personality object end)))
        (cond
         ((null orig)                    ;simple case
-         (put-text-property start extent 'personality v object)
+         (ad-Orig-put-text-property start extent 'personality v object)
          (when (< extent end)
            (emacspeak-personality-append extent end v object)))
         (t                             ;accumulate the new personality
@@ -139,7 +139,7 @@ Existing personality properties on the text range are preserved."
                   (append
                    (if (listp orig) orig (list orig))
                    (if (listp v) v (list v)))))
-           (put-text-property start extent
+           (ad-Orig-put-text-property start extent
                               'personality new object))
          (when (< extent end)
            (emacspeak-personality-append extent end v object))))))))
@@ -163,7 +163,7 @@ Existing personality properties on the text range are preserved."
              start 'personality object end)))
        (cond
         ((null orig)                    ;simple case
-         (put-text-property start extent 'personality v object)
+         (ad-Orig-put-text-property start extent 'personality v object)
          (when (< extent end)
            (emacspeak-personality-prepend extent end v object)))
         (t                             ;accumulate the new personality
@@ -175,7 +175,7 @@ Existing personality properties on the text range are preserved."
                   (append
                    (if (listp v) v (list v))
                    (if (listp orig) orig (list orig)))))
-           (put-text-property start extent
+           (ad-Orig-put-text-property start extent
                               'personality new object))
          (when (< extent end)
            (emacspeak-personality-prepend extent end v object))))))))
@@ -207,9 +207,9 @@ preserved."
                  (remove personality orig))
                 (t nil)))
          (if new
-             (put-text-property start extent
+             (ad-Orig-put-text-property start extent
                                 'personality new object)
-           (remove-text-properties start extent
+           (ad-Orig-remove-text-properties start extent
                                    (list 'personality )
                                    object))
          (when (< extent end)
