@@ -222,7 +222,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  'emacspeak-speak-buffer
  "Look up term in WordNet.")
 
- 
+
 ;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
@@ -314,10 +314,27 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ Netcraft surveys
 (emacspeak-url-template-define
  "Netcraft Web Analysis"
- "http://uptime.netcraft.com/up/graph/?mode_u=off&mode_w=on&site=%s&submit=Examine "
+ "http://uptime.netcraft.com/up/graph?display=uptime&site=%s"
  (list "Site to analyze: ")
  nil
- "Analyze WWW site using Netcraft.")
+ "Analyze WWW site using Netcraft."
+ #'(lambda (url)
+     (emacspeak-w3-extract-tables-by-match-list
+      (list "running" "average")
+url 'speak)))
+
+
+(emacspeak-url-template-define
+ "Netcraft Site Report"
+ "http://toolbar.netcraft.com/site_report?url=%s"
+ (list "Site Report: ")
+ 'emacspeak-speak-buffer
+ "Analyze WWW site using Netcraft."
+ nil
+ 'dont-url-encode)
+
+
+
 ;;}}}
 ;;{{{  digg
 
