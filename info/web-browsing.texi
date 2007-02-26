@@ -1,5 +1,5 @@
-@node Web Browsing
-@section  Web Browsing
+@node The State of Web Browsing in Emacspeak
+@subsection The State of Web Browsing in Emacspeak
 
 This document, ``The State of Web Browsing in Emacspeak'' describes
 the primary web browsers in use under emacspeak and ways they might be
@@ -10,7 +10,7 @@ Version 1.0 --  February, 2007.
 Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
 
 @menu
-* Intro::        Why this document and what it is about
+* Intro::               Why this document and what it is about
 * emacs-w3m::           Browsing the web with emacs-w3m
 * emacs/w3::            Browsing the web with emacs/w3
 * Add-ons::             Add-ons to make life better
@@ -18,7 +18,7 @@ Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
 @end menu
 
 @node Intro
-@subsection Introduction
+@subsubsection Intro
 
 Web browsing in emacspeak can be made as simple or as complicated as
 you wish to make it.  On the one hand, all that need be done is to
@@ -38,20 +38,13 @@ the documentation of the various functions tells exactly what it does,
 but not why or in what circumstance one might use it.  Hopefully I can
 remedy that here.
 
-@menu
-* Who this document is intended for::   
-* Assumptions::
-@end menu
-
-@node Who this document is intended for
-@subsubsection Who this document is intended for
+@heading  Who this document is intended for
 
 While this document is geared toward emacspeak users, it might be
 helpful for other users as well.  I have tried to note where functions
 are specific to emacspeak.
 
-@node Assumptions
-@subsubsection Assumptions
+@heading Assumptions
 
 This document assumes emacs is installed.  If reading the section on a
 particular browser and trying out the associated functions, it, of
@@ -89,22 +82,13 @@ itself.  Understanding the convention for communicating keystrokes to
 run commands, navigating documents, and the like are not covered.
 
 @node emacs-w3m
-@subsection emacs-w3m
+@subsubsection emacs-w3m
 
 emacs-w3m is a front-end, written in emacs lisp, to the text-based web
 browser w3m.  It supports tables, images, and all major web protocols.
 It is also fully supported in emacspeak.
 
-@menu
-* emacs-w3m advantages::
-* emacs-w3m disadvantages::
-* emacs-w3m native functions::
-* emacspeak specific functions for emacs-w3m::
-* emacs-w3m tips and tricks::
-@end menu
-
-@node emacs-w3m advantages
-@subsubsection emacs-w3m advantages
+@heading emacs-w3m advantages
 
 The main advantage of emacs-w3m is speed.  The rendering of web pages
 is done with the external program w3m.  which is written in c, so it
@@ -124,8 +108,7 @@ an external window when opened from emacs/w3.
 I can also say that I cannot remember a page that wouldn't render in
 emacs-w3m.  This is not something I can say about emacs/w3.
 
-@node emacs-w3m disadvantages
-@subsubsection emacs-w3m disadvantages
+@heading emacs-w3m disadvantages
 
 Taken by itself, the disadvantages of using w3m are few.  Long periods
 between releases can be seen by some to be a disadvantage although the
@@ -159,8 +142,7 @@ such as Reuters web site.  This can sometimes be worked around using
 the google transcoder.  See @xref{w3m-transcode,,below}, for more
 information.
 
-@node emacs-w3m native functions 
-@subsubsection emacs-w3m native functions
+@heading emacs-w3m native functions
 
 This part of the document is not meant to replace the
 @code{describe-mode} information available via the @kbd{C-h m}
@@ -188,8 +170,7 @@ around at the ends of the buffer.
 While in a form, using @kbd{C-c C-c} will submit the form with no need to
 tab around looking for the ``Submit'' button.
 
-@node emacspeak specific functions for emacs-w3m
-@subsubsection emacspeak specific functions for emacs-w3m
+@heading emacspeak specific functions for emacs-w3m
 
 Many extensions have been written by the emacspeak community to expand
 emacs-w3m and make it more accessible.  Below are those extensions.
@@ -217,7 +198,8 @@ of mplayer, I would highly advise using this media player.  With the
 correct codecs installed, mplayer will play everything you will find,
 I believe, with one convenient player that does not require a GUI.
 
-@anchor{w3m-transcode}@kbd{C-t} will run the current page through the google transcoder.  The
+@anchor{w3m-transcode}
+@kbd{C-t} will run the current page through the google transcoder.  The
 transcoder is very useful to the users of screen readers as it takes
 care of formatting issues like tables.  While not usually a problem,
 There is a function to linearize tables in emacs-w3m, but it is not
@@ -244,7 +226,7 @@ like the ``similar'' link at the end of a google search result.
 @kbd{C-c C-r} will browse the rss link under point.  One reason this might
 be useful is to first try out the rss feed before you configure your
 rss reader to subscribe to the feed.  For a easy to use rss reader,
-see the section below on @xref{emacspeak-rss,,@code{emacspeak-rss}}.
+see the section below on @xref{rss,,@code{emacspeak-rss}}.
 
 The letter @kbd{x} is the prefix key for the xsl transforms.  xslt is
 some powerful ju-ju.  It takes a web page and does all kinds of cool
@@ -276,7 +258,7 @@ search hits.  An easier way of getting the same results is to use the
 @code{url-template} ``Google Hits'' which returns the same results.  Another
 advantage of using the @code{url-template} is that it can be done from
 anywhere, not just in an emacs-w3m buffer.  
-@xref{emacspeak-url-template,,emacspeak-url-template}, for more
+@xref{emacspeak url template,,emacspeak-url-template}, for more
 information. 
 
 The @kbd{x t} command sorts the tables.  It takes the nested tables and
@@ -285,8 +267,7 @@ the same function in emacs/w3.  While doing the same thing, emacs/w3
 has the capability of allowing the user to navigate the tables cell by
 cell.  
 
-@node emacs-w3m tips and tricks
-@subsubsection emacs-w3m tips and tricks
+@heading emacs-w3m tips and tricks
 
 One issue that might need work is that, by default, when tabbing over
 links in emacs-w3m the url of the link is spoken.  There are several
@@ -318,23 +299,14 @@ text of the link spoken they use @kbd{C-e l}.  As with everything else
 in emacs, it is completely up to you to decide what is best.
 
 @node  emacs/w3
-@subsection emacs/w3
+@subsubsection emacs/w3
 
 emacs/w3 is a web browser written completely in emacs lisp.  It has
 some really nice features applicable to the emacspeak community such
 as the ability to navigate tables and support for the w3c's aural
 cascading stylesheets.  
 
-@menu
-* emacs/w3 advantages::
-* emacs/w3 disadvantages::
-* emacs/w3 native functions::
-* emacspeak specific functions for emacs/w3:: 
-* emacs/w3 tips and tricks::
-@end menu
-
-@node emacs/w3 advantages
-@subsubsection emacs/w3 advantages
+@heading emacs/w3 advantages
 
 As mentioned above, the ability to navigate tables is a super help.
 emacs/w3 also has support for cascading stylesheets.  This allows
@@ -346,8 +318,7 @@ Another advantage of emacs/w3 is that it is written completely in
 emacs lisp.  With some effort, emacs/w3 is very customizable and quite
 extendable.  
 
-@node emacs/w3 disadvantages
-@subsubsection emacs/w3 disadvantages
+@heading emacs/w3 disadvantages
 
 Rendering can be slow.  Sometimes it can be painfully, excruciatingly
 slow.  That might be a slight exaggeration, but slow it is.  This is
@@ -386,8 +357,7 @@ is the method used by Dr. Ramen, the author of emacspeak.  See
 History back and next in the browser also seem to be broken but this
 is not generally a problem for me as I never look back. 
 
-@node emacs/w3 native functions
-@subsubsection emacs/w3 native functions
+@heading emacs/w3 native functions
 
 Many functions for efficient navigation of the internet are native to
 emacs/w3.  Some of the most useful functions are listed below
@@ -467,8 +437,7 @@ Here is a list of table navigation commands:
 
 As you can see, table navigation in w3 can be easy and fun.
 
-@node emacspeak specific functions for emacs/w3 
-@subsubsection emacspeak specific functions for emacs/w3 
+@heading emacspeak specific functions for emacs/w3 
 
 An incredible amount of work has been done by the emacspeak community
 to make emacs/w3 accessible to those with visual impairments.  Here is
@@ -517,9 +486,7 @@ through the trouble of configuring your feed reader to fetch the feed.
 It might also be useful to grab the headlines from a page and present
 them in a more concise, readable format.  If using the sort-tables xsl
 transform, there will be a link at the top of the page if there is an
-rss feed available.  See 
-@xref{atom and rss,,atom and 
-rss}, 
+rss feed available.  See @xref{rss,, emacspeak atom and emacspeak rss},
 for more information. 
 
 Google provides many useful tools for web surfers.  The following
@@ -540,7 +507,8 @@ document.
 
 The @kbd{l} command googles for who links to this page.
 
-@anchor{w3 transcode}The command @kbd{t} runs the url under point
+@anchor{w3 transcode}
+The command @kbd{t} runs the url under point
 through the google transcoder.  This is useful for sites that are
 heavy on the use of tables and the xsl transforms are not helpful.  It
 also works on some sites that use javascript to go to the next page in
@@ -601,7 +569,8 @@ you can use the command @kbd{e s} to select a transform and then @kbd{e o} to
 turn xslt on (the same command will turn xslt off).  Then, every page
 opened from that point on will have the transform applied.
 
-@anchor{xsl-transform}There is the variable
+@anchor{xsl-transform}
+There is the variable
 @code{emacspeak-w3-xsl-transform} that can be set via the usual
 methods.  This variable specifies a transform to use before displaying
 a web page.  There is an advantage to turning on xsl transforms all
@@ -663,8 +632,7 @@ A related command can be invoked with the @kbd{e p} keystroke.  This
 command does the same as the filter above but works on the url under
 point. 
 
-@node emacs/w3 tips and tricks
-@subsubsection emacs/w3 tips and tricks
+@heading emacs/w3 tips and tricks
 
 As I mentioned above, using @kbd{C-g} when it seems the browser is not
 responding will often display the page with no ill effects.  Your
@@ -681,20 +649,13 @@ to emacs-w3m.  The counterpart to this command, @kbd{cap K} puts the url
 under point in the kill-ring.
 
 @node Add-ons
-@subsection Add-ons
+@subsubsection Add-ons
 
 Some of these are emacspeak specific, some are not.  You can usually
 tell by the name.
 
-@menu
-* url-template::
-* atom and rss::
-* websearch::
-* bmk-mgr::
-@end menu 
-
-@node url-template
-@subsubsection emacspeak-url-template
+@anchor{emacspeak url template}
+@heading emacspeak url template
 
 I love this package.  Since changing my primary browser to emacs/w3 I
 have really been giving the @code{url-template} package a workout.  The
@@ -707,15 +668,15 @@ pages.  Media streams can also be made into url-templates.
 The way to get to the templates is with the command @kbd{C-e u}.  A @key{TAB} at
 the prompt will give you a list of the available templates.  You
 should go now and have a look at the info manual section on
-@inforef{URL Template,URL Template, emacspeak}  and read it.  I'll wait here.
+@xref{URL Templates,,URL Templates},  and read it.  I'll wait here.
 
 By the way, the ones I find most useful are the ``Google Hits'',
 ``emacswiki search'' ``NPR On Demand'' and ``Weather forecast from Weather
 Underground''.
 
-@node atom and rss
-@subsubsection emacspeak-atom and emacspeak-rss
+@heading  emacspeak atom and emacspeak rss
 
+@anchor{rss}
 These are fairly simple rss and atom browsers for the emacspeak
 desktop.  Using the Customize interface you add feeds in the form of
 titles and urls.  Then you call the readers with @kbd{C-e C-u} for rss
@@ -726,8 +687,7 @@ of emacs 22, but I have never used it.
 I personally use @inforef{Top,gnus,gnus}, for rss feeds but setting gnus up for only that
 purpose is like hunting rabbits with a bazooka. 
 
-@node websearch
-@subsubsection emacspeak-websearch
+@heading  emacspeak websearch
 
 @code{emacspeak-websearch} provides more search options than you can shake a
 stick at.  @code{emacspeak-websearch} provides search for dictionaries, news
@@ -739,11 +699,11 @@ information.  One of the nice things about this package is that, when
 using w3 it attempts to jump to and read the most relevant information
 on the result page.
 
-@inforef{emacspeak-websearch,emacspeak-websearch,emacspeak},
+@xref{emacspeak-websearch,,emacspeak-websearch},
 for more information.
 
-@node bmk-mgr
-@subsubsection bmk-mgr
+@anchor{bmk-mgr}
+@heading  bmk-mgr
 
 This is a newcomer to the emacspeak world.  In the interest of full
 disclosure, I am the one that wrote the emacspeak module that makes
@@ -758,7 +718,7 @@ browsers.  See
 information.
 
 @node Conclusion
-@subsection Conclusion
+@subsubsection Conclusion
 
 emacspeak makes the internet not only accessible to those with visual
 impairments, but it makes browsing and information retrieval quick and
@@ -775,8 +735,3 @@ beats using a banana.
 
 @bye
 
-notes:
-
-anchors
-     This marks the @anchor{x-spot}spot.
-     @xref{x-spot,,the spot}.
