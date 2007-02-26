@@ -24,7 +24,6 @@ packages that have been speech-enabled.
 * Desktop Management:: Desktop Management
 * Personal Information Management:: Personal Information Management
 * Desktop Applications:: Desktop Applications
-*Web Browsing:: Web Browsing
 @end  menu
 @include documents.texi
 @include structure.texi
@@ -45,6 +44,12 @@ documentation.
 @c  emacspeak-table.el
 @c  emacspeak-tabulate.el
 @c  emacspeak-view.el
+
+@menu
+* The State of Web Browsing in Emacspeak::
+@end menu
+
+@include web-browsing.texi
 
 @node Messaging 
 @section Electronic Messaging Applications
@@ -344,5 +349,3 @@ Describe OCR mode.
 @c  emacspeak-dismal.el
 @c  emacspeak-remote.el
 @c  emacspeak-entertain.el
-
-@include web-browsing.texi
