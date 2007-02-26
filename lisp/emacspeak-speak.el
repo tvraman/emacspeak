@@ -2253,19 +2253,10 @@ you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
-(defcustom emacspeak-comint-split-speech-on-newline  nil
-  "*Option to have comint split speech on newlines.
-Non-nil means we split speech on newlines in comint buffer."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
-  (declare (special
-            emacspeak-comint-split-speech-on-newline ))
+  (declare (special))
   (dtk-set-punctuations 'all)
-  (when emacspeak-comint-split-speech-on-newline
-    (modify-syntax-entry 10 ">"))
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)

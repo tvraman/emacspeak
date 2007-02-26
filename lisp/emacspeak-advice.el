@@ -1287,7 +1287,6 @@ in completion buffers"
           'personality
           'emacspeak-comint-prompt-personality
           'rear-sticky nil)))
-      (when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
       (when (and (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
                  (or
                   monitor
@@ -1845,10 +1844,7 @@ Indicate change of selection with
   "Speak the help."
   (when (interactive-p)
     (emacspeak-speak-help )))
-(add-hook 'help-mode-hook
-          (function
-           (lambda nil
-             (modify-syntax-entry 10 " "))))
+
 
 (defadvice help-with-tutorial (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -2732,8 +2728,16 @@ Produce auditory icons if possible."
              (ad-get-arg 0 ))))
 
 ;;}}}
-;;{{{  Modify syntax entries for modes where necessary:
+;;{{{  set up clause boundaries for specific modes:
+(defsubst emacspeak-speak-adjust-clause-boundaries ()
+  "Adjust clause boundaries so that newlines dont delimit clauses."
+  (declare (special dtk-chunk-separator-syntax))
+  (setq dtk-chunk-separator-syntax
+        ".)$\""))
 
+(add-hook 'text-mode-hook
+          'emacspeak-speak-adjust-clause-boundaries)
+(add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
 ;;}}}
 ;;{{{ setup minibuffer hooks:
 (defvar emacspeak-minibuffer-enter-auditory-icon t
