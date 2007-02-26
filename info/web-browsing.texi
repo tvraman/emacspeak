@@ -1,0 +1,783 @@
+@node The State of Web Browsing in Emacspeak
+@chapter The State of Web Browsing in Emacspeak
+
+This document, ``The State of Web Browsing in Emacspeak'' describes
+the primary web browsers in use under emacspeak and ways they might be
+used more efficiently.  
+
+Version 1.0 --  February, 2007.
+
+Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
+
+@menu
+* Introduction::        Why this document and what it is about
+* emacs-w3m::           Browsing the web with emacs-w3m
+* emacs/w3::            Browsing the web with emacs/w3
+* Add-ons::             Add-ons to make life better
+* Conclusion::          Wrapping it up
+@end menu
+
+@node Introduction
+@chapter Introduction
+
+Web browsing in emacspeak can be made as simple or as complicated as
+you wish to make it.  On the one hand, all that need be done is to
+open a web browser and fetch a particular url.  This works fine in
+many cases with exceptions being things like html tables.  On the
+other hand, if you spend a little time learning a particular browser
+and its functionality, web browsing can be made more efficient and the
+web more navigable.
+
+This document is intended to be an introduction to the 2 primary
+browsers that run under emacs: emacs/w3 and emacs-w3m.  I also intend
+to introduce a couple of add-on packages intended to make life easier
+and to address specific shortcomings.
+
+The primary reason for this documentation is the fact that a lot of
+the documentation of the various functions tells exactly what it does,
+but not why or in what circumstance one might use it.  Hopefully I can
+remedy that here.
+
+@menu
+* Who this document is intended for::   
+* Assumptions::
+@end menu
+
+@node Who this document is intended for
+@section Who this document is intended for
+
+While this document is geared toward emacspeak users, it might be
+helpful for other users as well.  I have tried to note where functions
+are specific to emacspeak.
+
+@node Assumptions
+@section Assumptions
+
+This document assumes emacs is installed.  If reading the section on a
+particular browser and trying out the associated functions, it, of
+course, assumes that the browser is installed and working. For
+features specific to emacspeak, a working install of emacspeak is
+necessary.  It is far beyond the scope of this document to help with
+the installation of these programs.
+
+For help with installing any of the above bits of software, the
+following mailing lists and / or newsgroups are available:
+
+@itemize
+@item
+emacs - @code{gnu.emacs.help}
+
+@item
+emacs-w3m - see @url{http://emacs-w3m.namazu.org}
+
+@item
+emacs/w3 - the mailing list for w3 is pretty dead.  Sorry. 
+The documentation is, however, not terrible.
+
+@item
+emacspeak - see @url{http://emacspeak.sf.net}
+@end itemize
+
+It is highly suggested that the mailing list archives, google, and the
+relevant documentation be consulted before posting messages to any
+mailing list.  Nothing is more irritating than answering the same
+questions over and over.  Those of you with kids know what I am
+talking about.
+
+It is also assumed that the reader is comfortable with using emacs
+itself.  Understanding the convention for communicating keystrokes to
+run commands, navigating documents, and the like are not covered.
+
+@node emacs-w3m
+@chapter emacs-w3m
+
+emacs-w3m is a front-end, written in emacs lisp, to the text-based web
+browser w3m.  It supports tables, images, and all major web protocols.
+It is also fully supported in emacspeak.
+
+@menu
+* emacs-w3m advantages::
+* emacs-w3m disadvantages::
+* emacs-w3m native functions::
+* emacspeak specific functions for emacs-w3m::
+* emacs-w3m tips and tricks::
+@end menu
+
+@node emacs-w3m advantages
+@section emacs-w3m advantages
+
+The main advantage of emacs-w3m is speed.  The rendering of web pages
+is done with the external program w3m.  which is written in c, so it
+is fast.  It also seems not to choke on some web pages like the
+alternative, emacs/w3.
+
+Another big advantage to emacs-w3m is that it is under active
+development.  Problems seem to be fixed soon after they come to the
+attention of the developers and are available very quickly as long as
+you are willing to use the cvs version.
+
+For those who have limited sight as opposed to no sight at all,
+emacs-w3m displays all graphics within its own buffer.  This might be
+a misconfiguration on my part, but there are some images that open in
+an external window when opened from emacs/w3.  
+
+I can also say that I cannot remember a page that wouldn't render in
+emacs-w3m.  This is not something I can say about emacs/w3.
+
+@node emacs-w3m disadvantages
+@section emacs-w3m disadvantages
+
+Taken by itself, the disadvantages of using w3m are few.  Long periods
+between releases can be seen by some to be a disadvantage although the
+alternative browser's time between releases is now several years, I
+believe.  
+
+With hardware or software that support multiple voices, such as IBM's
+Via Voice, one can allow differences in speech to indicate differences
+in document text.  For example, headings can be spoken in a voice with
+a lower pitch, links in a higher voice.  The voices in emacs-w3m are
+much more limited than those in emacs/w3 and not all textual
+attributes can be indicated.  As of the writing of this document, @code{pre}
+tags and the like cannot be indicated.  It has been within the last
+few months that italic text support has been added.
+
+Another disadvantage is the fact that the rendering in emacs-w3m is
+done by the external process, w3m.  Since w3m is written in C, it is
+not as easily customizable from within the community of emacs users.
+Code written in emacs lisp can be substituted for code in a running
+emacs instance, something that is not possible in C.
+
+A further disadvantage is the lack of table navigation, i.e. the
+ability to move from cell to cell in a table to more easily understand
+the information presented.  Linearizing the table is available but
+sometimes it is difficult to keep the meanings of the columns in your
+head to discern the meaning.  Maybe it is just me.
+
+A disadvantage shared between the browsers is the lack of support for
+javascript.  Many sites use javascript for links to the next page,
+such as Reuters web site.  This can sometimes be worked around using
+the google transcoder.  See @xref{w3m-transcode,,below}, for more
+information.
+
+@node emacs-w3m native functions 
+@section emacs-w3m native functions
+
+This part of the document is not meant to replace the
+@code{describe-mode} information available via the @kbd{C-h m}
+keystroke or the emacs-w3m info manual.  This is by no means an
+exhaustive list of available commands.
+
+emacs-w3m has considerable functionality and many features that
+make browsing more efficient and convenient.  Below are many of the
+functions that are native to emacs-w3m.
+
+@kbd{Cap S} will query for a search term.  By default, the search engine used
+is google.  This can be changed with a prefix command.  To see the
+available engines, after hitting @kbd{C-u Cap S}, when it asks for the engine
+hit @key{TAB} to get a list of available completions.  Tab completion of
+partial words works here as well.  For example, hitting ``y'' and then
+@key{TAB} will complete to the word ``yahoo''.
+
+Form navigation can be achieved with the right and left brackets.
+This is useful for times where you want to go to the input field on a
+web page without having to tab through the links.  Google is a good
+example of where this would be useful.  The right bracket moves point
+to the next form, and the left bracket moves to the previous, wrapping
+around at the ends of the buffer.
+
+While in a form, using @kbd{C-c C-c} will submit the form with no need to
+tab around looking for the ``Submit'' button.
+
+@node emacspeak specific functions for emacs-w3m
+@section emacspeak specific functions for emacs-w3m
+
+Many extensions have been written by the emacspeak community to expand
+emacs-w3m and make it more accessible.  Below are those extensions.
+
+While being a variable and not a function, the variable
+@code{emacspeak-w3m-speak-titles-on-switch} makes emacs-w3m more friendly.
+It tells emacspeak to speak the document title when switching between
+emacs-w3m buffers.  The default, @code{nil}, will speak the mode line.  This
+is the same behavior seen in all other buffers.  This speaking of the
+document title is more descriptive than just hearing @code{*w3m*<4>}.  This
+variable can be customized in the usual ways, either in your @file{.emacs}
+file or via the @code{Customize} interface.  If you do set this variable,
+reading the mode line can still be achieved with @kbd{C-e m}.
+
+The @kbd{j} command will jump to the first occurance of the title in the
+document.  Each time you use this command in succession, it will jump
+to the next occurance of the title.  This is very convenient for web
+pages that have the title show up in multiple places in the document.
+The web site for The Register is a good example of this.
+
+The @kbd{l} command uses the default media player to play the media stream
+at point.  I believe this is set to @code{emacspeak-m-player} by default.
+While beyond the scope of this document to describe the installation
+of mplayer, I would highly advise using this media player.  With the
+correct codecs installed, mplayer will play everything you will find,
+I believe, with one convenient player that does not require a GUI.
+
+@anchor{w3m-transcode}@kbd{C-t} will run the current page through the google transcoder.  The
+transcoder is very useful to the users of screen readers as it takes
+care of formatting issues like tables.  While not usually a problem,
+There is a function to linearize tables in emacs-w3m, but it is not
+always successful.  You can reverse this command by giving a prefix
+argument.
+
+@kbd{M-t} runs the url under point through the transcoder.  This command can
+be reversed by giving a prefix argument.
+
+Extensions have been written to take advantage of much of the google
+functionality.  The following describes how to access many of these
+extensions.  
+
+@kbd{C-c C-g} will search the current web site with google.
+
+@kbd{C-c C-x} will extract the current page from the google cache.  A prefix
+argument will extract the url under point from the cache.  This is
+useful if, for instance, a site is down for one reason or another and
+you absolutely must have the information.
+
+@kbd{C-c C-l} will find pages similar to the current page.  This is just
+like the ``similar'' link at the end of a google search result.
+
+@kbd{C-c C-r} will browse the rss link under point.  One reason this might
+be useful is to first try out the rss feed before you configure your
+rss reader to subscribe to the feed.  For a easy to use rss reader,
+see the section below on @xref{emacspeak-rss,,@code{emacspeak-rss}}.
+
+The letter @kbd{x} is the prefix key for the xsl transforms.  xslt is
+some powerful ju-ju.  It takes a web page and does all kinds of cool
+things with it.  These things are listed below.
+
+The command @kbd{x a} will apply an xsl transformation to the current
+page.  one particularly useful transform is to linearize tables.  This
+takes the tables and formats them linearly down the page as if they
+were paragraphs instead of table cells.  This command can be more
+easily applied with the @kbd{x l} command.
+
+If you want to always have tables linearized, use the @kbd{x a} command and
+type @kbd{linearize @key{TAB}} and then the @kbd{x o} to toggle xsl on.  This will
+linearize the tables in every subsequently visited page for this
+session.  While it seems possible to make this happen automatically in
+emacs/w3, I do not believe this is currently possible in emacs-w3m.
+A noticeable increase in speed can be seen in emacs/w3 by turning xslt
+on and using @code{sort-tables} or @code{linearize-tables}.  This
+eliminates the need for the browser to render nested tables.  Since
+speed is not such an issue with emacs-w3m, I don't bother turning on
+xslt for the session.
+
+The @kbd{x b} command will add a ``submit'' button to forms that do not have
+one such as the one on the emacswiki web site .  Submitting forms can be more
+easily achieved with @kbd{C-c C-c}.
+
+If on a google search page, the @kbd{x h} command will give you only the
+search hits.  An easier way of getting the same results is to use the
+@code{url-template} ``Google Hits'' which returns the same results.  Another
+advantage of using the @code{url-template} is that it can be done from
+anywhere, not just in an emacs-w3m buffer.  
+@xref{emacspeak-url-template,,emacspeak-url-template}, for more
+information. 
+
+The @kbd{x t} command sorts the tables.  It takes the nested tables and
+unnests them.  While sometimes useful, this is not nearly as useful as
+the same function in emacs/w3.  While doing the same thing, emacs/w3
+has the capability of allowing the user to navigate the tables cell by
+cell.  
+
+@node emacs-w3m tips and tricks
+@section emacs-w3m tips and tricks
+
+One issue that might need work is that, by default, when tabbing over
+links in emacs-w3m the url of the link is spoken.  There are several
+ways to deal with this.  
+
+One solution, actually two but they accomplish the same result, is to
+include the following code in the @file{~/.emacs-w3m} file:
+
+@lisp
+(remove-hook 'w3m-after-cursor-move-hook
+     #'w3m-print-this-url)
+@end lisp
+
+@noindent 
+Or, this code in the .emacs file
+
+@lisp
+(add-hook 'w3m-after-cursor-move-hook 
+	  (lambda ()
+	    (emacspeak-speak-messages nil)))
+@end lisp
+
+Both of these solutions, as far as the user can see, seem to be
+equivalent.  They differ only in where they are placed.
+
+The other solution is to leave things as they are.  Some users mention
+that they find it helpful to have the url spoken and, if they want the
+text of the link spoken they use @kbd{C-e l}.  As with everything else
+in emacs, it is completely up to you to decide what is best.
+
+@node  emacs/w3
+@chapter emacs/w3
+
+emacs/w3 is a web browser written completely in emacs lisp.  It has
+some really nice features applicable to the emacspeak community such
+as the ability to navigate tables and support for the w3c's aural
+cascading stylesheets.  
+
+@menu
+* emacs/w3 advantages::
+* emacs/w3 disadvantages::
+* emacs/w3 native functions::
+* emacspeak specific functions for emacs/w3:: 
+* emacs/w3 tips and tricks::
+@end menu
+
+@node emacs/w3 advantages
+@section emacs/w3 advantages
+
+As mentioned above, the ability to navigate tables is a super help.
+emacs/w3 also has support for cascading stylesheets.  This allows
+incredible control of voices used for what would normally be visual
+attributes of the text such as bold, italics, preformatted text and
+the like.
+
+Another advantage of emacs/w3 is that it is written completely in
+emacs lisp.  With some effort, emacs/w3 is very customizable and quite
+extendable.  
+
+@node emacs/w3 disadvantages
+@section emacs/w3 disadvantages
+
+Rendering can be slow.  Sometimes it can be painfully, excruciatingly
+slow.  That might be a slight exaggeration, but slow it is.  This is
+because it is written in lisp... something I mentioned just above as a
+strength.  It is a trade-off, but one that some see as worth it.
+There are, however,  some things that can be done to speed up the browsing
+process.  See
+@xref{xsl-transform,,@code{emacspeak-w3-xsl-transform}},
+for more information.
+
+Another disadvantage is that emacs/w3 chokes on some pages.  Sometimes
+it gives error messages and doesn't display anything.  Sometimes it
+does this to some people and doesn't do it to others as we saw on the
+emacspeak mailing list a short time ago.  Sometimes it gives error
+messages and renders the page anyway.
+
+As mentioned in the emacs-w3m section, this browser does not support
+javascript, which is a problem, usually for links on some sites.  One
+way this problem can be sometimes worked around is to transcode the
+link under point via google.  See @xref{w3 transcode,,w3 transcode},
+for more information.
+
+One other major annoyance of emacs/w3 is that sometimes it simply
+stops doing anything while rendering a page.  There is a way I have
+found to get around this.  I hit @kbd{C-g}.  I usually wait five to ten
+seconds and then simply quit, using @kbd{C-g}.  Not always, but usually,
+the page has already completed downloading and is being rendered and
+it therefore is not a problem.  
+
+emacs/w3 also has no bookmark functionality.  This can be remedied in
+several ways.  One simple way, mentioned below, is to use the emacs
+package bmk-mgr.  Another way is to use org mode with remember which
+is the method used by Dr. Ramen, the author of emacspeak.  See
+@xref{bmk-mgr,,bmk-mgr}, later in this manual, for more information.
+
+History back and next in the browser also seem to be broken but this
+is not generally a problem for me as I never look back. 
+
+@node emacs/w3 native functions
+@section emacs/w3 native functions
+
+Many functions for efficient navigation of the internet are native to
+emacs/w3.  Some of the most useful functions are listed below
+
+Unlike emacs-w3m, the information presented by @code{describe-mode} is very
+complete, but a little terse.  All the function names are listed and
+asking for help on particular functions works well.  That being said,
+use this list to augment, not replace, the built-in help that is
+available in emacs.
+
+@kbd{C-f} will open a new buffer containing the cell point is in.  In most
+instances, this works very well.  Imagine you are looking at a page
+that is divided into 4 distinct areas: a cell at the top of the page
+that contains a banner and some navigation, and a ``body'' area that is
+divided into three sections consisting of more navigation, an article,
+and advertisement.  If point is in the main article cell, using @kbd{C-f}
+will open another buffer that contains only the text of that cell, the
+article you are interested in.
+
+One caveat is that this does not always work as advertised.  Sometimes
+the leftmost character of each line is missing.  At least it makes for
+interesting reading.  Usually when I have this problem I simply exit
+that buffer and linearize the tables in the original page.
+
+The @kbd{m} key executes a very useful command.  It will complete a link
+on the page.  Imagine that you are reading through a document and you
+hear a link that you need to visit.  You could tab through all the
+links until you hear the one you want or you could hit the @kbd{m} key and
+enter the link text at the prompt.  Completion is available and it is
+not case-sensitive.  Efficient, no?
+
+The period in a cell will speak the contents of that particular cell.
+This command is, in my opinion, most useful when navigating tables
+with cells that have only one paragraph or less.  I tend to not read
+whole articles in this manner because, inevitably, someone will
+interrupt me and I will lose my place.
+
+The equals key, while in a table cell will give you the cell
+information.  It tells you the row and column position, the size of
+the table, and at what nesting level the table is.
+
+The pipe key, is used to read the table column.  As this command seems
+to read the rectangle the column is in, this command is most useful
+when used in a table where there is no column spanning, i.e. all rows
+and columns are uniform.  
+
+Here is a list of table navigation commands:
+
+@itemize
+@item
+@kbd{C-e +} moves to the beginning of the next table row.
+
+@item
+@kbd{C-e -} moves to the beginning of the previous table row. 
+
+@item
+@kbd{C-e <} moves to the beginning of the table.
+
+@item
+@kbd{C-e >} moves to the end of the table.
+
+@item
+@kbd{C-e =} moves to the top of the table column.
+
+@item
+@kbd{C-e <DOWN>} moves to the next cell down in the same column.
+
+@item
+@kbd{C-e <UP>} moves to the previous cell in the same column.
+
+@item
+@kbd{C-e <LEFT>} moves to the previous cell in the same row.
+
+@item
+@kbd{C-e <RIGHT>} moves to the next cell in the same row.
+@end itemize
+
+As you can see, table navigation in w3 can be easy and fun.
+
+@node emacspeak specific functions for emacs/w3 
+@section emacspeak specific functions for emacs/w3 
+
+An incredible amount of work has been done by the emacspeak community
+to make emacs/w3 accessible to those with visual impairments.  Here is
+an explanation of some of those functions.
+
+The command @kbd{C-t} will toggle the visibility of table borders.  This
+command might be useful where you want to hear all punctuation symbols
+on a page but the table characters get in the way.
+
+The quote key will execute a command that allows you to skim the
+contents of the buffer.  it will read the page,
+paragraph-by-paragraph, pausing between paragraphs to prompt you to
+move on by pressing @key{SPACE}.  If you hit @key{SPACE} in the
+middle of a paragraph, it skips to the next paragraph.
+
+Another skimming command is bound to the @kbd{z} key.  This will allow you
+to zip through web pages by logical blocks such as div, paragraph, and
+table tags.
+
+Using the imenu facilities is another way of skimming the document and
+getting to the information you desire.  imenu works especially well
+for well-structured documents.  The first thing that need be done is
+to copy the @file{w3-imenu.el} file from the @file{contrib} directory
+of the @file{w3} directory to somewhere in your load path.  I am using
+the cvs version of w3 and my w3 directory is under
+@file{/home/rdc/sourceforge}.  The easiest thing to do is probably to
+do an @kbd{M-x locate} and search for @file{w3-imenu.el} to see where
+it is.  After locating the file, move it into your load path.  In my
+case I have it under @file{/home/rdc/share/emacs/site-lisp/}.
+
+There are two ways to use the imenu facilities: automatically and
+manually.  Since I do not use imenu on every site, I prefer to invoke
+it manually to save the time required to build the index.  
+
+Once things are in place, invoke imenu with the @kbd{j} key.  This will ask
+you for an index position.  Hitting @key{TAB} will give you a list
+of the possible index positions.  Another way of navigating the
+document would now be to use the keys @kbd{M-n} and @kbd{M-p} to go to the next
+and previous index positions.  Note that you have to build an index
+for a page before you can use these commands.
+
+@kbd{Cap A} and @kbd{cap R} serve the same function.  @kbd{Cap A}
+browses the Atom feed at point and @kbd{cap R} browses the rss feed at
+point.  This is useful to sample the feed, so to speak, before going
+through the trouble of configuring your feed reader to fetch the feed.
+It might also be useful to grab the headlines from a page and present
+them in a more concise, readable format.  If using the sort-tables xsl
+transform, there will be a link at the top of the page if there is an
+rss feed available.  See 
+@xref{emacspeak-atom and emacspeak-rss,,emacspeak-atom and 
+emacspeak-rss}, 
+for more information. 
+
+Google provides many useful tools for web surfers.  The following
+commands are useful to access much google goodness.
+
+@kbd{Cap C} extracts the current page from the google cache.  With a
+prefix argument it will extract the link under point.  This is useful
+for those times when a particular site is down... maybe it is in the
+cache... maybe it is not.  It can also be used for when particular
+pages are removed from a site like in the case of a government
+conspiracy.  Are we at war with Eurasia or East Asia?
+
+The slash key will search google for pages similar to the current
+page.  
+
+The command @kbd{g} will do a google search restricted to the site of the
+document.
+
+The @kbd{l} command googles for who links to this page.
+
+@anchor{w3 transcode}The command @kbd{t} runs the url under point
+through the google transcoder.  This is useful for sites that are
+heavy on the use of tables and the xsl transforms are not helpful.  It
+also works on some sites that use javascript to go to the next page in
+the story, such as Reuters.  Using a prefix argument with this command
+will untranscode the url under point for pages that are currently
+transcoded.
+
+@kbd{Cap T} will jump to the first occurance of the title in the
+document.  Multiple consecutive executions of this command will jump
+to further occurances.  This command is probably one of the most
+useful timesavers while web browsing.   
+
+@kbd{M-s} jumps to the ``submit'' button for the form you are editing.
+
+@kbd{M-r} plays the media stream at point with the default media player. 
+
+The @kbd{y} command will rewrite the url of the url under point.  This is
+useful for those sites you frequent.  Often, sites that have printer
+friendly content have a specific way in which the url is written.  For
+example,  the O'Reilly web site uses ``pub'' for the regular html
+version of a page and ``lpt'' for the printer friendly version.  Examine
+these urls:
+
+@uref{http://www.oreillynet.com/lpt/a/wireless/2001/03/02/802.11b_facts.html}
+
+@uref{http://www.oreillynet.com/lpt/a/wireless/2001/03/02/802.11b_facts.html}
+
+The first link goes to the regular version of the page and the second
+to the printer friendly version.  Sometimes it is difficult to figure
+out the formula, so this is only useful if this is a site that you are
+visiting rather often, as the time to figure out the formula on a site
+that you rarely visit is far greater than the time you save.
+
+The first time you run this command in a particular buffer you are
+prompted for a pattern to use.  The pattern is in the form of 
+
+@samp{("from string" "to string")}
+
+The opening paren is supplied.  Remember to quote the strings or you
+will get an error.  From this point on, until you kill the buffer in
+which you wrote the rule, hitting @kbd{y} on a link will use this rewrite
+rule to visit the page.  If you mistyped the rule, providing a numeric
+argument will allow you to rewrite the rewrite rule.  I love
+alliteration. 
+
+Saving the best for last, @kbd{e} is the xsl map prefix.  As I mentioned
+in the section on emacs-w3m, xsl transforms are some powerful magic
+that takes a web page and transforms it in some way.  Linearizing
+tables is a good example, and the one I use most often.  
+
+The keystroke @kbd{e a} prompts for an xsl transform to apply to the
+current page.  If you know the name of the particular transform you
+want you can use tab completion to select it.  Otherwise, you can hit
+@key{TAB} to get a buffer that contains the list of choices.
+
+If you know that you want a particular transform done automatically
+you can use the command @kbd{e s} to select a transform and then @kbd{e o} to
+turn xslt on (the same command will turn xslt off).  Then, every page
+opened from that point on will have the transform applied.
+
+@anchor{xsl-transform}There is the variable
+@code{emacspeak-w3-xsl-transform} that can be set via the usual
+methods.  This variable specifies a transform to use before displaying
+a web page.  There is an advantage to turning on xsl transforms all
+the time.  If you use the @file{identity.xsl}, the
+@file{linearize-tables.xsl} or the @file{sort-tables.xsl} it can
+actually speed up rendering of the page.  This is because the
+transforms provide clean and balanced html to the renderer.
+Additionally, using @file{sort-tables.xsl} or
+@file{linearize-tables.xsl} will provide a little more boost as
+rendering nested tables is particularly difficult for a web browser.
+
+Sometimes it is just easier to read the printer friendly version of a
+story instead of having to linearize the tables and search for the
+content.  Also, some sites, like the New York Times, I believe, make
+you navigate several pages to read the whole story, but if you select
+a ``Print this story'' link you can read the entire story on one page
+formatted without a lot of the cruft on the normal page.  This is
+where the @kbd{e Cap P}  command comes in.  It will extract all the print
+streams from the current document.
+
+Closely associated commands are @kbd{e r} and @kbd{e Cap R} which extract the
+media streams from the current page and from the link under point,
+respectively.  
+
+The command @kbd{e y} is another command that is useful for frequented
+sites.  It does the same as the @kbd{y} command above in that it rewrites
+the url at point and follows it.  In addition, it filters the output
+by a particular CSS class.  
+
+The command @kbd{e e} does more magic to the url at point.  It processes
+the url using a specific function.  For example, it can be used in
+retrieving radio content from the BBC.  If you execute @kbd{C-e u} and
+type in @kbd{BBC Channel On Demand} or use tab completion to get the same,
+and then type in @kbd{radio4} you will be presented with a page containing
+a plethora of links to other pages containing information about
+particular shows.  On these pages there is, somewhere, a link that
+will play the program.  If you hit enter on one of the links on the
+first page, you will be taken to one of these description pages.  By
+using the @kbd{e e} command on a link you cut out this middle step and
+proceed directly to playing the program you are interested in.
+
+If there is no executor defined for a current buffer, hitting @key{TAB}
+after @kbd{e e} will give you a list of possibilities to choose from.
+One nice feature of this function is that it can be used for any
+function.  If you cannot remember the keystroke that will play the url
+under point in @code{emacspeak-m-player}, but you know what it is called, you
+can hit @kbd{e e} and then enter the name of the function.  Nice.
+
+The @kbd{e f} command will run the current page through an XPath filter
+and return the results.  For more information on XPath, see
+@uref{http://en.wikipedia.org/wiki/XPath}.  If you wanted to see only the
+links on a page, when prompted enter @kbd{//a} and you will be returned
+every link on the page.  If you wanted to see only the contents of ``p''
+tags, you would enter @kbd{//p}.  This can be useful for many things, form
+elements included.  Giving this command a prefix argument will reverse
+the filter, giving you everything but the content of the specified tag.
+
+A related command can be invoked with the @kbd{e p} keystroke.  This
+command does the same as the filter above but works on the url under
+point. 
+
+@node emacs/w3 tips and tricks
+@section emacs/w3 tips and tricks
+
+As I mentioned above, using @kbd{C-g} when it seems the browser is not
+responding will often display the page with no ill effects.  Your
+mileage may vary.  Taxes, tags and title are extra.
+
+Also mentioned above is the use of sort-tables or identity as an xsl
+transform to speed up the rendering of pages.  Every little bit
+helps. 
+
+Another useful tip is the use of the @kbd{k} key.  This key will place the
+current url in the kill-ring for later yanking.  If a page will not
+render correctly, using @kbd{k} will get the url and allow me to pass it
+to emacs-w3m.  The counterpart to this command, @kbd{cap K} puts the url
+under point in the kill-ring.
+
+@node Add-ons
+@chapter Add-ons
+
+Some of these are emacspeak specific, some are not.  You can usually
+tell by the name.
+
+@menu
+* emacspeak-url-template::
+* emacspeak-atom and emacspeak-rss::
+* emacspeak-websearch::
+* bmk-mgr::
+@end menu 
+
+@node emacspeak-url-template
+@section emacspeak-url-template
+
+I love this package.  Since changing my primary browser to emacs/w3 I
+have really been giving the @code{url-template} package a workout.  The
+@code{url-template} package contains templates that prompt you for
+information to supply to various sites to retrieve information without
+all the fuss of having to go to the site and navigate it.  One really
+nice thing about url-templates is the fact that they need not be web
+pages.  Media streams can also be made into url-templates.  
+
+The way to get to the templates is with the command @kbd{C-e u}.  A @key{TAB} at
+the prompt will give you a list of the available templates.  You
+should go now and have a look at the info manual section on
+@inforef{URL Template,URL Template, emacspeak}  and read it.  I'll wait here.
+
+By the way, the ones I find most useful are the ``Google Hits'',
+``emacswiki search'' ``NPR On Demand'' and ``Weather forecast from Weather
+Underground''.
+
+@node emacspeak-atom and emacspeak-rss
+@section emacspeak-atom and emacspeak-rss
+
+@anchor{emacspeak-rss}
+These are fairly simple rss and atom browsers for the emacspeak
+desktop.  Using the Customize interface you add feeds in the form of
+titles and urls.  Then you call the readers with @kbd{C-e C-u} for rss
+feeds and use @kbd{M-x emacspeak-atom-browse} for atom feeds.  There is also
+emacspeak support for newsticker, an rss / atom reader that is a part
+of emacs 22, but I have never used it.
+
+I personally use @inforef{Top,gnus,gnus}, for rss feeds but setting gnus up for only that
+purpose is like hunting rabbits with a bazooka. 
+
+@node emacspeak-websearch
+@section emacspeak-websearch
+
+@code{emacspeak-websearch} provides more search options than you can shake a
+stick at.  @code{emacspeak-websearch} provides search for dictionaries, news
+sites, software sites, google tools, weather, currency converter and
+much more.  It can be accessed with the keystroke @kbd{C-e ?}.  At the
+prompt, you can enter another question mark to get a list of the
+available search options.  You will then be prompted for the necessary
+information.  One of the nice things about this package is that, when
+using w3 it attempts to jump to and read the most relevant information
+on the result page.
+
+@inforef{emacspeak-websearch,emacspeak-websearch,emacspeak},
+for more information.
+
+@node bmk-mgr
+@section bmk-mgr
+
+This is a newcomer to the emacspeak world.  In the interest of full
+disclosure, I am the one that wrote the emacspeak module that makes
+this package accessible.  It is a bookmarks manager that works with
+both emacs/w3 and emacs-w3m.  As of the writing of this document there
+are still some issues, especially when using it on emacs version 22,
+but those are being worked on.  I think this is a good solution to the
+problem of emacs/w3 not having bookmarks functionality and providing
+one central bookmark location for those who regularly use both
+browsers.  See
+@uref{http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr}, for more
+information.
+
+@node Conclusion
+@chapter Conclusion
+
+emacspeak makes the internet not only accessible to those with visual
+impairments, but it makes browsing and information retrieval quick and
+efficient.  If a user will spend a little time up front to learn the
+tools available to access the web, the increase in efficiency and
+ability will more than make up for the time spent.  The nice thing
+about these tools is that you can integrate them in your day-to-day as
+you have the time.  While it is not necessary to use everything mentioned in
+the above document, if you add some of these tools to your repertoire
+you will not be sorry.  
+
+In the end, no one makes you use a hammer to drive nails but it sure
+beats using a banana.
+
+@bye
+
+notes:
+
+anchors
+     This marks the @anchor{x-spot}spot.
+     @xref{x-spot,,the spot}.
