@@ -45,6 +45,12 @@ documentation.
 @c  emacspeak-tabulate.el
 @c  emacspeak-view.el
 
+@menu
+* The State of Web Browsing in Emacspeak::
+@end menu
+
+@include web-browsing.texi
+
 @node Messaging 
 @section Electronic Messaging Applications
 

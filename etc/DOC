@@ -849,7 +849,12 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 

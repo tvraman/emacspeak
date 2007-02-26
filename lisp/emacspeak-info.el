@@ -68,6 +68,7 @@
    (info-node voice-monotone)
    (info-xref voice-animate-extra)
    (info-menu-star voice-brighten)
+   (info-xref-visited voice-animate-medium)
    ))
 
 ;;}}}

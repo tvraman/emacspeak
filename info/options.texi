@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 645 user customizable
+This chapter documents a total of 644 user customizable
   options.
 
 @menu
@@ -1875,11 +1875,6 @@ You can use
   `emacspeak-toggle-comint-autospeak` bound to
   C-e C-q to toggle this
 setting.
-@end defvar
-
-@defvar {User Option} emacspeak-comint-split-speech-on-newline
-*Option to have comint split speech on newlines.
-Non-nil means we split speech on newlines in comint buffer.
 @end defvar
 
 @defvar {User Option} emacspeak-decoration-rule
@@ -4116,7 +4111,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} emacspeak-voice-lock-comment-delimiter-personality
 Personality used for font-lock-comment-delimiter-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-comment-personality

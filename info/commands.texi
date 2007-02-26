@@ -1145,6 +1145,11 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word (COUNT)
@@ -5470,7 +5475,7 @@ Execute Zinf command.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 119 URL Templates.
+This section documents a total of 120 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5508,6 +5513,10 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 @kbd{American Life On Demand.}
 
 Play This American Life  shows on demand.
+
+@kbd{Anonymous Google Search}
+
+Logout from Google to do an anonymous search.
 
 @kbd{Archive News Search}
 
