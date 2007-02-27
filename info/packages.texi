@@ -17,7 +17,8 @@ packages that have been speech-enabled.
 @menu
 * Document Authoring:: Document Authoring
 * Structured Editing:: Structured Editing
-* Browsing Structure :: Browsing Structure 
+* Browsing Structure :: Browsing Structure
+* Web Browsing:: Web Browsing
 * Messaging :: Messaging 
 * Editting Program Source:: Editting Program Source
 * Development Environment:: Development Environment
@@ -44,11 +45,6 @@ documentation.
 @c  emacspeak-table.el
 @c  emacspeak-tabulate.el
 @c  emacspeak-view.el
-
-@menu
-* The State of Web Browsing in Emacspeak::
-@end menu
-
 @include web-browsing.texi
 
 @node Messaging 
