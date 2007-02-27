@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 644 user customizable
+This chapter documents a total of 645 user customizable
   options.
 
 @menu
@@ -3862,6 +3862,11 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-info-title-4-voice
 Personality used for info-title-4
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-info-xref-visited-voice
+Personality used for info-xref-visited
+This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-info-xref-voice

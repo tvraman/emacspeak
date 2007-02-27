@@ -224,16 +224,18 @@ This helps pull in all emacspeak modules cleanly.")
 (defvar emacspeak-speak-messages nil)
 (defun emacspeak-utils-generate-commands-documentation ()
   "Generate commands.texi and DOC ."
-  (declare (special emacspeak-modules-dependency-alist))
+  (declare (special emacspeak-modules-dependency-alist
+                    byte-compile-disable-print-circle))
+  (setq byte-compile-disable-print-circle t)
   (let ((emacspeak-speak-messages nil)
-(debug-on-error t)
+        (debug-on-error t)
         (dtk-quiet t))
     (mapcar
      #'(lambda (pair)
          (condition-case nil
              (progn
-	 (mapcar #'load-library (cdr pair))
-	 (load-library (car pair)))
+               (mapcar #'load-library (cdr pair))
+               (load-library (car pair)))
            (error nil))
 	 (message "%s\n" (car pair)))
      emacspeak-modules-dependency-alist)
@@ -241,7 +243,7 @@ This helps pull in all emacspeak modules cleanly.")
      "commands.texi")
     (emacspeak-generate-documentation
      "../etc/DOC")
-(load-library  "emacspeak-cus-load")
+    (load-library  "emacspeak-cus-load")
     (emacspeak-generate-texinfo-option-documentation
      "options.texi")))
 
