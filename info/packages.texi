@@ -17,17 +17,20 @@ packages that have been speech-enabled.
 @menu
 * Document Authoring:: Document Authoring
 * Structured Editing:: Structured Editing
-* Browsing Structure :: Browsing Structure
-* Web Browsing:: Web Browsing
-* Messaging :: Messaging 
+* Browsing Structure:: Browsing Structure
+* Messaging:: Messaging 
 * Editting Program Source:: Editting Program Source
 * Development Environment:: Development Environment
 * Desktop Management:: Desktop Management
 * Personal Information Management:: Personal Information Management
 * Desktop Applications:: Desktop Applications
+* Web Browsing:: Web Browsing
 @end  menu
+
 @include documents.texi
 @include structure.texi
+
+
 @node Browsing Structure 
 @section Browsing Structured Information
 
@@ -35,20 +38,22 @@ This section describes packages that allow you to browse structured
 information --these are distinct from the tools described in
 @ref{Structured Editing}, in that they are typically used for working
 with content that is read-only e.g., online documentation.
-@itemize @bullet
- @xref{Web Browsing}
-@end itemize
+
+
+
+
+@c @menu
 @c * emacspeak-w3:: emacspeak-w3
 @c * emacspeak-w3m:: emacspeak-w3m
-@c *   emacspeak-info:: emacspeak-info
-@c *  emacspeak-man:: emacspeak-man
-@c *  emacspeak-table-ui:: emacspeak-table-ui
-@c *  emacspeak-table:: emacspeak-table 
-@c *  emacspeak-tabulate:: emacspeak-tabulate
-@c *  emacspeak-view:: emacspeak-view
+@c * emacspeak-info:: emacspeak-info
+@c * emacspeak-man:: emacspeak-man
+@c * emacspeak-table-ui:: emacspeak-table-ui
+@c * emacspeak-tabulate:: emacspeak-tabulate
+@c * emacspeak-view:: emacspeak-view
 @c @end menu
 
-@include web-browsing.texi
+
+
 
 @node Messaging 
 @section Electronic Messaging Applications
@@ -224,9 +229,9 @@ Pre-requisites:
 
 @itemize @bullet
 
-@item  A working scanner back-end like SANE on Linux.
+@item   A working scanner back-end like SANE on Linux.
 
-@item  An OCR engine.
+@item   An OCR engine.
 @end itemize
 
  Make sure your scanner back-end works, and that you have the utilities
@@ -277,70 +282,70 @@ key-bindings and a brief description:
                @dfn{emacspeak-ocr-page}
 Jumps to specified page in the OCR output.
 
-@item @kbd{c}
+@item  @kbd{c}
                @dfn{emacspeak-ocr-set-compress-image-options}
 
 Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
-@item @kbd{i}
+@item  @kbd{i}
                @dfn{emacspeak-ocr-set-scan-image-options}
 Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
-@item @kbd{spc}
+@item  @kbd{spc}
              @dfn{emacspeak-ocr-read-current-page}
 Speaks current page.
-@item @kbd{s}
+@item  @kbd{s}
                @dfn{emacspeak-ocr-save-current-page}
 Saves current page as a text file.
 
-@item @kbd{p}
+@item  @kbd{p}
                @dfn{emacspeak-ocr-page}
 Prompts for a page number and moves to the specified page.
 
-@item @kbd{]}
+@item  @kbd{]}
                @dfn{emacspeak-ocr-forward-page}
 Move forward to the next page.
 
-@item @kbd{[}
+@item  @kbd{[}
                @dfn{emacspeak-ocr-backward-page}
 Move back to the previous page.
 
-@item @kbd{d}
+@item  @kbd{d}
                @dfn{emacspeak-ocr-open-working-directory}
 Open directory containing the results of OCR.
 
-@item @kbd{n}
+@item  @kbd{n}
                @dfn{emacspeak-ocr-name-document}
 Name current document.
 
-@item @kbd{o}
+@item  @kbd{o}
                @dfn{emacspeak-ocr-recognize-image}
 Launch OCR engine on a scanned image.
 
-@item @kbd{i}
+@item  @kbd{i}
                @dfn{emacspeak-ocr-scan-image}
 Acquire an image using @code{scanimage}.
 
-@item @kbd{RET}
+@item  @kbd{RET}
              @dfn{emacspeak-ocr-scan-and-recognize}
 Scan and recognize a page.
 
-@item @kbd{w}
+@item  @kbd{w}
                @dfn{emacspeak-ocr-write-document}
 Write all pages of current document to a text file.
 
-@item @kbd{q}
+@item  @kbd{q}
                @dfn{bury-buffer}
 Bury the OCR buffer.
-@item @kbd{c}
+@item  @kbd{c}
                @dfn{emacspeak-ocr-customize}
 Customize Emacspeak OCR settings.
 
-@item @kbd{?}
+@item  @kbd{?}
                @dfn{describe-mode}
 Describe OCR mode.
 @end table
@@ -348,3 +353,6 @@ Describe OCR mode.
 @c  emacspeak-dismal.el
 @c  emacspeak-remote.el
 @c  emacspeak-entertain.el
+
+
+@include web-browsing.texi
