@@ -81,8 +81,8 @@ introducing-emacspeak.html: introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
 
 pub:  html/index.html introducing-emacspeak.html
-	scp introducing-emacspeak.html ${SF_HOME}/info
-	scp -r html ${SF_HOME}/info/
+	rsync introducing-emacspeak.html ${SF_HOME}/info/
+	rsync -avz  html ${SF_HOME}/info/
 
 %.pdf: %.ps
 	ps2pdf    $<
