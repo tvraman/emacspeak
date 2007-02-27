@@ -32,19 +32,22 @@ packages that have been speech-enabled.
 @section Browsing Structured Information
 
 This section describes packages that allow you to browse structured
-information  --these are distinct from the 
-tools described in @ref{Structured Editing},
- in that they are typically
-used for working with  content that is read-only e.g., online
-documentation.
+information --these are distinct from the tools described in
+@ref{Structured Editing}, in that they are typically used for working
+with content that is read-only e.g., online documentation.
+@itemize @bullet
+ @xref{Web Browsing}
+@end itemize
+@c * emacspeak-w3:: emacspeak-w3
+@c * emacspeak-w3m:: emacspeak-w3m
+@c *   emacspeak-info:: emacspeak-info
+@c *  emacspeak-man:: emacspeak-man
+@c *  emacspeak-table-ui:: emacspeak-table-ui
+@c *  emacspeak-table:: emacspeak-table 
+@c *  emacspeak-tabulate:: emacspeak-tabulate
+@c *  emacspeak-view:: emacspeak-view
+@c @end menu
 
-@c  emacspeak-w3.el
-@c  emacspeak-info.el
-@c  emacspeak-man.el
-@c  emacspeak-table-ui.el
-@c  emacspeak-table.el
-@c  emacspeak-tabulate.el
-@c  emacspeak-view.el
 @include web-browsing.texi
 
 @node Messaging 

@@ -28,7 +28,11 @@ and is primarily targeted at the WWW,  you are probably better off
 using HTML.
 You can create well-structured HTML documents with the help of package 
 @code{html-helper-mode} available from 
-@code{ftp://ftp.reed.edu/pub/src/html-helper-mode.tar.gz}.
+@code{ftp://ftp.reed.edu/pub/src/html-helper-mode.tar.gz} --- note
+this is now mostly obsoleted by James Clarke's excellent
+@code{nxml-mode}
+for editting  XML documents.
+
 Package @code{html-helper-mode} is speech-enabled by Emacspeak to
 provide auditory icons, structured navigation and outlines, as well as
 voice locking for audio formatted feedback as you work.
@@ -37,7 +41,7 @@ voice locking for audio formatted feedback as you work.
 If the document being authored is more complex, you are usually better
 off creating it in LaTeX.
 Note that LaTeX documents can be converted to HTML either via package
-@code{tth} or package @code{latex2html} --both available on the WWW.
+ package @code{tex4ht} -- available on the WWW.
 
 The TeX family of typesetting languages  is suitable for producing 
 well-formatted documents in an eyes-free environment.
