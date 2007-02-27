@@ -688,23 +688,23 @@ pronunciation dictionary for the specified key."
       (widget-insert
        (format "Editting pronunciation dictionary for %s\n\n" key))
       (widget-create 'repeat
-                     :help-echo "Edit Pronunciations"
-                     :tag "Pronunciations"
-                     :value value
-                     :notify notify
-                     '(cons :tag "Dictionary Entry"
-                            (string :tag "Phrase")
-                            (choice  :tag "Pronunciation"
-                                     (string :tag "Pronounce as")
-                                     (cons :tag "Pronouncer"
-                                           (symbol :tag "Matcher")
-                                           (symbol :tag "Pronouncer")))))
+       :help-echo "Edit Pronunciations"
+       :tag "Pronunciations"
+       :value value
+       :notify notify
+       '(cons :tag "Dictionary Entry"
+              (string :tag "Phrase")
+              (choice  :tag "Pronunciation"
+                       (string :tag "Pronounce as")
+                       (cons :tag "Pronouncer"
+                             (symbol :tag "Matcher")
+                             (symbol :tag "Pronouncer")))))
       (widget-insert "\n")
       (widget-create 'push-button
-                     :tag "Save Dictionary"
-                     :notify
-                     #'(lambda (&rest ignore)
-                         (call-interactively 'emacspeak-pronounce-save-dictionaries)))
+       :tag "Save Dictionary"
+       :notify
+       #'(lambda (&rest ignore)
+           (call-interactively 'emacspeak-pronounce-save-dictionaries)))
       (widget-insert "\n\n")
       (use-local-map widget-keymap)
       (widget-setup)

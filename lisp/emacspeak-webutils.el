@@ -71,12 +71,11 @@
 (defun emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode
-		    w3-mode
-		    w3m-mode))
+                    w3-mode
+                    w3m-mode))
   (unless (or (eq major-mode 'w3-mode)
-	      (eq major-mode 'w3m-mode))
+              (eq major-mode 'w3m-mode))
     (error "This command cannot be used outside browser buffers.")))
-
 
 ;;}}}
 ;;{{{  google tools
@@ -89,7 +88,7 @@ current page."
   (emacspeak-webutils-browser-check)
   (emacspeak-websearch-google
    (format "link:%s"
-	   (funcall emacspeak-webutils-current-url))))
+           (funcall emacspeak-webutils-current-url))))
 
 ;;;###autoload
 (defun emacspeak-webutils-google-extract-from-cache (&optional prefix)
@@ -99,11 +98,11 @@ With a prefix argument, extracts url under point."
   (emacspeak-webutils-browser-check)
   (emacspeak-websearch-google
    (format "cache:%s"
-	   (cond
-	    ((null prefix)
-	     (funcall emacspeak-webutils-current-url))
-	    (t
-	     (funcall emacspeak-webutils-url-at-point))))))
+           (cond
+            ((null prefix)
+             (funcall emacspeak-webutils-current-url))
+            (t
+             (funcall emacspeak-webutils-url-at-point))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-google-on-this-site ()
@@ -126,7 +125,7 @@ With a prefix argument, extracts url under point."
   (interactive
    (list
     (read-from-minibuffer "URL:"
-			  (funcall emacspeak-webutils-current-url))))
+                          (funcall emacspeak-webutils-current-url))))
   (declare (special emacspeak-w3-google-related-uri))
   (browse-url
    (format
@@ -149,16 +148,16 @@ With a prefix argument, extracts url under point."
      ((null untranscode)
       (browse-url
        (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-	       (emacspeak-url-encode
-		(funcall emacspeak-webutils-url-at-point)))))
+               (emacspeak-url-encode
+                (funcall emacspeak-webutils-url-at-point)))))
      (t
       (let ((plain-url nil)
-	    (prefix "http://www.google.com/gwt/n?u=")
-	    (suffix "&_gwt_noimg=1")
-	    (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
-	(setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
-	(when plain-url
-	  (browse-url plain-url)))))))
+            (prefix "http://www.google.com/gwt/n?u=")
+            (suffix "&_gwt_noimg=1")
+            (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
+        (setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
+        (when plain-url
+          (browse-url plain-url)))))))
 
 ;;;###autoload 
 (defun emacspeak-webutils-transcode-current-url-via-google (&optional untranscode)
@@ -166,20 +165,20 @@ With a prefix argument, extracts url under point."
   Reverse effect with prefix arg."
   (interactive "P")
   (emacspeak-webutils-browser-check)
-;;  (let ((url-mime-encoding-string "gzip"))
-;; removing the above line makes the untranscode work
-    (cond
-     ((null untranscode)
-      (browse-url
-       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-	       (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
-     (t
-      (let ((plain-url nil)
-	    (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&u=")
-	    (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
-	(setq plain-url (substring  unhex (length prefix)))
-	(when plain-url
-	  (browse-url plain-url))))))
+  ;;  (let ((url-mime-encoding-string "gzip"))
+  ;; removing the above line makes the untranscode work
+  (cond
+   ((null untranscode)
+    (browse-url
+     (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+             (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
+   (t
+    (let ((plain-url nil)
+          (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&u=")
+          (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
+      (setq plain-url (substring  unhex (length prefix)))
+      (when plain-url
+        (browse-url plain-url))))))
 
 ;;}}}
 ;;{{{ 

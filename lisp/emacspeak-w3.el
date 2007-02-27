@@ -199,10 +199,10 @@
 ;;}}}
 ;;{{{ webutils variables
 (add-hook 'w3-mode-hook
-	  (lambda ()
-	    (setq emacspeak-webutils-document-title 'buffer-name)
-	    (setq emacspeak-webutils-url-at-point 'w3-view-this-url)
-	    (setq emacspeak-webutils-current-url 'url-view-url)))
+          (lambda ()
+            (setq emacspeak-webutils-document-title 'buffer-name)
+            (setq emacspeak-webutils-url-at-point 'w3-view-this-url)
+            (setq emacspeak-webutils-current-url 'url-view-url)))
 
 ;;}}}
 ;;{{{  dump using lynx
@@ -1073,8 +1073,6 @@ Tables are specified by containing  match pattern
                    (cons v v ))
                values)))))
 
-
-
 (make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
 
 (defun emacspeak-w3-id-cache ()
@@ -1102,7 +1100,6 @@ Tables are specified by containing  match pattern
                #'(lambda (v)
                    (cons v v ))
                values)))))
-
 
 ;;;###autoload
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
@@ -1844,12 +1841,12 @@ If a rewrite rule is defined in the current buffer, we change
 
 (defcustom emacspeak-w3-tidy-options
   (list "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
-           "-asxml" "-quiet" "-clean" "-bare" "-omit"
-           "--drop-proprietary-attributes" "yes" "--hide-comments"
-           "yes")
-"Options to pass to tidy program"
-:type '(repeat string)
-:group 'emacspeak-w3)
+        "-asxml" "-quiet" "-clean" "-bare" "-omit"
+        "--drop-proprietary-attributes" "yes" "--hide-comments"
+        "yes")
+  "Options to pass to tidy program"
+  :type '(repeat string)
+  :group 'emacspeak-w3)
 
 (defcustom emacspeak-w3-tidy-html t
   "Tidy HTML before rendering."
@@ -1859,7 +1856,7 @@ If a rewrite rule is defined in the current buffer, we change
 (defun emacspeak-w3-tidy (&optional buff)
   "Use html tidy to clean up the HTML in the current buffer."
   (declare (special emacspeak-w3-tidy-html
-emacspeak-w3-tidy-program emacspeak-w3-tidy-options))
+                    emacspeak-w3-tidy-program emacspeak-w3-tidy-options))
   (when emacspeak-w3-tidy-html
     (save-excursion
       (if buff
@@ -1868,12 +1865,12 @@ emacspeak-w3-tidy-program emacspeak-w3-tidy-options))
       (setq buffer-undo-list t)
       (widen)
       (apply 'call-process-region
-       (point-min) (point-max)
-       emacspeak-w3-tidy-program
-       t
-       (list buff nil)
-       nil
-       emacspeak-w3-tidy-options))))
+             (point-min) (point-max)
+             emacspeak-w3-tidy-program
+             t
+             (list buff nil)
+             nil
+             emacspeak-w3-tidy-options))))
 
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
 

@@ -60,22 +60,22 @@
 (voice-setup-add-map
  '(
    (ispell-highlight-face voice-bolden)
-))
+   ))
 
 ;;}}}
 ;;{{{  first set up voice  highlighting
 
 (defadvice ispell-highlight-spelling-error (after emacspeak act )
-    "Use voice locking to highlight the error.
+  "Use voice locking to highlight the error.
 Will clobber any existing personality property defined on start end"
-    (let ((start (ad-get-arg 0))
-          (end (ad-get-arg 1 ))
-          (highlight (ad-get-arg 2 )))
-      (if highlight
-          (put-text-property  start end
-                              'personality  voice-bolden)
-        (put-text-property start end
-                           'personality  nil ))))
+  (let ((start (ad-get-arg 0))
+        (end (ad-get-arg 1 ))
+        (highlight (ad-get-arg 2 )))
+    (if highlight
+        (put-text-property  start end
+                            'personality  voice-bolden)
+      (put-text-property start end
+                         'personality  nil ))))
 
 ;;}}}
 ;;{{{  ispell command loop:
@@ -111,7 +111,7 @@ many available corrections."
     (setq line
           (ems-set-personality-temporarily start end voice-bolden
                                            (thing-at-point
-  'line)))
+                                            'line)))
     (save-excursion
       (set-buffer scratch-buffer)
       (setq voice-lock-mode t)

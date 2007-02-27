@@ -167,7 +167,7 @@ Optional second arg watch-pattern specifies line of output to
                (format "%s/*" resource)
              resource))
    "playlist"
-"_length:")
+   "_length:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
     (emacspeak-speak-line)

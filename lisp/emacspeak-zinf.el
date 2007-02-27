@@ -106,7 +106,7 @@
 (loop for c in emacspeak-zinf-zinf-keys
       do
       (define-key emacspeak-zinf-mode-map   (format
-                                                "%c" c)
+                                             "%c" c)
         'emacspeak-zinf-zinf-call-command))
 (define-key emacspeak-zinf-mode-map [left]
   'emacspeak-aumix-wave-decrease)
