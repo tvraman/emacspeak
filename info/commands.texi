@@ -5475,7 +5475,7 @@ Execute Zinf command.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 120 URL Templates.
+This section documents a total of 121 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5841,6 +5841,10 @@ plays entire program.
 @kbd{NY Times RSS Feeds}
 
 Display browsable list of NY Times RSS Feeds.
+
+@kbd{Netcraft Site Report}
+
+Analyze WWW site using Netcraft.
 
 @kbd{Netcraft Web Analysis}
 
