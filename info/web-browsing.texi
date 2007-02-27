@@ -1,5 +1,5 @@
-@node The State of Web Browsing in Emacspeak
-@subsection The State of Web Browsing in Emacspeak
+@node Web Browsing
+@section Web Browsing.
 
 This document, ``The State of Web Browsing in Emacspeak'' describes
 the primary web browsers in use under emacspeak and ways they might be
@@ -18,7 +18,7 @@ Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
 @end menu
 
 @node Intro
-@subsubsection Intro
+@subsection Intro
 
 Web browsing in emacspeak can be made as simple or as complicated as
 you wish to make it.  On the one hand, all that need be done is to
@@ -82,7 +82,7 @@ itself.  Understanding the convention for communicating keystrokes to
 run commands, navigating documents, and the like are not covered.
 
 @node emacs-w3m
-@subsubsection emacs-w3m
+@subsection emacs-w3m
 
 emacs-w3m is a front-end, written in emacs lisp, to the text-based web
 browser w3m.  It supports tables, images, and all major web protocols.
@@ -299,7 +299,7 @@ text of the link spoken they use @kbd{C-e l}.  As with everything else
 in emacs, it is completely up to you to decide what is best.
 
 @node  emacs/w3
-@subsubsection emacs/w3
+@subsection emacs/w3
 
 emacs/w3 is a web browser written completely in emacs lisp.  It has
 some really nice features applicable to the emacspeak community such
@@ -649,7 +649,7 @@ to emacs-w3m.  The counterpart to this command, @kbd{cap K} puts the url
 under point in the kill-ring.
 
 @node Add-ons
-@subsubsection Add-ons
+@subsection Add-ons
 
 Some of these are emacspeak specific, some are not.  You can usually
 tell by the name.
@@ -718,7 +718,7 @@ browsers.  See
 information.
 
 @node Conclusion
-@subsubsection Conclusion
+@subsection Conclusion
 
 emacspeak makes the internet not only accessible to those with visual
 impairments, but it makes browsing and information retrieval quick and
