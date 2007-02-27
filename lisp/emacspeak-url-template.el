@@ -66,7 +66,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string
   generators                            ; list of param generator
-  post-action                    ;action to perform after opening
+  post-action                         ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher
   dont-url-encode)
@@ -222,7 +222,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  'emacspeak-speak-buffer
  "Look up term in WordNet.")
 
-
 ;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
@@ -288,7 +287,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
-                 :test #'string-equal)
+         :test #'string-equal)
         (emacspeak-url-encode query))))
  nil
  "Locate and display Shoutcast streams."
@@ -321,8 +320,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda (url)
      (emacspeak-w3-extract-tables-by-match-list
       (list "running" "average")
-url 'speak)))
-
+      url 'speak)))
 
 (emacspeak-url-template-define
  "Netcraft Site Report"
@@ -332,8 +330,6 @@ url 'speak)))
  "Analyze WWW site using Netcraft."
  nil
  'dont-url-encode)
-
-
 
 ;;}}}
 ;;{{{  digg

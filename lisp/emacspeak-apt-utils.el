@@ -51,9 +51,9 @@
   (unless (eq major-mode 'apt-utils-mode)
     (error "Not in APT Info buffer."))
   (let ((package (apt-utils-package-at)))
-  (emacspeak-auditory-icon 'yank-object)
-  (dtk-speak package)
-  (kill-new package)))
+    (emacspeak-auditory-icon 'yank-object)
+    (dtk-speak package)
+    (kill-new package)))
 
 (defsubst emacspeak-apt-utils-speak-package-name ()
   "Speak package name at point."

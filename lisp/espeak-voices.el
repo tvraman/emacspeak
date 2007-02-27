@@ -342,8 +342,8 @@ and TABLE gives the values along that dimension."
             (first setting)
             (format "<prosody volume=\"%s\">"
                     (second setting)))))
-;;            (format " ri:%s sm:%s "
-;;                    (third setting)))))
+   ;;            (format " ri:%s sm:%s "
+   ;;                    (third setting)))))
    '(
      (0 0 100)
      (1 14 80)
@@ -367,9 +367,9 @@ and TABLE gives the values along that dimension."
       (aset table (first setting)
             (format "<prosody volume=\"%s\">"
                     (second setting)))))
-;;            (format " ri:%s sm:%s "
-;;                     (second setting)
-;;                     (third setting)))))
+   ;;            (format " ri:%s sm:%s "
+   ;;                     (second setting)
+   ;;                     (third setting)))))
    '(
      (0 100 0)
      (1 96 3)
@@ -394,9 +394,9 @@ and TABLE gives the values along that dimension."
       (aset table (first setting)
             (format "<prosody volume=\"%s\">"
                     (second setting)))))
-;;            (format " ri:%s sm:%s "
-;;                     (second setting)
-;;                     (third setting)))))
+   ;;            (format " ri:%s sm:%s "
+   ;;                     (second setting)
+   ;;                     (third setting)))))
    '(
      (0 0 100)
      (1 8 76)
@@ -434,17 +434,17 @@ and TABLE gives the values along that dimension."
   "Define NAME to be a espeak voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
          (command
-;;          (concat "[_:"
+          ;;          (concat "[_:"
           (concat
-                  (espeak-get-family-code family)
-                  " "
-                  (espeak-get-punctuations-code (acss-punctuations style))
-                  (espeak-get-average-pitch-code (acss-average-pitch style) family)
-                  (espeak-get-pitch-range-code (acss-pitch-range style) family)
-                  (espeak-get-stress-code (acss-stress style ) family)
-                  (espeak-get-richness-code (acss-richness style) family)
-                  )))
-;;                  "]")))
+           (espeak-get-family-code family)
+           " "
+           (espeak-get-punctuations-code (acss-punctuations style))
+           (espeak-get-average-pitch-code (acss-average-pitch style) family)
+           (espeak-get-pitch-range-code (acss-pitch-range style) family)
+           (espeak-get-stress-code (acss-stress style ) family)
+           (espeak-get-richness-code (acss-richness style) family)
+           )))
+    ;;                  "]")))
     (espeak-define-voice name command)))
 
 ;;}}}

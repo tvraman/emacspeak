@@ -61,22 +61,21 @@
           (const  :tag "all" all))
   :group 'emacspeak-message)
 
-
 ;;}}}
 ;;{{{ voice mapping
 
 (voice-setup-add-map
  '(
-   (message-cited-text-face voice-bolden)  ;; pre-emacs22
+   (message-cited-text-face voice-bolden) ;; pre-emacs22
    (message-header-cc-face voice-bolden)  ;; pre-emacs22
-   (message-header-name-face voice-animate)  ;; pre-emacs22
+   (message-header-name-face voice-animate)       ;; pre-emacs22
    (message-header-newsgroups-face voice-bolden)  ;; pre-emacs22
-   (message-header-other-face voice-bolden)  ;; pre-emacs22
-   (message-header-subject-face voice-bolden)  ;; pre-emacs22
-   (message-header-to-face voice-bolden)  ;; pre-emacs22
-   (message-header-xheader-face voice-bolden)  ;; pre-emacs22
-   (message-mml-face voice-brighten)  ;; pre-emacs22
-   (message-separator-face voice-bolden-extra)  ;; pre-emacs22
+   (message-header-other-face voice-bolden)       ;; pre-emacs22
+   (message-header-subject-face voice-bolden)     ;; pre-emacs22
+   (message-header-to-face voice-bolden)          ;; pre-emacs22
+   (message-header-xheader-face voice-bolden)     ;; pre-emacs22
+   (message-mml-face voice-brighten)              ;; pre-emacs22
+   (message-separator-face voice-bolden-extra)    ;; pre-emacs22
 
    (message-cited-text voice-bolden)
    (message-header-cc voice-bolden)
@@ -204,7 +203,7 @@
   "Stop speech first."
   (when (interactive-p) (dtk-stop )
         (emacspeak-auditory-icon 'select-object)
-	(dtk-speak "beginning of line")))
+        (dtk-speak "beginning of line")))
 
 (defadvice message-goto-from (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -224,17 +223,13 @@
     (emacspeak-auditory-icon 'fill-object )
     (message "newline and reformat")))
 
-
-
-
 (add-hook 'message-mode-hook
           (lambda ()
-	    (dtk-set-punctuations emacspeak-message-punctuation-mode)
-	    (emacspeak-pronounce-refresh-pronunciations)
+            (dtk-set-punctuations emacspeak-message-punctuation-mode)
+            (emacspeak-pronounce-refresh-pronunciations)
             (emacspeak-auditory-icon 'open-object)
             (message "Starting message %s ... done"
                      (buffer-name))))
-
 
 ;;}}}
 (provide  'emacspeak-message)

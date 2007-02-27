@@ -198,7 +198,7 @@ Prompts for the new location and preserves modification time
              location)))
     (copy-file
      file location
-     1                                 ;prompt before overwriting
+     1                                  ;prompt before overwriting
      t                                  ;preserve
                                         ;modification time
      )
@@ -2263,22 +2263,22 @@ emacspeak-websearch-personal-portfolio."
       (widget-insert "\n")
       (widget-insert "Emacspeak Finder\n\n")
       (widget-create 'repeat
-                     :help-echo "Find Criteria"
-                     :tag "Find Criteria"
-                     :value value
-                     :notify notify
-                     emacspeak-wizards-find-switches-widget)
+       :help-echo "Find Criteria"
+       :tag "Find Criteria"
+       :value value
+       :notify notify
+       emacspeak-wizards-find-switches-widget)
       (widget-insert "\n")
       (widget-create 'push-button
-                     :tag "Find Matching Files"
-                     :notify
-                     #'(lambda (&rest ignore)
-                         (call-interactively
-                          'emacspeak-wizards-finder-find)))
+       :tag "Find Matching Files"
+       :notify
+       #'(lambda (&rest ignore)
+           (call-interactively
+            'emacspeak-wizards-finder-find)))
       (widget-create 'info-link
-                     :tag "Help"
-                     :help-echo "Read the online help."
-                     "(find)Finding Files")
+       :tag "Help"
+       :help-echo "Read the online help."
+       "(find)Finding Files")
       (widget-insert "\n\n")
       (emacspeak-wizards-finder-mode)
       (use-local-map widget-keymap)
@@ -2663,7 +2663,6 @@ Moves to the shortest line when called interactively."
                min)
       (goto-char where))
     min))
-
 
 ;;}}}
 ;;{{{ longest para in region

@@ -1547,7 +1547,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 
 ;;;###autoload
 (defun emacspeak-websearch-map-yahoo-directions-search (query
-                                                  &optional map)
+                                                        &optional map)
   "Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead."
   (interactive

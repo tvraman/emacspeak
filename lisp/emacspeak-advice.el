@@ -1845,7 +1845,6 @@ Indicate change of selection with
   (when (interactive-p)
     (emacspeak-speak-help )))
 
-
 (defadvice help-with-tutorial (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

@@ -82,16 +82,15 @@
                      (overlay-get overlay 'face))
                  (overlays-at (point))))))
 
-
 (defun emacspeak-calendar-speak-date()
   "Speak the date under point when called in Calendar Mode. "
   (interactive)
   (let ((date (calendar-date-string (calendar-cursor-to-date t))))
     (tts-with-punctuations 'some
-    (cond
-     ((emacspeak-calendar-entry-marked-p)
-      (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
-     (t (dtk-speak date))))))
+                           (cond
+                            ((emacspeak-calendar-entry-marked-p)
+                             (dtk-speak-using-voice emacspeak-calendar-mark-personality date))
+                            (t (dtk-speak date))))))
 
 ;;}}}
 ;;{{{  Advice:

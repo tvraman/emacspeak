@@ -167,7 +167,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
   (pushnew name emacspeak-erc-people-to-monitor
-           :test #'string-equal)
+   :test #'string-equal)
   (when quiten-pronunciation
     (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
   (emacspeak-auditory-icon 'select-object)

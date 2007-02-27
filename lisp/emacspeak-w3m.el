@@ -131,7 +131,6 @@ instead of the modeline."
   "Returns the value of w3m-current-url."
   (eval 'w3m-current-url))
 
-
 ;;}}}
 ;;{{{ anchors
 
@@ -356,9 +355,8 @@ instead of the modeline."
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
     (if emacspeak-w3m-speak-titles-on-switch 
-	(dtk-speak w3m-current-title)
+        (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
-
 
 (defadvice w3m-delete-other-buffers (after emacspeak pre act comp)
   "Produce auditory icon."
@@ -366,7 +364,7 @@ instead of the modeline."
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
     (if emacspeak-w3m-speak-titles-on-switch 
-	(dtk-speak w3m-current-title)
+        (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-bookmark-kill-entry (around emacspeak pre act comp)
@@ -643,7 +641,7 @@ instead of the modeline."
   "Speech enable w3m"
   (when (interactive-p)
     (declare (special w3m-current-title
-		      w3m-current-url))
+                      w3m-current-url))
     (cond
      ((string-match "\\`about://header/" w3m-current-url)
       (message"viewing header information for %s "w3m-current-title  )))))
@@ -652,7 +650,7 @@ instead of the modeline."
   "Speech enable w3m"
   (when (interactive-p)
     (declare (special w3m-current-title
-		      w3m-current-url))
+                      w3m-current-url))
     (cond
      ((string-match "\\`about://source/" w3m-current-url)
       (message"viewing source for %s "w3m-current-title  )))))
@@ -689,10 +687,10 @@ instead of the modeline."
 ;;{{{ webutils variables
 
 (add-hook 'w3m-fontify-after-hook
-	  (lambda ()
-	    (setq emacspeak-webutils-document-title 'w3m-current-title)
-	    (setq emacspeak-webutils-url-at-point 'emacspeak-w3m-url-at-point)
-	    (setq emacspeak-webutils-current-url 'emacspeak-w3m-current-url)))
+          (lambda ()
+            (setq emacspeak-webutils-document-title 'w3m-current-title)
+            (setq emacspeak-webutils-url-at-point 'emacspeak-w3m-url-at-point)
+            (setq emacspeak-webutils-current-url 'emacspeak-w3m-current-url)))
 
 ;;}}}
 ;;{{{ buffer select mode

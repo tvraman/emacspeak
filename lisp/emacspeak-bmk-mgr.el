@@ -65,19 +65,19 @@
     (if node
         (if (bmk-mgr-node-url-p node)
             (let ((url (bmk-mgr-node-url node))
-		  (name (bmk-mgr-node-name node)))
-	      (and url 
-		   ;; is there some way to insert pauses and/or
-		   ;; voicification to dtk-speak?
-		   (dtk-speak (concat name ", " url))))
-	  (let ((children (bmk-mgr-node-child-folders node))
-		(name (bmk-mgr-node-name node)))
+                  (name (bmk-mgr-node-name node)))
+              (and url 
+                   ;; is there some way to insert pauses and/or
+                   ;; voicification to dtk-speak?
+                   (dtk-speak (concat name ", " url))))
+          (let ((children (bmk-mgr-node-child-folders node))
+                (name (bmk-mgr-node-name node)))
             (if children
                 (dtk-speak (concat name ", " "Subfolders: " 
-		  (mapconcat 'bmk-mgr-node-name children ", ")))))))))
+                                   (mapconcat 'bmk-mgr-node-name children ", ")))))))))
 
 ;;}}}
- ;;{{{  advice interactive commands.
+;;{{{  advice interactive commands.
 
 (defadvice bmk-mgr-next-line (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
@@ -116,7 +116,7 @@
   "Speech enable bmk-mgr."
   (when (interactive-p)
     (if (bmk-mgr-node-closed-p (bmk-mgr-get-node-at-point))
-	(emacspeak-auditory-icon 'close-object)
+        (emacspeak-auditory-icon 'close-object)
       (emacspeak-auditory-icon 'open-object))
     (emacspeak-speak-line)))
 
@@ -191,17 +191,17 @@
   (when (interactive-p)
     (let ((emacspeak-speak-messages nil))
       (if (and 
-	   (bmk-mgr-node-folder-p (bmk-mgr-get-node-at-point))
-	   (bmk-mgr-node-closed-p (bmk-mgr-get-node-at-point)))
-	  (progn
-	    (emacspeak-auditory-icon 'close-object)
-	    (emacspeak-speak-line))
-	(progn
-	  (emacspeak-auditory-icon 'open-object)
-	  (emacspeak-speak-line)))
+           (bmk-mgr-node-folder-p (bmk-mgr-get-node-at-point))
+           (bmk-mgr-node-closed-p (bmk-mgr-get-node-at-point)))
+          (progn
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-line))
+        (progn
+          (emacspeak-auditory-icon 'open-object)
+          (emacspeak-speak-line)))
       (if (not (bmk-mgr-node-folder-p (bmk-mgr-get-node-at-point)))
-	  (emacspeak-auditory-icon 'open-object)))))
-	
+          (emacspeak-auditory-icon 'open-object)))))
+        
 (defadvice bmk-mgr-add-current-page (after emacspeak pre act comp)
   "Speach enable bmk-mgr."
   (when (interactive-p)
@@ -217,7 +217,7 @@
       (dtk-speak "Added url at point."))))
 
 ;;}}}
- ;;{{{ mapping font faces to personalities 
+;;{{{ mapping font faces to personalities 
 
 (voice-setup-add-map
  '(
@@ -243,5 +243,4 @@
 ;;; end: 
 
 ;;}}}
-
 

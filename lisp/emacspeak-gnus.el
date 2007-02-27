@@ -64,7 +64,6 @@
           (const  :tag "all" all))
   :group 'emacspeak-gnus)
 
-
 ;;; These customizations to gnus make it convenient to listen to news:
 ;;; You can read news mostly by using the four arrow keys.
 ;;; By default all article headers are hidden, so you hear the real news.
@@ -841,25 +840,24 @@ Helps to prevent words from being spelled instead of spoken."
   (gnus-summary-select-article-buffer)
   (article-goto-body)
   (let ((beg (point))
-	(end (point-max))
-	(inhibit-read-only t))
+        (end (point-max))
+        (inhibit-read-only t))
     (downcase-region beg end))
   (gnus-article-show-summary)
   (emacspeak-auditory-icon 'modified-object)
   (dtk-speak "Downcased article body"))
-
 
 ;;}}}
 ;;{{{ rdc: refreshing the pronunciation  and punctuation mode
 
 (add-hook 'gnus-article-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-group-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 ;; the following is for summary mode.  By default, the 
@@ -867,27 +865,27 @@ Helps to prevent words from being spelled instead of spoken."
 
 (add-hook 'gnus-agent-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-article-edit-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-category-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-score-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-server-mode-hook
           (function (lambda ()
-		      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
                       (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}
@@ -905,25 +903,25 @@ Helps to prevent words from being spelled instead of spoken."
  ;; face names are for gnus shipped with emacs 22 
  ;; rdc 102206
  '(
-   (gnus-cite-face-1 voice-bolden)   ;; emacs 21
+   (gnus-cite-face-1 voice-bolden) ;; emacs 21
    (gnus-cite-1 voice-bolden-medium)
-   (gnus-cite-face-2 voice-lighten)   ;; emacs 21
+   (gnus-cite-face-2 voice-lighten) ;; emacs 21
    (gnus-cite-2 voice-lighten) 
-   (gnus-cite-face-3 voice-lighten-extra)   ;; emacs 21
+   (gnus-cite-face-3 voice-lighten-extra) ;; emacs 21
    (gnus-cite-3 voice-lighten-extra)
-   (gnus-cite-face-4 voice-bolden-medium)   ;; emacs 21
+   (gnus-cite-face-4 voice-bolden-medium) ;; emacs 21
    (gnus-cite-4 voice-bolden)
-   (gnus-cite-face-5 voice-bolden)   ;; emacs 21
+   (gnus-cite-face-5 voice-bolden) ;; emacs 21
    (gnus-cite-5 voice-bolden-medium)
-   (gnus-cite-face-6 voice-lighten)   ;; emacs 21
+   (gnus-cite-face-6 voice-lighten) ;; emacs 21
    (gnus-cite-6 voice-lighten)
-   (gnus-cite-face-7 voice-lighten-extra)   ;; emacs 21
+   (gnus-cite-face-7 voice-lighten-extra) ;; emacs 21
    (gnus-cite-7 voice-lighten-extra)
-   (gnus-cite-face-8 voice-bolden-medium)   ;; emacs 21
+   (gnus-cite-face-8 voice-bolden-medium) ;; emacs 21
    (gnus-cite-8 voice-bolden)
-   (gnus-cite-face-9 voice-bolden)   ;; emacs 21
+   (gnus-cite-face-9 voice-bolden) ;; emacs 21
    (gnus-cite-9 voice-bolden-medium)
-   (gnus-cite-face-10 voice-lighten)   ;; emacs 21
+   (gnus-cite-face-10 voice-lighten) ;; emacs 21
    (gnus-cite-10 voice-lighten)
    (gnus-cite-11 voice-lighten-extra)
    (gnus-emphasis-highlight-words voice-lighten-extra)
@@ -931,54 +929,54 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-emphasis-strikethru voice-bolden-extra)
    (gnus-emphasis-italic voice-lighten)
    (gnus-emphasis-underline voice-brighten-extra)
-   (gnus-signature-face voice-animate)   ;; emacs 21
+   (gnus-signature-face voice-animate) ;; emacs 21
    (gnus-signature voice-animate)
-   (gnus-header-content-face voice-bolden)   ;; emacs 21
+   (gnus-header-content-face voice-bolden) ;; emacs 21
    (gnus-header-content voice-bolden)
-   (gnus-header-name-face voice-animate)   ;; emacs 21
+   (gnus-header-name-face voice-animate) ;; emacs 21
    (gnus-header-name voice-animate)
-   (gnus-header-from-face voice-bolden)   ;; emacs 21
+   (gnus-header-from-face voice-bolden) ;; emacs 21
    (gnus-header-from voice-bolden)
-   (gnus-header-newsgroups-face voice-bolden)   ;; emacs 21
+   (gnus-header-newsgroups-face voice-bolden) ;; emacs 21
    (gnus-header-newsgroups voice-bolden)
-   (gnus-header-subject-face voice-bolden)   ;; emacs 21
+   (gnus-header-subject-face voice-bolden) ;; emacs 21
    (gnus-header-subject voice-bolden)
    ;; ;; summary buffer personalities
    ;; since there are so many distinctions, most variations
    ;; on the same thing are given the same voice.  Any user that
    ;; uses low and high interest is sufficiently advanced to change
    ;; the voice to his own preferences
-   (gnus-summary-normal-read-face voice-bolden)   ;; emacs 21
+   (gnus-summary-normal-read-face voice-bolden) ;; emacs 21
    (gnus-summary-normal-read voice-bolden)
-   (gnus-summary-high-read-face voice-bolden)   ;; emacs 21
+   (gnus-summary-high-read-face voice-bolden) ;; emacs 21
    (gnus-summary-high-read voice-bolden)
-   (gnus-summary-low-read-face voice-bolden)   ;; emacs 21
+   (gnus-summary-low-read-face voice-bolden) ;; emacs 21
    (gnus-summary-low-read voice-bolden)
-   (gnus-summary-normal-ticked-face voice-brighten)   ;; emacs 21
+   (gnus-summary-normal-ticked-face voice-brighten) ;; emacs 21
    (gnus-summary-normal-ticked voice-brighten-extra)
-   (gnus-summary-high-ticked-face voice-brighten)   ;; emacs 21
+   (gnus-summary-high-ticked-face voice-brighten) ;; emacs 21
    (gnus-summary-high-ticked voice-brighten-extra)
-   (gnus-summary-low-ticked-face voice-brighten)   ;; emacs 21
+   (gnus-summary-low-ticked-face voice-brighten) ;; emacs 21
    (gnus-summary-low-ticked voice-brighten-extra)
-   (gnus-summary-normal-ancient-face voice-smoothen-extra)   ;; emacs 21
+   (gnus-summary-normal-ancient-face voice-smoothen-extra) ;; emacs 21
    (gnus-summary-normal-ancient voice-smoothen-extra)
-   (gnus-summary-high-ancient-face voice-smoothen-extra)   ;; emacs 21
+   (gnus-summary-high-ancient-face voice-smoothen-extra) ;; emacs 21
    (gnus-summary-high-ancient voice-smoothen-extra)
-   (gnus-summary-low-ancient-face voice-smoothen-extra)   ;; emacs 21
+   (gnus-summary-low-ancient-face voice-smoothen-extra) ;; emacs 21
    (gnus-summary-low-ancient voice-smoothen-extra)
-   (gnus-summary-normal-undownloaded-face voice-bolden)   ;; emacs 21
+   (gnus-summary-normal-undownloaded-face voice-bolden) ;; emacs 21
    (gnus-summary-normal-undownloaded voice-bolden-and-animate)
-   (gnus-summary-high-undownloaded-face voice-bolden-and-animate)   ;; emacs 21
+   (gnus-summary-high-undownloaded-face voice-bolden-and-animate) ;; emacs 21
    (gnus-summary-high-undownloadedvoice-bolden-and-animate)
-   (gnus-summary-low-undownloaded-face voice-bolden)   ;; emacs 21
+   (gnus-summary-low-undownloaded-face voice-bolden) ;; emacs 21
    (gnus-summary-low-undownloaded voice-bolden-and-animate)
-   (gnus-summary-low-unread-face voice-bolden-extra)   ;; emacs 21
+   (gnus-summary-low-unread-face voice-bolden-extra) ;; emacs 21
    (gnus-summary-low-unread voice-bolden-medium)
-   (gnus-summary-high-unread-face voice-bolden)   ;; emacs 21
+   (gnus-summary-high-unread-face voice-bolden) ;; emacs 21
    (gnus-summary-high-unread voice-brighten-extra)
-   (gnus-summary-selected-face voice-animate-extra)   ;; emacs 21
+   (gnus-summary-selected-face voice-animate-extra) ;; emacs 21
    (gnus-summary-selected voice-animate-extra)
-   (gnus-summary-cancelled-face voice-bolden-extra)   ;; emacs 21
+   (gnus-summary-cancelled-face voice-bolden-extra) ;; emacs 21
    (gnus-summary-cancelled voice-bolden-extra)
 
    ;; group buffer personalities
@@ -986,62 +984,62 @@ Helps to prevent words from being spelled instead of spoken."
    ;; default voice.  I might ask if there is a call for different voices 
    ;; as they are only necessary if users have persistently visible groups
    ;; in the case of empty groups, and voices for the various levels.
-   (gnus-group-mail-1-empty-face default)   ;; emacs 21
+   (gnus-group-mail-1-empty-face default) ;; emacs 21
    (gnus-group-mail-1-empty voice-bolden-extra)
-   (gnus-group-mail-1-face default)   ;; emacs 21
+   (gnus-group-mail-1-face default) ;; emacs 21
    (gnus-group-mail-1 default)
-   (gnus-group-mail-2-empty-face voice-smoothen-extra)   ;; emacs 21
+   (gnus-group-mail-2-empty-face voice-smoothen-extra) ;; emacs 21
    (gnus-group-mail-2-empty voice-bolden-extra)
-   (gnus-group-mail-2-face voice-bolden)   ;; emacs 21
+   (gnus-group-mail-2-face voice-bolden) ;; emacs 21
    (gnus-group-mail-2 default)
-   (gnus-group-mail-3-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-mail-3-empty-face voice-bolden) ;; emacs 21
    (gnus-group-mail-3-empty  voice-bolden-extra)
-   (gnus-group-mail-3-face voice-bolden)   ;; emacs 21
+   (gnus-group-mail-3-face voice-bolden) ;; emacs 21
    (gnus-group-mail-3 default)
-   (gnus-group-mail-low-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-mail-low-empty-face voice-bolden) ;; emacs 21
    (gnus-group-mail-low-empty voice-bolden-extra)
-   (gnus-group-mail-low-face voice-bolden)   ;; emacs 21
+   (gnus-group-mail-low-face voice-bolden) ;; emacs 21
    (gnus-group-mail-low default)
-   (gnus-group-news-1-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-1-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-1-empty voice-bolden-extra)
-   (gnus-group-news-1-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-1-face voice-bolden) ;; emacs 21
    (gnus-group-news-1 default)
-   (gnus-group-news-2-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-2-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-2-empty voice-bolden-extra)
-   (gnus-group-news-2-face voice-bolden-extra)   ;; emacs 21
+   (gnus-group-news-2-face voice-bolden-extra) ;; emacs 21
    (gnus-group-news-2 default)
-   (gnus-group-news-3-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-3-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-3-empty voice-bolden-extra)
-   (gnus-group-news-3-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-3-face voice-bolden) ;; emacs 21
    (gnus-group-news-3 default)
-   (gnus-group-news-4-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-4-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-4-empty voice-bolden-extra)
-   (gnus-group-news-4-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-4-face voice-bolden) ;; emacs 21
    (gnus-group-news-4 default)
-   (gnus-group-news-5-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-5-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-5-empty voice-bolden-extra)
-   (gnus-group-news-5-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-5-face voice-bolden) ;; emacs 21
    (gnus-group-news-5 default)
-   (gnus-group-news-6-empty-face voice-bolden)   ;; emacs 21
+   (gnus-group-news-6-empty-face voice-bolden) ;; emacs 21
    (gnus-group-news-6-empty voice-bolden-extra)
-   (gnus-group-news-6-face voice-bolden-extra)   ;; emacs 21
+   (gnus-group-news-6-face voice-bolden-extra) ;; emacs 21
    (gnus-group-news-6 default)
-   (gnus-group-news-low-empty-face voice-bolden-extra)   ;; emacs 21
+   (gnus-group-news-low-empty-face voice-bolden-extra) ;; emacs 21
    (gnus-group-news-low-empty voice-bolden-extra)
-   (gnus-group-news-low-face voice-bolden-extra)   ;; emacs 21
+   (gnus-group-news-low-face voice-bolden-extra) ;; emacs 21
    (gnus-group-news-low default)
    
    ;; server buffer personalities
 
-   (gnus-server-agent-face voice-bolden)   ;; emacs 21
+   (gnus-server-agent-face voice-bolden) ;; emacs 21
    (gnus-server-agent voice-bolden)
-   (gnus-server-closed-face voice-bolden-medium)   ;; emacs 21
+   (gnus-server-closed-face voice-bolden-medium) ;; emacs 21
    (gnus-server-closed voice-bolden-medium)
-   (gnus-server-denied-face voice-bolden-extra)   ;; emacs 21
+   (gnus-server-denied-face voice-bolden-extra) ;; emacs 21
    (gnus-server-denied voice-bolden-extra)
-   (gnus-server-offline-face voice-animate)   ;; emacs 21
+   (gnus-server-offline-face voice-animate) ;; emacs 21
    (gnus-server-offline voice-animate)
-   (gnus-server-opened-face voice-lighten)   ;; emacs 21
+   (gnus-server-opened-face voice-lighten) ;; emacs 21
    (gnus-server-opened voice-lighten)
    ))
 ;;}}}

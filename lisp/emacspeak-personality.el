@@ -107,7 +107,7 @@ personality settings."
                  (remove-duplicates personality :test #'eq)
                personality)))
       (ems-modify-buffer-safely
-        (ad-Orig-put-text-property start end 'personality v object)))))
+       (ad-Orig-put-text-property start end 'personality v object)))))
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object )
@@ -140,7 +140,7 @@ Existing personality properties on the text range are preserved."
                    (if (listp orig) orig (list orig))
                    (if (listp v) v (list v)))))
            (ad-Orig-put-text-property start extent
-                              'personality new object))
+                                      'personality new object))
          (when (< extent end)
            (emacspeak-personality-append extent end v object))))))))
 
@@ -176,7 +176,7 @@ Existing personality properties on the text range are preserved."
                    (if (listp v) v (list v))
                    (if (listp orig) orig (list orig)))))
            (ad-Orig-put-text-property start extent
-                              'personality new object))
+                                      'personality new object))
          (when (< extent end)
            (emacspeak-personality-prepend extent end v object))))))))
 
@@ -208,10 +208,10 @@ preserved."
                 (t nil)))
          (if new
              (ad-Orig-put-text-property start extent
-                                'personality new object)
+                                        'personality new object)
            (ad-Orig-remove-text-properties start extent
-                                   (list 'personality )
-                                   object))
+                                           (list 'personality )
+                                           object))
          (when (< extent end)
            (emacspeak-personality-remove extent end
                                          personality))))))))
@@ -418,7 +418,7 @@ displayed in the messages area."
       (when (and (not (= start end))
                  (emacspeak-personality-plist-face-p props) ) ;;; simple minded for now
         (ad-Orig-put-text-property start end
-                           'personality nil object)))))
+                                   'personality nil object)))))
 
 (defadvice remove-list-of-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
