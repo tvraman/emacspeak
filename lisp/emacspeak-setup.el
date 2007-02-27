@@ -115,7 +115,7 @@ pronunciation dictionaries are stored. ")
                                (buffer-substring-no-properties
                                 (line-beginning-position)
                                 (line-end-position))))
-                       "unknown")))
+                       "unknown"))))
        (kill-buffer buffer)
        revision))
     (t "")))
