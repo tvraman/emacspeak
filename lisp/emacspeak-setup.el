@@ -1,23 +1,23 @@
 ;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  File for setting up and starting Emacspeak
 ;;; Keywords: Emacspeak, Setup, Spoken Output
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2006, T. V. Raman 
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -44,7 +44,7 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ Required Modules 
+;;{{{ Required Modules
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -53,13 +53,13 @@
   (require 'emacspeak-preamble))
 
 ;;}}}
-;;{{{  Define locations 
+;;{{{  Define locations
 
 (defvar emacspeak-unibyte t
   "Emacspeak will force emacs to unibyte unless this
 variable is set to nil.
 To use emacspeak with emacs running in multibyte mode, this
-variable should be set to nil *before* 
+variable should be set to nil *before*
 emacspeak is compiled or started.")
 ;;;###autoload
 (defvar emacspeak-directory
@@ -110,10 +110,12 @@ pronunciation dictionaries are stored. ")
          (goto-char (point-min))
          (setq revision
                (format "Revision %s"
+                       (or
                        (nth 2 (split-string
                                (buffer-substring-no-properties
                                 (line-beginning-position)
-                                (line-end-position)))))))
+                                (line-end-position))))
+                       "unknown")))
        (kill-buffer buffer)
        revision))
     (t "")))
@@ -125,7 +127,7 @@ pronunciation dictionaries are stored. ")
   "Code name of present release.")
 
 ;;}}}
-;;{{{ speech rate 
+;;{{{ speech rate
 
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
@@ -155,7 +157,7 @@ pronunciation dictionaries are stored. ")
 
 (unless (featurep 'emacspeak)
   (setq load-path
-        (cons emacspeak-lisp-directory 
+        (cons emacspeak-lisp-directory
               load-path ))
   (setq load-path
         (cons
@@ -169,22 +171,22 @@ pronunciation dictionaries are stored. ")
   (dtk-set-rate tts-default-speech-rate t)
   (dtk-interp-sync))
 
-(add-hook 'dtk-startup-hook 
+(add-hook 'dtk-startup-hook
           'emacspeak-tts-startup-hook)
 
 (defvar emacspeak-startup-hook nil)
 
 ;;; Use (add-hook 'emacspeak-startup-hook ...)
-;;; to add your personal settings. 
+;;; to add your personal settings.
 
 ;;}}}
 (emacspeak)
 (provide 'emacspeak-setup)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; major-mode: emacs-lisp-mode
 ;;; folded-file: t
-;;; end: 
+;;; end:
 
 ;;}}}
