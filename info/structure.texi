@@ -2,7 +2,7 @@
 @node Structured Editing
 @section Structured Editing And Templates
 
-Editing documents based on the inherent 
+Editing documents based on the inherent
 structure present in the electronic
 encoding can be very efficient when using spoken interaction.  We described
 mode @emph{ auctex} --- a specialized interface to authoring LaTeX
@@ -10,7 +10,7 @@ documents as a special instance of such structured editing
 in @pxref{Document Authoring}.
 
 The Emacspeak desktop allows the user to efficiently author and
-maintain an electronic document based either on the 
+maintain an electronic document based either on the
 structure present in the
 markup (as in the case of mode auctex) or on special outlining
 constructs that allow the user to impose a desired logical structure
@@ -41,8 +41,8 @@ instance of such structured data editing.
 * Maintaining Structured Data::   Structured Data.
 @end menu
 
-@node Outline Editing 
-@subsection Outline Editing 
+@node Outline Editing
+@subsection Outline Editing
 
 All of the various outline editing interfaces on the Emacs desktop
 allow the user to @emph{ hide} or @emph{ show}
@@ -56,7 +56,7 @@ overviews of a document.
 
 The visual interface displays such hidden content as a series of
 ellipses following the visible outline heading.  Emacspeak produces
-auditory icon @emph{ ellipses} when 
+auditory icon @emph{ ellipses} when
 speaking such outline headings.
 
 The basic @emph{ outline mode} allows the user to specify the syntax
@@ -71,7 +71,7 @@ The user can then hide the document body with a single keystroke,
 navigate the outline headings to find a particular act, and have that
 portion rendered either visually or aurally.  Hiding an outline level
 produces auditory icon @emph{ close-object}; exposing a hidden level
-produces auditory icon @emph{ open-object}.  
+produces auditory icon @emph{ open-object}.
 For details on using mode @code{outline}, see the relevant section of
 the online Emacs info manual.
 
@@ -110,11 +110,11 @@ each fold with the function signatures and documentation for the
 functions in each section.  When I am satisfied with the overall
 architecture of the module, I fill in the function skeletons with
 actual program code.  This technique is used extensively in
-maintaining  the  Emacspeak code base.  
+maintaining  the  Emacspeak code base.
 
 
 @node Template-based Authoring
-@subsection Template-based Authoring 
+@subsection Template-based Authoring
 
 
 Emacspeak supports two powerful template-based authoring subsystems that
@@ -162,10 +162,10 @@ from entries in a rolodex to rows in a spreadsheet.
 Typically, users do not directly edit the stored representation of the
 data. Instead, application front-ends provide a more human-centric
 (and hopefully less error prone) user interface for modifying and
-maintaining the data.  Thus, spreadsheet applications present the
-data as a two dimensional table that is automatically updated to
-reflect changes in the underlying data.  The two dimensional table is
-perhaps the most commonly found visual front-end to structured data
-  tables with row and column headers prove a succinct
-way of implicitly displaying the @emph{ meaning} along with the @emph{
-  value} of the fields making up each data record.
+maintaining the data. Thus, spreadsheet applications present the data
+as a two dimensional table that is automatically updated to reflect
+changes in the underlying data. The two dimensional table is perhaps
+the most commonly found visual front-end to structured data tables
+with row and column headers prove a succinct way of implicitly
+displaying the @emph{ meaning} along with the @emph{value} of the
+fields making up each data record.
