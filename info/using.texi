@@ -35,10 +35,6 @@ features of the software are briefly outlined in the following
 paragraphs; the commands by which they can be controlled will be
 described later in the manual.
 
-
-
-@c  emacspeak.el
-
 Apart from providing a fluent spoken interface to all of Emacs' basic
 editing functions, Emacspeak also includes software modules which add
 speech feedback to a range of applications that can be run from within
@@ -47,16 +43,18 @@ text editor; indeed, it can more aptly be characterized as a true
 ``audio desktop'', in which speech is treated as a first-class output modality.
 
 
-@c  voice-lock.el
+
 Emacspeak implements a special minor mode, known as ``voice lock
 mode'' (@pxref{Voice-lock}) which uses distinct speech characteristics
 to provide aural highlighting of specific textual constructs, such as
-comments in program code, quoted strings and reserved words. This
-facility is further extended when Emacspeak is used with the W3 World
-Wide Web browser, to enable the semantic and structural distinctions
-captured by the HTML markup to be communicated efficiently.
+comments in program code, quoted strings and reserved words
+@xref{ Voice Lock}. This facility is further extended when Emacspeak is
+used with the W3 World Wide Web browser, to enable the semantic and
+structural distinctions captured by the HTML markup to be communicated
+efficiently @xref{Web
+Browsing}.
 
-@c  emacspeak-pronounce.el
+
 
 It is often desirable to exercise control over the pronunciation of a
 word (E.G. a technical term or a reserved word in a programming
@@ -64,9 +62,9 @@ language) within specific contexts. Emacspeak maintains pronunciation
 dictionaries for this purpose, which may be customized by the
 user. Moreover, individual dictionaries can be activated selectively,
 depending for example on the current major mode or the name of the
-file which is being visited. 
+file which is being visited @xref{emacspeak-pronounce}.
 
-@c  emacspeak-sounds.el
+
 
 In addition to spoken feedback, Emacspeak can generate ``auditory
 icons''---short sound cues which alert the user to significant events,
@@ -76,8 +74,7 @@ completion buffer. Sound cues act as a supplement to the spoken
 interface, and are especially valuable to the experienced user in
 facilitating rapid interaction. Note that in order to support auditory
 icons, the computer must be equipped with sound hardware for which the
-operating system has been correctly configured.
-@node Working
+operating system has been correctly configured @xref{emacspeak-sounds}.@node Working
 @section Working In Emacs Buffers.
 
 While typing in an Emacs buffer, hitting space  speaks  the recently typed
@@ -402,7 +399,7 @@ emacspeak-speak-spaces-at-point
 @node Voice-lock
 @section Voice Lock Mode
 
-@c  voice-lock.el
+
 
 The status of voice lock mode can be toggled on and off by issuing the
 command @kbd{C-e d v (M-x voice-lock-mode)}. With a prefix arg, this
@@ -425,9 +422,10 @@ following statement into your Emacs initialization file:
 
  Note that the list of major modes in which
 @code{global-voice-lock-mode} will provide automatic activation is
-specified in the variable @var{voice-lock-global-modes}.
+specified in the variable @var{voice-lock-global-modes}
+@xref{Voice Lock}.
 
-@c  dtk-voices.el
+
 
 The characteristics of the different voice personalities deployed by
 voice lock mode vary according to the capabilities of the speech
@@ -435,7 +433,7 @@ synthesizer. The definitions applicable to the Dectalk family of
 synthesizers are contained in @file{dtk-voices.el}, which is supplied
 as part of the Emacspeak distribution.
 
-@c  dtk-css-speech.el
+
 
 Using voice lock mode, Emacspeak also supports many of the aural style
 properties defined in level 2 of the World Wide Web Consortium's
@@ -447,7 +445,7 @@ regulated by style sheets. Examples of style rules which employ the
 CSS audio properties can be found in the default style sheet which is
 supplied in the Emacs/W3 distribution.
 
-@c Is any further discussion needed here?
+
 
 
 @node Status Information

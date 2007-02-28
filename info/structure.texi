@@ -2,12 +2,11 @@
 @node Structured Editing
 @section Structured Editing And Templates
 
-Editing documents based on the inherent
-structure present in the electronic
-encoding can be very efficient when using spoken interaction.  We described
-mode @emph{ auctex} --- a specialized interface to authoring LaTeX
-documents as a special instance of such structured editing
-in @pxref{Document Authoring}.
+Editing documents based on the inherent structure present in the
+electronic encoding can be very efficient when using spoken
+interaction.  We described mode @emph{ auctex} --- a specialized
+interface to authoring LaTeX documents as a special instance of such
+structured editing in @pxref{Document Authoring}.
 
 The Emacspeak desktop allows the user to efficiently author and
 maintain an electronic document based either on the
