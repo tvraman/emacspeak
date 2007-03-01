@@ -1562,20 +1562,6 @@ plays entire program."
 ;;{{{ sourceforge
 
 (emacspeak-url-template-define
- "sourceforge Stats"
- "http://sourceforge.net/project/stats/?group_id=%s"
- (list
-  (lambda nil
-    (read-from-minibuffer "Project Id"
-                          "2238")))
- nil
- "Display project usage statistics."
- #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-match-list
-      (list "Date" "Lifespan")
-      url)))
-
-(emacspeak-url-template-define
  "sourceforge project"
  "http://sourceforge.net/projects/%s"
  (list "Project name")
@@ -1586,15 +1572,18 @@ plays entire program."
  "sourceforge browse mirrors"
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
- #'(lambda ()
-     (declare (special emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
-           '("prdownloads.sourceforge.net"
-             "easynews.dl.sourceforge.net/sourceforge")))
- "Retrieve download table  at Sourceforge for specified project."
- #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "Current"
-                                          url)))
+ nil
+ "Retrieve download page  at Sourceforge for specified project.")
+
+
+(emacspeak-url-template-define
+ "sourceforge Download"
+ "http://prdownloads.sourceforge.net/%s"
+ (list "File: project/filename: ")
+ nil
+ "Download specified file."
+ 'browse-url
+ 'dont-url-encode)
 
 ;;}}}
 ;;{{{  MLB scores
