@@ -157,14 +157,19 @@ pronunciation dictionaries are stored. ")
 
 (unless (featurep 'emacspeak)
   (setq load-path
-        (cons emacspeak-lisp-directory
-              load-path ))
+        (cons emacspeak-lisp-directory load-path ))
+  (setq load-path
+        (cons
+         (expand-file-name "g-client" emacspeak-lisp-directory )
+         load-path ))
   (setq load-path
         (cons
          (expand-file-name "atom-blogger" emacspeak-lisp-directory )
          load-path )))
 
 (load-library "emacspeak")
+(load-library "g")
+
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
