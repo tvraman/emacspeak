@@ -82,6 +82,8 @@ Emacspeak.")
     (funcall emacspeak-update-autoloads-from-directories
              emacspeak-lisp-directory)
     (funcall emacspeak-update-autoloads-from-directories
+             (expand-file-name "g-client" emacspeak-lisp-directory))
+    (funcall emacspeak-update-autoloads-from-directories
              (expand-file-name "atom-blogger" emacspeak-lisp-directory))))
 
 ;;}}}

@@ -258,7 +258,7 @@ emacspeak-loaddefs.el: force
 
 emacspeak-cus-load.el: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
--f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
+-f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger" "./g-client"
 	mv cus-load.el emacspeak-cus-load.el
 
 # }}}
