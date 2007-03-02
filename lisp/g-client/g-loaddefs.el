@@ -109,8 +109,8 @@ Find feeds matching query.
 ;;;***
 
 ;;;### (autoloads nil nil ("g-auth.el" "g-autogen.el" "g-cus-load.el"
-;;;;;;  "g-load-path.el" "g-utils.el" "g.el" "json.el") (17895 29504
-;;;;;;  291557))
+;;;;;;  "g-load-path.el" "g-utils.el" "g.el" "json.el") (17895 30140
+;;;;;;  702717))
 
 ;;;***
 

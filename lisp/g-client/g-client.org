@@ -36,12 +36,12 @@ All clients in this package use Emacs' _customize_ interface to
 set user preferences.
 The most commonly used  ones are enumerated below.
 
-  - g-user-email: Default email-id to use. Individual clients
+  - g-user-email Default email-id to use. Individual clients
     typically override this via user option
     _<clientname>-user-email_.
-  - g-html-handler: Name of function that handles HTML content.
+  - g-html-handler Name of function that handles HTML content.
 
-** Google Blogger: _gblogger_
+** Google Blogger _gblogger_
 
 This client implements posting, editting and deleting of blog
 entries using the new Blogger API --- it replaces the now
@@ -51,28 +51,28 @@ _g-user-email_ by default; this can be overridden via option
 _gblogger-user-email_. See [[http://code.google.com/apis/blogger/overview.html][Blogger GData API]] for the underlying
 APIs used. For editing posts, I recommend installing [[http://www.thaiopensource.com/nxml-mode/][nxml-mode]].
 
-  - Browse: Command _gblogger-blog_ brings up the list of blogs
+  - Browse Command _gblogger-blog_ brings up the list of blogs
     owned by the currently authenticated user.
-  - Posting: Command _gblogger-new-entry_ takes a *post URL* and sets
+  - Posting Command _gblogger-new-entry_ takes a *post URL* and sets
     up a special buffer where you can compose your
     article. the *post url* is obtained from the feed of blogs
     above, use the *post* link for the blog to which you wish to
     post.
-  - Browsing:      Command _gblogger-atom-display_ displays the
+  - Browsing      Command _gblogger-atom-display_ displays the
     atom feed for a specified blog as a browsable HTML page. In
     addition to reading your blog, this helps you find the *edit
     url* for individual posts.
-  - Editting: Command _gblogger-edit-entry_ takes the *edit url*
+  - Editting Command _gblogger-edit-entry_ takes the *edit url*
     of a previously posted entry. It retrieves the entry, and
     sets up a special composition buffer where you can edit the entry.
-  - Submitting: The special composition buffer created by
+  - Submitting The special composition buffer created by
     commands _gblogger-new-entry_ and _gblogger-edit-entry_
     provide a special command _gblogger-publish_ (bound to _C-c
     C-c_) that submits the entry to blogger.
-  - Deleting: Command _gblogger-delete-entry_ deletes an entry
+  - Deleting Command _gblogger-delete-entry_ deletes an entry
     specified by its *edit url*.
 
-** Google Calendar: _gcal_
+** Google Calendar _gcal_
 
 This client can be used to view, add or delete events from the
 Google Calendar for the authenticated user. It uses value of
@@ -83,37 +83,37 @@ view; this can be used to view calendars to which the
 authenticated user has read access. See [[http://code.google.com/apis/calendar/overview.html][GData Calendar API]] for
 the underlying APIs used.
 
-  - View: Command _gcal-calendar-agenda_ displays the default
+  - View Command _gcal-calendar-agenda_ displays the default
     calendar for the authenticated user. A prefix arg prompts for
     the calendar to display. This command is best used from
     inside the Emacs calendar; in this case, it uses the date
     under point when showing the agenda.
-  - Add: Command _gcal-add-event_ prompts for event details and
+  - Add Command _gcal-add-event_ prompts for event details and
     adds it to the calendar.
-  - Accept: Command _gcal-accept-event_ accepts an event. Event
+  - Accept Command _gcal-accept-event_ accepts an event. Event
     is specified using the *edit url* of the event.
-  - Delete: Command _gcal-delete-event_ deletes an event. Event
+  - Delete Command _gcal-delete-event_ deletes an event. Event
     is specified using the *edit url* of the event.
 
-** Google Reader: _greader_
+** Google Reader _greader_
 
 This client allows the authenticated user to read, browse and
 subscribe/unsubscribe to feeds.
 It uses value of customization option _g-user-email_ by
 default; this can be overridden via option _g-user-email_.
 
-  - Reading: Command _greader-reading-list_ displays the
+  - Reading Command _greader-reading-list_ displays the
     reading list (river of news).
-  - Browsing: Command _greader-feed-list_ displays a
+  - Browsing Command _greader-feed-list_ displays a
     browsable Web page with pointers to  subscribed feeds.
-  - Finding: Command _greader-find-feeds_ searches for matching
+  - Finding Command _greader-find-feeds_ searches for matching
     feeds to subscribe.
-  - Subscribing: Commands _greader-subscribe-feed_ and
+  - Subscribing Commands _greader-subscribe-feed_ and
     _greader-unsubscribe-feed_ are used to subscribe and
     unsubscribe.
-  - Labeling: Command _greader-star_ and _greader-add-label_ are
+  - Labeling Command _greader-star_ and _greader-add-label_ are
     used to label articles.
-  - Reading: Starred  articles can be read by
+  - Reading Starred  articles can be read by
     providing a prefix argument to command
     _greader-reading-list_. Thus, C-u M-x greader-reading-list
     will prompt for the specific set of articles to retrieve.
