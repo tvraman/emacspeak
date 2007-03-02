@@ -498,12 +498,24 @@ content."
 
 ;;}}}
 ;;{{{ anonymous google search
+
 (emacspeak-url-template-define
  "Anonymous Google Search"
  "http://www.google.com/accounts/Logout"
  nil
  nil
  "Logout from Google to do an anonymous search.")
+
+;;}}}
+;;{{{ gmail:
+
+
+(emacspeak-url-template-define
+ "GMail Mobile"
+ "http://mail.google.com/mail/x/"
+ nil
+ 'emacspeak-speak-buffer
+ "GMail Mobile XHTML version --- light-weight, fast!")
 
 ;;}}}
 ;;{{{  google patent search:
