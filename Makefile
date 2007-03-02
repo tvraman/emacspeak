@@ -178,6 +178,7 @@ servers/remote-tcl \
 servers/speech-server
 ELISP = lisp/*.el \
 lisp/atom-blogger \
+lisp/g-client \
 lisp/xml-forms/*.xml \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
