@@ -76,6 +76,12 @@
 (defgroup g-auth nil
   "Google Authentication"
   :group 'g)
+(defcustom g-user-email nil
+  "Google account  address."
+  :type '(choice
+          (const :tag "none" nil)
+          (string :tag "username@gmail.com" ""))
+  :group 'g)
 
 (defcustom g-auth-lifetime '(0 1800 0)
   "Lifetime of authentication token as a list suitable for

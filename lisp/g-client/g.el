@@ -62,13 +62,6 @@
   "Google Client"
   :group 'applications)
 
-(defcustom g-user-email nil
-  "Google account  address."
-  :type '(choice
-          (const :tag "none" nil)
-          (string :tag "username@gmail.com" ""))
-  :group 'g)
-
 ;;}}}
 ;;{{{ Variables :
 
