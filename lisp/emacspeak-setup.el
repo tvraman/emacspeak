@@ -168,8 +168,6 @@ pronunciation dictionaries are stored. ")
          load-path )))
 
 (load-library "emacspeak")
-(load-library "g")
-
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
