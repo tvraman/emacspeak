@@ -125,6 +125,17 @@ Provide auditory feedback after formatting region"
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-read-previous-line)))
 
+(defadvice TeX-insert-quote(around emacspeak pre act com)
+  "Speak quotes that were inserted."
+  (cond
+   ((interactive-p)
+    (let ((orig (point)))
+      ad-do-it
+      (emacspeak-speak-region orig (point))))
+   (t ad-do-it))
+  ad-return-value)
+
+
 (defadvice TeX-insert-dollar (after emacspeak pre act comp)
   "Speak what you inserted"
   (when (interactive-p)
