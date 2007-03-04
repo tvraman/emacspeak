@@ -97,7 +97,7 @@
 (defcustom gblogger-author (user-full-name)
   "Author name under which we post."
   :type 'string
-  :group 'atom-blogger)
+  :group 'gblogger)
 
 (defvar gblogger-generator-name "http://purl.org/net/emacs-gblogger/"
   "Name of this generator.")
@@ -358,7 +358,7 @@ http-method is either POST or PUT"
            (g-curl-debug))))
 
 ;;}}}
-(provide 'atom-blogger)
+(provide 'gblogger)
 ;;{{{ end of file
 
 ;;; local variables:
