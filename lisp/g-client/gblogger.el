@@ -157,6 +157,8 @@ from the server.")
 
 ;;}}}
 ;;{{{ Define gblogger mode:
+(if (fboundp 'nxml-mode)
+    (defalias 'xml-mode 'nxml-mode))
 
 (define-derived-mode gblogger-mode xml-mode
   "Atom Blogger Interaction"
