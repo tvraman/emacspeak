@@ -158,10 +158,7 @@ from the server.")
 ;;}}}
 ;;{{{ Define gblogger mode:
 
-(define-derived-mode gblogger-mode
-  (if (fboundp 'nxml-mode)
-      'nxml-mode
-    'xml-mode)
+(define-derived-mode gblogger-mode xml-mode
   "Atom Blogger Interaction"
   "Major mode for Blogger interaction\n\n
 \\{gblogger-mode-map"
