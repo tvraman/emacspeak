@@ -776,10 +776,8 @@ Here are some examples:
  "BlogSearch Google"
  "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&scoring=d&ie=utf-8&num=10&output=atom"
  (list "Google Blog Search: ")
- #'(lambda nil
-     (search-forward "Results" nil t)
-     (emacspeak-speak-line))
- "Google Print Search"
+ nil
+ "Google Blog Search"
  'emacspeak-atom-display)
 
 ;;}}}
