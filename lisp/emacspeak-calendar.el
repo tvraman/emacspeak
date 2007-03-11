@@ -113,6 +113,8 @@
 
 (unless (memq 'fancy-diary-display diary-display-hook)
   (add-hook 'diary-display-hook 'fancy-diary-display))
+(add-hook 'calendar-mode-hook
+          'gcal-emacs-calendar-setup)
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
