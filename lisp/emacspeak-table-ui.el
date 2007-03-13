@@ -1103,8 +1103,7 @@ markup to use."
                     emacspeak-table-speak-row-filter))
   (unless (eq major-mode  'emacspeak-table-mode )
     (error "This command should be used in emacspeak table mode."))
-  (let* ((column  (emacspeak-table-current-column
-                   emacspeak-table))
+  (let* ((column  (emacspeak-table-current-column emacspeak-table))
          (row-filter emacspeak-table-speak-row-filter)
          (elements
           (loop for e across (emacspeak-table-elements emacspeak-table)
@@ -1115,8 +1114,7 @@ markup to use."
     (setq sorted-list
           (sort
            elements
-           (function
-            (lambda (x y)
+            #'(lambda (x y)
               (cond
                ((and (numberp (read (aref x column)))
                      (numberp (read (aref y column))))
@@ -1128,7 +1126,7 @@ markup to use."
                               (aref y column)))
                (t (string-lessp
                    (format "%s" (aref x column))
-                   (format "%s" (aref y column)))))))))
+                   (format "%s" (aref y column))))))))
     (setq sorted-table (make-vector (length sorted-list) nil))
     (loop for i from 0 to (1- (length sorted-list))
           do
