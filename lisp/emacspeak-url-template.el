@@ -497,10 +497,10 @@ content."
  "Search answers.com")
 
 ;;}}}
-;;{{{ anonymous google search
+;;{{{ Anonimize google search
 
 (emacspeak-url-template-define
- "Anonymous Google Search"
+ "Anonymize Google Search"
  "http://www.google.com/accounts/Logout"
  nil
  nil
