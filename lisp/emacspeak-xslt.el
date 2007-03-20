@@ -231,14 +231,15 @@ part of the libxslt package."
                        (if emacspeak-xslt-keep-errors
                            ""
                          " 2>/dev/null ")))
-      (setq command (format
-                     "%s %s --novalid %s '%s' %s"
-                     emacspeak-xslt-program
-                     (or parameters "")
-                     xsl url
-                     (if emacspeak-xslt-keep-errors
-                         ""
-                       " 2>/dev/null "))))
+      (setq command
+            (format
+             "%s %s --novalid %s '%s' %s"
+             emacspeak-xslt-program
+             (or parameters "")
+             xsl url
+             (if emacspeak-xslt-keep-errors
+                 ""
+               " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (kill-all-local-variables)
