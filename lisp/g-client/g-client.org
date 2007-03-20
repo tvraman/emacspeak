@@ -102,6 +102,9 @@ the underlying APIs used.
     under point when showing the agenda.
   - /Add/ Command =gcal-add-event= prompts for event details and
     adds it to the calendar.
+  - /quickadd/ Command =gcal-quickadd-event= enables the creation
+    of calendar events using plain English of the form =lunch at
+    noon tomorrow=.
   - /Accept/ Command =gcal-accept-event= accepts an event. Event
     is specified using the *edit url* of the event.
   - /Delete/ Command =gcal-delete-event= deletes an event. Event
