@@ -476,6 +476,7 @@ value='true'></gCal:quickadd>
 </atom:entry>"
   "Template for quickadd events.")
 
+;;;###autoload
 (defun gcal-quickadd-event (event-desc)
   "Add a calendar event.
 Specify the event in plain English."
@@ -505,23 +506,6 @@ Specify the event in plain English."
                                  gcal-calendar-view))
       (message "Event added as %s"
                (g-http-header "Location" headers)))))
-
-
-(defun gcal-quick-add-event ()
-  "Add a calendar event using simple English."
-  (interactive)
-  (declare (special gcal-auth-handle))
-  (g-auth-ensure-token gcal-auth-handle)
-  (let ((event (read-from-minibuffer "Quick Add Event: ")))
-    (g-using-scratch
-     (shell-command
-      (format
-       "%s -i   %s %s  %s"
-       g-curl-program g-curl-common-options
-       (g-authorization gcal-auth-handle)
-       (format "%s/event?ctext=%s"
-               (gcal-private-feed-url)
-               (g-url-encode event)))))))
 
 ;;;###autoload
 (defun gcal-delete-event (event-uri)
