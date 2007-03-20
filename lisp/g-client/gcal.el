@@ -113,6 +113,15 @@
   "Authenticate into Google Calendar."
   (declare (special gcal-auth-handle))
   (g-authenticate gcal-auth-handle))
+(defvar gcal-quickadd-template
+  "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
+  <atom:category scheme='http://schemas.google.com/g/2005#kind'
+term='http://schemas.google.com/g/2005#event'></atom:category>
+  <atom:content type='text'>%s</atom:content>
+  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'
+value='true'></gCal:quickadd>
+</atom:entry>"
+  "Template for quickadd events.")
 
 ;;}}}
 ;;{{{ Event Template:
@@ -466,15 +475,7 @@ user.")
       (message "Event added as %s"
                (g-http-header "Location" headers)))))
 
-(defvar gcal-quickadd-template
-  "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
-  <atom:category scheme='http://schemas.google.com/g/2005#kind'
-term='http://schemas.google.com/g/2005#event'></atom:category>
-  <atom:content type='text'>%s</atom:content>
-  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'
-value='true'></gCal:quickadd>
-</atom:entry>"
-  "Template for quickadd events.")
+
 
 ;;;###autoload
 (defun gcal-quickadd-event (event-desc)
