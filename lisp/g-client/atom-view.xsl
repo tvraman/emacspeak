@@ -10,7 +10,7 @@ View an Atom feed as clean HTML
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns:gr="http://www.google.com/schemas/reader/atom/"
                 version="1.0">
-  <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
+  <xsl:output encoding="utf-8" method="html" indent="yes"/>
   
   <xsl:template match="atom:feed|w3a:feed">
     <html>

@@ -596,24 +596,26 @@ date under point."
                     gcal-calendar-view
                     calendar-mark-ring))
   (let* ((start-min
-          (gcal-calendar-get-date
-           (when (eq major-mode 'calendar-mode)
-             (calendar-cursor-to-nearest-date))))
+          (g-url-encode
+           (gcal-calendar-get-date
+            (when (eq major-mode 'calendar-mode)
+              (calendar-cursor-to-nearest-date)))))
          (start-max
-          (cond
-           ((and (eq major-mode 'calendar-mode)
-                 (car calendar-mark-ring))
-            (gcal-calendar-get-date (car calendar-mark-ring)))
-           ((eq major-mode 'calendar-mode)
-            (gcal-calendar-get-date
-             (calendar-gregorian-from-absolute
-              (+ (calendar-absolute-from-gregorian (calendar-cursor-to-nearest-date))
-                 gcal-calendar-agenda-days))))
-           (t
-            (gcal-calendar-get-date
-             (calendar-gregorian-from-absolute
-              (+ (calendar-absolute-from-gregorian (calendar-current-date))
-                 gcal-calendar-agenda-days)))))))
+          (g-url-encode
+           (cond
+            ((and (eq major-mode 'calendar-mode)
+                  (car calendar-mark-ring))
+             (gcal-calendar-get-date (car calendar-mark-ring)))
+            ((eq major-mode 'calendar-mode)
+             (gcal-calendar-get-date
+              (calendar-gregorian-from-absolute
+               (+ (calendar-absolute-from-gregorian (calendar-cursor-to-nearest-date))
+                  gcal-calendar-agenda-days))))
+            (t
+             (gcal-calendar-get-date
+              (calendar-gregorian-from-absolute
+               (+ (calendar-absolute-from-gregorian (calendar-current-date))
+                  gcal-calendar-agenda-days))))))))
     (g-auth-ensure-token gcal-auth-handle)
     (g-display-result
      (format
