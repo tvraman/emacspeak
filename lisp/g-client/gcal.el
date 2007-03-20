@@ -413,6 +413,28 @@ user.")
      (list (g-http-headers (point-min) (point-max))
            (g-http-body (point-min) (point-max))))))
 
+(defsubst gcal-post-quickadd (event-desc location)
+  "Post quick event  via HTTPS to location and return resulting HTTP headers."
+  (declare (special g-cookie-options gcal-auth-handle
+                    gcal-quickadd-template
+                    g-curl-program g-curl-common-options))
+  (g-using-scratch
+   (insert
+    (format gcal-quickadd-template event-desc))
+   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+         (status nil))
+     (shell-command-on-region
+      (point-min) (point-max)
+      (format
+       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options cl
+       (g-authorization gcal-auth-handle)
+       g-cookie-options
+       location)
+      (current-buffer) 'replace)
+     (list (g-http-headers (point-min) (point-max))
+           (g-http-body (point-min) (point-max))))))
+
 ;;;###autoload
 (defun gcal-add-event ()
   "Add a calendar event."
@@ -443,6 +465,47 @@ user.")
                                  gcal-calendar-view))
       (message "Event added as %s"
                (g-http-header "Location" headers)))))
+
+(defvar gcal-quickadd-template
+  "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
+  <atom:category scheme='http://schemas.google.com/g/2005#kind'
+term='http://schemas.google.com/g/2005#event'></atom:category>
+  <atom:content type='text'>%s</atom:content>
+  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'
+value='true'></gCal:quickadd>
+</atom:entry>"
+  "Template for quickadd events.")
+
+(defun gcal-quickadd-event (event-desc)
+  "Add a calendar event.
+Specify the event in plain English."
+  (interactive "sQuickAdd Event:")
+  (declare (special gcal-auth-handle))
+  (g-auth-ensure-token gcal-auth-handle)
+  (let ((status nil)
+        (headers nil)
+        (body nil)
+        (response nil)
+        (location nil))
+    (setq response
+          (gcal-post-quickadd event-desc (gcal-private-feed-url)))
+    (setq headers (first response)
+          body (second response))
+    (setq status (g-http-header "Status" headers))
+    (when (string= "302" status)
+      (setq location (g-http-header "Location" headers))
+      (unless location
+        (error "Could not find redirect."))
+      (setq response  (gcal-post-quickadd event-desc location)))
+    (setq headers (first response)
+          body (second response))
+    (when  (string-equal "201" (g-http-header "Status" headers))
+      (and (> 0(length body))
+           (g-display-xml-string body
+                                 gcal-calendar-view))
+      (message "Event added as %s"
+               (g-http-header "Location" headers)))))
+
 
 (defun gcal-quick-add-event ()
   "Add a calendar event using simple English."
