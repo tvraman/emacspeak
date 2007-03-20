@@ -236,15 +236,14 @@ Customize this to live on your local disk."
 
 (defmacro g-using-scratch(&rest body)
   "Evaluate forms in a  ready to use temporary buffer."
-  `(progn
-     (declare (special g-scratch-buffer))
-  (let ((buffer (get-buffer-create g-scratch-buffer))
-        (buffer-undo-list t))
-    (save-excursion
-      (set-buffer  buffer)
-      (kill-all-local-variables)
-      (erase-buffer)
-      (progn ,@body)))))
+  `(let ((buffer (get-buffer-create g-scratch-buffer))
+           (default-process-coding-system (cons 'utf-8 'utf-8))
+           (buffer-undo-list t))
+       (save-excursion
+         (set-buffer  buffer)
+         (kill-all-local-variables)
+         (erase-buffer)
+         (progn ,@body))))
 
 (defsubst g-get-result (command)
   "Run command and return its output."
