@@ -70,7 +70,7 @@
 
 (load-library "g-loaddefs")
 (load-library "g-cus-load")
-(add-hook 'calendar-mode-hook
+(add-hook 'calendar-load-hook
           'gcal-emacs-calendar-setup)
 
 ;;}}}
