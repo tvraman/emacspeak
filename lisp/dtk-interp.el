@@ -192,6 +192,34 @@
                        (format "l {%s}\n" letter )))
 
 ;;}}}
+;;{{{  language
+
+(defsubst dtk-interp-next-language (&optional say_it)
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "set_next_lang %s\n" say_it)))
+
+(defsubst dtk-interp-previous-language (&optional say_it)
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "set_previous_lang %s\n" say_it )))
+
+(defsubst dtk-interp-language (language say_it)
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "set_lang %s %s \n" language say_it)))
+
+(defsubst dtk-interp-preferred-language (alias language)
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "set_preferred_lang %s %s \n" alias language )))
+
+(defsubst dtk-interp-list-language ()
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "list_lang\n" )))
+
+;;}}}
 ;;{{{  rate
 
 (defsubst dtk-interp-say-version ()

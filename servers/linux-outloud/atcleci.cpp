@@ -63,6 +63,7 @@
 
 #include <alsa/asoundlib.h>
 #include <tcl.h>
+#include "langswitch.h"
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
@@ -119,7 +120,8 @@ typedef enum
 } ECIParam;
 
 static void (*_eciVersion) (char *);
-static void *(*_eciNew) ();
+static void *(*_eciNewEx) (enum ECILanguageDialect);
+static int (*_eciGetAvailableLanguages) (enum ECILanguageDialect *, int *);
 static void (*_eciDelete) (void *);
 static int (*_eciReset) (void *);
 static int (*_eciStop) (void *);
@@ -154,6 +156,7 @@ int SpeakingP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+int SetLanguage (ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 static int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int alsa_close ();
 int eciCallback (void *, int, long, void *);
@@ -536,7 +539,8 @@ Atcleci_Init (Tcl_Interp * interp)
     }
 
   _eciVersion = (void (*)(char *)) dlsym (eciLib, "eciVersion");
-  _eciNew = (void *(*)()) dlsym (eciLib, "eciNew");
+  _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) dlsym (eciLib, "eciGetAvailableLanguages");
+  _eciNewEx = (void *(*)(enum ECILanguageDialect)) dlsym (eciLib, "eciNewEx");
   _eciDelete = (void (*)(void *)) dlsym (eciLib, "eciDelete");
   _eciReset = (int (*)(void *)) dlsym (eciLib, "eciReset");
   _eciStop = (int (*)(void *)) dlsym (eciLib, "eciStop");
@@ -564,10 +568,10 @@ Atcleci_Init (Tcl_Interp * interp)
   //< check for needed symbols
 
   int okay = 1;
-  if (!_eciNew)
+  if (!_eciNewEx)
     {
       okay = 0;
-      Tcl_AppendResult (interp, "eciNew undef\n", NULL);
+      Tcl_AppendResult (interp, "eciNewEx undef\n", NULL);
     }
   if (!_eciDelete)
     {
@@ -649,6 +653,11 @@ Atcleci_Init (Tcl_Interp * interp)
       okay = 0;
       Tcl_AppendResult (interp, "eciSetOutputDevice undef\n", NULL);
     }
+  if (!_eciGetAvailableLanguages)
+    {
+      okay = 0;
+      Tcl_AppendResult (interp, "_eciGetAvailableLanguages undef\n", NULL);
+    }
   if (!okay)
     {
       Tcl_AppendResult (interp, "Missing symbols from ", ECILIBRARYNAME,
@@ -665,7 +674,18 @@ Atcleci_Init (Tcl_Interp * interp)
       return TCL_ERROR;
     }
 
-  eciHandle = _eciNew ();
+  static enum ECILanguageDialect aLanguages[LANG_INFO_MAX];
+  int nLanguages = LANG_INFO_MAX;
+  int a_status = _eciGetAvailableLanguages(aLanguages, &nLanguages);
+    
+  enum ECILanguageDialect aDefaultLanguage = initLanguage (interp, aLanguages, nLanguages);
+  if (aDefaultLanguage == NODEFINEDCODESET)
+    {
+      Tcl_AppendResult (interp, "No language found", PACKAGENAME, NULL);
+      return TCL_ERROR;
+    }
+
+  eciHandle = _eciNewEx (aDefaultLanguage);
   if (eciHandle == 0)
     {
       Tcl_AppendResult (interp, "Could not open text-to-speech engine", NULL);
@@ -743,6 +763,7 @@ Atcleci_Init (Tcl_Interp * interp)
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
 			(ClientData) eciHandle, TclEciFree);
+  Tcl_CreateObjCommand (interp, "setLanguage", SetLanguage, (ClientData) eciHandle, TclEciFree);
   //>
   //<set up index processing
 
@@ -883,12 +904,16 @@ Say (ClientData eciHandle, Tcl_Interp * interp,
 	}
       else
 	{
-	  // assume objv[i] is text to synthesize...
-	  rc = _eciAddText (eciHandle, Tcl_GetStringFromObj (objv[i], NULL));
-	  if (!rc)
+	  char *dest = convertFromUTF8 (interp, Tcl_GetStringFromObj(objv[i], NULL));
+	  if (dest)
 	    {
-	      Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
-	      return TCL_ERROR;
+	      rc = _eciAddText (eciHandle, dest);
+	      free (dest);
+	      if (!rc)
+		{
+		  Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
+		  return TCL_ERROR;
+		}
 	    }
 	}
     }
@@ -1014,6 +1039,24 @@ showAlsaState (ClientData eciHandle, Tcl_Interp * interp,
       return TCL_ERROR;
     }
   snd_pcm_dump (AHandle, Log);
+  return TCL_OK;
+}
+
+//>
+//<SetLanguage
+
+int SetLanguage (ClientData eciHandle, Tcl_Interp *interp,
+		  int objc, Tcl_Obj *CONST objv[]) 
+{
+  int aIndex;
+  const char* code = getAnnotation (interp, &aIndex);
+  if (code)
+    {
+      int rc;
+      char buffer[ANNOTATION_MAX_SIZE];
+      snprintf(buffer, ANNOTATION_MAX_SIZE, "`l%s", code);
+      rc = _eciAddText (eciHandle, buffer);
+    }
   return TCL_OK;
 }
 

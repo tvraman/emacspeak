@@ -158,6 +158,7 @@ servers/software-dtk/DTK \
 servers/software-dtk/Makefile
 
 OUTLOUD=${ECI}/eci.ini \
+${ECI}/*.h \
 ${ECI}/*.cpp \
 ${ECI}/VIAVOICE ${ECI}/ALSA ${ECI}/asoundrc \
 ${ECI}/Makefile
