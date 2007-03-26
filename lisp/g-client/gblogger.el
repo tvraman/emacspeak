@@ -189,8 +189,8 @@ from the server.")
   (g-auth-ensure-token gblogger-auth-handle)
   (g-display-result
    (format
-    "%s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
-    g-curl-program
+    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options g-cookie-options
     (g-cookie "Auth" gblogger-auth-handle)
     gblogger-base-url)
    g-atom-view-xsl))
@@ -208,8 +208,8 @@ from the server.")
   (g-auth-ensure-token gblogger-auth-handle)
   (g-display-result
    (format
-    "%s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
-    g-curl-program
+    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options g-cookie-options
     (g-cookie "Auth" gblogger-auth-handle)
     url)
    g-atom-view-xsl))
