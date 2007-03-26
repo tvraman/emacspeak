@@ -292,6 +292,60 @@ Optional argument FORCE  flushes the command to the speech server."
                dtk-speak-server-initialized)
       (dtk-interp-tone pitch duration force))))
 
+(defun dtk-set-language (lang)
+  "Set language according to the argument lang."
+  (interactive "sEnter new language: \n")
+  (declare (special dtk-quiet dtk-speaker-process
+                    dtk-speak-server-initialized))
+;;  (unless dtk-quiet
+    (when dtk-speak-server-initialized
+      (dtk-interp-language lang (interactive-p))))
+;;)
+
+(defun dtk-set-next-language ()
+  "Switch to the next available language"
+  (interactive)
+  (declare (special dtk-quiet dtk-speaker-process
+                    dtk-speak-server-initialized))
+;;  (unless dtk-quiet
+    (when dtk-speak-server-initialized
+      (dtk-interp-next-language (interactive-p))))
+;;)
+
+(defun dtk-set-previous-language ()
+  "Switch to the previous available language"
+  (interactive)
+  (declare (special dtk-quiet dtk-speaker-process
+                    dtk-speak-server-initialized))
+;;  (unless dtk-quiet
+    (when dtk-speak-server-initialized
+      (dtk-interp-previous-language (interactive-p))))
+;;)
+
+(defun dtk-set-preferred-language (alias lang)
+  "Set the alias of the preferred language: 
+For example if alias=\"en\" lang=\"en_GB\", 
+then the following call:
+ dtk-set-language(\"en\") 
+will set \"en_GB\".
+"
+  (interactive "s")
+  (declare (special dtk-quiet dtk-speaker-process
+                    dtk-speak-server-initialized))
+;;  (unless dtk-quiet
+    (when dtk-speak-server-initialized
+      (dtk-interp-preferred-language alias lang)))
+;;)
+
+(defun dtk-list-language ()
+  "Say the available languages."
+  (declare (special dtk-quiet dtk-speaker-process
+                    dtk-speak-server-initialized))
+  (unless dtk-quiet
+    (when dtk-speak-server-initialized
+      (dtk-interp-list-language)))
+  )
+
 ;;; helper function:
 
 ;;; Quote the string in current buffer so tcl does not barf.

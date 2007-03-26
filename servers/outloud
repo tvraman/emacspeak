@@ -72,6 +72,7 @@ proc tts_set_character_scale {factor} {
 
 proc tts_say {text} {
     global    tts
+    global langsynth
     service 
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
@@ -86,6 +87,7 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
+    global langsynth
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
@@ -178,6 +180,7 @@ proc tts_allcaps_beep {flag} {
 
 proc tts_reset {} {
     global tts 
+    global langsynth
     #synth  -reset
     queue_clear
     synth "Resetting engine to factory defaults."
@@ -193,6 +196,154 @@ proc r {rate} {
 proc useStereoOutput {} {
     global tts
     setOutput buffer
+}
+
+
+
+# Language switching
+#
+# langsynth: available languages of the voice synthesis
+# This variable is set by atcleci
+# For example: langsynth(0)=3
+# 3 is the atcleci code for the finnish language 
+
+# langsynth(current): current synthesis language, 
+# Gives the code of the current synth language.
+# This variable is set by the application
+# For example: langsynth(current)=3
+# means finnish is the current language
+
+# langsynth(top): max available index.
+# For example, if there are three available languages: 
+# langsynth(top)=2
+
+set langsynth(current) 0
+
+# langlabel: what will be announced
+# e.g. langlabel(0)="Finnish"
+# This variable is set by tcldtk
+
+#set langlabel(0) "American"
+
+# langalias converts a code language ("en", "en_GB",...) to its index in the langsynth array.
+# e.g. langalias(fi)=3 could mean "fi_FI" will be used if "fi" is required. 
+
+set langsynth(0) "en_US"
+set langsynth(current) 0
+set langsynth(top) 0
+set langlabel(0) "American"
+
+# select the next synth language
+proc set_next_lang {say_it} {
+    global langsynth
+    global langalias
+    global langlabel
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $langsynthkey >= $langsynth(top) } {
+	set langsynthkey 0
+    } else {
+	incr langsynthkey
+    }
+
+    set langsynth(current) $langsynth($langsynthkey)
+
+    setLanguage $langsynth(current)
+    if { [info exists say_it]} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# select the previous synth language
+proc set_previous_lang {say_it} {
+    global langsynth
+    global langalias
+    global langlabel
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $langsynthkey <= 0 } {
+	set langsynthkey $langsynth(top)
+    } else {
+	incr langsynthkey -1
+    }
+
+    set langsynth(current) $langsynth($langsynthkey)
+    setLanguage $langsynth(current)
+    if { [info exists say_it]} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# select a new synth language
+# set_lang "en"
+proc set_lang {{name "en"} {say_it "nil"}} {
+    global langsynth
+    global langalias
+
+     if { ![info exists langalias($name)]} {
+	return
+     }
+
+     if { $langalias($name) == $langsynth(current) } {
+	return
+     }
+    
+    set langsynth(current) $langalias($name)
+    setLanguage $langsynth(current)
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $say_it == "t"} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# set_preferred_lang "en" "en_GB"
+proc set_preferred_lang {alias lang} {
+    global langsynth
+    global langalias
+
+    if { ![info exists langalias($lang)]} {
+	return
+    }
+    set langalias($alias) $langalias($lang)
+}
+
+#debug
+proc list_lang {} {
+    global langsynth
+    echo [ array get langsynth ]
+}
+
+proc list_langalias {} {
+    global langalias
+    echo [ array get langalias ]
 }
 
 # }}}
@@ -221,6 +372,7 @@ proc service {} {
 
 proc speech_task {} {
     global queue tts
+    global langsynth
     set tts(talking?) 1
     set tts(not_stopped) 1
     set r $tts(speech_rate)
@@ -358,6 +510,9 @@ if {[file exists /usr/include/alsa/asoundlib.h]
     load $tclTTS/tcleci.so
     set tts(stereo) 1
     useStereoOutput
+    proc alsaState {} {
+        #stubbed out 
+    }
     synth {`v1 Via Voice.}
 }
 

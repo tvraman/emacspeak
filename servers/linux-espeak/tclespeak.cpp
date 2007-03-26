@@ -1,7 +1,10 @@
 /*Id: This code comes from atcleci.cpp 4231 2006-10-13 02:43:46Z tv.raman.tv */
 
-// Jan 2007 Gilles Casse gcasse@oralux.org>
+// Jan 2007 Gilles Casse <gcasse@oralux.org>
 // * eSpeak driver for emacspeak
+//
+// Mar 2007
+// * Language switching.
 // 
 
 //<copyright info
@@ -61,11 +64,60 @@ int getTTSVersion (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Punct (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Caps (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Say (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+int SetLanguage (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Stop (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int SpeakingP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+
+static void initLanguage (Tcl_Interp * interp);
+static int getLangIndex (Tcl_Interp * interp, int* theIndex);
+
+//>
+//< preferred languages
+
+// Uncomment below your preferred languages
+
+static const char* ThePreferredLanguages[]=
+  {
+//     "af", // afrikaans 
+//     "cs", // czech-test 
+//     "cy", // welsh-test 
+//     "de", // german 
+//     "el", // greek_test 
+//     "en-r", // en-rhotic 
+//     "en-sc", // en-scottish 
+    "en-uk", // english 
+//     "en-uk-north", // lancashire 
+//     "en-uk-rp", // english_rp 
+//     "en-uk-wmids", // english_wmids 
+//     "eo", // esperanto 
+//     "es", // spanish 
+//     "fi" // finnish 
+    "fr", // french-test
+//     "fr-ca", // quebec-test
+//     "hi", // hindi-test 
+//     "hu", // hungarian 
+//     "it", // italian 
+//     "nl", // dutch-test 
+//     "no", // norwegian-test 
+//     "pl", // polish_test 
+//     "pt", // brazil 
+//     "pt-pt", // portugal 
+//     "ro", // romanian 
+//     "ro", // romanian-mbrola 
+//     "ru", // russian_test 
+//     "sk", // slovak-test 
+//     "sv", // swedish-test 
+//     "sw", // swahihi-test 
+//     "vi", // vietnam-test 
+//     "zh", // cantonese-test 
+  };
+
+
+#define MaxPreferredLang (int)(sizeof(ThePreferredLanguages)/sizeof(ThePreferredLanguages[0]))
+
 
 //>
 //<TclEspeakFree
@@ -84,7 +136,6 @@ Tclespeak_Init (Tcl_Interp * interp)
 {
   int rc;
   void* handle=NULL;
-
 
   //<setup package, create tts handle
 
@@ -120,7 +171,12 @@ Tclespeak_Init (Tcl_Interp * interp)
 			TclEspeakFree);
   Tcl_CreateObjCommand (interp, "resume", Resume, (ClientData) handle,
 			TclEspeakFree);
+  Tcl_CreateObjCommand (interp, "setLanguage", SetLanguage, (ClientData) handle, 
+			TclEspeakFree);
   //>
+
+  initLanguage (interp);
+
   //<set up index processing
 
   rc = Tcl_Eval (interp, "proc index x {global tts; \
@@ -249,14 +305,14 @@ Say (ClientData handle, Tcl_Interp * interp,
       if (Tcl_StringMatch (txt, "-reset"))
 	{
 	  //TBD
-// 	  espeakReset (handle);
-// 	  if ((espeakSetParam (handle, espeakInputType, 1) == -1)
-// 	      || (espeakSetParam (handle, espeakSynthMode, 1) == -1)
-// 	      || (espeakSetParam (handle, espeakSampleRate, 1) == -1))
-// 	    {
-// 	      Tcl_AppendResult (interp, "Could not re-initialized tts", NULL);
-// 	      return TCL_ERROR;
-// 	    }
+	  // 	  espeakReset (handle);
+	  // 	  if ((espeakSetParam (handle, espeakInputType, 1) == -1)
+	  // 	      || (espeakSetParam (handle, espeakSynthMode, 1) == -1)
+	  // 	      || (espeakSetParam (handle, espeakSampleRate, 1) == -1))
+	  // 	    {
+	  // 	      Tcl_AppendResult (interp, "Could not re-initialized tts", NULL);
+	  // 	      return TCL_ERROR;
+	  // 	    }
 	}
       else if (Tcl_StringMatch (txt, "-index"))
 	{
@@ -271,12 +327,12 @@ Say (ClientData handle, Tcl_Interp * interp,
 	  if (rc != TCL_OK)
 	    return rc;
 	  // TBD
-// 	  rc = espeakInsertIndex (handle, index);
-// 	  if (!rc)
-// 	    {
-// 	      Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
-// 	      return TCL_ERROR;
-// 	    }
+	  // 	  rc = espeakInsertIndex (handle, index);
+	  // 	  if (!rc)
+	  // 	    {
+	  // 	      Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
+	  // 	      return TCL_ERROR;
+	  // 	    }
 	}
       else
 	{
@@ -302,12 +358,12 @@ Say (ClientData handle, Tcl_Interp * interp,
   if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth"))
     {
       // TBD: need a forthcoming eSpeak service.
-//       rc = espeakSynthesize (handle);
-//       if (!rc)
-// 	{
-// 	  Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
-// 	  return TCL_ERROR;
-// 	}
+      //       rc = espeakSynthesize (handle);
+      //       if (!rc)
+      // 	{
+      // 	  Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
+      // 	  return TCL_ERROR;
+      // 	}
     }
   return TCL_OK;
 }
@@ -413,7 +469,7 @@ Caps (ClientData handle,
 
 int
 Punct (ClientData handle,
-      Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
+       Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
 {
   char* a_mode = (char*)Tcl_GetStringFromObj (objv[1], NULL);
   if (a_mode)
@@ -458,6 +514,112 @@ getTTSVersion (ClientData handle, Tcl_Interp * interp,
   strcpy(version, "????");
   Tcl_SetResult (interp, version, TCL_STATIC);
   return TCL_OK;
+}
+
+//>
+//<SetLanguage
+
+int SetLanguage (ClientData eciHandle, Tcl_Interp *interp,
+		  int objc, Tcl_Obj *CONST objv[]) 
+{
+  int aIndex=0;
+
+  if (getLangIndex( interp, &aIndex))
+    {
+      espeak_VOICE a_voice;
+      memset( &a_voice, 0, sizeof(espeak_VOICE));
+      a_voice.languages = (char*)(ThePreferredLanguages[aIndex]);
+      a_voice.gender = 1;
+      espeak_SetVoiceByProperties(&a_voice);      
+    }
+  return TCL_OK;
+}
+
+//>
+//<initLanguage, getLangIndex
+
+static void
+initLanguage (Tcl_Interp * interp)
+{
+  // List the available languages
+  int i=0;
+  int j=0;
+  char* aDefaultLang = (char*)getenv("LANGUAGE");
+  if (aDefaultLang == NULL)
+    {
+      aDefaultLang = (char*)getenv("LANG");
+      if (aDefaultLang == NULL)
+	{
+	  aDefaultLang = "en";
+	}
+    }
+
+  Tcl_SetVar2(interp, "langsynth", "current", "0", 0);
+
+  const espeak_VOICE **voices = espeak_ListVoices(NULL);
+    
+  int langInfoMax = 0;
+  for (i = 0; voices[i] != NULL; i++) 
+    {
+      char buffer_i[3];
+      snprintf(buffer_i, 3, "%d", i); 
+      Tcl_SetVar2(interp, "langalias", voices[i]->languages, buffer_i, 0);
+    }
+
+  langInfoMax = i;
+
+  int aLang;
+  for (aLang = 0; aLang < MaxPreferredLang; aLang++) 
+    {
+      char buffer_i[3];
+      char buffer_j[3];
+	
+      for (i = 0; i < langInfoMax; i++) 
+	{
+	  if (voices[i] 
+	      && voices[i]->languages
+	      && (strcmp(1 + voices[i]->languages, ThePreferredLanguages[aLang]) == 0))
+	    break;
+	}
+
+      if(i == langInfoMax)
+	{
+	  continue;
+	}
+
+      char* aLangCode = 1 + voices[i]->languages;
+
+      snprintf(buffer_i, 3, "%d", aLang); 
+      snprintf(buffer_j, 3, "%d", j++); 
+      Tcl_SetVar2(interp, "langsynth", buffer_j, buffer_i, 0);
+      
+      if (strncmp(aDefaultLang, aLangCode, 2) == 0)
+	{
+	  Tcl_SetVar2(interp, "langsynth", "current", buffer_i, 0);
+	  Tcl_SetVar2(interp, "langcode", "current", aLangCode, 0);
+	}
+
+      Tcl_SetVar2(interp, "langlabel", buffer_j, voices[i]->name, 0);
+      Tcl_SetVar2(interp, "langcode", buffer_j, aLangCode, 0);
+      Tcl_SetVar2(interp, "langsynth", "top", buffer_j, 0);
+    }
+}
+
+static int 
+getLangIndex (Tcl_Interp * interp, int* theIndex)
+{
+  int aStatus = 0;
+  char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
+  if (aInfo)
+    {
+      *theIndex = atoi(aInfo);
+
+      if ((*theIndex > 0) && (*theIndex < MaxPreferredLang))
+	{
+	  aStatus = 1;
+	}
+    }
+  return aStatus;
 }
 
 //>

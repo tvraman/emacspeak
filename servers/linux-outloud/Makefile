@@ -15,14 +15,17 @@ all: tcleci.so
 tcleci.lo: tcleci.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
-tcleci.so: tcleci.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ tcleci.lo $(LIBS) -shared
+langswitch.lo: langswitch.cpp
+	libtool --mode=compile $(CC) $(CFLAGS) -c $<
+
+tcleci.so: tcleci.lo langswitch.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ $(LIBS) -shared
 
 atcleci.lo: atcleci.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
-atcleci.so: atcleci.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ atcleci.lo -lasound $(LIBS)  -shared
+atcleci.so: atcleci.lo langswitch.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ -lasound $(LIBS)  -shared
 
 alsaparams.o: alsaparams.c
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
