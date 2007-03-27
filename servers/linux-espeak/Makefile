@@ -12,8 +12,8 @@ CC=g++
 INSTALL = install
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir2 =$(libparentdir)/emacspeak/servers/linux-espeak
-CFLAGS= -O2 -I/usr/include/espeak -fPIC  -DPIC -pedantic -ansi -Wall -I/usr/include/tcl8.3
-LIBS= -ltclx8.3 -lespeak
+CFLAGS= -O2 -I/usr/include/espeak -fPIC  -DPIC -pedantic -ansi -Wall
+LIBS= -ltcl -lespeak
 
 TTS=libtclespeak.so
 all: libtclespeak.so
