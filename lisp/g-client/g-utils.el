@@ -283,7 +283,7 @@ XML string is transformed via style
 ;;{{{  HTTP Headers:
 
 (defvar g-crlf-pair
-  (format "%c%c"  13  10)
+  (format "%c%c%c%c" 13 10 13  10)
   "HTTP headers are ended by a CRLF pair.
 Note that in the Curl output, we see lf rather than crlf.")
 
