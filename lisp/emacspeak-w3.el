@@ -769,7 +769,7 @@ Optional arg COMPLEMENT inverts the filter.  "
            (list
             (cons "path"
                   (format "\"'%s'\""
-                          path))
+                          (shell-quote-argument path)))
             (cons "locator"
                   (format "'%s'"
                           path))
