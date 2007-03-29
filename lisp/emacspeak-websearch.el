@@ -1340,7 +1340,7 @@ Optional interactive  prefix arg local-flag prompts for local
 (emacspeak-websearch-set-key ?\; 'google-mobile)
 
 (defvar emacspeak-websearch-google-mobile-uri
-  "http://www.google.com/xhtml?q="
+  "http://www.google.com/xhtml?uipref=3&q="
   "Google mobile search.")
 
 ;;;###autoload
