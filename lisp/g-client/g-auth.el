@@ -157,6 +157,7 @@
   "Authenticate    using credentials in auth-handle.
 Populate auth-handle with the returned cookies and token."
   (declare (special g-auth-scratch-buffer g-curl-program
+g-curl-common-options
                     g-user-email))
   (let* ((post-auth-action (g-auth-post-auth-action auth-handle))
         (email (or (g-auth-email auth-handle)
@@ -181,8 +182,8 @@ Populate auth-handle with the returned cookies and token."
                (g-url-encode password)))
       (shell-command-on-region
        (point-min) (point-max)
-       (format "%s %s -X POST --data-binary @- %s 2>/dev/null"
-               g-curl-program g-cookie-options
+       (format "%s %s %s -X POST --data-binary @- %s 2>/dev/null"
+               g-curl-program g-cookie-options g-curl-common-options
                (g-auth-url (g-auth-service auth-handle)))
        (current-buffer)
        'replace)
