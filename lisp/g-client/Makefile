@@ -50,6 +50,7 @@ g-utils.elc \
 g.elc \
 gblogger.elc \
 gcal.elc \
+gnotebook.elc \
 greader.elc
 
 # }}}
@@ -86,6 +87,7 @@ g.elc: g.el g-loaddefs.el
 g-auth.elc: g-auth.el g-utils.elc
 greader.elc: greader.el g-auth.elc
 gcal.elc: gcal.el g-auth.elc
+gnotebook.elc: gnotebook.el g-auth.elc
 gblogger.elc: gblogger.el g-auth.elc
 
 # }}}

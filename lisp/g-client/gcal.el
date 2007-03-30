@@ -113,6 +113,7 @@
   "Authenticate into Google Calendar."
   (declare (special gcal-auth-handle))
   (g-authenticate gcal-auth-handle))
+
 (defvar gcal-quickadd-template
   "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
   <atom:category scheme='http://schemas.google.com/g/2005#kind'
