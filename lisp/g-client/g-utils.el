@@ -238,6 +238,8 @@ Customize this to live on your local disk."
   "Evaluate forms in a  ready to use temporary buffer."
   `(let ((buffer (get-buffer-create g-scratch-buffer))
            (default-process-coding-system (cons 'utf-8 'utf-8))
+           (coding-system-for-read 'binary)
+           (coding-system-for-write 'binary)
            (buffer-undo-list t))
        (save-excursion
          (set-buffer  buffer)
