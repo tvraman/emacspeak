@@ -83,7 +83,9 @@ OCR engine for optical character recognition."
 
 (defcustom emacspeak-ocr-compress-image "tiffcp"
   "Command used to compress the scanned tiff file."
-  :type 'string
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Command"))
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-image-extension ".tiff"
@@ -396,24 +398,27 @@ Pick a short but meaningful name."
     (let ((emacspeak-speak-messages nil))
       (shell-command
        (concat
-        (format "%s %s > temp%s;\n"
-                emacspeak-ocr-scan-image
-                emacspeak-ocr-scan-image-options 
-                emacspeak-ocr-image-extension)
-        (format "%s %s  temp%s %s ;\n"
-                emacspeak-ocr-compress-image
-                emacspeak-ocr-compress-image-options
-                emacspeak-ocr-image-extension
-                image-name)
-        (if emacspeak-ocr-keep-uncompressed-image
-            (format "echo \'Uncompressed image not removed.'")
+        (format
+         "%s %s > %s;\n"
+         emacspeak-ocr-scan-image
+         emacspeak-ocr-scan-image-options 
+         (cond
+          ((not emacspeak-ocr-compress-image) image-name)
+          (t (format "temp%s" emacspeak-ocr-image-extension))))
+        (when emacspeak-ocr-compress-image
+          (format "%s %s  temp%s %s ;\n"
+                  emacspeak-ocr-compress-image
+                  emacspeak-ocr-compress-image-options
+                  emacspeak-ocr-image-extension
+                  image-name))
+        (when emacspeak-ocr-keep-uncompressed-image
           (format "rm -f temp%s"
-                  emacspeak-ocr-image-extension)))))
-    (when (interactive-p)
-      (setq emacspeak-ocr-last-page-number
-            (1+ emacspeak-ocr-last-page-number)))
-    (message "Acquired  image to file %s"
-             image-name)))
+                  emacspeak-ocr-image-extension))))
+      (when (interactive-p)
+        (setq emacspeak-ocr-last-page-number
+              (1+ emacspeak-ocr-last-page-number)))
+      (message "Acquired  image to file %s"
+               image-name))))
 
 ;;;###autoload
 (defun emacspeak-ocr-scan-photo (&optional metadata)
