@@ -116,7 +116,29 @@
 
 
 ;;}}}
+;;{{{ gsheet-fetch
+
+(defun gsheet-fetch (sheet-url)
+  "Fetch specified sheet."
+  (interactive)
+  (declare (special gsheet-auth-handle
+                    g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gsheet-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' %s"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gsheet-auth-handle)
+    sheet-url
+    (g-curl-debug))
+   g-atom-view-xsl))
+
+;;}}}
 ;;{{{ Feed of feeds:
+
 (defvar gsheet-feeds-template-url
   "http://spreadsheets.google.com/feeds/spreadsheets/private/full"
   "URL template for feed of feeds from spreadsheet.")
@@ -145,7 +167,6 @@
    g-atom-view-xsl))
 
 ;;}}}
-
 (provide 'gsheet)
 ;;{{{ end of file
 
