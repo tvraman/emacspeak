@@ -719,9 +719,10 @@ date under point."
   (g-auth-ensure-token gcal-auth-handle)
   (g-display-result
    (format
-    "%s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
-    g-curl-program
-    (g-cookie "Auth" gcal-auth-handle)
+    "%s %s %s %s '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
     (gcal-feeds-url
      (g-url-encode (g-auth-email gcal-auth-handle))))
    g-atom-view-xsl))
