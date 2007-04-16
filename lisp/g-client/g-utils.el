@@ -151,8 +151,8 @@ Customize this to live on your local disk."
   "Determines if we show stderr output."
   (declare (special g-curl-debug))
   (if g-curl-debug
-" 2>/dev/null"
-""))
+""
+" 2>/dev/null"))
 
 (defsubst g-xslt-debug ()
   "Determines if we show stderr output."
