@@ -1,6 +1,7 @@
 #!/bin/bash
 # $Id$
-# Replacement for the simple functions of "beep" 
+# Replacement for the simple functions of "beep"
+#Needs http://www.comp.leeds.ac.uk/jj/linux/siggen.html
 # Uses the sound card instead of the pc-speaker
 
 # Set defaults
