@@ -351,7 +351,7 @@ it therefore is not a problem.
 emacs/w3 also has no bookmark functionality.  This can be remedied in
 several ways.  One simple way, mentioned below, is to use the emacs
 package bmk-mgr.  Another way is to use org mode with remember which
-is the method used by Dr. Ramen, the author of emacspeak.  See
+is the method used by Dr. Raman, the author of emacspeak.  See
 @xref{bmk-mgr,,bmk-mgr}, later in this manual, for more information.
 
 History back and next in the browser also seem to be broken but this
