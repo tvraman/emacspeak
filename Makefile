@@ -44,7 +44,7 @@
 # cd to the  directory where you placed the sources.
 # This directory is referred to henceforth as EMACSPEAK_DIR.
 # and then type
-#    make config 
+#    make config
 # Now type
 #    make emacspeak
 # to compile the files, then (as superuser)
@@ -264,6 +264,7 @@ install:
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/xml-forms
 	$(INSTALL) -d $(libdir)/lisp/atom-blogger
+	$(INSTALL) -d $(libdir)/lisp/g-client
 	$(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
 	$(INSTALL) -d $(libdir)/xsl
@@ -273,7 +274,8 @@ install:
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
 	$(INSTALL) -m 0644  lisp/atom-blogger/*.el    $(libdir)/lisp/atom-blogger
-	$(INSTALL) -m 0644  lisp/atom-blogger/*.xsl    $(libdir)/lisp/atom-blogger
+	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
+	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -m 0644  ${UGUIDE}   $(libdir)/user-guide

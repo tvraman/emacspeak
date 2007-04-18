@@ -228,7 +228,7 @@ emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
 emacspeak-xslt-process.elc   \
-emacspeak-zinf.elc 
+emacspeak-zinf.elc
 
 ADDON_OBJECTS= tapestry.elc   stack-f.elc string.elc xml-parse.elc
 
@@ -239,6 +239,7 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all
 
 all: $(OBJECTS)
+	cd g-client && $(MAKE)
 
 force:
 
