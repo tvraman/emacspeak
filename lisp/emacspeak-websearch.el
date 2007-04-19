@@ -1178,7 +1178,7 @@ http://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
-  "http://froogle.google.com/froogle?q="
+  "http://www.google.com/products?output=html&q=%s"
   "*URI for Froogle search")
 
 ;;;###autoload

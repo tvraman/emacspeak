@@ -120,11 +120,10 @@
 
 (defun gsheet-fetch (sheet-url)
   "Fetch specified sheet."
-  (interactive)
-  (declare (special gsheet-auth-handle
-                    g-atom-view-xsl
-                    g-curl-program g-curl-common-options
-                    g-cookie-options))
+  (interactive "sSheet URL:")  (declare (special gsheet-auth-handle
+                                                  g-atom-view-xsl
+                                                  g-curl-program g-curl-common-options
+                                                  g-cookie-options))
   (g-auth-ensure-token gsheet-auth-handle)
   (g-display-result
    (format
