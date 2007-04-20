@@ -20,6 +20,8 @@ Transform KML to speakable XHTML
       <body>
         <h1><xsl:value-of select="kml:name"/></h1>
         <p>
+          <xsl:value-of select="kml:Snippet"
+                        disable-output-escaping="yes"/>
         </p>
         <xsl:apply-templates select="kml:Placemark"/>
       </body>
@@ -32,6 +34,10 @@ Transform KML to speakable XHTML
                     disable-output-escaping="yes"/><br/>
       <xsl:value-of select="kml:address"
                     disable-output-escaping="yes"/><br/>
+    </p>
+    <p>
+      <xsl:value-of select=".//kml:text"
+                    disable-output-escaping="yes"/>
     </p>
   </xsl:template>
   
