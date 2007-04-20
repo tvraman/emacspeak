@@ -146,9 +146,12 @@ value='true'></gCal:quickadd>
 <email>%s </email>
 </author>
 <gd:transparency value='%s'></gd:transparency>
+<gCal:sendEventNotifications value='true'/>
 <gd:eventStatus value='%s'></gd:eventStatus>
 <gd:where valueString='%s'></gd:where>
-<gd:when startTime='%s' endTime='%s'></gd:when>
+<gd:when startTime='%s' endTime='%s'>
+<gd:reminder minutes='10'/>
+</gd:when>
 %s
 </entry> "
   "XML template for  calendar events.")
