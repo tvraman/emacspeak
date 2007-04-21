@@ -1694,11 +1694,11 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
-(defadvice url-http-wait-for-headers-change-function
-  (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+;; (defadvice url-http-wait-for-headers-change-function
+;;   (around emacspeak pre act comp)
+;;   "silence spoken messages."
+;;   (let ((emacspeak-speak-messages nil))
+;;     ad-do-it))
 
 (defadvice url-cookie-handle-set-cookie
   (around emacspeak pre act comp)
