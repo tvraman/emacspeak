@@ -448,11 +448,30 @@ user.")
      (list (g-http-headers (point-min) (point-max))
            (g-http-body (point-min) (point-max))))))
 
+(defun gcal-event-as-diary-entry (event)
+  "Return an event string suitable for Emacs calendar's diary
+file."
+  (let ((start (gcal-event-when-start event))
+        (end (gcal-event-when-end event ))
+        (date nil)
+        (time-start nil)
+        (time-end nil))
+    (setq date (split-string (substring start 0 10) "-")
+          time-start  (substring start 11 16))
+    (format "%s %s, %s %s %s"
+            (calendar-month-name ( read (second date)) 'abbrev)
+            (third date)
+            (first date)
+            time-start
+            (gcal-event-title event))))
+
 ;;;###autoload
 (defun gcal-add-event ()
   "Add a calendar event."
   (interactive)
-  (declare (special gcal-auth-handle))
+  (declare (special gcal-auth-handle
+                    diary-file
+                    gcal-autoinsert-into-emacs-calendar))
   (g-auth-ensure-token gcal-auth-handle)
   (let ((event (call-interactively 'gcal-read-event))
         (status nil)
@@ -476,8 +495,14 @@ user.")
       (and (> 0(length body))
            (g-display-xml-string body
                                  gcal-calendar-view))
-      (message "Event added as %s"
-               (g-http-header "Location" headers)))))
+      (message "Event added as %s" (g-http-header "Location"
+                                                  headers))
+      (when gcal-autoinsert-into-emacs-calendar
+        (make-diary-entry
+         (gcal-event-as-diary-entry event))
+        (save-excursion
+          (set-buffer (find-file-noselect diary-file))
+          (save-buffer))))))
 
 
 
@@ -618,6 +643,12 @@ Specify the event in plain English."
   "Number of days for which we show an agenda by default."
   :type 'integer
   :group 'gcal)
+
+(defcustom gcal-autoinsert-into-emacs-calendar t
+  "If set, gcal adds events to the Emacs calendar as well."
+  :type 'boolean
+  :group 'gcal)
+
 
 (defun gcal-calendar-get-date (&optional date )
   "Get GCal date from a calendar date spec.
