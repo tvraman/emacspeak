@@ -126,7 +126,7 @@
   "Service name for accessing  Blogger.")
 
 (defconst gblogger-base-url
-  "http://www.blogger.com/feeds/default/blogs"
+  "http://www.blogger.com/feeds/default/blogs'"
   "Base url for blogger access.")
 
 
