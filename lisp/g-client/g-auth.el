@@ -96,7 +96,7 @@
   "Scratch buffer we do authentication work.")
 
 (defvar g-auth-url-pattern
-  "https://www.google.com/accounts/ClientLogin?service=%s"
+  "'https://www.google.com/accounts/ClientLogin?service=%s'"
   "URL to login to Google services.")
 
 (defsubst g-auth-url (service)

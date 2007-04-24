@@ -95,7 +95,7 @@
   (string-equal service greader-service-name))
 
 (defvar greader-base-url
-  "http://www.google.com/reader/"
+  "'http://www.google.com/reader/'"
   "Base URL for Google Reader  API.")
 
 (defvar greader-token-url
@@ -189,7 +189,7 @@ from the server.")
   :group 'greader)
 
 (defcustom greader-atom-base
-  "http://www.google.com/reader/public/atom/user/"
+  "'http://www.google.com/reader/public/atom/user/'"
   "Base URI to use in reading list."
   :type 'string
   :group 'greader)
@@ -217,7 +217,7 @@ from the server.")
   "URL  for  finding feeds.")
 
 (defvar greader-edit-url-pattern
-  "http://www.google.com/reader/api/0/%s/edit"
+  "'http://www.google.com/reader/api/0/%s/edit'"
   "URL  pattern for  edit URLs.")
 
 (defvar greader-edit-alist
