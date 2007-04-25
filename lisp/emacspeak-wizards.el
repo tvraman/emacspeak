@@ -2012,15 +2012,25 @@ visiting the xls file."
   :type 'string
   :group 'emacspeak-wizards)
 
+(defcustom emacspeak-wizards-pdf-to-text-options
+  "-layout"
+  "options to Command for running pdftotext."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Options" "-layout"))
+  :group 'emacspeak-wizards)
+
 (defun emacspeak-wizards-pdf-open (filename)
   "Open pdf file as text."
   (interactive "fFilename:")
+  (declare (special emacspeak-wizards-pdf-to-text-options
+                    emacspeak-wizards-pdf-to-text-program))
   (let ((output-buffer (format "%s"
                                (file-name-sans-extension
                                 (file-name-nondirectory filename)))))
     (shell-command
-     (format "pdftotext -layout %s - | cat -s "
-             filename)
+     (format "%s %s  %s - | cat -s "
+             emacspeak-wizards-pdf-to-text-program emacspeak-wizards-pdf-to-text-options filename)
      output-buffer)
     (switch-to-buffer output-buffer)
     (set-buffer-modified-p nil)
