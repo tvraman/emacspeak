@@ -2034,7 +2034,8 @@ visiting the xls file."
      output-buffer)
     (switch-to-buffer output-buffer)
     (set-buffer-modified-p nil)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 ;;{{{ ppt wizard
