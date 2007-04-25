@@ -1,0 +1,64 @@
+1. Put all the *.el files of this package in one of your lisp load path
+   directories. Eval the variable `load-path' to see where this directories
+   are on your system. 
+
+2. Put the following in your .emacs (or default.el or site-init.el):
+
+   (autoload 'view-processes "view-process-mode"
+     "Prints a list with processes in the buffer `view-process-buffer-name'.
+   It calls the function `view-process-status' with default switches.
+   As the default switches on BSD like systems the value of the variable
+   `view-process-status-command-switches-bsd' is used. 
+   On System V like systems the value of the variable
+   `view-process-status-command-switches-system-v' is used.
+   IF the optional argument REMOTE-HOST is given, then the command will
+   be executed on the REMOTE-HOST. If an prefix arg is given, then the 
+   function asks for the name of the remote host."
+   t)
+
+   If you want, you can also put the following in your .emacs
+
+   (autoload 'ps "view-process-mode"
+     "Prints a list with processes in the buffer `view-process-buffer-name'.
+   COMMAND-SWITCHES is a string with the command switches (ie: -aux).
+   IF the optional argument REMOTE-HOST is given, then the command will
+   be executed on the REMOTE-HOST. If an prefix arg is given, then the 
+   function asks for the name of the remote host.
+   If USE-LAST-SORTER-AND-FILTER is t, then the last sorter and filter 
+   commands are used. Otherwise the sorter and filter from the list
+   'view-process-sorter-and-filter' are used."
+   t)
+
+3. If you want to customize the mode, then you should take a look at the
+   the following variables (alphabetic order):
+	view-process-default-kill-signal
+	view-process-display-with-2-windows
+	view-process-header-line-background
+	view-process-header-line-detection-list
+	view-process-header-line-font
+	view-process-header-line-foreground
+	view-process-header-line-underline-p
+	view-process-header-mode-hook
+	view-process-hide-header
+	view-process-itimer-value
+	view-process-mode-hook
+	view-process-motion-help
+	view-process-pid-field-name
+	view-process-rsh-command
+	view-process-signal-command
+	view-process-signal-line-background
+	view-process-signal-line-font
+	view-process-signal-line-foreground
+	view-process-signal-line-underline-p
+	view-process-sorter-and-filter
+	view-process-status-command
+	view-process-status-command-switches-bsd
+	view-process-status-command-switches-system-v
+	view-process-test-command
+	view-process-test-switches
+	view-process-truncate-lines
+	view-process-uname-command
+	view-process-uname-switches
+
+   There are also other variables, but I think, that there is normaly
+   no need to change them.

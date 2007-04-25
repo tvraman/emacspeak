@@ -1,0 +1,40 @@
+Hello,
+
+I've written a lisp package for the XEmacs (lemacs) and the FSF Emacs
+19, which provides a new mode - the "view-process-mode".   
+
+The name of the package is hm--view-process-2.4.tar.gz.
+You can get this package from one of the following places:
+	ftp.tnt.uni-hannover.de:/pub/editors/xemacs/contrib
+	sunsite.unc.edu:/pub/Linux/apps/editors/emacs/
+
+With that mode it is possible to view processes on a UNIX system in an
+emacs buffer. One can send signals to the processes or filter and sort
+the buffer to find a special group of processes. The filtering and
+sorting can be done on a region or on the whole output.  The filter
+and sorter can use the whole line or single fields (like the command
+field or the size field).
+
+A signal can be send to all processes in a region or only to one
+process.
+
+The mode provides also some help functions to display explanations
+over the output fields and their values.
+
+It is also possible to view and kill processes on a remote machine via
+rsh.
+
+The mode commands can be called with special keybindings or with menu
+items.  Each function, which can be run on regions and on the whole
+output, has a generic interface, which determines the state of the
+region and calls then the appropriate command.
+
+Faces are used to highlight the header line and processes which should be
+killed.
+
+The mode is tested on Suns under SunOS 4.1.x and 5.x, on SGI's, HP's
+and on Linux PC's.
+
+Send any hints or bugs to: muenkel@tnt.uni-hannover.de
+
+Heiko Muenkel
