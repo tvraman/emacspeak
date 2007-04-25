@@ -305,7 +305,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current                     ;move to parsed item if needed
+    (unless current                ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
@@ -1396,6 +1396,7 @@ loaded. "
         ("o" emacspeak-w3-xsl-toggle)
         ("p" emacspeak-w3-xpath-filter-and-follow)
         ("r" emacspeak-w3-extract-media-streams)
+        ("S" emacspeak-w3-style-filter)
         ("s" emacspeak-w3-xslt-select)
         ("t" emacspeak-w3-extract-table-by-position)
         ("u" emacspeak-w3-extract-matching-urls)
@@ -1443,6 +1444,21 @@ used as well."
      'speak)
     (emacspeak-auditory-icon 'open-object)))
 
+;;}}}
+;;{{{ style filter
+(defun emacspeak-w3-style-filter (style   &optional prompt-url speak-result )
+  "Extract elements matching specified style
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract contents  from."
+  (interactive
+   (list
+    (read-from-minibuffer "Style: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "//*[contains(@style,  \"%s\")]" style)
+   prompt-url speak))
+    
 ;;}}}
 ;;{{{ xpath  filter
 
