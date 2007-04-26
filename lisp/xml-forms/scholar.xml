@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form method="get" action="http://scholar.google.com/scholar_setprefs" name="prefform">
+  <input type="hidden" name="inststart" value= "0" />
+  <label for="hl">
+  <b> Interface Language </b></label>
+  <select name="hl">
+    <option value="zh-CN">
+      Chinese(Simplified)
+    </option>
+    <option value="zh-TW">
+      Chinese(Traditional)
+    </option>
+    <option value="da">
+      Danish
+    </option>
+    <option value="nl">
+      Dutch
+    </option>
+    <option value="en" selected="selected">
+      English
+    </option>
+    <option value="fi">
+      Finnish
+    </option>
+    <option value="fr">
+      French
+    </option>
+    <option value="de">
+      German
+    </option>
+    <option value="it">
+      Italian
+    </option>
+    <option value="ja">
+      Japanese
+    </option>
+    <option value="no">
+      Norwegian
+    </option>
+    <option value="pt-BR">
+      Portuguese (Brazil)
+    </option>
+    <option value="es">
+      Spanish
+    </option>
+    <option value="sv">
+      Swedish
+    </option>
+  </select>
+  <label for="lang">
+    <b> Search Language </b>
+  </label>
+  <input id="alc" type="radio" name="lang" value="all" onclick="fnOnClickAll()" checked="checked" />
+  <p>
+    Show library access links for (choose up
+    to three libraries):
+  </p>
+  <input name="inst" type= "checkbox" value="cat-oclc" checked="checked" />
+  <span class=
+        "c8">
+    Open WorldCat (Library Search)
+  </span>
+  <label for="num">
+    <b> Number of Results </b>
+  </label>
+  <select name="num">
+    <option value="10">
+      10
+    </option>
+    <option value="20">
+      20
+    </option>
+    <option value="30">
+      30
+    </option>
+    <option value="50" selected="selected">
+      50
+    </option>
+    <option value="100">
+      100
+    </option>
+  </select>
+  <br />
+  <br />
+  <input type="radio" name="scis" value="no" />
+  <span class="c3">
+    Don't show any citation
+    import links.
+  </span>
+  <p>
+    <input type="radio" name="scis" value="yes"  checked= "checked" />
+    <span class="c3">
+      Show links to import citations into
+      <select name="scisf" onclick='fnOnClickIS()'>
+        <option value='4'>
+          BibTeX
+        </option>
+        <option value='3'>
+          EndNote
+        </option>
+        <option value='2'>
+          RefMan
+        </option>
+        <option value='1'>
+          RefWorks
+        </option>
+        <option value='5'>
+          WenXianWang
+        </option>
+      </select>
+      .
+    </span>
+  </p>
+  <input type="submit"
+         value="Save Preferences" name="submit" />
+</form>
