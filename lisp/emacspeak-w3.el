@@ -191,7 +191,7 @@
           ("T"  emacspeak-webutils-jump-to-title-in-content)
           ("y" emacspeak-w3-url-rewrite-and-follow)
           ("z" emacspeak-w3-speak-next-block)
-('[C-Return] emacspeak-webutils-open-in-other-browser))
+          ([C-Return] emacspeak-webutils-open-in-other-browser))
         do
         (emacspeak-keymap-update w3-mode-map binding)))
 
