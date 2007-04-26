@@ -87,6 +87,7 @@ instead of the modeline."
 (define-key w3m-mode-map "\C-c\C-x" 'emacspeak-webutils-google-extract-from-cache)
 (define-key w3m-mode-map "\C-c\C-l" 'emacspeak-webutils-google-similar-to-this-page)
 (define-key w3m-mode-map "\C-c\C-r" 'emacspeak-w3m-browse-rss-at-point)
+(define-key w3m-mode-map (kbd "<C-return>") 'emacspeak-webutils-open-in-other-browser)
 
 ;;}}}
 ;;{{{ helpers
