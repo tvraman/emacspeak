@@ -1,4 +1,4 @@
-";;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
+;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak enhancements for W3
@@ -615,13 +615,13 @@ Nil means no transform is used. "
 HTML."
   (when emacspeak-w3-cleanup-bogus-quotes
     (goto-char (point-min))
-    (while (search-forward "&#147\;" nil t)
+    (while (search-forward "&\#147\;" nil t)
       (replace-match "\""))
     (goto-char (point-min))
-    (while (search-forward "&#148\;" nil t)
+    (while (search-forward "&\#148\;" nil t)
       (replace-match "\""))
     (goto-char (point-min))
-    (while (search-forward "&#180\;" nil t)
+    (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
