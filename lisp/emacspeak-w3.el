@@ -1,4 +1,4 @@
-;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
+";;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak enhancements for W3
@@ -171,6 +171,7 @@
           ("N" emacspeak-speak-next-personality-chunk)
           ("P" emacspeak-speak-previous-personality-chunk)
           ("R" emacspeak-w3-browse-rss-at-point)
+          ([C-Return] emacspeak-webutils-open-in-other-browser)
           ("\C-f" w3-table-focus-on-this-cell)
           ("\M- " emacspeak-imenu-speak-this-section)
           ("\M-n" emacspeak-imenu-goto-next-index-position)
