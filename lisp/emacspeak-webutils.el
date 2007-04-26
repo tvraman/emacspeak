@@ -116,6 +116,7 @@ With a prefix argument, extracts url under point."
             3)
            (read-from-minibuffer "Search this site for: "))))
 
+
 (defvar emacspeak-webutils-google-related-uri
   "http://www.google.com/search?hl=en&num=25&q=related:")
 
@@ -211,6 +212,21 @@ instances."
     (message "Playing media  URL under point")
     (funcall emacspeak-media-player  url)))
 
+
+;;;###autoload
+(defun emacspeak-webutils-view-feed-via-google-reader ()
+  "Pulls feed under point via Google Reader."
+  (interactive)
+  (let ((feed (funcall emacspeak-webutils-url-at-point)))
+    (cond
+     ((null feed)
+      (error "No url under point."))
+     (t (emacspeak-atom-display
+         (format
+          "http://www.google.com/reader/public/atom/feed/%s?n=100"
+          (emacspeak-url-encode feed)))))))
+
+
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa" 
@@ -222,6 +238,7 @@ instances."
   (if (eq major-mode 'w3-mode)
       (w3m-browse-url (funcall emacspeak-webutils-url-at-point))
     (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
+
 
 
 ;;}}}

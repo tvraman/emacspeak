@@ -2451,7 +2451,8 @@ prompts for and sets value of the file local pattern."
 ;;{{{   Switching buffers, killing buffers etc
 ;;;###autoload
 (defun emacspeak-switch-to-previous-buffer  ()
-  "Switch to most recently used interesting buffer."
+  "Switch to most recently used interesting buffer.
+Obsoleted by `previous-buffer' in Emacs 22"
   (interactive)
   (switch-to-buffer (other-buffer
                      (current-buffer) 'visible-ok))
@@ -2625,6 +2626,7 @@ hits."
   (let ((name   "Google Hits"))
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
+
 ;;;###autoload
 (defun emacspeak-wizards-google-transcode ()
   "View Web through Google Transcoder."
