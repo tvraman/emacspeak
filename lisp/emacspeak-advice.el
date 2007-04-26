@@ -104,6 +104,18 @@
   "Speak the word you just moved to."
   (when (interactive-p) (emacspeak-speak-word )))
 
+(defadvice next-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+ 
+(defadvice previous-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
 (defadvice beginning-of-buffer (after emacspeak pre act)
   "Speak the line."
   (when (interactive-p)

@@ -211,6 +211,19 @@ instances."
     (message "Playing media  URL under point")
     (funcall emacspeak-media-player  url)))
 
+(defun emacspeak-webutils-open-in-other-browser ()
+  "Opens link in alternate browser.
+ If using default browser is w3, uses w3m and vice-versa" 
+  (interactive)
+  (declare (special major-mode
+		    w3-mode
+		    w3m-mode))
+  (emacspeak-webutils-browser-check)
+  (if (eq major-mode 'w3-mode)
+      (w3m-browse-url (funcall emacspeak-webutils-url-at-point))
+    (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
+
+
 ;;}}}
 
 (provide 'emacspeak-webutils)
