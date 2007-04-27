@@ -1718,8 +1718,6 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;; These functions have to be advised by hand:
-
 (defadvice kill-buffer (around emacspeak pre act)
   "Speech-enabled by emacspeak."
   (cond
@@ -1812,19 +1810,19 @@ Indicate change of selection with
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-;; (defadvice local-set-key (before  emacspeak pre act)
-;;   "Prompt using speech."
-;;   (interactive
-;;    (list
-;;     (read-key-sequence "Locally bind key:")
-;;     (read-command "To command:" ))))
+(defadvice local-set-key (before  emacspeak pre act)
+  "Prompt using speech."
+  (interactive
+   (list
+    (read-key-sequence "Locally bind key:")
+    (read-command "To command:" ))))
 
-;; (defadvice global-set-key (before  emacspeak pre act)
-;;   "Provide spoken prompts."
-;;   (interactive
-;;    (list
-;;     (read-key-sequence "Globally  bind key:")
-;;     (read-command "To command:" ))))
+(defadvice global-set-key (before  emacspeak pre act)
+  "Provide spoken prompts."
+  (interactive
+   (list
+    (read-key-sequence "Globally  bind key:")
+    (read-command "To command:" ))))
 
 (defadvice help-next-ref (after emacspeak pre act comp)
   "Speak the ref we moved to."
