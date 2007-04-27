@@ -224,7 +224,8 @@ instances."
      (t (emacspeak-atom-display
          (format
           "http://www.google.com/reader/public/atom/feed/%s?n=100"
-          (emacspeak-url-encode feed)))))))
+          (emacspeak-url-encode feed))
+         'speak)))))
 
 
 (defun emacspeak-webutils-open-in-other-browser ()
