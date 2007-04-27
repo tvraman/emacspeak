@@ -126,7 +126,7 @@
   "Service name for accessing  Blogger.")
 
 (defconst gblogger-base-url
-  "http://www.blogger.com/feeds/default/blogs'"
+  "http://www.blogger.com/feeds/default/blogs"
   "Base url for blogger access.")
 
 
@@ -189,11 +189,12 @@ from the server.")
   (g-auth-ensure-token gblogger-auth-handle)
   (g-display-result
    (format
-    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
+    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' %s 2>/dev/null"
     g-curl-program g-curl-common-options g-cookie-options
     (g-cookie "Auth" gblogger-auth-handle)
     gblogger-base-url)
    g-atom-view-xsl))
+
 ;;;###autoload
 (defun gblogger-atom-display (url)
   "Retrieve and display specified feed after authenticating."
@@ -358,6 +359,22 @@ http-method is either POST or PUT"
            (g-authorization gblogger-auth-handle)
            url
            (g-curl-debug))))
+
+;;}}}
+;;{{{ Reset auth handle:
+
+(defun gblogger-sign-out()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gblogger-auth-handle
+                    gblogger-user-email gblogger-user-password))
+  (message "Signing out %s from blogger"
+           (g-auth-email gblogger-auth-handle))
+  (setq gblogger-user-email nil
+        gblogger-user-password nil)
+  (setq gblogger-auth-handle (make-gblogger-auth)))
+
+
 
 ;;}}}
 (provide 'gblogger)

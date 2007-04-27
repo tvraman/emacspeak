@@ -105,8 +105,7 @@
                :email gcal-user-email
                :password gcal-user-password))
 
-(defvar gcal-auth-handle
-  (make-gcal-auth)
+(defvar gcal-auth-handle (make-gcal-auth)
   "G auth handle used for signing into calendar.")
 
 (defun gcal-authenticate ()
@@ -781,6 +780,20 @@ date under point."
         do
         (define-key gcal-calendar-prefix-map (first binding)
           (second binding))))
+
+;;}}}
+;;{{{ Sign out:
+
+(defun gcal-sign-out()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gcal-auth-handle
+                    gcal-user-email gcal-user-password))
+  (message "Signing out %s from Calendar"
+           (g-auth-email gcal-auth-handle))
+  (setq gcal-user-email nil
+        gcal-user-password nil)
+  (setq gcal-auth-handle (make-gcal-auth)))
 
 ;;}}}
 (provide 'gcal)
