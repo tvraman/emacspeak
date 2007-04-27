@@ -593,6 +593,23 @@ arrived articles."
      g-atom-view-xsl)))
 
 ;;}}}
+;;{{{ Sign out:
+(defun greader-sign-out()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special greader-auth-handle
+                    greader-user-email greader-user-password))
+  (message "Signing out %s from Reader"
+           (g-auth-email greader-auth-handle))
+  (cond
+   (greader-auth-handle
+    (setq greader-user-email nil
+          greader-user-password nil)
+    (setq greader-auth-handle (make-greader-auth)))
+   (t (message "You've not used Reader in this emacs session."))))
+
+;;}}}
+
 (provide 'greader)
 ;;{{{ end of file
 

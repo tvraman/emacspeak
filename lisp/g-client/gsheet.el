@@ -166,6 +166,21 @@
    g-atom-view-xsl))
 
 ;;}}}
+;;{{{ sign out:
+
+(defun gsheet-sign-out()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gsheet-auth-handle
+                    gsheet-user-email gsheet-user-password))
+  (message "Signing out %s from spreadsheets"
+           (g-auth-email gsheet-auth-handle))
+  (setq gsheet-user-email nil
+        gsheet-user-password nil)
+  (setq gsheet-auth-handle (make-gsheet-auth)))
+
+;;}}}
+
 (provide 'gsheet)
 ;;{{{ end of file
 
