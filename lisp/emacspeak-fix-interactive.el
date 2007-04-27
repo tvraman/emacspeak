@@ -123,8 +123,7 @@ use the minibuffer."
                        (emacspeak-auditory-icon 'open-object)
                        (tts-with-punctuations 'all
                                               (dtk-speak
-                                               (format " %s "
-                                                       (or (substring (, prompt) 1 ) "")))))
+                                               (or (substring (, prompt) 1 ) ""))))
                      (call-interactively
                       #'(lambda (&rest args)
                           (interactive (, prompt))

@@ -237,7 +237,7 @@ instances."
 		    w3m-mode))
   (emacspeak-webutils-browser-check)
   (if (eq major-mode 'w3-mode)
-      (w3m-browse-url (funcall emacspeak-webutils-url-at-point))
+      (w3m-browse-url  (funcall emacspeak-webutils-url-at-point))
     (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
 
 
