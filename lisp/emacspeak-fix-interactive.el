@@ -98,20 +98,19 @@ Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
-  (let ((prompts
-         (split-string
-          (second (ad-interactive-form (symbol-function sym )))
-          "\n")))
+  (let* ((prompts
+          (split-string
+           (second (ad-interactive-form (symbol-function sym )))
+           "\n"))
+         (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
                                         ;memoize call
     (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
-    (when (some 'ems-prompt-without-minibuffer-p  prompts )
-      (cond
-       ((> (length prompts) 1)
-        ;; cannot handle automatically -- tell developer
-        (message "Not auto-advicing %s" sym))
-       (t
-        (eval
+    (cond
+     ((zerop count) t)                  ;do nothing
+     ((= 1 count)
+                                        ; generate auto advice
+      (eval
        (`
         (defadvice (, sym)
           (before  emacspeak-auto pre act  protect compile)
@@ -133,7 +132,10 @@ use the minibuffer."
                       #'(lambda (&rest args)
                           (interactive (, prompt))
                           args) nil))))
-              prompts)))))))))))
+              prompts))))))))
+     (t
+      ;; cannot handle automatically -- tell developer
+      (message "Not auto-advicing %s" sym))))
   t)
 
 ;;; inline function for use from other modules:
