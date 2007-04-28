@@ -90,6 +90,9 @@
 (defsubst ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
   (string-match  "^\*?[ckK]" prompt ))
+(defvar emacspeak-fix-interactive-problematic-functions nil
+  "Functions whose interactive prompt we will need to fix by hand
+because auto-advising was not possible.")
 
 ;;;###autoload
 (defun emacspeak-fix-interactive (sym)
@@ -98,6 +101,7 @@ Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
+  (declare (special emacspeak-fix-interactive-problematic-functions))
   (let* ((prompts
           (split-string
            (second (ad-interactive-form (symbol-function sym )))
@@ -135,6 +139,7 @@ use the minibuffer."
               prompts))))))))
      (t
       ;; cannot handle automatically -- tell developer
+      (push sym emacspeak-fix-interactive-problematic-functions)
       (message "Not auto-advicing %s" sym))))
   t)
 
