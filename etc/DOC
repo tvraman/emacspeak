@@ -104,12 +104,33 @@ Argument S specifies the syntax class.
 
 ------------------------------------------------------------
 
+** dtk-set-language Set language according to the argument lang. 
+
+------------------------------------------------------------
+
+** dtk-set-next-language Switch to the next available language 
+
+------------------------------------------------------------
+
 ** dtk-set-predefined-speech-rate	Key Sequence: control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
 
  Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level. 
+
+------------------------------------------------------------
+
+** dtk-set-preferred-language Set the alias of the preferred language: 
+For example if alias="en" lang="en_GB", 
+then the following call:
+ dtk-set-language("en") 
+will set "en_GB".
+ 
+
+------------------------------------------------------------
+
+** dtk-set-previous-language Switch to the previous available language 
 
 ------------------------------------------------------------
 
@@ -3382,6 +3403,13 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-style-filter Extract elements matching specified style
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract contents  from. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-toggle-table-borders Toggle drawing of W3 table borders 
 
 ------------------------------------------------------------
@@ -3779,6 +3807,11 @@ instances.
 
 ------------------------------------------------------------
 
+** emacspeak-webutils-open-in-other-browser Opens link in alternate browser.
+ If using default browser is w3, uses w3m and vice-versa 
+
+------------------------------------------------------------
+
 ** emacspeak-webutils-play-media-at-point Play media url under point  
 
 ------------------------------------------------------------
@@ -3790,6 +3823,10 @@ instances.
 
 ** emacspeak-webutils-transcode-via-google Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-view-feed-via-google-reader Pulls feed under point via Google Reader. 
 
 ------------------------------------------------------------
 
@@ -4144,7 +4181,8 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-switch-to-previous-buffer Switch to most recently used interesting buffer. 
+** emacspeak-switch-to-previous-buffer Switch to most recently used interesting buffer.
+Obsoleted by `previous-buffer' in Emacs 22 
 
 ------------------------------------------------------------
 
@@ -4305,6 +4343,10 @@ called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-i810-display-status Show display status on thinkpads using i810switch. 
 
 ------------------------------------------------------------
 
