@@ -2038,7 +2038,6 @@ Results"
   "RSS Feed from Google for Usenet groups.")
 
 (defvar emacspeak-usenet-uri
-                                        ;"http://groups.google.com/groups?"
   "http://groups.google.com/group/"
   "URI to open a group on Usenet archive.")
 ;;;###autoload
@@ -2056,7 +2055,7 @@ Optional interactive prefix arg results in prompting for a search term."
      (prefix                            ;search
       (setq url
             (format
-             "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group&num=%s"
+             "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group&num=%s&scoring=d"
              emacspeak-usenet-uri
              group group
              (emacspeak-url-encode
