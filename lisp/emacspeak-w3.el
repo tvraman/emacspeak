@@ -1079,6 +1079,7 @@ Tables are specified by containing  match pattern
 
 (defun emacspeak-w3-id-cache ()
   "Build CSS class cache for buffer if needed."
+  (declare (special emacspeak-w3-buffer-id-cache))
   (unless (eq major-mode 'w3-mode)
     (error "Not in W3 buffer."))
   (or emacspeak-w3-buffer-id-cache
@@ -1183,32 +1184,9 @@ completion. "
 
 (make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
 
-(defun emacspeak-w3-id-cache ()
-  "Build id class cache for buffer if needed."
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in W3 buffer."))
-  (or emacspeak-w3-buffer-id-cache
-      (let ((values nil)
-            (buffer
-             (emacspeak-xslt-url
-              (expand-file-name "id-values.xsl"
-                                emacspeak-xslt-directory)
-              (url-view-url 'no-show)
-              nil
-              'no-comment)))
-        (setq values
-              (save-excursion
-                (set-buffer buffer)
-                (shell-command-on-region (point-min) (point-max)
-                                         "sort  -u"
-                                         (current-buffer))
-                (split-string (buffer-string))))
-        (setq emacspeak-w3-buffer-id-cache
-              (mapcar
-               #'(lambda (v)
-                   (cons v v ))
-               values)))))
 
+
+;;;###autoload
 (defun emacspeak-w3-extract-by-id (id   &optional prompt-url speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -1226,23 +1204,7 @@ Interactive use provides list of id values as completion."
    (or (interactive-p)
        speak)))
 
-(defsubst  emacspeak-w3-get-id-list ()
-  "Collect a list of ides by prompting repeatedly in the
-minibuffer.
-Empty value finishes the list."
-  (let ((ides (emacspeak-w3-id-cache))
-        (result nil)
-        (c nil)
-        (done nil))
-    (while (not done)
-      (setq c
-            (completing-read "Id: "
-                             ides
-                             nil 'must-match))
-      (if (> (length c) 0)
-          (push c result)
-        (setq done t)))
-    result))
+
 ;;;###autoload
 (defun emacspeak-w3-extract-by-id-list(ids   &optional prompt-url speak)
   "Extract elements having id specified in list `ids' from HTML.
@@ -1448,7 +1410,7 @@ used as well."
 
 ;;}}}
 ;;{{{ style filter
-(defun emacspeak-w3-style-filter (style   &optional prompt-url speak-result )
+(defun emacspeak-w3-style-filter (style   &optional prompt-url speak )
   "Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url

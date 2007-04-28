@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 767 commands.
+This chapter documents a total of 775 commands.
 
 @menu
 * cd-tool::                     
@@ -215,6 +215,14 @@ classified into various syntactic classes.
 Argument S specifies the syntax class.
 @end deffn
 
+@deffn {Interactive Command} dtk-set-language (LANG)
+Set language according to the argument lang.
+@end deffn
+
+@deffn {Interactive Command} dtk-set-next-language ()
+Switch to the next available language
+@end deffn
+
 @deffn {Interactive Command} dtk-set-predefined-speech-rate (&optional PREFIX)
 @kbd{ control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 }
 
@@ -222,6 +230,19 @@ Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
+@end deffn
+
+@deffn {Interactive Command} dtk-set-preferred-language (ALIAS LANG)
+Set the alias of the preferred language: 
+For example if alias="en" lang="en_GB", 
+then the following call:
+ dtk-set-language("en") 
+will set "en_GB".
+
+@end deffn
+
+@deffn {Interactive Command} dtk-set-previous-language ()
+Switch to the previous available language
 @end deffn
 
 @deffn {Interactive Command} dtk-set-punctuations (MODE &optional PREFIX)
@@ -4068,6 +4089,13 @@ Speak next document element.
 Speak document element under point.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-style-filter (STYLE &optional PROMPT-URL SPEAK-RESULT)
+Extract elements matching specified style
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract contents  from.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-toggle-table-borders ()
 Toggle drawing of W3 table borders
 @end deffn
@@ -4495,6 +4523,11 @@ instance  of the title.  Repeated calls jump to further
 instances.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-webutils-open-in-other-browser ()
+Opens link in alternate browser.
+ If using default browser is w3, uses w3m and vice-versa
+@end deffn
+
 @deffn {Interactive Command} emacspeak-webutils-play-media-at-point ()
 Play media url under point 
 @end deffn
@@ -4507,6 +4540,10 @@ Transcode current URL via Google.
 @deffn {Interactive Command} emacspeak-webutils-transcode-via-google (&optional UNTRANSCODE)
 Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webutils-view-feed-via-google-reader ()
+Pulls feed under point via Google Reader.
 @end deffn
 
 @node emacspeak-widget
@@ -4881,6 +4918,7 @@ SUDo command --run command as super user.
 
 @deffn {Interactive Command} emacspeak-switch-to-previous-buffer ()
 Switch to most recently used interesting buffer.
+Obsoleted by `previous-buffer' in Emacs 22
 @end deffn
 
 @deffn {Interactive Command} emacspeak-symlink-current-file ()
@@ -5036,6 +5074,10 @@ called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-i810-display-status ()
+Show display status on thinkpads using i810switch.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-move-and-speak (COMMAND COUNT)
@@ -5475,7 +5517,7 @@ Execute Zinf command.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 121 URL Templates.
+This section documents a total of 122 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5514,7 +5556,7 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 
 Play This American Life  shows on demand.
 
-@kbd{Anonymous Google Search}
+@kbd{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
 
@@ -5588,7 +5630,7 @@ Display MLB standings.
 
 @kbd{BlogSearch Google}
 
-Google Print Search
+Google Blog Search
 
 @kbd{BookShare}
 
@@ -5675,6 +5717,10 @@ mobile transcoder.
 @kbd{Flight Tracker}
 
 Display flight arrival and departure information.
+
+@kbd{GMail Mobile}
+
+GMail Mobile XHTML version --- light-weight, fast!
 
 @kbd{Geek Linux Daily}
 
@@ -6017,13 +6063,13 @@ The PDF document needs to be available on the public Internet.
 
 Pull RSS weather feed for specified state/city.
 
-@kbd{sourceforge Stats}
+@kbd{sourceforge Download}
 
-Display project usage statistics.
+Download specified file.
 
 @kbd{sourceforge browse mirrors}
 
-Retrieve download table  at Sourceforge for specified project.
+Retrieve download page  at Sourceforge for specified project.
 
 @kbd{sourceforge project}
 

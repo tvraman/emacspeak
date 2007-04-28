@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 645 user customizable
+This chapter documents a total of 647 user customizable
   options.
 
 @menu
@@ -2408,6 +2408,10 @@ Root  of Linux Howtos.
 Lynx executable.
 @end defvar
 
+@defvar {User Option} emacspeak-wizards-pdf-to-text-options
+options to Command for running pdftotext.
+@end defvar
+
 @defvar {User Option} emacspeak-wizards-pdf-to-text-program
 Command for running pdftotext.
 @end defvar
@@ -4022,6 +4026,11 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-region-voice
 Personality used for region
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-shadow-voice
+Personality used for shadow
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-term-underline-voice
