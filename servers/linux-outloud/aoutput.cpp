@@ -9,7 +9,7 @@
 //<includes
 
 #include <sys/time.h>
-#include <dlfcn.h>
+
 
 #include <alsa/asoundlib.h>
 
@@ -380,7 +380,6 @@ alsa_close ()
 }
 
 //>
-
 //<alsa_setup
 
 int
