@@ -281,8 +281,9 @@ Returns t if a block was found and hidden."
                                         (current-buffer)
                                         (point-max))))
          (t (forward-line 1)))))
+    (when (interactive-p)
     (dtk-speak
-     (format "Hid %s blocks" count))))
+     (format "Hid %s blocks" count)))))
 
 (defun emacspeak-hide-expose-hidden-blocks-in-buffer ()
   "Expose any hidden blocks in current buffer."

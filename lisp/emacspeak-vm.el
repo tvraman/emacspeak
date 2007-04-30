@@ -153,6 +153,17 @@ Note that some badly formed mime messages  cause trouble."
   :type 'boolean
   :group 'emacspeak-vm)
 
+(defun emacspeak-vm-speak-message ()
+  "Move point to the message body."
+  (interactive)
+  (goto-char (point-min))
+  (search-forward  (format "%c%c" 10 10) nil)
+  (condition-case nil
+      (emacspeak-hide-all-blocks-in-buffer)
+    (error nil))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-rest-of-buffer))
+
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (declare (special vm-message-pointer
@@ -397,6 +408,7 @@ Then speak the screenful. "
                    emacspeak-keymap))
 (define-key vm-mode-map "C" 'emacspeak-vm-catch-up-all-messages)
 (define-key vm-mode-map "\M-j" 'emacspeak-vm-locate-subject-line)
+(define-key vm-mode-map "," 'emacspeak-vm-speak-message)
 (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
 (define-key vm-mode-map
   (concat emacspeak-prefix "m")
