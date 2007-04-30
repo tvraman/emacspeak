@@ -119,6 +119,7 @@ Note that some badly formed mime messages  cause trouble."
 
 ;;}}}
 ;;{{{  Helper functions:
+
 (defvar emacspeak-vm-user-full-name (user-full-name)
   "Full name of user using this session")
 
@@ -477,10 +478,10 @@ Leave point at front of decoded attachment."
              (if confirm "Confirm by retyping" "")))))
 ;;}}}
 ;;{{{ setup presentation buffer correctly
+
 (add-hook 'vm-presentation-mode-hook
-          (function
-           (lambda nil
-             (emacspeak-pronounce-refresh-pronunciations))))
+           #'(lambda nil
+             (emacspeak-pronounce-refresh-pronunciations)))
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (loop for hook in
       (list 'mail-mode-hook
