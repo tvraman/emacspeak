@@ -48,7 +48,7 @@
 ;;; Commentary:
 ;;{{{  introduction
 
-;;; Google Calendar
+;;; Google Spreadsheets
 ;;; Create, Browse, Find, edit  ...  integrate Emacs  with
 ;;; Google Spreadsheet.
 ;;; http://code.google.com/apis/spreadsheets/overview.html
@@ -66,18 +66,18 @@
 ;;{{{ Customizations
 
 (defgroup gsheet nil
-  "Google Calendar"
+  "Google Spreadsheets"
   :group 'g)
 
 (defcustom gsheet-user-email nil
-  "Mail address that identifies calendar user."
+  "Mail address that identifies spreadsheets user."
   :type '(choice
           (const :tag "none" nil)
           (string :tag "username@gmail.com" ""))
   :group 'gsheet)
 
 (defcustom gsheet-user-password nil
-  "Password for authenticating to calendar account."
+  "Password for authenticating to Spreadsheets account."
   :type '(radio (const :tag "Prompt for password" nil)
                 (string :tag "Save password in .emacs"))
   :group 'gsheet)
@@ -106,10 +106,10 @@
 
 (defvar gsheet-auth-handle
   (make-gsheet-auth)
-  "G auth handle used for signing into calendar.")
+  "G auth handle used for signing into Spreadsheets.")
 
 (defun gsheet-authenticate ()
-  "Authenticate into Google Calendar."
+  "Authenticate into Google Spreadsheets."
   (declare (special gsheet-auth-handle))
   (g-authenticate gsheet-auth-handle))
 
