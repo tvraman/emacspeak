@@ -123,7 +123,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "ActiveDog"
+  "LeadDog"
   "Code name of present release.")
 
 ;;}}}
