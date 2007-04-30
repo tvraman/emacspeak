@@ -676,7 +676,7 @@ Atcleci_Init (Tcl_Interp * interp)
 
   static enum ECILanguageDialect aLanguages[LANG_INFO_MAX];
   int nLanguages = LANG_INFO_MAX;
-  int a_status = _eciGetAvailableLanguages(aLanguages, &nLanguages);
+    _eciGetAvailableLanguages(aLanguages, &nLanguages);
     
   enum ECILanguageDialect aDefaultLanguage = initLanguage (interp, aLanguages, nLanguages);
   if (aDefaultLanguage == NODEFINEDCODESET)
