@@ -177,31 +177,31 @@ Tcleci_Init (Tcl_Interp * interp)
       return TCL_ERROR;
     }
 
-  _eciVersion = (void (*)(char *)) dlsym (eciLib, "eciVersion");
-  _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) dlsym (eciLib, "eciGetAvailableLanguages");
-  _eciNewEx = (void *(*)(enum ECILanguageDialect)) dlsym (eciLib, "eciNewEx");
-  _eciDelete = (void (*)(void *)) dlsym (eciLib, "eciDelete");
-  _eciReset = (int (*)(void *)) dlsym (eciLib, "eciReset");
-  _eciStop = (int (*)(void *)) dlsym (eciLib, "eciStop");
-  _eciClearInput = (int (*)(void *)) dlsym (eciLib, "eciClearInput");
-  _eciPause = (int (*)(void *, int)) dlsym (eciLib, "eciPause");
-  _eciSynthesize = (int (*)(void *)) dlsym (eciLib, "eciSynthesize");
-  _eciSynchronize = (int (*)(void *)) dlsym (eciLib, "eciSynchronize");
-  _eciSpeaking = (int (*)(void *)) dlsym (eciLib, "eciSpeaking");
-  _eciInsertIndex = (int (*)(void *, int)) dlsym (eciLib, "eciInsertIndex");
-  _eciAddText = (int (*)(void *, char *)) dlsym (eciLib, "eciAddText");
-  _eciSetParam = (int (*)(void *, int, int)) dlsym (eciLib, "eciSetParam");
+  _eciVersion = (void (*)(char *)) (unsigned long) dlsym (eciLib, "eciVersion");
+  _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) (unsigned long) dlsym (eciLib, "eciGetAvailableLanguages");
+  _eciNewEx = (void *(*)(enum ECILanguageDialect)) (unsigned long) dlsym (eciLib, "eciNewEx");
+  _eciDelete = (void (*)(void *)) (unsigned long) dlsym (eciLib, "eciDelete");
+  _eciReset = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciReset");
+  _eciStop = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciStop");
+  _eciClearInput = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciClearInput");
+  _eciPause = (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciPause");
+  _eciSynthesize = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynthesize");
+  _eciSynchronize = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynchronize");
+  _eciSpeaking = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSpeaking");
+  _eciInsertIndex = (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciInsertIndex");
+  _eciAddText = (int (*)(void *, char *)) (unsigned long) dlsym (eciLib, "eciAddText");
+  _eciSetParam = (int (*)(void *, int, int)) (unsigned long) dlsym (eciLib, "eciSetParam");
   _eciGetVoiceParam = (int (*)(void *, int, int))
-    dlsym (eciLib, "eciGetVoiceParam");
+    (unsigned long) dlsym (eciLib, "eciGetVoiceParam");
   _eciSetVoiceParam = (int (*)(void *, int, int, int))
-    dlsym (eciLib, "eciSetVoiceParam");
+    (unsigned long) dlsym (eciLib, "eciSetVoiceParam");
   _eciRegisterCallback = (void
                           (*)(void *, int (*)(void *, int, long, void *),
-                              void *)) dlsym (eciLib, "eciRegisterCallback");
+                              void *)) (unsigned long) dlsym (eciLib, "eciRegisterCallback");
   _eciSetOutputBuffer =
-    (int (*)(void *, int, short *)) dlsym (eciLib, "eciSetOutputBuffer");
+    (int (*)(void *, int, short *)) (unsigned long) dlsym (eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
-    (int (*)(void *, int)) dlsym (eciLib, "eciSetOutputDevice");
+    (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciSetOutputDevice");
 
   //>
   //< check for needed symbols 
@@ -309,7 +309,7 @@ Tcleci_Init (Tcl_Interp * interp)
 
   static enum ECILanguageDialect aLanguages[LANG_INFO_MAX];
   int nLanguages = LANG_INFO_MAX;
-  int a_status = _eciGetAvailableLanguages(aLanguages, &nLanguages);
+  _eciGetAvailableLanguages(aLanguages, &nLanguages);
 
   enum ECILanguageDialect aDefaultLanguage = initLanguage (interp, aLanguages, nLanguages);
   if (aDefaultLanguage == NODEFINEDCODESET)
