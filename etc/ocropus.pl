@@ -6,6 +6,8 @@ use strict;
 use File::Basename;
 
 my $OCR = 'ocropus';
+my $output = "/tmp/ocr-output-$$.txt";
 my $image =shift;
 die "No image specified" unless defined ($image);
-qx($OCR  ocr $image  | lynx -dump  - 2>/dev/null);
+qx($OCR  ocr $image > $output 2>/dev/null);
+qx(cat $output);
