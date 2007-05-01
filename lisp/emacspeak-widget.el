@@ -184,7 +184,7 @@ Returns a string with appropriate personality."
            
 
 (widget-put (get 'default 'widget-type)
- :emacspeak-help 'emacspeak-widget-default-summarize)
+            :emacspeak-help 'emacspeak-widget-default-summarize)
 
 ;;}}}
 ;;{{{ editable field
@@ -201,7 +201,7 @@ Returns a string with appropriate personality."
             value)))
 
 (widget-put (get 'editable-field 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-editable-field)
+            :emacspeak-help 'emacspeak-widget-help-editable-field)
 
 ;;}}}
 ;;{{{ item 
@@ -216,7 +216,7 @@ Returns a string with appropriate personality."
             (when value (format " %s " value)))))
 
 (widget-put (get 'item 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-item)
+            :emacspeak-help 'emacspeak-widget-help-item)
 
 ;;}}}
 ;;{{{ visibility 
@@ -235,7 +235,7 @@ Returns a string with appropriate personality."
           (if value " hide  " " show  ")))))
 
 (widget-put (get 'visibility 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-visibility)
+            :emacspeak-help 'emacspeak-widget-help-visibility)
 
 ;;}}}
 ;;{{{  push button 
@@ -248,14 +248,14 @@ Returns a string with appropriate personality."
          (context
           (when  context-widget
             (widget-apply context-widget
-             :emacspeak-help))))
+                          :emacspeak-help))))
     (concat label
             help-echo
             context )))
        
 
 (widget-put (get 'push-button 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-push-button)
+            :emacspeak-help 'emacspeak-widget-help-push-button)
 
 ;;}}}
 ;;{{{  link 
@@ -267,7 +267,7 @@ Returns a string with appropriate personality."
             (or value ""))))
 
 (widget-put (get 'link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-link)
+            :emacspeak-help 'emacspeak-widget-help-link)
 
 ;;}}}
 ;;{{{  info-link 
@@ -279,7 +279,7 @@ Returns a string with appropriate personality."
             (or value ""))))
 
 (widget-put (get 'info-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-info-link)
+            :emacspeak-help 'emacspeak-widget-help-info-link)
 
 ;;}}}
 ;;{{{  url-link 
@@ -293,7 +293,7 @@ Returns a string with appropriate personality."
             (or value ""))))
 
 (widget-put (get 'url-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-url-link)
+            :emacspeak-help 'emacspeak-widget-help-url-link)
 
 ;;}}}
 ;;{{{  variable-link 
@@ -305,7 +305,7 @@ Returns a string with appropriate personality."
             (or value ""))))
 
 (widget-put (get 'variable-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-variable-link)
+            :emacspeak-help 'emacspeak-widget-help-variable-link)
 
 ;;}}}
 ;;{{{  function-link 
@@ -316,7 +316,7 @@ Returns a string with appropriate personality."
     (format "Display documentation for %s" value)))
 
 (widget-put (get 'function-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-function-link)
+            :emacspeak-help 'emacspeak-widget-help-function-link)
 
 ;;}}}
 ;;{{{  file-link 
@@ -330,7 +330,7 @@ Returns a string with appropriate personality."
             value)))
 
 (widget-put (get 'file-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-file-link)
+            :emacspeak-help 'emacspeak-widget-help-file-link)
 
 ;;}}}
 ;;{{{  emacs-library-link 
@@ -344,7 +344,7 @@ Returns a string with appropriate personality."
             value)))
 
 (widget-put (get 'emacs-library-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
+            :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
 
 ;;}}}
 ;;{{{  emacs-commentary-link 
@@ -358,7 +358,7 @@ Returns a string with appropriate personality."
             value)))
 
 (widget-put (get 'emacs-commentary-link 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
+            :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
 
 ;;}}}
 ;;{{{  menu choice 
@@ -376,7 +376,7 @@ Returns a string with appropriate personality."
       
 
 (widget-put (get 'menu-choice 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-menu-choice)
+            :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
 ;;}}}
 ;;{{{  toggle   
@@ -392,7 +392,7 @@ Returns a string with appropriate personality."
               " is off "))))
 
 (widget-put (get 'toggle 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-toggle)
+            :emacspeak-help 'emacspeak-widget-help-toggle)
 
 ;;}}}
 ;;{{{  checklist
@@ -415,7 +415,7 @@ Returns a string with appropriate personality."
       
 
 (widget-put (get 'checklist 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-checklist)
+            :emacspeak-help 'emacspeak-widget-help-checklist)
 
 ;;}}}
 ;;{{{ choice-item
@@ -430,10 +430,10 @@ Returns a string with appropriate personality."
              (when value (format " %s " value))
              " is "
              (widget-apply (widget-get widget :parent)
-              :emacspeak-help))))
+                           :emacspeak-help))))
 
 (widget-put (get 'choice-item 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-choice-item)
+            :emacspeak-help 'emacspeak-widget-help-choice-item)
 
 ;;}}}
 ;;{{{ checkbox
@@ -451,7 +451,7 @@ Returns a string with appropriate personality."
      (if value "checked" "unchecked"))))
 
 (widget-put (get 'checkbox 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-checkbox)
+            :emacspeak-help 'emacspeak-widget-help-checkbox)
 
 ;;}}}
 ;;{{{ radio-button
@@ -470,7 +470,7 @@ Returns a string with appropriate personality."
               " not pressed "))))
 
 (widget-put (get 'radio-button 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-radio-button)
+            :emacspeak-help 'emacspeak-widget-help-radio-button)
 
 ;;}}}
 ;;{{{ radio-button-choice
@@ -494,7 +494,7 @@ Returns a string with appropriate personality."
             selected)))
 
 (widget-put (get 'radio-button-choice 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
+            :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
 
 ;;}}}
 ;;{{{ editable-list
@@ -513,7 +513,7 @@ Returns a string with appropriate personality."
             (or value ""))))
 
 (widget-put (get 'editable-list 'widget-type)
- :emacspeak-help 'emacspeak-widget-help-editable-list)
+            :emacspeak-help 'emacspeak-widget-help-editable-list)
 
 ;;}}}
 
@@ -682,10 +682,10 @@ widget before summarizing."
   (let ((w (widget-at (point))))
     (widget-value-set w
                       (widget-apply w
-                       :prompt-value
-                       (widget-get w :tag)
-                       (widget-value w)
-                       nil))
+                                    :prompt-value
+                                    (widget-get w :tag)
+                                    (widget-value w)
+                                    nil))
     (widget-setup)
     (widget-apply w :notify)
     (emacspeak-widget-summarize w)))
@@ -700,8 +700,8 @@ widget before summarizing."
 ;;{{{ voice widgets 
 
 (define-widget 'voice  'menu-choice
- :help-echo "Voice selector"
- "Widget for selecting a voice.")
+  :help-echo "Voice selector"
+  "Widget for selecting a voice.")
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
 ;;; We rely on dectalk-voice-table as our default voice table.
@@ -714,7 +714,7 @@ widget before summarizing."
   (declare (special dectalk-voice-table))
   (let ((w
          (widget-create 'voice
-          :tag "voices")))
+                        :tag "voices")))
     (widget-put w :args 
                 (loop for key being the hash-keys of dectalk-voice-table 
                       collect

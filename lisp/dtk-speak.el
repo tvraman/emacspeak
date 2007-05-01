@@ -297,17 +297,17 @@ Optional argument FORCE  flushes the command to the speech server."
   (interactive "sEnter new language: \n")
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
-;;  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-language lang (interactive-p))))
+  ;;  (unless dtk-quiet
+  (when dtk-speak-server-initialized
+    (dtk-interp-language lang (interactive-p))))
 ;;)
 
 (defun dtk-set-next-language ()
   "Switch to the next available language"
   (interactive)
   (declare (special dtk-speak-server-initialized))
-    (when dtk-speak-server-initialized
-      (dtk-interp-next-language (interactive-p))))
+  (when dtk-speak-server-initialized
+    (dtk-interp-next-language (interactive-p))))
 ;;)
 
 (defun dtk-set-previous-language ()
@@ -315,9 +315,9 @@ Optional argument FORCE  flushes the command to the speech server."
   (interactive)
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
-;;  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-previous-language (interactive-p))))
+  ;;  (unless dtk-quiet
+  (when dtk-speak-server-initialized
+    (dtk-interp-previous-language (interactive-p))))
 ;;)
 
 (defun dtk-set-preferred-language (alias lang)
@@ -330,9 +330,9 @@ will set \"en_GB\".
   (interactive "s")
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
-;;  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-preferred-language alias lang)))
+  ;;  (unless dtk-quiet
+  (when dtk-speak-server-initialized
+    (dtk-interp-preferred-language alias lang)))
 ;;)
 
 (defun dtk-list-language ()

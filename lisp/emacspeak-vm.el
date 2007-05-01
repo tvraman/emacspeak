@@ -492,8 +492,8 @@ Leave point at front of decoded attachment."
 ;;{{{ setup presentation buffer correctly
 
 (add-hook 'vm-presentation-mode-hook
-           #'(lambda nil
-             (emacspeak-pronounce-refresh-pronunciations)))
+          #'(lambda nil
+              (emacspeak-pronounce-refresh-pronunciations)))
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (loop for hook in
       (list 'mail-mode-hook

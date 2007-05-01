@@ -287,7 +287,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
-         :test #'string-equal)
+                 :test #'string-equal)
         (emacspeak-url-encode query))))
  nil
  "Locate and display Shoutcast streams."
@@ -508,7 +508,6 @@ content."
 
 ;;}}}
 ;;{{{ gmail:
-
 
 (emacspeak-url-template-define
  "GMail Mobile"
@@ -1582,7 +1581,6 @@ plays entire program."
  (list "Project name")
  nil
  "Retrieve download page  at Sourceforge for specified project.")
-
 
 (emacspeak-url-template-define
  "sourceforge Download"

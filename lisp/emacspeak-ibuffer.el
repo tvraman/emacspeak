@@ -171,7 +171,7 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice ibuffer-visit-buffer-other-window-noselect (after emacspeak 
-							     pre act comp)
+                                                             pre act comp)
   "Provide spoken status information."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -275,23 +275,23 @@
     (emacspeak-ibuffer-speak-buffer-line)))
 
 (defadvice ibuffer-mark-for-delete-backwards (after emacspeak 
-						    pre act comp)
+                                                    pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-ibuffer-speak-buffer-line)))
 
 (defadvice ibuffer-interactive-filter-by-mode (after emacspeak 
-						     pre act comp)
+                                                     pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'modified-object)
     (dtk-speak 
      (concat "Filtered by "
-	     (format "%s" 
-		     ;; the following returns a string,, how to remove
-		     ;; the parens?
-		     ibuffer-filtering-qualifiers)))))
+             (format "%s" 
+                     ;; the following returns a string,, how to remove
+                     ;; the parens?
+                     ibuffer-filtering-qualifiers)))))
 
 (defadvice ibuffer-recompile-formats (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -312,47 +312,47 @@
       (emacspeak-auditory-icon 'modified-object)
       (dtk-speak 
        (concat "Toggled group " 
-	       (format "%s" name))))))
+               (format "%s" name))))))
 
 (defadvice ibuffer-do-shell-command-pipe-replace (after emacspeak 
-							pre act comp)
+                                                        pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ibuffer-do-shell-command-pipe (after emacspeak 
-						pre act comp)
+                                                pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ibuffer-do-shell-command-file (after emacspeak 
-						pre act comp)
+                                                pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ibuffer-do-rename-uniquely (after emacspeak 
-					     pre act comp)
+                                             pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ibuffer-do-replace-regexp (after emacspeak 
-					    pre act comp)
+                                            pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ibuffer-filters-to-filter-group (after emacspeak 
-						  pre act comp)
+                                                  pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Group added.")))
 
 (defadvice ibuffer-set-filter-groups-by-mode (after emacspeak 
-						    pre act comp)
+                                                    pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)
@@ -366,7 +366,7 @@
       (emacspeak-auditory-icon 'task-done)
       (dtk-speak 
        (concat "Popped group " 
-	       (format "%s" name))))))
+               (format "%s" name))))))
 
 (defadvice ibuffer-clear-filter-groups (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -590,7 +590,6 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; now, go back to ibuffer-yank and add the missing functions:

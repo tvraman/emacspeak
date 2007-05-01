@@ -135,7 +135,6 @@ Provide auditory feedback after formatting region"
    (t ad-do-it))
   ad-return-value)
 
-
 (defadvice TeX-insert-dollar (after emacspeak pre act comp)
   "Speak what you inserted"
   (when (interactive-p)
