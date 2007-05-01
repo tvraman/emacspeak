@@ -111,11 +111,11 @@ pronunciation dictionaries are stored. ")
          (setq revision
                (format "Revision %s"
                        (or
-                       (nth 2 (split-string
-                               (buffer-substring-no-properties
-                                (line-beginning-position)
-                                (line-end-position))))
-                       "unknown"))))
+                        (nth 2 (split-string
+                                (buffer-substring-no-properties
+                                 (line-beginning-position)
+                                 (line-end-position))))
+                        "unknown"))))
        (kill-buffer buffer)
        revision))
     (t "")))

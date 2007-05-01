@@ -1114,19 +1114,19 @@ markup to use."
     (setq sorted-list
           (sort
            elements
-            #'(lambda (x y)
-              (cond
-               ((and (numberp (read (aref x column)))
-                     (numberp (read (aref y column))))
-                (< (read (aref x column))
-                   (read (aref y column))))
-               ((and (stringp  (aref x column))
-                     (stringp (aref y column)))
-                (string-lessp (aref x column)
-                              (aref y column)))
-               (t (string-lessp
-                   (format "%s" (aref x column))
-                   (format "%s" (aref y column))))))))
+           #'(lambda (x y)
+               (cond
+                ((and (numberp (read (aref x column)))
+                      (numberp (read (aref y column))))
+                 (< (read (aref x column))
+                    (read (aref y column))))
+                ((and (stringp  (aref x column))
+                      (stringp (aref y column)))
+                 (string-lessp (aref x column)
+                               (aref y column)))
+                (t (string-lessp
+                    (format "%s" (aref x column))
+                    (format "%s" (aref y column))))))))
     (setq sorted-table (make-vector (length sorted-list) nil))
     (loop for i from 0 to (1- (length sorted-list))
           do

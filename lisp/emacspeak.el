@@ -96,10 +96,10 @@ the Emacspeak desktop." )
   :link   (list 'file-link :tag "NEWS" (expand-file-name
                                         "etc/NEWS"
                                         emacspeak-directory)
-                           :help-echo "What's New In This Release")
+                :help-echo "What's New In This Release")
   :link   (list 'file-link :tag "FAQ" (expand-file-name "etc/FAQ"
                                                         emacspeak-directory)
-                           :help-echo "Read the Emacspeak FAQ")
+                :help-echo "Read the Emacspeak FAQ")
   :link '(custom-manual "(emacspeak)Top")
 ;;; end links
   :prefix "emacspeak-"

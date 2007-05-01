@@ -67,7 +67,7 @@
          (color-index
           (when color
             (position  color ansi-color-names-vector
-             :test #'string-equal)))
+                       :test #'string-equal)))
          (style nil)
          (color-parameter nil)
          (style-parameter nil))

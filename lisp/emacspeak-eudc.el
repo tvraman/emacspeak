@@ -90,8 +90,8 @@
       (goto-char (next-overlay-change (point)))
       (when (widget-at (point))
         (widget-put (widget-at (point))
-         :emacspeak-help 
-         'emacspeak-eudc-widget-help)
+                    :emacspeak-help 
+                    'emacspeak-eudc-widget-help)
         (forward-line 1)))))
 
 (defadvice eudc-query-form (after emacspeak pre act comp )
