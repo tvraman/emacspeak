@@ -10,4 +10,7 @@ my $output = "/tmp/ocr-output-$$.txt";
 my $image =shift;
 die "No image specified" unless defined ($image);
 qx($OCR  ocr $image > $output 2>/dev/null);
-qx(lynx -dump $output);
+qx(lynx -dump $output 2>/dev/null | OUTPUT);
+while (<OUTPUT>) {
+  print;
+}
