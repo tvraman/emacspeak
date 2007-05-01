@@ -67,7 +67,6 @@
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
-#define EXPORT
 #define ECILIBRARYNAME "libibmeci.so"
 
 //>
@@ -144,7 +143,7 @@ static int alsa_init ();
 static void alsa_reset ();      //drop handle and reset
 static size_t alsa_configure (void);
 
-extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
+extern "C" int Atcleci_Init (Tcl_Interp * interp);
 
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -538,7 +537,7 @@ Atcleci_Init (Tcl_Interp * interp)
       return TCL_ERROR;
     }
 
-  _eciVersion = (void (*)(char*)) (unsigned long)dlsym (eciLib, "eciVersion");
+  _eciVersion = (void(*)(char*))(unsigned long) dlsym (eciLib, "eciVersion");
   _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) (unsigned long) dlsym (eciLib, "eciGetAvailableLanguages");
   _eciNewEx = (void *(*)(enum ECILanguageDialect)) (unsigned long) dlsym (eciLib, "eciNewEx");
   _eciDelete = (void (*)(void *)) (unsigned long) dlsym (eciLib, "eciDelete");
@@ -677,7 +676,7 @@ Atcleci_Init (Tcl_Interp * interp)
   static enum ECILanguageDialect aLanguages[LANG_INFO_MAX];
   int nLanguages = LANG_INFO_MAX;
     _eciGetAvailableLanguages(aLanguages, &nLanguages);
-    
+
   enum ECILanguageDialect aDefaultLanguage = initLanguage (interp, aLanguages, nLanguages);
   if (aDefaultLanguage == NODEFINEDCODESET)
     {
@@ -1046,7 +1045,7 @@ showAlsaState (ClientData eciHandle, Tcl_Interp * interp,
 //<SetLanguage
 
 int SetLanguage (ClientData eciHandle, Tcl_Interp *interp,
-		  int objc, Tcl_Obj *CONST objv[]) 
+		  int objc, Tcl_Obj *CONST objv[])
 {
   int aIndex;
   const char* code = getAnnotation (interp, &aIndex);
