@@ -1,0 +1,11 @@
+#!/usr/bin/perl -w
+#$Id: ocr-client.pl 4047 2006-08-11 19:11:17Z tv.raman.tv $
+#Description: Invoke ocropus client. Pipe result to stdout
+#Usage: ocr-client.pl image-file
+use strict;
+use File::Basename;
+
+my $OCR = 'ocropus';
+my $image =shift;
+die "No image specified" unless defined ($image);
+qx($OCR  ocr $image  | lynx -dump  - 2>/dev/null);

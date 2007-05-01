@@ -538,7 +538,7 @@ Atcleci_Init (Tcl_Interp * interp)
       return TCL_ERROR;
     }
 
-  _eciVersion = (void (*)(char *)) dlsym (eciLib, "eciVersion");
+  _eciVersion = (void (*)(char*)) dlsym (eciLib, "eciVersion");
   _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) dlsym (eciLib, "eciGetAvailableLanguages");
   _eciNewEx = (void *(*)(enum ECILanguageDialect)) dlsym (eciLib, "eciNewEx");
   _eciDelete = (void (*)(void *)) dlsym (eciLib, "eciDelete");
