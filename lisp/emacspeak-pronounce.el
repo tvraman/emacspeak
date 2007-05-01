@@ -248,69 +248,6 @@ This is the personality used when speaking  things that have a pronunciation
 applied."
   :group 'emacspeak-pronounce
   :type (voice-setup-custom-menu))
-(defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
-  "Applies pronunciations specified in pronunciation table to current buffer.
-Modifies text and point in buffer."
-  (declare (special emacspeak-pronounce-pronunciation-personality))
-  (let ((words
-         (sort 
-          (loop for  key  being the hash-keys  of pronunciation-table collect key)
-          #'(lambda (a b ) 
-              (> (length  a) (length  b))))))
-    (loop for key in words 
-          do
-          (let ((word  key)
-                (pronunciation (gethash  key pronunciation-table))
-                (pp nil)
-                (personality nil))
-            (when word 
-              (goto-char (point-min))
-              (cond
-               ((stringp pronunciation)
-                (while (search-forward  word nil t)
-                  (setq personality (get-text-property (point) 'personality))
-                  (replace-match  pronunciation t t  )
-                  (put-text-property
-                   (match-beginning 0)
-                   (+ (match-beginning 0) (length pronunciation))
-                   'personality
-                   (apply
-                    'append
-                    (mapcar
-                     #'(lambda (p)
-                         (when p
-                           (if (atom p) (list p) p)))
-                     (list emacspeak-pronounce-pronunciation-personality personality))))))
-               ((consp pronunciation )
-                (let ((matcher (car pronunciation))
-                      (pronouncer (cdr pronunciation))
-                      (pronunciation ""))
-                  (while (funcall matcher   word nil t)
-                    (setq personality
-                          (get-text-property (point) 'personality))
-                    (setq pronunciation
-                          (save-match-data 
-                            (funcall pronouncer
-                                     (buffer-substring 
-                                      (match-beginning 0)
-                                      (match-end 0)))))
-                    (replace-match pronunciation t t  )
-                    ;; get personality if any from pronunciation
-                    (setq pp
-                          (get-text-property (match-beginning 0) 'personality))
-                    (put-text-property
-                     (match-beginning 0)
-                     (+ (match-beginning 0) (length pronunciation))
-                     'personality
-                     (apply 'append
-                            (mapcar
-                             #'(lambda (p)
-                                 (when p
-                                   (if (atom p) (list p) p)))
-                             (list
-                              emacspeak-pronounce-pronunciation-personality
-                              personality pp)))))))
-               (t nil)))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
