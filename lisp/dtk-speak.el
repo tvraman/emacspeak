@@ -185,6 +185,75 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 (defvar voice-lock-mode nil)
 
 ;;}}}
+;;{{{ helper: apply pronunciations 
+;;; moved here from the emacspeak-pronounce module for efficient
+;;compilation
+
+(defsubst tts-apply-pronunciations (pronunciation-table )
+  "Applies pronunciations specified in pronunciation table to current buffer.
+Modifies text and point in buffer."
+  (declare (special emacspeak-pronounce-pronunciation-personality))
+  (let ((words
+         (sort 
+          (loop for  key  being the hash-keys  of pronunciation-table collect key)
+          #'(lambda (a b ) 
+              (> (length  a) (length  b))))))
+    (loop for key in words 
+          do
+          (let ((word  key)
+                (pronunciation (gethash  key pronunciation-table))
+                (pp nil)
+                (personality nil))
+            (when word 
+              (goto-char (point-min))
+              (cond
+               ((stringp pronunciation)
+                (while (search-forward  word nil t)
+                  (setq personality (get-text-property (point) 'personality))
+                  (replace-match  pronunciation t t  )
+                  (put-text-property
+                   (match-beginning 0)
+                   (+ (match-beginning 0) (length pronunciation))
+                   'personality
+                   (apply
+                    'append
+                    (mapcar
+                     #'(lambda (p)
+                         (when p
+                           (if (atom p) (list p) p)))
+                     (list emacspeak-pronounce-pronunciation-personality personality))))))
+               ((consp pronunciation )
+                (let ((matcher (car pronunciation))
+                      (pronouncer (cdr pronunciation))
+                      (pronunciation ""))
+                  (while (funcall matcher   word nil t)
+                    (setq personality
+                          (get-text-property (point) 'personality))
+                    (setq pronunciation
+                          (save-match-data 
+                            (funcall pronouncer
+                                     (buffer-substring 
+                                      (match-beginning 0)
+                                      (match-end 0)))))
+                    (replace-match pronunciation t t  )
+                    ;; get personality if any from pronunciation
+                    (setq pp
+                          (get-text-property (match-beginning 0) 'personality))
+                    (put-text-property
+                     (match-beginning 0)
+                     (+ (match-beginning 0) (length pronunciation))
+                     'personality
+                     (apply 'append
+                            (mapcar
+                             #'(lambda (p)
+                                 (when p
+                                   (if (atom p) (list p) p)))
+                             (list
+                              emacspeak-pronounce-pronunciation-personality
+                              personality pp)))))))
+               (t nil)))))))
+
+;;}}}
 ;;{{{  Helpers to handle invisible text:
 
 (defsubst text-visible-p (position)
@@ -1725,7 +1794,7 @@ only speak upto the first ctrl-m."
           (insert  text)
           (delete-invisible-text)
           (when pronunciation-table
-            (emacspeak-pronounce-apply-pronunciations
+            (tts-apply-pronunciations
              pronunciation-table))
           (dtk-handle-repeating-patterns mode)
           (dtk-quote mode))
