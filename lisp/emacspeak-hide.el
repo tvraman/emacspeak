@@ -330,7 +330,6 @@ starting on the current line.  A block of text is defined as
 a portion of the buffer in which all lines start with a
 common PREFIX.  Optional interactive prefix arg causes all
 blocks in current buffer to be hidden or exposed."
-
   (interactive "P")
   (save-excursion
     (dtk-stop)
@@ -359,7 +358,8 @@ blocks in current buffer to be hidden or exposed."
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."
   (interactive)
-  (emacspeak-hide-or-expose-block 'all))
+  (let ((current-prefix-arg t))
+  (call-interactively 'emacspeak-hide-or-expose-block)))
 
 ;;}}}
 ;;{{{  speaking blocks sans prefix
