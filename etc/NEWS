@@ -2,54 +2,26 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
-* Emacspeak 25.0 Additions And Changes:
+* Emacspeak 26.0 Additions And Changes:
 
-Emacspeak 25.0 provides the following user level enhancements:
+Emacspeak 26.0 provides the following user level enhancements:
 
-* user Visible Changes:
-
-**  ssh-<tts_server> 
-
-accepts hostnames of the form host:port.
-This is useful for setting up ones firewall to allow ssh through
-a non-standard port.
-
-**  emacspeak-etable:
-
-Speech-enables Emacs' table.el table editor.
-Note that character echo in the table editor is painfully slow.
+  1. Added support for ESpeak -- a freely available TTS engine.
+  2. Added support for Ocropus -- a freely available OCR engine.
+  3. Updated Websearch tools.
+  4. Updated URL templates to enhance the Web Command Line.
+  5. Support for Google Services like Blogger via package G-Client.
+  6. Updated productivity tools in the wizards package.
+  7. Fully tested against the upcoming Emacs 22.
+  8. Better integration between W3 and W3M.
 
 
-** emacspeak-org.el:
+This release contains many user contributed patches including:
 
-Completed speech-enabling org-mode, including its simplified
-table editor (orgtbl).
-
-**  emacspeak-wizards:
-
-  - Added a wizard for generating a custom popup input buffer.
-  -  Use this in emacspeak-org.
-** Dropping Obsolete Extensions:
-
-The following extensions have been made obsolete --- they can
-still be found under lisp/obsolete in CVS.
-
-  - emacspeak-hyperbole.el
-  - emacspeak-oo-browser.el
-  - emacspeak-kotl.el
-  - emacspeak-wrolo.el
-  - emacspeak-freeamp.el
-
-** emacspeak-url-template:
-
-  - Added a Google Video searcher
-
-**  emacspeak-emms:
-
-Updated to support emms-2.0.
-
+  - ESpeak patches from the Oralux project.
+  - W3M support patches from RDC
+  
 
 Local variables:
  mode: org
- paragraph-separate: "[ ]*$"
 end:
