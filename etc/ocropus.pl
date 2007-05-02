@@ -6,11 +6,12 @@ use strict;
 use File::Basename;
 
 my $OCR = 'ocropus';
-my $output = "/tmp/ocr-output-$$.txt";
+my $output = "/tmp/ocr-output-$$.html";
 my $image =shift;
 die "No image specified" unless defined ($image);
 qx($OCR  ocr $image > $output 2>/dev/null);
-open(OUTPUT, "lynx -dump $output 2>/dev/null | cat -s |"  );
+open(OUTPUT, "lynx -dump $output 2>/dev/null | cat -s |");
 while (<OUTPUT>) {
   print;
 }
+unlink $output;
