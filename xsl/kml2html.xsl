@@ -8,7 +8,9 @@ Transform KML to speakable XHTML
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:kml="http://earth.google.com/kml/2.1">
+                xmlns:kml="http://earth.google.com/kml/2.0"
+                xmlns:kml21="http://earth.google.com/kml/2.1"
+                >
   <xsl:output encoding="iso8859-15"
               method="xml"  indent="yes"/>
   
