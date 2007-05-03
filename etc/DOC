@@ -1212,32 +1212,6 @@ and when you have heard enough navigate easily  to move past the block.
 
 ------------------------------------------------------------
 
-** emacspeak-imcom Start IMCom. 
-
-------------------------------------------------------------
-
-** emacspeak-imcom-mode Major mode for Jabber interaction using IMCom.
-
-
-key             binding
----             -------
-
-C-c		Prefix Command
-
-C-c v		emacspeak-imcom-view-chat-session
-
-
-
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
-during initialization. 
-
-------------------------------------------------------------
-
-** emacspeak-imcom-view-chat-session Display specified chat session. 
-
-------------------------------------------------------------
-
 ** emacspeak-imenu-goto-next-index-position Goto the next index position in current buffer 
 
 ------------------------------------------------------------
@@ -3137,6 +3111,10 @@ If N is negative, move backward instead.
 ------------------------------------------------------------
 
 ** emacspeak-vm-speak-labels Speak a message's labels 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-message Move point to the message body. 
 
 ------------------------------------------------------------
 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 647 user customizable
+This chapter documents a total of 643 user customizable
   options.
 
 @menu
@@ -35,7 +35,6 @@ This chapter documents a total of 647 user customizable
 * emacspeak-gnus Options::      
 * emacspeak-hide Options::      
 * emacspeak-ido Options::       
-* emacspeak-imcom Options::     
 * emacspeak-imenu Options::     
 * emacspeak-info Options::      
 * emacspeak-ispell Options::    
@@ -979,29 +978,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-ido-subdir-voice
 Personality used for ido-subdir
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-@end defvar
-
-@node emacspeak-imcom Options
-@section emacspeak-imcom Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-imcom.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-imcom-client
-Name of IMCom command-line client.
-@end defvar
-
-@defvar {User Option} emacspeak-imcom-default-jabber-server
-Name of jabber server that is used by default.
-@end defvar
-
-@defvar {User Option} emacspeak-imcom-hooks
-Start up hooks run after IMCom process is started.
-@end defvar
-
-@defvar {User Option} emacspeak-imcom-personal-directory
-Directory where IMCom stores personalization files.
 @end defvar
 
 @node emacspeak-imenu Options
