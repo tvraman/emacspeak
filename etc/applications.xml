@@ -105,6 +105,9 @@ type="text/xsl"?>
     <application name="Find Wizard">
       Command  <code>emacspeak-wizards-generate-finder</code>
     provides an easy to use front-end to UNIX <code>find</code>.</application>
+    
+    <application name="apt-get">
+    Emacs interface to Debian <code>apt-get</code></application>
   </category>
   <category name="web">
     <application name="w3">
@@ -276,6 +279,8 @@ type="text/xsl"?>
     </application>
     <application name="alsaplayer">
     Play MP3 and OGG streams using ALSA.</application>
+    <application name="zinf">
+    Play media streams using zinf.</application>
     <application name="madplay">
     Play MP3 and OGG streams using Madplay.</application>
     <application name="mplayer">
@@ -283,7 +288,7 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
-<application name="emms">
+    <application name="emms">
       Emacs equivalent  of XMMS --- a versatile multimedia tool.
       Provides a consistent user interface to a variety of media players.
     </application>
@@ -335,11 +340,11 @@ type="text/xsl"?>
       Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
     </application>
 
-  <application name="muse">
+    <application name="muse">
       Speech-enables <code>muse-mode</code> an Emacs publishing
       package that enables Wiki-like authoring 
-with the ability to publish the results to multiple formats.
-    </application></category>
+      with the ability to publish the results to multiple formats.
+  </application></category>
   <category name="Reading">
     <application name="ocr">
       Emacs front-end  to OCR engines.
@@ -533,7 +538,7 @@ with the ability to publish the results to multiple formats.
       Features  aural highlighting and easy access to
       online help.
     </application>
-<application name="ruby">
+    <application name="ruby">
       Speech-enables editting support for Ruby.
       Features  aural highlighting and easy access to
       online help.
