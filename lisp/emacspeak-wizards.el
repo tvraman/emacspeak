@@ -2558,7 +2558,7 @@ Use with caution."
     (shell-command command buffer)
     (switch-to-buffer buffer)
     (kill-all-local-variables)
-    (insert-file
+    (insert-file-contents
      (expand-file-name
       (format "vc-%s.dump" console)
       temporary-file-directory))
@@ -2589,7 +2589,7 @@ Use with caution."
     (shell-command command)
     (fundamental-mode)
     (erase-buffer)
-    (insert-file
+    (insert-file-contents
      (expand-file-name
       (format "vc-%s.dump"
               console)

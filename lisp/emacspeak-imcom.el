@@ -164,7 +164,7 @@ sessions.")
       (set-buffer buffer)
       (erase-buffer)
       (insert "<jabber>\n")
-      (insert-file session)
+      (insert-file-contents session)
       (goto-char (point-max))
       (insert "\n</jabber>\n")
       (emacspeak-xslt-region

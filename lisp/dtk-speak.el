@@ -1131,7 +1131,7 @@ no line --with no white space."
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (insert-file
+      (insert-file-contents
        (expand-file-name ".servers"
                          emacspeak-servers-directory))
       (goto-char (point-min))
