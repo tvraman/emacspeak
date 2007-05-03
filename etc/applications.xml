@@ -193,12 +193,6 @@ type="text/xsl"?>
     <application name="emacs-jabber">
       Speech-enables emacs-jabber, an  Emacs Jabber client available
     from Sourceforge.</application>
-    <application name="imcom">
-      IMCom is a Python-based jabber client.
-      Module emacspeak-imcom speech-enables IMCom with full audio
-      formatting support.
-      Chat sessions can be viewed within W3  with full ACSS support.
-    </application>
     <application name="gnuyahoo">
       GNUYahoo is a Yahoo messenger client.
     </application>
