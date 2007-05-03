@@ -444,7 +444,24 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 ;;{{{  opening a file of table data
-;;;###autoload
+
+;;{{{ csv helpers:
+
+(defsubst ems-csv-forward-field ()
+  "Skip forward over one field."
+  (if (eq (following-char) ?\")
+      (forward-sexp)
+    (skip-chars-forward "^,\n")))
+
+(defsubst ems-csv-backward-field ()
+  "Skip backward over one field."
+  (if (eq (preceding-char) ?\")
+      (backward-sexp)
+    (skip-chars-backward "^,\n")))
+
+;;}}}
+
+
 (defsubst emacspeak-table-prepare-table-buffer (table buffer
                                                       &optional filename)
   "Prepare tabular data."
@@ -513,6 +530,23 @@ the documentation on the table browser."
     (kill-buffer data )
     (emacspeak-table-prepare-table-buffer table buffer filename )))
 
+(defsubst ems-csv-get-fields ()
+  "Return list of fields on this line."
+  (let ((fields nil)
+        (start (line-beginning-position))
+        (end nil))
+    (save-excursion
+      (goto-char start)
+      (while (not (eolp))
+        (ems-csv-forward-field)
+        (push
+         (buffer-substring-no-properties start  (point))
+         fields)
+        (when (= (char-after) ?,)
+          (forward-char 1))
+        (setq start (point))))
+    (nreverse fields)))
+        
 ;;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file.
@@ -522,27 +556,25 @@ The processed  data and presented using emacspeak table navigation. "
         (table nil)
         (elements nil)
         (this-row nil)
-        (this-line nil)
         (fields nil)
         (buffer (get-buffer-create
                  (format "*%s-table*"
                          (file-name-nondirectory filename)))))
     (save-excursion
       (set-buffer scratch)
+      (fundamental-mode)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (insert-file filename)
+      (insert-file-contents filename)
+      (flush-lines "^ *$")
       (goto-char (point-min))
       (setq elements (make-vector (count-lines (point-min)
                                                (point-max)) nil))
       (loop for i from 0 to (1- (length elements))
             do
-            (setq this-line
-                  (buffer-substring (line-beginning-position)
-                                    (line-end-position)))
-            (setq fields (split-string this-line ","))
+            (setq fields (ems-csv-get-fields))
             (setq this-row (make-vector (length fields) nil))
-            (loop for j from 0 to (1- (length  fields))
+            (loop for j from 0  to (1- (length  fields))
                   do
                   (aset this-row j (nth j fields)))
             (forward-line 1)
