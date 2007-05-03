@@ -475,6 +475,7 @@ Optional prefix arg prompts for a new filter."
           (column-start 1)
           (inhibit-read-only t))
       (setq truncate-lines t)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (set (make-local-variable 'emacspeak-table) table)
       (set (make-local-variable 'positions)
@@ -504,11 +505,12 @@ Optional prefix arg prompts for a new filter."
             (put-text-property row-start (point) 'row i)
             (setq row-start (point))
             (incf i))
-      (emacspeak-table-mode)
-      (goto-char (point-min))))
+      (emacspeak-table-mode)))
   (switch-to-buffer buffer)
+  (emacspeak-table-goto-cell emacspeak-table 0 0)
   (setq truncate-lines t)
   (message "Use Emacspeak Table UI to browse this table."))
+
 ;;;###autoload
 (defun emacspeak-table-find-file (filename)
   "Open a file containing table data and display it in table mode.
@@ -582,8 +584,8 @@ The processed  data and presented using emacspeak table navigation. "
             (forward-line 1))
       (setq table (emacspeak-table-make-table elements)))
     (kill-buffer scratch)
-    (emacspeak-table-prepare-table-buffer table buffer
-                                          filename )))
+    (emacspeak-table-prepare-table-buffer table buffer filename )
+    (emacspeak-table-speak-current-element)))
 
 ;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
