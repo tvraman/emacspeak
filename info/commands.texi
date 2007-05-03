@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 775 commands.
+This chapter documents a total of 773 commands.
 
 @menu
 * cd-tool::                     
@@ -41,7 +41,6 @@ This chapter documents a total of 775 commands.
 * emacspeak-gridtext::          
 * emacspeak-hide::              
 * emacspeak-ibuffer::           
-* emacspeak-imcom::             
 * emacspeak-imenu::             
 * emacspeak-info::              
 * emacspeak-jabber::            
@@ -1592,35 +1591,6 @@ for commands defined in module  emacspeak-ibuffer.
 
 @deffn {Interactive Command} emacspeak-ibuffer-speak-buffer-line ()
 Speak information about this buffer
-@end deffn
-
-@node emacspeak-imcom
-@section emacspeak-imcom
-
-Automatically generated documentation
-for commands defined in module  emacspeak-imcom.
-
-@deffn {Interactive Command} emacspeak-imcom ()
-Start IMCom.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-imcom-mode ()
-Major mode for Jabber interaction using IMCom.
-
-key             binding
----             -------
-
-C-c		Prefix Command
-
-C-c v		emacspeak-imcom-view-chat-session
-
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
-during initialization.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-imcom-view-chat-session (SESSION)
-Display specified chat session.
 @end deffn
 
 @node emacspeak-imenu
@@ -3814,6 +3784,10 @@ If N is negative, move backward instead.
 Speak a message's labels
 @end deffn
 
+@deffn {Interactive Command} emacspeak-vm-speak-message ()
+Move point to the message body.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-vm-yank-header ()
 Yank specified header into kill ring.
 @end deffn
@@ -4089,7 +4063,7 @@ Speak next document element.
 Speak document element under point.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-style-filter (STYLE &optional PROMPT-URL SPEAK-RESULT)
+@deffn {Interactive Command} emacspeak-w3-style-filter (STYLE &optional PROMPT-URL SPEAK)
 Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
