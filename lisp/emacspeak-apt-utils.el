@@ -173,16 +173,16 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-apt-utils-speak-package-name)))
+    (emacspeak-speak-line)))
 
 (defadvice apt-utils-next-package (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-apt-utils-speak-package-name)))
+    (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ mapping font faces to personalities 
+;;{{{ mapping font faces to personalities
 
 (voice-setup-add-map
  '(
