@@ -149,6 +149,16 @@ type="text/xsl"?>
       Access Internet  translation services.
     </application>
   </category>
+  <category name="Google Client">
+    <application name="gblogger">
+      Blogger client for blogspot.com using Atom Publishing
+    Protocol.</application>
+    <application name="greader">
+      Google Reader client using ATOM and REST.
+    </application>
+    <application name="gcal">
+    Google Calendar client using ATOM and GData.</application>
+  </category>
   <category name="Messaging">
     <application name="atom-blogger">
       Speech-enables <code>atom-blogger</code>, a light-weight
