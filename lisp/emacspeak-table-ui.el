@@ -533,15 +533,19 @@ the documentation on the table browser."
 (defsubst ems-csv-get-fields ()
   "Return list of fields on this line."
   (let ((fields nil)
-        (start (line-beginning-position))
-        (end nil))
+        (this-field nil)
+        (start (line-beginning-position)))
     (save-excursion
       (goto-char start)
       (while (not (eolp))
         (ems-csv-forward-field)
-        (push
-         (buffer-substring-no-properties start  (point))
-         fields)
+        (setq this-field
+              (cond
+               ((= (preceding-char) ?\")
+                (buffer-substring-no-properties (1+ start)
+                                                (1- (point))))
+               (t (buffer-substring-no-properties start  (point)))))
+        (push this-field fields)
         (when (= (char-after) ?,)
           (forward-char 1))
         (setq start (point))))
@@ -568,17 +572,14 @@ The processed  data and presented using emacspeak table navigation. "
       (insert-file-contents filename)
       (flush-lines "^ *$")
       (goto-char (point-min))
-      (setq elements (make-vector (count-lines (point-min)
-                                               (point-max)) nil))
+      (setq elements
+            (make-vector (count-lines (point-min) (point-max))
+                         nil))
       (loop for i from 0 to (1- (length elements))
             do
             (setq fields (ems-csv-get-fields))
-            (setq this-row (make-vector (length fields) nil))
-            (loop for j from 0  to (1- (length  fields))
-                  do
-                  (aset this-row j (nth j fields)))
-            (forward-line 1)
-            (aset elements i this-row))
+            (aset elements i (apply 'vector fields))
+            (forward-line 1))
       (setq table (emacspeak-table-make-table elements)))
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer
