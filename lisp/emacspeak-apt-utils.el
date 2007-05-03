@@ -172,14 +172,12 @@
 (defadvice apt-utils-previous-package (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice apt-utils-next-package (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}
 ;;{{{ mapping font faces to personalities
