@@ -31,5 +31,5 @@ my @labels=qw(
 @quotes = getquote @symbols;
 print join (", ", @labels ),"\n";
 foreach $q (@quotes ) {
-print join(", ", @$q),"\n";
+print "\"",join("\",\"", @$q),"\"\n";
 }
