@@ -30,6 +30,7 @@ my @labels=qw(
 
 @quotes = getquote @symbols;
 print join (", ", @labels ),"\n";
+my $sep = q(",");
 foreach $q (@quotes ) {
-print "\"",join("\",\"", @$q),"\"\n";
+  print "\"",join($sep, @$q),"\"\n";
 }
