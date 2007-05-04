@@ -13,7 +13,7 @@
 # {{{ Copyright:
 
 #x
-#Copyright (C) 1995 -- 2006, T. V. Raman 
+#Copyright (C) 1995 -- 2007, T. V. Raman 
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved. 

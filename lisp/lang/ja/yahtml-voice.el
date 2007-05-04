@@ -8,7 +8,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interpersonality to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 1.1 $ | 
+;;;  $Revision$ | 
 ;;; Location undetermined
 ;;;
 
