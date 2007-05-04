@@ -151,8 +151,7 @@ FORMS =etc/forms/*.el
 REALAUDIO=realaudio
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
-ESPEAK=servers/linux-espeak/tclespeak.cpp \
-servers/linux-espeak/Makefile
+ESPEAK=servers/linux-espeak
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
 servers/software-dtk/Makefile
