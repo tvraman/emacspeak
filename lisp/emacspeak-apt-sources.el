@@ -16,7 +16,7 @@
 
 ;;; Initial version: Author: Igor B. Poretsky
 ;;; <master@goga.energo.ru>
-;;; Updated and maintained by $Author:$
+;;; Updated and maintained by $Author$
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;

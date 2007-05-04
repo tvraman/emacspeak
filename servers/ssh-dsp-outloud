@@ -1,7 +1,7 @@
 #!/usr/bin/tcl
 #$Id$
 #Description: Launch a TTS server on a remote host.
-#Copyright (C) 1995 -- 2006, T. V. Raman 
+#Copyright (C) 1995 -- 2007, T. V. Raman 
 # {{{  documentation
 
 # Running TTS server remotely.
