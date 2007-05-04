@@ -3,6 +3,14 @@
 ;;; Keywords: Emacspeak, apt, Debian Package Manager
 ;;{{{  LCD Archive entry:
 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; A speech interface to Emacs |
+;;; $Date$ |
+;;;  $Revision$ |
+;;; Location undetermined
+;;;
+
 ;;}}}
 ;;{{{  Copyright:
 
@@ -27,11 +35,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-
-(require 'emacspeak-preamble)
-
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -41,6 +44,11 @@
 ;;; and provides a nice interface to searching and browsing
 ;;; Debian packages.
 ;;; Code:
+
+;;}}}
+;;{{{ required modules
+
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Initial setup
