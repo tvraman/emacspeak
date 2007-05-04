@@ -3,10 +3,20 @@
 ;;; Keywords: Emacspeak, apt, sources.list
 ;;{{{  LCD Archive entry:
 
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; A speech interface to Emacs |
+;;; $Date$ |
+;;;  $Revision$ |
+;;; Location undetermined
+;;;
+
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Initial version: Author: Igor B. Poretsky <master@goga.energo.ru>
+;;; Initial version: Author: Igor B. Poretsky
+;;; <master@goga.energo.ru>
+;;; Updated and maintained by $Author:$
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -41,17 +51,17 @@
 ;;; APT's sources.list file.
 
 ;;}}}
-;;{{{
-
-;;; Code:
+;;{{{  Required modules
+(require 'emacspeak-preamble)
+(require 'arc-mode)
+;;}}}
+;;{{{ Advice interactive commands to speak.
 
 (defadvice apt-sources-mode (after emacspeak pre act comp)
   "Setup Emacspeak extensions"
   (voice-lock-mode 1)
   (dtk-set-punctuations "all"))
 
-;;}}}
-;;{{{ Advice interactive commands to speak.
 
 (defadvice apt-sources-previous-source-line (after emacspeak pre act comp)
   "Provide auditory feedback."
