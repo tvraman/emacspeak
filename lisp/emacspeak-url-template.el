@@ -2139,6 +2139,30 @@ launch the realmedia player after fetching the resource.\n\n"
           (insert "\n\n"))))
 
 ;;}}}
+;;{{{WordReference:
+
+(emacspeak-url-template-define
+ "WordReference"
+ "http://www.wordreference.com/es/translation.asp?tranword=%s&B10=Search&dict=%s"
+ (list
+  "word"
+  #'(lambda nil
+      (completing-read "using Dictionary:"
+                       '(("enes" . "enes")
+                         ("esen" . "esen")
+                         ("enit" "enit")
+                         ("iten" . "iten")
+                         ("enfr" . "enfr")
+                         ("fren" . "fren")
+                         ("enen" . "enen")))))
+ #'(lambda nil
+     (beginning-of-buffer)
+     (search-forward "principal"))
+ "Translate a word using wordreference.com. Source and target languages
+are specified as two-letter language codes, e.g. fren translates
+from french to english. Available dictionaries are: enes, esen, enfr, fren, enit, iten, enen")
+
+;;}}}nnnnnnn
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
