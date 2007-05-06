@@ -266,9 +266,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   #'(lambda nil
       (read-passwd  "Password: ")))
  nil
- "Bookshare Login"
- #'(lambda (url)
-     (emacspeak-lynx url)))
+ "Bookshare Login")
 
 ;;}}}
 ;;{{{ shoutcast
