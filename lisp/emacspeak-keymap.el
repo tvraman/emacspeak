@@ -453,6 +453,8 @@ field in the customization buffer.  You can use the notation
 (dotimes (i 10) (define-key emacspeak-dtk-submap   (format "%s" i )   'dtk-set-predefined-speech-rate ))
 
 ;;; Put these in the global map:
+(global-set-key '[shift left] 'previous-buffer)
+(global-set-key '[shift right] 'next-buffer)
 (global-set-key '[(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key '[(control right)] 'emacspeak-next-frame-or-buffer)
 (global-set-key '[pause] 'dtk-stop)
