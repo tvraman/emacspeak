@@ -124,6 +124,12 @@ Also provide an auditory icon"
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
+(defadvice Man-kill (after emacspeak pre act )
+  "Announce buffer that is current"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line )))
+
 (defadvice manual-entry (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
