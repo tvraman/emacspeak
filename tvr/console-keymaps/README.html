@@ -15,11 +15,13 @@ Emacspeak.</p>
 
 <ul>
 <li>Copy file <code>emacspeak.kmap.gz</code> to directory
-<code>/lib/kbd/keymaps/i386/qwerty</code>.</li>
+<code>/usr/share/keymaps/i386/qwerty</code>.</li>
 <li>Copy file <code>emacspeak.enc.gz</code> to directory
-<code>/lib/kbd/keytables/i386/include/</code>.</li>
-<li>As super-user, execute <code>loadkeys
-/lib/kbd/keytables/i386/qwerty/emacspeak.kmap.gz</code>.</li>
+<code>/usr/share/keymaps/i386/include/</code>.</li>
+<li>As super-user, execute
+<pre>
+ loadkeys
+/usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz</pre></li>
 <li>To take full advantage of the new keys, load file
 <a href="../console.el">console.el</a> in your Emacs session.</li>
 </ul>

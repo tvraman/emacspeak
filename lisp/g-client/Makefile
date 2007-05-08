@@ -38,13 +38,9 @@
 # what emacs is called on your system
 EMACS = emacs
 # How to run in batch mode
-BATCH = -batch -q -no-site-file
+BATCH = -batch -q -no-site-file  -eval '(setq vc-handled-backends nil)'
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
-# How to compile
-%.elc:  %.el
-	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
-
 OBJECTS= g-auth.elc \
 g-utils.elc \
 g.elc \
@@ -54,38 +50,34 @@ gnotebook.elc \
 greader.elc \
 gsheet.elc
 
-# }}}
-# {{{  User level targets all
 
-all: $(OBJECTS)
+all: g-loaddefs.el g-cus-load.el ${OBJECTS} 
+
+
+# How to compile
+%.elc:  %.el
+	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
 # }}}
 # {{{build time target: config
 
-config: g-loaddefs.el g-cus-load.el
-
+config: g-cus-load.el
 
 force:
 
 g-cus-loads.el: force
 g-loaddefs.el: force
-
-.phony: g-cus-loads.el
-.phony: g-loaddefs.el
-
-g-loaddefs.el:
 	echo ";;;Auto generated" > g-loaddefs.el
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-generate-autoloads
 
-g-cus-load.el:
+g-cus-load.el: force
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-custom-make-dependencies "."
-
 
 # }}}
 # {{{  Make rules for the various modules
-g-utils.elc: g-utils.el g-loaddefs.el
-g.elc: g.el g-loaddefs.el
+g-utils.elc: g-utils.el 
 g-auth.elc: g-auth.el g-utils.elc
+g.elc: g.el  g-auth.elc
 greader.elc: greader.el g-auth.elc
 gsheet.elc: gsheet.el g-auth.elc
 gcal.elc: gcal.el g-auth.elc
