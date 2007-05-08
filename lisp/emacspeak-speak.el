@@ -3024,7 +3024,7 @@ typed. If no such group exists, then we dont move. "
 (defun emacspeak-mark-forward-mark ()
   "Cycle forward through the mark ring."
   (interactive)
-  (set-mark-command t)
+  (pop-to-mark-command)
   (when (interactive-p )
     (emacspeak-mark-speak-mark-line)))
 
