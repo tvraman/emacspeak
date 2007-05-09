@@ -2624,6 +2624,15 @@ Produce auditory icons if possible."
                                      voice-animate
                                      (emacspeak-speak-line ))))
 
+(defadvice pop-to-mark-command (after emacspeak pre act)
+  "Produce an auditory icon if possible."
+  (when (interactive-p )
+    (emacspeak-auditory-icon 'mark-object )
+    (ems-set-personality-temporarily (point) (1+ (point))
+                                     voice-animate
+                                     (emacspeak-speak-line ))))
+
+
 (defadvice pop-global-mark (after emacspeak pre act)
   "Produce an auditory icon if possible."
   (when (interactive-p )
