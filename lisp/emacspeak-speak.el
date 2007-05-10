@@ -3021,31 +3021,25 @@ typed. If no such group exists, then we dont move. "
                                    (emacspeak-speak-line)))
 
 ;;;###autoload
-(defun emacspeak-mark-forward-mark ()
-  "Cycle forward through the mark ring."
-  (interactive)
-  (pop-to-mark-command)
-  (when (interactive-p )
-    (emacspeak-mark-speak-mark-line)))
 
+(defalias 'emacspeak-mark-forward-mark 'pop-to-mark-command)
 ;;;###autoload
 (defun emacspeak-mark-backward-mark ()
   "Cycle backward through the mark ring."
   (interactive)
   (declare (special mark-ring))
-  (let ((target  (car (last mark-ring ))))
-    (cond
-     (target
+  (unless mark-ring (error "Mark ring is empty."))
+  (let ((target  (elt  mark-ring (1- (length mark-ring)))))
+    (when target
       (setq mark-ring
             (cons (copy-marker (mark-marker))
-                  (butlast mark-ring 1)))
-      (set-marker (mark-marker) (+ 0 target)
-                  (current-buffer))
+                  (nbutlast mark-ring 1)))
+      (set-marker (mark-marker)  (point) (current-buffer))
+      (goto-char (marker-position target))
       (move-marker target nil)
-      (goto-char (mark t))
       (when (interactive-p)
-        (emacspeak-mark-speak-mark-line)))
-     (t (message "No previous mark to move to")))))
+        (emacspeak-mark-speak-mark-line)))))
+     
 
 ;;}}}
 ;;{{{ customize emacspeak
