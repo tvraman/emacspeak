@@ -209,26 +209,24 @@ Modifies text and point in buffer."
               (cond
                ((stringp pronunciation)
                 (while (search-forward  word nil t)
-                  (setq personality (get-text-property (point) 'personality))
+                  (setq pp (get-text-property (point) 'personality))
                   (replace-match  pronunciation t t  )
-                  (put-text-property
-                   (match-beginning 0)
-                   (+ (match-beginning 0) (length pronunciation))
-                   'personality
-                   (apply
-                    'append
-                    (mapcar
-                     #'(lambda (p)
-                         (when p
-                           (if (atom p) (list p) p)))
-                     (list emacspeak-pronounce-pronunciation-personality personality))))))
+                  (when (or pp emacspeak-pronounce-pronunciation-personality)
+                    (put-text-property
+                     (match-beginning 0)
+                     (+ (match-beginning 0) (length pronunciation))
+                     'personality
+                     (cond
+                      ((and emacspeak-pronounce-pronunciation-personality
+                            (listp pp))
+                       (nconc pp (list emacspeak-pronounce-pronunciation-personality)))
+                      (t pp))))))
                ((consp pronunciation )
                 (let ((matcher (car pronunciation))
                       (pronouncer (cdr pronunciation))
                       (pronunciation ""))
                   (while (funcall matcher   word nil t)
-                    (setq personality
-                          (get-text-property (point) 'personality))
+                    (setq pp (get-text-property (point) 'personality))
                     (setq pronunciation
                           (save-match-data 
                             (funcall pronouncer
@@ -236,21 +234,16 @@ Modifies text and point in buffer."
                                       (match-beginning 0)
                                       (match-end 0)))))
                     (replace-match pronunciation t t  )
-                    ;; get personality if any from pronunciation
-                    (setq pp
-                          (get-text-property (match-beginning 0) 'personality))
-                    (put-text-property
-                     (match-beginning 0)
-                     (+ (match-beginning 0) (length pronunciation))
-                     'personality
-                     (apply 'append
-                            (mapcar
-                             #'(lambda (p)
-                                 (when p
-                                   (if (atom p) (list p) p)))
-                             (list
-                              emacspeak-pronounce-pronunciation-personality
-                              personality pp)))))))
+                    (when (or pp emacspeak-pronounce-pronunciation-personality)
+                      (put-text-property
+                       (match-beginning 0)
+                       (+ (match-beginning 0) (length pronunciation))
+                       'personality
+                       (cond
+                        ((and emacspeak-pronounce-pronunciation-personality
+                              (listp pp))
+                         (nconc pp (list emacspeak-pronounce-pronunciation-personality)))
+                        (t pp)))))))
                (t nil)))))))
 
 ;;}}}
@@ -612,8 +605,8 @@ Argument MODE  specifies the current pronunciation mode."
 (defsubst dtk-chunk-only-on-punctuations()
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
-        (remove-if (function (lambda (x)
-                               (= x 32 )))
+        (delete-if
+         #'(lambda (x) (= x 32 ))
                    dtk-chunk-separator-syntax)))
 
 ;;; invariance: looking at complement
@@ -669,7 +662,7 @@ Argument COMPLEMENT  is the complement of separator."
 (defsubst tts-get-overlay-personality (position)
   "Return personality at the front of the overlay list at position."
   (car
-   (remove nil
+   (delete nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'personality))
@@ -678,7 +671,7 @@ Argument COMPLEMENT  is the complement of separator."
 (defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
   (car
-   (remove nil
+   (delete nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))

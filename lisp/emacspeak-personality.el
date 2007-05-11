@@ -104,7 +104,7 @@ personality settings."
              (integer-or-marker-p end )
              (not (= start end)))
     (let ((v (if (listp personality)
-                 (remove-duplicates personality :test #'eq)
+                 (delete-duplicates personality :test #'eq)
                personality)))
       (ems-modify-buffer-safely
        (ad-Orig-put-text-property start end 'personality v object)))))
@@ -118,7 +118,7 @@ Existing personality properties on the text range are preserved."
              (not (= start end)))
     (ems-modify-buffer-safely
      (let ((v (if (listp personality)
-                  (remove-duplicates personality :test #'eq)
+                  (delete-duplicates personality :test #'eq)
                 personality))
            (orig (get-text-property start 'personality object))
            (new nil)
@@ -135,8 +135,8 @@ Existing personality properties on the text range are preserved."
                      (listp orig)
                      (and (listp orig)(memq v orig)))
            (setq new
-                 (remove-duplicates
-                  (append
+                 (delete-duplicates
+                  (nconc
                    (if (listp orig) orig (list orig))
                    (if (listp v) v (list v)))))
            (ad-Orig-put-text-property start extent
@@ -154,7 +154,7 @@ Existing personality properties on the text range are preserved."
              (not (= start end)))
     (ems-modify-buffer-safely
      (let ((v (if (listp personality)
-                  (remove-duplicates personality :test #'eq)
+                  (delete-duplicates personality :test #'eq)
                 personality))
            (orig (get-text-property start 'personality object))
            (new nil)
@@ -171,8 +171,8 @@ Existing personality properties on the text range are preserved."
                      (listp orig)
                      (and (listp orig) (memq v orig)))
            (setq new
-                 (remove-duplicates
-                  (append
+                 (delete-duplicates
+                  (nconc
                    (if (listp v) v (list v))
                    (if (listp orig) orig (list orig)))))
            (ad-Orig-put-text-property start extent
@@ -226,7 +226,7 @@ preserved."
 (defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
   (and (consp value)
-       (equal value (last value))
+       (equal value (nlast value))
        (cdr value)))
 
 ;;}}}
