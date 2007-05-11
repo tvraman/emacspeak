@@ -198,8 +198,8 @@ ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 # {{{  User level targets emacspeak info print
 
 emacspeak:
-	test -f  lisp/emacspeak-loaddefs.el || make config
-	cd lisp; $(MAKE)  SRC=$(SRC)
+	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
+	cd lisp; $(MAKE)  #SRC=$(SRC)
 	touch   $(ID)
 	chmod 644 $(ID)
 	@echo "Now check installation of  the speech server. "
@@ -248,7 +248,7 @@ dist: $(DISTFILES)
 # {{{ User level target--  config
 
 config:
-	cd etc; $(MAKE) config  SRC=$(SRC)
+	cd etc; $(MAKE) config  #SRC=$(SRC)
 	cd lisp; $(MAKE) config
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 

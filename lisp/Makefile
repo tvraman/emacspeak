@@ -238,13 +238,12 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all
 
 all: $(OBJECTS)
-	cd g-client && ${MAKE}
+	cd g-client; $(MAKE)
 
 force:
 
 config: emacspeak-loaddefs.el emacspeak-cus-load.el emacspeak-finder-inf.el
-	test -f  g-client/g-loaddefs.el ||cd g-client && ${MAKE}  config
-
+        
 # }}}
 # {{{build time target --loaddefs
 

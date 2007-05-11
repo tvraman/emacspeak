@@ -353,7 +353,7 @@ Note that this only works if the opening tag starts at column 0."
              (if single
                  (list tag)
                (setq tag (list tag))
-               (let ((data-beg (point)) (tag-end (last tag)))
+               (let ((data-beg (point)) (tag-end (nlast tag)))
                  (while (and (setq data (xml-parse-read t))
                              (not (stringp (cdr data))))
                    (setq tag-end (xml-parse-concat data-beg (car data)

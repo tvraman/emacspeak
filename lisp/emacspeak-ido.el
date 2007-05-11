@@ -211,7 +211,7 @@ The default value of 12 is too high for using ido effectively with speech. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
-     (car (last ido-matches)))))
+     (car (nlast ido-matches)))))
 
 (defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
