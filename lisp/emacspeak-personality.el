@@ -226,7 +226,7 @@ preserved."
 (defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
   (and (consp value)
-       (equal value (nlast value))
+       (equal value (last value))
        (cdr value)))
 
 ;;}}}

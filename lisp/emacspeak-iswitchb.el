@@ -127,7 +127,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
-     (car (nlast iswitchb-matches)))))
+     (car (last iswitchb-matches)))))
 (defadvice iswitchb-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (interactive-p)
