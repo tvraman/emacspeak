@@ -72,7 +72,7 @@
             (let ((entry  (format "%s"
                                   (quote (, f)))))
               (setq entry
-                    (car (nlast (split-string entry "-"))))
+                    (car (last (split-string entry "-"))))
               (message
                (format "Inserted %s entry" entry))))))))
 
@@ -117,7 +117,7 @@
             (let ((target  (format "%s"
                                    (quote (, f)))))
               (setq target
-                    (car (nlast (split-string target "-"))))
+                    (car (last (split-string target "-"))))
               (emacspeak-auditory-icon 'task-done)
               (message
                (format "Launched build %s " target))))))))
