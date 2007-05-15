@@ -390,12 +390,12 @@ Default date is assumed to be today, or  the date selected when
 ;;{{{ Events:
 
 (defvar gcal-default-feed-url
-  "'http://www.google.com/calendar/feeds/default/private/full'"
+  "'https://www.google.com/calendar/feeds/default/private/full'"
   "URL for default calendar feed for currently authenticated
 user.")
 
 (defvar gcal-private-feed-url
-  "'http://www.google.com/calendar/feeds/%s/private/full'"
+  "'https://www.google.com/calendar/feeds/%s/private/full'"
   "URL for private calendar feed using authentication.")
 
 (defsubst gcal-private-feed-url ()
@@ -735,7 +735,7 @@ date under point."
 ;;}}}
 ;;{{{ Feed of feeds:
 (defvar gcal-feeds-template-url
-  "'http://www.google.com/calendar/feeds/%s'"
+  "'https://www.google.com/calendar/feeds/%s'"
   "URL template for feed of feeds from calendar.")
 (defsubst gcal-feeds-url (userid)
   "Return url for feed of feeds."
