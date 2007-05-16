@@ -181,6 +181,7 @@ part of the libxslt package."
       (set-buffer result)
       (kill-all-local-variables)
       (erase-buffer)
+      (setq buffer-undo-list t)
       (shell-command command (current-buffer)
                      (when emacspeak-xslt-keep-errors
                        "*xslt errors*"))
