@@ -213,16 +213,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{  template resources
-;;{{{  wordnet
 
-(emacspeak-url-template-define
- "WordNet Search"
- "http://wordnet.princeton.edu/perl/webwn?s=%s"
- (list "WordNet Define: ")
- 'emacspeak-speak-buffer
- "Look up term in WordNet.")
-
-;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
@@ -607,98 +598,6 @@ mobile transcoder."
 
 ;;}}}
 ;;{{{ google maps
-
-(defun emacspeak-url-template-google-maps-xml (url)
-  "Set up buffer containing XML data from google maps."
-  (switch-to-buffer (emacspeak-url-template-google-maps-get-xml
-                     url))
-  (let ((nxml-auto-insert-xml-declaration-flag nil))
-    (goto-char (point-min))
-    (nxml-mode)
-    (goto-char (point-min))
-    (search-forward "?>" nil t)
-    (while (search-forward "<" nil t)
-      (replace-match "
-<"))
-    (indent-region (point-min) (point-max))))
-
-(defun emacspeak-url-template-google-maps-get-xml (url)
-  "Return buffer containing XML from google."
-  (let ((buffer (get-buffer-create "*Google Maps")))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (kill-all-local-variables)
-      (shell-command
-       (format "lynx -source '%s'" url)
-       (current-buffer))
-      (goto-char (point-min))
-      (search-forward "<page" nil t)
-      (search-backward "<?" nil t)
-      (delete-region (point-min) (point))
-      (search-forward "</page>" nil t)
-      (delete-region (point) (point-max))
-      (goto-char (point-min))
-      (while (search-forward "<?xml version=\"1.0\"?>" nil t)
-        (replace-match
-         "<?xml version=\"1.0\" encoding=\"iso-8859-14\"?>"))
-      (goto-char (point-min))
-      buffer)))
-
-(emacspeak-url-template-define
- "Google Maps Give Me XML"
- emacspeak-websearch-google-maps-uri
- (list "Query: ")
- nil
- "Get me XML from Google Maps.
-Specify the query using English and  addresses as complete as
-  possible.
-
-Here are some examples:
-
-0) To find a location by address specify:
-
-650 Harry Road San Jose CA 95120
-
-1) To get directions, specify:
-
-<source address> to <destination address>
-
-2) To find businesses etc., near a location, specify:
-
-<what> near <location address>
-"
- 'emacspeak-url-template-google-maps-xml)
-
-(defun emacspeak-url-template-google-maps-speak (url &optional
-                                                     near speak)
-  "Audio format map information from Google Maps.
-Optional arg `near' specifies reference location for generating direction links."
-  (let ((buffer (emacspeak-url-template-google-maps-get-xml url))
-        (emacspeak-xslt-options "")
-        (params
-         (cond
-          (near
-           (list (cons "base" (format "\"'%s'\"" url))
-                 (cons "near" (format "\"'%s'\"" near))))
-          (t
-           (list (cons "base" (format "\"'%s'\"" url)))))))
-    (save-excursion
-      (set-buffer buffer)
-      (emacspeak-xslt-region
-       (expand-file-name "emapspeak.xsl"
-                         emacspeak-xslt-directory)
-       (point-min) (point-max) params)
-      (add-hook 'emacspeak-w3-post-process-hook
-                #'(lambda ()
-                    (setq emacspeak-w3-url-executor
-                          'emacspeak-url-template-google-maps-speak)
-                    (emacspeak-speak-buffer)))
-      (when speak
-        (add-hook 'emacspeak-w3-post-process-hook
-                  'emacspeak-speak-buffer
-                  'at-end))
-      (browse-url-of-buffer))))
 
 (emacspeak-url-template-define
  "EmapSpeak Via Google"
@@ -1994,6 +1893,17 @@ Meerkat realy needs an xml-rpc method for getting this.")
      (emacspeak-speak-rest-of-buffer))
  "Ask Local Search.")
 ;;}}}
+;;{{{  wordnet
+
+(emacspeak-url-template-define
+ "WordNet Search"
+ "http://wordnet.princeton.edu/perl/webwn?s=%s"
+ (list "WordNet Define: ")
+ 'emacspeak-speak-buffer
+ "Look up term in WordNet.")
+
+;;}}}
+
 ;;}}}
 ;;{{{ Interactive commands
 
@@ -2137,30 +2047,6 @@ launch the realmedia player after fetching the resource.\n\n"
           (insert "\n\n"))))
 
 ;;}}}
-;;{{{WordReference:
-
-(emacspeak-url-template-define
- "WordReference"
- "http://www.wordreference.com/es/translation.asp?tranword=%s&B10=Search&dict=%s"
- (list
-  "word"
-  #'(lambda nil
-      (completing-read "using Dictionary:"
-                       '(("enes" . "enes")
-                         ("esen" . "esen")
-                         ("enit" "enit")
-                         ("iten" . "iten")
-                         ("enfr" . "enfr")
-                         ("fren" . "fren")
-                         ("enen" . "enen")))))
- #'(lambda nil
-     (beginning-of-buffer)
-     (search-forward "principal"))
- "Translate a word using wordreference.com. Source and target languages
-are specified as two-letter language codes, e.g. fren translates
-from french to english. Available dictionaries are: enes, esen, enfr, fren, enit, iten, enen")
-
-;;}}}nnnnnnn
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
