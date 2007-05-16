@@ -1419,7 +1419,7 @@ specifies the page to extract contents  from."
   (emacspeak-w3-xslt-filter
    (format "//*[contains(@style,  \"%s\")]" style)
    prompt-url speak))
-    
+
 ;;}}}
 ;;{{{ xpath  filter
 
@@ -1818,7 +1818,7 @@ If a rewrite rule is defined in the current buffer, we change
 
 (defcustom emacspeak-w3-tidy-options
   (list "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
-        "-asxml" "-quiet" "-clean" "-bare" "-omit"
+        "-asxml" "-quiet"  "-bare" "-omit"
         "--drop-proprietary-attributes" "yes" "--hide-comments"
         "yes")
   "Options to pass to tidy program"
