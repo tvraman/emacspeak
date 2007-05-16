@@ -406,7 +406,7 @@ Then speak the screenful. "
                    global-map
                    emacspeak-prefix
                    emacspeak-keymap))
-(define-key vm-mode-map "C" 'emacspeak-vm-catch-up-all-messages)
+(define-key vm-mode-map "\M-c" 'emacspeak-vm-catch-up-all-messages)
 (define-key vm-mode-map "\M-j" 'emacspeak-vm-locate-subject-line)
 (define-key vm-mode-map "," 'emacspeak-vm-speak-message)
 (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
