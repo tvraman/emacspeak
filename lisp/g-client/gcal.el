@@ -118,8 +118,7 @@
   <atom:category scheme='http://schemas.google.com/g/2005#kind'
 term='http://schemas.google.com/g/2005#event'></atom:category>
   <atom:content type='text'>%s</atom:content>
-  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'
-value='true'></gCal:quickadd>
+  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'value='true'></gCal:quickadd>
 </atom:entry>"
   "Template for quickadd events.")
 
@@ -135,8 +134,8 @@ value='true'></gCal:quickadd>
 ;;        when-start when-end)
 
 (defvar gcal-event-template
-  "<entry xmlns='http://www.w3.org/2005/Atom'
-xmlns:gd='http://schemas.google.com/g/2005'
+  "<entry xmlns='http://www.w3.org/2005/Atom' \
+xmlns:gd='http://schemas.google.com/g/2005' \
 xmlns:gCal='http://schemas.google.com/gCal/2005'>
 <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'>
 </category>
