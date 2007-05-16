@@ -261,7 +261,7 @@ Returns t if a block was found and hidden."
 ;;}}}
 ;;{{{  Hiding and exposing  all blocks in a buffer
 
-(defun emacspeak-hide-all-blocks-in-buffer ()
+(defun emacspeak-hide-all-blocks-in-buffer (&optional interactive-p)
   "Hide all blocks in current buffer."
   (declare (special emacspeak-speak-messages))
   (let ((count 0)
@@ -281,7 +281,7 @@ Returns t if a block was found and hidden."
                                         (current-buffer)
                                         (point-max))))
          (t (forward-line 1)))))
-    (when (interactive-p)
+    (when interactive-p
       (dtk-speak
        (format "Hid %s blocks" count)))))
 
