@@ -135,7 +135,9 @@ value='true'></gCal:quickadd>
 ;;        when-start when-end)
 
 (defvar gcal-event-template
-  "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
+  "<entry xmlns='http://www.w3.org/2005/Atom'
+xmlns:gd='http://schemas.google.com/g/2005'
+xmlns:gCal='http://schemas.google.com/gCal/2005'>
 <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'>
 </category>
 <title type='text'>%s </title>
