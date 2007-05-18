@@ -115,8 +115,9 @@
 ;;{{{ Feed of feeds:
 
 (defvar gphoto-feeds-template-url
-  "'http://picasaweb.google.com/data/feed/api/%s/liz?kind=album'"
+  "https://picasaweb.google.com/data/feed/api/%s/liz?kind=album"
   "URL template for feed of albums from Picasa.")
+
 (defsubst gphoto-feeds-url (userid)
   "Return url for feed of albums."
   (declare (special gphoto-feeds-template-url))
