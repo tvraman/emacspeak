@@ -115,7 +115,7 @@
 ;;{{{ Feed of feeds:
 
 (defvar gphoto-feeds-template-url
-  "https://picasaweb.google.com/data/feed/api/%s?kind=album"
+  "http://picasaweb.google.com/data/feed/api/user/%s?kind=album"
   "URL template for feed of albums from Picasa.")
 
 (defsubst gphoto-feeds-url (userid)
@@ -133,12 +133,13 @@
   (g-auth-ensure-token gphoto-auth-handle)
   (g-display-result
    (format
-    "%s %s %s %s '%s' 2>/dev/null"
+    "%s %s %s %s '%s' %s"
     g-curl-program g-curl-common-options
     g-cookie-options
     (g-authorization gphoto-auth-handle)
     (gphoto-feeds-url
-     (g-url-encode (g-auth-email gphoto-auth-handle))))
+     (g-url-encode (g-auth-email gphoto-auth-handle)))
+(g-curl-debug))
    g-atom-view-xsl))
 
 ;;}}}
