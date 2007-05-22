@@ -1,4 +1,5 @@
 # $Id$
+# Not needed for ALSA 1.0.9 or later.
 # these numbers work on the following:
 #  aplay -l | head 1
 #  I82801DBICH4 [Intel 82801DB-ICH4] (IBM Thinkpads)
