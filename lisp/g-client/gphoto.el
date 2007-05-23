@@ -81,6 +81,18 @@
                 (string :tag "Save password in .emacs"))
   :group 'gphoto)
 
+(defcustom gphoto-album-default-access "public"
+  "Default access mode for newly created albums."
+  :type 'string
+  :group 'gphoto)
+
+(defcustom gphoto-album-default-commenting-enabled"true"
+  "Default commenting mode for newly created albums."
+  :type '(choice
+          (string   "true")
+          (string  "false"))
+  :group 'gphoto)
+
 ;;}}}
 ;;{{{ Constants
 
@@ -159,6 +171,72 @@
     (g-curl-debug))
    g-atom-view-xsl))
 
+;;}}}
+;;{{{ Adding an album:
+
+(defstruct gphoto-album
+  title
+  summary
+  location
+  (access gphoto-album-default-access)
+  (commenting-enabled gphoto-album-default-commenting-enabled)
+  timestamp
+  keywords)
+
+(defvar gphoto-album-template
+  "<entry xmlns='http://www.w3.org/2005/Atom'
+    xmlns:media='http://search.yahoo.com/mrss/'
+    xmlns:gphoto='http://schemas.google.com/photos/2007'>
+  <title type='text'>%s</title>
+  <summary type='text'>%s</summary>
+  <gphoto:location>%s</gphoto:location>
+  <gphoto:access>%s</gphoto:access>
+  <gphoto:commentingEnabled>%s</gphoto:commentingEnabled>
+  <gphoto:timestamp>%s</gphoto:timestamp>
+  <media:group>
+    <media:keywords>%s</media:keywords>
+  </media:group>
+  <category scheme='http://schemas.google.com/g/2005#kind'
+    term='http://schemas.google.com/photos/2007#album'></category>
+</entry>"
+  "Template for new album.")
+
+(defun gphoto-read-album ()
+  "Prompt user and return specified album structure."
+  (let ((album (make-gphoto-album)))
+    (loop for slot in
+          '(title summary location
+                  timestamp keywords)
+          do
+          (eval
+           `(setf (,(intern (format "gphoto-album-%s" slot))
+                   album)
+                  (read-from-minibuffer (format "%s: " slot)))))
+    (setf (gphoto-album-access album)
+          (read-from-minibuffer "access:"
+                                gphoto-album-default-access
+                                nil nil nil
+                                gphoto-album-default-access))
+    (setf (gphoto-album-commenting-enabled album)
+          (read-from-minibuffer "Commenting Enabled?:"
+                                gphoto-album-default-commenting-enabled
+                                nil nil nil
+                                gphoto-album-default-commenting-enabled))
+    album))
+  
+   
+
+(defun gphoto-album-as-xml (album)
+  "Return Atom entry for  album structure."
+  (declare (special gphoto-album-template))
+  (format gphoto-album-template
+          (gphoto-album-title album)
+          (gphoto-album-summary album)
+          (gphoto-album-location album)
+          (gphoto-album-access album)
+          (gphoto-album-commenting-enabled
+           album)(gphoto-album-timestamp album)
+           (gphoto-album-keywords album)))
 ;;}}}
 ;;{{{ Sign out:
 
