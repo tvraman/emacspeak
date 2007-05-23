@@ -1,12 +1,12 @@
 ;;; g-photo.el ---  Google  Picasa Client
-;;;$Id: gcal.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id: gphoto.el,v 1.30 2006/09/28 17:47:44 raman Exp $
 ;;; $Author: raman $
 ;;; Description:   Client  For Accessing Picasa (Photo Albums)
 ;;; Keywords: Google   Atom API
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; gcal| T. V. Raman |raman@cs.cornell.edu
+;;; gphoto| T. V. Raman |raman@cs.cornell.edu
 ;;; An emacs interface to Reader|
 ;;; $Date: 2006/09/28 17:47:44 $ |
 ;;;  $Revision: 1.30 $ |
@@ -56,7 +56,6 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'calendar)
 (require 'g-utils)
 (require 'g-auth)
 (require 'browse-url)
@@ -76,7 +75,7 @@
   :group 'gphoto)
 
 (defcustom gphoto-user-password nil
-  "Password for authenticating to calendar account."
+  "Password for authenticating to Picasa account."
   :type '(radio (const :tag "Prompt for password" nil)
                 (string :tag "Save password in .emacs"))
   :group 'gphoto)
@@ -100,7 +99,7 @@
   "Service name for accessing Google photo.")
 
 (defsubst gphoto-p (service)
-  "Check if this is Calendar."
+  "Check if this is Picasa."
   (declare (special gphoto-service-name))
   (string-equal service gphoto-service-name))
 
@@ -116,7 +115,7 @@
                :password gphoto-user-password))
 
 (defvar gphoto-auth-handle (make-gphoto-auth)
-  "G auth handle used for signing into calendar.")
+  "G auth handle used for signing into Picasa.")
 
 (defun gphoto-authenticate ()
   "Authenticate into Google Photo."
@@ -180,7 +179,7 @@
   location
   (access gphoto-album-default-access)
   (commenting-enabled gphoto-album-default-commenting-enabled)
-  timestamp
+  ;timestamp
   keywords)
 
 (defvar gphoto-album-template
@@ -192,7 +191,6 @@
   <gphoto:location>%s</gphoto:location>
   <gphoto:access>%s</gphoto:access>
   <gphoto:commentingEnabled>%s</gphoto:commentingEnabled>
-  <gphoto:timestamp>%s</gphoto:timestamp>
   <media:group>
     <media:keywords>%s</media:keywords>
   </media:group>
@@ -205,8 +203,7 @@
   "Prompt user and return specified album structure."
   (let ((album (make-gphoto-album)))
     (loop for slot in
-          '(title summary location
-                  timestamp keywords)
+          '(title summary location keywords)
           do
           (eval
            `(setf (,(intern (format "gphoto-album-%s" slot))
@@ -229,14 +226,65 @@
 (defun gphoto-album-as-xml (album)
   "Return Atom entry for  album structure."
   (declare (special gphoto-album-template))
-  (format gphoto-album-template
-          (gphoto-album-title album)
-          (gphoto-album-summary album)
-          (gphoto-album-location album)
-          (gphoto-album-access album)
-          (gphoto-album-commenting-enabled
-           album)(gphoto-album-timestamp album)
-           (gphoto-album-keywords album)))
+  (format
+   gphoto-album-template
+   (gphoto-album-title album)
+   (gphoto-album-summary album)
+   (gphoto-album-location album)
+   (gphoto-album-access album)
+   (gphoto-album-commenting-enabled album)
+   (gphoto-album-keywords album)))
+
+(defsubst gphoto-album-create-url (auth-handle)
+  "URL to which new albums are posted."
+  (declare (special gphoto-base-url))
+  (format "%s/%s"
+          gphoto-base-url
+          (g-url-encode
+           (g-auth-email auth-handle))))
+
+(defsubst gphoto-post-album (album location)
+  "Post album to location and return HTTP response."
+  (declare (special g-cookie-options gphoto-auth-handle
+                    g-curl-program g-curl-common-options))
+  (g-using-scratch
+   (insert (gphoto-album-as-xml album))
+   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+         (status nil))
+     (shell-command-on-region
+      (point-min) (point-max)
+      (format
+       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options cl
+       (g-authorization gphoto-auth-handle)
+       g-cookie-options
+       location)
+      (current-buffer) 'replace)
+     (list (g-http-headers (point-min) (point-max))
+           (g-http-body (point-min) (point-max))))))
+
+;;;###autoload
+(defun gphoto-album-create ()
+  "Create a new GPhoto album."
+  (interactive)
+  (declare (special gphoto-auth-handle))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (let ((album (gphoto-read-album))
+        (headers nil)
+        (body nil)
+        (response nil))
+    (setq response
+          (gphoto-post-album album
+                             (gphoto-album-create-url gphoto-auth-handle)))
+    (setq headers (first response)
+          body (second response))
+    (when (or  (string-equal "201" (g-http-header "Status" headers))
+               (string-equal "200" (g-http-header "Status" headers)))
+      (and (> (length body)0)
+           (g-display-xml-string body g-atom-view-xsl)))))
+      
+      
+
 ;;}}}
 ;;{{{ Sign out:
 
@@ -245,7 +293,7 @@
   (interactive)
   (declare (special gphoto-auth-handle
                     gphoto-user-email gphoto-user-password))
-  (message "Signing out %s from Calendar"
+  (message "Signing out %s from Picasa"
            (g-auth-email gphoto-auth-handle))
   (setq gphoto-user-email nil
         gphoto-user-password nil)

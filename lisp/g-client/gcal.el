@@ -492,7 +492,7 @@ file."
     (setq headers (first response)
           body (second response))
     (when  (string-equal "201" (g-http-header "Status" headers))
-      (and (> 0(length body))
+      (and (> (length body)0)
            (g-display-xml-string body
                                  gcal-calendar-view))
       (message "Event added as %s" (g-http-header "Location"
