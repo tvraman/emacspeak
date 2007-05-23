@@ -48,6 +48,7 @@ gblogger.elc \
 gcal.elc \
 gnotebook.elc \
 greader.elc \
+gphoto.elc \
 gsheet.elc
 
 
