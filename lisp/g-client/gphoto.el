@@ -299,15 +299,12 @@
 (defun gphoto-read-photo ()
   "Prompt user and return specified photo structure."
   (let ((photo (make-gphoto-photo)))
-    (loop for slot in
-          '(title summary)
-          do
-          (eval
-           `(setf (,(intern (format "gphoto-photo-%s" slot))
-                   photo)
-                  (read-from-minibuffer (format "%s: " slot)))))
     (setf (gphoto-photo-filepath photo)
           (read-file-name "File: "))
+    (setf (gphoto-photo-title photo)
+          (file-name-nondirectory (gphoto-photo-filepath photo)))
+    (setf (gphoto-photo-summary photo)
+          (read-from-minibuffer "Summary: "))
     photo))
 
 (defun gphoto-photo-as-xml (photo)
@@ -318,7 +315,6 @@
    (gphoto-photo-title photo)
    (gphoto-photo-summary photo)))
 
-
 (defvar gphoto-photo-mime-template
   "<#multipart type=related>
      <#part type=image/jpeg filename=%s disposition=inline>
@@ -326,22 +322,43 @@
      <#/multipart>"
   "MML template for multipart/related posts.")
 
+(defvar gphoto-photo-mime-separator
+  "--===-=-="
+  "Mime separator.")
+
+(defvar gphoto-photo-multipart-header
+  " Content-Type: multipart/related; boundary=\"%s\"
+
+%s
+Content-Type: image/jpeg
+Content-Disposition: inline; filename=%s
+CONTENT-LENGTH: %s
+"
+  "Mime preamble to insert at front of post.")
+
 (defun gphoto-photo-generate-mime (photo)
   "Generates multipart/related mime representation."
-  (declare (special gphoto-photo-mime-template))
-  (with-temp-buffer
-    (insert (format gphoto-photo-mime-template
-                    (gphoto-photo-filepath photo)
-                    (gphoto-photo-as-xml photo)))
-    (mml-generate-mime)))
-
+  (declare (special gphoto-photo-multipart-header
+                    gphoto-photo-mime-separator))
+  (insert
+   (format
+    gphoto-photo-multipart-header
+    gphoto-photo-mime-separator gphoto-photo-mime-separator
+    (file-name-nondirectory(gphoto-photo-filepath photo))
+    (nth 7 (file-attributes (gphoto-photo-filepath photo)))))
+  (insert-file-contents (gphoto-photo-filepath photo))
+  (goto-char (point-max))
+  (insert (format "\n%s\n" gphoto-photo-mime-separator))
+  (insert "Content-Type: application/atom+xml\n")
+  (insert (gphoto-photo-as-xml photo))
+  (insert (format "\n%s\n" gphoto-photo-mime-separator)))
 
 (defsubst gphoto-post-photo (photo location)
   "Post photo to location and return HTTP response."
   (declare (special g-cookie-options gphoto-auth-handle
                     g-curl-program g-curl-common-options))
   (g-using-scratch
-   (insert (gphoto-photo-generate-mime photo))
+   (gphoto-photo-generate-mime photo)
    (let ((cl (format "-H Content-length:%s" (buffer-size)))
          (status nil))
      (shell-command-on-region
