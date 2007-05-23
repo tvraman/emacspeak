@@ -59,6 +59,7 @@
 (require 'g-utils)
 (require 'g-auth)
 (require 'browse-url)
+(require 'mml)
 
 ;;}}}
 ;;{{{ Customizations
@@ -134,11 +135,10 @@
     ("tag" . "tag"))
   "Choices for albums or tags.")
 
-
 (defsubst gphoto-read-feed-kind ( prompt choices)
   "Prompt with prompt to collect choice from choices."
   (completing-read prompt choices))
-  
+
 (defvar gphoto-album-or-tag-template-url
   (format "%s/%%s?kind=%%s" gphoto-base-url)
   "URL template for feed of albums or tags from Picasa.")
@@ -179,7 +179,7 @@
   location
   (access gphoto-album-default-access)
   (commenting-enabled gphoto-album-default-commenting-enabled)
-  ;timestamp
+                                        ;timestamp
   keywords)
 
 (defvar gphoto-album-template
@@ -220,8 +220,6 @@
                                 nil nil nil
                                 gphoto-album-default-commenting-enabled))
     album))
-  
-   
 
 (defun gphoto-album-as-xml (album)
   "Return Atom entry for  album structure."
@@ -282,8 +280,81 @@
                (string-equal "200" (g-http-header "Status" headers)))
       (and (> (length body)0)
            (g-display-xml-string body g-atom-view-xsl)))))
-      
-      
+
+;;}}}
+;;{{{ Adding a photo:
+
+(defvar gphoto-photo-template
+  "<entry xmlns='http://www.w3.org/2005/Atom'>
+  <title>%s</title>
+  <summary>%s</summary>
+  <category scheme='http://schemas.google.com/g/2005#kind'
+    term='http://schemas.google.com/photos/2007#photo'/>
+</entry>")
+
+(defstruct gphoto-photo
+  title summary
+  filepath)
+
+(defun gphoto-read-photo ()
+  "Prompt user and return specified album structure."
+  (let ((photo (make-gphoto-photo)))
+    (loop for slot in
+          '(title summary filepath)
+          do
+          (eval
+           `(setf (,(intern (format "gphoto-album-%s" slot))
+                   album)
+                  (read-from-minibuffer (format "%s: " slot)))))
+    photo))
+
+(defun gphoto-photo-as-xml (photo)
+  "Return Atom entry for  photo structure."
+  (declare (special gphoto-photo-template))
+  (format
+   gphoto-photo-template
+   (gphoto-album-title album)
+   (gphoto-album-summary album)))
+
+(defsubst gphoto-post-photo (photo location)
+  "Post photo to location and return HTTP response."
+  (declare (special g-cookie-options gphoto-auth-handle
+                    g-curl-program g-curl-common-options))
+  (g-using-scratch
+;;; instantiate mml bits here
+   (insert (gphoto-photo-as-xml album))
+   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+         (status nil))
+     (shell-command-on-region
+      (point-min) (point-max)
+      (format
+       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options cl
+       (g-authorization gphoto-auth-handle)
+       g-cookie-options
+       location)
+      (current-buffer) 'replace)
+     (list (g-http-headers (point-min) (point-max))
+           (g-http-body (point-min) (point-max))))))
+
+;;;###autoload
+(defun gphoto-photo-add (album-location)
+  "Add a photo to an existing album."
+  (interactive "sEnter Album URI: ")
+  (declare (special gphoto-auth-handle))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (let ((photo (gphoto-read-photo))
+        (headers nil)
+        (body nil)
+        (response nil))
+    (setq response
+          (gphoto-post-album photo album-location))
+    (setq headers (first response)
+          body (second response))
+    (when (or  (string-equal "201" (g-http-header "Status" headers))
+               (string-equal "200" (g-http-header "Status" headers)))
+      (and (> (length body)0)
+           (g-display-xml-string body g-atom-view-xsl)))))
 
 ;;}}}
 ;;{{{ Sign out:
