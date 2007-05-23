@@ -336,22 +336,22 @@ CONTENT-LENGTH: %s
 "
   "Mime preamble to insert at front of post.")
 
+(defvar gphoto-photo-raw-header
+  "Content-type: image/jpeg
+Slug: %s
+Content-length: %s\n"
+  "Mime preamble to insert at front of raw image post.")
+
 (defun gphoto-photo-generate-mime (photo)
-  "Generates multipart/related mime representation."
-  (declare (special gphoto-photo-multipart-header
-                    gphoto-photo-mime-separator))
+  "Generate Post body"
+  (declare (special gphoto-photo-raw-header))
   (insert
    (format
-    gphoto-photo-multipart-header
-    gphoto-photo-mime-separator gphoto-photo-mime-separator
+    gphoto-photo-raw-header
     (file-name-nondirectory(gphoto-photo-filepath photo))
     (nth 7 (file-attributes (gphoto-photo-filepath photo)))))
-  (insert-file-contents (gphoto-photo-filepath photo))
-  (goto-char (point-max))
-  (insert (format "\n%s\n" gphoto-photo-mime-separator))
-  (insert "Content-Type: application/atom+xml\n")
-  (insert (gphoto-photo-as-xml photo))
-  (insert (format "\n%s\n" gphoto-photo-mime-separator)))
+  (insert "\n")
+  (insert-file-contents (gphoto-photo-filepath photo)))
 
 (defsubst gphoto-post-photo (photo location)
   "Post photo to location and return HTTP response."
