@@ -114,18 +114,34 @@
 ;;}}}
 ;;{{{ Feed of feeds:
 
-(defvar gphoto-feeds-template-url
-  "http://picasaweb.google.com/data/feed/api/user/%s?kind=album"
-  "URL template for feed of albums from Picasa.")
+(defconst gphoto-base-url
+  "http://picasaweb.google.com/data/feed/api/user"
+  "Base URI for Picasa services.")
 
-(defsubst gphoto-feeds-url (userid)
-  "Return url for feed of albums."
-  (declare (special gphoto-feeds-template-url))
-  (format gphoto-feeds-template-url userid))
+(defconst gphoto-album-or-tag
+  '(("album" . "album")
+    ("tag" . "tag"))
+  "Choices for albums or tags.")
 
-(defun gphoto-albums ()
-  "Retrieve and display feed of albums after authenticating."
-  (interactive)
+
+(defsubst gphoto-read-feed-kind ( prompt choices)
+  "Prompt with prompt to collect choice from choices."
+  (completing-read prompt choices))
+  
+(defvar gphoto-album-or-tag-template-url
+  (format "%s/%%s?kind=%%s" gphoto-base-url)
+  "URL template for feed of albums or tags from Picasa.")
+
+(defsubst gphoto-album-or-tag-url (userid kind)
+  "Return url for feed of albums or tags."
+  (declare (special gphoto-album-or-tag-template-url))
+  (format gphoto-album-or-tag-template-url userid kind))
+
+(defun gphoto-album-or-tag (kind)
+  "Retrieve and display feed of albums or tags after authenticating."
+  (interactive
+   (list
+    (gphoto-read-feed-kind "Album or Tag: " gphoto-album-or-tag)))
   (declare (special gphoto-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
@@ -137,9 +153,10 @@
     g-curl-program g-curl-common-options
     g-cookie-options
     (g-authorization gphoto-auth-handle)
-    (gphoto-feeds-url
-     (g-url-encode (g-auth-email gphoto-auth-handle)))
-(g-curl-debug))
+    (gphoto-album-or-tag-url
+     (g-url-encode (g-auth-email gphoto-auth-handle))
+     kind)
+    (g-curl-debug))
    g-atom-view-xsl))
 
 ;;}}}
