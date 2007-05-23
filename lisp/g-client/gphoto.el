@@ -297,15 +297,17 @@
   filepath)
 
 (defun gphoto-read-photo ()
-  "Prompt user and return specified album structure."
+  "Prompt user and return specified photo structure."
   (let ((photo (make-gphoto-photo)))
     (loop for slot in
-          '(title summary filepath)
+          '(title summary)
           do
           (eval
-           `(setf (,(intern (format "gphoto-album-%s" slot))
-                   album)
+           `(setf (,(intern (format "gphoto-photo-%s" slot))
+                   photo)
                   (read-from-minibuffer (format "%s: " slot)))))
+    (setf (gphoto-photo-filepath photo)
+          (read-file-name "File: "))
     photo))
 
 (defun gphoto-photo-as-xml (photo)
@@ -313,16 +315,33 @@
   (declare (special gphoto-photo-template))
   (format
    gphoto-photo-template
-   (gphoto-album-title album)
-   (gphoto-album-summary album)))
+   (gphoto-photo-title photo)
+   (gphoto-photo-summary photo)))
+
+
+(defvar gphoto-photo-mime-template
+  "<#multipart type=related>
+     <#part type=image/jpeg filename=%s disposition=inline>
+<#part type=application/atom+xml>%s
+     <#/multipart>"
+  "MML template for multipart/related posts.")
+
+(defun gphoto-photo-generate-mime (photo)
+  "Generates multipart/related mime representation."
+  (declare (special gphoto-photo-mime-template))
+  (with-temp-buffer
+    (insert (format gphoto-photo-mime-template
+                    (gphoto-photo-filepath photo)
+                    (gphoto-photo-as-xml photo)))
+    (mml-generate-mime)))
+
 
 (defsubst gphoto-post-photo (photo location)
   "Post photo to location and return HTTP response."
   (declare (special g-cookie-options gphoto-auth-handle
                     g-curl-program g-curl-common-options))
   (g-using-scratch
-;;; instantiate mml bits here
-   (insert (gphoto-photo-as-xml album))
+   (insert (gphoto-photo-generate-mime photo))
    (let ((cl (format "-H Content-length:%s" (buffer-size)))
          (status nil))
      (shell-command-on-region
@@ -348,7 +367,7 @@
         (body nil)
         (response nil))
     (setq response
-          (gphoto-post-album photo album-location))
+          (gphoto-post-photo photo album-location))
     (setq headers (first response)
           body (second response))
     (when (or  (string-equal "201" (g-http-header "Status" headers))
