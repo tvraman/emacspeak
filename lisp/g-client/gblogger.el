@@ -296,7 +296,8 @@ publish your edits ."))))
   "Publish the Blog entry in the current buffer.
 http-method is either POST or PUT"
   (declare (special g-cookie-options gblogger-auth-handle
-                    g-curl-program g-curl-common-options))
+                    g-curl-program g-curl-common-options
+                    g-curl-atom-header))
   (unless (and (eq major-mode 'gblogger-mode)
                gblogger-this-url)
     (error "Not in a correctly initialized Atom Entry."))
@@ -305,8 +306,8 @@ http-method is either POST or PUT"
     (shell-command-on-region
      (point-min) (point-max)
      (format
-      "%s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
-      g-curl-program g-curl-common-options cl
+      "%s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
+      g-curl-program g-curl-common-options g-curl-atom-header cl
       (g-authorization gblogger-auth-handle)
       g-cookie-options
       http-method

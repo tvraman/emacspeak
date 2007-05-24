@@ -283,6 +283,13 @@ XML string is transformed via style
 
 ;;}}}
 ;;{{{  HTTP Headers:
+(defvar g-curl-atom-header
+  "--header 'Content-Type: application/atom+xml'"
+  "Content type header for application/atom+xml")
+
+(defvar g-curl-data-binary
+  "--data-binary"
+  "Curl option for binary data.")
 
 (defvar g-crlf-pair
   (format "%c%c%c%c" 13 10 13  10)

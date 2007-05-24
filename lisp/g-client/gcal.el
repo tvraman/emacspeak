@@ -409,7 +409,8 @@ user.")
 (defsubst gcal-post-event (event location)
   "Post event via HTTPS to location and return resulting HTTP headers."
   (declare (special g-cookie-options gcal-auth-handle
-                    g-curl-program g-curl-common-options))
+                    g-curl-program g-curl-common-options
+                    g-curl-atom-header))
   (g-using-scratch
    (insert (gcal-event-as-xml event))
    (let ((cl (format "-H Content-length:%s" (buffer-size)))
@@ -417,8 +418,8 @@ user.")
      (shell-command-on-region
       (point-min) (point-max)
       (format
-       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options cl
+       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options g-curl-atom-header cl
        (g-authorization gcal-auth-handle)
        g-cookie-options
        location)
@@ -430,7 +431,8 @@ user.")
   "Post quick event  via HTTPS to location and return resulting HTTP headers."
   (declare (special g-cookie-options gcal-auth-handle
                     gcal-quickadd-template
-                    g-curl-program g-curl-common-options))
+                    g-curl-program g-curl-common-options
+                    g-curl-atom-header))
   (g-using-scratch
    (insert
     (format gcal-quickadd-template event-desc))
@@ -439,8 +441,8 @@ user.")
      (shell-command-on-region
       (point-min) (point-max)
       (format
-       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options cl
+       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options g-curl-atom-header cl
        (g-authorization gcal-auth-handle)
        g-cookie-options
        location)
@@ -571,13 +573,14 @@ Specify the event in plain English."
     (read-from-minibuffer "Event URL: "
                           (browse-url-url-at-point))))
   (declare (special gcal-auth-handle g-cookie-options
+                    g-curl-program g-curl-common-options g-curl-atom-header
                     gcal-event-accept))
   (g-auth-ensure-token gcal-auth-handle)
   (g-using-scratch
    (shell-command
     (format
-     "%s %s %s %s  -X GET %s 2>/dev/null"
-     g-curl-program g-curl-common-options
+     "%s %s %s %s %s  -X GET %s 2>/dev/null"
+     g-curl-program g-curl-common-options g-curl-atom-header
      (g-authorization gcal-auth-handle)
      g-cookie-options
      event-uri)
