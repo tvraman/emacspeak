@@ -130,9 +130,8 @@
     (when pair (cdr pair))))
 
 (defconst g-authorization-header-format
-  "--header 'Authorization: GoogleLogin auth=%s'  \
---header 'Content-Type: application/atom+xml' "
-  "HTTP headers to send.")
+  "--header 'Authorization: GoogleLogin auth=%s'"
+  "HTTP authorization headers to send.")
 
 (defsubst g-authorization (auth-handle)
   "Return authorization header."

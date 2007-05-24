@@ -244,7 +244,8 @@
 (defsubst gphoto-post-album (album location)
   "Post album to location and return HTTP response."
   (declare (special g-cookie-options gphoto-auth-handle
-                    g-curl-program g-curl-common-options))
+                    g-curl-program g-curl-common-options
+                    g-curl-atom-header))
   (g-using-scratch
    (insert (gphoto-album-as-xml album))
    (let ((cl (format "-H Content-length:%s" (buffer-size)))
@@ -252,8 +253,8 @@
      (shell-command-on-region
       (point-min) (point-max)
       (format
-       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options cl
+       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options g-curl-atom-header cl
        (g-authorization gphoto-auth-handle)
        g-cookie-options
        location)
@@ -356,7 +357,8 @@ Content-length: %s\n"
 (defsubst gphoto-post-photo (photo location)
   "Post photo to location and return HTTP response."
   (declare (special g-cookie-options gphoto-auth-handle
-                    g-curl-program g-curl-common-options))
+                    g-curl-program g-curl-common-options
+                    g-curl-data-binary))
   (g-using-scratch
    (gphoto-photo-generate-mime photo)
    (let ((cl (format "-H Content-length:%s" (buffer-size)))
@@ -364,8 +366,8 @@ Content-length: %s\n"
      (shell-command-on-region
       (point-min) (point-max)
       (format
-       "%s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options cl
+       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options g-curl-data-binary cl
        (g-authorization gphoto-auth-handle)
        g-cookie-options
        location)
