@@ -59,7 +59,6 @@
 (require 'g-utils)
 (require 'g-auth)
 (require 'browse-url)
-(require 'mml)
 
 ;;}}}
 ;;{{{ Customizations
@@ -285,14 +284,6 @@
 ;;}}}
 ;;{{{ Adding a photo:
 
-(defvar gphoto-photo-template
-  "<entry xmlns='http://www.w3.org/2005/Atom'>
-  <title>%s</title>
-  <summary>%s</summary>
-  <category scheme='http://schemas.google.com/g/2005#kind'
-    term='http://schemas.google.com/photos/2007#photo'/>
-</entry>")
-
 (defstruct gphoto-photo
   title summary
   filepath)
@@ -304,8 +295,6 @@
           (read-file-name "File: "))
     (setf (gphoto-photo-title photo)
           (file-name-nondirectory (gphoto-photo-filepath photo)))
-    (setf (gphoto-photo-summary photo)
-          (read-from-minibuffer "Summary: "))
     photo))
 
 (defun gphoto-photo-as-xml (photo)
@@ -316,77 +305,47 @@
    (gphoto-photo-title photo)
    (gphoto-photo-summary photo)))
 
-(defvar gphoto-photo-mime-template
-  "<#multipart type=related>
-     <#part type=image/jpeg filename=%s disposition=inline>
-<#part type=application/atom+xml>%s
-     <#/multipart>"
-  "MML template for multipart/related posts.")
-
-(defvar gphoto-photo-mime-separator
-  "--===-=-="
-  "Mime separator.")
-
-(defvar gphoto-photo-multipart-header
-  " Content-Type: multipart/related; boundary=\"%s\"
-
-%s
-Content-Type: image/jpeg
-Content-Disposition: inline; filename=%s
-CONTENT-LENGTH: %s
-"
-  "Mime preamble to insert at front of post.")
-
-(defvar gphoto-photo-raw-header
-  "Content-type: image/jpeg
-Slug: %s
-Content-length: %s\n"
-  "Mime preamble to insert at front of raw image post.")
-
-(defun gphoto-photo-generate-mime (photo)
-  "Generate Post body"
-  (declare (special gphoto-photo-raw-header))
-  (insert
-   (format
-    gphoto-photo-raw-header
-    (file-name-nondirectory(gphoto-photo-filepath photo))
-    (nth 7 (file-attributes (gphoto-photo-filepath photo)))))
-  (insert "\n")
-  (insert-file-contents (gphoto-photo-filepath photo)))
-
 (defsubst gphoto-post-photo (photo location)
   "Post photo to location and return HTTP response."
-  (declare (special g-cookie-options gphoto-auth-handle
-                    g-curl-program g-curl-common-options
-                    g-curl-data-binary))
+  (declare (special  gphoto-auth-handle
+                     g-curl-program g-curl-image-options))
   (g-using-scratch
-   (gphoto-photo-generate-mime photo)
-   (let ((cl (format "-H Content-length:%s" (buffer-size)))
-         (status nil))
-     (shell-command-on-region
-      (point-min) (point-max)
+   (let ((status nil)
+         (image (format
+                 g-curl-image-options
+                 (expand-file-name (gphoto-photo-filepath photo))
+                 (file-name-nondirectory (gphoto-photo-filepath
+                                          photo))))
+         (extra-options "--silent --include"))
+     (shell-command
       (format
-       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options g-curl-data-binary cl
+       "%s %s %s %s %s"
+       g-curl-program image
+       extra-options
        (g-authorization gphoto-auth-handle)
-       g-cookie-options
        location)
       (current-buffer) 'replace)
      (list (g-http-headers (point-min) (point-max))
            (g-http-body (point-min) (point-max))))))
 
 ;;;###autoload
-(defun gphoto-photo-add (album-location)
+(defun gphoto-photo-add (album-name)
   "Add a photo to an existing album."
-  (interactive "sEnter Album URI: ")
-  (declare (special gphoto-auth-handle))
+  (interactive "sAlbum Name: ")
+  (declare (special gphoto-auth-handle
+                    gphoto-base-url))
   (g-auth-ensure-token gphoto-auth-handle)
   (let ((photo (gphoto-read-photo))
+        (location (format
+                   "%s/%s/album/%s"
+                   gphoto-base-url
+                   (g-url-encode (g-auth-email gphoto-auth-handle))
+                   album-name))
         (headers nil)
         (body nil)
         (response nil))
     (setq response
-          (gphoto-post-photo photo album-location))
+          (gphoto-post-photo photo location))
     (setq headers (first response)
           body (second response))
     (when (or  (string-equal "201" (g-http-header "Status" headers))
