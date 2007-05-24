@@ -58,7 +58,8 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'calendar)
+(eval-when-compile
+  (require 'calendar))
 (require 'g-utils)
 (require 'g-auth)
 (require 'browse-url)
