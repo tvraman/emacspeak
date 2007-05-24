@@ -305,8 +305,8 @@
    (gphoto-photo-title photo)
    (gphoto-photo-summary photo)))
 
-(defsubst gphoto-post-photo (photo location)
-  "Post photo to location and return HTTP response."
+(defsubst gphoto-async-post-photo (photo location)
+  "Post photo to location asynchronously."
   (declare (special  gphoto-auth-handle
                      g-curl-program g-curl-image-options))
   (g-using-scratch
@@ -319,14 +319,19 @@
          (extra-options "--silent --include"))
      (shell-command
       (format
-       "%s %s %s %s %s"
+       "%s %s %s %s %s &"
        g-curl-program image
        extra-options
        (g-authorization gphoto-auth-handle)
-       location)
-      (current-buffer) 'replace)
-     (list (g-http-headers (point-min) (point-max))
-           (g-http-body (point-min) (point-max))))))
+       location))
+     (message "Posting photo asynchronously."))))
+(defun gphoto-photo-post-sentinel (process state)
+  "Handle HTTP response when post is done."
+;;; not implemented fully yet.
+  (when (or  (string-equal "201" (g-http-header "Status" headers))
+             (string-equal "200" (g-http-header "Status" headers)))
+    (and (> (length body)0)
+         (g-display-xml-string body g-atom-view-xsl))))
 
 ;;;###autoload
 (defun gphoto-photo-add (album-name)
@@ -344,14 +349,7 @@
         (headers nil)
         (body nil)
         (response nil))
-    (setq response
-          (gphoto-post-photo photo location))
-    (setq headers (first response)
-          body (second response))
-    (when (or  (string-equal "201" (g-http-header "Status" headers))
-               (string-equal "200" (g-http-header "Status" headers)))
-      (and (> (length body)0)
-           (g-display-xml-string body g-atom-view-xsl)))))
+    (gphoto-async-post-photo photo location)))
 
 ;;}}}
 ;;{{{ Sign out:
