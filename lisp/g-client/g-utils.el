@@ -291,6 +291,16 @@ XML string is transformed via style
   "--data-binary"
   "Curl option for binary data.")
 
+(defvar g-mime-separator
+  "--===-=-="
+  "Mime separator.")
+
+(defvar g-curl-image-options
+  "--data-binary @%s -H 'Content-Type: image/jpeg' -H 'slug:%s'"
+  "Curl options for uploading images.")
+  
+
+
 (defvar g-crlf-pair
   (format "%c%c%c%c" 13 10 13  10)
   "HTTP headers are ended by a CRLF pair.
