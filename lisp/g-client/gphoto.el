@@ -383,6 +383,92 @@
     (gphoto-async-post-photo photo location)))
 
 ;;}}}
+;;{{{ Adding comments and tags:
+
+(defvar gphoto-tag-template
+  "<entry xmlns='http://www.w3.org/2005/Atom'>
+  <title>%s</title>
+  <category scheme='http://schemas.google.com/g/2005#kind'
+    term='http://schemas.google.com/photos/2007#tag'/>
+</entry>"
+  "Atom entry for tags.")
+
+(defvar gphoto-comment-template
+  "<entry xmlns='http://www.w3.org/2005/Atom'>
+  <content>%s</content>
+  <category scheme='http://schemas.google.com/g/2005#kind'
+    term='http://schemas.google.com/photos/2007#comment'/>
+</entry>"
+  "Atom entry for comments.")
+
+(defsubst gphoto-tag-as-xml (tag)
+  "Return Atom Entry for tag."
+  (declare (special gphoto-tag-template))
+  (format gphoto-tag-template tag))
+
+(defsubst gphoto-comment-as-xml (comment)
+  "Return Atom Entry for comment."
+  (declare (special gphoto-comment-template))
+  (format gphoto-comment-template comment))
+
+
+(defsubst gphoto-post-update (update location)
+  "Post update to location and return HTTP response."
+  (declare (special g-cookie-options gphoto-auth-handle
+                    g-curl-program g-curl-common-options
+                    g-curl-atom-header))
+  (g-using-scratch
+   (insert update)
+   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+         (status nil))
+     (shell-command-on-region
+      (point-min) (point-max)
+      (format
+       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
+       g-curl-program g-curl-common-options g-curl-atom-header cl
+       (g-authorization gphoto-auth-handle)
+       g-cookie-options
+       location)
+      (current-buffer) 'replace)
+     (list (g-http-headers (point-min) (point-max))
+           (g-http-body (point-min) (point-max))))))
+(defvar gphoto-update-types
+  '(("comment" . "comment")
+    ("tag" . "tag"))
+  "Update types.")
+
+;;;###autoload
+(defun gphoto-comment-or-tag (type resource)
+  "Add comments or tags  to an existing photo."
+  (interactive
+   (list
+    (completing-read "Tag Or Comment: "
+                     gphoto-update-types)
+    (read-from-minibuffer "Edit Resource: ")))
+  (declare (special gphoto-auth-handle
+                    gphoto-update-types))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (let* ((content (read-from-minibuffer type))
+         (headers nil)
+         (entry
+          (cond
+           ((string= type "tag")
+            (gphoto-tag-as-xml content))
+           ((string= type "comment")
+            (gphoto-comment-as-xml content))))
+         (body nil)
+         (response nil))
+    (unless entry
+      (error "Invalid update specified."))
+    (setq response
+          (gphoto-post-update entry resource))
+    (setq headers (first response)
+          body (second response))
+    
+    (when  (> (length body)0)
+      (g-display-xml-string body g-atom-view-xsl))))
+
+;;}}}
 ;;{{{ Sign out:
 
 (defun gphoto-sign-out()
