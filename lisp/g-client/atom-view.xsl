@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 - 2007,   All Rights Reserved.
 License: GPL
 View an Atom feed as clean HTML
 -->
@@ -10,7 +11,7 @@ View an Atom feed as clean HTML
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns:gr="http://www.google.com/schemas/reader/atom/"
                 version="1.0">
-  <xsl:output encoding="utf-8" method="html" indent="yes"/>
+  <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
   
   <xsl:template match="atom:feed|w3a:feed">
     <html>
@@ -66,11 +67,21 @@ View an Atom feed as clean HTML
         </xsl:for-each>
       </tr>
     </TABLE>
-<p>
-          <xsl:apply-templates select="atom:summary|w3a:summary"/>
-          <xsl:apply-templates select="atom:author|w3a:author"/>
-        </p>
+    <p>
+      <xsl:apply-templates select="atom:summary|w3a:summary"/>
+      <xsl:apply-templates select="atom:author|w3a:author"/>
+    </p>
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
+    <p>
+      <xsl:apply-templates
+          select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
+      <em><xsl:value-of  select="atom:author/atom:name"
+      disable-output-escaping="yes"/>
+      <xsl:if test="atom:published|w3a:published">
+        <xsl:text> at </xsl:text>
+      </xsl:if>
+      <xsl:value-of select="atom:published|w3a:published"/></em>
+    </p>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
     <li>
@@ -83,7 +94,8 @@ View an Atom feed as clean HTML
       </a>
     </li>
   </xsl:template>
-  <xsl:template match="atom:content|atom:summary|w3a:content|w3a:summary">
+  <xsl:template
+      match="atom:content|atom:summary|w3a:content|w3a:summary">
     <xsl:choose>
       <xsl:when test="@type='application/xhtml+xml'">
         <xsl:copy-of select="node()"/>
