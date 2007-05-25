@@ -146,7 +146,7 @@
   "Return url for feed of albums or tags."
   (declare (special gphoto-album-or-tag-template-url))
   (format gphoto-album-or-tag-template-url userid kind))
-
+;;;###autoload
 (defun gphoto-feeds (kind)
   "Retrieve and display feed of albums or tags after authenticating."
   (interactive
@@ -166,6 +166,37 @@
     (gphoto-album-or-tag-url
      (g-url-encode (g-auth-email gphoto-auth-handle))
      kind)
+    (g-curl-debug))
+   g-atom-view-xsl))
+
+;;;###autoload
+(defun gphoto-albums()
+  "Display feed of albums."
+  (interactive)
+  (gphoto-feeds "album"))
+
+;;;###autoload
+(defun gphoto-tags()
+  "View feed of tags."
+  (interactive)
+  (gphoto-feeds "tags"))
+
+;;;###autoload
+(defun gphoto-view (resource)
+  "Retrieve and display resource after authenticating."
+  (interactive "sResource: ")
+  (declare (special gphoto-auth-handle
+                    g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' %s"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gphoto-auth-handle)
+    resource
     (g-curl-debug))
    g-atom-view-xsl))
 
