@@ -144,4 +144,18 @@ View an Atom feed as clean HTML
       <xsl:value-of select="w3a:name|atom:name"/>
     </a>
   </xsl:template>
+  <xsl:template match="w3a:content|atom:content">
+    <xsl:if test="@src">
+      [<a>
+      <xsl:attribute name="href">
+        <xsl:value-of select="@src"/>
+      </xsl:attribute>
+      <img alt=" Download">
+        <xsl:attribute name="src"><xsl:value-of
+        select="@src"/></xsl:attribute>
+      </img>
+      </a>]
+    </xsl:if>
+    <xsl:copy-of select="node()"/>
+  </xsl:template>
 </xsl:stylesheet>
