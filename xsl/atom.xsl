@@ -125,7 +125,7 @@ View an Atom feed as clean HTML
         <xsl:when test="@rel='edit'">[Edit]</xsl:when>
         <xsl:when test="@rel='service.post'">[Post]</xsl:when>
         <xsl:when test="@rel='next'">[Next]</xsl:when>
-        <xsl:when test="@rel='self'">[Bookmark]</xsl:when>
+        <xsl:when test="@rel='self'">[Self]</xsl:when>
         <xsl:when test="@rel='alternate'">[HTML]</xsl:when>
         <xsl:when test="@rel='enclosure'">[<xsl:value-of select="@type"/>]</xsl:when>
         <xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>]</xsl:otherwise>
