@@ -444,7 +444,7 @@
    (list
     (completing-read "Tag Or Comment: "
                      gphoto-update-types)
-    (read-from-minibuffer "Edit Resource: ")))
+    (read-from-minibuffer "PostURL: ")))
   (declare (special gphoto-auth-handle
                     gphoto-update-types))
   (g-auth-ensure-token gphoto-auth-handle)
