@@ -24,13 +24,7 @@ View an Atom feed as clean HTML
         <h1><xsl:value-of select="atom:title|w3a:title"
         disable-output-escaping="yes"/>
         </h1>
-        <table>
-          <tr>
-            <xsl:for-each select="atom:link|w3a:link">
-              <td><xsl:apply-templates select="."/></td>
-            </xsl:for-each>
-          </tr>
-        </table>
+        
         <xsl:if test="(count(atom:entry) > 1)
                       or (count(w3a:entry) > 1)">
           <h2>Table Of Contents</h2>
@@ -47,6 +41,14 @@ View an Atom feed as clean HTML
           <xsl:apply-templates select="atom:tagline|w3a:tagline"/><br/>
           <xsl:apply-templates select="atom:author|w3a:author"/><br/>
         </p>
+        <h2>Feed-Level Links</h2>
+        <table>
+          <tr>
+            <xsl:for-each select="atom:link|w3a:link">
+              <td><xsl:apply-templates select="."/></td>
+            </xsl:for-each>
+          </tr>
+        </table>
       </body>
     </html>
   </xsl:template>
@@ -72,7 +74,7 @@ View an Atom feed as clean HTML
     </TABLE>
     <p>
       <xsl:apply-templates select="atom:summary|w3a:summary"/><br/>
-    <xsl:apply-templates select="atom:content|w3a:content"/><br/>
+      <xsl:apply-templates select="atom:content|w3a:content"/><br/>
       <em><xsl:apply-templates select="atom:author|w3a:author"/></em>
       <xsl:if test="atom:published|w3a:published">
         <xsl:text> at </xsl:text>
