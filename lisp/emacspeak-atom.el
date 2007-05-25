@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -74,6 +74,26 @@ unescape HTML tags."
   :type 'boolean
   :group 'emacspeak-atom)
 
+(defvar emacspeak-atom-legacy
+  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
+  "Legacy Atom support.")
+
+(defvar emacspeak-atom-modern
+  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  "Modern Atom support.")
+
+
+
+(defcustom emacspeak-atom-view-xsl
+  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  "XSL stylesheet used for viewing Atom Feeds."
+  :type '(choice
+          (string  emacspeak-atom-modern)
+          (string  emacspeak-atom-legacy))
+  :group 'emacspeak-xsl)
+
+
+
 ;;;###autoload
 (defun emacspeak-atom-display (atom-url &optional speak)
   "Retrieve and display ATOM URL."
@@ -82,12 +102,13 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "ATOM URL: "))))
   (declare (special emacspeak-atom-unescape-html
+                    emacspeak-atom-view-xsl
                     emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
-   (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+   emacspeak-atom-view-xsl
    atom-url
    (and emacspeak-atom-unescape-html 'unescape-charent)
    ))
