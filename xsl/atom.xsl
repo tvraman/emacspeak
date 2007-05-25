@@ -31,18 +31,21 @@ View an Atom feed as clean HTML
             </xsl:for-each>
           </tr>
         </table>
-        <h2>Table Of Contents</h2>
-        <ol>
-          <xsl:apply-templates select="atom:entry|w3a:entry" mode="toc"/>
-        </ol>
+        <xsl:if test="(count(atom:entry) > 1)
+                      or (count(w3a:entry) > 1)">
+          <h2>Table Of Contents</h2>
+          <ol>
+            <xsl:apply-templates select="atom:entry|w3a:entry" mode="toc"/>
+          </ol>
+        </xsl:if>
         <xsl:apply-templates select="atom:entry|w3a:entry"/>
         <h2>
           <xsl:value-of select="title"/>
         </h2>
 
         <p>
-          <xsl:apply-templates select="atom:tagline|w3a:tagline"/>
-          <xsl:apply-templates select="atom:author|w3a:author"/>
+          <xsl:apply-templates select="atom:tagline|w3a:tagline"/><br/>
+          <xsl:apply-templates select="atom:author|w3a:author"/><br/>
         </p>
       </body>
     </html>
@@ -68,19 +71,13 @@ View an Atom feed as clean HTML
       </tr>
     </TABLE>
     <p>
-      <xsl:apply-templates select="atom:summary|w3a:summary"/>
-      <xsl:apply-templates select="atom:author|w3a:author"/>
-    </p>
-    <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
-    <p>
-      <xsl:apply-templates
-          select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
-      <em><xsl:value-of  select="atom:author/atom:name"
-      disable-output-escaping="yes"/>
+      <xsl:apply-templates select="atom:summary|w3a:summary"/><br/>
+    <xsl:apply-templates select="atom:content|w3a:content"/><br/>
+      <em><xsl:apply-templates select="atom:author|w3a:author"/></em>
       <xsl:if test="atom:published|w3a:published">
         <xsl:text> at </xsl:text>
       </xsl:if>
-      <xsl:value-of select="atom:published|w3a:published"/></em>
+      <xsl:value-of select="atom:published|w3a:published"/>
     </p>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
@@ -136,5 +133,12 @@ View an Atom feed as clean HTML
   </xsl:template>
   
   
-  
+  <xsl:template match="atom:author|w3a:author">
+    <a>
+      <xsl:attribute name="href">
+        <xsl:value-of select="atom:uri|w3a:uri"/>
+      </xsl:attribute>
+      <xsl:value-of select="w3a:name|atom:name"/>
+    </a>
+  </xsl:template>
 </xsl:stylesheet>
