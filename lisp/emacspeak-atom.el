@@ -85,11 +85,11 @@ unescape HTML tags."
 
 
 (defcustom emacspeak-atom-view-xsl
-  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  emacspeak-atom-legacy
   "XSL stylesheet used for viewing Atom Feeds."
   :type '(choice
-          (string  emacspeak-atom-modern)
-          (string  emacspeak-atom-legacy))
+          (string :tag "Legacy"  emacspeak-atom-legacy)
+          (string :tag "Modern" emacspeak-atom-modern))
   :group 'emacspeak-xsl)
 
 
