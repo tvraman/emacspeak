@@ -66,17 +66,11 @@ View an Atom feed as clean HTML
         </xsl:for-each>
       </tr>
     </TABLE>
+<p>
+          <xsl:apply-templates select="atom:summary|w3a:summary"/>
+          <xsl:apply-templates select="atom:author|w3a:author"/>
+        </p>
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
-    <p>
-      <xsl:apply-templates
-          select="atom:link[@rel='alternate']|w3a:link[@rel='alternate']"/>
-      <em><xsl:value-of  select="atom:author/atom:name"
-      disable-output-escaping="yes"/>
-      <xsl:if test="atom:published|w3a:published">
-        <xsl:text> at </xsl:text>
-      </xsl:if>
-      <xsl:value-of select="atom:published|w3a:published"/></em>
-    </p>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
     <li>
@@ -89,8 +83,7 @@ View an Atom feed as clean HTML
       </a>
     </li>
   </xsl:template>
-  <xsl:template
-      match="atom:content|atom:summary|w3a:content|w3a:summary">
+  <xsl:template match="atom:content|atom:summary|w3a:content|w3a:summary">
     <xsl:choose>
       <xsl:when test="@type='application/xhtml+xml'">
         <xsl:copy-of select="node()"/>
@@ -104,6 +97,9 @@ View an Atom feed as clean HTML
         <xsl:value-of disable-output-escaping="yes"
                       select="node()"/>
       </xsl:when>
+      <xsl:otherwise>
+        <p> <xsl:copy-of select="node()"/></p>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   <xsl:template match="xhtml:div">
