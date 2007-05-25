@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
+Copyright: (C) T. V. Raman, 2001 - 2007,   All Rights Reserved.
 License: GPL
 View an Atom feed as clean HTML
 -->
@@ -67,6 +67,10 @@ View an Atom feed as clean HTML
         </xsl:for-each>
       </tr>
     </TABLE>
+    <p>
+      <xsl:apply-templates select="atom:summary|w3a:summary"/>
+      <xsl:apply-templates select="atom:author|w3a:author"/>
+    </p>
     <xsl:apply-templates select="atom:summary|atom:content|w3a:content|w3a:summary"/>
     <p>
       <xsl:apply-templates
@@ -105,6 +109,9 @@ View an Atom feed as clean HTML
         <xsl:value-of disable-output-escaping="yes"
                       select="node()"/>
       </xsl:when>
+      <xsl:otherwise>
+        <p> <xsl:copy-of select="node()"/></p>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   <xsl:template match="xhtml:div">
