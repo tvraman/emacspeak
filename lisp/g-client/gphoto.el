@@ -354,7 +354,9 @@
        g-curl-program image
        extra-options
        (g-authorization gphoto-auth-handle)
-       location))
+       location)
+      (format "*upload %s"
+              (gphoto-photo-title photo)))
      (message "Posting photo asynchronously."))))
 (defun gphoto-photo-post-sentinel (process state)
   "Handle HTTP response when post is done."
@@ -365,14 +367,16 @@
          (g-display-xml-string body g-atom-view-xsl))))
 
 ;;;###autoload
-(defun gphoto-photo-add (album-name)
+(defun gphoto-photo-add (album-name photo )
   "Add a photo to an existing album."
-  (interactive "sAlbum Name: ")
+  (interactive
+   (list
+    (read-from-minibuffer "Album Name: ")
+    (gphoto-read-photo)))
   (declare (special gphoto-auth-handle
                     gphoto-base-url))
   (g-auth-ensure-token gphoto-auth-handle)
-  (let ((photo (gphoto-read-photo))
-        (location (format
+  (let ((location (format
                    "%s/%s/album/%s"
                    gphoto-base-url
                    (g-url-encode (g-auth-email gphoto-auth-handle))
@@ -381,6 +385,27 @@
         (body nil)
         (response nil))
     (gphoto-async-post-photo photo location)))
+
+;;;###autoload
+(defun gphoto-directory-add-photos (directory album-name)
+  "Add all jpeg files in a directory to specified album."
+  (interactive
+   (list
+    (read-from-minibuffer "Directory: "
+                          default-directory)
+    (read-from-minibuffer "Album Name: ")))
+  (let ((files (directory-files (expand-file-name directory)
+                                'full
+                                "\\(jpg$\\)\\|\\(JPG$\\)\\|\\(jpeg\\|\\(JPEG\\)$\\)")))
+    (loop for file in files
+          do
+          (gphoto-photo-add album-name
+                            (make-gphoto-photo :filepath file
+                                               :title (file-name-nondirectory file))))))
+        
+        
+        
+        
 
 ;;}}}
 ;;{{{ Adding comments and tags:
