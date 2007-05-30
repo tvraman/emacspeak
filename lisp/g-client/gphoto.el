@@ -136,7 +136,8 @@
 
 (defsubst gphoto-read-feed-kind ( prompt choices)
   "Prompt with prompt to collect choice from choices."
-  (completing-read prompt choices))
+  (completing-read prompt choices
+                   nil 'require-matchs))
 
 (defvar gphoto-album-or-tag-template-url
   (format "%s/%%s?kind=%%s" gphoto-base-url)
@@ -402,10 +403,10 @@
           (gphoto-photo-add album-name
                             (make-gphoto-photo :filepath file
                                                :title (file-name-nondirectory file))))))
-        
-        
-        
-        
+
+
+
+
 
 ;;}}}
 ;;{{{ Adding comments and tags:
@@ -490,7 +491,7 @@
           (gphoto-post-update entry resource))
     (setq headers (first response)
           body (second response))
-    
+
     (when  (> (length body)0)
       (g-display-xml-string body g-atom-view-xsl))))
 
