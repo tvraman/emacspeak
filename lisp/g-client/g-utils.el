@@ -355,6 +355,24 @@ Note that in the Curl output, we see lf rather than crlf.")
     (when (assoc name header-alist) (cdr (assoc name header-alist))))
 
 ;;}}}
+;;{{{ collect content from user via special buffer:
+(defvar g-user-edit-buffer " *User Input*"
+  "Special buffer used to read  user input.")
+
+(defun g-get-user-input ()
+  "Pop up a temporary buffer and collect user input."
+  (declare (special g-user-edit-buffer))
+  (let ((annotation nil))
+    (pop-to-buffer (get-buffer-create g-user-edit-buffer))
+    (erase-buffer)
+    (message "Exit recursive edit when done.")
+    (recursive-edit)
+    (local-set-key "\C-c\C-c" 'exit-recursive-edit)
+    (setq annotation (buffer-string))
+    (bury-buffer)
+    annotation))
+
+;;}}}
 (provide 'g-utils)
 ;;{{{ end of file
 

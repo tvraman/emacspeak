@@ -420,7 +420,7 @@
 
 (defvar gphoto-comment-template
   "<entry xmlns='http://www.w3.org/2005/Atom'>
-  <content>%s</content>
+  <content type='html'>%s</content>
   <category scheme='http://schemas.google.com/g/2005#kind'
     term='http://schemas.google.com/photos/2007#comment'/>
 </entry>"
@@ -473,14 +473,15 @@
   (declare (special gphoto-auth-handle
                     gphoto-update-types))
   (g-auth-ensure-token gphoto-auth-handle)
-  (let* ((content (read-from-minibuffer type))
-         (headers nil)
+  (let ((headers nil)
          (entry
           (cond
            ((string= type "tag")
-            (gphoto-tag-as-xml content))
+            (gphoto-tag-as-xml
+             (read-from-minibuffer "Tag: ")))
            ((string= type "comment")
-            (gphoto-comment-as-xml content))))
+            (gphoto-comment-as-xml
+             (g-get-user-input)))))
          (body nil)
          (response nil))
     (unless entry
