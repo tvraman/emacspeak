@@ -508,6 +508,23 @@
   (setq gphoto-auth-handle (make-gphoto-auth)))
 
 ;;}}}
+;;{{{ deleting tags, comments or photos:
+
+(defun gphoto-delete-item (url)
+  "Delete specified item."
+  (interactive
+   (list
+    (read-from-minibuffer "Entry URL:")))
+  (declare (special gphoto-auth-handle))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (shell-command
+   (format "%s %s %s -X DELETE %s %s"
+           g-curl-program g-curl-common-options
+           (g-authorization gphoto-auth-handle)
+           url
+           (g-curl-debug))))
+
+;;}}}
 (provide 'gphoto)
 ;;{{{ end of file
 
