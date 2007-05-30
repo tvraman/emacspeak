@@ -845,7 +845,7 @@ from English to German.")
  "Google Mobile Search")
 
 (defvar emacspeak-url-template-google-transcoder-url
-  "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+  "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL for  obtaining mobile transcoder page views.")
 
 (emacspeak-url-template-define
