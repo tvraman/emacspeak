@@ -588,13 +588,7 @@ content."
  #'(lambda nil
      (call-interactively 'emacspeak-imenu-goto-next-index-position))
  "Perform Google Finance search and view results through the
-mobile transcoder."
- #'(lambda (url)
-     (declare (special
-               emacspeak-url-template-google-transcoder-url))
-     (browse-url
-      (format emacspeak-url-template-google-transcoder-url
-              (emacspeak-url-encode url)))))
+mobile transcoder.")
 
 ;;}}}
 ;;{{{ google maps
