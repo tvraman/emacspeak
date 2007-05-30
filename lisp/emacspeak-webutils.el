@@ -2,7 +2,7 @@
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Emacspeak Webutils
-;;; Keywords: Emacspeak, web 
+;;; Keywords: Emacspeak, web
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -147,19 +147,19 @@ With a prefix argument, extracts url under point."
     (cond
      ((null untranscode)
       (browse-url
-       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+       (format "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
                (emacspeak-url-encode
                 (funcall emacspeak-webutils-url-at-point)))))
      (t
       (let ((plain-url nil)
-            (prefix "http://www.google.com/gwt/n?u=")
+            (prefix "http://www.google.com/gwt/n?output=xhtml&u=")
             (suffix "&_gwt_noimg=1")
             (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
         (setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
         (when plain-url
           (browse-url plain-url)))))))
 
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-webutils-transcode-current-url-via-google (&optional untranscode)
   "Transcode current URL via Google.
   Reverse effect with prefix arg."
@@ -170,24 +170,24 @@ With a prefix argument, extracts url under point."
   (cond
    ((null untranscode)
     (browse-url
-     (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+     (format "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
              (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
    (t
     (let ((plain-url nil)
-          (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&u=")
+          (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=")
           (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
       (setq plain-url (substring  unhex (length prefix)))
       (when plain-url
         (browse-url plain-url))))))
 
 ;;}}}
-;;{{{ 
+;;{{{
 
 ;;;###autoload
 (defun emacspeak-webutils-jump-to-title-in-content ()
   "Jumps to the title in web document.
-The first time it is called, it jumps to the first 
-instance  of the title.  Repeated calls jump to further 
+The first time it is called, it jumps to the first
+instance  of the title.  Repeated calls jump to further
 instances."
   (interactive)
   (let ((title (funcall emacspeak-webutils-document-title)))
@@ -227,7 +227,7 @@ instances."
 
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser.
- If using default browser is w3, uses w3m and vice-versa" 
+ If using default browser is w3, uses w3m and vice-versa"
   (interactive)
   (declare (special major-mode
                     w3-mode
