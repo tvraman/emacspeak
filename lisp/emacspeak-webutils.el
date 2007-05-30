@@ -134,6 +134,9 @@ With a prefix argument, extracts url under point."
     url))
   (emacspeak-websearch-post-process "Similar"
                                     'emacspeak-speak-line))
+(defvar emacspeak-webutils-google-transcoder-url
+  "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
+  "URL pattern for accessing Google transcoder.")
 
 ;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)
@@ -147,12 +150,12 @@ With a prefix argument, extracts url under point."
     (cond
      ((null untranscode)
       (browse-url
-       (format "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
+       (format emacspeak-webutils-google-transcoder-url
                (emacspeak-url-encode
                 (funcall emacspeak-webutils-url-at-point)))))
      (t
       (let ((plain-url nil)
-            (prefix "http://www.google.com/gwt/n?output=xhtml&u=")
+            (prefix (substring emacspeak-webutils-google-transcoder-url 0 -2))
             (suffix "&_gwt_noimg=1")
             (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
         (setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
@@ -170,11 +173,12 @@ With a prefix argument, extracts url under point."
   (cond
    ((null untranscode)
     (browse-url
-     (format "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
+     (format emacspeak-webutils-google-transcoder-url
              (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
    (t
     (let ((plain-url nil)
-          (prefix "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=")
+          (prefix (substring
+                   emacspeak-webutils-google-transcoder-url 0 -2))
           (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
       (setq plain-url (substring  unhex (length prefix)))
       (when plain-url
