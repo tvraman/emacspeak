@@ -587,8 +587,11 @@ content."
  (list "Finance Search: ")
  #'(lambda nil
      (call-interactively 'emacspeak-imenu-goto-next-index-position))
- "Perform Google Finance search and view results through the
-mobile transcoder.")
+ "Display content from Google Finance."
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class "content"
+                                    url
+                                    'speak)))
 
 ;;}}}
 ;;{{{ google maps
