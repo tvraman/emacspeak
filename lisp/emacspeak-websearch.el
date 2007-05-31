@@ -1933,8 +1933,8 @@ Results"
           (format emacspeak-websearch-exchange-rate-convertor-uri
                   (upcase (first fields))
                   (upcase (second fields))))
-    (emacspeak-w3-extract-table-by-match
-     (format "%s" (upcase  (first fields)))
+    (emacspeak-w3-extract-by-class
+     "XEsmall"
      url 'speak)))
 
 ;;}}}
