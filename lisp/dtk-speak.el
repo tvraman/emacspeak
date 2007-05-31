@@ -1594,11 +1594,16 @@ When called  interactively, The selected server is started immediately. "
            dtk-servers-alist))
      nil
      t  )))
-  (declare (special   dtk-program dtk-servers-alist))
-  (setq dtk-program program)
-  (tts-configure-synthesis-setup dtk-program)
-  (when (interactive-p)
-    (dtk-initialize)))
+  (declare (special   dtk-program dtk-servers-alist
+                      emacspeak-servers-directory emacspeak-ssh-tts-server))
+  (let ((ssh-server (format "ssh-%s" dtk-program)))
+    (setq dtk-program program)
+    (tts-configure-synthesis-setup dtk-program)
+    (when (file-exists-p (expand-file-name ssh-server emacspeak-ssh-tts-server))
+      (setq emacspeak-ssh-tts-server ssh-server)
+      (setq-default emacspeak-ssh-tts-server ssh-server))
+    (when (interactive-p)
+      (dtk-initialize))))
 
 ;;}}}
 ;;{{{  initialize the speech process
