@@ -68,19 +68,34 @@
   "Major mode for APP interaction\n\n
 \\{g-app-mode-map"
   (auto-fill-mode 1))
+(declaim (special g-app-mode-map))
+(define-key g-app-mode-map "\C-c\C-c" 'g-app-publish)
 
 (defvar g-app-publish-action nil
   "This is set up by the various interactive commands to trigger
   the appropriate action when one is ready to publish.")
 
-
 (make-variable-buffer-local 'g-app-publish-action)
+(defvar g-app-this-url nil
+  "Buffer local variable that records URL we post to.")
+(make-variable-buffer-local 'g-app-this-url)
+
+(defvar g-app-auth-handle nil
+  "Buffer local auth-handle for g-app.")
+
+(make-variable-buffer-local 'g-app-auth-handle)
+;;; HTTP GET and DELETE take  a target URL and auth-handle.
+;;; PUT and POST operate on the current buffer,
+;;; and obtain the target-url and auth-handle from buffer local
+;;; variables.
+
+;;; HTTP GET:
 
 (defun g-app-get-entry (auth-handle url)
   "Retrieve specified entry using credentials in auth-handle.
 `url' is the URL of the entry"
   (declare (special g-curl-program g-curl-common-options
-                    g-app-this-url))
+                    g-app-auth-handle g-app-this-url))
   (g-auth-ensure-token auth-handle)
   (let ((buffer (get-buffer-create "*atom entry*"))
         (nxml-auto-insert-xml-declaration-flag nil))
@@ -95,23 +110,22 @@
          url)))
       (g-html-unescape-region (point-min) (point-max))
       (g-app-mode)
-      (setq g-app-this-url url)
+      (setq g-app-this-url url
+            g-app-auth-handle auth-handle)
       buffer)))
 
-(make-variable-buffer-local 'g-app-this-url)
+;;; Helper for POST and DELETE
 
-(defvar g-app-this-url nil
-  "Buffer local variable that records URL we post to.")
-
-
-(defun g-app-send-buffer (auth-handle http-method)
+(defun g-app-send-buffer (http-method)
   "Publish Atom entry in current buffer.
 http-method is either POST or PUT"
   (declare (special g-cookie-options
                     g-curl-program g-curl-common-options
+                    g-app-this-url g-app-auth-handle
                     g-curl-atom-header))
   (unless (and (eq major-mode 'g-app-mode)
-               g-app-this-url)
+               g-app-this-url
+               g-app-auth-handle)
     (error "Not in a correctly initialized Atom Entry."))
   (goto-char (point-min))
   (let ((cl (format "-H Content-length:%s" (buffer-size))))
@@ -120,7 +134,7 @@ http-method is either POST or PUT"
      (format
       "%s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
       g-curl-program g-curl-common-options g-curl-atom-header cl
-      (g-authorization auth-handle)
+      (g-authorization g-app-auth-handle)
       g-cookie-options
       http-method
       g-app-this-url)
@@ -128,25 +142,65 @@ http-method is either POST or PUT"
     (list (g-http-headers (point-min) (point-max))
           (g-http-body (point-min) (point-max)))))
 
-(defun g-edit-entry (auth-handle url action)
+;;; HTTP POST
+(defun g-app-post-entry ()
+  "Post buffer contents  as  updated entry."
+  (interactive)
+  (g-app-send-buffer "POST"))
+
+;;; HTTP PUT:
+(defun g-app-put-entry ()
+  "PUT buffer contents as new entry."
+  (interactive)
+  (g-app-send-buffer "PUT"))
+
+;;; HTTP DELETE:
+
+(defun g-app-delete-entry (auth-handle url)
+  "Delete specified entry."
+  (shell-command
+   (format "%s %s %s -X DELETE %s %s"
+           g-curl-program g-curl-common-options
+           (g-authorization auth-handle)
+           url
+           (g-curl-debug))))
+
+(defun g-app-publish ()
+  "Publish current entry."
+  (interactive)
+  (declare (special g-app-this-url g-app-auth-handle
+                    g-app-publish-action))
+  (unless (and (eq major-mode 'g-app-mode)
+               g-app-publish-action
+               g-app-this-url)
+    (error "Not in a correctly initialized Atom Entry."))
+  (call-interactively g-app-publish-action)
+  (message "Publishing  to %s" g-app-this-url))
+
+(defun g-app-edit-entry (auth-handle url action)
   "Retrieve entry and prepare it for editting.
 The retrieved entry is placed in a buffer ready for editing.
 `url' is the Edit URL of the entry.
 auth-handle is the authorization handle to use.
 action is the function to call when we're ready to submit the edit."
   (declare (special g-curl-program g-curl-common-options))
-  (let ((buffer (g-app-get-entry url auth-handle)))
+  (let ((buffer (g-app-get-entry auth-handle url)))
     (save-excursion
       (set-buffer buffer)
       (setq g-app-publish-action action)
       (g-xsl-transform-region (point-min) (point-max)
-                              g-atom-edit-filter))
+                              g-atom-edit-filter)
+      (goto-char (point-min))
+    (flush-lines "^ *$"))
     (switch-to-buffer buffer)
     (goto-char (point-min))
-    (flush-lines "^ *$")
-    (goto-char (point-min))
     (search-forward "<content" nil t)
-    (forward-line 1)))
+    (forward-line 1)
+    (message
+     (substitute-command-keys
+      "Use \\[g-app-publish] when done editing. ")))
+
+
 
 ;;}}}
 (provide 'g-app)
