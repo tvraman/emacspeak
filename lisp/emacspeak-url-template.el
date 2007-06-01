@@ -589,9 +589,12 @@ content."
      (call-interactively 'emacspeak-imenu-goto-next-index-position))
  "Display content from Google Finance."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "content"
-                                    url
-                                    'speak)))
+     (browse-url
+       (format emacspeak-webutils-google-transcoder-url
+               (emacspeak-url-encode
+                url)))))
+
+
 
 ;;}}}
 ;;{{{ google maps
