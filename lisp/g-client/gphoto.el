@@ -201,6 +201,24 @@
     (g-curl-debug))
    g-atom-view-xsl))
 
+;;;###autoload
+(defun gphoto-download (resource)
+  "Download resource after authenticating."
+  (interactive "sResource: ")
+  (declare (special gphoto-auth-handle
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gphoto-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' %s"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gphoto-auth-handle)
+    resource
+    (g-curl-debug))
+   nil))
+
 ;;}}}
 ;;{{{ Adding an album:
 
