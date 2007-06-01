@@ -328,10 +328,6 @@ http-method is either POST or PUT"
   (interactive)
   (gblogger-send-buffer-contents "PUT"))
 
-;;;### autoload
-
-
-;;;### autoload
 ;;;###autoload
 (defun gblogger-publish ()
   "Publish current entry."

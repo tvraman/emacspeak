@@ -58,6 +58,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
 (require 'g-auth)
+(require 'g-app)
 (require 'browse-url)
 
 ;;}}}
@@ -377,13 +378,6 @@
       (format "*upload %s"
               (gphoto-photo-title photo)))
      (message "Posting photo asynchronously."))))
-(defun gphoto-photo-post-sentinel (process state)
-  "Handle HTTP response when post is done."
-;;; not implemented fully yet.
-  (when (or  (string-equal "201" (g-http-header "Status" headers))
-             (string-equal "200" (g-http-header "Status" headers)))
-    (and (> (length body)0)
-         (g-display-xml-string body g-atom-view-xsl))))
 
 ;;;###autoload
 (defun gphoto-photo-add (album-name photo )
@@ -554,22 +548,10 @@ The retrieved entry is placed in a buffer ready for editing.
   (interactive
    (list
     (read-from-minibuffer "Edit URL:")))
-  (declare (special gphoto-auth-handle
-                    g-curl-program g-curl-common-options))
-  (let ((buffer (gphoto-get-entry url)))
-    (save-excursion
-      (set-buffer buffer)
-      (setq gphoto-publish-action 'gphoto-put-entry)
-      (g-xsl-transform-region (point-min) (point-max)
-                              g-atom-edit-filter))
-    (switch-to-buffer buffer)
-    (goto-char (point-min))
-    (flush-lines "^ *$")
-    (goto-char (point-min))
-    (search-forward "<content" nil t)
-    (forward-line 1)
-    (message
-     (substitute-command-keys "Use \\[gphoto-publish] to publish your edits ."))))
+  (declare (special gphoto-auth-handle))
+  (g-app-edit-entry gphoto-auth-handle
+                    url
+                    'g-app-put-entry))
 
 ;;}}}
 (provide 'gphoto)
