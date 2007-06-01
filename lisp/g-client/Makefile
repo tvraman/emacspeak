@@ -42,6 +42,7 @@ BATCH = -batch -q -no-site-file  -eval '(setq vc-handled-backends nil)'
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
 OBJECTS= g-auth.elc \
+g-app.elc \
 g-utils.elc \
 g.elc \
 gblogger.elc \
@@ -52,7 +53,7 @@ gphoto.elc \
 gsheet.elc
 
 
-all: g-loaddefs.el g-cus-load.el ${OBJECTS} 
+all: g-loaddefs.el g-cus-load.el ${OBJECTS}
 
 
 # How to compile
@@ -76,14 +77,15 @@ g-cus-load.el: force
 
 # }}}
 # {{{  Make rules for the various modules
-g-utils.elc: g-utils.el 
+g-utils.elc: g-utils.el
 g-auth.elc: g-auth.el g-utils.elc
+g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
-greader.elc: greader.el g-auth.elc
-gsheet.elc: gsheet.el g-auth.elc
-gcal.elc: gcal.el g-auth.elc
-gnotebook.elc: gnotebook.el g-auth.elc
-gblogger.elc: gblogger.el g-auth.elc
+greader.elc: greader.el g-app.elc
+gsheet.elc: gsheet.el g-app.elc
+gcal.elc: gcal.el g-app.elc
+gnotebook.elc: gnotebook.el g-app.elc
+gblogger.elc: gblogger.el g-app.elc
 
 # }}}
 # {{{dist
