@@ -545,6 +545,33 @@
            (g-curl-debug))))
 
 ;;}}}
+;;{{{ Editting MetaData:
+
+(defun gphoto-edit-entry (url)
+  "Retrieve metadata for entry and prepare it for editting.
+The retrieved entry is placed in a buffer ready for editing.
+`url' is the URL of the entry."
+  (interactive
+   (list
+    (read-from-minibuffer "Edit URL:")))
+  (declare (special gphoto-auth-handle
+                    g-curl-program g-curl-common-options))
+  (let ((buffer (gphoto-get-entry url)))
+    (save-excursion
+      (set-buffer buffer)
+      (setq gphoto-publish-action 'gphoto-put-entry)
+      (g-xsl-transform-region (point-min) (point-max)
+                              g-atom-edit-filter))
+    (switch-to-buffer buffer)
+    (goto-char (point-min))
+    (flush-lines "^ *$")
+    (goto-char (point-min))
+    (search-forward "<content" nil t)
+    (forward-line 1)
+    (message
+     (substitute-command-keys "Use \\[gphoto-publish] to publish your edits ."))))
+
+;;}}}
 (provide 'gphoto)
 ;;{{{ end of file
 
