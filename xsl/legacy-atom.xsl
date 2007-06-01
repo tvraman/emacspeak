@@ -133,7 +133,7 @@ only support the current Atom namespace.
         <xsl:when test="@rel='self'">[Self]</xsl:when>
         <xsl:when test="@rel='alternate'">[HTML]</xsl:when>
         <xsl:when test="@rel='enclosure'">[<xsl:value-of select="@type"/>]</xsl:when>
-        <xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>]</xsl:otherwise>
+        <xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>Link]</xsl:otherwise>
       </xsl:choose>
     </a>
   </xsl:template>
