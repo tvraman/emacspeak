@@ -298,7 +298,7 @@ XML string is transformed via style
 (defvar g-curl-image-options
   "--data-binary @%s -H 'Content-Type: image/jpeg' -H 'slug:%s'"
   "Curl options for uploading images.")
-  
+
 
 
 (defvar g-crlf-pair
@@ -371,86 +371,6 @@ Note that in the Curl output, we see lf rather than crlf.")
     (setq annotation (buffer-string))
     (bury-buffer)
     annotation))
-
-;;}}}
-;;{{{  http get/put/post
-
-(define-derived-mode g-app-mode xml-mode
-  "Atom  Publishing Interaction"
-  "Major mode for APP interaction\n\n
-\\{g-app-mode-map"
-  (auto-fill-mode 1))
-
-(defun g-app-get-entry (auth-handle url)
-  "Retrieve specified entry using credentials in auth-handle.
-`url' is the URL of the entry"
-  (declare (special g-curl-program g-curl-common-options))
-  (g-auth-ensure-token auth-handle)
-  (let ((buffer (get-buffer-create "*atom entry*"))
-        (nxml-auto-insert-xml-declaration-flag nil))
-    (save-excursion
-      (set-buffer buffer)
-      (insert
-       (g-get-result
-        (format
-         "%s %s %s  %s 2>/dev/null"
-         g-curl-program g-curl-common-options
-         (g-authorization g-auth-handle)
-         url)))
-      (g-html-unescape-region (point-min) (point-max))
-      (g-app-mode)
-      (setq g-app-this-url url)
-      buffer)))
-
-(make-variable-buffer-local 'g-app-this-url)
-
-(defvar g-app-this-url nil
-  "Buffer local variable that records URL we post to.")
-
-
-(defun g-app-send-buffer (auth-handle http-method)
-  "Publish Atom entry in current buffer.
-http-method is either POST or PUT"
-  (declare (special g-cookie-options
-                    g-curl-program g-curl-common-options
-                    g-curl-atom-header))
-  (unless (and (eq major-mode 'g-app-mode)
-               g-app-this-url)
-    (error "Not in a correctly initialized Atom Entry."))
-  (goto-char (point-min))
-  (let ((cl (format "-H Content-length:%s" (buffer-size))))
-    (shell-command-on-region
-     (point-min) (point-max)
-     (format
-      "%s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
-      g-curl-program g-curl-common-options g-curl-atom-header cl
-      (g-authorization auth-handle)
-      g-cookie-options
-      http-method
-      g-app-this-url)
-     (current-buffer) 'replace)
-    (list (g-http-headers (point-min) (point-max))
-          (g-http-body (point-min) (point-max)))))
-
-(defun g-edit-entry (auth-handle url action)
-  "Retrieve entry and prepare it for editting.
-The retrieved entry is placed in a buffer ready for editing.
-`url' is the Edit URL of the entry.
-auth-handle is the authorization handle to use.
-action is the function to call when we're ready to submit the edit."
-  (declare (special g-curl-program g-curl-common-options))
-  (let ((buffer (g-get-entry url auth-handle)))
-    (save-excursion
-      (set-buffer buffer)
-      (setq g-app-publish-action action)
-      (g-xsl-transform-region (point-min) (point-max)
-                              g-atom-edit-filter))
-    (switch-to-buffer buffer)
-    (goto-char (point-min))
-    (flush-lines "^ *$")
-    (goto-char (point-min))
-    (search-forward "<content" nil t)
-    (forward-line 1)))
 
 ;;}}}
 (provide 'g-utils)
