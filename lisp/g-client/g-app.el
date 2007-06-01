@@ -198,7 +198,7 @@ action is the function to call when we're ready to submit the edit."
     (forward-line 1)
     (message
      (substitute-command-keys
-      "Use \\[g-app-publish] when done editing. ")))
+      "Use \\[g-app-publish] when done editing. "))))
 
 
 
