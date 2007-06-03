@@ -1861,6 +1861,52 @@ If a rewrite rule is defined in the current buffer, we change
     (error nil)))
 
 ;;}}}
+;;{{{ display authenticated feeds:
+;;; these commands use w3 to pull ATOM/RSS feeds 
+;;; before handing it off to xsltproc for conversion to xhtml
+
+(defun emacspeak-w3-feed-display(feed-url style)
+  "Fetch feed via Emacs and sisplay using xsltproc."
+  (let ((buffer (url-retrieve-synchronously feed-url)))
+    (cond
+     ((null buffer)
+      (message "Nothing to display."))
+     (t
+      (save-excursion
+        (set-buffer buffer)
+        (goto-char (point-min))
+        (search-forward "\n\n")
+        (delete-region (point-min) (point))
+        (shell-command-on-region
+         (point-min)
+         (point-max)
+         (format "%s %s -"
+                 emacspeak-xslt-program style)
+         'replace)
+        (browse-url-of-buffer))))))
+
+;;;###autoload
+(defun emacspeak-w3-rss-display (feed-url)
+  "Display RSS feed."
+  (interactive
+   (list
+    (read-from-minibuffer "Feed: "
+                          (browse-url-url-at-point))))
+(emacspeak-w3-feed-display feed-url
+                           (expand-file-name "rss.xsl"
+                                                 emacspeak-xslt-directory)))
+
+;;;###autoload
+(defun emacspeak-w3-atom-display (feed-url)
+  "Display ATOM feed."
+  (interactive
+   (list
+    (read-from-minibuffer "Feed: "
+                          (browse-url-url-at-point))))
+  (declare (special emacspeak-atom-view-xsl))
+  (emacspeak-w3-feed-display feed-url
+                             emacspeak-atom-view-xsl))
+;;}}}
 ;;{{{  emacs local variables
 
 ;;; local variables:
