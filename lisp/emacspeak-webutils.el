@@ -51,6 +51,7 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'url)
+(require 'emacspeak-xslt)
 (require 'emacspeak-websearch)
 
 ;;}}}
@@ -68,6 +69,8 @@
 (make-variable-buffer-local 'emacspeak-webutils-url-at-point)
 (make-variable-buffer-local 'emacspeak-webutils-current-url)
 ;;}}}
+;;{{{ utils
+
 (defun emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode
@@ -185,7 +188,7 @@ With a prefix argument, extracts url under point."
         (browse-url plain-url))))))
 
 ;;}}}
-;;{{{
+;;{{{ tools
 
 ;;;###autoload
 (defun emacspeak-webutils-jump-to-title-in-content ()
@@ -242,7 +245,53 @@ instances."
     (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
 
 ;;}}}
+;;{{{ display authenticated feeds:
 
+;;; these commands use url to pull ATOM/RSS feeds 
+;;; before handing it off to xsltproc for conversion to xhtml
+
+(defun emacspeak-webutils-feed-display(feed-url style)
+  "Fetch feed via Emacs and sisplay using xsltproc."
+  (let ((buffer (url-retrieve-synchronously feed-url)))
+    (cond
+     ((null buffer)
+      (message "Nothing to display."))
+     (t
+      (save-excursion
+        (set-buffer buffer)
+        (goto-char (point-min))
+        (search-forward "\n\n")
+        (delete-region (point-min) (point))
+        (shell-command-on-region
+         (point-min)
+         (point-max)
+         (format "%s %s -"
+                 emacspeak-xslt-program style)
+         'replace)
+        (browse-url-of-buffer))))))
+
+;;;###autoload
+(defun emacspeak-webutils-rss-display (feed-url)
+  "Display RSS feed."
+  (interactive
+   (list
+    (read-from-minibuffer "Feed: "
+                          (browse-url-url-at-point))))
+(emacspeak-webutils-feed-display feed-url
+                           (expand-file-name "rss.xsl"
+                                                 emacspeak-xslt-directory)))
+
+;;;###autoload
+(defun emacspeak-webutils-atom-display (feed-url)
+  "Display ATOM feed."
+  (interactive
+   (list
+    (read-from-minibuffer "Feed: "
+                          (browse-url-url-at-point))))
+  (declare (special emacspeak-atom-view-xsl))
+  (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
+
+;;}}}
 (provide 'emacspeak-webutils)
 ;;{{{ end of file
 
