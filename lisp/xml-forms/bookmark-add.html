@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+
+  <title>Add Bookmark</title>
+<style type="text/css">
+/*<![CDATA[*/
+ table.c5 {font-size:83%;width:500px}
+ input.c4 {font-weight:bold}
+ textarea.c3 {width:100%; font-size:smaller}
+ span.c2 {color: #6F6F6F; font-size: 80%}
+ input.c1 {width:100%}
+/*]]>*/
+</style>
+</head>
+
+<body>
+  <form name="add_bkmk_form"
+        action= "http://www.google.com/bookmarks/mark"
+  method=post >
+    <table cellpadding="5" cellspacing="0" border="0" class="c5">
+      <tr>
+        <td colspan="2"><b>Add a bookmark</b></td>
+      </tr>
+
+      <tr>
+        <td width="1%" valign="top" align="right">Name:</td>
+
+        <td><input name="title" type="text" class="c1" id="bkmk_n"
+        value="" /><br />
+        <br /></td>
+      </tr>
+
+      <tr>
+        <td width="1%" valign="top" align="right">
+        Location&nbsp;(URL):</td>
+
+        <td><input type="text" dir="ltr" class="c1" name="bkmk" id=
+        "bkmk_u" value="http://" /><br />
+        <br /></td>
+      </tr>
+
+      <tr>
+        <td width="1%" valign="top" align="right">Labels:</td>
+
+        <td><input name="labels" autocomplete="off" type="text"
+        class="c1" id="bkmk_label_1" value="" /><br />
+        <span class="c2">e.g., News, To do, summer
+        vacation</span><br />
+        <br /></td>
+      </tr>
+
+      <tr>
+        <td width="1%" valign="top" align="right">Notes:</td>
+
+        <td>
+        <textarea rows="4" class="c3" name="annotation">
+</textarea></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><img width="1" height="1" alt="" /></td>
+      </tr>
+
+      <tr>
+        <td></td>
+
+        <td width="100%"><input type="submit" name="btnA" class=
+        "c4" value="Add bookmark" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
