@@ -1048,7 +1048,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri
-  "http://www.google.com/search?e=StructuredResults&q="
+  "http://www.google.com/search?q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-options nil
@@ -1099,7 +1099,7 @@ I'm Feeling Lucky button on Google."
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-  "http://google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&e=StructuredResults&q="
+  "http://google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
 ;;;###autoload
@@ -1145,7 +1145,7 @@ http://www.google.com/options/specialsearches.html "
     (emacspeak-websearch-read-query
      "Google for:")))
   (let ((emacspeak-websearch-google-uri
-         (format "http://www.google.com/%s?e=StructuredResults&q="
+         (format "http://www.google.com/%s?q="
                  specialize)))
     (emacspeak-websearch-google query )))
 
@@ -1178,7 +1178,7 @@ http://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
-  "http://www.google.com/products?output=html&e=StructuredResults&q=%s"
+  "http://www.google.com/products?output=html&q=%s"
   "*URI for Froogle search")
 
 ;;;###autoload
