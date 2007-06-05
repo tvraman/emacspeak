@@ -276,7 +276,10 @@ instances."
   (interactive
    (list
     (read-from-minibuffer "Feed: "
-                          (browse-url-url-at-point))))
+                          (if emacspeak-webutils-url-at-point
+                          (funcall
+                           emacspeak-webutils-url-at-point)
+                          (browse-url-url-at-point)))))
 (emacspeak-webutils-feed-display feed-url
                            (expand-file-name "rss.xsl"
                                                  emacspeak-xslt-directory)))
@@ -287,7 +290,10 @@ instances."
   (interactive
    (list
     (read-from-minibuffer "Feed: "
-                          (browse-url-url-at-point))))
+                          (if emacspeak-webutils-url-at-point
+                              (funcall
+                               emacspeak-webutils-url-at-point)
+                            (browse-url-url-at-point)))))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
 
