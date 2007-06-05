@@ -121,6 +121,10 @@ This gets set the first time we sign in using a browser."
    (format "%s&q=%s"
            (emacspeak-webmarks-url emacspeak-webmarks-find-url-template)
            query)))
+(defun emacspeak-webmarks-mark-callback (&rest ignore)
+  "Called after we have added a WebMark."
+  (bury-buffer)
+  (emacspeak-webmarks-list))
 
 ;;;###autoload
 (defun emacspeak-webmarks-add (title url notes)
