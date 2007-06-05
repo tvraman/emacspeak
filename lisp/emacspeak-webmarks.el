@@ -84,7 +84,12 @@ This gets set the first time we sign in using a browser."
 
 (defvar emacspeak-webmarks-find-url-template
   "http://www.google.com/bookmarks/find?q=%s&hl=en&output=rss"
-  "URL template for  bookmark searches..")
+  "URL template for  bookmark searches.")
+
+(defvar emacspeak-webmarks-add-url-template
+  "http://www.google.com/bookmarks/mark?op=add&hl=en"
+  "URL template for adding WebMarks.")
+
   
 (defsubst emacspeak-webmarks-url (template)
   "Return appropriately filled out url."
@@ -116,6 +121,19 @@ This gets set the first time we sign in using a browser."
    (format "%s&q=%s"
            (emacspeak-webmarks-url emacspeak-webmarks-find-url-template)
            query)))
+
+;;;###autoload
+(defun emacspeak-webmarks-add (title url notes)
+  "Add WebMark."
+  (interactive "sTitle:\nsURL:\nsNotes")  (declare (special emacspeak-webmarks-key))
+  (unless emacspeak-webmarks-key
+    (error "WebMarks key not set."))
+  (browse-url
+   (format "%s&title=%s&bkmk=%s&annotation=%s"
+           (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
+           (emacspeak-url-encode title)
+           (emacspeak-url-encode url)
+           (emacspeak-url-encode notes))))
 
 ;;}}}
 (provide 'emacspeak-webmarks)
