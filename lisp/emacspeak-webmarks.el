@@ -87,7 +87,7 @@ This gets set the first time we sign in using a browser."
   "URL template for  bookmark searches.")
 
 (defvar emacspeak-webmarks-add-url-template
-  "http://www.google.com/bookmarks/mark?op=add&hl=en"
+  "http://www.google.com/bookmarks/mark?op=add&hl=en&btnA=Add+bookmark"
   "URL template for adding WebMarks.")
 
   
@@ -100,6 +100,7 @@ This gets set the first time we sign in using a browser."
 
 ;;}}}
 ;;{{{ Interactive commands:
+
 ;;;###autoload
 (defun emacspeak-webmarks-list ()
   "List WebMarks."
