@@ -788,7 +788,7 @@ date under point."
 
 ;;}}}
 ;;{{{ Sign out:
-
+;;;###autoload
 (defun gcal-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -799,6 +799,17 @@ date under point."
   (setq gcal-user-email nil
         gcal-user-password nil)
   (setq gcal-auth-handle (make-gcal-auth)))
+
+;;;###autoload
+(defun gcal-sign-in()
+  "Sign in, useful when changing to a different user profile."
+  (interactive)
+  (declare (special gcal-auth-handle gcal-user-email))
+  (setq gcal-user-email
+        (read-from-minibuffer "Calendar User: "))
+  (setq gcal-auth-handle (make-gcal-auth))
+  (gcal-authenticate))
+
 
 ;;}}}
 (provide 'gcal)
