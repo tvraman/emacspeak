@@ -150,8 +150,7 @@
 (defun gsheet-sheets ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
-  (declare (special gsheet-auth-handle
-                    g-atom-view-xsl
+  (declare (special gsheet-auth-handle g-atom-view-xsl
                     g-curl-program g-curl-common-options
                     g-cookie-options))
   (g-auth-ensure-token gsheet-auth-handle)

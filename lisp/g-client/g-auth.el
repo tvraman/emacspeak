@@ -156,7 +156,7 @@
   "Authenticate    using credentials in auth-handle.
 Populate auth-handle with the returned cookies and token."
   (declare (special g-auth-scratch-buffer g-curl-program
-g-curl-common-options
+                    g-curl-common-options
                     g-user-email))
   (let* ((post-auth-action (g-auth-post-auth-action auth-handle))
         (email (or (g-auth-email auth-handle)
