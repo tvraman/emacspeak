@@ -509,7 +509,7 @@
 
 ;;}}}
 ;;{{{ Sign out:
-
+;;;###autoload
 (defun gphoto-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -520,6 +520,16 @@
   (setq gphoto-user-email nil
         gphoto-user-password nil)
   (setq gphoto-auth-handle (make-gphoto-auth)))
+
+;;;###autoload
+(defun gphoto-sign-in()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gphoto-auth-handle gphoto-user-email ))
+  (setq gphoto-user-email
+        (read-from-minibuffer "User Email:"))
+  (setq gphoto-auth-handle (make-gphoto-auth))
+  (g-authenticate gphoto-auth-handle))
 
 ;;}}}
 ;;{{{ deleting tags, comments or photos:
@@ -540,7 +550,7 @@
 
 ;;}}}
 ;;{{{ Editting MetaData:
-
+;;;###autoload
 (defun gphoto-edit-entry (url)
   "Retrieve metadata for entry and prepare it for editting.
 The retrieved entry is placed in a buffer ready for editing.

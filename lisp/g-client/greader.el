@@ -594,6 +594,7 @@ arrived articles."
 
 ;;}}}
 ;;{{{ Sign out:
+;;;###autoload
 (defun greader-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -606,7 +607,18 @@ arrived articles."
     (setq greader-user-email nil
           greader-user-password nil)
     (setq greader-auth-handle (make-greader-auth)))
-   (t (message "You've not used Reader in this emacs session."))))
+   (t (message "You've not used Reader in this emacs
+session."))))
+
+;;;###autoload
+(defun greader-sign-in()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special greader-auth-handle greader-user-email ))
+  (setq greader-user-email
+        (read-from-minibuffer "User Email:"))
+  (setq greader-auth-handle (make-greader-auth))
+  (g-authenticate greader-auth-handle))
 
 ;;}}}
 
