@@ -117,7 +117,7 @@
 
 ;;}}}
 ;;{{{ gsheet-fetch
-
+;;;###autoload
 (defun gsheet-fetch (sheet-url)
   "Fetch specified sheet."
   (interactive "sSheet URL:")  (declare (special gsheet-auth-handle
@@ -146,7 +146,7 @@
   "Return url for feed of feeds."
   (declare (special gsheet-feeds-template-url))
    gsheet-feeds-template-url )
-
+;;;###autoload
 (defun gsheet-sheets ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
@@ -166,7 +166,7 @@
 
 ;;}}}
 ;;{{{ sign out:
-
+;;;###autoload
 (defun gsheet-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -177,6 +177,16 @@
   (setq gsheet-user-email nil
         gsheet-user-password nil)
   (setq gsheet-auth-handle (make-gsheet-auth)))
+
+;;;###autoload
+(defun gsheet-sign-in()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gsheet-auth-handle gsheet-user-email ))
+  (setq gsheet-user-email
+        (read-from-minibuffer "User Email:"))
+  (setq gsheet-auth-handle (make-gsheet-auth))
+  (g-authenticate gsheet-auth-handle))
 
 ;;}}}
 

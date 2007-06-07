@@ -359,7 +359,7 @@ http-method is either POST or PUT"
 
 ;;}}}
 ;;{{{ Reset auth handle:
-
+;;;###autoload
 (defun gblogger-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -370,8 +370,15 @@ http-method is either POST or PUT"
   (setq gblogger-user-email nil
         gblogger-user-password nil)
   (setq gblogger-auth-handle (make-gblogger-auth)))
-
-
+;;;###autoload
+(defun gblogger-sign-in()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gblogger-auth-handle gblogger-user-email ))
+  (setq gblogger-user-email
+        (read-from-minibuffer "User Email:"))
+  (setq gblogger-auth-handle (make-gblogger-auth))
+  (g-authenticate gblogger-auth-handle))
 
 ;;}}}
 (provide 'gblogger)

@@ -142,7 +142,7 @@
 
 ;;}}}
 ;;{{{ Sign out:
-
+;;;###autoload
 (defun gskeleton-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
@@ -153,6 +153,17 @@
   (setq gskeleton-user-email nil
         gskeleton-user-password nil)
   (setq gskeleton-auth-handle (make-gskeleton-auth)))
+
+
+;;;###autoload
+(defun gskeleton-sign-in()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gskeleton-auth-handle gskeleton-user-email ))
+  (setq gskeleton-user-email
+        (read-from-minibuffer "User Email:"))
+  (setq gskeleton-auth-handle (make-gskeleton-auth))
+  (g-authenticate gskeleton-auth-handle))
 
 ;;}}}
 (provide 'gskeleton)
