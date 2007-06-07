@@ -139,7 +139,7 @@
 ;;{{{ Feed of feeds:
 
 (defvar gsheet-feeds-template-url
-  "http://spreadsheets.google.com/feeds/spreadsheets/private/full"
+  "https://spreadsheets.google.com/feeds/spreadsheets/private/full"
   "URL template for feed of feeds from spreadsheet.")
 
 (defsubst gsheet-feeds-url (userid)
