@@ -720,6 +720,25 @@ date under point."
                 (or start-min "")
                 (or start-max "")))))
      gcal-calendar-view)))
+;;;###autoload
+
+(defun gcal-view (resource)
+  "Retrieve and display resource after authenticating."
+  (interactive "sResource: ")
+  (declare (special gcal-auth-handle
+                    gcal-calendar-view
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' %s"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
+    resource
+    (g-curl-debug))
+   gcal-calendar-view))
 
 ;;;###autoload
 (defun gcal-show-event (url)
@@ -764,6 +783,8 @@ date under point."
     (gcal-feeds-url
      (g-url-encode (g-auth-email gcal-auth-handle))))
    g-atom-view-xsl))
+
+(defalias 'gcal-feeds 'gcal-calendars)
 
 ;;}}}
 ;;{{{ Interfacing with Emacs Calendar:
