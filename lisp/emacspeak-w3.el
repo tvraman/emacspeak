@@ -193,7 +193,8 @@
           ("z" emacspeak-w3-speak-next-block)
           ([C-Return] emacspeak-webutils-open-in-other-browser))
         do
-        (emacspeak-keymap-update w3-mode-map binding)))
+        (emacspeak-keymap-update w3-mode-map binding))
+  (w3-masquerade-stub 1 "Mozilla" "5.0"))
 
 (add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
 
