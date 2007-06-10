@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 773 commands.
+This chapter documents a total of 776 commands.
 
 @menu
 * cd-tool::                     
@@ -79,11 +79,11 @@ This chapter documents a total of 773 commands.
 * emacspeak-widget::            
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
+* emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
 * emacspeak-w3search::          
 * emacspeak-org::               
-* emacspeak-zinf::              
 * URL Templates ::              
 @end menu
 
@@ -667,7 +667,7 @@ Speak the name of the buffer on this line
 
 Commentary:
 Make some of C and C++ mode more emacspeak friendly
-Works with both boring c-mode 
+Works with both boring c-mode
 and the excellent cc-mode
 
 Automatically generated documentation
@@ -1672,6 +1672,18 @@ Automatically defined advice to speak interactive prompts.
 Automatically generated documentation
 for commands defined in module  emacspeak-loaddefs.
 
+@deffn {Interactive Command} emacspeak-mark-forward-mark ()
+@kbd{ <control down> }
+
+Jump to mark, and pop a new position for mark off the ring
+(does not affect global mark ring).
+
+This function is advised.
+
+After-advice `emacspeak':
+Produce an auditory icon if possible.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-speak-current-field ()
 @kbd{ control e . }
 
@@ -2594,12 +2606,6 @@ Automatically defined advice to speak interactive prompts.
 @kbd{ <control up> }
 
 Cycle backward through the mark ring.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-mark-forward-mark ()
-@kbd{ <control down> }
-
-Cycle forward through the mark ring.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-owindow-next-line (COUNT)
@@ -4472,6 +4478,10 @@ and emacspeak-w3m.el
 Automatically generated documentation
 for commands defined in module  emacspeak-webutils.
 
+@deffn {Interactive Command} emacspeak-webutils-atom-display (FEED-URL)
+Display ATOM feed.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-webutils-google-extract-from-cache (&optional PREFIX)
 Extract current  page from the Google cache.
 With a prefix argument, extracts url under point.
@@ -4492,8 +4502,8 @@ current page.
 
 @deffn {Interactive Command} emacspeak-webutils-jump-to-title-in-content ()
 Jumps to the title in web document.
-The first time it is called, it jumps to the first 
-instance  of the title.  Repeated calls jump to further 
+The first time it is called, it jumps to the first
+instance  of the title.  Repeated calls jump to further
 instances.
 @end deffn
 
@@ -4504,6 +4514,10 @@ Opens link in alternate browser.
 
 @deffn {Interactive Command} emacspeak-webutils-play-media-at-point ()
 Play media url under point 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webutils-rss-display (FEED-URL)
+Display RSS feed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-transcode-current-url-via-google (&optional UNTRANSCODE)
@@ -5308,6 +5322,63 @@ this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
 @end deffn
 
+@node emacspeak-zinf
+@section emacspeak-zinf
+
+Commentary:
+Defines a simple derived mode for interacting with
+zinf.
+zinf == zinf is not freeamp
+zinf navigation commands then work via single keystrokes.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-zinf.
+
+@deffn {Interactive Command} emacspeak-zinf (RESOURCE)
+Play specified resource using zinf.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-zinf-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-zinf-mode ()
+Major mode for zinf interaction. 
+
+key             binding
+---             -------
+
++		emacspeak-zinf-zinf-call-command
+-		emacspeak-zinf-zinf-call-command
+=		emacspeak-zinf-zinf-call-command
+?		emacspeak-zinf-zinf-call-command
+B		emacspeak-zinf-zinf-call-command
+F		emacspeak-zinf-zinf-call-command
+J		emacspeak-zinf-zinf-call-command
+b		emacspeak-zinf-zinf-call-command
+f		emacspeak-zinf-zinf-call-command
+j		emacspeak-zinf-zinf-call-command
+p .. q		emacspeak-zinf-zinf-call-command
+s		emacspeak-zinf-zinf-call-command
+z		emacspeak-zinf
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
+
+This mode runs the hook `emacspeak-zinf-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-zinf-zinf-call-command ()
+Call appropriate zinf command.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-zinf-zinf-command (CHAR)
+Execute Zinf command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+@end deffn
+
 @node emacspeak
 @section emacspeak
 
@@ -5451,38 +5522,6 @@ for commands defined in module  emacspeak-org.
 Pops up an org input area.
 
 (fn)
-@end deffn
-
-@node emacspeak-zinf
-@section emacspeak-zinf
-
-Commentary:
-Defines a simple derived mode for interacting with
-zinf.
-zinf == zinf is not freeamp
-zinf navigation commands then work via single keystrokes.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-zinf.
-
-@deffn {Interactive Command} emacspeak-zinf ()
-Play specified resource using zinf.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-zinf-mode.
-
-(fn RESOURCE)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-zinf-zinf-call-command ()
-Call appropriate zinf command.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-zinf-zinf-command ()
-Execute Zinf command.
-
-(fn CHAR)
 @end deffn
 
 @node URL Templates 
@@ -5685,12 +5724,15 @@ Here are some examples:
 
 @kbd{Finance Google Search}
 
-Perform Google Finance search and view results through the
-mobile transcoder.
+Display content from Google Finance.
 
 @kbd{Flight Tracker}
 
 Display flight arrival and departure information.
+
+@kbd{GCalendar Mobile}
+
+Google Calendar XHTML version.
 
 @kbd{GMail Mobile}
 
@@ -5731,26 +5773,6 @@ Google Image Search
 @kbd{Google Local}
 
 Google Local Search.
-
-@kbd{Google Maps Give Me XML}
-
-Get me XML from Google Maps.
-Specify the query using English and  addresses as complete as
-  possible.
-
-Here are some examples:
-
-0) To find a location by address specify:
-
-650 Harry Road San Jose CA 95120
-
-1) To get directions, specify:
-
-<source address> to <destination address>
-
-2) To find businesses etc., near a location, specify:
-
-<what> near <location address>
 
 @kbd{Google Mobile Search}
 
