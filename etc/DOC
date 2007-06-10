@@ -1256,6 +1256,18 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
+** emacspeak-mark-forward-mark	Key Sequence: <control down> 
+
+ Jump to mark, and pop a new position for mark off the ring
+(does not affect global mark ring).
+
+This function is advised.
+
+After-advice `emacspeak':
+Produce an auditory icon if possible. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-current-field	Key Sequence: control e . 
 
  Speak current field.
@@ -2024,12 +2036,6 @@ Automatically defined advice to speak interactive prompts.
 ** emacspeak-mark-backward-mark	Key Sequence: <control up> 
 
  Cycle backward through the mark ring. 
-
-------------------------------------------------------------
-
-** emacspeak-mark-forward-mark	Key Sequence: <control down> 
-
- Cycle forward through the mark ring. 
 
 ------------------------------------------------------------
 
@@ -3760,6 +3766,10 @@ Optional second arg as-html processes the results as HTML rather than data.
 
 ------------------------------------------------------------
 
+** emacspeak-webutils-atom-display Display ATOM feed. 
+
+------------------------------------------------------------
+
 ** emacspeak-webutils-google-extract-from-cache Extract current  page from the Google cache.
 With a prefix argument, extracts url under point. 
 
@@ -3779,8 +3789,8 @@ current page.
 ------------------------------------------------------------
 
 ** emacspeak-webutils-jump-to-title-in-content Jumps to the title in web document.
-The first time it is called, it jumps to the first 
-instance  of the title.  Repeated calls jump to further 
+The first time it is called, it jumps to the first
+instance  of the title.  Repeated calls jump to further
 instances. 
 
 ------------------------------------------------------------
@@ -3791,6 +3801,10 @@ instances.
 ------------------------------------------------------------
 
 ** emacspeak-webutils-play-media-at-point Play media url under point  
+
+------------------------------------------------------------
+
+** emacspeak-webutils-rss-display Display RSS feed. 
 
 ------------------------------------------------------------
 
@@ -4586,6 +4600,54 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-zinf Play specified resource using zinf.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-zinf-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-zinf-mode Major mode for zinf interaction. 
+
+
+key             binding
+---             -------
+
++		emacspeak-zinf-zinf-call-command
+-		emacspeak-zinf-zinf-call-command
+=		emacspeak-zinf-zinf-call-command
+?		emacspeak-zinf-zinf-call-command
+B		emacspeak-zinf-zinf-call-command
+F		emacspeak-zinf-zinf-call-command
+J		emacspeak-zinf-zinf-call-command
+b		emacspeak-zinf-zinf-call-command
+f		emacspeak-zinf-zinf-call-command
+j		emacspeak-zinf-zinf-call-command
+p .. q		emacspeak-zinf-zinf-call-command
+s		emacspeak-zinf-zinf-call-command
+z		emacspeak-zinf
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
+
+
+
+This mode runs the hook `emacspeak-zinf-mode-hook', as the final step
+during initialization. 
+
+------------------------------------------------------------
+
+** emacspeak-zinf-zinf-call-command Call appropriate zinf command. 
+
+------------------------------------------------------------
+
+** emacspeak-zinf-zinf-command Execute Zinf command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
+
+------------------------------------------------------------
+
 ** emacspeak-describe-emacspeak	Key Sequence: control h control e   <f1> control e   <help> control e 
 
  Give a brief overview of emacspeak. 
@@ -4624,26 +4686,6 @@ take effect.
 ** emacspeak-org-popup-input Pops up an org input area.
 
 (fn) 
-
-------------------------------------------------------------
-
-** emacspeak-zinf Play specified resource using zinf.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-zinf-mode.
-
-(fn RESOURCE) 
-
-------------------------------------------------------------
-
-** emacspeak-zinf-zinf-call-command Call appropriate zinf command.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-zinf-zinf-command Execute Zinf command.
-
-(fn CHAR) 
 
   
 

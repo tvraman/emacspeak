@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 643 user customizable
+This chapter documents a total of 645 user customizable
   options.
 
 @menu
@@ -330,6 +330,10 @@ Table of ATOM feeds.
 @defvar {User Option} emacspeak-atom-unescape-html
 Fix malformed  XML that results from sites attempting to
 unescape HTML tags.
+@end defvar
+
+@defvar {User Option} emacspeak-atom-view-xsl
+XSL stylesheet used for viewing Atom Feeds.
 @end defvar
 
 @node emacspeak-aumix Options
@@ -2113,6 +2117,12 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-bookshare-user-id
 Bookshare user Id.
+@end defvar
+
+@defvar {User Option} emacspeak-url-template-google-calendar-uri
+URI for accessing mobile version of Google Calendar.
+Google Apps users should set this to
+http://www.google.com/calendar/a/<my-corp>/m?output=xhtml
 @end defvar
 
 @defvar {User Option} emacspeak-url-template-weather-city-state
