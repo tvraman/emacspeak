@@ -141,8 +141,8 @@ With a prefix argument, extracts url under point."
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL pattern for accessing Google transcoder.")
 
-;;;###autoload
-(defun emacspeak-webutils-transcoded-to-plain-url (url)
+
+(defsubst emacspeak-webutils-transcoded-to-plain-url (url)
   "Extract plain URL from Google transcoder URL."
   (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
 						   (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
