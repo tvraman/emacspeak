@@ -142,6 +142,16 @@ With a prefix argument, extracts url under point."
   "URL pattern for accessing Google transcoder.")
 
 ;;;###autoload
+(defun emacspeak-webutils-transcoded-to-plain-url (url)
+  "Extract plain URL from Google transcoder URL."
+  (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
+						   (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
+	(when (equal prefix (substring url 0 (length prefix)))
+		  (let* ((args (substring url (length prefix)))
+				 (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
+			(url-unhex-string (cdr (assoc "u" arg-alist)))))))
+
+;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)
   "Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page."
@@ -157,11 +167,7 @@ With a prefix argument, extracts url under point."
                (emacspeak-url-encode
                 (funcall emacspeak-webutils-url-at-point)))))
      (t
-      (let ((plain-url nil)
-            (prefix (substring emacspeak-webutils-google-transcoder-url 0 -2))
-            (suffix "&_gwt_noimg=1")
-            (unhex (url-unhex-string (funcall emacspeak-webutils-url-at-point))))
-        (setq plain-url (substring  unhex (length prefix) (- 0 (length suffix))))
+      (let ((plain-url (emacspeak-webutils-transcoded-to-plain-url (funcall emacspeak-webutils-url-at-point))))
         (when plain-url
           (browse-url plain-url)))))))
 
@@ -179,12 +185,8 @@ With a prefix argument, extracts url under point."
      (format emacspeak-webutils-google-transcoder-url
              (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
    (t
-    (let ((plain-url nil)
-          (prefix (substring
-                   emacspeak-webutils-google-transcoder-url 0 -2))
-          (unhex (url-unhex-string (funcall emacspeak-webutils-current-url))))
-      (setq plain-url (substring  unhex (length prefix)))
-      (when plain-url
+    (let ((plain-url (emacspeak-webutils-transcoded-to-plain-url (funcall emacspeak-webutils-current-url))))
+	  (when plain-url
         (browse-url plain-url))))))
 
 ;;}}}
