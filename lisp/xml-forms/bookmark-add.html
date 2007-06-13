@@ -6,7 +6,7 @@
   <meta name="generator" content=
   "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
 
-  <title>Add Bookmark</title>
+  <title></title>
 <style type="text/css">
 /*<![CDATA[*/
  table.c5 {font-size:83%;width:500px}
@@ -19,9 +19,9 @@
 </head>
 
 <body>
-  <form name="add_bkmk_form"
-        action= "http://www.google.com/bookmarks/mark"
-  method=post >
+  <form name="add_bkmk_form" action=
+  "http://www.google.com/bookmarks/mark?op=add" method="post" id=
+  "add_bkmk_form">
     <table cellpadding="5" cellspacing="0" border="0" class="c5">
       <tr>
         <td colspan="2"><b>Add a bookmark</b></td>
@@ -31,24 +31,22 @@
         <td width="1%" valign="top" align="right">Name:</td>
 
         <td><input name="title" type="text" class="c1" id="bkmk_n"
-        value="" /><br />
-        <br /></td>
+        value="" /></td>
       </tr>
 
       <tr>
-        <td width="1%" valign="top" align="right">
-        Location&nbsp;(URL):</td>
+        <td width="1%" valign="top" align="right">URL:</td>
 
         <td><input type="text" dir="ltr" class="c1" name="bkmk" id=
-        "bkmk_u" value="http://" /><br />
-        <br /></td>
+        "bkmk_u" value="" /></td>
       </tr>
 
       <tr>
         <td width="1%" valign="top" align="right">Labels:</td>
 
-        <td><input name="labels" autocomplete="off" type="text"
-        class="c1" id="bkmk_label_1" value="" /><br />
+        <td><input name="labels"  type="text"
+        class="c1" id="bkmk_label_1" value="" /> <input type=
+        "hidden" id="rbkmk_label_1" value="" /><br />
         <span class="c2">e.g., News, To do, summer
         vacation</span><br />
         <br /></td>
@@ -69,8 +67,11 @@
       <tr>
         <td></td>
 
-        <td width="100%"><input type="submit" name="btnA" class=
-        "c4" value="Add bookmark" /></td>
+        <td width="100%"></td>
+
+        <td><input type="submit" name="btnA" class="c4" value=
+        "Add bookmark" />&nbsp; <input type="button" name="btnC"
+        value="Cancel" /></td>
       </tr>
     </table>
   </form>
