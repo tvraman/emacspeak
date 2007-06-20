@@ -552,25 +552,23 @@ default-directory after switching."
 ;;;###autoload
 (defun emacspeak-sudo (command)
   "SUDo command --run command as super user."
-  (interactive
-   (list
-    (read-from-minibuffer "SUDO Command: ")))
+  (interactive "sSuDo Command: ")
   (let* ((name  (car (split-string command)))
-         (buffer (format "*sudo-%s*" name)))
+         (output nil)
+         (buffer (format " *sudo-%s*" name)))
     (shell-command
      (format "sudo %s" command)
      buffer)
-    (cond
-     ((> 1
-         (save-excursion
-           (set-buffer buffer)
-           (count-lines (point-min) (point-max))))
-      (pop-to-buffer buffer)
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'open-object))
-     (t (save-excursion
-          (set-buffer buffer)
-          (message (buffer-string)))))))
+    (setq output
+          (save-excursion
+            (set-buffer buffer)
+            (buffer-string)))
+    (bury-buffer buffer)
+    (message output)))
+                   
+      
+          
+          
 
 ;;;###autoload
 
