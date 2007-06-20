@@ -45,6 +45,7 @@
 
 ;;; MozRepl provides a read-eval-print loop into Firefox
 ;;; This module provides convenient functions for driving MozRepl
+;;; See http://repo.hyperstruct.net/mozlab
 
 ;;}}}
 ;;{{{  Required modules
