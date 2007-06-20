@@ -65,6 +65,7 @@
 (global-set-key "\C-x@hf" 'emoz-prefix-command)
 (loop for k in
       '(
+        ("i" inferior-moz-switch-to-mozilla)
         ("f" browse-url-firefox))
       do
       (emacspeak-keymap-update  emoz-keymap k))
