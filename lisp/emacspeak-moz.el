@@ -1,4 +1,4 @@
-;;; emoz.el.el --- Talk to Firefox via MozRepl
+;;; emacspeak-moz.el.el --- Talk to Firefox via MozRepl
 ;;; $Id: moz.el 4532 2007-05-04 01:13:44Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Control Firefox from Emacs
@@ -57,33 +57,46 @@
 ;;}}}
 ;;{{{ Customizations
 
-(defgroup emoz nil
+(defgroup emacspeak-moz nil
   "Control Firefox from Emacs."
   :group 'emacspeak)
 
-(define-prefix-command 'emoz-prefix-command 'emoz-keymap )
-(global-set-key "\C-x@hf" 'emoz-prefix-command)
+(define-prefix-command 'emacspeak-moz-prefix-command 'emacspeak-moz-keymap )
+(global-set-key "\C-x@hf" 'emacspeak-moz-prefix-command)
 (loop for k in
       '(
-        ("e" emoz-eval-expression-and-go)
+        ("e" emacspeak-moz-eval-expression-and-go)
         ("i" inferior-moz-switch-to-mozilla)
         ("f" browse-url-firefox))
       do
-      (emacspeak-keymap-update  emoz-keymap k))
+      (emacspeak-keymap-update  emacspeak-moz-keymap k))
 
 
 
 ;;}}}
 ;;{{{ Interactive commands:
 
-(defun emoz-eval-expression-and-go (exp)
+(defun emacspeak-moz-eval-expression-and-go (exp)
   "Send expression to Moz and switch to it."
   (interactive "sJSEval: ")
   (comint-send-string (inferior-moz-process) exp)
-  (switch-to-buffer (process-buffer (inferior-moz-process))))
+  (switch-to-buffer (process-buffer (inferior-moz-process)))
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-line))
 
 ;;}}}
-(provide 'emoz)
+;;{{{ Advice interactive commands:
+
+(
+(defadvice inferior-moz-switch-to-mozilla (after emacspeak pre
+                                                 act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+;;}}}
+(provide 'emacspeak-moz)
 ;;{{{ end of file
 
 ;;; local variables:

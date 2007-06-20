@@ -202,6 +202,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
 (emacspeak-do-package-setup "man" 'emacspeak-man)
+(emacspeak-do-package-setup "moz" 'emacspeak-moz)
 (emacspeak-do-package-setup "message" 'emacspeak-message)
 (emacspeak-do-package-setup "meta-mode" 'emacspeak-metapost)
 (emacspeak-do-package-setup "mpg123" 'emacspeak-mpg123)
