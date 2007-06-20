@@ -1,4 +1,4 @@
-;;; emoz.el.el --- Talk to Firefox via MozRepl 
+;;; emoz.el.el --- Talk to Firefox via MozRepl
 ;;; $Id: moz.el 4532 2007-05-04 01:13:44Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Control Firefox from Emacs
@@ -65,6 +65,7 @@
 (global-set-key "\C-x@hf" 'emoz-prefix-command)
 (loop for k in
       '(
+        ("e" emoz-eval-expression-and-go)
         ("i" inferior-moz-switch-to-mozilla)
         ("f" browse-url-firefox))
       do
@@ -74,6 +75,12 @@
 
 ;;}}}
 ;;{{{ Interactive commands:
+
+(defun emoz-eval-expression-and-go (exp)
+  "Send expression to Moz and switch to it."
+  (interactive "sJSEval: ")
+  (comint-send-string (inferior-moz-process) exp)
+  (switch-to-buffer (process-buffer (inferior-moz-process))))
 
 ;;}}}
 (provide 'emoz)
