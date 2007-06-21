@@ -68,13 +68,16 @@
       '(
         ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
-        ("i" inferior-moz-switch-to-mozilla)
+        ("i" emacspeak-moz-inspect)
+        ("j" emacspeak-moz-jump)
+        ("\;" inferior-moz-switch-to-mozilla)
         ("," emacspeak-moz-browser-back)
         ("<" emacspeak-moz-browser-back)
         ("." emacspeak-moz-browser-forward)
         (">" emacspeak-moz-browser-forward)
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
+        ("s" emacspeak-moz-search)
         )
       do
       (emacspeak-keymap-update  emacspeak-moz-keymap k))
@@ -103,7 +106,9 @@
   (interactive
    (list
     (read-from-minibuffer "URL: "
-    (browse-url-url-at-point))))
+                          (or
+    (browse-url-url-at-point)
+    "http://"))))
   (emacspeak-moz-eval-expression-and-go
    (format "content.location.href=\"%s\""
            url)))
@@ -125,6 +130,37 @@
   (when (interactive-p)
          (emacspeak-auditory-icon 'select-object))
          (emacspeak-speak-line))
+
+
+(defun emacspeak-moz-jump (index)
+  "Jump to specified index in history."
+  (interactive "nHistory Index: ")
+  (emacspeak-moz-eval-expression-and-go
+   (format
+    "getWebNavigation().gotoIndex(%d);repl.print(\"\\n\" +
+title)\n"
+    index))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(defun emacspeak-moz-inspect (what)
+  "Inspect specified object."
+  (interactive "sInspect: ")
+    (emacspeak-moz-eval-expression-and-go
+     (format "repl.inspect(%s)\n" what))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-line)))
+
+(defun emacspeak-moz-search (pattern)
+  "Search for pattern in current context."
+  (interactive "sPattern: ")
+  (emacspeak-moz-eval-expression-and-go
+   (format "repl.search(/%s/i)\n" pattern))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
