@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pidof Xvfb ||  Xvfb -ac :5 -screen 0 800x200x16 &
+export DISPLAY=:5
+/usr/bin/firefox&
