@@ -111,13 +111,13 @@
   "Move forward in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserForward"))
+   "BrowserForward()\n"))
 
 (defun emacspeak-moz-browser-back ()
   "Move back in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserBack"))
+   "BrowserBack()\n"))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
