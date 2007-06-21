@@ -88,7 +88,6 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
-(
 (defadvice inferior-moz-switch-to-mozilla (after emacspeak pre
                                                  act comp)
   "Provide auditory feedback."
