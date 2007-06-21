@@ -87,8 +87,9 @@
   (interactive "sJSEval: ")
   (comint-send-string (inferior-moz-process) exp)
   (switch-to-buffer (process-buffer (inferior-moz-process)))
+  (when (interactive-p)
   (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-line))
+  (emacspeak-speak-line)))
 
 
 (defun emacspeak-moz-close-tab-or-browser ()
@@ -111,13 +112,19 @@
   "Move forward in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserForward()\n"))
+   "BrowserForward();repl.print(\"\\n\"+title)\n")
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object))
+  (emacspeak-speak-line))
 
 (defun emacspeak-moz-browser-back ()
   "Move back in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserBack()\n"))
+   "BrowserBack();repl.print(\"\\n\"+title)\n")
+  (when (interactive-p)
+         (emacspeak-auditory-icon 'select-object))
+         (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
