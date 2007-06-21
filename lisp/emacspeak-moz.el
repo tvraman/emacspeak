@@ -66,13 +66,14 @@
 (global-set-key "\C-x@hf" 'emacspeak-moz-prefix-command)
 (loop for k in
       '(
+        ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
         ("i" inferior-moz-switch-to-mozilla)
-        ("f" browse-url-firefox))
+        ("F" browse-url-firefox)
+        ("g" emacspeak-moz-goto-url)
+        )
       do
       (emacspeak-keymap-update  emacspeak-moz-keymap k))
-
-
 
 ;;}}}
 ;;{{{ Interactive commands:
@@ -85,6 +86,22 @@
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
 
+
+(defun emacspeak-moz-close-tab-or-browser ()
+  "Close tab, or browser when one tab left."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-go
+   "BrowserCloseTabOrWindow()\n"))
+
+(defun emacspeak-moz-goto-url(url)
+  "Make Firefox used by our repl Go to the specified URL."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: "
+    (browse-url-url-at-point))))
+  (emacspeak-moz-eval-expression-and-go
+   (format "content.location.href=\"%s\""
+           url)))
 ;;}}}
 ;;{{{ Advice interactive commands:
 
