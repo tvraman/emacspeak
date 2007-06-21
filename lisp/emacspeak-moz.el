@@ -69,6 +69,10 @@
         ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
         ("i" inferior-moz-switch-to-mozilla)
+        ("," emacspeak-moz-browser-back)
+        ("<" emacspeak-moz-browser-back)
+        ("." emacspeak-moz-browser-forward)
+        (">" emacspeak-moz-browser-forward)
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
         )
@@ -102,6 +106,19 @@
   (emacspeak-moz-eval-expression-and-go
    (format "content.location.href=\"%s\""
            url)))
+
+(defun emacspeak-moz-browser-forward ()
+  "Move forward in history."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-go
+   "BrowserForward"))
+
+(defun emacspeak-moz-browser-back ()
+  "Move back in history."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-go
+   "BrowserBack"))
+
 ;;}}}
 ;;{{{ Advice interactive commands:
 
