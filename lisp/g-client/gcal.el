@@ -395,6 +395,10 @@ Default date is assumed to be today, or  the date selected when
   "'https://www.google.com/calendar/feeds/default/private/full'"
   "URL for default calendar feed for currently authenticated
 user.")
+(defvar gcal-feed-url-template
+  "'https://www.google.com/calendar/feeds/%s/%s/%s'"
+  "URL for  calendar feed using authentication.
+Parameterized by calendar name, private/public, and projecttion")
 
 (defvar gcal-private-feed-url
   "'https://www.google.com/calendar/feeds/%s/private/full'"
@@ -406,6 +410,15 @@ user.")
                     gcal-auth-handle))
   (format gcal-private-feed-url
           (g-url-encode (g-auth-email gcal-auth-handle))))
+
+(defsubst gcal-feed-url (resource privacy projection)
+  "Return  feed for specified resource..
+`privacy' specifies public/private.
+`projection' specifies desired projection, e.g. full vs free-busy."
+  (declare (special gcal-feed-url-template))
+  (format gcal-feed-url-template
+          (g-url-encode resource)
+          privacy projection))
 
 (defsubst gcal-post-event (event location)
   "Post event via HTTPS to location and return resulting HTTP headers."
@@ -506,8 +519,6 @@ file."
         (save-excursion
           (set-buffer (find-file-noselect diary-file))
           (save-buffer))))))
-
-
 
 ;;;###autoload
 (defun gcal-quickadd-event (event-desc)
@@ -653,7 +664,6 @@ Specify the event in plain English."
   :type 'boolean
   :group 'gcal)
 
-
 (defun gcal-calendar-get-date (&optional date )
   "Get GCal date from a calendar date spec.
 Default is to use calendar date under point."
@@ -664,8 +674,18 @@ Default is to use calendar date under point."
           (second date)
           (first date)
           (list (third date)))))
+(defconst gcal-privacy-choices
+  '(("public" . "public")
+    ("private" . "private"))
+  "Choices for public or private.")
 
-(defun gcal-calendar-agenda  (&optional calendar)
+(defconst gcal-projection-choices
+  '(("free-busy" . "free-busy")
+    ("full" "full")
+    ("owner" "owner"))
+  "Choices for project types.")
+
+(defun gcal-calendar-agenda  (&optional resource privacy projection)
   "Show agenda for currently authenticated user.
 With interactive prefix arg, prompts for calendar to show. This
 command is best invoked from within the emacs calendar. It uses
@@ -674,15 +694,24 @@ show the agenda. If no mark is set in the calendar, the agenda is
 shown for the next `gcal-calendar-agenda-days' days following the
 date under point."
   (interactive
-   (list
-    (if current-prefix-arg
-        (read-from-minibuffer "Calendar URI:"
-                              (gcal-private-feed-url))
-      (gcal-private-feed-url))))
+   (cond
+    (current-prefix-arg
+     (list
+      (read-from-minibuffer "Calendar For: "
+                            (g-auth-email gcal-auth-handle))
+      (completing-read  "Privacy: "
+                        gcal-privacy-choices)
+      (completing-read "Projection: "
+                       gcal-projection-choices)))
+    (t (list (g-auth-email  gcal-auth-handle)
+             "private" "full"))))
   (declare (special gcal-auth-handle
+                    gcal-privacy-choices gcal-projection-choices
                     gcal-calendar-view
                     calendar-mark-ring))
-  (let* ((start-min
+  (let* ((calendar
+          (gcal-feed-url resource  privacy projection))
+         (start-min
           (g-url-encode
            (gcal-calendar-get-date
             (when (eq major-mode 'calendar-mode)
@@ -710,7 +739,7 @@ date under point."
       g-curl-program g-curl-common-options
       (g-authorization gcal-auth-handle)
       g-cookie-options
-      (or calendar (gcal-private-feed-url))
+      calendar
       (cond
        ((and (null start-min)
              (null start-max))
@@ -719,7 +748,7 @@ date under point."
         (format "?orderby=starttime&start-min=%s&start-max=%s"
                 (or start-min "")
                 (or start-max "")))))
-     gcal-calendar-view)))
+     gcal-calendar-view     )))
 ;;;###autoload
 
 (defun gcal-view (resource)
@@ -830,7 +859,6 @@ date under point."
         (read-from-minibuffer "Calendar User: "))
   (setq gcal-auth-handle (make-gcal-auth))
   (gcal-authenticate))
-
 
 ;;}}}
 (provide 'gcal)
