@@ -78,6 +78,7 @@
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
         ("s" emacspeak-moz-search)
+        ("r" emacspeak-moz-refresh)
         )
       do
       (emacspeak-keymap-update  emacspeak-moz-keymap k))
@@ -158,6 +159,15 @@ title)\n"
   (interactive "sPattern: ")
   (emacspeak-moz-eval-expression-and-go
    (format "repl.search(/%s/i)\n" pattern))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+(defun emacspeak-moz-refresh ()
+  "Reload document."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-go
+   (format "BrowserReload();repl.print(\"\\n\"+title)\n"))
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
