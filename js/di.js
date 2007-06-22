@@ -1,5 +1,5 @@
-#$Id:$
-# Description: DomInspector helpers
+//$Id:$
+// Description: DomInspector helpers
 
 repl.showAttributes = function(node) {
   var map = node.attributes;
@@ -22,3 +22,11 @@ repl.showErrors = function (m, u, l) {
                + "URL: " +u
                +"Line: " + l);
 }
+
+repl.showProps = function (object) {
+    for (var name in object) {
+      repl.print(name);
+    }
+  }
+      
+      
