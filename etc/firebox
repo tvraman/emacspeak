@@ -1,4 +1,5 @@
 #!/bin/bash
+# Description: Headless Firefox --- Put The Fox In The Box
 
 pidof Xvfb ||  Xvfb -ac :5 -screen 0 800x200x16 &
 export DISPLAY=:5
