@@ -609,7 +609,7 @@ static int
 getLangIndex (Tcl_Interp * interp, int* theIndex)
 {
   int aStatus = 0;
-  char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
+  const char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
   if (aInfo)
     {
       *theIndex = atoi(aInfo);
