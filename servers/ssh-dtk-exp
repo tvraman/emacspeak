@@ -18,6 +18,7 @@
 #"do you want to continue connecting" question.
 
 # }}}
+package require Tclx
 set localhost [exec hostname]
 puts stderr "running on host <$localhost>"
 if [expr $argc == 0] {
