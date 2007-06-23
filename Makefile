@@ -194,7 +194,7 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
-${SAWFISH} ${OUTLOUD} ${DTKTTS} \
+${SAWFISH} ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
 ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
 # }}}
