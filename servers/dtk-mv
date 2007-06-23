@@ -1,4 +1,4 @@
-#!/usr/bin/tcl
+#!/usr/bin/tclsh
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL. 
 # Keywords: Emacspeak, Dectalk, TCL
@@ -57,6 +57,8 @@
 
 # }}}
 # {{{ procedures  
+
+package require Tclx
 
 proc tts_set_punctuations {mode} {
     global tts
@@ -559,13 +561,13 @@ set tts(play)  $env(EMACSPEAK_PLAY_PROGRAM)
 # {{{ Initialize and set state.
 
 #working around tcl 7.5
-set tts(input) file0
+set tts(input) stdin
 if {[string match [info tclversion] 7.5]
 || [string match 8.0 [info tclversion]] } {
     if {[info exists server_p]} {
         set tts(input) sock0
     } else {
-        set tts(input) file0
+        set tts(input) stdin
     }
 }
 

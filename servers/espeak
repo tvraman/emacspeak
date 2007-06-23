@@ -1,4 +1,4 @@
-#!/usr/bin/tcl
+#!/usr/bin/tclsh
 # Keywords: Emacspeak, eSpeak , TCL
 # {{{ LCD Entry: 
 
@@ -34,6 +34,7 @@
 # }}}
 # {{{source common code 
 
+package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 
@@ -524,7 +525,7 @@ tts_initialize
 set tts(speech_rate)  225
 notes_initialize
 beep_initialize
-set tts(input) file0
+set tts(input) stdin
 if {[info exists server_p]} {
     set tts(input) sock0
 }
