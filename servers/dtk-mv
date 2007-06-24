@@ -58,8 +58,6 @@
 # }}}
 # {{{ procedures  
 
-#package require Tclx
-
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
@@ -561,13 +559,13 @@ set tts(play)  $env(EMACSPEAK_PLAY_PROGRAM)
 # {{{ Initialize and set state.
 
 #working around tcl 7.5
-set tts(input) stdin
+set tts(input) file0
 if {[string match [info tclversion] 7.5]
 || [string match 8.0 [info tclversion]] } {
     if {[info exists server_p]} {
         set tts(input) sock0
     } else {
-        set tts(input) stdin
+        set tts(input) file0
     }
 }
 
