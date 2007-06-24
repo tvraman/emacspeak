@@ -35,7 +35,6 @@
 # }}}
 # {{{source common code 
 
-#package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 set tts(old_rate) 0
