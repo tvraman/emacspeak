@@ -100,25 +100,6 @@
                        (format "t %d %d%s\n"
                                pitch duration
                                (if force "\nd" ""))))
-
-(defsubst dtk-interp-notes-initialize()
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process "notes_initialize\n"))
-
-(defsubst dtk-interp-notes-shutdown()
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process "notes_shutdown\n"))
-
-(defsubst dtk-interp-note (instrument pitch duration
-                                      &optional target step force)
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "n %s %s %s %s %s %s\n"
-                               instrument pitch duration
-                               (or target 0)
-                               (or step 5)
-                               (if force "\nd" ""))))
-
 ;;}}}
 ;;{{{  queue
 

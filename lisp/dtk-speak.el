@@ -307,29 +307,7 @@ Optional argument FORCE  flushes the command to the speech server."
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
-(defsubst dtk-notes-initialize()
-  "Initialize midi system."
-  (dtk-interp-notes-initialize))
-
 ;;;###autoload
-(defun dtk-notes-shutdown()
-  "Shutdown midi system."
-  (interactive)
-  (dtk-interp-notes-shutdown))
-
-(defsubst dtk-queue-note (instrument pitch duration
-                                     &optional target step)
-  "Queue a midi note.
-Instrument  is the instrument number.
-Pitch is specified as 60 for middle C.
-Argument DURATION  is specified in seconds.
-Optional arguments target and step let you play chords."
-  (declare (special dtk-quiet
-                    dtk-speak-server-initialized))
-  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-note instrument  pitch duration
-                       target step))))
 
 (defsubst dtk-force-note (instrument pitch duration
                                      &optional target step)
