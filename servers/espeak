@@ -306,19 +306,10 @@ proc s {} {
     }
 }
 
-#produce tones via midi 
+
 
 proc t  {{pitch 440} {duration 50}} {
     global tts queue
-
-
-    if {$tts(midi)} {
-        set inst 9
-        set len .1
-        set note [expr $pitch / 10]
-        n $inst $note $len
-        return ""
-    }
     if {$tts(beep)} {
         b $pitch $duration
         return ""
@@ -480,13 +471,6 @@ proc speech_task {} {
                     eval beep $event
                 }
             }
-            n {
-
-                if {$tts(midi)} {
-                    lvarpop event 
-                    eval note $event
-                }
-            }
         }
         if {$tts(talking?) == 0} {break;} 
     }
@@ -523,7 +507,6 @@ signal ignore {sigint}
 #initialize eSpeak
 tts_initialize
 set tts(speech_rate)  225
-notes_initialize
 beep_initialize
 set tts(input) stdin
 if {[info exists server_p]} {

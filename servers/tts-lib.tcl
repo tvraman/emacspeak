@@ -83,12 +83,6 @@ proc q {{element ""}} {
     if {[string length element]} {
         set queue($tts(q_tail)) [list s $element]
         incr tts(q_tail)
-        if {$tts(midi) == 1} {
-            set mod [expr ($tts(q_tail) - $tts(q_head)) % 50]
-            if {$mod == 0}   {
-                note 1 60 .5
-            }
-        }
         return ""
     }
 }
@@ -191,65 +185,6 @@ proc p {sound} {
     global tts
     catch "exec $tts(play) $sound >/dev/null  &" errCode
     speech_task
-}
-
-# }}}
-# {{{notes: 
-
-#Simple notes player
-#Uses stdio music player 
-
-proc note {i p d {target 0} {step 5}} {
-    global tts
-    set f $tts(notes)
-    if {$target == 0} {
-        puts $f "n $i $p 127"
-        select {} {} {} $d
-        puts $f "x $i $p 127"
-    } else {
-        loop freq $p $target $step {
-            puts $f "n $i $freq 127"
-        }
-        select {} {} {} $d
-        loop freq $p $target $step {
-            puts $f "x $i $freq 127"
-        }
-    }
-    return 0
-}
-proc notes_shutdown  {} {
-    global tts
-    if {$tts(midi) == 0} return
-    set notes $tts(notes)
-    puts $notes "q\n"
-    close $tts(notes)
-    set tts(midi) 0
-}
-
-proc notes_initialize {} {
-    global tts
-    if {[info exists tts(midi)]
-        && $tts(midi) == 1}  {
-        puts stderr "Notes already initialized "
-        return 1
-    }
-    set tts(midi) 0
-    if {![file executable /usr/bin/stdiosynth]} {
-        return
-    }
-    set result [catch {set tts(notes) [open "|stdiosynth " w]} err]
-    if {$result != 0}  {
-        puts stderr "$err: Notes not initialized --unable to start stdiosynth"
-        return
-    }
-    fcntl $tts(notes) nobuf 1 
-    set result [catch {note 1 60 .1 } err]
-    if {$result == 0} {
-        set tts(midi) 1
-    } else {
-        puts stderr "Error playing test note "
-        set tts(midi) 0
-    }
 }
 
 # }}}
