@@ -15,6 +15,9 @@ part of the MozRepl Firefox extension.
 Useful when developing or extending Web applications inside
 Firefox.
 
+** Emacspeak-webmarks:
+
+Preliminary module that stores and retrieves bookmarks from Google.
 
 
 Local variables:
