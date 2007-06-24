@@ -116,19 +116,13 @@ proc s {} {
 }
 
 #formerly called tts_tone
-#produce tones via midi 
+
 
 proc t  {{pitch 440} {duration 50}} {
     global tts queue
     set tone "\[:to $pitch $duration\]"
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
-    if {$tts(midi)} {
-		set inst 9
-		set len .1
-		set note [expr $pitch / 10]
-		n $inst $note $len
-    }
     return ""
 }
 
@@ -204,12 +198,6 @@ proc speech_task {}  {
             a {
                 set sound [lindex $event 1]
                 say "\[:play $sound]"
-            }
-            n {
-                if {$tts(midi)} {
-                    lvarpop event 
-                    catch {eval note $event} err 
-                }
             }
         }
     }
@@ -303,7 +291,6 @@ tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
-notes_initialize
 set tclTTS $env(EMACSPEAK_DIR)/servers/software-dtk
 if [file exists /usr/lib/libaoss.so] {
     set env(LD_PRELOAD) /usr/lib/libaoss.so

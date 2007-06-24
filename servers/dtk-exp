@@ -198,12 +198,6 @@ proc t  {{pitch 440} {duration 50}} {
     set tone "\[:to $pitch $duration\]"
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
-    if {$tts(midi)} {
-        set inst 9
-        set len .1
-        set note [expr $pitch / 10]
-        n $inst $note $len
-    }
     return ""
 }
 
@@ -238,11 +232,6 @@ proc  read_pending_p  {file_handle} {
     set status   [lsearch [select [list  $file_handle]  {} {} 0] $file_handle]
     expr $status >= 0
 }
-
-#note that we cannot use stdin here due to a tcl bug.
-#in tcl 7.4 we could always say file0
-#in 7.5 and above  (only tested in 7.5 and 8.0)
-#we need to say sock0 when we are a server
 
 proc tts_get_acknowledgement {} {
     global tts
@@ -324,12 +313,6 @@ proc speech_task {} {
             a {
                 set sound [lindex $event 1]
                 catch "exec $tts(play) $sound > /dev/null &" errCode
-            }
-            n {
-                if {$tts(midi)} {
-                    lvarpop event
-                    catch {eval note $event} err
-                }
             }
         }
         if {$tts(talking?) == 0} {break;}
@@ -419,7 +402,6 @@ tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                        [expr $tts(speech_rate) * $tts(char_factor)]]
-notes_initialize
 set tts(input) file0
 if {[info exists server_p]} {
     set tts(input) sock0
