@@ -205,11 +205,11 @@
   (let ((name nil))
     (setq name
           (or
-           (string-replace-match "face$" face-name "personality")
+           (replace-regexp-in-string "face$" "personality" face-name)
            face-name))
     (setq name
           (or
-           (string-replace-match "font" name "voice")
+           (replace-regexp-in-string "font" "voice" name)
            name))
     (when (string-equal name face-name)
       (setq name (format "%s-voice" name)))

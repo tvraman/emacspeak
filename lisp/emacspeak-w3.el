@@ -491,10 +491,9 @@ even if one is already defined."
       (setq emacspeak-w3-url-rewrite-rule
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
-          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                url
-                                (second
-                                 emacspeak-w3-url-rewrite-rule))
+          (replace-regexp-in-string
+           (first emacspeak-w3-url-rewrite-rule)
+           (second emacspeak-w3-url-rewrite-rule) url)
           url)
     (emacspeak-auditory-icon 'select-object)
     (browse-url
@@ -1393,9 +1392,10 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                  url
-                                  (second emacspeak-w3-url-rewrite-rule))))
+            (replace-regexp-in-string
+             (first emacspeak-w3-url-rewrite-rule)
+             (second emacspeak-w3-url-rewrite-rule)
+             url)))
     (when (or prompt-class
               (null emacspeak-w3-class-filter))
       (setq emacspeak-w3-class-filter
@@ -1453,10 +1453,10 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                  url
-                                  (second
-                                   emacspeak-w3-url-rewrite-rule))))
+            (replace-regexp-in-string
+             (first emacspeak-w3-url-rewrite-rule)
+             (second emacspeak-w3-url-rewrite-rule)
+             url)))
     (when (or prompt
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter
@@ -1496,10 +1496,10 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                  url
-                                  (second
-                                   emacspeak-w3-url-rewrite-rule))))
+            (replace-regexp-in-string
+             (first emacspeak-w3-url-rewrite-rule)
+             (second emacspeak-w3-url-rewrite-rule)
+             url)))
     (when (or prompt
               (null emacspeak-w3-xpath-junk))
       (setq emacspeak-w3-xpath-junk
@@ -1803,10 +1803,10 @@ If a rewrite rule is defined in the current buffer, we change
       (unless url
         (error "Not on a link."))
       (setq redirect
-            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                  url
-                                  (second
-                                   emacspeak-w3-url-rewrite-rule)))
+            (replace-regexp-in-string
+             (first emacspeak-w3-url-rewrite-rule)
+             (second emacspeak-w3-url-rewrite-rule)
+             url))
       (push redirect minibuffer-history))))
 
 ;;}}}
