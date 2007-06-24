@@ -96,8 +96,6 @@
 (require 'multispeech-voices)
 (require 'espeak-voices)
 (require 'dectalk-voices)
-(require 'string)
-
 ;;}}}
 ;;{{{ customization group
 
