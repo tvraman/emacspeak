@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/tcl
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL.
 # Keywords: Emacspeak, Dectalk, TCL
@@ -58,7 +58,6 @@
 # }}}
 # {{{source common code
 
-package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 # }}}
@@ -324,7 +323,7 @@ proc speech_task {} {
             }
             a {
                 set sound [lindex $event 1]
-                catch "exec $tts(play) $sound > /dev/null &" errCode
+                catch "exec $tts(play) $sound &> /dev/null &" errCode
             }
             n {
                 if {$tts(midi)} {
@@ -421,7 +420,7 @@ set tts(speech_rate)  225
 set tts(say_rate) [round \
                        [expr $tts(speech_rate) * $tts(char_factor)]]
 notes_initialize
-set tts(input) stdin
+set tts(input) file0
 if {[info exists server_p]} {
     set tts(input) sock0
 }

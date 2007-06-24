@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/tcl
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL. 
 # Keywords: Emacspeak, Dectalk, TCL
@@ -58,7 +58,7 @@
 # }}}
 # {{{ procedures  
 
-package require Tclx
+#package require Tclx
 
 proc tts_set_punctuations {mode} {
     global tts

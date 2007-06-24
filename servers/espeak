@@ -34,7 +34,7 @@
 # }}}
 # {{{source common code 
 
-package require Tclx
+#package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 
