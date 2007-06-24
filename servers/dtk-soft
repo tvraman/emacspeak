@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/tcl
 # Keywords: Emacspeak, Software Dectalk , TCL
 # {{{ LCD Entry: 
 
@@ -35,7 +35,7 @@
 # }}}
 # {{{source common code 
 
-package require Tclx
+#package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 set tts(old_rate) 0
