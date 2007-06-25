@@ -1,6 +1,6 @@
 ;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server
 ;;;$Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacs interface to TTS
 ;;; Keywords: Dectalk Emacs Elisp
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-06-23 22:35:49 -0700 (Sat, 23 Jun 2007) $ |
+;;;  $Revision: 4670 $ |
 ;;; Location undetermined
 ;;;
 

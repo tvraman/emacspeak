@@ -1,5 +1,5 @@
 # $Id$
-# $Author$
+# $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
 # Keywords: Emacspeak, Dectalk, Makefile
 # {{{ LCD Entry:
@@ -7,8 +7,8 @@
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
-# $Date$ |
-#  $Revision$ |
+# $Date: 2007-06-24 15:56:04 -0700 (Sun, 24 Jun 2007) $ |
+#  $Revision: 4673 $ |
 # Location undetermined
 #
 

@@ -1,13 +1,13 @@
 ;;; voice-setup.el --- Setup voices for voice-lock
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock mode for Emacspeak
 ;;{{{  LCD Archive entry:
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-06-24 15:53:48 -0700 (Sun, 24 Jun 2007) $ |
+;;;  $Revision: 4672 $ |
 ;;; Location undetermined
 ;;;
 

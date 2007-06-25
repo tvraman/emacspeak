@@ -1,6 +1,6 @@
 ;;; emacspeak-redefine.el --- Redefines some key Emacs builtins to speak
 ;;; $Id$
-;;; $Author$ 
+;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak's redefinition of some key functions.
 ;;; Emacspeak does most of its work by advising other functions to speak.
 ;;; This module contains those functions that have to be explicitly redefined.
@@ -10,8 +10,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ | 
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;;  $Revision: 4532 $ | 
 ;;; Location undetermined
 ;;;
 

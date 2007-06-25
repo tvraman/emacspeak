@@ -1,6 +1,6 @@
 ;;; emacspeak.el --- Emacspeak -- The Complete Audio Desktop
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak: A speech interface to Emacs
 ;;; Keywords: Emacspeak, Speech, Dectalk,
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-06-20 14:26:08 -0700 (Wed, 20 Jun 2007) $ |
+;;;  $Revision: 4642 $ |
 ;;; Location undetermined
 ;;;
 

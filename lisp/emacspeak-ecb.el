@@ -1,6 +1,6 @@
 ;;; emacspeak-ecb.el --- speech-enable Emacs Class Browser
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling Emacs
 ;;; Class Browser
 ;;; Keywords: Emacspeak, ecb
@@ -9,8 +9,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2006-08-19 10:48:45 -0700 (Sat, 19 Aug 2006) $ |
+;;;  $Revision: 4074 $ |
 ;;; Location undetermined
 ;;;
 

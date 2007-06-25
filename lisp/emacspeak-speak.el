@@ -1,6 +1,6 @@
 ;;; emacspeak-speak.el --- Implements Emacspeak's core speech services
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Contains the functions for speaking various chunks of text
 ;;; Keywords: Emacspeak,  Spoken Output
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-05-10 15:52:14 -0600 (Thu, 10 May 2007) $ |
+;;;  $Revision: 4552 $ |
 ;;; Location undetermined
 ;;;
 
