@@ -1,5 +1,5 @@
 ;;; emacspeak-webmarks.el --- Web Bookmarks Via Google
-;;; $Id: emacspeak-webmarks.el 4532 2007-05-04 01:13:44Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  WebMarks are Web Bookmarks stored at Google
 ;;; Keywords: Emacspeak,  Audio Desktop Web, Bookmarks

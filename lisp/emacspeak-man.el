@@ -1,6 +1,6 @@
 ;;; emacspeak-man.el --- Speech enable Man mode -- Use this for UNIX Man pages
 ;;; $Id$
-;;; $Author$ 
+;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for man-mode
 ;;; Keywords:emacspeak, audio interface to emacs man 
 ;;{{{  LCD Archive entry: 
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ | 
+;;; $Date: 2007-05-07 17:45:50 -0600 (Mon, 07 May 2007) $ |
+;;;  $Revision: 4546 $ | 
 ;;; Location undetermined
 ;;;
 

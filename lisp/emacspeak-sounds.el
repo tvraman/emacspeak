@@ -1,6 +1,6 @@
 ;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Module for adding sound cues to emacspeak
 ;;; Keywords:emacspeak, audio interface to emacs, auditory icons
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-06-23 22:35:49 -0700 (Sat, 23 Jun 2007) $ |
+;;;  $Revision: 4670 $ |
 ;;; Location undetermined
 ;;;
 

@@ -1,6 +1,6 @@
 ;;; emacspeak-atom.el --- Emacspeak ATOM Wizard
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  ATOM Wizard for the emacspeak desktop
 ;;; Keywords: Emacspeak,  Audio Desktop ATOM
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-05-25 13:56:11 -0700 (Fri, 25 May 2007) $ |
+;;;  $Revision: 4598 $ |
 ;;; Location undetermined
 ;;;
 

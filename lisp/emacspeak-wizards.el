@@ -1,6 +1,6 @@
 ;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards
 ;;; $Id$
-;;; $Author$
+;;; $Author: tv.raman.tv $
 ;;; Description:  Contains convenience wizards
 ;;; Keywords: Emacspeak,  Audio Desktop Wizards
 ;;{{{  LCD Archive entry:
@@ -8,8 +8,8 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
-;;;  $Revision$ |
+;;; $Date: 2007-06-19 17:45:27 -0700 (Tue, 19 Jun 2007) $ |
+;;;  $Revision: 4638 $ |
 ;;; Location undetermined
 ;;;
 
