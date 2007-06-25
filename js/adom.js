@@ -79,6 +79,15 @@ ADom.prototype.last = function () {
 };
 
 
+
+/*
+ * Move to  document body
+ */
+ADom.prototype.body = function () {
+    this.current_ =  this.document_.body;
+};
+
+
 /*
  * summarize: Summarize current node.
  * Returns: @{string};
@@ -99,4 +108,38 @@ ADom.prototype.summarize = function () {
  */
 ADom.prototype.title = function () {
     return this.document_.title;
+};
+
+/*
+ * Return document being viewed.
+ */
+ADom.prototype.document = function () {
+    return this.document_;
+};
+
+
+/*
+ * Return the current node being viewed.
+ */
+ADom.prototype.current = function () {
+    return this.current_;
+};
+
+
+
+/*
+ * Set snapshot to forms array
+ * Return forms array.
+ */
+ADom.prototype.forms = function () {
+    this.snapshot_ = this.document_.forms;
+    return this.snapshot_;
+};
+
+
+/*
+ * Return current snapshot.
+ */
+ADom.prototype.snapshot = function () {
+    return this.snapshot_;
 };
