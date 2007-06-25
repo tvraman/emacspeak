@@ -1,4 +1,4 @@
-//$Id:$
+//$Id$
 
 
 /*
@@ -9,9 +9,11 @@
 
 function ADom (document) {
     this.document_ = document;
+    document.aDOM = this;
     this.root_ = document.documentElement;
     this.current_ = this.root_;
     this.snapshot_ = null;
+    this.visiting_ = -1;
 }
 
 /*
@@ -143,3 +145,33 @@ ADom.prototype.forms = function () {
 ADom.prototype.snapshot = function () {
     return this.snapshot_;
 };
+
+
+/*
+ * find: set snapshot_ to list of elements found by name
+ */
+ADom.prototype.find = function (tagName) {
+  this.snapshot_ = this.current_.getElementsByTagName(tagName);
+};
+
+
+/*
+ * visit: visit each node in snapshot_ in turn.
+ * Optional argument dir if specified visits in the reverse direction.
+ */
+ADom.prototype.visit = function (dir) {
+  if (dir) {
+    this.visiting_--;
+  } else {
+    this.visiting_++;
+  }
+  // wrap around 
+  if (this.visiting_ == this.snapshot_.length) {
+    this.visiting_ = 0;
+  }
+  if (this.visiting_ == -1) {
+    this.visiting_ = this.snapshot_.length -1;
+  }
+  return this.snapshot_[this.visiting_];
+};
+"loaded adom.js";

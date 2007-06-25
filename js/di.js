@@ -1,4 +1,4 @@
-//$Id:$
+//$Id$
 /*
  * Description: DomInspector helpers
  */
@@ -40,3 +40,5 @@ repl.showProps = function (object) {
       repl.print(name);
     }
 };
+
+"Loaded di.js";
