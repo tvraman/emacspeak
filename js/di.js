@@ -1,6 +1,12 @@
 //$Id:$
-// Description: DomInspector helpers
+/*
+ * Description: DomInspector helpers
+ */
 
+
+/*
+ * Show attributes of a DOM node along with NameSpace information
+ */
 repl.showAttributes = function(node) {
   var map = node.attributes;
   if (map  instanceof NamedNodeMap) {
@@ -15,18 +21,22 @@ repl.showAttributes = function(node) {
   } else {
     repl.print (node + " has no attributes.");
   }
-}
-  
-repl.showErrors = function (m, u, l) {
-    repl.print("Message: " +m
-               + "URL: " +u
-               +"Line: " + l);
-}
+};
+ 
 
+/*
+ * Function to attach to window.onerror
+ */
+repl.showErrors = function (m, u, l) {
+    repl.print("Message: " +m + "URL: " +u +"Line: " + l);
+};
+
+
+/*
+ * Show properties of an object.
+ */
 repl.showProps = function (object) {
     for (var name in object) {
       repl.print(name);
     }
-  }
-      
-      
+};
