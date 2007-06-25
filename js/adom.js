@@ -12,7 +12,7 @@ function ADom (document) {
     this.root_ = document.documentElement;
     this.current_ = this.root_;
     this.snapshot_ = null;
-};
+}
 
 /*
  * Return HTML for current node.
@@ -99,5 +99,4 @@ ADom.prototype.summarize = function () {
  */
 ADom.prototype.title = function () {
     return this.document_.title;
-}
- 
+};
