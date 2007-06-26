@@ -2,5 +2,5 @@
 # Description: Lint all JS files.
 
 all: ${JS}
-	jsl -conf jsl.conf
+	jsl -nologo -conf jsl.conf
 	
