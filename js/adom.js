@@ -174,6 +174,26 @@ ADom.prototype.visit = function (dir) {
 //< A11y Reflection:
 
 //>
+//<repl hookup
+
+/*
+ * Update adom pointer in repl to point to current document.
+ * @return ADom
+ */
+repl.updateADom = function ()  {
+  if (repl.adom == undefined
+      || content.document.adom == undefined) {
+    repl.adom = new ADom(content.document);
+    return repl.adom;
+  }
+  if (repl.adom.document_ != content.document) {
+    repl.adom = content.document.adom;
+    return repl.adom;
+  }
+  return repl.adom;
+};
+
+//>
 //<end of file
 
 "loaded adom.js";
