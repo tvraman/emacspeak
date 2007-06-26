@@ -838,15 +838,6 @@ from English to German.")
       (browse-url url))))
 
 (emacspeak-url-template-define
- "Google Headline News"
- "http://www.google.com/news/newsheadlines.html"
- nil
- #'(lambda nil
-     (search-forward "Top Headlines")
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Google News Overview.")
-
-(emacspeak-url-template-define
  "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Search news for: ")
