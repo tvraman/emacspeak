@@ -202,7 +202,7 @@ ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
 emacspeak:
 	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
-	cd lisp; $(MAKE)  #SRC=$(SRC)
+	cd lisp; $(MAKE)
 	touch   $(ID)
 	chmod 644 $(ID)
 	@echo "Now check installation of  the speech server. "
