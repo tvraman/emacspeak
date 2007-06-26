@@ -698,6 +698,19 @@ Here are some examples:
 ;;}}}
 ;;{{{ google translation service
 
+black(emacspeak-url-template-define
+ "Multilingual dictionary via Google."
+ "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
+ (list
+  "Word: "
+  "Translate from|To:")
+ nil
+ "Translate word using Google.
+Source and target languages
+are specified as two-letter language codes, e.g. en|de translates
+from English to German")
+
+
 (emacspeak-url-template-define
  "Translation Via Google"
  "http://translate.google.com/translate_c?hl=en&langpair=%s&u=%s"
