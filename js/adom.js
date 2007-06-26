@@ -22,59 +22,67 @@ function ADom (document) {
 /*
  * Reset view.
  * Resets current to point at the root.
+ * @return {node} current node.
  */
 ADom.prototype.reset = function () {
     this.root_ = this.document_.documentElement;
-    this.current_ = this.root_;
+    return this.current_ = this.root_;
 };
 
 /*
  * next: Move to next sibling.
+  * @return {node} current node.
  */
 ADom.prototype.next = function () {
-    this.current_ = this.current_.nextSibling;
+    return this.current_ = this.current_.nextSibling;
 };
 
 /*
  * previous: Move to previous sibling.
+  * @return {node} current node.
  */
 ADom.prototype.previous = function() {
-    this.current_ = this.current_.previousSibling;
+    return this.current_ = this.current_.previousSibling;
 };
 
 /*
  * up: Move to parent.
+  * @return {node} current node.
  */
 ADom.prototype.up = function () {
-    this.current_ = this.parentNode;
+    return this.current_ = this.parentNode;
 };
 
 /*
  * down: Move to first child
+  * @return {node} current node.
  */
 ADom.prototype.down = function () {
-    this.current_ = this.current_.firstChild;
+    return this.current_ = this.current_.firstChild;
 };
 
 /*
  * first: Move to first sibling
+  * @return {node} current node.
  */
 ADom.prototype.first = function () {
-    this.current_ = this.current_.parentNode.childNodes[0];
+  return this.current_ = this.current_.parentNode.firstChild;
 };
 
 /*
  * last: Move to last sibling.
+  * @return {node} current node.
  */
 ADom.prototype.last = function () {
-    this.current_  = this.current_.parentNode.lastChild;
+    return this.current_  = this.current_.parentNode.lastChild;
 };
 
 /*
  * Move to  document body
+  * @return {node} current node.
  */
 ADom.prototype.body = function () {
-    this.current_ =  this.document_.body;
+    return this.current_ =  this.document_.body;
 };
 
 //>
@@ -90,7 +98,7 @@ ADom.prototype.html = function () {
 
 /*
  * summarize: Summarize current node.
- * Returns: @{string};
+ * @Return {string};
  */
 ADom.prototype.summarize = function () {
     var summary = this.current_.tagName +' ';
@@ -101,7 +109,7 @@ ADom.prototype.summarize = function () {
 
 /*
  * title: return document title
- * Returns: @{string}
+ * @Return  {string}
  */
 ADom.prototype.title = function () {
     return this.document_.title;
@@ -144,6 +152,7 @@ ADom.prototype.view = function () {
  * find: set view_ to list of elements found by name
  */
 ADom.prototype.find = function (tagName) {
+  this.visiting_ = -1;
   this.view_ = this.current_.getElementsByTagName(tagName);
 };
 
@@ -178,7 +187,7 @@ ADom.prototype.visit = function (dir) {
 
 /*
  * Update adom pointer in repl to point to current document.
- * @return ADom
+ * @return {ADom}
  */
 repl.updateADom = function ()  {
   if (repl.adom == undefined
