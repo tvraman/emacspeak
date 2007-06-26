@@ -1,10 +1,10 @@
 //$Id$
-
+//<Class ADom
 
 /*
  * ADOM: Holds a proxy to a DOM
  * Provides convenience methods for obtaining custom views
- * Constructor takes  the   document to viewed as argument 
+ * Constructor takes  the   document to viewed as argument
  */
 
 function ADom (document) {
@@ -12,18 +12,12 @@ function ADom (document) {
     document.aDOM = this;
     this.root_ = document.documentElement;
     this.current_ = this.root_;
-    this.snapshot_ = null;
+    this.view_ = null;
     this.visiting_ = -1;
 }
 
-/*
- * Return HTML for current node.
- *@Return {string}; innerHTML
- */
-ADom.prototype.html = function () {
-    return this.current_.innerHTML;
-};
-
+//>
+//< Navigators:
 
 /*
  * Reset view.
@@ -33,7 +27,6 @@ ADom.prototype.reset = function () {
     this.root_ = this.document_.documentElement;
     this.current_ = this.root_;
 };
-
 
 /*
  * next: Move to next sibling.
@@ -49,7 +42,6 @@ ADom.prototype.previous = function() {
     this.current_ = this.current_.previousSibling;
 };
 
-
 /*
  * up: Move to parent.
  */
@@ -57,14 +49,12 @@ ADom.prototype.up = function () {
     this.current_ = this.parentNode;
 };
 
-
 /*
  * down: Move to first child
  */
 ADom.prototype.down = function () {
     this.current_ = this.current_.firstChild;
 };
-
 
 /*
  * first: Move to first sibling
@@ -80,8 +70,6 @@ ADom.prototype.last = function () {
     this.current_  = this.current_.parentNode.lastChild;
 };
 
-
-
 /*
  * Move to  document body
  */
@@ -89,6 +77,16 @@ ADom.prototype.body = function () {
     this.current_ =  this.document_.body;
 };
 
+//>
+//<Summarizers:
+
+/*
+ * Return HTML for current node.
+ *@Return {string}; innerHTML
+ */
+ADom.prototype.html = function () {
+    return this.current_.innerHTML;
+};
 
 /*
  * summarize: Summarize current node.
@@ -100,9 +98,6 @@ ADom.prototype.summarize = function () {
     summary += ' with ' + this.current_.innerHTML.length + ' bytes of content.';
     return summary;
 };
-    
-        
-
 
 /*
  * title: return document title
@@ -119,7 +114,6 @@ ADom.prototype.document = function () {
     return this.document_;
 };
 
-
 /*
  * Return the current node being viewed.
  */
@@ -127,36 +121,34 @@ ADom.prototype.current = function () {
     return this.current_;
 };
 
-
+//>
+//<Viewers And Visitors:
 
 /*
- * Set snapshot to forms array
+ * Set view to forms array
  * Return forms array.
  */
 ADom.prototype.forms = function () {
-    this.snapshot_ = this.document_.forms;
-    return this.snapshot_;
+    this.view_ = this.document_.forms;
+    return this.view_;
 };
 
-
 /*
- * Return current snapshot.
+ * Return current view.
  */
-ADom.prototype.snapshot = function () {
-    return this.snapshot_;
+ADom.prototype.view = function () {
+    return this.view_;
 };
 
-
 /*
- * find: set snapshot_ to list of elements found by name
+ * find: set view_ to list of elements found by name
  */
 ADom.prototype.find = function (tagName) {
-  this.snapshot_ = this.current_.getElementsByTagName(tagName);
+  this.view_ = this.current_.getElementsByTagName(tagName);
 };
 
-
 /*
- * visit: visit each node in snapshot_ in turn.
+ * visit: visit each node in view_ in turn.
  * Optional argument dir if specified visits in the reverse direction.
  */
 ADom.prototype.visit = function (dir) {
@@ -165,13 +157,23 @@ ADom.prototype.visit = function (dir) {
   } else {
     this.visiting_++;
   }
-  // wrap around 
-  if (this.visiting_ == this.snapshot_.length) {
+  // wrap around
+  if (this.visiting_ == this.view_.length) {
     this.visiting_ = 0;
   }
   if (this.visiting_ == -1) {
-    this.visiting_ = this.snapshot_.length -1;
+    this.visiting_ = this.view_.length -1;
   }
-  return this.snapshot_[this.visiting_];
+  return this.view_[this.visiting_];
 };
+
+//>
+//<end of file
+
 "loaded adom.js";
+
+// local variables:
+// folded-file: t
+// end:
+
+//>
