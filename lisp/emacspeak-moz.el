@@ -111,14 +111,14 @@
     (browse-url-url-at-point)
     "http://"))))
   (emacspeak-moz-eval-expression-and-go
-   (format "content.location.href=\"%s\""
+   (format "content.location.href='%s';repl.updateADom()\n"
            url)))
 
 (defun emacspeak-moz-browser-forward ()
   "Move forward in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserForward();repl.print(\"\\n\"+title)\n")
+   "BrowserForward(); repl.updateADom();repl.print(\"\\n\"+title)\n")
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object))
   (emacspeak-speak-line))
@@ -127,7 +127,7 @@
   "Move back in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserBack();repl.print(\"\\n\"+title)\n")
+   "BrowserBack(); repl.updateADom(); repl.print(\"\\n\"+title)\n")
   (when (interactive-p)
          (emacspeak-auditory-icon 'select-object))
          (emacspeak-speak-line))
@@ -167,7 +167,7 @@ title)\n"
   "Reload document."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   (format "BrowserReload();repl.print(\"\\n\"+title)\n"))
+   (format "BrowserReload();repl.updateADom();repl.print(\"\\n\"+title)\n"))
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
