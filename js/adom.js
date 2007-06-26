@@ -190,8 +190,7 @@ ADom.prototype.visit = function (dir) {
  * @return {ADom}
  */
 repl.updateADom = function ()  {
-  if (repl.adom == undefined
-      || content.document.adom == undefined) {
+  if (repl.adom == undefined || content.document.adom == undefined) {
     repl.adom = new ADom(content.document);
     return repl.adom;
   }
