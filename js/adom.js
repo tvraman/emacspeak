@@ -11,7 +11,7 @@ function ADom (document) {
     this.document_ = document;
     document.adom = this;
     this.root_ = document.documentElement;
-    this.current_ = this.root_;
+    this.current_ = this.document.documentElement;
     this.view_ = null;
 }
 
@@ -134,10 +134,10 @@ ADom.prototype.current = function () {
 /*
  *  Implements iteration.
  */
-RingBuffer = function (collection) {
-  this.collection_ = collection;
+RingBuffer = function (list) {
+  this.list_ = list;
   this.index_ = -1;
-  this.len_ = collection.length;
+  this.len_ = list.length;
 };
     
 RingBuffer.prototype.next = function () {
@@ -145,15 +145,60 @@ RingBuffer.prototype.next = function () {
     this.index_ = -1;
   }
   this.index_++;
-          return this.collection_.item(this.index_);
+          return this.list_.item(this.index_);
 };
             
 RingBuffer.prototype.previous = function () {
-  if (this.index_ == -1 || this.index_ == 0) {
+  if (this.index_ === -1 || this.index_ === 0) {
     this.index_ = this.len_;
   }
   this.index_--;
-  return this.collection_.item(this.index_);
+  return this.list_.item(this.index_);
+};
+
+//>
+//<XPathRingBuffer:
+
+/*
+ *  Implements RingBuffer.
+ */
+XPathRingBuffer = function (nodes) {
+  this.list_ = nodes;
+  this.index_ = -1;
+  this.len_ = nodes.snapshotLength;
+};
+    
+XPathRingBuffer.prototype.next = function () {
+  if (this.index_ == this.len_ -1) {
+    this.index_ = -1;
+  }
+  this.index_++;
+          return this.list_.snapshotItem(this.index_);
+};
+            
+XPathRingBuffer.prototype.previous = function () {
+  if (this.index_ === -1 || this.index_ === 0) {
+    this.index_ = this.len_;
+  }
+  this.index_--;
+  return this.list_.snapshotItem(this.index_);
+};
+
+//>
+//<XPath 
+
+/*
+ * filter: Apply XPath selector to create a filtered view.
+ * @return {RingBuffer} of selected nodes suitable for use by visit()
+ */
+
+ADom.prototype.filter = function (xpath) {
+  var start = this.current_ || this.root_;
+  var snap   =
+  this.document_.evaluate(xpath,
+                          start, null,
+                          XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  return this.view_ = new XPathRingBuffer(snap);
 };
 
 //>
@@ -179,7 +224,8 @@ ADom.prototype.view = function () {
  * find: set view_ to RingBuffer of elements found by name
  */
 ADom.prototype.find = function (tagName) {
-  return this.view_ = new RingBuffer(this.current_.getElementsByTagName(tagName));
+  var start = this.current_ || this.root_;
+  return this.view_ = new RingBuffer(start.getElementsByTagName(tagName));
 };
 
 /*
