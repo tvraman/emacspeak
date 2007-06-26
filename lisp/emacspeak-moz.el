@@ -192,20 +192,14 @@ title)\n"
 (defun emacspeak-moz-load-js-files (directory)
   "Load all js files from specified directory."
   (declare (special moz-repl-name))
-  (comint-send-string (inferior-moz-process)
-                      (concat moz-repl-name ".pushenv('printPrompt', 'inputMode'); "
-                              moz-repl-name ".setenv('inputMode', 'line'); "
-                              moz-repl-name ".setenv('printPrompt', false); undefined; "))
-  (loop for file in
-        (directory-files directory  'full "\\.js$" 'sort )
-        do
-        (comint-send-string (inferior-moz-process)
-                            (concat moz-repl-name
-                                    ".load('file://localhost/" file
-                                    "');\n")))
-  (comint-send-string (inferior-moz-process)
-                      (concat moz-repl-name ".popenv('inputMode',
-'printPrompt'); undefined;\n")))
+  (comint-send-string
+   (inferior-moz-process)
+   (mapconcat
+    #'(lambda (file)
+        (format "%s.load('file://localhost%s')"
+                moz-repl-name file))
+    (directory-files directory  'full "\\.js$" 'sort )
+    ";")))
 
 (add-hook 'inferior-moz-mode-hook
           #'(lambda ()
