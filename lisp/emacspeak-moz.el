@@ -207,7 +207,9 @@ title)\n"
                       (concat moz-repl-name ".popenv('inputMode',
 'printPrompt'); undefined;\n")))
 
-(add-hook 'moz-minor-mode-hook 'emacspeak-moz-load-js-files)
+(add-hook 'inferior-moz-mode-hook
+          #'(lambda ()
+              (emacspeak-moz-load-js-files emacspeak-moz-js-directory)))
 ;;}}}
 (provide 'emacspeak-moz)
 ;;{{{ end of file
