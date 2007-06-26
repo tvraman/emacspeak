@@ -4,16 +4,15 @@
 /*
  * ADOM: Holds a proxy to a DOM
  * Provides convenience methods for obtaining custom views
- * Constructor takes  the   document to viewed as argument
+ * Constructor takes  the   document to view as argument
  */
 
 function ADom (document) {
     this.document_ = document;
-    document.aDOM = this;
+    document.adom = this;
     this.root_ = document.documentElement;
     this.current_ = this.root_;
     this.view_ = null;
-    this.visiting_ = -1;
 }
 
 //>
@@ -130,6 +129,34 @@ ADom.prototype.current = function () {
 };
 
 //>
+//<RingBuffer:
+
+/*
+ *  Implements iteration.
+ */
+RingBuffer = function (collection) {
+  this.collection_ = collection;
+  this.index_ = -1;
+  this.len_ = collection.length;
+};
+    
+RingBuffer.prototype.next = function () {
+  if (this.index_ == this.len_ -1) {
+    this.index_ = -1;
+  }
+  this.index_++;
+          return this.collection_.item(this.index_);
+};
+            
+RingBuffer.prototype.previous = function () {
+  if (this.index_ == -1 || this.index_ == 0) {
+    this.index_ = this.len_;
+  }
+  this.index_--;
+  return this.collection_.item(this.index_);
+};
+
+//>
 //<Viewers And Visitors:
 
 /*
@@ -149,11 +176,10 @@ ADom.prototype.view = function () {
 };
 
 /*
- * find: set view_ to list of elements found by name
+ * find: set view_ to RingBuffer of elements found by name
  */
 ADom.prototype.find = function (tagName) {
-  this.visiting_ = -1;
-  this.view_ = this.current_.getElementsByTagName(tagName);
+  return this.view_ = new RingBuffer(this.current_.getElementsByTagName(tagName));
 };
 
 /*
@@ -162,18 +188,10 @@ ADom.prototype.find = function (tagName) {
  */
 ADom.prototype.visit = function (dir) {
   if (dir) {
-    this.visiting_--;
-  } else {
-    this.visiting_++;
+    return this.view_.previous();
+  } else  {
+    return this.view_.next();
   }
-  // wrap around
-  if (this.visiting_ == this.view_.length) {
-    this.visiting_ = 0;
-  }
-  if (this.visiting_ == -1) {
-    this.visiting_ = this.view_.length -1;
-  }
-  return this.view_[this.visiting_];
 };
 
 //>
