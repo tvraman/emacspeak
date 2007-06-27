@@ -92,7 +92,8 @@ ADom.prototype.body = function () {
  *@Return {string}; HTML
  */
 ADom.prototype.html = function () {
-    var html ='<' + this.current_.tagName;
+  var html ='<base href=\"' + this.document_.baseURI; '\"/>';
+  html ='<' + this.current_.tagName;
     var map = this.current_.attributes;
   if (map  instanceof NamedNodeMap) {
     for (var i = 0; i < map.length; i++) {
@@ -127,6 +128,15 @@ ADom.prototype.summarize = function () {
 ADom.prototype.title = function () {
     return this.document_.title;
 };
+
+/*
+ * url: Return base URL of document.
+ * @return {String} url
+ */
+ADom.prototype.url = function () {
+  return this.document_.baseURI;
+};
+
 
 /*
  * Return document being viewed.
@@ -223,17 +233,9 @@ ADom.prototype.filter = function (xpath) {
  * Return forms array.
  */
 ADom.prototype.forms = function () {
-    this.view_ = this.document_.forms;
+  this.view_ = new RingBuffer(this.document_.forms);
     return this.view_;
 };
-
-/*
- * Return current view.
- */
-ADom.prototype.view = function () {
-    return this.view_;
-};
-
 /*
  * find: set view_ to RingBuffer of elements found by name
  */

@@ -1259,12 +1259,8 @@ name of the list.")
  nil
  "CNN Content"
  #'(lambda (url)
-     (add-hook 'emacspeak-w3-post-process-hook
-               #'(lambda ()
-                   (declare (special emacspeak-w3-class-filter))
-                   (setq emacspeak-w3-class-filter "cnnStoryContent")))
-     (emacspeak-w3-extract-by-class-list
-      (list "cnnBulletList" "cnnT1")
+     (emacspeak-w3-xslt-filter
+      "//p|//h1|//h2|//h3|//ul|//ol"
       url
       'speak)))
 
