@@ -42,7 +42,6 @@
 
 ;;; Commentary:
 
-
 ;;; MozRepl provides a read-eval-print loop into Firefox
 ;;; This module provides convenient functions for driving MozRepl
 ;;; See http://repo.hyperstruct.net/mozlab
@@ -66,6 +65,9 @@
 (global-set-key "\C-x@hf" 'emacspeak-moz-prefix-command)
 (loop for k in
       '(
+        ([up] emacspeak-moz-visit-previous-and-browse)
+        ([down] emacspeak-moz-visit-next-and-browse)
+        ("b" emacspeak-moz-eval-expression-and-browse)
         ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
         ("i" emacspeak-moz-inspect)
@@ -92,9 +94,44 @@
   (comint-send-string (inferior-moz-process) exp)
   (switch-to-buffer (process-buffer (inferior-moz-process)))
   (when (interactive-p)
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
+;;;###autoload
+(defvar emacspeak-moz-output-buffer " *moz output*"
+  "Buffer where we accumulate moz output.")
+
+(defun emacspeak-moz-accumulate-output(output)
+  "Accumulate output into our Moz output buffer."
+  (declare (special emacspeak-moz-output-buffer))
+  (save-excursion
+    (set-buffer emacspeak-moz-output-buffer)
+    (goto-char (point-max))
+    (insert output)
+    output))
+
+(defun emacspeak-moz-eval-expression-and-browse (exp)
+  "Send expression to Moz, get output, and browse it in Emacs."
+  (interactive "sJSEval: ")
+  (declare (special emacspeak-moz-output-buffer))
+  (let ((comint-preoutput-filter-functions
+         (list 'emacspeak-moz-accumulate-output)))
+    (save-excursion
+      (set-buffer (get-buffer-create emacspeak-moz-output-buffer))
+      (erase-buffer)
+      (setq buffer-undo-list t))
+    (comint-send-string (inferior-moz-process) exp)
+    (save-excursion
+      (set-buffer emacspeak-moz-output-buffer)
+      (accept-process-output (inferior-moz-process))
+      (goto-char (point-max))
+      (delete-region (line-beginning-position)
+                     (line-end-position))
+      (when (eq browse-url-browser-function
+                'browse-url-w3)
+        (add-hook 'emacspeak-w3-post-process-hook
+                  'emacspeak-speak-buffer))
+      (browse-url-of-buffer ))))
 
 (defun emacspeak-moz-close-tab-or-browser ()
   "Close tab, or browser when one tab left."
@@ -108,8 +145,8 @@
    (list
     (read-from-minibuffer "URL: "
                           (or
-    (browse-url-url-at-point)
-    "http://"))))
+                           (browse-url-url-at-point)
+                           "http://"))))
   (emacspeak-moz-eval-expression-and-go
    (format "content.location.href='%s';repl.updateADom()\n"
            url)))
@@ -129,9 +166,8 @@
   (emacspeak-moz-eval-expression-and-go
    "BrowserBack(); repl.updateADom(); repl.print(\"\\n\"+title)\n")
   (when (interactive-p)
-         (emacspeak-auditory-icon 'select-object))
-         (emacspeak-speak-line))
-
+    (emacspeak-auditory-icon 'select-object))
+  (emacspeak-speak-line))
 
 (defun emacspeak-moz-jump (index)
   "Jump to specified index in history."
@@ -148,11 +184,11 @@ title)\n"
 (defun emacspeak-moz-inspect (what)
   "Inspect specified object."
   (interactive "sInspect: ")
-    (emacspeak-moz-eval-expression-and-go
-     (format "repl.inspect(%s)\n" what))
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line)))
+  (emacspeak-moz-eval-expression-and-go
+   (format "repl.inspect(%s)\n" what))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-moz-search (pattern)
   "Search for pattern in current context."
@@ -171,6 +207,19 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
+
+;;;###autoload
+(defun emacspeak-moz-visit-next-and-browse ()
+  "Asks visitor to go  forward and browses the result."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.visit().innerHTML"))
+
+(defun emacspeak-moz-visit-previous-and-browse ()
+  "Asks visitor to go  backward and browses the result."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.visit(-1).innerHTML"))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
