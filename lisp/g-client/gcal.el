@@ -396,7 +396,7 @@ Default date is assumed to be today, or  the date selected when
   "URL for default calendar feed for currently authenticated
 user.")
 (defvar gcal-feed-url-template
-  "'https://www.google.com/calendar/feeds/%s/%s/%s'"
+  "https://www.google.com/calendar/feeds/%s/%s/%s/?orderby=starttime"
   "URL for  calendar feed using authentication.
 Parameterized by calendar name, private/public, and projecttion")
 
@@ -647,9 +647,9 @@ Specify the event in plain English."
     (cond
      ((and (null start-min)
            (null start-max))
-      "?orderby=starttime")
+      "")
      (t
-      (format "?orderby=starttime&start-min=%s&start-max=%s"
+      (format "&start-min=%s&start-max=%s"
               (or start-min "")
               (or start-max "")))))
    gcal-calendar-view))
@@ -743,9 +743,9 @@ date under point."
       (cond
        ((and (null start-min)
              (null start-max))
-        "?orderby=starttime")
+        "")
        (t
-        (format "?orderby=starttime&start-min=%s&start-max=%s"
+        (format "&start-min=%s&start-max=%s"
                 (or start-min "")
                 (or start-max "")))))
      gcal-calendar-view     )))
