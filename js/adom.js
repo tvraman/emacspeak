@@ -93,7 +93,7 @@ ADom.prototype.body = function () {
  */
 ADom.prototype.html = function () {
   var html ='<base href=\"' + this.document_.baseURI; '\"/>';
-  html ='<' + this.current_.tagName;
+  html +='<' + this.current_.tagName;
     var map = this.current_.attributes;
   if (map  instanceof NamedNodeMap) {
     for (var i = 0; i < map.length; i++) {
