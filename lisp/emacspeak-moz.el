@@ -247,7 +247,7 @@ title)\n"
     #'(lambda (file)
         (format "%s.load('file://localhost%s')"
                 moz-repl-name file))
-    (directory-files directory  'full "\\.js$" 'sort )
+    (directory-files directory  'full "js$")
     ";")))
 
 (add-hook 'inferior-moz-mode-hook
