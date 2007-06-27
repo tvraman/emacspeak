@@ -89,10 +89,24 @@ ADom.prototype.body = function () {
 
 /*
  * Return HTML for current node.
- *@Return {string}; innerHTML
+ *@Return {string}; HTML
  */
 ADom.prototype.html = function () {
-    return this.current_.innerHTML;
+    var html ='<' + this.current_.tagName;
+    var map = this.current_.attributes;
+  if (map  instanceof NamedNodeMap) {
+    for (var i = 0; i < map.length; i++) {
+            html += ' ' + map[i].name + '=';
+            html += '\"' +map[i].value + '\"';
+        }
+    }
+    if (this.current_.childNodes.length === 0) {
+        return html += '/>';
+    } else {
+        html += '>' + this.current_.innerHTML;
+        html += '</' + this.current_.tagName +'>';
+        return html;
+    }
 };
 
 /*
@@ -234,9 +248,9 @@ ADom.prototype.find = function (tagName) {
  */
 ADom.prototype.visit = function (dir) {
   if (dir) {
-    return this.view_.previous();
+    return this.current_ = this.view_.previous();
   } else  {
-    return this.view_.next();
+    return this.current_ = this.view_.next();
   }
 };
 

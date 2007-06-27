@@ -213,13 +213,13 @@ title)\n"
   "Asks visitor to go  forward and browses the result."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.visit().innerHTML"))
+   "repl.adom.visit(); repl.adom.html()"))
 
 (defun emacspeak-moz-visit-previous-and-browse ()
   "Asks visitor to go  backward and browses the result."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.visit(-1).innerHTML"))
+   "repl.adom.visit(-1); repl.adom.html()"))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
