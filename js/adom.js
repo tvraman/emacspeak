@@ -249,9 +249,15 @@ ADom.prototype.find = function (tagName) {
  */
 ADom.prototype.visit = function (dir) {
   if (dir) {
-    return this.current_ = this.view_.previous();
+      this.current_ = this.view_.previous();
   } else  {
-    return this.current_ = this.view_.next();
+      this.current_ = this.view_.next();
+  }
+  // skip empties
+  if (this.current_.childNodes.length === 0 && this.current_.attributes.length  === 0) {
+      return this.visit(dir);
+  } else {
+      return this.current_;
   }
 };
 
