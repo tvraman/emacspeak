@@ -494,6 +494,13 @@ content."
           (string :tag "URL"))
   :group 'emacspeak-url-template)
 
+(defsubst emacspeak-url-template-make-cse (meta-url)
+  "Builds up a CSE url for specified meta-url."
+  (format
+       "http://www.google.com/cse/tools/makecse?url=%s"
+       meta-url))
+
+
 (emacspeak-url-template-define
  "Reader Subscription Search"
  "http://www.google.com/cse?q=%s&loading=1&cref=%s"
@@ -502,12 +509,24 @@ content."
   #'(lambda nil
       (declare
        (special emacspeak-url-template-reading-list-opml))
-      (format
-       "http://www.google.com/cse/tools/makecse?url=%s"
+      (emacspeak-url-template-make-cse
        (emacspeak-url-encode emacspeak-url-template-reading-list-opml))))
  nil
- "Search within feeds subscribed to in Google Reader."
-)
+ "Search within feeds subscribed to in Google Reader.")
+
+(emacspeak-url-template-define
+ "Official GoogleBlog Search"
+ "http://www.google.com/cse?q=%s&loading=1&cref=%s"
+ (list
+  "Reader Search: "
+  #'(lambda nil
+      (emacspeak-url-template-make-cse
+       "http://www.google.com/reader/public/subscriptions/user/10949413115399023739/label/officialgoogleblogs-all")))
+ nil
+ "Search within all official Google blogs."
+ )
+
+
 
 ;;}}}
 
