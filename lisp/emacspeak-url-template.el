@@ -511,7 +511,10 @@ content."
        (special emacspeak-url-template-reading-list-opml))
       (emacspeak-url-template-make-cse
        (emacspeak-url-encode emacspeak-url-template-reading-list-opml))))
- nil
+ #'(lambda nil
+     (search-forward "Results")
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer))
  "Search within feeds subscribed to in Google Reader.")
 
 (emacspeak-url-template-define
@@ -522,7 +525,10 @@ content."
   #'(lambda nil
       (emacspeak-url-template-make-cse
        "http://www.google.com/reader/public/subscriptions/user/10949413115399023739/label/officialgoogleblogs-all")))
- nil
+ #'(lambda nil
+     (search-forward "Results")
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer))
  "Search within all official Google blogs."
  )
 
