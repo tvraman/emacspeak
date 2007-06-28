@@ -12,7 +12,9 @@ Identity transform used in all style sheets.
               method="html"  indent="yes"/>
   <!-- {identity default  -->   
   <!-- nuke these -->  
-  <xsl:template match="//script|//meta|//iframe|//nolayer|//ilayer|//layer|//spacer"/>
+  <xsl:template
+      match="//script|//meta|//nolayer|//ilayer|//layer|//spacer"/>
+  <xsl:include href="display-none.xsl"/>
   <xsl:template match="*|@*" >
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
