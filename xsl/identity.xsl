@@ -16,10 +16,12 @@ Identity transform used in all style sheets.
       match="//script|//meta|//nolayer|//ilayer|//layer|//spacer"/>
   <xsl:include href="display-none.xsl"/>
   <xsl:template match="*|@*" >
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
+    <xsl:if test="normalize-space(.)"> 
+      <xsl:copy>
+        <xsl:apply-templates select="@*"/>
+        <xsl:apply-templates select="node()"/>
+      </xsl:copy>
+    </xsl:if>
   </xsl:template>
   
   <!-- } -->
