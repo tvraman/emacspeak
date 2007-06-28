@@ -479,13 +479,38 @@ content."
 ;;}}}
 ;;{{{  answers.com
 (emacspeak-url-template-define
- "answers.com"
+ "Answers.com"
  "http://www.answers.com/main/ntquery?s=%s"
  (list "Search answers.com for: ")
  nil
  "Search answers.com")
 
 ;;}}}
+;;{{{ google CSE and Google Reader:
+(defcustom emacspeak-url-template-reading-list-opml nil
+   "OPML feed location to use for our Custom Search."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "URL"))
+  :group 'emacspeak-url-template)
+
+(emacspeak-url-template-define
+ "Reader Subscription Search"
+ "http://www.google.com/cse?q=%s&loading=1&cref=%s"
+ (list
+  "Reader Search: "
+  #'(lambda nil
+      (declare
+       (special emacspeak-url-template-reading-list-opml))
+      (format
+       "http://www.google.com/cse/tools/makecse?url=%s"
+       (emacspeak-url-encode emacspeak-url-template-reading-list-opml))))
+ nil
+ "Search within feeds subscribed to in Google Reader."
+)
+
+;;}}}
+
 ;;{{{ Anonimize google search
 
 (emacspeak-url-template-define
