@@ -303,6 +303,12 @@ user."
   (concat greader-base-url
           "api/0/subscription/list?output=json")
   "URL for retrieving list of subscribed feeds.")
+
+(defvar greader-subscription-opml-url
+  (concat greader-base-url
+          "api/0/subscription/list?output=xml")
+  "URL for retrieving list of subscribed feeds.")
+
 (defvar greader-tag-list-url
   (concat greader-base-url
           "api/0/tag/list?output=json")
@@ -365,6 +371,22 @@ arrived articles."
                        (< (string-to-number (g-json-get 'firstitemmsec b))
                           (string-to-number (g-json-get 'firstitemmsec a)))))))
     (greader-view-json-subscriptions subscriptions)))
+
+;;;###autoload
+
+(defun greader-opml ()
+  "Retrieve OPML representation of our subscription list."
+  (interactive)
+  (declare (special greader-auth-handle greader-subscription-opml-url
+                    g-curl-program g-curl-common-options))
+  (g-auth-ensure-token greader-auth-handle)
+  (shell-command
+   (format
+    "%s %s --cookie SID='%s' %s 2>/dev/null"
+    g-curl-program g-curl-common-options
+    (g-cookie "SID" greader-auth-handle)
+    greader-subscription-opml-url)))
+
 
 (defun greader-view-json-tags (tags)
   "View Greader tag list."
