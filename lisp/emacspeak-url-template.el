@@ -533,7 +533,7 @@ content."
  "On The Fly CSE"
  "http://www.google.com/cse?q=%s&loading=1&cref=%s"
  (list
-  "GoogleBlog Search: "
+  "Search This CSE: "
   #'(lambda nil
       (emacspeak-url-template-make-cse
        (read-from-minibuffer
