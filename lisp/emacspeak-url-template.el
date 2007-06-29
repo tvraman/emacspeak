@@ -520,7 +520,7 @@ content."
  "Official GoogleBlog Search"
  "http://www.google.com/cse?q=%s&loading=1&cref=%s"
  (list
-  "Reader Search: "
+  "GoogleBlog Search: "
   #'(lambda nil
       (emacspeak-url-template-make-cse
        "http://www.google.com/reader/public/subscriptions/user/10949413115399023739/label/officialgoogleblogs-all")))
