@@ -128,7 +128,7 @@ http-method is either POST or PUT"
                g-app-auth-handle)
     (error "Not in a correctly initialized Atom Entry."))
   (goto-char (point-min))
-  (let ((cl (format "-H Content-length:%s" (buffer-size))))
+  (let ((cl (format "-H Content-length:%s" (g-buffer-bytes))))
     (shell-command-on-region
      (point-min) (point-max)
      (format

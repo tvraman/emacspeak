@@ -427,7 +427,7 @@ Parameterized by calendar name, private/public, and projecttion")
                     g-curl-atom-header))
   (g-using-scratch
    (insert (gcal-event-as-xml event))
-   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
          (status nil))
      (shell-command-on-region
       (point-min) (point-max)
@@ -450,7 +450,7 @@ Parameterized by calendar name, private/public, and projecttion")
   (g-using-scratch
    (insert
     (format gcal-quickadd-template event-desc))
-   (let ((cl (format "-H Content-length:%s" (buffer-size)))
+   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
          (status nil))
      (shell-command-on-region
       (point-min) (point-max)
@@ -605,7 +605,7 @@ Specify the event in plain English."
      (g-auth-email gcal-auth-handle)
      gcal-event-accept )
     (current-buffer) 'replace)
-   (let ((cl (format "-H Content-length:%s" (buffer-size))))
+   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes))))
      (shell-command-on-region
       (point-min) (point-max)
       (format
