@@ -149,11 +149,11 @@ Customize this to live on your local disk."
 
 ;;; buffer-size returns number of chars.
 ;;; this helper returns number of bytes.
-(defsubst g-buffer-bytes (buffer)
-"Return number of bytes in a buffer."
-(save-excursion
-(set-buffer buffer)
-(1- (position-bytes (point-max)))))
+(defsubst g-buffer-bytes (&optional buffer)
+  "Return number of bytes in a buffer."
+  (save-excursion
+    (and buffer (set-buffer buffer))
+    (1- (position-bytes (point-max)))))
 
 ;;}}}
 ;;{{{ debug helpers

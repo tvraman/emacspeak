@@ -225,6 +225,7 @@ from the server.")
         (nxml-auto-insert-xml-declaration-flag nil))
     (save-excursion
       (set-buffer buffer)
+      (gblogger-mode)
       (insert
        (g-get-result
         (format
@@ -232,8 +233,11 @@ from the server.")
          g-curl-program g-curl-common-options
          (g-authorization gblogger-auth-handle)
          url)))
-      (g-html-unescape-region (point-min) (point-max))
-      (gblogger-mode)
+      (goto-char (point-min))
+      (search-forward "<content" )
+      (search-backward "<content")
+      (mark-sexp)
+      (g-html-unescape-region (point) (mark))
       (setq gblogger-this-url url)
       buffer)))
 
