@@ -145,6 +145,17 @@ Customize this to live on your local disk."
   :group 'g)
 
 ;;}}}
+;;{{{  buffer bytes rather than buffer size
+
+;;; buffer-size returns number of chars.
+;;; this helper returns number of bytes.
+(defsubst g-buffer-bytes (buffer)
+"Return number of bytes in a buffer."
+(save-excursion
+(set-buffer buffer)
+(1- (position-bytes (point-max)))))
+
+;;}}}
 ;;{{{ debug helpers
 
 (defsubst g-curl-debug ()

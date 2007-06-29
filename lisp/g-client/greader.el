@@ -512,7 +512,7 @@ arrived articles."
                      ('add-tags "Add Tag:")
                      ('remove-tags "Remove Tag:")))
                 "")))
-     (setq cl (format "-H Content-length:%s" (buffer-size)))
+     (setq cl (format "-H Content-length:%s" (g-buffer-bytes)))
      (shell-command-on-region
       (point-min) (point-max)
       (format
