@@ -529,6 +529,22 @@ content."
  #'(lambda (url)
      (emacspeak-w3-extract-by-class "g" url 'speak)))
 
+(emacspeak-url-template-define
+ "On The Fly CSE"
+ "http://www.google.com/cse?q=%s&loading=1&cref=%s"
+ (list
+  "GoogleBlog Search: "
+  #'(lambda nil
+      (emacspeak-url-template-make-cse
+       (read-from-minibuffer
+        "Feed URL to build CSE for: "))))
+ nil
+ "Build a CSE on the fly and  use it to search."
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class "g" url 'speak)))
+
+
+
 
 
 ;;}}}
