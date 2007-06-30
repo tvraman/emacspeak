@@ -413,8 +413,11 @@
     (loop for file in files
           do
           (gphoto-photo-add album-name
-                            (make-gphoto-photo :filepath file
-                                               :title (file-name-nondirectory file))))))
+                            (make-gphoto-photo
+                             :filepath (shell-quote-argument file)
+                                               :title
+                                               (shell-quote-argument
+                                                (file-name-nondirectory file)))))))
 
 
 
