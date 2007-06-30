@@ -43,6 +43,9 @@
 #include <string>
 #include <assert.h>
 #include "speak_lib.h"
+#ifndef ESPEAK_API_REVISION
+#define ESPEAK_API_REVISION 1
+#endif
 
 #include <string>
 using std::string;
@@ -144,8 +147,11 @@ Tclespeak_Init (Tcl_Interp * interp)
       Tcl_AppendResult (interp, "Error loading ", PACKAGENAME, NULL);
       return TCL_ERROR;
     }
-
-  espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 200, NULL);
+#if ESPEAK_API_REVISION == 1
+  espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 512, NULL);
+#else
+  espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 512, NULL, 0);
+#endif
 
   //>
   //<register tcl commands
