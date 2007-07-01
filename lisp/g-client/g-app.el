@@ -62,6 +62,8 @@
 
 ;;}}}
 ;;{{{  APP Methods
+(if (fboundp 'nxml-mode)
+    (defalias 'xml-mode 'nxml-mode))
 
 (define-derived-mode g-app-mode xml-mode
   "Atom  Publishing Interaction"
@@ -201,6 +203,20 @@ action is the function to call when we're ready to submit the edit."
       "Use \\[g-app-publish] when done editing. "))))
 
 
+(defun g-app-view (auth-handle feed-url)
+  "Retrieve and display feed  after authenticating."
+  (interactive)
+  (declare (special g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' %s 2>/dev/null"
+    g-curl-program g-curl-common-options g-cookie-options
+    (g-cookie "Auth" auth-handle)
+    feed-url)
+   g-atom-view-xsl))
 
 ;;}}}
 (provide 'g-app)
