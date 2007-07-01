@@ -58,10 +58,6 @@
 ;;; gblogger-edit-entry -- Edit previously posted entry
 ;;; gblogger-delete-entry -- Delete previously posted entry
 
-
-
-
-
 ;;; Commands prompt for the URI of the entry being manipulated ---
 ;;; this is the service.edit URI.
 ;;; You can customize things via custom.
@@ -130,11 +126,6 @@
   "http://www.blogger.com/feeds/default/blogs"
   "Base url for blogger access.")
 
-
-
-
-
-
 (defsubst gblogger-p (service)
   "Check if this is blogger."
   (declare (special gblogger-service-name))
@@ -165,7 +156,6 @@ from the server.")
   (interactive)
   (declare (special gblogger-auth-handle))
   (g-app-view gblogger-auth-handle gblogger-base-url))
-
 
 ;;;###autoload
 (defun gblogger-atom-display (url)
@@ -266,7 +256,6 @@ The retrieved entry is placed in a buffer ready for editing.
     (message
      (substitute-command-keys "Use \\[gblogger-publish] to
 publish your edits ."))))
-
 
 (defun gblogger-send-buffer-contents (http-method)
   "Publish the Blog entry in the current buffer.

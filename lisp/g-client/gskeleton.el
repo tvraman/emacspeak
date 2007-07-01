@@ -109,8 +109,6 @@
   (declare (special gskeleton-auth-handle))
   (g-authenticate gskeleton-auth-handle))
 
-
-
 ;;}}}
 ;;{{{ Feed of feeds:
 
@@ -153,7 +151,6 @@
   (setq gskeleton-user-email nil
         gskeleton-user-password nil)
   (setq gskeleton-auth-handle (make-gskeleton-auth)))
-
 
 ;;;###autoload
 (defun gskeleton-sign-in()

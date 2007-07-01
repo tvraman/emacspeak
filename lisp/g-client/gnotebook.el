@@ -145,7 +145,6 @@
           "read?tok=%s&cmd=u")
   "URL template for listing Notebooks.")
 
-
 (defsubst gnotebook-list-url ()
   "Return URL for retrieving list of notebooks."
   (declare (special gnotebook-auth-handle

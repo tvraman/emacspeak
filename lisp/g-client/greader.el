@@ -387,7 +387,6 @@ arrived articles."
     (g-cookie "SID" greader-auth-handle)
     greader-subscription-opml-url)))
 
-
 (defun greader-view-json-tags (tags)
   "View Greader tag list."
   (g-using-scratch

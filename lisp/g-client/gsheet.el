@@ -113,17 +113,15 @@
   (declare (special gsheet-auth-handle))
   (g-authenticate gsheet-auth-handle))
 
-
-
 ;;}}}
 ;;{{{ gsheet-fetch
 ;;;###autoload
 (defun gsheet-fetch (sheet-url)
   "Fetch specified sheet."
   (interactive "sSheet URL:")  (declare (special gsheet-auth-handle
-                                                  g-atom-view-xsl
-                                                  g-curl-program g-curl-common-options
-                                                  g-cookie-options))
+                                                 g-atom-view-xsl
+                                                 g-curl-program g-curl-common-options
+                                                 g-cookie-options))
   (g-auth-ensure-token gsheet-auth-handle)
   (g-display-result
    (format
@@ -145,7 +143,7 @@
 (defsubst gsheet-feeds-url (userid)
   "Return url for feed of feeds."
   (declare (special gsheet-feeds-template-url))
-   gsheet-feeds-template-url )
+  gsheet-feeds-template-url )
 ;;;###autoload
 (defun gsheet-sheets ()
   "Retrieve and display feed of feeds after authenticating."

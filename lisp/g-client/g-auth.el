@@ -116,7 +116,7 @@
   email
   password
   token
-  session-id ;gsession-id
+  session-id                            ;gsession-id
   cookie-alist
   service
   (lifetime  g-auth-lifetime)
@@ -137,7 +137,7 @@
   "Return authorization header."
   (declare (special g-authorization-header-format))
   (format g-authorization-header-format
-              (g-cookie "Auth" auth-handle)))
+          (g-cookie "Auth" auth-handle)))
 
 (defsubst g-auth-expired-p (auth-handle)
   "Check if  token for specified service has expired."
@@ -159,16 +159,16 @@ Populate auth-handle with the returned cookies and token."
                     g-curl-common-options
                     g-user-email))
   (let* ((post-auth-action (g-auth-post-auth-action auth-handle))
-        (email (or (g-auth-email auth-handle)
-                   g-user-email
-                   (read-from-minibuffer "User Address: ")))
-        (password
-         (or (g-auth-password auth-handle)
-             (read-passwd
-              (format "Password for %s:"
-                      email))))
-        (buff (get-buffer-create g-auth-scratch-buffer))
-        (fields nil))
+         (email (or (g-auth-email auth-handle)
+                    g-user-email
+                    (read-from-minibuffer "User Address: ")))
+         (password
+          (or (g-auth-password auth-handle)
+              (read-passwd
+               (format "Password for %s:"
+                       email))))
+         (buff (get-buffer-create g-auth-scratch-buffer))
+         (fields nil))
     (setf (g-auth-email auth-handle) email
           (g-auth-password auth-handle) password
           (g-auth-cookie-alist auth-handle) nil)

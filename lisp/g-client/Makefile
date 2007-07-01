@@ -103,6 +103,12 @@ clean:
 	rm -f *.elc   g-cus-loads.el g-loaddefs.el
 
 # }}}
+# {{{dev targets:
+
+indent:
+	emacs -batch -q -no-site-file -l indent-files.el
+
+# }}}
 # {{{ end of file
 
 #local variables:
