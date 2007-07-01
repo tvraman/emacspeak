@@ -208,10 +208,10 @@ xmlns:gCal='http://schemas.google.com/gCal/2005'>
 
 (defstruct gcal-attendee
   email
-  cn                                    ;firstname lastname
-  status                                ; needs-action, confirmed
-  role                       ; required participant, optional etc
-  resource-type                         ; individual, room
+  cn                              ;firstname lastname
+  status                          ; needs-action, confirmed
+  role                            ; required participant, optional etc
+  resource-type                   ; individual, room
   )
 
 ;;}}}

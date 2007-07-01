@@ -193,7 +193,7 @@ action is the function to call when we're ready to submit the edit."
       (g-xsl-transform-region (point-min) (point-max)
                               g-atom-edit-filter)
       (goto-char (point-min))
-    (flush-lines "^ *$"))
+      (flush-lines "^ *$"))
     (switch-to-buffer buffer)
     (goto-char (point-min))
     (search-forward "<content" nil t)
@@ -201,7 +201,6 @@ action is the function to call when we're ready to submit the edit."
     (message
      (substitute-command-keys
       "Use \\[g-app-publish] when done editing. "))))
-
 
 (defun g-app-view (auth-handle feed-url)
   "Retrieve and display feed  after authenticating."

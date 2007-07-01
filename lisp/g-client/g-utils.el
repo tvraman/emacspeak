@@ -63,11 +63,11 @@
 ;;{{{ Customizations:
 
 (defvar g-directory (and load-file-name
-                                  (file-name-directory load-file-name))
+                         (file-name-directory load-file-name))
   "Directory where Google Client is installed.")
 
 (defvar g-scratch-buffer" *g scratch*"
-"Scratch buffer we do authentication work.")
+  "Scratch buffer we do authentication work.")
 
 (defcustom g-curl-program "curl"
   "Name of CURL executable."
@@ -117,22 +117,22 @@ Receives buffer containing HTML as its argument."
   :group 'g)
 
 (defcustom g-cookie-jar
-   (expand-file-name "~/.g-cookie-jar")
-   "Cookie jar used for Google services.
+  (expand-file-name "~/.g-cookie-jar")
+  "Cookie jar used for Google services.
 Customize this to live on your local disk."
-   :type 'file
-   :set '(lambda (sym val)
+  :type 'file
+  :set '(lambda (sym val)
           (declare (special g-cookie-options))
           (setq g-cookie-options
-                 (format "--cookie %s --cookie-jar %s"
-                                 val val))
+                (format "--cookie %s --cookie-jar %s"
+                        val val))
           (set-default sym val))
-   :group 'g)
+  :group 'g)
 
 (defvar g-cookie-options
- (format "--cookie %s --cookie-jar %s"
-                                 g-cookie-jar g-cookie-jar)
- "Options to pass for using our cookie jar.")
+  (format "--cookie %s --cookie-jar %s"
+          g-cookie-jar g-cookie-jar)
+  "Options to pass for using our cookie jar.")
 
 (defcustom g-curl-debug nil
   "Set to T to see Curl stderr output."
@@ -162,15 +162,15 @@ Customize this to live on your local disk."
   "Determines if we show stderr output."
   (declare (special g-curl-debug))
   (if g-curl-debug
-""
-" 2>/dev/null"))
+      ""
+    " 2>/dev/null"))
 
 (defsubst g-xslt-debug ()
   "Determines if we show stderr output."
   (declare (special g-xslt-debug))
   (if g-xslt-debug
-" 2>/dev/null"
-""))
+      " 2>/dev/null"
+    ""))
 
 ;;}}}
 ;;{{{ url encode:
@@ -178,14 +178,14 @@ Customize this to live on your local disk."
 (defsubst g-url-encode (str)
   "URL encode  string."
   (mapconcat '(lambda (c)
-		(cond ((= c 32) "+")
-		      ((or (and (>= c ?a) (<= c ?z))
-			   (and (>= c ?A) (<= c ?Z))
-			   (and (>= c ?0) (<= c ?9)))
-		       (char-to-string c))
-		      (t (upcase (format "%%%02x" c)))))
-	     str
-	     ""))
+                (cond ((= c 32) "+")
+                      ((or (and (>= c ?a) (<= c ?z))
+                           (and (>= c ?A) (<= c ?Z))
+                           (and (>= c ?0) (<= c ?9)))
+                       (char-to-string c))
+                      (t (upcase (format "%%%02x" c)))))
+             str
+             ""))
 
 ;;}}}
 ;;{{{ transform region
@@ -248,21 +248,21 @@ Customize this to live on your local disk."
 (defmacro g-using-scratch(&rest body)
   "Evaluate forms in a  ready to use temporary buffer."
   `(let ((buffer (get-buffer-create g-scratch-buffer))
-           (default-process-coding-system (cons 'utf-8 'utf-8))
-           (coding-system-for-read 'binary)
-           (coding-system-for-write 'binary)
-           (buffer-undo-list t))
-       (save-excursion
-         (set-buffer  buffer)
-         (kill-all-local-variables)
-         (erase-buffer)
-         (progn ,@body))))
+         (default-process-coding-system (cons 'utf-8 'utf-8))
+         (coding-system-for-read 'binary)
+         (coding-system-for-write 'binary)
+         (buffer-undo-list t))
+     (save-excursion
+       (set-buffer  buffer)
+       (kill-all-local-variables)
+       (erase-buffer)
+       (progn ,@body))))
 
 (defsubst g-get-result (command)
   "Run command and return its output."
   (g-using-scratch
-      (shell-command command (current-buffer) 'replace)
-      (buffer-string)))
+   (shell-command command (current-buffer) 'replace)
+   (buffer-string)))
 
 (defsubst g-json-get-result(command)
   "Get command results and return json object read from result
@@ -276,10 +276,10 @@ Typically, content is pulled using Curl , converted to HTML using style  and
   previewed via `g-html-handler'."
   (declare (special g-xslt-program g-html-handler))
   (g-using-scratch
-      (shell-command command (current-buffer))
-      (when style
-        (g-xsl-transform-region (point-min) (point-max) style))
-      (funcall g-html-handler (current-buffer))))
+   (shell-command command (current-buffer))
+   (when style
+     (g-xsl-transform-region (point-min) (point-max) style))
+   (funcall g-html-handler (current-buffer))))
 
 (defsubst g-display-xml-string (string style)
   "Display XML string  using specified style.
@@ -309,8 +309,6 @@ XML string is transformed via style
 (defvar g-curl-image-options
   "--data-binary @%s -H 'Content-Type: image/jpeg' -H 'slug:%s'"
   "Curl options for uploading images.")
-
-
 
 (defvar g-crlf-pair
   (format "%c%c%c%c" 13 10 13  10)
@@ -363,7 +361,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 (defsubst g-http-header (name header-alist)
   "Return specified header from headers-alist."
-    (when (assoc name header-alist) (cdr (assoc name header-alist))))
+  (when (assoc name header-alist) (cdr (assoc name header-alist))))
 
 ;;}}}
 ;;{{{ collect content from user via special buffer:

@@ -415,13 +415,9 @@
           (gphoto-photo-add album-name
                             (make-gphoto-photo
                              :filepath (shell-quote-argument file)
-                                               :title
-                                               (shell-quote-argument
-                                                (file-name-nondirectory file)))))))
-
-
-
-
+                             :title
+                             (shell-quote-argument
+                              (file-name-nondirectory file)))))))
 
 ;;}}}
 ;;{{{ Adding comments and tags:
@@ -451,7 +447,6 @@
   "Return Atom Entry for comment."
   (declare (special gphoto-comment-template))
   (format gphoto-comment-template comment))
-
 
 (defsubst gphoto-post-update (update location)
   "Post update to location and return HTTP response."
@@ -490,16 +485,16 @@
                     gphoto-update-types))
   (g-auth-ensure-token gphoto-auth-handle)
   (let ((headers nil)
-         (entry
-          (cond
-           ((string= type "tag")
-            (gphoto-tag-as-xml
-             (read-from-minibuffer "Tag: ")))
-           ((string= type "comment")
-            (gphoto-comment-as-xml
-             (g-get-user-input)))))
-         (body nil)
-         (response nil))
+        (entry
+         (cond
+          ((string= type "tag")
+           (gphoto-tag-as-xml
+            (read-from-minibuffer "Tag: ")))
+          ((string= type "comment")
+           (gphoto-comment-as-xml
+            (g-get-user-input)))))
+        (body nil)
+        (response nil))
     (unless entry
       (error "Invalid update specified."))
     (setq response
