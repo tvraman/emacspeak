@@ -73,6 +73,7 @@
 (require 'derived)
 (require 'g-utils)
 (require 'g-auth)
+(require 'g-app)
 
 ;;}}}
 ;;{{{ customizations
@@ -156,44 +157,15 @@ Holds user's email address, password, and the auth token received
 from the server.")
 
 ;;}}}
-;;{{{ Define gblogger mode:
-(if (fboundp 'nxml-mode)
-    (defalias 'xml-mode 'nxml-mode))
-
-(define-derived-mode gblogger-mode xml-mode
-  "Atom Blogger Interaction"
-  "Major mode for Blogger interaction\n\n
-\\{gblogger-mode-map"
-  (auto-fill-mode 1))
-
-(declaim (special gblogger-mode-map))
-(define-key gblogger-mode-map "\C-c\C-c" 'gblogger-publish)
-
-
-(defvar gblogger-this-url nil
-  "Buffer local variable that records URL we came from.")
-
-(make-variable-buffer-local 'gblogger-this-url)
-
-;;}}}
 ;;{{{ Interactive Commands:
 
 ;;;###autoload
 (defun gblogger-blog ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
-  (declare (special gblogger-auth-handle
-                    g-atom-view-xsl
-                    g-curl-program g-curl-common-options
-                    g-cookie-options))
-  (g-auth-ensure-token gblogger-auth-handle)
-  (g-display-result
-   (format
-    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' %s 2>/dev/null"
-    g-curl-program g-curl-common-options g-cookie-options
-    (g-cookie "Auth" gblogger-auth-handle)
-    gblogger-base-url)
-   g-atom-view-xsl))
+  (declare (special gblogger-auth-handle))
+  (g-app-view gblogger-auth-handle gblogger-base-url))
+
 
 ;;;###autoload
 (defun gblogger-atom-display (url)
@@ -225,7 +197,7 @@ from the server.")
         (nxml-auto-insert-xml-declaration-flag nil))
     (save-excursion
       (set-buffer buffer)
-      (gblogger-mode)
+      (g-app-mode)
       (insert
        (g-get-result
         (format
@@ -280,7 +252,7 @@ The retrieved entry is placed in a buffer ready for editing.
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
-      (gblogger-mode)
+      (g-app-mode)
       (setq gblogger-this-url url)
       (goto-char (point-max))
       (insert
@@ -302,7 +274,7 @@ http-method is either POST or PUT"
   (declare (special g-cookie-options gblogger-auth-handle
                     g-curl-program g-curl-common-options
                     g-curl-atom-header))
-  (unless (and (eq major-mode 'gblogger-mode)
+  (unless (and (eq major-mode 'g-app-mode)
                gblogger-this-url)
     (error "Not in a correctly initialized Atom Entry."))
   (goto-char (point-min))
@@ -338,7 +310,7 @@ http-method is either POST or PUT"
   (interactive)
   (declare (special gblogger-this-url gblogger-auth-handle
                     gblogger-publish-action))
-  (unless (and (eq major-mode 'gblogger-mode)
+  (unless (and (eq major-mode 'g-app-mode)
                gblogger-publish-action
                (commandp gblogger-publish-action)
                gblogger-this-url)
