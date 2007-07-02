@@ -307,7 +307,7 @@ XML string is transformed via style
   "Mime separator.")
 
 (defvar g-curl-image-options
-  "--data-binary @%s -H 'Content-Type: image/jpeg' -H 'slug:%s'"
+  "--data-binary @%s -H 'Content-Type: image/jpeg' -H 'Slug: %s'"
   "Curl options for uploading images.")
 
 (defvar g-crlf-pair

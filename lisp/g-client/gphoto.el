@@ -365,8 +365,7 @@
          (image (format
                  g-curl-image-options
                  (expand-file-name (gphoto-photo-filepath photo))
-                 (shell-quote-argument
-                  (file-name-nondirectory (gphoto-photo-filepath photo)))))
+                  (file-name-nondirectory (gphoto-photo-filepath photo))))
          (extra-options "--silent --include"))
      (shell-command
       (format
