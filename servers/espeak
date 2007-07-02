@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/tcl
 # Keywords: Emacspeak, eSpeak , TCL
 # {{{ LCD Entry: 
 
@@ -34,7 +34,6 @@
 # }}}
 # {{{source common code 
 
-#package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 
