@@ -1577,7 +1577,7 @@ When called  interactively, The selected server is started immediately. "
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
     (tts-configure-synthesis-setup dtk-program)
-    (when (file-exists-p (expand-file-name ssh-server emacspeak-ssh-tts-server))
+    (when (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (interactive-p)
