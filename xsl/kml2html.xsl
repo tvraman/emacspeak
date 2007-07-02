@@ -14,33 +14,32 @@ Transform KML to speakable XHTML
   <xsl:output encoding="iso8859-15"
               method="xml"  indent="yes"/>
   
-  <xsl:template match="kml:Folder">
+  <xsl:template match="kml:kml">
     <html>
       <head>
-        <title><xsl:value-of select="kml:name"/></title>
+        <title><xsl:value-of select="kml:Document/kml:name"/></title>
       </head>
-      <body>
+      <xsl:apply-templates select="kml:Document|kml:Folder"/>
+    </html>
+  </xsl:template>
+  <xsl:template match="kml:Document|kml:Folder">
+<body>
         <h1><xsl:value-of select="kml:name"/></h1>
         <p>
           <xsl:value-of select="kml:Snippet"
                         disable-output-escaping="yes"/>
         </p>
+        <ol>
         <xsl:apply-templates select="kml:Placemark"/>
+        </ol>
       </body>
-    </html>
   </xsl:template>
   <xsl:template match="kml:Placemark">
-    <p>
+    <li>
       <em><xsl:value-of select="kml:name"/></em>
       <xsl:value-of select="kml:description"
                     disable-output-escaping="yes"/><br/>
-      <xsl:value-of select="kml:address"
-                    disable-output-escaping="yes"/><br/>
-    </p>
-    <p>
-      <xsl:value-of select=".//kml:text"
-                    disable-output-escaping="yes"/>
-    </p>
+    </li>
   </xsl:template>
   
   
