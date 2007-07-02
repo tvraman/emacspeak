@@ -137,10 +137,10 @@ static int (*_eciSetVoiceParam) (void *, int, int, int);
 static int (*_eciSetOutputBuffer) (void *, int, short *);
 static int (*_eciSetOutputDevice) (void *, int);
 static void (*_eciRegisterCallback) (void *,
-                                     int (*)(void *, int, long, void *),
-                                     void *);
+				     int (*)(void *, int, long, void *),
+				     void *);
 static int alsa_init ();
-static void alsa_reset ();      //drop handle and reset
+static void alsa_reset ();	//drop handle and reset
 static size_t alsa_configure (void);
 
 extern "C" int Atcleci_Init (Tcl_Interp * interp);
@@ -155,7 +155,7 @@ int SpeakingP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
-int SetLanguage (ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
+int SetLanguage (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 static int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int alsa_close ();
 int eciCallback (void *, int, long, void *);
@@ -177,33 +177,27 @@ alsa_configure (void)
   //<defaults:
 
   err = snd_pcm_hw_params_any (AHandle, params);
-  if (err < 0)
-    {
-      fprintf (stderr,
-               "Broken configuration for this PCM: no configurations available");
-      exit (EXIT_FAILURE);
-    }
-
+  if (err < 0) {
+    fprintf (stderr,
+	     "Broken configuration for this PCM: no configurations available");
+    exit (EXIT_FAILURE);
+  }
   //>
   //<Format:
 
   err = snd_pcm_hw_params_set_format (AHandle, params, DEFAULT_FORMAT);
-  if (err < 0)
-    {
-      fprintf (stderr, "Sample format non available");
-      exit (EXIT_FAILURE);
-    }
-
+  if (err < 0) {
+    fprintf (stderr, "Sample format non available");
+    exit (EXIT_FAILURE);
+  }
   //>
   //<Channels:
 
   err = snd_pcm_hw_params_set_channels (AHandle, params, 1);
-  if (err < 0)
-    {
-      fprintf (stderr, "Channels count non available");
-      exit (EXIT_FAILURE);
-    }
-
+  if (err < 0) {
+    fprintf (stderr, "Channels count non available");
+    exit (EXIT_FAILURE);
+  }
   //>
   //<Rate:
 
@@ -213,12 +207,11 @@ alsa_configure (void)
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access (AHandle, params,
-                                      SND_PCM_ACCESS_RW_INTERLEAVED);
-  if (err < 0)
-    {
-      fprintf (stderr, "Access type not available");
-      exit (EXIT_FAILURE);
-    }
+				      SND_PCM_ACCESS_RW_INTERLEAVED);
+  if (err < 0) {
+    fprintf (stderr, "Access type not available");
+    exit (EXIT_FAILURE);
+  }
   //>
   //< Set things explicitly if DEBUG
 #ifdef DEBUG
@@ -229,40 +222,35 @@ alsa_configure (void)
   snd_pcm_uframes_t period_frames = 0;
   snd_pcm_uframes_t buffer_frames = 0;
   // affected by defined buffer_size  (e.g. via asoundrc)
-  if (buffer_time == 0 && buffer_frames == 0)
-    {
-      err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
-      assert (err >= 0);
-      if (buffer_time > 500000) //usecs
-        buffer_time = 500000;
-    }
+  if (buffer_time == 0 && buffer_frames == 0) {
+    err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
+    assert (err >= 0);
+    if (buffer_time > 500000)	//usecs
+      buffer_time = 500000;
+  }
   //>
   //<Compute period_time:
 
-  if (period_time == 0 && period_frames == 0)
-    {
-      if (buffer_time > 0)
-        period_time = buffer_time / 4;
-      else
-        period_frames = buffer_frames / 4;
-    }
+  if (period_time == 0 && period_frames == 0) {
+    if (buffer_time > 0)
+      period_time = buffer_time / 4;
+    else
+      period_frames = buffer_frames / 4;
+  }
   if (period_time > 0)
     err = snd_pcm_hw_params_set_period_time_near (AHandle, params,
-                                                  &period_time, 0);
+						  &period_time, 0);
   else
     err = snd_pcm_hw_params_set_period_size_near (AHandle, params,
-                                                  &period_frames, 0);
+						  &period_frames, 0);
   assert (err >= 0);
-  if (buffer_time > 0)
-    {
-      err = snd_pcm_hw_params_set_buffer_time_near (AHandle, params,
-                                                    &buffer_time, 0);
-    }
-  else
-    {
-      err = snd_pcm_hw_params_set_buffer_size_near (AHandle, params,
-                                                    &buffer_frames);
-    }
+  if (buffer_time > 0) {
+    err = snd_pcm_hw_params_set_buffer_time_near (AHandle, params,
+						  &buffer_time, 0);
+  } else {
+    err = snd_pcm_hw_params_set_buffer_size_near (AHandle, params,
+						  &buffer_frames);
+  }
   assert (err >= 0);
 
   //>
@@ -271,23 +259,20 @@ alsa_configure (void)
   //>
   //<Commit hw params:
   err = snd_pcm_hw_params (AHandle, params);
-  if (err < 0)
-    {
-      fprintf (stderr, "Unable to install hw params:");
-      exit (EXIT_FAILURE);
-    }
+  if (err < 0) {
+    fprintf (stderr, "Unable to install hw params:");
+    exit (EXIT_FAILURE);
+  }
   //>
   //<finalize chunk_size and buffer_size:
 
   snd_pcm_hw_params_get_period_size (params, &chunk_size, 0);
   snd_pcm_hw_params_get_buffer_size (params, &buffer_size);
-  if (chunk_size == buffer_size)
-    {
-      fprintf (stderr, "Can't use period equal to buffer size (%lu == %lu)",
-               chunk_size, buffer_size);
-      exit (EXIT_FAILURE);
-    }
-
+  if (chunk_size == buffer_size) {
+    fprintf (stderr, "Can't use period equal to buffer size (%lu == %lu)",
+	     chunk_size, buffer_size);
+    exit (EXIT_FAILURE);
+  }
   //>
   //< If DEBUG: SW Params Configure transfer:
 
@@ -301,19 +286,16 @@ alsa_configure (void)
   snd_pcm_sw_params_alloca (&swParams);
   snd_pcm_sw_params_current (AHandle, swParams);
   err = snd_pcm_sw_params_get_xfer_align (swParams, &xfer_align);
-  if (err < 0)
-    {
-      fprintf (stderr, "Unable to obtain xfer align\n");
-      exit (EXIT_FAILURE);
-    }
+  if (err < 0) {
+    fprintf (stderr, "Unable to obtain xfer align\n");
+    exit (EXIT_FAILURE);
+  }
   // round up to closest transfer boundary
   n = (buffer_size / xfer_align) * xfer_align;
-  if (start_delay <= 0)
-    {
-      start_threshold =
-        (snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
-    }
-  else
+  if (start_delay <= 0) {
+    start_threshold =
+      (snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
+  } else
     start_threshold =
       (snd_pcm_uframes_t) ((double) rate * start_delay / 1000000);
   if (start_threshold < 1)
@@ -322,12 +304,12 @@ alsa_configure (void)
     start_threshold = n;
   err =
     snd_pcm_sw_params_set_start_threshold (AHandle, swParams,
-                                           start_threshold);
+					   start_threshold);
   assert (err >= 0);
   if (stop_delay <= 0)
     stop_threshold =
       (snd_pcm_uframes_t) (buffer_size +
-                           (double) rate * stop_delay / 1000000);
+			   (double) rate * stop_delay / 1000000);
   else
     stop_threshold =
       (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
@@ -338,16 +320,15 @@ alsa_configure (void)
   err = snd_pcm_sw_params_set_xfer_align (AHandle, swParams, xfer_align);
   assert (err >= 0);
 
-  if (snd_pcm_sw_params (AHandle, swParams) < 0)
-    {
-      fprintf (stderr, "unable to install sw params:");
-      exit (EXIT_FAILURE);
-    }
+  if (snd_pcm_sw_params (AHandle, swParams) < 0) {
+    fprintf (stderr, "unable to install sw params:");
+    exit (EXIT_FAILURE);
+  }
 #endif
 
   //>
   bits_per_sample = snd_pcm_format_physical_width (DEFAULT_FORMAT);
-  bits_per_frame = bits_per_sample * 1; //mono
+  bits_per_frame = bits_per_sample * 1;	//mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
   return chunk_bytes;
 }
@@ -375,29 +356,26 @@ xrun (void)
   int res;
 
   snd_pcm_status_alloca (&status);
-  if ((res = snd_pcm_status (AHandle, status)) < 0)
-    {
-      fprintf (stderr, "status error: %s", snd_strerror (res));
+  if ((res = snd_pcm_status (AHandle, status)) < 0) {
+    fprintf (stderr, "status error: %s", snd_strerror (res));
+    exit (EXIT_FAILURE);
+  }
+  if (snd_pcm_status_get_state (status) == SND_PCM_STATE_XRUN) {
+    struct timeval now, diff, tstamp;
+    gettimeofday (&now, 0);
+    snd_pcm_status_get_trigger_tstamp (status, &tstamp);
+    timersub (&now, &tstamp, &diff);
+    fprintf (stderr, "Underrun!!! (at least %.3f ms long)\n",
+	     diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+    if ((res = snd_pcm_prepare (AHandle)) < 0) {
+      fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
       exit (EXIT_FAILURE);
     }
-  if (snd_pcm_status_get_state (status) == SND_PCM_STATE_XRUN)
-    {
-      struct timeval now, diff, tstamp;
-      gettimeofday (&now, 0);
-      snd_pcm_status_get_trigger_tstamp (status, &tstamp);
-      timersub (&now, &tstamp, &diff);
-      fprintf (stderr, "Underrun!!! (at least %.3f ms long)\n",
-               diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
-      if ((res = snd_pcm_prepare (AHandle)) < 0)
-        {
-          fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
-          exit (EXIT_FAILURE);
-        }
-      return;                   // ok, data should be accepted again
-    }
+    return;			// ok, data should be accepted again
+  }
 
   fprintf (stderr, "read/write error, state = %s",
-           snd_pcm_state_name (snd_pcm_status_get_state (status)));
+	   snd_pcm_state_name (snd_pcm_status_get_state (status)));
   exit (EXIT_FAILURE);
 }
 
@@ -410,18 +388,16 @@ suspend (void)
   fprintf (stderr, "Suspended. Trying resume. ");
   fflush (stderr);
   while ((res = snd_pcm_resume (AHandle)) == -EAGAIN)
-    sleep (1);                  /* wait until suspend flag is released */
-  if (res < 0)
-    {
+    sleep (1);			/* wait until suspend flag is released */
+  if (res < 0) {
 
-      fprintf (stderr, "Failed. Restarting stream. ");
-      fflush (stderr);
-      if ((res = snd_pcm_prepare (AHandle)) < 0)
-        {
-          fprintf (stderr, "suspend: prepare error: %s", snd_strerror (res));
-          exit (EXIT_FAILURE);
-        }
+    fprintf (stderr, "Failed. Restarting stream. ");
+    fflush (stderr);
+    if ((res = snd_pcm_prepare (AHandle)) < 0) {
+      fprintf (stderr, "suspend: prepare error: %s", snd_strerror (res));
+      exit (EXIT_FAILURE);
     }
+  }
 
   fprintf (stderr, "Done.\n");
 }
@@ -434,33 +410,24 @@ pcm_write (short *data, size_t count)
 {
   ssize_t r;
   ssize_t result = 0;
-  while (count > 0)
-    {
-      r = snd_pcm_writei (AHandle, data, count);
-      if (r == -EAGAIN || (r >= 0 && (size_t) r < count))
-	{
-	  snd_pcm_wait (AHandle, 1000);
-	}
-      else if (r == -EPIPE)
-	{
-	  xrun ();
-	}
-      else if (r == -ESTRPIPE)
-	{
-	  suspend ();
-	}
-      else if (r < 0)
-	{
-	  fprintf (stderr, "write error: %s", snd_strerror (r));
-	  exit (EXIT_FAILURE);
-	}
-      if (r > 0)
-	{
-	  result += r;
-	  count -= r;
-	  data += r;
-	}
+  while (count > 0) {
+    r = snd_pcm_writei (AHandle, data, count);
+    if (r == -EAGAIN || (r >= 0 && (size_t) r < count)) {
+      snd_pcm_wait (AHandle, 1000);
+    } else if (r == -EPIPE) {
+      xrun ();
+    } else if (r == -ESTRPIPE) {
+      suspend ();
+    } else if (r < 0) {
+      fprintf (stderr, "write error: %s", snd_strerror (r));
+      exit (EXIT_FAILURE);
     }
+    if (r > 0) {
+      result += r;
+      count -= r;
+      data += r;
+    }
+  }
   return result;
 }
 
@@ -483,11 +450,10 @@ alsa_init ()
   int err;
   char *device = "default";
   size_t chunk_bytes = 0;
-  if ((err = snd_pcm_open (&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0)
-    {
-      fprintf (stderr, "Playback open error: %s\n", snd_strerror (err));
-      exit (1);
-    }
+  if ((err = snd_pcm_open (&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+    fprintf (stderr, "Playback open error: %s\n", snd_strerror (err));
+    exit (1);
+  }
   err = snd_output_stdio_attach (&Log, stderr, 0);
   assert (err >= 0);
   chunk_bytes = alsa_configure ();
@@ -528,169 +494,159 @@ Atcleci_Init (Tcl_Interp * interp)
   //< configure shared library symbols
 
   eciLib = dlopen (ECILIBRARYNAME, RTLD_LAZY);
-  if (eciLib == NULL)
-    {
-      Tcl_AppendResult (interp, "Could not load ",
-			ECILIBRARYNAME,
-			"\nPlease install the IBM ViaVoice Outloud RTK",
-			NULL);
-      return TCL_ERROR;
-    }
+  if (eciLib == NULL) {
+    Tcl_AppendResult (interp, "Could not load ",
+		      ECILIBRARYNAME,
+		      "\nPlease install the IBM ViaVoice Outloud RTK", NULL);
+    return TCL_ERROR;
+  }
 
-  _eciVersion = (void(*)(char*))(unsigned long) dlsym (eciLib, "eciVersion");
-  _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *)) (unsigned long) dlsym (eciLib, "eciGetAvailableLanguages");
-  _eciNewEx = (void *(*)(enum ECILanguageDialect)) (unsigned long) dlsym (eciLib, "eciNewEx");
+  _eciVersion =
+    (void (*)(char *)) (unsigned long) dlsym (eciLib, "eciVersion");
+  _eciGetAvailableLanguages =
+    (int (*)(enum ECILanguageDialect *, int *)) (unsigned long) dlsym (eciLib,
+								       "eciGetAvailableLanguages");
+  _eciNewEx =
+    (void *(*)(enum ECILanguageDialect)) (unsigned long) dlsym (eciLib,
+								"eciNewEx");
   _eciDelete = (void (*)(void *)) (unsigned long) dlsym (eciLib, "eciDelete");
   _eciReset = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciReset");
   _eciStop = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciStop");
-  _eciClearInput = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciClearInput");
-  _eciPause = (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciPause");
-  _eciSynthesize = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynthesize");
-  _eciSynchronize = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynchronize");
-  _eciSpeaking = (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSpeaking");
-  _eciInsertIndex = (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciInsertIndex");
-  _eciAddText = (int (*)(void *, char *)) (unsigned long) dlsym (eciLib, "eciAddText");
-  _eciSetParam = (int (*)(void *, int, int)) (unsigned long) dlsym (eciLib, "eciSetParam");
+  _eciClearInput =
+    (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciClearInput");
+  _eciPause =
+    (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciPause");
+  _eciSynthesize =
+    (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynthesize");
+  _eciSynchronize =
+    (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSynchronize");
+  _eciSpeaking =
+    (int (*)(void *)) (unsigned long) dlsym (eciLib, "eciSpeaking");
+  _eciInsertIndex =
+    (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciInsertIndex");
+  _eciAddText =
+    (int (*)(void *, char *)) (unsigned long) dlsym (eciLib, "eciAddText");
+  _eciSetParam =
+    (int (*)(void *, int, int)) (unsigned long) dlsym (eciLib, "eciSetParam");
   _eciGetVoiceParam = (int (*)(void *, int, int))
     (unsigned long) dlsym (eciLib, "eciGetVoiceParam");
   _eciSetVoiceParam = (int (*)(void *, int, int, int))
     (unsigned long) dlsym (eciLib, "eciSetVoiceParam");
   _eciRegisterCallback = (void
 			  (*)(void *, int (*)(void *, int, long, void *),
-			      void *)) (unsigned long) dlsym (eciLib, "eciRegisterCallback");
+			      void *)) (unsigned long) dlsym (eciLib,
+							      "eciRegisterCallback");
   _eciSetOutputBuffer =
-    (int (*)(void *, int, short *)) (unsigned long) dlsym (eciLib, "eciSetOutputBuffer");
+    (int (*)(void *, int, short *)) (unsigned long) dlsym (eciLib,
+							   "eciSetOutputBuffer");
   _eciSetOutputDevice =
-    (int (*)(void *, int)) (unsigned long) dlsym (eciLib, "eciSetOutputDevice");
+    (int (*)(void *, int)) (unsigned long) dlsym (eciLib,
+						  "eciSetOutputDevice");
 
   //>
   //< check for needed symbols
 
   int okay = 1;
-  if (!_eciNewEx)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciNewEx undef\n", NULL);
-    }
-  if (!_eciDelete)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciDelete undef\n", NULL);
-    }
-  if (!_eciReset)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciReset undef\n", NULL);
-    }
-  if (!_eciStop)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciStop undef\n", NULL);
-    }
-  if (!_eciClearInput)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciClearInput undef\n", NULL);
-    }
-  if (!_eciPause)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciPause undef\n", NULL);
-    }
-  if (!_eciSynthesize)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSynthesize undef\n", NULL);
-    }
-  if (!_eciSpeaking)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSpeaking undef\n", NULL);
-    }
-  if (!_eciInsertIndex)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciInsertIndex undef\n", NULL);
-    }
-  if (!_eciAddText)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciAddText undef\n", NULL);
-    }
-  if (!_eciSetParam)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSetParam undef\n", NULL);
-    }
-  if (!_eciSetParam)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSetParam undef\n", NULL);
-    }
-  if (!_eciGetVoiceParam)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciGetVoiceParam undef\n", NULL);
-    }
-  if (!_eciSetVoiceParam)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSetVoiceParam undef\n", NULL);
-    }
-  if (!_eciRegisterCallback)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciRegisterCallback undef\n", NULL);
-    }
-  if (!_eciSetOutputBuffer)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSetOutputBuffer undef\n", NULL);
-    }
-  if (!_eciSetOutputDevice)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "eciSetOutputDevice undef\n", NULL);
-    }
-  if (!_eciGetAvailableLanguages)
-    {
-      okay = 0;
-      Tcl_AppendResult (interp, "_eciGetAvailableLanguages undef\n", NULL);
-    }
-  if (!okay)
-    {
-      Tcl_AppendResult (interp, "Missing symbols from ", ECILIBRARYNAME,
-			NULL);
-      return TCL_ERROR;
-    }
-
+  if (!_eciNewEx) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciNewEx undef\n", NULL);
+  }
+  if (!_eciDelete) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciDelete undef\n", NULL);
+  }
+  if (!_eciReset) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciReset undef\n", NULL);
+  }
+  if (!_eciStop) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciStop undef\n", NULL);
+  }
+  if (!_eciClearInput) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciClearInput undef\n", NULL);
+  }
+  if (!_eciPause) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciPause undef\n", NULL);
+  }
+  if (!_eciSynthesize) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSynthesize undef\n", NULL);
+  }
+  if (!_eciSpeaking) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSpeaking undef\n", NULL);
+  }
+  if (!_eciInsertIndex) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciInsertIndex undef\n", NULL);
+  }
+  if (!_eciAddText) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciAddText undef\n", NULL);
+  }
+  if (!_eciSetParam) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSetParam undef\n", NULL);
+  }
+  if (!_eciSetParam) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSetParam undef\n", NULL);
+  }
+  if (!_eciGetVoiceParam) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciGetVoiceParam undef\n", NULL);
+  }
+  if (!_eciSetVoiceParam) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSetVoiceParam undef\n", NULL);
+  }
+  if (!_eciRegisterCallback) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciRegisterCallback undef\n", NULL);
+  }
+  if (!_eciSetOutputBuffer) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSetOutputBuffer undef\n", NULL);
+  }
+  if (!_eciSetOutputDevice) {
+    okay = 0;
+    Tcl_AppendResult (interp, "eciSetOutputDevice undef\n", NULL);
+  }
+  if (!_eciGetAvailableLanguages) {
+    okay = 0;
+    Tcl_AppendResult (interp, "_eciGetAvailableLanguages undef\n", NULL);
+  }
+  if (!okay) {
+    Tcl_AppendResult (interp, "Missing symbols from ", ECILIBRARYNAME, NULL);
+    return TCL_ERROR;
+  }
   //>
   //<setup package, create tts handle
 
-  if (Tcl_PkgProvide (interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK)
-    {
-      Tcl_AppendResult (interp, "Error loading ", PACKAGENAME, NULL);
-      return TCL_ERROR;
-    }
+  if (Tcl_PkgProvide (interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
+    Tcl_AppendResult (interp, "Error loading ", PACKAGENAME, NULL);
+    return TCL_ERROR;
+  }
 
   static enum ECILanguageDialect aLanguages[LANG_INFO_MAX];
   int nLanguages = LANG_INFO_MAX;
-    _eciGetAvailableLanguages(aLanguages, &nLanguages);
+  _eciGetAvailableLanguages (aLanguages, &nLanguages);
 
-  enum ECILanguageDialect aDefaultLanguage = initLanguage (interp, aLanguages, nLanguages);
-  if (aDefaultLanguage == NODEFINEDCODESET)
-    {
-      Tcl_AppendResult (interp, "No language found", PACKAGENAME, NULL);
-      return TCL_ERROR;
-    }
+  enum ECILanguageDialect aDefaultLanguage =
+    initLanguage (interp, aLanguages, nLanguages);
+  if (aDefaultLanguage == NODEFINEDCODESET) {
+    Tcl_AppendResult (interp, "No language found", PACKAGENAME, NULL);
+    return TCL_ERROR;
+  }
 
   eciHandle = _eciNewEx (aDefaultLanguage);
-  if (eciHandle == 0)
-    {
-      Tcl_AppendResult (interp, "Could not open text-to-speech engine", NULL);
-      return TCL_ERROR;
-    }
-
+  if (eciHandle == 0) {
+    Tcl_AppendResult (interp, "Could not open text-to-speech engine", NULL);
+    return TCL_ERROR;
+  }
   //>
   //<initialize alsa
   chunk_bytes = alsa_init ();
@@ -698,41 +654,36 @@ Atcleci_Init (Tcl_Interp * interp)
 
   fprintf (stderr, "allocating %d samples\n", chunk_bytes);
   waveBuffer = (short *) malloc (chunk_bytes * sizeof (short));
-  if (waveBuffer == NULL)
-    {
-      fprintf (stderr, "not enough memory");
-      exit (EXIT_FAILURE);
-    }
-
+  if (waveBuffer == NULL) {
+    fprintf (stderr, "not enough memory");
+    exit (EXIT_FAILURE);
+  }
   //>
   //>
   //<initialize TTS
 
   if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
       || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
-      || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1))
-    {
-      Tcl_AppendResult (interp, "Could not initialized tts", NULL);
-      _eciDelete (eciHandle);
-      return TCL_ERROR;
-    }
+      || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1)) {
+    Tcl_AppendResult (interp, "Could not initialized tts", NULL);
+    _eciDelete (eciHandle);
+    return TCL_ERROR;
+  }
   _eciRegisterCallback (eciHandle, eciCallback, interp);
 
   //>
   //<set output to buffer
 
   rc = _eciSynchronize (eciHandle);
-  if (!rc)
-    {
-      Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
-      return TCL_ERROR;
-    }
+  if (!rc) {
+    Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
+    return TCL_ERROR;
+  }
   rc = _eciSetOutputBuffer (eciHandle, chunk_bytes, waveBuffer);
-  if (!rc)
-    {
-      Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
-      return TCL_ERROR;
-    }
+  if (!rc) {
+    Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
+    return TCL_ERROR;
+  }
   fprintf (stderr, "output buffered to waveBuffer with size %d\n",
 	   chunk_bytes);
 
@@ -762,7 +713,8 @@ Atcleci_Init (Tcl_Interp * interp)
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
 			(ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand (interp, "setLanguage", SetLanguage, (ClientData) eciHandle, TclEciFree);
+  Tcl_CreateObjCommand (interp, "setLanguage", SetLanguage,
+			(ClientData) eciHandle, TclEciFree);
   //>
   //<set up index processing
 
@@ -791,20 +743,15 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
 {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
-  if (msg == eciIndexReply)
-    {
-      char buffer[128];
-      snprintf (buffer,
-               128,
-               "index %ld", lparam);
-      rc = Tcl_Eval (interp, buffer);
-      if (rc != TCL_OK)
-	Tcl_BackgroundError (interp);
-    }
-  else if ((msg == eciWaveformBuffer) && (lparam > 0))
-    {
-      playTTS (lparam);
-    }
+  if (msg == eciIndexReply) {
+    char buffer[128];
+    snprintf (buffer, 128, "index %ld", lparam);
+    rc = Tcl_Eval (interp, buffer);
+    if (rc != TCL_OK)
+      Tcl_BackgroundError (interp);
+  } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
+    playTTS (lparam);
+  }
   return 1;
 }
 
@@ -816,11 +763,10 @@ GetRate (ClientData eciHandle, Tcl_Interp * interp,
 	 int objc, Tcl_Obj * CONST objv[])
 {
   int rc, rate, voice;
-  if (objc != 2)
-    {
-      Tcl_AppendResult (interp, "Usage: getRate voiceCode  ", TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (objc != 2) {
+    Tcl_AppendResult (interp, "Usage: getRate voiceCode  ", TCL_STATIC);
+    return TCL_ERROR;
+  }
   rc = Tcl_GetIntFromObj (interp, objv[1], &voice);
   if (rc != TCL_OK)
     return rc;
@@ -834,12 +780,11 @@ SetRate (ClientData eciHandle, Tcl_Interp * interp,
 	 int objc, Tcl_Obj * CONST objv[])
 {
   int rc, rate, voice;
-  if (objc != 3)
-    {
-      Tcl_AppendResult (interp, "Usage: setRate voiceCode speechRate ",
-			TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (objc != 3) {
+    Tcl_AppendResult (interp, "Usage: setRate voiceCode speechRate ",
+		      TCL_STATIC);
+    return TCL_ERROR;
+  }
   rc = Tcl_GetIntFromObj (interp, objv[1], &voice);
   if (rc != TCL_OK)
     return rc;
@@ -847,11 +792,10 @@ SetRate (ClientData eciHandle, Tcl_Interp * interp,
   if (rc != TCL_OK)
     return rc;
   rc = _eciSetVoiceParam (eciHandle, voice, 6 /*eciSpeed */ , rate);
-  if (rc == -1)
-    {
-      Tcl_AppendResult (interp, "Could not set rate", TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (rc == -1) {
+    Tcl_AppendResult (interp, "Could not set rate", TCL_STATIC);
+    return TCL_ERROR;
+  }
   //fprintf(stderr, "setRate returned %d\n", rc);
   rate = _eciGetVoiceParam (eciHandle, voice, 6 /*eciSpeed */ );
   fprintf (stderr, "eciGetVoiceParam returned %d for voice %d \n",
@@ -867,64 +811,51 @@ Say (ClientData eciHandle, Tcl_Interp * interp,
      int objc, Tcl_Obj * CONST objv[])
 {
   int i, rc, index, length;
-  for (i = 1; i < objc; i++)
-    {
-      // if string begins with -, assume it is an index value
-      char *txt = Tcl_GetStringFromObj (objv[i], &length);
-      if (Tcl_StringMatch (txt, "-reset"))
-	{
-	  _eciReset (eciHandle);
-	  if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
-	      || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
-	      || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1))
-	    {
-	      Tcl_AppendResult (interp, "Could not re-initialized tts", NULL);
-	      return TCL_ERROR;
-	    }
-	}
-      else if (Tcl_StringMatch (txt, "-index"))
-	{
-	  i++;
-	  if (i == objc)
-	    {
-	      Tcl_AppendResult (interp, "missing index parameter",
-				TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	  rc = Tcl_GetIntFromObj (interp, objv[i], &index);
-	  if (rc != TCL_OK)
-	    return rc;
-	  rc = _eciInsertIndex (eciHandle, index);
-	  if (!rc)
-	    {
-	      Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	}
-      else
-	{
-	  char *dest = convertFromUTF8 (interp, Tcl_GetStringFromObj(objv[i], NULL));
-	  if (dest)
-	    {
-	      rc = _eciAddText (eciHandle, dest);
-	      free (dest);
-	      if (!rc)
-		{
-		  Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
-		  return TCL_ERROR;
-		}
-	    }
-	}
-    }
-  if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth"))
-    {
-      rc = _eciSynthesize (eciHandle);
-      if (!rc)
-	{
-	  Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
+  for (i = 1; i < objc; i++) {
+    // if string begins with -, assume it is an index value
+    char *txt = Tcl_GetStringFromObj (objv[i], &length);
+    if (Tcl_StringMatch (txt, "-reset")) {
+      _eciReset (eciHandle);
+      if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
+	  || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
+	  || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1)) {
+	Tcl_AppendResult (interp, "Could not re-initialized tts", NULL);
+	return TCL_ERROR;
+      }
+    } else if (Tcl_StringMatch (txt, "-index")) {
+      i++;
+      if (i == objc) {
+	Tcl_AppendResult (interp, "missing index parameter", TCL_STATIC);
+	return TCL_ERROR;
+      }
+      rc = Tcl_GetIntFromObj (interp, objv[i], &index);
+      if (rc != TCL_OK)
+	return rc;
+      rc = _eciInsertIndex (eciHandle, index);
+      if (!rc) {
+	Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
+	return TCL_ERROR;
+      }
+    } else {
+      char *dest =
+	convertFromUTF8 (interp, Tcl_GetStringFromObj (objv[i], NULL));
+      if (dest) {
+	rc = _eciAddText (eciHandle, dest);
+	free (dest);
+	if (!rc) {
+	  Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
 	  return TCL_ERROR;
 	}
+      }
     }
+  }
+  if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth")) {
+    rc = _eciSynthesize (eciHandle);
+    if (!rc) {
+      Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
+      return TCL_ERROR;
+    }
+  }
   return TCL_OK;
 }
 
@@ -938,11 +869,10 @@ Synchronize (ClientData eciHandle,
 	     Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
 {
   int rc = _eciSynchronize (eciHandle);
-  if (!rc)
-    {
-      Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (!rc) {
+    Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
+    return TCL_ERROR;
+  }
   return TCL_OK;
 }
 
@@ -950,11 +880,10 @@ int
 Stop (ClientData eciHandle,
       Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
 {
-  if (_eciStop (eciHandle))
-    {
-      alsa_reset ();
-      return TCL_OK;
-    }
+  if (_eciStop (eciHandle)) {
+    alsa_reset ();
+    return TCL_OK;
+  }
   Tcl_SetResult (interp, "Could not stop synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
@@ -965,14 +894,11 @@ int
 SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	   Tcl_Obj * CONST objv[])
 {
-  if (_eciSpeaking (eciHandle))
-    {
-      Tcl_SetObjResult (interp, Tcl_NewIntObj (1));
-    }
-  else
-    {
-      Tcl_SetObjResult (interp, Tcl_NewIntObj (0));
-    }
+  if (_eciSpeaking (eciHandle)) {
+    Tcl_SetObjResult (interp, Tcl_NewIntObj (1));
+  } else {
+    Tcl_SetObjResult (interp, Tcl_NewIntObj (0));
+  }
   return TCL_OK;
 }
 
@@ -1015,11 +941,10 @@ getTTSVersion (ClientData eciHandle, Tcl_Interp * interp,
 	       int objc, Tcl_Obj * CONST objv[])
 {
   char *version = (char *) malloc (16);
-  if (objc != 1)
-    {
-      Tcl_AppendResult (interp, "Usage: ttsVersion   ", TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (objc != 1) {
+    Tcl_AppendResult (interp, "Usage: ttsVersion   ", TCL_STATIC);
+    return TCL_ERROR;
+  }
   _eciVersion (version);
   Tcl_SetResult (interp, version, TCL_STATIC);
   return TCL_OK;
@@ -1032,11 +957,10 @@ int
 showAlsaState (ClientData eciHandle, Tcl_Interp * interp,
 	       int objc, Tcl_Obj * CONST objv[])
 {
-  if (objc != 1)
-    {
-      Tcl_AppendResult (interp, "Usage: alsaState   ", TCL_STATIC);
-      return TCL_ERROR;
-    }
+  if (objc != 1) {
+    Tcl_AppendResult (interp, "Usage: alsaState   ", TCL_STATIC);
+    return TCL_ERROR;
+  }
   snd_pcm_dump (AHandle, Log);
   return TCL_OK;
 }
@@ -1044,18 +968,18 @@ showAlsaState (ClientData eciHandle, Tcl_Interp * interp,
 //>
 //<SetLanguage
 
-int SetLanguage (ClientData eciHandle, Tcl_Interp *interp,
-		  int objc, Tcl_Obj *CONST objv[])
+int
+SetLanguage (ClientData eciHandle, Tcl_Interp * interp,
+	     int objc, Tcl_Obj * CONST objv[])
 {
   int aIndex;
-  const char* code = getAnnotation (interp, &aIndex);
-  if (code)
-    {
-      int rc;
-      char buffer[ANNOTATION_MAX_SIZE];
-      snprintf(buffer, ANNOTATION_MAX_SIZE, "`l%s", code);
-      rc = _eciAddText (eciHandle, buffer);
-    }
+  const char *code = getAnnotation (interp, &aIndex);
+  if (code) {
+    int rc;
+    char buffer[ANNOTATION_MAX_SIZE];
+    snprintf (buffer, ANNOTATION_MAX_SIZE, "`l%s", code);
+    rc = _eciAddText (eciHandle, buffer);
+  }
   return TCL_OK;
 }
 
