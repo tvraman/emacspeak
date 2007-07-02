@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/bin/tcl
 # $Id$
 # Description:  Speech server
 #Usage: tcl speech-server port device-specific-script
