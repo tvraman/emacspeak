@@ -720,9 +720,9 @@ Here are some examples:
  "http://books.google.com/books?q=%s&btnG=Search+Books&hl=en&output=html_text"
  (list "Google Book Search: ")
  #'(lambda nil
-     (search-forward "pages" nil t)
-     (emacspeak-speak-line))
- "Google Print Search")
+     (emacspeak-imenu-goto-next-index-position)
+     (emacspeak-speak-rest-of-buffer))
+ "Google Books Search with text when available")
 
 (emacspeak-url-template-define
  "Google Scholar"
