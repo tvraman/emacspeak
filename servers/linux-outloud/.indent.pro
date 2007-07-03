@@ -1,3 +1,1 @@
--orig
-  -ts 4
--l65
+-orig -ts 4 -i 2 -l75
