@@ -1009,6 +1009,7 @@ Stop(ClientData eciHandle,
 {
     if (_eciStop(eciHandle)) {
         alsa_reset();
+        usleep(10);
         return TCL_OK;
     }
     Tcl_SetResult(interp, "Could not stop synthesis",
