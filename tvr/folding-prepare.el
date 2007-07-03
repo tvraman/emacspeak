@@ -1,4 +1,3 @@
-
 (load-library "folding")
 (declare (special fold-fold-on-startup
                   fold-keys-already-setup
@@ -6,7 +5,7 @@
                   fold-dont-bind-keys
                   fold-inhibit-startup-message
                   ))
-    
+
 (setq fold-fold-on-startup nil)
 (setq fold-keys-already-setup nil)
 (add-hook 'folding-mode-hook
@@ -29,20 +28,20 @@
 (setq fold-inhibit-startup-message t)
 (folding-mode-add-find-file-hook)
 (fold-add-to-marks-list 'apache-generic-mode
-                        "# {{{" 
+                        "# {{{"
                         "# }}}" "")
 (fold-add-to-marks-list 'xml-mode
-                        "<!-- {" 
+                        "<!-- {"
                         "<!-- } -->" " --> ")
 (fold-add-to-marks-list 'sgml-mode
-                        "<!-- {" 
+                        "<!-- {"
                         "<!-- } -->" " --> ")
 (fold-add-to-marks-list 'dtd-mode
-                        "<!-- {" 
+                        "<!-- {"
                         "<!-- } -->" " --> ")
 (fold-add-to-marks-list 'c-mode "/* <" "/* > */" "*/")
 (fold-add-to-marks-list 'c++-mode
-                        "//<" "//>" "")
+                        "// <" "// >" "")
 (fold-add-to-marks-list 'LaTeX-mode "%%% {{{" "%%% }}}" " ")
 (fold-add-to-marks-list 'latex2e-mode "%%% {{{" "%%% }}}" " ")
 (fold-add-to-marks-list 'latex-mode "%%% {{{" "%%% }}}" " ")
