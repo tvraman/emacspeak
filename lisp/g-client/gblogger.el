@@ -243,49 +243,25 @@ The retrieved entry is placed in a buffer ready for editing.
       (set-buffer buffer)
       (erase-buffer)
       (g-app-mode)
-      (setq gblogger-this-url url)
-      (goto-char (point-max))
+      (setq g-app-this-url url
+            g-app-auth-handle gblogger-auth-handle
+            g-app-publish-action 'g-app-post-entry)      (goto-char (point-max))
       (insert
        (format gblogger-new-entry-template
                gblogger-generator-name gblogger-generator-name
                gblogger-author title)))
     (switch-to-buffer buffer)
-    (setq gblogger-publish-action 'gblogger-post-entry)
     (search-backward "<div" nil t)
     (forward-line 1)
     (message
-     (substitute-command-keys "Use \\[gblogger-publish] to
-publish your edits ."))))
-
-(defun gblogger-send-buffer-contents (http-method)
-  "Publish the Blog entry in the current buffer.
-http-method is either POST or PUT"
-  (declare (special g-cookie-options gblogger-auth-handle
-                    g-curl-program g-curl-common-options
-                    g-curl-atom-header))
-  (unless (and (eq major-mode 'g-app-mode)
-               gblogger-this-url)
-    (error "Not in a correctly initialized Atom Entry."))
-  (goto-char (point-min))
-  (let ((cl (format "-H Content-length:%s" (g-buffer-bytes))))
-    (shell-command-on-region
-     (point-min) (point-max)
-     (format
-      "%s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
-      g-curl-program g-curl-common-options g-curl-atom-header cl
-      (g-authorization gblogger-auth-handle)
-      g-cookie-options
-      http-method
-      gblogger-this-url)
-     (current-buffer) 'replace)
-    (list (g-http-headers (point-min) (point-max))
-          (g-http-body (point-min) (point-max)))))
+     (substitute-command-keys
+      "Use \\[g-app-publish] to publish your edits ."))))
 
 ;;;###autoload
 (defun gblogger-post-entry ()
   "Post buffer contents  as  updated entry."
   (interactive)
-  (gblogger-send-buffer-contents "POST"))
+  (g-app-send-buffer "POST"))
 
 ;;;###autoload
 (defun gblogger-put-entry ()
