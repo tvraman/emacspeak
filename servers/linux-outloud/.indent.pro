@@ -1,1 +1,1 @@
--orig -ts 4 -i 2 -l75
+-orig --no-tabs  -i 2 -l75
