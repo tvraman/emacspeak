@@ -1,5 +1,5 @@
 //$Id$
-//<Class ADom
+// <Class ADom
 
 /*
  * ADOM: Holds a proxy to a DOM
@@ -15,8 +15,8 @@ function ADom (document) {
   this.view_ = null;
 }
 
-//>
-//< Navigators:
+// >
+// < Navigators:
 
 /*
  * Reset view.
@@ -84,8 +84,8 @@ ADom.prototype.body = function () {
   return this.current_ =  this.document_.body;
 };
 
-//>
-//<Summarizers:
+// >
+// <Summarizers:
 
 /*
  * Return HTML for current node.
@@ -151,8 +151,8 @@ ADom.prototype.current = function () {
   return this.current_;
 };
 
-//>
-//<RingBuffer:
+// >
+// <RingBuffer:
 
 /*
  *  Implements iteration.
@@ -179,8 +179,8 @@ RingBuffer.prototype.previous = function () {
   return this.list_.item(this.index_);
 };
 
-//>
-//<XPathRingBuffer:
+// >
+// <XPathRingBuffer:
 
 /*
  *  Implements RingBuffer.
@@ -207,8 +207,8 @@ XPathRingBuffer.prototype.previous = function () {
   return this.list_.snapshotItem(this.index_);
 };
 
-//>
-//<XPath 
+// >
+// <XPath 
 
 /*
  * filter: Apply XPath selector to create a filtered view.
@@ -224,8 +224,8 @@ ADom.prototype.filter = function (xpath) {
   return this.view_ = new XPathRingBuffer(snap);
 };
 
-//>
-//<Viewers And Visitors:
+// >
+// <Viewers And Visitors:
 
 /*
  * Set view to forms array
@@ -261,14 +261,14 @@ ADom.prototype.visit = function (dir) {
   }
 };
 
-//>
-//< Eventing:
+// >
+// < Eventing:
 
-//>
-//< A11y Reflection:
+// >
+// < A11y Reflection:
 
-//>
-//<repl hookup
+// >
+// <repl hookup
 
 /*
  * Update adom pointer in repl to point to current document.
@@ -286,8 +286,8 @@ repl.updateADom = function ()  {
   return repl.adom;
 };
 
-//>
-//<end of file
+// >
+// <end of file
 
 "loaded adom.js";
 
@@ -295,4 +295,4 @@ repl.updateADom = function ()  {
 // folded-file: t
 // end:
 
-//>
+// >
