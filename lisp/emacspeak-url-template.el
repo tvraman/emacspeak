@@ -717,7 +717,7 @@ Here are some examples:
 
 (emacspeak-url-template-define
  "Google Books"
- "http://books.google.com/books?q=%s&btnG=Search+Books&hl=en"
+ "http://books.google.com/books?q=%s&btnG=Search+Books&hl=en&output=html_text"
  (list "Google Book Search: ")
  #'(lambda nil
      (search-forward "pages" nil t)
