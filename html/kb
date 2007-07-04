@@ -4,8 +4,12 @@ Aggregates all available sources of Emacspeak documentation so
 that we can build a Custom Search Engine for locating emacspeak
 resources.
 
-  - [[http://emacspeak.sourceforge.net][Emacspeak home]]
-  - [[http://emacspeak.sourceforge.net/tips.html][Tips]] Tips and tricks for the emacspeak desktop.
+  - [[http://emacspeak.sourceforge.net][Emacspeak SF]]
+  - [[http://emacspeak.sourceforge.net/tips.html][Tips]] 
+  -  [[http://emacspeak.sourceforge.net/applications.html][Applications]]
   - [[http://emacspeak.sourceforge.net/user-guide/][User Guide]]
+  - [[http://emacspeak.googlecode.com/svn/trunk][Source Code]]
+  - [[http://code.google.com/p/emacspeak/][GoogleCode Project Home]]
   - [[http://emacspeak.blogspot.com][Emacspeak Blog]]
   -  [[http://www.cs.vassar.edu/~priestdo/emacspeak/][Mail Archives]]
+  - [[http://groups.google.com/group/emacs-g-client][Group G-Client]]
