@@ -158,38 +158,27 @@ from the server.")
   (g-app-view gblogger-auth-handle gblogger-base-url))
 
 ;;;###autoload
-(defun gblogger-atom-display (url)
+(defun gblogger-atom-display (feed-url)
   "Retrieve and display specified feed after authenticating."
   (interactive
    (list
     (read-from-minibuffer "Feed: "
                           (browse-url-url-at-point))))
-  (declare (special gblogger-auth-handle
-                    g-atom-view-xsl
-                    g-curl-program g-curl-common-options
-                    g-cookie-options))
-  (g-auth-ensure-token gblogger-auth-handle)
-  (g-display-result
-   (format
-    "%s %s %s --location --header 'Authorization: GoogleLogin auth=%s' '%s' 2>/dev/null"
-    g-curl-program g-curl-common-options g-cookie-options
-    (g-cookie "Auth" gblogger-auth-handle)
-    url)
-   g-atom-view-xsl))
+  (declare (special gblogger-auth-handle))
+  (g-app-view gblogger-auth-handle feed-url))
 
 (defun gblogger-get-entry (url)
   "Retrieve specified entry.
 `url' is the URL of the entry"
   (declare (special gblogger-auth-handle))
-  (save-excursion
-    (set-buffer  (g-app-get-entry gblogger-auth-handle url))
+    (save-excursion
+      (set-buffer (g-app-get-entry gblogger-auth-handle url))
     (goto-char (point-min))
     (search-forward "<content" )
     (search-backward "<content")
     (mark-sexp)
     (g-html-unescape-region (point) (mark))
     (current-buffer)))
-
 ;;;###autoload
 (defun gblogger-edit-entry (url)
   "Retrieve entry and prepare it for editting.
@@ -199,18 +188,20 @@ The retrieved entry is placed in a buffer ready for editing.
    (list
     (read-from-minibuffer "Entry URL:")))
   (declare (special gblogger-auth-handle))
-  (save-excursion
-    (set-buffer (g-app-get-entry gblogger-auth-handle  url))
-    (setq g-app-publish-action 'g-app-put-entry)
-    (g-xsl-transform-region (point-min) (point-max)
-                            g-atom-edit-filter))
-  (goto-char (point-min))
-  (flush-lines "^ *$")
-  (goto-char (point-min))
-  (search-forward "<content" nil t)
-  (forward-line 1)
+  (let ((buffer (g-app-get-entry gblogger-auth-handle  url)))
+    (save-excursion
+      (set-buffer buffer)
+      (setq g-app-publish-action 'g-app-put-entry)
+      (g-xsl-transform-region (point-min) (point-max)
+                              g-atom-edit-filter)
+      (goto-char (point-min))
+      (flush-lines "^ *$"))
+    (switch-to-buffer buffer)
+    (goto-char (point-min))
+    (search-forward "<content" nil t)
+    (forward-line 1))
   (message
-   (substitute-command-keys "Use \\[gblogger-publish] to publish your edits .")))
+   (substitute-command-keys "Use \\[g-app-publish] to publish your edits .")))
 
 ;;;###autoload
 (defun gblogger-new-entry (url)
@@ -242,24 +233,6 @@ The retrieved entry is placed in a buffer ready for editing.
       "Use \\[g-app-publish] to publish your edits ."))))
 
 ;;;###autoload
-(defun gblogger-post-entry ()
-  "Post buffer contents  as  updated entry."
-  (interactive)
-  (g-app-send-buffer "POST"))
-
-;;;###autoload
-(defun gblogger-publish ()
-  "Publish current entry."
-  (interactive)
-  (declare (special gblogger-this-url gblogger-auth-handle
-                    gblogger-publish-action))
-  (unless (and (eq major-mode 'g-app-mode)
-               gblogger-publish-action
-               (commandp gblogger-publish-action)
-               gblogger-this-url)
-    (error "Not in a correctly initialized Atom Entry."))
-  (call-interactively gblogger-publish-action)
-  (message "Publishing  to %s" gblogger-this-url))
 
 ;;;### autoload
 (defun gblogger-delete-entry (url)
@@ -268,13 +241,7 @@ The retrieved entry is placed in a buffer ready for editing.
    (list
     (read-from-minibuffer "Entry URL:")))
   (declare (special gblogger-auth-handle))
-  (g-auth-ensure-token gblogger-auth-handle)
-  (shell-command
-   (format "%s %s %s -X DELETE %s %s"
-           g-curl-program g-curl-common-options
-           (g-authorization gblogger-auth-handle)
-           url
-           (g-curl-debug))))
+  (g-app-delete-entry gblogger-auth-handle url))
 
 ;;}}}
 ;;{{{ Reset auth handle:
