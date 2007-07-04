@@ -180,28 +180,15 @@ from the server.")
 (defun gblogger-get-entry (url)
   "Retrieve specified entry.
 `url' is the URL of the entry"
-  (declare (special gblogger-auth-handle
-                    g-curl-program g-curl-common-options))
-  (g-auth-ensure-token gblogger-auth-handle)
-  (let ((buffer (get-buffer-create "*atom entry*"))
-        (nxml-auto-insert-xml-declaration-flag nil))
-    (save-excursion
-      (set-buffer buffer)
-      (g-app-mode)
-      (insert
-       (g-get-result
-        (format
-         "%s %s %s  %s 2>/dev/null"
-         g-curl-program g-curl-common-options
-         (g-authorization gblogger-auth-handle)
-         url)))
-      (goto-char (point-min))
-      (search-forward "<content" )
-      (search-backward "<content")
-      (mark-sexp)
-      (g-html-unescape-region (point) (mark))
-      (setq gblogger-this-url url)
-      buffer)))
+  (declare (special gblogger-auth-handle))
+  (save-excursion
+    (set-buffer  (g-app-get-entry gblogger-auth-handle url))
+    (goto-char (point-min))
+    (search-forward "<content" )
+    (search-backward "<content")
+    (mark-sexp)
+    (g-html-unescape-region (point) (mark))
+    (current-buffer)))
 
 ;;;###autoload
 (defun gblogger-edit-entry (url)
@@ -211,22 +198,19 @@ The retrieved entry is placed in a buffer ready for editing.
   (interactive
    (list
     (read-from-minibuffer "Entry URL:")))
-  (declare (special gblogger-auth-handle
-                    g-curl-program g-curl-common-options))
-  (let ((buffer (gblogger-get-entry url)))
-    (save-excursion
-      (set-buffer buffer)
-      (setq gblogger-publish-action 'gblogger-put-entry)
-      (g-xsl-transform-region (point-min) (point-max)
-                              g-atom-edit-filter))
-    (switch-to-buffer buffer)
-    (goto-char (point-min))
-    (flush-lines "^ *$")
-    (goto-char (point-min))
-    (search-forward "<content" nil t)
-    (forward-line 1)
-    (message
-     (substitute-command-keys "Use \\[gblogger-publish] to publish your edits ."))))
+  (declare (special gblogger-auth-handle))
+  (save-excursion
+    (set-buffer (g-app-get-entry gblogger-auth-handle  url))
+    (setq g-app-publish-action 'g-app-put-entry)
+    (g-xsl-transform-region (point-min) (point-max)
+                            g-atom-edit-filter))
+  (goto-char (point-min))
+  (flush-lines "^ *$")
+  (goto-char (point-min))
+  (search-forward "<content" nil t)
+  (forward-line 1)
+  (message
+   (substitute-command-keys "Use \\[gblogger-publish] to publish your edits .")))
 
 ;;;###autoload
 (defun gblogger-new-entry (url)
@@ -262,12 +246,6 @@ The retrieved entry is placed in a buffer ready for editing.
   "Post buffer contents  as  updated entry."
   (interactive)
   (g-app-send-buffer "POST"))
-
-;;;###autoload
-(defun gblogger-put-entry ()
-  "PUT buffer contents as new entry."
-  (interactive)
-  (gblogger-send-buffer-contents "PUT"))
 
 ;;;###autoload
 (defun gblogger-publish ()

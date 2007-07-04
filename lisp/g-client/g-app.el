@@ -110,7 +110,6 @@
          g-curl-program g-curl-common-options
          (g-authorization auth-handle)
          url)))
-      (g-html-unescape-region (point-min) (point-max))
       (g-app-mode)
       (setq g-app-this-url url
             g-app-auth-handle auth-handle)
