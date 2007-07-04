@@ -141,6 +141,7 @@
   (make-g-auth :service gblogger-service-name
                :email gblogger-user-email
                :password gblogger-user-password))
+
 (defvar gblogger-auth-handle
   (make-gblogger-auth)
   "Gblogger auth handle.
@@ -154,7 +155,8 @@ from the server.")
 (defun gblogger-blog ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
-  (declare (special gblogger-auth-handle))
+  (declare (special gblogger-auth-handle
+                    gblogger-base-url))
   (g-app-view gblogger-auth-handle gblogger-base-url))
 
 ;;;###autoload
@@ -173,12 +175,8 @@ from the server.")
   (declare (special gblogger-auth-handle))
     (save-excursion
       (set-buffer (g-app-get-entry gblogger-auth-handle url))
-    (goto-char (point-min))
-    (search-forward "<content" )
-    (search-backward "<content")
-    (mark-sexp)
-    (g-html-unescape-region (point) (mark))
     (current-buffer)))
+
 ;;;###autoload
 (defun gblogger-edit-entry (url)
   "Retrieve entry and prepare it for editting.
@@ -198,6 +196,10 @@ The retrieved entry is placed in a buffer ready for editing.
       (flush-lines "^ *$"))
     (switch-to-buffer buffer)
     (goto-char (point-min))
+    (search-forward "<content" )
+    (search-backward "<content")
+    (mark-sexp)
+    (g-html-unescape-region (point) (mark))
     (search-forward "<content" nil t)
     (forward-line 1))
   (message
@@ -210,7 +212,7 @@ The retrieved entry is placed in a buffer ready for editing.
    (list
     (read-from-minibuffer "Post URL:")))
   (declare (special gblogger-auth-handle gblogger-new-entry-template
-                    gblogger-generator-name gblogger-publish-action))
+                    gblogger-generator-name ))
   (g-auth-ensure-token gblogger-auth-handle)
   (let* ((title (read-string "Title: "))
          (buffer (get-buffer-create title)))
@@ -232,8 +234,6 @@ The retrieved entry is placed in a buffer ready for editing.
      (substitute-command-keys
       "Use \\[g-app-publish] to publish your edits ."))))
 
-;;;###autoload
-
 ;;;### autoload
 (defun gblogger-delete-entry (url)
   "Delete specified entry."
@@ -245,6 +245,7 @@ The retrieved entry is placed in a buffer ready for editing.
 
 ;;}}}
 ;;{{{ Reset auth handle:
+
 ;;;###autoload
 (defun gblogger-sign-out()
   "Resets client so you can start with a different userid."
@@ -256,6 +257,7 @@ The retrieved entry is placed in a buffer ready for editing.
   (setq gblogger-user-email nil
         gblogger-user-password nil)
   (setq gblogger-auth-handle (make-gblogger-auth)))
+
 ;;;###autoload
 (defun gblogger-sign-in()
   "Resets client so you can start with a different userid."
