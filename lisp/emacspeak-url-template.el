@@ -259,6 +259,29 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Bookshare Login")
 
+(defun emacspeak-url-template-calendar-to-seconds ()
+  "Convert date under cursor to seconds since epoch."
+  (unless (eq 'calendar-mode  major-mode)
+    (error "Not in the calendar."))
+  (let ((date (calendar-cursor-to-date)))
+    (format "%d"
+            (float-time
+             (encode-time 0 0 0
+                          (second date)
+                          (first date)
+                          (third date)))))        )
+
+
+(emacspeak-url-template-define
+ "Periodicals from Bookshare"
+ "http://www.bookshare.org/web/DownloadPeriodical.html?publishtitleid=%s&date=%s&format=1"
+ (list
+  "Periodical: "
+  'emacspeak-url-template-calendar-to-seconds)
+ nil
+ "Fetch periodical from Bookshare.")
+
+ 
 ;;}}}
 ;;{{{ shoutcast
 (defvar emacspeak-url-template-shoutcast-history nil
