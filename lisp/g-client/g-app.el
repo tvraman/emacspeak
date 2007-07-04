@@ -155,6 +155,17 @@ http-method is either POST or PUT"
   (interactive)
   (g-app-send-buffer "PUT"))
 
+(defun g-app-delete-entry (auth-handle url)
+  "Delete specified entry."
+  (declare (special  g-curl-program g-curl-common-options))
+  (g-auth-ensure-token auth-handle)
+  (shell-command
+   (format "%s %s %s -X DELETE %s %s"
+           g-curl-program g-curl-common-options
+           (g-authorization auth-handle)
+           url
+           (g-curl-debug))))
+
 ;;; HTTP DELETE:
 
 (defun g-app-delete-entry (auth-handle url)
@@ -202,7 +213,6 @@ action is the function to call when we're ready to submit the edit."
       "Use \\[g-app-publish] when done editing. "))))
 
 (defun g-app-view (auth-handle feed-url)
-  "Retrieve and display feed  after authenticating."
   (interactive)
   (declare (special g-atom-view-xsl
                     g-curl-program g-curl-common-options
