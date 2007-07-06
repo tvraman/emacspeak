@@ -818,6 +818,7 @@ Optional arg COMPLEMENT inverts the filter.  "
    ".asx"
    ".mp3"
    ".m3u"
+   ".m4v"
    ".wma"
    ".wmv"
    ".avi"
@@ -836,9 +837,10 @@ interactively. Optional arg `speak' specifies if the result should be
 spoken automatically."
   (interactive
    (list current-prefix-arg))
-  (unless (and
-           (or (null prompt-url) (stringp prompt-url))
-           (eq major-mode 'w3-mode))
+  (unless
+      (or
+       (eq major-mode 'w3-mode)
+       (stringp prompt-url))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))

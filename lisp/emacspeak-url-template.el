@@ -281,7 +281,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Fetch periodical from Bookshare.")
 
- 
+
 ;;}}}
 ;;{{{ shoutcast
 (defvar emacspeak-url-template-shoutcast-history nil
@@ -1259,6 +1259,14 @@ name of the list.")
 ;;}}}
 ;;{{{ cnn
 
+(emacspeak-url-template-define
+ "CNN PodCasts"
+ "http://www.cnn.com/services/podcasting/"
+ nil
+ nil
+ "List CNN Podcast media links."
+ #'(lambda (url)
+     (emacspeak-w3-extract-media-streams url 'speak)))
 ;;{{{ cnnfn content
 (emacspeak-url-template-define
  "CNNFn Content"
