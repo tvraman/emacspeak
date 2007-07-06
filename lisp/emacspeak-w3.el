@@ -200,11 +200,17 @@
 
 ;;}}}
 ;;{{{ webutils variables
-(add-hook 'w3-mode-hook
-          (lambda ()
-            (setq emacspeak-webutils-document-title 'buffer-name)
-            (setq emacspeak-webutils-url-at-point 'w3-view-this-url)
-            (setq emacspeak-webutils-current-url 'url-view-url)))
+
+(defun emacspeak-w3-setup-webutils  ()
+    "Setup webutils variables for using W3."
+    (setq
+     emacspeak-webutils-document-title 'buffer-name
+     emacspeak-webutils-url-at-point #'(lambda nil (w3-view-this-url t))
+     emacspeak-webutils-current-url #'(lambda nil (url-view-url t))))
+
+(add-hook
+ 'w3-mode-hook
+  'emacspeak-w3-setup-webutils)
 
 ;;}}}
 ;;{{{  dump using lynx
