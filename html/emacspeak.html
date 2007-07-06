@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <base href="http://emacspeak.sourceforge.net/"/>
-<meta name="verify-v1" content="fnOW34KQawXhQzVIJt5MD6xIx9Lm6SzZCP44ixadO/g="  />
+    <meta name="verify-v1" content="fnOW34KQawXhQzVIJt5MD6xIx9Lm6SzZCP44ixadO/g="/>
     <meta name="generator" content=
           "HTML Tidy for Linux/x86 (vers 1st October 2002), see www.w3.org" /><!--$Id: emacspeak.html,v 1.22 1999/04/28 04:05:46 raman -->
     <!--Exp raman $ --><!-- Keywords: Emacspeak Speech System -->
@@ -88,23 +88,19 @@
     Internet to visually impaired users around the world.</p>
 
 
-    <form method="get" action="http://www.google.com/custom">
-      <p>
-        <strong>Search Using Google</strong><br/>
-        <label for="q">Look for:</label>
-        <input accesskey="/" id="q" type="text" size="15" name="q" maxlength="255" /> 
-        <input type="submit" value="Go"/><br />
-        <label for="emsearch" >Search
-        emacspeak.sf.net</label>
-        <input accesskey="e" id="emsearch" type="radio" name="sitesearch" checked="checked"
-               value="emacspeak.sourceforge.net" />
-        <label for="web">Search WWW</label>
-        <input accesskey="w" type ="radio" name="sitesearch"
-               id="web" value="" />
-        <input type="hidden" name="domains" value= "emacspeak.sf.net" />
-    </p></form>
-    
-    
+    <form action="http://www.google.com/cse">
+      <fieldset>
+        <legend>Search Emacspeak Knowledge Base</legend>
+        <input type="hidden" name="loading" value="1" />
+        <label for="q">Search:  </label><input name="q" /><br/>
+        <input
+            type="hidden" name="cref"
+            value=
+            "http://www.google.com/cse/tools/makecse?url=http://emacspeak.googlecode.com/svn/trunk/html/kb.html"
+            />
+        <input type="submit" value="Search"/>
+      </fieldset>
+    </form>
 
     <br />
     
@@ -146,7 +142,7 @@
       (LeadDog)</a></li>
       <li><a href="releases/release-25.0.html">Announcing Emacspeak 25.0
       (ActiveDog)</a></li>
-              <li><a href="releases/release-24.0.html">Announcing Emacspeak 24.0
+      <li><a href="releases/release-24.0.html">Announcing Emacspeak 24.0
       (LiveDog)</a></li>
       <li><a href="releases/release-23.0.html">Announcing Emacspeak 23.0
       (Retriever)</a></li>
