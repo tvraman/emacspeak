@@ -306,7 +306,7 @@ user."
 
 (defvar greader-subscription-opml-url
   (concat greader-base-url
-          "api/0/subscription/list?output=xml")
+          "subscriptions/export")
   "URL for retrieving list of subscribed feeds.")
 
 (defvar greader-tag-list-url
