@@ -65,6 +65,7 @@
 (global-set-key "\C-x@hf" 'emacspeak-moz-prefix-command)
 (loop for k in
       '(
+        (" " emacspeak-moz-browse-current)
         ([up] emacspeak-moz-visit-previous-and-browse)
         ([down] emacspeak-moz-visit-next-and-browse)
         ("b" emacspeak-moz-eval-expression-and-browse)
@@ -214,6 +215,12 @@ title)\n"
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    "repl.adom.visit(); repl.adom.html()"))
+
+(defun emacspeak-moz-browse-current ()
+  "Browse curent node."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   " repl.adom.html()"))
 
 (defun emacspeak-moz-visit-previous-and-browse ()
   "Asks visitor to go  backward and browses the result."
