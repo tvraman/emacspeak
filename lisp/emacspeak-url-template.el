@@ -1260,7 +1260,7 @@ name of the list.")
 ;;{{{ cnn
 
 (emacspeak-url-template-define
- "CNN PodCasts"
+ "CNNPodCasts"
  "http://www.cnn.com/services/podcasting/"
  nil
  nil
