@@ -1263,16 +1263,14 @@ name of the list.")
  "CNN PodCasts"
  "http://www.cnn.com/services/podcasting/"
  nil
- #'(lambda nil
-     (search-forward "Found" nil t)
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
+ nil
  "List CNN Podcast media links."
  #'(lambda (url)
      (emacspeak-w3-extract-by-class-list
       '("cnnPODcastleft"
         "cnnPODcastright")
-      url )))
+      url
+      'speak )))
 
 ;;{{{ cnnfn content
 (emacspeak-url-template-define
