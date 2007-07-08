@@ -289,10 +289,11 @@ ADom.prototype.view = function () {
     if (this.view_ === null) {
         return this.current_.html();
     }
-    var html;
-    var len = this.visit_.len_;
-    for (var i = 0; i < len_; i++){
-        html += this.visit_.item(i);
+    var html ="";
+    var len = this.view_.len_;
+    for (var i = 0; i < len; i++) {
+        this.visit();
+        html += this.html();
     }
     return html;
 };
