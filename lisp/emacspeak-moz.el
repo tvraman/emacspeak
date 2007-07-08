@@ -53,6 +53,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'browse-url)
+(require 'emacspeak-webutils)
 
 ;;}}}
 ;;{{{ Customizations
@@ -80,6 +81,7 @@
         (">" emacspeak-moz-browser-forward)
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
+        ("u" emacspeak-moz-goto-url-at-point)
         ("s" emacspeak-moz-search)
         ("r" emacspeak-moz-refresh)
         )
@@ -89,6 +91,7 @@
 ;;}}}
 ;;{{{ Interactive commands:
 
+;;;###autoload
 (defun emacspeak-moz-eval-expression-and-go (exp)
   "Send expression to Moz and switch to it."
   (interactive "sJSEval: ")
@@ -98,7 +101,7 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;;###autoload
+
 (defvar emacspeak-moz-output-buffer " *moz output*"
   "Buffer where we accumulate moz output.")
 
@@ -110,7 +113,7 @@
     (goto-char (point-max))
     (insert output)
     output))
-
+;;;###autoload
 (defun emacspeak-moz-eval-expression-and-browse (exp)
   "Send expression to Moz, get output, and browse it in Emacs."
   (interactive "sJSEval: ")
@@ -133,13 +136,13 @@
         (add-hook 'emacspeak-w3-post-process-hook
                   'emacspeak-speak-buffer))
       (browse-url-of-buffer ))))
-
+;;;###autoload
 (defun emacspeak-moz-close-tab-or-browser ()
   "Close tab, or browser when one tab left."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
    "BrowserCloseTabOrWindow()\n"))
-
+;;;###autoload
 (defun emacspeak-moz-goto-url(url)
   "Make Firefox used by our repl Go to the specified URL."
   (interactive
@@ -151,7 +154,23 @@
   (emacspeak-moz-eval-expression-and-go
    (format "content.location.href='%s';repl.updateADom()\n"
            url)))
+;;;###autoload
+(defun emacspeak-moz-goto-url-at-point()
+  "Make Firefox used by our repl Go to url under point."
+  (interactive)
+  (declare (special emacspeak-webutils-url-at-point))
+  (unless emacspeak-webutils-url-at-point
+    (error "Not in a browser buffer."))
+  (let ((url (funcall emacspeak-webutils-url-at-point)))
+    (cond
+     (url
+      (emacspeak-moz-eval-expression-and-go
+       (format "content.location.href='%s';repl.updateADom()\n"
+               url))
+      (message "Sent url at point to firefox."))
+     (t (error "No url under point.")))))
 
+;;;###autoload
 (defun emacspeak-moz-browser-forward ()
   "Move forward in history."
   (interactive)
@@ -160,7 +179,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object))
   (emacspeak-speak-line))
-
+;;;###autoload
 (defun emacspeak-moz-browser-back ()
   "Move back in history."
   (interactive)
@@ -169,7 +188,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object))
   (emacspeak-speak-line))
-
+;;;###autoload
 (defun emacspeak-moz-jump (index)
   "Jump to specified index in history."
   (interactive "nHistory Index: ")
@@ -181,7 +200,7 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-
+;;;###autoload
 (defun emacspeak-moz-inspect (what)
   "Inspect specified object."
   (interactive "sInspect: ")
@@ -190,7 +209,7 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
+;;;###autoload
 (defun emacspeak-moz-search (pattern)
   "Search for pattern in current context."
   (interactive "sPattern: ")
@@ -199,7 +218,7 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
+;;;###autoload
 (defun emacspeak-moz-refresh ()
   "Reload document."
   (interactive)
@@ -215,13 +234,13 @@ title)\n"
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    "repl.adom.visit(); repl.adom.html()"))
-
+;;;###autoload
 (defun emacspeak-moz-browse-current ()
   "Browse curent node."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    " repl.adom.html()"))
-
+;;;###autoload
 (defun emacspeak-moz-visit-previous-and-browse ()
   "Asks visitor to go  backward and browses the result."
   (interactive)
