@@ -81,6 +81,7 @@
         (">" emacspeak-moz-browser-forward)
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
+        ("x" emacspeak-moz-filter-and-browse)
         ("u" emacspeak-moz-goto-url-at-point)
         ("s" emacspeak-moz-search)
         ("r" emacspeak-moz-refresh)
@@ -234,6 +235,16 @@ title)\n"
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    "repl.adom.visit(); repl.adom.html()"))
+
+;;;###autoload
+(defun emacspeak-moz-filter-and-browse(xpath)
+  "Browse document filtered by XPath filter."
+  (interactive "sXPath Filter: ")
+  (emacspeak-moz-eval-expression-and-browse
+   (format 
+    "repl.adom.filter('%s'); repl.adom.view()"
+    xpath)))
+
 ;;;###autoload
 (defun emacspeak-moz-browse-current ()
   "Browse curent node."
