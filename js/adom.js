@@ -92,20 +92,20 @@ ADom.prototype.body = function () {
  *@Return {string}; HTML
  */
 ADom.prototype.html = function () {
-  var html ='<base href=\"' + this.document_.baseURI +  '\"/>';
+  var html ='<base href=\"' + this.document_.baseURI +  '\"/>\n';
   html +='<' + this.current_.tagName;
   var map = this.current_.attributes;
   if (map  instanceof NamedNodeMap) {
     for (var i = 0; i < map.length; i++) {
       html += ' ' + map[i].name + '=';
-      html += '\"' +map[i].value + '\"';
+      html += '\"' +map[i].value + '\"\n';
     }
   }
   if (this.current_.childNodes.length === 0) {
-    return html += '/>';
+    return html += '/>\n';
   } else {
-    html += '>' + this.current_.innerHTML;
-    html += '</' + this.current_.tagName +'>';
+    html += '>\n' + this.current_.innerHTML;
+    html += '</' + this.current_.tagName +'>\n';
     return html;
   }
 };
