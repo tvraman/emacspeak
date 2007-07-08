@@ -8,11 +8,11 @@
  */
 
 function ADom (document) {
-  this.document_ = document;
-  document.adom = this;
-  this.root_ = document.documentElement;
-  this.current_ = document.documentElement;
-  this.view_ = null;
+    this.document_ = document;
+    document.adom = this;
+    this.root_ = document.documentElement;
+    this.current_ = document.documentElement;
+    this.view_ = null;
 }
 
 // >
@@ -24,8 +24,8 @@ function ADom (document) {
  * @return {node} current node.
  */
 ADom.prototype.reset = function () {
-  this.root_ = this.document_.documentElement;
-  return this.current_ = this.root_;
+    this.root_ = this.document_.documentElement;
+    return this.current_ = this.root_;
 };
 
 /*
@@ -33,7 +33,7 @@ ADom.prototype.reset = function () {
  * @return {node} current node.
  */
 ADom.prototype.next = function () {
-  return this.current_ = this.current_.nextSibling;
+    return this.current_ = this.current_.nextSibling;
 };
 
 /*
@@ -41,7 +41,7 @@ ADom.prototype.next = function () {
  * @return {node} current node.
  */
 ADom.prototype.previous = function() {
-  return this.current_ = this.current_.previousSibling;
+    return this.current_ = this.current_.previousSibling;
 };
 
 /*
@@ -49,7 +49,7 @@ ADom.prototype.previous = function() {
  * @return {node} current node.
  */
 ADom.prototype.up = function () {
-  return this.current_ = this.parentNode;
+    return this.current_ = this.parentNode;
 };
 
 /*
@@ -57,7 +57,7 @@ ADom.prototype.up = function () {
  * @return {node} current node.
  */
 ADom.prototype.down = function () {
-  return this.current_ = this.current_.firstChild;
+    return this.current_ = this.current_.firstChild;
 };
 
 /*
@@ -65,7 +65,7 @@ ADom.prototype.down = function () {
  * @return {node} current node.
  */
 ADom.prototype.first = function () {
-  return this.current_ = this.current_.parentNode.firstChild;
+    return this.current_ = this.current_.parentNode.firstChild;
 };
 
 /*
@@ -73,7 +73,7 @@ ADom.prototype.first = function () {
  * @return {node} current node.
  */
 ADom.prototype.last = function () {
-  return this.current_  = this.current_.parentNode.lastChild;
+    return this.current_  = this.current_.parentNode.lastChild;
 };
 
 /*
@@ -81,33 +81,45 @@ ADom.prototype.last = function () {
  * @return {node} current node.
  */
 ADom.prototype.body = function () {
-  return this.current_ =  this.document_.body;
+    return this.current_ =  this.document_.body;
 };
 
 // >
 // <Summarizers:
 
 /*
+ * base: Return appropriately encoded <base ../>
+ * @return: {String} HTML base element.
+ */
+ADom.prototype.base = function () {
+    return '<base href=\"' + this.document_.baseURI +  '\"/>\n';
+};
+
+/*
  * Return HTML for current node.
+ * Produces a <base ../> if optional boolean flag gen_base is true.
  *@Return {string}; HTML
  */
-ADom.prototype.html = function () {
-  var html ='<base href=\"' + this.document_.baseURI +  '\"/>\n';
-  html +='<' + this.current_.tagName;
-  var map = this.current_.attributes;
-  if (map  instanceof NamedNodeMap) {
-    for (var i = 0; i < map.length; i++) {
-      html += ' ' + map[i].name + '=';
-      html += '\"' +map[i].value + '\"\n';
+ADom.prototype.html = function (gen_base) {
+    var html ="";
+    if (gen_base) {
+        html += this.base();
     }
-  }
-  if (this.current_.childNodes.length === 0) {
-    return html += '/>\n';
-  } else {
-    html += '>\n' + this.current_.innerHTML;
-    html += '</' + this.current_.tagName +'>\n';
-    return html;
-  }
+    html +='<' + this.current_.tagName;
+    var map = this.current_.attributes;
+    if (map  instanceof NamedNodeMap) {
+        for (var i = 0; i < map.length; i++) {
+            html += ' ' + map[i].name + '=';
+            html += '\"' +map[i].value + '\"\n';
+        }
+    }
+    if (this.current_.childNodes.length === 0) {
+        return html += '/>\n';
+    } else {
+        html += '>\n' + this.current_.innerHTML;
+        html += '</' + this.current_.tagName +'>\n';
+        return html;
+    }
 };
 
 /*
@@ -115,10 +127,10 @@ ADom.prototype.html = function () {
  * @Return {string};
  */
 ADom.prototype.summarize = function () {
-  var summary = this.current_.tagName +' ';
-  summary += 'has ' + this.current_.childNodes.length + 'children ';
-  summary += ' with ' + this.current_.innerHTML.length + ' bytes of content.';
-  return summary;
+    var summary = this.current_.tagName +' ';
+    summary += 'has ' + this.current_.childNodes.length + 'children ';
+    summary += ' with ' + this.current_.innerHTML.length + ' bytes of content.';
+    return summary;
 };
 
 /*
@@ -126,7 +138,7 @@ ADom.prototype.summarize = function () {
  * @Return  {string}
  */
 ADom.prototype.title = function () {
-  return this.document_.title;
+    return this.document_.title;
 };
 
 /*
@@ -134,21 +146,21 @@ ADom.prototype.title = function () {
  * @return {String} url
  */
 ADom.prototype.url = function () {
-  return this.document_.baseURI;
+    return this.document_.baseURI;
 };
 
 /*
  * Return document being viewed.
  */
 ADom.prototype.document = function () {
-  return this.document_;
+    return this.document_;
 };
 
 /*
  * Return the current node being viewed.
  */
 ADom.prototype.current = function () {
-  return this.current_;
+    return this.current_;
 };
 
 // >
@@ -158,9 +170,9 @@ ADom.prototype.current = function () {
  *  Implements iteration.
  */
 RingBuffer = function (list) {
-  this.list_ = list;
-  this.index_ = -1;
-  this.len_ = list.length;
+    this.list_ = list;
+    this.index_ = -1;
+    this.len_ = list.length;
 };
 
 /*
@@ -173,19 +185,19 @@ RingBuffer.prototype.item = function (index) {
 
 
 RingBuffer.prototype.next = function () {
-  if (this.index_ == this.len_ -1) {
-    this.index_ = -1;
-  }
-  this.index_++;
-   return this.list_.item(this.index_);
+    if (this.index_ == this.len_ -1) {
+        this.index_ = -1;
+    }
+    this.index_++;
+    return this.list_.item(this.index_);
 };
-                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 RingBuffer.prototype.previous = function () {
-  if (this.index_ === -1 || this.index_ === 0) {
-    this.index_ = this.len_;
-  }
-  this.index_--;
-  return this.list_.item(this.index_);
+    if (this.index_ === -1 || this.index_ === 0) {
+        this.index_ = this.len_;
+    }
+    this.index_--;
+    return this.list_.item(this.index_);
 };
 
 // >
@@ -195,11 +207,11 @@ RingBuffer.prototype.previous = function () {
  *  Implements RingBuffer.
  */
 XPathRingBuffer = function (nodes) {
-  this.list_ = nodes;
-  this.index_ = -1;
-  this.len_ = nodes.snapshotLength;
+    this.list_ = nodes;
+    this.index_ = -1;
+    this.len_ = nodes.snapshotLength;
 };
-  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
 /*
  * item: Return item at specified index.
@@ -211,19 +223,19 @@ XPathRingBuffer.prototype.item = function (index) {
 
 
 XPathRingBuffer.prototype.next = function () {
-  if (this.index_ == this.len_ -1) {
-    this.index_ = -1;
-  }
-  this.index_++;
-  return this.list_.snapshotItem(this.index_);
+    if (this.index_ == this.len_ -1) {
+        this.index_ = -1;
+    }
+    this.index_++;
+    return this.list_.snapshotItem(this.index_);
 };
-                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 XPathRingBuffer.prototype.previous = function () {
-  if (this.index_ === -1 || this.index_ === 0) {
-    this.index_ = this.len_;
-  }
-  this.index_--;
-  return this.list_.snapshotItem(this.index_);
+    if (this.index_ === -1 || this.index_ === 0) {
+        this.index_ = this.len_;
+    }
+    this.index_--;
+    return this.list_.snapshotItem(this.index_);
 };
 
 // >
@@ -235,12 +247,12 @@ XPathRingBuffer.prototype.previous = function () {
  */
 
 ADom.prototype.filter = function (xpath) {
-  var start = this.current_ || this.root_;
-  var snap   =
-  this.document_.evaluate(xpath,
-                          start, null,
-                          XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-  return this.view_ = new XPathRingBuffer(snap);
+    var start = this.current_ || this.root_;
+    var snap   =
+    this.document_.evaluate(xpath,
+                            start, null,
+                            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    return this.view_ = new XPathRingBuffer(snap);
 };
 
 // >
@@ -251,15 +263,15 @@ ADom.prototype.filter = function (xpath) {
  * Return forms array.
  */
 ADom.prototype.forms = function () {
-  this.view_ = new RingBuffer(this.document_.forms);
-  return this.view_;
+    this.view_ = new RingBuffer(this.document_.forms);
+    return this.view_;
 };
 /*
  * find: set view_ to RingBuffer of elements found by name
  */
 ADom.prototype.find = function (tagName) {
-  var start = this.current_ || this.root_;
-  return this.view_ = new RingBuffer(start.getElementsByTagName(tagName));
+    var start = this.current_ || this.root_;
+    return this.view_ = new RingBuffer(start.getElementsByTagName(tagName));
 };
 
 /*
@@ -267,17 +279,17 @@ ADom.prototype.find = function (tagName) {
  * Optional argument dir if specified visits in the reverse direction.
  */
 ADom.prototype.visit = function (dir) {
-  if (dir) {
-      this.current_ = this.view_.previous();
-  } else  {
-      this.current_ = this.view_.next();
-  }
-  // skip empties
-  if (this.current_.childNodes.length === 0 && this.current_.attributes.length  === 0) {
-      return this.visit(dir);
-  } else {
-      return this.current_;
-  }
+    if (dir) {
+        this.current_ = this.view_.previous();
+    } else  {
+        this.current_ = this.view_.next();
+    }
+    // skip empties
+    if (this.current_.childNodes.length === 0 && this.current_.attributes.length  === 0) {
+        return this.visit(dir);
+    } else {
+        return this.current_;
+    }
 };
 
 
@@ -287,9 +299,9 @@ ADom.prototype.visit = function (dir) {
  */
 ADom.prototype.view = function () {
     if (this.view_ === null) {
-        return this.current_.html();
+        return this.current_.html(true);
     }
-    var html ="";
+    var html =this.base();
     var len = this.view_.len_;
     for (var i = 0; i < len; i++) {
         this.visit();
@@ -297,7 +309,7 @@ ADom.prototype.view = function () {
     }
     return html;
 };
-    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 // >
 // < Eventing:
 
@@ -312,15 +324,15 @@ ADom.prototype.view = function () {
  * @return {ADom}
  */
 repl.updateADom = function ()  {
-  if (repl.adom == undefined || content.document.adom == undefined) {
-    repl.adom = new ADom(content.document);
+    if (repl.adom == undefined || content.document.adom == undefined) {
+        repl.adom = new ADom(content.document);
+        return repl.adom;
+    }
+    if (repl.adom.document_ != content.document) {
+        repl.adom = content.document.adom;
+        return repl.adom;
+    }
     return repl.adom;
-  }
-  if (repl.adom.document_ != content.document) {
-    repl.adom = content.document.adom;
-    return repl.adom;
-  }
-  return repl.adom;
 };
 
 // >
