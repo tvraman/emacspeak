@@ -162,13 +162,22 @@ RingBuffer = function (list) {
   this.index_ = -1;
   this.len_ = list.length;
 };
-                                                                                                                                                                                                                                                          
+
+/*
+ * item: Return item at specified index.
+ * @return: node.
+ */
+RingBuffer.prototype.item = function (index) {
+    return this.list_.item(this.index);
+};
+
+
 RingBuffer.prototype.next = function () {
   if (this.index_ == this.len_ -1) {
     this.index_ = -1;
   }
   this.index_++;
-  return this.list_.item(this.index_);
+   return this.list_.item(this.index_);
 };
                                                                                                                                                                                                                                                                                           
 RingBuffer.prototype.previous = function () {
@@ -190,7 +199,17 @@ XPathRingBuffer = function (nodes) {
   this.index_ = -1;
   this.len_ = nodes.snapshotLength;
 };
-                                                                                                                                                                                                                                                                                                                  
+  
+
+/*
+ * item: Return item at specified index.
+ * @return: node.
+ */
+XPathRingBuffer.prototype.item = function (index) {
+    return this.list_.snapshotItem(this.index);
+};
+
+
 XPathRingBuffer.prototype.next = function () {
   if (this.index_ == this.len_ -1) {
     this.index_ = -1;
@@ -261,6 +280,23 @@ ADom.prototype.visit = function (dir) {
   }
 };
 
+
+/*
+ * view: Return HTML for all nodes in view_ array
+ * @return: {String} HTML
+ */
+ADom.prototype.view = function () {
+    if (this.view_ === null) {
+        return this.current_.html();
+    }
+    var html;
+    var len = this.visit_.len_;
+    for (var i = 0; i < len_; i++){
+        html += this.visit_.item(i);
+    }
+    return html;
+};
+    
 // >
 // < Eventing:
 
