@@ -2812,6 +2812,7 @@ value to apply."
                                "..."
                                (buffer-substring blinkpos (1+
                                                            blinkpos)))))))
+
 ;;; The only change to emacs' default blink-matching-paren is the
 ;;; addition of the call to helper emacspeak-speak-blinkpos-message
 ;;;###autoload
@@ -2907,10 +2908,21 @@ Also display match context in minibuffer."
                         ;; There is nothing to show except the char itself.
                         (buffer-substring blinkpos (1+ blinkpos)))))))
           (message "Matches %s"
-                   (substring-no-properties open-paren-line-string))))))))
-(declaim (special blink-paren-function))
-(setq blink-paren-function
-      'emacspeak-blink-matching-open)
+                   (substring-no-properties
+                    open-paren-line-string))))))))
+
+;;;###autoload
+(defun  emacspeak-use-customized-blink-paren ()
+  "A customized blink-paren to speak  matching opening paren.
+We need to call this in case Emacs
+is anal and loads its own builtin blink-paren function
+which does not talk."
+  (interactive)
+  (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
+  (and (interactive-p)
+       (message "Using customized blink-paren function provided by Emacspeak.")))
+
+(emacspeak-use-customized-blink-paren)
 
 ;;}}}
 ;;{{{  Auxillary functions:
@@ -3092,7 +3104,7 @@ typed. If no such group exists, then we dont move. "
       (move-marker target nil)
       (when (interactive-p)
         (emacspeak-mark-speak-mark-line)))))
-     
+
 
 ;;}}}
 ;;{{{ customize emacspeak
