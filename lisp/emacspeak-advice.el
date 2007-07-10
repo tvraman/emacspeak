@@ -393,12 +393,12 @@ the words that were capitalized."
 
 ;;}}}
 ;;{{{  Advice deletion commands:
-
+;;;###autoload
 (defcustom emacspeak-delete-char-speak-deleted-char t
   "*T means `delete-char' speaks char that was deleted."
   :group 'emacspeak-speak
   :type 'boolean)
-
+;;;###autoload
 (defcustom emacspeak-backward-delete-char-speak-current-char nil
   "*T means `backward-delete-char' speaks char that becomes
 current after deletion."
@@ -612,6 +612,8 @@ current after deletion."
 
 (defvar emacspeak-lazy-message-time 0
   "Records when we last spoke a message.")
+
+;;;###autoload
 (defcustom emacspeak-speak-messages-should-pause-ongoing-speech
   t
   "* Option to make messages pause speech.
@@ -690,7 +692,7 @@ before the message is spoken."
         (dtk-speak message)))))
 
 ;;}}}
-
+;;;###autoload
 (defcustom emacspeak-speak-cue-errors t
   "Specifies if error messages are cued."
   :type 'boolean
