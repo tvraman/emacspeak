@@ -70,17 +70,22 @@
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
 
+
+(defgroup emacspeak-alsaplayer nil
+  "AlsaPlayer from emacs.")
+
+;;;###autoload
 (defcustom emacspeak-alsaplayer-auditory-feedback t
   "Turn this on if you want spoken feedback and auditory icons from alsaplayer."
   :type 'boolean
   :group 'emacspeak-alsaplayer)
-
+;;;###autoload
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
   "Alsaplayer executable."
   :type 'string
   :group 'emacspeak-alsaplayer)
-
+;;;###autoload
 (defcustom emacspeak-alsaplayer-media-directory
   (expand-file-name "~/mp3/")
   "Directory to look for media files."
