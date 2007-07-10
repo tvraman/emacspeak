@@ -50,6 +50,7 @@ gcal.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
+gtube.elc \
 gsheet.elc
 
 
