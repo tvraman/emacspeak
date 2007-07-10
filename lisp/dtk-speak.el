@@ -68,7 +68,7 @@
   "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
   :group 'emacspeak
   :prefix "dtk-")
-
+;;;###autoload
 (defcustom tts-strip-octals nil
   "Set to T to strip all octal chars before speaking.
 Particularly useful for web browsing."
@@ -76,7 +76,7 @@ Particularly useful for web browsing."
   :group  'dtk
   :group  'tts)
 (make-variable-buffer-local 'tts-strip-octals)
-
+;;;###autoload
 (defcustom dtk-stop-immediately-while-typing t
   "*Set it to nil if you dont want speech to flush as you
 type.  You can use command
@@ -85,12 +85,12 @@ type.  You can use command
   :group 'tts
   :type 'boolean)
 (make-variable-buffer-local 'dtk-stop-immediately-while-typing)
-
+;;;###autoload
 (defcustom dtk-speech-rate-base 50
   "*Value of lowest tolerable speech rate."
   :type 'integer
   :group 'tts)
-
+;;;###autoload
 (defcustom dtk-speech-rate-step 50
   "*Value of speech rate increment.
 This determines step size used when setting speech rate via command
@@ -98,7 +98,7 @@ This determines step size used when setting speech rate via command
 dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   :type 'integer
   :group 'tts)
-
+;;;###autoload
 (defcustom dtk-startup-hook nil
   "List of hooks to be run after starting up the speech server.
 Set things like speech rate, punctuation mode etc in this
@@ -128,7 +128,7 @@ See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
 Do not set this variable by hand, use command  `dtk-toggle-split-caps'
  bound to \\[dtk-toggle-split-caps].")
 (make-variable-buffer-local 'dtk-split-caps)
-
+;;;###autoload
 (defcustom dtk-cleanup-patterns
   (list
    "." "_" "-"  "=" "/"  "+" "*" ":" ";" "%"
@@ -314,6 +314,8 @@ Optional argument FORCE  flushes the command to the speech server."
   "Play a note immediately."
   (dtk-interp-note  instrument pitch duration
                     target step 'force))
+
+;;;###autoload
 (defcustom dtk-use-tones t
   "Allow tones to be turned off."
   :type 'boolean
@@ -448,7 +450,7 @@ Argument MODE  specifies the current pronunciation mode."
      (t
       (while (re-search-forward dtk-bracket-regexp   nil t )
         (replace-match " " nil t ))))))
-
+;;;###autoload
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
@@ -1035,7 +1037,7 @@ Optional PREFIX arg flushes any previously paused speech."
    ((and dtk-paused
          (interactive-p))
     (emacspeak-auditory-icon 'warn-user))))
-
+;;;###autoload
 (defcustom dtk-resume-should-toggle t
   "*T means `dtk-resume' acts as a toggle."
   :type 'boolean
