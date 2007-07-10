@@ -167,9 +167,38 @@ Arguments is a list of name/value pairs."
     (read-from-minibuffer "username: "
                           gtube-user-name)))
   (declare (special gtube-user-name))
+  (or user (setq user gtube-user-name))
   (switch-to-buffer
    (gtube-get-xml
     (gtube-rest-resource "youtube.users.get_profile"
+                         `(("user" ,user))))))
+
+;;;###autoload
+(defun gtube-user-favorites (&optional user)
+  "Retrieve user favorites."
+  (interactive
+   (list
+    (read-from-minibuffer "username: "
+                          gtube-user-name)))
+  (declare (special gtube-user-name))
+  (or user (setq user gtube-user-name))
+  (switch-to-buffer
+   (gtube-get-xml
+    (gtube-rest-resource "youtube.users.list_favorite_videos"
+                         `(("user" ,user))))))
+
+;;;###autoload
+(defun gtube-user-friends (&optional user)
+  "Retrieve user profile."
+  (interactive
+   (list
+    (read-from-minibuffer "username: "
+                          gtube-user-name)))
+  (declare (special gtube-user-name))
+  (or user (setq user gtube-user-name))
+  (switch-to-buffer
+   (gtube-get-xml
+    (gtube-rest-resource "youtube.users.list_friends"
                          `(("user" ,user))))))
 
 ;;;###autoload
@@ -212,7 +241,6 @@ optional args page and count specify position in result-set and
                             ("page" ,page)
                             ("per_page" ,count))))))
 
-
 ;;;###autoload
 (defun gtube-video-playlist (playlist-id &optional page count)
   "Retrieve content in specified playlist.
@@ -238,7 +266,6 @@ optional args page and count specify position in result-set and
     (gtube-rest-resource  "youtube.videos.list_popular"
                           `(("time_range" ,time-range))))))
 
-
 ;;;###autoload
 (defun gtube-video-by-user (user &optional page count)
   "Retrieve content from specified user.
@@ -253,7 +280,6 @@ optional args page and count specify position in result-set and
                           `(("user" ,user)
                             ("page" ,page)
                             ("per_page" ,count))))))
-
 
 ;;;###autoload
 (defun gtube-video-featured ( )
@@ -285,7 +311,6 @@ optional args page and count specify position in result-set and
   (g-authenticate gtube-auth-handle))
 
 ;;}}}
-
 
 (provide 'gtube)
 ;;{{{ end of file
