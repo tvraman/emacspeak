@@ -80,10 +80,7 @@ Emacspeak.")
   (let ((dtk-quiet t)
         (generated-autoload-file emacspeak-auto-autoloads-file))
     (funcall emacspeak-update-autoloads-from-directories
-             emacspeak-lisp-directory)
-    (funcall emacspeak-update-autoloads-from-directories
-             (expand-file-name "g-client" emacspeak-lisp-directory))
-    ))
+             emacspeak-lisp-directory)))
 
 ;;}}}
 ;;{{{ custom dependencies:
@@ -94,7 +91,6 @@ Emacspeak.")
   (let ((dtk-quiet t)
         (generated-custom-dependencies-file emacspeak-auto-custom-file))
     (custom-make-dependencies)))
-                                                
 
 ;;}}}
 (provide 'emacspeak-autoload)

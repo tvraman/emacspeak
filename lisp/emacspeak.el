@@ -63,6 +63,10 @@
 (load-file
  (expand-file-name "emacspeak-cus-load.el"
                    emacspeak-lisp-directory))
+(load-library "g-loaddefs")
+(load-file
+ (expand-file-name "g-client/g-cus-load.el"
+                   emacspeak-lisp-directory))
 
 ;;}}}
 ;;{{{  Customize groups

@@ -259,7 +259,7 @@ emacspeak-loaddefs.el: force
 
 emacspeak-cus-load.el: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
--f emacspeak-auto-custom-make-dependencies "." "./g-client"
+-f emacspeak-auto-custom-make-dependencies "." 
 	mv cus-load.el emacspeak-cus-load.el
 
 # }}}
