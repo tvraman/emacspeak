@@ -94,6 +94,7 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors
                     modification-flag ))
   (let ((command nil)
+        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
@@ -151,6 +152,7 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
+        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
@@ -214,6 +216,7 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
+        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
