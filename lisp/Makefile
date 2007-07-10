@@ -89,7 +89,6 @@ emacspeak-apt-sources.elc \
 emacspeak-apt-utils.elc \
 emacspeak-arc.elc \
 emacspeak-atom.elc \
-emacspeak-atom-blogger.elc \
 emacspeak-auctex.elc \
 emacspeak-autoload.el \
 emacspeak-aumix.elc \
@@ -260,7 +259,7 @@ emacspeak-loaddefs.el: force
 
 emacspeak-cus-load.el: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
--f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger" "./g-client"
+-f emacspeak-auto-custom-make-dependencies "." "./g-client"
 	mv cus-load.el emacspeak-cus-load.el
 
 # }}}
@@ -293,7 +292,6 @@ emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.el
 emacspeak-apt-utils.elc: emacspeak-apt-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
 emacspeak-atom.elc: emacspeak-atom.el dtk-speak.elc
-emacspeak-atom-blogger.elc: emacspeak-atom-blogger.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc voice-setup.elc
 emacspeak-aumix.elc: emacspeak-aumix.el dtk-speak.elc voice-setup.elc
 emacspeak-autoload.elc: emacspeak-autoload.el
