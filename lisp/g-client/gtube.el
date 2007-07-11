@@ -92,6 +92,11 @@
                 (string :tag "Save Id in .emacs"))
   :group 'gtube)
 
+(defcustom gtube-view
+  (expand-file-name "ut.xsl" g-directory)
+  "XSL transform used to view YouTube responses."
+  :group 'gtube)
+
 ;;}}}
 ;;{{{ Constants
 
@@ -137,25 +142,16 @@ Arguments is a list of name/value pairs."
 (defvar gtube-xml-buffer "*GTube Results*"
   "Buffer used to hold XML responses.")
 
-(defsubst gtube-get-xml (resource)
-  "Retrieve XMl and place it in an appropriate buffer."
-  (declare (special gtube-xml-buffer
+(defsubst gtube-display (resource)
+  "Retrieve and display YouTube response."
+  (declare (special gtube-view
                     g-curl-program))
-  (let ((buffer (get-buffer-create gtube-xml-buffer))
-        (nxml-auto-insert-xml-declaration-flag nil))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (insert
-       (g-get-result
-        (format "%s --silent '%s' %s"
-                g-curl-program resource
-                (g-curl-debug))))
-      (xml-mode)
-      (indent-region (point-min) (point-max)))
-    buffer))
-
+  (g-display-result
+   (format "%s --silent '%s' %s"
+           g-curl-program resource
+           (g-curl-debug))
+   gtube-view))
+      
 ;;}}}
 ;;{{{ get info:
 
@@ -168,10 +164,9 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource "youtube.users.get_profile"
-                         `(("user" ,user))))))
+                         `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-user-favorites (&optional user)
@@ -182,10 +177,9 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource "youtube.users.list_favorite_videos"
-                         `(("user" ,user))))))
+                         `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-user-friends (&optional user)
@@ -196,19 +190,17 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource "youtube.users.list_friends"
-                         `(("user" ,user))))))
+                         `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-video-details (video-id)
   "Display details of specified video."
   (interactive "sVideo:")
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.get_details"
-                          `(("video_id" ,video-id))))))
+                          `(("video_id" ,video-id)))))
 
 ;;;###autoload
 (defun gtube-video-by-tag (tag &optional page count)
@@ -218,12 +210,11 @@ optional args page and count specify position in result-set and
   (interactive "sTag:\nsPage:\nsCount:")
   (or page (setq page "1"))
   (or count (setq count "10"))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.list_by_tag"
                           `(("tag" ,tag)
                             ("page" ,page)
-                            ("per_page" ,count))))))
+                            ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-by-category-and-tag (category tag &optional page count)
@@ -233,13 +224,12 @@ optional args page and count specify position in result-set and
   (interactive "sCategory:\nsTag:\nsPage:\nsCount:")
   (or page (setq page "1"))
   (or count (setq count "10"))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.list_by_tag"
                           `(("tag" ,tag)
                             ("category_id" ,category)
                             ("page" ,page)
-                            ("per_page" ,count))))))
+                            ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-playlist (playlist-id &optional page count)
@@ -249,22 +239,20 @@ optional args page and count specify position in result-set and
   (interactive "sPlayList Id:\nsPage:\nsCount:")
   (or page (setq page "1"))
   (or count (setq count "10"))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.list_by_playlist"
                           `(("id" ,playlist-id)
                             ("page" ,page)
-                            ("per_page" ,count))))))
+                            ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-popular (time-range )
   "Retrieve popular content for specified time-range.
   Time-range is one of day, week, month, or all."
   (interactive "sTime Range: ")
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.list_popular"
-                          `(("time_range" ,time-range))))))
+                          `(("time_range" ,time-range)))))
 
 ;;;###autoload
 (defun gtube-video-by-user (user &optional page count)
@@ -274,20 +262,18 @@ optional args page and count specify position in result-set and
   (interactive "sUser:\nsPage:\nsCount:")
   (or page (setq page "1"))
   (or count (setq count "10"))
-  (switch-to-buffer
-   (gtube-get-xml
+   (gtube-display
     (gtube-rest-resource  "youtube.videos.list_by_user"
                           `(("user" ,user)
                             ("page" ,page)
-                            ("per_page" ,count))))))
+                            ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-featured ( )
   "Retrieved featured video list."
   (interactive)
-  (switch-to-buffer
-   (gtube-get-xml
-    (gtube-rest-resource  "youtube.videos.list_featured"))))
+   (gtube-display
+    (gtube-rest-resource  "youtube.videos.list_featured")))
 
 ;;}}}
 ;;{{{ tube Authenticate
