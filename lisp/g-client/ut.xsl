@@ -7,7 +7,8 @@ XSL rules for handling YouTube responses
 -->
 
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:date="http://exslt.org/dates-and-times">
   <xsl:output method="xml"  indent="yes"/>
   <xsl:template match="ut_response">
     <xsl:choose>
@@ -68,7 +69,10 @@ XSL rules for handling YouTube responses
       </tr>
       <tr>
         <td>Uploaded</td>
-        <td><xsl:value-of select="upload_time"/></td>
+        <td>
+<xsl:value-of select=
+"date:add( '1970-01-01', date:duration( ./upload_time))"/>
+        </td>
         <td>ID</td>
         <td> <xsl:value-of select="id"/></td>
       </tr>
