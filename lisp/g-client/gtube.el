@@ -197,7 +197,10 @@ Arguments is a list of name/value pairs."
 ;;;###autoload
 (defun gtube-video-details (video-id)
   "Display details of specified video."
-  (interactive "sVideo:")
+  (interactive
+   (list
+    (read-from-minibuffer "Video: "
+                          (word-at-point))))
    (gtube-display
     (gtube-rest-resource  "youtube.videos.get_details"
                           `(("video_id" ,video-id)))))
