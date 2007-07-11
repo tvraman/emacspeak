@@ -36,17 +36,22 @@ XSL rules for handling YouTube responses
   <xsl:template match="video|video_details">
     <h1><xsl:value-of select="title"/> </h1>
     
-    <h2>Description</h2>
-    <p>
+    <dl>
+<dt>Description</dt>
+    <dd><p>
       <a>
         <xsl:attribute name="href">
           <xsl:value-of  select="url"/>
         </xsl:attribute>
         Watch</a>:
     <xsl:value-of select="description"/></p>
-    <h2>Tags</h2>
+    </dd>
+    <dt>Tags</dt>
+    <dd>
     <p><xsl:value-of select="tags"/></p>
-    <table>
+    </dd>
+    </dl>
+<table>
       <tr>
         <td>Length</td>
         <td><xsl:value-of select="length_seconds"/>S</td>
