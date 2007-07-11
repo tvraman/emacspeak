@@ -32,7 +32,7 @@ XSL rules for handling YouTube responses
     <xsl:apply-templates select="video"/>
   </xsl:template>
 
-  <xsl:template match="video">
+  <xsl:template match="video|video_details">
     <h1><xsl:value-of select="title"/> </h1>
     
     <h2>Description</h2>
