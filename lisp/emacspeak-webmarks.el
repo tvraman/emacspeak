@@ -89,7 +89,7 @@ This gets set the first time we sign in using a browser."
   "http://www.google.com/bookmarks/mark?op=edit"
   "URL template for adding WebMarks.")
 
-  
+
 (defsubst emacspeak-webmarks-url (template)
   "Return appropriately filled out url."
   (declare (special emacspeak-webmarks-key))
@@ -105,6 +105,7 @@ This gets set the first time we sign in using a browser."
 (loop for k in
       '(
         ("b" browse-url-of-buffer)
+        ("s" emacspeak-webmarks-search)
         ("a" emacspeak-webmarks-add)
         ("l" emacspeak-webmarks-list)
         )
@@ -125,7 +126,7 @@ This gets set the first time we sign in using a browser."
    (emacspeak-webmarks-url
     emacspeak-webmarks-list-url-template)))
 ;;;###autoload
-(defun emacspeak-webmarks-find (query)
+(defun emacspeak-webmarks-search (query)
   "Search WebMarks."
   (interactive "sQuery: ")
   (declare (special emacspeak-webmarks-key))
@@ -135,15 +136,11 @@ This gets set the first time we sign in using a browser."
    (format "%s&q=%s"
            (emacspeak-webmarks-url emacspeak-webmarks-find-url-template)
            query)))
-(defun emacspeak-webmarks-mark-callback (&rest ignore)
-  "Called after we have added a WebMark."
-  (bury-buffer)
-  (emacspeak-webmarks-list))
 
 ;;;###autoload
 (defun emacspeak-webmarks-add (url title notes)
   "Add WebMark."
-  (interactive "sURL:\nsTitle:\nsNotes")  
+  (interactive "sURL:\nsTitle:\nsNotes")
   (declare (special emacspeak-webmarks-key))
   (unless emacspeak-webmarks-key
     (error "WebMarks key not set."))
@@ -156,6 +153,9 @@ This gets set the first time we sign in using a browser."
      (expand-file-name "xpath-filter.xsl" emacspeak-xslt-directory)
      (emacspeak-w3-xsl-params-from-xpath "//form[@name=\"add_bkmk_form\"]" base-url)
      (browse-url base-url))))
+
+
+
 
 ;;}}}
 (provide 'emacspeak-webmarks)
