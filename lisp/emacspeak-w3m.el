@@ -27,7 +27,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;}}}
 
@@ -61,16 +61,26 @@
 
 (defcustom emacspeak-w3m-speak-titles-on-switch nil
   "Speak the document title when switching between w3m buffers.
-If non-nil, switching between w3m buffers will speak the title 
+If non-nil, switching between w3m buffers will speak the title
 instead of the modeline."
-  :type 'boolean 
+  :type 'boolean
   :group 'emacspeak-w3m)
 
 ;;}}}
-;;{{{ keybindings 
+;;{{{ keybindings
 (declaim (special w3m-mode-map
                   emacspeak-prefix))
-(define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+(define-key w3m-mode-map emacspeak-prefix
+  'emacspeak-prefix-command)
+
+;;; This is *not* a bug: 'emacspeak-w3-post-process-hook
+is a generic setup/tear-down mechanism for emacspeak related
+;;; bits, and is not w3 specific
+;;; should be renamed to 'emacspeak-webutils-post-process-hook
+;;; at some point
+
+(add-hook 'w3m-mode-hook 'emacspeak-w3-speak-mode-hook)
+
 (define-key w3m-mode-map "x" 'emacspeak-w3m-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
@@ -174,7 +184,7 @@ instead of the modeline."
      (t (emacspeak-w3m-speak-cursor-anchor)))))
 
 ;;}}}
-;;{{{  forms 
+;;{{{  forms
 
 (defun emacspeak-w3m-speak-form-input (form name type width maxlength
                                             value)
@@ -335,9 +345,9 @@ instead of the modeline."
 (defadvice w3m-next-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (declare (special w3m-current-title))    
+    (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'select-object)
-    (if emacspeak-w3m-speak-titles-on-switch 
+    (if emacspeak-w3m-speak-titles-on-switch
         (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
@@ -346,7 +356,7 @@ instead of the modeline."
   (when (interactive-p)
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'select-object)
-    (if emacspeak-w3m-speak-titles-on-switch 
+    (if emacspeak-w3m-speak-titles-on-switch
         (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
@@ -355,7 +365,7 @@ instead of the modeline."
   (when (interactive-p)
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
-    (if emacspeak-w3m-speak-titles-on-switch 
+    (if emacspeak-w3m-speak-titles-on-switch
         (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
@@ -364,7 +374,7 @@ instead of the modeline."
   (when (interactive-p)
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
-    (if emacspeak-w3m-speak-titles-on-switch 
+    (if emacspeak-w3m-speak-titles-on-switch
         (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
@@ -853,7 +863,8 @@ With prefix argument makes this transformation persistent."
         (emacspeak-xslt-region
          emacspeak-w3-xsl-transform
          (point-min)
-         (point-max)))
+         (point-max)
+         emacspeak-w3-xsl-params))
     (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-w3-xsl-transform
@@ -869,7 +880,7 @@ With prefix argument makes this transformation persistent."
   (let ((filename
          (format "/tmp/%s.html"
                  (make-temp-name "w3m"))))
-    (write-region (point-min) 
+    (write-region (point-min)
                   (point-max)
                   filename)
     (w3m-find-file filename)
@@ -966,7 +977,7 @@ With prefix argument makes this transformation persistent."
           t)
 
 ;;}}}
-;;{{{ tvr: mapping font faces to personalities 
+;;{{{ tvr: mapping font faces to personalities
 (voice-setup-add-map
  '(
    (w3m-italic-face voice-animate)
@@ -998,13 +1009,13 @@ With prefix argument makes this transformation persistent."
 ;;}}}
 
 (provide 'emacspeak-w3m)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; emacspeak-w3m.el ends here
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
