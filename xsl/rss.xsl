@@ -7,6 +7,7 @@ View an RSS feed as clean HTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:smh="http://www.google.com/searchhistory"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
                 xmlns:rss="http://purl.org/rss/1.0/"
@@ -61,7 +62,9 @@ View an RSS feed as clean HTML
         <xsl:apply-templates select="rss:title|nsrss:title"/>
       </xsl:element>
 	  <br/>
-      <xsl:apply-templates select="rss:description|nsrss:description"/>
+      <xsl:apply-templates
+          select="rss:description|nsrss:description"/>
+      <em><xsl:value-of select="rss:pubDate"/></em>
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|nsrss:title|nsrss:description">
@@ -109,7 +112,8 @@ View an RSS feed as clean HTML
       </xsl:element>
 	  <br/>
       <xsl:apply-templates select="description"/>
-	  <br/>
+	  <em><xsl:value-of select="pubDate"/></em><br/>
+<p><xsl:value-of select="smh:bkmk_annotation"/></p>
       <xsl:apply-templates select="enclosure"/>
     </li>
   </xsl:template>
