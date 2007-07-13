@@ -604,7 +604,7 @@ HTML."
      (,@ body))))
 
 ;;}}}
-
+;;;###autoload
 (defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. "
@@ -612,6 +612,23 @@ Nil means no transform is used. "
            (file :tag "XSL")
            (const :tag "none" nil))
   :group 'emacspeak-w3)
+
+(defvar emacspeak-w3-xsl-params nil
+  "XSL params if any to pass to emacspeak-xslt-region.")
+(defsubst emacspeak-w3-xsl-params-from-xpath (path base)
+  "Return params suitable for passing to  emacspeak-xslt-region"
+  (list
+            (cons "path"
+                  (format "\"'%s'\""
+                          (shell-quote-argument path)))
+            (cons "locator"
+                  (format "'%s'"
+                          path))
+            (cons "base"
+                  (format "\"'%s'\""
+                          base))))
+
+
 (defcustom emacspeak-w3-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
@@ -634,7 +651,8 @@ HTML."
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
-     (point-max))))
+     (point-max)
+     emacspeak-w3-xsl-params)))
 
 (declaim (special emacspeak-xslt-directory))
 ;;;###autoload
