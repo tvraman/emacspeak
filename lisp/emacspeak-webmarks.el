@@ -87,7 +87,7 @@ This gets set the first time we sign in using a browser."
   "URL template for  bookmark searches.")
 
 (defvar emacspeak-webmarks-add-url-template
-  "http://www.google.com/bookmarks/mark?op=add&btnA=Add+bookmark"
+  "http://www.google.com/bookmarks/mark?op=edit"
   "URL template for adding WebMarks.")
 
   
@@ -127,18 +127,31 @@ This gets set the first time we sign in using a browser."
   (bury-buffer)
   (emacspeak-webmarks-list))
 
+
+
+
 ;;;###autoload
-(defun emacspeak-webmarks-add (title url notes)
+(defun emacspeak-webmarks-add (url title notes)
   "Add WebMark."
-  (interactive "sTitle:\nsURL:\nsNotes")  (declare (special emacspeak-webmarks-key))
+  (interactive "sURL:\nsTitle:\nsNotes")  
+  (declare (special emacspeak-webmarks-key
+                    emacspeak-w3-xsl-p emacspeak-w3-xsl-transform
+                    emacspeak-w3-xsl-params))
   (unless emacspeak-webmarks-key
     (error "WebMarks key not set."))
-  (browse-url
-   (format "%s&title=%s&bkmk=%s&annotation=%s"
-           (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
-           (emacspeak-url-encode title)
-           (emacspeak-url-encode url)
-           (emacspeak-url-encode notes))))
+  (let* ((base-url (format "%s&title=%s&bkmk=%s&annotation=%s"
+                           (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
+                           (emacspeak-url-encode title)
+                           (emacspeak-url-encode url)
+                           (emacspeak-url-encode notes)))
+         (emacspeak-w3-xsl-p t)
+         (emacspeak-w3-xsl-transform
+          (expand-file-name "xpath-filter.xsl"
+                            emacspeak-xslt-directory))
+         (emacspeak-w3-xsl-params
+          (emacspeak-w3-xsl-params-from-xpath "//form[@name=\"add_bkmk_form\""
+                                              base-url)))
+    (browse-url base-url)))
 
 ;;}}}
 (provide 'emacspeak-webmarks)
