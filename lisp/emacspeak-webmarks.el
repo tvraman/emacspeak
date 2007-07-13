@@ -89,8 +89,11 @@ This gets set the first time we sign in using a browser."
   "http://www.google.com/bookmarks/mark?op=edit"
   "URL template for adding WebMarks.")
 
+(defvar emacspeak-webmarks-history-search-url-template
+  "http://www.google.com/history/find?hl=en&btnSMH=Search+History&output=rss"
+  "URL template for search history.")
 
-(defsubst emacspeak-webmarks-url (template)
+(defun emacspeak-webmarks-url (template)
   "Return appropriately filled out url."
   (declare (special emacspeak-webmarks-key))
   (concat template
@@ -105,7 +108,7 @@ This gets set the first time we sign in using a browser."
 (loop for k in
       '(
         ("b" browse-url-of-buffer)
-        ("s" emacspeak-webmarks-search)
+        ("s" emacspeak-webmarks-search)("h" emacspeak-webmarks-history)
         ("a" emacspeak-webmarks-add)
         ("l" emacspeak-webmarks-list)
         )
@@ -135,6 +138,18 @@ This gets set the first time we sign in using a browser."
   (emacspeak-webutils-rss-display
    (format "%s&q=%s"
            (emacspeak-webmarks-url emacspeak-webmarks-find-url-template)
+           query)))
+
+;;;###autoload
+(defun emacspeak-webmarks-history (query)
+  "Search search history."
+  (interactive "sQuery: ")
+  (declare (special emacspeak-webmarks-key))
+  (unless emacspeak-webmarks-key
+    (error "WebMarks key not set."))
+  (emacspeak-webutils-rss-display
+   (format "%s&q=%s"
+           (emacspeak-webmarks-url emacspeak-webmarks-history-search-url-template)
            query)))
 
 ;;;###autoload
