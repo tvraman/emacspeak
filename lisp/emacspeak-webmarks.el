@@ -42,7 +42,6 @@
 
 ;;; Commentary:
 
-
 ;;; http://www.google.com/bookmarks provides a simple bookmark
 ;;; facility
 ;;; emacspeak-webmarks provides direct minibuffer-level access to
@@ -127,31 +126,22 @@ This gets set the first time we sign in using a browser."
   (bury-buffer)
   (emacspeak-webmarks-list))
 
-
-
-
 ;;;###autoload
 (defun emacspeak-webmarks-add (url title notes)
   "Add WebMark."
   (interactive "sURL:\nsTitle:\nsNotes")  
-  (declare (special emacspeak-webmarks-key
-                    emacspeak-w3-xsl-p emacspeak-w3-xsl-transform
-                    emacspeak-w3-xsl-params))
+  (declare (special emacspeak-webmarks-key))
   (unless emacspeak-webmarks-key
     (error "WebMarks key not set."))
-  (let* ((base-url (format "%s&title=%s&bkmk=%s&annotation=%s"
-                           (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
-                           (emacspeak-url-encode title)
-                           (emacspeak-url-encode url)
-                           (emacspeak-url-encode notes)))
-         (emacspeak-w3-xsl-p t)
-         (emacspeak-w3-xsl-transform
-          (expand-file-name "xpath-filter.xsl"
-                            emacspeak-xslt-directory))
-         (emacspeak-w3-xsl-params
-          (emacspeak-w3-xsl-params-from-xpath "//form[@name=\"add_bkmk_form\""
-                                              base-url)))
-    (browse-url base-url)))
+  (let ((base-url (format "%s&title=%s&bkmk=%s&annotation=%s"
+                          (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
+                          (emacspeak-url-encode title)
+                          (emacspeak-url-encode url)
+                          (emacspeak-url-encode notes))))
+    (emacspeak-w3-with-xsl-environment
+     (expand-file-name "xpath-filter.xsl" emacspeak-xslt-directory)
+     (emacspeak-w3-xsl-params-from-xpath "//form[@name=\"add_bkmk_form\"]" base-url)
+     (browse-url base-url))))
 
 ;;}}}
 (provide 'emacspeak-webmarks)
