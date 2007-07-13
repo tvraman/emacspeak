@@ -98,6 +98,20 @@ This gets set the first time we sign in using a browser."
                   emacspeak-webmarks-key)))
 
 ;;}}}
+;;{{{ keymap:
+
+(define-prefix-command 'emacspeak-webmarks-prefix)
+
+(loop for k in
+      '(
+        ("b" browse-url-of-buffer)
+        ("a" emacspeak-webmarks-add)
+        ("l" emacspeak-webmarks-list)
+        )
+      do
+      (emacspeak-keymap-update  emacspeak-webmarks-prefix k))
+
+;;}}}
 ;;{{{ Interactive commands:
 
 ;;;###autoload
