@@ -118,7 +118,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
                        (imenu--make-index-alist)
                        (goto-char (point-min))
                        (emacspeak-speak-mode-line)))
-        (emacspeak-w3-without-xsl
+        (emacspeak-webutils-without-xsl
          (browse-url "http://127.0.0.1:8888/")))
        (t (browse-url emacspeak-amphetadesk-uri))))))
 

@@ -62,7 +62,7 @@
 (require 'url-parse)
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
-
+(require 'emacspeak-w3)
 ;;}}}
 ;;{{{ Customizations
 
@@ -138,7 +138,7 @@ This gets set the first time we sign in using a browser."
                           (emacspeak-url-encode title)
                           (emacspeak-url-encode url)
                           (emacspeak-url-encode notes))))
-    (emacspeak-w3-with-xsl-environment
+    (emacspeak-webutils-with-xsl-environment
      (expand-file-name "xpath-filter.xsl" emacspeak-xslt-directory)
      (emacspeak-w3-xsl-params-from-xpath "//form[@name=\"add_bkmk_form\"]" base-url)
      (browse-url base-url))))

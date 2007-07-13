@@ -122,7 +122,7 @@ navigate this document."
   "Browse  Emacspeak productivity tips."
   (interactive)
   (declare (special emacspeak-etc-directory))
-  (emacspeak-w3-without-xsl
+  (emacspeak-webutils-without-xsl
    (browse-url
     (format "file:///%stips.html"
             emacspeak-etc-directory)))
@@ -2063,7 +2063,7 @@ visiting the ppt file."
   (interactive)
   (declare (special emacspeak-wizards-ppthtml-program
                     emacspeak-wizards-ppt-preview-buffer))
-  (emacspeak-w3-without-xsl
+  (emacspeak-webutils-without-xsl
    (cond
     ((null emacspeak-wizards-ppthtml-program)
      (message "Not using Emacspeak PPTHTML wizard."))

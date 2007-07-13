@@ -55,6 +55,59 @@
 (require 'emacspeak-websearch)
 
 ;;}}}
+;;{{{ helper macros:
+
+;;; tVR: moving these from emacspeak-w3 to this module.
+
+(defmacro emacspeak-webutils-without-xsl (&rest body)
+  "Execute body with XSL turned off."
+  (`
+   (progn
+     (declare (special emacspeak-w3-xsl-p))
+     (when emacspeak-w3-xsl-p
+       (setq emacspeak-w3-xsl-p nil)
+       (add-hook 'emacspeak-w3-post-process-hook
+                 #'(lambda ()
+                     (declare (special emacspeak-w3-xsl-p))
+                     (setq emacspeak-w3-xsl-p t))))
+     (,@ body))))
+
+(defmacro emacspeak-webutils-with-xsl (&rest body)
+  "Execute body with XSL turned on."
+  (`
+   (progn
+     (declare (special emacspeak-w3-xsl-p))
+     (unless emacspeak-w3-xsl-p
+       (setq emacspeak-w3-xsl-p t)
+       (add-hook 'emacspeak-w3-post-process-hook
+                 #'(lambda ()
+                     (declare (special emacspeak-w3-xsl-p))
+                     (setq emacspeak-w3-xsl-p nil))))
+     (,@ body))))
+
+(defmacro emacspeak-webutils-with-xsl-environment (style params &rest body)
+  "Execute body with XSL turned on
+and xsl environment specified by style and params."
+  `(let ((save-flag emacspeak-w3-xsl-p)
+         (save-style emacspeak-w3-xsl-transform)
+         (save-params emacspeak-w3-xsl-params))
+     (setq emacspeak-w3-xsl-p t
+           emacspeak-w3-xsl-transform ,style
+           emacspeak-w3-xsl-params ,params)
+     (add-hook
+      'emacspeak-w3-post-process-hook
+      (eval
+       `(function
+         (lambda ()
+           (declare (special emacspeak-w3-xsl-p
+                             emacspeak-w3-xsl-transform
+                             emacspeak-w3-xsl-params))
+           (setq emacspeak-w3-xsl-p ,save-flag
+                 emacspeak-w3-xsl-transform ,save-style
+                 emacspeak-w3-xsl-params ,save-params)))))
+     ,@body))
+
+;;}}}
 ;;{{{ variables
 (defvar emacspeak-webutils-document-title nil
   "Function variable returning the current document title.")

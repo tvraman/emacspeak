@@ -634,7 +634,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (emacspeak-speak-line))
  "Search using Google Code Search."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl (browse-url url))))
+     (emacspeak-webutils-without-xsl (browse-url url))))
 
 ;;}}}
 ;;{{{ google music:
@@ -648,7 +648,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (emacspeak-speak-line))
  "Music search on Google."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 ;;}}}
@@ -768,7 +768,7 @@ Here are some examples:
      (emacspeak-speak-line))
  "Google Image Search"
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 ;;}}}
@@ -819,7 +819,7 @@ from English to German.")
      (emacspeak-speak-line))
  "Dictionary Lookup"
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 ;;}}}
@@ -920,7 +920,7 @@ from English to German.")
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Google News Overview."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 (emacspeak-url-template-define
@@ -944,7 +944,7 @@ from English to German.")
      (emacspeak-speak-line))
  "Search Google news."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 (emacspeak-url-template-define
@@ -1011,7 +1011,7 @@ from English to German.")
      (emacspeak-speak-line))
  "Search Google Archive News."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
+     (emacspeak-webutils-without-xsl
       (browse-url url))))
 
 ;;}}}
