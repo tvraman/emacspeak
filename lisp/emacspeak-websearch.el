@@ -224,6 +224,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;}}}
 ;;{{{ websearch utilities
+
 ;;{{{ display form
 
 (emacspeak-websearch-set-searcher 'display-form
@@ -2073,6 +2074,20 @@ Optional interactive prefix arg results in prompting for a search term."
       (setq url
             (format emacspeak-usenet-feeds-uri group))
       (emacspeak-rss-display url 'speak)))))
+
+;;}}}
+;;{{{ YouTube
+
+ ; Use C-y fo rYouTube
+(emacspeak-websearch-set-key 25 'youtube)
+(emacspeak-websearch-set-searcher  'youtube
+                                   'emacspeak-websearch-youtube)
+
+(defun emacspeak-websearch-youtube(query)
+  "Search YouTube"
+  (interactive"sYouTube: ")
+  (gtube-video-by-tag query "1" "20"))
+
 
 ;;}}}
 
