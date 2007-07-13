@@ -210,7 +210,7 @@
 
 (add-hook
  'w3-mode-hook
-  'emacspeak-w3-setup-webutils)
+ 'emacspeak-w3-setup-webutils)
 
 ;;}}}
 ;;{{{  dump using lynx
@@ -313,7 +313,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current                     ;move to parsed item if needed
+    (unless current                ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
@@ -603,6 +603,28 @@ HTML."
                      (setq emacspeak-w3-xsl-p nil))))
      (,@ body))))
 
+(defmacro emacspeak-w3-with-xsl-environment (style params &rest body)
+  "Execute body with XSL turned on
+and xsl environment specified by style and params."
+  `(let ((save-flag emacspeak-w3-xsl-p)
+         (save-style emacspeak-w3-xsl-transform)
+         (save-params emacspeak-w3-xsl-params))
+     (setq emacspeak-w3-xsl-p t
+           emacspeak-w3-xsl-transform ,style
+           emacspeak-w3-xsl-params ,params)
+     (add-hook
+      'emacspeak-w3-post-process-hook
+      (eval
+       `(function
+         (lambda ()
+           (declare (special emacspeak-w3-xsl-p
+                             emacspeak-w3-xsl-transform
+                             emacspeak-w3-xsl-params))
+           (setq emacspeak-w3-xsl-p ,save-flag
+                 emacspeak-w3-xsl-transform ,save-style
+                 emacspeak-w3-xsl-params ,save-params)))))
+     ,@body))
+
 ;;}}}
 ;;;###autoload
 (defcustom emacspeak-w3-xsl-transform nil
@@ -618,16 +640,15 @@ Nil means no transform is used. "
 (defsubst emacspeak-w3-xsl-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
-            (cons "path"
-                  (format "\"'%s'\""
-                          (shell-quote-argument path)))
-            (cons "locator"
-                  (format "'%s'"
-                          path))
-            (cons "base"
-                  (format "\"'%s'\""
-                          base))))
-
+   (cons "path"
+         (format "\"'%s'\""
+                 (shell-quote-argument path)))
+   (cons "locator"
+         (format "'%s'"
+                 path))
+   (cons "base"
+         (format "\"'%s'\""
+                 base))))
 
 (defcustom emacspeak-w3-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
