@@ -1073,7 +1073,7 @@ I'm Feeling Lucky button on Google."
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (let ((emacspeak-w3-tidy-html nil))
-  (emacspeak-w3-without-xsl
+  (emacspeak-webutils-without-xsl
    (browse-url
     (concat emacspeak-websearch-google-uri
             (emacspeak-url-encode query)
@@ -1195,7 +1195,7 @@ Optional interactive  prefix arg local-flag prompts for local
   (declare (special emacspeak-websearch-froogle-uri))
   (let ((local  (when local-flag
                   (read-from-minibuffer "Search near location:"))))
-    (emacspeak-w3-without-xsl
+    (emacspeak-webutils-without-xsl
      (browse-url
       (format emacspeak-websearch-froogle-uri
               (concat
@@ -2064,7 +2064,7 @@ Optional interactive prefix arg results in prompting for a search term."
               (read-from-minibuffer
                (format "Search %s for:" group)))
              emacspeak-websearch-google-number-of-results))
-      (emacspeak-w3-without-xsl
+      (emacspeak-webutils-without-xsl
        (browse-url  url)
        (emacspeak-websearch-post-process
         "Sort by"

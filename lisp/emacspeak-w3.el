@@ -575,57 +575,6 @@ HTML."
   :type 'boolean
   :group 'emacspeak-w3)
 
-;;{{{ helper macros:
-
-(defmacro emacspeak-w3-without-xsl (&rest body)
-  "Execute body with XSL turned off."
-  (`
-   (progn
-     (declare (special emacspeak-w3-xsl-p))
-     (when emacspeak-w3-xsl-p
-       (setq emacspeak-w3-xsl-p nil)
-       (add-hook 'emacspeak-w3-post-process-hook
-                 #'(lambda ()
-                     (declare (special emacspeak-w3-xsl-p))
-                     (setq emacspeak-w3-xsl-p t))))
-     (,@ body))))
-
-(defmacro emacspeak-w3-with-xsl (&rest body)
-  "Execute body with XSL turned on."
-  (`
-   (progn
-     (declare (special emacspeak-w3-xsl-p))
-     (unless emacspeak-w3-xsl-p
-       (setq emacspeak-w3-xsl-p t)
-       (add-hook 'emacspeak-w3-post-process-hook
-                 #'(lambda ()
-                     (declare (special emacspeak-w3-xsl-p))
-                     (setq emacspeak-w3-xsl-p nil))))
-     (,@ body))))
-
-(defmacro emacspeak-w3-with-xsl-environment (style params &rest body)
-  "Execute body with XSL turned on
-and xsl environment specified by style and params."
-  `(let ((save-flag emacspeak-w3-xsl-p)
-         (save-style emacspeak-w3-xsl-transform)
-         (save-params emacspeak-w3-xsl-params))
-     (setq emacspeak-w3-xsl-p t
-           emacspeak-w3-xsl-transform ,style
-           emacspeak-w3-xsl-params ,params)
-     (add-hook
-      'emacspeak-w3-post-process-hook
-      (eval
-       `(function
-         (lambda ()
-           (declare (special emacspeak-w3-xsl-p
-                             emacspeak-w3-xsl-transform
-                             emacspeak-w3-xsl-params))
-           (setq emacspeak-w3-xsl-p ,save-flag
-                 emacspeak-w3-xsl-transform ,save-style
-                 emacspeak-w3-xsl-params ,save-params)))))
-     ,@body))
-
-;;}}}
 ;;;###autoload
 (defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
@@ -1644,7 +1593,7 @@ used as well."
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-w3-unescape-charent))
-      (emacspeak-w3-without-xsl
+      (emacspeak-webutils-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
