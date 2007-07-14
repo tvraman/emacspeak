@@ -124,14 +124,13 @@
     (save-excursion
       (set-buffer (get-buffer-create emacspeak-moz-output-buffer))
       (erase-buffer)
-      (setq buffer-undo-list t))
-    (comint-send-string (inferior-moz-process) exp)
-    (save-excursion
-      (set-buffer emacspeak-moz-output-buffer)
-      (accept-process-output (inferior-moz-process))
-      (goto-char (point-max))
-      (delete-region (line-beginning-position)
-                     (line-end-position))
+      (setq buffer-undo-list t)
+      (comint-send-string (inferior-moz-process) exp)
+      (while (accept-process-output (inferior-moz-process) 0.5)
+        (goto-char (point-max)))
+      (goto-char (point-min))
+      (flush-lines
+       (format "^%s>$" moz-repl-name))
       (when (eq browse-url-browser-function
                 'browse-url-w3)
         (add-hook 'emacspeak-w3-post-process-hook
@@ -247,7 +246,7 @@ title)\n"
 
 ;;;###autoload
 (defun emacspeak-moz-browse-current ()
-  "Browse curent node."
+  "Browse current node."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    " repl.adom.html()"))
