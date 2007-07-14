@@ -37,21 +37,21 @@ XSL rules for handling YouTube responses
     <h1><xsl:value-of select="title"/> </h1>
     
     <dl>
-<dt>Description</dt>
-    <dd><p>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:value-of  select="url"/>
-        </xsl:attribute>
-        Watch</a>:
-    <xsl:value-of select="description"/></p>
-    </dd>
-    <dt>Tags</dt>
-    <dd>
-    <p><xsl:value-of select="tags"/></p>
-    </dd>
+      <dt>Description</dt>
+      <dd><p>
+        <a>
+          <xsl:attribute name="href">
+            <xsl:value-of  select="url"/>
+          </xsl:attribute>
+          Watch</a>:
+          <xsl:value-of select="description"/></p>
+      </dd>
+      <dt>Tags</dt>
+      <dd>
+        <p><xsl:value-of select="tags"/></p>
+      </dd>
     </dl>
-<table>
+    <table>
       <tr>
         <td>Length</td>
         <td><xsl:value-of select="length_seconds"/>S</td>
@@ -75,12 +75,18 @@ XSL rules for handling YouTube responses
       <tr>
         <td>Uploaded</td>
         <td>
-<xsl:value-of select=
-"date:add( '1970-01-01', date:duration( ./upload_time))"/>
+          <xsl:value-of select=
+                        "date:add( '1970-01-01', date:duration( ./upload_time))"/>
         </td>
         <td>ID</td>
         <td> <xsl:value-of select="id"/></td>
       </tr>
     </table>
+  </xsl:template>
+  <xsl:template match="user_profile">
+    <xsl:for-each select="node()">
+      <xsl:value-of select="name(.)"/>: <xsl:value-of
+      select="."/><br/>
+    </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>
