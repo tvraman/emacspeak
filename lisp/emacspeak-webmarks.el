@@ -156,7 +156,23 @@ Use form bookmark-add.html, and use the resulting zx param as key"))
 ;;;###autoload
 (defun emacspeak-webmarks-add (url title notes)
   "Add WebMark."
-  (interactive "sURL:\nsTitle:\nsNotes")
+  (interactive
+   (list
+    (read-from-minibuffer "URL: "
+                          (if (or (eq major-mode 'w3-mode)
+                                  (eq major-mode 'w3m-mode))
+                              (funcall
+                               emacspeak-webutils-url-at-point)
+                            (browse-url-url-at-point)))
+    (read-from-minibuffer "Title: "
+                          (if (or (eq major-mode 'w3-mode)
+                                  (eq major-mode 'w3m-mode))
+                              (funcall
+                               emacspeak-webutils-document-title)
+                            (buffer-substring
+                             (line-beginning-position)
+                             (line-end-position))))
+    (read-from-minibuffer "Notes: ")))
   (declare (special emacspeak-webmarks-key))
   (unless emacspeak-webmarks-key
     (error "WebMarks key not set."))
