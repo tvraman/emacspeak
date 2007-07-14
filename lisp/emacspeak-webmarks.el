@@ -146,7 +146,8 @@ This gets set the first time we sign in using a browser."
   (interactive "sQuery: ")
   (declare (special emacspeak-webmarks-key))
   (unless emacspeak-webmarks-key
-    (error "WebMarks key not set."))
+    (error "WebMarks key not set.
+Use form bookmark-add.html, and use the resulting zx param as key"))
   (emacspeak-webutils-rss-display
    (format "%s&q=%s"
            (emacspeak-webmarks-url emacspeak-webmarks-history-search-url-template)
