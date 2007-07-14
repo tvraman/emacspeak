@@ -164,9 +164,9 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-   (gtube-display
-    (gtube-rest-resource "youtube.users.get_profile"
-                         `(("user" ,user)))))
+  (gtube-display
+   (gtube-rest-resource "youtube.users.get_profile"
+                        `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-user-favorites (&optional user)
@@ -177,9 +177,9 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-   (gtube-display
-    (gtube-rest-resource "youtube.users.list_favorite_videos"
-                         `(("user" ,user)))))
+  (gtube-display
+   (gtube-rest-resource "youtube.users.list_favorite_videos"
+                        `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-user-friends (&optional user)
@@ -190,9 +190,9 @@ Arguments is a list of name/value pairs."
                           gtube-user-name)))
   (declare (special gtube-user-name))
   (or user (setq user gtube-user-name))
-   (gtube-display
-    (gtube-rest-resource "youtube.users.list_friends"
-                         `(("user" ,user)))))
+  (gtube-display
+   (gtube-rest-resource "youtube.users.list_friends"
+                        `(("user" ,user)))))
 
 ;;;###autoload
 (defun gtube-video-details (video-id)
@@ -201,82 +201,112 @@ Arguments is a list of name/value pairs."
    (list
     (read-from-minibuffer "Video: "
                           (word-at-point))))
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.get_details"
-                          `(("video_id" ,video-id)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.get_details"
+                         `(("video_id" ,video-id)))))
 
 ;;;###autoload
 (defun gtube-video-by-tag (tag &optional page count)
   "Retrieve content having specified tag.
 optional args page and count specify position in result-set and
   number of results to retrieve."
-  (interactive "sTag:\nsPage:\nsCount:")
+  (interactive
+   (list
+    (read-from-minibuffer "Tag: "
+                          (word-at-point))
+    (read-from-minibuffer "Page: "
+                          "1")
+    (read-from-minibuffer "Count: "
+                          "25")))
   (or page (setq page "1"))
   (or count (setq count "10"))
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_by_tag"
-                          `(("tag" ,tag)
-                            ("page" ,page)
-                            ("per_page" ,count)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_by_tag"
+                         `(("tag" ,tag)
+                           ("page" ,page)
+                           ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-by-category-and-tag (category tag &optional page count)
   "Retrieve content from specified category having specified tag.
 optional args page and count specify position in result-set and
   number of results to retrieve."
-  (interactive "sCategory:\nsTag:\nsPage:\nsCount:")
+  (interactive
+   (list
+    (read-from-minibuffer "Category: "
+                          (word-at-point))
+    (read-from-minibuffer "Tag: "
+                          (word-at-point))
+    (read-from-minibuffer "Page: "
+                          "1")
+    (read-from-minibuffer "Count: "
+                          "25")))
   (or page (setq page "1"))
   (or count (setq count "10"))
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_by_tag"
-                          `(("tag" ,tag)
-                            ("category_id" ,category)
-                            ("page" ,page)
-                            ("per_page" ,count)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_by_tag"
+                         `(("tag" ,tag)
+                           ("category_id" ,category)
+                           ("page" ,page)
+                           ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-playlist (playlist-id &optional page count)
   "Retrieve content in specified playlist.
 optional args page and count specify position in result-set and
   number of results to retrieve."
-  (interactive "sPlayList Id:\nsPage:\nsCount:")
+  (interactive
+   (list
+    (read-from-minibuffer "PlayList: "
+                          (word-at-point))
+    (read-from-minibuffer "Page: "
+                          "1")
+    (read-from-minibuffer "Count: "
+                          "25")))
   (or page (setq page "1"))
   (or count (setq count "10"))
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_by_playlist"
-                          `(("id" ,playlist-id)
-                            ("page" ,page)
-                            ("per_page" ,count)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_by_playlist"
+                         `(("id" ,playlist-id)
+                           ("page" ,page)
+                           ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-popular (time-range )
   "Retrieve popular content for specified time-range.
   Time-range is one of day, week, month, or all."
   (interactive "sTime Range: ")
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_popular"
-                          `(("time_range" ,time-range)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_popular"
+                         `(("time_range" ,time-range)))))
 
 ;;;###autoload
 (defun gtube-video-by-user (user &optional page count)
   "Retrieve content from specified user.
 optional args page and count specify position in result-set and
   number of results to retrieve."
-  (interactive "sUser:\nsPage:\nsCount:")
+  (interactive
+   (list
+    (read-from-minibuffer "User: "
+                          (word-at-point))
+    (read-from-minibuffer "Page: "
+                          "1")
+    (read-from-minibuffer "Count: "
+                          "25")))
   (or page (setq page "1"))
   (or count (setq count "10"))
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_by_user"
-                          `(("user" ,user)
-                            ("page" ,page)
-                            ("per_page" ,count)))))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_by_user"
+                         `(("user" ,user)
+                           ("page" ,page)
+                           ("per_page" ,count)))))
 
 ;;;###autoload
 (defun gtube-video-featured ( )
   "Retrieved featured video list."
   (interactive)
-   (gtube-display
-    (gtube-rest-resource  "youtube.videos.list_featured")))
+  (gtube-display
+   (gtube-rest-resource  "youtube.videos.list_featured")))
 
 ;;}}}
 ;;{{{ tube Authenticate
