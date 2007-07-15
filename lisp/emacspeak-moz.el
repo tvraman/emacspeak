@@ -67,8 +67,8 @@
 (loop for k in
       '(
         (" " emacspeak-moz-browse-current)
-        ([up] emacspeak-moz-visit-previous-and-browse)
-        ([down] emacspeak-moz-visit-next-and-browse)
+        ("V" emacspeak-moz-visit-previous-and-browse)
+        ("v" emacspeak-moz-visit-next-and-browse)
         ("b" emacspeak-moz-eval-expression-and-browse)
         ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
@@ -85,6 +85,10 @@
         ("u" emacspeak-moz-goto-url-at-point)
         ("s" emacspeak-moz-search)
         ("r" emacspeak-moz-refresh)
+        ([up] emacspeak-moz-up)
+        ([down] emacspeak-moz-down)
+([left] emacspeak-moz-left)
+([right] emacspeak-moz-right)
         )
       do
       (emacspeak-keymap-update  emacspeak-moz-keymap k))
@@ -131,7 +135,7 @@
         (goto-char (point-max)))
       (goto-char (point-min))
       (flush-lines
-       (format "^%s>$" moz-repl-name))
+       (format "^%s> *$" moz-repl-name))
       (when (eq browse-url-browser-function
                 'browse-url-w3)
         (add-hook 'emacspeak-w3-post-process-hook
@@ -237,6 +241,36 @@ title)\n"
    "repl.adom.visit(); repl.adom.html()"))
 
 ;;;###autoload
+(defun emacspeak-moz-up ()
+  "Go Up a level and browse."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.up(); repl.adom.html()"))
+
+;;;###autoload
+(defun emacspeak-moz-down ()
+  "Go Down a level and browse."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.down(); repl.adom.html()"))
+
+
+;;;###autoload
+(defun emacspeak-moz-left ()
+  "Go left and browse."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.previous(); repl.adom.html()"))
+
+;;;###autoload
+(defun emacspeak-moz-right ()
+  "Go right and browse."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.right(); repl.adom.html()"))
+
+
+;;;###autoload
 (defun emacspeak-moz-filter-and-browse(xpath)
   "Browse document filtered by XPath filter."
   (interactive "sXPath Filter: ")
@@ -251,6 +285,7 @@ title)\n"
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    " repl.adom.html()"))
+
 ;;;###autoload
 (defun emacspeak-moz-visit-previous-and-browse ()
   "Asks visitor to go  backward and browses the result."
@@ -267,6 +302,13 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
+
+;;;###autoload
+(defun emacspeak-moz-up ()
+  "Go Up a level and browse."
+  (interactive)
+  (emacspeak-moz-eval-expression-and-browse
+   "repl.adom.up(); repl.adom.html()"))
 
 ;;}}}
 ;;{{{ setup minor mode hook to load in our files.
