@@ -267,7 +267,7 @@ title)\n"
   "Go right and browse."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.right(); repl.adom.html()"))
+   "repl.adom.next(); repl.adom.html()"))
 
 
 ;;;###autoload
