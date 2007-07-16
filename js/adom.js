@@ -324,13 +324,12 @@ ADom.prototype.view = function () {
  * @return {ADom}
  */
 repl.updateADom = function ()  {
-    if (repl.adom == undefined || content.document.adom == undefined) {
+    if (content.document.adom == undefined) {
+        // constructor caches adom in content.document
         repl.adom = new ADom(content.document);
-        return repl.adom;
     }
     if (repl.adom.document_ != content.document) {
         repl.adom = content.document.adom;
-        return repl.adom;
     }
     return repl.adom;
 };
