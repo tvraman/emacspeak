@@ -19,7 +19,7 @@ Transform KML to speakable XHTML
       <head>
         <title><xsl:value-of select="kml:Document/kml:name"/></title>
       </head>
-      <xsl:apply-templates select="kml:Document|kml:Folder"/>
+      <xsl:apply-templates select="kml:Document|kml:Folder|kml:Placemark"/>
     </html>
   </xsl:template>
   <xsl:template match="kml:Document|kml:Folder">
@@ -39,6 +39,7 @@ Transform KML to speakable XHTML
       <em><xsl:value-of select="kml:name"/></em>
       <xsl:value-of select="kml:description"
                     disable-output-escaping="yes"/>
+<em><xsl:value-of select="kml:Point/kml:coordinates"/></em>
 <blockquote>
       <xsl:value-of select="kml:address"
                     disable-output-escaping="yes"/>

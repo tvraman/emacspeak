@@ -1226,7 +1226,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://froogle.google.com/frghp?hl=en&ie=UTF-8&q="
   "URI for Google Froogle.")
 (defvar emacspeak-websearch-google-html-maps-uri
-  "http://maps.google.com/?output=html&hl=en&ie=UTF-8&q="
+  "http://maps.google.com/?output=html&hl=en&ie=UTF-8&f=q&q="
   "URI for Google Maps using plain HTML.")
 
 (defvar emacspeak-websearch-google-scholar-uri
