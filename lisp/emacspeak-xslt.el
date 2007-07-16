@@ -163,7 +163,7 @@ part of the libxslt package."
                        " "))))
     (if emacspeak-xslt-use-wget-to-download
         (setq command (format
-                       "wget -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
+                       "wget -U mozilla -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
                        url
                        emacspeak-xslt-program
                        (or parameters "")
