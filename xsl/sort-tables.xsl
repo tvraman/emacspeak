@@ -43,6 +43,7 @@ relevant tables bubble to the top.
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <xsl:include href="auto-rss-discover.xsl"/>
+  <xsl:include href="auto-atom-discover.xsl"/>
   <!-- { html body  -->
   <!-- handle images -->
   <xsl:template match="img">
