@@ -38,8 +38,8 @@ Transform KML to speakable XHTML
     <li>
       <em><xsl:value-of select="kml:name"/></em>
       <xsl:value-of select="kml:description"
-                    disable-output-escaping="yes"/>
-<em><xsl:value-of select="kml:Point/kml:coordinates"/></em>
+                    disable-output-escaping="yes"/><br/>
+Coordinates: <em><xsl:value-of select="kml:Point/kml:coordinates"/></em><br/>
 <blockquote>
       <xsl:value-of select="kml:address"
                     disable-output-escaping="yes"/>
