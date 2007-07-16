@@ -88,9 +88,9 @@
 (defmacro emacspeak-webutils-with-xsl-environment (style params &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style and params."
-  `(let ((save-flag emacspeak-w3-xsl-p)
-         (save-style emacspeak-w3-xsl-transform)
-         (save-params emacspeak-w3-xsl-params))
+  `(let ((save-flag ,emacspeak-w3-xsl-p)
+         (save-style ,emacspeak-w3-xsl-transform)
+         (save-params ,emacspeak-w3-xsl-params))
      (setq emacspeak-w3-xsl-p t
            emacspeak-w3-xsl-transform ,style
            emacspeak-w3-xsl-params ,params)
@@ -302,7 +302,7 @@ instances."
 ;;}}}
 ;;{{{ display authenticated feeds:
 
-;;; these commands use url to pull ATOM/RSS feeds 
+;;; these commands use url to pull ATOM/RSS feeds
 ;;; before handing it off to xsltproc for conversion to xhtml
 
 (defun emacspeak-webutils-feed-display(feed-url style)

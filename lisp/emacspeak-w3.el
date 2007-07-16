@@ -297,7 +297,7 @@ document is displayed in a separate buffer. "
            (if emacspeak-w3-table-draw-border "" "not")))
 
 ;;}}}
-;;{{{ Experimental --element navigation
+;;{{{ element navigation
 
 ;;;This should eventually be done via a DOM API
 
@@ -407,6 +407,7 @@ implemented. ")))
       (setq end (point))
       (emacspeak-speak-region start end )
       (emacspeak-auditory-icon 'select-object))))
+
 ;;}}}
 ;;{{{ experimental --unravel javascript urls
 (defvar emacspeak-w3-javascript-cleanup-buffer " *javascript-cleanup*"
@@ -565,10 +566,52 @@ even if one is already defined."
     (message "Could not find submit button.")))
 
 ;;}}}
+;;{{{ Browse XML files:
+
+(defun emacspeak-w3-browse-xml(location &optional prompt-style)
+  "Browse XML+CSS using W3.
+With interactive prefix arg, also prompt for an  XSL stylesheet.
+XML files can be rendered by an XML browser that is CSS aware.
+Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
+good enough job for many things, especially the XML files from
+bookshare.org.
+Setting W3 up at present to display any and all XML files at
+present would be a bug, since W3 is an HTML browser --not a true
+XML browser.
+This command opens a specified XML file under the covers and has
+W3 render it using CSS as available. The result on bookshare.org
+XML files is quite usable:
+
+0) You get Aural CSS support.
+
+1) You get a navigable buffer using imenu if you have w3-imenu
+loaded. "
+  (interactive
+   (list
+    (read-file-name "XML File: ")
+    current-prefix-arg))
+  (declare (special emacspeak-xslt-options))
+  (let ((buffer  (get-buffer-create " *xml work * "))
+        (emacspeak-xslt-options ""))
+    (save-excursion
+      (set-buffer buffer)
+      (kill-all-local-variables)
+      (erase-buffer)
+      (insert-file-contents location)
+      (when prompt-style
+        (let ((xslt (read-file-name "XSL: " emacspeak-xslt-directory)))
+          (emacspeak-xslt-region xslt (point-min)
+                                 (point-max))))
+      (browse-url-of-buffer)
+      (kill-buffer buffer)
+      (emacspeak-auditory-icon 'open-object))))
+
+;;}}}
 ;;{{{ applying XSL transforms before displaying
 
 (define-prefix-command 'emacspeak-w3-xsl-map )
 
+;;;###autoload
 (defcustom emacspeak-w3-xsl-p nil
   "T means we apply XSL transformation before displaying
 HTML."
@@ -586,19 +629,13 @@ Nil means no transform is used. "
 
 (defvar emacspeak-w3-xsl-params nil
   "XSL params if any to pass to emacspeak-xslt-region.")
-(defsubst emacspeak-w3-xsl-params-from-xpath (path base)
-  "Return params suitable for passing to  emacspeak-xslt-region"
-  (list
-   (cons "path"
-         (format "\"'%s'\""
-                 (shell-quote-argument path)))
-   (cons "locator"
-         (format "'%s'"
-                 path))
-   (cons "base"
-         (format "\"'%s'\""
-                 base))))
 
+;;; Note that emacspeak-w3-xsl-transform, emacspeak-w3-xsl-params
+;;; and emacspeak-w3-xsl-p
+;;; need to be set at top-levle since the page-rendering code is
+;;; called asynchronously.
+
+;;;###autoload
 (defcustom emacspeak-w3-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
@@ -638,7 +675,10 @@ HTML."
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
   (let ((url (url-view-url t)))
-    (emacspeak-w3-browse-url-with-style xsl url)))
+    (emacspeak-webutils-with-xsl
+     xsl
+     (browse-url url))))
+
 
 ;;;###autoload
 (defun emacspeak-w3-xslt-select (xsl)
@@ -655,6 +695,7 @@ HTML."
             (file-name-nondirectory
              xsl)))
   (emacspeak-auditory-icon 'select-object))
+
 ;;;###autoload
 (defun emacspeak-w3-xsl-toggle ()
   "Toggle  application of XSL transformations.
@@ -668,6 +709,7 @@ libxslt package."
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
+
 ;;;###autoload
 (defun emacspeak-w3-count-matches (prompt-url locator)
   "Count matches for locator  in HTML."
@@ -686,6 +728,7 @@ libxslt package."
      (cons "locator"
            (format "'%s'"
                    locator ))))))
+
 ;;;###autoload
 (defun emacspeak-w3-count-nested-tables (prompt-url)
   "Count nested tables in HTML."
@@ -709,6 +752,7 @@ libxslt package."
   (emacspeak-w3-count-matches
    prompt-url
    "//table"))
+;;;###autoload
 
 (defcustom emacspeak-w3-xsl-keep-result ""
   "Set to a non-empty string  if you want the buffer containing the transformed HTML
@@ -718,75 +762,43 @@ source buffer."
   :type 'string
   :group 'emacspeak-w3)
 
-(make-variable-buffer-local 'emacspeak-w3-xsl-keep-result)
 ;;;###autoload
 (defun emacspeak-w3-set-xsl-keep-result (value)
   "Set value of `emacspeak-w3-xsl-keep-result'."
   (interactive  "sEnter name of result buffer: ")
   (declare (special emacspeak-w3-xsl-keep-result))
   (setq emacspeak-w3-xsl-keep-result value))
+
 ;;;###autoload
-(defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result complement)
+(defun emacspeak-w3-xslt-filter (path    url  &optional speak complement)
   "Extract elements matching specified XPath path locator
-from HTML.  Extracts specified elements from current WWW
-page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.
+from Web page -- default is the current page being viewed.
 Optional arg COMPLEMENT inverts the filter.  "
   (interactive
    (list
     (read-from-minibuffer "XPath: ")
+    (if (eq major-mode 'w3-mode)
+        (url-view-url t)
+      (read-from-minibuffer "URL: " "http://www."))
+    current-prefix-arg
     current-prefix-arg))
-  (declare (special emacspeak-w3-post-process-hook
-                    emacspeak-w3-xsl-keep-result
-                    emacspeak-xslt-program
-                    emacspeak-w3-xsl-filter
-                    emacspeak-w3-xsl-junk))
-  (unless (or prompt-url
+  (declare (special emacspeak-w3-xsl-filter emacspeak-w3-xsl-junk))
+  (unless (or url
+              (interactive-p)
               (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
-  (let* ((base-url (when (eq major-mode 'w3-mode)
-                     (url-view-url t)))
-         (source-url
-          (cond
-           ((and (interactive-p) prompt-url)
-            (read-from-minibuffer "URL: "
-                                  "http://www."))
-           (t  (or prompt-url
-                   base-url))))
-         (src-buffer nil)
-         (emacspeak-w3-xsl-p nil)
-         (keep-result emacspeak-w3-xsl-keep-result))
-    (setq src-buffer
-          (emacspeak-xslt-url
-           (if complement
-               emacspeak-w3-xsl-junk
-             emacspeak-w3-xsl-filter)
-           source-url
-           (list
-            (cons "path"
-                  (format "\"'%s'\""
-                          (shell-quote-argument path)))
-            (cons "locator"
-                  (format "'%s'"
-                          path))
-            (cons "base"
-                  (format "\"'%s'\""
-                          (or source-url
-                              prompt-url))))))
-    (save-excursion
-      (set-buffer src-buffer)
-      (setq emacspeak-w3-xsl-keep-result keep-result)
-      (when  (or (interactive-p)
-                 speak-result)
-        (add-hook 'emacspeak-w3-post-process-hook
-                  'emacspeak-speak-buffer))
-      (browse-url-of-buffer)
-      (cond
-       ((> (length emacspeak-w3-xsl-keep-result) 0)
-        (save-excursion
-          (set-buffer src-buffer)
-          (rename-buffer  emacspeak-w3-xsl-keep-result  'unique)))
-       (t (kill-buffer src-buffer))))))
+  (let ((style (if complement
+                   emacspeak-w3-xsl-junk
+                 emacspeak-w3-xsl-filter))
+        (params (emacspeak-xslt-params-from-xpath  path url)))
+    (when speak
+      (add-hook 'emacspeak-w3-post-process-hook
+                'emacspeak-speak-buffer))
+    (emacspeak-webutils-with-xsl-environment
+     style params
+     (browse-url url))))
+
+
 
 (defun emacspeak-w3-xslt-junk (path   &optional prompt-url speak)
   "Junk elements matching specified locator."
@@ -903,8 +915,7 @@ spoken automatically."
 
   (interactive
    (list
-    (read-from-minibuffer
-     "Table index: ")
+    (read-from-minibuffer "Table index: ")
     current-prefix-arg))
   (emacspeak-w3-xslt-filter
    (format "(//table//table)[%s]" table-index)
@@ -1101,22 +1112,25 @@ Tables are specified by containing  match pattern
                values)))))
 
 ;;;###autoload
-(defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
+(defun emacspeak-w3-extract-by-class (class    url &optional speak)
   "Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion."
+buffer. Interactive use provides list of class values as completion."
   (interactive
    (list
     (completing-read "Class: "
                      (emacspeak-w3-css-class-cache))
-    current-prefix-arg))
-  (emacspeak-w3-xslt-filter
-   (format "//*[@class=\"%s\"]"
-           class)
-   prompt-url
-   (or (interactive-p)
-       speak)))
+    (if (eq major-mode 'w3-mode)
+        (url-view-url t)
+      (read-from-minibuffer "URL: " "http://www."))
+    (or (interactive-p) current-prefix-arg)))
+  (message "url: %s filter: %s"
+           url class)
+  (let ((filter (format "//*[@class=\"%s\"]" class)))
+    (message "filter:%s" filter)
+  (emacspeak-w3-xslt-filter filter
+   url
+   'speak)))
 
 (defsubst  emacspeak-w3-get-id-list ()
   "Collect a list of ids by prompting repeatedly in the
@@ -1283,47 +1297,6 @@ XPath locator.")
     (kill-buffer result)))
 
 ;;}}}
-;;{{{ Browse XML files:
-
-(defun emacspeak-w3-browse-xml(location &optional prompt-style)
-  "Browse XML+CSS using W3.
-With interactive prefix arg, also prompt for an  XSL stylesheet.
-XML files can be rendered by an XML browser that is CSS aware.
-Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
-good enough job for many things, especially the XML files from
-bookshare.org.
-Setting W3 up at present to display any and all XML files at
-present would be a bug, since W3 is an HTML browser --not a true
-XML browser.
-This command opens a specified XML file under the covers and has
-W3 render it using CSS as available. The result on bookshare.org
-XML files is quite usable:
-
-0) You get Aural CSS support.
-
-1) You get a navigable buffer using imenu if you have w3-imenu
-loaded. "
-  (interactive
-   (list
-    (read-file-name "XML File: ")
-    current-prefix-arg))
-  (declare (special emacspeak-xslt-options))
-  (let ((buffer  (get-buffer-create " *xml work * "))
-        (emacspeak-xslt-options ""))
-    (save-excursion
-      (set-buffer buffer)
-      (kill-all-local-variables)
-      (erase-buffer)
-      (insert-file-contents location)
-      (when prompt-style
-        (let ((xslt (read-file-name "XSL: " emacspeak-xslt-directory)))
-          (emacspeak-xslt-region xslt (point-min)
-                                 (point-max))))
-      (browse-url-of-buffer)
-      (kill-buffer buffer)
-      (emacspeak-auditory-icon 'open-object))))
-
-;;}}}
 ;;{{{  xsl keymap
 
 (declaim (special emacspeak-w3-xsl-map))
@@ -1445,16 +1418,14 @@ used as well."
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
         (redirect nil))
-    (unless url
-      (error "Not on a link."))
+    (unless url (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
              (first emacspeak-w3-url-rewrite-rule)
              (second emacspeak-w3-url-rewrite-rule)
              url)))
-    (when (or prompt
-              (null emacspeak-w3-xpath-filter))
+    (when (or prompt (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter
             (read-from-minibuffer  "Specify XPath: "
                                    emacspeak-w3-most-recent-xpath-filter))
@@ -1462,8 +1433,7 @@ used as well."
             emacspeak-w3-xpath-filter))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
                               (or redirect url)
-                              'speak)
-    (emacspeak-auditory-icon 'open-object)))
+                              'speak)))
 
 (defvar emacspeak-w3-xpath-junk nil
   "Records XPath pattern used to junk elements.")

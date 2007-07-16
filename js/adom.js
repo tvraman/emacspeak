@@ -239,7 +239,7 @@ XPathRingBuffer.prototype.previous = function () {
 };
 
 // >
-// <XPath 
+// <XPath:
 
 /*
  * filter: Apply XPath selector to create a filtered view.
@@ -259,6 +259,23 @@ ADom.prototype.filter = function (xpath) {
 // <Viewers And Visitors:
 
 /*
+ * traverse: Traverse nodes that match test and apply action.
+ * Arguments:
+ * node: Node where we start traversing.
+ * test: Predicate
+ * Action: Visit action
+ * @return: void
+ */
+
+ADom.prototype.traverse = function (node, test, action) {
+  if(node.nodeType == document.ELEMENT_NODE) {
+    if(test(node)) action(node);
+    var child = node.firstChild;
+    while(child) this.traverse(child, test, action);
+  }
+};
+
+    /*
  * Set view to forms array
  * Return forms array.
  */
@@ -267,9 +284,9 @@ ADom.prototype.forms = function () {
     return this.view_;
 };
 /*
- * find: set view_ to RingBuffer of elements found by name
+ * locate: set view_ to RingBuffer of elements found by name
  */
-ADom.prototype.find = function (tagName) {
+ADom.prototype.locate = function (tagName) {
     var start = this.current_ || this.root_;
     return this.view_ = new RingBuffer(start.getElementsByTagName(tagName));
 };
@@ -309,7 +326,7 @@ ADom.prototype.view = function () {
     }
     return html;
 };
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
 // >
 // < Eventing:
 

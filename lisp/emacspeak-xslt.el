@@ -51,6 +51,21 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ helpers:
+(defsubst emacspeak-xslt-params-from-xpath (path base)
+  "Return params suitable for passing to  emacspeak-xslt-region"
+  (list
+   (cons "path"
+         (format "\"'%s'\""
+                 (shell-quote-argument path)))
+   (cons "locator"
+         (format "'%s'"
+                 path))
+   (cons "base"
+         (format "\"'%s'\""
+                 base))))
+
+;;}}}
 ;;{{{  xslt
 
 (defgroup emacspeak-xslt nil
