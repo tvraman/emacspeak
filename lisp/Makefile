@@ -217,6 +217,7 @@ emacspeak-vm.elc \
 emacspeak-w3.elc \
 emacspeak-w3m.elc \
 emacspeak-wdired.elc \
+emacspeak-webedit.elc \
 emacspeak-webutils.elc \
 emacspeak-webmarks.elc \
 emacspeak-websearch.elc \
@@ -259,7 +260,7 @@ emacspeak-loaddefs.el: force
 
 emacspeak-cus-load.el: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
--f emacspeak-auto-custom-make-dependencies "." 
+-f emacspeak-auto-custom-make-dependencies "."
 	mv cus-load.el emacspeak-cus-load.el
 
 # }}}
@@ -430,10 +431,11 @@ emacspeak-url-template.elc: emacspeak-url-template.el dtk-speak.elc voice-setup.
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
-emacspeak-w3.elc: emacspeak-w3.el dtk-speak.elc voice-setup.elc
-emacspeak-w3m.elc: emacspeak-w3m.el dtk-speak.elc voice-setup.elc
+emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc
+emacspeak-w3m.elc: emacspeak-w3m.el emacspeak-webutils.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
-emacspeak-webutils.elc: emacspeak-webutils.el
+emacspeak-webedit.elc: emacspeak-webedit.el emacspeak-webutils.elc
+emacspeak-webutils.elc: emacspeak-webutils.el dtk-speak.elc voice-setup.elc
 emacspeak-websearch.elc: emacspeak-websearch.el emacspeak-webutils.elc
 emacspeak-webmarks.elc: emacspeak-webmarks.el emacspeak-webutils.elc
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc voice-setup.elc

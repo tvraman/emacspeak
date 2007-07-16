@@ -49,6 +49,9 @@
 ;;{{{ required modules
 
 ;;; Code:
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'backquote)
 (require 'emacspeak-preamble)
 (require 'url)
 (require 'emacspeak-xslt)
