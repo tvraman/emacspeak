@@ -1279,7 +1279,7 @@ completion. "
 (make-variable-buffer-local 'emacspeak-w3-class-filter)
 
 ;;;###autoload
-(defun emacspeak-w3-class-filter-and-follow (class)
+(defun emacspeak-w3-class-filter-and-follow (class url)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -1288,15 +1288,13 @@ used as well."
    (list
     (or emacspeak-w3-class-filter
         (setq emacspeak-w3-class-filter
-              (read-from-minibuffer "Class: ")))))
+              (read-from-minibuffer "Class: ")))
+    (if (eq major-mode 'w3-mode)
+        (w3-view-this-url t)
+      (read-from-minibuffer "URL: "))))
   (declare (special emacspeak-w3-class-filter
                     emacspeak-w3-url-rewrite-rule))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command is only useful in W3 buffers."))
-  (let ((url (w3-view-this-url t))
-        (redirect nil))
-    (unless url
-      (error "Not on a link."))
+  (let ((redirect nil))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
