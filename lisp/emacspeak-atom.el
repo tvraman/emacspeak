@@ -83,8 +83,6 @@ unescape HTML tags."
   (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
   "Modern Atom support.")
 
-
-;;;###autoload
 (defcustom emacspeak-atom-view-xsl
   emacspeak-atom-legacy
   "XSL stylesheet used for viewing Atom Feeds."
@@ -107,8 +105,8 @@ unescape HTML tags."
   (let ((w3-reuse-buffers 'no))
   (emacspeak-webutils-with-xsl-environment
    emacspeak-atom-view-xsl
-   nil
-   nil
+   nil ;params
+   nil ;options
    (browse-url atom-url))))
 
 ;;;###autoload

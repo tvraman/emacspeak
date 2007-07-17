@@ -184,7 +184,9 @@ Use form bookmark-add.html, and use the resulting zx param as key"))
                           (emacspeak-url-encode notes))))
     (emacspeak-webutils-with-xsl-environment
      (expand-file-name "xpath-filter.xsl" emacspeak-xslt-directory)
-     (emacspeak-xslt-params-from-xpath "//form[@name=\"add_bkmk_form\"]" base-url)
+     (emacspeak-xslt-params-from-xpath
+      "//form[@name=\"add_bkmk_form\"]" base-url)
+     emacspeak-xslt-options
      (browse-url base-url))))
 
 

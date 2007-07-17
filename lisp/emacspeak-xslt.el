@@ -72,11 +72,6 @@
   "XSL transformation group."
   :group 'emacspeak)
 
-;;;###autoload
-(defvar emacspeak-xslt-directory
-  (expand-file-name "xsl/" emacspeak-directory)
-  "Directory holding XSL transformations.")
-
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (declare (special emacspeak-xslt-directory))

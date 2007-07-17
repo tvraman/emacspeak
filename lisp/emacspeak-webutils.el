@@ -88,8 +88,7 @@
                      (setq emacspeak-w3-xsl-p nil))))
      (,@ body))))
 
-(defmacro emacspeak-webutils-with-xsl-environment (style params
-  options  &rest body)
+(defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."
   `(let ((save-flag ,emacspeak-w3-xsl-p)

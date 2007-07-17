@@ -790,6 +790,7 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-with-xsl-environment
      emacspeak-w3-xsl-filter
      params
+     emacspeak-xslt-options ;options
      (browse-url url))))
 
 ;;;###autoload
@@ -813,6 +814,7 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-with-xsl-environment
      emacspeak-w3-xsl-junk
      params
+     emacspeak-xslt-options
      (browse-url url))))
 
 ;;;###autoload
