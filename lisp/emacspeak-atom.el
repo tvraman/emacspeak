@@ -107,10 +107,10 @@ unescape HTML tags."
   (when speak
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
-  (emacspeak-webutils-with-xsl-environment
+  (emacspeak-w3-browse-xml-url-with-style
    emacspeak-atom-view-xsl
-   nil
-   (browse-url atom-url)))
+   atom-url
+   'unescape-charent))
    
 
 ;;;###autoload

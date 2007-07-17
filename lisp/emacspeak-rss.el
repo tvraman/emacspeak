@@ -91,11 +91,8 @@ unescape HTML tags."
     (when speak
       (add-hook 'emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
-  (emacspeak-webutils-with-xsl-environment
-   style
-   nil
-   (browse-url rss-url))))
-   
+    (emacspeak-w3-browse-xml-url-with-style
+     style rss-url 'unescape)))
 
 ;;;###autoload
 (defun emacspeak-opml-display (opml-url &optional speak)
