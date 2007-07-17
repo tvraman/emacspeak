@@ -11,6 +11,7 @@ only support the current Atom namespace.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:atom="http://purl.org/atom/ns#"
                 xmlns:w3a="http://www.w3.org/2005/Atom"
+                xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns:gr="http://www.google.com/schemas/reader/atom/"
                 version="1.0">

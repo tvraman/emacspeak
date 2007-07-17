@@ -88,13 +88,16 @@
                      (setq emacspeak-w3-xsl-p nil))))
      (,@ body))))
 
-(defmacro emacspeak-webutils-with-xsl-environment (style params &rest body)
+(defmacro emacspeak-webutils-with-xsl-environment (style params
+  options  &rest body)
   "Execute body with XSL turned on
-and xsl environment specified by style and params."
+and xsl environment specified by style, params and options."
   `(let ((save-flag ,emacspeak-w3-xsl-p)
+         (save-options ,emacspeak-xslt-options)
          (save-style ,emacspeak-w3-xsl-transform)
          (save-params ,emacspeak-w3-xsl-params))
      (setq emacspeak-w3-xsl-p t
+           emacspeak-xslt-options ,options
            emacspeak-w3-xsl-transform ,style
            emacspeak-w3-xsl-params ,params)
      (add-hook
@@ -104,8 +107,10 @@ and xsl environment specified by style and params."
          (lambda ()
            (declare (special emacspeak-w3-xsl-p
                              emacspeak-w3-xsl-transform
+                             emacspeak-xslt-options
                              emacspeak-w3-xsl-params))
            (setq emacspeak-w3-xsl-p ,save-flag
+                 emacspeak-xslt-options ,save-options
                  emacspeak-w3-xsl-transform ,save-style
                  emacspeak-w3-xsl-params ,save-params)))))
      ,@body))

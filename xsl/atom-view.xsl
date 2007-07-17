@@ -5,11 +5,13 @@ Copyright: (C) T. V. Raman, 2001 - 2007,   All Rights Reserved.
 License: GPL
 View an Atom feed as clean HTML
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:atom="http://www.w3.org/2005/Atom"
-                xmlns:xhtml="http://www.w3.org/1999/xhtml"
-                xmlns:gr="http://www.google.com/schemas/reader/atom/"
-                version="1.0">
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/"
+    xmlns:gr="http://www.google.com/schemas/reader/atom/"
+    version="1.0">
   <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
   
   <xsl:template match="atom:feed">
@@ -95,22 +97,22 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:content|atom:summary">
     <xsl:choose>
       <xsl:when test="@src">
-      [<a>
-      <xsl:attribute name="href">
-        <xsl:value-of select="@src"/>
-      </xsl:attribute>
-      <img alt=" Download">
-        <xsl:attribute name="src"><xsl:value-of
-        select="@src"/></xsl:attribute>
-      </img>
-      </a>]
+        [<a>
+        <xsl:attribute name="href">
+          <xsl:value-of select="@src"/>
+        </xsl:attribute>
+        <img alt=" Download">
+          <xsl:attribute name="src"><xsl:value-of
+          select="@src"/></xsl:attribute>
+        </img>
+        </a>]
       </xsl:when>
       <xsl:when test="@type='html' or @type='text/html'">
         <xsl:value-of disable-output-escaping="yes"
                       select="node()"/>
       </xsl:when>
       <xsl:otherwise>
-         <xsl:copy-of select="node()"/>
+        <xsl:copy-of select="node()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
