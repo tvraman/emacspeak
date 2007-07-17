@@ -99,8 +99,16 @@ only support the current Atom namespace.
   <xsl:template
       match="atom:content|atom:summary|w3a:content|w3a:summary">
     <xsl:choose>
-      <xsl:when test="@type='application/xhtml+xml'">
-        <xsl:copy-of select="node()"/>
+      <xsl:when test="@src">
+        [<a>
+        <xsl:attribute name="href">
+          <xsl:value-of select="@src"/>
+        </xsl:attribute>
+        <img alt=" Download">
+          <xsl:attribute name="src"><xsl:value-of
+          select="@src"/></xsl:attribute>
+        </img>
+        </a>]
       </xsl:when>
       <xsl:when test="@type='html' or @type='text/html'">
         <xsl:value-of disable-output-escaping="yes"
@@ -112,7 +120,7 @@ only support the current Atom namespace.
                       select="node()"/>
       </xsl:when>
       <xsl:otherwise>
-        <p> <xsl:copy-of select="node()"/></p>
+        <xsl:copy-of select="node()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -149,19 +157,5 @@ only support the current Atom namespace.
       </xsl:attribute>
       <xsl:value-of select="w3a:name|atom:name"/>
     </a>
-  </xsl:template>
-  <xsl:template match="w3a:content|atom:content">
-    <xsl:if test="@src">
-      [<a>
-      <xsl:attribute name="href">
-        <xsl:value-of select="@src"/>
-      </xsl:attribute>
-      <img alt=" Download">
-        <xsl:attribute name="src"><xsl:value-of
-        select="@src"/></xsl:attribute>
-      </img>
-      </a>]
-    </xsl:if>
-    <xsl:copy-of select="node()"/>
   </xsl:template>
 </xsl:stylesheet>
