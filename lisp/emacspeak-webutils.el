@@ -309,7 +309,7 @@ instances."
 ;;; before handing it off to xsltproc for conversion to xhtml
 
 (defun emacspeak-webutils-feed-display(feed-url style)
-  "Fetch feed via Emacs and sisplay using xsltproc."
+  "Fetch feed via Emacs and display using xsltproc."
   (let ((buffer (url-retrieve-synchronously feed-url)))
     (cond
      ((null buffer)
