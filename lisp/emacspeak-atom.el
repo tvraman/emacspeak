@@ -96,7 +96,11 @@ unescape HTML tags."
   "Retrieve and display ATOM URL."
   (interactive
    (list
-    (read-from-minibuffer "URL:")
+    (read-from-minibuffer "URL: "
+    (if (or (eq major-mode 'w3-mode)
+            (eq major-mode 'w3m-mode))
+        (or (funcall emacspeak-webutils-url-at-point)
+            (funcall emacspeak-webutils-current-url))))
     (or (interactive-p) current-prefix-arg)))
   (declare (special emacspeak-atom-view-xsl))
   (when speak
@@ -110,31 +114,13 @@ unescape HTML tags."
    (browse-url atom-url))))
 
 ;;;###autoload
-(defun emacspeak-atom-region (start end  &optional speak)
-  "Display atom contents of region."
-  (interactive
-   (list
-    (point)
-    (mark)
-    (or (interactive-p)
-        current-prefix-arg)))
-  (declare (special emacspeak-atom-view-xsl))
-  (when speak
-    (add-hook 'emacspeak-w3-post-process-hook
-              'emacspeak-speak-buffer))
-  (emacspeak-xslt-view-region
-   emacspeak-atom-view-xsl
-   start end))
-
-
-;;;###autoload
 (defun emacspeak-atom-browse (feed)
   "Browse specified ATOM feed."
   (interactive
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
-                       emacspeak-atom-feeds))))
+                       emacspeak-atom-feeds)))
   (let ((uri (cadr
               (assoc feed emacspeak-atom-feeds))))
     (emacspeak-atom-display uri 'speak)))
