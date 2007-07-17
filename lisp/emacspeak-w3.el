@@ -1534,14 +1534,17 @@ used as well."
             (replace-match replacement )))))
 
 ;;;###autoload
-(defun emacspeak-w3-browse-xml-url-with-style (style url )
+(defun emacspeak-w3-browse-xml-url-with-style (style url
+                                                     &optional
+                                                     speak)
   "Browse XML URL with specified XSL style."
   (interactive
    (list
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
-    (read-string "URL: " (browse-url-url-at-point))))
+    (read-string "URL: " (browse-url-url-at-point))
+    current-prefix-arg))
   (emacspeak-w3-xslt-filter style url
                             (interactive-p)))
   
