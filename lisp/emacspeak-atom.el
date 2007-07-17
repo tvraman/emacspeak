@@ -84,7 +84,7 @@ unescape HTML tags."
   "Modern Atom support.")
 
 
-
+;;;###autoload
 (defcustom emacspeak-atom-view-xsl
   emacspeak-atom-legacy
   "XSL stylesheet used for viewing Atom Feeds."
@@ -98,16 +98,18 @@ unescape HTML tags."
   "Retrieve and display ATOM URL."
   (interactive
    (list
-    (car
-     (browse-url-interactive-arg "ATOM URL: "))
+    (read-from-minibuffer "URL:")
     (or (interactive-p) current-prefix-arg)))
   (declare (special emacspeak-atom-view-xsl))
   (when speak
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
-  (emacspeak-w3-browse-xml-url-with-style
+  (let ((w3-reuse-buffers 'no))
+  (emacspeak-webutils-with-xsl-environment
    emacspeak-atom-view-xsl
-   atom-url))
+   nil
+   nil
+   (browse-url atom-url))))
 
 ;;;###autoload
 (defun emacspeak-atom-region (start end  &optional speak)

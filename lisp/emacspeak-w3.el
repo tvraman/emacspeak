@@ -646,7 +646,11 @@ HTML."
      emacspeak-w3-xsl-transform
      (point-min)
      (point-max)
-     emacspeak-w3-xsl-params)))
+     emacspeak-w3-xsl-params)
+    (when emacspeak-w3-xsl-keep-result
+      (clone-buffer
+       (format "xslt-%s"
+               (buffer-name))))))
 
 
 ;;;###autoload
@@ -733,20 +737,24 @@ libxslt package."
   (emacspeak-w3-count-matches url "//table"))
 
 ;;;###autoload
-(defcustom emacspeak-w3-xsl-keep-result ""
-  "Set to a non-empty string  if you want the buffer containing the transformed HTML
-source to be preserved.
-Value of this variable if non-empty will be used as a name for the
-source buffer."
-  :type 'string
-  :group 'emacspeak-w3)
+(defvar emacspeak-w3-xsl-keep-result nil
+  "Toggle via command \\[emacspeak-w3-toggle-xsl-keep-result].")
+
 
 ;;;###autoload
-(defun emacspeak-w3-set-xsl-keep-result (value)
-  "Set value of `emacspeak-w3-xsl-keep-result'."
-  (interactive  "sEnter name of result buffer: ")
+(defun emacspeak-w3-toggle-xsl-keep-result ()
+  "Toggle xsl keep result flag."
+  (interactive)
   (declare (special emacspeak-w3-xsl-keep-result))
-  (setq emacspeak-w3-xsl-keep-result value))
+  (setq emacspeak-w3-xsl-keep-result
+        (not emacspeak-w3-xsl-keep-result))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-w3-xsl-keep-result
+         'on 'off))
+    (message "Turned %s xslt keep results."
+             (if emacspeak-w3-xsl-keep-result
+                 'on 'off))))
 
 ;;;  Helper: rename result buffer
 (defsubst emacspeak-w3-rename-buffer (key)

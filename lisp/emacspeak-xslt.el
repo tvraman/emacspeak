@@ -105,7 +105,7 @@ This is useful when handling bad HTML."
   :group 'emacspeak-xslt)
 
 ;;;###autoload
-(defun emacspeak-xslt-region (xsl start end &optional params )
+(defun emacspeak-xslt-region (xsl start end &optional params)
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
@@ -126,7 +126,7 @@ part of the libxslt package."
     (setq command (format
                    "%s %s  %s  %s - %s"
                    emacspeak-xslt-program
-                   emacspeak-xslt-options
+                   (or emacspeak-xslt-options "")
                    (or parameters "")
                    xsl
                    (if emacspeak-xslt-keep-errors
