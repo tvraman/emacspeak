@@ -51,7 +51,12 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ helpers:
+;;{{{  xslt Environment:
+
+(defgroup emacspeak-xslt nil
+  "XSL transformation group."
+  :group 'emacspeak)
+
 (defsubst emacspeak-xslt-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
@@ -65,13 +70,6 @@
          (format "\"'%s'\""
                  base))))
 
-;;}}}
-;;{{{  xslt
-
-(defgroup emacspeak-xslt nil
-  "XSL transformation group."
-  :group 'emacspeak)
-
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (declare (special emacspeak-xslt-directory))
@@ -81,6 +79,7 @@
   "Name of XSLT transformation engine."
   :type 'string
   :group 'emacspeak-xslt)
+
 ;;;###autoload
 (defcustom emacspeak-xslt-options
   "--html --nonet --novalid"
@@ -99,6 +98,8 @@ This is useful when handling bad HTML."
   :type 'boolean
   :group 'emacspeak-xslt)
 
+;;}}}
+;;{{{ Functions:
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params)
   "Apply XSLT transformation to region and replace it with
@@ -145,24 +146,24 @@ part of the libxslt package."
     (insert
      (format "<!--\n %s \n-->\n"
              command))
-    (setq modification-flag nil)))
+    (setq modification-flag nil)
+    (current-buffer)))
 
 ;;;###autoload
-(defun emacspeak-xslt-view-region(xsl start end &optional params)
-  "Call emacspeak-xslt-region, and preview the result."
+(defun emacspeak-xslt-view-region (style start end)
+  "View region after transforming via XSLT."
   (interactive
    (list
     (expand-file-name
-     (read-file-name
-      "XSL: "
-      emacspeak-xslt-directory))
+     (read-file-name "XSL: "
+                     emacspeak-xslt-directory))
     (point)
-    (mark)
-    (or (interactive-p)
-        current-prefix-arg)))
-  (ems-modify-buffer-safely
-      (emacspeak-xslt-region xsl start end params)
-      (browse-url-of-region (point-min) (point-max))))
+    (mark)))
+  (let* ((emacspeak-xslt-options nil)
+    (buffer
+         (ems-modify-buffer-safely
+         (emacspeak-xslt-region style start end ))))
+    (browse-url-of-buffer buffer)))
 
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
