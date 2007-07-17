@@ -151,6 +151,24 @@ part of the libxslt package."
      (format "<!--\n %s \n-->\n"
              command))
     (setq modification-flag nil)))
+
+;;;###autoload
+(defun emacspeak-xslt-view-region(xsl start end &optional params)
+  "Call emacspeak-xslt-region, and preview the result."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name
+      "XSL: "
+      emacspeak-xslt-directory))
+    (point)
+    (mark)
+    (or (interactive-p)
+        current-prefix-arg)))
+  (ems-modify-buffer-safely
+      (emacspeak-xslt-region xsl start end params)
+      (browse-url-of-region (point-min) (point-max))))
+
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
 (defcustom  emacspeak-xslt-use-wget-to-download nil

@@ -748,7 +748,7 @@ source buffer."
   (declare (special emacspeak-w3-xsl-keep-result))
   (setq emacspeak-w3-xsl-keep-result value))
 
-;;;  Helper: rename result buffer 
+;;;  Helper: rename result buffer
 (defsubst emacspeak-w3-rename-buffer (key)
   "Setup emacspeak-w3-post-process-hook  to rename result buffer"
   (add-hook
@@ -964,7 +964,7 @@ Empty value finishes the list."
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "((//table//table)[%s])" i))
@@ -1004,7 +1004,7 @@ Tables are specified by their position in the list
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "(/descendant::table[%s])" i))
@@ -1047,7 +1047,7 @@ Tables are specified by containing  match pattern
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "((/descendant::table[contains(.,\"%s\")])[last()])" i))
@@ -1191,7 +1191,7 @@ values as completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@class=\"%s\")" c))
@@ -1206,7 +1206,7 @@ values as completion. "
 (defun emacspeak-w3-extract-by-id (id   url &optional speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. 
+buffer.
 Interactive use provides list of id values as completion."
   (interactive
    (list
@@ -1236,7 +1236,7 @@ separate buffer. Interactive use provides list of id values as completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@id=\"%s\")" c))
@@ -1251,7 +1251,7 @@ separate buffer. Interactive use provides list of id values as completion. "
 (defun emacspeak-w3-junk-by-class-list(classes   url &optional speak)
   "Junk elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. 
+separate buffer.
  Interactive use provides list of class values as
 completion. "
   (interactive
@@ -1262,7 +1262,7 @@ completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@class=\"%s\")" c))
@@ -1474,7 +1474,8 @@ used as well."
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
-    (read-string "URL: " (browse-url-url-at-point))))
+    (read-string "URL: " (browse-url-url-at-point))
+    current-prefix-arg))
   (let ((src-buffer
          (emacspeak-xslt-xml-url
           style
@@ -1495,6 +1496,32 @@ used as well."
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
+;;;###autoload
+(defun emacspeak-w3-browse-xml-region-with-style (style start end &optional unescape-charent)
+  "Browse XML region with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (point)
+    (mark)
+    current-prefix-arg))
+  (let ((src-buffer
+         (ems-modify-buffer-safely
+         (emacspeak-xslt-region
+          style
+          start
+          end))))
+    (save-excursion
+      (set-buffer src-buffer)
+      (when unescape-charent
+        (emacspeak-w3-unescape-charent (point-min) (point-max)))
+      (emacspeak-webutils-without-xsl
+       (browse-url-of-buffer)))
+    (kill-buffer src-buffer)))
+
+
 ;;}}}
 ;;{{{  browse url using specified style
 
@@ -1508,8 +1535,8 @@ used as well."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (emacspeak-webutils-with-xsl style url))
-  
-  
+
+
 ;;;###autoload
 (defcustom emacspeak-w3-charent-alist
   '(("&lt;" . "<")
