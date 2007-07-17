@@ -77,6 +77,11 @@
   (expand-file-name "xsl/" emacspeak-directory)
   "Directory holding XSL transformations.")
 
+(defsubst emacspeak-xslt-get (style)
+  "Return fully qualified stylesheet path."
+  (declare (special emacspeak-xslt-directory))
+  (expand-file-name style emacspeak-xslt-directory))
+
 (defcustom emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine."
   :type 'string
