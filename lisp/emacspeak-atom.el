@@ -122,8 +122,8 @@ unescape HTML tags."
       (completing-read "Feed:"
                        emacspeak-atom-feeds)))
   (let ((uri (cadr
-              (assoc feed emacspeak-atom-feeds))))
-    (emacspeak-atom-display uri 'speak)))
+              (assoc feed emacspeak-atom-feeds))))))
+    (emacspeak-atom-display uri 'speak))
 
 ;;}}}
 (provide 'emacspeak-atom)
