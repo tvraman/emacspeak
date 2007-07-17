@@ -74,6 +74,11 @@ emacspeak is compiled or started.")
   (expand-file-name  "sounds/" emacspeak-directory)
   "Directory containing auditory icons for Emacspeak.")
 ;;;###autoload
+(defvar emacspeak-xslt-directory
+  (expand-file-name "xsl/" emacspeak-directory)
+  "Directory holding XSL transformations.")
+
+;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for

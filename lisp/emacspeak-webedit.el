@@ -213,7 +213,7 @@ source buffer."
   (declare (special emacspeak-webedit-xsl-keep-result))
   (setq emacspeak-webedit-xsl-keep-result value))
 
-;;;  Helper: rename result buffer 
+;;;  Helper: rename result buffer
 (defsubst emacspeak-webedit-rename-buffer (key)
   "Setup emacspeak-w3-post-process-hook  to rename result buffer"
   (add-hook
@@ -247,6 +247,8 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-with-xsl-environment
      emacspeak-webedit-xsl-filter
      params
+     emacspeak-xslt-options
+     emacspeak-xslt-options
      (browse-url url))))
 
 ;;;###autoload
@@ -270,6 +272,7 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-with-xsl-environment
      emacspeak-webedit-xsl-junk
      params
+     emacspeak-xslt-options
      (browse-url url))))
 
 ;;;###autoload
@@ -429,7 +432,7 @@ Empty value finishes the list."
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "((//table//table)[%s])" i))
@@ -469,7 +472,7 @@ Tables are specified by their position in the list
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "(/descendant::table[%s])" i))
@@ -512,7 +515,7 @@ Tables are specified by containing  match pattern
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (i)
               (format "((/descendant::table[contains(.,\"%s\")])[last()])" i))
@@ -656,7 +659,7 @@ values as completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@class=\"%s\")" c))
@@ -671,7 +674,7 @@ values as completion. "
 (defun emacspeak-webedit-extract-by-id (id   url &optional speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. 
+buffer.
 Interactive use provides list of id values as completion."
   (interactive
    (list
@@ -701,7 +704,7 @@ separate buffer. Interactive use provides list of id values as completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@id=\"%s\")" c))
@@ -716,7 +719,7 @@ separate buffer. Interactive use provides list of id values as completion. "
 (defun emacspeak-webedit-junk-by-class-list(classes   url &optional speak)
   "Junk elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. 
+separate buffer.
  Interactive use provides list of class values as
 completion. "
   (interactive
@@ -727,7 +730,7 @@ completion. "
       (read-from-minibuffer "URL: " "http://www."))
     (or (interactive-p)
         current-prefix-arg)))
-  (let ((filter 
+  (let ((filter
          (mapconcat
           #'(lambda  (c)
               (format "(@class=\"%s\")" c))
@@ -973,8 +976,8 @@ used as well."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (emacspeak-webutils-with-xsl style url))
-  
-  
+
+
 ;;;###autoload
 (defcustom emacspeak-webedit-charent-alist
   '(("&lt;" . "<")
