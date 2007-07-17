@@ -787,13 +787,20 @@ Optional arg COMPLEMENT inverts the filter.  "
               (interactive-p)
               (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
-  (let ((style (if complement
+  (let ((w3-reuse-buffers 'no)
+        (style (if complement
                    emacspeak-w3-xsl-junk
                  emacspeak-w3-xsl-filter))
         (params (emacspeak-xslt-params-from-xpath  path url)))
     (when speak
       (add-hook 'emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (rename-buffer
+                   (format "Filtered:%s %s"
+                           path (buffer-name))
+                   'unique)))
     (emacspeak-webutils-with-xsl-environment
      style params
      (browse-url url))))
