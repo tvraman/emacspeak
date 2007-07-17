@@ -54,6 +54,19 @@
 (require 'emacspeak-webutils)
 
 ;;}}}
+;;{{{ Helpers:
+
+(defsubst emacspeak-webedit-read-url ()
+  "Return URL of current page,
+or URL read from minibuffer."
+  (if (or (eq major-mode 'w3-mode)
+          (eq major-mode 'w3m-mode))
+      (funcall emacspeak-webutils-current-url)
+    (read-from-minibuffer "URL: "
+                          (or (browse-url-url-at-point)
+                              "http://"))))
+
+;;}}}
 ;;{{{ applying XSL transforms before displaying
 
 (define-prefix-command 'emacspeak-webedit-xsl-map )
