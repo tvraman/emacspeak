@@ -670,8 +670,6 @@ HTML."
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
-  (when emacspeak-w3-unescape-charent
-    (emacspeak-w3-unescape-charent))
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
@@ -1528,15 +1526,15 @@ used as well."
                         (string :tag "Replacement")))
   :group 'emacspeak-w3)
 
-(defsubst emacspeak-w3-unescape-charent ()
+(defsubst emacspeak-w3-unescape-charent (start end)
   "Clean up bad XML usage."
   (declare (special emacspeak-w3-charent-alist))
   (loop for entry in emacspeak-w3-charent-alist
         do
         (let ((entity (car  entry))
               (replacement (cdr entry )))
-          (goto-char (point-min))
-          (while (search-forward entity nil t)
+          (goto-char start)
+          (while (search-forward entity end t)
             (replace-match replacement )))))
 
 ;;;###autoload
