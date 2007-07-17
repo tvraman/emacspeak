@@ -109,9 +109,8 @@ unescape HTML tags."
               'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    emacspeak-atom-view-xsl
-   atom-url
-   'unescape-charent))
-   
+   atom-url))
+
 
 ;;;###autoload
 (defun emacspeak-atom-browse (feed)
