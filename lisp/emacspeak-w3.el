@@ -1230,7 +1230,7 @@ Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. "
   (interactive
    (list
-    (emacspeak-w3-css-get-id-list)
+    (emacspeak-w3-get-id-list)
     (if (eq major-mode 'w3-mode)
         (url-view-url t)
       (read-from-minibuffer "URL: " "http://www."))
