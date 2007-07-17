@@ -769,6 +769,19 @@ source buffer."
   (declare (special emacspeak-w3-xsl-keep-result))
   (setq emacspeak-w3-xsl-keep-result value))
 
+;;;  Helper: rename result buffer 
+(defsubst emacspeak-w3-rename-buffer (key)
+  "Setup emacspeak-w3-post-process-hook  to rename result buffer"
+  (add-hook
+   'emacspeak-w3-post-process-hook
+   (eval
+    `(function
+      (lambda nil
+        (rename-buffer
+         (format "%s %s"
+                 ,key (buffer-name))
+         'unique))))))
+
 ;;;###autoload
 (defun emacspeak-w3-xslt-filter (path    url  &optional speak complement)
   "Extract elements matching specified XPath path locator
@@ -783,10 +796,7 @@ Optional arg COMPLEMENT inverts the filter.  "
     current-prefix-arg
     current-prefix-arg))
   (declare (special emacspeak-w3-xsl-filter emacspeak-w3-xsl-junk))
-  (unless (or url
-              (interactive-p)
-              (eq major-mode 'w3-mode))
-    (error "Not in a W3 buffer."))
+  (unless url (error "Not in a W3 buffer."))
   (let ((w3-reuse-buffers 'no)
         (style (if complement
                    emacspeak-w3-xsl-junk
@@ -795,12 +805,8 @@ Optional arg COMPLEMENT inverts the filter.  "
     (when speak
       (add-hook 'emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
-    (add-hook 'emacspeak-w3-post-process-hook
-              #'(lambda nil
-                  (rename-buffer
-                   (format "Filtered:%s %s"
-                           path (buffer-name))
-                   'unique)))
+    (emacspeak-w3-rename-buffer
+     (format "Filtered %s" path))
     (emacspeak-webutils-with-xsl-environment
      style params
      (browse-url url))))
