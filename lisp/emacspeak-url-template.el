@@ -680,7 +680,11 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  (list "Feed:")
  nil
  "Google Reader"
- 'emacspeak-atom-display)
+ #'(lambda (url)
+     (emacspeak-w3-browse-xml-url-with-style
+      emacspeak-atom-view-xsl
+      url
+      'speak)))
 
 ;;}}}
 ;;{{{ google finance
@@ -779,7 +783,11 @@ Here are some examples:
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
- 'emacspeak-atom-display)
+ #'(lambda (url)
+     (emacspeak-w3-browse-xml-url-with-style
+      emacspeak-atom-view-xsl
+      url
+      'speak)))
 
 ;;}}}
 ;;{{{ google translation service
@@ -930,7 +938,10 @@ from English to German.")
  nil
  "Search Google news."
  #'(lambda (url)
-     (emacspeak-atom-display url 'speak)))
+     (emacspeak-w3-browse-xml-url-with-style
+      emacspeak-atom-view-xsl
+      url
+      'speak)))
 
 (emacspeak-url-template-define
  "Google Recent News Search"
