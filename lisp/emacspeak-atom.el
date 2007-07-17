@@ -46,6 +46,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-webutils)
 (require 'browse-url)
 
 ;;}}}
@@ -101,15 +102,16 @@ unescape HTML tags."
    (list
     (car
      (browse-url-interactive-arg "ATOM URL: "))
-    (or (interactive-p)
-    current-prefix-arg)))
-  (declare (special emacspeak-atom-unescape-html
-                    emacspeak-atom-view-xsl
-                    emacspeak-xslt-directory))
-  (emacspeak-w3-browse-xml-url-with-style
+    (or (interactive-p) current-prefix-arg)))
+  (declare (special emacspeak-atom-view-xsl))
+  (when speak
+    (add-hook 'emacspeak-w3-post-process-hook
+              'emacspeak-speak-buffer))
+  (emacspeak-webutils-with-xsl-environment
    emacspeak-atom-view-xsl
-   atom-url
-   speak))
+   nil
+   (browse-url atom-url)))
+   
 
 ;;;###autoload
 (defun emacspeak-atom-browse (feed)

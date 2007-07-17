@@ -1545,7 +1545,8 @@ used as well."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))
     current-prefix-arg))
-  (emacspeak-w3-xslt-filter style url
+  (emacspeak-webutils-with-style
+   style url
                             (interactive-p)))
   
 ;;}}}

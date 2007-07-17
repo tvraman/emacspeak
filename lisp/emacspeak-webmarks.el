@@ -128,6 +128,7 @@ This gets set the first time we sign in using a browser."
   (emacspeak-webutils-rss-display
    (emacspeak-webmarks-url
     emacspeak-webmarks-list-url-template)))
+
 ;;;###autoload
 (defun emacspeak-webmarks-search (query)
   "Search WebMarks."

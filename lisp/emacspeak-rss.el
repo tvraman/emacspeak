@@ -47,6 +47,7 @@
 
 (require 'emacspeak-preamble)
 (require 'browse-url)
+(require 'emacspeak-webutils)
 ;;}}}
 ;;{{{ RSS feed cache
 
@@ -83,16 +84,18 @@ unescape HTML tags."
   (interactive
    (list
     (car
-     (browse-url-interactive-arg "RSS URL: "))))
-  (declare (special emacspeak-rss-unescape-html
-                    emacspeak-xslt-directory))
-  (when (or (interactive-p)speak)
-    (add-hook 'emacspeak-w3-post-process-hook
-              'emacspeak-speak-buffer))
-  (emacspeak-w3-browse-xml-url-with-style
-   (expand-file-name "rss.xsl" emacspeak-xslt-directory)
-   rss-url
-   (and emacspeak-rss-unescape-html 'unescape-charent)))
+     (browse-url-interactive-arg "RSS URL: "))
+    (or (interactive-p) current-prefix-arg)))
+  (declare (special emacspeak-xslt-directory))
+  (let ((style (expand-file-name "rss.xsl" emacspeak-xslt-directory)))
+    (when speak
+      (add-hook 'emacspeak-w3-post-process-hook
+                'emacspeak-speak-buffer))
+  (emacspeak-webutils-with-xsl-environment
+   style
+   nil
+   (browse-url rss-url))))
+   
 
 ;;;###autoload
 (defun emacspeak-opml-display (opml-url &optional speak)
