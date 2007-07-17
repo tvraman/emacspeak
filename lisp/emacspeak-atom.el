@@ -93,8 +93,6 @@ unescape HTML tags."
           (string :tag "Modern" emacspeak-atom-modern))
   :group 'emacspeak-xsl)
 
-
-
 ;;;###autoload
 (defun emacspeak-atom-display (atom-url &optional speak)
   "Retrieve and display ATOM URL."
@@ -110,6 +108,23 @@ unescape HTML tags."
   (emacspeak-w3-browse-xml-url-with-style
    emacspeak-atom-view-xsl
    atom-url))
+
+;;;###autoload
+(defun emacspeak-atom-region (start end  &optional speak)
+  "Display atom contents of region."
+  (interactive
+   (list
+    (point)
+    (mark)
+    (or (interactive-p)
+        current-prefix-arg)))
+  (declare (special emacspeak-atom-view-xsl))
+  (when speak
+    (add-hook 'emacspeak-w3-post-process-hook
+              'emacspeak-speak-buffer))
+  (emacspeak-xslt-view-region
+   emacspeak-atom-view-xsl
+   start end))
 
 
 ;;;###autoload
