@@ -993,7 +993,7 @@ Empty value finishes the list."
     result))
 
 ;;;###autoload
-(defun emacspeak-w3-extract-nested-table-list (tables url & optional speak)
+(defun emacspeak-w3-extract-nested-table-list (tables url &optional speak)
   "Extract specified list of tables from a WWW page."
   (interactive
    (list
