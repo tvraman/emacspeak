@@ -70,7 +70,7 @@ View an Atom feed as clean HTML
         </xsl:for-each>
       </tr>
     </TABLE>
-    <p>
+    <div>
       <xsl:apply-templates select="atom:summary"/><br/>
       <xsl:apply-templates select="atom:content"/><br/>
       <em><xsl:apply-templates select="atom:author"/></em>
@@ -78,7 +78,7 @@ View an Atom feed as clean HTML
         <xsl:text> at </xsl:text>
       </xsl:if>
       <xsl:value-of select="atom:published"/>
-    </p>
+    </div>
   </xsl:template>
   <xsl:template match="atom:entry" mode="toc">
     <li>
@@ -91,29 +91,30 @@ View an Atom feed as clean HTML
       </a>
     </li>
   </xsl:template>
-  <xsl:template
-      match="atom:content|atom:summary">
+
+  <xsl:template match="atom:content|atom:summary">
     <xsl:choose>
-      <xsl:when test="@type='application/xhtml+xml'">
-        <xsl:copy-of select="node()"/>
+      <xsl:when test="@src">
+      [<a>
+      <xsl:attribute name="href">
+        <xsl:value-of select="@src"/>
+      </xsl:attribute>
+      <img alt=" Download">
+        <xsl:attribute name="src"><xsl:value-of
+        select="@src"/></xsl:attribute>
+      </img>
+      </a>]
       </xsl:when>
       <xsl:when test="@type='html' or @type='text/html'">
         <xsl:value-of disable-output-escaping="yes"
                       select="node()"/>
       </xsl:when>
-      <!-- for legacy atom 0.3-->
-      <xsl:when test="@mode='escaped'">
-        <xsl:value-of disable-output-escaping="yes"
-                      select="node()"/>
-      </xsl:when>
       <xsl:otherwise>
-        <p> <xsl:copy-of select="node()"/></p>
+         <xsl:copy-of select="node()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  <xsl:template match="xhtml:div">
-    <xsl:copy/>
-  </xsl:template>
+  
   <xsl:template match="atom:link">
     <a>
       <xsl:attribute name="href">
@@ -144,19 +145,5 @@ View an Atom feed as clean HTML
       </xsl:attribute>
       <xsl:value-of select="atom:name"/>
     </a>
-  </xsl:template>
-  <xsl:template match="atom:content">
-    <xsl:if test="@src">
-      [<a>
-      <xsl:attribute name="href">
-        <xsl:value-of select="@src"/>
-      </xsl:attribute>
-      <img alt=" Download">
-        <xsl:attribute name="src"><xsl:value-of
-        select="@src"/></xsl:attribute>
-      </img>
-      </a>]
-    </xsl:if>
-    <xsl:copy-of select="node()"/>
   </xsl:template>
 </xsl:stylesheet>
