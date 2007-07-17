@@ -13,7 +13,8 @@ when posting or updating an entry.
 <xsl:template match="atom:content">
   <content type="xhtml">
     <xsl:attribute name="type">xhtml</xsl:attribute>
-<xsl:apply-templates/>
+<xsl:value-of select="."
+              disable-output-escaping="yes"/>
   </content>
 </xsl:template>
   <xsl:template match="*|@*">
