@@ -653,6 +653,10 @@ Nil means no transform is used. "
   :type 'boolean
   :group 'emacspeak-w3)
 
+;;;###autoload
+(defvar emacspeak-w3-unescape-charent nil
+  "Set to T to unescape charents.")
+
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
 HTML."
@@ -666,6 +670,8 @@ HTML."
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
+  (when emacspeak-w3-unescape-charent
+    (emacspeak-w3-unescape-charent))
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform

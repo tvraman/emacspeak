@@ -72,7 +72,8 @@
 
 
 (defgroup emacspeak-alsaplayer nil
-  "AlsaPlayer from emacs.")
+  "AlsaPlayer from emacs."
+  :group 'emacspeak)
 
 ;;;###autoload
 (defcustom emacspeak-alsaplayer-auditory-feedback t
