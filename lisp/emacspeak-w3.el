@@ -1308,6 +1308,44 @@ used as well."
      (or redirect url)
      'speak)
     (emacspeak-auditory-icon 'open-object)))
+
+
+(defvar emacspeak-w3-id-filter nil
+  "Buffer local id filter.")
+
+(make-variable-buffer-local 'emacspeak-w3-id-filter)
+
+
+;;;###autoload
+(defun emacspeak-w3-follow-and-filter-by-id (id)
+  "Follow url and point, and filter the result by specified id.
+Id can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well."
+  (interactive
+   (list
+    (or emacspeak-w3-id-filter
+        (setq emacspeak-w3-id-filter
+              (read-from-minibuffer "Id: ")))))
+  (declare (special emacspeak-w3-id-filter
+                    emacspeak-w3-url-rewrite-rule))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command is only useful in W3 buffers."))
+  (let ((url (w3-view-this-url t))
+        (redirect nil))
+    (unless url
+      (error "Not on a link."))
+    (when emacspeak-w3-url-rewrite-rule
+      (setq redirect
+            (replace-regexp-in-string
+             (first emacspeak-w3-url-rewrite-rule)
+             (second emacspeak-w3-url-rewrite-rule)
+             url)))
+    (emacspeak-w3-extract-by-id
+     emacspeak-w3-id-filter
+     (or redirect url)
+     'speak)))
+
 ;;;###autoload
 (defun emacspeak-w3-style-filter (style   url &optional speak )
   "Extract elements matching specified style
@@ -1523,6 +1561,7 @@ used as well."
         ("t" emacspeak-w3-extract-table-by-position)
         ("u" emacspeak-w3-extract-matching-urls)
         ("x" emacspeak-w3-extract-nested-table)
+        ("b" emacspeak-w3-follow-and-filter-by-id)
         ("y" emacspeak-w3-class-filter-and-follow)
         )
       do
