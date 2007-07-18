@@ -644,7 +644,7 @@ HTML."
   (unless (string-match "temp"
                         (buffer-name))
   (emacspeak-w3-build-id-cache)
-  (emacspeak-w3-build-css-cache))
+  (emacspeak-w3-build-class-cache))
   (when (and emacspeak-w3-xsl-p
              emacspeak-w3-xsl-transform
              (not  (string-match "temp" (buffer-name))))
