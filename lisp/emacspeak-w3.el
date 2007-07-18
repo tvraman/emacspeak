@@ -166,12 +166,12 @@
           ("\"" emacspeak-speak-skim-buffer)
           ("/" emacspeak-webutils-google-similar-to-this-page)
           ("\;" emacspeak-w3-speak-this-element)
-          ("A" emacspeak-w3-browse-atom-at-point)
+          ("A" emacspeak-webutils-atom-display)
           ("C" emacspeak-webutils-google-extract-from-cache)
           ("L" emacspeak-w3-lynx-url-under-point)
           ("N" emacspeak-speak-next-personality-chunk)
           ("P" emacspeak-speak-previous-personality-chunk)
-          ("R" emacspeak-w3-browse-rss-at-point)
+          ("R" emacspeak-webutils-rss-display)
           ("\C-f" w3-table-focus-on-this-cell)
           ("\M- " emacspeak-imenu-speak-this-section)
           ("\M-n" emacspeak-imenu-goto-next-index-position)
@@ -1570,35 +1570,11 @@ used as well."
 ;;}}}
 ;;{{{ pull RSS feed
 
-;;;###autoload
-(defun emacspeak-w3-browse-rss-at-point ()
-  "Browses RSS url under point."
-  (interactive)
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in a W3 buffer."))
-  (let ((url (w3-view-this-url  'no-show)))
-    (cond
-     (url
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-webutils-feed-display
-       url
-       (emacspeak-xslt-get "rss.xml")
-       'speak))
-     (t (error "No URL under point.")))))
+
+
 
 ;;;###autoload
-(defun emacspeak-w3-browse-atom-at-point ()
-  "Browses Atom url under point."
-  (interactive)
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in a W3 buffer."))
-  (let ((url (w3-view-this-url  'no-show)))
-    (cond
-     (url
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-webutils-feed-display url
-                                       emacspeak-atom-view-xsl 'speak))
-      (t (error "No URL under point.")))))
+
 
 ;;}}}
 ;;{{{ backward compatibility
