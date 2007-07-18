@@ -1693,15 +1693,12 @@ used as well."
   (interactive)
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
-  (let ((url (w3-view-this-url  'no-show))
-        (emacspeak-xslt-options nil))
+  (let ((url (w3-view-this-url  'no-show)))
     (cond
      (url
       (emacspeak-auditory-icon 'select-object)
-      (emacspeak-w3-browse-xml-url-with-style
-       emacspeak-atom-view-xsl
-       url 'speak))
-     (t (error "No URL under point.")))))
+      (emacspeak-atom-display url))
+      (t (error "No URL under point.")))))
 
 ;;}}}
 ;;{{{ backward compatibility
