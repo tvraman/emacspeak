@@ -288,9 +288,10 @@ instances."
     (cond
      ((null feed)
       (error "No url under point."))
-     (t (emacspeak-atom-display
+     (t (emacspeak-w3-browse-xml-url-with-style
+         emacspeak-atom-view-xsl
          (format
-          "http://www.google.com/reader/public/atom/feed/%s?n=100"
+          "http://www.google.com/reader/public/atom/feed/%s?n=20"
           (emacspeak-url-encode feed))
          'speak)))))
 
