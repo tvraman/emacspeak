@@ -104,7 +104,7 @@ This gets set the first time we sign in using a browser."
 ;;{{{ keymap:
 
 (define-prefix-command 'emacspeak-webmarks-prefix)
-
+(declaim(special emacspeak-webmarks-prefix))
 (loop for k in
       '(
         ("b" browse-url-of-buffer)
