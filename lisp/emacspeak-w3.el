@@ -1515,7 +1515,6 @@ used as well."
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
-
 ;;}}}
 ;;{{{  browse url using specified style
 
