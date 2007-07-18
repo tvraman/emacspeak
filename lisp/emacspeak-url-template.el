@@ -57,6 +57,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-websearch)
+(require 'emacspeak-xslt)
 (eval-when-compile (require 'emacspeak-w3))
 ;;}}}
 ;;{{{  structures
@@ -406,7 +407,7 @@ to play a BBC Radio7 program on demand."
      (emacspeak-speak-line))
  "BBC Listen Again Listings"
  #'(lambda (url)
-     (emacspeak-w3-browse-url-with-style
+     (emacspeak-xslt-view-xml
       (expand-file-name "linearize-tables.xsl"
                         emacspeak-xslt-directory)
       url)))
@@ -1429,7 +1430,7 @@ Segment is specified as a two digit number --specifying a blank value
 plays entire program."
  #'(lambda (url)
      (funcall emacspeak-media-player url 'play-list)
-     (emacspeak-w3-browse-url-with-style
+     (emacspeak-xslt-view
       (expand-file-name "smil-anchors.xsl"
                         emacspeak-xslt-directory)
       url)))
@@ -1653,7 +1654,7 @@ plays entire program."
  'emacspeak-speak-buffer
  "Show MLB Scorecard."
  #'(lambda (url)
-     (emacspeak-w3-browse-xml-url-with-style
+     (emacspeak-xslt-view-xml
       (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
       url)))
 

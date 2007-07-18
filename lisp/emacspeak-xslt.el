@@ -298,6 +298,16 @@ part of the libxslt package."
 
 ;;}}}
 ;;{{{ interactive commands:
+;;;###autoload
+(defun emacspeak-xslt-view (style url)
+  "Browse URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (emacspeak-webutils-with-xsl style url))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)

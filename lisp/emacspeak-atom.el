@@ -47,6 +47,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'emacspeak-xslt)
 (require 'browse-url)
 
 ;;}}}
@@ -109,9 +110,9 @@ unescape HTML tags."
   (when speak
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
-  (emacspeak-w3-browse-xml-url-with-style
+  (emacspeak-xslt-view-xml
    emacspeak-atom-view-xsl
-   rss-url
+   atom-url
    'unescape))
 
 ;;;###autoload
