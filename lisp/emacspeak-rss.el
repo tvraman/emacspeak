@@ -46,6 +46,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-xslt)
 (require 'browse-url)
 (require 'emacspeak-webutils)
 ;;}}}
@@ -91,7 +92,7 @@ unescape HTML tags."
     (when speak
       (add-hook 'emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
-    (emacspeak-w3-browse-xml-url-with-style
+    (emacspeak-xslt-view-xml
      style rss-url 'unescape)))
 
 ;;;###autoload
@@ -106,7 +107,7 @@ unescape HTML tags."
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
-  (emacspeak-w3-browse-xml-url-with-style
+  (emacspeak-xslt-view-xml
    (expand-file-name "opml.xsl" emacspeak-xslt-directory)
    opml-url
    (and emacspeak-rss-unescape-html 'unescape-charent)))
