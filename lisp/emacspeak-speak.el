@@ -706,6 +706,7 @@ current local  value to the result.")
     (add-hook 'kill-emacs-hook
               'emacspeak-speak-persist-filter-settings)))
 
+;;;###autoload
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.

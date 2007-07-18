@@ -185,7 +185,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 (defvar voice-lock-mode nil)
 
 ;;}}}
-;;{{{ helper: apply pronunciations 
+;;{{{ helper: apply pronunciations
 ;;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
 
@@ -194,17 +194,17 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 Modifies text and point in buffer."
   (declare (special emacspeak-pronounce-pronunciation-personality))
   (let ((words
-         (sort 
+         (sort
           (loop for  key  being the hash-keys  of pronunciation-table collect key)
-          #'(lambda (a b ) 
+          #'(lambda (a b )
               (> (length  a) (length  b))))))
-    (loop for key in words 
+    (loop for key in words
           do
           (let ((word  key)
                 (pronunciation (gethash  key pronunciation-table))
                 (pp nil)
                 (personality nil))
-            (when word 
+            (when word
               (goto-char (point-min))
               (cond
                ((stringp pronunciation)
@@ -228,9 +228,9 @@ Modifies text and point in buffer."
                   (while (funcall matcher   word nil t)
                     (setq pp (get-text-property (point) 'personality))
                     (setq pronunciation
-                          (save-match-data 
+                          (save-match-data
                             (funcall pronouncer
-                                     (buffer-substring 
+                                     (buffer-substring
                                       (match-beginning 0)
                                       (match-end 0)))))
                     (replace-match pronunciation t t  )
@@ -308,14 +308,6 @@ Optional argument FORCE  flushes the command to the speech server."
                           (if force "\nd" "")))))
 
 ;;;###autoload
-
-(defsubst dtk-force-note (instrument pitch duration
-                                     &optional target step)
-  "Play a note immediately."
-  (dtk-interp-note  instrument pitch duration
-                    target step 'force))
-
-;;;###autoload
 (defcustom dtk-use-tones t
   "Allow tones to be turned off."
   :type 'boolean
@@ -363,10 +355,10 @@ Optional argument FORCE  flushes the command to the speech server."
 ;;)
 
 (defun dtk-set-preferred-language (alias lang)
-  "Set the alias of the preferred language: 
-For example if alias=\"en\" lang=\"en_GB\", 
+  "Set the alias of the preferred language:
+For example if alias=\"en\" lang=\"en_GB\",
 then the following call:
- dtk-set-language(\"en\") 
+ dtk-set-language(\"en\")
 will set \"en_GB\".
 "
   (interactive "s")

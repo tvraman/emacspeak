@@ -58,7 +58,9 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-websearch)
 (require 'emacspeak-xslt)
-(eval-when-compile (require 'emacspeak-w3))
+(eval-when-compile
+  (require 'calendar)
+  (require 'emacspeak-w3))
 ;;}}}
 ;;{{{  structures
 

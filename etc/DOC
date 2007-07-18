@@ -42,10 +42,6 @@ will say ``aw fifteen dot'' when speaking the string
 
 ------------------------------------------------------------
 
-** dtk-notes-shutdown Shutdown midi system. 
-
-------------------------------------------------------------
-
 ** dtk-pause	Key Sequence: control e p 
 
  Pause ongoing speech.
@@ -121,10 +117,10 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 
 ------------------------------------------------------------
 
-** dtk-set-preferred-language Set the alias of the preferred language: 
-For example if alias="en" lang="en_GB", 
+** dtk-set-preferred-language Set the alias of the preferred language:
+For example if alias="en" lang="en_GB",
 then the following call:
- dtk-set-language("en") 
+ dtk-set-language("en")
 will set "en_GB".
  
 
@@ -755,10 +751,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1050,10 +1042,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
-
-------------------------------------------------------------
-
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -1825,6 +1813,15 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio-browse Browse RAM file before playing the selected component. 
 
 ------------------------------------------------------------
@@ -1975,8 +1972,7 @@ Use this once you are sure the guesses are usually correct.
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-queue-auditory-icon when using software TTS.
-emacspeak-play-midi-icon for midi device.  
+emacspeak-queue-auditory-icon when using software TTS. 
 
 ------------------------------------------------------------
 
@@ -2009,7 +2005,8 @@ Optional interactive PREFIX arg toggles global value.
 
 ------------------------------------------------------------
 
-** emacspeak-blink-matching-open Display matching delimiter in the minibuffer. 
+** emacspeak-blink-matching-open Move cursor momentarily to the beginning of the sexp before point.
+Also display match context in minibuffer. 
 
 ------------------------------------------------------------
 
@@ -2697,108 +2694,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
-** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
- 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-column Erase current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-row Erase current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-hint Provide hint for current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-push Push current state on to history stack. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-column Speak current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-row Speak current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
-
-------------------------------------------------------------
-
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -3164,34 +3059,6 @@ commands via single keystrokes.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-browse-url-with-style Browse URL with specified XSL style. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-browse-xml Browse XML+CSS using W3.
-With interactive prefix arg, also prompt for an  XSL stylesheet.
-XML files can be rendered by an XML browser that is CSS aware.
-Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
-good enough job for many things, especially the XML files from
-bookshare.org.
-Setting W3 up at present to display any and all XML files at
-present would be a bug, since W3 is an HTML browser --not a true
-XML browser.
-This command opens a specified XML file under the covers and has
-W3 render it using CSS as available. The result on bookshare.org
-XML files is quite usable:
-
-0) You get Aural CSS support.
-
-1) You get a navigable buffer using imenu if you have w3-imenu
-loaded.  
-
-------------------------------------------------------------
-
-** emacspeak-w3-browse-xml-url-with-style Browse XML URL with specified XSL style. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -3226,31 +3093,27 @@ document is displayed in a separate buffer.
 
 ** emacspeak-w3-extract-by-class Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion. 
+buffer. Interactive use provides list of class values as completion. 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-by-class-list Extract elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
-completion.  
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion.  
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-by-id Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
+buffer.
 Interactive use provides list of id values as completion. 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-by-id-list Extract elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provids list of id values as
-completion.  
+separate buffer. Interactive use provides list of id values as completion.  
 
 ------------------------------------------------------------
 
@@ -3260,8 +3123,7 @@ completion.
 
 ** emacspeak-w3-extract-media-streams Extract links to media streams.
 operate on current web page when in a W3 buffer; otherwise prompt for url.
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+ Optional arg `speak' specifies if the result should be
 spoken automatically. 
 
 ------------------------------------------------------------
@@ -3272,8 +3134,7 @@ spoken automatically.
 
 ** emacspeak-w3-extract-nested-table Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a W3 buffer; otherwise
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+prompt for URL. Optional arg `speak' specifies if the result should be
 spoken automatically. 
 
 ------------------------------------------------------------
@@ -3282,27 +3143,20 @@ spoken automatically.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-node-by-id Extract specified node from URI. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-extract-print-streams Extract links to printable  streams.
 operate on current web page when in a W3 buffer; otherwise prompt for url.
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+ Optional arg `speak' specifies if the result should be
 spoken automatically. 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-table-by-match Extract table containing  specified match.
- Optional arg url specifies the page to extract content from.
-Interactive prefix arg causes url to be read from the minibuffer. 
+ Optional arg url specifies the page to extract content from. 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-table-by-position Extract table at specified position.
- Optional arg url specifies the page to extract content from.
-Interactive prefix arg causes url to be read from the minibuffer. 
+Default is to extract from current page. 
 
 ------------------------------------------------------------
 
@@ -3314,7 +3168,14 @@ Tables are specified by containing  match pattern
 
 ** emacspeak-w3-extract-tables-by-position-list Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
-nested of tables found in the page. 
+ of nested tables found in the page. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-follow-and-filter-by-id Follow url and point, and filter the result by specified id.
+Id can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well. 
 
 ------------------------------------------------------------
 
@@ -3328,8 +3189,8 @@ nested of tables found in the page.
 
 ** emacspeak-w3-junk-by-class-list Junk elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
+separate buffer.
+ Interactive use provides list of class values as
 completion.  
 
 ------------------------------------------------------------
@@ -3359,10 +3220,6 @@ specifies by how many eleemnts to move.
 ** emacspeak-w3-previous-doc-element Move back  to the previous document element.
 Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-set-xsl-keep-result Set value of `emacspeak-w3-xsl-keep-result'. 
 
 ------------------------------------------------------------
 
@@ -3398,6 +3255,10 @@ specifies the page to extract contents  from.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-toggle-xsl-keep-result Toggle xsl keep result flag. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-url-expand-and-execute Applies buffer-specific URL expander/executor function. 
 
 ------------------------------------------------------------
@@ -3423,7 +3284,7 @@ used as well.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xpath-junk-and-follow Follow url and point, and filter the result by junking
-elements specified xpath.
+elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well. 
@@ -3441,10 +3302,7 @@ libxslt package.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xslt-filter Extract elements matching specified XPath path locator
-from HTML.  Extracts specified elements from current WWW
-page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.
-Optional arg COMPLEMENT inverts the filter.   
+from Web page -- default is the current page being viewed. 
 
 ------------------------------------------------------------
 
@@ -3763,6 +3621,10 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ** emacspeak-websearch-yahoo-historical-chart Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-youtube Search YouTube 
 
 ------------------------------------------------------------
 
@@ -4600,6 +4462,18 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-xslt-view Browse URL with specified XSL style. 
+
+------------------------------------------------------------
+
+** emacspeak-xslt-view-region Browse XML region with specified XSL style. 
+
+------------------------------------------------------------
+
+** emacspeak-xslt-view-xml Browse XML URL with specified XSL style. 
+
+------------------------------------------------------------
+
 ** emacspeak-zinf Play specified resource using zinf.
 Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-zinf-mode. 
@@ -4679,13 +4553,381 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-ibm-internal Search IBM using trevi 
+** emacspeak-moz-browse-current Browse current node.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-browser-back Move back in history.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-browser-forward Move forward in history.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-close-tab-or-browser Close tab, or browser when one tab left.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-down Go Down a level and browse.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-eval-expression-and-browse Send expression to Moz, get output, and browse it in Emacs.
+
+(fn EXP) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-eval-expression-and-go Send expression to Moz and switch to it.
+
+(fn EXP) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-filter-and-browse Browse document filtered by XPath filter.
+
+(fn XPATH) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-goto-url Make Firefox used by our repl Go to the specified URL.
+
+(fn URL) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-goto-url-at-point Make Firefox used by our repl Go to url under point.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-inspect Inspect specified object.
+
+(fn WHAT) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-jump Jump to specified index in history.
+
+(fn INDEX) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-left Go left and browse.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-refresh Reload document.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-right Go right and browse.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-search Search for pattern in current context.
+
+(fn PATTERN) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-up Go Up a level and browse.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-visit-next-and-browse Asks visitor to go  forward and browses the result.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-visit-previous-and-browse Asks visitor to go  backward and browses the result.
+
+(fn) 
 
 ------------------------------------------------------------
 
 ** emacspeak-org-popup-input Pops up an org input area.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-browse-url-with-style Browse URL with specified XSL style.
+
+(fn STYLE URL) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-browse-xml-url-with-style Browse XML URL with specified XSL style.
+
+(fn STYLE URL &optional UNESCAPE-CHARENT) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-class-filter-and-follow Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn CLASS URL) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-count-matches Count matches for locator  in HTML.
+
+(fn URL LOCATOR) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-count-nested-tables Count nested tables in HTML.
+
+(fn URL) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-count-tables Count  tables in HTML.
+
+(fn URL) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-by-class Extract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-by-class-list Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion. 
+
+(fn CLASSES URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-by-id Extract elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer.
+Interactive use provides list of id values as completion.
+
+(fn ID URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-by-id-list Extract elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-matching-urls Extracts links whose URL matches pattern.
+
+(fn PATTERN URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-media-streams Extract links to media streams.
+operate on current web page when in a WEBEDIT buffer; otherwise prompt for url.
+ Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-media-streams-under-point In WEBEDIT mode buffers, extract media streams from url under point.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-nested-table Extract nested table specified by `table-index'. Default is to
+operate on current web page when in a WEBEDIT buffer; otherwise
+prompt for URL. Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn INDEX URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-nested-table-list Extract specified list of tables from a WWW page.
+
+(fn TABLES URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-print-streams Extract links to printable  streams.
+operate on current web page when in a WEBEDIT buffer; otherwise prompt for url.
+ Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-table-by-match Extract table containing  specified match.
+ Optional arg url specifies the page to extract content from.
+
+(fn MATCH URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-table-by-position Extract table at specified position.
+Default is to extract from current page.
+
+(fn POSITION URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-tables-by-match-list Extract specified  tables from a WWW page.
+Tables are specified by containing  match pattern
+ found in the match list.
+
+(fn MATCH-LIST URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-extract-tables-by-position-list Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list
+ of nested tables found in the page.
+
+(fn POSITIONS URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-follow-and-filter-by-id Follow url and point, and filter the result by specified id.
+Id can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn ID) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-junk-by-class-list Junk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer.
+ Interactive use provides list of class values as
+completion. 
+
+(fn CLASSES URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-set-xsl-keep-result Set value of `emacspeak-webedit-xsl-keep-result'.
+
+(fn VALUE) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-style-filter Extract elements matching specified style
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract contents  from.
+
+(fn STYLE URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xpath-filter-and-follow Follow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn &optional PROMPT) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xpath-junk-and-follow Follow url and point, and filter the result by junking
+elements specified by xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn &optional PROMPT) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xsl-toggle Toggle  application of XSL transformations.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xslt-apply Apply specified transformation to current page.
+
+(fn XSL) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xslt-filter Extract elements matching specified XPath path locator
+from Web page -- default is the current page being viewed.
+
+(fn PATH URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xslt-junk Junk elements matching specified locator.
+
+(fn PATH URL &optional SPEAK) 
+
+------------------------------------------------------------
+
+** emacspeak-webedit-xslt-select Select XSL transformation applied to WWW pages before they are displayed .
+
+(fn XSL) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-add Add WebMark.
+
+(fn URL TITLE NOTES) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-history Search search history.
+
+(fn QUERY) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-list List WebMarks.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-search Search WebMarks.
+
+(fn QUERY) 
 
   
 
