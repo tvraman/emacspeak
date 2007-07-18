@@ -641,8 +641,13 @@ HTML."
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
+  (unless (string-match "temp"
+                        (buffer-name))
   (emacspeak-w3-build-id-cache)
-  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+  (emacspeak-w3-build-css-cache))
+  (when (and emacspeak-w3-xsl-p
+             emacspeak-w3-xsl-transform
+             (not  (string-match "temp" (buffer-name))))
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
@@ -1070,35 +1075,40 @@ Tables are specified by containing  match pattern
      url
      speak)))
 
-(defvar emacspeak-w3-buffer-css-class-cache nil
+(defvar emacspeak-w3-buffer-class-cache nil
   "Caches class attribute values for current buffer.")
 
-(make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
+(make-variable-buffer-local 'emacspeak-w3-buffer-class-cache)
 
-(defun emacspeak-w3-css-class-cache ()
-  "Build CSS class cache for buffer if needed."
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in W3 buffer."))
-  (or emacspeak-w3-buffer-css-class-cache
-      (let ((values nil)
-            (buffer
-             (emacspeak-xslt-url
-              (emacspeak-xslt-get "class-values.xsl")
-              (url-view-url 'no-show)
-              nil ;params
-              'no-comment)))
-        (setq values
-              (save-excursion
-                (set-buffer buffer)
-                (shell-command-on-region (point-min) (point-max)
-                                         "sort  -u"
-                                         (current-buffer))
-                (split-string (buffer-string))))
-        (setq emacspeak-w3-buffer-css-class-cache
-              (mapcar
-               #'(lambda (v)
-                   (cons v v ))
-               values)))))
+(defun emacspeak-w3-build-class-cache ()
+  "Build class cache and forward it to rendered page."
+  (let ((values nil)
+        (content (clone-buffer
+                  (format "class-%s" (buffer-name)))))
+    (save-excursion
+      (set-buffer content)
+      (emacspeak-xslt-region
+       (emacspeak-xslt-get "class-values.xsl")
+       (point-min) (point-max)
+       nil ;params
+       'no-comment)
+      (shell-command-on-region
+       (point-min) (point-max)
+       "sort  -u"
+       (current-buffer))
+      (setq values
+            (split-string (buffer-string))))
+    (add-hook
+     'emacspeak-w3-post-process-hook
+     (eval
+      `(function
+        (lambda nil
+          (declare (special  emacspeak-w3-buffer-class-cache))
+          (setq emacspeak-w3-buffer-class-cache
+                ',(mapcar
+                  #'(lambda (v)
+                      (cons v v ))
+                  values))))))))
 
 (defvar emacspeak-w3-buffer-id-cache nil
   "Caches id attribute values for current buffer.")
@@ -1143,7 +1153,7 @@ buffer. Interactive use provides list of class values as completion."
   (interactive
    (list
     (completing-read "Class: "
-                     (emacspeak-w3-css-class-cache))
+                     emacspeak-w3-buffer-class-cache)
     (if (eq major-mode 'w3-mode)
         (url-view-url t)
       (read-from-minibuffer "URL: " "http://www."))
