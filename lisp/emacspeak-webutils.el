@@ -342,7 +342,8 @@ instances."
 
 (defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
-  (let ((buffer (url-retrieve-synchronously feed-url)))
+  (let ((buffer (url-retrieve-synchronously feed-url))
+        (emacspeak-xslt-options nil))
     (when speak (emacspeak-webutils-autospeak))
     (cond
      ((null buffer)
@@ -362,10 +363,9 @@ instances."
   "Display RSS feed."
   (interactive
    (list
-    (read-from-minibuffer "Feed: "
-                          (if emacspeak-webutils-url-at-point
-                              (funcall
-                               emacspeak-webutils-url-at-point)
+    (if emacspeak-webutils-url-at-point
+        (funcall emacspeak-webutils-url-at-point)
+      (read-from-minibuffer "Feed: "
                             (browse-url-url-at-point)))))
   (emacspeak-webutils-feed-display feed-url
                                    (emacspeak-xslt-get "rss.xsl")))
@@ -375,10 +375,9 @@ instances."
   "Display ATOM feed."
   (interactive
    (list
-    (read-from-minibuffer "Feed: "
-                          (if emacspeak-webutils-url-at-point
-                              (funcall
-                               emacspeak-webutils-url-at-point)
+    (if emacspeak-webutils-url-at-point
+        (funcall emacspeak-webutils-url-at-point)
+      (read-from-minibuffer "Feed: "
                             (browse-url-url-at-point)))))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
