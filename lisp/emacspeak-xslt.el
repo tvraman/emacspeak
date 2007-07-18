@@ -49,6 +49,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-webutils)
 
 ;;}}}
 ;;{{{  xslt Environment:
@@ -294,6 +295,61 @@ part of the libxslt package."
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
+
+;;}}}
+;;{{{ interactive commands:
+
+;;;###autoload
+(defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
+  "Browse XML URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))
+    current-prefix-arg))
+  (let ((src-buffer
+         (emacspeak-xslt-xml-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object)))
+    (save-excursion
+      (set-buffer src-buffer)
+      (when unescape-charent
+        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
+      (emacspeak-webutils-without-xsl
+       (browse-url-of-buffer)))
+    (kill-buffer src-buffer)))
+
+;;;###autoload
+(defun emacspeak-xslt-view-region (style start end &optional unescape-charent)
+  "Browse XML region with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (point)
+    (mark)
+    current-prefix-arg))
+  (let ((src-buffer
+         (ems-modify-buffer-safely
+          (emacspeak-xslt-region style start end))))
+    (save-excursion
+      (set-buffer src-buffer)
+      (when unescape-charent
+        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
+      (emacspeak-webutils-without-xsl
+       (browse-url-of-buffer)))
+    (kill-buffer src-buffer)))
 
 ;;}}}
 (provide 'emacspeak-xslt)
