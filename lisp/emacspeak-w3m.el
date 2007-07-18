@@ -894,8 +894,7 @@ With prefix argument makes this transformation persistent."
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
-    (read-string "URL: " (browse-url-url-at-point))))
-  (let ((src-buffer
+    (read-string "URL: " (browse-url-url-at-point))))  (let ((src-buffer
          (emacspeak-xslt-xml-url
           style
           url
