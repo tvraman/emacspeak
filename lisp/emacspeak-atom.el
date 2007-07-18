@@ -46,7 +46,8 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
-(require 'emacspeak-webutils)
+(eval-when-compile
+  (require 'emacspeak-webutils))
 (require 'emacspeak-xslt)
 (require 'browse-url)
 
@@ -122,10 +123,9 @@ unescape HTML tags."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
-                       emacspeak-atom-feeds)))
-  (let ((uri (cadr
-              (assoc feed emacspeak-atom-feeds))))))
-    (emacspeak-atom-display uri 'speak))
+                       emacspeak-atom-feeds))))
+  (let ((uri (cadr (assoc feed emacspeak-atom-feeds))))
+    (emacspeak-atom-display uri 'speak)))
 
 ;;}}}
 (provide 'emacspeak-atom)
