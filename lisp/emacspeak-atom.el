@@ -97,21 +97,22 @@ unescape HTML tags."
   (interactive
    (list
     (read-from-minibuffer "URL: "
-    (if (or (eq major-mode 'w3-mode)
-            (eq major-mode 'w3m-mode))
-        (or (funcall emacspeak-webutils-url-at-point)
-            (funcall emacspeak-webutils-current-url))))
+                          (if (or (eq major-mode 'w3-mode)
+                                  (eq major-mode 'w3m-mode))
+                              (or (funcall emacspeak-webutils-url-at-point)
+                                  (funcall emacspeak-webutils-current-url))))
     (or (interactive-p) current-prefix-arg)))
   (declare (special emacspeak-atom-view-xsl))
   (when speak
     (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
-  (let ((w3-reuse-buffers 'no))
-  (emacspeak-webutils-with-xsl-environment
+  (when speak
+    (add-hook 'emacspeak-w3-post-process-hook
+              'emacspeak-speak-buffer))
+  (emacspeak-w3-browse-xml-url-with-style
    emacspeak-atom-view-xsl
-   nil ;params
-   nil ;options
-   (browse-url atom-url))))
+   rss-url
+   'unescape))
 
 ;;;###autoload
 (defun emacspeak-atom-browse (feed)
