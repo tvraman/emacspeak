@@ -70,7 +70,7 @@
    (cons "base"
          (format "\"'%s'\""
                  base))))
-
+;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (declare (special emacspeak-xslt-directory))
