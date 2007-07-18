@@ -138,10 +138,10 @@ part of the libxslt package."
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
     (unless no-comment
-    (goto-char (point-max)))
-    (insert
+      (goto-char (point-max))
+      (insert
      (format "<!--\n %s \n-->\n"
-             command))
+             command)))
     (setq modification-flag nil)
     (current-buffer)))
 
