@@ -712,7 +712,6 @@ current local  value to the result.")
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as
-;;;###autoload
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
