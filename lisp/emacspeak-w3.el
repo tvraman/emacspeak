@@ -792,8 +792,7 @@ from Web page -- default is the current page being viewed."
         (params (emacspeak-xslt-params-from-xpath  path url)))
     (emacspeak-w3-rename-buffer (format "Filtered %s" path))
     (when speak
-      (add-hook 'emacspeak-w3-post-process-hook
-                'emacspeak-speak-buffer))
+      (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
      emacspeak-w3-xsl-filter
      params
