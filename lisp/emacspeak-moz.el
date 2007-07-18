@@ -45,9 +45,10 @@
 ;;; MozRepl provides a read-eval-print loop into Firefox
 ;;; This module provides convenient functions for driving MozRepl
 ;;; See http://repo.hyperstruct.net/mozlab
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
+
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -275,7 +276,7 @@ title)\n"
   "Browse document filtered by XPath filter."
   (interactive "sXPath Filter: ")
   (emacspeak-moz-eval-expression-and-browse
-   (format 
+   (format
     "repl.adom.filter('%s'); repl.adom.view()"
     xpath)))
 

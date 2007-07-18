@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 776 commands.
+This chapter documents a total of 805 commands.
 
 @menu
 * cd-tool::                     
@@ -26,13 +26,11 @@ This chapter documents a total of 776 commands.
 * emacspeak-dismal::            
 * emacspeak-ecb::               
 * emacspeak-ediff::             
-* emacspeak-emms::              
 * emacspeak-enriched::          
 * emacspeak-entertain::         
 * emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
-* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -52,6 +50,7 @@ This chapter documents a total of 776 commands.
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
+* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -61,7 +60,6 @@ This chapter documents a total of 776 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
-* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -79,11 +77,14 @@ This chapter documents a total of 776 commands.
 * emacspeak-widget::            
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
+* emacspeak-xslt::              
 * emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
-* emacspeak-w3search::          
+* emacspeak-moz::               
 * emacspeak-org::               
+* emacspeak-webedit::           
+* emacspeak-webmarks::          
 * URL Templates ::              
 @end menu
 
@@ -150,10 +151,6 @@ pattern `.' (this is already added by default) emacspeak
 will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period
 ''
-@end deffn
-
-@deffn {Interactive Command} dtk-notes-shutdown ()
-Shutdown midi system.
 @end deffn
 
 @deffn {Interactive Command} dtk-pause (&optional PREFIX)
@@ -232,10 +229,10 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-preferred-language (ALIAS LANG)
-Set the alias of the preferred language: 
-For example if alias="en" lang="en_GB", 
+Set the alias of the preferred language:
+For example if alias="en" lang="en_GB",
 then the following call:
- dtk-set-language("en") 
+ dtk-set-language("en")
 will set "en_GB".
 
 @end deffn
@@ -987,24 +984,6 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track ()
-Speak current track.
-@end deffn
-
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -1344,22 +1323,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail ()
-Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -2313,6 +2276,24 @@ explicitly turn pronunciations on or off.
 Yank word at point into minibuffer.
 @end deffn
 
+@node emacspeak-python
+@section emacspeak-python
+
+Commentary:
+This speech-enables python-mode available on sourceforge
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
+@deffn {Interactive Command} emacspeak-py-next-block ()
+Move forward to the beginning of the next block.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-previous-block ()
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
+@end deffn
+
 @node emacspeak-realaudio
 @section emacspeak-realaudio
 
@@ -2534,7 +2515,6 @@ Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
 emacspeak-queue-auditory-icon when using software TTS.
-emacspeak-play-midi-icon for midi device. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sounds-reset-local-player ()
@@ -2579,7 +2559,8 @@ Set property auditory-icon at front of all paragraphs.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-blink-matching-open ()
-Display matching delimiter in the minibuffer.
+Move cursor momentarily to the beginning of the sexp before point.
+Also display match context in minibuffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-completions-move-to-completion-group ()
@@ -2853,7 +2834,6 @@ Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as
-;;;###autoload
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
@@ -3280,120 +3260,6 @@ Does the equivalent of the mouse click from the keyboard
 
 @deffn {Interactive Command} emacspeak-speedbar-goto-speedbar ()
 Switch to the speedbar
-@end deffn
-
-@node emacspeak-sudoku
-@section emacspeak-sudoku
-
-Commentary:
-Playing SuDoku using speech output.
-Written to discover what type of feedback one needs for  this
-task.
-See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-
-Automatically generated documentation
-for commands defined in module  emacspeak-sudoku.
-
-@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize ()
-Summarize columns --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize ()
-Shows distribution of filled numbers.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize ()
-Summarize rows --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize ()
-Summarize sub-squares --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-summarizer ()
-Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
-
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-down-sub-square ()
-Move to top-left corner of  sub-square below current one.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-column ()
-Erase current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-row ()
-Erase current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square ()
-Erase current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-hint ()
-Provide hint for current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-pop ()
-Pop saved state off stack and redraw board.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-push ()
-Push current state on to history stack.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining ()
-Speak number of remaining squares to fill.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-next-sub-square ()
-Move to top-left corner of next sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square ()
-Move to top-left corner of previous sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates ()
-speak current cell coordinates.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value ()
-Speak value in current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-column ()
-Speak current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-row ()
-Speak current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square ()
-Speak current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column ()
-Speaks number of remaining cells in current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row ()
-Speaks number of remaining cells in current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square ()
-Speaks number of remaining cells in current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-up-sub-square ()
-Move to top-left corner of  sub-square above current one.
 @end deffn
 
 @node emacspeak-table-ui
@@ -3846,50 +3712,22 @@ Browses Atom url under point.
 Browses RSS url under point.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-browse-url-with-style (STYLE URL)
-Browse URL with specified XSL style.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-browse-xml (LOCATION &optional PROMPT-STYLE)
-Browse XML+CSS using W3.
-With interactive prefix arg, also prompt for an  XSL stylesheet.
-XML files can be rendered by an XML browser that is CSS aware.
-Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
-good enough job for many things, especially the XML files from
-bookshare.org.
-Setting W3 up at present to display any and all XML files at
-present would be a bug, since W3 is an HTML browser --not a true
-XML browser.
-This command opens a specified XML file under the covers and has
-W3 render it using CSS as available. The result on bookshare.org
-XML files is quite usable:
-
-0) You get Aural CSS support.
-
-1) You get a navigable buffer using imenu if you have w3-imenu
-loaded. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-browse-xml-url-with-style (STYLE URL &optional UNESCAPE-CHARENT)
-Browse XML URL with specified XSL style.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-class-filter-and-follow (&optional PROMPT-CLASS)
+@deffn {Interactive Command} emacspeak-w3-class-filter-and-follow (CLASS URL)
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-count-matches (PROMPT-URL LOCATOR)
+@deffn {Interactive Command} emacspeak-w3-count-matches (URL LOCATOR)
 Count matches for locator  in HTML.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-count-nested-tables (PROMPT-URL)
+@deffn {Interactive Command} emacspeak-w3-count-nested-tables (URL)
 Count nested tables in HTML.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-count-tables (PROMPT-URL)
+@deffn {Interactive Command} emacspeak-w3-count-tables (URL)
 Count  tables in HTML.
 @end deffn
 
@@ -3906,45 +3744,40 @@ Defines custom buffer local pronunciation for base URI.
 Do  onclick action.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-by-class (CLASS &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-by-class (CLASS URL &optional SPEAK)
 Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
+buffer. Interactive use provides list of class values as completion.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-by-class-list (CLASSES &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-by-class-list (CLASSES URL &optional SPEAK)
 Extract elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
-completion. 
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-by-id (ID &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-by-id (ID URL &optional SPEAK)
 Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
+buffer.
 Interactive use provides list of id values as completion.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-by-id-list (IDS &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-by-id-list (IDS URL &optional SPEAK)
 Extract elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provids list of id values as
-completion. 
+separate buffer. Interactive use provides list of id values as completion. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-matching-urls (PATTERN &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-matching-urls (PATTERN URL &optional SPEAK)
 Extracts links whose URL matches pattern.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-media-streams (&optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-media-streams (URL &optional SPEAK)
 Extract links to media streams.
 operate on current web page when in a W3 buffer; otherwise prompt for url.
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+ Optional arg `speak' specifies if the result should be
 spoken automatically.
 @end deffn
 
@@ -3952,52 +3785,51 @@ spoken automatically.
 In W3 mode buffers, extract media streams from url under point.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-nested-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-nested-table (INDEX URL &optional SPEAK)
 Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a W3 buffer; otherwise
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+prompt for URL. Optional arg `speak' specifies if the result should be
 spoken automatically.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-nested-table-list (TABLES &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-nested-table-list (TABLES URL &optional SPEAK)
 Extract specified list of tables from a WWW page.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-node-by-id (URL NODE-ID)
-Extract specified node from URI.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-extract-print-streams (&optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-print-streams (URL &optional SPEAK)
 Extract links to printable  streams.
 operate on current web page when in a W3 buffer; otherwise prompt for url.
-`prompt-url' is the URL to process. Prompts for URL when called
-interactively. Optional arg `speak' specifies if the result should be
+ Optional arg `speak' specifies if the result should be
 spoken automatically.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-table-by-match (MATCH &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-table-by-match (MATCH URL &optional SPEAK)
 Extract table containing  specified match.
  Optional arg url specifies the page to extract content from.
-Interactive prefix arg causes url to be read from the minibuffer.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-table-by-position (POSITION &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-table-by-position (POSITION URL &optional SPEAK)
 Extract table at specified position.
- Optional arg url specifies the page to extract content from.
-Interactive prefix arg causes url to be read from the minibuffer.
+Default is to extract from current page.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-tables-by-match-list (MATCH-LIST &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-tables-by-match-list (MATCH-LIST URL &optional SPEAK)
 Extract specified  tables from a WWW page.
 Tables are specified by containing  match pattern
  found in the match list.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-extract-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-extract-tables-by-position-list (POSITIONS URL &optional SPEAK)
 Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
-nested of tables found in the page.
+ of nested tables found in the page.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-follow-and-filter-by-id (ID)
+Follow url and point, and filter the result by specified id.
+Id can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-javascript-follow-link ()
@@ -4008,11 +3840,11 @@ Follow URL hidden inside a javascript link
 Jump to next available submit button.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-junk-by-class-list (CLASSES &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-junk-by-class-list (CLASSES URL &optional SPEAK)
 Junk elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
+separate buffer.
+ Interactive use provides list of class values as
 completion. 
 @end deffn
 
@@ -4044,10 +3876,6 @@ Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-set-xsl-keep-result (VALUE)
-Set value of `emacspeak-w3-xsl-keep-result'.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class ()
 Display any class attributes set on corresponding anchor
 element. 
@@ -4069,7 +3897,7 @@ Speak next document element.
 Speak document element under point.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-style-filter (STYLE &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-style-filter (STYLE URL &optional SPEAK)
 Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -4078,6 +3906,10 @@ specifies the page to extract contents  from.
 
 @deffn {Interactive Command} emacspeak-w3-toggle-table-borders ()
 Toggle drawing of W3 table borders
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-toggle-xsl-keep-result ()
+Toggle xsl keep result flag.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-url-expand-and-execute ()
@@ -4106,7 +3938,7 @@ used as well.
 
 @deffn {Interactive Command} emacspeak-w3-xpath-junk-and-follow (&optional PROMPT)
 Follow url and point, and filter the result by junking
-elements specified xpath.
+elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
@@ -4122,15 +3954,12 @@ libxslt package.
 Apply specified transformation to current page.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-xslt-filter (PATH &optional PROMPT-URL SPEAK-RESULT COMPLEMENT)
+@deffn {Interactive Command} emacspeak-w3-xslt-filter (PATH URL &optional SPEAK)
 Extract elements matching specified XPath path locator
-from HTML.  Extracts specified elements from current WWW
-page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.
-Optional arg COMPLEMENT inverts the filter.  
+from Web page -- default is the current page being viewed.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-xslt-junk (PATH &optional PROMPT-URL SPEAK)
+@deffn {Interactive Command} emacspeak-w3-xslt-junk (PATH URL &optional SPEAK)
 Junk elements matching specified locator.
 @end deffn
 
@@ -4465,6 +4294,10 @@ Perform an Yahoo  search
 @deffn {Interactive Command} emacspeak-websearch-yahoo-historical-chart (TICKER &optional AS-HTML)
 Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-youtube (QUERY)
+Search YouTube
 @end deffn
 
 @node emacspeak-webutils
@@ -5322,6 +5155,24 @@ this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
 @end deffn
 
+@node emacspeak-xslt
+@section emacspeak-xslt
+
+Automatically generated documentation
+for commands defined in module  emacspeak-xslt.
+
+@deffn {Interactive Command} emacspeak-xslt-view (STYLE URL)
+Browse URL with specified XSL style.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-xslt-view-region (STYLE START END &optional UNESCAPE-CHARENT)
+Browse XML region with specified XSL style.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-xslt-view-xml (STYLE URL &optional UNESCAPE-CHARENT)
+Browse XML URL with specified XSL style.
+@end deffn
+
 @node emacspeak-zinf
 @section emacspeak-zinf
 
@@ -5472,39 +5323,129 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node emacspeak-w3search
-@section emacspeak-w3search
+@node emacspeak-moz
+@section emacspeak-moz
 
 Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-    (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
-  )
-
-(provide 'emacspeak-w3search)
+MozRepl provides a read-eval-print loop into Firefox
+This module provides convenient functions for driving MozRepl
+See http://repo.hyperstruct.net/mozlab
 
 Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
+for commands defined in module  emacspeak-moz.
 
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
-Search IBM using trevi
+@deffn {Interactive Command} emacspeak-moz-browse-current ()
+Browse current node.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-browser-back ()
+Move back in history.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-browser-forward ()
+Move forward in history.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-close-tab-or-browser ()
+Close tab, or browser when one tab left.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-down ()
+Go Down a level and browse.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-eval-expression-and-browse ()
+Send expression to Moz, get output, and browse it in Emacs.
+
+(fn EXP)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-eval-expression-and-go ()
+Send expression to Moz and switch to it.
+
+(fn EXP)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-filter-and-browse ()
+Browse document filtered by XPath filter.
+
+(fn XPATH)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-goto-url ()
+Make Firefox used by our repl Go to the specified URL.
+
+(fn URL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-goto-url-at-point ()
+Make Firefox used by our repl Go to url under point.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-inspect ()
+Inspect specified object.
+
+(fn WHAT)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-jump ()
+Jump to specified index in history.
+
+(fn INDEX)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-left ()
+Go left and browse.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-refresh ()
+Reload document.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-right ()
+Go right and browse.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-search ()
+Search for pattern in current context.
+
+(fn PATTERN)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-up ()
+Go Up a level and browse.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-visit-next-and-browse ()
+Asks visitor to go  forward and browses the result.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-moz-visit-previous-and-browse ()
+Asks visitor to go  backward and browses the result.
+
+(fn)
 @end deffn
 
 @node emacspeak-org
@@ -5524,13 +5465,297 @@ Pops up an org input area.
 (fn)
 @end deffn
 
+@node emacspeak-webedit
+@section emacspeak-webedit
+
+Commentary:
+Invoke XSLT to edit/transform Web pages before they get rendered.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-webedit.
+
+@deffn {Interactive Command} emacspeak-webedit-browse-url-with-style ()
+Browse URL with specified XSL style.
+
+(fn STYLE URL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-browse-xml-url-with-style ()
+Browse XML URL with specified XSL style.
+
+(fn STYLE URL &optional UNESCAPE-CHARENT)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-class-filter-and-follow ()
+Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn CLASS URL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-count-matches ()
+Count matches for locator  in HTML.
+
+(fn URL LOCATOR)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-count-nested-tables ()
+Count nested tables in HTML.
+
+(fn URL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-count-tables ()
+Count  tables in HTML.
+
+(fn URL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-by-class ()
+Extract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-by-class-list ()
+Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion. 
+
+(fn CLASSES URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-by-id ()
+Extract elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer.
+Interactive use provides list of id values as completion.
+
+(fn ID URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-by-id-list ()
+Extract elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-matching-urls ()
+Extracts links whose URL matches pattern.
+
+(fn PATTERN URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-media-streams ()
+Extract links to media streams.
+operate on current web page when in a WEBEDIT buffer; otherwise prompt for url.
+ Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-media-streams-under-point ()
+In WEBEDIT mode buffers, extract media streams from url under point.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-nested-table ()
+Extract nested table specified by `table-index'. Default is to
+operate on current web page when in a WEBEDIT buffer; otherwise
+prompt for URL. Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn INDEX URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-nested-table-list ()
+Extract specified list of tables from a WWW page.
+
+(fn TABLES URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-print-streams ()
+Extract links to printable  streams.
+operate on current web page when in a WEBEDIT buffer; otherwise prompt for url.
+ Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+(fn URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-table-by-match ()
+Extract table containing  specified match.
+ Optional arg url specifies the page to extract content from.
+
+(fn MATCH URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-table-by-position ()
+Extract table at specified position.
+Default is to extract from current page.
+
+(fn POSITION URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-tables-by-match-list ()
+Extract specified  tables from a WWW page.
+Tables are specified by containing  match pattern
+ found in the match list.
+
+(fn MATCH-LIST URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-extract-tables-by-position-list ()
+Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list
+ of nested tables found in the page.
+
+(fn POSITIONS URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-follow-and-filter-by-id ()
+Follow url and point, and filter the result by specified id.
+Id can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn ID)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-junk-by-class-list ()
+Junk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer.
+ Interactive use provides list of class values as
+completion. 
+
+(fn CLASSES URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-set-xsl-keep-result ()
+Set value of `emacspeak-webedit-xsl-keep-result'.
+
+(fn VALUE)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-style-filter ()
+Extract elements matching specified style
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract contents  from.
+
+(fn STYLE URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xpath-filter-and-follow ()
+Follow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn &optional PROMPT)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xpath-junk-and-follow ()
+Follow url and point, and filter the result by junking
+elements specified by xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+(fn &optional PROMPT)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xsl-toggle ()
+Toggle  application of XSL transformations.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xslt-apply ()
+Apply specified transformation to current page.
+
+(fn XSL)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xslt-filter ()
+Extract elements matching specified XPath path locator
+from Web page -- default is the current page being viewed.
+
+(fn PATH URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xslt-junk ()
+Junk elements matching specified locator.
+
+(fn PATH URL &optional SPEAK)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webedit-xslt-select ()
+Select XSL transformation applied to WWW pages before they are displayed .
+
+(fn XSL)
+@end deffn
+
+@node emacspeak-webmarks
+@section emacspeak-webmarks
+
+Commentary:
+http://www.google.com/bookmarks provides a simple bookmark
+facility
+emacspeak-webmarks provides direct minibuffer-level access to
+these in the spirit of the Emacspeak Web Command Line.
+For now, the emacspeak-webmarks-key needs to be set by hand
+ after doing the following:
+0) sign in to google using xml-forms/glogin.xml
+1) search for a bookmark using xml-forms/bookmark-find.xml
+will work around this eventually.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-webmarks.
+
+@deffn {Interactive Command} emacspeak-webmarks-add ()
+Add WebMark.
+
+(fn URL TITLE NOTES)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-history ()
+Search search history.
+
+(fn QUERY)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-list ()
+List WebMarks.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-search ()
+Search WebMarks.
+
+(fn QUERY)
+@end deffn
+
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 122 URL Templates.
+This section documents a total of 127 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5572,6 +5797,10 @@ Play This American Life  shows on demand.
 @kbd{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
+
+@kbd{Answers.com}
+
+Search answers.com
 
 @kbd{Archive News Search}
 
@@ -5673,6 +5902,10 @@ Retrieve and speak headline news from CNN.
 
 Extract content links from CNN FN.
 
+@kbd{CNNPodCasts}
+
+List CNN Podcast media links.
+
 @kbd{Cartoon You Said It By Laxman}
 
 Retrieve Cartoon Times Of India.
@@ -5748,7 +5981,7 @@ Display specified news feed.
 
 @kbd{Google Books}
 
-Google Print Search
+Google Books Search with text when available
 
 @kbd{Google Feeds}
 
@@ -5757,10 +5990,6 @@ List  Google news Feeds.
 @kbd{Google Glossary}
 
 Google Glossary lookup.
-
-@kbd{Google Headline News}
-
-Retrieve and speak Google News Overview.
 
 @kbd{Google Hits}
 
@@ -5858,6 +6087,13 @@ Play Morning Edition segment.
 
 Play NPR Motley Fool   stream.
 
+@kbd{Multilingual dictionary via Google.}
+
+Translate word using Google.
+Source and target languages
+are specified as two-letter language codes, e.g. en|de translates
+from English to German
+
 @kbd{Music Search}
 
 Music search on Google.
@@ -5892,17 +6128,33 @@ Analyze WWW site using Netcraft.
 
 Analyze WWW site using Netcraft.
 
+@kbd{Official GoogleBlog Search}
+
+Search within all official Google blogs.
+
 @kbd{Old Time Radio}
 
 This months Old Time Radio Programing
+
+@kbd{On The Fly CSE}
+
+Build a CSE on the fly and  use it to search.
 
 @kbd{Patent Search From Google}
 
 Perform patent search via Google
 
+@kbd{Periodicals from Bookshare}
+
+Fetch periodical from Bookshare.
+
 @kbd{Pulpit --- I Cringely}
 
 Read pulpit from PBS. Published on the Thursday of the week.
+
+@kbd{Reader Subscription Search}
+
+Search within feeds subscribed to in Google Reader.
 
 @kbd{Redhat Linux Show}
 
@@ -6026,10 +6278,6 @@ Yahoo World News.
 @kbd{YubNub Web Command Line}
 
 YubNub Command Line
-
-@kbd{answers.com}
-
-Search answers.com
 
 @kbd{ask search mobile}
 

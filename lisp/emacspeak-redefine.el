@@ -1,25 +1,25 @@
 ;;; emacspeak-redefine.el --- Redefines some key Emacs builtins to speak
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak's redefinition of some key functions.
 ;;; Emacspeak does most of its work by advising other functions to speak.
 ;;; This module contains those functions that have to be explicitly redefined.
 ;;; Keywords: Emacspeak, Redefine, Spoken Output
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -45,20 +45,20 @@
 ;;; This module redefines a few vital functions,
 ;;; since advising them won't help.
 ;;; Convention used:
-;;; To redefine function fn: 
+;;; To redefine function fn:
 ;;; The original function will be renamed to Orig-fn.
 ;;; A new function called emacspeak-fn will be defined.
 ;;;  Finally, we will fset fn to emacspeak-fn
 ;;; In the case of backward-char, forward-char, and self-insert-command
 ;;; mere redefinition of the function will not do:
-;;; We will need to bind the new functions explicitly to the keys. 
+;;; We will need to bind the new functions explicitly to the keys.
 
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{  How to redefine and restore a function: 
+;;{{{  How to redefine and restore a function:
 
 (defun emacspeak-redefine (function-name )
   "Redefines function-name to its emacspeak version. "
@@ -73,7 +73,7 @@
     (fset function-name (symbol-function restore-name ))))
 
 ;;}}}
-;;{{{  The new functions: 
+;;{{{  The new functions:
 
 (defun emacspeak-self-insert-command (&optional arg)
   "Insert a character.
@@ -83,7 +83,7 @@ See  command emacspeak-toggle-word-echo bound to
 Toggle variable dtk-stop-immediately-while-typing if you want to have
 speech flush as you type."
   (interactive "p")
-  (declare (special last-command-event dtk-stop-immediately-while-typing  
+  (declare (special last-command-event dtk-stop-immediately-while-typing
                     buffer-undo-list  buffer-read-only
                     emacspeak-character-echo emacspeak-word-echo))
   (or arg (setq arg 1))
@@ -152,20 +152,20 @@ speech flush as you type."
            (global-set-key key new-fn )))
      keys )))
 
-(defvar emacspeak-functions-that-bypass-function-cell 
+(defvar emacspeak-functions-that-bypass-function-cell
   (list 'backward-char 'forward-char 'self-insert-command )
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
 
-(mapcar 
+(mapcar
  #'(lambda (f)
      (emacspeak-rebind f
                        (intern (format "emacspeak-%s" f ))))
  emacspeak-functions-that-bypass-function-cell )
 
 ;;}}}
-;;{{{  fix ding 
+;;{{{  fix ding
 
 (when (subrp (symbol-function 'ding))
   (fset 'orig-ding (symbol-function 'ding))
@@ -185,6 +185,6 @@ Additionally, emacspeak sets this up to play an auditory icon. "
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}

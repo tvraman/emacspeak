@@ -43,7 +43,7 @@
 ;;; Commentary:
 
 ;;; Invoke XSLT to edit/transform Web pages before they get rendered.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
