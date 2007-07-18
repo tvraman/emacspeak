@@ -58,6 +58,16 @@
 (require 'emacspeak-websearch)
 
 ;;}}}
+;;{{{ Helpers:
+
+(defsubst emacspeak-webutils-autospeak()
+  "Setup post process hook to speak the Web page when rendered."
+  (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object))))
+
+;;}}}
 ;;{{{ helper macros:
 
 ;;; tVR: moving these from emacspeak-w3 to this module.
