@@ -1081,11 +1081,8 @@ Tables are specified by containing  match pattern
       (let ((values nil)
             (buffer
              (emacspeak-xslt-url
-              (expand-file-name "class-values.xsl"
-                                emacspeak-xslt-directory)
-              (url-view-url 'no-show)
-              nil
-              'no-comment)))
+              (expand-file-name "class-values.xsl" emacspeak-xslt-directory)
+              (url-view-url 'no-show))))
         (setq values
               (save-excursion
                 (set-buffer buffer)
@@ -1115,9 +1112,7 @@ Tables are specified by containing  match pattern
              (emacspeak-xslt-url
               (expand-file-name "id-values.xsl"
                                 emacspeak-xslt-directory)
-              (url-view-url 'no-show)
-              nil
-              'no-comment)))
+              (url-view-url 'no-show))))
         (setq values
               (save-excursion
                 (set-buffer buffer)
