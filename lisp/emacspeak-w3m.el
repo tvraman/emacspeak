@@ -905,7 +905,7 @@ With prefix argument makes this transformation persistent."
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
-        (emacspeak-w3-unescape-charent))
+        (emacspeak-webutils-unescape-charent))
       (emacspeak-w3m-preview-this-buffer))
     (kill-buffer src-buffer)))
 

@@ -60,6 +60,30 @@
 ;;}}}
 ;;{{{ Helpers:
 
+(defcustom emacspeak-webutils-charent-alist
+  '(("&lt;" . "<")
+    ("&gt;" . ">")
+    ("&quot;" . "\"")
+    ("&apos;" . "'")
+    ("&amp;" . "&"))
+  "Entities to unescape when treating badly escaped XML."
+  :type '(repeat  :tag "Char Entity"
+                  (cons :tag "Entry"
+                        (string :tag "CharEnt")
+                        (string :tag "Replacement")))
+  :group 'emacspeak-webutils)
+
+(defsubst emacspeak-webutils-unescape-charent (start end)
+  "Clean up charents in XML."
+  (declare (special emacspeak-webutils-charent-alist))
+  (loop for entry in emacspeak-webutils-charent-alist
+        do
+        (let ((entity (car  entry))
+              (replacement (cdr entry )))
+          (goto-char start)
+          (while (search-forward entity end t)
+            (replace-match replacement )))))
+
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-w3-post-process-hook

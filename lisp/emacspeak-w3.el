@@ -625,7 +625,7 @@ Nil means no transform is used. "
   :group 'emacspeak-w3)
 
 ;;;###autoload
-(defvar emacspeak-w3-unescape-charent nil
+(defvar emacspeak-webutils-unescape-charent nil
   "Set to T to unescape charents.")
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
@@ -1460,17 +1460,6 @@ used as well."
 ;;}}}
 ;;{{{ Browse XML files:
 
-(defsubst emacspeak-w3-unescape-charent (start end)
-  "Clean up bad XML usage."
-  (declare (special emacspeak-w3-charent-alist))
-  (loop for entry in emacspeak-w3-charent-alist
-        do
-        (let ((entity (car  entry))
-              (replacement (cdr entry )))
-          (goto-char start)
-          (while (search-forward entity end t)
-            (replace-match replacement )))))
-
 ;;;###autoload
 (defun emacspeak-w3-browse-xml-url-with-style (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
@@ -1496,7 +1485,7 @@ used as well."
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
-        (emacspeak-w3-unescape-charent (point-min) (point-max)))
+        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
       (emacspeak-webutils-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
@@ -1521,7 +1510,7 @@ used as well."
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
-        (emacspeak-w3-unescape-charent (point-min) (point-max)))
+        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
       (emacspeak-webutils-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
@@ -1540,21 +1529,6 @@ used as well."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (emacspeak-webutils-with-xsl style url))
-
-
-;;;###autoload
-(defcustom emacspeak-w3-charent-alist
-  '(("&lt;" . "<")
-    ("&gt;" . ">")
-    ("&quot;" . "\"")
-    ("&apos;" . "'")
-    ("&amp;" . "&"))
-  "Entities to unescape when treating badly escaped XML."
-  :type '(repeat  :tag "Char Entity"
-                  (cons :tag "Entry"
-                        (string :tag "CharEnt")
-                        (string :tag "Replacement")))
-  :group 'emacspeak-w3)
 
 ;;}}}
 ;;{{{  xsl keymap
