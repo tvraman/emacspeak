@@ -641,6 +641,7 @@ HTML."
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
+  (emacspeak-w3-build-id-cache)
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
@@ -661,10 +662,11 @@ HTML."
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
-  (declare (special major-mode emacspeak-xslt-directory))
+  (declare (special major-mode))
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
-  (let ((url (url-view-url t)))
+  (let ((url (url-view-url t))
+        (w3-reuse-buffers 'no))
     (emacspeak-webutils-with-xsl
      xsl
      (browse-url url))))
@@ -1081,8 +1083,10 @@ Tables are specified by containing  match pattern
       (let ((values nil)
             (buffer
              (emacspeak-xslt-url
-              (expand-file-name "class-values.xsl" emacspeak-xslt-directory)
-              (url-view-url 'no-show))))
+              (emacspeak-xslt-get "class-values.xsl")
+              (url-view-url 'no-show)
+              nil ;params
+              'no-comment)))
         (setq values
               (save-excursion
                 (set-buffer buffer)
@@ -1101,30 +1105,35 @@ Tables are specified by containing  match pattern
 
 (make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
 
-(defun emacspeak-w3-id-cache ()
-  "Build id  cache for buffer if needed."
-  (declare (special emacspeak-w3-buffer-id-cache))
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in W3 buffer."))
-  (or emacspeak-w3-buffer-id-cache
-      (let ((values nil)
-            (buffer
-             (emacspeak-xslt-url
-              (expand-file-name "id-values.xsl"
-                                emacspeak-xslt-directory)
-              (url-view-url 'no-show))))
-        (setq values
-              (save-excursion
-                (set-buffer buffer)
-                (shell-command-on-region (point-min) (point-max)
-                                         "sort  -u"
-                                         (current-buffer))
-                (split-string (buffer-string))))
-        (setq emacspeak-w3-buffer-id-cache
-              (mapcar
-               #'(lambda (v)
-                   (cons v v ))
-               values)))))
+(defun emacspeak-w3-build-id-cache ()
+  "Build id cache and forward it to rendered page."
+  (let ((values nil)
+        (content (clone-buffer
+                  (format "id-%s" (buffer-name)))))
+    (save-excursion
+      (set-buffer content)
+      (emacspeak-xslt-region
+       (emacspeak-xslt-get "id-values.xsl")
+       (point-min) (point-max)
+       nil ;params
+       'no-comment)
+      (shell-command-on-region
+       (point-min) (point-max)
+       "sort  -u"
+       (current-buffer))
+      (setq values
+            (split-string (buffer-string))))
+    (add-hook
+     'emacspeak-w3-post-process-hook
+     (eval
+      `(function
+        (lambda nil
+          (declare (special  emacspeak-w3-buffer-id-cache))
+          (setq emacspeak-w3-buffer-id-cache
+                ',(mapcar
+                  #'(lambda (v)
+                      (cons v v ))
+                  values))))))))
 
 ;;;###autoload
 (defun emacspeak-w3-extract-by-class (class    url &optional speak)
@@ -1216,7 +1225,7 @@ Interactive use provides list of id values as completion."
   (interactive
    (list
     (completing-read "Id: "
-                     (emacspeak-w3-id-cache))
+                     emacspeak-w3-buffer-id-cache)
     (if (eq major-mode 'w3-mode)
         (url-view-url t)
       (read-from-minibuffer "URL: " "http://www."))
