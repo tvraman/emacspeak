@@ -71,9 +71,10 @@
 ;;}}}
 ;;{{{  view feed
 
-(defcustom emacspeak-atom-unescape-html t
+(defcustom emacspeak-atom-unescape-html nil
   "Fix malformed  XML that results from sites attempting to
-unescape HTML tags."
+unescape HTML tags.
+This is no longer needed, it's handled in xslt."
   :type 'boolean
   :group 'emacspeak-atom)
 
@@ -106,15 +107,8 @@ unescape HTML tags."
     (or (interactive-p) current-prefix-arg)))
   (declare (special emacspeak-atom-view-xsl))
   (when speak
-    (add-hook 'emacspeak-w3-post-process-hook
-              'emacspeak-speak-buffer))
-  (when speak
-    (add-hook 'emacspeak-w3-post-process-hook
-              'emacspeak-speak-buffer))
-  (emacspeak-xslt-view-xml
-   emacspeak-atom-view-xsl
-   atom-url
-   'unescape))
+    (emacspeak-webutils-autospeak))
+  (emacspeak-xslt-view-xml emacspeak-atom-view-xsl atom-url))
 
 ;;;###autoload
 (defun emacspeak-atom-browse (feed)
