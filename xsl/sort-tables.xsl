@@ -43,7 +43,7 @@ relevant tables bubble to the top.
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <xsl:include href="auto-rss-discover.xsl"/>
-  <xsl:include href="auto-atom-discover.xsl"/>
+  <!--<xsl:include href="auto-atom-discover.xsl"/>-->
   <!-- { html body  -->
   <!-- handle images -->
   <xsl:template match="img">
@@ -68,12 +68,13 @@ relevant tables bubble to the top.
     <body>
       <xsl:apply-templates select="@*"/>
       <xsl:call-template name="generate-rss"/>
+      <!--<xsl:call-template name="generate-atom"/>-->
       <xsl:variable name="i" select="//table//table"/>
       <xsl:if test="count($i)  &gt; 0">
-        <table>
-          <caption>
+<p>
             <a href="#__about_sorted_tables">Tables Sorted</a>
-          </caption>
+</p>
+        <table>
           <tr>
             <td>
               <a href="#__nested_tables">

@@ -174,7 +174,8 @@ libxslt package."
     (list
      (cons "locator"
            (format "'%s'"
-                   locator ))))))
+                   locator )))
+    'no-comment)))
 
 ;;;###autoload
 (defun emacspeak-webedit-count-nested-tables (url)
@@ -539,8 +540,7 @@ Tables are specified by containing  match pattern
       (let ((values nil)
             (buffer
              (emacspeak-xslt-url
-              (expand-file-name "class-values.xsl"
-                                emacspeak-xslt-directory)
+              (emacspeak-xslt-get "class-values.xsl")
               (url-view-url 'no-show)
               nil
               'no-comment)))
