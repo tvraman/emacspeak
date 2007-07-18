@@ -54,9 +54,6 @@
 (require 'backquote)
 (require 'emacspeak-preamble)
 (require 'url)
-(require 'emacspeak-xslt)
-(require 'emacspeak-websearch)
-
 ;;}}}
 ;;{{{ Helpers:
 
