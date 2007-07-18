@@ -431,7 +431,7 @@ emacspeak-url-template.elc: emacspeak-url-template.el dtk-speak.elc voice-setup.
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
-emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc
+emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc emacspeak-xslt.elc
 emacspeak-w3m.elc: emacspeak-w3m.el emacspeak-webutils.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
 emacspeak-webedit.elc: emacspeak-webedit.el emacspeak-webutils.elc
