@@ -56,7 +56,7 @@
 (require 'url)
 ;;}}}
 ;;{{{ Helpers:
-
+;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
     ("&gt;" . ">")
@@ -345,6 +345,7 @@ instances."
 
 (defun emacspeak-webutils-feed-display(feed-url style)
   "Fetch feed via Emacs and display using xsltproc."
+  (declare (special emacspeak-xslt-program))
   (let ((buffer (url-retrieve-synchronously feed-url)))
     (cond
      ((null buffer)
