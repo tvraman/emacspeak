@@ -340,12 +340,8 @@ instances."
 ;;}}}
 ;;{{{ display authenticated feeds:
 
-;;; these commands use url to pull ATOM/RSS feeds
-;;; before handing it off to xsltproc for conversion to xhtml
-
 (defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
-  (declare (special emacspeak-xslt-program))
   (let ((buffer (url-retrieve-synchronously feed-url)))
     (when speak (emacspeak-webutils-autospeak))
     (cond
@@ -357,12 +353,8 @@ instances."
         (goto-char (point-min))
         (search-forward "\n\n")
         (delete-region (point-min) (point))
-        (shell-command-on-region
-         (point-min)
-         (point-max)
-         (format "%s %s -"
-                 emacspeak-xslt-program style)
-         'replace)
+        (emacspeak-xslt-region style
+                               (point-min) (point-max))
         (browse-url-of-buffer))))))
 
 ;;;###autoload
@@ -372,12 +364,11 @@ instances."
    (list
     (read-from-minibuffer "Feed: "
                           (if emacspeak-webutils-url-at-point
-                          (funcall
-                           emacspeak-webutils-url-at-point)
-                          (browse-url-url-at-point)))))
-(emacspeak-webutils-feed-display feed-url
-                           (expand-file-name "rss.xsl"
-                                                 emacspeak-xslt-directory)))
+                              (funcall
+                               emacspeak-webutils-url-at-point)
+                            (browse-url-url-at-point)))))
+  (emacspeak-webutils-feed-display feed-url
+                                   (emacspeak-xslt-get "rss.xsl")))
 
 ;;;###autoload
 (defun emacspeak-webutils-atom-display (feed-url)

@@ -101,15 +101,14 @@ This is useful when handling bad HTML."
 
 ;;}}}
 ;;{{{ Functions:
+
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params)
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options
-                    emacspeak-xslt-nuke-null-char
-                    emacspeak-xslt-keep-errors
-                    modification-flag ))
+                    emacspeak-xslt-keep-errors modification-flag ))
   (let ((command nil)
         (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
@@ -120,21 +119,16 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
-    (setq command (format
-                   "%s %s  %s  %s - %s"
-                   emacspeak-xslt-program
-                   (or emacspeak-xslt-options "")
-                   (or parameters "")
-                   xsl
-                   (if emacspeak-xslt-keep-errors
-                       ""
-                     " 2>/dev/null ")))
-    (when emacspeak-xslt-nuke-null-char
-      (goto-char start)
-      (while (search-forward
-              ( format "%c" 0)
-              end t)
-        (replace-match " ")))
+    (setq command
+          (format
+           "%s %s  %s  %s - %s"
+           emacspeak-xslt-program
+           (or emacspeak-xslt-options "")
+           (or parameters "")
+           xsl
+           (if emacspeak-xslt-keep-errors
+               ""
+             " 2>/dev/null ")))
     (shell-command-on-region start end
                              command
                              (current-buffer)
