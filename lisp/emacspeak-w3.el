@@ -1580,7 +1580,10 @@ used as well."
     (cond
      (url
       (emacspeak-auditory-icon 'select-object)
-      (emacspeak-rss-display url 'speak))
+      (emacspeak-webutils-feed-display
+       url
+       (emacspeak-xslt-get "rss.xml")
+       'speak))
      (t (error "No URL under point.")))))
 
 ;;;###autoload
@@ -1593,7 +1596,8 @@ used as well."
     (cond
      (url
       (emacspeak-auditory-icon 'select-object)
-      (emacspeak-atom-display url))
+      (emacspeak-webutils-feed-display url
+                                       emacspeak-atom-view-xsl 'speak))
       (t (error "No URL under point.")))))
 
 ;;}}}

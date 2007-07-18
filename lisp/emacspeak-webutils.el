@@ -343,10 +343,11 @@ instances."
 ;;; these commands use url to pull ATOM/RSS feeds
 ;;; before handing it off to xsltproc for conversion to xhtml
 
-(defun emacspeak-webutils-feed-display(feed-url style)
+(defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
   (declare (special emacspeak-xslt-program))
   (let ((buffer (url-retrieve-synchronously feed-url)))
+    (when speak (emacspeak-webutils-autospeak))
     (cond
      ((null buffer)
       (message "Nothing to display."))
