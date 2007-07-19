@@ -655,7 +655,7 @@ HTML."
      emacspeak-w3-xsl-params)
     (when emacspeak-w3-xsl-keep-result
       (clone-buffer
-       (format "xslt-%s"
+       (format "__xslt-%s"
                (buffer-name))))))
 
 
@@ -1083,7 +1083,7 @@ Tables are specified by containing  match pattern
   "Build class cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer
-                  (format "class-%s" (buffer-name)))))
+                  (format "__class-%s" (buffer-name)))))
     (save-excursion
       (set-buffer content)
       (setq buffer-undo-list t)
@@ -1115,7 +1115,7 @@ Tables are specified by containing  match pattern
   "Build id cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer
-                  (format "id-%s" (buffer-name)))))
+                  (format "__id-%s" (buffer-name)))))
     (save-excursion
       (set-buffer content)
       (setq buffer-undo-list t)
