@@ -441,7 +441,7 @@ ARGS specifies additional arguments to SPEAKER if any."
    (list
     (emacspeak-websearch-read-query "Search Online Broadcasts for: ")))
   (declare (special emacspeak-websearch-blinkx-uri))
-  (emacspeak-rss-display
+  (emacspeak-webutils-rss-display
    (concat  emacspeak-websearch-blinkx-uri
             (emacspeak-url-encode query))))
 
@@ -464,7 +464,7 @@ ARGS specifies additional arguments to SPEAKER if any."
    (list
     (emacspeak-websearch-read-query "PodZinger Searchfor: ")))
   (declare (special emacspeak-websearch-podzinger-uri))
-  (emacspeak-rss-display
+  (emacspeak-webutils-rss-display
    (concat  emacspeak-websearch-podzinger-uri
             (emacspeak-url-encode query))))
 
@@ -1612,7 +1612,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                       '("$" "&printer=1"))))
   (cond
    ((null no-rss)                       ;use rss feed
-    (emacspeak-rss-display
+    (emacspeak-webutils-rss-display
      (concat emacspeak-websearch-news-yahoo-rss-uri
              (format "p=%s&n=20&c=news"
                      (emacspeak-url-encode query)))
@@ -2073,7 +2073,7 @@ Optional interactive prefix arg results in prompting for a search term."
      (t                                 ;browse
       (setq url
             (format emacspeak-usenet-feeds-uri group))
-      (emacspeak-rss-display url 'speak)))))
+      (emacspeak-webutils-rss-display url 'speak)))))
 
 ;;}}}
 ;;{{{ YouTube

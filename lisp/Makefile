@@ -88,7 +88,6 @@ emacspeak-ansi-color.elc \
 emacspeak-apt-sources.elc \
 emacspeak-apt-utils.elc \
 emacspeak-arc.elc \
-emacspeak-atom.elc \
 emacspeak-auctex.elc \
 emacspeak-autoload.el \
 emacspeak-aumix.elc \
@@ -186,7 +185,6 @@ emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
 emacspeak-rmail.elc \
 emacspeak-rpm.elc  \
-emacspeak-rss.elc \
 emacspeak-ruby.elc \
 emacspeak-sawfish.elc \
 emacspeak-ses.elc \
@@ -292,7 +290,6 @@ emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc voice-setup.elc
 emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.elc
 emacspeak-apt-utils.elc: emacspeak-apt-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
-emacspeak-atom.elc: emacspeak-atom.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc voice-setup.elc
 emacspeak-aumix.elc: emacspeak-aumix.el dtk-speak.elc voice-setup.elc
 emacspeak-autoload.elc: emacspeak-autoload.el
@@ -396,7 +393,6 @@ emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
 emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
 emacspeak-remote.elc: emacspeak-remote.el
 emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc voice-setup.elc
-emacspeak-rss.elc: emacspeak-rss.el dtk-speak.elc voice-setup.elc
 emacspeak-ruby.elc: emacspeak-ruby.el dtk-speak.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc voice-setup.elc
 emacspeak-sawfish.elc: emacspeak-sawfish.el dtk-speak.elc voice-setup.elc
