@@ -64,7 +64,7 @@ View an RSS feed as clean HTML
 	  <br/>
       <xsl:apply-templates
           select="rss:description|nsrss:description"/>
-      <em><xsl:value-of select="rss:pubDate"/></em>
+      <!--<em><xsl:value-of select="rss:pubDate"/></em>-->
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|nsrss:title|nsrss:description">
