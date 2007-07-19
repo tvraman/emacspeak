@@ -38,9 +38,9 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module provides common Web utilities for emacspeak.
 ;;; This is to avoid duplication of code between emacspeak-w3.el
 ;;;and emacspeak-w3m.el
@@ -56,6 +56,7 @@
 (require 'url)
 ;;}}}
 ;;{{{ Helpers:
+
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
@@ -87,6 +88,13 @@
               #'(lambda nil
                   (emacspeak-speak-mode-line)
                   (emacspeak-auditory-icon 'open-object))))
+
+(defsubst emacspeak-webutils-browser-check ()
+  "Check to see if functions are called from a browser buffer"
+  (declare (special major-mode))
+  (unless (or (eq major-mode 'w3-mode)
+              (eq major-mode 'w3m-mode))
+    (error "This command cannot be used outside browser buffers.")))
 
 ;;}}}
 ;;{{{ helper macros:
@@ -147,29 +155,21 @@ and xsl environment specified by style, params and options."
 
 ;;}}}
 ;;{{{ variables
+
 (defvar emacspeak-webutils-document-title nil
   "Function variable returning the current document title.")
 
 (defvar emacspeak-webutils-url-at-point nil
-  "Function variable returning the value of the url under point.")
+  "Function variable returning the value of the url under point
+  in a Web page.")
 
 (defvar emacspeak-webutils-current-url nil
-  "Function variable returning the value of the current document url.")
+  "Function variable returning the value of the current document
+  url in a Web page.")
 
 (make-variable-buffer-local 'emacspeak-webutils-document-title)
 (make-variable-buffer-local 'emacspeak-webutils-url-at-point)
 (make-variable-buffer-local 'emacspeak-webutils-current-url)
-;;}}}
-;;{{{ utils
-
-(defun emacspeak-webutils-browser-check ()
-  "Check to see if functions are called from a browser buffer"
-  (declare (special major-mode
-                    w3-mode
-                    w3m-mode))
-  (unless (or (eq major-mode 'w3-mode)
-              (eq major-mode 'w3m-mode))
-    (error "This command cannot be used outside browser buffers.")))
 
 ;;}}}
 ;;{{{  google tools
@@ -319,7 +319,7 @@ instances."
     (cond
      ((null feed)
       (error "No url under point."))
-     (t (emacspeak-atom-display
+     (t (emacspeak-webutils-atom-display
          (format
           "http://www.google.com/reader/public/atom/feed/%s?n=20"
           (emacspeak-url-encode feed))
@@ -387,6 +387,118 @@ instances."
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
+
+;;}}}
+;;{{{ RSS:
+;;{{{ RSS feed cache
+
+;;;###autoload
+(defgroup emacspeak-rss nil
+  "RSS Feeds for the Emacspeak desktop."
+  :group 'emacspeak)
+
+(defcustom emacspeak-rss-feeds
+  '(
+    ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf")
+    ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
+    ("CNet Tech News"  "http://rss.com.com/2547-12-0-5.xml")
+    ("XML.COM"  "http://www.xml.com/xml/news.rss")
+    )
+  "Table of RSS feeds."
+  :type '(repeat
+          (list :tag "RSS Feed"
+                (string :tag "Title")
+                (string :tag "URI")))
+  :group 'emacspeak-rss)
+
+;;}}}
+;;{{{  view feed
+(defcustom emacspeak-rss-unescape-html t
+  "Fix malformed  XML that results from sites attempting to
+unescape HTML tags."
+  :type 'boolean
+  :group 'emacspeak-rss)
+
+;;;###autoload
+
+;;;###autoload
+(defun emacspeak-opml-display (opml-url &optional speak)
+  "Retrieve and display OPML  URL."
+  (interactive
+   (list
+    (car (browse-url-interactive-arg "OPML  URL: "))
+    (or (interactive-p)
+        current-prefix-arg)))
+  (emacspeak-webutils-feed-display
+   (emacspeak-xslt-get "opml.xsl")
+   opml-url
+   speak))
+
+;;;###autoload
+(defun emacspeak-rss-browse (feed)
+  "Browse specified RSS feed."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+      (completing-read "Feed:"
+                       emacspeak-rss-feeds))))
+  (let ((uri (cadr
+              (assoc feed emacspeak-rss-feeds))))
+    (emacspeak-webutils-rss-display uri )))
+
+;;}}}
+;;}}}
+;;{{{ ATOM:
+;;{{{ ATOM feed cache
+
+;;;###autoload
+(defgroup emacspeak-atom nil
+  "ATOM Feeds for the Emacspeak desktop."
+  :group 'emacspeak)
+
+;;;###autoload
+(defcustom emacspeak-atom-feeds
+  nil
+  "Table of ATOM feeds."
+  :type '(repeat
+          (list :tag "ATOM Feed"
+                (string :tag "Title")
+                (string :tag "URI")))
+  :group 'emacspeak-atom)
+
+;;}}}
+;;{{{  view feed
+
+(defvar emacspeak-atom-legacy
+  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
+  "Legacy Atom support.")
+
+(defvar emacspeak-atom-modern
+  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  "Modern Atom support.")
+
+(defcustom emacspeak-atom-view-xsl
+  emacspeak-atom-legacy
+  "XSL stylesheet used for viewing Atom Feeds."
+  :type '(choice
+          (string :tag "Legacy"  emacspeak-atom-legacy)
+          (string :tag "Modern" emacspeak-atom-modern))
+  :group 'emacspeak-xsl)
+
+;;;###autoload
+
+;;;###autoload
+(defun emacspeak-atom-browse (feed)
+  "Browse specified ATOM feed."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+      (completing-read "Feed:"
+                       emacspeak-atom-feeds))))
+  (let ((uri (cadr (assoc feed emacspeak-atom-feeds))))
+    (emacspeak-webutils-atom-display uri 'speak)))
+
+;;}}}
 
 ;;}}}
 (provide 'emacspeak-webutils)
