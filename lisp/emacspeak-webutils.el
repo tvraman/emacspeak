@@ -349,6 +349,7 @@ instances."
      ((null buffer)
       (message "Nothing to display."))
      (t
+      (emacspeak-webutils-without-xsl
       (save-excursion
         (set-buffer buffer)
         (goto-char (point-min))
@@ -356,7 +357,7 @@ instances."
         (delete-region (point-min) (point))
         (emacspeak-xslt-region style
                                (point-min) (point-max))
-        (browse-url-of-buffer))))))
+        (browse-url-of-buffer)))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-rss-display (feed-url)
