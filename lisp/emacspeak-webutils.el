@@ -317,13 +317,11 @@ instances."
   (interactive)
   (let ((feed (funcall emacspeak-webutils-url-at-point)))
     (cond
-     ((null feed)
-      (error "No url under point."))
+     ((null feed) (error "No url under point."))
      (t (emacspeak-webutils-atom-display
          (format
           "http://www.google.com/reader/public/atom/feed/%s?n=20"
-          (emacspeak-url-encode feed))
-         'speak)))))
+          (emacspeak-url-encode feed)))))))
 
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser.
