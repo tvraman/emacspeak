@@ -360,29 +360,35 @@ instances."
         (browse-url-of-buffer)))))))
 
 ;;;###autoload
-(defun emacspeak-webutils-rss-display (feed-url)
+(defun emacspeak-webutils-rss-display (feed-url &optional speak)
   "Display RSS feed."
   (interactive
    (list
     (if emacspeak-webutils-url-at-point
         (funcall emacspeak-webutils-url-at-point)
       (read-from-minibuffer "Feed: "
-                            (browse-url-url-at-point)))))
+                            (browse-url-url-at-point)))
+    (or (interactive-p)
+        current-prefix-arg)))
   (emacspeak-auditory-icon 'select-object)
+  (when speak (emacspeak-webutils-autospeak))
   (emacspeak-webutils-feed-display feed-url
                                    (emacspeak-xslt-get "rss.xsl")))
 
 ;;;###autoload
-(defun emacspeak-webutils-atom-display (feed-url)
+(defun emacspeak-webutils-atom-display (feed-url &optional speak)
   "Display ATOM feed."
   (interactive
    (list
     (if emacspeak-webutils-url-at-point
         (funcall emacspeak-webutils-url-at-point)
       (read-from-minibuffer "Feed: "
-                            (browse-url-url-at-point)))))
+                            (browse-url-url-at-point)))
+    (or (interactive-p)
+        current-prefix-arg)))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-auditory-icon 'select-object)
+  (when speak (emacspeak-webutils-autospeak))
   (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
 
 ;;}}}
