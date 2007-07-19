@@ -355,7 +355,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  nil
  "Display Digg Feed."
- 'emacspeak-rss-display)
+ 'emacspeak-webutils-rss-display)
 
 ;;}}}
 ;;{{{ bbc
@@ -672,7 +672,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  (list "Video Search:")
  nil
  "Retrieve Google Video search results as an atom feed."
- 'emacspeak-rss-display)
+ 'emacspeak-webutils-rss-display)
 
 ;;}}}
 ;;{{{ Google Reader:
@@ -683,7 +683,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  (list "Feed:")
  nil
  "Google Reader"
- 'emacspeak-atom-display)
+ 'emacspeak-webutils-atom-display)
 
 ;;}}}
 ;;{{{ google finance
@@ -782,7 +782,7 @@ Here are some examples:
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
- 'emacspeak-atom-display)
+ 'emacspeak-webutils-atom-display)
 
 ;;}}}
 ;;{{{ google translation service
@@ -844,7 +844,7 @@ from English to German.")
  (list "Feed: ")
  nil
  "View feed via Google Reader."
- 'emacspeak-atom-display)
+ 'emacspeak-webutils-atom-display)
 
 ;;}}}
 ;;{{{  google filters
@@ -932,7 +932,7 @@ from English to German.")
  (list "Search news for: ")
  nil
  "Search Google news."
- 'emacspeak-atom-display)
+ 'emacspeak-webutils-atom-display)
 
 (emacspeak-url-template-define
  "Google Recent News Search"
@@ -980,7 +980,7 @@ from English to German.")
  nil
  "Search Google news."
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url 'speak)))
 
 (emacspeak-url-template-define
  "Google Atom News"
@@ -988,7 +988,7 @@ from English to German.")
  (list "Topic Code: ")
  nil
  "Display specified news feed."
- 'emacspeak-atom-display)
+ 'emacspeak-webutils-atom-display)
 
 (emacspeak-url-template-define
  "Google Feeds"
@@ -1024,7 +1024,7 @@ from English to German.")
  nil
  'emacspeak-speak-buffer
  "Display tech news from CNET"
- 'emacspeak-rss-display)
+ 'emacspeak-webutils-rss-display)
 
 ;;}}}
 ;;{{{ Infoworld RSS
@@ -1890,7 +1890,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Meerkat Profile"
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url 'speak)))
 
 (emacspeak-url-template-define
  "Meerkat Recipe"
@@ -1901,7 +1901,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Meerkat tool"
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url 'speak)))
 
 ;;}}}
 ;;{{{  flight arrival
@@ -1934,7 +1934,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Pull RSS weather feed for specified state/city."
  #'(lambda (url)
-     (emacspeak-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url 'speak)))
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
