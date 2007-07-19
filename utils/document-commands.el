@@ -1,6 +1,6 @@
 ;;;$Id$
 ;;; Description: Generate commands.texi
-;;; Load all emacspeak modules and write commands.texi 
+;;; Load all emacspeak modules and write commands.texi
 
 ;;; Code:
 (require 'cl)
@@ -69,8 +69,6 @@
     ("emacspeak-arc" . ("arc-mode"))
     ("emacspeak-auctex" . ("auctex-prepare"))
     ("emacspeak-aumix" . nil)
-    ("emacspeak-rss" . nil)
-    ("emacspeak-atom" . nil)
     ("emacspeak-babel" . ("babel"))
     ("emacspeak-bbdb". ("bbdb-prepare"))
     ("emacspeak-bibtex" . ("bibtex"))
@@ -88,7 +86,7 @@
     ("emacspeak-compile" . nil )
     ("emacspeak-cperl"  . nil )
     ("emacspeak-daisy" . nil)
-    ("emacspeak-custom"  . ("custom" "cus-edit")) 
+    ("emacspeak-custom"  . ("custom" "cus-edit"))
     ("emacspeak-dictation"  . nil )
     ("emacspeak-dictionary"  . nil )
     ("emacspeak-dired"  . ("dired"))
