@@ -368,6 +368,7 @@ instances."
         (funcall emacspeak-webutils-url-at-point)
       (read-from-minibuffer "Feed: "
                             (browse-url-url-at-point)))))
+  (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-feed-display feed-url
                                    (emacspeak-xslt-get "rss.xsl")))
 
@@ -381,6 +382,7 @@ instances."
       (read-from-minibuffer "Feed: "
                             (browse-url-url-at-point)))))
   (declare (special emacspeak-atom-view-xsl))
+  (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
 
 ;;}}}
