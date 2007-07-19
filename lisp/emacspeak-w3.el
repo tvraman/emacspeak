@@ -1091,8 +1091,11 @@ Tables are specified by containing  match pattern
       (emacspeak-xslt-region
        (emacspeak-xslt-get "class-values.xsl")
        (point-min) (point-max)
-       nil ;params
+       nil                              ;params
        'no-comment)
+      (shell-command-on-region (point-min) (point-max)
+                               "sort  -u"
+                               (current-buffer))
       (setq values
             (split-string (buffer-string))))
     (add-hook
@@ -1103,9 +1106,9 @@ Tables are specified by containing  match pattern
           (declare (special  emacspeak-w3-buffer-class-cache))
           (setq emacspeak-w3-buffer-class-cache
                 ',(mapcar
-                  #'(lambda (v)
-                      (cons v v ))
-                  values))))))))
+                   #'(lambda (v)
+                       (cons v v ))
+                   values))))))))
 
 (defvar emacspeak-w3-buffer-id-cache nil
   "Caches id attribute values for current buffer.")
