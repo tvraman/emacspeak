@@ -36,7 +36,6 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-w3)
-(require 'emacspeak-rss)
 (require 'easymenu)
 (require 'emacspeak-m-player)
 (require 'emacspeak-webutils)
