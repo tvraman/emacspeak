@@ -1092,10 +1092,6 @@ Tables are specified by containing  match pattern
        (point-min) (point-max)
        nil ;params
        'no-comment)
-      (shell-command-on-region
-       (point-min) (point-max)
-       "sort  -u"
-       (current-buffer))
       (setq values
             (split-string (buffer-string))))
     (add-hook
@@ -1128,10 +1124,6 @@ Tables are specified by containing  match pattern
        (point-min) (point-max)
        nil ;params
        'no-comment)
-      (shell-command-on-region
-       (point-min) (point-max)
-       "sort  -u"
-       (current-buffer))
       (setq values
             (split-string (buffer-string))))
     (add-hook
