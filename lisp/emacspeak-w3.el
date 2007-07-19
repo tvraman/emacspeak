@@ -1086,6 +1086,7 @@ Tables are specified by containing  match pattern
                   (format "class-%s" (buffer-name)))))
     (save-excursion
       (set-buffer content)
+      (setq buffer-undo-list t)
       (emacspeak-xslt-region
        (emacspeak-xslt-get "class-values.xsl")
        (point-min) (point-max)
@@ -1121,6 +1122,7 @@ Tables are specified by containing  match pattern
                   (format "id-%s" (buffer-name)))))
     (save-excursion
       (set-buffer content)
+      (setq buffer-undo-list t)
       (emacspeak-xslt-region
        (emacspeak-xslt-get "id-values.xsl")
        (point-min) (point-max)
