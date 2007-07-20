@@ -65,7 +65,7 @@
 ;;}}}
 ;;{{{ Helpers:
 
-(defsubst emacspeak-we-read-url ()
+(defsubst emacspeak-we-read-url ( )
   "Return URL of current page,
 or URL read from minibuffer."
   (if (fboundp  emacspeak-webutils-current-url)
