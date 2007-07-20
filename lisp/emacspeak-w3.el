@@ -754,7 +754,7 @@ If a rewrite rule is defined in the current buffer, we change
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
 HTML."
-  (when emacspeak-w3-cleanup-bogus-quotes
+  (when emacspeak-we-cleanup-bogus-quotes
     (goto-char (point-min))
     (while (search-forward "&#147;" nil t)
       (replace-match "\""))
