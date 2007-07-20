@@ -55,10 +55,8 @@
 (require 'browse-url)
 (require 'emacspeak-preamble)
 (require 'imenu)
-(eval-when-compile
-  (condition-case nil
-      (require 'emacspeak-webutils)
-    (error nil)))
+(require 'emacspeak-webutils)
+(require 'emacspeak-we)
 ;;}}}
 ;;{{{ amphetadesk
 
