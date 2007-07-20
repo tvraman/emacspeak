@@ -63,12 +63,9 @@
 (require 'texinfo)
 (require 'term)
 (require 'cus-edit)
+(require 'emacspeak-webutils)
+(require 'emacspeak-we)
 (require 'emacspeak-xslt)
-(eval-when-compile
-  (condition-case nil
-      (require 'emacspeak-w3)
-    (error nil)))
-
 ;;}}}
 ;;{{{ custom
 
@@ -1735,7 +1732,7 @@ Signals beginning  of buffer."
 
 ;;;###autoload
 (defun emacspeak-curl (url)
-  "Grab URL using Curl, and preview it with W3."
+  "Grab URL using Curl, and preview it with a browser ."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
@@ -1955,7 +1952,7 @@ annotation is inserted into the working buffer when complete."
 (define-derived-mode emacspeak-wizards-xl-mode text-mode
   "Browsing XL Files."
   "Major mode for browsing XL spreadsheets.\n\n
-XL Sheets are converted to HTML and previewed using W3."
+XL Sheets are converted to HTML and previewed using a browser."
   (emacspeak-wizards-xl-display))
 
 (defcustom emacspeak-wizards-xlhtml-program "xlhtml"
@@ -2043,7 +2040,7 @@ visiting the xls file."
 (define-derived-mode emacspeak-wizards-ppt-mode text-mode
   "Browsing PPT Files."
   "Major mode for browsing PPT slides.\n\n
-PPT files  are converted to HTML and previewed using W3."
+PPT files  are converted to HTML and previewed using a browser."
   (emacspeak-wizards-ppt-display))
 
 (defcustom emacspeak-wizards-ppthtml-program "ppthtml"

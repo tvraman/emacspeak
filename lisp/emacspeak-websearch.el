@@ -209,7 +209,8 @@ SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
   (declare (special emacspeak-w3-post-process-hook))
   (when (or   (eq browse-url-browser-function 'w3-fetch)
-              (eq browse-url-browser-function 'browse-url-w3))
+              (eq browse-url-browser-function 'browse-url-w3)
+              (eq browse-url-browser-function 'w3m-browse-url))
     (add-hook  'emacspeak-w3-post-process-hook
                (`
                 (lambda nil
