@@ -750,6 +750,29 @@ If a rewrite rule is defined in the current buffer, we change
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
 
 ;;}}}
+;;{{{ advice to call xslt
+(defadvice  w3-parse-buffer (before emacspeak pre act comp)
+  "Apply requested XSL transform if any before displaying the
+HTML."
+  (when emacspeak-w3-cleanup-bogus-quotes
+    (goto-char (point-min))
+    (while (search-forward "&#147;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&#148;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&#180;" nil t)
+      (replace-match "\'")))
+  (emacspeak-we-build-id-cache)
+  (emacspeak-we-build-class-cache)
+  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+    (emacspeak-xslt-region
+     emacspeak-we-xsl-transform
+     (point-min)
+     (point-max))))
+
+;;}}}
 ;;{{{ fix css bug:
 
 (defadvice css-expand-value (around fix-bug pre act comp )
