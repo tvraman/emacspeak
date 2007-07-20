@@ -981,7 +981,7 @@ from English to German.")
  nil
  "Search Google news."
  #'(lambda (url)
-     (emacspeak-webutils-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url)))
 
 (emacspeak-url-template-define
  "Google Atom News"
@@ -1852,7 +1852,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Meerkat Profile"
  #'(lambda (url)
-     (emacspeak-webutils-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url)))
 
 (emacspeak-url-template-define
  "Meerkat Recipe"
@@ -1863,7 +1863,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Meerkat tool"
  #'(lambda (url)
-     (emacspeak-webutils-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url)))
 
 ;;}}}
 ;;{{{  flight arrival
@@ -1896,7 +1896,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Pull RSS weather feed for specified state/city."
  #'(lambda (url)
-     (emacspeak-webutils-rss-display url 'speak)))
+     (emacspeak-webutils-rss-display url)))
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
