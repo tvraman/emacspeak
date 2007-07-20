@@ -152,22 +152,6 @@ part of the libxslt package."
     (setq modification-flag nil)
     (current-buffer)))
 
-;;;###autoload
-(defun emacspeak-xslt-view-region (style start end)
-  "View region after transforming via XSLT."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "XSL: "
-                     emacspeak-xslt-directory))
-    (point)
-    (mark)))
-  (let* ((emacspeak-xslt-options nil)
-    (buffer
-         (ems-modify-buffer-safely
-         (emacspeak-xslt-region style start end ))))
-    (browse-url-of-buffer buffer)))
-
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
 (defcustom  emacspeak-xslt-use-wget-to-download nil
@@ -317,9 +301,7 @@ part of the libxslt package."
   "Browse XML URL with specified XSL style."
   (interactive
    (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))
+    (emacspeak-xslt-read)
     (read-string "URL: " (browse-url-url-at-point))
     current-prefix-arg))
   (let ((src-buffer
@@ -330,10 +312,8 @@ part of the libxslt package."
            (cons "base"
                  (format "\"'%s'\""
                          url))))))
-    (add-hook 'emacspeak-w3-post-process-hook
-              #'(lambda nil
-                  (emacspeak-speak-mode-line)
-                  (emacspeak-auditory-icon 'open-object)))
+    (when (interactive-p)
+      (emacspeak-webutils-autospeak))
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
@@ -347,9 +327,7 @@ part of the libxslt package."
   "Browse XML region with specified XSL style."
   (interactive
    (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))
+    (emacspeak-xslt-read)
     (point)
     (mark)
     current-prefix-arg))
