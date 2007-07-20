@@ -64,12 +64,6 @@
   "Emacspeak Realaudio  customization."
   :group 'emacspeak)
 
-(defcustom emacspeak-realaudio-revert-to-auditory-icons t
-  "Set this to T if you want to switch back from using midi
-icons once a realaudio stream is done playing."
-  :group 'emacspeak-realaudio
-  :type 'boolean)
-
 (defcustom emacspeak-realaudio-player
   (cond
    ((eq window-system 'w32)
@@ -90,6 +84,8 @@ icons once a realaudio stream is done playing."
 
 (defvar emacspeak-realaudio-process nil
   "Process handle to running player")
+
+;;;###autoload
 (defvar emacspeak-realaudio-last-url nil
   "Records the last RealAudio resource we played")
 ;;;###autoload
@@ -200,11 +196,7 @@ urls have a .ram or .rm extension.")
 
 (defun emacspeak-realaudio-process-sentinel  (process state)
   "Cleanup after realaudio is done. "
-  (declare (special emacspeak-realaudio-revert-to-auditory-icons
-                    emacspeak-realaudio-reset-auditory-display))
-  (when  (and emacspeak-realaudio-revert-to-auditory-icons
-              (emacspeak-using-midi-p))
-    (emacspeak-set-auditory-icon-player 'emacspeak-serve-auditory-icon))
+  (declare (special emacspeak-realaudio-reset-auditory-display))
   (when emacspeak-realaudio-reset-auditory-display
     (emacspeak-aumix-reset)))
 

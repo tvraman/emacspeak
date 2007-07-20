@@ -54,6 +54,7 @@
 (require 'backquote)
 (require 'emacspeak-preamble)
 (require 'url)
+(require 'browse-url)
 ;;}}}
 ;;{{{ keymap: web-prefix
 (define-prefix-command 'emacspeak-web-prefix)
@@ -507,7 +508,7 @@ unescape HTML tags."
       (completing-read "Feed:"
                        emacspeak-atom-feeds))))
   (let ((uri (cadr (assoc feed emacspeak-atom-feeds))))
-    (emacspeak-webutils-atom-display uri 'speak)))
+    (emacspeak-webutils-atom-display uri)))
 
 ;;}}}
 
