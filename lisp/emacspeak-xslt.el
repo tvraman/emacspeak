@@ -302,7 +302,7 @@ part of the libxslt package."
   (interactive
    (list
     (emacspeak-xslt-read)
-    (read-string "URL: " (browse-url-url-at-point))
+    (emacspeak-we-read-this-url)
     current-prefix-arg))
   (let ((src-buffer
          (emacspeak-xslt-xml-url
