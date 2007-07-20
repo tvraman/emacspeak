@@ -1,15 +1,15 @@
 ;;; emacspeak-imenu.el --- Speech enable Imenu -- produce buffer-specific table of contents
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface buffer indices
 ;;; Keywords: Emacspeak, Speak, Spoken Output, indices
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2007, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -89,7 +89,7 @@
          imenu--index-alist t)))
 
 ;;}}}
-;;{{{ advice 
+;;{{{ advice
 
 (defadvice imenu (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -126,6 +126,7 @@
   :type 'boolean
   :group 'emacspeak-imenu)
 
+;;;###autoload
 (defun emacspeak-imenu-goto-next-index-position ()
   "Goto the next index position in current buffer"
   (interactive)
@@ -160,6 +161,7 @@
       (when (overlays-at (point))
         (goto-char (overlay-end (car (overlays-at (point)))))))))
 
+;;;###autoload
 (defun emacspeak-imenu-goto-previous-index-position ()
   "Goto the previous index position in current buffer"
   (interactive)
@@ -220,11 +222,11 @@
 
 ;;}}}
 (provide 'emacspeak-imenu )
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
