@@ -322,7 +322,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "This months Old Time Radio Programing"
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table-list
+     (emacspeak-we-extract-nested-table-list
       (list 2 3 )
       url)))
 ;;}}}
@@ -334,7 +334,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Analyze WWW site using Netcraft."
  #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-match-list
+     (emacspeak-we-extract-tables-by-match-list
       (list "running" "average")
       url 'speak)))
 
@@ -373,7 +373,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Retrieve BBC7 schedule for specified day."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match
+     (emacspeak-we-extract-table-by-match
       "Morning"
       url 'speak)))
 
@@ -541,7 +541,7 @@ content."
  nil
  "Search within feeds subscribed to in Google Reader."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "g" url 'speak)))
+     (emacspeak-we-extract-by-class "g" url 'speak)))
 
 (emacspeak-url-template-define
  "Official GoogleBlog Search"
@@ -554,7 +554,7 @@ content."
  nil
  "Search within all official Google blogs."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "g" url 'speak)))
+     (emacspeak-we-extract-by-class "g" url 'speak)))
 
 (emacspeak-url-template-define
  "On The Fly CSE"
@@ -568,7 +568,7 @@ content."
  nil
  "Build a CSE on the fly and  use it to search."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "g" url 'speak)))
+     (emacspeak-we-extract-by-class "g" url 'speak)))
 
 
 
@@ -665,7 +665,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Display World Cup Soccer Results for specified countries."
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 5 url 'speak)))
+     (emacspeak-we-extract-nested-table 5 url 'speak)))
 
 (emacspeak-url-template-define
  "Google Video"
@@ -871,7 +871,7 @@ from English to German.")
  nil
  "Only show Google hits."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "g"
+     (emacspeak-we-extract-by-class "g"
                                     url 'speak)))
 
 ;;}}}
@@ -998,7 +998,7 @@ from English to German.")
  nil
  "List  Google news Feeds."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "Sports"
+     (emacspeak-we-extract-table-by-match "Sports"
                                           url 'speak)))
 
 ;;}}}
@@ -1052,7 +1052,7 @@ from English to German.")
  nil
  "Retrieve and speak directions from MapQuest."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "Maneuvers"
+     (emacspeak-we-extract-table-by-match "Maneuvers"
                                           url 'speak)))
 
 ;;}}}
@@ -1075,10 +1075,10 @@ from English to German.")
   (declare (special emacspeak-w3-post-process-hook))
   (add-hook 'emacspeak-w3-post-process-hook
             #'(lambda nil
-                (declare (special  emacspeak-w3-url-rewrite-rule
+                (declare (special  emacspeak-we-url-rewrite-rule
                                    emacspeak-w3-class-filter))
                 (setq emacspeak-w3-class-filter "article"
-                      emacspeak-w3-url-rewrite-rule
+                      emacspeak-we-url-rewrite-rule
                       '("$" "&printer=1"))
                 (emacspeak-speak-buffer)))
   (emacspeak-we-xslt-filter
@@ -1268,7 +1268,7 @@ name of the list.")
  nil
  "List CNN Podcast media links."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class-list
+     (emacspeak-we-extract-by-class-list
       '("cnnPODcastleft"
         "cnnPODcastright")
       url
@@ -1282,7 +1282,7 @@ name of the list.")
  nil
  "Extract content links from CNN FN."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class-list
+     (emacspeak-we-extract-by-class-list
       (list
        "t1headline"
        "t1tease"
@@ -1298,7 +1298,7 @@ name of the list.")
  nil
  "Retrieve and speak headline news from CNN."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "cnnMainT1" url 'speak)))
+     (emacspeak-we-extract-by-class "cnnMainT1" url 'speak)))
 
 (defun emacspeak-url-template-date-YearMonthDate ()
   "Return today as yyyymmdd"
@@ -1324,7 +1324,7 @@ name of the list.")
      (setq emacspeak-w3-class-filter "cnnStoryContent"))
  "CNN Technology news."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class-list
+     (emacspeak-we-extract-by-class-list
       (list
        "cnnSectT2s"
        "cnnSectT2head"
@@ -1339,7 +1339,7 @@ name of the list.")
  nil
  "CNN Money"
  #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-position-list
+     (emacspeak-we-extract-tables-by-position-list
       '(10 12 15 18 20 21)
       url 'speak)))
 
@@ -1350,7 +1350,7 @@ name of the list.")
  nil
  "CNN Money"
  #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-position-list
+     (emacspeak-we-extract-tables-by-position-list
       '(14 15 20 21) url 'speak)))
 
 (emacspeak-url-template-define

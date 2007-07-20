@@ -105,52 +105,52 @@
   "Execute body with XSL turned off."
   (`
    (progn
-     (declare (special emacspeak-w3-xsl-p))
-     (when emacspeak-w3-xsl-p
-       (setq emacspeak-w3-xsl-p nil)
+     (declare (special emacspeak-we-xsl-p))
+     (when emacspeak-we-xsl-p
+       (setq emacspeak-we-xsl-p nil)
        (add-hook 'emacspeak-w3-post-process-hook
                  #'(lambda ()
-                     (declare (special emacspeak-w3-xsl-p))
-                     (setq emacspeak-w3-xsl-p t))))
+                     (declare (special emacspeak-we-xsl-p))
+                     (setq emacspeak-we-xsl-p t))))
      (,@ body))))
 
 (defmacro emacspeak-webutils-with-xsl (&rest body)
   "Execute body with XSL turned on."
   (`
    (progn
-     (declare (special emacspeak-w3-xsl-p))
-     (unless emacspeak-w3-xsl-p
-       (setq emacspeak-w3-xsl-p t)
+     (declare (special emacspeak-we-xsl-p))
+     (unless emacspeak-we-xsl-p
+       (setq emacspeak-we-xsl-p t)
        (add-hook 'emacspeak-w3-post-process-hook
                  #'(lambda ()
-                     (declare (special emacspeak-w3-xsl-p))
-                     (setq emacspeak-w3-xsl-p nil))))
+                     (declare (special emacspeak-we-xsl-p))
+                     (setq emacspeak-we-xsl-p nil))))
      (,@ body))))
 
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."
-  `(let ((save-flag ,emacspeak-w3-xsl-p)
+  `(let ((save-flag ,emacspeak-we-xsl-p)
          (save-options ,emacspeak-xslt-options)
-         (save-style ,emacspeak-w3-xsl-transform)
-         (save-params ,emacspeak-w3-xsl-params))
-     (setq emacspeak-w3-xsl-p t
+         (save-style ,emacspeak-we-xsl-transform)
+         (save-params ,emacspeak-we-xsl-params))
+     (setq emacspeak-we-xsl-p t
            emacspeak-xslt-options ,options
-           emacspeak-w3-xsl-transform ,style
-           emacspeak-w3-xsl-params ,params)
+           emacspeak-we-xsl-transform ,style
+           emacspeak-we-xsl-params ,params)
      (add-hook
       'emacspeak-w3-post-process-hook
       (eval
        `(function
          (lambda ()
-           (declare (special emacspeak-w3-xsl-p
-                             emacspeak-w3-xsl-transform
+           (declare (special emacspeak-we-xsl-p
+                             emacspeak-we-xsl-transform
                              emacspeak-xslt-options
-                             emacspeak-w3-xsl-params))
-           (setq emacspeak-w3-xsl-p ,save-flag
+                             emacspeak-we-xsl-params))
+           (setq emacspeak-we-xsl-p ,save-flag
                  emacspeak-xslt-options ,save-options
-                 emacspeak-w3-xsl-transform ,save-style
-                 emacspeak-w3-xsl-params ,save-params)))))
+                 emacspeak-we-xsl-transform ,save-style
+                 emacspeak-we-xsl-params ,save-params)))))
      ,@body))
 
 ;;}}}
