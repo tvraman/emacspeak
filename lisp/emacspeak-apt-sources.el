@@ -62,7 +62,6 @@
   (voice-lock-mode 1)
   (dtk-set-punctuations "all"))
 
-
 (defadvice apt-sources-previous-source-line (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

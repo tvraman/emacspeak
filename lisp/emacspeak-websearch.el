@@ -44,8 +44,8 @@
 (eval-when-compile
   (condition-case nil
       (progn
-      (require  'emacspeak-we)
-    (require 'calendar))
+        (require  'emacspeak-we)
+        (require 'calendar))
     (error nil)))
 ;;}}}
 ;;{{{  Introduction:
@@ -1044,18 +1044,18 @@ I'm Feeling Lucky button on Google."
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (let ((emacspeak-w3-tidy-html nil))
-  (emacspeak-webutils-without-xsl
-   (browse-url
-    (concat emacspeak-websearch-google-uri
-            (emacspeak-url-encode query)
-            (format "&num=%s%s"
-                    emacspeak-websearch-google-number-of-results
-                    (or emacspeak-websearch-google-options ""))
-            (when lucky
-              (concat
-               "&btnI="
-               (emacspeak-url-encode
-                "I'm Feeling Lucky")))))))
+    (emacspeak-webutils-without-xsl
+     (browse-url
+      (concat emacspeak-websearch-google-uri
+              (emacspeak-url-encode query)
+              (format "&num=%s%s"
+                      emacspeak-websearch-google-number-of-results
+                      (or emacspeak-websearch-google-options ""))
+              (when lucky
+                (concat
+                 "&btnI="
+                 (emacspeak-url-encode
+                  "I'm Feeling Lucky")))))))
   (if lucky
       (emacspeak-speak-line)
     (emacspeak-websearch-post-process
@@ -2047,7 +2047,7 @@ Optional interactive prefix arg results in prompting for a search term."
 ;;}}}
 ;;{{{ YouTube
 
- ; Use C-y fo rYouTube
+                                        ; Use C-y fo rYouTube
 (emacspeak-websearch-set-key 25 'youtube)
 (emacspeak-websearch-set-searcher  'youtube
                                    'emacspeak-websearch-youtube)
@@ -2056,7 +2056,6 @@ Optional interactive prefix arg results in prompting for a search term."
   "Search YouTube"
   (interactive"sYouTube: ")
   (gtube-video-by-tag query "1" "20"))
-
 
 ;;}}}
 

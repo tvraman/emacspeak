@@ -187,9 +187,6 @@ Use form bookmark-add.html, and use the resulting zx param as key"))
      emacspeak-xslt-options
      (browse-url base-url))))
 
-
-
-
 ;;}}}
 (provide 'emacspeak-webmarks)
 ;;{{{ end of file

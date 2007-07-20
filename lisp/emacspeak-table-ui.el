@@ -461,7 +461,6 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 
-
 (defsubst emacspeak-table-prepare-table-buffer (table buffer
                                                       &optional filename)
   "Prepare tabular data."

@@ -104,7 +104,6 @@ display."
   :group 'emacspeak-aumix
   :type 'boolean)
 
-
 ;;}}}
 ;;{{{ emacspeak-aumix
 

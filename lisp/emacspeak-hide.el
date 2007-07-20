@@ -359,7 +359,7 @@ blocks in current buffer to be hidden or exposed."
   "Hide or expose all blocks in buffer."
   (interactive)
   (let ((current-prefix-arg t))
-  (call-interactively 'emacspeak-hide-or-expose-block)))
+    (call-interactively 'emacspeak-hide-or-expose-block)))
 
 ;;}}}
 ;;{{{  speaking blocks sans prefix

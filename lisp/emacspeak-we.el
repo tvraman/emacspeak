@@ -74,7 +74,6 @@ or URL read from minibuffer."
                           (or (browse-url-url-at-point)
                               "http://"))))
 
-
 ;;;  Helper: rename result buffer
 (defsubst emacspeak-we-rename-buffer (key)
   "Setup emacspeak-w3-post-process-hook  to rename result buffer"
@@ -122,7 +121,6 @@ a rewrite rule even if one is already defined."
 
 ;;}}}
 
-
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
 
@@ -131,7 +129,6 @@ a rewrite rule even if one is already defined."
 (defvar emacspeak-we-xsl-filter
   (emacspeak-xslt-get "xpath-filter.xsl")
   "XSL to extract  elements matching a specified XPath locator.")
-
 
 (defvar emacspeak-we-xsl-junk
   (emacspeak-xslt-get "xpath-junk.xsl")
@@ -283,7 +280,6 @@ from Web page -- default is the current page being viewed."
      emacspeak-xslt-options
      (browse-url url))))
 
-
 (defcustom emacspeak-we-media-stream-suffixes
   (list
    ".ram"
@@ -336,7 +332,7 @@ operate on current web page when in a browser buffer; otherwise
   (interactive
    (list
     (emacspeak-we-read-url)
-     (interactive-p)))
+    (interactive-p)))
   (let ((filter "//a[contains(@href,\"print\")]"))
     (emacspeak-we-xslt-filter filter url speak)))
 
@@ -558,7 +554,7 @@ Tables are specified by containing  match pattern
       (emacspeak-xslt-region
        (emacspeak-xslt-get "id-values.xsl")
        (point-min) (point-max)
-       nil ;params
+       nil                              ;params
        'no-comment)
       (setq values
             (split-string (buffer-string))))
@@ -570,9 +566,9 @@ Tables are specified by containing  match pattern
           (declare (special  emacspeak-we-buffer-id-cache))
           (setq emacspeak-we-buffer-id-cache
                 ',(mapcar
-                  #'(lambda (v)
-                      (cons v v ))
-                  values))))))))
+                   #'(lambda (v)
+                       (cons v v ))
+                   values))))))))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-class (class    url &optional speak)
@@ -752,12 +748,10 @@ used as well."
      'speak)
     (emacspeak-auditory-icon 'open-object)))
 
-
 (defvar emacspeak-we-id-filter nil
   "Buffer local id filter.")
 
 (make-variable-buffer-local 'emacspeak-we-id-filter)
-
 
 ;;;###autoload
 (defun emacspeak-we-follow-and-filter-by-id (id)

@@ -49,7 +49,6 @@
 ;;}}}
 ;;{{{  Required modules
 
-
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -87,8 +86,8 @@
         ("r" emacspeak-moz-refresh)
         ([up] emacspeak-moz-up)
         ([down] emacspeak-moz-down)
-([left] emacspeak-moz-left)
-([right] emacspeak-moz-right)
+        ([left] emacspeak-moz-left)
+        ([right] emacspeak-moz-right)
         )
       do
       (emacspeak-keymap-update  emacspeak-moz-keymap k))
@@ -105,7 +104,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-
 
 (defvar emacspeak-moz-output-buffer " *moz output*"
   "Buffer where we accumulate moz output.")
@@ -137,8 +135,8 @@
       (flush-lines
        (format "^%s> *$" moz-repl-name))
       (when (or   (eq browse-url-browser-function 'w3-fetch)
-              (eq browse-url-browser-function 'browse-url-w3)
-              (eq browse-url-browser-function 'w3m-browse-url))
+                  (eq browse-url-browser-function 'browse-url-w3)
+                  (eq browse-url-browser-function 'w3m-browse-url))
         (emacspeak-webutils-autospeak))
       (browse-url-of-buffer ))))
 ;;;###autoload
@@ -254,7 +252,6 @@ title)\n"
   (emacspeak-moz-eval-expression-and-browse
    "repl.adom.down(); repl.adom.html()"))
 
-
 ;;;###autoload
 (defun emacspeak-moz-left ()
   "Go left and browse."
@@ -268,7 +265,6 @@ title)\n"
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
    "repl.adom.next(); repl.adom.html()"))
-
 
 ;;;###autoload
 (defun emacspeak-moz-filter-and-browse(xpath)

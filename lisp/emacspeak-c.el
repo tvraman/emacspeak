@@ -191,7 +191,6 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
-
 ;;}}}
 
 ;;}}}
@@ -237,7 +236,7 @@
                (= 0 (forward-line -1)))
         (setq semantics (c-guess-basic-syntax )))
       (skip-syntax-backward " ")
-           (emacspeak-speak-line ))
+      (emacspeak-speak-line ))
      (t (setq count (or count 1))
         (c-beginning-of-statement   count )
         (and (save-match-data (looking-at "{"))

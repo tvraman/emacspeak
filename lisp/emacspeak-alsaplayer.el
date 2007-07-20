@@ -70,7 +70,6 @@
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
 
-
 (defgroup emacspeak-alsaplayer nil
   "AlsaPlayer from emacs."
   :group 'emacspeak)
