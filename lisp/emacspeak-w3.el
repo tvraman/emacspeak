@@ -756,21 +756,30 @@ If a rewrite rule is defined in the current buffer, we change
 HTML."
   (when emacspeak-we-cleanup-bogus-quotes
     (goto-char (point-min))
-    (while (search-forward "&#147;" nil t)
+    (while (search-forward "&\#147\;" nil t)
       (replace-match "\""))
     (goto-char (point-min))
-    (while (search-forward "&#148;" nil t)
+    (while (search-forward "&\#148\;" nil t)
       (replace-match "\""))
     (goto-char (point-min))
-    (while (search-forward "&#180;" nil t)
+    (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
+  (unless (string-match "temp"
+                        (buffer-name))
   (emacspeak-we-build-id-cache)
-  (emacspeak-we-build-class-cache)
-  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+  (emacspeak-we-build-class-cache))
+  (when (and emacspeak-we-xsl-p
+             emacspeak-we-xsl-transform
+             (not  (string-match "temp" (buffer-name))))
     (emacspeak-xslt-region
      emacspeak-we-xsl-transform
      (point-min)
-     (point-max))))
+     (point-max)
+     emacspeak-we-xsl-params)
+    (when emacspeak-we-xsl-keep-result
+      (clone-buffer
+       (format "xslt-%s"
+               (buffer-name))))))
 
 ;;}}}
 ;;{{{ fix css bug:
