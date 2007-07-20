@@ -322,7 +322,7 @@ instances."
          (format
           "http://www.google.com/reader/public/atom/feed/%s?n=20"
           (emacspeak-url-encode feed)))))))
-
+;;;###autoload
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa"
