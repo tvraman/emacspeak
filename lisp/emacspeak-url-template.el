@@ -1263,6 +1263,17 @@ name of the list.")
       url
       'speak )))
 
+
+(emacspeak-url-template-define
+ "CNNContent"
+ "http://www.cnn.com/"
+ nil
+ nil
+ "Filter down to CNN  content area."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id "cnnContentContainer" url 'speak)))
+
+
 ;;{{{ cnnfn content
 (emacspeak-url-template-define
  "CNNFn Content"
