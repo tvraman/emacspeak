@@ -111,6 +111,39 @@
               (eq major-mode 'w3m-mode))
     (error "This command cannot be used outside browser buffers.")))
 
+(defsubst emacspeak-we-read-url ( )
+  "Return URL of current page,
+or URL read from minibuffer."
+  (if (functionp  emacspeak-webutils-current-url)
+      (funcall emacspeak-webutils-current-url)
+    (read-from-minibuffer "URL: "
+                          (or (browse-url-url-at-point)
+                              "http://"))))
+
+(defsubst emacspeak-we-read-this-url ( )
+  "Return URL under point
+or URL read from minibuffer."
+  (if (functionp  emacspeak-webutils-url-at-point)
+      (funcall emacspeak-webutils-url-at-point)
+    (read-from-minibuffer "URL: "
+                          (or (browse-url-url-at-point)
+                              "http://"))))
+
+;;;  Helper: rename result buffer
+(defsubst emacspeak-we-rename-buffer (key)
+  "Setup emacspeak-w3-post-process-hook  to rename result buffer"
+  (add-hook
+   'emacspeak-w3-post-process-hook
+   (eval
+    `(function
+      (lambda nil
+        (rename-buffer
+         (format "%s %s"
+                 ,key (buffer-name))
+         'unique))))))
+
+
+
 ;;}}}
 ;;{{{ helper macros:
 
@@ -376,10 +409,7 @@ instances."
   "Display RSS feed."
   (interactive
    (list
-    (if emacspeak-webutils-url-at-point
-        (funcall emacspeak-webutils-url-at-point)
-      (read-from-minibuffer "Feed: "
-                            (browse-url-url-at-point)))))
+    (emacspeak-we-read-this-url)))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
@@ -388,17 +418,22 @@ instances."
 ;;;###autoload
 (defun emacspeak-webutils-atom-display (feed-url )
   "Display ATOM feed."
-  (interactive
-   (list
-    (if emacspeak-webutils-url-at-point
-        (funcall emacspeak-webutils-url-at-point)
-      (read-from-minibuffer "Feed: "
-                            (browse-url-url-at-point)))
-    ))
+  (interactive (list (emacspeak-we-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
+  (emacspeak-webutils-feed-display feed-url
+                                   emacspeak-atom-view-xsl))
+
+;;;###autoload
+(defun emacspeak-webutils-fv (feed-url )
+  "Display RSS or ATOM feed."
+  (interactive (list (emacspeak-we-read-this-url)))
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-webutils-autospeak)
+  (emacspeak-webutils-feed-display feed-url
+                                   (emacspeak-xslt-get "fv.xsl")))
+
 
 ;;}}}
 ;;{{{ RSS:

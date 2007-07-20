@@ -432,14 +432,6 @@ Interactive prefix-arg use-opml opens the myChannels.opml file.
 
 ------------------------------------------------------------
 
-** emacspeak-atom-browse Browse specified ATOM feed. 
-
-------------------------------------------------------------
-
-** emacspeak-atom-display Retrieve and display ATOM URL. 
-
-------------------------------------------------------------
-
 ** emacspeak-aumix	Key Sequence: control e ( 
 
  Setup output parameters of the auditory display.
@@ -1936,20 +1928,6 @@ Use this once you are sure the guesses are usually correct.
 
 ------------------------------------------------------------
 
-** emacspeak-opml-display Retrieve and display OPML  URL. 
-
-------------------------------------------------------------
-
-** emacspeak-rss-browse	Key Sequence: control e control u 
-
- Browse specified RSS feed. 
-
-------------------------------------------------------------
-
-** emacspeak-rss-display Retrieve and display RSS URL. 
-
-------------------------------------------------------------
-
 ** emacspeak-solitaire-show-column Display current row auditorallly 
 
 ------------------------------------------------------------
@@ -3050,14 +3028,6 @@ commands via single keystrokes.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-browse-atom-at-point Browses Atom url under point. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-browse-rss-at-point Browses RSS url under point. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -3624,6 +3594,20 @@ Optional second arg as-html processes the results as HTML rather than data.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-youtube Search YouTube 
+
+------------------------------------------------------------
+
+** emacspeak-atom-browse Browse specified ATOM feed. 
+
+------------------------------------------------------------
+
+** emacspeak-opml-display Retrieve and display OPML  URL. 
+
+------------------------------------------------------------
+
+** emacspeak-rss-browse	Key Sequence: control e control u 
+
+ Browse specified RSS feed. 
 
 ------------------------------------------------------------
 

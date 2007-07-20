@@ -63,40 +63,6 @@
 (require 'emacspeak-webutils)
 
 ;;}}}
-;;{{{ Helpers:
-
-(defsubst emacspeak-we-read-url ( )
-  "Return URL of current page,
-or URL read from minibuffer."
-  (if (functionp  emacspeak-webutils-current-url)
-      (funcall emacspeak-webutils-current-url)
-    (read-from-minibuffer "URL: "
-                          (or (browse-url-url-at-point)
-                              "http://"))))
-
-(defsubst emacspeak-we-read-this-url ( )
-  "Return URL under point
-or URL read from minibuffer."
-  (if (functionp  emacspeak-webutils-url-at-point)
-      (funcall emacspeak-webutils-url-at-point)
-    (read-from-minibuffer "URL: "
-                          (or (browse-url-url-at-point)
-                              "http://"))))
-
-;;;  Helper: rename result buffer
-(defsubst emacspeak-we-rename-buffer (key)
-  "Setup emacspeak-w3-post-process-hook  to rename result buffer"
-  (add-hook
-   'emacspeak-w3-post-process-hook
-   (eval
-    `(function
-      (lambda nil
-        (rename-buffer
-         (format "%s %s"
-                 ,key (buffer-name))
-         'unique))))))
-
-;;}}}
 ;;{{{ URL Rewrite:
 
 ;;;###autoload

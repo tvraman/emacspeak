@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 805 commands.
+This chapter documents a total of 801 commands.
 
 @menu
 * cd-tool::                     
@@ -13,7 +13,6 @@ This chapter documents a total of 805 commands.
 * emacspeak-alsaplayer::        
 * emacspeak-amphetadesk::       
 * emacspeak-arc::               
-* emacspeak-atom::              
 * emacspeak-aumix::             
 * emacspeak-bs::                
 * emacspeak-buff-menu::         
@@ -55,7 +54,6 @@ This chapter documents a total of 805 commands.
 * emacspeak-redefine::          
 * emacspeak-remote::            
 * emacspeak-rmail::             
-* emacspeak-rss::               
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
 * emacspeak-speak::             
@@ -561,20 +559,6 @@ Speak permissions of file current entry
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-size ()
 Speak the size of the file on current line
-@end deffn
-
-@node emacspeak-atom
-@section emacspeak-atom
-
-Automatically generated documentation
-for commands defined in module  emacspeak-atom.
-
-@deffn {Interactive Command} emacspeak-atom-browse (FEED)
-Browse specified ATOM feed.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-atom-display (ATOM-URL &optional SPEAK)
-Retrieve and display ATOM URL.
 @end deffn
 
 @node emacspeak-aumix
@@ -2438,26 +2422,6 @@ Speak labels of current message
 Summarize current message
 @end deffn
 
-@node emacspeak-rss
-@section emacspeak-rss
-
-Automatically generated documentation
-for commands defined in module  emacspeak-rss.
-
-@deffn {Interactive Command} emacspeak-opml-display (OPML-URL &optional SPEAK)
-Retrieve and display OPML  URL.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-rss-browse (FEED)
-@kbd{ control e control u }
-
-Browse specified RSS feed.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-rss-display (RSS-URL &optional SPEAK)
-Retrieve and display RSS URL.
-@end deffn
-
 @node emacspeak-solitaire
 @section emacspeak-solitaire
 
@@ -3704,14 +3668,6 @@ special major mode that provides the various navigation
 commands via single keystrokes.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-browse-atom-at-point ()
-Browses Atom url under point.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-browse-rss-at-point ()
-Browses RSS url under point.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-w3-class-filter-and-follow (CLASS URL)
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
@@ -4310,6 +4266,20 @@ and emacspeak-w3m.el
 
 Automatically generated documentation
 for commands defined in module  emacspeak-webutils.
+
+@deffn {Interactive Command} emacspeak-atom-browse (FEED)
+Browse specified ATOM feed.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-opml-display (OPML-URL &optional SPEAK)
+Retrieve and display OPML  URL.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-rss-browse (FEED)
+@kbd{ control e control u }
+
+Browse specified RSS feed.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-atom-display (FEED-URL)
 Display ATOM feed.
