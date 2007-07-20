@@ -51,6 +51,8 @@
 
 (require 'emacspeak-preamble)
 (require 'xml-parse)
+(require 'emacspeak-webutils)
+(require 'emacspeak-we)
 ;;}}}
 ;;{{{  Customization variables
 (defgroup emacspeak-daisy nil
@@ -176,7 +178,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
          (fragment (second split))
          (path (emacspeak-daisy-resolve-uri relative
                                             emacspeak-daisy-this-book)))
-    (emacspeak-w3-extract-node-by-id path fragment)))
+    (emacspeak-we-extract-node-by-id path fragment)))
 
 ;;;###autoload
 (defun emacspeak-daisy-play-page-range (start end )
@@ -671,7 +673,7 @@ No-op if content under point is not currently displayed."
       (and bookmark (goto-char bookmark))
       (emacspeak-speak-mode-line))
      (content
-      (emacspeak-daisy-configure-w3-to-record-viewer
+      (emacspeak-daisy-configure-web-to-record-viewer
        (current-buffer) title outline-regexp
        start end bookmark)
       (emacspeak-auditory-icon 'open-object)
@@ -731,10 +733,10 @@ No-op if content under point is not currently displayed."
 ;;}}}
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
-(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title outline 
+(defun emacspeak-daisy-configure-web-to-record-viewer (nav-center title outline 
                                                                  start  end bookmark)
   "Attaches an automatically generated post processor function
-that asks W3 to record the viewer in the navigation center when done.
+that asks the browser  to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it
                                                       the right title."
   (declare (special emacspeak-w3-post-process-hook))
