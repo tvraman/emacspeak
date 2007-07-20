@@ -56,11 +56,12 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-webutils)
+(require 'emacspeak-we)
 (require 'emacspeak-websearch)
 (require 'emacspeak-xslt)
 (eval-when-compile
-  (require 'calendar)
-  (require 'emacspeak-w3))
+  (require 'calendar))
 ;;}}}
 ;;{{{  structures
 
@@ -307,7 +308,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "(//table//table)[8]//td[position()=3 or position()=5]"
       url
       'speak)))
@@ -1035,7 +1036,7 @@ from English to German.")
  nil
  "Produce  a set of RSS links published by InfoWorld."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "//a[contains(@href, \".rdf\") and @class]"
       url  'speak)))
 
@@ -1065,7 +1066,7 @@ from English to German.")
       "http://rss.news.yahoo.com/rss/" ""))
  "List Yahoo RSS Feeds."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "//a[not(contains(@href,\"url\"))and  contains(@href, \"rss\") ]"
       url 'speak)))
 
@@ -1080,7 +1081,7 @@ from English to German.")
                       emacspeak-w3-url-rewrite-rule
                       '("$" "&printer=1"))
                 (emacspeak-speak-buffer)))
-  (emacspeak-w3-xslt-filter
+  (emacspeak-we-xslt-filter
    "//*[@id=\"ynmain\"]"
    url))
 
@@ -1359,7 +1360,7 @@ name of the list.")
  nil
  "CNN Content"
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "//p|//h1|//h2|//h3|//ul|//ol"
       url
       'speak)))
@@ -1376,7 +1377,7 @@ name of the list.")
  nil
  "Read pulpit from PBS. Published on the Thursday of the week."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "//p|ul|ol|dl|h1|h2|h3|h4|h5|h6|blockquote" url 'speak)))
 
 ;;}}}
@@ -1576,7 +1577,7 @@ plays entire program."
  nil
  "Get news column from Linux Today."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
+     (emacspeak-we-xslt-filter
       "(//table)[2]/tr/td[2]"
       url
       'speak)))
@@ -1667,7 +1668,7 @@ plays entire program."
  nil
  "Display MLB standings."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match
+     (emacspeak-we-extract-table-by-match
       "Standings"
       url 'speak)))
 
@@ -1751,29 +1752,6 @@ plays entire program."
  )
 
 ;;}}}
-;;{{{  Virtually There --Sabre Trip Reports
-;; (emacspeak-url-template-define
-;;  "Sabre Travel From Virtually There"
-;;  "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W&emailAddr=%s"
-;;  (list
-;;   #'(lambda nil
-;;       (read-from-minibuffer "Record Locator: "))
-;;   #'(lambda nil
-;;       (read-from-minibuffer "User Name"))
-;;   #'(lambda nil
-;;       (read-from-minibuffer "Email: ")))
-;;  nil
-;;  "Display Trip Details"
-;;                                         ; #'(lambda (url)
-;;                                         ;      (let ((temp-file (format "/tmp/sabre-%s.html" (gensym))))
-;;                                         ;        (shell-command
-;;                                         ;         (format "lynx -base '%s' -source '%s' > %s"
-;;                                         ;                 url url temp-file))
-;;                                         ;        (w3-open-local temp-file)
-;;                                         ;        (delete-file temp-file)))
-;;  )
-
-;;}}}
 ;;{{{ flights from travelocity
 
 (emacspeak-url-template-define
@@ -1785,7 +1763,7 @@ plays entire program."
  nil
  "Show arrival/departure information from Travelocity."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match
+     (emacspeak-we-extract-table-by-match
       "Schedule" url 'speak)))
 
 ;;}}}
@@ -1813,8 +1791,8 @@ plays entire program."
  "http://www.timesofindia.com"
  nil
  #'(lambda ()
-     (declare (special emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
+     (declare (special emacspeak-we-url-rewrite-rule))
+     (setq emacspeak-we-url-rewrite-rule
            (list "$" "&prtPage=1")))
  "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
@@ -1953,7 +1931,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Display airport conditions from the FAA."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "Status"
+     (emacspeak-we-extract-table-by-match "Status"
                                           url 'speak)))
 
 ;;}}}
