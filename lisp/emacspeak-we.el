@@ -89,6 +89,41 @@ or URL read from minibuffer."
          'unique))))))
 
 ;;}}}
+;;{{{ URL Rewrite:
+
+;;;###autoload
+(defun emacspeak-we-url-rewrite-and-follow (&optional prompt)
+  "Apply a url rewrite rule as specified in the current buffer
+before following link under point.  If no rewrite rule is
+defined, first prompt for one.  Rewrite rules are of the
+form `(from to)' where from and to are strings.  Typically, the
+rewrite rule is automatically set up by Emacspeak tools like
+websearch where a rewrite rule is known.  Rewrite rules are
+useful in jumping directly to the printer friendly version of an
+article for example.  Optional interactive prefix arg prompts for
+a rewrite rule even if one is already defined."
+  (interactive "P")
+  (declare (special emacspeak-we-url--rewrite-rule))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point))
+        (redirect nil))
+    (unless url (error "Not on a link."))
+    (when (or prompt
+              (null emacspeak-we-url-rewrite-rule))
+      (setq emacspeak-we-url-rewrite-rule
+            (read-minibuffer  "Specify rewrite rule: " "(")))
+    (setq redirect
+          (replace-regexp-in-string
+           (first emacspeak-we-url-rewrite-rule)
+           (second emacspeak-we-url-rewrite-rule) url)
+          url)
+    (emacspeak-auditory-icon 'select-object)
+    (browse-url (or redirect url))))
+
+;;}}}
+
+
+;;}}}
 ;;{{{ applying XSL transforms before displaying
 
 (define-prefix-command 'emacspeak-we-xsl-map )

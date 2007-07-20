@@ -43,8 +43,9 @@
 (require 'emacspeak-preamble)
 (eval-when-compile
   (condition-case nil
-      (require  'emacspeak-w3)
-    (require 'calendar)
+      (progn
+      (require  'emacspeak-we)
+    (require 'calendar))
     (error nil)))
 ;;}}}
 ;;{{{  Introduction:
@@ -153,7 +154,7 @@ When using W3,  this interface attempts to speak the most relevant information o
                                                enctype)
   "Submit a post request. "
   (declare (special url-request-extra-headers))
-  ;; Adapted from w3-submit-form
+  
   (require 'w3)
   (let* ((enctype (or enctype "application/x-www-form-urlencoded")))
     (if (and (string-equal "GET" the-method)
@@ -243,11 +244,11 @@ ARGS specifies additional arguments to SPEAKER if any."
        " xml forms ")
       (read-file-name "Display Form: "
                       (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
-  (declare (special emacspeak-w3-xsl-p
+  (declare (special emacspeak-we-xsl-p
                     emacspeak-w3-post-process-hook
                     emacspeak-lisp-directory))
   (let ((buffer (get-buffer-create " *search-form*"))
-        (emacspeak-w3-xsl-p nil))
+        (emacspeak-we-xsl-p nil))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
@@ -416,7 +417,7 @@ ARGS specifies additional arguments to SPEAKER if any."
    (list
     (emacspeak-websearch-read-query "Search BBC for: ")))
   (declare (special emacspeak-websearch-bbc-uri))
-  (emacspeak-w3-extract-nested-table-list
+  (emacspeak-we-extract-nested-table-list
    (list  4 5 6 7 8 9 10 11 12)
    (concat emacspeak-websearch-bbc-uri
            (emacspeak-url-encode query))
@@ -602,7 +603,7 @@ Default tickers to look up is taken from variable
 emacspeak-websearch-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
 mode --optional interactive prefix arg
-causes data to be displayed y W3 as a WWW page.
+causes data to be displayed as  a Web page.
 You can customize the defaults by setting variable
 emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (interactive
@@ -864,7 +865,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    (list
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
-  (emacspeak-w3-extract-table-by-match "Description"
+  (emacspeak-we-extract-table-by-match "Description"
                                        (concat
                                         emacspeak-websearch-sourceforge-search-uri
                                         "type_of_search=soft"
@@ -1573,7 +1574,7 @@ With optional interactive prefix arg MAP shows the location map instead."
        "Nearby"
        'emacspeak-speak-line))
      (t
-      (emacspeak-w3-extract-table-by-match "Start"
+      (emacspeak-we-extract-table-by-match "Start"
                                            (concat
                                             emacspeak-websearch-map-yahoo-directions-uri
                                             query)
@@ -1604,11 +1605,11 @@ Optional prefix arg no-rss scrapes information from HTML."
     current-prefix-arg))
   (add-hook 'emacspeak-w3-post-process-hook
             #'(lambda nil
-                (declare (special  emacspeak-w3-url-rewrite-rule
+                (declare (special  emacspeak-we-url-rewrite-rule
                                    emacspeak-websearch-news-yahoo-rss-uri
-                                   emacspeak-w3-class-filter))
-                (setq emacspeak-w3-class-filter "article"
-                      emacspeak-w3-url-rewrite-rule
+                                   emacspeak-we-class-filter))
+                (setq emacspeak-we-class-filter "article"
+                      emacspeak-we-url-rewrite-rule
                       '("$" "&printer=1"))))
   (cond
    ((null no-rss)                       ;use rss feed
@@ -1618,7 +1619,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                      (emacspeak-url-encode query)))
      'speak-result))
    (t
-    (emacspeak-w3-xslt-filter
+    (emacspeak-we-xslt-filter
      "//ol"
      (concat emacspeak-websearch-news-yahoo-uri
              (format "p=%s&n=20&c=news"
@@ -1772,7 +1773,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (interactive
    (list (emacspeak-websearch-read-query "City,State or Zip: ")))
   (declare (special emacspeak-websearch-weather-uri))
-  (emacspeak-w3-extract-tables-by-match-list
+  (emacspeak-we-extract-tables-by-match-list
    (list "Area" "Humidity" )
    (concat emacspeak-websearch-weather-uri
            (emacspeak-url-encode query))
@@ -1936,7 +1937,7 @@ Results"
           (format emacspeak-websearch-exchange-rate-convertor-uri
                   (upcase (first fields))
                   (upcase (second fields))))
-    (emacspeak-w3-extract-by-class
+    (emacspeak-we-extract-by-class
      "XEsmall"
      url 'speak)))
 
