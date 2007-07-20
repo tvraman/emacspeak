@@ -811,8 +811,8 @@ is a generic setup/tear-down mechanism for emacspeak related
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
   (declare (special major-mode
-                    emacspeak-w3-xsl-p
-                    emacspeak-w3-xsl-transform
+                    emacspeak-we-xsl-p
+                    emacspeak-we-xsl-transform
                     emacspeak-xslt-directory))
   (unless (eq major-mode 'w3m-mode)
     (error "Not in a W3m buffer."))
@@ -825,8 +825,8 @@ or make it persistent if the second argument is not nil."
   (let ((xsl (expand-file-name (concat xsl-name ".xsl")
                                emacspeak-xslt-directory)))
     (when persistent
-      (emacspeak-w3-xslt-select xsl))
-    (when (or emacspeak-w3-xsl-p
+      (emacspeak-we-xslt-select xsl))
+    (when (or emacspeak-we-xsl-p
               (not persistent))
       (emacspeak-w3m-xslt-apply xsl))))
 
@@ -857,16 +857,16 @@ With prefix argument makes this transformation persistent."
 (defadvice  w3m-create-text-page (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the HTML. "
   (if emacspeak-w3m-xsl-once
-      (let ((emacspeak-w3-xsl-p t)
-            (emacspeak-w3-xsl-transform emacspeak-w3m-xsl-once))
+      (let ((emacspeak-we-xsl-p t)
+            (emacspeak-we-xsl-transform emacspeak-w3m-xsl-once))
         (emacspeak-xslt-region
-         emacspeak-w3-xsl-transform
+         emacspeak-we-xsl-transform
          (point-min)
          (point-max)
-         emacspeak-w3-xsl-params))
-    (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+         emacspeak-we-xsl-params))
+    (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
-       emacspeak-w3-xsl-transform
+       emacspeak-we-xsl-transform
        (point-min)
        (point-max))))
   (setq emacspeak-w3m-xsl-once nil))
@@ -884,41 +884,6 @@ With prefix argument makes this transformation persistent."
                   filename)
     (w3m-find-file filename)
     (delete-file filename)))
-
-;;;###autoload
-(defun emacspeak-w3m-browse-xml-url-with-style (style url &optional unescape-charent)
-  "Browse XML URL with specified XSL style in w3m."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))
-    (read-string "URL: " (browse-url-url-at-point))))  (let ((src-buffer
-         (emacspeak-xslt-xml-url
-          style
-          url
-          (list
-           (cons "base"
-                 (format "\"'%s'\""
-                         url))))))
-    (save-excursion
-      (set-buffer src-buffer)
-      (when unescape-charent
-        (emacspeak-webutils-unescape-charent))
-      (emacspeak-w3m-preview-this-buffer))
-    (kill-buffer src-buffer)))
-
-;;;###autoload
-(defun emacspeak-w3m-browse-url-with-style (style url)
-  "Browse URL with specified XSL style. in w3m."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))
-    (read-string "URL: " (browse-url-url-at-point))))
-  (setq emacspeak-w3m-xsl-once style)
-  (w3m-goto-url-new-session url))
 
 (defun emacspeak-w3m-browse-rss-at-point ()
   "Browses RSS url under point from w3m."
@@ -941,8 +906,8 @@ With prefix argument makes this transformation persistent."
 
 (declaim (special emacspeak-w3m-xsl-map))
 (define-key emacspeak-w3m-xsl-map "a" 'emacspeak-w3m-xslt-apply)
-(define-key emacspeak-w3m-xsl-map "s" 'emacspeak-w3-xslt-select)
-(define-key emacspeak-w3m-xsl-map "o" 'emacspeak-w3-xsl-toggle)
+(define-key emacspeak-w3m-xsl-map "s" 'emacspeak-we-xslt-select)
+(define-key emacspeak-w3m-xsl-map "o" 'emacspeak-we-xsl-toggle)
 (define-key emacspeak-w3m-xsl-map "b" 'emacspeak-w3m-xsl-add-submit-button)
 (define-key emacspeak-w3m-xsl-map "h" 'emacspeak-w3m-xsl-google-hits)
 (define-key emacspeak-w3m-xsl-map "l" 'emacspeak-w3m-xsl-linearize-tables)
@@ -954,11 +919,11 @@ With prefix argument makes this transformation persistent."
                "XSLT menu"
                '("XSLT transforming"
                  ["Enable default transforming on the fly"
-                  emacspeak-w3-xsl-toggle
-                  :included (not emacspeak-w3-xsl-p)]
+                  emacspeak-we-xsl-toggle
+                  :included (not emacspeak-we-xsl-p)]
                  ["Disable default transforming on the fly"
-                  emacspeak-w3-xsl-toggle
-                  :included emacspeak-w3-xsl-p]
+                  emacspeak-we-xsl-toggle
+                  :included emacspeak-we-xsl-p]
                  ["Add regular submit button"
                   emacspeak-w3m-xsl-add-submit-button t]
                  ["Show only search hits"
@@ -968,7 +933,7 @@ With prefix argument makes this transformation persistent."
                  ["Sort tables"
                   emacspeak-w3m-xsl-sort-tables t]
                  ["Select default transformation"
-                  emacspeak-w3-xslt-select t]
+                  emacspeak-we-xslt-select t]
                  ["Apply specified transformation"
                   emacspeak-w3m-xslt-apply t]
                  )))
