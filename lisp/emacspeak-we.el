@@ -130,7 +130,7 @@ Nil means no transform is used. "
 (defcustom emacspeak-we-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
-  :group 'emacspeak-w3)
+  :group 'emacspeak-we)
 
 ;;;###autoload
 (defun emacspeak-we-xslt-apply (xsl)
@@ -174,7 +174,7 @@ Nil means no transform is used. "
     (read-from-minibuffer "XPath locator: ")))
   (read
    (emacspeak-xslt-url
-    (emacspeak-xslt-get "count-matches.xsl")
+(emacspeak-xslt-get "count-matches.xsl")
     url
     (emacspeak-xslt-params-from-xpath locator))))
 
@@ -187,7 +187,7 @@ Nil means no transform is used. "
 ;;;###autoload
 (defun emacspeak-we-count-tables (url)
   "Count  tables in Web page."
-  (interactive (list emacspeak-we-read-url)))
+  (interactive (list (emacspeak-we-read-url)))
   (emacspeak-we-count-matches url "//table"))
 
 ;;;###autoload
@@ -218,12 +218,12 @@ from Web page -- default is the current page being viewed."
     (read-from-minibuffer "XPath: ")
     (emacspeak-we-read-url)
     (interactive-p)))
-  (declare (special emacspeak-w3-xsl-filter ))
+  (declare (special emacspeak-we-xsl-filter ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-w3-rename-buffer (format "Filtered %s" path))
+    (emacspeak-we-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
-     emacspeak-w3-xsl-filter
+     emacspeak-we-xsl-filter
      params
      emacspeak-xslt-options             ;options
      (browse-url url))))
@@ -236,13 +236,13 @@ from Web page -- default is the current page being viewed."
     (read-from-minibuffer "XPath: ")
     (emacspeak-we-read-url)
     (interactive-p)))
-  (declare (special emacspeak-w3-xsl-junk ))
+  (declare (special emacspeak-we-xsl-junk ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-w3-rename-buffer
+    (emacspeak-we-rename-buffer
      (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
-     emacspeak-w3-xsl-junk
+     emacspeak-we-xsl-junk
      params
      emacspeak-xslt-options
      (browse-url url))))
@@ -680,79 +680,80 @@ completion. "
      url
      speak)))
 
-(defvar emacspeak-w3-class-filter nil
+(defvar emacspeak-we-url-rewrite-rule nil
+  "URL rewrite rule to use in current buffer.")
+
+(make-variable-buffer-local 'emacspeak-we-url-rewrite-rule)
+(defvar emacspeak-we-class-filter nil
   "Buffer local class filter.")
 
-(make-variable-buffer-local 'emacspeak-w3-class-filter)
+(make-variable-buffer-local 'emacspeak-we-class-filter)
 
 ;;;###autoload
-(defun emacspeak-w3-class-filter-and-follow (class url)
+(defun emacspeak-we-class-filter-and-follow (class url)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive
    (list
-    (or emacspeak-w3-class-filter
-        (setq emacspeak-w3-class-filter
+    (or emacspeak-we-class-filter
+        (setq emacspeak-we-class-filter
               (read-from-minibuffer "Class: ")))
-    (if (eq major-mode 'w3-mode)
-        (w3-view-this-url t)
-      (read-from-minibuffer "URL: "))))
-  (declare (special emacspeak-w3-class-filter
-                    emacspeak-w3-url-rewrite-rule))
+    (emacspeak-we-read-url)))
+  (declare (special emacspeak-we-class-filter
+                    emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))
-    (when emacspeak-w3-url-rewrite-rule
+    (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-w3-url-rewrite-rule)
-             (second emacspeak-w3-url-rewrite-rule)
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-class
-     emacspeak-w3-class-filter
+     emacspeak-we-class-filter
      (or redirect url)
      'speak)
     (emacspeak-auditory-icon 'open-object)))
 
 
-(defvar emacspeak-w3-id-filter nil
+(defvar emacspeak-we-id-filter nil
   "Buffer local id filter.")
 
-(make-variable-buffer-local 'emacspeak-w3-id-filter)
+(make-variable-buffer-local 'emacspeak-we-id-filter)
 
 
 ;;;###autoload
-(defun emacspeak-w3-follow-and-filter-by-id (id)
+(defun emacspeak-we-follow-and-filter-by-id (id)
   "Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive
    (list
-    (or emacspeak-w3-id-filter
-        (setq emacspeak-w3-id-filter
+    (or emacspeak-we-id-filter
+        (setq emacspeak-we-id-filter
               (read-from-minibuffer "Id: ")))))
-  (declare (special emacspeak-w3-id-filter
-                    emacspeak-w3-url-rewrite-rule))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command is only useful in W3 buffers."))
-  (let ((url (w3-view-this-url t))
+  (declare (special emacspeak-we-id-filter
+                    emacspeak-we-url-rewrite-rule))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
     (unless url
       (error "Not on a link."))
-    (when emacspeak-w3-url-rewrite-rule
+    (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-w3-url-rewrite-rule)
-             (second emacspeak-w3-url-rewrite-rule)
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-id
-     emacspeak-w3-id-filter
+     emacspeak-we-id-filter
      (or redirect url)
      'speak)))
 
 ;;;###autoload
-(defun emacspeak-w3-style-filter (style   url &optional speak )
+(defun emacspeak-we-style-filter (style   url &optional speak )
   "Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -770,90 +771,88 @@ specifies the page to extract contents  from."
 ;;}}}
 ;;{{{ xpath  filter
 
-(defvar emacspeak-w3-xpath-filter nil
+(defvar emacspeak-we-xpath-filter nil
   "Buffer local variable specifying a XPath filter for following
 urls.")
 
-(make-variable-buffer-local 'emacspeak-w3-xpath-filter)
-(defcustom emacspeak-w3-most-recent-xpath-filter
+(make-variable-buffer-local 'emacspeak-we-xpath-filter)
+(defcustom emacspeak-we-recent-xpath-filter
   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
   "Caches most recently used xpath filter.
 Can be customized to set up initial default."
   :type 'string
-  :group 'emacspeak-w3)
+  :group 'emacspeak-we)
 
 ;;;###autoload
-(defun emacspeak-w3-xpath-filter-and-follow (&optional prompt)
+(defun emacspeak-we-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (declare (special emacspeak-w3-xpath-filter
-                    emacspeak-w3-most-recent-xpath-filter
-                    emacspeak-w3-url-rewrite-rule))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command is only useful in W3 buffers."))
-  (let ((url (w3-view-this-url t))
+  (declare (special emacspeak-we-xpath-filter
+                    emacspeak-we-recent-xpath-filter
+                    emacspeak-we-url-rewrite-rule))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
     (unless url (error "Not on a link."))
-    (when emacspeak-w3-url-rewrite-rule
+    (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-w3-url-rewrite-rule)
-             (second emacspeak-w3-url-rewrite-rule)
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
              url)))
-    (when (or prompt (null emacspeak-w3-xpath-filter))
-      (setq emacspeak-w3-xpath-filter
+    (when (or prompt (null emacspeak-we-xpath-filter))
+      (setq emacspeak-we-xpath-filter
             (read-from-minibuffer  "Specify XPath: "
-                                   emacspeak-w3-most-recent-xpath-filter))
-      (setq emacspeak-w3-most-recent-xpath-filter
-            emacspeak-w3-xpath-filter))
-    (emacspeak-we-xslt-filter emacspeak-w3-xpath-filter
+                                   emacspeak-we-recent-xpath-filter))
+      (setq emacspeak-we-recent-xpath-filter
+            emacspeak-we-xpath-filter))
+    (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
                               (or redirect url)
                               'speak)))
 
-(defvar emacspeak-w3-xpath-junk nil
+(defvar emacspeak-we-xpath-junk nil
   "Records XPath pattern used to junk elements.")
 
-(make-variable-buffer-local 'emacspeak-w3-xpath-junk)
+(make-variable-buffer-local 'emacspeak-we-xpath-junk)
 
-(defvar emacspeak-w3-most-recent-xpath-junk
+(defvar emacspeak-we-recent-xpath-junk
   nil
   "Caches last XPath used to junk elements.")
 ;;;###autoload
-(defun emacspeak-w3-xpath-junk-and-follow (&optional prompt)
+(defun emacspeak-we-xpath-junk-and-follow (&optional prompt)
   "Follow url and point, and filter the result by junking
 elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (declare (special emacspeak-w3-xpath-junk
+  (declare (special emacspeak-we-xpath-junk
                     emacspeak-we-xsl-junk
-                    emacspeak-w3-most-recent-xpath-junk
-                    emacspeak-w3-url-rewrite-rule))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command is only useful in W3 buffers."))
-  (let ((url (w3-view-this-url t))
+                    emacspeak-we-recent-xpath-junk
+                    emacspeak-we-url-rewrite-rule))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
     (unless url
       (error "Not on a link."))
-    (when emacspeak-w3-url-rewrite-rule
+    (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-w3-url-rewrite-rule)
-             (second emacspeak-w3-url-rewrite-rule)
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
              url)))
     (when (or prompt
-              (null emacspeak-w3-xpath-junk))
-      (setq emacspeak-w3-xpath-junk
+              (null emacspeak-we-xpath-junk))
+      (setq emacspeak-we-xpath-junk
             (read-from-minibuffer  "Specify XPath: "
-                                   emacspeak-w3-most-recent-xpath-junk))
-      (setq emacspeak-w3-most-recent-xpath-junk
-            emacspeak-w3-xpath-junk))
+                                   emacspeak-we-recent-xpath-junk))
+      (setq emacspeak-we-recent-xpath-junk
+            emacspeak-we-xpath-junk))
     (emacspeak-we-xslt-junk
-     emacspeak-w3-xpath-junk
+     emacspeak-we-xpath-junk
      (or redirect url)
      'speak)))
 
@@ -874,26 +873,26 @@ used as well."
         ("\C-f" emacspeak-we-count-matches)
         ("\C-p" emacspeak-we-xpath-junk-and-follow)
         ("\C-t" emacspeak-we-count-tables)
-        ("\C-x" emacspeak-w3-count-nested-tables)
+        ("\C-x" emacspeak-we-count-nested-tables)
         ("a" emacspeak-we-xslt-apply)
         ("c" emacspeak-we-extract-by-class)
-        ("e" emacspeak-w3-url-expand-and-execute)
+        ("e" emacspeak-we-url-expand-and-execute)
         ("f" emacspeak-we-xslt-filter)
         ("i" emacspeak-we-extract-by-id)
         ("I" emacspeak-we-extract-by-id-list)
         ("j" emacspeak-we-xslt-junk)
-        ("k" emacspeak-w3-set-xsl-keep-result)
+        ("k" emacspeak-we-set-xsl-keep-result)
         ("m" emacspeak-we-extract-table-by-match)
         ("o" emacspeak-we-xsl-toggle)
-        ("p" emacspeak-w3-xpath-filter-and-follow)
+        ("p" emacspeak-we-xpath-filter-and-follow)
         ("r" emacspeak-we-extract-media-streams)
-        ("S" emacspeak-w3-style-filter)
+        ("S" emacspeak-we-style-filter)
         ("s" emacspeak-we-xslt-select)
         ("t" emacspeak-we-extract-table-by-position)
         ("u" emacspeak-we-extract-matching-urls)
         ("x" emacspeak-we-extract-nested-table)
-        ("b" emacspeak-w3-follow-and-filter-by-id)
-        ("y" emacspeak-w3-class-filter-and-follow)
+        ("b" emacspeak-we-follow-and-filter-by-id)
+        ("y" emacspeak-we-class-filter-and-follow)
         )
       do
       (emacspeak-keymap-update emacspeak-we-xsl-map binding))
