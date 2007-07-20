@@ -101,7 +101,7 @@
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-w3-post-process-hook
             #'(lambda nil
-                (emacspeak-speak-mode-line)
+                (emacspeak-speak-buffer)
                 (emacspeak-auditory-icon 'open-object))))
 
 (defsubst emacspeak-webutils-browser-check ()
