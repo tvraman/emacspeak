@@ -57,7 +57,7 @@
 (require 'imenu)
 (eval-when-compile
   (condition-case nil
-      (require 'emacspeak-w3)
+      (require 'emacspeak-webutils)
     (error nil)))
 ;;}}}
 ;;{{{ amphetadesk
@@ -110,9 +110,9 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
              (file-name-directory emacspeak-amphetadesk-program))))
    (t (emacspeak-amphetadesk-ensure-live)
       (cond
-       ((and (featurep 'w3)
-             (or (eq browse-url-browser-function 'w3-fetch)
-                 (eq browse-url-browser-function 'browse-url-w3)))
+       ((or   (eq browse-url-browser-function 'w3-fetch)
+              (eq browse-url-browser-function 'browse-url-w3)
+              (eq browse-url-browser-function 'w3m-browse-url))
         (add-hook  'emacspeak-w3-post-process-hook
                    #'(lambda ()
                        (imenu--make-index-alist)
@@ -126,23 +126,13 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
 
 (defun emacspeak-amphetadesk-quick-add (url)
   "Quick add URL to Amphetadesk by prompting for URL."
-  (interactive
-   (list
-    (cond
-     ((and (eq major-mode 'w3-mode)
-           (w3-view-this-url 'no-show))
-      (w3-view-this-url 'no-show))
-     (t
-      (read-from-minibuffer "URL:")))))
+  (interactive (list (emacspeak-we-read-url)))
   (declare (special emacspeak-amphetadesk-uri))
   (browse-url 
    (concat emacspeak-amphetadesk-uri
            "my_channels.html?add_url="
            (emacspeak-url-encode
             url))))
-(declaim (special w3-mode-map))
-(when (boundp 'w3-mode-map)
-  (define-key w3-mode-map "aa" 'emacspeak-amphetadesk-quick-add))
 
 ;;}}}
 (provide 'emacspeak-amphetadesk)
