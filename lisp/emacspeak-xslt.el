@@ -76,6 +76,13 @@
   (declare (special emacspeak-xslt-directory))
   (expand-file-name style emacspeak-xslt-directory))
 
+(defsubst emacspeak-xslt-read ()
+  "Read XSLT transformation name from minibuffer."
+  (declare (special emacspeak-xslt-directory))
+  (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory)))
+
 (defcustom emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine."
   :type 'string
