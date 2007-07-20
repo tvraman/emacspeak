@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'comint)
 (require 'emacspeak-webutils)
 (require 'browse-url)
 ;;}}}
@@ -61,8 +62,11 @@
   "Control Firefox from Emacs."
   :group 'emacspeak)
 
-(define-prefix-command 'emacspeak-moz-prefix-command 'emacspeak-moz-keymap )
+(define-prefix-command 'emacspeak-moz-prefix-command
+  'emacspeak-moz-keymap )
+(declaim (special emacspeak-moz-keymap))
 (global-set-key "\C-x@hf" 'emacspeak-moz-prefix-command)
+
 (loop for k in
       '(
         (" " emacspeak-moz-browse-current)
@@ -120,6 +124,7 @@
 (defun emacspeak-moz-eval-expression-and-browse (exp)
   "Send expression to Moz, get output, and browse it in Emacs."
   (interactive "sJSEval: ")
+  (declare (special moz-repl-name))
   (declare (special emacspeak-moz-output-buffer))
   (let ((default-process-coding-system (cons 'utf-8 'utf-8))
         (comint-preoutput-filter-functions
@@ -298,13 +303,6 @@ title)\n"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-
-;;;###autoload
-(defun emacspeak-moz-up ()
-  "Go Up a level and browse."
-  (interactive)
-  (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.up(); repl.adom.html()"))
 
 ;;}}}
 ;;{{{ setup minor mode hook to load in our files.
