@@ -72,9 +72,7 @@ View an RSS feed as clean HTML
   </xsl:template>
   <!-- } -->
   <!-- {rss 0.9 -naked namespaces -->
-  <xsl:template match="/">
-    <xsl:apply-templates select="//channel|//rdf:RDF"/>
-  </xsl:template>
+
   <xsl:template match="channel">
     <html>
       <head>
@@ -145,7 +143,7 @@ View an RSS feed as clean HTML
   <xsl:template match="*|@*">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()" disable-output-escaping="yes"/>
+      <xsl:apply-templates select="node()" />
     </xsl:copy>
   </xsl:template>
   <!-- } -->
