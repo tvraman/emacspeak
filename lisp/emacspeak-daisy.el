@@ -499,8 +499,8 @@ navigation file for a book. Include all extensions except `.ncx'
 (defsubst emacspeak-daisy-read-file-name()
   "Read file name."
   (read-file-name "Book Navigation File: "
-                      emacspeak-daisy-books-directory
-                      nil t  nil))
+                  emacspeak-daisy-books-directory
+                  nil t  nil))
 
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
@@ -734,7 +734,7 @@ No-op if content under point is not currently displayed."
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
 (defun emacspeak-daisy-configure-web-to-record-viewer (nav-center title outline 
-                                                                 start  end bookmark)
+                                                                  start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks the browser  to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it

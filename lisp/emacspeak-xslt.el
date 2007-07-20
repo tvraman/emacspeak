@@ -80,8 +80,8 @@
   "Read XSLT transformation name from minibuffer."
   (declare (special emacspeak-xslt-directory))
   (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory)))
+   (read-file-name "XSL Transformation: "
+                   emacspeak-xslt-directory)))
 
 (defcustom emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine."
@@ -147,8 +147,8 @@ part of the libxslt package."
     (unless no-comment
       (goto-char (point-max))
       (insert
-     (format "<!--\n %s \n-->\n"
-             command)))
+       (format "<!--\n %s \n-->\n"
+               command)))
     (setq modification-flag nil)
     (current-buffer)))
 

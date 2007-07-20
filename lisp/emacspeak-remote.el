@@ -190,8 +190,8 @@ host is listening on for speech requests."
           (list
            (completing-read "Remote host: "
                             emacspeak-eterm-remote-hosts-table ;completion table
-                            nil                         ;predicate
-                            nil                         ;must-match
+                            nil         ;predicate
+                            nil         ;must-match
                             (emacspeak-remote-get-current-remote-hostname) ;initial input
                             ))
           (read-minibuffer "Remote port: "

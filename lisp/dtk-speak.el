@@ -579,7 +579,7 @@ Argument MODE  specifies the current pronunciation mode."
   (setq dtk-chunk-separator-syntax
         (delete-if
          #'(lambda (x) (= x 32 ))
-                   dtk-chunk-separator-syntax)))
+         dtk-chunk-separator-syntax)))
 
 ;;; invariance: looking at complement
 ;;; move across the complement and the following separator

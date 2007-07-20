@@ -746,7 +746,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -758,10 +758,10 @@ the sense of the filter. "
   (defun format-mode-line (spec)
     "Process mode line format spec."
     (cond
-;;; leaves                              ; ; ; ;
+;;; leaves                              ; ; ; ; ;
      ((symbolp spec) (symbol-value  spec))
      ((stringp spec) spec)
-;;; leaf + tree:                        ; ; ; ;
+;;; leaf + tree:                        ; ; ; ; ;
      ((and (listp spec)
            (stringp (car spec)))
       (concat
@@ -2786,32 +2786,32 @@ value to apply."
 (defsubst emacspeak-speak-blinkpos-message(blinkpos)
   "Speak message about matching blinkpos."
   (message "Matches %s"
-                          ;; Show what precedes the open in its line, if anything.
-                          (if (save-excursion
-                                (skip-chars-backward " \t")
-                                (not (bolp)))
-                              (buffer-substring (line-beginning-position)
-                                                (1+ blinkpos))
-                            ;; Show what follows the open in its line, if anything.
-                            (if (save-excursion
-                                  (forward-char 1)
-                                  (skip-chars-forward " \t")
-                                  (not (eolp)))
-                                (buffer-substring blinkpos
-                                                  (progn (end-of-line) (point)))
-                              ;; Otherwise show the previous nonblank line.
-                              (concat
-                               (buffer-substring (progn
-                                                   (backward-char 1)
-                                                   (skip-chars-backward "\n \t")
-                                                   (line-beginning-position))
-                                                 (progn (end-of-line)
-                                                        (skip-chars-backward " \t")
-                                                        (point)))
-                               ;; Replace the newline and other whitespace with `...'.
-                               "..."
-                               (buffer-substring blinkpos (1+
-                                                           blinkpos)))))))
+           ;; Show what precedes the open in its line, if anything.
+           (if (save-excursion
+                 (skip-chars-backward " \t")
+                 (not (bolp)))
+               (buffer-substring (line-beginning-position)
+                                 (1+ blinkpos))
+             ;; Show what follows the open in its line, if anything.
+             (if (save-excursion
+                   (forward-char 1)
+                   (skip-chars-forward " \t")
+                   (not (eolp)))
+                 (buffer-substring blinkpos
+                                   (progn (end-of-line) (point)))
+               ;; Otherwise show the previous nonblank line.
+               (concat
+                (buffer-substring (progn
+                                    (backward-char 1)
+                                    (skip-chars-backward "\n \t")
+                                    (line-beginning-position))
+                                  (progn (end-of-line)
+                                         (skip-chars-backward " \t")
+                                         (point)))
+                ;; Replace the newline and other whitespace with `...'.
+                "..."
+                (buffer-substring blinkpos (1+
+                                            blinkpos)))))))
 
 ;;; The only change to emacs' default blink-matching-paren is the
 ;;; addition of the call to helper emacspeak-speak-blinkpos-message
@@ -2831,7 +2831,7 @@ Also display match context in minibuffer."
     (let* ((oldpos (point))
            (blink-matching-delay 5)
            blinkpos
-           message-log-max ; Don't log messages about paren matching.
+           message-log-max  ; Don't log messages about paren matching.
            matching-paren
            open-paren-line-string)
       (save-excursion
@@ -3104,7 +3104,6 @@ typed. If no such group exists, then we dont move. "
       (move-marker target nil)
       (when (interactive-p)
         (emacspeak-mark-speak-mark-line)))))
-
 
 ;;}}}
 ;;{{{ customize emacspeak

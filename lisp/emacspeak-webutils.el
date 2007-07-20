@@ -68,7 +68,6 @@
       do
       (emacspeak-keymap-update  emacspeak-web-prefix k))
 
-
 ;;}}}
 ;;{{{ Helpers:
 
@@ -100,9 +99,9 @@
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-w3-post-process-hook
-              #'(lambda nil
-                  (emacspeak-speak-mode-line)
-                  (emacspeak-auditory-icon 'open-object))))
+            #'(lambda nil
+                (emacspeak-speak-mode-line)
+                (emacspeak-auditory-icon 'open-object))))
 
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
@@ -247,15 +246,14 @@ With a prefix argument, extracts url under point."
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL pattern for accessing Google transcoder.")
 
-
 (defsubst emacspeak-webutils-transcoded-to-plain-url (url)
   "Extract plain URL from Google transcoder URL."
   (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
-						   (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
-	(when (equal prefix (substring url 0 (length prefix)))
-		  (let* ((args (substring url (length prefix)))
-				 (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
-			(url-unhex-string (cdr (assoc "u" arg-alist)))))))
+                           (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
+    (when (equal prefix (substring url 0 (length prefix)))
+      (let* ((args (substring url (length prefix)))
+             (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
+        (url-unhex-string (cdr (assoc "u" arg-alist)))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)
@@ -292,7 +290,7 @@ With a prefix argument, extracts url under point."
              (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
    (t
     (let ((plain-url (emacspeak-webutils-transcoded-to-plain-url (funcall emacspeak-webutils-current-url))))
-	  (when plain-url
+      (when plain-url
         (browse-url plain-url))))))
 
 ;;}}}
@@ -363,14 +361,14 @@ instances."
       (message "Nothing to display."))
      (t
       (emacspeak-webutils-without-xsl
-      (save-excursion
-        (set-buffer buffer)
-        (goto-char (point-min))
-        (search-forward "\n\n")
-        (delete-region (point-min) (point))
-        (emacspeak-xslt-region style
-                               (point-min) (point-max))
-        (browse-url-of-buffer)))))))
+       (save-excursion
+         (set-buffer buffer)
+         (goto-char (point-min))
+         (search-forward "\n\n")
+         (delete-region (point-min) (point))
+         (emacspeak-xslt-region style
+                                (point-min) (point-max))
+         (browse-url-of-buffer)))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-rss-display (feed-url )

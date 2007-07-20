@@ -67,12 +67,12 @@
 
 (defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
-  name                                  ;Human-readable name
-  template                              ;template URL string
-  generators                            ; list of param generator
+  name                                ;Human-readable name
+  template                            ;template URL string
+  generators                          ; list of param generator
   post-action                         ;action to perform after opening
-  documentation                         ;resource  documentation
-  fetcher                               ; custom fetcher
+  documentation                       ;resource  documentation
+  fetcher                             ; custom fetcher
   dont-url-encode)
 
 ;;}}}
@@ -275,7 +275,6 @@ dont-url-encode if true then url arguments are not url-encoded "
                           (first date)
                           (third date)))))        )
 
-
 (emacspeak-url-template-define
  "Periodicals from Bookshare"
  "http://www.bookshare.org/web/DownloadPeriodical.html?publishtitleid=%s&date=%s&format=1"
@@ -284,7 +283,6 @@ dont-url-encode if true then url arguments are not url-encoded "
   'emacspeak-url-template-calendar-to-seconds)
  nil
  "Fetch periodical from Bookshare.")
-
 
 ;;}}}
 ;;{{{ shoutcast
@@ -515,7 +513,7 @@ content."
 ;;}}}
 ;;{{{ google CSE and Google Reader:
 (defcustom emacspeak-url-template-reading-list-opml nil
-   "OPML feed location to use for our Custom Search."
+  "OPML feed location to use for our Custom Search."
   :type '(choice
           (const :tag "None" nil)
           (string :tag "URL"))
@@ -524,9 +522,8 @@ content."
 (defsubst emacspeak-url-template-make-cse (meta-url)
   "Builds up a CSE url for specified meta-url."
   (format
-       "http://www.google.com/cse/tools/makecse?url=%s"
-       meta-url))
-
+   "http://www.google.com/cse/tools/makecse?url=%s"
+   meta-url))
 
 (emacspeak-url-template-define
  "Reader Subscription Search"
@@ -570,10 +567,6 @@ content."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "g" url 'speak)))
 
-
-
-
-
 ;;}}}
 
 ;;{{{ Anonimize google search
@@ -587,7 +580,6 @@ content."
 
 ;;}}}
 ;;{{{ gmail:
-
 
 (emacspeak-url-template-define
  "GMail Mobile"
@@ -699,11 +691,9 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "Display content from Google Finance."
  #'(lambda (url)
      (browse-url
-       (format emacspeak-webutils-google-transcoder-url
-               (emacspeak-url-encode
-                url)))))
-
-
+      (format emacspeak-webutils-google-transcoder-url
+              (emacspeak-url-encode
+               url)))))
 
 ;;}}}
 ;;{{{ google maps
@@ -789,17 +779,16 @@ Here are some examples:
 ;;{{{ google translation service
 
 black(emacspeak-url-template-define
- "Multilingual dictionary via Google."
- "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
- (list
-  "Word: "
-  "Translate from|To:")
- nil
- "Translate word using Google.
+      "Multilingual dictionary via Google."
+      "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
+      (list
+       "Word: "
+       "Translate from|To:")
+      nil
+      "Translate word using Google.
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German")
-
 
 (emacspeak-url-template-define
  "Translation Via Google"
