@@ -1611,9 +1611,6 @@ Default is to use pipes.")
            (and dtk-debug tts-debug-buffer)
            (expand-file-name dtk-program
                              emacspeak-servers-directory)))
-    (if (fboundp 'set-process-query-on-exit-flag)
-        (set-process-query-on-exit-flag new-process nil)
-      (process-kill-without-query new-process))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
