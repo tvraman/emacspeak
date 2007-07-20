@@ -138,9 +138,11 @@
 (defun emacspeak-w3-load-hook ()
   "Setup Emacspeak keys in W3 mode."
   (declare (special w3-echo-link url-show-status
+                    w3-reuse-buffers
                     w3-mode-map
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     emacspeak-pronounce-load-pronunciations-on-startup))
+  (setq w3-reuse-buffers 'no)
   (when (locate-library "w3-speak") (require 'w3-speak))
   (when (and (locate-library "w3-speak-table")
              (not (featurep 'w3-speak-table)))
