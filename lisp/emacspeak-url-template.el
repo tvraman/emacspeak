@@ -1767,22 +1767,6 @@ plays entire program."
       "Schedule" url 'speak)))
 
 ;;}}}
-;;{{{  viewtrip --travel reports
-(emacspeak-url-template-define
- "Travel itenerary from ViewTrip.com"
- "https://www.viewtrip.com/vt.asp"
- nil
- nil
- "Display Trip Details"
- #'(lambda (url)
-     (let ((pnr (read-from-minibuffer "Record locator: "))
-           (name (read-from-minibuffer "Last name: ")))
-       (emacspeak-websearch-do-post "POST"
-                                    url
-                                    (format "rloc=%s&lastname=%s"
-                                            pnr name)))))
-
-;;}}}
 ;;{{{  times of india
 
 ;;; create url rewrite url to get print page

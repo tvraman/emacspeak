@@ -148,39 +148,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ;;}}}
 ;;{{{ helpers
-;;;###autoload
-(defun emacspeak-websearch-do-post (the-method the-url query
-                                               &optional
-                                               enctype)
-  "Submit a post request. "
-  (declare (special url-request-extra-headers))
-  
-  (require 'w3)
-  (let* ((enctype (or enctype "application/x-www-form-urlencoded")))
-    (if (and (string-equal "GET" the-method)
-             (string-match "\\([^\\?]*\\)\\?" the-url))
-        (setq the-url (url-match the-url 1)))
-    (cond
-     ((or (string-equal "POST" the-method)
-          (string-equal "PUT" the-method))
-      (if (consp query)
-          (setq enctype (concat enctype "; boundary="
-                                (substring (car query) 2 nil)
-                                "")
-                query (cdr query)))
-      (let ((url-request-method the-method)
-            (url-request-data query)
-            (url-request-extra-headers
-             (cons (cons "Content-type" enctype) url-request-extra-headers)))
-        (w3-fetch the-url)))
-     ((string-equal "GET" the-method)
-      (let ((the-url (concat the-url (if (string-match "gopher" enctype)
-                                         "" "?") query)))
-        (w3-fetch the-url)))
-     (t
-      (message "Unknown submit method: %s" the-method)
-      (let ((the-url (concat the-url "?" query)))
-        (w3-fetch the-url))))))
+
 ;;{{{ helpers to read the query
 
 (defvar emacspeak-websearch-history nil
@@ -1617,8 +1585,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (emacspeak-webutils-rss-display
      (concat emacspeak-websearch-news-yahoo-rss-uri
              (format "p=%s&n=20&c=news"
-                     (emacspeak-url-encode query)))
-     'speak-result))
+                     (emacspeak-url-encode query)))))
    (t
     (emacspeak-we-xslt-filter
      "//ol"
@@ -2075,7 +2042,7 @@ Optional interactive prefix arg results in prompting for a search term."
      (t                                 ;browse
       (setq url
             (format emacspeak-usenet-feeds-uri group))
-      (emacspeak-webutils-rss-display url 'speak)))))
+      (emacspeak-webutils-rss-display url)))))
 
 ;;}}}
 ;;{{{ YouTube
