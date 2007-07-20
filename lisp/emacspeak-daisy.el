@@ -60,9 +60,9 @@
   :group 'emacspeak)
 
 ;;}}}
-;;{{{ Book structure 
+;;{{{ Book structure
 
-;;; Book structure 
+;;; Book structure
 
 (defstruct  emacspeak-daisy-book
   base
@@ -103,7 +103,7 @@
                     (emacspeak-daisy-book-base book)))
 
 ;;}}}
-;;{{{ find element by id 
+;;{{{ find element by id
 (defun xml-find-tag-by-id (tree id)
   "Walk tree and return node matching id."
   (let ((children (xml-tag-children tree))
@@ -119,9 +119,9 @@
         (unless (stringp current)
           (setq found (xml-find-tag-by-id current id))))
       found))))
-        
+
 ;;}}}
-;;{{{ return matching children 
+;;{{{ return matching children
 (defun xml-children-by-name  (tag name)
   "Return list of children  matching NAME, of an xml-parse'd XML TAG."
   (let ((children (xml-tag-children tag))
@@ -133,7 +133,7 @@
     result))
 
 ;;}}}
-;;{{{  play audio clip 
+;;{{{  play audio clip
 
 (defvar emacspeak-daisy-mpg123-player "mpg123"
   "MPG123 executable for playing mp3 files.")
@@ -157,7 +157,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
     (setq first (emacspeak-daisy-time-string-to-frame begin))
     (setq last (emacspeak-daisy-time-string-to-frame end))
     (setf (emacspeak-daisy-book-audio-process emacspeak-daisy-this-book)
-          (start-process "mpg123"  nil 
+          (start-process "mpg123"  nil
                          emacspeak-daisy-mpg123-player
                          "-k"
                          (format "%s"  (1- first))
@@ -178,7 +178,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
          (fragment (second split))
          (path (emacspeak-daisy-resolve-uri relative
                                             emacspeak-daisy-this-book)))
-    (emacspeak-we-extract-node-by-id path fragment)))
+    (emacspeak-we-extract-by-id path fragment)))
 
 ;;;###autoload
 (defun emacspeak-daisy-play-page-range (start end )
@@ -224,7 +224,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
-;;{{{ play smil content 
+;;{{{ play smil content
 
 (defun emacspeak-daisy-book-add-content (book src)
   "Parse SMIL content in src and store it as book contents.
@@ -241,7 +241,7 @@ Contents are indexed by src."
        (gethash src (emacspeak-daisy-book-content book))
        (read-xml))
       (kill-buffer smil))))
-    
+
 (defun emacspeak-daisy-fetch-content (book src)
   "Return content particle from book,
 after fetching it  if necessary."
@@ -290,7 +290,7 @@ Return buffer that holds the result of playing the content."
     (emacspeak-daisy-play-smil clip)))
 
 ;;}}}
-;;{{{  table of handlers 
+;;{{{  table of handlers
 
 (defvar emacspeak-daisy-handler-table (make-hash-table )
   "Table that maps elements to handlers.")
@@ -308,10 +308,10 @@ Return buffer that holds the result of playing the content."
   (setf (gethash (intern element) emacspeak-daisy-handler-table) handler))
 
 ;;}}}
-;;{{{ Install handlers 
+;;{{{ Install handlers
 
 ;;; elements
-(defvar emacspeak-daisy-xml-elements 
+(defvar emacspeak-daisy-xml-elements
   (list
    "ncx"
    "head"
@@ -320,7 +320,7 @@ Return buffer that holds the result of playing the content."
    "text"
    "audio"
    "content"
-   "navStruct" ;;; old ncx 
+   "navStruct" ;;; old ncx
    "navObject" ;;; old ncx
    "navLabel"
    "navLisp"
@@ -337,7 +337,7 @@ Return buffer that holds the result of playing the content."
                                      "emacspeak-daisy-%s-handler" e))))
 
 ;;}}}
-;;{{{ Define handlers 
+;;{{{ Define handlers
 
 (defsubst emacspeak-daisy-apply-handler (element)
   "Lookup and apply installed handler."
@@ -358,7 +358,7 @@ Return buffer that holds the result of playing the content."
   "Handle element <text>...</text>."
   (mapc #'insert (xml-tag-children element))
   (insert "\n"))
-   
+
 (defun emacspeak-daisy-head-handler (element)
   "Handle head element."
   (declare (special emacspeak-daisy-this-book))
@@ -385,7 +385,7 @@ Return buffer that holds the result of playing the content."
     (when audio
       (put-text-property start (point)
                          'audio audio))
-    
+
     (put-text-property start (point)
                        'content content)))
 (defun emacspeak-daisy-navLabel-handler (element)
@@ -411,7 +411,7 @@ Return buffer that holds the result of playing the content."
                          'content content))
     (mapc #'emacspeak-daisy-apply-handler nav-points)))
 
-    
+
 (defun emacspeak-daisy-docTitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
@@ -420,26 +420,26 @@ Return buffer that holds the result of playing the content."
     (emacspeak-daisy-text-handler   text)
     (put-text-property start (point)
                        'audio audio)))
-                             
-;;; Ignore navList for now 
+
+;;; Ignore navList for now
 (emacspeak-daisy-set-handler "navList" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 
 (declaim (special emacspeak-daisy-mode-map))
 
-(define-derived-mode emacspeak-daisy-mode text-mode 
+(define-derived-mode emacspeak-daisy-mode text-mode
   "Digital Talking Book\n"
   "A DAISY front-end for the Emacspeak desktop.
 
 Pre-requisites:
 
 0) mpg123 for playing mp3 files
-1) libxml and libxslt packages 
+1) libxml and libxslt packages
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
 The Emacspeak DAISY front-end is launched by command
-emacspeak-daisy-open-book  bound to \\[emacspeak-daisy-open-book].  
+emacspeak-daisy-open-book  bound to \\[emacspeak-daisy-open-book].
 
 This command switches to a special buffer that has DAISY
 commands bounds to single keystrokes-- see the ke-binding
@@ -447,7 +447,7 @@ list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
 emacspeak-daisy-mode provides the necessary functionality to
-navigate and listen to Daisy talking books. 
+navigate and listen to Daisy talking books.
 
 Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
@@ -542,7 +542,7 @@ navigation buffer that can be used to browse and read the book."
     (switch-to-buffer buffer)
     (cd (emacspeak-daisy-book-base emacspeak-daisy-this-book))
     (emacspeak-speak-load-directory-settings)
-    (when (emacspeak-daisy-get-bookmarks 
+    (when (emacspeak-daisy-get-bookmarks
            (emacspeak-daisy-book-name emacspeak-daisy-this-book))
       (emacspeak-daisy-add-bookmarks-to-buffer
        (emacspeak-daisy-get-bookmarks
@@ -733,7 +733,7 @@ No-op if content under point is not currently displayed."
 ;;}}}
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
-(defun emacspeak-daisy-configure-web-to-record-viewer (nav-center title outline 
+(defun emacspeak-daisy-configure-web-to-record-viewer (nav-center title outline
                                                                   start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks the browser  to record the viewer in the navigation center when done.
