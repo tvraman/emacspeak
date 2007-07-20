@@ -170,6 +170,7 @@
           ("/" emacspeak-webutils-google-similar-to-this-page)
           ("\;" emacspeak-w3-speak-this-element)
           ("A" emacspeak-webutils-atom-display)
+          ("F" emacspeak-webutils-fv)
           ("X" emacspeak-xslt-view-xml)
           ("C" emacspeak-webutils-google-extract-from-cache)
           ("L" emacspeak-w3-lynx-url-under-point)
