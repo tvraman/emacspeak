@@ -68,8 +68,17 @@
 (defsubst emacspeak-we-read-url ( )
   "Return URL of current page,
 or URL read from minibuffer."
-  (if (fboundp  emacspeak-webutils-current-url)
+  (if (functionp  emacspeak-webutils-current-url)
       (funcall emacspeak-webutils-current-url)
+    (read-from-minibuffer "URL: "
+                          (or (browse-url-url-at-point)
+                              "http://"))))
+
+(defsubst emacspeak-we-read-this-url ( )
+  "Return URL under point
+or URL read from minibuffer."
+  (if (functionp  emacspeak-webutils-url-at-point)
+      (funcall emacspeak-webutils-url-at-point)
     (read-from-minibuffer "URL: "
                           (or (browse-url-url-at-point)
                               "http://"))))
