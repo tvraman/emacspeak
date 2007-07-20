@@ -209,15 +209,16 @@ Nil means no transform is used. "
     (read-from-minibuffer "XPath locator: ")))
   (read
    (emacspeak-xslt-url
-(emacspeak-xslt-get "count-matches.xsl")
+    (emacspeak-xslt-get "count-matches.xsl")
     url
-    (emacspeak-xslt-params-from-xpath locator))))
+    (emacspeak-xslt-params-from-xpath locator)
+    'no-comment)))
 
 ;;;###autoload
 (defun emacspeak-we-count-nested-tables (url)
   "Count nested tables in Web page."
   (interactive (list (emacspeak-we-read-url)))
-  (emacspeak-we-count-matches url "'//table//table'" ))
+  (emacspeak-we-count-matches url "'//table//table'"))
 
 ;;;###autoload
 (defun emacspeak-we-count-tables (url)

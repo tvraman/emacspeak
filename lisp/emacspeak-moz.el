@@ -53,9 +53,8 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'browse-url)
 (require 'emacspeak-webutils)
-
+(require 'browse-url)
 ;;}}}
 ;;{{{ Customizations
 
@@ -137,10 +136,10 @@
       (goto-char (point-min))
       (flush-lines
        (format "^%s> *$" moz-repl-name))
-      (when (eq browse-url-browser-function
-                'browse-url-w3)
-        (add-hook 'emacspeak-w3-post-process-hook
-                  'emacspeak-speak-buffer))
+      (when (or   (eq browse-url-browser-function 'w3-fetch)
+              (eq browse-url-browser-function 'browse-url-w3)
+              (eq browse-url-browser-function 'w3m-browse-url))
+        (emacspeak-webutils-autospeak))
       (browse-url-of-buffer ))))
 ;;;###autoload
 (defun emacspeak-moz-close-tab-or-browser ()
