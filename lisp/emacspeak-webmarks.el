@@ -103,17 +103,15 @@ This gets set the first time we sign in using a browser."
 ;;}}}
 ;;{{{ keymap:
 
-(define-prefix-command 'emacspeak-webmarks-prefix)
-(declaim(special emacspeak-webmarks-prefix))
+(declaim(special emacspeak-web-prefix))
 (loop for k in
       '(
-        ("b" browse-url-of-buffer)
         ("s" emacspeak-webmarks-search)("h" emacspeak-webmarks-history)
         ("a" emacspeak-webmarks-add)
         ("l" emacspeak-webmarks-list)
         )
       do
-      (emacspeak-keymap-update  emacspeak-webmarks-prefix k))
+      (emacspeak-keymap-update  emacspeak-web-prefix k))
 
 ;;}}}
 ;;{{{ Interactive commands:

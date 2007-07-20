@@ -55,6 +55,21 @@
 (require 'emacspeak-preamble)
 (require 'url)
 ;;}}}
+;;{{{ keymap: web-prefix
+(define-prefix-command 'emacspeak-web-prefix)
+
+(declaim (special emacspeak-web-prefix))
+(loop for k in
+      '(
+        ("b" browse-url-of-buffer)
+        ("r" browse-url-of-region)
+        ("R" emacspeak-xslt-view-region)
+        )
+      do
+      (emacspeak-keymap-update  emacspeak-web-prefix k))
+
+
+;;}}}
 ;;{{{ Helpers:
 
 ;;;###autoload
