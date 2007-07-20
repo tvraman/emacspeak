@@ -124,7 +124,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
 
 (defun emacspeak-amphetadesk-quick-add (url)
   "Quick add URL to Amphetadesk by prompting for URL."
-  (interactive (list (emacspeak-we-read-url)))
+  (interactive (list (emacspeak-webutils-read-url)))
   (declare (special emacspeak-amphetadesk-uri))
   (browse-url 
    (concat emacspeak-amphetadesk-uri

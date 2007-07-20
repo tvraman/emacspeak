@@ -111,7 +111,7 @@
               (eq major-mode 'w3m-mode))
     (error "This command cannot be used outside browser buffers.")))
 
-(defsubst emacspeak-we-read-url ( )
+(defsubst emacspeak-webutils-read-url ( )
   "Return URL of current page,
 or URL read from minibuffer."
   (if (functionp  emacspeak-webutils-current-url)
@@ -120,7 +120,7 @@ or URL read from minibuffer."
                           (or (browse-url-url-at-point)
                               "http://"))))
 
-(defsubst emacspeak-we-read-this-url ( )
+(defsubst emacspeak-webutils-read-this-url ( )
   "Return URL under point
 or URL read from minibuffer."
   (if (functionp  emacspeak-webutils-url-at-point)
@@ -409,7 +409,7 @@ instances."
   "Display RSS feed."
   (interactive
    (list
-    (emacspeak-we-read-this-url)))
+    (emacspeak-webutils-read-this-url)))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
@@ -418,7 +418,7 @@ instances."
 ;;;###autoload
 (defun emacspeak-webutils-atom-display (feed-url )
   "Display ATOM feed."
-  (interactive (list (emacspeak-we-read-this-url)))
+  (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
@@ -428,7 +428,7 @@ instances."
 ;;;###autoload
 (defun emacspeak-webutils-fv (feed-url )
   "Display RSS or ATOM feed."
-  (interactive (list (emacspeak-we-read-this-url)))
+  (interactive (list (emacspeak-webutils-read-this-url)))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
