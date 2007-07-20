@@ -103,7 +103,7 @@ useful in jumping directly to the printer friendly version of an
 article for example.  Optional interactive prefix arg prompts for
 a rewrite rule even if one is already defined."
   (interactive "P")
-  (declare (special emacspeak-we-url--rewrite-rule))
+  (declare (special emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
@@ -594,7 +594,7 @@ buffer. Interactive use provides list of class values as completion."
   "Collect a list of ids by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
-  (let ((ids (emacspeak-we-id-cache))
+  (let ((ids emacspeak-we-buffer-id-cache)
         (result nil)
         (c nil)
         (done nil))
@@ -612,7 +612,7 @@ Empty value finishes the list."
   "Collect a list of classes by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
-  (let ((classes (emacspeak-we-css-class-cache))
+  (let ((classes emacspeak-we-buffer-class-cache)
         (result nil)
         (c nil)
         (done nil))
