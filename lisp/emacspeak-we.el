@@ -183,7 +183,7 @@ Nil means no transform is used. "
    (emacspeak-xslt-url
     (emacspeak-xslt-get "count-matches.xsl")
     url
-    (emacspeak-xslt-params-from-xpath locator)
+    (emacspeak-xslt-params-from-xpath locator url)
     'no-comment)))
 
 ;;;###autoload
