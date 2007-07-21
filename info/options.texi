@@ -16,6 +16,7 @@ This chapter documents a total of 642 user customizable
 * emacspeak-alsaplayer Options::  
 * emacspeak-amphetadesk Options::  
 * emacspeak-aumix Options::     
+* emacspeak-bbdb Options::      
 * emacspeak-calendar Options::  
 * emacspeak-compile Options::   
 * emacspeak-custom Options::    
@@ -28,6 +29,7 @@ This chapter documents a total of 642 user customizable
 * emacspeak-erc Options::       
 * emacspeak-eshell Options::    
 * emacspeak-eterm Options::     
+* emacspeak-eudc Options::      
 * emacspeak-forms Options::     
 * emacspeak-gnus Options::      
 * emacspeak-hide Options::      
@@ -63,6 +65,7 @@ This chapter documents a total of 642 user customizable
 * emacspeak-vm Options::        
 * emacspeak-w3 Options::        
 * emacspeak-w3m Options::       
+* emacspeak-we Options::        
 * emacspeak-websearch Options::  
 * emacspeak-webutils Options::  
 * emacspeak-wizards Options::   
@@ -342,6 +345,33 @@ ALSA sound controller used to restore settings.
 
 @defvar {User Option} emacspeak-aumix-settings-file
 *Name of file containing personal aumix settings.
+@end defvar
+
+@node emacspeak-bbdb Options
+@section emacspeak-bbdb Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-bbdb.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-bbdb-company-voice
+Personality used for bbdb-company
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-field-name-voice
+Personality used for bbdb-field-name
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-field-value-voice
+Personality used for bbdb-field-value
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-name-voice
+Personality used for bbdb-name
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @node emacspeak-calendar Options
@@ -822,6 +852,23 @@ File where list of known remote hosts is cached
 
 @defvar {User Option} emacspeak-eterm-underline-personality
 Personality to indicate terminal underlining.
+@end defvar
+
+@node emacspeak-eudc Options
+@section emacspeak-eudc Options
+
+Commentary:
+EUDC --Emacs Universal Directory Client 
+provides a unified interface to directory servers
+e.g. ldap servers
+this module speech enables eudc 
+
+Automatically generated documentation
+for options defined in module  emacspeak-eudc.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-eudc-attribute-value-personality
+Personality t use for voiceifying attribute values. 
 @end defvar
 
 @node emacspeak-forms Options
@@ -1596,11 +1643,6 @@ Set this to T if you want the audio settings reset after
 a realaudio sream is done playing.
 @end defvar
 
-@defvar {User Option} emacspeak-realaudio-revert-to-auditory-icons
-Set this to T if you want to switch back from using midi
-icons once a realaudio stream is done playing.
-@end defvar
-
 @node emacspeak-remote Options
 @section emacspeak-remote Options
 
@@ -1982,6 +2024,36 @@ True means messages in this chat session will be spoken
 automatically.
 @end defvar
 
+@defvar {User Option} emacspeak-tnt-buddy-list-active-personality
+Personality used for tnt-buddy-list-active-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-tnt-buddy-list-away-personality
+Personality used for tnt-buddy-list-away-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-tnt-buddy-list-idle-personality
+Personality used for tnt-buddy-list-idle-face
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-tnt-buddy-list-inactive-personality
+Personality used for tnt-buddy-list-inactive-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-tnt-buddy-list-pounce-personality
+Personality used for tnt-buddy-list-pounce-face
+This personality uses  (quote ursula) whose  effect can be changed globally by customizing (quote ursula)-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-tnt-my-name-personality
+Personality used for tnt-my-name-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
 @node emacspeak-url-template Options
 @section emacspeak-url-template Options
 
@@ -2084,10 +2156,6 @@ These options are customizable via Emacs' Custom interface.
 Custom pronunciation for base URIs in w3 buffers.
 @end defvar
 
-@defvar {User Option} emacspeak-w3-cleanup-bogus-quotes
-Clean up bogus Unicode chars for magic quotes.
-@end defvar
-
 @defvar {User Option} emacspeak-w3-create-imenu-index
 Create IMenu index by default.
 @end defvar
@@ -2098,16 +2166,6 @@ LWP Request command from perl LWP.
 
 @defvar {User Option} emacspeak-w3-lynx-program
 Name of lynx executable
-@end defvar
-
-@defvar {User Option} emacspeak-w3-media-stream-suffixes
-Suffixes to look for in detecting URLs that point to media
-streams.
-@end defvar
-
-@defvar {User Option} emacspeak-w3-most-recent-xpath-filter
-Caches most recently used xpath filter.
-Can be customized to set up initial default.
 @end defvar
 
 @defvar {User Option} emacspeak-w3-punctuation-mode
@@ -2126,15 +2184,6 @@ Options to pass to tidy program
 Name of tidy executable
 @end defvar
 
-@defvar {User Option} emacspeak-w3-xsl-p
-T means we apply XSL before displaying HTML.
-@end defvar
-
-@defvar {User Option} emacspeak-w3-xsl-transform
-Specifies transform to use before displaying a page.
-Nil means no transform is used. 
-@end defvar
-
 @node emacspeak-w3m Options
 @section emacspeak-w3m Options
 
@@ -2150,6 +2199,46 @@ These options are customizable via Emacs' Custom interface.
 Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline.
+@end defvar
+
+@node emacspeak-we Options
+@section emacspeak-we Options
+
+Commentary:
+we is for webedit
+Invoke XSLT to edit/transform Web pages before they get
+rendered.
+we makes emacspeak's webedit layer independent of a given
+Emacs web browser like W3 or W3M
+This module will use the abstraction provided by browse-url
+to handle Web pages.
+Module emacspeak-webutils provides the needed additional
+abstractions not already covered by browse-url
+
+Automatically generated documentation
+for options defined in module  emacspeak-we.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-we-cleanup-bogus-quotes
+Clean up bogus Unicode chars for magic quotes.
+@end defvar
+
+@defvar {User Option} emacspeak-we-media-stream-suffixes
+Suffixes that identify   URLs   to media streams.
+@end defvar
+
+@defvar {User Option} emacspeak-we-recent-xpath-filter
+Caches most recently used xpath filter.
+Can be customized to set up initial default.
+@end defvar
+
+@defvar {User Option} emacspeak-we-xsl-p
+T means we apply XSL before displaying HTML.
+@end defvar
+
+@defvar {User Option} emacspeak-we-xsl-transform
+Specifies transform to use before displaying a page.
+Nil means no transform is used. 
 @end defvar
 
 @node emacspeak-websearch Options
@@ -2614,26 +2703,6 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-Buffer-menu-buffer-voice
 Personality used for Buffer-menu-buffer
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-bbdb-company-voice
-Personality used for bbdb-company
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-bbdb-field-name-voice
-Personality used for bbdb-field-name
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-bbdb-field-value-voice
-Personality used for bbdb-field-value
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-bbdb-name-voice
-Personality used for bbdb-name
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
@@ -3950,36 +4019,6 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 @defvar {User Option} emacspeak-term-underline-voice
 Personality used for term-underline
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-active-personality
-Personality used for tnt-buddy-list-active-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-away-personality
-Personality used for tnt-buddy-list-away-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-idle-personality
-Personality used for tnt-buddy-list-idle-face
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-inactive-personality
-Personality used for tnt-buddy-list-inactive-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-pounce-personality
-Personality used for tnt-buddy-list-pounce-face
-This personality uses  (quote ursula) whose  effect can be changed globally by customizing (quote ursula)-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-my-name-personality
-Personality used for tnt-my-name-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-underline-voice
