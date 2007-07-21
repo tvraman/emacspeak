@@ -411,7 +411,6 @@ Return buffer that holds the result of playing the content."
                          'content content))
     (mapc #'emacspeak-daisy-apply-handler nav-points)))
 
-
 (defun emacspeak-daisy-docTitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
