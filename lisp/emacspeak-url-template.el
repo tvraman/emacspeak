@@ -1277,16 +1277,13 @@ name of the list.")
 ;;{{{ cnnfn content
 (emacspeak-url-template-define
  "CNNFn Content"
- "http://www.cnnfn.com/"
+ "http://money.cnn.com"
  nil
  nil
- "Extract content links from CNN FN."
+ "Extract content links from Money."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class-list
-      (list
-       "t1headline"
-       "t1tease"
-       "tease" "t2headline")
+     (emacspeak-we-extract-by-id
+      "mainContent"
       url 'speak)))
 
 ;;}}}
