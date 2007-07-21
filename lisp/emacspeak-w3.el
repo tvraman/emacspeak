@@ -767,8 +767,10 @@ HTML."
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
       (replace-match "\'")))
-  (unless (string-match "temp"
-                        (buffer-name))
+  (unless
+      (or emacspeak-we-xsl-p
+          (string-match "temp"
+                        (buffer-name)))
     (emacspeak-we-build-id-cache)
     (emacspeak-we-build-class-cache))
   (when (and emacspeak-we-xsl-p
@@ -779,6 +781,8 @@ HTML."
      (point-min)
      (point-max)
      emacspeak-we-xsl-params)
+    (emacspeak-we-build-id-cache)
+    (emacspeak-we-build-class-cache)
     (when emacspeak-we-xsl-keep-result
       (clone-buffer
        (format "xslt-%s"
