@@ -142,8 +142,6 @@ or URL read from minibuffer."
                  ,key (buffer-name))
          'unique))))))
 
-
-
 ;;}}}
 ;;{{{ helper macros:
 
@@ -433,7 +431,6 @@ instances."
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
                                    (emacspeak-xslt-get "fv.xsl")))
-
 
 ;;}}}
 ;;{{{ RSS:
