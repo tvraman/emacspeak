@@ -221,6 +221,92 @@
    nil))
 
 ;;}}}
+;;{{{ Community search:
+
+(defvar gphoto-community-search-url-template
+  "http://picasaweb.google.com/data/feed/api/all?q=%s"
+  "URL template for searching all public photos")
+
+;;;###autoload
+(defun gphoto-community-search (query)
+  "Search all public photos."
+  (interactive "sSearch Public Photos: ")
+  (declare (special gphoto-community-search-url-template))
+  (gphoto-view
+   (format
+    gphoto-community-search-url-template query)))
+
+(defvar gphoto-recent-photos-url-template
+  (format "%s/%%s?kind=photo&max-results=25" gphoto-base-url)
+  "URL template for feed of recent photos.")
+
+;;;###autoload
+(defun gphoto-recent-photos (user)
+  "Retrieve feed o recently uploaded photos for  specified user."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "User: "
+     (g-auth-email gphoto-auth-handle))))
+  (declare (special gphoto-recent-photos-url-template))
+  (gphoto-view
+   (format
+    gphoto-recent-photos-url-template user)))
+
+(defvar gphoto-recent-comments-url-template
+  (format "%s/%%s?kind=comment&max-results=25" gphoto-base-url)
+  "URL template for feed of recent comments.")
+
+;;;###autoload
+(defun gphoto-recent-comments (user)
+  "Retrieve feed o recently uploaded comments for  specified user."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "User: "
+     (g-auth-email gphoto-auth-handle))))
+  (declare (special gphoto-recent-comments-url-template))
+  (gphoto-view
+   (format
+    gphoto-recent-comments-url-template user)))
+
+(defvar gphoto-user-search-url-template
+  (format "%s/%%s?kind=photo&q=%%s"
+          gphoto-base-url)
+  "URL template for feed  to search a user's photos.")
+
+;;;###autoload
+(defun gphoto-user-search (user query)
+  "Retrieve feed o recently uploaded comments for  specified user."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "User: "
+     (g-auth-email gphoto-auth-handle))
+    (read-from-minibuffer "Query: ")))
+  (declare (special gphoto-user-search-url-template))
+  (gphoto-view
+   (format
+    gphoto-user-search-url-template user query)))
+
+(defvar gphoto-user-tagsearch-url-template
+  (format "%s/%%s?kind=photo&tag=%%s"
+          gphoto-base-url)
+  "URL template for feed  to tag search a user's photos.")
+
+;;;###autoload
+(defun gphoto-user-tagsearch (user tag)
+  "Retrieve feed o matches comments for  specified user."
+  (interactive
+   (list
+    (read-from-minibuffer "User: " (g-auth-email gphoto-auth-handle))
+    (read-from-minibuffer "Tag: ")))
+  (declare (special gphoto-user-tagsearch-url-template))
+  (gphoto-view
+   (format
+    gphoto-user-tagsearch-url-template user tag)))
+
+;;}}}
 ;;{{{ Adding an album:
 
 (defstruct gphoto-album
