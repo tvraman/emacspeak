@@ -104,7 +104,7 @@ View an RSS feed as clean HTML
       </xsl:element>
 	  <br/>
       <xsl:apply-templates select="description"/>
-	  <em><xsl:value-of select="pubDate"/></em><br/>
+	  <!--<em><xsl:value-of select="pubDate"/></em><br/>-->
 <p><xsl:value-of select="smh:bkmk_annotation"/></p>
       <xsl:apply-templates select="enclosure"/>
     </li>
