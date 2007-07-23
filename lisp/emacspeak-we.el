@@ -483,7 +483,7 @@ Tables are specified by containing  match pattern
 
 (make-variable-buffer-local 'emacspeak-we-buffer-class-cache)
 
-(defun emacspeak-we-build-class-cache ()
+(defsubst emacspeak-we-build-class-cache ()
   "Build class cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer
@@ -511,14 +511,15 @@ Tables are specified by containing  match pattern
                 ',(mapcar
                    #'(lambda (v)
                        (cons v v ))
-                   values))))))))
+                   values))))))
+    (kill-buffer content)))
 
 (defvar emacspeak-we-buffer-id-cache nil
   "Caches id attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-we-buffer-id-cache)
 
-(defun emacspeak-we-build-id-cache ()
+(defsubst emacspeak-we-build-id-cache ()
   "Build id cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer
@@ -543,7 +544,8 @@ Tables are specified by containing  match pattern
                 ',(mapcar
                    #'(lambda (v)
                        (cons v v ))
-                   values))))))))
+                   values))))))
+    (kill-buffer content)))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-class (class    url &optional speak)
