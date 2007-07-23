@@ -62,7 +62,7 @@
 (require 'url-parse)
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
-(require 'emacspeak-w3)
+(require 'emacspeak-xslt)
 ;;}}}
 ;;{{{ Customizations
 
