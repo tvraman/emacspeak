@@ -486,21 +486,14 @@ Tables are specified by containing  match pattern
 (defsubst emacspeak-we-build-class-cache ()
   "Build class cache and forward it to rendered page."
   (let ((values nil)
-        (content (clone-buffer
-                  (format "__class-%s" (buffer-name)))))
+        (content (clone-buffer)))
     (save-excursion
       (set-buffer content)
       (setq buffer-undo-list t)
-      (emacspeak-xslt-region
+      (emacspeak-xslt-run
        (emacspeak-xslt-get "class-values.xsl")
-       (point-min) (point-max)
-       nil                              ;params
-       'no-comment)
-      (shell-command-on-region (point-min) (point-max)
-                               "sort  -u"
-                               (current-buffer))
-      (setq values
-            (split-string (buffer-string))))
+       (point-min) (point-max))
+      (setq values (split-string (buffer-string))))
     (add-hook
      'emacspeak-w3-post-process-hook
      (eval
@@ -522,18 +515,14 @@ Tables are specified by containing  match pattern
 (defsubst emacspeak-we-build-id-cache ()
   "Build id cache and forward it to rendered page."
   (let ((values nil)
-        (content (clone-buffer
-                  (format "__id-%s" (buffer-name)))))
+        (content (clone-buffer)))
     (save-excursion
       (set-buffer content)
       (setq buffer-undo-list t)
-      (emacspeak-xslt-region
+      (emacspeak-xslt-run
        (emacspeak-xslt-get "id-values.xsl")
-       (point-min) (point-max)
-       nil                              ;params
-       'no-comment)
-      (setq values
-            (split-string (buffer-string))))
+       (point-min) (point-max))
+      (setq values (split-string (buffer-string))))
     (add-hook
      'emacspeak-w3-post-process-hook
      (eval

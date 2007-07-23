@@ -152,6 +152,18 @@ part of the libxslt package."
     (setq modification-flag nil)
     (current-buffer)))
 
+;;;###autoload
+(defsubst emacspeak-xslt-run (xsl start end)
+  "Run xslt on region, and return output filtered by sort -u"
+  (declare (special emacspeak-xslt-program emacspeak-xslt-options))
+  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
+    (shell-command-on-region
+     start end
+     (format "%s %s %s - 2>/dev/null | sort -u"
+             emacspeak-xslt-program emacspeak-xslt-options xsl)
+     (current-buffer) 'replace)
+    (current-buffer)))
+
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
 (defcustom  emacspeak-xslt-use-wget-to-download nil
