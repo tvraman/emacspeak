@@ -476,40 +476,6 @@ element. "
 ;;{{{ url rewrite
 
 ;;}}}
-;;{{{ url expand and execute
-
-(defvar emacspeak-w3-url-executor nil
-  "URL expand/execute function  to use in current buffer.")
-
-(make-variable-buffer-local 'emacspeak-w3-url-executor)
-
-(defun emacspeak-w3-url-expand-and-execute ()
-  "Applies buffer-specific URL expander/executor function."
-  (interactive)
-  (declare (special emacspeak-w3-url-executor))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command is only useful in W3 buffers."))
-  (let ((url (w3-view-this-url t)))
-    (unless url
-      (error "Not on a link."))
-    (cond
-     ((and (boundp 'emacspeak-w3-url-executor)
-           (fboundp emacspeak-w3-url-executor))
-      (funcall emacspeak-w3-url-executor url))
-     (t
-      (setq emacspeak-w3-url-executor
-            (intern
-             (completing-read
-              "Executor function: "
-              obarray 'fboundp t
-              "emacspeak-" nil )))
-      (if (and (boundp 'emacspeak-w3-url-executor)
-               (fboundp emacspeak-w3-url-executor))
-          (funcall emacspeak-w3-url-executor url)
-        (error "Invalid executor %s"
-               emacspeak-w3-url-executor))))))
-
-;;}}}
 ;;{{{ jump to submit button
 
 (defun emacspeak-w3-jump-to-submit ()

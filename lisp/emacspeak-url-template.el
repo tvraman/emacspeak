@@ -442,8 +442,8 @@ content."
  "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
  (list "BBC Channel: ")
  #'(lambda ()
-     (declare (special emacspeak-w3-url-executor))
-     (setq emacspeak-w3-url-executor
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
            'emacspeak-url-template-bbc-channel-player))
  "Display BBC Channel on demand.")
 
@@ -455,8 +455,8 @@ content."
  "http://www.bbc.co.uk/radio/aod/genres/%s/audiolist.shtml"
  (list "BBC Genre: ")
  #'(lambda ()
-     (declare (special emacspeak-w3-url-executor))
-     (setq emacspeak-w3-url-executor
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
            'emacspeak-url-template-bbc-channel-player))
  "Display BBC Channel on demand."
  )
@@ -1065,8 +1065,8 @@ from English to German.")
   (add-hook 'emacspeak-w3-post-process-hook
             #'(lambda nil
                 (declare (special  emacspeak-we-url-rewrite-rule
-                                   emacspeak-w3-class-filter))
-                (setq emacspeak-w3-class-filter "article"
+                                   emacspeak-we-class-filter))
+                (setq emacspeak-we-class-filter "article"
                       emacspeak-we-url-rewrite-rule
                       '("$" "&printer=1"))
                 (emacspeak-speak-buffer)))
@@ -1315,8 +1315,8 @@ name of the list.")
  "http://www.cnn.com/TECH/"
  nil
  #'(lambda nil
-     (declare (special emacspeak-w3-class-filter))
-     (setq emacspeak-w3-class-filter "cnnStoryContent"))
+     (declare (special emacspeak-we-class-filter))
+     (setq emacspeak-we-class-filter "cnnStoryContent"))
  "CNN Technology news."
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list
