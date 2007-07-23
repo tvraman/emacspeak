@@ -41,12 +41,10 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (condition-case nil
-      (progn
-        (require  'emacspeak-we)
-        (require 'calendar))
-    (error nil)))
+(require 'emacspeak-webutils)
+(require  'emacspeak-we)
+(require 'calendar)
+
 ;;}}}
 ;;{{{  Introduction:
 
@@ -131,7 +129,7 @@
   "Launches specific websearch queries.
 Press `?' to list available search engines.
 Once selected, the selected searcher prompts for additional information as appropriate.
-When using W3,  this interface attempts to speak the most relevant information on the result page."
+When using supported browsers,  this interface attempts to speak the most relevant information on the result page."
   (interactive "P")
   (let ((engine nil)
         (searcher nil))
