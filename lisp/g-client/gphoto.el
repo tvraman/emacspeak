@@ -236,39 +236,23 @@
    (format
     gphoto-community-search-url-template query)))
 
-(defvar gphoto-recent-photos-url-template
-  (format "%s/%%s?kind=photo&max-results=25" gphoto-base-url)
-  "URL template for feed of recent photos.")
+(defvar gphoto-recent-url-template
+  (format "%s/%%s?kind=%%s&max-results=25"
+          gphoto-base-url)
+  "URL template for feed of recent photos or comments.")
 
 ;;;###autoload
-(defun gphoto-recent-photos (user)
-  "Retrieve feed o recently uploaded photos for  specified user."
+(defun gphoto-recent (user kind)
+  "Retrieve feed of recently uploaded photos or comments."
   (interactive
    (list
-    (read-from-minibuffer
-     "User: "
-     (g-auth-email gphoto-auth-handle))))
-  (declare (special gphoto-recent-photos-url-template))
-  (gphoto-view
-   (format
-    gphoto-recent-photos-url-template user)))
-
-(defvar gphoto-recent-comments-url-template
-  (format "%s/%%s?kind=comment&max-results=25" gphoto-base-url)
-  "URL template for feed of recent comments.")
-
-;;;###autoload
-(defun gphoto-recent-comments (user)
-  "Retrieve feed o recently uploaded comments for  specified user."
-  (interactive
-   (list
-    (read-from-minibuffer
-     "User: "
-     (g-auth-email gphoto-auth-handle))))
-  (declare (special gphoto-recent-comments-url-template))
-  (gphoto-view
-   (format
-    gphoto-recent-comments-url-template user)))
+    (read-from-minibuffer "User: " (g-auth-email
+                                    gphoto-auth-handle))
+    (gphoto-read-feed-kind "p Photos c Comments: "
+                           '(("photo" . "photo")
+                             ("comment" . "comment")))))
+  (declare (special gphoto-recent-url-template))
+  (gphoto-view (format gphoto-recent-url-template user kind)))
 
 (defvar gphoto-user-search-url-template
   (format "%s/%%s?kind=photo&q=%%s"
@@ -623,7 +607,7 @@
    (list
     (read-from-minibuffer "Entry URL:")))
   (declare (special gphoto-auth-handle))
-  
+
   (g-app-delete-entry gphoto-auth-handle url))
 
 ;;}}}
