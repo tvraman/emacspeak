@@ -35,15 +35,14 @@
 ;;{{{  required modules
 
 (require 'emacspeak-preamble)
-(require 'emacspeak-w3)
+(require 'emacspeak-webutils)
+(require 'emacspeak-we)
 (require 'easymenu)
 (require 'emacspeak-m-player)
-(require 'emacspeak-webutils)
 (require 'custom)
 (eval-when-compile
   (condition-case nil
       (require 'w3m)
-    (require 'url)
     (error nil)))
 (eval-when (load)
   (require 'w3m-util)
@@ -95,7 +94,6 @@ is a generic setup/tear-down mechanism for emacspeak related
 (define-key w3m-mode-map "\C-c\C-g" 'emacspeak-webutils-google-on-this-site)
 (define-key w3m-mode-map "\C-c\C-x" 'emacspeak-webutils-google-extract-from-cache)
 (define-key w3m-mode-map "\C-c\C-l" 'emacspeak-webutils-google-similar-to-this-page)
-(define-key w3m-mode-map "\C-c\C-r" 'emacspeak-w3m-browse-rss-at-point)
 (define-key w3m-mode-map (kbd "<C-return>") 'emacspeak-webutils-open-in-other-browser)
 
 ;;}}}
@@ -884,20 +882,6 @@ With prefix argument makes this transformation persistent."
                   filename)
     (w3m-find-file filename)
     (delete-file filename)))
-
-(defun emacspeak-w3m-browse-rss-at-point ()
-  "Browses RSS url under point from w3m."
-  (interactive)
-  (unless (eq major-mode 'w3m-mode)
-    (error "Not in a W3m buffer."))
-  (let ((url (emacspeak-w3m-url-at-point)))
-    (cond
-     (url
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-w3m-browse-xml-url-with-style
-       (expand-file-name "rss.xsl" emacspeak-xslt-directory)
-       url t))
-     (t (error "No URL under point.")))))
 
 ;;}}}
 ;;{{{  xsl keymap

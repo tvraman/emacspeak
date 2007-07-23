@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -41,7 +41,7 @@
 ;;{{{  introduction
 ;;; Commentary:
 
-;;; speech-enables change-log-mode 
+;;; speech-enables change-log-mode
 ;;;Code:
 
 ;;}}}
@@ -50,13 +50,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'browse-url)
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (condition-case nil
-      (require 'emacspeak-w3)
-    (error nil)))
-
 ;;}}}
 ;;{{{ define personalities
 
