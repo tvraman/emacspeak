@@ -95,6 +95,36 @@ a rewrite rule even if one is already defined."
     (browse-url (or redirect url))))
 
 ;;}}}
+;;{{{ url expand and execute
+
+(defvar emacspeak-we-url-executor nil
+  "URL expand/execute function  to use in current buffer.")
+
+(make-variable-buffer-local 'emacspeak-we-url-executor)
+
+(defun emacspeak-we-url-expand-and-execute ()
+  "Applies buffer-specific URL expander/executor function."
+  (interactive)
+  (declare (special emacspeak-we-url-executor))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point)))
+    (unless url (error "Not on a link."))
+    (cond
+     ((and (boundp 'emacspeak-we-url-executor)
+           (fboundp emacspeak-we-url-executor))
+      (funcall emacspeak-we-url-executor url))
+     (t
+      (setq emacspeak-we-url-executor
+            (intern
+             (completing-read
+              "Executor function: "
+              obarray 'fboundp t
+              "emacspeak-" nil )))
+      (if (and (boundp 'emacspeak-we-url-executor)
+               (fboundp emacspeak-we-url-executor))
+          (funcall emacspeak-we-url-executor url)
+        (error "Invalid executor %s"
+               emacspeak-we-url-executor))))))
 
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
