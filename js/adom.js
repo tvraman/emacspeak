@@ -344,9 +344,8 @@ repl.updateADom = function ()  {
     if (content.document.adom == undefined) {
         // constructor caches adom in content.document
         repl.adom = new ADom(content.document);
-    }
-    if (repl.adom.document_ != content.document) {
-        repl.adom = content.document.adom;
+    } else {
+      repl.adom = content.document.adom;
     }
     return repl.adom;
 };
