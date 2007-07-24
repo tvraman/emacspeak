@@ -242,35 +242,35 @@ title)\n"
   "Asks visitor to go  forward and browses the result."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.visit(); repl.adom.html()"))
+   "repl.adom.visit(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-up ()
   "Go Up a level and browse."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.up(); repl.adom.html()"))
+   "repl.adom.up(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-down ()
   "Go Down a level and browse."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.down(); repl.adom.html()"))
+   "repl.adom.down(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-left ()
   "Go left and browse."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.previous(); repl.adom.html()"))
+   "repl.adom.previous(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-right ()
   "Go right and browse."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.next(); repl.adom.html()"))
+   "repl.adom.next(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-filter-and-browse(xpath)
@@ -286,14 +286,14 @@ title)\n"
   "Browse current node."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   " repl.adom.html()"))
+   " repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-visit-previous-and-browse ()
   "Asks visitor to go  backward and browses the result."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   "repl.adom.visit(-1); repl.adom.html()"))
+   "repl.adom.visit(-1); repl.adom.html(1)"))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
