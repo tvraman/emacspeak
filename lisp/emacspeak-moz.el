@@ -160,8 +160,9 @@
                            (browse-url-url-at-point)
                            "http://"))))
   (emacspeak-moz-eval-expression-and-go
-   (format "content.location.href='%s';repl.updateADom()\n"
+   (format "content.location.href='%s';\n"
            url)))
+
 ;;;###autoload
 (defun emacspeak-moz-goto-url-at-point()
   "Make Firefox used by our repl Go to url under point."
@@ -173,7 +174,7 @@
     (cond
      (url
       (emacspeak-moz-eval-expression-and-go
-       (format "content.location.href='%s';repl.updateADom()\n"
+       (format "content.location.href='%s';\n"
                url))
       (message "Sent url at point to firefox."))
      (t (error "No url under point.")))))
