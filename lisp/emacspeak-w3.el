@@ -314,6 +314,19 @@ document is displayed in a separate buffer. "
   "Return onclick handler if any at point."
   (cdr (assoc 'onclick (cdar (emacspeak-w3-html-stack)))))
 
+(defsubst emacspeak-w3-get-class ()
+  "Return class if any at point."
+  (cdr (assoc 'class (cdar (emacspeak-w3-html-stack)))))
+
+
+(defsubst emacspeak-w3-get-onchange ()
+  "Return onchange handler if any at point."
+  (cdr (assoc 'onchange (cdar (emacspeak-w3-html-stack)))))
+
+(defsubst emacspeak-w3-get-style ()
+  "Return style if any at point."
+  (cdr (assoc 'style (cdar (emacspeak-w3-html-stack)))))
+
 (defsubst emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
   (first (first stack )))
