@@ -182,7 +182,7 @@ proc tts_pause {} {
 proc s {} {
     global tts
     if {$tts(not_stopped)} {
-        puts -nonewline  $tts(write)  "\003"
+        puts -nonewline  $tts(write)  "\003    "
         set tts(not_stopped) 0
         set tts(talking?) 0
         queue_clear
@@ -295,7 +295,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "\[:sa c]\[:ra $r]\[:pu $mode :i r 0]"
+    set prefix "     \[:sa c :ra $r :pu $mode :i r 0]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]

@@ -338,6 +338,12 @@
   (when (interactive-p)
     (emacspeak-speak-message-again)))
 
+(defadvice mark-diary-entries (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+ad-return-value))
+
 ;;}}}
 ;;{{{  keymap
 (eval-when (load)
