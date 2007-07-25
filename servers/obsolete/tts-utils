@@ -1,0 +1,42 @@
+
+proc tts_fastForward  {{step 1}} {
+    global tts
+    if {[queue_empty?]} {
+        puts -nonewline  $tts(write) {[:sa c] No speech to fast forward. }
+        set tts(not_stopped) 1
+    } else {
+        queue_advance ($step)
+        speech_task
+    }
+    return ""
+}
+
+proc tts_fastRewind  {{step 1}} {
+    global tts
+    if {$tts(q_head) == 0} {
+        puts -nonewline  $tts(write) {[:sa c] No speech to fast rewind. }
+        set tts(not_stopped) 1
+    } else {
+        queue_retreat ($step)
+        speech_task
+    }
+    return ""
+}
+
+proc tts_repeat  {} {
+    global tts
+    queue_rewind
+    if {[queue_empty?]} {
+        puts -nonewline  $tts(write) {[:sa c] No speech to repeat.}
+        set tts(not_stopped) 1
+    } else {
+        speech_task
+    }
+    return ""
+}
+
+
+proc  read_pending_p  {file_handle} {
+    set status   [lsearch [select [list  $file_handle]  {} {} 0] $file_handle]
+    expr $status >= 0
+}
