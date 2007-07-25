@@ -150,10 +150,12 @@
 (defadvice calendar (after emacspeak pre act )
   "Announce yourself."
   (when (interactive-p)
-    (let ((emacspeak-lazy-message-time 0))
+    (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'open-object)
-      (setq calendar-mode-line-format emacspeak-calendar-mode-line-format)
-      (message "Welcome to the calendar"))))
+      (setq calendar-mode-line-format
+            emacspeak-calendar-mode-line-format)
+      (tts-with-punctuations "some"
+      (dtk-speak "Welcome to the calendar. ")))))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
   "Speak the date. "
