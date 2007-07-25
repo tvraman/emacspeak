@@ -111,7 +111,7 @@ proc l {text} {
     set f  $tts(say_rate)
     tts_gobble_acknowledgements 0.001
     puts -nonewline  $tts(write)\
-        " \[_]\[:ra $f]\[:sa le]$text\[:sa c _]"
+        "\[_]\[:ra $f]\[:sa le]$text\[:sa c _]"
         return ""
 }
 
@@ -146,7 +146,7 @@ proc tts_pause {} {
 proc s {} {
     global tts
     if {$tts(not_stopped)} {
-        puts -nonewline  $tts(write)  "\003 "
+        puts -nonewline  $tts(write)  "\003"
         set tts(not_stopped) 0
         set tts(talking?) 0
         queue_clear
