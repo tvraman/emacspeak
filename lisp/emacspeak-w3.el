@@ -307,7 +307,12 @@ document is displayed in a separate buffer. "
 
 ;;;This should eventually be done via a DOM API
 
-(defsubst emacspeak-w3-html-stack () (get-text-property (point) 'html-stack))
+(defsubst emacspeak-w3-html-stack () (get-text-property (point)
+                                                        'html-stack))
+
+(defsubst emacspeak-w3-get-onclick ()
+  "Return onclick handler if any at point."
+  (cdr (assoc 'onclick (cdar (emacspeak-w3-html-stack)))))
 
 (defsubst emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
