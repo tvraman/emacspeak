@@ -152,7 +152,7 @@ proc s {} {
         queue_clear
         #allow dtk to recover
         read $tts(read) 1
-        select {} {} {} 0.01
+        select {} {} {} 0.009
     }
 }
 
@@ -203,7 +203,7 @@ proc tts_get_acknowledgement {} {
         set tts(talking?) 0
     } else {
         set r $tts(read)
-        while {[lsearch [select [list  $r] {} {} 0.1] $r] >= 0  } {
+        while {[lsearch [select [list  $r] {} {} 0.08] $r] >= 0  } {
             append code [read $r  1]
         }
     }
