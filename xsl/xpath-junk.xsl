@@ -10,7 +10,8 @@ shown in the output.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:set="http://exslt.org/sets"
-  version="1.0">
+  version="1.0"
+  exclude-result-prefixes="set">
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>

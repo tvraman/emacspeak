@@ -35,9 +35,9 @@ relevant tables bubble to the top.
 -->
 <!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:h="http://www.w3.org/1999/xhtml"
   xmlns:set="http://exslt.org/sets"
-  version="1.0">
+  version="1.0"
+  exclude-result-prefixes="set">
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:include href="object.xsl"/>
