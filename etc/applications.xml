@@ -116,6 +116,10 @@ type="text/xsl"?>
     <application name="w3m">
       Light-weight WWW browser.
     Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
+    
+    <application name="mozrepl">
+      Speech-enabled bridge between Emacs and the MozREPL extenxion for
+    Firefox.</application>
     <application name="url-template">
       Emacspeak client  that provides programmable  URL templates.
       Pre-defined templates offer easy access to W3C mailing
@@ -158,12 +162,12 @@ type="text/xsl"?>
     </application>
     <application name="gcal">
     Google Calendar client using ATOM and GData.</application>
-<application name="gphoto">
-  Google Picasa (photo albums)  client using ATOM and GData.
-</application>
-<application name="webmarks">
-Google Bookmarks wizard for storing and finding bookmarks via
-Google.</application>
+    <application name="gphoto">
+      Google Picasa (photo albums)  client using ATOM and GData.
+    </application>
+    <application name="webmarks">
+      Google Bookmarks wizard for storing and finding bookmarks via
+    Google.</application>
   </category>
   <category name="Messaging">
     <application name="atom-blogger">
