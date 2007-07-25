@@ -19,9 +19,9 @@ type="text/xsl"?>
       the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html"
       shape="rect">
       the Emacs Lisp Library</a>.
-      This is also available through the 
+      This is also available through the
       <a href="http://www.emacswiki.org/cgi-bin/wiki/WikifiedEmacsLispList">Emacs Wiki</a>
-      
+
     </p>
     <h2>Speech-Enabled Applications</h2>
   </introduction>
@@ -37,7 +37,7 @@ type="text/xsl"?>
       UNIX online manual browser with full aural highlighting and
     structured browsing.</application>
     <application name="howto">
-    Emacspeak wizard for browsing Linux HOWTO documents.</application>  
+    Emacspeak wizard for browsing Linux HOWTO documents.</application>
   </category>
   <category name="desktop">
     <application name="ido">
@@ -85,7 +85,7 @@ type="text/xsl"?>
       File browser interface for finding files.
     </application>
     <application name="find-dired">
-      Seamless integration between the file browser and 
+      Seamless integration between the file browser and
       finder.
     </application>
     <application name="find-grep">
@@ -105,7 +105,7 @@ type="text/xsl"?>
     <application name="Find Wizard">
       Command  <code>emacspeak-wizards-generate-finder</code>
     provides an easy to use front-end to UNIX <code>find</code>.</application>
-    
+
     <application name="apt-get">
     Emacs interface to Debian <code>apt-get</code></application>
   </category>
@@ -158,6 +158,12 @@ type="text/xsl"?>
     </application>
     <application name="gcal">
     Google Calendar client using ATOM and GData.</application>
+<application name="gphoto">
+  Google Picasa (photo albums)  client using ATOM and GData.
+</application>
+<application name="webmarks">
+Google Bookmarks wizard for storing and finding bookmarks via
+Google.</application>
   </category>
   <category name="Messaging">
     <application name="atom-blogger">
@@ -257,7 +263,7 @@ type="text/xsl"?>
     <application name="xml-shell">
       Interactive shell for browsing XML structures via libxml and
       XMLLint.
-    </application>  
+    </application>
   </category>
   <category name="taskbar">
     <application name="view-process">
@@ -266,11 +272,11 @@ type="text/xsl"?>
     <application name="analog">
       Analog.el provides a log analyzer that can be customized to
       display system log files with a few convenient
-    keystrokes.</application>  
+    keystrokes.</application>
   </category>
   <category name="Multimedia">
     <application name="aumix">
-      Emacspeak front-end for configuring  the 
+      Emacspeak front-end for configuring  the
       auditory display.
     </application>
     <application name="cd-tool">
@@ -352,7 +358,7 @@ type="text/xsl"?>
 
     <application name="muse">
       Speech-enables <code>muse-mode</code> an Emacs publishing
-      package that enables Wiki-like authoring 
+      package that enables Wiki-like authoring
       with the ability to publish the results to multiple formats.
   </application></category>
   <category name="Reading">
@@ -377,7 +383,7 @@ type="text/xsl"?>
       It is built on top of <code>outline mode</code> and is a useful
     way to keep organized notes.</application>
     <application name="remember">
-      Package <code>remember.el</code> 
+      Package <code>remember.el</code>
       in conjunction with <code>org mode</code> for keeping notes is a
       powerful way to remember related items of information. As an
       example, I now use the functionality provided by package
@@ -444,7 +450,7 @@ type="text/xsl"?>
       customization options.
     </application>
     <application name="dictation">
-      Front-end to IBM ViaVoice dictation engine; 
+      Front-end to IBM ViaVoice dictation engine;
       spoken text is recognized using Automatic Speech
       Recognition (ASR),
       inserted into the current context and
@@ -457,7 +463,7 @@ type="text/xsl"?>
       Interface for browsing diff output;
       enables easy merging of different file versions, applying
       patches etc.
-      Voice locking is used to advantage in 
+      Voice locking is used to advantage in
     aurally highlighting the differences.</application>
     <application name="forms">
       Forms-based interface for manipulating structured data.
@@ -516,7 +522,7 @@ type="text/xsl"?>
   </category>
   <category name=" programming">
     <application name="jde">
-      Java Development Environment with interactive debugging  
+      Java Development Environment with interactive debugging
       support using the Java Platform Debug Architecture
       (JPDA). Provides a speech-enabled inspector and wizards.
     </application>
@@ -596,7 +602,7 @@ type="text/xsl"?>
   <category name="Distractions">
     <application name="entertain">
       Speech-enabled access to numerous games including
-      adventure, a multiplication puzzle and 
+      adventure, a multiplication puzzle and
       Hangman.
     </application>
 
@@ -611,9 +617,9 @@ type="text/xsl"?>
     <application name="tetris">
       Speech-enabled version of Tetris with auditory icons and the
       needed UI enhancements to play eyes-free Tetris.
-      See  the paper entitled 
+      See  the paper entitled
       <em></em> Conversational Gestures On The Audio Desktop (Assets 98)
-      for the underpinnings of this enhanced UI 
+      for the underpinnings of this enhanced UI
       --- <a
       href="http://emacspeak.sf.net/raman/publications/assets-98/">online
       paper</a>.
@@ -639,7 +645,7 @@ type="text/xsl"?>
     <p>
       <strong>
         <a href="http://sourceforge.net/projects/emacspeak">
-          Emacspeak Home On Sourceforge 
+          Emacspeak Home On Sourceforge
           <IMG src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge Logo"/>
         </a>
       </strong>
@@ -651,14 +657,3 @@ type="text/xsl"?>
     </p>
   </postamble>
 </applications>
-<!-- 
-     local variables:
-     major-mode: xml-mode
-     sgml-set-face: nil
-     end:
--->
-<!--
-    local variables:
-    sgml-set-face: nil
-    end:
--->
