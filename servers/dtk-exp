@@ -295,7 +295,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "\[:sa c]\[:ra $r]\[:pu $mode]"
+    set prefix "\[:sa c]\[:ra $r]\[:pu $mode :i r 0]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
@@ -304,7 +304,7 @@ proc speech_task {} {
             s {
                 set text [clean [lindex $event 1]]
                 puts -nonewline  $tts(write) \
-                "\[:i r $index]$prefix $text\[_.]\013"
+                "$prefix $text\[_.]\013"
                 set retval [tts_get_acknowledgement ]
             }
             t {
