@@ -168,26 +168,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 ;;}}}
 ;;{{{ post processer hook
 
-(defun emacspeak-websearch-post-process (locator speaker &rest args)
-  "Set up post processing steps on a result page.
-LOCATOR is a string to search for in the results page.
-SPEAKER is a function to call to speak relevant information.
-ARGS specifies additional arguments to SPEAKER if any."
-  (declare (special emacspeak-w3-post-process-hook))
-  (when (or   (eq browse-url-browser-function 'w3-fetch)
-              (eq browse-url-browser-function 'browse-url-w3)
-              (eq browse-url-browser-function 'w3m-browse-url))
-    (add-hook  'emacspeak-w3-post-process-hook
-               (`
-                (lambda nil
-                  (cond
-                   ((search-forward (, locator) nil t)
-                    (recenter 0)
-                    (apply(quote
-                           (, speaker))
-                          (, args)))
-                   (t (message "Your search appears to have failed."))))))))
-
 ;;}}}
 
 ;;}}}
@@ -252,7 +232,7 @@ ARGS specifies additional arguments to SPEAKER if any."
    (concat emacspeak-websearch-alltheweb-uri
            "&q="
            (emacspeak-url-encode query)))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "documents found"
    'emacspeak-speak-line))
 
@@ -278,7 +258,7 @@ ARGS specifies additional arguments to SPEAKER if any."
     (browse-url
      (concat emacspeak-websearch-altavista-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "Results"
    'emacspeak-speak-line))
 
@@ -306,7 +286,7 @@ ARGS specifies additional arguments to SPEAKER if any."
     (browse-url
      (concat emacspeak-websearch-biblio-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -360,10 +340,10 @@ ARGS specifies additional arguments to SPEAKER if any."
              options))
     (cond
      ((char-equal type-char ?a)
-      (emacspeak-websearch-post-process "documents found"
+      (emacspeak-webutils-post-process "documents found"
                                         'emacspeak-speak-line))
      ((char-equal ?c type-char)
-      (emacspeak-websearch-post-process "citations found" 'emacspeak-speak-line)))))
+      (emacspeak-webutils-post-process "citations found" 'emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ bbc
@@ -458,7 +438,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;            (format "query=%s&qt=%s"
 ;;                    (emacspeak-url-encode query)
 ;;                    (emacspeak-url-encode query))))
-;;   (emacspeak-websearch-post-process
+;;   (emacspeak-webutils-post-process
 ;;    "Results"
 ;;    'emacspeak-speak-line))
 
@@ -502,7 +482,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;                  (read-from-minibuffer
 ;;                   "Additional query parameters: ")
 ;;                ""))))
-;;   (emacspeak-websearch-post-process
+;;   (emacspeak-webutils-post-process
 ;;    "Results"
 ;;    'emacspeak-speak-line))
 
@@ -529,7 +509,7 @@ ARGS specifies additional arguments to SPEAKER if any."
     (browse-url
      (concat emacspeak-websearch-foldoc-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -605,7 +585,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
      (concat emacspeak-websearch-quotes-yahoo-uri
              (emacspeak-url-encode query)
              emacspeak-websearch-quotes-yahoo-options))
-    (emacspeak-websearch-post-process
+    (emacspeak-webutils-post-process
      "Symbol"
      'emacspeak-speak-line))))
 
@@ -628,7 +608,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (browse-url
    (concat emacspeak-websearch-koders-uri
            (emacspeak-url-encode query)))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "Results"
    'emacspeak-speak-line))
 
@@ -692,7 +672,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
                          (?s "/sec")
                          ))
                (format "s=%s" ticker)))
-      (emacspeak-websearch-post-process
+      (emacspeak-webutils-post-process
        (format-time-string "%Y")
        'emacspeak-speak-line)))))
 
@@ -766,7 +746,7 @@ Optional second arg as-html processes the results as HTML rather than data."
                  (format "&f=%s" end-year)
                  (format "&g=%s" period)
                  (format "&s=%s" ticker)))
-        (emacspeak-websearch-post-process
+        (emacspeak-webutils-post-process
          "Open"
          'emacspeak-speak-line)))))
 
@@ -809,7 +789,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (browse-url
      (concat emacspeak-websearch-dictionary-hypertext-webster-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -856,7 +836,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (browse-url
      (concat emacspeak-websearch-freshmeat-search-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "search results"
    'emacspeak-speak-line))
 
@@ -877,7 +857,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (browse-url
      (concat emacspeak-websearch-ctan-search-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -898,7 +878,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (browse-url
      (concat emacspeak-websearch-cpan-search-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 (defvar emacspeak-websearch-swik-search-uri
@@ -916,7 +896,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   (browse-url
    (concat emacspeak-websearch-swik-search-uri
            (emacspeak-url-encode query)))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -969,7 +949,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (browse-url
      (concat emacspeak-websearch-britannica-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -1000,7 +980,7 @@ Optional second arg as-html processes the results as HTML rather than data."
                (?a "author=")
                (?t "title="))
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -1056,7 +1036,7 @@ I'm Feeling Lucky button on Google."
                   "I'm Feeling Lucky")))))))
   (if lucky
       (emacspeak-speak-line)
-    (emacspeak-websearch-post-process
+    (emacspeak-webutils-post-process
      "results"
      'emacspeak-speak-line)))
 
@@ -1172,7 +1152,7 @@ Optional interactive  prefix arg local-flag prompts for local
                (if local-flag
                    (format "&mode=local&addr=%s" local)
                  ""))))
-     (emacspeak-websearch-post-process
+     (emacspeak-webutils-post-process
       query
       'emacspeak-speak-line))))
 
@@ -1324,7 +1304,7 @@ Optional interactive  prefix arg local-flag prompts for local
   (browse-url
    (concat emacspeak-websearch-google-mobile-uri
            (emacspeak-url-encode query)))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-rest-of-buffer))
 
@@ -1471,7 +1451,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     (browse-url
      (concat emacspeak-websearch-jeeves-uri
              (emacspeak-url-encode query)))
-    (emacspeak-websearch-post-process
+    (emacspeak-webutils-post-process
      query
      'emacspeak-speak-line)))
 
@@ -1537,7 +1517,7 @@ With optional interactive prefix arg MAP shows the location map instead."
        (concat
         emacspeak-websearch-map-yahoomaps-uri
         query))
-      (emacspeak-websearch-post-process
+      (emacspeak-webutils-post-process
        "Nearby"
        'emacspeak-speak-line))
      (t
@@ -1615,7 +1595,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 ;;     (browse-url
 ;;      (concat emacspeak-websearch-northern-light-uri
 ;;              (emacspeak-url-encode query))))
-;;   (emacspeak-websearch-post-process
+;;   (emacspeak-webutils-post-process
 ;;    "Your search"
 ;;    'emacspeak-speak-line))
 
@@ -1643,7 +1623,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (browse-url
      (concat emacspeak-websearch-open-directory-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "Search results"
    'emacspeak-speak-line))
 
@@ -1671,7 +1651,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (browse-url
      (concat emacspeak-websearch-rpm-find-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
 
@@ -1718,7 +1698,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (browse-url
      (concat emacspeak-websearch-merriam-webster-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "Main Entry"
    'emacspeak-speak-line))
 
@@ -1768,7 +1748,7 @@ Optional prefix arg no-rss scrapes information from HTML."
      (concat emacspeak-websearch-w3c-search-uri
              "&q="
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "match"
    'emacspeak-speak-line))
 
@@ -1793,7 +1773,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (browse-url
    (format emacspeak-websearch-wikipedia-search-uri
            (emacspeak-url-encode query)))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    query
    'emacspeak-speak-rest-of-buffer))
 
@@ -1820,7 +1800,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                    (emacspeak-url-encode (read-from-minibuffer "Last name: "))
                    (emacspeak-url-encode (read-from-minibuffer "City: "))
                    (emacspeak-url-encode (read-from-minibuffer "State: ")))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "First"
    'emacspeak-speak-line))
 
@@ -1867,7 +1847,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (browse-url
      (concat emacspeak-websearch-yahoo-uri
              (emacspeak-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-webutils-post-process
    "
 Results"
    'emacspeak-speak-line))
@@ -1930,7 +1910,7 @@ Results"
    (format "%s%s"
            emacspeak-websearch-my-rss-search-uri
            query))
-  (emacspeak-websearch-post-process query
+  (emacspeak-webutils-post-process query
                                     'emacspeak-speak-line))
 
 ;;}}}
@@ -2034,7 +2014,7 @@ Optional interactive prefix arg results in prompting for a search term."
              emacspeak-websearch-google-number-of-results))
       (emacspeak-webutils-without-xsl
        (browse-url  url)
-       (emacspeak-websearch-post-process
+       (emacspeak-webutils-post-process
         "Sort by"
         'emacspeak-speak-line)))
      (t                                 ;browse

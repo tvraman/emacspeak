@@ -130,7 +130,7 @@ or URL read from minibuffer."
                               "http://"))))
 
 ;;;  Helper: rename result buffer
-(defsubst emacspeak-we-rename-buffer (key)
+(defsubst emacspeak-webutils-rename-buffer (key)
   "Setup emacspeak-w3-post-process-hook  to rename result buffer"
   (add-hook
    'emacspeak-w3-post-process-hook
@@ -141,6 +141,27 @@ or URL read from minibuffer."
          (format "%s %s"
                  ,key (buffer-name))
          'unique))))))
+
+;;;###autoload
+(defun emacspeak-webutils-post-process (locator speaker &rest args)
+  "Set up post processing steps on a result page.
+LOCATOR is a string to search for in the results page.
+SPEAKER is a function to call to speak relevant information.
+ARGS specifies additional arguments to SPEAKER if any."
+  (declare (special emacspeak-w3-post-process-hook))
+  (when (or   (eq browse-url-browser-function 'w3-fetch)
+              (eq browse-url-browser-function 'browse-url-w3)
+              (eq browse-url-browser-function 'w3m-browse-url))
+    (add-hook  'emacspeak-w3-post-process-hook
+               (`
+                (lambda nil
+                  (cond
+                   ((search-forward (, locator) nil t)
+                    (recenter 0)
+                    (apply(quote
+                           (, speaker))
+                          (, args)))
+                   (t (message "Your search appears to have failed."))))))))
 
 ;;}}}
 ;;{{{ helper macros:
@@ -272,7 +293,7 @@ With a prefix argument, extracts url under point."
     "%s%s"
     emacspeak-webutils-google-related-uri
     url))
-  (emacspeak-websearch-post-process "Similar"
+  (emacspeak-webutils-post-process "Similar"
                                     'emacspeak-speak-line))
 (defvar emacspeak-webutils-google-transcoder-url
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"

@@ -258,7 +258,7 @@ from Web page -- default is the current page being viewed."
     (interactive-p)))
   (declare (special emacspeak-we-xsl-filter ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-we-rename-buffer (format "Filtered %s" path))
+    (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
      emacspeak-we-xsl-filter
@@ -276,7 +276,7 @@ from Web page -- default is the current page being viewed."
     (interactive-p)))
   (declare (special emacspeak-we-xsl-junk ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-we-rename-buffer
+    (emacspeak-webutils-rename-buffer
      (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
