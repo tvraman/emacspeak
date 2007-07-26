@@ -217,7 +217,17 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{  template resources
+;;{{{ Mozilla MDC
 
+(emacspeak-url-template-define
+ "Mozilla Developers Corner"
+ "http://developer.mozilla.org/en/docs/%s"
+ (list "MDC: ")
+ nil
+ "Pull specified resource from MDC.")
+
+
+;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
