@@ -155,7 +155,7 @@
       (setq calendar-mode-line-format
             emacspeak-calendar-mode-line-format)
       (tts-with-punctuations "some"
-      (dtk-speak "Welcome to the calendar. ")))))
+                             (dtk-speak "Welcome to the calendar. ")))))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
   "Speak the date. "
@@ -342,7 +342,7 @@
   "Silence messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
-ad-return-value))
+    ad-return-value))
 
 ;;}}}
 ;;{{{  keymap

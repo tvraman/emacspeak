@@ -100,10 +100,8 @@
 (defsubst emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."
   (or   (eq browse-url-browser-function 'w3-fetch)
-              (eq browse-url-browser-function 'browse-url-w3)
-              (eq browse-url-browser-function 'w3m-browse-url)))
-
-
+        (eq browse-url-browser-function 'browse-url-w3)
+        (eq browse-url-browser-function 'w3m-browse-url)))
 
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered."
@@ -164,11 +162,11 @@ ARGS specifies additional arguments to SPEAKER if any."
                (eval
                 `(function
                   (lambda nil
-                  (cond
-                   ((search-forward ,locator nil t)
-                    (recenter 0)
-                    (apply(quote ,speaker) ,args))
-                   (t (message "Your search appears to have failed.")))))))))
+                    (cond
+                     ((search-forward ,locator nil t)
+                      (recenter 0)
+                      (apply(quote ,speaker) ,args))
+                     (t (message "Your search appears to have failed.")))))))))
 
 ;;}}}
 ;;{{{ helper macros:
@@ -301,7 +299,7 @@ With a prefix argument, extracts url under point."
     emacspeak-webutils-google-related-uri
     url))
   (emacspeak-webutils-post-process "Similar"
-                                    'emacspeak-speak-line))
+                                   'emacspeak-speak-line))
 (defvar emacspeak-webutils-google-transcoder-url
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL pattern for accessing Google transcoder.")
