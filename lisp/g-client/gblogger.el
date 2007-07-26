@@ -242,6 +242,20 @@ The retrieved entry is placed in a buffer ready for editing.
     (read-from-minibuffer "Entry URL:")))
   (declare (special gblogger-auth-handle))
   (g-app-delete-entry gblogger-auth-handle url))
+;;;###autoload
+(defun gblogger-add-label (label)
+  "Adds labels to gblogger entry being editted."
+  (interactive "sLabel: ")
+  (save-excursion
+    (goto-char (point-min))
+    (search-forward "</title>")
+    (insert
+     (format "
+     <category scheme='http://www.blogger.com/atom/ns#'term='%s'/>"
+             label))))
+
+
+
 
 ;;}}}
 ;;{{{ Reset auth handle:
