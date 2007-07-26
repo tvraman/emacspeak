@@ -253,14 +253,10 @@ When using supported browsers,  this interface attempts to speak the most releva
   (interactive
    (list (emacspeak-websearch-read-query "Altavista Query: ")))
   (declare (special emacspeak-websearch-altavista-uri))
-  (let (
-        )
-    (browse-url
-     (concat emacspeak-websearch-altavista-uri
-             (emacspeak-url-encode query))))
-  (emacspeak-webutils-post-process
-   "Results"
-   'emacspeak-speak-line))
+  (browse-url
+   (concat emacspeak-websearch-altavista-uri
+           (emacspeak-url-encode query)))
+  (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Computer Science Bibliography
@@ -419,74 +415,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 ;;}}}
 ;;{{{ CNN
 
-;; (emacspeak-websearch-set-searcher 'cnn
-;;                                   'emacspeak-websearch-cnn-search)
-;; (emacspeak-websearch-set-key ?c 'cnn)
-
-;; (defvar emacspeak-websearch-cnn-uri
-;;   "http://search.cnn.com/cnn/search?sites=cnn&source=cnn&"
-;;   "*URI for launching a CNN Interactive  search.")
-
-;; (defun emacspeak-websearch-cnn-search (query )
-;;   "Perform an CNN search.  "
-;;   (interactive
-;;    (list
-;;     (emacspeak-websearch-read-query "CNN Interactive Query: ")))
-;;   (declare (special emacspeak-websearch-cnn-uri))
-;;   (browse-url
-;;    (concat emacspeak-websearch-cnn-uri
-;;            (format "query=%s&qt=%s"
-;;                    (emacspeak-url-encode query)
-;;                    (emacspeak-url-encode query))))
-;;   (emacspeak-webutils-post-process
-;;    "Results"
-;;    'emacspeak-speak-line))
-
-;;}}}
-;;{{{ CNN FN
-
-;; (emacspeak-websearch-set-searcher 'cnn-fn
-;;                                   'emacspeak-websearch-fn-cnn-search)
-;; (emacspeak-websearch-set-key ?f 'cnn-fn)
-
-;; (defvar emacspeak-websearch-fn-cnn-uri
-;;   "http://search.cnnfn.com/query.html?qt="
-;;   "*URI for launching a CNN FN  search.")
-
-;; (defvar emacspeak-websearch-fn-cnn-options
-;;   "&col=cnnfn&rq=0&qc=cnnfn&qm=1&st=1&nh=10&lk=1&rf=1&go=+seek+"
-;;   "*Additional default options to pass to CNN.")
-
-;; (defun emacspeak-websearch-fn-cnn-search (query &optional prefix)
-;;   "Perform an CNN FNsearch.
-;; Optional interactive prefix arg
-;; prompts for additional search parameters.  The default is to
-;; sort by date and show summaries.  To sort by relevance
-;; specify additional parameter &rf=0.  To hide summaries,
-;; specify additional parameter &lk=2.
-;; You can customize the defaults by setting variable
-;; emacspeak-websearch-fn-cnn-options to an appropriate string."
-;;   (interactive
-;;    (list
-;;     (emacspeak-websearch-read-query "CNN FN Query: ")
-;;     current-prefix-arg))
-;;   (declare (special emacspeak-websearch-fn-cnn-uri
-;;                     emacspeak-websearch-fn-cnn-options))
-;;   (let (
-;;      )
-;;     (browse-url
-;;      (concat emacspeak-websearch-fn-cnn-uri
-;;              (emacspeak-url-encode query)
-;;              emacspeak-websearch-fn-cnn-options
-;;              (if prefix
-;;                  (read-from-minibuffer
-;;                   "Additional query parameters: ")
-;;                ""))))
-;;   (emacspeak-webutils-post-process
-;;    "Results"
-;;    'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ FolDoc
 
 (emacspeak-websearch-set-searcher 'foldoc
