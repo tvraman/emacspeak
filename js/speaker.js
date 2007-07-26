@@ -16,16 +16,13 @@ function Speaker(path) {
         createInstance(Components.interfaces.nsILocalFile);
     this.exec_ = Components.classes["@mozilla.org/process/util;1"].
         createInstance(Components.interfaces.nsIProcess);
-    var path = (path == null)
-               ? '/usr/share/emacs/site-lisp/emacspeak'  : path;
-    this.path_ = path +"servers/python/HTTPSpeaker.py";
+    this.path_ = (path === undefined) ? '/usr/share/emacs/site-lisp/emacspeak'  : path;
+    this.path_ += "servers/python/HTTPSpeaker.py";
     exec_file.initWithPath(this.path_);
     this.exec_.init(exec_file);
   } catch (err) {
-    repl.print("Cannot initialize executable with path="
-               + this.path_
-               + " error: "
-               + err);
+    repl.print(
+        "Cannot initialize executable with path=" + this.path_ + " error: " + err);
   }
 }
 
@@ -40,7 +37,7 @@ Speaker.prototype.init = function() {
      * @private url_
      * URL of our local server
      */
-    this.url_ ='http://localhost:8000/'
+    this.url_ ='http://localhost:8000/';
   } catch (err) {
     repl.print("Error running " + this.path_ );
   }
@@ -59,3 +56,5 @@ Speaker.prototype.say = function(text) {
   xhr.open("GET", url,true);
   xhr.send(null);
 };
+
+repl.print("Loaded speaker.js");
