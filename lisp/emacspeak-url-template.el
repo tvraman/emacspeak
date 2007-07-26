@@ -67,12 +67,12 @@
 
 (defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
-  name                                ;Human-readable name
-  template                            ;template URL string
-  generators                          ; list of param generator
-  post-action                         ;action to perform after opening
-  documentation                       ;resource  documentation
-  fetcher                             ; custom fetcher
+  name                           ;Human-readable name
+  template                       ;template URL string
+  generators                     ; list of param generator
+  post-action                    ;action to perform after opening
+  documentation                  ;resource  documentation
+  fetcher                        ; custom fetcher
   dont-url-encode)
 
 ;;}}}
@@ -2005,8 +2005,8 @@ Meerkat realy needs an xml-rpc method for getting this.")
         (url (emacspeak-url-template-url ut)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
-                   (eq browse-url-browser-function 'w3-fetch)
-                   (eq browse-url-browser-function 'browse-url-w3)))
+                   
+                   (emacspeak-webutils-supported-p)))
       (add-hook 'emacspeak-w3-post-process-hook
                 (emacspeak-url-template-post-action ut))
       (add-hook 'emacspeak-w3-post-process-hook
