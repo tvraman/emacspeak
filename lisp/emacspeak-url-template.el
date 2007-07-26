@@ -575,8 +575,9 @@ content."
  "http://www.google.com/views?q=%s+view:timeline&num=25"
  (list "Google For: ")
  #'(lambda nil
-     (emacspeak-webutils-post-process "Timeline View"
-                                       'emacspeak-speak-rest-of-buffer))
+     (re-search-forward "^ Timeline View" nil t)
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
  "Do a Google search and get a timeline view of results.")
  
 ;;}}}
