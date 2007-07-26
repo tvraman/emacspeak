@@ -318,7 +318,6 @@ document is displayed in a separate buffer. "
   "Return class if any at point."
   (cdr (assoc 'class (cdar (emacspeak-w3-html-stack)))))
 
-
 (defsubst emacspeak-w3-get-onchange ()
   "Return onchange handler if any at point."
   (cdr (assoc 'onchange (cdar (emacspeak-w3-html-stack)))))

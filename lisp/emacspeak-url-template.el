@@ -67,12 +67,12 @@
 
 (defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
-  name                           ;Human-readable name
-  template                       ;template URL string
-  generators                     ; list of param generator
-  post-action                    ;action to perform after opening
-  documentation                  ;resource  documentation
-  fetcher                        ; custom fetcher
+  name                                ;Human-readable name
+  template                            ;template URL string
+  generators                          ; list of param generator
+  post-action                         ;action to perform after opening
+  documentation                       ;resource  documentation
+  fetcher                             ; custom fetcher
   dont-url-encode)
 
 ;;}}}
@@ -226,6 +226,15 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Pull specified resource from MDC.")
 
+(emacspeak-url-template-define
+ "MDC Search"
+ "http://developer.mozilla.org/en/docs/Special:Nutch?language=en&start=0&hitsPerPage=10&query=%s&fulltext=Search"
+ (list "MDC: ")
+ nil
+ "Search MDC Wiki."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id
+      "content" url 'speak)))
 
 ;;}}}
 ;;{{{  fedex, UPS
@@ -589,7 +598,7 @@ content."
      (forward-line 1)
      (emacspeak-speak-rest-of-buffer))
  "Do a Google search and get a timeline view of results.")
- 
+
 ;;}}}
 
 ;;{{{ Anonimize google search
@@ -2015,7 +2024,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
         (url (emacspeak-url-template-url ut)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
-                   
+
                    (emacspeak-webutils-supported-p)))
       (add-hook 'emacspeak-w3-post-process-hook
                 (emacspeak-url-template-post-action ut))

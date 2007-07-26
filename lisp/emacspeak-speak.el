@@ -746,7 +746,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -758,10 +758,10 @@ the sense of the filter. "
   (defun format-mode-line (spec)
     "Process mode line format spec."
     (cond
-;;; leaves                              ; ; ; ; ; ;
+;;; leaves                              ; ; ; ; ; ; ;
      ((symbolp spec) (symbol-value  spec))
      ((stringp spec) spec)
-;;; leaf + tree:                        ; ; ; ; ; ;
+;;; leaf + tree:                        ; ; ; ; ; ; ;
      ((and (listp spec)
            (stringp (car spec)))
       (concat

@@ -337,7 +337,7 @@ When using supported browsers,  this interface attempts to speak the most releva
     (cond
      ((char-equal type-char ?a)
       (emacspeak-webutils-post-process "documents found"
-                                        'emacspeak-speak-line))
+                                       'emacspeak-speak-line))
      ((char-equal ?c type-char)
       (emacspeak-webutils-post-process "citations found" 'emacspeak-speak-line)))))
 
@@ -1839,7 +1839,7 @@ Results"
            emacspeak-websearch-my-rss-search-uri
            query))
   (emacspeak-webutils-post-process query
-                                    'emacspeak-speak-line))
+                                   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Shopping at Amazon
