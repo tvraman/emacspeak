@@ -119,7 +119,8 @@
     (set-buffer emacspeak-moz-output-buffer)
     (goto-char (point-max))
     (insert output)
-    output))
+    ""))
+
 ;;;###autoload
 (defun emacspeak-moz-eval-expression-and-browse (exp)
   "Send expression to Moz, get output, and browse it in Emacs."
@@ -174,7 +175,7 @@
     (cond
      (url
       (emacspeak-moz-eval-expression-and-go
-       (format "content.location.href='%s';\n"
+       (format "content.location.href=\"%s\";\n"
                url))
       (message "Sent url at point to firefox."))
      (t (error "No url under point.")))))
@@ -286,7 +287,7 @@ title)\n"
   "Browse current node."
   (interactive)
   (emacspeak-moz-eval-expression-and-browse
-   " repl.adom.html(1)"))
+   "repl.updateADom(); repl.adom.html(1)"))
 
 ;;;###autoload
 (defun emacspeak-moz-visit-previous-and-browse ()
