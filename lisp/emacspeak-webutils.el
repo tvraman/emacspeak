@@ -97,6 +97,14 @@
           (while (search-forward entity end t)
             (replace-match replacement )))))
 
+(defsubst emacspeak-webutils-supported-p ()
+  "Check if this is a supported browser."
+  (or   (eq browse-url-browser-function 'w3-fetch)
+              (eq browse-url-browser-function 'browse-url-w3)
+              (eq browse-url-browser-function 'w3m-browse-url)))
+
+
+
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-w3-post-process-hook
@@ -149,9 +157,7 @@ LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
   (declare (special emacspeak-w3-post-process-hook))
-  (when (or   (eq browse-url-browser-function 'w3-fetch)
-              (eq browse-url-browser-function 'browse-url-w3)
-              (eq browse-url-browser-function 'w3m-browse-url))
+  (when (emacspeak-webutils-supported-p)
     (add-hook  'emacspeak-w3-post-process-hook
                (eval
                 `(function
