@@ -153,15 +153,14 @@ ARGS specifies additional arguments to SPEAKER if any."
               (eq browse-url-browser-function 'browse-url-w3)
               (eq browse-url-browser-function 'w3m-browse-url))
     (add-hook  'emacspeak-w3-post-process-hook
-               (`
-                (lambda nil
+               (eval
+                `(function
+                  (lambda nil
                   (cond
-                   ((search-forward (, locator) nil t)
+                   ((search-forward ,locator nil t)
                     (recenter 0)
-                    (apply(quote
-                           (, speaker))
-                          (, args)))
-                   (t (message "Your search appears to have failed."))))))))
+                    (apply(quote ,speaker) ,args))
+                   (t (message "Your search appears to have failed.")))))))))
 
 ;;}}}
 ;;{{{ helper macros:
