@@ -7,22 +7,22 @@
  * Speaker encapsulates speech server connection.
  * @constructor
  * Optional: @param {path} Specifies Emacspeak install root
- * e.g., /usr/share/emacs/site-lisp/emacspeak
+ * e.g., /usr/share/emacs/site-lisp/emacspeak/
  */
 
 function Speaker(path) {
   try {
-    var exec_file = Components.classes["@mozilla.org/file/local;1"].
+    var exec_file = Components.classes['@mozilla.org/file/local;1'].
         createInstance(Components.interfaces.nsILocalFile);
-    this.exec_ = Components.classes["@mozilla.org/process/util;1"].
+    this.exec_ = Components.classes['@mozilla.org/process/util;1'].
         createInstance(Components.interfaces.nsIProcess);
-    this.path_ = (path === undefined) ? '/usr/share/emacs/site-lisp/emacspeak'  : path;
-    this.path_ += "servers/python/HTTPSpeaker.py";
+    this.path_ = (path === undefined) ? '/usr/share/emacs/site-lisp/emacspeak/'  : path;
+    this.path_ += 'servers/python/HTTPSpeaker.py';
     exec_file.initWithPath(this.path_);
     this.exec_.init(exec_file);
   } catch (err) {
     repl.print(
-        "Cannot initialize executable with path=" + this.path_ + " error: " + err);
+        'Cannot initialize executable with path=' + this.path_ + ' error: ' + err);
   }
 }
 
@@ -39,7 +39,7 @@ Speaker.prototype.init = function() {
      */
     this.url_ ='http://localhost:8000/';
   } catch (err) {
-    repl.print("Error running " + this.path_ );
+    repl.print('Error running ' + this.path_ );
   }
 };
 
@@ -51,10 +51,9 @@ Speaker.prototype.init = function() {
  */
 Speaker.prototype.say = function(text) {
   var url = this.url_ + 'say?' +encodeURIComponent(text);
-  repl.print(url);
   var xhr  = new XMLHttpRequest();
-  xhr.open("GET", url,true);
+  xhr.open('GET', url,true);
   xhr.send(null);
 };
 
-repl.print("Loaded speaker.js");
+repl.print('Loaded speaker.js');
