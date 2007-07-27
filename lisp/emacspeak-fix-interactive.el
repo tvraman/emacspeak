@@ -78,7 +78,7 @@
   (declare (special emacspeak-commands-dont-fix-regexp))
   (and (commandp sym)
        (not (get  sym 'emacspeak-checked-interactive))
-       (stringp (second (ad-interactive-form (symbol-function sym))))
+       (stringp (second (interactive-form (symbol-function sym))))
        (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
 (defun emacspeak-fix-commands-that-use-interactive ()
@@ -104,7 +104,7 @@ use the minibuffer."
   (declare (special emacspeak-fix-interactive-problematic-functions))
   (let* ((prompts
           (split-string
-           (second (ad-interactive-form (symbol-function sym )))
+           (second (interactive-form (symbol-function sym )))
            "\n"))
          (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
                                         ;memoize call
