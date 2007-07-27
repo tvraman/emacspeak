@@ -29,7 +29,7 @@ Emacspeak.prototype.init = function() {
     repl.load(js + 'di.js');
     repl.load(js + 'adom.js');
     repl.load(js + 'speaker.js');
-    this.speaker_ = new Speaker(this.path_);
+    this.speaker_ = new Speaker(false, this.path_);
     this.speaker_.init();
     // this.speaker_.say('Welcome to Emacspeak');
   } catch (err) {
