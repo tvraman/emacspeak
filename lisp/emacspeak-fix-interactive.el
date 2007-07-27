@@ -94,7 +94,7 @@
   "Functions whose interactive prompt we will need to fix by hand
 because auto-advising was not possible.")
 
-;;;###autoload
+
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  
 Fix the function definition of sym to make its interactive form
@@ -144,7 +144,7 @@ use the minibuffer."
   t)
 
 ;;; inline function for use from other modules:
-;;;###autoload
+
 (defun  emacspeak-fix-interactive-command-if-necessary
   (command)
   "Fix command if necessary."

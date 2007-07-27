@@ -226,7 +226,7 @@ host is listening on for speech requests."
      (t (error "Failed to connect to speech server on host %s port %s"
                host port )))))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-remote-connect-to-server)
+
 
 ;;}}}
 (provide 'emacspeak-remote )

@@ -116,7 +116,9 @@
 
 (defun emacspeak-m-player-command (command-char)
   "Invoke MPlayer commands."
-  (interactive "cMPlayer Command:")
+  (interactive
+   (list
+    (read-char "MPlayer Command: ")))
   (declare (special emacspeak-m-player-process))
   (cond
    ((=  command-char ?\;)
@@ -131,8 +133,7 @@
        (lookup-key emacspeak-m-player-mode-map
                    (format "%c" command-char)))))))
 
-(emacspeak-fix-interactive-command-if-necessary
- 'emacspeak-m-player-command)
+
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list noselect)
