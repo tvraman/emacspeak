@@ -161,7 +161,7 @@
                            (browse-url-url-at-point)
                            "http://"))))
   (emacspeak-moz-eval-expression-and-go
-   (format "content.location.href='%s';\n"
+   (format "content.location.href='%s'\n"
            url)))
 
 ;;;###autoload
@@ -185,19 +185,23 @@
   "Move forward in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserForward(); repl.updateADom();repl.print(\"\\n\"+title)\n")
+   "BrowserForward(); repl.updateADom()\n")
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object))
-  (emacspeak-speak-line))
+    (emacspeak-moz-eval-expression-and-go
+     "repl.emacspeak.say(title)\n")))
+
 ;;;###autoload
 (defun emacspeak-moz-browser-back ()
   "Move back in history."
   (interactive)
   (emacspeak-moz-eval-expression-and-go
-   "BrowserBack(); repl.updateADom(); repl.print(\"\\n\"+title)\n")
+   "BrowserBack(); repl.updateADom(); ")
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object))
+    (emacspeak-moz-eval-expression-and-go
+     "repl.emacspeak.say(title)\n")))
+
   (emacspeak-speak-line))
+
 ;;;###autoload
 (defun emacspeak-moz-jump (index)
   "Jump to specified index in history."
