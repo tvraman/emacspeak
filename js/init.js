@@ -26,17 +26,16 @@ function Emacspeak (path) {
 Emacspeak.prototype.init = function() {
   try {
     var js = 'file://localhost' + this.path_ + 'js/';
-    repl.load(js + 'dis.js');
-    repl.print('dis.js');
+    repl.load(js + 'di.js');
     repl.load(js + 'adom.js');
-    repl.print('adom');
     repl.load(js + 'speaker.js');
-    this.speaker_ = new Speaker();
+    this.speaker_ = new Speaker(this.path_);
     this.speaker_.init();
-    this.speaker_.say('Welcome to Emacspeak');
+    // this.speaker_.say('Welcome to Emacspeak');
   } catch (err) {
-    repl.print("Error during init " + err);
+    repl.print('Error during init ' + err);
   }
 };
-  
-repl.print("Loaded init.js");
+
+repl.print('Loaded init.js');
+
