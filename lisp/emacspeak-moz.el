@@ -200,7 +200,7 @@
     (emacspeak-moz-eval-expression-and-go
      "repl.emacspeak.say(title)\n")))
 
-  (emacspeak-speak-line))
+
 
 ;;;###autoload
 (defun emacspeak-moz-jump (index)
