@@ -38,6 +38,7 @@ Speaker.prototype.init = function() {
      * URL of our local server
      */
     this.url_ ='http://localhost:8000/';
+    this.say('Emacspeak');
   } catch (err) {
     repl.print('Error running ' + this.path_ );
   }
