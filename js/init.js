@@ -8,11 +8,12 @@
 /**
  * Emacspeak: Encapsulate Emacspeak specific bits.
  * @constructor
- * @param path {String} Location where Emacspeak is installed
+ * @param basepath {String} Location where Emacspeak is installed
  */
 
-function Emacspeak (path) {
-  this.path_ = (path === undefined) ? '/usr/share/emacs/site-lisp/emacspeak/' : path;
+function Emacspeak (basepath) {
+  this.path_ = (basepath === undefined) ? '/usr/share/emacs/site-lisp/emacspeak/' : basepath;
+
   /*
    * @private speaker_ Handle to speaker instance.
    */
@@ -30,7 +31,7 @@ Emacspeak.prototype.init = function() {
     repl.load(js + 'adom.js');
     repl.load(js + 'speaker.js');
     this.speaker_ = new Speaker( this.path_);
-    this.speaker_.init();
+      this.speaker_.say('Emacspeak Enabled Firefox');
   } catch (err) {
     repl.print('Error during init ' + err);
   }
