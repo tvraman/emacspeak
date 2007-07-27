@@ -65,14 +65,14 @@
 
 ;;}}}
 ;;{{{  functions that are  fixed.
-;;;###autoload
+
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
    "^ad-Orig\\|^mouse\\|^scroll-bar"
    "\\|^face\\|^frame\\|^font"
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
-;;;###autoload
+
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
@@ -145,7 +145,7 @@ use the minibuffer."
 
 ;;; inline function for use from other modules:
 ;;;###autoload
-(defsubst  emacspeak-fix-interactive-command-if-necessary
+(defun  emacspeak-fix-interactive-command-if-necessary
   (command)
   "Fix command if necessary."
   (and (emacspeak-should-i-fix-interactive-p command)
