@@ -153,7 +153,6 @@
 (require 'emacspeak-speak)
 (require 'thingatpt)
 (require 'emacspeak-personality)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 (require 'browse-url)
 

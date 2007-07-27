@@ -321,15 +321,16 @@ qmp3cut."))
 
 (defun emacspeak-realaudio-trplayer-command (char)
   "Execute TRPlayer command."
-  (interactive "cTRPlayer Command:")
+  (interactive
+   (list
+    (read-char"TRPlayer Command: ")))
   (declare (special emacspeak-realaudio-process))
   (cond
    ((char-equal char ?\;)
     (emacspeak-realaudio-select-realaudio-buffer))
    (t (emacspeak-realaudio-dispatch char ))))
 
-(emacspeak-fix-interactive-command-if-necessary
- 'emacspeak-realaudio-trplayer-command)
+
 
 (defcustom emacspeak-realaudio-reset-auditory-display t 
   "Set this to T if you want the audio settings reset after

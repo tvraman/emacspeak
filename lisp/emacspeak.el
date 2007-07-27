@@ -54,7 +54,6 @@
 (require 'backquote)
 (require 'emacspeak-load-path)
 (require 'emacspeak-preamble)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 ;;}}}
 ;;{{{ autoloads

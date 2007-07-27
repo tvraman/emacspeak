@@ -61,7 +61,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
