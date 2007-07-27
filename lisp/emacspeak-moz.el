@@ -328,6 +328,9 @@ title)\n"
 (add-hook 'inferior-moz-mode-hook
           #'(lambda ()
               (emacspeak-moz-load-js-files emacspeak-moz-js-directory)))
+
+(add-hook 'javascript-mode-hook
+          'emacspeak-setup-programming-mode)
 ;;}}}
 (provide 'emacspeak-moz)
 ;;{{{ end of file
