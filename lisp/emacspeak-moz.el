@@ -314,7 +314,7 @@ title)\n"
   "Directory where we keep js files.")
 
 (defun emacspeak-moz-load-js-files (directory)
-  "Load all js files from specified directory."
+  "Load all .js files from specified directory."
   (declare (special moz-repl-name))
   (comint-send-string
    (inferior-moz-process)
@@ -325,9 +325,21 @@ title)\n"
     (directory-files directory  'full "js$")
     ";")))
 
+(defun emacspeak-moz-init ()
+  "Load init.js file, and initialize context."
+  (declare (special moz-repl-name
+                    emacspeak-directory emacspeak-moz-js-directory))
+  (comint-send-string
+   (inferior-moz-process)
+   (format "%s.load('file://localhost%s');
+e_ = new Emacspeak('%s');
+e_.init()"
+           moz-repl-name
+           (expand-file-name "init.js" emacspeak-moz-js-directory)
+           emacspeak-directory)))
+
 (add-hook 'inferior-moz-mode-hook
-          #'(lambda ()
-              (emacspeak-moz-load-js-files emacspeak-moz-js-directory)))
+          'emacspeak-moz-init)
 
 (add-hook 'javascript-mode-hook
           'emacspeak-setup-programming-mode)
