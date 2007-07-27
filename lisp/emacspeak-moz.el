@@ -331,12 +331,13 @@ title)\n"
                     emacspeak-directory emacspeak-moz-js-directory))
   (comint-send-string
    (inferior-moz-process)
-   (format "%s.load('file://localhost%s');
-e_ = new Emacspeak('%s');
-e_.init()"
-           moz-repl-name
-           (expand-file-name "init.js" emacspeak-moz-js-directory)
-           emacspeak-directory)))
+   (format
+    "%s.load('file://localhost%s');
+%s.emacspeak = new Emacspeak('%s');
+%s.emacspeak.init()"
+    moz-repl-name (expand-file-name "init.js" emacspeak-moz-js-directory)
+    moz-repl-name emacspeak-directory
+    moz-repl-name)))
 
 (add-hook 'inferior-moz-mode-hook
           'emacspeak-moz-init)
