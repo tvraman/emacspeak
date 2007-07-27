@@ -326,7 +326,7 @@ title)\n"
     ";")))
 
 (defun emacspeak-moz-init ()
-  "Load init.js file, and initialize context."
+  "Load emacspeak.js file, and initialize context."
   (declare (special moz-repl-name
                     emacspeak-directory emacspeak-moz-js-directory))
   (comint-send-string
@@ -335,7 +335,7 @@ title)\n"
     "%s.load('file://localhost%s');
 %s.emacspeak = new Emacspeak('%s');
 %s.emacspeak.init()"
-    moz-repl-name (expand-file-name "init.js" emacspeak-moz-js-directory)
+    moz-repl-name (expand-file-name "emacspeak.js" emacspeak-moz-js-directory)
     moz-repl-name emacspeak-directory
     moz-repl-name)))
 
