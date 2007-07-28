@@ -83,11 +83,16 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
 def start():
     if sys.argv[1:]:
-        port = int(sys.argv[1])
+        engine = sys.argv[1]
+    else:
+        engine='outloud'
+    if sys.argv[2:]:
+        port = int(sys.argv[2])
     else:
         port = 8000
     server_address = ('', port)
-    httpd = HTTPSpeaker  (server_address,  SpeakHTTPRequestHandler)
+    httpd = HTTPSpeaker  (server_address,
+    SpeakHTTPRequestHandler, engine)
     httpd.serve_forever()
 
 
