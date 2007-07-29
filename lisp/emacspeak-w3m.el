@@ -77,7 +77,7 @@ is a generic setup/tear-down mechanism for emacspeak related
 ;;; should be renamed to 'emacspeak-webutils-post-process-hook
 ;;; at some point
 
-(add-hook 'w3m-mode-hook 'emacspeak-w3-speak-mode-hook)
+(add-hook w3m-display-hook 'emacspeak-w3-post-process-hook)
 
 (define-key w3m-mode-map "x" 'emacspeak-w3m-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
