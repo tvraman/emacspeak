@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 794 commands.
+This chapter documents a total of 789 commands.
 
 @menu
 * cd-tool::                     
@@ -48,6 +48,7 @@ This chapter documents a total of 794 commands.
 * emacspeak-m-player::          
 * emacspeak-madplay::           
 * emacspeak-man::               
+* emacspeak-nxml::              
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
@@ -71,7 +72,6 @@ This chapter documents a total of 794 commands.
 * emacspeak-view::              
 * emacspeak-vm::                
 * emacspeak-w3::                
-* emacspeak-w3m::               
 * emacspeak-we::                
 * emacspeak-websearch::         
 * emacspeak-webutils::          
@@ -85,6 +85,7 @@ This chapter documents a total of 794 commands.
 * emacspeak-w3search::          
 * emacspeak-moz::               
 * emacspeak-org::               
+* emacspeak-w3m::               
 * emacspeak-webmarks::          
 * URL Templates ::              
 @end menu
@@ -221,7 +222,7 @@ Switch to the next available language
 @end deffn
 
 @deffn {Interactive Command} dtk-set-predefined-speech-rate (&optional PREFIX)
-@kbd{ control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 }
+@kbd{ control e d 0   control e d 1   control e d 2   control e d 3   control e d 4   control e d 5   control e d 6   control e d 7   control e d 8   control e d 9 }
 
 Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -1720,6 +1721,13 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
+@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST NOSELECT)
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer ()
 Add equalizer for next MPlayer invocation.
 
@@ -1757,11 +1765,6 @@ Move to beginning of track.
 
 @deffn {Interactive Command} emacspeak-m-player-command (COMMAND-CHAR)
 Invoke MPlayer commands.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-customize-options ()
@@ -1986,6 +1989,16 @@ Browse the man page --read it a paragraph at a time
 
 @deffn {Interactive Command} emacspeak-man-speak-this-section ()
 Speak current section
+@end deffn
+
+@node emacspeak-nxml
+@section emacspeak-nxml
+
+Automatically generated documentation
+for commands defined in module  emacspeak-nxml.
+
+@deffn {Interactive Command} emacspeak-nxml-summarize-outline ()
+Intelligent spoken display of current outline entry.
 @end deffn
 
 @node emacspeak-ocr
@@ -2360,11 +2373,6 @@ Call appropriate TRPlayer command.
 
 @deffn {Interactive Command} emacspeak-realaudio-trplayer-command (CHAR)
 Execute TRPlayer command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-realaudio-write-mp3-clip (START END FILE)
@@ -2379,13 +2387,13 @@ Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
 @deffn {Interactive Command} emacspeak-backward-char (&optional ARG)
-@kbd{ control b   <left> }
+@kbd{ <left>   control b }
 
 Backward-char redefined to speak char moved to. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forward-char (&optional ARG)
-@kbd{ control f   <right> }
+@kbd{ <right>   control f }
 
 Forward-char redefined to speak char moved to. 
 @end deffn
@@ -2941,7 +2949,7 @@ any other key to speak entire paragraph.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-predefined-window (&optional ARG)
-@kbd{ control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 }
+@kbd{ control e 0   control e 1   control e 2   control e 3   control e 4   control e 5   control e 6   control e 7   control e 8   control e 9 }
 
 Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
@@ -3875,59 +3883,6 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-url-expand-and-execute ()
-Applies buffer-specific URL expander/executor function.
-@end deffn
-
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST NOSELECT)
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-browse-rss-at-point ()
-Browses RSS url under point from w3m.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer ()
-Preview this buffer in w3m.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-xsl-add-submit-button (&optional PERSISTENT)
-Add regular submit button if needed.
-With prefix arg makes this transformation persistent.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-xsl-google-hits (&optional PERSISTENT)
-Extracts Google hits from the current page.
-With prefix argument makes this transformation persistent.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-xsl-linearize-tables (&optional PERSISTENT)
-Linearizes tables on the current page.
-With prefix argument makes this transformation persistent.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-xsl-sort-tables (&optional PERSISTENT)
-Sorts tables on the current page.
-With prefix argument makes this transformation persistent.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-xslt-apply (XSL)
-Apply specified transformation to current page.
-@end deffn
-
 @node emacspeak-we
 @section emacspeak-we
 
@@ -4071,6 +4026,10 @@ specifies the page to extract contents  from.
 Toggle xsl keep result flag.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-we-url-expand-and-execute ()
+Applies buffer-specific URL expander/executor function.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-we-url-rewrite-and-follow (&optional PROMPT)
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
@@ -4191,7 +4150,7 @@ Search the Webster Dictionary.
 Launches specific websearch queries.
 Press `?' to list available search engines.
 Once selected, the selected searcher prompts for additional information as appropriate.
-When using W3,  this interface attempts to speak the most relevant information on the result page.
+When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-display-form (FORM-MARKUP)
@@ -5613,6 +5572,22 @@ Pops up an org input area.
 (fn)
 @end deffn
 
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer ()
+Preview this buffer in w3m.
+
+(fn)
+@end deffn
+
 @node emacspeak-webmarks
 @section emacspeak-webmarks
 
@@ -5660,7 +5635,7 @@ Search WebMarks.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 127 URL Templates.
+This section documents a total of 130 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5948,6 +5923,10 @@ Display World Cup Soccer Results for specified countries.
 
 Retrieve and speak Google News Overview.
 
+@kbd{Google TimeLine View}
+
+Do a Google search and get a timeline view of results.
+
 @kbd{Google Transcoder}
 
 Transcode site via Google.
@@ -5967,6 +5946,10 @@ Produce  a set of RSS links published by InfoWorld.
 @kbd{Linux Today News}
 
 Get news column from Linux Today.
+
+@kbd{MDC Search}
+
+Search MDC Wiki.
 
 @kbd{MLB Scorecard}
 
@@ -5995,6 +5978,10 @@ Play Morning Edition segment.
 @kbd{Motley Fool Radio from NPR}
 
 Play NPR Motley Fool   stream.
+
+@kbd{Mozilla Developers Corner}
+
+Pull specified resource from MDC.
 
 @kbd{Multilingual dictionary via Google.}
 

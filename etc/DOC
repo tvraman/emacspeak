@@ -108,7 +108,7 @@ Argument S specifies the syntax class.
 
 ------------------------------------------------------------
 
-** dtk-set-predefined-speech-rate	Key Sequence: control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
+** dtk-set-predefined-speech-rate	Key Sequence: control e d 0   control e d 1   control e d 2   control e d 3   control e d 4   control e d 5   control e d 6   control e d 7   control e d 8   control e d 9 
 
  Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -1287,6 +1287,13 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -1322,12 +1329,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-command Invoke MPlayer commands.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-m-player-command Invoke MPlayer commands. 
 
 ------------------------------------------------------------
 
@@ -1541,6 +1543,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-man-speak-this-section Speak current section 
+
+------------------------------------------------------------
+
+** emacspeak-nxml-summarize-outline Intelligent spoken display of current outline entry. 
 
 ------------------------------------------------------------
 
@@ -1862,12 +1868,7 @@ Mark is specified in seconds.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio-trplayer-command Execute TRPlayer command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-realaudio-trplayer-command Execute TRPlayer command. 
 
 ------------------------------------------------------------
 
@@ -1876,13 +1877,13 @@ Prompts for start and end times as well as file  to save the clippi
 
 ------------------------------------------------------------
 
-** emacspeak-backward-char	Key Sequence: control b   <left> 
+** emacspeak-backward-char	Key Sequence: <left>   control b 
 
  Backward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-forward-char	Key Sequence: control f   <right> 
+** emacspeak-forward-char	Key Sequence: <right>   control f 
 
  Forward-char redefined to speak char moved to.  
 
@@ -2381,7 +2382,7 @@ any other key to speak entire paragraph.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-predefined-window	Key Sequence: control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
+** emacspeak-speak-predefined-window	Key Sequence: control e 0   control e 1   control e 2   control e 3   control e 4   control e 5   control e 6   control e 7   control e 8   control e 9 
 
  Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
@@ -3203,49 +3204,6 @@ element.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-url-expand-and-execute Applies buffer-specific URL expander/executor function. 
-
-------------------------------------------------------------
-
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-browse-rss-at-point Browses RSS url under point from w3m. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-xsl-add-submit-button Add regular submit button if needed.
-With prefix arg makes this transformation persistent. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-xsl-google-hits Extracts Google hits from the current page.
-With prefix argument makes this transformation persistent. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-xsl-linearize-tables Linearizes tables on the current page.
-With prefix argument makes this transformation persistent. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-xsl-sort-tables Sorts tables on the current page.
-With prefix argument makes this transformation persistent. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-xslt-apply Apply specified transformation to current page. 
-
-------------------------------------------------------------
-
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -3372,6 +3330,10 @@ specifies the page to extract contents  from.
 
 ------------------------------------------------------------
 
+** emacspeak-we-url-expand-and-execute Applies buffer-specific URL expander/executor function. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-url-rewrite-and-follow Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -3482,7 +3444,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
  Launches specific websearch queries.
 Press `?' to list available search engines.
 Once selected, the selected searcher prompts for additional information as appropriate.
-When using W3,  this interface attempts to speak the most relevant information on the result page. 
+When using supported browsers,  this interface attempts to speak the most relevant information on the result page. 
 
 ------------------------------------------------------------
 
@@ -4749,6 +4711,12 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-org-popup-input Pops up an org input area.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 

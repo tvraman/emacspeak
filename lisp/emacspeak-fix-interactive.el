@@ -105,7 +105,7 @@ use the minibuffer."
   (declare (special
             emacspeak-fix-interactive-problematic-functions))
   (when (and (functionp (symbol-function  sym))
-(interactive-form (symbol-function sym )))
+             (interactive-form (symbol-function sym )))
     (let* ((prompts
             (split-string
              (second (interactive-form (symbol-function sym )))
