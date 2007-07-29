@@ -91,6 +91,7 @@
 (defsubst ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
   (string-match  "^\*?[ckK]" prompt ))
+
 (defvar emacspeak-fix-interactive-problematic-functions nil
   "Functions whose interactive prompt we will need to fix by hand
 because auto-advising was not possible.")
@@ -116,7 +117,8 @@ use the minibuffer."
                                         ; advice if necessary
       (cond
        ((zerop count) t)                ;do nothing
-       ((= 1 count)
+       ((notany #'(lambda (s) (string-match "%s" s))
+                prompts)
                                         ; generate auto advice
         (eval
          (`
@@ -143,14 +145,14 @@ use the minibuffer."
                 prompts))))))))
        (t
         ;; cannot handle automatically -- tell developer
+        ;; since subsequent prompts use earlier args e.g.global-set-key
         (push sym emacspeak-fix-interactive-problematic-functions)
         (message "Not auto-advicing %s" sym)))))
   t)
 
 ;;; inline function for use from other modules:
 
-(defun  emacspeak-fix-interactive-command-if-necessary
-  (command)
+(defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
   (and (emacspeak-should-i-fix-interactive-p command)
        (emacspeak-fix-interactive command)))
@@ -158,9 +160,6 @@ use the minibuffer."
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
 
-;;; Code initially contributed by  Dmitry Paduchih
-;;; <paduch@imm.uran.ru>
-;;; Updated by <raman@cs.cornell.edu> to avoid unnecessary
 ;;; globals
 
 (defun emacspeak-fix-commands-loaded-from (module)
