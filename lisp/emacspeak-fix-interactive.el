@@ -103,8 +103,7 @@ Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
-  (declare (special
-            emacspeak-fix-interactive-problematic-functions))
+  (declare (special emacspeak-fix-interactive-problematic-functions))
   (when (and (functionp (symbol-function  sym))
              (interactive-form (symbol-function sym )))
     (let* ((prompts
