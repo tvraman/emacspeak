@@ -76,6 +76,13 @@
 (defvar emacspeak-web-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
+(defsubst emacspeak-webutils-run-post-process-hook (&rest ignore)
+  "Use web post process hook."
+  (declare (special emacspeak-web-post-process-hook))
+  (when     emacspeak-web-post-process-hook
+    (unwind-protect
+        (run-hooks  'emacspeak-web-post-process-hook)
+      (setq emacspeak-web-post-process-hook nil))))
 
 ;;}}}
 ;;{{{ Helpers:
