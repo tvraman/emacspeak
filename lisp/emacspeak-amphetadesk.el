@@ -100,7 +100,7 @@
 Interactive prefix-arg use-opml opens the myChannels.opml file."
   (interactive "P")
   (declare (special browse-url-browser-function
-                    emacspeak-w3-post-process-hook))
+                    emacspeak-web-post-process-hook))
   (cond
    (use-opml
     (emacspeak-opml-display
@@ -111,7 +111,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
        ((or   (eq browse-url-browser-function 'w3-fetch)
               (eq browse-url-browser-function 'browse-url-w3)
               (eq browse-url-browser-function 'w3m-browse-url))
-        (add-hook  'emacspeak-w3-post-process-hook
+        (add-hook  'emacspeak-web-post-process-hook
                    #'(lambda ()
                        (imenu--make-index-alist)
                        (goto-char (point-min))

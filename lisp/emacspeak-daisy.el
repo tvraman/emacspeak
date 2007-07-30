@@ -738,8 +738,8 @@ No-op if content under point is not currently displayed."
 that asks the browser  to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it
                                                       the right title."
-  (declare (special emacspeak-w3-post-process-hook))
-  (setq emacspeak-w3-post-process-hook
+  (declare (special emacspeak-web-post-process-hook))
+  (setq emacspeak-web-post-process-hook
         (`
          (lambda  nil
            (let ((buffer (current-buffer)))

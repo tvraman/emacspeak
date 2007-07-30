@@ -70,6 +70,14 @@
       (emacspeak-keymap-update  emacspeak-web-prefix k))
 
 ;;}}}
+;;{{{ web-post-process
+
+;;;###autoload
+(defvar emacspeak-web-post-process-hook nil
+  "Set locally to a  site specific post processor.
+Note that the Web browser should reset this hook after using it.")
+
+;;}}}
 ;;{{{ Helpers:
 
 ;;;###autoload
@@ -105,7 +113,7 @@
 
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered."
-  (add-hook 'emacspeak-w3-post-process-hook
+  (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
                 (emacspeak-speak-buffer)
                 (emacspeak-auditory-icon 'open-object))))
@@ -139,9 +147,9 @@ or URL read from minibuffer."
 
 ;;;  Helper: rename result buffer
 (defsubst emacspeak-webutils-rename-buffer (key)
-  "Setup emacspeak-w3-post-process-hook  to rename result buffer"
+  "Setup emacspeak-web-post-process-hook  to rename result buffer"
   (add-hook
-   'emacspeak-w3-post-process-hook
+   'emacspeak-web-post-process-hook
    (eval
     `(function
       (lambda nil
@@ -156,9 +164,9 @@ or URL read from minibuffer."
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (declare (special emacspeak-w3-post-process-hook))
+  (declare (special emacspeak-web-post-process-hook))
   (when (emacspeak-webutils-supported-p)
-    (add-hook  'emacspeak-w3-post-process-hook
+    (add-hook  'emacspeak-web-post-process-hook
                (eval
                 `(function
                   (lambda nil
@@ -180,7 +188,7 @@ ARGS specifies additional arguments to SPEAKER if any."
      (declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p nil)
-       (add-hook 'emacspeak-w3-post-process-hook
+       (add-hook 'emacspeak-web-post-process-hook
                  #'(lambda ()
                      (declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p t))))
@@ -193,7 +201,7 @@ ARGS specifies additional arguments to SPEAKER if any."
      (declare (special emacspeak-we-xsl-p))
      (unless emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p t)
-       (add-hook 'emacspeak-w3-post-process-hook
+       (add-hook 'emacspeak-web-post-process-hook
                  #'(lambda ()
                      (declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p nil))))
@@ -211,7 +219,7 @@ and xsl environment specified by style, params and options."
            emacspeak-we-xsl-transform ,style
            emacspeak-we-xsl-params ,params)
      (add-hook
-      'emacspeak-w3-post-process-hook
+      'emacspeak-web-post-process-hook
       (eval
        `(function
          (lambda ()

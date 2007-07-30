@@ -1093,8 +1093,8 @@ from English to German.")
 
 (defun emacspeak-url-template-yahoo-news-processor (url)
   "Process and speak Yahoo news."
-  (declare (special emacspeak-w3-post-process-hook))
-  (add-hook 'emacspeak-w3-post-process-hook
+  (declare (special emacspeak-web-post-process-hook))
+  (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
                 (declare (special  emacspeak-we-url-rewrite-rule
                                    emacspeak-we-class-filter))
@@ -2018,7 +2018,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special  emacspeak-w3-post-process-hook))
+  (declare (special  emacspeak-web-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut)
                      'browse-url))
         (url (emacspeak-url-template-url ut)))
@@ -2026,11 +2026,11 @@ Meerkat realy needs an xml-rpc method for getting this.")
                (or (emacspeak-url-template-fetcher ut)
 
                    (emacspeak-webutils-supported-p)))
-      (add-hook 'emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-web-post-process-hook
                 (emacspeak-url-template-post-action ut))
-      (add-hook 'emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-web-post-process-hook
                 #'(lambda ()
-                    (declare (special emacspeak-w3-post-process-hook
+                    (declare (special emacspeak-web-post-process-hook
                                       emacspeak-url-template-current-ut))
                     (rename-buffer
                      (downcase
@@ -2040,7 +2040,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
                                   (list "Untitled"))
                                  ": "))
                      'unique)
-                    (setq emacspeak-w3-post-process-hook nil))))
+                    (setq emacspeak-web-post-process-hook nil))))
     (kill-new url)
     (funcall fetcher   url)))
 

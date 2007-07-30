@@ -115,8 +115,8 @@
 
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
-  (declare (special emacspeak-w3-post-process-hook
-                    imenu-create-index-function
+  (declare (special imenu-create-index-function
+                    emacspeak-web-post-process-hook
                     emacspeak-w3-create-imenu-index
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
@@ -130,7 +130,7 @@
     (setq imenu-create-index-function 'w3-imenu-create-index))
   (when emacspeak-w3-create-imenu-index
     (imenu--make-index-alist t))
-  (unless emacspeak-w3-post-process-hook
+  (unless emacspeak-web-post-process-hook
     (emacspeak-speak-mode-line)))
 
 (add-hook 'w3-mode-hook 'emacspeak-w3-speak-mode-hook)
@@ -517,16 +517,14 @@ element. "
 ;;}}}
 ;;{{{ enable post processor functionality
 
-(defvar emacspeak-w3-post-process-hook nil
-  "Set locally to a  site specific post processor.
-Note that this hook gets reset after it is used by W3 --and this is intentional.")
+
 
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
-  (when     emacspeak-w3-post-process-hook
+  (when     emacspeak-web-post-process-hook
     (unwind-protect
-        (run-hooks  'emacspeak-w3-post-process-hook)
-      (setq emacspeak-w3-post-process-hook nil))))
+        (run-hooks  'emacspeak-web-post-process-hook)
+      (setq emacspeak-web-post-process-hook nil))))
 
 ;;}}}
 ;;{{{ advice focus on cell

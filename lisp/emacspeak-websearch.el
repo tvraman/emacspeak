@@ -192,7 +192,7 @@ When using supported browsers,  this interface attempts to speak the most releva
       (read-file-name "Display Form: "
                       (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
   (declare (special emacspeak-we-xsl-p
-                    emacspeak-w3-post-process-hook
+                    emacspeak-web-post-process-hook
                     emacspeak-lisp-directory))
   (let ((buffer (get-buffer-create " *search-form*"))
         (emacspeak-we-xsl-p nil))
@@ -201,7 +201,7 @@ When using supported browsers,  this interface attempts to speak the most releva
       (erase-buffer)
       (kill-all-local-variables)
       (insert-file-contents  form-markup)
-      (add-hook 'emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-web-post-process-hook
                 #'(lambda ()
                     (goto-char (point-min))
                     (widget-forward 1)
@@ -1303,8 +1303,8 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (t (format emacspeak-websearch-google-maps-uri
                       (emacspeak-url-encode query)))))
     (kill-new uri)
-    (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
-    (add-hook  'emacspeak-w3-post-process-hook
+    (add-hook 'emacspeak-web-post-process-hook 'emacspeak-speak-buffer)
+    (add-hook  'emacspeak-web-post-process-hook
                #'(lambda nil
                    (emacspeak-pronounce-add-buffer-local-dictionary-entry
                     " mi"
@@ -1478,7 +1478,7 @@ Optional prefix arg no-rss scrapes information from HTML."
    (list
     (emacspeak-websearch-read-query "Yahoo News Query: ")
     current-prefix-arg))
-  (add-hook 'emacspeak-w3-post-process-hook
+  (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
                 (declare (special  emacspeak-we-url-rewrite-rule
                                    emacspeak-websearch-news-yahoo-rss-uri

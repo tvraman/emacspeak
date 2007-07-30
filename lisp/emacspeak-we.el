@@ -525,7 +525,7 @@ Tables are specified by containing  match pattern
        (point-min) (point-max))
       (setq values (split-string (buffer-string))))
     (add-hook
-     'emacspeak-w3-post-process-hook
+     'emacspeak-web-post-process-hook
      (eval
       `(function
         (lambda nil
@@ -554,7 +554,7 @@ Tables are specified by containing  match pattern
        (point-min) (point-max))
       (setq values (split-string (buffer-string))))
     (add-hook
-     'emacspeak-w3-post-process-hook
+     'emacspeak-web-post-process-hook
      (eval
       `(function
         (lambda nil
