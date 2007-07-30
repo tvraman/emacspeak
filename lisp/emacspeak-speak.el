@@ -2103,25 +2103,26 @@ Speak that chunk after moving."
 ;;;###autoload
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
-  (interactive "CCommand to execute repeatedly:")
-  (let ((key "")
-        (position (point ))
-        (continue t )
-        (message (format "Press space to execute %s again" command)))
-    (while continue
-      (call-interactively command )
-      (cond
-       ((= (point) position ) (setq continue nil))
-       (t (setq position (point))
-          (setq key
-                (let ((dtk-stop-immediately nil ))
+  (interactive
+   (list
+    (read-command "Command to execute repeatedly:")))  (let ((key "")
+    (position (point ))
+    (continue t )
+    (message (format "Press space to execute %s again" command)))
+   (while continue
+     (call-interactively command )
+     (cond
+      ((= (point) position ) (setq continue nil))
+      (t (setq position (point))
+         (setq key
+               (let ((dtk-stop-immediately nil ))
                                         ;(sit-for 2)
-                  (read-key-sequence message )))
-          (when(and (stringp key)
-                    (not (=  32  (string-to-char key ))))
-            (dtk-stop)
-            (setq continue nil )))))
-    (dtk-speak "Exited continuous mode ")))
+                 (read-key-sequence message )))
+         (when(and (stringp key)
+                   (not (=  32  (string-to-char key ))))
+           (dtk-stop)
+           (setq continue nil )))))
+   (dtk-speak "Exited continuous mode ")))
 
 ;;;###autoload
 (defun emacspeak-speak-continuously ()
