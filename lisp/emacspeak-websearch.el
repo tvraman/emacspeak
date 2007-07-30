@@ -935,6 +935,30 @@ Optional second arg as-html processes the results as HTML rather than data."
           (string :tag "Options"))
   :group 'emacspeak-websearch)
 
+;;; Get search completions from Google
+;;; Inspired by code found on Emacs Wiki:
+;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
+
+(defsubst google-suggest-aux (input)
+  "Get completion list from Google Suggest."
+  (with-temp-buffer
+    (insert
+     (shell-command-to-string
+      (format "curl --silent  %s"
+              (shell-quote-argument
+               (format
+                "http://www.google.com/complete/search?hl=en&js=true&qu=%s"
+                input)))))
+    (read
+     (replace-regexp-in-string "," ""
+                               (progn
+                                 (goto-char (point-min))
+                                 (re-search-forward "\(" (point-max) t 2)
+                                 (backward-char 1)
+                                 (forward-sexp)
+                                 (buffer-substring-no-properties
+                                  (1- (match-end 0)) (point)))))))
+
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform a Google search.
@@ -942,9 +966,9 @@ Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google."
   (interactive
    (list
-    (emacspeak-websearch-read-query
-     (format "Google %s: "
-             (if current-prefix-arg "Lucky Search" " Query")))
+    (completing-read
+     "Google search: "
+     (dynamic-completion-table google-suggest-aux))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
@@ -985,7 +1009,9 @@ I'm Feeling Lucky button on Google."
   "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
    (list
-    (emacspeak-websearch-read-query "AGoogle For: ")))
+    (completing-read
+     "AGoogle search: "
+     (dynamic-completion-table google-suggest-aux))))
   (declare (special emacspeak-websearch-accessible-google-url
                     emacspeak-websearch-google-uri))
   (let ((emacspeak-w3-tidy-html nil)
