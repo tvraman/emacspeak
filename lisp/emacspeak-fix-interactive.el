@@ -119,6 +119,7 @@ use the minibuffer."
        ((notany #'(lambda (s) (string-match "%s" s))
                 prompts)
                                         ; generate auto advice
+        (put sym 'emacspeak-auto-advised t)
         (eval
          (`
           (defadvice (, sym)
