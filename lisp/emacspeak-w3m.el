@@ -70,14 +70,15 @@ instead of the modeline."
                   emacspeak-prefix))
 (define-key w3m-mode-map emacspeak-prefix
   'emacspeak-prefix-command)
+(defsubst emacspeak-w3m-post-process-hook ()
+  "Use web post process hook."
+  (declare (special emacspeak-web-post-process-hook))
+  (when     emacspeak-web-post-process-hook
+    (unwind-protect
+        (run-hooks  'emacspeak-web-post-process-hook)
+      (setq emacspeak-web-post-process-hook nil))))
 
-;;; This is *not* a bug: 'emacspeak-w3-post-process-hook
-;;;is a generic setup/tear-down mechanism for emacspeak related
-;;; bits, and is not w3 specific
-;;; should be renamed to 'emacspeak-webutils-post-process-hook
-;;; at some point
-
-(add-hook 'w3m-display-hook 'emacspeak-w3-post-process-hook)
+(add-hook 'w3m-display-hook 'emacspeak-w3m-post-process-hook)
 
 (define-key w3m-mode-map "x" 'emacspeak-w3m-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
