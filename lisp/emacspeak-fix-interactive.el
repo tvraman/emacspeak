@@ -160,7 +160,7 @@ use the minibuffer."
 ;;{{{  fixing all commands defined in a given module:
 
 ;;; globals
-
+;;;###autoload
 (defun emacspeak-fix-commands-loaded-from (module)
   "Fix all commands loaded from a specified module."
   (interactive
