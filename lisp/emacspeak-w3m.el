@@ -81,7 +81,7 @@ instead of the modeline."
 
 (add-hook 'w3m-display-hook 'emacspeak-w3m-post-process-hook)
 (define-key w3m-mode-map "\M-e" 'emacspeak-we-xsl-map)
-(define-key w3m-mode-map "x" 'emacspeak-w3m-xsl-map)
+(define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
@@ -888,17 +888,6 @@ With prefix argument makes this transformation persistent."
 ;;}}}
 ;;{{{  xsl keymap
 
-(define-prefix-command 'emacspeak-w3m-xsl-map)
-
-(declaim (special emacspeak-w3m-xsl-map))
-(define-key emacspeak-w3m-xsl-map "a" 'emacspeak-w3m-xslt-apply)
-(define-key emacspeak-w3m-xsl-map "s" 'emacspeak-we-xslt-select)
-(define-key emacspeak-w3m-xsl-map "o" 'emacspeak-we-xsl-toggle)
-(define-key emacspeak-w3m-xsl-map "b" 'emacspeak-w3m-xsl-add-submit-button)
-(define-key emacspeak-w3m-xsl-map "h" 'emacspeak-w3m-xsl-google-hits)
-(define-key emacspeak-w3m-xsl-map "l" 'emacspeak-w3m-xsl-linearize-tables)
-(define-key emacspeak-w3m-xsl-map "t" 'emacspeak-w3m-xsl-sort-tables)
-
 (add-hook 'w3m-mode-setup-functions
           '(lambda ()
              (easy-menu-define xslt-menu w3m-mode-map
@@ -913,15 +902,15 @@ With prefix argument makes this transformation persistent."
                  ["Add regular submit button"
                   emacspeak-w3m-xsl-add-submit-button t]
                  ["Show only search hits"
-                  emacspeak-w3m-xsl-google-hits t]
+                   emacspeak-wizards-google-hits t]
                  ["Linearize tables"
-                  emacspeak-w3m-xsl-linearize-tables t]
+                  emacspeak-we-xsl-linearize-tables t]
                  ["Sort tables"
-                  emacspeak-w3m-xsl-sort-tables t]
+                  emacspeak-we-xsl-sort-tables t]
                  ["Select default transformation"
                   emacspeak-we-xslt-select t]
                  ["Apply specified transformation"
-                  emacspeak-w3m-xslt-apply t]
+                  emacspeak-we-xslt-apply t]
                  )))
           t)
 
