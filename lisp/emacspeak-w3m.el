@@ -80,7 +80,7 @@ instead of the modeline."
       (setq emacspeak-web-post-process-hook nil))))
 
 (add-hook 'w3m-display-hook 'emacspeak-w3m-post-process-hook)
-
+(define-key w3m-mode-map "\M-e" 'emacspeak-we-xsl-map)
 (define-key w3m-mode-map "x" 'emacspeak-w3m-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
