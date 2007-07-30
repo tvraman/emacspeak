@@ -1825,6 +1825,14 @@ Indicate change of selection with
     (read-key-sequence "Globally  bind key:")
     (read-command "To command:" ))))
 
+(defadvice modify-syntax-entry (before  emacspeak pre act)
+  "Provide spoken prompts."
+  (interactive
+   (list
+    (read-char "Modify syntax for: ")
+    (read-string "Syntax Entry: ")
+    current-prefix-arg)))
+
 (defadvice help-next-ref (after emacspeak pre act comp)
   "Speak the ref we moved to."
   (when (interactive-p)
