@@ -281,18 +281,16 @@ Optional prefix arg `echo'results in echoing an appropriate message."
       (while (not (eobp))
         (setq prefix (emacspeak-hide-parse-prefix))
         (cond
-         ((and prefix (emacspeak-hide-current-block prefix))
+         ((and prefix (emacspeak-hide-current-block prefix ))
           (incf count)
           (goto-char
-           (next-single-property-change (point)
-                                        'emacspeak-hidden-block
-                                        (current-buffer)
-                                        (point-max))))
+           (next-single-property-change
+            (point) 'emacspeak-hidden-block
+            (current-buffer) (point-max))))
          (t (forward-line 1)))))
-    (when (or echo
-              (interactive-p)
+    (when (or echo (interactive-p))
       (dtk-speak
-       (format "Hid %s blocks" count))))))
+       (format "Hid %s blocks" count)))))
 
 
 (defun emacspeak-hide-expose-hidden-blocks-in-buffer (&optional echo)
