@@ -71,15 +71,7 @@ instead of the modeline."
 (define-key w3m-mode-map emacspeak-prefix
   'emacspeak-prefix-command)
 
-(defsubst emacspeak-w3m-post-process-hook (&rest ignore)
-  "Use web post process hook."
-  (declare (special emacspeak-web-post-process-hook))
-  (when     emacspeak-web-post-process-hook
-    (unwind-protect
-        (run-hooks  'emacspeak-web-post-process-hook)
-      (setq emacspeak-web-post-process-hook nil))))
-
-(add-hook 'w3m-display-hook 'emacspeak-w3m-post-process-hook)
+(add-hook 'w3m-display-hook 'emacspeak-webutils-run-post-process-hook)
 (define-key w3m-mode-map "\M-e" 'emacspeak-we-xsl-map)
 (define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
