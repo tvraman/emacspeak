@@ -70,7 +70,8 @@ instead of the modeline."
                   emacspeak-prefix))
 (define-key w3m-mode-map emacspeak-prefix
   'emacspeak-prefix-command)
-(defsubst emacspeak-w3m-post-process-hook ()
+
+(defsubst emacspeak-w3m-post-process-hook (&rest ignore)
   "Use web post process hook."
   (declare (special emacspeak-web-post-process-hook))
   (when     emacspeak-web-post-process-hook
