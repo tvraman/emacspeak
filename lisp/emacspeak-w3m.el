@@ -604,16 +604,16 @@ instead of the modeline."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice w3m (around emacspeak pre act)
-  "Speech-enable W3M."
-  (cond
-   ((interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it)
-    (when (eq (ad-get-arg 0) 'popup)
-      (emacspeak-speak-mode-line)))
-   (t ad-do-it))ad-return-value)
+;; (defadvice w3m (around emacspeak pre act)
+;;   "Speech-enable W3M."
+;;   (cond
+;;    ((interactive-p)
+;;     (emacspeak-auditory-icon 'select-object)
+;;     (let ((emacspeak-speak-messages nil))
+;;       ad-do-it)
+;;     (when (eq (ad-get-arg 0) 'popup)
+;;       (emacspeak-speak-mode-line)))
+;;    (t ad-do-it))ad-return-value)
 
 (defadvice w3m-process-stop (after emacspeak pre act comp)
   "Provide auditory feedback."
