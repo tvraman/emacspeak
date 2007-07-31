@@ -362,10 +362,10 @@ blocks in current buffer to be hidden or exposed."
           (emacspeak-hide-current-block  block-prefix (interactive-p) )))))))
 
 ;;;###autoload
-(defun emacspeak-hide-or-expose-all-blocks ()
+(defun emacspeak-hide-or-expose-all-blocks (&optional prefix)
   "Hide or expose all blocks in buffer."
-  (interactive)
-  (emacspeak-hide-or-expose-block 'all))
+  (interactive "p")
+  (let (call-interactively 'emacspeak-hide-or-expose-block)))
 
 ;;}}}
 ;;{{{  speaking blocks sans prefix
