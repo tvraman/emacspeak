@@ -138,11 +138,15 @@
 (defun emacspeak-w3-load-hook ()
   "Setup Emacspeak keys in W3 mode."
   (declare (special w3-echo-link url-show-status
+                    emacspeak-w3-table-draw-border
                     w3-reuse-buffers
                     w3-mode-map
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     emacspeak-pronounce-load-pronunciations-on-startup))
   (setq w3-reuse-buffers 'no)
+  (unless emacspeak-w3-table-draw-border
+    (setq w3-table-border-chars
+          emacspeak-w3-table-silent-border))
   (when (locate-library "w3-speak") (require 'w3-speak))
   (when (and (locate-library "w3-speak-table")
              (not (featurep 'w3-speak-table)))
@@ -282,8 +286,7 @@ document is displayed in a separate buffer. "
 ;;; In the meantime, here is a toggle that allows you to
 ;;; turn borders on and off:
 
-(defvar emacspeak-w3-table-draw-border
-  nil
+(defvar emacspeak-w3-table-draw-border nil
   "Reflects whether we allow W3 to draw table borders. ")
 
 (defvar emacspeak-w3-table-silent-border (make-vector 16 32)
