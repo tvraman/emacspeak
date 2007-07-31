@@ -234,6 +234,13 @@ The retrieved entry is placed in a buffer ready for editing.
      (substitute-command-keys
       "Use \\[g-app-publish] to publish your edits ."))))
 
+;;;###autoload
+(defun gblogger-delete-entry (edit-url)
+  "Delete item at specified edit URL."
+  (interactive "sDelete: ")
+  (declare (special gblogger-auth-handle))
+  (g-app-delete-entry gblogger-auth-handle edit-url))
+
 ;;;### autoload
 (defun gblogger-delete-entry (url)
   "Delete specified entry."
