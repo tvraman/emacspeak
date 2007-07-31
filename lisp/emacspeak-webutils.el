@@ -184,6 +184,29 @@ ARGS specifies additional arguments to SPEAKER if any."
                      (t (message "Your search appears to have failed.")))))))))
 
 ;;}}}
+;;{{{ google suggest helper:
+
+(defsubst emacspeak-webutils-google-suggest (input)
+  "Get completion list from Google Suggest."
+  (with-temp-buffer
+    (insert
+     (shell-command-to-string
+      (format "curl --silent  %s"
+              (shell-quote-argument
+               (format
+                "http://www.google.com/complete/search?hl=en&js=true&qu=%s"
+                input)))))
+    (read
+     (replace-regexp-in-string "," ""
+                               (progn
+                                 (goto-char (point-min))
+                                 (re-search-forward "\(" (point-max) t 2)
+                                 (backward-char 1)
+                                 (forward-sexp)
+                                 (buffer-substring-no-properties
+                                  (1- (match-end 0)) (point)))))))
+
+;;}}}
 ;;{{{ helper macros:
 
 ;;; tVR: moving these from emacspeak-w3 to this module.

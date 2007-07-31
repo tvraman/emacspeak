@@ -939,25 +939,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 ;;; Inspired by code found on Emacs Wiki:
 ;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
 
-(defsubst google-suggest-aux (input)
-  "Get completion list from Google Suggest."
-  (with-temp-buffer
-    (insert
-     (shell-command-to-string
-      (format "curl --silent  %s"
-              (shell-quote-argument
-               (format
-                "http://www.google.com/complete/search?hl=en&js=true&qu=%s"
-                input)))))
-    (read
-     (replace-regexp-in-string "," ""
-                               (progn
-                                 (goto-char (point-min))
-                                 (re-search-forward "\(" (point-max) t 2)
-                                 (backward-char 1)
-                                 (forward-sexp)
-                                 (buffer-substring-no-properties
-                                  (1- (match-end 0)) (point)))))))
+
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
@@ -968,7 +950,7 @@ I'm Feeling Lucky button on Google."
    (list
     (completing-read
      "Google search: "
-     (dynamic-completion-table google-suggest-aux))
+     (dynamic-completion-table emacspeak-webutils-google-suggest))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
@@ -1011,7 +993,7 @@ I'm Feeling Lucky button on Google."
    (list
     (completing-read
      "AGoogle search: "
-     (dynamic-completion-table google-suggest-aux))))
+     (dynamic-completion-table emacspeak-webutils-google-suggest))))
   (declare (special emacspeak-websearch-accessible-google-url
                     emacspeak-websearch-google-uri))
   (let ((emacspeak-w3-tidy-html nil)
