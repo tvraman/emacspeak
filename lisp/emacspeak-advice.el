@@ -108,7 +108,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak (buffer-name))))
- 
+
 (defadvice previous-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -952,6 +952,8 @@ in completion buffers"
   "Say what you completed."
   (let ((prior (point ))
         (dtk-stop-immediately t))
+    (emacspeak-kill-buffer-carefully "*Completions*")
+    (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (if (> (point) prior)
@@ -1324,6 +1326,7 @@ in completion buffers"
    ((interactive-p)
     (let ((prior (point ))
           (emacspeak-speak-messages nil))
+      (emacspeak-kill-buffer-carefully "*Completions*")
       ad-do-it
       (if (> (point) prior)
           (tts-with-punctuations 'all
