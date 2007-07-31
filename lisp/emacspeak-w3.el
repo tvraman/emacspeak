@@ -125,11 +125,11 @@
   (when emacspeak-w3-punctuation-mode
     (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
-  (emacspeak-pronounce-refresh-pronunciations)
   (when (featurep 'w3-imenu)
     (setq imenu-create-index-function 'w3-imenu-create-index))
   (when emacspeak-w3-create-imenu-index
     (imenu--make-index-alist t))
+  (emacspeak-pronounce-refresh-pronunciations)
   (unless emacspeak-web-post-process-hook
     (emacspeak-speak-mode-line)))
 
@@ -527,10 +527,10 @@ element. "
 ;;{{{ advice focus on cell
 (defadvice w3-table-focus-on-this-cell (around emacspeak pre act comp)
   "Clone any url rewrite rules."
-  (let ((rule emacspeak-w3-url-rewrite-rule))
+  (let ((rule emacspeak-we-url-rewrite-rule))
     ad-do-it
     (when rule
-      (setq emacspeak-w3-url-rewrite-rule rule))))
+      (setq emacspeak-we-url-rewrite-rule rule))))
 
 ;;}}}
 ;;{{{ fix bug in W3 under emacs 21
@@ -674,7 +674,7 @@ If a rewrite rule is defined in the current buffer, we change
   this command to behave as if it were called with an
   interactive prefix."
   (when (and (interactive-p)
-             emacspeak-w3-url-rewrite-rule)
+             emacspeak-we-url-rewrite-rule)
     (ad-set-arg 0 t)
     (let ((url (w3-view-this-url t))
           (redirect nil))
@@ -682,8 +682,8 @@ If a rewrite rule is defined in the current buffer, we change
         (error "Not on a link."))
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-w3-url-rewrite-rule)
-             (second emacspeak-w3-url-rewrite-rule)
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
              url))
       (push redirect minibuffer-history))))
 

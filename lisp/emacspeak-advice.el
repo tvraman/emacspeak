@@ -952,7 +952,6 @@ in completion buffers"
   "Say what you completed."
   (let ((prior (point ))
         (dtk-stop-immediately t))
-    (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (if (> (point) prior)
@@ -970,7 +969,6 @@ in completion buffers"
   "Say what you completed."
   (let ((prior (point ))
         (dtk-stop-immediately t))
-    (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (cond
@@ -1324,7 +1322,6 @@ in completion buffers"
   "Say what you completed."
   (cond
    ((interactive-p)
-    (emacspeak-kill-buffer-carefully "*Completions*")
     (let ((prior (point ))
           (emacspeak-speak-messages nil))
       ad-do-it
