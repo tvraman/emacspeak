@@ -462,6 +462,7 @@ See http://www.gummy-stuff.org/Yahoo-data.htm and Perl module Finance::Yahoo")
   "&d=v1"
   "*Additional default options to pass to Yahoo.")
 
+;;;###autoload
 (defcustom emacspeak-websearch-personal-portfolio ""
   "Set this to the stock tickers you want to check by
 default."
