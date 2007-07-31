@@ -781,76 +781,14 @@ instead of the modeline."
 ;;}}}
 ;;{{{ TVR: applying XSL
 
-(defvar emacspeak-w3m-xsl-once nil
-  "XSL transformation for once applying.")
-
-(defun emacspeak-w3m-xslt-apply (xsl)
-  "Apply specified transformation to current page."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))))
-  (declare (special major-mode
-                    emacspeak-we-xsl-p
-                    emacspeak-we-xsl-transform
-                    emacspeak-xslt-directory))
-  (unless (eq major-mode 'w3m-mode)
-    (error "Not in a W3m buffer."))
-  (setq emacspeak-w3m-xsl-once xsl)
-  (w3m-redisplay-this-page))
-
-(defun emacspeak-w3m-xslt-perform (xsl-name &optional persistent)
-  "Perform XSL transformation by name on the current page
-or make it persistent if the second argument is not nil."
-  (let ((xsl (expand-file-name (concat xsl-name ".xsl")
-                               emacspeak-xslt-directory)))
-    (when persistent
-      (emacspeak-we-xslt-select xsl))
-    (when (or emacspeak-we-xsl-p
-              (not persistent))
-      (emacspeak-w3m-xslt-apply xsl))))
-
-(defun emacspeak-w3m-xsl-add-submit-button (&optional persistent)
-  "Add regular submit button if needed.
-With prefix arg makes this transformation persistent."
-  (interactive "P")
-  (emacspeak-w3m-xslt-perform "add-submit-button" persistent))
-
-(defun emacspeak-w3m-xsl-google-hits (&optional persistent)
-  "Extracts Google hits from the current page.
-With prefix argument makes this transformation persistent."
-  (interactive "P")
-  (emacspeak-w3m-xslt-perform "google-hits" persistent))
-
-(defun emacspeak-w3m-xsl-linearize-tables (&optional persistent)
-  "Linearizes tables on the current page.
-With prefix argument makes this transformation persistent."
-  (interactive "P")
-  (emacspeak-w3m-xslt-perform "linearize-tables" persistent))
-
-(defun emacspeak-w3m-xsl-sort-tables (&optional persistent)
-  "Sorts tables on the current page.
-With prefix argument makes this transformation persistent."
-  (interactive "P")
-  (emacspeak-w3m-xslt-perform "sort-tables" persistent))
-
 (defadvice  w3m-create-text-page (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the HTML. "
-  (if emacspeak-w3m-xsl-once
-      (let ((emacspeak-we-xsl-p t)
-            (emacspeak-we-xsl-transform emacspeak-w3m-xsl-once))
-        (emacspeak-xslt-region
-         emacspeak-we-xsl-transform
-         (point-min)
-         (point-max)
-         emacspeak-we-xsl-params))
     (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform
        (point-min)
        (point-max))))
-  (setq emacspeak-w3m-xsl-once nil))
+  
 
 ;; Helper function for xslt functionality
 ;;;###autoload
@@ -926,7 +864,6 @@ With prefix argument makes this transformation persistent."
   (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
-
 (provide 'emacspeak-w3m)
 ;;{{{ end of file
 
