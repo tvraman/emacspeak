@@ -189,27 +189,23 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;; Get search completions from Google
 ;;; Inspired by code found on Emacs Wiki:
 ;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
-
+;;; Changed to using csv=true thanks to Ami Fishman
+;;; As a result, this version is  more efficient
+(defvar emacspeak-webutils-google-suggest-command
+  "curl -s\
+ 'http://www.google.com/complete/search?hl=en&csv=true&qu=%s' | head -2 | tail -1"
+  "Command that gets suggestions from Google.")
 
 (defsubst emacspeak-webutils-google-suggest (input)
   "Get completion list from Google Suggest."
+  (declare (special emacspeak-webutils-google-suggest-command))
   (with-temp-buffer
-    (insert
-     (shell-command-to-string
-      (format "curl --silent  %s"
-              (shell-quote-argument
-               (format
-                "http://www.google.com/complete/search?hl=en&js=true&qu=%s"
-                (emacspeak-url-encode input))))))
-    (read
-     (replace-regexp-in-string "," ""
-                               (progn
-                                 (goto-char (point-min))
-                                 (re-search-forward "\(" (point-max) t 2)
-                                 (backward-char 1)
-                                 (forward-sexp)
-                                 (buffer-substring-no-properties
-                                  (1- (match-end 0)) (point)))))))
+    (shell-command
+     (format emacspeak-webutils-google-suggest-command
+             (emacspeak-url-encode input))
+     (current-buffer))
+    (mapcar 'read
+            (split-string (buffer-string) ","))))
 
 ;;}}}
 ;;{{{ helper macros:
