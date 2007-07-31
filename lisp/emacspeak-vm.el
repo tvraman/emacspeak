@@ -299,10 +299,8 @@ Then speak the screenful. "
 (declaim (special vm-mode-map))
 (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
 (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
-(define-key vm-mode-map "\M-\t"
-  'emacspeak-vm-next-button)
-(define-key vm-mode-map  "j"
-  'emacspeak-hide-or-expose-all-blocks)
+(define-key vm-mode-map "\M-\t" 'emacspeak-vm-next-button)
+(define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
 (define-key vm-mode-map  "\M-g" 'vm-goto-message)
 (define-key vm-mode-map "J" 'vm-discard-cached-data)
 (define-key vm-mode-map "." 'emacspeak-vm-browse-message)
