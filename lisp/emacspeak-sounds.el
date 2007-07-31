@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -82,9 +82,9 @@ use `emacspeak-toggle-auditory-icons' bound to
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
-;;{{{  Setup sound themes 
+;;{{{  Setup sound themes
 
-(defvar emacspeak-sounds-icon-list 
+(defvar emacspeak-sounds-icon-list
   '(
     alarm
     alert-user
@@ -130,7 +130,7 @@ use `emacspeak-toggle-auditory-icons' bound to
     yank-object
     yes-answer
     )
-  "List of valid auditory icon names. 
+  "List of valid auditory icon names.
 If we add new icons we should declare them here. ")
 
 (defsubst emacspeak-sounds-icon-list ()
@@ -180,7 +180,7 @@ If we add new icons we should declare them here. ")
   :group 'emacspeak-sounds
   :type 'string)
 
-(defvar emacspeak-sounds-current-theme 
+(defvar emacspeak-sounds-current-theme
   emacspeak-sounds-default-theme
   "Name of current theme for auditory icons.
 Do not set this by hand;
@@ -228,10 +228,10 @@ Do not set this by hand;
   (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'select-object))
 
-           
 
-               
-                      
+
+
+
 ;;;###autoload
 (defsubst emacspeak-get-sound-filename (sound-name)
   "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
@@ -245,7 +245,7 @@ Do not set this by hand;
           emacspeak-sounds-current-theme)))
     (if  (file-exists-p f)
         f
-      emacspeak-default-sound)))  
+      emacspeak-default-sound)))
 
 ;;}}}
 ;;{{{  queue an auditory icon
@@ -323,7 +323,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-native-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
 
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (declare (special emacspeak-auditory-icon-function
@@ -357,21 +357,19 @@ Optional interactive PREFIX arg toggles global value."
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
 
-(defvar emacspeak-sounds-auditory-icon-players  
-  '(
-    ("emacspeak-serve-auditory-icon" . "emacspeak-serve-auditory-icon")
-    ("emacspeak-play-auditory-icon" . "emacspeak-play-auditory-icon")
-    ("emacspeak-native-auditory-icon" . "emacspeak-native-auditory-icon")
-    )
+(defvar emacspeak-sounds-auditory-icon-players
+  '("emacspeak-serve-auditory-icon"
+    "emacspeak-play-auditory-icon"
+    "emacspeak-native-auditory-icon")
   "Table of auditory icon players used  when selecting a player.")
 
 (defun emacspeak-select-auditory-icon-player ()
   "Pick a player for producing auditory icons."
   (declare (special emacspeak-sounds-auditory-icon-players))
-  (read 
+  (read
    (completing-read "Select auditory icon player: "
                     emacspeak-sounds-auditory-icon-players
-                    nil nil 
+                    nil nil
                     "emacspeak-")))
 ;;;###autoload
 (defun  emacspeak-set-auditory-icon-player (player)
