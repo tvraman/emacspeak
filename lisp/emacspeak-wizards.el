@@ -562,10 +562,10 @@ default-directory after switching."
             (buffer-string)))
     (bury-buffer buffer)
     (message output)))
-                   
-      
-          
-          
+
+
+
+
 
 ;;;###autoload
 
@@ -2157,12 +2157,18 @@ this requires Perl module Finance::YahooQuote."
                   (string :tag "Text: ")))
   :group 'emacspeak-wizards)
 
+(defcustom emacspeak-wizards-personal-portfolio ""
+  "Set this to the stock tickers you want to check by
+default."
+  :type 'string
+  :group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
   "Bring up detailed stock quotes for portfolio specified by
-emacspeak-websearch-personal-portfolio."
+emacspeak-wizards-personal-portfolio."
   (interactive)
-  (declare (special emacspeak-websearch-personal-portfolio
+  (declare (special emacspeak-wizards-personal-portfolio
                     emacspeak-wizards-quote-command
                     emacspeak-wizards-quote-row-filter))
   (let ((temp-file
@@ -2171,7 +2177,7 @@ emacspeak-websearch-personal-portfolio."
     (shell-command
      (format
       "echo '%s' | perl %s > %s"
-      emacspeak-websearch-personal-portfolio
+      emacspeak-wizards-personal-portfolio
       emacspeak-wizards-quote-command
       temp-file))
     (emacspeak-table-find-csv-file temp-file)
