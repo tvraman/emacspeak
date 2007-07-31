@@ -58,7 +58,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
-(require 'emacspeak-websearch)
 (require 'emacspeak-xslt)
 (eval-when-compile
   (require 'calendar))
