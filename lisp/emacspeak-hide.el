@@ -331,14 +331,14 @@ Optional prefix arg `echo'results in echoing an appropriate message."
                       (length block-prefix)
                       block-prefix))))))
 ;;;###autoload
-(defun emacspeak-hide-or-expose-block (&optional prefix)
+(defun emacspeak-hide-or-expose-block (&optional print-msg prefix)
   "Hide or expose a block of text.
 This command either hides or exposes a block of text
 starting on the current line.  A block of text is defined as
 a portion of the buffer in which all lines start with a
 common PREFIX.  Optional interactive prefix arg causes all
 blocks in current buffer to be hidden or exposed."
-  (interactive "P")
+  (interactive (list (interactive-p) current-prefix-arg))
   (save-excursion
     (dtk-stop)
     (beginning-of-line)
@@ -352,20 +352,20 @@ blocks in current buffer to be hidden or exposed."
          ((and block
                (or (get-text-property (point-min) 'emacspeak-hidden-block)
                    (get-text-property block 'emacspeak-hidden-block)))
-          (emacspeak-hide-expose-hidden-blocks-in-buffer (interactive-p)))
-         (t (emacspeak-hide-all-blocks-in-buffer (interactive-p))))))
+          (emacspeak-hide-expose-hidden-blocks-in-buffer print-msg))
+         (t (emacspeak-hide-all-blocks-in-buffer print-msg)))))
      ((get-text-property (point) 'emacspeak-hidden-block)
-      (emacspeak-hide-expose-block (interactive-p)))
+      (emacspeak-hide-expose-block print-msg))
      (t
       (let ((block-prefix (emacspeak-hide-get-block-prefix)))
         (when block-prefix
-          (emacspeak-hide-current-block  block-prefix (interactive-p) )))))))
+          (emacspeak-hide-current-block  block-prefix print-msg )))))))
 
 ;;;###autoload
-(defun emacspeak-hide-or-expose-all-blocks (&optional prefix)
+(defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."
-  (interactive "p")
-  (let (call-interactively 'emacspeak-hide-or-expose-block)))
+  (interactive)
+  (emacspeak-hide-or-expose-block t 1))
 
 ;;}}}
 ;;{{{  speaking blocks sans prefix
