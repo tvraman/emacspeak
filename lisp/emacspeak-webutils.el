@@ -193,7 +193,9 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;; As a result, this version is  more efficient
 (defvar emacspeak-webutils-google-suggest-command
   "curl -s\
- 'http://www.google.com/complete/search?hl=en&csv=true&qu=%s' | head -2 | tail -1"
+ 'http://www.google.com/complete/search?csv=true&qu=%s' \
+ | head -2 | tail -1 \
+| sed -e 's/\"//g'"
   "Command that gets suggestions from Google.")
 
 (defsubst emacspeak-webutils-google-suggest (input)
@@ -204,8 +206,7 @@ ARGS specifies additional arguments to SPEAKER if any."
      (format emacspeak-webutils-google-suggest-command
              (emacspeak-url-encode input))
      (current-buffer))
-    (mapcar 'read
-            (split-string (buffer-string) ","))))
+    (split-string (buffer-string) ",")))
 
 ;;}}}
 ;;{{{ helper macros:
