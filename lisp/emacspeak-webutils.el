@@ -195,7 +195,7 @@ ARGS specifies additional arguments to SPEAKER if any."
               (shell-quote-argument
                (format
                 "http://www.google.com/complete/search?hl=en&js=true&qu=%s"
-                input)))))
+                (emacspeak-url-encode input))))))
     (read
      (replace-regexp-in-string "," ""
                                (progn
