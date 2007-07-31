@@ -166,9 +166,7 @@ split caps Do not set this variable by hand, use command
 `dtk-toggle-allcaps-beep' bound to \\[dtk-toggle-allcaps-beep].")
 
 (defconst dtk-punctuation-mode-alist
-  '(("some" . "some" )
-    ("all" . "all")
-    ("none" . "none"))
+  '("some" "all" "none")
   "Alist of valid punctuation modes.")
 
 (defvar dtk-last-output nil
@@ -1098,8 +1096,7 @@ no line --with no white space."
       (erase-buffer)
       (insert-file-contents
        (expand-file-name ".servers"
-                         emacspeak-servers-directory))
-      (goto-char (point-min))
+                   emacspeak-servers-directory))
       (goto-char (point-min))
       (while (not (eobp))
         (setq start (point))
@@ -1107,16 +1104,12 @@ no line --with no white space."
             (looking-at  "^#")
           (end-of-line)
           (setq this (buffer-substring-no-properties start (point)))
-          (push
-           (cons this this)
-           result))
+          (push this result))
         (forward-line 1)))
     (setq dtk-servers-alist result)))
 
-(defvar dtk-servers-alist
-  nil
-  "Used by `completing-read' when prompting for the dtk
-server to use.
+(defvar dtk-servers-alist nil
+  "Used for completion when prompting for TTS server.
 This variable is automatically setup to reflect the
 available TTS servers.")
 
@@ -1561,9 +1554,7 @@ When called  interactively, The selected server is started immediately. "
     (completing-read
      "Select speech server:"
      (or dtk-servers-alist
-         (progn
-           (tts-setup-servers-alist)
-           dtk-servers-alist))
+         (tts-setup-servers-alist))
      nil
      t  )))
   (declare (special   dtk-program dtk-servers-alist

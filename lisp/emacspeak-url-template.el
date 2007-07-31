@@ -136,9 +136,6 @@ This function is sensitive to calendar mode when prompting."
 ;;}}}
 ;;{{{  define resources
 
-(defvar emacspeak-url-template-name-alist nil
-  "Alist of url template names --used by completing-read when
-prompting for a template.")
 ;;;###autoload
 (defun emacspeak-url-template-define (name template
                                            &optional generators post-action
@@ -159,11 +156,7 @@ fetcher         Unless specified, browse-url retrieves URL.
                 that is called with the URI to retrieve.
 documentation   Documents this template resource.
 dont-url-encode if true then url arguments are not url-encoded "
-  (declare (special emacspeak-url-template-table
-                    emacspeak-url-template-name-alist))
-  (unless (emacspeak-url-template-get  name)
-    (push (list name name )
-          emacspeak-url-template-name-alist))
+  (declare (special emacspeak-url-template-table))
   (emacspeak-url-template-set
    name
    (emacspeak-url-template-constructor
@@ -1862,7 +1855,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
   (declare (special emacspeak-url-template-meerkat-profiles))
   (loop for k being the hash-keys of
         emacspeak-url-template-meerkat-profiles
-        collect (cons k k )))
+        collect k))
 
 (emacspeak-url-template-define
  "Meerkat Profile"
@@ -2070,15 +2063,14 @@ Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
-  (declare (special emacspeak-url-template-name-alist
-                    emacspeak-url-template-current-ut
+  (declare (special emacspeak-url-template-current-ut
                     emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (name  nil))
     (setq name
           (completing-read "Resource: "
-                           emacspeak-url-template-name-alist
+          emacspeak-url-template-table
                            nil
                            'must-match))
     (cond
@@ -2093,12 +2085,12 @@ Optional interactive prefix arg displays documentation for specified resource."
 Use Emacs completion to obtain a list of available
 resources."
   (interactive)
-  (declare (special emacspeak-url-template-name-alist))
+  (declare (special emacspeak-url-template-table))
   (let ((completion-ignore-case t)
         (name nil))
     (setq name
           (completing-read "Resource: "
-                           emacspeak-url-template-name-alist))
+                           emacspeak-url-template-table))
     (emacspeak-url-template-help-internal  name)))
 
 ;;}}}
