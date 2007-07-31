@@ -948,6 +948,11 @@ I'm Feeling Lucky button on Google."
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
+  (if lucky
+      (emacspeak-speak-line)
+    (emacspeak-webutils-post-process
+     "results"
+     'emacspeak-speak-line))
   (let ((emacspeak-w3-tidy-html nil))
     (emacspeak-webutils-without-xsl
      (browse-url
@@ -960,12 +965,7 @@ I'm Feeling Lucky button on Google."
                 (concat
                  "&btnI="
                  (emacspeak-url-encode
-                  "I'm Feeling Lucky")))))))
-  (if lucky
-      (emacspeak-speak-line)
-    (emacspeak-webutils-post-process
-     "results"
-     'emacspeak-speak-line)))
+                  "I'm Feeling Lucky"))))))))
 
 ;;{{{ IMFA
 
