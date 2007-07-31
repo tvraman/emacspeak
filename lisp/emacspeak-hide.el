@@ -193,10 +193,10 @@ Returns t if a block was found and hidden."
       (setq begin (line-beginning-position))
       (cond
        ((not prefix)
-        (message "Not on a block")
+        (when echo (message "Not on a block"))
         nil)
        ((= 1 (forward-line 1))
-        (message "At bottom of buffer. ")
+        (when echo (message "At bottom of buffer. "))
         nil)
        (t                              ;start looking for a block
         (setq start (point))
@@ -273,7 +273,6 @@ Returns t if a block was found and hidden."
 (defun emacspeak-hide-all-blocks-in-buffer (&optional echo)
   "Hide all blocks in current buffer.
 Optional prefix arg `echo'results in echoing an appropriate message."
-  (interactive "p")
   (let ((count 0)
         (prefix nil))
     (save-excursion
@@ -288,7 +287,7 @@ Optional prefix arg `echo'results in echoing an appropriate message."
             (point) 'emacspeak-hidden-block
             (current-buffer) (point-max))))
          (t (forward-line 1)))))
-    (when (or echo (interactive-p))
+    (when  echo 
       (dtk-speak
        (format "Hid %s blocks" count)))))
 
