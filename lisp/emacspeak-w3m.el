@@ -675,17 +675,6 @@ instead of the modeline."
     (dtk-speak "Viewing history")))
 
 ;;}}}
-;;{{{ displaying pages
-
-(add-hook 'w3m-display-hook
-          (lambda (url)
-            (declare (special w3m-current-title))
-            (emacspeak-auditory-icon 'open-object)
-            (when (stringp w3m-current-title)
-              (dtk-speak w3m-current-title)))
-          t)
-
-;;}}}
 ;;{{{ webutils variables
 
 (add-hook 'w3m-fontify-after-hook

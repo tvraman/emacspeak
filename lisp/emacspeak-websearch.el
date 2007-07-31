@@ -934,13 +934,6 @@ Optional second arg as-html processes the results as HTML rather than data."
           (const :tag "None" nil)
           (string :tag "Options"))
   :group 'emacspeak-websearch)
-
-;;; Get search completions from Google
-;;; Inspired by code found on Emacs Wiki:
-;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
-
-
-
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform a Google search.
