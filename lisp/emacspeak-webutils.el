@@ -186,6 +186,11 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ google suggest helper:
 
+;;; Get search completions from Google
+;;; Inspired by code found on Emacs Wiki:
+;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
+
+
 (defsubst emacspeak-webutils-google-suggest (input)
   "Get completion list from Google Suggest."
   (with-temp-buffer
