@@ -115,6 +115,16 @@
   (add-hook 'diary-display-hook 'fancy-diary-display))
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
+
+(loop for f in
+      '(fancy-diary-display simple-diary-display
+                            diary-list-entries)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act com)
+          "Silence messages."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it))))
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
@@ -150,12 +160,10 @@
 (defadvice calendar (after emacspeak pre act )
   "Announce yourself."
   (when (interactive-p)
-    (let ((emacspeak-speak-messages nil))
-      (emacspeak-auditory-icon 'open-object)
-      (setq calendar-mode-line-format
-            emacspeak-calendar-mode-line-format)
-      (tts-with-punctuations "some"
-                             (dtk-speak "Welcome to the calendar. ")))))
+    (emacspeak-auditory-icon 'open-object)
+    (setq calendar-mode-line-format
+          emacspeak-calendar-mode-line-format)
+    (emacspeak-speak-mode-line)))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
   "Speak the date. "

@@ -857,9 +857,10 @@ current local  value to the result."
      (t (make-local-variable 'dtk-character-scale)
         (setq dtk-character-scale factor)))
     (dtk-interp-set-character-scale dtk-character-scale)
+    (when (interactive-p)
     (message "Set character scale factor to %s %s"
              dtk-character-scale
-             (if  prefix ""  "locally"))))
+             (if  prefix ""  "locally")))))
 
 (ems-generate-switcher 'dtk-toggle-quiet
                        'dtk-quiet
@@ -1617,7 +1618,8 @@ Default is to use pipes.")
       (tts-configure-synthesis-setup dtk-program)
       (run-hooks 'dtk-startup-hook ))
      (t
-      (message "The speech server is not running.")))))
+      (when (interactive-p)
+      (message "The speech server is not running."))))))
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
@@ -1672,7 +1674,8 @@ Argument S specifies the syntax class."
     (read-from-minibuffer "Specify separator syntax string: ")))
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax s)
-  (message "Set  separator to %s" s))
+  (when (interactive-p)
+    (message "Set  separator to %s" s)))
 
 ;;}}}
 ;;{{{ speak text
