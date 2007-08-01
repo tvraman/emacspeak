@@ -67,7 +67,6 @@
 # Setting up synthesizer server:
 # Emacspeak comes with two servers written in TCL:
 # 1) dtk-exp for the Dectalk Express
-# 2) dtk-mv for the MultiVoice and older Dectalk 3 synthesizers
 # emacspeak uses the shell environment variable DTK_PROGRAM to determine
 # which server to use, and the shell environment variable DTK_PORT
 # to determine the port where the Dectalk is connected.
@@ -171,13 +170,10 @@ SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 
 TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp  servers/ssh-dtk-exp\
-servers/dtk-mv \
 servers/dtk-soft \
 servers/espeak \
 servers/outloud  servers/ssh-outloud \
-servers/dsp-outloud \
 servers/tts-lib.tcl \
-servers/remote-tcl \
 servers/speech-server
 ELISP = lisp/*.el \
 lisp/g-client \
