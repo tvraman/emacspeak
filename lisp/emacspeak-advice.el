@@ -941,7 +941,7 @@ in completion buffers"
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
+            (next-completion 1)
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 
@@ -960,7 +960,7 @@ in completion buffers"
              (window-live-p (get-buffer-window completions )))
         (save-excursion
           (set-buffer completions )
-          (emacspeak-prepare-completions-buffer)
+          (next-completion 1)
           (dtk-speak (buffer-substring (point) (point-max)))))))
     ad-return-value))
 
@@ -976,7 +976,7 @@ in completion buffers"
              (window-live-p (get-buffer-window completions )))
         (save-excursion
           (set-buffer completions )
-          (emacspeak-prepare-completions-buffer)
+          (next-completion 1)
           (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring (point) (point-max))))))
        ((> (point) prior)
@@ -1024,11 +1024,10 @@ in completion buffers"
                            (dtk-speak
                             (emacspeak-get-current-completion )))))
 
-(defadvice choose-completion (after emacspeak pre act )
+(defadvice choose-completion (before emacspeak pre act )
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice minibuffer-message (around emacspeak pre act comp)
   "Speak the message if appropriate."
@@ -1164,8 +1163,9 @@ in completion buffers"
   "Indicate that we popped up a completion buffer."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
-    (emacspeak-auditory-icon 'help)
-    (message "Displayed completions.")))
+    (goto-char (point-min))
+  (next-completion 1)
+    (emacspeak-auditory-icon 'help)))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
