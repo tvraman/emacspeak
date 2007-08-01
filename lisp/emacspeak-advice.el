@@ -1154,6 +1154,10 @@ in completion buffers"
    (comint-highlight-input voice-bolden-medium)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
+(defadvice shell-command (around emacspeak pre act comp)
+  "Silence messages"
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 (defadvice shell-dirstack-message (around emacspeak pre act comp)
   "Silence messages so we dont hear stutter."
