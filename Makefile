@@ -180,7 +180,6 @@ servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server
 ELISP = lisp/*.el \
-lisp/atom-blogger \
 lisp/g-client \
 lisp/xml-forms/*.xml \
 lisp/Makefile
@@ -265,7 +264,6 @@ install:
 	touch $(libdir)/.nosearch
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/xml-forms
-	$(INSTALL) -d $(libdir)/lisp/atom-blogger
 	$(INSTALL) -d $(libdir)/lisp/g-client
 	$(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
@@ -275,7 +273,6 @@ install:
 	$(INSTALL) -m 0644  ${ID} $(libdir)
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
-	$(INSTALL) -m 0644  lisp/atom-blogger/*.el    $(libdir)/lisp/atom-blogger
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
