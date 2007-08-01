@@ -1654,10 +1654,11 @@ since the synthesizer is getting a word at a time."
   (cond
    ((not (string-match " " dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
-    (message "Text will be split at punctuations and white space when speaking") )
+    (when (interactive-p)
+    (message "Text will be split at punctuations and white space when speaking") ))
    (t (dtk-chunk-only-on-punctuations)
-      (message "Text split only at clause boundaries when
-speaking"))))
+      (when (interactive-p)
+      (message "Text split  at clause boundaries")))))
 
 ;;;###autoload
 (defun dtk-set-chunk-separator-syntax (s)
