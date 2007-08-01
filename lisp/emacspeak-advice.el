@@ -955,16 +955,20 @@ in completion buffers"
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
-      (if (> (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-substring prior (point ))))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
-            (dtk-speak (buffer-string ))))))
+      (cond
+       ((> (point) prior)
+        (tts-with-punctuations 'all
+                               (dtk-speak (buffer-substring prior (point )))))
+       ((and completions-buffer
+             (window-live-p (get-buffer-window completions-buffer )))
+        (save-excursion
+          (set-buffer completions-buffer )
+          (goto-char (point-min))
+          (forward-line 1)
+          (dtk-speak (buffer-substring (point) (point-max)))))
+       (t (call-interactively 'emacspeak-switch-to-completions-window))))
     ad-return-value))
+
 
 (defadvice minibuffer-complete (around emacspeak pre act)
   "Say what you completed."
@@ -974,27 +978,23 @@ in completion buffers"
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (cond
-       ((> (point) prior)
-        (tts-with-punctuations 'all
-                               (dtk-speak (buffer-substring prior (point ))))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
-            (tts-with-punctuations 'all
-                                   (dtk-speak (buffer-string
-                                               ))))))
-       ((< (point) prior)
-        (tts-with-punctuations 'all
-                               (dtk-speak (buffer-string))))
        ((and completions-buffer
              (window-live-p (get-buffer-window completions-buffer )))
         (save-excursion
           (set-buffer completions-buffer )
-          (emacspeak-prepare-completions-buffer)
+          (goto-char (point-min))
+          (forward-line 4)
+          (emacspeak-auditory-icon 'help)
+          ;(emacspeak-prepare-completions-buffer)
           (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-string ))))))
+                                 (dtk-speak (buffer-substring
+                                             (point) (point-max))))))
+       ((> (point) prior)
+        (tts-with-punctuations 'all
+                               (dtk-speak (buffer-substring prior (point )))))
+       ((< (point) prior)
+        (tts-with-punctuations 'all
+                               (dtk-speak (buffer-string)))))
       ad-return-value)))
 
 (defadvice lisp-complete-symbol (around emacspeak pre act)
