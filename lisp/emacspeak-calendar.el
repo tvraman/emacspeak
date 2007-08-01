@@ -386,7 +386,7 @@
 
 (defun emacspeak-appt-speak-appointment (minutes-left new-time message )
   "Speak the appointment in addition to  displaying it visually."
-  (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+  (let ((emacspeak-speak-messages-pause nil))
     (emacspeak-auditory-icon 'alarm)
     (dtk-pause t)
     (message "You have an appointment in %s minutes. %s"
@@ -422,15 +422,6 @@
   (emacspeak-dtk-sync))
 
 ;;}}}
-
-                                        ; (defadvice appt-disp-window (before emacspeak activate compile)
-                                        ;   "Speak the appointment."
-                                        ;   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
-                                        ;     (dtk-pause t)
-                                        ;     (emacspeak-auditory-icon 'alarm)
-                                        ;     (message "You have an appointment in %s minutes, %s"
-                                        ;              (ad-get-arg 0)
-                                        ;              (ad-get-arg 2))))
 
 (defadvice appt-add (after emacspeak pre act )
   "Confirm that the alarm got set."

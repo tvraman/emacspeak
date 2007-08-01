@@ -613,8 +613,8 @@ current after deletion."
   "Records when we last spoke a message.")
 
 ;;;###autoload
-(defcustom emacspeak-speak-messages-should-pause-ongoing-speech
-  t
+(defcustom emacspeak-speak-messages-pause
+  nil
   "* Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken."
@@ -639,24 +639,19 @@ before the message is spoken."
 (defadvice message (around  emacspeak pre act)
   "Speak the message."
   (declare (special emacspeak-last-message
-                    emacspeak-speak-messages-should-pause-ongoing-speech
+                    emacspeak-speak-messages-pause
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((dtk-stop-immediately t )
         (inhibit-read-only t))
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
-    (put-text-property 0 (length emacspeak-last-message)
-                       'personality 'voice-animate
-                       emacspeak-last-message)
-    (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value          ;we really do have a message
-                 (/= emacspeak-lazy-message-time ;; previous message not recent
-                     (setq emacspeak-lazy-message-time
-                           (nth 1  (current-time)))))
+    (when (and
+           emacspeak-speak-messages  ; speaking messages
+           ad-return-value           ;we really do have a message
+           (/= emacspeak-lazy-message-time ;; previous message not recent
+               (setq emacspeak-lazy-message-time (nth 1  (current-time)))))
       ;; so we really need to speak it
-      (when
-          emacspeak-speak-messages-should-pause-ongoing-speech
-        (dtk-pause))
+      (when emacspeak-speak-messages-pause (dtk-pause))
       (tts-with-punctuations 'all
                              (dtk-speak ad-return-value)))
     ad-return-value))
@@ -773,7 +768,7 @@ Also produces an auditory icon if possible."
   "Use speech when prompting.
 Produce an auditory icon if possible."
   (emacspeak-auditory-icon 'ask-short-question )
-  (when emacspeak-speak-messages-should-pause-ongoing-speech
+  (when emacspeak-speak-messages-pause
     (dtk-pause))
   (tts-with-punctuations 'all
                          (dtk-speak (format "%s  y or n" (ad-get-arg  0 ))))
@@ -790,7 +785,7 @@ Produce an auditory icon if possible."
   "Use speech when prompting.
 Produce an auditory icon as well."
   (emacspeak-auditory-icon 'ask-question)
-  (when emacspeak-speak-messages-should-pause-ongoing-speech
+  (when emacspeak-speak-messages-pause
     (dtk-pause))
   (tts-with-punctuations 'all
                          (dtk-speak (format "%s  yes or no" (ad-get-arg  0 ))))
@@ -2499,18 +2494,18 @@ Produce auditory icons if possible."
 
 (defadvice isearch-done (around emacspeak pre act comp)
   "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+  (let ((emacspeak-speak-messages-pause nil))
     ad-do-it
     ))
 
 (defadvice isearch-exit (around emacspeak pre act comp)
   "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+  (let ((emacspeak-speak-messages-pause nil))
     ad-do-it))
 
 (defadvice isearch-abort (around emacspeak pre act comp)
   "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+  (let ((emacspeak-speak-messages-pause nil))
     ad-do-it))
 
 ;;}}}
