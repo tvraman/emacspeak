@@ -206,7 +206,7 @@ ARGS specifies additional arguments to SPEAKER if any."
      (format emacspeak-webutils-google-suggest-command
              (emacspeak-url-encode input))
      (current-buffer))
-    (split-string (buffer-string) ",")))
+    (cdr (split-string (buffer-string) ","))))
 
 ;;}}}
 ;;{{{ helper macros:
