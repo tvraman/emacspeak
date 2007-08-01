@@ -1328,19 +1328,21 @@ Negative prefix arg speaks from start of buffer to point."
 ;;;###autoload
  ;; end emacs pre-19.30 specials
 
+
 (defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
+  (if (eobp)
+      (skip-syntax-backward " ")
+    (skip-syntax-forward " "))
   (let (beg end)
-    (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
-        (setq end (point) beg (1+ (point))))
-    (if (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
-        (setq end (1- (point)) beg (point)))
-    (if (null beg)
-        (error "No current  completion "))
-    (setq beg (or
-               (previous-single-property-change beg 'mouse-face)
-               (point-min)))
-    (setq end (or (next-single-property-change end 'mouse-face) (point-max)))
+    (when (and (not (eobp)) (get-text-property (point) 'mouse-face))
+      (setq end (point) beg (1+ (point))))
+    (when (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
+      (setq end (1- (point)) beg (point)))
+    (when (null beg) (error "No current  completion "))
+    (setq
+     beg (previous-single-property-change beg 'mouse-face nil (point-min))
+     end (next-single-property-change end 'mouse-face nil (point-max)))
     (buffer-substring beg end)))
 
 ;;}}}
@@ -2972,10 +2974,10 @@ Argument O specifies overlay."
                               (match-end 0)
                               'personality 'inaudible)))))))
 
-(defvar emacspeak-completions-current-prefix nil
+(defvar emacspeak-completions-prefix nil
   "Prefix typed in the minibuffer before completions was invoked.")
 
-(make-variable-buffer-local 'emacspeak-completions-current-prefix)
+(make-variable-buffer-local 'emacspeak-completions-prefix)
 
 ;;;###autoload
 (defun emacspeak-switch-to-completions-window ()
@@ -2984,7 +2986,7 @@ We make the current minibuffer contents (which is obviously the
 prefix for each entry in the completions buffer) inaudible
 to reduce chatter."
   (interactive)
-  (declare (special  emacspeak-completions-current-prefix))
+  (declare (special emacspeak-completions-prefix))
   (let ((completions (get-buffer "*Completions*"))
         (current-entry (minibuffer-contents)))
     (cond
@@ -2993,41 +2995,42 @@ to reduce chatter."
       (select-window  (get-buffer-window completions ))
       (when (and  current-entry
                   (> (length current-entry) 0))
-        (setq emacspeak-completions-current-prefix current-entry)
+        (setq emacspeak-completions-prefix current-entry)
         (emacspeak-make-string-inaudible current-entry))
       (dtk-toggle-splitting-on-white-space)
       (call-interactively 'next-completion))
      (t (message "No completions")))))
 
-(defun emacspeak-switch-to-minibuffer-window ()
-  "Jump to the minibuffer window if it is active."
+;;;###autoload
+(defun emacspeak-switch-to-reference-buffer ()
+  "Switch back to buffer that generated completions."
   (interactive)
-  (let ((window (minibuffer-window)))
-    (cond
-     ((minibuffer-window-active-p window)
-      (select-window  window)
-      (emacspeak-auditory-icon 'select-object)
-      (dtk-speak (minibuffer-contents)))
-     (t (error "Minibuffer is not active.")))))
+  (declare (special completion-reference-buffer))
+  (if completion-reference-buffer
+      (switch-to-buffer completion-reference-buffer)
+    (error "Reference buffer not found.")))
 
 ;;;###autoload
 (defun emacspeak-completions-move-to-completion-group()
   "Move to group of choices beginning with character last
-typed. If no such group exists, then we dont move. "
+typed. If no such group exists, then we try to search for that
+char, or dont move. "
   (interactive)
-  (declare (special last-input-char
-                    emacspeak-completions-current-prefix))
-  (let ((pattern (format "[ \t\n]%s%c"
-                         (or
-                          emacspeak-completions-current-prefix "")
-                         last-input-char))
+  (declare (special last-input-char emacspeak-completions-prefix))
+  (let ((pattern
+         (format
+          "[ \t\n]%s%c"
+          (or emacspeak-completions-prefix "")
+          last-input-char))
+        (input (format "%c" last-input-char))
         (case-fold-search t))
     (when (or (re-search-forward pattern nil t)
-              (re-search-backward pattern nil t))
+              (re-search-backward pattern nil t)
+(search-forward input nil t)
+(search-backward input nil t))
       (skip-syntax-forward " ")
       (emacspeak-auditory-icon 'search-hit))
-    (dtk-speak
-     (emacspeak-get-current-completion ))))
+    (dtk-speak (emacspeak-get-current-completion ))))
 
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-minibuffer-window)

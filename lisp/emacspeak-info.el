@@ -170,7 +170,7 @@ and then cue the next selected buffer."
            Info-header-line)
       (dtk-speak Info-header-line))
      (t (save-excursion
-          (beginning-of-buffer)
+          (goto-char (point-min))
           (emacspeak-speak-line))))))
 
 ;;}}}

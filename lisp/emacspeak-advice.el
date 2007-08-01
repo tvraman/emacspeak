@@ -2012,7 +2012,7 @@ Provide an auditory icon if possible."
   (emacspeak-auditory-icon 'open-object)
   (let ((emacspeak-speak-messages nil))
     (save-excursion
-      (beginning-of-buffer)
+      (goto-char (point-min))
       (emacspeak-speak-line))))
 
 (defadvice mail-other-window (after emacspeak pre act)
@@ -2020,7 +2020,7 @@ Provide an auditory icon if possible."
   (emacspeak-auditory-icon 'open-object)
   (let ((emacspeak-speak-messages nil))
     (save-excursion
-      (beginning-of-buffer)
+      (goto-char (point-min))
       (emacspeak-speak-line))))
 
 (defadvice mail-other-frame (after emacspeak pre act)
@@ -2028,7 +2028,7 @@ Provide an auditory icon if possible."
   (emacspeak-auditory-icon 'open-object)
   (let ((emacspeak-speak-messages nil))
     (save-excursion
-      (beginning-of-buffer)
+      (goto-char (point-min))
       (emacspeak-speak-line))))
 
 (defadvice mail-text (after emacspeak pre act)
