@@ -3033,7 +3033,7 @@ char, or dont move. "
     (dtk-speak (emacspeak-get-current-completion ))))
 
 (declaim (special completion-list-mode-map))
-(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-minibuffer-window)
+(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
