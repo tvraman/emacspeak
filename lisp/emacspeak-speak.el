@@ -236,12 +236,9 @@ Useful to do this before you listen to an entire buffer."
 ;;{{{ helper function --prepare completions buffer
 
 (defsubst emacspeak-prepare-completions-buffer()
-  (ems-modify-buffer-safely
-   (goto-char (point-min))
-   (forward-line 4)
-   (put-text-property  (point-min) (point)
-                       'personality 'inaudible)
-   (emacspeak-auditory-icon 'help)))
+  (goto-char (point-min))
+  (forward-line 4)
+   (emacspeak-auditory-icon 'help))
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
@@ -2987,25 +2984,19 @@ We make the current minibuffer contents (which is obviously the
 prefix for each entry in the completions buffer) inaudible
 to reduce chatter."
   (interactive)
-  (declare (special voice-lock-mode emacspeak-completions-current-prefix))
-  (let ((completions-buffer (get-buffer "*Completions*"))
-        (current-entry (emacspeak-get-minibuffer-contents)))
+  (declare (special  emacspeak-completions-current-prefix))
+  (let ((completions (get-buffer "*Completions*"))
+        (current-entry (minibuffer-contents)))
     (cond
-     ((and completions-buffer
-           (window-live-p (get-buffer-window completions-buffer )))
-      (select-window  (get-buffer-window completions-buffer ))
-      (when (interactive-p)
-        (setq voice-lock-mode t)
-        (when (and  current-entry
-                    (> (length current-entry) 0))
-          (setq emacspeak-completions-current-prefix current-entry)
-          (emacspeak-make-string-inaudible current-entry))
-        (dtk-toggle-splitting-on-white-space)
-        (goto-char (point-min))
-        (forward-line 1)
-        (dtk-speak
-         (emacspeak-get-current-completion-from-completions)))
-      (emacspeak-auditory-icon 'select-object))
+     ((and completions
+           (window-live-p (get-buffer-window completions )))
+      (select-window  (get-buffer-window completions ))
+      (when (and  current-entry
+                  (> (length current-entry) 0))
+        (setq emacspeak-completions-current-prefix current-entry)
+        (emacspeak-make-string-inaudible current-entry))
+      (dtk-toggle-splitting-on-white-space)
+      (call-interactively 'next-completion))
      (t (message "No completions")))))
 
 (defun emacspeak-switch-to-minibuffer-window ()
@@ -3020,7 +3011,7 @@ to reduce chatter."
      (t (error "Minibuffer is not active.")))))
 
 ;;;###autoload
-(defun emacspeak-comp<letions-move-to-completion-group()
+(defun emacspeak-completions-move-to-completion-group()
   "Move to group of choices beginning with character last
 typed. If no such group exists, then we dont move. "
   (interactive)
