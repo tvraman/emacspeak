@@ -238,10 +238,9 @@ Useful to do this before you listen to an entire buffer."
 (defsubst emacspeak-prepare-completions-buffer()
   (ems-modify-buffer-safely
    (goto-char (point-min))
-   (forward-line 3)
-   (delete-region (point-min) (point))
-   (dtk-set-punctuations 'all)
-   (emacspeak-dtk-sync)
+   (forward-line 4)
+   (put-text-property  (point-min) (point)
+'personality 'inaudible)
    (emacspeak-auditory-icon 'help)))
 
 ;;}}}
@@ -3027,8 +3026,7 @@ We make the current minibuffer contents (which is obviously the
 prefix for each entry in the completions buffer) inaudible
 to reduce chatter."
   (interactive)
-  (declare (special voice-lock-mode
-                    emacspeak-completions-current-prefix))
+  (declare (special voice-lock-mode emacspeak-completions-current-prefix))
   (let ((completions-buffer (get-buffer "*Completions*"))
         (current-entry (emacspeak-get-minibuffer-contents)))
     (cond
@@ -3037,12 +3035,13 @@ to reduce chatter."
       (select-window  (get-buffer-window completions-buffer ))
       (when (interactive-p)
         (setq voice-lock-mode t)
-        (message current-entry)
         (when (and  current-entry
                     (> (length current-entry) 0))
           (setq emacspeak-completions-current-prefix current-entry)
           (emacspeak-make-string-inaudible current-entry))
         (dtk-toggle-splitting-on-white-space)
+        (goto-char (point-min))
+        (forward-line 1)
         (dtk-speak
          (emacspeak-get-current-completion-from-completions)))
       (emacspeak-auditory-icon 'select-object))
