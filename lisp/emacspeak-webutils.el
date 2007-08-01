@@ -198,15 +198,30 @@ ARGS specifies additional arguments to SPEAKER if any."
 | sed -e 's/\"//g'"
   "Command that gets suggestions from Google.")
 
+(defvar emacspeak-webutils-google-suggest-json
+  "curl -s\
+ 'http://www.google.com/complete/search?json=true&qu=%s' "
+  "URL  that gets suggestions from Google as JSON.")
+
 (defsubst emacspeak-webutils-google-suggest (input)
   "Get completion list from Google Suggest."
-  (declare (special emacspeak-webutils-google-suggest-command))
+  (declare (special emacspeak-webutils-google-suggest-json))
   (with-temp-buffer
     (shell-command
-     (format emacspeak-webutils-google-suggest-command
+     (format emacspeak-webutils-google-suggest-json
              (emacspeak-url-encode input))
      (current-buffer))
-    (cdr (split-string (buffer-string) ","))))
+    (goto-char (point-min))
+    ; A JSON array is a vector.
+    ;; read it, filter the comma separators which become symbols.
+    ;; drop the first item since that is our input
+    (cdr
+     (delete-if #'(lambda (choice) (eq '\, choice))
+                (append                 ; vector2list
+                 (aref (read (current-buffer))
+                       2)
+                 nil)))))
+
 
 ;;}}}
 ;;{{{ helper macros:
