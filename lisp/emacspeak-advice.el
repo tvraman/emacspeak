@@ -1019,7 +1019,7 @@ in completion buffers"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (tts-with-punctuations 'all
-                           (dtk-speak (emacspeak-get-current-completion-from-completions)))))
+                           (dtk-speak (emacspeak-get-current-completion)))))
 
 (defadvice  previous-completion (after emacspeak  pre act comp)
   "Provide auditory feedback."
@@ -1027,7 +1027,7 @@ in completion buffers"
     (emacspeak-auditory-icon 'select-object)
     (tts-with-punctuations 'all
                            (dtk-speak
-                            (emacspeak-get-current-completion-from-completions )))))
+                            (emacspeak-get-current-completion )))))
 
 (defadvice choose-completion (after emacspeak pre act )
   "Provide auditory feedback."
@@ -1058,7 +1058,7 @@ in completion buffers"
   "announce completions "
   (when (interactive-p)
     (emacspeak-auditory-icon 'help)
-    (dtk-speak (emacspeak-get-current-completion-from-completions))))
+    (dtk-speak (emacspeak-get-current-completion))))
 
 (defadvice minibuffer-complete-and-exit (after emacspeak pre act comp)
   "Provide an auditory icon."
@@ -1310,7 +1310,7 @@ in completion buffers"
     (display-completion-list (sort completions 'string-lessp)))
   (switch-to-buffer (get-buffer "*Completions*"))
   (next-completion 1)
-  (dtk-speak (emacspeak-get-current-completion-from-completions)))
+  (dtk-speak (emacspeak-get-current-completion)))
 
 (defadvice comint-dynamic-complete (around emacspeak pre act)
   "Say what you completed."
@@ -1404,7 +1404,7 @@ in completion buffers"
             (replace-match "history reference")))
         (emacspeak-auditory-icon 'help)
         (next-completion 1)
-        (dtk-speak (emacspeak-get-current-completion-from-completions)))))
+        (dtk-speak (emacspeak-get-current-completion)))))
    (t ad-do-it))
   ad-return-value)
 
