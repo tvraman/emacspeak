@@ -163,8 +163,9 @@
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
+            (goto-char (point-min))
             (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
+            (next-completion 1)
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 

@@ -96,7 +96,8 @@ Note that some badly formed mime messages  cause trouble."
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
+            (goto-char (point-min))
+            (next-completion 1)
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 
@@ -113,7 +114,8 @@ Note that some badly formed mime messages  cause trouble."
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
+            (goto-char (point-min))
+            (next-completion 1)
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 

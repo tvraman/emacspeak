@@ -235,11 +235,6 @@ Useful to do this before you listen to an entire buffer."
 ;;}}}
 ;;{{{ helper function --prepare completions buffer
 
-(defsubst emacspeak-prepare-completions-buffer()
-  (goto-char (point-min))
-  (next-completion 1)
-  (emacspeak-auditory-icon 'help))
-
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
 

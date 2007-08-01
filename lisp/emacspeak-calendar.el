@@ -163,7 +163,8 @@
     (emacspeak-auditory-icon 'open-object)
     (setq calendar-mode-line-format
           emacspeak-calendar-mode-line-format)
-    (emacspeak-speak-mode-line)))
+    (tts-with-punctuations 'some
+    (emacspeak-speak-mode-line))))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
   "Speak the date. "

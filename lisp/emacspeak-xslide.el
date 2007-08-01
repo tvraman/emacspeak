@@ -1,7 +1,7 @@
-;;; emacspeak-xslide.el --- Speech enable  XSL authoring 
+;;; emacspeak-xslide.el --- Speech enable  XSL authoring
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
-;;; Description:   extension to speech enable xslide 
+;;; Description:   extension to speech enable xslide
 ;;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
 
@@ -100,7 +100,8 @@
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
+            (goto-char (point-min))
+            (next-completion 1)
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 (defadvice xsl-mode (after emacspeak pre act comp)
@@ -114,13 +115,13 @@
   'no-op)
 
 ;;}}}
-;;{{{ voice locking 
+;;{{{ voice locking
 
 (defvar xsl-xsl-alternate-personality
   voice-animate
   "Personality used in xsl highlighting."
   :group 'emacspeak-xslide)
-(defcustom xsl-fo-alternate-personality voice-monotone 
+(defcustom xsl-fo-alternate-personality voice-monotone
   "Personality used in XSL highlighting."
   :group 'emacspeak-xslide)
 
@@ -128,7 +129,7 @@
   "Personality used in XSL highlighting."
   :group 'emacspeak-xslide)
 
-(defvar xsl-xsl-main-personality voice-bolden 
+(defvar xsl-xsl-main-personality voice-bolden
   "Personality used for highlighting in XSL.")
 
 ;;}}}
