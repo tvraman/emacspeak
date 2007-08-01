@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2006, T. V. Raman
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -38,22 +38,24 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-;;; Commentary:
-;;
 ;;{{{  Introduction
 
+;;; Commentary:
 ;;; Flexible hide and show for emacspeak.
 ;;; This module allows one to easily hide or expose
 ;;; blocks of lines starting with a common prefix.
 ;;; It is motivated by the need to flexibly hide quoted text in email
 ;;; but is designed to be more general.
 ;;; the prefix parsing is inspired by filladapt.el
+;;; Code:
 
 ;;}}}
-;;; Code:
+;;{{{  Required modules
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{ voice locking for block header lines
 
@@ -182,13 +184,11 @@ STRING is the token's text."
 Blocks are portions of the buffer having a common prefix.
 Hiding results in only the first line of the block being visible.
 Returns t if a block was found and hidden."
-  (let ((begin nil)
+  (let ((begin (line-beginning-position))
         (start nil)
         (continue t)
         (count 1))
     (save-excursion
-      (beginning-of-line)
-      (setq begin (point))
       (cond
        ((not prefix)
         (message "Not on a block")
