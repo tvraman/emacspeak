@@ -240,7 +240,7 @@ Useful to do this before you listen to an entire buffer."
    (goto-char (point-min))
    (forward-line 4)
    (put-text-property  (point-min) (point)
-'personality 'inaudible)
+                       'personality 'inaudible)
    (emacspeak-auditory-icon 'help)))
 
 ;;}}}
@@ -1329,46 +1329,7 @@ Negative prefix arg speaks from start of buffer to point."
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
 ;;;###autoload
-(unless (fboundp 'next-completion)
-  (progn
-    (defun next-completion (n)
-      "Move to the next item in the completion list.
-WIth prefix argument N, move N items (negative N means move backward)."
-      (interactive "p")
-      (while (and (> n 0) (not (eobp)))
-        (let ((prop (get-text-property (point) 'mouse-face))
-              (end (point-max)))
-          ;; If in a completion, move to the end of it.
-          (if prop
-              (goto-char (next-single-property-change (point) 'mouse-face nil end)))
-          ;; Move to start of next one.
-          (goto-char (next-single-property-change (point) 'mouse-face nil end)))
-        (setq n (1- n)))
-      )
-
-    (defun previous-completion (n)
-      "Move to the previous item in the completion list."
-      (interactive "p")
-      (setq n (- n ))
-      (while (and (< n 0) (not (bobp)))
-        (let ((prop (get-text-property (1- (point)) 'mouse-face))
-              (end (point-min)))
-          ;; If in a completion, move to the start of it.
-          (if prop
-              (goto-char (previous-single-property-change
-                          (point) 'mouse-face nil end)))
-          ;; Move to end of the previous completion.
-          (goto-char (previous-single-property-change (point) 'mouse-face nil end))
-          ;; Move to the start of that one.
-          (goto-char (previous-single-property-change (point) 'mouse-face nil end)))
-        (setq n (1+ n))))
-
-    (declaim (special completion-list-mode-map))
-    (or completion-list-mode-map
-        (make-sparse-keymap ))
-    (define-key completion-list-mode-map '[right] 'next-completion)
-    (define-key completion-list-mode-map '[left] 'previous-completion)
-    )) ;; end emacs pre-19.30 specials
+ ;; end emacs pre-19.30 specials
 
 (defun emacspeak-get-current-completion-from-completions  ()
   "Return the completion string under point in the *Completions* buffer."
@@ -3047,8 +3008,19 @@ to reduce chatter."
       (emacspeak-auditory-icon 'select-object))
      (t (message "No completions")))))
 
+(defun emacspeak-switch-to-minibuffer-window ()
+  "Jump to the minibuffer window if it is active."
+  (interactive)
+  (let ((window (minibuffer-window)))
+    (cond
+     ((minibuffer-window-active-p window)
+      (select-window  window)
+      (emacspeak-auditory-icon 'select-object)
+      (dtk-speak (minibuffer-contents)))
+     (t (error "Minibuffer is not active.")))))
+
 ;;;###autoload
-(defun emacspeak-completions-move-to-completion-group()
+(defun emacspeak-comp<letions-move-to-completion-group()
   "Move to group of choices beginning with character last
 typed. If no such group exists, then we dont move. "
   (interactive)
@@ -3064,6 +3036,7 @@ typed. If no such group exists, then we dont move. "
     (dtk-speak
      (emacspeak-get-current-completion-from-completions ))))
 (declaim (special completion-list-mode-map))
+(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-minibuffer-window)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
