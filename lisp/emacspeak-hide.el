@@ -1,6 +1,6 @@
 ;;; emacspeak-hide.el --- Provides user commands for hiding and exposing blocks of text
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Hide and expose blocks of text
 ;;; Keywords: Emacspeak, Speak, Spoken Output, hide
 ;;{{{  LCD Archive entry:
@@ -8,15 +8,15 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-16 09:56:00 -0700 (Wed, 16 May 2007) $ |
-;;;  $Revision: 4558 $ |
+;;; $Date$ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2007, T. V. Raman
+;;;Copyright (C) 1995 -- 2006, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -38,9 +38,12 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction
+;;{{{  Required modules
 
 ;;; Commentary:
+;;
+;;{{{  Introduction
+
 ;;; Flexible hide and show for emacspeak.
 ;;; This module allows one to easily hide or expose
 ;;; blocks of lines starting with a common prefix.
@@ -48,15 +51,9 @@
 ;;; but is designed to be more general.
 ;;; the prefix parsing is inspired by filladapt.el
 
-;;; Code:
-
 ;;}}}
-;;{{{  Required modules
-
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
+;;; Code:
 (require 'emacspeak-preamble)
-
 ;;}}}
 ;;{{{ voice locking for block header lines
 
@@ -180,7 +177,7 @@ STRING is the token's text."
 ;;}}}
 ;;{{{  hiding a block
 
-(defun emacspeak-hide-current-block (prefix &optional echo)
+(defun emacspeak-hide-current-block (prefix)
   "Hide block starting on current line identified by  PREFIX.
 Blocks are portions of the buffer having a common prefix.
 Hiding results in only the first line of the block being visible.
@@ -190,15 +187,17 @@ Returns t if a block was found and hidden."
         (continue t)
         (count 1))
     (save-excursion
-      (setq begin (line-beginning-position))
+      (beginning-of-line)
+      (setq begin (point))
       (cond
        ((not prefix)
-        (when echo (message "Not on a block"))
+        (message "Not on a block")
         nil)
        ((= 1 (forward-line 1))
-        (when echo (message "At bottom of buffer. "))
+        (message "At bottom of buffer. ")
         nil)
-       (t                              ;start looking for a block
+       (t                               ;start looking for a
+                                        ;block
         (setq start (point))
         (unless (emacspeak-hide-prefix-matches-this-line prefix)
           (setq continue nil))
@@ -217,14 +216,10 @@ Returns t if a block was found and hidden."
                                 (list 'emacspeak-hide-block-prefix (nth 2  prefix)
                                       'emacspeak-hidden-block (first prefix)
                                       'personality emacspeak-hidden-header-line-personality)))
-          (when echo
-            (message "Hid %s  %s lines"
-                     count (first prefix)))
+          (message "Hid %s  %s lines"
+                   count (first prefix))
           t)
-         (t
-          (when echo
-            (message "Not on a block"))
-          nil)))))))
+         (t (message "Not on a block") nil)))))))
 
 ;;}}}
 ;;{{{  Exposing a block
@@ -234,9 +229,8 @@ Returns t if a block was found and hidden."
 ;;; by setting property emacspeak-hidden-block to name of block
 ;;; Use this to efficiently identify and unhide the block.
 
-(defun emacspeak-hide-expose-block (&optional echo)
+(defun emacspeak-hide-expose-block ()
   "Exposes currently hidden block."
-  (interactive "p")
   (let ((start nil)
         (end nil)
         (block-name (get-text-property (point) 'emacspeak-hidden-block)))
@@ -257,45 +251,44 @@ Returns t if a block was found and hidden."
                               (list 'invisible nil
                                     'intangible nil
                                     'personality nil)))
-        (when (or echo (interactive-p))
-          (message "Exposed %s block containing %s lines"
-                   block-name
-                   (count-lines start end)))
+        (message "Exposed %s block containing %s lines"
+                 block-name
+                 (count-lines start end))
         end)
-       (t
-        (when (or echo (interactive-p))
-          (message "Not on a hidden block"))
-        nil)))))
+       (t (message "Not on a hidden block")
+          nil)))))
 
 ;;}}}
 ;;{{{  Hiding and exposing  all blocks in a buffer
 
-(defun emacspeak-hide-all-blocks-in-buffer (&optional echo)
-  "Hide all blocks in current buffer.
-Optional prefix arg `echo'results in echoing an appropriate message."
+(defun emacspeak-hide-all-blocks-in-buffer ()
+  "Hide all blocks in current buffer."
+  (declare (special emacspeak-speak-messages))
   (let ((count 0)
+        (emacspeak-speak-messages nil)
         (prefix nil))
     (save-excursion
       (goto-char (point-min))
       (while (not (eobp))
         (setq prefix (emacspeak-hide-parse-prefix))
         (cond
-         ((and prefix (emacspeak-hide-current-block prefix ))
+         ((and prefix
+               (emacspeak-hide-current-block prefix))
           (incf count)
           (goto-char
-           (next-single-property-change
-            (point) 'emacspeak-hidden-block
-            (current-buffer) (point-max))))
+           (next-single-property-change (point)
+                                        'emacspeak-hidden-block
+                                        (current-buffer)
+                                        (point-max))))
          (t (forward-line 1)))))
-    (when  echo 
-      (dtk-speak
-       (format "Hid %s blocks" count)))))
+    (dtk-speak
+     (format "Hid %s blocks" count))))
 
-
-(defun emacspeak-hide-expose-hidden-blocks-in-buffer (&optional echo)
+(defun emacspeak-hide-expose-hidden-blocks-in-buffer ()
   "Expose any hidden blocks in current buffer."
-  (interactive "p")
+  (declare (special emacspeak-speak-messages))
   (let ((count 0)
+        (emacspeak-speak-messages nil)
         (block-end nil))
     (save-excursion
       (goto-char (point-min))
@@ -306,9 +299,7 @@ Optional prefix arg `echo'results in echoing an appropriate message."
           (goto-char block-end)
           (incf count))
          (t (forward-line 1)))))
-    (when (or echo
-              (interactive-p))
-      (dtk-speak (format "Exposed %s blocks" count)))))
+    (dtk-speak (format "Exposed %s blocks" count))))
 
 ;;}}}
 ;;{{{ User interface
@@ -331,41 +322,43 @@ Optional prefix arg `echo'results in echoing an appropriate message."
                       (length block-prefix)
                       block-prefix))))))
 ;;;###autoload
-(defun emacspeak-hide-or-expose-block (&optional print-msg prefix)
+(defun emacspeak-hide-or-expose-block (&optional prefix)
   "Hide or expose a block of text.
 This command either hides or exposes a block of text
 starting on the current line.  A block of text is defined as
 a portion of the buffer in which all lines start with a
 common PREFIX.  Optional interactive prefix arg causes all
 blocks in current buffer to be hidden or exposed."
-  (interactive (list (interactive-p) current-prefix-arg))
+
+  (interactive "P")
   (save-excursion
     (dtk-stop)
     (beginning-of-line)
     (cond
      (prefix                            ;work on entire buffer
-      (let ((block
-                (next-single-property-change
-                 (point-min) 'emacspeak-hidden-block
-                 (current-buffer) (point-max))))
+      (let ((block (next-single-property-change (point-min)
+                                                'emacspeak-hidden-block
+                                                (current-buffer)
+                                                (point-max))))
         (cond
          ((and block
-               (or (get-text-property (point-min) 'emacspeak-hidden-block)
+               (or (get-text-property (point-min)
+                                      'emacspeak-hidden-block)
                    (get-text-property block 'emacspeak-hidden-block)))
-          (emacspeak-hide-expose-hidden-blocks-in-buffer print-msg))
-         (t (emacspeak-hide-all-blocks-in-buffer print-msg)))))
+          (emacspeak-hide-expose-hidden-blocks-in-buffer))
+         (t (emacspeak-hide-all-blocks-in-buffer)))))
      ((get-text-property (point) 'emacspeak-hidden-block)
-      (emacspeak-hide-expose-block print-msg))
+      (emacspeak-hide-expose-block))
      (t
-      (let ((block-prefix (emacspeak-hide-get-block-prefix)))
+      (let ((block-prefix
+             (emacspeak-hide-get-block-prefix)))
         (when block-prefix
-          (emacspeak-hide-current-block  block-prefix print-msg )))))))
-
+          (emacspeak-hide-current-block  block-prefix )))))))
 ;;;###autoload
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."
   (interactive)
-  (emacspeak-hide-or-expose-block t 1))
+  (emacspeak-hide-or-expose-block 'all))
 
 ;;}}}
 ;;{{{  speaking blocks sans prefix
