@@ -163,7 +163,7 @@
             (unless (get-text-property (point) 'mouse-face)
               (goto-char (next-single-property-change (point)
                                                       'mouse-face )))
-            (dtk-speak (emacspeak-get-current-completion-from-completions)))
+            (dtk-speak (emacspeak-get-current-completion)))
         (let ((dtk-stop-immediately nil ))
           (dtk-speak (buffer-substring prior (point )))))))
    (t ad-do-it ))

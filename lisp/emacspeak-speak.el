@@ -1328,7 +1328,7 @@ Negative prefix arg speaks from start of buffer to point."
 ;;;###autoload
  ;; end emacs pre-19.30 specials
 
-(defun emacspeak-get-current-completion-from-completions  ()
+(defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
   (let (beg end)
     (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
@@ -3022,10 +3022,13 @@ typed. If no such group exists, then we dont move. "
                           emacspeak-completions-current-prefix "")
                          last-input-char))
         (case-fold-search t))
-    (when (re-search-forward pattern nil t)
+    (when (or (re-search-forward pattern nil t)
+              (re-search-backward pattern nil t))
+      (skip-syntax-forward " ")
       (emacspeak-auditory-icon 'search-hit))
     (dtk-speak
-     (emacspeak-get-current-completion-from-completions ))))
+     (emacspeak-get-current-completion ))))
+
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-minibuffer-window)
 (let ((chars
