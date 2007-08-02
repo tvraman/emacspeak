@@ -60,11 +60,8 @@
 (require 'voice-setup)
 (require 'thingatpt)
 (eval-when-compile
-  (require 'dtk-interp)
   (require 'shell)
-  (require 'which-func nil)
-
-  (require 'emacspeak-sounds))
+  (require 'which-func nil))
 
 ;;}}}
 ;;{{{  custom group
@@ -248,9 +245,6 @@ Useful to do this before you listen to an entire buffer."
 (defsubst   emacspeak-dtk-sync ()
   "Bring emacspeak and dtk in sync."
   (dtk-interp-sync))
-
-;;}}}
-;;{{{ helper function --prepare completions buffer
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
@@ -467,19 +461,6 @@ current local  value to the result.")
      (t (format " %d%% " percent)))))
 
 ;;}}}
-;;;percentage getter with personality
-                                        ; (defsubst emacspeak-get-current-percentage-verbously ()
-                                        ;   "Return percentage of position into current buffer as a string."
-                                        ;   (let ((percent (emacspeak-get-current-percentage-into-buffer))
-                                        ;       (message nil))
-                                        ;     (setq message
-                                        ;         (cond
-                                        ;          ((= 0 percent) " top")
-                                        ;          ((= 100 percent) " bottom ")
-                                        ;          (t (format " %d percent " percent))))
-                                        ;     (put-text-property 0 (length message)
-                                        ;                      'property voice-bolden message)
-                                        ;     message))
 
 ;;}}}
 ;;{{{  indentation:
@@ -1298,34 +1279,6 @@ Negative prefix arg speaks from start of buffer to point."
      (t (dtk-speak "First ask for help" )))))
 
 ;;;###autoload
-(defun emacspeak-speak-completions()
-  "Speak completions  buffer if one present."
-  (interactive )
-  (let ((completions-buffer (get-buffer "*Completions*"))
-        (start nil)
-        (end nil )
-        (continue t))
-    (cond
-     ((and completions-buffer
-           (window-live-p (get-buffer-window
-                           completions-buffer )))
-      (save-excursion
-        (save-window-excursion
-          (save-match-data
-            (select-window  (get-buffer-window completions-buffer ))
-            (goto-char (point-min))
-            (forward-line 3)
-            (while continue
-              (setq start (point)
-                    end (or  (re-search-forward "\\( +\\)\\|\n"  (point-max) t)
-                             (point-max )))
-              (dtk-speak (buffer-substring start end ) t) ;wait
-              (setq continue  (sit-for 1))
-              (if (eobp) (setq continue nil )))) ;end while
-          (discard-input)
-          (goto-char start )
-          (choose-completion ))))
-     (t (dtk-speak "No completions" )))))
 
 ;;;###autoload
 (defun emacspeak-speak-minibuffer(&optional arg)
@@ -1339,7 +1292,6 @@ Negative prefix arg speaks from start of buffer to point."
       (emacspeak-speak-buffer arg))))
 ;;;###autoload
  ;; end emacs pre-19.30 specials
-
 
 (defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
@@ -2963,21 +2915,7 @@ Argument O specifies overlay."
 
 ;;}}}
 ;;{{{  completion helpers
-(defvar emacspeak-completions-prefix nil
-  "Prefix typed in the minibuffer before completions was invoked.")
 
-(make-variable-buffer-local 'emacspeak-completions-prefix)
-
-
-(defun emacspeak-completion-setup-hook ()
-  "Set things up for emacspeak."
-    (with-current-buffer standard-output
-    (goto-char (point-min))
-    (setq emacspeak-completions-prefix (emacspeak-get-minibuffer-contents))
-    (emacspeak-make-string-inaudible emacspeak-completions-prefix)
-    (emacspeak-auditory-icon 'help)))
-
-(add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)a
 
 ;;{{{ switching to completions window from minibuffer:
 
@@ -3017,21 +2955,31 @@ Argument O specifies overlay."
 typed. If no such group exists, then we try to search for that
 char, or dont move. "
   (interactive)
-  (declare (special last-input-char emacspeak-completions-prefix))
+  (declare (special last-input-char))
   (let ((pattern
          (format
           "[ \t\n]%s%c"
-          (or emacspeak-completions-prefix "")
+          (or (emacspeak-get-minibuffer-contents) "")
           last-input-char))
         (input (format "%c" last-input-char))
         (case-fold-search t))
     (when (or (re-search-forward pattern nil t)
               (re-search-backward pattern nil t)
-(search-forward input nil t)
-(search-backward input nil t))
+              (search-forward input nil t)
+              (search-backward input nil t))
       (skip-syntax-forward " ")
       (emacspeak-auditory-icon 'search-hit))
     (dtk-speak (emacspeak-get-current-completion ))))
+
+(defun emacspeak-completion-setup-hook ()
+  "Set things up for emacspeak."
+    (with-current-buffer standard-output
+    (goto-char (point-min))
+    (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
+    (emacspeak-auditory-icon 'help)))
+
+(add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
+
 
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)

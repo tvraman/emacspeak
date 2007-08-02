@@ -523,15 +523,15 @@ current after deletion."
 ;;; completion.el
 ;;;We'll fix it hear for the general good.
 
-(defadvice completion-separator-self-insert-command (around
-                                                     fix-bug
-                                                     pre act
-                                                     comp)
-  "This fixes a bug in completion under Emacs 19.34."
-  (condition-case nil
-      ad-do-it
-    (error (set-syntax-table cmpl-saved-syntax)
-           (emacspeak-self-insert-command last-input-char ))))
+;; (defadvice completion-separator-self-insert-command (around
+;;                                                      fix-bug
+;;                                                      pre act
+;;                                                      comp)
+;;   "This fixes a bug in completion under Emacs 19.34."
+;;   (condition-case nil
+;;       ad-do-it
+;;     (error (set-syntax-table cmpl-saved-syntax)
+;;            (emacspeak-self-insert-command last-input-char ))))
 
 (defadvice completion-separator-self-insert-autofilling
   (around fix-bug pre act comp)
