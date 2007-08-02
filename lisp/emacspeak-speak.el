@@ -82,6 +82,23 @@
     nil))
 
 ;;}}}
+;;{{{ Completion helper:
+
+(defsubst emacspeak-speak-completions-if-available ()
+  "Speak completions if available."
+  (let ((completions (get-buffer "*Completions*")))
+    (cond
+     ((and completions
+           (window-live-p (get-buffer-window completions )))
+      (save-excursion
+        (set-buffer completions )
+        (dtk-chunk-on-white-space-and-punctuations)
+        (next-completion 1)
+        (tts-with-punctuations 'all
+                               (emacspeak-speak-rest-of-buffer))))
+     (t (dtk-speak "No more completions.")))))
+
+;;}}}
 ;;{{{  Macros
 
 ;;; Save read-only and modification state, perform some actions and
@@ -2946,6 +2963,21 @@ Argument O specifies overlay."
 
 ;;}}}
 ;;{{{  completion helpers
+(defvar emacspeak-completions-prefix nil
+  "Prefix typed in the minibuffer before completions was invoked.")
+
+(make-variable-buffer-local 'emacspeak-completions-prefix)
+
+
+(defun emacspeak-completion-setup-hook ()
+  "Set things up for emacspeak."
+    (with-current-buffer standard-output
+    (goto-char (point-min))
+    (setq emacspeak-completions-prefix (emacspeak-get-minibuffer-contents))
+    (emacspeak-make-string-inaudible emacspeak-completions-prefix)
+    (emacspeak-auditory-icon 'help)))
+
+(add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)a
 
 ;;{{{ switching to completions window from minibuffer:
 
@@ -2953,7 +2985,7 @@ Argument O specifies overlay."
   "Return contents of the minibuffer."
     (save-excursion
       (set-buffer (window-buffer (minibuffer-window)))
-      (minibuffer-contents)))
+      (minibuffer-contents-no-properties)))
 
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
@@ -2966,11 +2998,6 @@ Argument O specifies overlay."
            (put-text-property (match-beginning 0)
                               (match-end 0)
                               'personality 'inaudible)))))))
-
-(defvar emacspeak-completions-prefix nil
-  "Prefix typed in the minibuffer before completions was invoked.")
-
-(make-variable-buffer-local 'emacspeak-completions-prefix)
 
 ;;;###autoload
 (defun emacspeak-switch-to-reference-buffer ()
