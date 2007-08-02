@@ -93,7 +93,8 @@
         (next-completion 1)
         (tts-with-punctuations 'all
                                (emacspeak-speak-rest-of-buffer))))
-     (t (dtk-speak "No more completions.")))))
+     (t (emacspeak-speak-line)))))
+
 
 ;;}}}
 ;;{{{  Macros

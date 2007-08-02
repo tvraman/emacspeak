@@ -93,16 +93,13 @@
         (emacspeak-speak-messages nil))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
-    (let ((completions-buffer (get-buffer " *Completions*")))
-      (if (> (point) prior)
-          (dtk-speak (buffer-substring prior (point )))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (goto-char (point-min))
-            (next-completion 1)
-            (dtk-speak (buffer-string ))))))
+    (if (> (point) prior)
+          (tts-with-punctuations
+           'all
+           (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+           (dtk-speak (emacspeak-get-minibuffer-contents))
+           (emacspeak-speak-line)))
+        (emacspeak-speak-completions-if-available))
     ad-return-value))
 (defadvice xsl-mode (after emacspeak pre act comp)
   "set up for voice locking."
