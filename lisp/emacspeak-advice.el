@@ -1457,7 +1457,14 @@ in completion buffers"
 (defadvice comint-dynamic-list-filename-completions (after emacspeak pre act )
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'help)))
+    (let ((completions-buffer (get-buffer "*Completions*")))
+          (when (and completions-buffer
+                     (window-live-p (get-buffer-window completions-buffer )))
+            (emacspeak-auditory-icon 'help)
+             (save-excursion
+               (set-buffer completions-buffer)
+               (next-completion 1)
+               (emacspeak-speak-rest-of-buffer))))))
 
 ;;}}}
 ;;{{{  Advice centering and filling commands:
