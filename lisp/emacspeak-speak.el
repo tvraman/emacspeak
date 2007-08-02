@@ -2973,35 +2973,16 @@ Argument O specifies overlay."
 (make-variable-buffer-local 'emacspeak-completions-prefix)
 
 ;;;###autoload
-(defun emacspeak-switch-to-completions-window ()
-  "Jump to the *Completions* buffer if it is active.
-We make the current minibuffer contents (which is obviously the
-prefix for each entry in the completions buffer) inaudible
-to reduce chatter."
-  (interactive)
-  (declare (special emacspeak-completions-prefix))
-  (let ((completions (get-buffer "*Completions*"))
-        (current-entry (minibuffer-contents)))
-    (cond
-     ((and completions
-           (window-live-p (get-buffer-window completions )))
-      (select-window  (get-buffer-window completions ))
-      (when (and  current-entry
-                  (> (length current-entry) 0))
-        (setq emacspeak-completions-prefix current-entry)
-        (emacspeak-make-string-inaudible current-entry))
-      (dtk-toggle-splitting-on-white-space)
-      (call-interactively 'next-completion))
-     (t (message "No completions")))))
-
-;;;###autoload
 (defun emacspeak-switch-to-reference-buffer ()
   "Switch back to buffer that generated completions."
   (interactive)
   (declare (special completion-reference-buffer))
   (if completion-reference-buffer
       (switch-to-buffer completion-reference-buffer)
-    (error "Reference buffer not found.")))
+    (error "Reference buffer not found."))
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
 (defun emacspeak-completions-move-to-completion-group()

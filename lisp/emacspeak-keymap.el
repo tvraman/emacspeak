@@ -483,7 +483,7 @@ field in the customization buffer.  You can use the notation
                  (and map 
                       (define-key map 
                         "\C-o"
-                        'emacspeak-switch-to-completions-window))))
+                        'switch-to-completions))))
      (list minibuffer-local-must-match-map
            minibuffer-local-map
            minibuffer-local-completion-map

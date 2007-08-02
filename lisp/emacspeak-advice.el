@@ -945,6 +945,21 @@ in completion buffers"
             (dtk-speak (buffer-string ))))))
     ad-return-value))
 
+(defadvice completion-setup-function (around emacspeak pre act com)
+  "Indicate that we popped up a completion buffer."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    (with-current-buffer standard-output
+      (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
+    (goto-char (point-min))
+  (next-completion 1))
+    (emacspeak-auditory-icon 'help)))
+(defadvice switch-to-completions(after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (dtk-stop)
+  (emacspeak-auditory-icon 'select-object)
+  (dtk-speak (emacspeak-get-current-completion)))
+
 (defadvice minibuffer-complete-word (around emacspeak pre act)
   "Say what you completed."
   (let ((prior (point ))
@@ -983,8 +998,6 @@ in completion buffers"
         (tts-with-punctuations 'all
                                (dtk-speak (minibuffer-contents)))))
       ad-return-value)))
-
-
 
   
 (defadvice lisp-complete-symbol (around emacspeak pre act)
@@ -1030,7 +1043,7 @@ in completion buffers"
 (defadvice choose-completion (before emacspeak pre act )
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'select-object)))    
 
 (defadvice minibuffer-message (around emacspeak pre act comp)
   "Speak the message if appropriate."
@@ -1151,6 +1164,7 @@ in completion buffers"
    (comint-highlight-input voice-bolden-medium)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
+
 (loop for f in
       '(shell-command shell-dirstack-message)
       do
@@ -1159,22 +1173,6 @@ in completion buffers"
   "Silence messages"
   (let ((emacspeak-speak-messages nil))
     ad-do-it))))
-
-(defadvice completion-setup-function (around emacspeak pre act com)
-  "Indicate that we popped up a completion buffer."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    (with-current-buffer standard-output
-      (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
-    (goto-char (point-min))
-  (next-completion 1))
-    (emacspeak-auditory-icon 'help)))
-
-(defadvice switch-to-completions(after emacspeak pre act comp)
-  "Provide spoken feedback."
-  (dtk-stop)
-  (emacspeak-auditory-icon 'select-object)
-  (dtk-speak (emacspeak-get-current-completion)))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
@@ -1316,25 +1314,32 @@ in completion buffers"
   "Replacing mouse oriented completer with keyboard friendly equivalent"
   (with-output-to-temp-buffer "*Completions*"
     (display-completion-list (sort completions 'string-lessp)))
-  (switch-to-buffer (get-buffer "*Completions*"))
-  (next-completion 1)
-  (dtk-speak (emacspeak-get-current-completion)))
+  (save-excursion
+    (set-buffer (get-buffer "*Completions*"))
+    (next-completion 1)
+    (dtk-speak
+     (buffer-substring (point) (point-max)))))
 
 (defadvice comint-dynamic-complete (around emacspeak pre act)
   "Say what you completed."
   (cond
    ((interactive-p)
-    (emacspeak-kill-buffer-carefully "*Completions*")
     (let ((prior (point ))
           (emacspeak-speak-messages nil))
+      (emacspeak-kill-buffer-carefully "*Completions*")
       ad-do-it
       (if (> (point) prior)
           (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-substring prior (point )))))
-      (let ((completions-buffer (get-buffer "*Completions*")))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (emacspeak-auditory-icon 'help)))))
+                                 (dtk-speak (buffer-substring prior (point ))))
+        (let ((completions-buffer (get-buffer "*Completions*")))
+          (when (and completions-buffer
+                     (window-live-p (get-buffer-window completions-buffer )))
+            (emacspeak-auditory-icon 'help)
+            (save-excursion
+              (set-buffer completions-buffer)
+              (goto-char (point-min))
+              (next-completion 1)
+              (dtk-speak (buffer-substring (point) (point-max)))))))))
    (t ad-do-it))
   ad-return-value)
 
