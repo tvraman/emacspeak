@@ -984,6 +984,9 @@ in completion buffers"
                                (dtk-speak (minibuffer-contents)))))
       ad-return-value)))
 
+
+
+  
 (defadvice lisp-complete-symbol (around emacspeak pre act)
   "Say what you completed."
   (let ((prior (point ))
@@ -1162,9 +1165,16 @@ in completion buffers"
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     (with-current-buffer standard-output
+      (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
     (goto-char (point-min))
   (next-completion 1))
     (emacspeak-auditory-icon 'help)))
+
+(defadvice switch-to-completions(after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (dtk-stop)
+  (emacspeak-auditory-icon 'select-object)
+  (dtk-speak (emacspeak-get-current-completion)))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
