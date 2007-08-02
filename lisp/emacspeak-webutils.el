@@ -214,13 +214,11 @@ ARGS specifies additional arguments to SPEAKER if any."
     (goto-char (point-min))
     ; A JSON array is a vector.
     ;; read it, filter the comma separators which become symbols.
-    ;; drop the first item since that is our input
-    (cdr
      (delete-if #'(lambda (choice) (eq '\, choice))
                 (append                 ; vector2list
                  (aref (read (current-buffer))
                        2)
-                 nil)))))
+                 nil))))
 
 
 ;;}}}
