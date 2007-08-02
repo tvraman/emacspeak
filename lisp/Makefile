@@ -43,7 +43,8 @@
 EMACS = emacs
 SRC=".."
 # How to run in batch mode
-BATCH = -batch -q -no-site-file   -eval '(setq vc-handled-backends nil)'
+BATCH = -batch -q -no-site-file   -eval '(setq vc-handled-backends nil\
+byte-compile-warnings t)'
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/emacspeak-cus-load.el
 COMPILE =  -f batch-byte-compile
 # How to compile
@@ -427,7 +428,7 @@ emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc ema
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
-emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc emacspeak-we.elc 
+emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc emacspeak-we.elc
 emacspeak-w3m.elc: emacspeak-w3m.el emacspeak-webutils.elc emacspeak-we.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
 emacspeak-we.elc: emacspeak-we.el emacspeak-webutils.elc
