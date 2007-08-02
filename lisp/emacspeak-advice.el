@@ -911,14 +911,6 @@ Produce an auditory icon as well."
 ;;}}}
 ;;{{{  advice completion functions to speak:
 
-(defadvice completion-list-mode (after emacspeak pre act )
-  "Setup completion buffer.
-Emacspeak splits chunks based on both white space and punctuations
-in completion buffers"
-  (dtk-chunk-on-white-space-and-punctuations))
-
-(declaim (special completion-list-mode-map))
-
 (defadvice dabbrev-expand (after emacspeak pre act)
   "Say what you completed."
   (when (interactive-p)
@@ -926,66 +918,49 @@ in completion buffers"
                            (dtk-speak
                             dabbrev--last-expansion))))
 
-(defadvice complete-symbol (around emacspeak pre act)
+(loop for f in
+      '(minibuffer-complete-word  minibuffer-complete)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (save-excursion
-                 (backward-word 1)
-                 (point )))
-        (dtk-stop-immediately t))
+  (cond
+   ((interactive-p)
+  (let ((prior (point ))
+        (emacspeak-speak-messages nil))
+    (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
-    (let ((completions-buffer (get-buffer "*Completions*")))
-      (if (> (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (minibuffer-contents)))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (next-completion 1)
-            (dtk-speak (buffer-string ))))))
-    ad-return-value))
+    (if (> (point) prior)
+          (tts-with-punctuations
+           'all
+               (dtk-speak (emacspeak-get-minibuffer-contents)))
+        (emacspeak-speak-completions-if-available))))
+   (t ad-do-it))
+  ad-return-value)))
+
+
+(loop for f in
+      '(lisp-complete-symbol complete-symbol)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act)
+          "Say what you completed."
+          (let ((prior (point ))
+                (emacspeak-speak-messages nil))
+            ad-do-it
+            (if (> (point) prior)
+                (tts-with-punctuations
+                 'all
+                 (dtk-speak
+                  (buffer-substring prior (point))))
+              (emacspeak-speak-completions-if-available))
+            ad-return-value))))
 
 (defadvice switch-to-completions(after emacspeak pre act comp)
   "Provide spoken feedback."
   (dtk-stop)
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
-
-(defadvice minibuffer-complete-word (around emacspeak pre act)
-  "Say what you completed."
-  (let ((prior (point ))
-        (dtk-stop-immediately t))
-    (emacspeak-kill-buffer-carefully "*Completions*")
-    ad-do-it
-    (if (= (point) prior)
-        (emacspeak-speak-completions-if-available)
-      (tts-with-punctuations 'all
-                             (dtk-speak (minibuffer-contents))))
-    ad-return-value))
-
-(defadvice minibuffer-complete (around emacspeak pre act)
-  "Say what you completed."
-  (let ((prior (point ))
-        (dtk-stop-immediately t))
-    (emacspeak-kill-buffer-carefully "*Completions*")
-    ad-do-it
-    (if (= (point) prior)
-        (emacspeak-speak-completions-if-available)
-      (tts-with-punctuations 'all
-                             (dtk-speak (minibuffer-contents))))
-    ad-return-value))
-
-(defadvice lisp-complete-symbol (around emacspeak pre act)
-  "Say what you completed."
-  (let ((prior (point ))
-        (dtk-stop-immediately dtk-stop-immediately))
-    (when dtk-stop-immediately (dtk-stop))
-    ad-do-it
-    (when (> (point) prior)
-      (setq dtk-stop-immediately nil)
-      (tts-with-punctuations 'all
-                             (dtk-speak (buffer-substring prior (point )))))
-    ad-return-value))
 
 (defadvice complete (around emacspeak pre act)
   "Say what you completed."
@@ -1045,7 +1020,7 @@ in completion buffers"
     (emacspeak-auditory-icon 'help)
     (dtk-speak (emacspeak-get-current-completion))))
 
-(defadvice minibuffer-complete-and-exit (after emacspeak pre act comp)
+(defadvice minibuffer-complete-and-exit (before emacspeak pre act comp)
   "Provide an auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)))
@@ -1311,14 +1286,7 @@ in completion buffers"
       (if (> (point) prior)
           (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring prior (point ))))
-        (let ((completions-buffer (get-buffer "*Completions*")))
-          (when (and completions-buffer
-                     (window-live-p (get-buffer-window completions-buffer )))
-            (emacspeak-auditory-icon 'help)
-             (save-excursion
-               (set-buffer completions-buffer)
-               (next-completion 1)
-               (emacspeak-speak-rest-of-buffer)))))))
+        (emacspeak-speak-completions-if-available))))
    (t ad-do-it))
   ad-return-value)
 
@@ -1432,14 +1400,7 @@ in completion buffers"
 (defadvice comint-dynamic-list-filename-completions (after emacspeak pre act )
   "Provide auditory feedback."
   (when (interactive-p)
-    (let ((completions-buffer (get-buffer "*Completions*")))
-          (when (and completions-buffer
-                     (window-live-p (get-buffer-window completions-buffer )))
-            (emacspeak-auditory-icon 'help)
-             (save-excursion
-               (set-buffer completions-buffer)
-               (next-completion 1)
-               (emacspeak-speak-rest-of-buffer))))))
+    (emacspeak-speak-completions-if-available)))
 
 ;;}}}
 ;;{{{  Advice centering and filling commands:

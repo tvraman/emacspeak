@@ -156,17 +156,13 @@
                  (point )))
         (dtk-stop-immediately t))
     ad-do-it
-    (let ((completions-buffer (get-buffer "*Completions*")))
-      (if (> (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-substring prior (point ))))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (goto-char (point-min))
-            (set-buffer completions-buffer )
-            (next-completion 1)
-            (dtk-speak (buffer-string ))))))
+    (if (> (point) prior)
+          (tts-with-punctuations
+           'all
+           (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+           (dtk-speak (emacspeak-get-minibuffer-contents))
+           (emacspeak-speak-line)))
+        (emacspeak-speak-completions-if-available))
     ad-return-value))
 
 ;;}}}

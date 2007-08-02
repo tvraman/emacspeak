@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{  setup various EShell hooks
 
-;;; Play an auditory icon as you display the prompt 
+;;; Play an auditory icon as you display the prompt
 (defun emacspeak-eshell-prompt-function ()
   "Play auditory icon for prompt."
   (declare (special eshell-last-command-status))
@@ -66,9 +66,9 @@
 (add-hook 'eshell-after-prompt-hook
           'emacspeak-eshell-prompt-function)
 
-;;; Speak command output 
+;;; Speak command output
 (add-hook 'eshell-post-command-hook
-          (function 
+          (function
            (lambda nil
              (declare (special eshell-last-input-end
                                eshell-last-output-end
@@ -86,33 +86,12 @@
     (emacspeak-auditory-icon 'help)
     (emacspeak-auditory-icon 'help)))
 
-(defadvice pcomplete (around emacspeak pre act)
-  "Say what you completed."
-  (cond
-   ((interactive-p)
-    (emacspeak-kill-buffer-carefully "*Completions*")
-    (let ((prior (point ))
-          (emacspeak-speak-messages nil)m)
-      ad-do-it
-      (when (> (point) prior)
-        (tts-with-punctuations 'all
-                               (dtk-speak
-                                (buffer-substring prior
-                                                  (point)))))
-      (let ((completions-buffer (get-buffer "*Completions*")))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (emacspeak-auditory-icon 'help)
-          (switch-to-buffer completions-buffer)))))
-   (t ad-do-it))
-  ad-return-value)
-
 (defadvice pcomplete-show-completions (around emacspeak pre act comp)
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
 ;;}}}
-;;{{{  Advice top-level EShell 
+;;{{{  Advice top-level EShell
 
 (defadvice eshell (after emacspeak pre act )
   "Announce switching to shell mode.
@@ -124,9 +103,9 @@ Provide an auditory icon if possible."
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ advice em-hist 
+;;{{{ advice em-hist
 
-(loop for f in 
+(loop for f in
       '(eshell-next-input eshell-previous-input
                           eshell-next-matching-input
                           eshell-previous-matching-input
@@ -160,7 +139,7 @@ personalities."
   :group 'emacspeak-eshell)
 
 ;;}}}
-;;{{{ voices 
+;;{{{ voices
 
 (voice-setup-add-map
  '(
@@ -192,7 +171,7 @@ personalities."
 
 ;;}}}
 ;;{{{ Advice em-prompt
-(loop for f in 
+(loop for f in
       '(eshell-next-prompt eshell-previous-prompt
                            eshell-forward-matching-input  eshell-backward-matching-input)
       do
@@ -208,12 +187,12 @@ personalities."
 ;;}}}
 ;;{{{  advice esh-arg
 
-(loop for f in 
+(loop for f in
       '(eshell-insert-buffer-name
         eshell-insert-process
-        eshell-insert-envvar) 
+        eshell-insert-envvar)
       do
-      (eval 
+      (eval
        (`
         (defadvice (, f) (after emacspeak pre act comp)
           "Speak output."
