@@ -1148,23 +1148,22 @@ in completion buffers"
    (comint-highlight-input voice-bolden-medium)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
-(defadvice shell-command (around emacspeak pre act comp)
+(loop for f in
+      '(shell-command shell-dirstack-message)
+      do
+      (eval
+`(defadvice ,f (around emacspeak pre act comp)
   "Silence messages"
   (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+    ad-do-it))))
 
-(defadvice shell-dirstack-message (around emacspeak pre act comp)
-  "Silence messages so we dont hear stutter."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-(defadvice completion-setup-function (around emacspeak pre
-                                             act com)
+(defadvice completion-setup-function (around emacspeak pre act com)
   "Indicate that we popped up a completion buffer."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
+    (with-current-buffer standard-output
     (goto-char (point-min))
-  (next-completion 1)
+  (next-completion 1))
     (emacspeak-auditory-icon 'help)))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
