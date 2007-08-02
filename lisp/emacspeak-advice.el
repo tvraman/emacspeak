@@ -1312,20 +1312,20 @@ in completion buffers"
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
-  (let ((completions (ad-get-arg 0)))
-    (message completions)
+  (let
+      ((completions (sort (ad-get-arg 0)
+                          'string-lessp)))
   (with-output-to-temp-buffer "*Completions*"
-    (display-completion-list (sort completions 'string-lessp)))
+    (display-completion-list completions))
   (save-excursion
-    (message completions)
     (set-buffer (get-buffer "*Completions*"))
     (set (make-local-variable 'comint-displayed-dynamic-completions)
          completions))
   (next-completion 1)
   (dtk-speak
-     (buffer-substring (point) (point-max)))))
+   (buffer-substring (point) (point-max)))))
 
-(defadvice comint-dynamic-complete (around emacspeak pre act)
+(defadvice  comint-dynamic-complete (around emacspeak pre act)
   "Say what you completed."
   (cond
    ((interactive-p)
@@ -1344,7 +1344,9 @@ in completion buffers"
              (save-excursion
                (set-buffer completions-buffer)
                (completing-read "Pick: "
-                                comint-displayed-dynamic-completions))))))))
+                                comint-displayed-dynamic-completions
+                                nil nil
+                                (comint-match-partial-filename)))))))))
    (t ad-do-it))
   ad-return-value)
 
