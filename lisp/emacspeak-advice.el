@@ -1340,13 +1340,10 @@ in completion buffers"
           (when (and completions-buffer
                      (window-live-p (get-buffer-window completions-buffer )))
             (emacspeak-auditory-icon 'help)
-            (insert
              (save-excursion
                (set-buffer completions-buffer)
-               (completing-read "Pick: "
-                                comint-displayed-dynamic-completions
-                                nil nil
-                                (comint-match-partial-filename)))))))))
+               (next-completion 1)
+               (emacspeak-speak-rest-of-buffer)))))))
    (t ad-do-it))
   ad-return-value)
 
