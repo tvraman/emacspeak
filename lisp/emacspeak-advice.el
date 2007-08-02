@@ -2370,21 +2370,17 @@ Also produce an auditory icon if possible."
  'emacspeak-isearch-save-syntax-table)
 
 (add-hook 'isearch-mode-hook
-          (function
-           (lambda ()
-             (declare (special
-                       emacspeak-isearch-save-syntax-table))
-             (setq emacspeak-isearch-save-syntax-table (syntax-table))
-             (setq emacspeak-speak-messages nil))))
+          #'(lambda ()
+              (declare (special emacspeak-isearch-save-syntax-table))
+              (setq emacspeak-isearch-save-syntax-table (syntax-table))
+              (setq emacspeak-speak-messages nil)))
 
 (add-hook 'isearch-mode-end-hook
-          (function
-           (lambda ()
-             (declare (special
-                       emacspeak-isearch-save-syntax-table))
+           #'(lambda ()
+             (declare (special emacspeak-isearch-save-syntax-table))
              (and emacspeak-isearch-save-syntax-table
                   (set-syntax-table emacspeak-isearch-save-syntax-table))
-             (setq emacspeak-speak-messages t ))))
+             (setq emacspeak-speak-messages t )))
 
 ;;}}}
 ;;{{{  Advice isearch-search to speak
@@ -2423,14 +2419,10 @@ Pause ongoing speech first."
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice isearch-search (after emacspeak pre act)
-  "Speak the search hit.
-Produce auditory icons if possible."
+  "Speak the search hit."
   (emacspeak-speak-string isearch-string voice-bolden)
-  (when isearch-wrapped
-    (emacspeak-auditory-icon 'scroll)
-    (dtk-speak "W:")
-    (sit-for 0.5))
   (when  (sit-for 0.5)
+    (emacspeak-auditory-icon 'search-hit)
     (ems-set-personality-temporarily
      (point)
      (if  isearch-forward
