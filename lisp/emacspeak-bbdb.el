@@ -157,7 +157,7 @@
       (if (and (setq completions (get-buffer "*Completions*"))
                (window-live-p (get-buffer-window completions)))
           (progn
-            (emacspeak-switch-to-completions-window)
+            (switch-to-completions)
             (setq completion-reference-buffer buffer)
             (delete-other-windows)
             (unless (get-text-property (point) 'mouse-face)
