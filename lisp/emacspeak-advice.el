@@ -1312,12 +1312,17 @@ in completion buffers"
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
+  (let ((completions (ad-get-arg 0)))
+    (message completions)
   (with-output-to-temp-buffer "*Completions*"
     (display-completion-list (sort completions 'string-lessp)))
   (save-excursion
+    (message completions)
     (set-buffer (get-buffer "*Completions*"))
-    (next-completion 1)
-    (dtk-speak
+    (set (make-local-variable 'comint-displayed-dynamic-completions)
+         completions))
+  (next-completion 1)
+  (dtk-speak
      (buffer-substring (point) (point-max)))))
 
 (defadvice comint-dynamic-complete (around emacspeak pre act)
@@ -1335,11 +1340,11 @@ in completion buffers"
           (when (and completions-buffer
                      (window-live-p (get-buffer-window completions-buffer )))
             (emacspeak-auditory-icon 'help)
-            (save-excursion
-              (set-buffer completions-buffer)
-              (goto-char (point-min))
-              (next-completion 1)
-              (dtk-speak (buffer-substring (point) (point-max)))))))))
+            (insert
+             (save-excursion
+               (set-buffer completions-buffer)
+               (completing-read "Pick: "
+                                comint-displayed-dynamic-completions))))))))
    (t ad-do-it))
   ad-return-value)
 
