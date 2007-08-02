@@ -743,10 +743,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1041,10 +1037,6 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
-
-------------------------------------------------------------
-
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
  Copy over text in region to special filtertext buffer in
@@ -1284,13 +1276,6 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result. 
-
-------------------------------------------------------------
-
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
@@ -1819,6 +1804,15 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio-browse Browse RAM file before playing the selected component. 
 
 ------------------------------------------------------------
@@ -1989,7 +1983,8 @@ Also display match context in minibuffer.
 ------------------------------------------------------------
 
 ** emacspeak-completions-move-to-completion-group Move to group of choices beginning with character last
-typed. If no such group exists, then we dont move.  
+typed. If no such group exists, then we try to search for that
+char, or dont move.  
 
 ------------------------------------------------------------
 
@@ -1999,12 +1994,7 @@ typed. If no such group exists, then we dont move.
 
 ------------------------------------------------------------
 
-** emacspeak-execute-repeatedly Execute COMMAND repeatedly.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-execute-repeatedly Execute COMMAND repeatedly. 
 
 ------------------------------------------------------------
 
@@ -2134,10 +2124,6 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 ** emacspeak-speak-comint-send-input Causes output to be spoken i.e., as if comint autospeak were turned
 on. 
-
-------------------------------------------------------------
-
-** emacspeak-speak-completions Speak completions  buffer if one present. 
 
 ------------------------------------------------------------
 
@@ -2531,10 +2517,7 @@ Optional second arg `set' sets the TZ environment variable as well.
 
 ------------------------------------------------------------
 
-** emacspeak-switch-to-completions-window Jump to the *Completions* buffer if it is active.
-We make the current minibuffer contents (which is obviously the
-prefix for each entry in the completions buffer) inaudible
-to reduce chatter. 
+** emacspeak-switch-to-reference-buffer Switch back to buffer that generated completions. 
 
 ------------------------------------------------------------
 
@@ -2668,108 +2651,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 ------------------------------------------------------------
 
 ** emacspeak-speedbar-goto-speedbar Switch to the speedbar 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
- 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-column Erase current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-row Erase current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-hint Provide hint for current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-push Push current state on to history stack. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-column Speak current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-row Speak current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
 
 ------------------------------------------------------------
 
@@ -3201,6 +3082,17 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-w3-toggle-table-borders Toggle drawing of W3 table borders 
+
+------------------------------------------------------------
+
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
 
 ------------------------------------------------------------
 
@@ -4269,7 +4161,7 @@ prompts for and sets value of the file local pattern.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-portfolio-quotes Bring up detailed stock quotes for portfolio specified by
-emacspeak-websearch-personal-portfolio. 
+emacspeak-wizards-personal-portfolio. 
 
 ------------------------------------------------------------
 
@@ -4592,10 +4484,6 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-ibm-internal Search IBM using trevi 
-
-------------------------------------------------------------
-
 ** emacspeak-moz-browse-current Browse current node.
 
 (fn) 
@@ -4711,12 +4599,6 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-org-popup-input Pops up an org input area.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
