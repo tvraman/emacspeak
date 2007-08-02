@@ -429,8 +429,7 @@ previous window configuration."
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
   "Used whne prompting for an interface to query.")
 ;;;###autoload
-(defun emacspeak-speak-show-active-network-interfaces
-  (&optional address)
+(defun emacspeak-speak-show-active-network-interfaces (&optional address)
   "Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
@@ -453,6 +452,8 @@ also copied to the kill ring for convenient yanking."
      (t (setq command
               emacspeak-speak-show-active-network-interfaces-command)))
     (shell-command command )
+    (when (interactive-p)
+      (dtk-speak emacspeak-last-message))
     (when (and address
                (not emacspeak-speak-message-again-should-copy-to-kill-ring))
       (kill-new emacspeak-last-message))))
