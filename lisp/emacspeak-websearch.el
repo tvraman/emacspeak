@@ -920,6 +920,8 @@ Optional second arg as-html processes the results as HTML rather than data."
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?i 'google)
 
+
+;;;###autoload
 (defcustom emacspeak-websearch-google-number-of-results 25
   "Number of results to return from google search."
   :type 'number
