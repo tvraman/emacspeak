@@ -254,7 +254,7 @@ xmlns:gCal='http://schemas.google.com/gCal/2005'>
   (expand-file-name "gcal-view.xsl" g-directory)
   "XSL transform used to view event feeds."
   :group 'gcal)
-;;;###autoload
+
 (defcustom gcal-event-view
   (expand-file-name "gevent-view.xsl" g-directory)
   "XSL transform used to view event feeds."
