@@ -1308,7 +1308,7 @@ Negative prefix arg speaks from start of buffer to point."
     (setq
      beg (previous-single-property-change beg 'mouse-face nil (point-min))
      end (next-single-property-change end 'mouse-face nil (point-max)))
-    (buffer-substring beg end)))
+    (buffer-substring-no-properties beg end)))
 
 ;;}}}
 
@@ -2143,6 +2143,7 @@ Speech is scaled by the value of dtk-speak-skim-scale"
 ;;}}}
 ;;{{{ comint
 
+
 (defcustom emacspeak-comint-autospeak t
   "Says if comint output is automatically spoken.
 You can use
@@ -2167,6 +2168,7 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local
  'emacspeak-comint-output-monitor)
+
 ;;;###autoload
 (ems-generate-switcher ' emacspeak-toggle-comint-output-monitor
                          'emacspeak-comint-output-monitor
@@ -2196,6 +2198,8 @@ on."
   (setq emacspeak-speak-comint-output t)
   (call-interactively 'comint-send-input)
   (emacspeak-auditory-icon 'select-object))
+(declaim (special comint-mode-map))
+(define-key comint-mode-map "\C-o" 'switch-to-completions)
 
 ;;}}}
 ;;{{{   quiten messages
