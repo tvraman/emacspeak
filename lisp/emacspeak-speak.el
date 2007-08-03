@@ -2180,8 +2180,9 @@ set the current local value to the result.")
 
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
-  (declare (special))
+  (declare (special comint-mode-map))
   (dtk-set-punctuations 'all)
+  (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
@@ -2198,8 +2199,8 @@ on."
   (setq emacspeak-speak-comint-output t)
   (call-interactively 'comint-send-input)
   (emacspeak-auditory-icon 'select-object))
-(declaim (special comint-mode-map))
-(define-key comint-mode-map "\C-o" 'switch-to-completions)
+
+
 
 ;;}}}
 ;;{{{   quiten messages
