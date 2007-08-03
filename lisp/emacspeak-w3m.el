@@ -658,7 +658,8 @@ instead of the modeline."
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform
        (point-min)
-       (point-max))))
+       (point-max)
+	   emacspeak-we-xsl-params)))
   
 
 ;; Helper function for xslt functionality
