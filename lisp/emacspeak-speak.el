@@ -1308,7 +1308,7 @@ Negative prefix arg speaks from start of buffer to point."
     (setq
      beg (previous-single-property-change beg 'mouse-face nil (point-min))
      end (next-single-property-change end 'mouse-face nil (point-max)))
-    (buffer-substring-no-properties beg end)))
+    (buffer-substring beg end)))
 
 ;;}}}
 
