@@ -194,7 +194,7 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
                           (user-login-name))
     (read-from-minibuffer "Host: ")
     (read-from-minibuffer "Port: "
-                          "222")))
+                          "22")))
   (unless (require 'ssh)
     (error "You do not have module ssh.el installed."))
   (ssh
