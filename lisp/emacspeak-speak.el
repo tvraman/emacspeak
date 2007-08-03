@@ -93,7 +93,7 @@
         (next-completion 1)
         (tts-with-punctuations 'all
                                (dtk-speak
-                                (buffer-string (point) (point-max))))))
+                                (buffer-substring (point) (point-max))))))
      (t (emacspeak-speak-line)))))
 
 ;;}}}
