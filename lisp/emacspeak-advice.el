@@ -933,7 +933,8 @@ Produce an auditory icon as well."
     (if (> (point) prior)
           (tts-with-punctuations
            'all
-               (dtk-speak (emacspeak-get-minibuffer-contents)))
+               (dtk-speak
+                (buffer-substring (point) prior)))
         (emacspeak-speak-completions-if-available))))
    (t ad-do-it))
   ad-return-value)))
