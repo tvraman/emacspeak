@@ -877,10 +877,13 @@ from English to German.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list "Google For: "
-       #'(lambda nil
-           (declare (special  emacspeak-websearch-google-number-of-results))
-           emacspeak-websearch-google-number-of-results))
+ (list
+  #'(lambda nil
+      (emacspeak-url-encode
+      (emacspeak-webutils-google-autocomplete "Google: ")))
+  #'(lambda nil
+      (declare (special  emacspeak-websearch-google-number-of-results))
+      emacspeak-websearch-google-number-of-results))
  nil
  "Only show Google hits."
  #'(lambda (url)
