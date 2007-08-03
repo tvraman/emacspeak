@@ -92,7 +92,8 @@
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations 'all
-                               (emacspeak-speak-rest-of-buffer))))
+                               (dtk-speak
+                                (buffer-string (point) (point-max))))))
      (t (emacspeak-speak-line)))))
 
 ;;}}}
