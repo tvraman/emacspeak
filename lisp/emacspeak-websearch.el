@@ -1117,7 +1117,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://books.google.com/books?btnG=Search+Books&hl=en&q="
   "URI for Google Book Search.")
 
-(defvar emacspeak-websarch-google-videos-uri
+(defvar emacspeak-websearch-google-videos-uri
   "http://video.google.com/videofeed?type=search&q="
   "URI for Google Video search.")
 
@@ -1130,7 +1130,7 @@ Optional interactive  prefix arg local-flag prompts for local
    (cons "books" emacspeak-websearch-google-books-uri)
    (cons "scholar" emacspeak-websearch-google-scholar-uri)
    (cons "maps" emacspeak-websearch-google-html-maps-uri)
-   (cons "videos" emacspeak-websarch-google-videos-uri))
+   (cons "videos" emacspeak-websearch-google-videos-uri))
   "Association list of Google search URIs.")
 
 ;;;###autoload
