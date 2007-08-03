@@ -399,6 +399,12 @@ Default date is assumed to be today, or  the date selected when
   "URL for default calendar feed for currently authenticated
 user.")
 
+(defvar gcal-default-my-calendars-url
+  "https://www.google.com/calendar/feeds/default/owncalendars/full"
+  "URL for default calendar feed for currently authenticated
+user.")
+
+
 (defvar gcal-feed-url-template
   "https://www.google.com/calendar/feeds/%s/%s/%s/?orderby=starttime"
   "URL for  calendar feed using authentication.
@@ -721,7 +727,23 @@ date under point."
   (format gcal-feeds-template-url userid))
 
 (defun gcal-calendars ()
-  "Retrieve and display feed of feeds after authenticating."
+  "Retrieve and display feed of feeds for specified user  after authenticating."
+  (interactive)
+  (declare (special gcal-auth-handle g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
+    (gcal-feeds-url "default"))
+   g-atom-view-xsl))
+
+(defun gcal-my-calendars ()
+  "Retrieve and display feed of `owned' calendars after authenticating."
   (interactive)
   (declare (special gcal-auth-handle
                     g-atom-view-xsl
@@ -734,11 +756,12 @@ date under point."
     g-curl-program g-curl-common-options
     g-cookie-options
     (g-authorization gcal-auth-handle)
-    (gcal-feeds-url
-     (g-url-encode (g-auth-email gcal-auth-handle))))
+    (concat
+     (gcal-feeds-url "default")
+     "/owncalendars/full"))
    g-atom-view-xsl))
 
-(defalias 'gcal-feeds 'gcal-calendars)
+
 
 ;;}}}
 ;;{{{ Interfacing with Emacs Calendar:
