@@ -221,6 +221,12 @@ ARGS specifies additional arguments to SPEAKER if any."
                  nil))))
 
 
+(defsubst emacspeak-webutils-google-autocomplete (prompt)
+  "Read user input using Google Suggest for auto-completion."
+  (completing-read prompt
+     (dynamic-completion-table emacspeak-webutils-google-suggest)))
+
+
 ;;}}}
 ;;{{{ helper macros:
 
