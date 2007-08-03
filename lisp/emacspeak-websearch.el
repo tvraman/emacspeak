@@ -944,9 +944,7 @@ Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google."
   (interactive
    (list
-    (completing-read
-     "Google search: "
-     (dynamic-completion-table emacspeak-webutils-google-suggest))
+    (emacspeak-webutils-google-autocomplete "Google: ")
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
@@ -987,9 +985,7 @@ I'm Feeling Lucky button on Google."
   "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
    (list
-    (completing-read
-     "AGoogle search: "
-     (dynamic-completion-table emacspeak-webutils-google-suggest))))
+    (emacspeak-webutils-google-autocomplete "AGoogle: ")))
   (declare (special emacspeak-websearch-accessible-google-url
                     emacspeak-websearch-google-uri))
   (let ((emacspeak-w3-tidy-html nil)
@@ -1007,8 +1003,7 @@ I'm Feeling Lucky button on Google."
   "Do a I'm Feeling Lucky Google search."
   (interactive
    (list
-    (emacspeak-websearch-read-query
-     "Google Lucky Search: ")))
+    (emacspeak-webutils-google-autocomplete "Google Lucky Search: ")))
   (emacspeak-websearch-google query 'lucky))
 
 (emacspeak-websearch-set-searcher 'google-specialize
