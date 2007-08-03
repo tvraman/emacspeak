@@ -755,7 +755,6 @@ date under point."
         '(
           ("a" gcal-add-event)
           ("c" gcal-calendar-agenda)
-          ("s" gcal-show-calendar)
           )
         do
         (define-key gcal-calendar-prefix-map (first binding)
