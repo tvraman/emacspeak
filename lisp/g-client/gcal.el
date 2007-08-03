@@ -62,6 +62,7 @@
   (require 'calendar))
 (require 'g-utils)
 (require 'g-auth)
+(require 'g-app)
 (require 'browse-url)
 
 ;;}}}
@@ -70,7 +71,7 @@
 (defgroup gcal nil
   "Google Calendar"
   :group 'g)
-
+;;;###autoload
 (defcustom gcal-user-email nil
   "Mail address that identifies calendar user."
   :type '(choice
@@ -114,6 +115,9 @@
   (declare (special gcal-auth-handle))
   (g-authenticate gcal-auth-handle))
 
+;;}}}
+;;{{{ Event Template:
+
 (defvar gcal-quickadd-template
   "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
   <atom:category scheme='http://schemas.google.com/g/2005#kind'
@@ -122,9 +126,6 @@ term='http://schemas.google.com/g/2005#event'></atom:category>
   <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'value='true'></gCal:quickadd>
 </atom:entry>"
   "Template for quickadd events.")
-
-;;}}}
-;;{{{ Event Template:
 
 ;;; template for calendar event.
 ;;; Format string takes following:
@@ -247,11 +248,13 @@ xmlns:gCal='http://schemas.google.com/gCal/2005'>
   "Get status for event."
   (declare (special gcal-event-status-alist))
   (gcal-event-status-value 'confirmed))
+
+;;;###autoload
 (defcustom gcal-calendar-view
   (expand-file-name "gcal-view.xsl" g-directory)
   "XSL transform used to view event feeds."
   :group 'gcal)
-
+;;;###autoload
 (defcustom gcal-event-view
   (expand-file-name "gevent-view.xsl" g-directory)
   "XSL transform used to view event feeds."
@@ -358,7 +361,7 @@ Default date is assumed to be today, or  the date selected when
       (push participant who))
     who))
 
-;;;###autoload
+
 (defun gcal-read-event (title content
                               where
                               start end
@@ -392,9 +395,10 @@ Default date is assumed to be today, or  the date selected when
 ;;{{{ Events:
 
 (defvar gcal-default-feed-url
-  "'https://www.google.com/calendar/feeds/default/private/full'"
+  "https://www.google.com/calendar/feeds/default/private/full"
   "URL for default calendar feed for currently authenticated
 user.")
+
 (defvar gcal-feed-url-template
   "https://www.google.com/calendar/feeds/%s/%s/%s/?orderby=starttime"
   "URL for  calendar feed using authentication.
@@ -422,47 +426,24 @@ Parameterized by calendar name, private/public, and projecttion")
 
 (defsubst gcal-post-event (event location)
   "Post event via HTTPS to location and return resulting HTTP headers."
-  (declare (special g-cookie-options gcal-auth-handle
-                    g-curl-program g-curl-common-options
-                    g-curl-atom-header))
+  (declare (special  gcal-auth-handle
+                     g-app-auth-handle g-app-this-url))
   (g-using-scratch
    (insert (gcal-event-as-xml event))
-   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
-         (status nil))
-     (shell-command-on-region
-      (point-min) (point-max)
-      (format
-       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options g-curl-atom-header cl
-       (g-authorization gcal-auth-handle)
-       g-cookie-options
-       location)
-      (current-buffer) 'replace)
-     (list (g-http-headers (point-min) (point-max))
-           (g-http-body (point-min) (point-max))))))
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url location)
+   (g-app-post-entry)))
 
 (defsubst gcal-post-quickadd (event-desc location)
   "Post quick event  via HTTPS to location and return resulting HTTP headers."
-  (declare (special g-cookie-options gcal-auth-handle
-                    gcal-quickadd-template
-                    g-curl-program g-curl-common-options
-                    g-curl-atom-header))
+  (declare (special  gcal-auth-handle
+                     g-app-auth-handle g-app-this-url gcal-quickadd-template))
   (g-using-scratch
    (insert
     (format gcal-quickadd-template event-desc))
-   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
-         (status nil))
-     (shell-command-on-region
-      (point-min) (point-max)
-      (format
-       "%s %s %s %s %s %s -i -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options g-curl-atom-header cl
-       (g-authorization gcal-auth-handle)
-       g-cookie-options
-       location)
-      (current-buffer) 'replace)
-     (list (g-http-headers (point-min) (point-max))
-           (g-http-body (point-min) (point-max))))))
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url location)
+   (g-app-post-entry)))
 
 (defun gcal-event-as-diary-entry (event)
   "Return an event string suitable for Emacs calendar's diary
@@ -560,18 +541,7 @@ Specify the event in plain English."
                           (browse-url-url-at-point))))
   (declare (special gcal-auth-handle))
   (g-auth-ensure-token gcal-auth-handle)
-  (let ((headers nil)
-        (body nil)
-        (response nil))
-    (g-using-scratch
-     (shell-command
-      (format
-       "%s %s %s %s -i -X DELETE %s 2>/dev/null"
-       g-curl-program g-curl-common-options
-       (g-authorization gcal-auth-handle)
-       g-cookie-options
-       event-uri)
-      (current-buffer) 'replace))))
+  (g-app-delete-entry gcal-auth-handle event-uri))
 
 (defcustom gcal-event-accept
   (expand-file-name "gevent-accept.xsl" g-directory)
@@ -605,54 +575,11 @@ Specify the event in plain English."
      (g-auth-email gcal-auth-handle)
      gcal-event-accept )
     (current-buffer) 'replace)
-   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes))))
-     (shell-command-on-region
-      (point-min) (point-max)
-      (format
-       "%s %s %s %s %s -i -X PUT --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options cl
-       (g-authorization gcal-auth-handle)
-       g-cookie-options
-       event-uri)
-      (current-buffer) 'replace))))
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url event-uri)
+   (g-app-put-entry)))
 
 ;;;###autoload
-(defun gcal-show-calendar (&optional calendar start-min start-max)
-  "Show calendar for currently authenticated user."
-  (interactive
-   (list
-    (if current-prefix-arg
-        (read-from-minibuffer "Calendar URI:"
-                              (gcal-private-feed-url))
-      (gcal-private-feed-url))
-    (if current-prefix-arg
-        (read-from-minibuffer "Start:"
-                              (format-time-string
-                               gcal-event-time-format
-                               (current-time))))
-    (if current-prefix-arg
-        (read-from-minibuffer "End:"
-                              (format-time-string
-                               gcal-event-time-format (current-time))))))
-  (declare (special gcal-auth-handle
-                    gcal-calendar-view))
-  (g-auth-ensure-token gcal-auth-handle)
-  (g-display-result
-   (format
-    "%s %s %s %s  '%s%s' 2>/dev/null"
-    g-curl-program g-curl-common-options
-    (g-authorization gcal-auth-handle)
-    g-cookie-options
-    (or calendar (gcal-private-feed-url))
-    (cond
-     ((and (null start-min)
-           (null start-max))
-      "")
-     (t
-      (format "&start-min=%s&start-max=%s"
-              (or start-min "")
-              (or start-max "")))))
-   gcal-calendar-view))
 
 (defcustom gcal-calendar-agenda-days 5
   "Number of days for which we show an agenda by default."
@@ -674,15 +601,13 @@ Default is to use calendar date under point."
           (second date)
           (first date)
           (list (third date)))))
+
 (defconst gcal-privacy-choices
-  '(("public" . "public")
-    ("private" . "private"))
+  '("public" "private" )
   "Choices for public or private.")
 
 (defconst gcal-projection-choices
-  '(("free-busy" . "free-busy")
-    ("full" "full")
-    ("owner" "owner"))
+  '("free-busy" "full" "owner")
   "Choices for project types.")
 
 (defun gcal-calendar-agenda  (&optional resource privacy projection)
@@ -749,15 +674,15 @@ date under point."
                 (or start-min "")
                 (or start-max "")))))
      gcal-calendar-view     )))
+
 ;;;###autoload
 
 (defun gcal-view (resource)
   "Retrieve and display resource after authenticating."
   (interactive "sResource: ")
-  (declare (special gcal-auth-handle
-                    gcal-calendar-view
-                    g-curl-program g-curl-common-options
-                    g-cookie-options))
+  (declare (special gcal-auth-handle gcal-calendar-view
+                    g-cookie-options
+                    g-curl-program g-curl-common-options))
   (g-auth-ensure-token gcal-auth-handle)
   (g-display-result
    (format

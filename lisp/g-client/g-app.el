@@ -119,7 +119,8 @@
 
 (defun g-app-send-buffer (http-method)
   "Publish Atom entry in current buffer.
-http-method is either POST or PUT"
+http-method is either POST or PUT.
+Returns HTTP response as (list headers body)."
   (declare (special g-cookie-options
                     g-curl-program g-curl-common-options
                     g-app-this-url g-app-auth-handle
