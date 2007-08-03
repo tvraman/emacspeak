@@ -2143,6 +2143,16 @@ Speech is scaled by the value of dtk-speak-skim-scale"
 ;;}}}
 ;;{{{ comint
 
+;;;###autoload
+(defun emacspeak-completion-pick-completion ()
+  "Pick completion and return safely where we came from."
+  (interactive)
+  (declare (special completion-reference-buffer))
+  (choose-completion-string (emacspeak-get-current-completion)
+                            completion-reference-buffer)
+  (emacspeak-auditory-icon 'select-object)
+  (other-window 1)
+  (emacspeak-speak-line))
 
 (defcustom emacspeak-comint-autospeak t
   "Says if comint output is automatically spoken.
@@ -2989,6 +2999,7 @@ char, or dont move. "
 
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
+(define-key completion-list-mode-map [S-Return] 'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
