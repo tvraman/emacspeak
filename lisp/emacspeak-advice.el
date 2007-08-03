@@ -959,7 +959,6 @@ Produce an auditory icon as well."
 
 (defadvice switch-to-completions(after emacspeak pre act comp)
   "Provide spoken feedback."
-  (dtk-stop)
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
 
