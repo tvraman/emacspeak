@@ -95,7 +95,6 @@
                                (emacspeak-speak-rest-of-buffer))))
      (t (emacspeak-speak-line)))))
 
-
 ;;}}}
 ;;{{{  Macros
 
@@ -294,7 +293,7 @@ Value returned is compatible with `encode-time'."
   (cond
    ((string-match "[zZ]" (substring rfc-3339 -1))
     t)
-   (t                                ;compute positive/negative offset
+   (t                           ;compute positive/negative offset
                                         ;in seconds
     (let ((fields
            (mapcar
@@ -735,7 +734,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -747,10 +746,10 @@ the sense of the filter. "
   (defun format-mode-line (spec)
     "Process mode line format spec."
     (cond
-;;; leaves                              ; ; ; ; ; ; ;
+;;; leaves                              ; ; ; ; ; ; ; ;
      ((symbolp spec) (symbol-value  spec))
      ((stringp spec) spec)
-;;; leaf + tree:                        ; ; ; ; ; ; ;
+;;; leaf + tree:                        ; ; ; ; ; ; ; ;
      ((and (listp spec)
            (stringp (car spec)))
       (concat
@@ -1292,7 +1291,7 @@ Negative prefix arg speaks from start of buffer to point."
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
 ;;;###autoload
- ;; end emacs pre-19.30 specials
+;; end emacs pre-19.30 specials
 
 (defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
@@ -2151,7 +2150,8 @@ Speech is scaled by the value of dtk-speak-skim-scale"
   (choose-completion-string (emacspeak-get-current-completion)
                             completion-reference-buffer)
   (emacspeak-auditory-icon 'select-object)
-  (other-window 1)
+  (delete-window)
+  (bury-buffer "*Completions*")  (other-window 1)
   (emacspeak-speak-line))
 
 (defcustom emacspeak-comint-autospeak t
@@ -2209,8 +2209,6 @@ on."
   (setq emacspeak-speak-comint-output t)
   (call-interactively 'comint-send-input)
   (emacspeak-auditory-icon 'select-object))
-
-
 
 ;;}}}
 ;;{{{   quiten messages
@@ -2770,7 +2768,7 @@ Also display match context in minibuffer."
     (let* ((oldpos (point))
            (blink-matching-delay 5)
            blinkpos
-           message-log-max  ; Don't log messages about paren matching.
+           message-log-max ; Don't log messages about paren matching.
            matching-paren
            open-paren-line-string)
       (save-excursion
@@ -2932,14 +2930,13 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{  completion helpers
 
-
 ;;{{{ switching to completions window from minibuffer:
 
 (defsubst emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
-    (save-excursion
-      (set-buffer (window-buffer (minibuffer-window)))
-      (minibuffer-contents-no-properties)))
+  (save-excursion
+    (set-buffer (window-buffer (minibuffer-window)))
+    (minibuffer-contents-no-properties)))
 
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
@@ -2989,13 +2986,12 @@ char, or dont move. "
 
 (defun emacspeak-completion-setup-hook ()
   "Set things up for emacspeak."
-    (with-current-buffer standard-output
+  (with-current-buffer standard-output
     (goto-char (point-min))
     (emacspeak-make-string-inaudible (emacspeak-get-minibuffer-contents))
     (emacspeak-auditory-icon 'help)))
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
-
 
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
