@@ -79,6 +79,25 @@
     nil))
 
 ;;}}}
+;;{{{ Shell Command Helper:
+
+;;; Emacspeak silences messages from shell-command when called non-interactively.
+;;; This replacement is used within Emacspeak to invoke commands
+;;; whose output we want to hear.
+
+(defsubst  emacspeak-shell-command (command)
+  "Run shell command and speak its output."
+  (let ((emacspeak-speak-messages nil)
+        (output (get-buffer-create "*Emacspeak Shell Command*")))
+    (save-excursion
+      (set-buffer output)
+      (erase-buffer)
+      (shell-command
+     command
+     output)
+      (dtk-speak (buffer-string)))))
+
+;;}}}
 ;;{{{ Completion helper:
 
 (defsubst emacspeak-speak-completions-if-available ()
@@ -1765,19 +1784,18 @@ Optional second arg `set' sets the TZ environment variable as well."
     current-prefix-arg))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
-(let ((emacspeak-speak-messages nil))
   (when (and set
              (= 16 (car set)))
     ;; two interactive prefixes from caller
     (setenv "TZ" zone))
-  (shell-command
+  (emacspeak-shell-command
    (format "export TZ=%s; date +\"%s\""
            zone
            (concat emacspeak-speak-time-format-string
                    (format
                     " in %s, %%Z, %%z "
                     zone)))))
-  (emacspeak-speak-message-again))
+  
 
 ;;}}}
 ;;;###autoload
