@@ -167,16 +167,12 @@ They have to be redefined and rebound to make them talk. " )
 ;;}}}
 ;;{{{  fix ding
 
-(when (subrp (symbol-function 'ding))
-  (fset 'orig-ding (symbol-function 'ding))
+
+  
 ;;;###autoload
-  (defun ding ( &optional arg)
-    "Beep, or flash the screen.
-Also, unless an argument is given,
-terminate any keyboard macro currently executing.
-Additionally, emacspeak sets this up to play an auditory icon. "
-    (emacspeak-auditory-icon 'warn-user)
-    (orig-ding arg)))
+(defadvice ding (before emacspeak  pre act comp)
+  "Produce auditory icon."
+  (emacspeak-auditory-icon 'warn-user))
 
 ;;}}}
 (provide 'emacspeak-redefine)
