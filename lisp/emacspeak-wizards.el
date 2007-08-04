@@ -550,22 +550,9 @@ default-directory after switching."
 (defun emacspeak-sudo (command)
   "SUDo command --run command as super user."
   (interactive "sSuDo Command: ")
-  (let* ((name  (car (split-string command)))
-         (output nil)
-         (buffer (format " *sudo-%s*" name)))
-    (shell-command
-     (format "sudo %s" command)
-     buffer)
-    (setq output
-          (save-excursion
-            (set-buffer buffer)
-            (buffer-string)))
-    (bury-buffer buffer)
-    (message output)))
-
-
-
-
+  (let* ((name  (car (split-string command))))
+    (emacspeak-shell-command
+     (format "sudo %s" command))))
 
 ;;;###autoload
 
