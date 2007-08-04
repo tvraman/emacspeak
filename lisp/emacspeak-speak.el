@@ -1765,6 +1765,7 @@ Optional second arg `set' sets the TZ environment variable as well."
     current-prefix-arg))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
+(let ((emacspeak-speak-messages nil))
   (when (and set
              (= 16 (car set)))
     ;; two interactive prefixes from caller
@@ -1776,6 +1777,7 @@ Optional second arg `set' sets the TZ environment variable as well."
                    (format
                     " in %s, %%Z, %%z "
                     zone)))))
+  (emacspeak-speak-message-again))
 
 ;;}}}
 ;;;###autoload
