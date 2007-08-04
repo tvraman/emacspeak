@@ -61,7 +61,7 @@
   "Setup action on right parens.
 The defined   emacspeak action   causes
 emacspeak to show the matching paren when the cursor moves across a right paren."
-  (save-excursion
+  (save-current-buffer
     (goto-char (point-min))
     (ems-modify-buffer-safely
      (while (search-forward ")" nil t )
@@ -78,7 +78,7 @@ emacspeak to show the matching paren when the cursor moves across a right paren.
 The defined  action    causes
 emacspeak to speak the semantics of the line
  when the cursor moves across a right brace."
-  (save-excursion
+  (save-current-buffer
     (goto-char (point-min))
     (ems-modify-buffer-safely
      (while (search-forward "}" nil t )

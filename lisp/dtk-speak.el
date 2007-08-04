@@ -538,7 +538,7 @@ Argument MODE  specifies the current pronunciation mode."
 (defsubst  dtk-quick-quote(string )
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (inhibit-read-only t))
-    (save-excursion
+    (save-current-buffer
       (set-buffer dtk-scratch-buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -1091,7 +1091,7 @@ no line --with no white space."
         (start nil)
         (scratch (get-buffer-create " *servers*"))
         (this nil))
-    (save-excursion
+    (save-current-buffer
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -1735,7 +1735,7 @@ only speak upto the first ctrl-m."
           (mode dtk-punctuation-mode)
           (split-caps dtk-split-caps)
           (voice-lock voice-lock-mode ))
-      (save-excursion
+      (save-current-buffer
         (set-buffer dtk-scratch-buffer )
         (setq buffer-undo-list t)
         (let ((inhibit-read-only t))
@@ -1793,7 +1793,7 @@ Optional argument group-count specifies grouping for intonation."
         (counter 1)
         (len (length text))
         (inhibit-read-only t))
-    (save-excursion
+    (save-current-buffer
       (set-buffer dtk-scratch-buffer )
       (setq buffer-undo-list t)
       (erase-buffer)
