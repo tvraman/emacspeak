@@ -1394,33 +1394,27 @@ the emacspeak table clipboard instead."
 ;;}}}
 ;;{{{ utilities
 ;;;###autoload
-(defun emacspeak-wizards-show-list-variable (var)
-  "Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed."
-  (interactive "SDisplay variable:")
-  (let ((buffer
-         (format "*emacspeak:%s*" var))
-        (symbol (symbol-value var)))
-    (with-output-to-temp-buffer buffer
-      (prin1 symbol))
-    (save-excursion
+(defun emacspeak-wizards-show-eval-result (form)
+  "Convenience command to pretty-print and view Lisp evaluation results."
+  (interactive
+   (list
+    (let ((minibuffer-completing-symbol t))
+      (read-from-minibuffer "Eval: "
+                            nil read-expression-map t
+                            'read-expression-history))))
+  (let ((buffer (get-buffer-create "*emacspeak:Eval*" )))
+    (save-current-buffer
       (set-buffer buffer)
-      (setq buffer-read-only nil)
-      (goto-char (point-min))
-      (while (re-search-forward "\n" nil t)
-        (replace-match " "))
-      (goto-char (point-min))
-      (while (re-search-forward "(" nil t)
-        (replace-match "\n("))
-      (goto-char (point-min))
-      (fill-paragraph 'justify)
-      (indent-sexp)
-      (emacs-lisp-mode))
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (cl-prettyprint (eval form)))
     (pop-to-buffer buffer)
+    (emacs-lisp-mode)
+    (goto-char (point-min))
+    
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
 ;;;###autoload
 (defun emacspeak-speak-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
