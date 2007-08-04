@@ -641,8 +641,7 @@ before the message is spoken."
   (declare (special emacspeak-last-message
                     emacspeak-speak-messages-pause
                     emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((dtk-stop-immediately t )
-        (inhibit-read-only t))
+  (let ((inhibit-read-only t))
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (when (and
@@ -651,7 +650,6 @@ before the message is spoken."
            (/= emacspeak-lazy-message-time ;; previous message not recent
                (setq emacspeak-lazy-message-time (nth 1  (current-time)))))
       ;; so we really need to speak it
-      (when emacspeak-speak-messages-pause (dtk-pause))
       (tts-with-punctuations 'all
                              (dtk-speak ad-return-value)))
     ad-return-value))
