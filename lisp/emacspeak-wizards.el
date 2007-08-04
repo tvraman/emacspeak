@@ -451,9 +451,7 @@ also copied to the kill ring for convenient yanking."
                        'emacspeak-speak-network-interfaces-list  ))))
      (t (setq command
               emacspeak-speak-show-active-network-interfaces-command)))
-    (shell-command command )
-    (when (interactive-p)
-      (dtk-speak emacspeak-last-message))
+    (emacspeak-shell-command command )
     (when (and address
                (not emacspeak-speak-message-again-should-copy-to-kill-ring))
       (kill-new emacspeak-last-message))))
@@ -484,7 +482,7 @@ With prefix arg, opens the phone book for editting."
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object))
    ((file-exists-p emacspeak-speak-telephone-directory)
-    (shell-command
+    (emacspeak-shell-command
      (format "%s %s %s"
              emacspeak-speak-telephone-directory-command
              (read-from-minibuffer "Lookup number for: ")

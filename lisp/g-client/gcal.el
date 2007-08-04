@@ -249,7 +249,6 @@ xmlns:gCal='http://schemas.google.com/gCal/2005'>
   (declare (special gcal-event-status-alist))
   (gcal-event-status-value 'confirmed))
 
-
 (defcustom gcal-calendar-view
   (expand-file-name "gcal-view.xsl" g-directory)
   "XSL transform used to view event feeds."
