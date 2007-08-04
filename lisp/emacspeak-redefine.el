@@ -167,9 +167,6 @@ They have to be redefined and rebound to make them talk. " )
 ;;}}}
 ;;{{{  fix ding
 
-
-  
-;;;###autoload
 (defadvice ding (before emacspeak  pre act comp)
   "Produce auditory icon."
   (emacspeak-auditory-icon 'warn-user))

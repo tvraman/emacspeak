@@ -65,6 +65,13 @@
 (require 'emacspeak-sounds)
 
 ;;}}}
+;;{{{ Advice ding
+
+(defadvice ding (before emacspeak pre act comp)
+  "Produce auditory icon."
+  (emacspeak-auditory-icon 'warn-user))
+
+;;}}}
 ;;{{{  advice cursor movement commands to speak
 
 (defadvice next-line (before emacspeak pre act com)

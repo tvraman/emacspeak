@@ -103,7 +103,7 @@ Alsaplayer session."
   (declare (special emacspeak-alsaplayer-program
                     emacspeak-alsaplayer-buffer))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (shell-command
@@ -124,7 +124,7 @@ Optional second arg watch-pattern specifies line of output to
   focus on.  Optional third arg no-refresh is used to avoid
   getting status twice."
   (declare (special emacspeak-alsaplayer-buffer))
-  (save-excursion
+  (save-current-buffer
     (set-buffer (get-buffer-create emacspeak-alsaplayer-buffer))
     (erase-buffer)
     (shell-command
@@ -390,7 +390,7 @@ Optional second arg watch-pattern specifies line of output to
 (defsubst emacspeak-alsaplayer-get-position ()
   "Return currently displayed position."
   (declare (special emacspeak-alsaplayer-buffer))
-  (save-excursion
+  (save-current-buffer
     (set-buffer emacspeak-alsaplayer-buffer)
     (goto-char (point-min))
     (when (search-forward "position:" nil t)
@@ -425,7 +425,7 @@ Optional second arg watch-pattern specifies line of output to
 (defsubst emacspeak-alsaplayer-get-path ()
   "Return currently displayed path."
   (declare (special emacspeak-alsaplayer-buffer))
-  (save-excursion
+  (save-current-buffer
     (set-buffer emacspeak-alsaplayer-buffer)
     (goto-char (point-min))
     (when (search-forward "path:" nil t)
