@@ -1775,7 +1775,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   (interactive
    (list
     (let ((completion-ignore-case t)
-          (ido-case-fold t))
+          (read-file-name-completion-ignore-case t))
       (substring
        (read-file-name
         "Timezone: "
