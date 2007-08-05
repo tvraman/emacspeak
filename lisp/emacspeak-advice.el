@@ -2255,55 +2255,47 @@ Also produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{  temporarily disable message advice during searches.
-(defvar emacspeak-isearch-save-syntax-table  nil
-  "Saved syntax table before we enter isearch mode.")
 
-(make-variable-buffer-local
- 'emacspeak-isearch-save-syntax-table)
+;; (defvar emacspeak-isearch-save-syntax-table  nil
+;;   "Saved syntax table before we enter isearch mode.")
+
+;; (make-variable-buffer-local
+;;  'emacspeak-isearch-save-syntax-table)
 
 (add-hook 'isearch-mode-hook
           #'(lambda ()
-              (declare (special emacspeak-isearch-save-syntax-table))
-              (setq emacspeak-isearch-save-syntax-table (syntax-table))
+              ;(setq emacspeak-isearch-save-syntax-table (syntax-table)) ;
               (setq emacspeak-speak-messages nil)))
 
 (add-hook 'isearch-mode-end-hook
            #'(lambda ()
-             (declare (special emacspeak-isearch-save-syntax-table))
-             (and emacspeak-isearch-save-syntax-table
-                  (set-syntax-table emacspeak-isearch-save-syntax-table))
+             ;(declare (special emacspeak-isearch-save-syntax-table))
+             ;; (and emacspeak-isearch-save-syntax-table
+;;                   (set-syntax-table emacspeak-isearch-save-syntax-table))
              (setq emacspeak-speak-messages t )))
 
 ;;}}}
 ;;{{{  Advice isearch-search to speak
 
 (defadvice isearch-forward (before emacspeak pre act comp)
-  "Provide auditory feedback.
-Pause ongoing speech first."
+  "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-pause)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice isearch-backward (before emacspeak pre act comp)
-  "Provide auditory feedback.
-Pause ongoing speech first."
+  "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-pause)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice isearch-forward-regexp (before emacspeak pre act comp)
-  "Provide auditory feedback.
-Pause ongoing speech first."
+  "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-pause)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice isearch-backward-regexp (before emacspeak pre act comp)
-  "Provide auditory feedback.
-Pause ongoing speech first."
+  "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-pause)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice isearch-cancel (before emacspeak pre act comp)
   "Provide auditory feedback."
@@ -2321,7 +2313,7 @@ Pause ongoing speech first."
          (- (point) (length isearch-string ))
        (+ (point) (length isearch-string )))
      voice-bolden
-     (emacspeak-speak-line nil ))))
+     (emacspeak-speak-line))))
 
 (defadvice isearch-delete-char (after emacspeak pre act)
   "Speak the search hit.
@@ -2337,21 +2329,21 @@ Produce auditory icons if possible."
      voice-bolden
      (emacspeak-speak-line nil ))))
 
-(defadvice isearch-done (around emacspeak pre act comp)
-  "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-pause nil))
-    ad-do-it
-    ))
+;; (defadvice isearch-done (around emacspeak pre act comp)
+;;   "Done searching --provide appropriate feedback."
+;;   (let ((emacspeak-speak-messages-pause nil))
+;;     ad-do-it
+;;     ))
 
-(defadvice isearch-exit (around emacspeak pre act comp)
-  "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-pause nil))
-    ad-do-it))
+;; (defadvice isearch-exit (around emacspeak pre act comp)
+;;   "Done searching --provide appropriate feedback."
+;;   (let ((emacspeak-speak-messages-pause nil))
+;;     ad-do-it))
 
-(defadvice isearch-abort (around emacspeak pre act comp)
-  "Done searching --provide appropriate feedback."
-  (let ((emacspeak-speak-messages-pause nil))
-    ad-do-it))
+;; (defadvice isearch-abort (around emacspeak pre act comp)
+;;   "Done searching --provide appropriate feedback."
+;;   (let ((emacspeak-speak-messages-pause nil))
+;;     ad-do-it))
 
 ;;}}}
 
