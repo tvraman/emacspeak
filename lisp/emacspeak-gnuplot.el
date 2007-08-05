@@ -106,8 +106,7 @@
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
      (t (dtk-tone 500 30 'force)
-        (and emacspeak-delete-char-speak-deleted-char
-             (emacspeak-speak-char t))))
+             (emacspeak-speak-char t)))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)

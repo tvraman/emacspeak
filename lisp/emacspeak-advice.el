@@ -352,18 +352,6 @@ the words that were capitalized."
 ;;}}}
 ;;{{{  Advice deletion commands:
 
-;;;###autoload
-(defcustom emacspeak-delete-char-speak-deleted-char t
-  "*T means `delete-char' speaks char that was deleted."
-  :group 'emacspeak-speak
-  :type 'boolean)
-;;;###autoload
-(defcustom emacspeak-backward-delete-char-speak-current-char nil
-  "*T means `backward-delete-char' speaks char that becomes
-current after deletion."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
 (defadvice delete-backward-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
@@ -379,8 +367,7 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-delete-char-speak-deleted-char
-         (emacspeak-speak-char t))
+    (emacspeak-speak-char t)
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -980,8 +967,7 @@ Produce an auditory icon if possible."
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
      (t (dtk-tone 500 30 'force)
-        (and emacspeak-delete-char-speak-deleted-char
-             (emacspeak-speak-char t))))
+        (emacspeak-speak-char t)))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
