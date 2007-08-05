@@ -399,6 +399,7 @@ the words that were capitalized."
 
 ;;}}}
 ;;{{{  Advice deletion commands:
+
 ;;;###autoload
 (defcustom emacspeak-delete-char-speak-deleted-char t
   "*T means `delete-char' speaks char that was deleted."
@@ -525,20 +526,6 @@ current after deletion."
 
 ;;}}}
 ;;{{{  advice insertion commands to speak.
-
-;;; there appears to be a bug in newer emacsuns e.g. 19.30 when using
-;;; completion.el
-;;;We'll fix it hear for the general good.
-
-;; (defadvice completion-separator-self-insert-command (around
-;;                                                      fix-bug
-;;                                                      pre act
-;;                                                      comp)
-;;   "This fixes a bug in completion under Emacs 19.34."
-;;   (condition-case nil
-;;       ad-do-it
-;;     (error (set-syntax-table cmpl-saved-syntax)
-;;            (emacspeak-self-insert-command last-input-char ))))
 
 (defadvice completion-separator-self-insert-autofilling
   (around fix-bug pre act comp)
@@ -786,25 +773,18 @@ Produce an auditory icon if possible."
       (dtk-say "n" )))
   ad-return-value )
 
-(defadvice yes-or-no-p (around emacspeak pre act )
-  "Use speech when prompting.
-Produce an auditory icon as well."
-  (emacspeak-auditory-icon 'ask-question)
-  (when emacspeak-speak-messages-pause
-    (dtk-pause))
-  (tts-with-punctuations 'all
-                         (dtk-speak (format "%s  yes or no" (ad-get-arg  0 ))))
-  ad-do-it
-  (cond
-   (ad-return-value
-    (emacspeak-auditory-icon 'yes-answer )
-    (dtk-say "yes"))
-   (t (emacspeak-auditory-icon  'no-answer )
-      (dtk-say "no" )))
-  ad-return-value )
-
 ;;}}}
 ;;{{{  advice various input functions to speak:
+(defadvice read-key-sequence(around emacspeak pre act )
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0)))
+    (when prompt
+      (tts-with-punctuations 'all
+                             (dtk-speak prompt)))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak (format "%s" ad-return-value)))
+    ad-return-value))
 
 (defadvice read-char (before emacspeak pre act comp)
   "Speak the prompt"
