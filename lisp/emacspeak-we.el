@@ -138,6 +138,9 @@ a rewrite rule even if one is already defined."
 (defvar emacspeak-we-xsl-junk
   (emacspeak-xslt-get "xpath-junk.xsl")
   "XSL to junk  elements matching a specified XPath locator.")
+(defgroup emacspeak-we nil
+  "Emacspeak WebEdit"
+  :group 'emacspeak)
 
 ;;;###autoload
 (defcustom emacspeak-we-xsl-p nil
