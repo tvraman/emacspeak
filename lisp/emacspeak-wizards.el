@@ -1407,10 +1407,12 @@ the emacspeak table clipboard instead."
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (cl-prettyprint (eval form)))
+      (cl-prettyprint (eval form))
+      (set-buffer-modified-p nil))
     (pop-to-buffer buffer)
     (emacs-lisp-mode)
     (goto-char (point-min))
+    (forward-line 1)
     
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
