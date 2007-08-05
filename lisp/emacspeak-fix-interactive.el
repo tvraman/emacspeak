@@ -68,7 +68,7 @@
 
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
-   "^ad-Orig\\|^mouse\\|^scroll-bar"
+   "^ad-Orig\\|^mouse\\|^scroll-bar\\|^tpu-\\|^set\ "
    "\\|^face\\|^frame\\|^font"
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
