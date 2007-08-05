@@ -310,6 +310,7 @@ field in the customization buffer.  You can use the notation
         ("'" emacspeak-speak-sexp)
         ("#" emacspeak-gridtext)
         ("%" emacspeak-speak-current-percentage)
+        ("&" emacspeak-wizards-show-eval-result)
         ("(" emacspeak-aumix)
         (")" emacspeak-sounds-select-theme)
         ("," emacspeak-speak-browse-buffer )
