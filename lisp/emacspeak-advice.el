@@ -2254,53 +2254,34 @@ Also produce an auditory icon if possible."
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 
 ;;}}}
-;;{{{  temporarily disable message advice during searches.
+;;{{{ isearch setup and tear-down
+;;; temporarily disable message and signal advice during searches.
+;;; Produce auditory icon
 
-;; (defvar emacspeak-isearch-save-syntax-table  nil
-;;   "Saved syntax table before we enter isearch mode.")
+(defsubst emacspeak-isearch-setup()
+  "Setup emacspeak environment for isearch."
+  (declare (special emacspeak-speak-messages
+                    emacspeak-speak-cue-errors))
+  (emacspeak-auditory-icon 'open-object)
+  (setq emacspeak-speak-messages nil
+        emacspeak-speak-cue-errors nil))
 
-;; (make-variable-buffer-local
-;;  'emacspeak-isearch-save-syntax-table)
+(defsubst emacspeak-isearch-teardown()
+  "Teardown emacspeak environment for isearch."
+  (declare (special emacspeak-speak-messages
+                    emacspeak-speak-cue-errors))
+  (emacspeak-auditory-icon 'close-object)
+  (setq emacspeak-speak-messages t
+        emacspeak-speak-cue-errors t))
 
-(add-hook 'isearch-mode-hook
-          #'(lambda ()
-              ;(setq emacspeak-isearch-save-syntax-table (syntax-table)) ;
-              (setq emacspeak-speak-messages nil)))
 
-(add-hook 'isearch-mode-end-hook
-           #'(lambda ()
-             ;(declare (special emacspeak-isearch-save-syntax-table))
-             ;; (and emacspeak-isearch-save-syntax-table
-;;                   (set-syntax-table emacspeak-isearch-save-syntax-table))
-             (setq emacspeak-speak-messages t )))
+(add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
+
+
+(add-hook 'isearch-mode-end-hook 'emacspeak-isearch-teardown)
 
 ;;}}}
 ;;{{{  Advice isearch-search to speak
-
-(defadvice isearch-forward (before emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice isearch-backward (before emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice isearch-forward-regexp (before emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice isearch-backward-regexp (before emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice isearch-cancel (before emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice isearch-search (after emacspeak pre act)
   "Speak the search hit."
@@ -2328,22 +2309,6 @@ Produce auditory icons if possible."
        (+ (point) (length isearch-string )))
      voice-bolden
      (emacspeak-speak-line nil ))))
-
-;; (defadvice isearch-done (around emacspeak pre act comp)
-;;   "Done searching --provide appropriate feedback."
-;;   (let ((emacspeak-speak-messages-pause nil))
-;;     ad-do-it
-;;     ))
-
-;; (defadvice isearch-exit (around emacspeak pre act comp)
-;;   "Done searching --provide appropriate feedback."
-;;   (let ((emacspeak-speak-messages-pause nil))
-;;     ad-do-it))
-
-;; (defadvice isearch-abort (around emacspeak pre act comp)
-;;   "Done searching --provide appropriate feedback."
-;;   (let ((emacspeak-speak-messages-pause nil))
-;;     ad-do-it))
 
 ;;}}}
 
