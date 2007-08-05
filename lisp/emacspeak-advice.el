@@ -775,6 +775,7 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{  advice various input functions to speak:
+
 (defadvice read-key-sequence(around emacspeak pre act )
   "Prompt using speech as well. "
   (let ((prompt (ad-get-arg 0)))
@@ -2601,6 +2602,7 @@ Produce auditory icons if possible."
 (add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
 ;;}}}
 ;;{{{ setup minibuffer hooks:
+
 (defvar emacspeak-minibuffer-enter-auditory-icon t
   "Produce auditory icon when entering the minibuffer.")
 
@@ -2619,9 +2621,6 @@ emacspeak running."
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
   (emacspeak-auditory-icon 'close-object))
-
-                                        ;(declaim (special minibuffer-exit-hook))
-                                        ;(setq minibuffer-exit-hook 'emacspeak-minibuffer-exit-hook)
 
 ;;}}}
 ;;{{{ Advice occur
@@ -2704,6 +2703,7 @@ emacspeak running."
 
 ;;}}}
 ;;{{{ apropos and friends
+
 (defadvice apropos-command (after emacspeak pre act com)
   "Provide an auditory icon."
   (when (interactive-p)
@@ -2723,6 +2723,7 @@ emacspeak running."
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
+
 ;;}}}
 ;;{{{ copy-file rename-file and friends
 
@@ -2830,6 +2831,7 @@ Variable mark-even-if-inactive is set true ."
 
 ;;}}}
 ;;{{{ sync with tts engine on major mode change.
+
 (add-hook 'change-major-mode-hook 'emacspeak-dtk-sync)
 
 ;;}}}
