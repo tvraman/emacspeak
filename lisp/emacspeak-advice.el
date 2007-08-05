@@ -2210,41 +2210,34 @@ Also produce an auditory icon if possible."
     (emacspeak-speak-region (point) (mark 'force))))
 
 ;;}}}
-;;{{{  simple searching:
+;;{{{ advice non-incremental searchers
 
-(defadvice search-forward (around emacspeak pre act)
-  "Prompt using speech."
-  (cond
-   ((interactive-p )
-    (dtk-speak "Search forward for   ")
-    ad-do-it
-    (ems-set-personality-temporarily
-     (match-beginning 0) (match-end 0) voice-bolden
-     (emacspeak-speak-line))
-    (if ad-return-value
-        (emacspeak-auditory-icon 'search-hit)
-      (emacspeak-auditory-icon 'search-miss)))
-   (t ad-do-it))
-  ad-return-value)
+(defadvice search-forward (after emacspeak pre act comp)
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice search-backward (after emacspeak pre act comp)
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 
-(defadvice search-backward (before emacspeak pre act)
-  "Prompt using speech."
-  (cond
-   ((interactive-p )
-    (dtk-speak "Search backward  for ")
-    ad-do-it
-    (ems-set-personality-temporarily
-     (match-beginning 0) (match-end 0) voice-bolden
-     (emacspeak-speak-line))
-    (if ad-return-value
-        (emacspeak-auditory-icon 'search-hit)
-      (emacspeak-auditory-icon 'search-miss)))
-   (t ad-do-it))
-  )
+(defadvice word-search-forward (after emacspeak pre act comp)
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)this is last ))
+
+(defadvice word-search-backward (after emacspeak pre act comp)
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)this is last ))
 
 ;;}}}
 ;;{{{  customize isearch:
-;;{{{ fix isearch keys:
+
+;;; Fix key bindings:
+
 (declaim (special isearch-mode-map
                   minibuffer-local-isearch-map
                   emacspeak-prefix))
@@ -2253,8 +2246,8 @@ Also produce an auditory icon if possible."
   'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 
-;;}}}
-;;{{{ isearch setup and tear-down
+;;; ISearch setup/teardown
+
 ;;; temporarily disable message and signal advice during searches.
 ;;; Produce auditory icon
 
@@ -2274,14 +2267,10 @@ Also produce an auditory icon if possible."
   (setq emacspeak-speak-messages t
         emacspeak-speak-cue-errors t))
 
-
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
-
-
 (add-hook 'isearch-mode-end-hook 'emacspeak-isearch-teardown)
 
-;;}}}
-;;{{{  Advice isearch-search to speak
+;;;   Advice isearch-search to speak
 
 (defadvice isearch-search (after emacspeak pre act)
   "Speak the search hit."
@@ -2310,7 +2299,7 @@ Produce auditory icons if possible."
      voice-bolden
      (emacspeak-speak-line nil ))))
 
-;;}}}
+
 
 (defadvice isearch-yank-word (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -2373,29 +2362,7 @@ Produce auditory icons if possible."
    (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
-;;{{{ advice non-incremental searchers
-(defadvice search-forward (after emacspeak pre act comp)
-  "Speak line we land on."
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
-(defadvice search-backward (after emacspeak pre act comp)
-  "Speak line we land on."
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
 
-(defadvice word-search-forward (after emacspeak pre act comp)
-  "Speak line we land on."
-  (when (interactive-p)
-    (emacspeak-speak-line)this is last ))
-
-(defadvice word-search-backward (after emacspeak pre act comp)
-  "Speak line we land on."
-  (when (interactive-p)
-    (emacspeak-speak-line)this is last ))
-
-;;}}}
 ;;}}}
 ;;{{{  marking objects produces auditory icons
 
