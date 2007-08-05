@@ -139,6 +139,8 @@
   "Setup Emacspeak keys in W3 mode."
   (declare (special w3-echo-link url-show-status
                     emacspeak-w3-table-draw-border
+                    emacspeak-w3-table-silent-border
+                    w3-table-border-chars
                     w3-reuse-buffers
                     w3-mode-map
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
