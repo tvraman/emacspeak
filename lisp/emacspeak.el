@@ -428,8 +428,6 @@ functions for details.   "
                     emacspeak-unibyte
                     emacspeak-play-program
                     emacspeak-sounds-directory))
-  ;;; Undo emacs 22 TPU wierdness
-  (load-library "simple") 
 ;;; fixes transient mark mode in emacspeak
   (setq mark-even-if-inactive t)
 ;;; force unibyte
@@ -446,6 +444,8 @@ functions for details.   "
   (require 'emacspeak-personality)
   (require 'emacspeak-redefine)
   (require 'emacspeak-fix-interactive)
+  ;;; Undo emacs 22 TPU wierdness
+  (load-library "simple") 
   (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
