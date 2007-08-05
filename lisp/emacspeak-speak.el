@@ -2881,15 +2881,12 @@ Also display match context in minibuffer."
 ;;;###autoload
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.
-We need to call this in case Emacs
-is anal and loads its own builtin blink-paren function
-which does not talk."
+We need to call this in case Emacs is anal and loads its own
+builtin blink-paren function which does not talk."
   (interactive)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (and (interactive-p)
        (message "Using customized blink-paren function provided by Emacspeak.")))
-
-(emacspeak-use-customized-blink-paren)
 
 ;;}}}
 ;;{{{  Auxillary functions:

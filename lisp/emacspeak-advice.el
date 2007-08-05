@@ -2805,6 +2805,15 @@ Variable mark-even-if-inactive is set true ."
   (emacspeak-speak-mode-line))
 
 ;;}}}
+;;{{{ Advice show-paren:
+
+(defadvice show-paren-mode (after emacspeak pre act comp)
+  "Warn user."
+ (when (ad-get-arg 0)
+   (message
+    "Warning:  show-paren mode with Emacspeak will not work.")))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
