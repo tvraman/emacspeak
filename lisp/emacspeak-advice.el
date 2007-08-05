@@ -85,29 +85,25 @@
 ;;}}}
 ;;{{{  advice cursor movement commands to speak
 
-(defadvice next-line (before emacspeak pre act com)
-  "Produce auditory icon  if we cant move."
-  (when (and (interactive-p)
-             (= 1
-             (save-excursion (forward-line 1))))
-    (emacspeak-auditory-icon 'warn-user)))
+ (defadvice next-line (before emacspeak pre act com)
+   "Produce auditory icon  if we cant move."
+   (when (and (interactive-p)
+              (= 1 (save-excursion (forward-line 1))))
+     (emacspeak-auditory-icon 'warn-user)))
 
 (defadvice next-line (after emacspeak pre act)
   "Speak line that you just moved to."
-  (when (interactive-p)
-    (emacspeak-speak-line  )))
+  (when (interactive-p) (emacspeak-speak-line  )))
 
-(defadvice previous-line (before emacspeak pre act com)
-  "Produce auditory icon  if we cant move."
-  (when (and (interactive-p)
-             (= -1
-             (save-excursion (forward-line -1))))
-    (emacspeak-auditory-icon 'warn-user)))
+ (defadvice previous-line (before emacspeak pre act com)
+   "Produce auditory icon  if we cant move."
+   (when (and (interactive-p)
+              (= -1 (save-excursion (forward-line -1))))
+     (emacspeak-auditory-icon 'warn-user)))
 
 (defadvice previous-line (after emacspeak pre act)
   "Speak line that you just moved to."
-  (when (interactive-p)
-    (emacspeak-speak-line  )))
+  (when (interactive-p) (emacspeak-speak-line  )))
 
 (defadvice forward-word (after emacspeak pre act)
   "Speak the word you just moved to."
@@ -2116,19 +2112,21 @@ Produce an auditory icon if possible."
 
 (defadvice beginning-of-line (before emacspeak pre act)
   "Stop speech first."
-  (when (interactive-p) (dtk-stop )
+  (when (interactive-p)
+    (dtk-stop )
         (emacspeak-auditory-icon 'select-object)))
 
 (defadvice end-of-line (before emacspeak pre act)
   "Stop speech first."
-  (when (interactive-p)  (dtk-stop )
+  (when (interactive-p)
+    (dtk-stop )
         (emacspeak-auditory-icon 'select-object)))
 
 (defadvice recenter (before emacspeak pre act)
   "Stop speech first."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'scroll)
-    (dtk-stop )))
+    (dtk-stop )
+    (emacspeak-auditory-icon 'scroll)))
 
 ;;}}}
 ;;{{{  yanking and popping
@@ -2453,6 +2451,7 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{  set up clause boundaries for specific modes:
+
 (defsubst emacspeak-speak-adjust-clause-boundaries ()
   "Adjust clause boundaries so that newlines dont delimit clauses."
   (declare (special dtk-chunk-separator-syntax))
@@ -2462,6 +2461,7 @@ Produce auditory icons if possible."
 (add-hook 'text-mode-hook
           'emacspeak-speak-adjust-clause-boundaries)
 (add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
+
 ;;}}}
 ;;{{{ setup minibuffer hooks:
 
@@ -2536,13 +2536,7 @@ emacspeak running."
                (setq auto-revert-mode-text " AutoRev")))))
 
 ;;}}}
-;;{{{ emacs 20 fixups
-
-;;; We do this ugly workaround to compensate for Emacs 20
-;;; Emacs 20 relies on binding standard-output to t and then using princ
-;;; to display important messages
-;;; We introduce a dynamic variable emacspeak-advice-advice-princ
-;;; that can be set whenever we want princ to speak.
+;;{{{ advice where-is and friends
 
 (defadvice describe-key-briefly (around emacspeak pre act comp)
   "Speak what you displayed"
@@ -2698,9 +2692,11 @@ Variable mark-even-if-inactive is set true ."
 
 ;;}}}
 ;;{{{ provide auditory icon when window config changes
+
 (defun emacspeak-window-resize (ignore)
   "Play window resize icon."
   (emacspeak-auditory-icon 'window-resize))
+
 (defvar emacspeak-sounds-icon-on-window-resize nil
   "If T then window resize will produce an auditory icon.")
 
@@ -2718,6 +2714,7 @@ Variable mark-even-if-inactive is set true ."
     (ad-get-arg 0))))
 ;;}}}
 ;;{{{ eldoc
+
 (defadvice eldoc-message (around  emacspeak pre act comp)
   "Speech enable ELDoc for the rare times we use it."
   (let ((emacspeak-speak-messages nil))
@@ -2725,6 +2722,7 @@ Variable mark-even-if-inactive is set true ."
     (when eldoc-last-message
       (dtk-speak eldoc-last-message))
     ad-return-value))
+
 ;;}}}
 ;;{{{ mail aliases
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
@@ -2733,6 +2731,7 @@ Variable mark-even-if-inactive is set true ."
     (emacspeak-auditory-icon 'select-object)))
 ;;}}}
 ;;{{{ elint
+
 (defadvice elint-current-buffer (around emacspeak pre act comp)
   "Silence messages while elint is running."
   (cond
@@ -2758,29 +2757,32 @@ Variable mark-even-if-inactive is set true ."
 ;;}}}
 ;;{{{ advice button creation to add coicification:
 
-(defadvice make-text-button (after emacspeak pre act comp)
-  "Adds property personality."
-  (let ((beg (ad-get-arg 0))
-        (end (ad-get-arg 1)))
-    (ems-modify-buffer-safely
-     (put-text-property beg end
-                        'personality
-                        voice-bolden))))
+ (defadvice make-text-button (after emacspeak pre act comp)
+   "Adds property personality."
+   (let ((beg (ad-get-arg 0))
+         (end (ad-get-arg 1)))
+     (ems-modify-buffer-safely
+      (put-text-property beg end
+                         'personality
+                         voice-bolden))))
 
-(defadvice make-button (after emacspeak pre act comp)
-  "Adds property personality."
-  (let ((beg (ad-get-arg 0))
-        (end (ad-get-arg 1)))
-    (ems-modify-buffer-safely
-     (put-text-property beg end
-                        'personality voice-bolden))))
+ (defadvice make-button (after emacspeak pre act comp)
+   "Adds property personality."
+   (let ((beg (ad-get-arg 0))
+         (end (ad-get-arg 1)))
+     (ems-modify-buffer-safely
+      (put-text-property beg end
+                         'personality voice-bolden))))
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'push-button)))
+    (emacspeak-auditory-icon 'push-button)
+    (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ silence whitespace cleanup:
+
 (loop for f in
       '(whitespace-cleanup whitespace-cleanup-internal)
       do

@@ -3022,7 +3022,10 @@ char, or dont move. "
 
 (declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
-(define-key completion-list-mode-map [S-Return] 'emacspeak-completion-pick-completion)
+(define-key completion-list-mode-map [S-Return]
+  'choose-completion)
+(define-key completion-list-mode-map "\C-m"
+  'emacspeak-completion-pick-completion) 
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
