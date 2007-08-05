@@ -458,7 +458,8 @@ functions for details.   "
     (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-setup-programming-modes)
-                                        ;(require 'emacspeak-wizards)
+  ;;; Undo emacs 22 TPU wierdness
+  (load-library "simple")
   (tts-with-punctuations 'some
                          (dtk-speak
                           (format "  Press %s to get an   overview of emacspeak  %s \
