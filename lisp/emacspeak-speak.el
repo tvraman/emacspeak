@@ -64,10 +64,19 @@
   (require 'which-func nil))
 
 ;;}}}
-;;{{{  custom group
+e;;{{{  custom group
 (defgroup emacspeak-speak nil
   "Basic speech output commands."
   :group 'emacspeak)
+
+;;}}}
+;;{{{ same-line-p
+
+(defsubst ems-same-line-p (orig current)
+  "Check if current is in the same line as orig."
+  (save-excursion
+    (goto-char orig)
+    (< current (line-end-position))))
 
 ;;}}}
 ;;{{{ inhibit-point-motion-hooks

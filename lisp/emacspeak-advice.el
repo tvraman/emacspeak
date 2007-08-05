@@ -50,6 +50,17 @@
 ;;; Advice forms that are specific to Emacs subsystems do not belong here!
 ;;; I violate this at present by advicing completion comint and
 ;;; shell here.
+
+;;; Note that we needed to advice a lot more for Emacs  19 and
+;;;Emacs 20 than we do  for Emacs 21 and Emacs 22.
+;;; As of August 2007, this file is being purged of advice forms
+;;;not needed in Emacs 22.
+;;; This also means that this and subsequent versions of
+;;;Emacspeak should not be run on versions of Emacs older than
+;;;Emacs 21,
+;;; And preferably only run on Emacs 22.
+;;; This version of Emacspeak is only tested on Emacs 22.
+
 ;;
 ;;; Code:
 
@@ -77,23 +88,21 @@
 (defadvice next-line (before emacspeak pre act com)
   "Produce auditory icon  if we cant move."
   (when (and (interactive-p)
-             (save-excursion
-               (end-of-line)
-               (eobp)))
-    (emacspeak-auditory-icon 'warn-user)))
-
-(defadvice previous-line (before emacspeak pre act com)
-  "Produce auditory icon  if we cant move."
-  (when (and (interactive-p)
-             (save-excursion
-               (beginning-of-line)
-               (bobp)))
+             (= 1
+             (save-excursion (forward-line 1))))
     (emacspeak-auditory-icon 'warn-user)))
 
 (defadvice next-line (after emacspeak pre act)
   "Speak line that you just moved to."
   (when (interactive-p)
     (emacspeak-speak-line  )))
+
+(defadvice previous-line (before emacspeak pre act com)
+  "Produce auditory icon  if we cant move."
+  (when (and (interactive-p)
+             (= -1
+             (save-excursion (forward-line -1))))
+    (emacspeak-auditory-icon 'warn-user)))
 
 (defadvice previous-line (after emacspeak pre act)
   "Speak line that you just moved to."
@@ -159,16 +168,14 @@
 (defadvice forward-sexp (around emacspeak pre act)
   "Speak sexp after moving."
   (if (interactive-p)
-      (let ((start (point))
-            (same-line nil))
+      (let ((start (point)))
         ad-do-it
         (emacspeak-auditory-icon 'large-movement)
         (skip-syntax-forward " ")
-        (setq same-line (count-lines start (point)))
         (cond
-         ((> same-line 1)
-          (emacspeak-speak-line))
-         (t (emacspeak-speak-sexp))))
+         ((ems-same-line-p start (point))
+          (emacspeak-speak-sexp))
+         (t (emacspeak-speak-line))))
     ad-do-it)
   ad-return-value)
 
@@ -177,101 +184,46 @@
 If you move more than a line,
   only speak the target line."
   (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
+      (let ((start (point)))
         ad-do-it
         (emacspeak-auditory-icon 'large-movement)
-        (setq same-line (count-lines (point) start ))
+        (skip-syntax-forward " ")
         (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
+         ((ems-same-line-p start (point))
+          (emacspeak-speak-sexp))
+         (t (emacspeak-speak-line))))
     ad-do-it)
   ad-return-value)
 
 (defadvice forward-paragraph (after emacspeak pre act )
   "Speak the paragraph."
-  (when(interactive-p)
-    (emacspeak-speak-paragraph)))
+  (when(interactive-p) (emacspeak-speak-paragraph)))
 
 (defadvice backward-paragraph (after emacspeak pre act )
   "Speak the paragraph."
-  (when(interactive-p)
-    (emacspeak-speak-paragraph  nil )))
+  (when(interactive-p) (emacspeak-speak-paragraph)))
 
-(defadvice forward-list (around  emacspeak pre act)
+
+;;; list navigation:
+
+(loop for f in
+      '(forward-list backward-list
+                     up-list backward-up-list down-list)
+      do
+      (eval
+       `(defadvice ,f (around  emacspeak pre act)
   "Speak the list.
 If you moved more than a line,
   only speak the target line."
   (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
+      (let ((start (point)))
         ad-do-it
-        (setq same-line (count-lines (point) start ))
         (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
+         ((ems-same-line-p start (point))
+          (emacspeak-speak-region start (point )))
+         (t (emacspeak-speak-line))))
     ad-do-it)
-  ad-return-value)
-
-(defadvice backward-list (around  emacspeak pre act)
-  "Speak the list.
-If you moved more than a line,
-  just speak the target line."
-  (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
-        ad-do-it
-        (setq same-line (count-lines (point) start ))
-        (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
-    ad-do-it)
-  ad-return-value)
-
-(defadvice up-list (around  emacspeak pre act)
-  "Speak the list.
-If you moved more than a line,
-  only speak the target line"
-  (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
-        ad-do-it
-        (setq same-line (count-lines (point) start ))
-        (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
-    ad-do-it)
-  ad-return-value)
-
-(defadvice backward-up-list (around  emacspeak pre act)
-  "Speak the list.
-If you moved more than a line,
-  only speak the target line"
-  (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
-        ad-do-it
-        (setq same-line (count-lines (point) start ))
-        (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
-    ad-do-it)
-  ad-return-value)
-
-(defadvice down-list (around  emacspeak pre act)
-  "Speak the list.
-If you moved more than a line,
-  only speak the target line."
-  (if   (interactive-p)
-      (let ((start (point))
-            (same-line nil))
-        ad-do-it
-        (setq same-line (count-lines (point) start ))
-        (cond
-         ((> same-line 1) (emacspeak-speak-line))
-         (t (emacspeak-speak-region start (point )))))
-    ad-do-it)
-  ad-return-value)
+  ad-return-value)))
 
 (defadvice forward-page (after emacspeak pre act)
   "Provide auditory feedback."
