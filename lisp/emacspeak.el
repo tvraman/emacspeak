@@ -130,7 +130,12 @@ speech-enabling extensions."
   (eval-after-load package
     `(progn
        (require ',module)
-       (emacspeak-fix-commands-loaded-from ',module))))
+       (emacspeak-fix-commands-loaded-from
+        (locate-library
+         ,(format "%s" module)))
+       (emacspeak-fix-commands-loaded-from
+        (locate-library
+         ,(format "%s" package))))))
 
 ;;}}}
 ;;{{{ Setup package extensions

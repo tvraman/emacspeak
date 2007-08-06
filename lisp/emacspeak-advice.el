@@ -624,22 +624,6 @@ Also produces an auditory icon if possible."
   (tts-with-punctuations 'all
                          (dtk-speak (ad-get-arg 0))))
 
-;; (defadvice read-no-blanks-input (around emacspeak pre act)
-;;   "Prompt using speech as well."
-;;   (let ((prompt (ad-get-arg 0))
-;;         (default  (ad-get-arg 1 )))
-;;     (tts-with-punctuations 'all
-;;                            (dtk-speak
-;;                             (format "%s  %s"
-;;                                     prompt
-;;                                     (if  default
-;;                                         (format "Default: %s" default)
-;;                                       ""))))
-;;     ad-do-it
-;;     (tts-with-punctuations 'all
-;;                            (dtk-speak ad-return-value ))
-;;     ad-return-value))
-
 (defadvice y-or-n-p (around emacspeak pre act )
   "Use speech when prompting.
 Produce an auditory icon if possible."
