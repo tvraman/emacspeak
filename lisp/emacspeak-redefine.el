@@ -165,13 +165,6 @@ They have to be redefined and rebound to make them talk. " )
  emacspeak-functions-that-bypass-function-cell )
 
 ;;}}}
-;;{{{  fix ding
-
-(defadvice ding (before emacspeak  pre act comp)
-  "Produce auditory icon."
-  (emacspeak-auditory-icon 'warn-user))
-
-;;}}}
 (provide 'emacspeak-redefine)
 ;;{{{  emacs local variables
 
