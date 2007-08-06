@@ -1349,6 +1349,41 @@ Produce an auditory icon if possible."
              (emacspeak-vc-get-version-id))))
 
 ;;}}}
+;;{{{  composing mail
+
+
+
+(loop for f in
+      '(mail mail-other-window mail-other-frame )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act)
+  "Give some auditory feedback."
+  (emacspeak-auditory-icon 'open-object)
+    (save-excursion
+      (goto-char (point-min))
+      (emacspeak-speak-line)))))
+(loop for f in
+      '(mail-text mail-subject mail-cc mail-bcc
+                  mail-to mail-reply-to mail-fcc)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act)
+          "Speak the reply-to line."
+          (when (interactive-p)
+            (emacspeak-speak-line )))))
+
+(defadvice mail-signature  (after emacspeak pre act)
+  "Announce you signed the message."
+  (when (interactive-p)
+    (message "Signed your message")))
+
+(defadvice mail-send-and-exit (after emacspeak pre act)
+  "Speak the modeline of active buffer."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line )))
+
+;;}}}
 ;;{{{  misc functions that have to be hand fixed:
 
 (defadvice zap-to-char (after emacspeak pre act comp)
@@ -1701,21 +1736,20 @@ Indicate large movement with an auditory icon if possible.
 Auditory highlight indicates position of point."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement )
-    (ems-set-personality-temporarily  (point) (1+ (point))
-                                      voice-animate
-                                      (emacspeak-speak-line))))
+    (ems-set-personality-temporarily
+     (point) (1+ (point))
+     voice-animate
+     (emacspeak-speak-line))))
 
 (defadvice newline (before emacspeak pre act)
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].  Otherwise cue the user to
 the newly created blank line."
-
   (declare (special emacspeak-line-echo ))
   (when (interactive-p)
     (cond
-     (emacspeak-line-echo
-      (emacspeak-speak-line ))
-     (t(if dtk-stop-immediately (dtk-stop))
+     (emacspeak-line-echo (emacspeak-speak-line ))
+     (t(when dtk-stop-immediately (dtk-stop))
        (dtk-tone 225 120 'force   )))))
 
 (defadvice newline-and-indent (around emacspeak pre act)
@@ -1727,8 +1761,8 @@ Otherwise cue user to the line just created."
    ((interactive-p)
     (cond
      (emacspeak-line-echo
-      (emacspeak-speak-line )
-      ad-do-it)
+      ad-do-it
+      (emacspeak-speak-line ))
      (t ad-do-it
         (dtk-speak-using-voice voice-annotate
                                (format
@@ -1775,78 +1809,7 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'select-object )
     (emacspeak-speak-mode-line)))
 
-;;{{{  composing mail
 
-(defadvice mail (after emacspeak pre act)
-  "Give some auditory feedback."
-  (emacspeak-auditory-icon 'open-object)
-  (let ((emacspeak-speak-messages nil))
-    (save-excursion
-      (goto-char (point-min))
-      (emacspeak-speak-line))))
-
-(defadvice mail-other-window (after emacspeak pre act)
-  "Give some auditory feedback."
-  (emacspeak-auditory-icon 'open-object)
-  (let ((emacspeak-speak-messages nil))
-    (save-excursion
-      (goto-char (point-min))
-      (emacspeak-speak-line))))
-
-(defadvice mail-other-frame (after emacspeak pre act)
-  "Give some auditory feedback."
-  (emacspeak-auditory-icon 'open-object)
-  (let ((emacspeak-speak-messages nil))
-    (save-excursion
-      (goto-char (point-min))
-      (emacspeak-speak-line))))
-
-(defadvice mail-text (after emacspeak pre act)
-  "Indicate movement."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
-
-(defadvice mail-subject (after emacspeak pre act)
-  "Speak the subject line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-
-(defadvice mail-cc   (after emacspeak pre act)
-  "Speak the cc  line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-
-(defadvice mail-bcc (after emacspeak pre act)
-  "Speak the bcc line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-
-(defadvice mail-to (after emacspeak pre act)
-  "Speak the to line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-
-(defadvice mail-reply-to (after emacspeak pre act)
-  "Speak the reply-to line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-(defadvice mail-fcc (after emacspeak pre act)
-  "Speak the fcc line."
-  (when (interactive-p)
-    (emacspeak-speak-line )))
-
-(defadvice mail-signature  (after emacspeak pre act)
-  "Announce you signed the message."
-  (when (interactive-p)
-    (message "Signed your message")))
-
-(defadvice mail-send-and-exit (after emacspeak pre act)
-  "Speak the modeline of active buffer."
-  (when (interactive-p)
-    (emacspeak-speak-mode-line )))
-
-;;}}}
 
 (defadvice goto-line (after emacspeak pre act)
   "Speak the line."
@@ -2441,10 +2404,11 @@ Produce auditory icons if possible."
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
         ".)$\""))
+(add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
 
 (add-hook 'text-mode-hook
           'emacspeak-speak-adjust-clause-boundaries)
-(add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
+
 
 ;;}}}
 ;;{{{ setup minibuffer hooks:
