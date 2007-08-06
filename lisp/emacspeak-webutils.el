@@ -206,19 +206,22 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defsubst emacspeak-webutils-google-suggest (input)
   "Get completion list from Google Suggest."
   (declare (special emacspeak-webutils-google-suggest-json))
-  (with-temp-buffer
+  (let ((buffer (get-buffer-create "*Google AutoComplete*")))
+  (save-current-buffer
+    (set-buffer buffer)
+    (setq buffer-undo-list t)
+    (erase-buffer)
     (shell-command
      (format emacspeak-webutils-google-suggest-json
              (emacspeak-url-encode input))
-     (current-buffer))
+     buffer)
     (goto-char (point-min))
-    ; A JSON array is a vector.
-    ;; read it, filter the comma separators which become symbols.
-     (delq'\,
-                (append                 ; vector2list
-                 (aref (read (current-buffer))
-                       2)
-                 nil))))
+    ;; A JSON array is a vector.
+    ;; read it, filter the comma separators found as symbols.
+    (delq'\,
+     (append                            ; vector->list
+      (aref (read (current-buffer)) 2)
+      nil)))))
 
 
 (defsubst emacspeak-webutils-google-autocomplete (prompt)
