@@ -2644,19 +2644,6 @@ any other key to speak entire sexp."
    (emacspeak-ask-how-to-speak "sexp" (sit-for 1 0 nil ))))
 
 ;;}}}
-;;{{{  emacs' register related commands
-
-;;; Things like view-register are useful.
-
-;;;###autoload
-(defun emacspeak-view-register ()
-  "Display the contents of a register, and then speak it."
-  (interactive)
-  (call-interactively 'view-register)
-  (save-excursion (set-buffer "*Output*")
-                  (dtk-speak (buffer-string ))))
-
-;;}}}
 ;;{{{  emacs rectangles and regions:
 
 (eval-when (compile) (require 'rect))

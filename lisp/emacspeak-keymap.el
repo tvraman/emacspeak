@@ -1,23 +1,23 @@
 ;;; emacspeak-keymap.el --- Setup all keymaps and keybindings provided by Emacspeak
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description:  Module for setting up emacspeak keybindings
 ;;; Keywords: Emacspeak
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-05-07 17:18:56 -0600 (Mon, 07 May 2007) $ |
-;;;  $Revision: 4544 $ | 
+;;;  $Revision: 4544 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -40,7 +40,7 @@
 
 ;;;Commentary:
 
-;;; This module defines the emacspeak keybindings. 
+;;; This module defines the emacspeak keybindings.
 
 ;;; Code:
 
@@ -51,11 +51,11 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
-;;{{{  variables: 
+;;{{{  variables:
 
 (defvar emacspeak-prefix "\C-e"
   "Default prefix key used for emacspeak. ")
-;;;###autoload 
+;;;###autoload
 (defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
 
@@ -89,8 +89,8 @@
 (defcustom emacspeak-personal-keys nil
   "*Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key C-e x s
 
 The value of this variable is an association list. The car
@@ -137,8 +137,8 @@ You can turn the right `windows menu' keys on your Linux PC keyboard into a `sup
 on Linux by having it emit the sequence `C-x@s'.
 
 Bindings specified here are available on prefix key `super'
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key `super  s'
 
 The value of this variable is an association list. The car
@@ -186,8 +186,8 @@ on Linux by having it emit the sequence `C-x@a'.
 
 Bindings specified here are available on prefix key `alt'
 (not to be confused with alt==meta)
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key `ALT  s'
 
 The value of this variable is an association list. The car
@@ -235,7 +235,7 @@ You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
 on Linux by having it emit the sequence `C-x@h'.
 
 Bindings specified here are available on prefix key  `hyper'
-for example, if you bind 
+for example, if you bind
 `b' to command `bbdb '
 then that command will be available on key `hyper b'.
 
@@ -267,7 +267,7 @@ field in the customization buffer.  You can use the notation
                 'emacspeak-hyper-keymap)
 
 ;;}}}
-;;{{{ helper: emacspeak-keymap-update 
+;;{{{ helper: emacspeak-keymap-update
 
 (defsubst emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
@@ -278,7 +278,7 @@ field in the customization buffer.  You can use the notation
 
 ;;; help map additions:
 
-(loop for binding in 
+(loop for binding in
       '(
         ( " " customize-group)
         ( "B" customize-browse)
@@ -398,7 +398,7 @@ field in the customization buffer.  You can use the notation
         ("s" dtk-stop)
         ("t" emacspeak-speak-time )
         ("u" emacspeak-url-template-fetch)
-        ("v" emacspeak-view-register)
+        ("v" view-register)
         ("w" emacspeak-speak-word)
         ("{" emacspeak-speak-paragraph)
         ("|" emacspeak-speak-line-set-column-filter)
@@ -481,8 +481,8 @@ field in the customization buffer.  You can use the notation
 (or (string-match  "Xemacs" emacs-version)
     (mapcar
      (function (lambda (map)
-                 (and map 
-                      (define-key map 
+                 (and map
+                      (define-key map
                         "\C-o"
                         'switch-to-completions))))
      (list minibuffer-local-must-match-map
@@ -513,7 +513,7 @@ relief."
 
 ;;}}}
 ;;{{{  removing emacspeak-self-insert-command in non-edit modes.
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
   (keymap)
   "We define keys that invoke editting commands to be undefined"
@@ -530,6 +530,6 @@ relief."
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
