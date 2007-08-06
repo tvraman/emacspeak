@@ -434,6 +434,7 @@ Parameterized by calendar name, private/public, and projecttion")
   (declare (special  gcal-auth-handle
                      g-app-auth-handle g-app-this-url))
   (g-using-scratch
+   (g-app-mode)
    (insert (gcal-event-as-xml event))
    (setq g-app-auth-handle gcal-auth-handle
          g-app-this-url location)
@@ -444,6 +445,7 @@ Parameterized by calendar name, private/public, and projecttion")
   (declare (special  gcal-auth-handle
                      g-app-auth-handle g-app-this-url gcal-quickadd-template))
   (g-using-scratch
+   (g-app-mode)
    (insert
     (format gcal-quickadd-template event-desc))
    (setq g-app-auth-handle gcal-auth-handle
@@ -580,6 +582,7 @@ Specify the event in plain English."
      (g-auth-email gcal-auth-handle)
      gcal-event-accept )
     (current-buffer) 'replace)
+   (g-app-mode)
    (setq g-app-auth-handle gcal-auth-handle
          g-app-this-url event-uri)
    (g-app-put-entry)))
