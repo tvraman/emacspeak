@@ -132,8 +132,9 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
   (eval-after-load package
     `(progn
        (require ',module)
-       (require 'emacspeak-fix-interactive)
-       (emacspeak-fix-commands-that-use-interactive))))
+       ;(require 'emacspeak-fix-interactive)
+       ;(emacspeak-fix-commands-that-use-interactive)
+       )))
 
 ;;}}}
 ;;{{{ Setup package extensions
