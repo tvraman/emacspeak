@@ -434,19 +434,11 @@ functions for details.   "
   (when emacspeak-unibyte
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
-  (require 'emacspeak-aumix)
-  (when (featurep 'ido) (require 'emacspeak-ido))
-  (require 'custom)
-  (require 'emacspeak-widget)
-  (require 'emacspeak-sounds)
-  (dtk-initialize)
   (require 'emacspeak-personality)
+  (dtk-initialize)
   (require 'emacspeak-redefine)
-  (require 'emacspeak-fix-interactive)
   (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
-  (require 'emacspeak-replace)
-  (require 'emacspeak-buff-menu)
   (when (and  emacspeak-play-emacspeak-startup-icon
               (file-exists-p "/usr/bin/mpg123"))
     (start-process "mp3" nil "mpg123"
