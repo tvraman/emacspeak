@@ -1,24 +1,24 @@
 ;;; emacspeak-fix-interactive.el --- Tools to make  Emacs' builtin prompts   speak
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description: Fixes functions that use interactive to prompt for args.
 ;;; Approach suggested by hans@cs.buffalo.edu
 ;;; Keywords: Emacspeak, Advice, Automatic advice, Interactive
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -53,21 +53,21 @@
 ;;; e.g. read-file-name therefore will not help.
 ;;; This module defines a function that solves this problem.
 ;;; emacspeak-fix-commands-that-use-interactive needs to be called
-;;; To speech enable such functions. 
+;;; To speech enable such functions.
 
 ;;; XEmacs update:
 ;;; XEmacs does (interactive) better--
-;;; in its case most of the code letters to interactive 
+;;; in its case most of the code letters to interactive
 ;;; make it back to the elisp layer.
 ;;; The exception to this appear to be the code letters for
-;;; reading characters and key sequences 
+;;; reading characters and key sequences
 ;;; i.e. "c" and "k"
 
 ;;}}}
 ;;{{{  functions that are  fixed.
 
-(defvar emacspeak-commands-dont-fix-regexp 
-  (concat 
+(defvar emacspeak-commands-dont-fix-regexp
+  (concat
    "^ad-Orig\\|^mouse\\|^scroll-bar\\|^tpu-\\|^set\ "
    "\\|^face\\|^frame\\|^font"
    "\\|^color\\|^timer")
@@ -82,7 +82,7 @@
        (not (get  sym 'emacspeak-checked-interactive))
        (functionp (symbol-function sym))
        (stringp (second (interactive-form (symbol-function sym))))))
- 
+
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advices interactive commands to speak prompts."
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
@@ -99,7 +99,7 @@ because auto-advising was not possible.")
 
 
 (defun emacspeak-fix-interactive (sym)
-  "Auto-advice interactive command to speak its prompt.  
+  "Auto-advice interactive command to speak its prompt.
 Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
@@ -127,7 +127,7 @@ use the minibuffer."
             (before  emacspeak-auto pre act  protect compile)
             "Automatically defined advice to speak interactive prompts. "
             (interactive
-             (nconc  
+             (nconc
               (,@
                (mapcar
                 #'(lambda (prompt)
@@ -170,14 +170,17 @@ use the minibuffer."
     (read-from-minibuffer "Module:")))
   (dolist (item
            (rest (assoc module load-history)))
-    (and (symbolp item)
-         (commandp item)
-         (emacspeak-fix-interactive-command-if-necessary item)))
+    (and
+     (listp item)
+     (eq 'defun (car item))
+     (symbolp (cdr item))
+     (commandp (cdr item))
+     (emacspeak-fix-interactive-command-if-necessary (cdr item))))
   (when (interactive-p)
     (message "Fixed interactive commands defined in module %s" module)))
 
 (defvar emacspeak-load-history-pointer nil
-  "Internal variable used by command 
+  "Internal variable used by command
 emacspeak-fix-all-recent-commands to track load-history.")
 
 (defun emacspeak-fix-all-recent-commands ()
@@ -215,6 +218,6 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
