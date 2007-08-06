@@ -76,11 +76,12 @@
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
-  (and (commandp sym)
+  (and
+   (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))
+   (commandp sym)
        (not (get  sym 'emacspeak-checked-interactive))
        (functionp (symbol-function sym))
-       (stringp (second (interactive-form (symbol-function sym))))
-       (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
+       (stringp (second (interactive-form (symbol-function sym))))))
  
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advices interactive commands to speak prompts."
