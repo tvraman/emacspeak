@@ -743,10 +743,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -817,12 +813,7 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -858,12 +849,7 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -1038,10 +1024,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
-
-------------------------------------------------------------
-
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -1235,12 +1217,7 @@ lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
-relief.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+relief. 
 
 ------------------------------------------------------------
 
@@ -1499,12 +1476,7 @@ The player is placed in a buffer in emacspeak-madplay-mode.
 
 ------------------------------------------------------------
 
-** emacspeak-madplay-madplay-command Execute Madplay command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-madplay-madplay-command Execute Madplay command. 
 
 ------------------------------------------------------------
 
@@ -1536,10 +1508,6 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-man-speak-this-section Speak current section 
-
-------------------------------------------------------------
-
-** emacspeak-nxml-summarize-outline Intelligent spoken display of current outline entry. 
 
 ------------------------------------------------------------
 
@@ -1812,6 +1780,15 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio-browse Browse RAM file before playing the selected component. 
 
 ------------------------------------------------------------
@@ -2071,12 +2048,7 @@ Default is to read the previous word.
 ------------------------------------------------------------
 
 ** emacspeak-speak-and-skip-extent-upto-char Search forward from point until we hit char.
-Speak text between point and the char we hit.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+Speak text between point and the char we hit. 
 
 ------------------------------------------------------------
 
@@ -2622,9 +2594,8 @@ current local  value to the result.
 ------------------------------------------------------------
 
 ** emacspeak-use-customized-blink-paren A customized blink-paren to speak  matching opening paren.
-We need to call this in case Emacs
-is anal and loads its own builtin blink-paren function
-which does not talk. 
+We need to call this in case Emacs is anal and loads its own
+builtin blink-paren function which does not talk. 
 
 ------------------------------------------------------------
 
@@ -2662,118 +2633,11 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
-** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
- 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-column Erase current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-row Erase current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-hint Provide hint for current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-push Push current state on to history stack. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-column Speak current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-row Speak current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
-
-------------------------------------------------------------
-
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
 
-** emacspeak-table-copy-current-element-to-register Copy current table element to specified register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-table-copy-current-element-to-register Copy current table element to specified register. 
 
 ------------------------------------------------------------
 
@@ -4336,14 +4200,13 @@ RIVO is implemented by rivo.pl ---
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-show-face Show salient properties of specified face. 
+** emacspeak-wizards-show-eval-result	Key Sequence: control e & 
+
+ Convenience command to pretty-print and view Lisp evaluation results. 
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-show-list-variable Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed. 
+** emacspeak-wizards-show-face Show salient properties of specified face. 
 
 ------------------------------------------------------------
 
@@ -4554,12 +4417,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-zinf-zinf-command Execute Zinf command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-zinf-zinf-command Execute Zinf command. 
 
 ------------------------------------------------------------
 
@@ -4591,10 +4449,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM using trevi 
 
 ------------------------------------------------------------
 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 790 commands.
+This chapter documents a total of 764 commands.
 
 @menu
 * cd-tool::                     
@@ -25,13 +25,11 @@ This chapter documents a total of 790 commands.
 * emacspeak-dismal::            
 * emacspeak-ecb::               
 * emacspeak-ediff::             
-* emacspeak-emms::              
 * emacspeak-enriched::          
 * emacspeak-entertain::         
 * emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
-* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -48,10 +46,10 @@ This chapter documents a total of 790 commands.
 * emacspeak-m-player::          
 * emacspeak-madplay::           
 * emacspeak-man::               
-* emacspeak-nxml::              
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
+* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -60,7 +58,6 @@ This chapter documents a total of 790 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
-* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -83,7 +80,6 @@ This chapter documents a total of 790 commands.
 * emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
-* emacspeak-w3search::          
 * emacspeak-moz::               
 * emacspeak-org::               
 * emacspeak-webmarks::          
@@ -972,24 +968,6 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track ()
-Speak current track.
-@end deffn
-
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -1109,11 +1087,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window (ID)
@@ -1150,11 +1123,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word (COUNT)
@@ -1329,22 +1297,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail ()
-Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -1643,11 +1595,6 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @node emacspeak-loaddefs
@@ -1942,11 +1889,6 @@ Call appropriate madplay command.
 
 @deffn {Interactive Command} emacspeak-madplay-madplay-command (CHAR)
 Execute Madplay command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-madplay-mode ()
@@ -1981,16 +1923,6 @@ Browse the man page --read it a paragraph at a time
 
 @deffn {Interactive Command} emacspeak-man-speak-this-section ()
 Speak current section
-@end deffn
-
-@node emacspeak-nxml
-@section emacspeak-nxml
-
-Automatically generated documentation
-for commands defined in module  emacspeak-nxml.
-
-@deffn {Interactive Command} emacspeak-nxml-summarize-outline ()
-Intelligent spoken display of current outline entry.
 @end deffn
 
 @node emacspeak-ocr
@@ -2300,6 +2232,24 @@ explicitly turn pronunciations on or off.
 
 @deffn {Interactive Command} emacspeak-pronounce-yank-word ()
 Yank word at point into minibuffer.
+@end deffn
+
+@node emacspeak-python
+@section emacspeak-python
+
+Commentary:
+This speech-enables python-mode available on sourceforge
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
+@deffn {Interactive Command} emacspeak-py-next-block ()
+Move forward to the beginning of the next block.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-previous-block ()
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
 @end deffn
 
 @node emacspeak-realaudio
@@ -2638,11 +2588,6 @@ Default is to read the previous word.
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-char (CHAR)
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-this-char ()
@@ -3188,9 +3133,8 @@ current local  value to the result.
 
 @deffn {Interactive Command} emacspeak-use-customized-blink-paren ()
 A customized blink-paren to speak  matching opening paren.
-We need to call this in case Emacs
-is anal and loads its own builtin blink-paren function
-which does not talk.
+We need to call this in case Emacs is anal and loads its own
+builtin blink-paren function which does not talk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-view-register ()
@@ -3243,120 +3187,6 @@ Does the equivalent of the mouse click from the keyboard
 Switch to the speedbar
 @end deffn
 
-@node emacspeak-sudoku
-@section emacspeak-sudoku
-
-Commentary:
-Playing SuDoku using speech output.
-Written to discover what type of feedback one needs for  this
-task.
-See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-
-Automatically generated documentation
-for commands defined in module  emacspeak-sudoku.
-
-@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize ()
-Summarize columns --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize ()
-Shows distribution of filled numbers.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize ()
-Summarize rows --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize ()
-Summarize sub-squares --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-summarizer ()
-Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
-
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-down-sub-square ()
-Move to top-left corner of  sub-square below current one.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-column ()
-Erase current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-row ()
-Erase current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square ()
-Erase current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-hint ()
-Provide hint for current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-pop ()
-Pop saved state off stack and redraw board.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-push ()
-Push current state on to history stack.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining ()
-Speak number of remaining squares to fill.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-next-sub-square ()
-Move to top-left corner of next sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square ()
-Move to top-left corner of previous sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates ()
-speak current cell coordinates.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value ()
-Speak value in current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-column ()
-Speak current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-row ()
-Speak current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square ()
-Speak current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column ()
-Speaks number of remaining cells in current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row ()
-Speaks number of remaining cells in current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square ()
-Speaks number of remaining cells in current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-up-sub-square ()
-Move to top-left corner of  sub-square above current one.
-@end deffn
-
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -3369,11 +3199,6 @@ Copy current table element to kill ring.
 
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-register (REGISTER)
 Copy current table element to specified register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-copy-to-clipboard ()
@@ -5073,15 +4898,14 @@ Display commentary. Default is to display commentary from current buffer.
 Display value of specified environment variable.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-show-face (FACE)
-Show salient properties of specified face.
+@deffn {Interactive Command} emacspeak-wizards-show-eval-result (FORM)
+@kbd{ control e & }
+
+Convenience command to pretty-print and view Lisp evaluation results.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-show-list-variable (VAR)
-Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed.
+@deffn {Interactive Command} emacspeak-wizards-show-face (FACE)
+Show salient properties of specified face.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-speak-iso-datetime (ISO)
@@ -5306,11 +5130,6 @@ Call appropriate zinf command.
 
 @deffn {Interactive Command} emacspeak-zinf-zinf-command (CHAR)
 Execute Zinf command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @node emacspeak
@@ -5404,41 +5223,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect.
-@end deffn
-
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-    (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
-  )
-
-(provide 'emacspeak-w3search)
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
-Search IBM using trevi
 @end deffn
 
 @node emacspeak-moz
