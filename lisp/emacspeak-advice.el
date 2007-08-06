@@ -2318,6 +2318,13 @@ Produce auditory icons if possible."
                    lines register)
         (message "Copied %s characters to register %c"
                  chars register)))))
+(defadvice view-register (after emacspeak pre act comp)
+  "Speak displayed contents."
+  (when (interactive-p)
+    (save-current-buffer
+      (set-buffer "*Output*")
+      (dtk-speak (buffer-string )))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice jump-to-register (after emacspeak pre act)
   "Speak the line you jumped to."
