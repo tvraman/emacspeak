@@ -1381,6 +1381,7 @@ Produce an auditory icon if possible."
 (defadvice mail-send-and-exit (after emacspeak pre act)
   "Speak the modeline of active buffer."
   (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
 ;;}}}
