@@ -79,15 +79,6 @@
     (< current (line-end-position))))
 
 ;;}}}
-;;{{{ inhibit-point-motion-hooks
-
-(defsubst ems-inhibit-point-motion-hooks ()
-  (declare (special inhibit-point-motion-hooks))
-  (if (boundp 'inhibit-point-motion-hooks)
-      inhibit-point-motion-hooks
-    nil))
-
-;;}}}
 ;;{{{ Shell Command Helper:
 
 ;;; Emacspeak silences messages from shell-command when called non-interactively.
@@ -139,7 +130,7 @@
               (buffer-read-only nil )
               (save-inhibit-read-only inhibit-read-only)
               (inhibit-read-only t)
-              (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
+              (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
               (inhibit-point-motion-hooks t)
               (modification-flag (buffer-modified-p)))
        (unwind-protect
@@ -166,7 +157,7 @@ Argument BODY specifies forms to execute."
            (buffer-read-only nil )
            (save-inhibit-read-only inhibit-read-only)
            (inhibit-read-only t)
-           (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
+           (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
            (inhibit-point-motion-hooks t)
            (modification-flag (buffer-modified-p)))
        (unwind-protect
@@ -216,7 +207,7 @@ Argument BODY specifies forms to execute."
 
 ;;; prompt for auditory icon with completion
 
-;;;###autoload
+
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
   (interactive )
@@ -239,10 +230,9 @@ Argument BODY specifies forms to execute."
   "Records if paragraphs in this buffer have been voice
   annotated.")
 
-(make-variable-buffer-local
- 'emacspeak-speak-voice-annotated-paragraphs)
+(make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
 
-;;;###autoload
+
 (defsubst emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
@@ -272,9 +262,7 @@ Useful to do this before you listen to an entire buffer."
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
 
-(defsubst   emacspeak-dtk-sync ()
-  "Bring emacspeak and dtk in sync."
-  (dtk-interp-sync))
+(defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
@@ -355,6 +343,8 @@ Value returned is compatible with `encode-time'."
 
 ;;}}}
 ;;{{{  url link pattern:
+
+;;;###autoload
 (defcustom emacspeak-speak-embedded-url-pattern
   "<http:.*>"
   "Pattern to recognize embedded URLs."
@@ -408,6 +398,7 @@ Argument MODE defines action mode."
                        "Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
+
 ;;}}}
 ;;{{{  line, Word and Character echo
 
@@ -546,8 +537,6 @@ line's indentation.  Specifying `speak'
 results in the number of initial spaces being spoken.")
 
 ;;}}}
-;;{{{ Core speech functions:
-
 ;;{{{  Speak units of text
 
 ;;;###autoload
@@ -1323,27 +1312,13 @@ Negative prefix arg speaks from start of buffer to point."
 ;;;###autoload
 ;; end emacs pre-19.30 specials
 
-(defun emacspeak-get-current-completion  ()
-  "Return the completion string under point in the *Completions* buffer."
-  (if (eobp)
-      (skip-syntax-backward " ")
-    (skip-syntax-forward " "))
-  (let (beg end)
-    (when (and (not (eobp)) (get-text-property (point) 'mouse-face))
-      (setq end (point) beg (1+ (point))))
-    (when (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
-      (setq end (1- (point)) beg (point)))
-    (when (null beg) (error "No current  completion "))
-    (setq
-     beg (previous-single-property-change beg 'mouse-face nil (point-min))
-     end (next-single-property-change end 'mouse-face nil (point-max)))
-    (buffer-substring beg end)))
-
-;;}}}
+(defsubst emacspeak-get-current-completion  ()
+  "Return the completion string under point in the *Completions*
+buffer."
+  (emacspeak-speak-get-text-range 'mouse-face))
 
 ;;}}}
 ;;{{{ mail check
-
 (defcustom emacspeak-mail-spool-file
   (expand-file-name
    (user-login-name)
@@ -2277,41 +2252,21 @@ message area.  You can use command
       " "
       (buffer-substring  start end)))))
 
-;;;###autoload
-(cond
- ;; emacs 21 defines fields
- ((fboundp 'field-beginning)
-  (defun emacspeak-speak-current-field ()
-    "Speak current field.
-A field is
-defined  by Emacs 21."
-    (interactive)
-    (emacspeak-speak-region (field-beginning)
-                            (field-end))))
- (t
-  (defun emacspeak-speak-current-field ()
-    "Speak current field.
-A field is defined currently as a sequence of non-white space characters.  may be made
-  mode specific later."
-    (interactive)
-    (cond
-     ((window-minibuffer-p (selected-window))
-      (emacspeak-speak-line))
-     (t (let ((start nil ))
-          (save-excursion
-            (skip-syntax-backward "^ ")
-            (setq start (point ))
-            (skip-syntax-forward "^ ")
-            (emacspeak-speak-field start (point )))))))))
 
-;;;###autoload
+
+
+
+(defun emacspeak-speak-current-field ()
+  "Speak current field."
+  (interactive)
+  (emacspeak-speak-region (field-beginning)
+                          (field-end)))
+
 (defun emacspeak-speak-next-field ()
-  "Skip across and speak the next contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful."
+  "Move to and speak next field."
   (interactive)
   (declare (special inhibit-field-text-motion))
-  (let((inhibit-field-text-motiont)
+  (let((inhibit-field-text-motion t)
        (start nil ))
     (skip-syntax-forward "^ ")
     (skip-syntax-forward " ")
@@ -2322,9 +2277,7 @@ Will be improved if it proves useful."
 
 ;;;###autoload
 (defun emacspeak-speak-previous-field ()
-  "Skip backwards across and speak  contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful."
+  "Move to previous field and speak it."
   (interactive)
   (declare (special inhibit-field-text-motion))
   (let ((inhibit-field-text-motion t)
@@ -2334,13 +2287,13 @@ Will be improved if it proves useful."
     (skip-syntax-backward "^ ")
     (emacspeak-speak-field (point ) start)))
 
-;;;###autoload
+
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
   (interactive)
   (message "Point at column %d" (current-column )))
 
-;;;###autoload
+
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
   (interactive)
@@ -2770,7 +2723,7 @@ value to apply."
 
 ;;; The only change to emacs' default blink-matching-paren is the
 ;;; addition of the call to helper emacspeak-speak-blinkpos-message
-;;;###autoload
+
 (defun emacspeak-blink-matching-open ()
   "Move cursor momentarily to the beginning of the sexp before point.
 Also display match context in minibuffer."
@@ -2866,7 +2819,7 @@ Also display match context in minibuffer."
                    (substring-no-properties
                     open-paren-line-string))))))))
 
-;;;###autoload
+
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
