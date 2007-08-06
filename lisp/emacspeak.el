@@ -439,7 +439,6 @@ functions for details.   "
   (require 'custom)
   (require 'emacspeak-widget)
   (require 'emacspeak-sounds)
-  (emacspeak-use-customized-blink-paren)
   (dtk-initialize)
   (require 'emacspeak-personality)
   (require 'emacspeak-redefine)
@@ -460,6 +459,7 @@ functions for details.   "
     (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-setup-programming-modes)
+  (emacspeak-use-customized-blink-paren)
   (tts-with-punctuations 'some
                          (dtk-speak
                           (format "  Press %s to get an   overview of emacspeak  %s \

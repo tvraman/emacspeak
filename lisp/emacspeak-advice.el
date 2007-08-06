@@ -378,15 +378,7 @@ the words that were capitalized."
    (t ad-do-it))
   ad-return-value)
 
-(defadvice backward-delete-char (around emacspeak pre act)
-  "Speak character you're deleting."
-  (cond
-   ((interactive-p )
-    (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
+
 
 (defadvice kill-word (before emacspeak pre act )
   "Speak word before killing it."
@@ -462,16 +454,16 @@ the words that were capitalized."
 ;;}}}
 ;;{{{  advice insertion commands to speak.
 
-(defadvice completion-separator-self-insert-autofilling
-  (around fix-bug pre act comp)
-  "This fixes a bug in completion under Emacs 19.34."
-  (condition-case nil
-      ad-do-it
-    (error (set-syntax-table cmpl-saved-syntax)
-           (emacspeak-self-insert-command last-input-char ))))
+;; (defadvice completion-separator-self-insert-autofilling
+;;   (around fix-bug pre act comp)
+;;   "This fixes a bug in completion under Emacs 19.34."
+;;   (condition-case nil
+;;       ad-do-it
+;;     (error (set-syntax-table cmpl-saved-syntax)
+;;            (emacspeak-self-insert-command last-input-char ))))
 
 (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
-  "Speak what wascompleted followed by the next completion."
+  "Speak what was completed."
   (declare (special emacspeak-word-echo))
   (when (and emacspeak-word-echo  (interactive-p ))
     (condition-case nil
@@ -485,14 +477,12 @@ the words that were capitalized."
   "Speak char after inserting it."
   (declare (special emacspeak-character-echo))
   (when (and emacspeak-character-echo  (interactive-p))
-    (emacspeak-speak-this-char
-     (preceding-char ))))
+    (emacspeak-speak-this-char (preceding-char ))))
 
 (defadvice quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
   (when (interactive-p)
-    (emacspeak-speak-this-char
-     (preceding-char ))))
+    (emacspeak-speak-this-char (preceding-char ))))
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
@@ -1366,12 +1356,6 @@ Produce an auditory icon if possible."
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line 1)))
-
-(defadvice undefined (after emacspeak pre act comp)
-  "Say that this is not defined."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'warn-user)
-    (message "No command on this key")))
 
 (defadvice describe-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
