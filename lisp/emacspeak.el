@@ -49,23 +49,20 @@
 
 ;;}}}
 ;;{{{ Required modules
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
-(require 'emacspeak-load-path)
 (require 'emacspeak-preamble)
 (require 'emacspeak-sounds)
+
 ;;}}}
 ;;{{{ autoloads
 
 (load-library "emacspeak-loaddefs")
-(load-file
- (expand-file-name "emacspeak-cus-load.el"
-                   emacspeak-lisp-directory))
+(load-library "emacspeak-cus-load")
 (load-library "g-loaddefs")
-(load-file
- (expand-file-name "g-client/g-cus-load.el"
-                   emacspeak-lisp-directory))
+(load-library "g-client/g-cus-load")
 
 ;;}}}
 ;;{{{  Customize groups
@@ -108,11 +105,12 @@ the Emacspeak desktop." )
   :prefix "emacspeak-"
   :group 'applications
   :group 'accessibility)
-
+;;;###autoload
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
   :type 'hook
   :group 'emacspeak)
+
 ;;;###autoload
 (defcustom emacspeak-media-player 'emacspeak-m-player
   "Default media player to use.
@@ -125,18 +123,18 @@ This is a Lisp function that takes a resource locator."
 
 (defun emacspeak-do-package-setup (package module)
   "Setup Emacspeak extension for a specific PACKAGE.
-This function  adds the appropriate form to
-`after-load-alist' to set up Emacspeak support for a given
-package.
-Argument MODULE specifies the emacspeak module that implements the speech-enabling extensions."
+This function adds the appropriate form to `after-load-alist' to
+set up Emacspeak support for a given package. Argument MODULE
+specifies the emacspeak module that implements the
+speech-enabling extensions."
   (eval-after-load package
     `(progn
        (require ',module)
-       (emacspeak-fix-commands-loaded-from ',module)
-       )))
+       (emacspeak-fix-commands-loaded-from ',module))))
 
 ;;}}}
 ;;{{{ Setup package extensions
+
 (emacspeak-do-package-setup "add-log" 'emacspeak-add-log)
 (emacspeak-do-package-setup "analog" 'emacspeak-analog)
 (emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)
@@ -268,6 +266,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "widget" 'emacspeak-widget)
 (emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
+
 ;;}}}
 ;;{{{  Submit bugs
 
@@ -346,14 +345,15 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
   (mapcar
-   (function (lambda (hook)
+   #'(lambda (hook)
                (add-hook hook
-                         'emacspeak-setup-programming-mode)))
+                         'emacspeak-setup-programming-mode))
    (list 'c-mode-common-hook
          'prolog-mode-hook
          'lisp-mode-hook
          'emacs-lisp-mode-hook
          'lisp-interaction-mode-hook
+         'javascript-mode-hook
          'midge-mode-hook
          'meta-common-mode-hook
          'perl-mode-hook
@@ -378,20 +378,21 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions
 
-(add-hook 'after-init-hook
-          'emacspeak-fix-commands-that-use-interactive)
+(add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
 
 ;;}}}
 ;;{{{ Emacspeak:
 
+;;;###autoload
 (defcustom emacspeak-play-emacspeak-startup-icon nil
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
+
 (defvar emacspeak-unibyte t
   "Set this to nil before starting  emacspeak
 if you are running in a multibyte enabled environment.")
-
+;;;###autoload
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
 normally would, emacspeak will provide you spoken feedback
@@ -447,8 +448,8 @@ functions for details.   "
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
-  (run-hooks 'emacspeak-startup-hook)
   (emacspeak-setup-programming-modes)
+  (run-hooks 'emacspeak-startup-hook)
   (emacspeak-use-customized-blink-paren)
   (tts-with-punctuations 'some
                          (dtk-speak
