@@ -64,7 +64,7 @@
   (require 'which-func nil))
 
 ;;}}}
-e;;{{{  custom group
+;;{{{  custom group
 (defgroup emacspeak-speak nil
   "Basic speech output commands."
   :group 'emacspeak)
@@ -104,6 +104,7 @@ e;;{{{  custom group
       (shell-command
      command
      output)
+      (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
 ;;}}}
@@ -1804,7 +1805,7 @@ Optional second arg `set' sets the TZ environment variable as well."
                    (format
                     " in %s, %%Z, %%z "
                     zone)))))
-  
+
 
 ;;}}}
 ;;;###autoload
@@ -3025,7 +3026,7 @@ char, or dont move. "
 (define-key completion-list-mode-map [S-Return]
   'choose-completion)
 (define-key completion-list-mode-map "\C-m"
-  'emacspeak-completion-pick-completion) 
+  'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
