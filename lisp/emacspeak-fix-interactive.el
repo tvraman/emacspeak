@@ -161,21 +161,20 @@ use the minibuffer."
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
 
-;;; globals
-;;;###autoload
 (defun emacspeak-fix-commands-loaded-from (module)
   "Fix all commands loaded from a specified module."
   (interactive
    (list
-    (read-from-minibuffer "Module:")))
-  (dolist (item
-           (rest (assoc module load-history)))
-    (and
-     (listp item)
-     (eq 'defun (car item))
-     (symbolp (cdr item))
-     (commandp (cdr item))
-     (emacspeak-fix-interactive-command-if-necessary (cdr item))))
+    (completing-read "Load library: "
+			  'locate-file-completion
+			  (cons load-path (get-load-suffixes)))))
+  (dolist
+      (item (rest (assoc module load-history)))
+    (and (listp item)
+         (eq 'defun (car item))
+         (symbolp (cdr item))
+         (commandp (cdr item))
+         (emacspeak-fix-interactive-command-if-necessary (cdr item))))
   (when (interactive-p)
     (message "Fixed interactive commands defined in module %s" module)))
 
@@ -195,14 +194,9 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
           (emacspeak-speak-messages nil))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
       (while (and lh
-                  (not (eq lh
-                           emacspeak-load-history-pointer)))
+                  (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
-        (dolist (item (rest (first lh)))
-          (and (symbolp item)
-               (commandp item)
-                                        ; so fix it if necessary
-               (emacspeak-fix-interactive-command-if-necessary item)))
+        (emacspeak-fix-commands-loaded-from lh)
         (when (interactive-p)
           (message "Fixed commands in %s" (first (first lh))))
         (setq lh (rest lh)))
