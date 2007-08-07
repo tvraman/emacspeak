@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -46,14 +46,14 @@
 ;;; Voicification is used to indicate directories, marked files etc.
 
 ;;}}}
-;;{{{  required packages 
+;;{{{  required packages
 
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'desktop)
 (require 'dired)
 ;;}}}
-;;{{{ Define personalities 
+;;{{{ Define personalities
 (voice-setup-add-map
  '(
    (dired-header voice-smoothen)
@@ -69,7 +69,7 @@
 ;;{{{  configure dired
 
 (declaim (special dired-listing-switches ))
-;;; ensure we have -al in the listing switches 
+;;; ensure we have -al in the listing switches
 (if (and  dired-listing-switches
           (not (string-match "^-al" dired-listing-switches)))
     (setq dired-listing-switches
@@ -321,7 +321,7 @@ Like Emacs' built-in dired-show-file-type but allows user to customize
 options passed to command `file'."
   (interactive (list (dired-get-filename t) current-prefix-arg))
   (declare (special emacspeak-dired-file-cmd-options))
-  (with-temp-buffer 
+  (with-temp-buffer
     (if deref-symlinks
         (call-process "file" nil t t  "-l"
                       emacspeak-dired-file-cmd-options  file)
@@ -330,7 +330,7 @@ options passed to command `file'."
     (when (bolp)
       (backward-delete-char 1))
     (message (buffer-string))))
-    
+
 
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
@@ -351,7 +351,7 @@ On a directory line, run du -s on the directory to speak its size."
      ((and filename
            (file-directory-p filename))
       (emacspeak-auditory-icon 'progress)
-      (shell-command (format "du -s \'%s\'" filename )))
+      (emacspeak-shell-command (format "du -s \'%s\'" filename )))
      (filename
       (setq size (nth 7 (file-attributes filename )))
                                         ; check for ange-ftp
