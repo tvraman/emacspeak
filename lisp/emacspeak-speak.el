@@ -1451,6 +1451,25 @@ Turning on this option results in Emacspeak producing an auditory icon
 indicating the arrival  of new mail when displaying the mode line.")
 
 ;;}}}
+;;{{{ Cache Voicefied mode-names
+
+(defvar emacspeak-voicefied-mode-names
+  (make-hash-table)
+  "Hash table mapping mode-names to their voicefied equivalents.")
+
+(defsubst emacspeak-get-voicefied-mode-name (mode-name)
+  "Return voicefied version of this mode-name."
+  (declare (special emacspeak-voicefied-mode-names))
+  (let ((result (gethash mode-name emacspeak-voicefied-mode-names)))
+    (or result
+        (progn
+          (setq result (copy-sequence mode-name))
+          (put-text-property 0 (length result)
+                             'personality voice-animate result)
+          (puthash mode-name result emacspeak-voicefied-mode-names)
+          result))))
+
+;;}}}
 ;;{{{  Speak mode line information
 
 ;;;compute current line number
@@ -1591,22 +1610,22 @@ Interactive prefix arg speaks buffer info."
           (when buffer-read-only (dtk-tone 250 100)))
         (put-text-property 0 (length global-info)
                            'personality voice-smoothen global-info)
-        (tts-with-punctuations 'all
-                               (dtk-speak
-                                (concat dir-info
-                                        (buffer-name)
-                                        " "
-                                        (when line-number-mode
-                                          (format "line %d"
-                                                  (emacspeak-get-current-line-number)))
-                                        (when column-number-mode
-                                          (format "Column %d"
-                                                  (current-column)))
-                                        mode-name
-                                        (emacspeak-get-current-percentage-verbously)
-                                        frame-info
-                                        recursion-info
-                                        global-info)))))))))
+        (tts-with-punctuations
+         'all
+         (dtk-speak
+          (concat
+           dir-info
+           (buffer-name)
+           " "
+           (when line-number-mode
+             (format "line %d" (emacspeak-get-current-line-number)))
+           (when column-number-mode
+             (format "Column %d" (current-column)))
+           (emacspeak-get-voicefied-mode-name mode-name)
+           (emacspeak-get-current-percentage-verbously)
+           frame-info
+           recursion-info
+           global-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
@@ -1615,8 +1634,8 @@ Interactive prefix arg speaks buffer info."
                           (buffer-name))))
 
 ;;}}}
-;;;Helper --return string describing coding system info if
-;;;relevant
+;;;Helper --return string describing coding system info
+
 
 (defvar emacspeak-speak-default-os-coding-system
   'raw-text-unix
