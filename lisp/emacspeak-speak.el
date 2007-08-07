@@ -2974,7 +2974,9 @@ char, or dont move. "
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
 
 (declaim (special completion-list-mode-map))
-(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
+(define-key completion-list-mode-map "\C-o"
+  'emacspeak-switch-to-reference-buffer)
+(define-key completion-list-mode-map " "'next-completion)
 (define-key completion-list-mode-map [S-Return]
   'choose-completion)
 (define-key completion-list-mode-map "\C-m"
