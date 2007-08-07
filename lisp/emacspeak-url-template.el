@@ -266,9 +266,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  "https://www.bookshare.org/web/MembersLogin.html?email=%s&password=%s&operation=submit"
  (list
   #'(lambda nil
-      (read-from-minibuffer
-       "Bookshare UserId: "
-       emacspeak-bookshare-user-id))
+      (read-from-minibuffer "Bookshare UserId: "
+                            emacspeak-bookshare-user-id))
   #'(lambda nil
       (read-passwd  "Password: ")))
  nil
@@ -2019,7 +2018,6 @@ Meerkat realy needs an xml-rpc method for getting this.")
         (url (emacspeak-url-template-url ut)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
-
                    (emacspeak-webutils-supported-p)))
       (add-hook 'emacspeak-web-post-process-hook
                 (emacspeak-url-template-post-action ut))
