@@ -402,6 +402,7 @@ current local  value to the result.")
 ;;}}}
 ;;{{{  line, Word and Character echo
 
+;;;###autoload
 (defcustom emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
 You can use \\[emacspeak-toggle-line-echo] to set this
@@ -414,7 +415,7 @@ option."
                        "Toggle state of  Emacspeak  line echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
-
+;;;###autoload
 (defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
 You can use \\[emacspeak-toggle-word-echo] to toggle this
@@ -427,7 +428,7 @@ option."
                          "Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
-
+;;;###autoload
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
 You can
@@ -445,13 +446,11 @@ current local  value to the result.")
 ;;}}}
 ;;{{{ Showing the point:
 
-(defcustom emacspeak-show-point nil
+(defvar emacspeak-show-point nil
   " If T, then command  `emacspeak-speak-line' indicates position of point by an
 aural highlight.  You can use
 command `emacspeak-toggle-show-point' bound to
-\\[emacspeak-toggle-show-point] to toggle this setting."
-  :group 'emacspeak-speak
-  :type 'boolean)
+\\[emacspeak-toggle-show-point] to toggle this setting.")
 
 (ems-generate-switcher ' emacspeak-toggle-show-point
                          'emacspeak-show-point
@@ -537,71 +536,6 @@ line's indentation.  Specifying `speak'
 results in the number of initial spaces being spoken.")
 
 ;;}}}
-;;{{{  Speak units of text
-
-;;;###autoload
-(defsubst emacspeak-speak-region (start end )
-  "Speak region.
-Argument START  and END specify region to speak."
-  (interactive "r" )
-  (declare (special emacspeak-speak-voice-annotated-paragraphs
-                    inhibit-point-motion-hooks
-                    voice-lock-mode))
-  (let ((inhibit-point-motion-hooks t))
-    (when (and voice-lock-mode
-               (not emacspeak-speak-voice-annotated-paragraphs))
-      (save-restriction
-        (narrow-to-region start end )
-        (emacspeak-speak-voice-annotate-paragraphs)))
-    (emacspeak-handle-action-at-point)
-    (dtk-speak (buffer-substring start end ))))
-
-(defsubst emacspeak-speak-string (string personality)
-  "Apply personality to string and speak it."
-  (put-text-property 0 (length string)
-                     'personality personality string)
-  (dtk-speak string))
-
-(defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
-  "*Regular expression to match horizontal rules in ascii
-text."
-  :group 'emacspeak-speak
-  :type 'string)
-
-(put 'emacspeak-horizontal-rule 'variable-interactive
-     "sEnterregular expression to match horizontal rule: ")
-
-(defcustom emacspeak-decoration-rule
-  "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
-  "*Regular expressions to match lines that are purely
-decorative ascii."
-  :group 'emacspeak-speak
-  :type 'string)
-
-(put 'emacspeak-decoration-rule 'variable-interactive
-     "sEnterregular expression to match lines that are decorative ASCII: ")
-
-(defcustom emacspeak-unspeakable-rule
-  "^[^0-9a-zA-Z]+$"
-  "*Pattern to match lines of special chars.
-This is a regular expression that matches lines containing only
-non-alphanumeric characters.  emacspeak will generate a tone
-instead of speaking such lines when punctuation mode is set
-to some."
-  :group 'emacspeak-speak
-  :type 'string)
-
-(put 'emacspeak-unspeakable-rule 'variable-interactive
-     "sEnterregular expression to match unspeakable lines: ")
-(defcustom emacspeak-speak-maximum-line-length  512
-  "*Threshold for determining `long' lines.
-Emacspeak will ask for confirmation before speaking lines
-that are longer than this length.  This is to avoid accidentally
-opening a binary file and torturing the speech synthesizer
-with a long string of gibberish."
-  :group 'emacspeak-speak
-  :type 'number)
-(make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 ;;{{{ filtering columns
 
 (defcustom emacspeak-speak-line-column-filter nil
@@ -713,7 +647,7 @@ current local  value to the result.")
     (add-hook 'kill-emacs-hook
               'emacspeak-speak-persist-filter-settings)))
 
-;;;###autoload
+
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
@@ -754,6 +688,73 @@ the sense of the filter. "
     (setq emacspeak-speak-line-column-filter nil))))
 
 ;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;{{{  Speak units of text
+
+(defsubst emacspeak-speak-region (start end )
+  "Speak region.
+Argument START  and END specify region to speak."
+  (interactive "r" )
+  (declare (special emacspeak-speak-voice-annotated-paragraphs
+                    inhibit-point-motion-hooks
+                    voice-lock-mode))
+  (let ((inhibit-point-motion-hooks t))
+    (when (and voice-lock-mode
+               (not emacspeak-speak-voice-annotated-paragraphs))
+      (save-restriction
+        (narrow-to-region start end )
+        (emacspeak-speak-voice-annotate-paragraphs)))
+    (emacspeak-handle-action-at-point)
+    (dtk-speak (buffer-substring start end ))))
+
+(defsubst emacspeak-speak-string (string personality)
+  "Apply personality to string and speak it."
+  (put-text-property 0 (length string)
+                     'personality personality string)
+  (dtk-speak string))
+
+(defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
+  "*Regular expression to match horizontal rules in ascii
+text."
+  :group 'emacspeak-speak
+  :type 'string)
+
+(put 'emacspeak-horizontal-rule 'variable-interactive
+     "sEnterregular expression to match horizontal rule: ")
+
+(defcustom emacspeak-decoration-rule
+  "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
+  "*Regular expressions to match lines that are purely
+decorative ascii."
+  :group 'emacspeak-speak
+  :type 'string)
+
+(put 'emacspeak-decoration-rule 'variable-interactive
+     "sEnterregular expression to match lines that are decorative ASCII: ")
+
+(defcustom emacspeak-unspeakable-rule
+  "^[^0-9a-zA-Z]+$"
+  "*Pattern to match lines of special chars.
+This is a regular expression that matches lines containing only
+non-alphanumeric characters.  emacspeak will generate a tone
+instead of speaking such lines when punctuation mode is set
+to some."
+  :group 'emacspeak-speak
+  :type 'string)
+
+(put 'emacspeak-unspeakable-rule 'variable-interactive
+     "sEnterregular expression to match unspeakable lines: ")
+
+(defcustom emacspeak-speak-maximum-line-length  512
+  "*Threshold for determining `long' lines.
+Emacspeak will ask for confirmation before speaking lines
+that are longer than this length.  This is to avoid accidentally
+opening a binary file and torturing the speech synthesizer
+with a long string of gibberish."
+  :group 'emacspeak-speak
+  :type 'number)
+
+(make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
+
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -1522,7 +1523,7 @@ semantic to do the work."
            (count-lines (point-min) (point-max))
            (- (point-max) (point-min))))
 
-;;;###autoload
+
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
 Interactive prefix arg speaks buffer info."
@@ -1681,6 +1682,7 @@ The result is put in the kill ring for convenience."
     (kill-new location)
     (dtk-speak
      location)))
+
 ;;}}}
 ;;{{{  Speak text without moving point
 
