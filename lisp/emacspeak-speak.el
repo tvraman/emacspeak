@@ -1313,7 +1313,7 @@ Negative prefix arg speaks from start of buffer to point."
 ;;;###autoload
 ;; end emacs pre-19.30 specials
 
-(defun emacspeak-get-current-completion-from-completions  ()
+(defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
   (let (beg end)
     (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
