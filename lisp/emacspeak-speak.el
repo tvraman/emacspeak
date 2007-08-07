@@ -1595,11 +1595,12 @@ Interactive prefix arg speaks buffer info."
                                (dtk-speak
                                 (concat dir-info
                                         (buffer-name)
+                                        " "
                                         (when line-number-mode
-                                          (format " line %d"
+                                          (format "line %d"
                                                   (emacspeak-get-current-line-number)))
                                         (when column-number-mode
-                                          (format " Column %d"
+                                          (format "Column %d"
                                                   (current-column)))
                                         mode-name
                                         (emacspeak-get-current-percentage-verbously)
