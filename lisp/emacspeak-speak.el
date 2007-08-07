@@ -1616,7 +1616,6 @@ Interactive prefix arg speaks buffer info."
           (concat
            dir-info
            (buffer-name)
-           " "
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
