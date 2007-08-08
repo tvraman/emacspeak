@@ -499,7 +499,6 @@ instances."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
                                    (emacspeak-xslt-get "rss.xsl")))
@@ -509,7 +508,6 @@ instances."
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
-  (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (emacspeak-webutils-feed-display feed-url
                                    emacspeak-atom-view-xsl))
