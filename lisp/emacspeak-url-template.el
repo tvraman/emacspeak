@@ -1038,7 +1038,7 @@ from English to German.")
  "Tech News From CNet"
  "http://rss.com.com/2547-12-0-20.xml"
  nil
- 'emacspeak-speak-buffer
+ nil
  "Display tech news from CNET"
  'emacspeak-webutils-rss-display)
 
@@ -2078,8 +2078,7 @@ Optional interactive prefix arg displays documentation for specified resource."
      (documentation (emacspeak-url-template-help-internal name))
      (t
       (emacspeak-url-template-open
-       (emacspeak-url-template-get name))
-      (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
   "Display documentation for  a URL template.
