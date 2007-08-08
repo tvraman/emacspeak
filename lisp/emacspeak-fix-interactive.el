@@ -83,7 +83,7 @@
    (commandp sym)
    (not (get  sym 'emacspeak-checked-interactive))
    (not (eq 'byte-compile-obsolete (get sym 'byte-compile)))
-   (functionp  sym)
+   (functionp (indirect-function sym))
    (stringp (second (interactive-form  sym)))))
 
 (defun emacspeak-fix-commands-that-use-interactive ()
