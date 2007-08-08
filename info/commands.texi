@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 764 commands.
+This chapter documents a total of 763 commands.
 
 @menu
 * cd-tool::                     
@@ -1615,27 +1615,6 @@ After-advice `emacspeak':
 Produce an auditory icon if possible.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-current-field ()
-@kbd{ control e . }
-
-Speak current field.
-A field is
-defined  by Emacs 21.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-speak-region (START END)
-@kbd{ control e r }
-
-Speak region.
-Argument START  and END specify region to speak.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs ()
-Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceded by a blank line.
-Useful to do this before you listen to an entire buffer.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
 @kbd{ control e o }
 
@@ -2662,6 +2641,12 @@ was spoken.  Any other key continues to speak the buffer.
 Speak the current column.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-speak-current-field ()
+@kbd{ control e . }
+
+Speak current field.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-speak-current-kill (COUNT)
 @kbd{ control e k }
 
@@ -2819,9 +2804,7 @@ Interactive prefix arg speaks buffer info.
 @deffn {Interactive Command} emacspeak-speak-next-field ()
 @kbd{ control e > }
 
-Skip across and speak the next contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful.
+Move to and speak next field.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-next-personality-chunk ()
@@ -2901,9 +2884,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
 @deffn {Interactive Command} emacspeak-speak-previous-field ()
 @kbd{ control e < }
 
-Skip backwards across and speak  contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful.
+Move to previous field and speak it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-previous-personality-chunk ()
@@ -2924,6 +2905,13 @@ Speak a rectangle of text.
 Rectangle is delimited by point and mark.
 When call from a program,
 arguments specify the START and END of the rectangle.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-region (START END)
+@kbd{ control e r }
+
+Speak region.
+Argument START  and END specify region to speak.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-rest-of-buffer ()
@@ -3005,6 +2993,12 @@ Second interactive prefix sets clock to new timezone.
 @kbd{ control e  cap V  }
 
 Announce version information for running emacspeak.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs ()
+Locate paragraphs and voice annotate the first word.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
+Useful to do this before you listen to an entire buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-window-information ()
@@ -3135,12 +3129,6 @@ current local  value to the result.
 A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-view-register ()
-@kbd{ control e v }
-
-Display the contents of a register, and then speak it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-voicify-rectangle (START END &optional PERSONALITY)

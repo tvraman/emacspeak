@@ -1233,27 +1233,6 @@ Produce an auditory icon if possible.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-current-field	Key Sequence: control e . 
-
- Speak current field.
-A field is
-defined  by Emacs 21. 
-
-------------------------------------------------------------
-
-** emacspeak-speak-region	Key Sequence: control e r 
-
- Speak region.
-Argument START  and END specify region to speak. 
-
-------------------------------------------------------------
-
-** emacspeak-speak-voice-annotate-paragraphs Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceded by a blank line.
-Useful to do this before you listen to an entire buffer. 
-
-------------------------------------------------------------
-
 ** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
 
  Toggle state of Emacspeak comint monitor.
@@ -2124,6 +2103,12 @@ was spoken.  Any other key continues to speak the buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-speak-current-field	Key Sequence: control e . 
+
+ Speak current field. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-current-kill	Key Sequence: control e k 
 
  Speak the current kill entry.
@@ -2280,9 +2265,7 @@ Interactive prefix arg speaks buffer info.
 
 ** emacspeak-speak-next-field	Key Sequence: control e > 
 
- Skip across and speak the next contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful. 
+ Move to and speak next field. 
 
 ------------------------------------------------------------
 
@@ -2362,9 +2345,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
 
 ** emacspeak-speak-previous-field	Key Sequence: control e < 
 
- Skip backwards across and speak  contiguous sequence of non-blank characters.
-Useful in moving across fields.
-Will be improved if it proves useful. 
+ Move to previous field and speak it. 
 
 ------------------------------------------------------------
 
@@ -2385,6 +2366,13 @@ Speak that chunk after moving.
 Rectangle is delimited by point and mark.
 When call from a program,
 arguments specify the START and END of the rectangle. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-region	Key Sequence: control e r 
+
+ Speak region.
+Argument START  and END specify region to speak. 
 
 ------------------------------------------------------------
 
@@ -2466,6 +2454,12 @@ Second interactive prefix sets clock to new timezone.
 ** emacspeak-speak-version	Key Sequence: control e  cap V  
 
  Announce version information for running emacspeak. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-voice-annotate-paragraphs Locate paragraphs and voice annotate the first word.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
+Useful to do this before you listen to an entire buffer. 
 
 ------------------------------------------------------------
 
@@ -2596,12 +2590,6 @@ current local  value to the result.
 ** emacspeak-use-customized-blink-paren A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk. 
-
-------------------------------------------------------------
-
-** emacspeak-view-register	Key Sequence: control e v 
-
- Display the contents of a register, and then speak it. 
 
 ------------------------------------------------------------
 
