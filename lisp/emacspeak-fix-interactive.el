@@ -172,21 +172,23 @@ use the minibuffer."
                      'locate-file-completion
                      (cons load-path (get-load-suffixes)))))
   (condition-case nil
-  (dolist
-      (item (rest (assoc module load-history)))
-    (and (listp item)
-         (eq 'defun (car item))
-         (symbolp (cdr item))
-         (not (eq 'byte-compile-obsolete
-                  (get (cdr item) 'byte-compile)))
-         (commandp (cdr item))
-         (emacspeak-fix-interactive-command-if-necessary (cdr
-                                                          item))))
-  (error
-   (format "Errors fixing commands in %s"
-           module)))
+      (dolist
+          (item (rest (assoc module load-history)))
+        (and (listp item)
+             (eq 'defun (car item))
+             (symbolp (cdr item))
+             (not (eq 'byte-compile-obsolete
+                      (get (cdr item) 'byte-compile)))
+             (commandp (cdr item))
+             (emacspeak-fix-interactive-command-if-necessary (cdr
+                                                              item))))
+    (error
+     (format "Errors fixing commands in %s"
+             module)))
   (when (interactive-p
-    (message "Fixed interactive commands defined in module %s" module))))
+         (message "Fixed interactive commands defined in module %s"
+                  module))))
+
 (defvar emacspeak-load-history-pointer nil
   "Internal variable used by command
 emacspeak-fix-all-recent-commands to track load-history.")
