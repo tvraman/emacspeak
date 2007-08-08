@@ -185,9 +185,9 @@ use the minibuffer."
     (error
      (format "Errors fixing commands in %s"
              module)))
-  (when (interactive-p
-         (message "Fixed interactive commands defined in module %s"
-                  module))))
+  (when (interactive-p)
+    (message "Fixed interactive commands defined in module %s"
+             module)))
 
 (defvar emacspeak-load-history-pointer nil
   "Internal variable used by command
