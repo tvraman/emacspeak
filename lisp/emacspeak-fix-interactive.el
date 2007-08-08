@@ -80,8 +80,8 @@
    (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))
    (commandp sym)
        (not (get  sym 'emacspeak-checked-interactive))
-       (functionp (symbol-function sym))
-       (stringp (second (interactive-form (symbol-function sym))))))
+       (functionp  sym)
+       (stringp (second (interactive-form  sym)))))
 
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advices interactive commands to speak prompts."
@@ -105,50 +105,48 @@ speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
   (declare (special emacspeak-fix-interactive-problematic-functions))
-  (when (and (functionp (symbol-function  sym))
-             (interactive-form (symbol-function sym )))
-    (let* ((prompts
-            (split-string
-             (second (interactive-form (symbol-function sym )))
-             "\n"))
-           (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
+  (let* ((prompts
+          (split-string
+           (second (interactive-form  sym ))
+           "\n"))
+         (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
                                         ;memoize call
-      (put sym 'emacspeak-checked-interactive t)
+    (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
-      (cond
-       ((zerop count) t)                ;do nothing
-       ((notany #'(lambda (s) (string-match "%s" s))
-                prompts)
+    (cond
+     ((zerop count) t)                  ;do nothing
+     ((notany #'(lambda (s) (string-match "%s" s))
+              prompts)
                                         ; generate auto advice
-        (put sym 'emacspeak-auto-advised t)
-        (eval
-         (`
-          (defadvice (, sym)
-            (before  emacspeak-auto pre act  protect compile)
-            "Automatically defined advice to speak interactive prompts. "
-            (interactive
-             (nconc
-              (,@
-               (mapcar
-                #'(lambda (prompt)
-                    (`
-                     (let ((dtk-stop-immediately nil)
-                           (emacspeak-speak-messages nil))
-                       (when (ems-prompt-without-minibuffer-p (, prompt))
-                         (emacspeak-auditory-icon 'open-object)
-                         (tts-with-punctuations 'all
-                                                (dtk-speak
-                                                 (or (substring (, prompt) 1 ) ""))))
-                       (call-interactively
-                        #'(lambda (&rest args)
-                            (interactive (, prompt))
-                            args) nil))))
-                prompts))))))))
-       (t
-        ;; cannot handle automatically -- tell developer
-        ;; since subsequent prompts use earlier args e.g.global-set-key
-        (push sym emacspeak-fix-interactive-problematic-functions)
-        (message "Not auto-advicing %s" sym)))))
+      (put sym 'emacspeak-auto-advised t)
+      (eval
+       (`
+        (defadvice (, sym)
+          (before  emacspeak-auto pre act  protect compile)
+          "Automatically defined advice to speak interactive prompts. "
+          (interactive
+           (nconc
+            (,@
+             (mapcar
+              #'(lambda (prompt)
+                  (`
+                   (let ((dtk-stop-immediately nil)
+                         (emacspeak-speak-messages nil))
+                     (when (ems-prompt-without-minibuffer-p (, prompt))
+                       (emacspeak-auditory-icon 'open-object)
+                       (tts-with-punctuations 'all
+                                              (dtk-speak
+                                               (or (substring (, prompt) 1 ) ""))))
+                     (call-interactively
+                      #'(lambda (&rest args)
+                          (interactive (, prompt))
+                          args) nil))))
+              prompts))))))))
+     (t
+      ;; cannot handle automatically -- tell developer
+      ;; since subsequent prompts use earlier args e.g.global-set-key
+      (push sym emacspeak-fix-interactive-problematic-functions)
+      (message "Not auto-advicing %s" sym))))
   t)
 
 ;;; inline function for use from other modules:
