@@ -180,18 +180,18 @@ instead of the modeline."
 (defun emacspeak-w3m-speak-form-input (form name type width maxlength
                                             value)
   "Speak form input"
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (dtk-speak
    (format "%s input %s  %s"
            type
            name
            (emacspeak-w3m-personalize-string
             (or (emacspeak-w3m-form-get form name) value)
-            emacspeak-w3m-form-personality))))
+            emacspeak-w3m-form-voice))))
 
 (defun emacspeak-w3m-speak-form-input-checkbox (form name value)
   "Speak checkbox"
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (dtk-speak
    (format "checkbox %s is %s"
            name
@@ -199,36 +199,36 @@ instead of the modeline."
             (if (emacspeak-w3m-form-get form name)
                 "on"
               "off")
-            emacspeak-w3m-form-personality))))
+            emacspeak-w3m-form-voice))))
 
 (defun emacspeak-w3m-speak-form-input-password (form name)
   "Speech-enable password form element."
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (dtk-speak
    (format "password input %s  %s"
            name
            (emacspeak-w3m-personalize-string
             (emacspeak-w3m-anchor-text)
-            emacspeak-w3m-form-personality))))
+            emacspeak-w3m-form-voice))))
 
-(defun emacspeak-w3m-speak-form-submit (form &optional name value)
+(defun emacspeak-w3m-speak-form-submit (form &optional name value new-session download)
   "Speak submit button."
-  (declare (special emacspeak-w3m-form-button-personality))
+  (declare (special emacspeak-w3m-form-button-voice))
   (dtk-speak
    (if (equal value "")
        "submit button"
      (format "button %s"
              (emacspeak-w3m-personalize-string
               value
-              emacspeak-w3m-form-button-personality)))))
+              emacspeak-w3m-form-button-voice)))))
 
 (defun emacspeak-w3m-speak-form-input-radio (form name value)
   "speech enable radio buttons."
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (and dtk-stop-immediately (dtk-stop))
   (let* ((active (equal value (emacspeak-w3m-form-get form name)))
          (personality (if active
-                          emacspeak-w3m-form-personality))
+                          emacspeak-w3m-form-voice))
          (dtk-stop-immediately nil))
     (emacspeak-auditory-icon (if active 'on 'off))
     (dtk-speak
@@ -244,32 +244,32 @@ instead of the modeline."
 
 (defun emacspeak-w3m-speak-form-input-select (form name)
   "speech enable select control."
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (dtk-speak
    (format "select %s  %s"
            name
            (emacspeak-w3m-personalize-string
             (emacspeak-w3m-anchor-text)
-            emacspeak-w3m-form-personality))))
+            emacspeak-w3m-form-voice))))
 
 (defun emacspeak-w3m-speak-form-input-textarea (form &optional hseq)
   "speech enable text area."
-  (declare (special emacspeak-w3m-form-personality))
+  (declare (special emacspeak-w3m-form-voice))
   (dtk-speak
    (format "text area %s  %s"
            (or (get-text-property (point) 'w3m-form-name) "")
            (emacspeak-w3m-personalize-string
             (emacspeak-w3m-anchor-text)
-            emacspeak-w3m-form-personality))))
+            emacspeak-w3m-form-voice))))
 
 (defun emacspeak-w3m-speak-form-reset (form)
   "Reset button."
-  (declare (special emacspeak-w3m-form-button-personality))
+  (declare (special emacspeak-w3m-form-button-voice))
   (dtk-speak
    (format "button %s"
            (emacspeak-w3m-personalize-string
             "reset"
-            emacspeak-w3m-form-button-personality))))
+            emacspeak-w3m-form-button-voice))))
 
 ;;}}}
 ;;{{{  advice interactive commands:
@@ -304,7 +304,7 @@ instead of the modeline."
 
 
 ;;}}}
-(loop for f in 
+(loop for f in
  '(w3m-print-current-url  w3m-print-this-url
                           w3m-search
                           w3m-edit-current-url w3m-edit-this-url)
@@ -660,7 +660,7 @@ instead of the modeline."
        (point-min)
        (point-max)
 	   emacspeak-we-xsl-params)))
-  
+
 
 ;; Helper function for xslt functionality
 ;;;###autoload
