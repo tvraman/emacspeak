@@ -1470,6 +1470,25 @@ indicating the arrival  of new mail when displaying the mode line.")
           result))))
 
 ;;}}}
+;;{{{ Cache Voicefied buffer-names
+
+(defvar emacspeak-voicefied-buffer-names
+  (make-hash-table)
+  "Hash table mapping buffer-names to their voicefied equivalents.")
+
+(defsubst emacspeak-get-voicefied-buffer-name (buffer-name)
+  "Return voicefied version of this buffer-name."
+  (declare (special emacspeak-voicefied-buffer-names))
+  (let ((result (gethash buffer-name emacspeak-voicefied-buffer-names)))
+    (or result
+        (progn
+          (setq result (copy-sequence buffer-name))
+          (put-text-property 0 (length result)
+                             'personality voice-bolden-medium result)
+          (puthash buffer-name result emacspeak-voicefied-buffer-names)
+          result))))
+
+;;}}}
 ;;{{{  Speak mode line information
 
 ;;;compute current line number
@@ -1615,7 +1634,7 @@ Interactive prefix arg speaks buffer info."
          (dtk-speak
           (concat
            dir-info
-           (buffer-name)
+           (emacspeak-get-voicefied-buffer-name (buffer-name))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
