@@ -122,8 +122,7 @@ Note that the Web browser should reset this hook after using it.")
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
-                (emacspeak-speak-buffer)
-                (emacspeak-auditory-icon 'open-object))))
+                (emacspeak-speak-buffer))))
 
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
