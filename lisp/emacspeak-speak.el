@@ -1634,7 +1634,7 @@ Interactive prefix arg speaks buffer info."
          (dtk-speak
           (concat
            dir-info
-           (emacspeak-get-voicefied-buffer-name (buffer-name))
+           (buffer-name)
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
