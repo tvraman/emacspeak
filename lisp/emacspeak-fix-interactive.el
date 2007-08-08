@@ -109,49 +109,48 @@ of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
   (declare (special
             emacspeak-fix-interactive-problematic-functions))
-  (when (functionp sym)
-    (let* ((prompts
-            (split-string
-             (second (interactive-form  sym ))
-             "\n"))
-           (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
+  (let* ((prompts
+          (split-string
+           (second (interactive-form  sym ))
+           "\n"))
+         (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
                                         ;memoize call
-      (put sym 'emacspeak-checked-interactive t)
+    (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
-      (cond
-       ((zerop count) t)                ;do nothing
-       ((notany #'(lambda (s) (string-match "%s" s))
-                prompts)
+    (cond
+     ((zerop count) t)                  ;do nothing
+     ((notany #'(lambda (s) (string-match "%s" s))
+              prompts)
                                         ; generate auto advice
-        (put sym 'emacspeak-auto-advised t)
-        (eval
-         (`
-          (defadvice (, sym)
-            (before  emacspeak-auto pre act  protect compile)
-            "Automatically defined advice to speak interactive prompts. "
-            (interactive
-             (nconc
-              (,@
-               (mapcar
-                #'(lambda (prompt)
-                    (`
-                     (let ((dtk-stop-immediately nil)
-                           (emacspeak-speak-messages nil))
-                       (when (ems-prompt-without-minibuffer-p (, prompt))
-                         (emacspeak-auditory-icon 'open-object)
-                         (tts-with-punctuations 'all
-                                                (dtk-speak
-                                                 (or (substring (, prompt) 1 ) ""))))
-                       (call-interactively
-                        #'(lambda (&rest args)
-                            (interactive (, prompt))
-                            args) nil))))
-                prompts))))))))
-       (t
-        ;; cannot handle automatically -- tell developer
-        ;; since subsequent prompts use earlier args e.g.global-set-key
-        (push sym emacspeak-fix-interactive-problematic-functions)
-        (message "Not auto-advicing %s" sym)))))
+      (put sym 'emacspeak-auto-advised t)
+      (eval
+       (`
+        (defadvice (, sym)
+          (before  emacspeak-auto pre act  protect compile)
+          "Automatically defined advice to speak interactive prompts. "
+          (interactive
+           (nconc
+            (,@
+             (mapcar
+              #'(lambda (prompt)
+                  (`
+                   (let ((dtk-stop-immediately nil)
+                         (emacspeak-speak-messages nil))
+                     (when (ems-prompt-without-minibuffer-p (, prompt))
+                       (emacspeak-auditory-icon 'open-object)
+                       (tts-with-punctuations 'all
+                                              (dtk-speak
+                                               (or (substring (, prompt) 1 ) ""))))
+                     (call-interactively
+                      #'(lambda (&rest args)
+                          (interactive (, prompt))
+                          args) nil))))
+              prompts))))))))
+     (t
+      ;; cannot handle automatically -- tell developer
+      ;; since subsequent prompts use earlier args e.g.global-set-key
+      (push sym emacspeak-fix-interactive-problematic-functions)
+      (message "Not auto-advicing %s" sym))))
   t)
 
 ;;; inline function for use from other modules:
@@ -171,7 +170,6 @@ use the minibuffer."
     (completing-read "Load library: "
                      'locate-file-completion
                      (cons load-path (get-load-suffixes)))))
-  (condition-case nil
       (dolist
           (item (rest (assoc module load-history)))
         (and (listp item)
@@ -181,10 +179,7 @@ use the minibuffer."
                       (get (cdr item) 'byte-compile)))
              (commandp (cdr item))
              (emacspeak-fix-interactive-command-if-necessary (cdr
-                                                              item))))
-    (error
-     (format "Errors fixing commands in %s"
-             module)))
+                                                              item)))))
   (when (interactive-p)
     (message "Fixed interactive commands defined in module %s"
              module)))
