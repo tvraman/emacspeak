@@ -445,6 +445,7 @@ functions for details.   "
   (require 'emacspeak-redefine)
   (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
+  (require 'emacspeak-replace)
   (when (and  emacspeak-play-emacspeak-startup-icon
               (file-exists-p "/usr/bin/mpg123"))
     (start-process "mp3" nil "mpg123"
