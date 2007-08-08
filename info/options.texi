@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 640 user customizable
+This chapter documents a total of 639 user customizable
   options.
 
 @menu
@@ -1044,8 +1044,8 @@ on Linux by having it emit the sequence `C-x@@a'.
 
 Bindings specified here are available on prefix key `alt'
 (not to be confused with alt==meta)
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key `ALT  s'
 
 The value of this variable is an association list. The car
@@ -1065,7 +1065,7 @@ You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
 on Linux by having it emit the sequence `C-x@@h'.
 
 Bindings specified here are available on prefix key  `hyper'
-for example, if you bind 
+for example, if you bind
 `b' to command `bbdb '
 then that command will be available on key `hyper b'.
 
@@ -1082,8 +1082,8 @@ field in the customization buffer.  You can use the notation
 @defvar {User Option} emacspeak-personal-keys
 *Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key C-e x s
 
 The value of this variable is an association list. The car
@@ -1102,8 +1102,8 @@ You can turn the right `windows menu' keys on your Linux PC keyboard into a `sup
 on Linux by having it emit the sequence `C-x@@s'.
 
 Bindings specified here are available on prefix key `super'
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
 then that command will be available on key `super  s'
 
 The value of this variable is an association list. The car
@@ -1123,12 +1123,35 @@ Automatically generated documentation
 for options defined in module  emacspeak-loaddefs.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-character-echo
+If t, then emacspeak echoes characters  as you type.
+You can
+use C-e d k to toggle this
+setting.
+@end defvar
+
+@defvar {User Option} emacspeak-line-echo
+If t, then emacspeak echoes lines as you type.
+You can use C-e d l to set this
+option.
+@end defvar
+
 @defvar {User Option} emacspeak-play-program
 Name of executable that plays sound files. 
 @end defvar
 
 @defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
+@end defvar
+
+@defvar {User Option} emacspeak-speak-embedded-url-pattern
+Pattern to recognize embedded URLs.
+@end defvar
+
+@defvar {User Option} emacspeak-word-echo
+If t, then emacspeak echoes words as you type.
+You can use C-e d w to toggle this
+option.
 @end defvar
 
 @node emacspeak-m-player Options
@@ -1724,13 +1747,6 @@ indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
 @end defvar
 
-@defvar {User Option} emacspeak-character-echo
-If t, then emacspeak echoes characters  as you type.
-You can
-use C-e d k to toggle this
-setting.
-@end defvar
-
 @defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
 You can use
@@ -1747,12 +1763,6 @@ decorative ascii.
 @defvar {User Option} emacspeak-horizontal-rule
 *Regular expression to match horizontal rules in ascii
 text.
-@end defvar
-
-@defvar {User Option} emacspeak-line-echo
-If t, then emacspeak echoes lines as you type.
-You can use C-e d l to set this
-option.
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert
@@ -1779,19 +1789,8 @@ Mail spool file examined  to alert you about newly
 arrived mail.
 @end defvar
 
-@defvar {User Option} emacspeak-show-point
- If T, then command  `emacspeak-speak-line' indicates position of point by an
-aural highlight.  You can use
-command `emacspeak-toggle-show-point' bound to
-C-e C-d to toggle this setting.
-@end defvar
-
 @defvar {User Option} emacspeak-speak-directory-settings
 *Name of file that holds directory specific settings.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-embedded-url-pattern
-Pattern to recognize embedded URLs.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-filter-persistent-store
@@ -1867,12 +1866,6 @@ to some.
 @defvar {User Option} emacspeak-voicemail-spool-file
 Mail spool file examined  to alert you about newly
 arrived voicemail.
-@end defvar
-
-@defvar {User Option} emacspeak-word-echo
-If t, then emacspeak echoes words as you type.
-You can use C-e d w to toggle this
-option.
 @end defvar
 
 @node emacspeak-speedbar Options
