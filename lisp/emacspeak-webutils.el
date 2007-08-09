@@ -206,31 +206,29 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Get completion list from Google Suggest."
   (declare (special emacspeak-webutils-google-suggest-json))
   (let ((buffer (get-buffer-create "*Google AutoComplete*")))
-  (save-current-buffer
-    (set-buffer buffer)
-    (setq buffer-undo-list t)
-    (erase-buffer)
-    (shell-command
-     (format emacspeak-webutils-google-suggest-json
-             (emacspeak-url-encode input))
-     buffer)
-    (goto-char (point-min))
-    ;; A JSON array is a vector.
-    ;; read it, filter the comma separators found as symbols.
-    (delq'\,
-     (append                            ; vector->list
-      (aref (read (current-buffer)) 2)
-      nil)))))
-
+    (save-current-buffer
+      (set-buffer buffer)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (shell-command
+       (format emacspeak-webutils-google-suggest-json
+               (emacspeak-url-encode input))
+       buffer)
+      (goto-char (point-min))
+      ;; A JSON array is a vector.
+      ;; read it, filter the comma separators found as symbols.
+      (delq'\,
+       (append                          ; vector->list
+        (aref (read (current-buffer)) 2)
+        nil)))))
 
 (defsubst emacspeak-webutils-google-autocomplete (prompt)
   "Read user input using Google Suggest for auto-completion."
   (let ((minibuffer-completing-file-name t) ;; so we can type
         ;; spaces
         (completion-ignore-case t))
-  (completing-read prompt
-     (dynamic-completion-table emacspeak-webutils-google-suggest))))
-
+    (completing-read prompt
+                     (dynamic-completion-table emacspeak-webutils-google-suggest))))
 
 ;;}}}
 ;;{{{ helper macros:
@@ -488,7 +486,7 @@ instances."
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))
-		 ;(decode-coding-region (point-min) (point-max) 'utf-8)
+                                        ;(decode-coding-region (point-min) (point-max) 'utf-8)
          (emacspeak-xslt-region style
                                 (point-min) (point-max))
          (browse-url-of-buffer)))))))

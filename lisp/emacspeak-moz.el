@@ -200,8 +200,6 @@
     (emacspeak-moz-eval-expression-and-go
      "repl.emacspeak.say(title)\n")))
 
-
-
 ;;;###autoload
 (defun emacspeak-moz-jump (index)
   "Jump to specified index in history."

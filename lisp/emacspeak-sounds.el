@@ -228,10 +228,6 @@ Do not set this by hand;
   (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'select-object))
 
-
-
-
-
 ;;;###autoload
 (defsubst emacspeak-get-sound-filename (sound-name)
   "Retrieve name of sound file that produces  auditory icon SOUND-NAME."

@@ -330,8 +330,6 @@ qmp3cut."))
     (emacspeak-realaudio-select-realaudio-buffer))
    (t (emacspeak-realaudio-dispatch char ))))
 
-
-
 (defcustom emacspeak-realaudio-reset-auditory-display t 
   "Set this to T if you want the audio settings reset after
 a realaudio sream is done playing."

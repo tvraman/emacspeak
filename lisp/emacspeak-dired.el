@@ -331,7 +331,6 @@ options passed to command `file'."
       (backward-delete-char 1))
     (message (buffer-string))))
 
-
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
   (interactive)

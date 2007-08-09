@@ -462,7 +462,6 @@ See http://www.gummy-stuff.org/Yahoo-data.htm and Perl module Finance::Yahoo")
   "&d=v1"
   "*Additional default options to pass to Yahoo.")
 
-
 (defcustom emacspeak-websearch-personal-portfolio ""
   "Set this to the stock tickers you want to check by
 default."
@@ -919,7 +918,6 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?i 'google)
-
 
 ;;;###autoload
 (defcustom emacspeak-websearch-google-number-of-results 25

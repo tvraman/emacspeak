@@ -351,8 +351,8 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   "Setup programming modes."
   (mapcar
    #'(lambda (hook)
-               (add-hook hook
-                         'emacspeak-setup-programming-mode))
+       (add-hook hook
+                 'emacspeak-setup-programming-mode))
    (list 'c-mode-common-hook
          'prolog-mode-hook
          'lisp-mode-hook

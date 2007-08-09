@@ -73,7 +73,6 @@
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
 
-
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
@@ -99,7 +98,6 @@
 (defvar emacspeak-fix-interactive-problematic-functions nil
   "Functions whose interactive prompt we will need to fix by hand
 because auto-advising was not possible.")
-
 
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.
@@ -158,7 +156,7 @@ use the minibuffer."
 (defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
   (when (emacspeak-should-i-fix-interactive-p command)
-       (emacspeak-fix-interactive command)))
+    (emacspeak-fix-interactive command)))
 
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:

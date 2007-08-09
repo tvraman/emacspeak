@@ -858,9 +858,9 @@ current local  value to the result."
         (setq dtk-character-scale factor)))
     (dtk-interp-set-character-scale dtk-character-scale)
     (when (interactive-p)
-    (message "Set character scale factor to %s %s"
-             dtk-character-scale
-             (if  prefix ""  "locally")))))
+      (message "Set character scale factor to %s %s"
+               dtk-character-scale
+               (if  prefix ""  "locally")))))
 
 (ems-generate-switcher 'dtk-toggle-quiet
                        'dtk-quiet
@@ -1097,7 +1097,7 @@ no line --with no white space."
       (erase-buffer)
       (insert-file-contents
        (expand-file-name ".servers"
-                   emacspeak-servers-directory))
+                         emacspeak-servers-directory))
       (goto-char (point-min))
       (while (not (eobp))
         (setq start (point))
@@ -1619,7 +1619,7 @@ Default is to use pipes.")
       (run-hooks 'dtk-startup-hook ))
      (t
       (when (interactive-p)
-      (message "The speech server is not running."))))))
+        (message "The speech server is not running."))))))
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
@@ -1657,10 +1657,10 @@ since the synthesizer is getting a word at a time."
    ((not (string-match " " dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
     (when (interactive-p)
-    (message "Text will be split at punctuations and white space when speaking") ))
+      (message "Text will be split at punctuations and white space when speaking") ))
    (t (dtk-chunk-only-on-punctuations)
       (when (interactive-p)
-      (message "Text split  at clause boundaries")))))
+        (message "Text split  at clause boundaries")))))
 
 ;;;###autoload
 (defun dtk-set-chunk-separator-syntax (s)

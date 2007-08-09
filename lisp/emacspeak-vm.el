@@ -90,12 +90,12 @@ Note that some badly formed mime messages  cause trouble."
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (if (> (point) prior)
-          (tts-with-punctuations
-           'all
-           (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-           (dtk-speak (emacspeak-get-minibuffer-contents))
+        (tts-with-punctuations
+         'all
+         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+             (dtk-speak (emacspeak-get-minibuffer-contents))
            (emacspeak-speak-line)))
-        (emacspeak-speak-completions-if-available))
+      (emacspeak-speak-completions-if-available))
     ad-return-value))
 
 (defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act)
@@ -105,12 +105,12 @@ Note that some badly formed mime messages  cause trouble."
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (if (> (point) prior)
-          (tts-with-punctuations
-           'all
-           (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-           (dtk-speak (emacspeak-get-minibuffer-contents))
+        (tts-with-punctuations
+         'all
+         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+             (dtk-speak (emacspeak-get-minibuffer-contents))
            (emacspeak-speak-line)))
-        (emacspeak-speak-completions-if-available))
+      (emacspeak-speak-completions-if-available))
     ad-return-value))
 
 ;;}}}

@@ -97,12 +97,12 @@ window")))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (if (> (point) prior)
-          (tts-with-punctuations
-           'all
-           (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-           (dtk-speak (emacspeak-get-minibuffer-contents))
+        (tts-with-punctuations
+         'all
+         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+             (dtk-speak (emacspeak-get-minibuffer-contents))
            (emacspeak-speak-line)))
-        (emacspeak-speak-completions-if-available))
+      (emacspeak-speak-completions-if-available))
     ad-return-value))
 
 (defadvice sgml-insert-end-tag (after emacspeak pre act
