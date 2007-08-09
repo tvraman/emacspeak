@@ -85,7 +85,7 @@
 ;;}}}
 ;;{{{  advice cursor movement commands to speak
 
- (defadvice next-line (before emacspeak pre act com)
+(defadvice next-line (before emacspeak pre act com)
    "Produce auditory icon  if we cant move."
    (when (and (interactive-p)
               (= 1 (save-excursion (forward-line 1))))
@@ -95,7 +95,7 @@
   "Speak line that you just moved to."
   (when (interactive-p) (emacspeak-speak-line  )))
 
- (defadvice previous-line (before emacspeak pre act com)
+(defadvice previous-line (before emacspeak pre act com)
    "Produce auditory icon  if we cant move."
    (when (and (interactive-p)
               (= -1 (save-excursion (forward-line -1))))
@@ -2665,7 +2665,7 @@ Variable mark-even-if-inactive is set true ."
                          'personality
                          voice-bolden))))
 
- (defadvice make-button (after emacspeak pre act comp)
+(defadvice make-button (after emacspeak pre act comp)
    "Adds property personality."
    (let ((beg (ad-get-arg 0))
          (end (ad-get-arg 1)))
