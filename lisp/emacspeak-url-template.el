@@ -879,7 +879,7 @@ from English to German.")
  (list
   #'(lambda nil
       (emacspeak-url-encode
-      (emacspeak-webutils-google-autocomplete "Google: ")))
+       (emacspeak-webutils-google-autocomplete "Google: ")))
   #'(lambda nil
       (declare (special  emacspeak-websearch-google-number-of-results))
       emacspeak-websearch-google-number-of-results))
@@ -2071,7 +2071,7 @@ Optional interactive prefix arg displays documentation for specified resource."
         (name  nil))
     (setq name
           (completing-read "Resource: "
-          emacspeak-url-template-table
+                           emacspeak-url-template-table
                            nil
                            'must-match))
     (cond

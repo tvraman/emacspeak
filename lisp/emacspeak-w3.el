@@ -522,8 +522,6 @@ element. "
 ;;}}}
 ;;{{{ enable post processor functionality
 
-
-
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
   (emacspeak-webutils-run-post-process-hook))

@@ -93,8 +93,8 @@
       (set-buffer output)
       (erase-buffer)
       (shell-command
-     command
-     output)
+       command
+       output)
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
@@ -207,7 +207,6 @@ Argument BODY specifies forms to execute."
 
 ;;; prompt for auditory icon with completion
 
-
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
   (interactive )
@@ -231,7 +230,6 @@ Argument BODY specifies forms to execute."
   annotated.")
 
 (make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
-
 
 (defsubst emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
@@ -311,7 +309,7 @@ Value returned is compatible with `encode-time'."
   (cond
    ((string-match "[zZ]" (substring rfc-3339 -1))
     t)
-   (t                           ;compute positive/negative offset
+   (t                                ;compute positive/negative offset
                                         ;in seconds
     (let ((fields
            (mapcar
@@ -647,7 +645,6 @@ current local  value to the result.")
     (add-hook 'kill-emacs-hook
               'emacspeak-speak-persist-filter-settings)))
 
-
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
@@ -687,8 +684,8 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
-;;{{{  Speak units of text
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;{{{  Speak units of text              ;
 
 (defsubst emacspeak-speak-region (start end )
   "Speak region.
@@ -754,7 +751,6 @@ with a long string of gibberish."
   :type 'number)
 
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
-
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -1571,7 +1567,6 @@ semantic to do the work."
            (count-lines (point-min) (point-max))
            (- (point-max) (point-min))))
 
-
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
 Interactive prefix arg speaks buffer info."
@@ -1653,7 +1648,6 @@ Interactive prefix arg speaks buffer info."
 
 ;;}}}
 ;;;Helper --return string describing coding system info
-
 
 (defvar emacspeak-speak-default-os-coding-system
   'raw-text-unix
@@ -1830,7 +1824,6 @@ Optional second arg `set' sets the TZ environment variable as well."
                    (format
                     " in %s, %%Z, %%z "
                     zone)))))
-
 
 ;;}}}
 ;;;###autoload
@@ -2302,10 +2295,6 @@ message area.  You can use command
       " "
       (buffer-substring  start end)))))
 
-
-
-
-
 (defun emacspeak-speak-current-field ()
   "Speak current field."
   (interactive)
@@ -2337,12 +2326,10 @@ message area.  You can use command
     (skip-syntax-backward "^ ")
     (emacspeak-speak-field (point ) start)))
 
-
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
   (interactive)
   (message "Point at column %d" (current-column )))
-
 
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
@@ -2789,7 +2776,7 @@ Also display match context in minibuffer."
     (let* ((oldpos (point))
            (blink-matching-delay 5)
            blinkpos
-           message-log-max ; Don't log messages about paren matching.
+           message-log-max  ; Don't log messages about paren matching.
            matching-paren
            open-paren-line-string)
       (save-excursion
@@ -2868,7 +2855,6 @@ Also display match context in minibuffer."
           (message "Matches %s"
                    (substring-no-properties
                     open-paren-line-string))))))))
-
 
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.

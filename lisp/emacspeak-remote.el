@@ -148,7 +148,6 @@ server. Default is to use Emacs' built-in open-network-stream.")
   :type 'boolean
   :group 'emacspeak-remote)
 
-
 ;;;###autoload
 (defun emacspeak-remote-quick-connect-to-server()
   "Connect to remote server.
@@ -179,11 +178,10 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
      host (second fields)
      port (third fields))
     (ssh
-   (format "%s -p %s -l %s"
-           host port user)
-   (format "Remote-%s"
-           host))))
-
+     (format "%s -p %s -l %s"
+             host port user)
+     (format "Remote-%s"
+             host))))
 
 ;;;###autoload
 (defun emacspeak-remote-ssh-to-server(login host port)
@@ -201,7 +199,6 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
    (format "%s -p %s -l %s"
            host port login)
    "remote-ssh"))
-
 
 ;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)
@@ -249,8 +246,6 @@ host is listening on for speech requests."
       (sit-for 5))
      (t (error "Failed to connect to speech server on host %s port %s"
                host port )))))
-
-
 
 ;;}}}
 (provide 'emacspeak-remote )

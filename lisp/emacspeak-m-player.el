@@ -133,8 +133,6 @@
        (lookup-key emacspeak-m-player-mode-map
                    (format "%c" command-char)))))))
 
-
-
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list noselect)
   "Play specified resource using m-player.
