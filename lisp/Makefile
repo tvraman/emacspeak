@@ -70,6 +70,7 @@ SPEAK_OBJECTS =   \
 
 CORE_OBJECTS =  \
 	emacspeak.elc \
+	emacspeak-setup.elc \
 	emacspeak-advice.elc\
 	emacspeak-keymap.elc\
 	emacspeak-fix-interactive.elc\
@@ -445,6 +446,7 @@ emacspeak-xslt.elc: emacspeak-xslt.el
 emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc voice-setup.elc
 emacspeak-zinf.elc: emacspeak-zinf.el dtk-speak.elc voice-setup.elc
 emacspeak.elc: emacspeak.el
+emacspeak-setup.elc: emacspeak-setup.el
 loaddefs: emacspeak-loaddefs.elc
 # }}}
 # {{{Development  target: indent
