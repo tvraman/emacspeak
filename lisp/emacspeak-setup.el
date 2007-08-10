@@ -104,26 +104,27 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-version
-  (format
-   "26.0 %s"
-   (cond
-    ((file-exists-p emacspeak-readme-file)
-     (let ((buffer (find-file-noselect emacspeak-readme-file))
-           (revision nil))
-       (save-excursion
-         (set-buffer buffer)
-         (goto-char (point-min))
-         (setq revision
-               (format "Revision %s"
-                       (or
-                        (nth 2 (split-string
-                                (buffer-substring-no-properties
-                                 (line-beginning-position)
-                                 (line-end-position))))
-                        "unknown"))))
-       (kill-buffer buffer)
-       revision))
-    (t "")))
+  (eval-when-compile
+    (format
+     "26.0 %s"
+     (cond
+      ((file-exists-p emacspeak-readme-file)
+       (let ((buffer (find-file-noselect emacspeak-readme-file))
+             (revision nil))
+         (save-excursion
+           (set-buffer buffer)
+           (goto-char (point-min))
+           (setq revision
+                 (format "Revision %s"
+                         (or
+                          (nth 2 (split-string
+                                  (buffer-substring-no-properties
+                                   (line-beginning-position)
+                                   (line-end-position))))
+                          "unknown"))))
+         (kill-buffer buffer)
+         revision))
+      (t ""))))
   "Version number for Emacspeak.")
 
 ;;;###autoload
