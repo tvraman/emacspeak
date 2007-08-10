@@ -81,7 +81,8 @@
   (declare (special emacspeak-xslt-directory))
   (expand-file-name
    (read-file-name "XSL Transformation: "
-                   emacspeak-xslt-directory)))
+                   emacspeak-xslt-directory
+                   emacspeak-we-xsl-transform)))
 
 (defcustom emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine."
