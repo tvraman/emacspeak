@@ -1,8 +1,8 @@
 ;;; emacspeak-analog.el --- Speech-enable analog -- a log viewer
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
-;;; Description:  Emacspeak front-end for ANALOG log analyzer 
-;;; Keywords: Emacspeak, analog 
+;;; Description:  Emacspeak front-end for ANALOG log analyzer
+;;; Keywords: Emacspeak, analog
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -51,6 +51,12 @@
 (require 'cl)
 (require 'emacspeak-preamble)
 ;;}}}
+;;{{{ autoloads to help compiler
+
+(autoload 'analog-get-entry-property "analog")
+
+;;}}}
+
 ;;{{{ advice interactive commands
 (defadvice analog (after emacspeak pre act comp)
   "Provide auditory feedback."
