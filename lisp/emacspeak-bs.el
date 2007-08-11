@@ -47,8 +47,8 @@
 
 ;;; Commentary:
 
-;;; speech-enable bs.el
-;;; this is an alternative to list-buffers
+;;; speech-enable bs.el -- an alternative to Emacs' default  list-buffers
+
 ;;; Code:
 
 ;;}}}
