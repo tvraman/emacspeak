@@ -470,26 +470,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key  '[27 select]  'emacspeak-owindow-speak-line)
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
-
-;;}}}
-;;{{{ Hacking minibuffer maps:
-
-(declaim (special  minibuffer-local-must-match-map
-                   minibuffer-local-map
-                   minibuffer-local-completion-map
-                   minibuffer-local-ns-map))
-(or (string-match  "Xemacs" emacs-version)
-    (mapcar
-     (function (lambda (map)
-                 (and map
-                      (define-key map
-                        "\C-o"
-                        'switch-to-completions))))
-     (list minibuffer-local-must-match-map
-           minibuffer-local-map
-           minibuffer-local-completion-map
-           minibuffer-local-ns-map)))
-
+(global-set-key "\e\M-:" 'emacspeak-wizards-show-eval-result)
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
