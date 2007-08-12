@@ -712,7 +712,7 @@ Produce an auditory icon if possible."
                   (buffer-substring prior (point))))
               (emacspeak-speak-completions-if-available))
             ad-return-value))))
-
+(define-key minibuffer-local-completion-map "\C-o"  'switch-to-completions)
 (defadvice switch-to-completions(after emacspeak pre act comp)
   "Provide spoken feedback."
   (emacspeak-auditory-icon 'select-object)
