@@ -2203,7 +2203,7 @@ Speech is scaled by the value of dtk-speak-skim-scale"
   (bury-buffer "*Completions*")  (other-window 1)
   (emacspeak-speak-line))
 
-(defcustom emacspeak-comint-autospeak t
+(defcustom emacspeak-comint-autospeak nil
   "Says if comint output is automatically spoken.
 You can use
   `emacspeak-toggle-comint-autospeak` bound to
