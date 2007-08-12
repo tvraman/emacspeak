@@ -1418,7 +1418,7 @@ the emacspeak table clipboard instead."
     (emacspeak-speak-mode-line)))
 
 ;;;###autoload
-(defun emacspeak-speak-show-memory-used ()
+(defun emacspeak-wizards-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
   (let ((buffer (get-buffer-create "*emacspeak-memory*")))
