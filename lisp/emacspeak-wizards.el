@@ -369,7 +369,7 @@ howto document.")))
 ;;}}}
 ;;{{{ pop up messages buffer
 
-                                        ; Internal variable to memoize window configuration
+;;; Internal variable to memoize window configuration
 
 (defvar emacspeak-popup-messages-config-0 nil
   "Memoizes window configuration.")
@@ -401,6 +401,69 @@ previous window configuration."
     (beginning-of-line  (and (bolp) 0))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line))))
+
+;;}}}
+;;{{{ Elisp Utils:
+
+;;;###autoload
+(defun  emacspeak-wizards-byte-compile-current-buffer()
+  "byte compile current buffer"
+  (interactive)
+  (byte-compile-file  (buffer-file-name )))
+;;;###autoload
+(defun emacspeak-wizards-load-current-file ()
+  (interactive)
+  "load file into emacs"
+  (load-file (buffer-file-name)))
+
+
+(defun emacspeak-wizards-next-interactive-defun ()
+  "Move point to the next interactive defun"
+  (interactive)
+  (end-of-defun)
+  (re-search-forward "^ *(interactive")
+  (beginning-of-defun)
+  (emacspeak-speak-line))
+
+;;}}}
+;;{{{ tex utils:
+
+;;;###autoload
+(defun emacspeak-wizards-end-of-word(arg)
+  "move to end of word"
+  (interactive "P")
+  (if arg
+      (forward-word arg)
+    (forward-word 1)))
+
+;;;###autoload
+(defun emacspeak-wizards-comma-at-end-of-word()
+  (interactive)
+  "Move point to end of word and put a comma."
+  (forward-word 1)
+  (insert-char
+   (string-to-char ",") 1))
+
+;;;###autoload
+(defun emacspeak-wizards-lacheck-buffer-file()
+  (interactive)
+  "Lacheck file visited in current buffer"
+  (compile (format "lacheck %s"
+                   (buffer-file-name (current-buffer)))))
+
+;;;###autoload
+(defun emacspeak-wizards-tex-tie-current-word(n)
+  (interactive "P")
+  "Tie the next n  words."
+  (or n (setq n 1))
+  (while
+      (> n 0)
+    (setq n (- n 1))
+    (forward-word 1)
+    (delete-horizontal-space)
+    (insert-char 126 1)
+    )
+  (forward-word 1))
 
 ;;}}}
 ;;{{{ Show active network interfaces
@@ -1413,7 +1476,7 @@ the emacspeak table clipboard instead."
     (emacs-lisp-mode)
     (goto-char (point-min))
     (forward-line 1)
-    
+
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -2496,6 +2559,30 @@ Use with caution."
   (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
+;;{{{ pod -- perl online docs
+
+;;;###autoload
+(defun emacspeak-wizards-display-pod-as-manpage (filename)
+  "Create a virtual manpage in Emacs from the Perl Online Documentation."
+  (interactive
+   (list
+    (expand-file-name
+    (read-file-name "Enter name of POD file: "))))
+  (require 'man)
+  (let* ((pod2man-args (concat filename " | nroff -man "))
+	 (bufname (concat "Man " filename))
+	 (buffer (generate-new-buffer bufname)))
+    (save-excursion
+      (set-buffer buffer)
+      (let ((process-environment (copy-sequence process-environment)))
+        ;; Prevent any attempt to use display terminal fanciness.
+        (setenv "TERM" "dumb")
+        (set-process-sentinel
+         (start-process pod2man-program buffer "sh" "-c"
+                        (format (cperl-pod2man-build-command) pod2man-args))
+         'Man-bgproc-sentinel)))))
+
+;;}}}
 ;;{{{ fix text that has gotten read-only accidentally
 ;;;###autoload
 (defun emacspeak-wizards-fix-read-only-text (start end)
@@ -2917,7 +3004,7 @@ RIVO is implemented by rivo.pl ---
 ;;}}}
 ;;{{{ shell history:
 
-;;;### utoload
+;;;###autoload
 (defun emacspeak-wizards-refresh-shell-history ()
   "Refresh shell history from disk.
 This is for use in conjunction with bash to allow multiple emacs
@@ -2925,6 +3012,17 @@ This is for use in conjunction with bash to allow multiple emacs
   (interactive)
   (comint-read-input-ring)
   (emacspeak-auditory-icon 'select-object))
+
+;;;###autoload
+(defun emacspeak-wizards-shell-bind-keys ()
+  "Set up additional shell mode keys."
+  (loop for b in
+        '(
+          ("\C-ch" emacspeak-wizards-refresh-shell-history)
+          ("\C-cr" comint-redirect-send-command))
+        do
+        (define-key shell-mode-map (first b) (second b))))
+
 
 ;;}}}
 ;;{{{ show commentary:
@@ -2993,7 +3091,17 @@ Default is to add autoload cookies to current file."
         (error "Added %d autoload cookies." count)))))
 
 ;;}}}
+;;{{{ mail signature:
 
+;;;###autoload
+(defun emacspeak-wizards-thanks-mail-signature()
+  "insert thanks , --Raman at the end of mail message"
+  (interactive)
+  (goto-char (point-max))
+  (insert
+   (format "\n Thanks, \n --%s\n" (user-full-name))))
+
+;;}}}
 ;;{{{ specialized input buffers:
 
 ;;; Taken from a message on the org mailing list.
