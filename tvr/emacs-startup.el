@@ -159,7 +159,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "fff-prepare" "fap-prepare"
        "local"))
 ;;}}}
-    ))                                  ; end defun 
+    ;;{{{ whitespace
+
+    (require 'whitespace)
+    (add-hook 'write-file-functions 'whitespace-buffer)
+
+    ;;}}}
+    ))                                  ; end defun
 ;;{{{  start it up 
 (add-hook 'after-init-hook
           #'(lambda ()
