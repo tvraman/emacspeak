@@ -76,8 +76,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
       (when (emacspeak-sounds-theme-p "chimes-stereo/")
-	(emacspeak-sounds-select-theme "chimes-stereo/"))
-      (tts-configure-synthesis-setup))
+	(emacspeak-sounds-select-theme "chimes-stereo/")))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -159,14 +158,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;{{{  start it up
 (add-hook 'after-init-hook
 	  #'(lambda ()
+              (when (file-exists-p custom-file)
+  (load-file custom-file))
 	      (color-theme-emacs-21)
 	      (bbdb-insinuate-vm)
 	      (server-start)
+              (tts-configure-synthesis-setup)
 	      (dtk-set-rate tts-default-speech-rate 'global)
 	      (shell)
 	      (calendar)
-	      (when (file-exists-p custom-file)
-  (load-file custom-file))
 	      (initialize-completions)
 	      (message "Successfully initialized Emacs")
 	      (shell-command "aplay ~/cues/highbells.au")))
