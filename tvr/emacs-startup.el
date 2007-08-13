@@ -1,5 +1,4 @@
 ;;{{{ Emacs initialization file for Raman:
-
 ;;; $Id$
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
@@ -156,20 +155,20 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
-(add-hook 'after-init-hook
-	  #'(lambda ()
-              (when (file-exists-p custom-file)
-  (load-file custom-file))
-	      (color-theme-emacs-21)
-	      (bbdb-insinuate-vm)
-	      (server-start)
-              (tts-configure-synthesis-setup)
-	      (dtk-set-rate tts-default-speech-rate 'global)
-	      (shell)
-	      (calendar)
-	      (initialize-completions)
-	      (message "Successfully initialized Emacs")
-	      (shell-command "aplay ~/cues/highbells.au")))
+(add-hook
+ 'after-init-hook
+ #'(lambda ()
+     (when (file-exists-p custom-file) (load-file custom-file))
+     (color-theme-emacs-21)
+     (bbdb-insinuate-vm)
+     (server-start)
+     (emacspeak-tts-startup-hook)
+     (shell)
+     (calendar)
+     (initialize-completions)
+     (shell-command "aplay ~/cues/highbells.au")
+     (message "Successfully initialized Emacs")))
+
 (start-up-my-emacs)
 ;;}}}
 (provide 'emacs-startup)
