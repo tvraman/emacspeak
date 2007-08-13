@@ -77,8 +77,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (emacspeak-toggle-auditory-icons t)
       (when (emacspeak-sounds-theme-p "chimes-stereo/")
 	(emacspeak-sounds-select-theme "chimes-stereo/"))
-      (tts-configure-synthesis-setup)
-      (dtk-set-rate tts-default-speech-rate 'global))
+      (tts-configure-synthesis-setup))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
