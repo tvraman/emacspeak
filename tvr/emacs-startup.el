@@ -2,10 +2,11 @@
 ;;; $Id$
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
+;;; August 12, 2007: Cleaned up for Emacs 22
 (require 'cl)
 (declare  (optimize  (safety 0) (speed 3)))
 ;;{{{ personal lib
-(defvar emacs-private-library 
+(defvar emacs-private-library
   (expand-file-name "~/.elisp")
   "Private personalization directory. ")
 (defvar emacs-personal-library
@@ -65,7 +66,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (augment-load-path emacs-private-library ))
     (when (file-exists-p  emacs-personal-library)
       (augment-load-path emacs-personal-library))
-    ;;{{{ Load and customize emacspeak 
+    ;;{{{ Load and customize emacspeak
     (unless (featurep 'emacspeak)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
@@ -107,7 +108,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (put 'eval-expression 'disabled nil)
     (add-hook 'find-file-hook 'turn-on-auto-fill)
     ;;}}}
-    ;;{{{  completion: tmc 
+    ;;{{{  completion: tmc
     (dynamic-completion-mode)
     (condition-case nil
         (initialize-completions)
@@ -118,14 +119,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;(require 'dired-x)
     ;(require 'dired-aux)
     ;;}}}
-    ;;{{{  different mode settings 
+    ;;{{{  different mode settings
 ;;; Mode hooks.
     (declaim (special  completion-ignored-extensions))
     (eval-after-load "shell"
       '(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ch"
-      'emacspeak-wizards-refresh-shell-history))) 
+      'emacspeak-wizards-refresh-shell-history)))
 ;;}}}
 ;;{{{  vm setup
     ;;}}}
@@ -133,7 +134,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-;;; personal functions and advice 
+;;; personal functions and advice
        "advice-setup" "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
@@ -149,7 +150,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
                                         ;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
        "dismal-prepare"
-       "cperl-mode"
+       "cperl-mode" "ruby-prepare"
        "pcl-prepare"
        "erc-prepare" "jabber-prepare"
        "browse-kill-ring"
@@ -166,7 +167,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ))                                  ; end defun
-;;{{{  start it up 
+;;{{{  start it up
 (add-hook 'after-init-hook
           #'(lambda ()
               (color-theme-emacs-21)
@@ -186,5 +187,5 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;{{{  emacs local variables
 ;;;local variables:
 ;;;folded-file: t
-;;;end: 
+;;;end:
 ;;}}}
