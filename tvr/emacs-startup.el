@@ -76,31 +76,36 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (dtk-set-rate tts-default-speech-rate 'global))
     ;;}}}
     ;;{{{  set up terminal codes and global keys
-    (mapcar #'load-library-if-available
+    (mapc #'load-library-if-available
             '("console"
               "screen"))
 ;;{{{  global key definitions
-(global-set-key [f5] 'bury-buffer)
-(global-set-key '[delete] 'dtk-toggle-punctuation-mode)
-(global-set-key  '[f8] 'emacspeak-remote-quick-connect-to-server)
-(global-set-key '[f11] 'shell)
-(global-set-key '[f12] 'vm)
-    (global-set-key "\C-xc" 'compile)
-    (global-set-key  "\C-x%" 'comment-region)
-    (global-set-key "\M-r" 'replace-string)
-    (global-set-key "\M-e" 'end-of-word)
-    (global-set-key "\M-\C-j" 'imenu)
-(global-set-key "\M-\C-c" 'calendar)
+    (loop for  key in
+          '(
+            ( [f5]bury-buffer)
+            ([delete]dtk-toggle-punctuation-mode)
+            ( [f8]emacspeak-remote-quick-connect-to-server)
+            ([f11]shell)
+            ([f12]vm)
+            ( "\C-xc"compile)
+            (  "\C-x%"comment-region)
+            ( "\M-r"replace-string)
+            ( "\M-e"end-of-word)
+            ( "\M-\C-j"imenu)
+            ( "\M-\C-c"calendar))
+          do
+          (global-set-key (first key) (second key)))
+(require 'dired-x)
+(require 'dired-aux)
     ;;}}}
     ;;}}}
     ;;{{{  initial stuff
-    (load-library-if-available "advice-setup")
-    (load-library-if-available "my-functions")
-    (put 'upcase-region 'disabled nil)
+
+(put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
-    (add-hook 'find-file-hooks 'turn-on-auto-fill)
+    (add-hook 'find-file-hook 'turn-on-auto-fill)
     ;;}}}
     ;;{{{  completion: tmc 
     (dynamic-completion-mode)
@@ -109,78 +114,57 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (error (message "Completions not started cleanly.")))
     ;;}}}
     ;;{{{  dired
-    (require 'dired)
-    (require 'dired-x)
-    (require 'dired-aux)
-    ;;}}}
-    ;;{{{  w3:
-    (mapcar #'load-library-if-available
-            '("w3-prepare"
-              "w3m-prepare"
-              "wget-prepare"))
-    ;;}}}
-    ;;{{{  vm setup
-    (mapcar 
-     #'load-library-if-available
-     '("vm-prepare"
-       "bbdb-prepare"
-       "smtpmail"
-       "mailcrypt-prepare"
-       "sigbegone"))
-    (bbdb-insinuate-vm)
-    (declaim (special vm-mail-mode-map))           
-    (define-key vm-mail-mode-map  "\C-ce" 'expand-mail-aliases)
-    (define-key vm-mail-mode-map  "\C-c\C-g" 'my-thanks-mail-signature)
-    (define-key vm-mail-mode-map   "\M-\C-i" 'bbdb-complete-name)
+    ;(require 'dired)
+    ;(require 'dired-x)
+    ;(require 'dired-aux)
     ;;}}}
     ;;{{{  different mode settings 
 ;;; Mode hooks.
     (declaim (special  completion-ignored-extensions))
-    (push  ".class" completion-ignored-extensions)
     (eval-after-load "shell"
       '(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-         (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history))) ;;; emacs lisp mode:
-    (add-hook
-     'emacs-lisp-mode-hook
-     #'(lambda ()
-         (define-key emacs-lisp-mode-map "\M-n" 'next-interactive-defun)))
+         (define-key shell-mode-map "\C-ch"
+      'emacspeak-wizards-refresh-shell-history))) 
+;;}}}
+;;{{{  vm setup
     ;;}}}
-    (load-library-if-available "auctex-prepare")
-    (load-library-if-available "folding-prepare")
-    (load-library-if-available "calc-prepare")
-    (load-library-if-available "ess-prepare")
-    (load-library-if-available "tcl-prepare")
-    (load-library-if-available "python-mode-prepare")
-    (load-library-if-available "view-ps-prepare")
-    ;(require 'generic)
-    ;(require 'generic-x)
-    (load-library-if-available "moz-prepare")
-                                        ;(load-library-if-available "jde-prepare")
-                                        ;(load-library-if-available "ecb-prepare")
-    (load-library-if-available "mspools-prepare")
-    (load-library-if-available "dismal-prepare")
-    (load-library-if-available "cperl-mode")
-    (load-library-if-available "pcl-prepare")
-    (load-library-if-available "erc-prepare")
-    (load-library-if-available "jabber-prepare")
-    (load-library-if-available "browse-kill-ring")
-    (load-library-if-available "dictionary-prepare")
-    (load-library-if-available "tramp-prepare")
-(load-library-if-available "dirvars")
-    (load-library-if-available "color-theme")
-    (load-library-if-available "nxml-prepare")
-    (load-library-if-available "crontab-mode")
-(load-library-if-available "fff-prepare")
-(load-library-if-available "fap-prepare")
-    (load-library-if-available "local")
-    
+;;{{{ Prepare needed libraries
+    (mapc
+     #'load-library-if-available
+     '(
+;;; personal functions and advice 
+       "advice-setup" "my-functions"
+;;; Mail readers:
+       "vm-prepare" "bbdb-prepare"
+       "smtpmail" "mailcrypt-prepare" "sigbegone"
+;;; Web Browsers:
+       "w3-prepare" "w3m-prepare" "wget-prepare"
+       "auctex-prepare" "nxml-prepare"
+       "folding-prepare"
+       "calc-prepare" "ess-prepare"
+       "tcl-prepare" "python-mode-prepare" "moz-prepare"
+       "view-ps-prepare"
+                                        ; jde and ecb will pull in cedet.
+                                        ;"jde-prepare" "ecb-prepare"
+       "mspools-prepare"
+       "dismal-prepare"
+       "cperl-mode"
+       "pcl-prepare"
+       "erc-prepare" "jabber-prepare"
+       "browse-kill-ring"
+       "dictionary-prepare"
+       "tramp-prepare"
+       "dirvars" "color-theme" "crontab-mode"
+       "fff-prepare" "fap-prepare"
+       "local"))
+;;}}}
     ))                                  ; end defun 
 ;;{{{  start it up 
 (add-hook 'after-init-hook
           #'(lambda ()
               (color-theme-emacs-21)
-              (desktop-read)
+              (bbdb-insinuate-vm)
               (server-start)
               (dtk-set-rate 100 'global)
               (shell)
@@ -188,6 +172,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
               (when (file-exists-p custom-file)
   (load-file custom-file))
               (message "Successfully initialized Emacs")
+              (desktop-read)
               (shell-command "aplay ~/cues/highbells.au")))
 (start-up-my-emacs)
 ;;}}}
