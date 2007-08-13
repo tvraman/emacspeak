@@ -221,7 +221,8 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ define personalities 
