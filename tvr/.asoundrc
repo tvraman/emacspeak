@@ -1,5 +1,6 @@
 #$Id$
-# {{{default: front 
+#not needed for alsa 1.10 and later.
+# {{{default: front
 
 pcm.!default {
     type plug
@@ -29,7 +30,7 @@ pcm.front_dmixer  {
     }
 }
 # }}}
-# {{{Rear: 
+# {{{Rear:
 
 pcm.!rear {
     type plug
@@ -54,7 +55,7 @@ pcm.rear_dmixer  {
 }
 
 # }}}
-# {{{center: 
+# {{{center:
 
 pcm.!center {
     type plug
@@ -86,7 +87,7 @@ ctl.!default {
     card 0
 }
 
-pcm.mixin { 
+pcm.mixin {
     type dsnoop
     ipc_key 2048 # must be unique for all dmix plugins!!!!
     ipc_key_add_uid yes
