@@ -85,7 +85,8 @@
 (defadvice Custom-buffer-done (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)
+        (emacspeak-speak-line)))
 
 (defadvice customize-save-customized (after emacspeak pre act comp)
   "Provide auditory feedback. "

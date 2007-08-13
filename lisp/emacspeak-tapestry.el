@@ -120,7 +120,9 @@ but quickly switch to a window by name."
           (list (buffer-name (window-buffer w))))
       (tapestry-window-list))
      nil 'must-match)))
-  (pop-to-buffer buffer-name))
+  (pop-to-buffer buffer-name)
+  (emacspeak-speak-line))
+
 
 ;;}}}
 (provide  'emacspeak-tapestry)
