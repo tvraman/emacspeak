@@ -1,8 +1,11 @@
-;;; Emacs initialization file for Raman.
+;;{{{ Emacs initialization file for Raman:
+
 ;;; $Id$
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
+
+;;}}}
 (require 'cl)
 (declare  (optimize  (safety 0) (speed 3)))
 ;;{{{ personal lib
@@ -52,21 +55,22 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	      lib)))))
 ;;}}}
 ;;{{{ customize custom
+
 (setq outline-minor-mode-prefix "\C-l")
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
+
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
-  (interactive)
-  (declare (special emacs-personal-library
-		    emacs-private-library))
+  (declare (special emacs-personal-library emacs-private-library))
   (let ((gc-cons-threshold 8000000))
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
     (when (file-exists-p  emacs-personal-library)
       (augment-load-path emacs-personal-library))
     ;;{{{ Load and customize emacspeak
+
     (unless (featurep 'emacspeak)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
@@ -75,12 +79,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	(emacspeak-sounds-select-theme "chimes-stereo/"))
       (tts-configure-synthesis-setup)
       (dtk-set-rate tts-default-speech-rate 'global))
+
     ;;}}}
     ;;{{{  set up terminal codes and global keys
+
     (mapc #'load-library-if-available
-	    '("console"
-	      "screen"))
-;;{{{  global key definitions
+	  '("console" "screen"))
+
     (loop for  key in
 	  '(
 	    ( [f5]bury-buffer)
@@ -96,41 +101,32 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	    ( "\M-\C-c"calendar))
 	  do
 	  (global-set-key (first key) (second key)))
-(require 'dired-x)
-(require 'dired-aux)
-    ;;}}}
+    (require 'dired-x)
+    (require 'dired-aux)
+
     ;;}}}
     ;;{{{  initial stuff
 
-(put 'upcase-region 'disabled nil)
+    (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
+
     (add-hook 'find-file-hook 'turn-on-auto-fill)
-    ;;}}}
-    ;;{{{  completion: tmc
+    (add-hook 'write-file-functions 'whitespace-buffer)
     (dynamic-completion-mode)
-    (condition-case nil
-	(initialize-completions)
-      (error (message "Completions not started cleanly.")))
-    ;;}}}
-    ;;{{{  dired
-    ;(require 'dired)
-    ;(require 'dired-x)
-    ;(require 'dired-aux)
+
     ;;}}}
     ;;{{{  different mode settings
 ;;; Mode hooks.
-    (declaim (special  completion-ignored-extensions))
+
     (eval-after-load "shell"
       '(progn
 	 (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
 	 (define-key shell-mode-map "\C-ch"
-      'emacspeak-wizards-refresh-shell-history)))
-;;}}}
-;;{{{  vm setup
+	   'emacspeak-wizards-refresh-shell-history)))
     ;;}}}
-;;{{{ Prepare needed libraries
+    ;;{{{ Prepare needed libraries
     (mapc
      #'load-library-if-available
      '(
@@ -159,12 +155,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "dirvars" "color-theme" "crontab-mode"
        "fff-prepare" "fap-prepare"
        "local"))
-;;}}}
-    ;;{{{ whitespace
-
-    (require 'whitespace)
-    (add-hook 'write-file-functions 'whitespace-buffer)
-
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
@@ -178,6 +168,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	      (calendar)
 	      (when (file-exists-p custom-file)
   (load-file custom-file))
+	      (initialize-completions)
 	      (message "Successfully initialized Emacs")
 	      (shell-command "aplay ~/cues/highbells.au")))
 (start-up-my-emacs)
