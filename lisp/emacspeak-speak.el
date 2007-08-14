@@ -1505,7 +1505,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 (declaim (special column-number-mode))
 (make-variable-buffer-local 'column-number-mode)
 (setq-default column-number-mode nil)
-;;{{{ tone based  mode line speaker
+;;{{{   mode line speaker
 (defvar emacspeak-which-function-mode  nil
   "*If T, speaking mode line speaks the name of function containing point.")
 
@@ -1724,6 +1724,18 @@ The result is put in the kill ring for convenience."
     (kill-new location)
     (dtk-speak
      location)))
+
+;;}}}
+;;{{{ Speak header-line
+(defun emacspeak-speak-header-line ()
+  "Speak header line if set."
+  (interactive)
+  (declare (special header-line-format))
+  (cond
+   (header-line-format
+    (dtk-speak (format-mode-line header-line-format)))
+   (t (dtk-speak "No header line.")))
+  (emacspeak-auditory-icon 'select-object))
 
 ;;}}}
 ;;{{{  Speak text without moving point
