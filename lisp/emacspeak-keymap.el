@@ -327,7 +327,7 @@ field in the customization buffer.  You can use the notation
         ("B" emacspeak-speak-buffer-interactively)
         ("C" emacspeak-customize)
         ("F" emacspeak-view-emacspeak-faq)
-        ("H" emacspeak-speak-browse-linux-howto)
+        ("H" emacspeak-speak-header-line)
         ("I"  emacspeak-speak-show-active-network-interfaces)
         ("L" emacspeak-speak-line-interactively)
         ("M" emacspeak-speak-minor-mode-line)
