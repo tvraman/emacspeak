@@ -5,8 +5,6 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 
 ;;}}}
-(require 'cl)
-(declare  (optimize  (safety 0) (speed 3)))
 ;;{{{ personal lib
 (defvar emacs-private-library
   (expand-file-name "~/.elisp")
@@ -85,7 +83,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (loop for  key in
 	  '(
-	    ( [f5]bury-buffer)
+            ([f3] bury-buffer)
+            ([f4] emacspeak-kill-buffer-quietly)
+	    ([f5] kmacro-start-macro-or-insert-counter)
+            ([f6] kmacro-end-or-call-macro)
 	    ([delete]dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
@@ -110,7 +111,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (put 'eval-expression 'disabled nil)
 
     (add-hook 'find-file-hook 'turn-on-auto-fill)
-    (add-hook 'write-file-functions 'whitespace-buffer)
     (dynamic-completion-mode)
 
     ;;}}}
