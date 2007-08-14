@@ -1739,7 +1739,7 @@ The result is put in the kill ring for convenience."
    (header-line-format
     (dtk-speak (format-mode-line header-line-format)))
    (t (dtk-speak "No header line.")))
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-auditory-icon 'item))
 
 ;;}}}
 ;;{{{  Speak text without moving point
