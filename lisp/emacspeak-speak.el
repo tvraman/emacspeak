@@ -1569,13 +1569,16 @@ semantic to do the work."
 
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
+Speaks header-line if that is set.
 Interactive prefix arg speaks buffer info."
   (interactive "P")
   (declare (special  mode-name  major-mode voice-annotate
+                     header-line-format
                      emacspeak-which-function-mode global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (cond
+   (header-line-format (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
    (t
     (dtk-stop)
