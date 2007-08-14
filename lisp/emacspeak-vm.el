@@ -379,7 +379,9 @@ Then speak the screenful. "
 (defadvice vm-quit (after emacspeak pre act )
   "Provide an auditory icon if requested"
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)
+    (message "%s"
+             (emacspeak-speak-mode-line))))
 
 ;;}}}
 ;;{{{ catching up on folders
