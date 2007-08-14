@@ -51,8 +51,7 @@
 
 (require 'emacspeak-preamble)
 (require 'xml-parse)
-(require 'emacspeak-webutils)
-(require 'emacspeak-we)
+
 ;;}}}
 ;;{{{  Customization variables
 (defgroup emacspeak-daisy nil
