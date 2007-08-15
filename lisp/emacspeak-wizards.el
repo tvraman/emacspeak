@@ -3122,8 +3122,6 @@ Default is to add autoload cookies to current file."
              emacspeak-url-template-weather-city-state)
     (shell-command-to-string emacspeak-wizards-weather-command)))
 
-         
-
 ;;}}}
 ;;{{{ specialized input buffers:
 
