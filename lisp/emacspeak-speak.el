@@ -2270,7 +2270,12 @@ set the current local value to the result.")
 
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
-  (declare (special comint-mode-map))
+  (declare (special comint-mode-map
+		    emacspeak-use-header-line))
+  (when emacspeak-use-header-line
+    (setq header-line-format
+	  '((:eval (format "%s %s"
+			   (buffer-name) default-directory)))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
