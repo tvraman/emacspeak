@@ -87,6 +87,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ([f4] emacspeak-kill-buffer-quietly)
 	    ([f5] kmacro-start-macro-or-insert-counter)
             ([f6] kmacro-end-or-call-macro)
+            ("\M-s" save-buffer)
+("\M--" advertised-undo)
 	    ([delete]dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
