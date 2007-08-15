@@ -1578,8 +1578,8 @@ Interactive prefix arg speaks buffer info."
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (cond
-   ((and header-line-format
-         (not (interactive-p)))(emacspeak-speak-header-line))
+   ((and header-line-format (not (interactive-p)))
+    (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
    (t
     (dtk-stop)
