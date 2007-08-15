@@ -119,13 +119,13 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (dtk-speak (buffer-name))))
+    (emacspeak-speak-mode-line)))
 
 (defadvice previous-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (dtk-speak (buffer-name))))
+    (emacspeak-speak-mode-line)))
 
 (defadvice beginning-of-buffer (after emacspeak pre act)
   "Speak the line."

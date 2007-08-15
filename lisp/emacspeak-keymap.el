@@ -305,7 +305,7 @@ field in the customization buffer.  You can use the notation
       '(
         (  "\C-a" emacspeak-toggle-auditory-icons )
         ( "\M-f" emacspeak-frame-label-or-switch-to-labelled-frame )
-        (" " dtk-resume)
+        (" " emacspeak-speak-header-line)
         ("!" emacspeak-speak-run-shell-command)
         ("'" emacspeak-speak-sexp)
         ("#" emacspeak-gridtext)
@@ -327,7 +327,7 @@ field in the customization buffer.  You can use the notation
         ("B" emacspeak-speak-buffer-interactively)
         ("C" emacspeak-customize)
         ("F" emacspeak-view-emacspeak-faq)
-        ("H" emacspeak-speak-header-line)
+        ("H" emacspeak-speak-browse-linux-howto)
         ("I"  emacspeak-speak-show-active-network-interfaces)
         ("L" emacspeak-speak-line-interactively)
         ("M" emacspeak-speak-minor-mode-line)
@@ -470,7 +470,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key  '[27 select]  'emacspeak-owindow-speak-line)
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
-(global-set-key "\e\M-:" 'emacspeak-wizards-show-eval-result)
+(global-set-key "\M-\M-:" 'emacspeak-wizards-show-eval-result)
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
