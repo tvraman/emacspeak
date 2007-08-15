@@ -1731,6 +1731,21 @@ The result is put in the kill ring for convenience."
 
 ;;}}}
 ;;{{{ Speak header-line
+
+;;;###autoload
+(defcustom emacspeak-use-header-line t
+  "Use default header line defined  by Emacspeak for buffers that
+dont customize the header."
+  :type 'boolean
+  :group 'emacspeak)
+
+(defvar emacspeak-default-header-line-format
+  '((:eval (buffer-name)))
+  "Default header-line-format defined by Emacspeak.
+Displays name of current buffer.")
+
+    
+
 (defun emacspeak-speak-header-line ()
   "Speak header line if set."
   (interactive)
