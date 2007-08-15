@@ -2288,7 +2288,7 @@ set the current local value to the result.")
   (when emacspeak-use-header-line
     (setq header-line-format
 	  '((:eval (format "%s %s"
-			   (buffer-name) default-directory)))))
+			   default-directory mode-name)))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
