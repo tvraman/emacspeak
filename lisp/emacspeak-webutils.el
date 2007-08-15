@@ -161,7 +161,7 @@ or URL read from minibuffer."
       (lambda nil
         (rename-buffer
          (format "%s %s"
-                 ,key (buffer-name))
+                 (buffer-name) ,key)
          'unique))))))
 
 ;;;###autoload

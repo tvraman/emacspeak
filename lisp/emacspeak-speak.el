@@ -1756,6 +1756,19 @@ Displays name of current buffer.")
    (t (dtk-speak "No header line.")))
   (emacspeak-auditory-icon 'item))
 
+;;;###autoload
+(defun emacspeak-toggle-header-line ()
+  "Toggle Emacspeak's default header line."
+  (interactive)
+  (declare (special emacspeak-default-header-line-format
+                    default-header-line-format))
+  (if default-header-line-format
+      (setq default-header-line-format nil)
+    (setq default-header-line-format emacspeak-default-header-line-format))
+  (emacspeak-auditory-icon (if default-header-line-format 'on 'off))
+  (message "Turned %s default header line."
+           (if default-header-line-format 'on 'off)))
+
 ;;}}}
 ;;{{{  Speak text without moving point
 
