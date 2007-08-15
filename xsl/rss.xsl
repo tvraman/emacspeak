@@ -12,8 +12,7 @@ View an RSS feed as clean HTML
                 xmlns:rss="http://purl.org/rss/1.0/"
                 xmlns:nsrss="http://my.netscape.com/rdf/simple/0.9/"
                 xmlns:str="http://exslt.org/strings"
-                version="1.0"
-                exclude-result-prefixes="set str">
+                version="1.0">
   <xsl:param name="base"/>
   <xsl:variable name="amphetadesk">http://127.0.0.1:8888/my_channels.html</xsl:variable>
   <xsl:output encoding="utf-8" method="xml" indent="yes"/>
