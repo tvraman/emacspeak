@@ -470,7 +470,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key  '[27 select]  'emacspeak-owindow-speak-line)
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
-(global-set-key "\M-\M-:" 'emacspeak-wizards-show-eval-result)
+(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload

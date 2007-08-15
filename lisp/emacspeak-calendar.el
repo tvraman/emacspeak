@@ -123,8 +123,9 @@
       (eval
        `(defadvice ,f (around emacspeak pre act com)
           "Silence messages."
-          (let ((emacspeak-speak-messages nil))
+          (let ((emacspeak-speak-messages (not (interactive-p))))
             ad-do-it))))
+
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
@@ -365,6 +366,7 @@
   (save-excursion
     (set-buffer calendar-buffer)
     (local-unset-key emacspeak-prefix)
+    (define-key calendar-mode-map "v" 'view-diary-entries)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
       'calendar-end-of-week))
