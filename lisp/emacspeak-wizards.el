@@ -1252,7 +1252,8 @@ With optional interactive prefix arg `frame', move to next frame instead."
    (t
     (bury-buffer)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-current-buffer-name))))
+    (emacspeak-speak-mode-line))))
+
 ;;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
   "Move to previous buffer.
@@ -1274,7 +1275,7 @@ With optional interactive prefix arg `frame', move to previous frame instead."
       (switch-to-buffer (nth (1- (length l))
                              l))
       (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-current-buffer-name)))))
+      (emacspeak-speak-mode-line)))))
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
