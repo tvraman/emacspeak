@@ -3105,23 +3105,22 @@ Default is to add autoload cookies to current file."
 ;;}}}
 ;;{{{ Weather Wizard:
 
-(defvar emacspeak-wizards-weather-command
+(defvar emacspeak-wizards-weather-command-template
   (when (file-exists-p "/usr/bin/xmlstarlet")
-    (format
-     "curl --silent http://www.wunderground.com/auto/rss_full/%s.xml\
- | xmlstarlet   sel -t -v '//item[1]/title' "
-            emacspeak-url-template-weather-city-state))
-  "Command line that gives us weather conditions as a short
-  string.")
+     "xmlstarlet sel --net -t -v '//item[1]/title' \
+http://www.wunderground.com/auto/rss_full/%s.xml")
+  "Command line that gives us weather conditions as a short string.")
 
 (defun emacspeak-wizards-weather-conditions  ()
   "Return weather conditions for `emacspeak-url-template-weather-city-state'."
   (declare (special emacspeak-url-template-weather-city-state
-                    emacspeak-wizards-weather-command))
-  (when (and emacspeak-wizards-weather-command
+                    emacspeak-wizards-weather-command-template))
+  (when (and emacspeak-wizards-weather-command-template
              emacspeak-url-template-weather-city-state)
     (substring
-     (shell-command-to-string emacspeak-wizards-weather-command)
+     (shell-command-to-string
+      (format emacspeak-wizards-weather-command-template
+              emacspeak-url-template-weather-city-state))
      0 -1)))
 
 (defvar emacspeak-wizards-current-weather nil
