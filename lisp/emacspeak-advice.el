@@ -1459,9 +1459,7 @@ Produce an auditory icon if possible."
   "Speech-enabled by emacspeak."
   (cond
    ((interactive-p)
-    (dtk-speak
-     (format "Kill Buffer: %s"
-             (buffer-name)))
+    (dtk-speak (format "Kill Buffer: %s" (buffer-name)))
     ad-do-it
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line))
