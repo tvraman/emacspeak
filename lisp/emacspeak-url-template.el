@@ -718,6 +718,16 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
               (emacspeak-url-encode
                url)))))
 
+(emacspeak-url-template-define
+ "Finance Google news"
+ "http://finance.google.com/"
+ nil
+ nil
+ "Display content from Google Finance."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class
+      "news" url 'speak)))
+
 ;;}}}
 ;;{{{ google maps
 
