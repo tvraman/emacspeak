@@ -3121,6 +3121,22 @@ Default is to add autoload cookies to current file."
   (when (and emacspeak-wizards-weather-command
              emacspeak-url-template-weather-city-state)
     (shell-command-to-string emacspeak-wizards-weather-command)))
+(defvar emacspeak-wizards-current-weather nil
+  "Holds cached value of current weather conditions.")
+
+(defun emacspeak-wizards-setup-weather-updates ()
+  "Setup periodic weather updates.
+Updated weather is found in `emacspeak-wizards-current-weather'."
+  (interactive)
+  (declare (special emacspeak-wizards-current-weather))
+  (unless emacspeak-url-template-weather-city-state
+    (error "First set option
+  emacspeak-url-template-weather-city-state to your
+  city/state."))
+  (setq emacspeak-wizards-current-weather
+        (emacspeak-wizards-weather-conditions))
+  (run-at-time  "1 hour" nil
+                'emacspeak-wizards-setup-weather-updates))
 
 ;;}}}
 ;;{{{ specialized input buffers:
