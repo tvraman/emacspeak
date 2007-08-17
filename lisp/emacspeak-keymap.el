@@ -311,7 +311,7 @@ field in the customization buffer.  You can use the notation
         ("#" emacspeak-gridtext)
         ("%" emacspeak-speak-current-percentage)
         ("&" emacspeak-wizards-show-eval-result)
-        ("(" emacspeak-aumix)
+        ("(" emacspeak-audio-setup)
         (")" emacspeak-sounds-select-theme)
         ("," emacspeak-speak-browse-buffer )
         ("." emacspeak-speak-current-field)

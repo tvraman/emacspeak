@@ -82,6 +82,17 @@ use `emacspeak-toggle-auditory-icons' bound to
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
+;;{{{ Setup Audio 
+;;;###autoload
+(defun emacspeak-audio-setup ()
+  "Call appropriate audio environment set command."
+  (interactive)
+  (cond
+   ((file-executable-p "/usr/bin/amixer")
+    (call-interactively 'amixer))
+    (t (call-interactively 'emacspeak-aumix))))
+
+;;}}}
 ;;{{{  Setup sound themes
 
 (defvar emacspeak-sounds-icon-list
