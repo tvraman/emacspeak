@@ -70,7 +70,7 @@ current)
       (erase-buffer)
       (shell-command
        (format "amixer cget numid=%s"
-               (amixer-control-numid (cadr control)))
+               (amixer-control-numid (cdr control)))
        (current-buffer))
       (goto-char (point-min))
       (forward-line 1)
@@ -94,7 +94,7 @@ current)
                (line-beginning-position)
                (line-end-position))
               "=")))
-      (setf (amixer-control-setting (cadr control))
+      (setf (amixer-control-setting (cdr control))
             (make-amixer-control-setting
              :type (nth 0 slots)
              :access (nth 1 slots)
@@ -194,8 +194,10 @@ current)
 (defun amixer ()
   "Interactively manipulate ALSA settings."
   (interactive)
+  (declare (special amixer-db-cache))
+  (or amixer-db-cache (amixer-load-db))
   (let ((control
-         (cadr
+         (cdr
           (assoc
            (completing-read "Control:" amixer-db-cache
                             nil 'must-match)
