@@ -40,10 +40,6 @@
 ;;}}}
 ;;{{{ Definitions
 
-(defvar amixer-db
-  (expand-file-name "amixer-db.el" emacspeak-resource-directory)
-  "Database of available amixer controls.")
-
 (defvar amixer-db-cache nil
   "Holds cached values.")
 
@@ -85,8 +81,8 @@ current)
                   collect
                   (second (split-string f "="))))
       (while (and (not (eobp))
-                       (not  (looking-at "^;")))
-      (forward-line 1))
+                  (looking-at "^ *;"))
+        (forward-line 1))
       (setq current
             (second
              (split-string
@@ -107,10 +103,10 @@ current)
   
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
+  (declare (special amixer-db-cache))
   (unless (file-executable-p "/usr/bin/amixer")
     (error "You dont have a standard amixer."))
-  (let ((db (find-file-noselect amixer-db))
-        (scratch (get-buffer-create " *amixer*"))
+  (let ((scratch (get-buffer-create " *amixer*"))
         (controls nil)
         (fields nil)
         (slots nil))
@@ -140,24 +136,13 @@ current)
           :name (third slots)))
          controls)
         (forward-line 1))              ; done collecting controls
-      (mapc #'amixer-populate-settings controls))
-    (save-excursion
-      (set-buffer db)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (insert
-       (format
-        "\n(setq
- amixer-db-cache '%s)"
-        (prin1-to-string controls)))
-      (basic-save-buffer))))
+      (mapc #'amixer-populate-settings controls)
+      (setq amixer-db-cache controls))))
 
 (defun amixer-load-db ()
   "Load amixer DB, after building it first if needed."
   (unless amixer-db-cache
-    (or (file-exists-p amixer-db)
-        (amixer-build-db)))
-  (load-file amixer-db))
+    (amixer-build-db)))
 
 ;;}}}
 ;;{{{ Amixer:
