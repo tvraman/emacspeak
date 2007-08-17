@@ -40,16 +40,16 @@
 ;;}}}
 ;;{{{ Definitions
 
-(defvar amixer-db-cache nil
+(defvar amixer-db nil
   "Holds cached values.")
 
 (defstruct amixer-control
   numid iface name setting)
 
 (defstruct amixer-control-setting
-type access values
-min max step
-current)
+  type access values
+  min max step
+  current)
 
 ;;}}}
 ;;{{{ Manage amixer db:
@@ -103,7 +103,7 @@ current)
   
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (declare (special amixer-db-cache))
+  (declare (special amixer-db))
   (unless (file-executable-p "/usr/bin/amixer")
     (error "You dont have a standard amixer."))
   (let ((scratch (get-buffer-create " *amixer*"))
@@ -130,18 +130,18 @@ current)
         (push
          (cons
           (third slots)
-         (make-amixer-control
-          :numid (first slots)
-          :iface (second slots)
-          :name (third slots)))
+          (make-amixer-control
+           :numid (first slots)
+           :iface (second slots)
+           :name (third slots)))
          controls)
         (forward-line 1))              ; done collecting controls
       (mapc #'amixer-populate-settings controls)
-      (setq amixer-db-cache controls))))
+      (setq amixer-db controls))))
 
 (defun amixer-load-db ()
   "Load amixer DB, after building it first if needed."
-  (unless amixer-db-cache
+  (unless amixer-db
     (amixer-build-db)))
 
 ;;}}}
@@ -165,7 +165,7 @@ current)
                        (= 1 (forward-line 1))))
         (beginning-of-line)
         (when (looking-at "^ *;")
-          (search-forward "Item" nil t)
+          (search-forward "Item #" nil t)
           (push
            (buffer-substring-no-properties
             (point)
@@ -179,14 +179,14 @@ current)
 (defun amixer ()
   "Interactively manipulate ALSA settings."
   (interactive)
-  (declare (special amixer-db-cache))
-  (or amixer-db-cache (amixer-load-db))
+  (declare (special amixer-db))
+  (or amixer-db (amixer-load-db))
   (let ((control
          (cdr
           (assoc
-           (completing-read "Control:" amixer-db-cache
+           (completing-read "Control:" amixer-db
                             nil 'must-match)
-           amixer-db-cache)))
+           amixer-db)))
         (update nil)
         (choices nil))
     (when (string=
