@@ -58,6 +58,7 @@
     ("emacspeak-speak"  . nil )
     ("emacspeak"  . nil )
     ("cd-tool"   . nil)
+    ("amixer" . nil)
     ("emacspeak-amphetadesk" . nil)
     ("dtk-interp" . nil)
     ("dtk-speak" . nil)
