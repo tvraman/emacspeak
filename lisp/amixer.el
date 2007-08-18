@@ -218,8 +218,7 @@
     (message
      "updated %s to %s"
      (amixer-control-name control)
-     update)
-    (emacspeak-auditory-icon 'close-object)))
+     update)))
 
 ;;}}}
 (provide 'amixer)      
