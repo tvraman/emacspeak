@@ -90,7 +90,8 @@ use `emacspeak-toggle-auditory-icons' bound to
   (cond
    ((file-executable-p "/usr/bin/amixer")
     (call-interactively 'amixer))
-    (t (call-interactively 'emacspeak-aumix))))
+    (t (call-interactively 'emacspeak-aumix)))
+  (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
 ;;{{{  Setup sound themes
