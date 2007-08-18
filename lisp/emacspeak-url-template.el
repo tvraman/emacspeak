@@ -194,6 +194,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                                    emacspeak-resource-directory))))
     (save-excursion
       (set-buffer buffer)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (loop for key being the hash-keys of
             emacspeak-url-template-table
