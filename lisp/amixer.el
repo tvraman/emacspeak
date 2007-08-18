@@ -161,8 +161,7 @@
         (amixer-control-numid control))
        (current-buffer))
       (goto-char (point-min))
-      (while (not  (or (eobp)
-                       (= 1 (forward-line 1))))
+      (while (not   (eobp))
         (beginning-of-line)
         (when (looking-at "^ *;")
           (search-forward "Item #" nil t)
@@ -170,7 +169,8 @@
            (buffer-substring-no-properties
             (point)
             (line-end-position))
-           values)))
+           values))
+        (forward-line 1))
       (nreverse values))))
 
                   
