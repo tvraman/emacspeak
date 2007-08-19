@@ -104,7 +104,7 @@
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db))
-  (unless (file-executable-p "/usr/bin/amixer")
+  (unless (executable-find "amixer")
     (error "You dont have a standard amixer."))
   (let ((scratch (get-buffer-create " *amixer*"))
         (controls nil)

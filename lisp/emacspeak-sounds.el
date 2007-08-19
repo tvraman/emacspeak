@@ -88,7 +88,7 @@ use `emacspeak-toggle-auditory-icons' bound to
   "Call appropriate audio environment set command."
   (interactive)
   (cond
-   ((file-executable-p "/usr/bin/amixer")
+   ((executable-find "amixer")
     (call-interactively 'amixer))
     (t (call-interactively 'emacspeak-aumix)))
   (emacspeak-auditory-icon 'close-object))
