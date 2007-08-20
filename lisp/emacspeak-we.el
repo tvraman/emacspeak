@@ -177,8 +177,9 @@ Nil means no transform is used. "
   "Apply specified transformation to current Web page."
   (interactive (list (emacspeak-xslt-read)))
   (emacspeak-webutils-browser-check)
-  (emacspeak-webutils-with-xsl
+  (emacspeak-webutils-with-xsl-environment
    xsl
+   nil
    (browse-url (funcall emacspeak-webutils-current-url))))
 
 ;;;###autoload
