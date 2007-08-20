@@ -248,19 +248,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                      (setq emacspeak-we-xsl-p t))))
      (,@ body))))
 
-(defmacro emacspeak-webutils-with-xsl (&rest body)
-  "Execute body with XSL turned on."
-  (`
-   (progn
-     (declare (special emacspeak-we-xsl-p))
-     (unless emacspeak-we-xsl-p
-       (setq emacspeak-we-xsl-p t)
-       (add-hook 'emacspeak-web-post-process-hook
-                 #'(lambda ()
-                     (declare (special emacspeak-we-xsl-p))
-                     (setq emacspeak-we-xsl-p nil))))
-     (,@ body))))
-
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."

@@ -307,7 +307,9 @@ part of the libxslt package."
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
-  (emacspeak-webutils-with-xsl style url))
+  (emacspeak-webutils-with-xsl-environment style
+                                           nil
+                                           url))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
