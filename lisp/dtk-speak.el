@@ -255,11 +255,12 @@ Modifies text and point in buffer."
   (declare (special buffer-invisibility-spec))
   (let ((prop (get-text-property position 'invisible)))
     (cond
+     ((eq t buffer-invisibility-spec)  prop)
      ((and (listp buffer-invisibility-spec)
 	   (memq prop buffer-invisibility-spec)) t)
      ((and (listp  buffer-invisibility-spec)
 	   (assq prop buffer-invisibility-spec)) t)
-     (t prop))))
+     (t nil))))
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
