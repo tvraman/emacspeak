@@ -253,14 +253,11 @@ Modifies text and point in buffer."
 (defsubst text-invisible-p (position)
   "Check if text is invisible. Emacspeak helper."
   (declare (special buffer-invisibility-spec))
-  (let ((prop (get-text-property position 'invisible)))
-    (cond
-     ((eq t buffer-invisibility-spec)  prop)
-     ((and (listp buffer-invisibility-spec)
-	   (memq prop buffer-invisibility-spec)) t)
-     ((and (listp  buffer-invisibility-spec)
-	   (assq prop buffer-invisibility-spec)) t)
-     (t nil))))
+  (let ((prop (get-char-property pos 'invisible)))
+    (if (eq buffer-invisibility-spec t)
+	prop
+      (or (memq prop buffer-invisibility-spec)
+	  (assq prop buffer-invisibility-spec)))))
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
