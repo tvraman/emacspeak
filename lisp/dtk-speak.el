@@ -250,7 +250,7 @@ Modifies text and point in buffer."
 (defsubst text-visible-p (position)
   (not (text-invisible-p position)))
 
-(defsubst text-invisible-p (position)
+(defsubst text-invisible-p (pos)
   "Check if text is invisible. Emacspeak helper."
   (declare (special buffer-invisibility-spec))
   (let ((prop (get-char-property pos 'invisible)))
