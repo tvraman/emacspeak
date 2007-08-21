@@ -277,7 +277,12 @@
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
   (unless emacspeak-audio-indentation
-    (emacspeak-toggle-audio-indentation)))
+    (emacspeak-toggle-audio-indentation))
+  (define-key org-mode-map
+    emacspeak-prefix'emacspeak-prefix-command)
+(define-key org-mode-map
+  (concat emacspeak-prefix "e")
+  'org-end-of-line))
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 
