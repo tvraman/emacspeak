@@ -7,11 +7,11 @@
 (define-key function-key-map "\e[3~" [delete])
 (define-key function-key-map "\e[4~" [end])
 ;;; first 5 function keys 
-(define-key function-key-map "\M-[[A" '[f1])
-(define-key function-key-map "\M-[[B" '[f2])
-(define-key function-key-map "\M-[[C" '[f3])
-(define-key function-key-map "\M-[[D" '[f4])
-(define-key function-key-map "\M-[[E" '[f5])
+(define-key function-key-map "\M-[[A" [f1])
+(define-key function-key-map "\M-[[B" [f2])
+(define-key function-key-map "\M-[[C" [f3])
+(define-key function-key-map "\M-[[D" [f4])
+(define-key function-key-map "\M-[[E" [f5])
 ;;; Function key 11 -- 20
 (define-key function-key-map "\e[23~" [f11])
 (define-key function-key-map "\e[24~" [f12])
@@ -51,19 +51,19 @@
 (define-key function-key-map "\eOy" [kp-9])
 ;;; shift arrows
 
-(define-key function-key-map  "\e[E" '[shift up])
-(define-key function-key-map "\e[F" '[shift down])
-(define-key function-key-map "\e[G" '[shift right])
-(define-key function-key-map "\e[H" '[shift left])
+(define-key function-key-map  "\e[E" [(shift up)])
+(define-key function-key-map "\e[F" [(shift down)])
+(define-key function-key-map "\e[G" [(shift right)])
+(define-key function-key-map "\e[H" [(shift left)])
 ;;; Get control arrows:
 
-(define-key function-key-map "\e[I" '[C-up])
-(define-key function-key-map  "\e[J" '[C-down])
-(define-key function-key-map "\e[K" '[C-right])
-(define-key function-key-map "\e[L" '[C-left])
+(define-key function-key-map "\e[I" [(control up)])
+(define-key function-key-map  "\e[J" [(control down)])
+(define-key function-key-map "\e[K" [(control right)])
+(define-key function-key-map "\e[L" [(control left)])
 ;;; control return and shift return 
-(define-key function-key-map "\e[m" '[C-Return])
-(define-key function-key-map "\e[M" '[S-Return])
+(define-key function-key-map "\e[m" [(control return)])
+(define-key function-key-map "\e[M" [(shift return)])
 ;;; shift tab:
-(define-key function-key-map "\e[T" '[backtab])
-(define-key function-key-map "\e[U" '[(control tab)])
+(define-key function-key-map "\e[T" [backtab])
+(define-key function-key-map "\e[U" [(control tab)])
