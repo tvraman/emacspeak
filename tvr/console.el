@@ -66,3 +66,4 @@
 (define-key function-key-map "\e[M" '[S-Return])
 ;;; shift tab:
 (define-key function-key-map "\e[T" '[backtab])
+(define-key function-key-map "\e[U" '[(control tab)])
