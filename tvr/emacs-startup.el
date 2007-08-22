@@ -53,7 +53,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;}}}
 ;;{{{ customize custom
 
-(setq outline-minor-mode-prefix "\C-l")
+
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
 (when (file-exists-p custom-file) (load-file custom-file))
@@ -80,6 +80,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (mapc #'load-library-if-available
 	  '("console" "screen"))
+    (when (eq window-system 'x)
+      (load-library-if-available "x"))
 
     (loop for  key in
 	  '(
@@ -88,7 +90,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	    ([f5] kmacro-start-macro-or-insert-counter)
             ([f6] kmacro-end-or-call-macro)
             ("\M-s" save-buffer)
-("\M--" advertised-undo)
+            ("\M--" advertised-undo)
 	    ([delete]dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
@@ -101,18 +103,18 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	    ( "\M-\C-c"calendar))
 	  do
 	  (global-set-key (first key) (second key)))
-    (require 'dired-x)
-    (require 'dired-aux)
-
+    
     ;;}}}
     ;;{{{  initial stuff
+
+    (require 'dired-x)
+    (require 'dired-aux)
 
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
 
-    (add-hook 'find-file-hook 'turn-on-auto-fill)
     (dynamic-completion-mode)
 
     ;;}}}
@@ -123,7 +125,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       '(progn
 	 (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
 	 (define-key shell-mode-map "\C-ch"
-	   'emacspeak-wizards-refresh-shell-history)))
+           'emacspeak-wizards-refresh-shell-history)))
+
     ;;}}}
     ;;{{{ Prepare needed libraries
     (mapc
@@ -151,14 +154,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "browse-kill-ring"
        "dictionary-prepare"
        "tramp-prepare"
-"color-theme" "crontab-mode"
+       "color-theme" "crontab-mode"
        "fff-prepare" "fap-prepare"
        "local"))
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
 (add-hook
- 'after-init-hook
+ #'after-init-hook
  #'(lambda ()
      (color-theme-emacs-21)
      (bbdb-insinuate-vm)
