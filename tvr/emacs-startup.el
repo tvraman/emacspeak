@@ -56,7 +56,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (setq outline-minor-mode-prefix "\C-l")
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
-
+(when (file-exists-p custom-file) (load-file custom-file))
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -144,14 +144,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 					; jde and ecb will pull in cedet.
 					;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
-       "dismal-prepare"
+       "dismal-prepare" "org-prepare"
        "cperl-mode" "ruby-prepare"
        "pcl-prepare"
        "erc-prepare" "jabber-prepare"
        "browse-kill-ring"
        "dictionary-prepare"
        "tramp-prepare"
-       "dirvars" "color-theme" "crontab-mode"
+"color-theme" "crontab-mode"
        "fff-prepare" "fap-prepare"
        "local"))
     ;;}}}
@@ -160,7 +160,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
-     (when (file-exists-p custom-file) (load-file custom-file))
      (color-theme-emacs-21)
      (bbdb-insinuate-vm)
      (server-start)
