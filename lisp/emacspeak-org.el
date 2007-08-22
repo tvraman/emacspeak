@@ -179,7 +179,11 @@
 
 ;;}}}
 ;;{{{ misc file commands:
-
+(defadvice org-end-of-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (dtk-stop)
+    (emacspeak-auditory-icon 'select-object)))
 ;;}}}
 ;;{{{ tables:
 
@@ -215,15 +219,15 @@
 (loop for k in
       '(
         ([backtab]    org-shifttab)
-        ([shift up] org-shiftup)
-        ([shift down] org-shiftdown)
-        ([shift left] org-shiftleft)
-        ([shift right] org-shiftright)
-        ([27 shift down] org-shiftmetadown)
-        ([27 shift up] org-shiftmetaup)
-        ([27 shift left] org-shiftmetaleft)
-        ([27 shift right] org-shiftmetaright)
-        ([27 S-Return] org-insert-todo-heading)
+        ([(shift up)] org-shiftup)
+        ([(shift down)] org-shiftdown)
+        ([(shift left)] org-shiftleft)
+        ([(shift right)] org-shiftright)
+        ([(meta shift down)] org-shiftmetadown)
+        ([(meta shift up)] org-shiftmetaup)
+        ([(meta shift left)] org-shiftmetaleft)
+        ([(meta shift right)] org-shiftmetaright)
+        ([(meta shift return)] org-insert-todo-heading)
         ("\C-j" org-insert-heading)
         ("\M-n" org-next-item)
         ("\M-p" org-previous-item)

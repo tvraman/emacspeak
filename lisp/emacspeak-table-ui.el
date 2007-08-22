@@ -80,7 +80,7 @@
         ("x" emacspeak-table-copy-current-element-to-register)
         ("w" emacspeak-table-copy-current-element-to-kill-ring)
         ("\t" emacspeak-table-next-column)
-        ( [<shift> tab] emacspeak-table-previous-column)
+        ( [backtab] emacspeak-table-previous-column)
         ("j" emacspeak-table-goto)
         ([up] emacspeak-table-previous-row)
         ("p" emacspeak-table-previous-row)
