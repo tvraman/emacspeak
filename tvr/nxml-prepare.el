@@ -31,3 +31,8 @@
     (nxml-mode)))
 (when (boundp 'nxml-mode-map)
 (define-key nxml-mode-map "\C-x\C-i" 'nxml-xmlindent-visited-file))
+
+(defalias 'xml-mode 'nxml-mode)
+(defalias 'xhtml-mode 'nxml-mode)
+(defalias 'html-mode 'nxml-mode)
+(defalias 'sgml-mode 'nxml-mode)
