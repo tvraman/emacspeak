@@ -55,12 +55,23 @@
 (define-key function-key-map "\e[F" [(shift down)])
 (define-key function-key-map "\e[G" [(shift right)])
 (define-key function-key-map "\e[H" [(shift left)])
+;;; meta shifted arrows
+(define-key function-key-map  "\e\e[E" [(meta shift up)])
+(define-key function-key-map "\e\e[F" [(meta shift down)])
+(define-key function-key-map "\e\e[G" [(meta shift right)])
+(define-key function-key-map "\e\e[H" [(meta shift left)])
 ;;; Get control arrows:
 
 (define-key function-key-map "\e[I" [(control up)])
 (define-key function-key-map  "\e[J" [(control down)])
 (define-key function-key-map "\e[K" [(control right)])
 (define-key function-key-map "\e[L" [(control left)])
+;;; meta control arrows:
+(define-key function-key-map "\e\e[I" [(meta control up)])
+(define-key function-key-map  "\e\e[J" [(meta control down)])
+(define-key function-key-map "\e\e[K" [(meta control right)])
+(define-key function-key-map "\e\e[L" [(meta control left)])
+
 ;;; control return and shift return 
 (define-key function-key-map "\e[m" [(control return)])
 (define-key function-key-map "\e[M" [(shift return)])

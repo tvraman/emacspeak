@@ -249,15 +249,17 @@ Modifies text and point in buffer."
 
 (defsubst text-visible-p (position)
   (not (text-invisible-p position)))
-
-(defsubst text-invisible-p (pos)
-  "Check if text is invisible. Emacspeak helper."
-  (declare (special buffer-invisibility-spec))
-  (let ((prop (get-char-property pos 'invisible)))
-    (if (eq buffer-invisibility-spec t)
-	prop
-      (or (memq prop buffer-invisibility-spec)
-	  (assq prop buffer-invisibility-spec)))))
+(unless (fboundp 'text-invisible-p)
+  ;;; defined in simple.el in Emacs 23.
+  (defsubst text-invisible-p (pos)
+    "Check if text is invisible. Emacspeak helper."
+    (declare (special buffer-invisibility-spec))
+    (let ((prop (get-char-property pos 'invisible)))
+      (if (eq buffer-invisibility-spec t)
+          prop
+        (or (memq prop buffer-invisibility-spec)
+            (assq prop buffer-invisibility-spec)))))
+  ) ;;; needed before Emacs 23.
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
