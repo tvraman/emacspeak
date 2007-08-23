@@ -1819,18 +1819,17 @@ Provide an auditory icon if possible."
     (message "Upcased  region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
-
-(defadvice narrow-to-region (after emacspeak pre act)
-  "Announce yourself."
-  (when (interactive-p)
-    (message "Narrowed editing region to %s lines"
-             (count-lines (region-beginning)
-                          (region-end)))))
-
-(defadvice narrow-to-page  (after emacspeak pre act)
-  "Announce yourself."
-  (when (interactive-p)
-    (message "Narrowed editing region to current page ")))
+(loop for f in
+      '(narrow-to-region narrow-to-defun page)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act)
+          "Announce yourself."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (message "Narrowed editing region to %s lines"
+                     (count-lines (region-beginning)
+                                  (region-end)))))))
 
 (defadvice widen (after emacspeak pre act)
   "Announce yourself."
