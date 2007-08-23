@@ -3,7 +3,6 @@
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
-
 ;;}}}
 ;;{{{ personal lib
 (defvar emacs-private-library
@@ -61,7 +60,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (declare (special emacs-personal-library emacs-private-library))
-  (let ((gc-cons-threshold 8000000))
+  (let ((gc-cons-threshold 8000000)
+        (debug-on-quit t)
+        (debug-on-error t))
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
     (when (file-exists-p  emacs-personal-library)
@@ -72,8 +73,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (when (emacspeak-sounds-theme-p "chimes-stereo/")
-	(emacspeak-sounds-select-theme "chimes-stereo/")))
+      (emacspeak-sounds-select-theme "chimes-stereo/"))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
