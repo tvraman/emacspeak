@@ -131,6 +131,7 @@ emacspeak-entertain.elc \
 emacspeak-eperiodic.elc \
 emacspeak-erc.elc \
 emacspeak-eshell.elc \
+emacspeak-ess.elc \
 emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-facemenu.elc \
@@ -334,6 +335,7 @@ emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc voice-setup.elc
+emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc voice-setup.elc
