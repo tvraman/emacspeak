@@ -161,19 +161,12 @@ pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{ Hooks
 
-(unless (featurep 'emacspeak)
-  (setq load-path
-        (cons emacspeak-lisp-directory load-path ))
-  (setq load-path
-        (cons
-         (expand-file-name "g-client" emacspeak-lisp-directory )
-         load-path ))
-  (setq load-path
-        (cons
-         (expand-file-name "atom-blogger" emacspeak-lisp-directory )
-         load-path )))
+
+  (add-to-list 'load-path emacspeak-lisp-directory )
+  (add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory ))
 
 (load-library "emacspeak")
+
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."

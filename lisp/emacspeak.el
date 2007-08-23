@@ -385,6 +385,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
 ;;{{{ set up after-init-hook to fix interactive functions
 
 (add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
+(add-hook 'after-init-hook 'emacspeak-keymap-refresh)
 
 ;;}}}
 ;;{{{ Emacspeak:
