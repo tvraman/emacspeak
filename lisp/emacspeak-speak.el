@@ -2112,6 +2112,26 @@ Speak that chunk after moving."
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
 
+
+(defun emacspeak-speak-face-interval-and-move ()
+  "Speaks region delimited by text in current face, and moves past the chunk."
+  (interactive)
+  (let ((face (get-char-property (point) 'face))
+        (start (point))
+        (end nil))
+;;; skip over opening delimiter
+    (goto-char (next-single-char-property-change start 'face))
+    (when (eobp) (error "End of buffer"))
+    (setq end
+          (or
+           (text-property-any (point) (point-max)
+                              'face face )
+           (point-max)))
+    (dtk-speak
+     (buffer-substring start end))
+    (goto-char end)
+    (emacspeak-auditory-icon 'large-movement)))
+    
 ;;}}}
 ;;{{{ speaking Face chunks
 
