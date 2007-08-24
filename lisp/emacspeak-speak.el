@@ -2057,8 +2057,7 @@ personality."
 Speak that chunk after moving."
   (interactive)
   (let ((personality (get-text-property (point) 'personality))
-        (this-end (next-single-property-change (point)
-                                               'personality))
+        (this-end (next-single-property-change (point) 'personality))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
@@ -2112,6 +2111,56 @@ Speak that chunk after moving."
       (backward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
+
+;;}}}
+;;{{{ speaking Face chunks
+
+;;;###autoload
+(defun emacspeak-speak-this-face-chunk ()
+  "Speak chunk of text around point that has current face."
+  (interactive)
+  (let ((face (get-char-property (point) 'face))
+        (start (previous-char-property-change (point)))
+        (end (next-char-property-change  (point))))
+    (emacspeak-speak-region
+     (or start (point-min))
+     (or end (point-max)))))
+
+;;;###autoload
+(defun emacspeak-speak-next-face-chunk ()
+  "Moves to the front of next chunk having current face.
+Speak that chunk after moving."
+  (interactive)
+  (let ((face (get-text-property (point) 'face))
+        (this-end (next-single-property-change (point) 'face))
+        (next-start nil))
+    (cond
+     ((and (< this-end (point-max))
+           (setq next-start
+                 (text-property-any  this-end (point-max)
+                                     'face face)))
+      (goto-char next-start)
+      (forward-char 1)
+      (emacspeak-speak-this-face-chunk))
+     (t (message "No more chunks with current face.")))))
+
+;;;###autoload
+(defun emacspeak-speak-previous-face-chunk ()
+  "Moves to the front of previous chunk having current face.
+Speak that chunk after moving."
+  (interactive)
+  (let ((face (get-char-property (point) 'face))
+        (this-start (previous-char-property-change (point)))
+        (next-end nil))
+    (cond
+     ((and (> this-start (point-min))
+           (setq next-end
+                 (ems-backwards-text-property-any  (1- this-start) (point-min)
+                                                   'face face)))
+      (goto-char next-end)
+      (backward-char 1)
+      (emacspeak-speak-this-face-chunk))
+     (t (error "No previous  chunks with current face.")))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly, browse
