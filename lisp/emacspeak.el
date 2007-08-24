@@ -445,7 +445,6 @@ functions for details.   "
   (require 'emacspeak-personality)
   (dtk-initialize)
   (require 'emacspeak-redefine)
-  (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
   (when (and  emacspeak-play-emacspeak-startup-icon
