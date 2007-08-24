@@ -175,7 +175,7 @@
           ("\"" emacspeak-speak-skim-buffer)
           ("/" emacspeak-webutils-google-similar-to-this-page)
           ("\;" emacspeak-w3-speak-this-element)
-          ("'" emacspeak-speak-face-interval-and-move)
+          (":" emacspeak-speak-face-interval-and-move)
           ("A" emacspeak-webutils-atom-display)
           ("F" emacspeak-webutils-fv)
           ("X" emacspeak-xslt-view-xml)
