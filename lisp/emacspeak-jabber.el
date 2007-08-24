@@ -165,7 +165,7 @@
   (unless (buffer-live-p jabber-roster-buffer)
     (jabber-display-roster))
   (unless *jabber-connected*
-    (jabber-connect))
+    (call-interactively 'jabber-connect))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'select-object)
