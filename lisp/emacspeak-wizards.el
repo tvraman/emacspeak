@@ -908,11 +908,11 @@ command."
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
   (interactive)
-  (let ((continue t ))
+  (let ((continue t )
+        (dtk-stop-immediately nil))
     (while continue
       (call-interactively 'describe-key-briefly)
-      (if (= last-input-event 7)
-          (setq continue nil )))
+      (when (= last-input-event 7) (setq continue nil )))
     (message "Leaving learn mode ")))
 
 ;;}}}
