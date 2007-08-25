@@ -6,16 +6,48 @@ Author: T. V. Raman <raman@users.sf.net>
 
 Emacspeak 27.0 provides the following user level enhancements:
 
-* Developer Tools:
 
-** emacspeak-moz: 
+* emacspeak-web:
+
+Emacspeak's Web browsing facilities have been refactored to
+support W3 and W3M.
+W3M support still needs an active maintainer.
+But for now, all Web wizards are known to work with both W3 and
+W3M.
+
+*  emacspeak-ess: Speech-enables Emacs Statistics Interface
+
+Package ess provides an Emacs interface to statistical packages
+like R.
+
+*  Header Line Support:
+
+Emacspeak now supports Emacs22 header-line feature.
+There is a new command `emacspeak-speak-header-line'
+bound to C-e SPC  that 
+speaks the Emacs header-line.
+Expect newer modes to use this space for useful information.
+
+*  Smarter mode-line output:
+
+The Emacspeak command to speak the mode-line has been made
+smarter and now uses voice-lock to hightlight the major mode.
+
+
+*  Integrated Support For Google Services
+
+Package G-Client --- a suite of Emacs tools to access Google
+services such as Blogger, Calendar and friends is now fully
+integrated into the Emacspeak distribution.
+
+* emacspeak-moz: 
 
 Package emacspeak-moz.el speech-enables package moz.el which is
 part of the MozRepl Firefox extension.
 Useful when developing or extending Web applications inside
 Firefox.
 
-** Emacspeak-webmarks:
+* Emacspeak-webmarks:
 
 Preliminary module that stores and retrieves bookmarks from Google.
 
