@@ -152,11 +152,14 @@ type="text/xsl"?>
     <application name="babel">
       Access Internet  translation services.
     </application>
+    <application name="mozrepl">
+      Connect to Firefox.
+    </application>
   </category>
   <category name="Google Client">
     <application name="gblogger">
-      Blogger client for blogspot.com using Atom Publishing
-    Protocol.</application>
+      Blogger dclient  using Atom Publishing Protocol.
+    </application>
     <application name="greader">
       Google Reader client using ATOM and REST.
     </application>
@@ -165,6 +168,9 @@ type="text/xsl"?>
     <application name="gphoto">
       Google Picasa (photo albums)  client using ATOM and GData.
     </application>
+<application name="youtube">
+Google Video and YouTube
+</application>
     <application name="webmarks">
       Google Bookmarks wizard for storing and finding bookmarks via
     Google.</application>
