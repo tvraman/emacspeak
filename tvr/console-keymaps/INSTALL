@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# install emacspeak keymaps
+
+cp emacspeak.enc.gz /usr/share/keymaps/i386/include/emacspeak.enc.gz 
+cp emacspeak.kmap.gz /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz 
+loadkeys /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz
+
