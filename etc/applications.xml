@@ -437,8 +437,11 @@ type="text/xsl"?>
     </application>
     <application name="calculator">
     Simple but powerful desktop calculator.</application>
+    <application name="ess">
+      Emacs interface to statistics packages like
+    <code>R</code></application>
     <application name="dismal">
-      Spread-sheet application with suport for customizing
+      Spread-sheet application with support for customizing
     spoken feedback on a per-sheet basis.</application>
     <application name="calc">
       Calculator  with  financial and
