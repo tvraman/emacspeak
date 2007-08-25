@@ -75,7 +75,7 @@ instead of the modeline."
 
 (define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
-(define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
+(define-key w3m-mode-map [(shift tab)] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
 (define-key w3m-mode-map [down] 'next-line)
 (define-key w3m-mode-map [up] 'previous-line)

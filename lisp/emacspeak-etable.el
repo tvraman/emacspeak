@@ -63,7 +63,7 @@
           (define-key table-cell-map k '*table--cell-self-insert-command ))
     (loop for k in
           '(
-            ([backtab] table-backward-cell)
+            ([(shift tab)] table-backward-cell)
             ("\C-e." emacspeak-etable-speak-cell))
           do
           (emacspeak-keymap-update table-cell-map k))))

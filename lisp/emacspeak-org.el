@@ -218,7 +218,7 @@
 (declaim (special org-goto-map org-mode-map))
 (loop for k in
       '(
-        ([backtab]    org-shifttab)
+        ([(shift tab)]    org-shifttab)
         ([(shift up)] org-shiftup)
         ([(shift down)] org-shiftdown)
         ([(shift left)] org-shiftleft)
