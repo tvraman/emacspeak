@@ -76,7 +76,7 @@
 (define-key function-key-map "\e[m" [(control return)])
 (define-key function-key-map "\e[M" [(shift return)])
 ;;; shift tab:
-(define-key function-key-map "\e[T" [backtab])
+(define-key function-key-map "\e[T" [(shift tab)])
 (define-key function-key-map "\e[U" [(control tab)])
 ; shift space
 (define-key function-key-map "\e[ " [(shift space)])
