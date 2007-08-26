@@ -6,7 +6,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
@@ -16,7 +16,7 @@
 
 ;;; Initial version: Author: Igor B. Poretsky
 ;;; <master@goga.energo.ru>
-;;; Updated and maintained by $Author: tv.raman.tv $
+;;; Updated and maintained by $Author$
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;

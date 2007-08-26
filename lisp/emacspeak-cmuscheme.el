@@ -1,6 +1,6 @@
 ;;; emacspeak-cmuscheme.el --- Scheme support for emacspeak
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Speech-enable emacs for scheme and guile
 ;;; Keywords: Emacspeak, cmuscheme
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2006-08-19 10:48:45 -0700 (Sat, 19 Aug 2006) $ |
+;;; $Date$ |
 ;;;  $Revision: 4074 $ |
 ;;; Location undetermined
 ;;;

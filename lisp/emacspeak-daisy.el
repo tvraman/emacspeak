@@ -1,6 +1,6 @@
 ;;; emacspeak-daisy.el --- daisy Front-end for emacspeak desktop
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak front-end for DAISY Talking Books
 ;;; Keywords: Emacspeak, daisy Digital Talking Books
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-06 07:53:54 -0600 (Sun, 06 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4541 $ |
 ;;; Location undetermined
 ;;;

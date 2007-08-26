@@ -1,6 +1,6 @@
 ;;; emacspeak-websearch.el --- search utilities
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak extension to make Web searching convenient
 ;;; Keywords: Emacspeak, WWW interaction
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-06-06 09:17:56 -0700 (Wed, 06 Jun 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4625 $ |
 ;;; Location undetermined
 ;;;

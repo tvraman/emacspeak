@@ -1,6 +1,6 @@
 ;;; emacspeak-kmacro.el --- Speech-enable kbd macro interface
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak front-end for KMACRO 
 ;;; Keywords: Emacspeak, kmacro 
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2006-10-27 18:16:12 -0700 (Fri, 27 Oct 2006) $ |
+;;; $Date$ |
 ;;;  $Revision: 4241 $ |
 ;;; Location undetermined
 ;;;

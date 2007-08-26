@@ -1,6 +1,6 @@
 ;;; emacspeak-webutils.el --- Common Web Utilities For Emacspeak
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak Webutils
 ;;; Keywords: Emacspeak, web
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-06-12 06:16:25 -0700 (Tue, 12 Jun 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4634 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-advice.el --- Advice all core Emacs functionality to speak intelligently
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Core advice forms that make emacspeak work
 ;;; Keywords: Emacspeak, Speech, Advice, Spoken  output
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-09 10:50:12 -0600 (Wed, 09 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4550 $ |
 ;;; Location undetermined
 ;;;

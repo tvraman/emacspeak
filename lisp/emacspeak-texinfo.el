@@ -1,6 +1,6 @@
 ;;; emacspeak-texinfo.el --- Speech enable texinfo mode
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enable
 ;;; texinfo mode
 ;;; Keywords: Emacspeak, texinfo
@@ -9,7 +9,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4532 $ | 
 ;;; Location undetermined
 ;;;

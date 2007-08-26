@@ -1,6 +1,6 @@
 ;;; emacspeak-info.el --- Speech enable Info -- Emacs' online documentation viewer
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Module for customizing Emacs info
 ;;; Keywords:emacspeak, audio interface to emacs
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-16 09:56:00 -0700 (Wed, 16 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4558 $ |
 ;;; Location undetermined
 ;;;
