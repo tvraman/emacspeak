@@ -265,7 +265,7 @@ Modifies text and point in buffer."
   (while (and(not (eobp))
 	     (text-invisible-p (point)))
     (goto-char
-     (next-single-property-change (point) 'invisible
+     (next-single-char-property-change (point) 'invisible
 				  (current-buffer) (point-max)))))
 
 (defsubst skip-invisible-backward  ()
@@ -273,7 +273,7 @@ Modifies text and point in buffer."
   (while (and(not (bobp))
 	     (text-invisible-p (point)))
     (goto-char
-     (previous-single-property-change (point) 'invisible
+     (previous-single-char-property-change (point) 'invisible
 				      (current-buffer) (point-min)))))
 
 (defsubst delete-invisible-text ()
