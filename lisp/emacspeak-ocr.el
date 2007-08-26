@@ -1,6 +1,6 @@
 ;;; emacspeak-ocr.el --- ocr Front-end for emacspeak desktop
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak front-end for OCR
 ;;; Keywords: Emacspeak, ocr
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-04-10 20:23:39 -0700 (Tue, 10 Apr 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4448 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-keymap.el --- Setup all keymaps and keybindings provided by Emacspeak
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Module for setting up emacspeak keybindings
 ;;; Keywords: Emacspeak
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-07 17:18:56 -0600 (Mon, 07 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4544 $ |
 ;;; Location undetermined
 ;;;

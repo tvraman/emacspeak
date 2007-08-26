@@ -1,6 +1,6 @@
 ;;; emacspeak-ess.el --- Speech-enable ESS: Emacs Speaks Statistics 
-;;; $Id: emacspeak-ess.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
-;;; $Author: tv.raman.tv $
+;;; $Id$
+;;; $Author$
 ;;; Description:  Speech-enable ESS An Emacs Interface to R and others
 ;;; Keywords: Emacspeak,  Audio Desktop Statistics, R
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
@@ -103,7 +103,6 @@ Cue electric insertion with a tone."
     (message "Indented current s expression ")))
 
 ;;}}}
-(provide 'emacspeak-ess)
 ;;{{{ Evaluators
 
 (loop for f in
@@ -149,6 +148,7 @@ Cue electric insertion with a tone."
 (add-hook 'ess-mode-hook 'emacspeak-setup-programming-mode)
 
 ;;}}}
+(provide 'emacspeak-ess)
 ;;{{{ end of file
 
 ;;; local variables:

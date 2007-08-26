@@ -1,6 +1,6 @@
 ;;; emacspeak-org.el --- Speech-enable org
 ;;; $Id$
-;;; $Author: tv.raman.tv $
+;;; $Author$
 ;;; Description:  Emacspeak front-end for ORG
 ;;; Keywords: Emacspeak, org
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-01-27 10:39:40 -0800 (Sat, 27 Jan 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4347 $ |
 ;;; Location undetermined
 ;;;

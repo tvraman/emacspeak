@@ -1,22 +1,21 @@
-;;; emacspeak-babel.el --- Speech-enable BabelFish
-;;; $Id$
-;;; $Author$
-;;; Description:  Emacspeak extension to use BabelFish
-;;; Keywords: Emacspeak, WWW interaction
+;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>
+;;; $Id: emacspeak-<skeleton>.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
+;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>
+;;; Keywords: Emacspeak,  Audio Desktop <skeleton>
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-
-;;;Copyright (C) 1995 -- 2007, T. V. Raman 
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -29,7 +28,7 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITN<SKELETON> FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -39,27 +38,20 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-(require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
+;;{{{  introduction
 
 ;;; Commentary:
-;;;Speech-enable Babelfish translator
-;;; Package babel can be obtained from:
-;;;     <URL:http://www.chez.com/emarsden/downloads/babel.el>
+;;; <SKELETON> == 
 
 ;;}}}
-;;{{{ speech-enable commands
+;;{{{  Required modules
 
-(defun emacspeak-babel-done ()
-  "Announce  completion of the translation request."
-  (message "Displayed translation in other window")
-  (emacspeak-auditory-icon 'task-done))
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
 
-(add-hook 'babel-mode-hook 'emacspeak-babel-done)
 ;;}}}
-(provide 'emacspeak-babel)
+(provide 'emacspeak-<skeleton>)
 ;;{{{ end of file
 
 ;;; local variables:

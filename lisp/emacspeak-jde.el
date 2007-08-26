@@ -1,6 +1,6 @@
 ;;; emacspeak-jde.el --- Speech enable JDE -- An integrated Java Development Environment
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author$ 
 ;;; Description: Auditory interface to JDE
 ;;; Keywords: Emacspeak, Speak, Spoken Output, Java
 ;;{{{  LCD Archive entry: 
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;; $Date$ |
 ;;;  $Revision: 4532 $ | 
 ;;; Location undetermined
 ;;;

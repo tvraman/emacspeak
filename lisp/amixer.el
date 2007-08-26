@@ -1,5 +1,5 @@
 ;;; amixer.el --- Control AMixer from Emacs
-;;;$Id: cd-tool.el 4678 2007-06-25 15:14:54Z tv.raman.tv $
+;;;$Id$
 ;;;Emacs front-end to AMixer
 ;;{{{  Copyright:
 

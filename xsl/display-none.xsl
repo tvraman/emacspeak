@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--$Id: object.xsl 4047 2006-08-11 19:11:17Z tv.raman.tv $-->
+<!--$Id$-->
 
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
