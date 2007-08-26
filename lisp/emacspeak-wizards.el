@@ -3103,47 +3103,6 @@ Default is to add autoload cookies to current file."
    (format "\n Thanks, \n --%s\n" (user-full-name))))
 
 ;;}}}
-;;{{{ Weather Wizard:
-
-(defvar emacspeak-wizards-weather-command-template
-  (when (file-exists-p "/usr/bin/xmlstarlet")
-     "xmlstarlet sel --net -t -v '//item[1]/title' \
-http://www.wunderground.com/auto/rss_full/%s.xml")
-  "Command line that gives us weather conditions as a short string.")
-
-(defun emacspeak-wizards-weather-conditions  ()
-  "Return weather conditions for `emacspeak-url-template-weather-city-state'."
-  (declare (special emacspeak-url-template-weather-city-state
-                    emacspeak-wizards-weather-command-template))
-  (when (and emacspeak-wizards-weather-command-template
-             emacspeak-url-template-weather-city-state)
-    (substring
-     (shell-command-to-string
-      (format emacspeak-wizards-weather-command-template
-              emacspeak-url-template-weather-city-state))
-     0 -1)))
-
-(defvar emacspeak-wizards-current-weather nil
-  "Holds cached value of current weather conditions.")
-(defvar emacspeak-wizards-weather-updates-timer nil
-  "Timer holding our weather update timer.")
-
-(defun emacspeak-wizards-setup-weather-updates ()
-  "Setup periodic weather updates.
-Updated weather is found in `emacspeak-wizards-current-weather'."
-  (interactive)
-  (declare (special emacspeak-wizards-current-weather
-                    emacspeak-wizards-weather-updates-timer ))
-  (unless emacspeak-url-template-weather-city-state
-    (error
-     "First set option emacspeak-url-template-weather-city-state to your city/state."))
-  (setq emacspeak-wizards-current-weather
-        (emacspeak-wizards-weather-conditions))
-  (setq emacspeak-wizards-weather-updates-timer
-  (run-at-time  "1 hour" nil
-                'emacspeak-wizards-setup-weather-updates)))
-
-;;}}}
 ;;{{{ specialized input buffers:
 
 ;;; Taken from a message on the org mailing list.
