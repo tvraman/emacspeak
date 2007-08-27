@@ -201,7 +201,7 @@
 ;;{{{ import/export:
 
 ;;}}}
-;;{{{ Meta Navigators:
+;;{{{ org-goto fixup:
 
 (loop for f in
       '(org-metadown org-metaup org-metaleft org-metaright)
@@ -213,9 +213,9 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'yank-object)))))
 
-;;}}}
-;;{{{ org-goto fixup:
-(declaim (special org-goto-map org-mode-map))
+(defun emacspeak-org-update-keys ()
+  "Update keys in org mode."
+(declare (special org-goto-map org-mode-map))
 (loop for k in
       '(
         ([(shift tab)]    org-shifttab)
@@ -234,13 +234,14 @@
         )
       do
       (emacspeak-keymap-update  org-mode-map k))
-
-(loop for k in'(
-                ( "\C-e" emacspeak-prefix-command)
-                ( "\C-h" help-command))
+(loop for k in
+      '(
+        ( "\C-e" emacspeak-prefix-command)
+        ( "\C-h" help-command))
       do
-      (emacspeak-keymap-update  org-goto-map k))
+      (emacspeak-keymap-update  org-goto-map k)))
 
+(add-hook 'org-mode-hook 'emacspeak-org-update-keys)
 ;;}}}
 ;;{{{ deleting chars:
 
