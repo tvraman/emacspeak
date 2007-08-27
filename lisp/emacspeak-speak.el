@@ -852,7 +852,7 @@ are indicated with auditory icon ellipses."
         (when (eq emacspeak-audio-indentation-method 'tone)
           (emacspeak-indent indent )))
       (when (or
-             (text-invisible-p end)
+             (invisible-p end)
              (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond

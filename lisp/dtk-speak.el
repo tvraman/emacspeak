@@ -248,10 +248,10 @@ Modifies text and point in buffer."
 ;;{{{  Helpers to handle invisible text:
 
 (defsubst text-visible-p (position)
-  (not (text-invisible-p position)))
-(unless (fboundp 'text-invisible-p)
+  (not (invisible-p position)))
+(unless (fboundp 'invisible-p)
   ;;; defined in simple.el in Emacs 23.
-  (defsubst text-invisible-p (pos)
+  (defsubst invisible-p (pos)
     "Check if text is invisible. Emacspeak helper."
     (declare (special buffer-invisibility-spec))
     (let ((prop (get-char-property pos 'invisible)))
@@ -263,7 +263,7 @@ Modifies text and point in buffer."
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
-	     (text-invisible-p (point)))
+	     (invisible-p (point)))
     (goto-char
      (next-single-char-property-change (point) 'invisible
 				  (current-buffer) (point-max)))))
@@ -271,7 +271,7 @@ Modifies text and point in buffer."
 (defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
   (while (and(not (bobp))
-	     (text-invisible-p (point)))
+	     (invisible-p (point)))
     (goto-char
      (previous-single-char-property-change (point) 'invisible
 				      (current-buffer) (point-min)))))
@@ -282,7 +282,7 @@ Modifies text and point in buffer."
   (let ((start  (point )))
     (while (not (eobp))
       (cond
-       ((text-invisible-p (point ))
+       ((invisible-p (point ))
 	(skip-invisible-forward)
 	(delete-region  start (point ))
 	(setq start (point )))
