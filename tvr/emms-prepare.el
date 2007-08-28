@@ -1,5 +1,6 @@
 (augment-load-path "emms" "emms")
 (require 'emms-setup)
+(require 'emms-volume)
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3/")
