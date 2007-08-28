@@ -1,4 +1,4 @@
-(augment-load-path "remember" "remember")
+;;; See http://johnwiegley.com/org.mode.day.planner.html
 (load-library "remember")
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
