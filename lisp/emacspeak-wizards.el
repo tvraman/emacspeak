@@ -1977,9 +1977,6 @@ annotation is inserted into the working buffer when complete."
   (search-forward "Summary" nil t)
   (emacspeak-speak-line))
 
-(declaim (special dired-mode-map))
-(when (boundp 'dired-mode-map)
-  (define-key dired-mode-map "r" 'emacspeak-wizards-rpm-query-in-dired))
 ;;}}}
 ;;{{{ auto mode alist utility
 
