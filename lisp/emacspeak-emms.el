@@ -137,6 +137,11 @@
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)))))
+(defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act)
+  "Announce the buffer that becomes current."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line )))
       
 ;;}}}
 (provide 'emacspeak-emms)
