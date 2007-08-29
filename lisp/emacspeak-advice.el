@@ -1820,7 +1820,7 @@ Provide an auditory icon if possible."
              (count-lines (region-beginning)
                           (region-end)))))
 (loop for f in
-      '(narrow-to-region narrow-to-defun page)
+      '(narrow-to-region narrow-to-page)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
@@ -1830,6 +1830,14 @@ Provide an auditory icon if possible."
             (message "Narrowed editing region to %s lines"
                      (count-lines (region-beginning)
                                   (region-end)))))))
+
+
+(defadvice narrow-to-defun (after emacspeak pre act)
+  "Announce yourself."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (message "Narrowed to function %s"
+             (which-function))))
 
 (defadvice widen (after emacspeak pre act)
   "Announce yourself."
