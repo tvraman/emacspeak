@@ -1,0 +1,492 @@
+#+STARTUP: hidestars
+
+* GTD
+
+Getting Things Done (GTD) is a productivity system taught by the
+American consultant and author David Allen. He has coached many people
+in this system through seminars and consulting, but the most popular
+wasy has been his book *Getting Things Done. The Art of Stress-Free
+Productivity* published by Penguin Books. 
+(More details can be obtained from the Amazon web site: 
+http://www.amazon.com/exec/obidos/ASIN/0142000280/thecreativitweb
+
+The heart of GTD is a workflow of collecting, processing and making
+decisions up front about all the things you need to get done in your
+life. A key success factor is tracking everything in a trusted system
+rather than in your head. A trusted system could be paper based
+(notebook, a ring bound planner), Palm / PocketPC computer or a
+computer program such as org-mode described in this tutorial.
+
+** Good bye To-Do lists, hello Next Actions
+
+To Do lists are a thing of the past. In the GTD methodology, decisions
+are made at the time of processing all of the things in your life
+demanding some of your time, energy and decision making.  Examples
+include letters, email, action items resulting from meetings or phone
+calls, ideas, your roles and responsibilities at home and work,
+and interaction with people.
+
+Instead of making lists of things to do, two questions are asked about
+each item:
+
+1. What is the /desired outcome/?
+2. What is the /next physical action/ I can take to get closer to this outcome?
+
+The results are a clear picture of what "finished" looks like, and
+what needs to be done to get closer to finishing this task. Describing the
+next action minimises procrastination as it makes it easier to decide
+what to do next. You don't need to make a decision of what
+to do every time you look at your list.
+
+** Contexts
+
+As well as defining the Next Action (often referred to as an NA), a
+decision is made about the context of the action. A context is where
+the action can take place subject to various restraints or resources
+required. 
+
+For example, the context of "Phone" requires having a telephone
+available. An "Office" context means that the action can only take
+place in the office, similarly, the context of "Home" is for items
+that can only be done in the home.
+
+Each person's list of contexts will be different and will require some
+experimenting to determine a practical working set.  My contexts
+include:
+
+- *Office* (I use this for phone calls to be made during business hours)
+- *Home* (this context is also used for phone calls 
+- *Computer* (home computer)
+- *DVD Watching* (I borrow a lot of DVDs from the library)
+- *Reading* (this gets done on my train trip to work)
+
+** Agendas
+
+The GTD methodology uses many lists such as the Next Action lists
+described in the previous section. David Allen uses the term "Agendas"
+to describe lists of actions you need to discuss with particular
+people or to raise at a regular meeting. Agendas can be thought of as
+a special form of next action list.
+
+For example, if you have a regular meeting with your boss, you can
+create a list called *Boss* recording items to discuss when you
+next meet. If you are manager, you could created agendas for each of
+the people in your team.
+
+** Waiting For
+
+Another type of list is a "Waiting For" list. Often when you complete
+a next action or delegate an action, you need to wait for a
+response. Writing this information on a "Waiting For" list is a useful
+reminder. 
+
+** Projects
+
+A Project is an outcome that requires more than one several Next
+Action steps to be completed.  When reviewing the things you need to
+get done, think in terms of the desired outcome and as many of the
+Next Actions as you can. It is not necessary to think of all of the
+Next Actions you need to take, but enough to get started.
+
+For example, an outcome of "Dinner Party" is a project. Some of the
+Next Actions would have a "Phone" context: "Ring Bill and Hilary",
+"Ring Valerie and Mark". Under the "Shopping" context, there could be
+next actions for "Buy red wine from bottle shop".
+
+Make a list of your active projects to use as a checklist during your
+weekly review.  This will ensure that you are creating next actions
+for each of your projects, and approaching completion on each of your
+projects.
+
+** Calendar
+
+Calendars are used to record date-specific or date and time specific
+information only. Calendars are *not* used to write to-do lists as
+encouraged in the old style of planners. The calendar is a place for
+recording appointments, meetings and date-specific information (for
+example, birthdays).
+
+** Tickler File
+
+This a system to store forward-dated action items. Often this takes
+the form of 43 folders (12 months + 31 days), although a software
+based system is feasible. For example a bill requiring payment on the
+20th of the current month would be filed in the folder labelled
+"20". The list of Christmas card recipients would be filed in the
+"December" folder. 
+
+** Someday/Maybe
+
+You can't do everything now, so the Someday/Maybe List is used to
+record ideas about things you would like to do but don't want to
+schedule them now or make further progress.  This list is frequently
+updating during the Weekly Review. Items on the list may become active
+projects, or conversely, you may decide to de an active project or
+Next Action to a later date.
+        
+** What do I do now?
+
+Deciding what to do next is going to be based on context, how much
+time you have available and your energy level. Because your Next
+Action lists are reviewed at the Weekly Review, you have a means of
+directing your activity during the week.  When you are at home, you
+can review the HOME list without being distracted by items in OFFICE
+context. 
+
+** Weekly Review
+
+The heart of the GTD process is a weekly review of all projects, Next
+Action lists, Waiting for Items. Each project is checked to ensure
+that a next action has been defined.
+
+** Mind Sweep
+
+The goal of  GTD is to get everything out of your mind into an
+external, trusted system. This will maximmise the readiness of your
+mind to gain focus on getting things done.
+
+A mind sweep is a technique used to recall all of the things that you
+are thinking about doing.
+
+* Emacs
+
+Emacs is a highly extensible, customizable, self-documenting real-time
+display editor (quoting from the Emacs Manual). Emacs dates back to
+the mind 1970s and is very popular on Unix systems.  The core of Emacs
+is a Lisp interpreter and this forms the basis of writing extensions
+that add functionality to the editor. org-mode is an example of such
+an extenstion.
+
+Emacs is available for Windows, Linux, Mac-OS X, and just about every
+other Unix operating system.
+
+* Org-mode
+
+The org-mode package is a mode for keeping notes, lists and doing
+project management with a fast and effective plain-text
+system. Org-mode is based on top of the Emacs outline-mode and
+provides a very usable, color-coded outliner with powerful
+functionality.
+
+<file:mygtd.png>
+
+The heart of org-mode is organising the contents in a hierarchical
+structure, using the outline, and assigning tags (for contexts) and
+optional dates to headlines. Viewing and editing the document is
+achieved by folding (hiding) parts of the document to show the
+relevant content.
+
+** Headlines
+
+A headline has one or more asterisks at the beginning of the line with
+the level being determined by the number of asterisks.
+
+:  * Colors
+:  ** Red
+:  This is a content for the Red headline
+:  ** Green
+:  ** Blue
+
+** Visibility
+
+The contents of the file can be shown or hidden using the Shift-TAB
+key. Pressing the TAB key cycles through a top level overview, all
+headings and all headings with content.
+
+Here are three screen shots from an outline about the twelve months in
+Australia, shown side by side. At the left is the top level view, then
+all the headings, and on the right is the complete contents of the file.
+
+<file:three_states.png>
+
+** Structure Editing
+
+A headline (a line beginning with one or more asterisks) and the lines
+following (without asterisks at the beginning) make up a branch on the
+outline and can be moved around with "structure editing" commands.
+
+Org-mode provides a full range of commands to promote and demote
+headings and subtrees, moving branches up and down the file, as well
+as copying, killing and pasting sub-trees. 
+
+** Adding and Displaying Tags
+
+Tags are added with the =C-c C-c= command, which prompts for a
+tag. This can be seen in the screen-shot shown above.  Tag completion
+is supported, for example typing the letter C followed by the tab key
+will completed the string making COMPUTER. The list of tags is built
+up by scanning the buffer.  You can also specify a list of tags with
+short cut letters for fast tag selection. 
+
+** Displaying Next Action lists
+
+The =C-c \= command is used to prompt for a tag search expression,
+then display a "sparse tree" of headlines that contain the tags
+specified in a search.  A sparse tree means that the entire document
+is folded as much as possible, but the selected information is made
+visible along with the headline structure above it.
+
+The tag search can be a single keyword (for example, HOME) or a
+Boolean expression using & for "and" and '|' for "or", for example
+"HOME | COMPUTER".
+
+The following example shows a search on the keyword of HOME:
+
+<file:hometag.png>
+
+** Todo tags, DONE and Archiving.
+
+Org-mode provides functionality to tag headlines with a =Todo= tag,
+commands to display these  =Todo= tags and marking for completion.
+I do not use this feature as GTD relies on lists of actions by
+context. Choosing which Next Action to do next depends on the context,
+and time and energy available.
+        
+** Setting up your GTD File
+
+I use one file to contain all my projects, tasks, agendas and
+someday/maybe lists.
+
+*** File Header
+
+I named my file =mygtd.org= and included the following three lines at
+the top of the file.
+
+: #+STARTUP: overview
+: #+TAGS: OFFICE(o) COMPUTER(c) HOME(h) PROJECT(p) READING(r) DVD(d) 
+: #+STARTUP: hidestars
+
+The first line tells org-mode to only display the top level headings
+when the file is opened.
+
+The second line is a list of contexts I use. The single letters in
+parentheses are used for the fast selection of contexts.
+Choosing a contest is done by issuing the command C-c C-c then
+entering the letter correspoding to the category.
+
+The third line causes org-mode to suppress the leading asterisks on
+headings which greatly improves readability.
+
+*** Devise a broad structure
+
+You will probably need to experiment with a file structure that makes
+it easy to review your areas of responsibility, projects and life areas.
+The category tags are the useful components but the sequence of
+headlines and structure is not important.
+
+One possibility is to create some headlines corresponding to your key
+areas and responsibilities at work and home. List the names of
+your family members and their activities.  Each active project can
+have a headline. At the weekly review reviewing the file will double
+up as a checklist.
+
+
+: * Miscellaneous tasks
+: ** Ring Service Station to book car for service :PHONE:
+: ** Send email to Bill regarding sales order     :COMPUTER:
+: 
+: * Emily
+: This headline is to remind me to check on my daughters
+: school activities!
+: ** School subjects
+: ** Viola
+: ** Piano
+: ** School Certificate Exam preparation
+: * Work
+: ** Work Prject 1
+: *** Next action item                            :OFFICE:
+: 
+: * Home
+: ** Ready for Anything (David Allen) reading project
+: *** Read Chapter 1                              :READING:
+: * DVDs to watch
+: ** Casablanca                                   :DVD:
+: ** King Kong                                    :DVD:
+: 
+: * Someday/Maybe
+: ** Books I would like to read
+: *** Life - A users manual (Georges Perec)
+: ** Movies I want to see
+: ** Restaurants I want to try
+: ** DVDs I would like to hire
+: *** Godfather III
+: *** Memoirs of a Geisha
+ 
+
+*** Do a Mind Sweep
+
+An excellent way of ensuring you have thought of everything for your
+file is to do a "mind-sweep". Start a heading at the end of the file
+and start a new line with two asterisks.
+
+: * Mind Sweep
+: **   Ring Bill about that meeting
+: **   Change tap washer in laundry
+: **   Pay membership subscription.
+
+Set a timer or alarm clock and spend five minutes brainstorming all
+the things on your mind that need doing. As you think of the item,
+type a brief description, then =Alt-Enter= to start a new line to create
+a headline at the same level.  
+
+Work fast to get everything out of your mind. When the timer is
+finished, review the list, add tags and move to the appropriate
+section of the file.
+
+*** Source Code control and backups
+
+I have played my file (=mygtd.org=) under source code control. I use
+the SubVersion program for tracking changes made each day. The file
+gets backed up to CD as well as copied to a USB-drive for portability
+between home and office.
+
+*** Accessing my GTD file, fast!        
+
+I added some code to quickly open my GTD file. Now I can enter the
+command =M-x gtd= and a new window is opened with my org-mode file.
+
+:(defun gtd ()
+:   (interactive)
+:   (find-file "c:/homes/charles/gtd/gtd/mygtd.org")
+: )
+
+
+** Collecting
+
+I use index cards (3 by 5 inches) to capture ideas and next actions.
+Sometimes I use the cards as the basis of my decision making. These
+cards are reviewed during the weekly review and my GTD file is updated
+with actions that are still outstanding.
+
+** Calendar
+
+I use a week to an opening paper diary to record my appointments, due
+dates for library books, family events, children's school activities
+and so on. Therefore I don't use use the scheduling features of
+Org-mode.
+
+Refer to the org-mode documentation for details on assigning deadlines
+and scheduled dates to headings.  The agenda view (C-c a) is used to
+display items with associated dates in a date and times sequenced
+display.
+
+
+** Portable Next Action lists
+
+I like to carry a simply formatted printed list of my next actions for
+each context. I wrote a Perl script (file:orghip.pl) to read my
+Org-mode formatted GTD file and produce Next Action lists by context.
+
+The script displays the PROJECT list first, followed by the OFFICE
+context, then the remaining tags are displayed.
+
+The sequence of the items in each context correspond to the order in
+which they were found in the file, and this gives some sontext to
+actions in the same context.
+
+Here is an edited version of this file using the an example file,
+<file:mygtd.org>.
+
+: Date Printed: Sun Sep  3 14:13:33 2006
+: 
+: PROJECT:
+: [ ] IPTM 9 Testing  (Beta Release)                
+: [ ] Learn to typeset music with Lilypond         
+: [ ] C# Windows Forms Programming                 
+: [ ] Learn to Inkscape                            
+: [ ] GTD Implementation                           
+: 
+: 
+: OFFICE:
+: [ ] Install latest Ethereal                     
+: [ ] Retest bugs in RESOLVED status              
+: [ ] Go to Post Office and buy stamps            
+: [ ] Ring Dentist to change appointment          
+: 
+: 
+: HOME:
+: [ ] Picture hooks in lounge room                
+: [ ] John Byrne Book - work through              
+: 
+: 
+: COMPUTER:
+: [ ] Typeset "Eleanor Rigby" for Katie           
+: [ ] Typeset piano part of Sicilienne            
+: [ ] Speech timer (use Egg Timer as basis)       
+: [ ] Note entry program for LilyPond             
+: [ ] Study Tutorial 1                            
+: [ ] Learn org-mode properly                     
+: [ ] Write and publish tutorial on org-mode      
+: 
+: 
+: DVD:
+: [ ] Howl's moving castle DEADLINE: <2006-09-07 Thu> 
+: [ ] Fantasia DEADLINE: <2006-09-15 Fri>         
+: 
+: 
+: READING:
+: [ ] Review "Prognosis User guide"               
+
+
+        
+* References
+
+** GTD
+
+- David Allen's web site (http://www.davidco.com)
+- Getting Things Done Wikipedia article (http://en.wikipedia.org/wiki/Getting_Things_Done)
+- 43 Folders (http://www.43folders.com)
+- Getting Things Done email group (http://finance.groups.yahoo.com/group/Getting_Things_Done/)
+- Charles' GTD Blog (http://charlesgtd.blogspot.com)
+
+** Emacs
+
+- http://en.wikipedia.org/wiki/Emacs
+- http://www.gnu.org/software/emacs/emacs.html (this author uses GNU
+  Emacs for Windows available from.
+
+** Org Mode
+
+- Org-mode home page - (http://staff.science.uva.nl/~dominik/Tools/org/)
+
+
+#+TITLE:     Using Emacs org-mode for GTD
+#+AUTHOR:    Charles Cave
+#+EMAIL:     charlesweb@optusnet.com.au
+#+LANGUAGE:  en
+#+TEXT:      A brief overview of org-mode Emacs and how it can be used to
+#+TEXT:      implement David Allen's Getting Things Done methodology
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
+
+@<hr>
+
+* COMMENT HTML style specifications
+
+# Local Variables:
+# org-export-html-style: " <style type=\"text/css\">
+html {
+       font-family: Verdana, Times, serif;
+    font-size: 10pt;
+    margin-left: 40pt;
+    margin-right: 40pt;
+  }
+pre {
+      border: 1pt solid #AEBDCC;
+      background-color: #F3F5F7;
+      padding: 5pt;
+      font-family: courier, monospace;
+     font-size: 10pt;
+     margin-left: 45pt;
+     margin-right: 45pt;
+  }
+p,li {
+    margin-left: 1.5 cm;
+    margin-right: 1.5 cm;
+   }
+.author, .date {
+     font-size: 8pt;
+     margin-left: 0pt;
+   }
+  h1 {color: darkblue; }
+ </style>"
+# End:
