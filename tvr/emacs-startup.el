@@ -93,6 +93,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ("\M-s" save-buffer)
             ("\M--" advertised-undo)
 	    ([delete]dtk-toggle-punctuation-mode)
+            ([(deletechar)] dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
 	    ([f12]vm)
