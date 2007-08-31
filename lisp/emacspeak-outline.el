@@ -293,6 +293,15 @@ except that the outline section is optionally spoken"
    ))
 
 ;;}}}
+;;{{{ silence errors to help org-mode:
+
+(defadvice outline-up-heading (around emacspeak pre act comp)
+  "Silence error messages."
+  (ems-with-errors-silenced
+   ad-do-it
+   ad-return-value))
+
+;;}}}
 (provide  'emacspeak-outline)
 ;;{{{  emacs local variables
 
