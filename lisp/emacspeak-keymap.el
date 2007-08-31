@@ -412,6 +412,7 @@ field in the customization buffer.  You can use the notation
         ([f11] emacspeak-wizards-shell-toggle)
         ([insert] emacspeak-emergency-tts-restart)
         ([delete] emacspeak-ssh-tts-restart)
+        ([(deletechar)] emacspeak-ssh-tts-restart)
         )
       do
       (emacspeak-keymap-update emacspeak-keymap binding))
@@ -431,6 +432,7 @@ field in the customization buffer.  You can use the notation
         ("\M-\C-b" tts-show-debug-buffer)
         ("a" dtk-add-cleanup-pattern)
         ("b" dtk-toggle-debug)
+        ("," dtk-toggle-punctuation-mode)
         ("c" dtk-toggle-capitalization)
         ("d" dtk-select-server)
         ("f" dtk-set-character-scale)
