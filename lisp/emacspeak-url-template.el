@@ -603,7 +603,7 @@ content."
  "Logout from Google to do an anonymous search.")
 
 ;;}}}
-;;{{{ gmail:
+;;{{{ gmail: Mobile
 
 (emacspeak-url-template-define
  "GMail Mobile"
@@ -611,6 +611,19 @@ content."
  nil
  'emacspeak-speak-buffer
  "GMail Mobile XHTML version --- light-weight, fast!")
+
+;;}}}
+;;{{{ GMail HTML
+
+(emacspeak-url-template-define
+ "GMail Search"
+ "http://mail.google.com/mail/h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1"
+ (list "GMail Search:")
+ nil
+ "Search GMail. 
+Make sure to sign in before invoking this template."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "th" url)))
 
 ;;}}}
 ;;{{{ Calendar Mobile:
