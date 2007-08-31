@@ -127,8 +127,7 @@
   (interactive "sJSEval: ")
   (declare (special moz-repl-name))
   (declare (special emacspeak-moz-output-buffer))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8))
-        (comint-preoutput-filter-functions
+  (let ((comint-preoutput-filter-functions
          (list 'emacspeak-moz-accumulate-output)))
     (save-excursion
       (set-buffer (get-buffer-create emacspeak-moz-output-buffer))

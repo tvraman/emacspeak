@@ -118,7 +118,6 @@ part of the libxslt package."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options
                     emacspeak-xslt-keep-errors modification-flag ))
   (let ((command nil)
-        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
@@ -157,13 +156,12 @@ part of the libxslt package."
 (defsubst emacspeak-xslt-run (xsl start end)
   "Run xslt on region, and return output filtered by sort -u"
   (declare (special emacspeak-xslt-program emacspeak-xslt-options))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
     (shell-command-on-region
      start end
      (format "%s %s %s - 2>/dev/null | sort -u"
              emacspeak-xslt-program emacspeak-xslt-options xsl)
      (current-buffer) 'replace)
-    (current-buffer)))
+    (current-buffer))
 
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
@@ -186,7 +184,7 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        (default-process-coding-system (cons 'utf-8 'utf-8))
+        
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
@@ -250,7 +248,6 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)

@@ -732,7 +732,7 @@ used as well."
     (or emacspeak-we-class-filter
         (setq emacspeak-we-class-filter
               (read-from-minibuffer "Class: ")))
-    (emacspeak-webutils-read-url)))
+    (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-we-class-filter
                     emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))
