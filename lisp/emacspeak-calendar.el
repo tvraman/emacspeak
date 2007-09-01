@@ -155,9 +155,8 @@
   "Mode line format for calendar  with Emacspeak.")
 
 (defvar emacspeak-calendar-header-line-format
-   '((:eval (calendar-date-string (calendar-cursor-to-date t))))
-   "Header line used by Emacspeak in calendar.")
-
+  '((:eval (calendar-date-string (calendar-cursor-to-date t))))
+  "Header line used by Emacspeak in calendar.")
 
 (declaim (special calendar-mode-line-format))
 (setq calendar-mode-line-format
@@ -169,7 +168,7 @@
     (emacspeak-auditory-icon 'open-object)
     (when emacspeak-use-header-line
       (setq header-line-format
-	    '((:eval (calendar-date-string (calendar-cursor-to-date t))))))
+            '((:eval (calendar-date-string (calendar-cursor-to-date t))))))
     (setq calendar-mode-line-format
           emacspeak-calendar-mode-line-format)
     (tts-with-punctuations 'some

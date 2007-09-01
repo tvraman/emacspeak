@@ -161,9 +161,8 @@ pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{ Hooks
 
-
-  (add-to-list 'load-path emacspeak-lisp-directory )
-  (add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory ))
+(add-to-list 'load-path emacspeak-lisp-directory )
+(add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory ))
 
 (load-library "emacspeak")
 
@@ -181,13 +180,13 @@ pronunciation dictionaries are stored. ")
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to show a default header line."
   (declare (special emacspeak-use-header-line
-			    default-header-line-format
-			    emacspeak-default-header-line-format))
-	  (when emacspeak-use-header-line
-	    (setq default-header-line-format
-		  emacspeak-default-header-line-format)))
+                    default-header-line-format
+                    emacspeak-default-header-line-format))
+  (when emacspeak-use-header-line
+    (setq default-header-line-format
+          emacspeak-default-header-line-format)))
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
-	  
+          
 ;;; Use (add-hook 'emacspeak-startup-hook ...)
 ;;; to add your personal settings.
 

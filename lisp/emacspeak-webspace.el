@@ -57,7 +57,7 @@
 
 (defvar emacspeak-webspace-weather-command-template
   (when (executable-find "xmlstarlet")
-     "xmlstarlet sel --net -t -v '//item[1]/title' \
+    "xmlstarlet sel --net -t -v '//item[1]/title' \
 http://www.wunderground.com/auto/rss_full/%s.xml")
   "Command line that gives us weather conditions as a short string.")
 
@@ -90,8 +90,8 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (setq emacspeak-webspace-current-weather
         (emacspeak-webspace-weather-conditions))
   (setq emacspeak-webspace-weather-updates-timer
-  (run-at-time  "1 hour" nil
-                'emacspeak-webspace-setup-weather-updates)))
+        (run-at-time  "1 hour" nil
+                      'emacspeak-webspace-setup-weather-updates)))
 
 ;;}}}
 (provide 'emacspeak-webspace)

@@ -90,7 +90,7 @@ use `emacspeak-toggle-auditory-icons' bound to
   (cond
    ((executable-find "amixer")
     (call-interactively 'amixer))
-    (t (call-interactively 'emacspeak-aumix)))
+   (t (call-interactively 'emacspeak-aumix)))
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}

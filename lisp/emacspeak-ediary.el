@@ -67,12 +67,11 @@
 (loop for f in emacspeak-ediary-commands-that-speak-entry
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Speak the entry."
           (when (interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object))))))
+            (emacspeak-auditory-icon 'select-object)))))
   
 ;;}}}
 (provide 'emacspeak-ediary)

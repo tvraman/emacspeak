@@ -61,14 +61,13 @@
 (loop for f in emacspeak-find-func-commands
       do
       (eval
-       (`
-        (defadvice (, f)  (after emacspeak pre act comp)
+       `(defadvice ,f  (after emacspeak pre act comp)
           "Speak current line"
           (when (interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (emacspeak-dtk-sync)
             (dtk-speak
-             (format "Found %s" (ad-get-arg 0))))))))
+             (format "Found %s" (ad-get-arg 0)))))))
 
 ;;}}}
 

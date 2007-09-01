@@ -506,7 +506,6 @@ relief."
         do
         (define-key keymap k 'undefined )))
 
-
 (defun emacspeak-keymap-refresh ()
   "Load emacspeak-keymap module."
   (load-library "emacspeak-keymap"))

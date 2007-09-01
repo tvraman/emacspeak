@@ -288,38 +288,38 @@ command \\[customize-variable] on <personality>-settings.. "
                 (choice :tag "Family"
                         (const :tag "Unspecified" nil)
                         (const  :tag "Paul" paul)
-			(const :tag "Harry" harry)
-			(const :tag "Betty" betty))
-		(choice :tag "Average Pitch"
-			(const :tag "Unspecified" nil)
-			(integer :tag "Number"))
-		(choice :tag "Pitch Range"
-			(const :tag "Unspecified" nil)
-			(integer :tag "Number"))
-		(choice :tag "Stress"
-			(const :tag "Unspecified" nil)
-			(integer :tag "Number"))
-		(choice :tag "Richness"
-			(const :tag "Unspecified" nil)
-			(integer :tag "Number"))
-		(choice :tag "Punctuation Mode "
-			(const :tag "Unspecified" nil)
-			(const :tag "All punctuations" all)
-			(const :tag "Some punctuations" some)
-			(const :tag "No punctuations" none)))
+                        (const :tag "Harry" harry)
+                        (const :tag "Betty" betty))
+                (choice :tag "Average Pitch"
+                        (const :tag "Unspecified" nil)
+                        (integer :tag "Number"))
+                (choice :tag "Pitch Range"
+                        (const :tag "Unspecified" nil)
+                        (integer :tag "Number"))
+                (choice :tag "Stress"
+                        (const :tag "Unspecified" nil)
+                        (integer :tag "Number"))
+                (choice :tag "Richness"
+                        (const :tag "Unspecified" nil)
+                        (integer :tag "Number"))
+                (choice :tag "Punctuation Mode "
+                        (const :tag "Unspecified" nil)
+                        (const :tag "All punctuations" all)
+                        (const :tag "Some punctuations" some)
+                        (const :tag "No punctuations" none)))
        :group 'voice-fonts
        :set
        '(lambda  (sym val)
-	  (let ((voice-name (voice-setup-personality-from-style val)))
-	    (setq ,personality voice-name)
-;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
-	    (voice-setup-update-personalities ',personality)
-	    (set-default sym val))))))
+          (let ((voice-name (voice-setup-personality-from-style val)))
+            (setq ,personality voice-name)
+;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+            (voice-setup-update-personalities ',personality)
+            (set-default sym val))))))
 
-;;}}}                                   ; ;
-;;{{{ voices defined using ACSS         ; ;
+;;}}}                                   ; ; ;
+;;{{{ voices defined using ACSS         ; ; ;
 
-;;; these voices are device independent ; ;
+;;; these voices are device independent ; ; ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all

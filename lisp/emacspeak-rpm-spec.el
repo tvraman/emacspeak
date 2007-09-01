@@ -65,16 +65,15 @@
 (loop for f in emacspeak-rpm-spec-insertion-commands
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
             (let ((entry  (format "%s"
-                                  (quote (, f)))))
+                                  (quote ,f))))
               (setq entry
                     (car (last (split-string entry "-"))))
               (message
-               (format "Inserted %s entry" entry))))))))
+               (format "Inserted %s entry" entry)))))))
 
 ;;}}}
 ;;{{{ Advice navigation 
@@ -87,12 +86,11 @@
 (loop for f in emacspeak-rpm-spec-navigation-commands
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line))))))
+            (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Advice build commands 
@@ -110,17 +108,16 @@
 (loop for  f in emacspeak-rpm-spec-build-commands
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
             (let ((target  (format "%s"
-                                   (quote (, f)))))
+                                   (quote ,f))))
               (setq target
                     (car (last (split-string target "-"))))
               (emacspeak-auditory-icon 'task-done)
               (message
-               (format "Launched build %s " target))))))))
+               (format "Launched build %s " target)))))))
 
 ;;}}}
 ;;{{{ advice toggles 
@@ -136,11 +133,10 @@
 (loop for f in emacspeak-rpm-spec-toggle-commands
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
-            (let ((toggle  (format "%s" (quote (, f))))
+            (let ((toggle  (format "%s" (quote ,f)))
                   (switch nil))
               (setq switch
                     (intern
@@ -148,7 +144,7 @@
                                                "spec"
                                                toggle)))
               (emacspeak-auditory-icon
-               (if (eval switch) 'on 'off))))))))
+               (if (eval switch) 'on 'off)))))))
 
 ;;}}}
 ;;{{{ voice locking 

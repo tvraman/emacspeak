@@ -82,12 +82,11 @@
         ecb-goto-window-edit2 )
       do
       (eval 
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object))))))
+            (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
   "Provide auditory feedback."

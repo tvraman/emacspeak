@@ -127,20 +127,20 @@ use the minibuffer."
           "Automatically defined advice to speak interactive prompts. "
           (interactive
            (nconc
-             ,@(mapcar
-              #'(lambda (prompt)
-                  `(let ((dtk-stop-immediately nil)
-                         (emacspeak-speak-messages nil))
-                     (when (ems-prompt-without-minibuffer-p ,prompt)
-                       (emacspeak-auditory-icon 'open-object)
-                       (tts-with-punctuations 'all
-                                              (dtk-speak
-                                               (or (substring ,prompt 1 ) ""))))
-                     (call-interactively
-                      #'(lambda (&rest args)
-                          (interactive ,prompt)
-                          args) nil)))
-              prompts))))))
+            ,@(mapcar
+               #'(lambda (prompt)
+                   `(let ((dtk-stop-immediately nil)
+                          (emacspeak-speak-messages nil))
+                      (when (ems-prompt-without-minibuffer-p ,prompt)
+                        (emacspeak-auditory-icon 'open-object)
+                        (tts-with-punctuations 'all
+                                               (dtk-speak
+                                                (or (substring ,prompt 1 ) ""))))
+                      (call-interactively
+                       #'(lambda (&rest args)
+                           (interactive ,prompt)
+                           args) nil)))
+               prompts))))))
      (t
       ;; cannot handle automatically -- tell developer
       ;; since subsequent prompts use earlier args e.g.global-set-key

@@ -416,7 +416,6 @@ previous window configuration."
   "load file into emacs"
   (load-file (buffer-file-name)))
 
-
 (defun emacspeak-wizards-next-interactive-defun ()
   "Move point to the next interactive defun"
   (interactive)
@@ -2355,11 +2354,10 @@ emacspeak-wizards-personal-portfolio."
 
 (defun emacspeak-wizards-generate-finder-callback ()
   "Generate a callback for use in the Emacspeak Finder."
-  (`
-   (lambda (widget &rest ignore)
+  '(lambda (widget &rest ignore)
      (declare (special emacspeak-wizards-finder-args))
      (let ((value (widget-value widget)))
-       (setq emacspeak-wizards-finder-args value)))))
+       (setq emacspeak-wizards-finder-args value))))
 ;;;###autoload
 (defun emacspeak-wizards-finder-find (directory)
   "Run find-dired on specified switches after prompting for the
@@ -2565,11 +2563,11 @@ Use with caution."
   (interactive
    (list
     (expand-file-name
-    (read-file-name "Enter name of POD file: "))))
+     (read-file-name "Enter name of POD file: "))))
   (require 'man)
   (let* ((pod2man-args (concat filename " | nroff -man "))
-	 (bufname (concat "Man " filename))
-	 (buffer (generate-new-buffer bufname)))
+         (bufname (concat "Man " filename))
+         (buffer (generate-new-buffer bufname)))
     (save-excursion
       (set-buffer buffer)
       (let ((process-environment (copy-sequence process-environment)))
@@ -3020,7 +3018,6 @@ This is for use in conjunction with bash to allow multiple emacs
           ("\C-cr" comint-redirect-send-command))
         do
         (define-key shell-mode-map (first b) (second b))))
-
 
 ;;}}}
 ;;{{{ show commentary:

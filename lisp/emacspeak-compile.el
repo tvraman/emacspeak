@@ -80,12 +80,11 @@
         )
       do
       (eval
-       (`
-        (defadvice (, f) (after  emacspeak pre act )
+       `(defadvice ,f (after  emacspeak pre act )
           "Speak the line containing the error. "
           (when (interactive-p)
             (dtk-stop)
-            (emacspeak-compilation-speak-error))))))
+            (emacspeak-compilation-speak-error)))))
 
 (loop for f in 
       '(
@@ -95,12 +94,11 @@
         previous-error-no-select)
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object))))))
+            (emacspeak-auditory-icon 'select-object)))))
 ;;}}}
 ;;{{{ advise process filter and sentinels
 

@@ -682,8 +682,8 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
-;;{{{  Speak units of text              ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;{{{  Speak units of text              ; ;
 
 (defsubst emacspeak-speak-region (start end )
   "Speak region.
@@ -2110,7 +2110,6 @@ Speak that chunk after moving."
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
 
-
 (defun emacspeak-speak-face-interval-and-move ()
   "Speaks region delimited by text in current face, and moves past the chunk."
   (interactive)
@@ -2351,11 +2350,11 @@ set the current local value to the result.")
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
   (declare (special comint-mode-map
-		    emacspeak-use-header-line))
+                    emacspeak-use-header-line))
   (when emacspeak-use-header-line
     (setq header-line-format
-	  '((:eval (format "%s %s"
-			   default-directory mode-name)))))
+          '((:eval (format "%s %s"
+                           default-directory mode-name)))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
