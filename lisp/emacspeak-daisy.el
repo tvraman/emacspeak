@@ -739,21 +739,20 @@ Also puts the displayed buffer in outline-minor-mode and gives it
                                                       the right title."
   (declare (special emacspeak-w3-post-process-hook))
   (setq emacspeak-w3-post-process-hook
-        (`
-         (lambda  nil
+        `(lambda  nil
            (let ((buffer (current-buffer)))
              (outline-minor-mode 1)
-             (setq outline-regexp (, outline))
+             (setq outline-regexp ,outline)
              (rename-buffer title 'uniquely)
              (save-excursion
-               (set-buffer (, nav-center))
-               (put-text-property (, start) (, end)
+               (set-buffer ,nav-center)
+               (put-text-property ,start ,end
                                   'viewer  buffer))
              (cond
               (bookmark
                (goto-char bookmark)
                (emacspeak-speak-line))
-              (t (emacspeak-speak-mode-line))))))))
+              (t (emacspeak-speak-mode-line)))))))
 
 ;;}}}
 
