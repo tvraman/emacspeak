@@ -123,8 +123,7 @@
 ;;; restore state
 (defmacro ems-modify-buffer-safely   (&rest body )
   "Allow BODY to temporarily modify read-only content."
-  (`
-   (progn
+  `(progn
      (declare (special inhibit-point-motion-hooks))
      (let    ((save-read-only buffer-read-only)
               (buffer-read-only nil )
@@ -134,11 +133,11 @@
               (inhibit-point-motion-hooks t)
               (modification-flag (buffer-modified-p)))
        (unwind-protect
-           (,@ body )
+           ,@body 
          (setq buffer-read-only save-read-only
                inhibit-read-only save-inhibit-read-only
                inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-         (set-buffer-modified-p modification-flag ))))))
+         (set-buffer-modified-p modification-flag )))))
 
 (defmacro ems-set-personality-temporarily (start end value
                                                  &rest body)
@@ -147,12 +146,11 @@ Argument START   specifies the start of the region to operate on.
 Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
-  (`
-   (progn
+  `(progn
      (declare (special voice-lock-mode ))
      (let ((save-voice-lock voice-lock-mode)
            (saved-personality (get-text-property
-                               (, start) 'personality))
+                               ,start 'personality))
            (save-read-only buffer-read-only)
            (buffer-read-only nil )
            (save-inhibit-read-only inhibit-read-only)
@@ -164,18 +162,18 @@ Argument BODY specifies forms to execute."
            (progn
              (setq voice-lock-mode t )
              (put-text-property
-              (max (point-min) (, start))
-              (min (point-max) (, end))
-              'personality (, value))
-             (,@ body))
+              (max (point-min) ,start)
+              (min (point-max) ,end)
+              'personality ,value)
+             ,@body)
          (put-text-property
-          (max (point-min) (, start))
-          (min (point-max)  (, end)) 'personality saved-personality)
+          (max (point-min) ,start)
+          (min (point-max)  ,end) 'personality saved-personality)
          (setq buffer-read-only save-read-only
                inhibit-read-only save-inhibit-read-only
                inhibit-point-motion-hooks save-inhibit-point-motion-hooks
                voice-lock-mode save-voice-lock )
-         (set-buffer-modified-p modification-flag ))))))
+         (set-buffer-modified-p modification-flag )))))
 
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."

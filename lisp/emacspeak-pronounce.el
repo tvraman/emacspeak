@@ -650,15 +650,14 @@ pronunciation dictionary for the specified key."
 
 (defun emacspeak-pronounce-edit-generate-callback (field-name)
   "Generate a callback for use in the pronunciation editor widget."
-  (`
-   (lambda (widget &rest ignore)
+  `(lambda (widget &rest ignore)
      (declare (special emacspeak-pronounce-dictionaries))
      (let ((value (widget-value widget)))
        (setf
         (gethash 
-         (quote (, field-name))
+         (quote ,field-name)
          emacspeak-pronounce-dictionaries)
-        value)))))
+        value))))
 
 ;;;###autoload
 (defun emacspeak-pronounce-edit-pronunciations (key)
