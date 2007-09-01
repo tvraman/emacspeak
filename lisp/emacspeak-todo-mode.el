@@ -63,12 +63,11 @@
 (loop for f in emacspeak-todo-mode-navigation-commands
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line))))))
+            (emacspeak-speak-line)))))
 
 (defadvice todo-save (after emacspeak pre act comp)
   "Provide auditory feedback."

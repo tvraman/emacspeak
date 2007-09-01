@@ -148,12 +148,11 @@
         nxml-backward-element)
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line))))))
+            (emacspeak-speak-line)))))
 
 (loop for f in 
       '(nxml-balanced-close-start-tag-block
@@ -161,14 +160,13 @@
         nxml-balanced-close-start-tag-inline)
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'close-object)
             (dtk-speak
              (format "Closed %s"
-                     (xmltok-start-tag-qname))))))))
+                     (xmltok-start-tag-qname)))))))
 ;;{{{ speech enable outliner 
 
 (loop for f in

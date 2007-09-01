@@ -63,13 +63,12 @@
 (loop for f in emacspeak-net-utils-commands
       do
       (eval
-       (`
-        (defadvice (, f)  (after emacspeak pre act comp)
+       `(defadvice ,f  (after emacspeak pre act comp)
           "Speak output"
           (when (interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (message "Displayed results of %s in other window"
-                     (quote (, f))))))))
+                     (quote ,f))))))
 
 ;;}}}
 (provide 'emacspeak-net-utils)

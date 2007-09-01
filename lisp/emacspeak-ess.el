@@ -118,10 +118,10 @@ Cue electric insertion with a tone."
       do
       (eval
        `
-(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)))))
+       (defadvice ,f (after emacspeak pre act comp)
+         "Provide auditory feedback."
+         (when (interactive-p)
+           (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ Switchers

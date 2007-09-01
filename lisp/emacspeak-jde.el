@@ -236,12 +236,11 @@
         jde-debug-down)
       do
       (eval
-       (`
-        (defadvice (, command) (after emacspeak pre act comp)
+       `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object))))))
+            (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice jde-db-run (after emacspeak pre act comp)
   "Provide auditory feedback."

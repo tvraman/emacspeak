@@ -156,12 +156,12 @@ part of the libxslt package."
 (defsubst emacspeak-xslt-run (xsl start end)
   "Run xslt on region, and return output filtered by sort -u"
   (declare (special emacspeak-xslt-program emacspeak-xslt-options))
-    (shell-command-on-region
-     start end
-     (format "%s %s %s - 2>/dev/null | sort -u"
-             emacspeak-xslt-program emacspeak-xslt-options xsl)
-     (current-buffer) 'replace)
-    (current-buffer))
+  (shell-command-on-region
+   start end
+   (format "%s %s %s - 2>/dev/null | sort -u"
+           emacspeak-xslt-program emacspeak-xslt-options xsl)
+   (current-buffer) 'replace)
+  (current-buffer))
 
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload

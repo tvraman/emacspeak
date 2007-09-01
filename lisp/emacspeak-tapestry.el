@@ -123,7 +123,6 @@ but quickly switch to a window by name."
   (pop-to-buffer buffer-name)
   (emacspeak-speak-line))
 
-
 ;;}}}
 (provide  'emacspeak-tapestry)
 ;;{{{  emacs local variables 

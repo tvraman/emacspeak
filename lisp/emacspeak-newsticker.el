@@ -91,17 +91,16 @@
 (loop for f in
       '(newsticker-next-item newsticker-previous-item
                              newsticker-next-new-item
-      newsticker-previous-new-item
-      newsticker-previous-feed newsticker-next-feed
+                             newsticker-previous-new-item
+                             newsticker-previous-feed newsticker-next-feed
                              )
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-newsticker-summarize-item))))))
+            (emacspeak-newsticker-summarize-item)))))
 
 ;;}}}
 ;;{{{  silence auto activity

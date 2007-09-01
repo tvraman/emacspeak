@@ -215,31 +215,31 @@
 
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
-(declare (special org-goto-map org-mode-map))
-(loop for k in
-      '(
-        ([(shift tab)]    org-shifttab)
-        ([(shift up)] org-shiftup)
-        ([(shift down)] org-shiftdown)
-        ([(shift left)] org-shiftleft)
-        ([(shift right)] org-shiftright)
-        ([(meta shift down)] org-shiftmetadown)
-        ([(meta shift up)] org-shiftmetaup)
-        ([(meta shift left)] org-shiftmetaleft)
-        ([(meta shift right)] org-shiftmetaright)
-        ([(meta shift return)] org-insert-todo-heading)
-        ("\C-j" org-insert-heading)
-        ("\M-n" org-next-item)
-        ("\M-p" org-previous-item)
-        )
-      do
-      (emacspeak-keymap-update  org-mode-map k))
-(loop for k in
-      '(
-        ( "\C-e" emacspeak-prefix-command)
-        ( "\C-h" help-command))
-      do
-      (emacspeak-keymap-update  org-goto-map k)))
+  (declare (special org-goto-map org-mode-map))
+  (loop for k in
+        '(
+          ([(shift tab)]    org-shifttab)
+          ([(shift up)] org-shiftup)
+          ([(shift down)] org-shiftdown)
+          ([(shift left)] org-shiftleft)
+          ([(shift right)] org-shiftright)
+          ([(meta shift down)] org-shiftmetadown)
+          ([(meta shift up)] org-shiftmetaup)
+          ([(meta shift left)] org-shiftmetaleft)
+          ([(meta shift right)] org-shiftmetaright)
+          ([(meta shift return)] org-insert-todo-heading)
+          ("\C-j" org-insert-heading)
+          ("\M-n" org-next-item)
+          ("\M-p" org-previous-item)
+          )
+        do
+        (emacspeak-keymap-update  org-mode-map k))
+  (loop for k in
+        '(
+          ( "\C-e" emacspeak-prefix-command)
+          ( "\C-h" help-command))
+        do
+        (emacspeak-keymap-update  org-goto-map k)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-update-keys)
 ;;}}}
@@ -285,9 +285,9 @@
     (emacspeak-toggle-audio-indentation))
   (define-key org-mode-map
     emacspeak-prefix'emacspeak-prefix-command)
-(define-key org-mode-map
-  (concat emacspeak-prefix "e")
-  'org-end-of-line))
+  (define-key org-mode-map
+    (concat emacspeak-prefix "e")
+    'org-end-of-line))
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 

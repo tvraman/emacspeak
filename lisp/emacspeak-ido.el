@@ -162,8 +162,7 @@ The default value of 12 is too high for using ido effectively with speech. "
                       ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
       do
       (eval
-       (`
-        (defadvice   (, f)(around emacspeak pre act comp)
+       `(defadvice   ,f(around emacspeak pre act comp)
           "Provide auditory feedback."
           (cond
            ((interactive-p)
@@ -173,7 +172,7 @@ The default value of 12 is too high for using ido effectively with speech. "
               (emacspeak-auditory-icon 'open-object)
               (emacspeak-speak-mode-line)))
            (t ad-do-it))
-          ad-return-value))))
+          ad-return-value)))
 
 (loop for f in
       '(ido-switch-buffer ido-switch-buffer-other-window
@@ -181,8 +180,7 @@ The default value of 12 is too high for using ido effectively with speech. "
                           ido-display-buffer)
       do
       (eval
-       (`
-        (defadvice   (, f)(around emacspeak pre act comp)
+       `(defadvice   ,f(around emacspeak pre act comp)
           "Provide auditory feedback."
           (cond
            ((interactive-p)
@@ -192,7 +190,7 @@ The default value of 12 is too high for using ido effectively with speech. "
               (emacspeak-auditory-icon 'select-object)
               (emacspeak-speak-mode-line)))
            (t ad-do-it))
-          ad-return-value))))
+          ad-return-value)))
 
 ;;; note that though these are after advice fragments,
 ;;; ido-matches does not reflect the change at the time we

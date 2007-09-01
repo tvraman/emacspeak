@@ -1831,7 +1831,6 @@ Provide an auditory icon if possible."
                      (count-lines (region-beginning)
                                   (region-end)))))))
 
-
 (defadvice narrow-to-defun (after emacspeak pre act)
   "Announce yourself."
   (when (interactive-p)

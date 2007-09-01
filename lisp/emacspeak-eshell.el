@@ -113,15 +113,14 @@ Provide an auditory icon if possible."
                           eshell-previous-matching-input-from-input)
       do
       (eval
-       (`
-        (defadvice (, f) (after  emacspeak pre act comp)
+       `(defadvice ,f (after  emacspeak pre act comp)
           "Speak selected command."
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (save-excursion
               (beginning-of-line)
               (eshell-skip-prompt)
-              (emacspeak-speak-line 1)))))))
+              (emacspeak-speak-line 1))))))
 
 ;;}}}
 ;;{{{  advice em-ls
@@ -176,13 +175,12 @@ personalities."
                            eshell-forward-matching-input  eshell-backward-matching-input)
       do
       (eval
-       (`
-        (defadvice (, f) (after  emacspeak pre act comp)
+       `(defadvice ,f (after  emacspeak pre act comp)
           "Speak selected command."
           (when (interactive-p)
             (let ((emacspeak-speak-messages nil))
               (emacspeak-auditory-icon 'select-object)
-              (emacspeak-speak-line 1)))))))
+              (emacspeak-speak-line 1))))))
 
 ;;}}}
 ;;{{{  advice esh-arg
@@ -193,12 +191,11 @@ personalities."
         eshell-insert-envvar)
       do
       (eval
-       (`
-        (defadvice (, f) (after emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Speak output."
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line))))))
+            (emacspeak-speak-line)))))
 
 (defadvice eshell-insert-process (after emacspeak pre
                                         act comp)

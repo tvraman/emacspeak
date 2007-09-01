@@ -135,7 +135,7 @@
            :iface (second slots)
            :name (third slots)))
          controls)
-        (forward-line 1))              ; done collecting controls
+        (forward-line 1))               ; done collecting controls
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 

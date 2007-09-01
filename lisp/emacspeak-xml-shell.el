@@ -202,11 +202,10 @@ content.
 Post-processor accepts a region of text to process specified by start
 and end."
   (declare (special emacspeak-xml-shell-display-buffer))
-  (`
-   (lambda (process output)
-     (let ((stream  (, accumulate))
-           (processor (function (, post-processor)))
-           (done  (, terminator)))
+  `(lambda (process output)
+     (let ((stream  ,accumulate)
+           (processor (function ,post-processor))
+           (done  ,terminator))
        (save-excursion
          (set-buffer stream)
          (goto-char (point-max))
@@ -226,7 +225,7 @@ and end."
              (set-buffer (process-buffer process))
              (goto-char (point-max))
              (comint-send-input)))
-          (t (insert output))))))))
+          (t (insert output)))))))
 
 (defvar emacspeak-xml-shell-cat
   (cond
