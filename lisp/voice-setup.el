@@ -284,7 +284,7 @@ command \\[customize-variable] on <personality>-settings.. "
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings
        ,doc
-       type  '(list
+       :type  '(list
                 (choice :tag "Family"
                         (const :tag "Unspecified" nil)
                         (const  :tag "Paul" paul)
