@@ -237,8 +237,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defmacro emacspeak-webutils-without-xsl (&rest body)
   "Execute body with XSL turned off."
-  (`
-   (progn
+  `(progn
      (declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p nil)
@@ -246,7 +245,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                  #'(lambda ()
                      (declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p t))))
-     (,@ body))))
+     ,@body))
 
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on

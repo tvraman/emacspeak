@@ -85,12 +85,11 @@
         analog-toggle-timer-and-redisplay)
       do
       (eval
-       (`
-        (defadvice (, command) (after emacspeak pre act comp)
+       `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object))))))
+            (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ voice setup 
