@@ -122,28 +122,25 @@ use the minibuffer."
                                         ; generate auto advice
       (put sym 'emacspeak-auto-advised t)
       (eval
-       (`
-        (defadvice (, sym)
+       `(defadvice ,sym
           (before  emacspeak-auto pre act  protect compile)
           "Automatically defined advice to speak interactive prompts. "
           (interactive
            (nconc
-            (,@
-             (mapcar
+             ,@(mapcar
               #'(lambda (prompt)
-                  (`
-                   (let ((dtk-stop-immediately nil)
+                  `(let ((dtk-stop-immediately nil)
                          (emacspeak-speak-messages nil))
-                     (when (ems-prompt-without-minibuffer-p (, prompt))
+                     (when (ems-prompt-without-minibuffer-p ,prompt)
                        (emacspeak-auditory-icon 'open-object)
                        (tts-with-punctuations 'all
                                               (dtk-speak
-                                               (or (substring (, prompt) 1 ) ""))))
+                                               (or (substring ,prompt 1 ) ""))))
                      (call-interactively
                       #'(lambda (&rest args)
-                          (interactive (, prompt))
-                          args) nil))))
-              prompts))))))))
+                          (interactive ,prompt)
+                          args) nil)))
+              prompts))))))
      (t
       ;; cannot handle automatically -- tell developer
       ;; since subsequent prompts use earlier args e.g.global-set-key
