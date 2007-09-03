@@ -69,7 +69,7 @@
    (org-level-8 voice-lighten-extra)
    (org-special-keyword voice-lighten-extra)
    (org-warning voice-bolden-and-animate)
-   (org-headline-done voice-monotone-extra)
+   (org-headline-done voice-monotone-medium)
    (org-link voice-bolden)
    (org-date voice-animate)
    (org-tag voice-smoothen)
