@@ -38,22 +38,25 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; Speech-enable org ---
 ;;;  Org allows you to keep organized notes and todo lists.
 ;;; Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
+;;; or http://orgmode.org/
+;;; 
+;;; Code:
 
 ;;}}}
 ;;{{{ required modules
 
-;;; Code:
 (require 'emacspeak-preamble)
-(require 'emacspeak-redefine)
+;(require 'emacspeak-redefine)
 
 ;;}}}
 ;;{{{ voice locking:
+
 (voice-setup-add-map
  '(
    (org-level-1 voice-bolden-medium)
@@ -66,12 +69,12 @@
    (org-level-8 voice-lighten-extra)
    (org-special-keyword voice-lighten-extra)
    (org-warning voice-bolden-and-animate)
-   (org-headline-done voice-lighten-extra)
+   (org-headline-done voice-monotone-extra)
    (org-link voice-bolden)
    (org-date voice-animate)
    (org-tag voice-smoothen)
    (org-todo voice-bolden-and-animate)
-   (org-done voice-smoothen)
+   (org-done voice-monotone)
    (org-table voice-bolden-medium)
    (org-formula voice-animate-extra)
    (org-scheduled-today voice-bolden-extra)
@@ -100,8 +103,7 @@
             (emacspeak-auditory-icon 'large-movement)))))
 
 (loop for f in
-      '(org-cycle org-shifttab
-                  )
+      '(org-cycle org-shifttab)
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -119,11 +121,12 @@
 ;;{{{ Header insertion and relocation
 
 (loop for f in
-      '(org-insert-heading org-insert-todo-heading
-                           org-promote-subtree org-demote-subtree
-                           org-do-promote org-do-demote
-                           org-move-subtree-up org-move-subtree-down
-                           )
+      '(
+        org-insert-heading org-insert-todo-heading
+        org-promote-subtree org-demote-subtree
+        org-do-promote org-do-demote
+        org-move-subtree-up org-move-subtree-down
+        )
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -136,8 +139,8 @@
 ;;{{{ cut and paste:
 
 (loop for f in
-      '(org-copy-subtree org-paste-subtree
-                         org-archive-subtree)
+      '(
+        org-copy-subtree org-paste-subtree org-archive-subtree)
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -179,16 +182,19 @@
 
 ;;}}}
 ;;{{{ misc file commands:
+
 (defadvice org-end-of-line (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (dtk-stop)
     (emacspeak-auditory-icon 'select-object)))
+
 ;;}}}
 ;;{{{ tables:
 
 ;;}}}
 ;;{{{ table minor mode:
+
 (defadvice orgtbl-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -242,6 +248,7 @@
         (emacspeak-keymap-update  org-goto-map k)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-update-keys)
+
 ;;}}}
 ;;{{{ deleting chars:
 
@@ -281,6 +288,7 @@
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
+  (declare (special org-mode-map))
   (unless emacspeak-audio-indentation
     (emacspeak-toggle-audio-indentation))
   (define-key org-mode-map
@@ -293,9 +301,10 @@
 
 ;;}}}
 ;;{{{ fix misc commands:
+
 (loop for f in
-      '(org-occur
-        org-next-link org-previous-link
+      '(
+        org-occur org-next-link org-previous-link
         org-insert-heading org-insert-todo-heading)
       do
       (eval
