@@ -223,6 +223,42 @@
 ;;}}}
 ;;{{{ Agenda:
 
+;;; agenda navigation
+
+(loop for f in
+      '(
+        org-agenda-next-date-line org-agenda-previous-date-line
+        org-agenda-goto-today
+        )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-line)))))
+            
+(loop for f in
+      '(
+        org-agenda-quit org-agenda-exit)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-mode-line)))))
+(loop for f in
+      '(
+        org-agenda-goto org-agenda-show org-agenda-switch-to)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-speak-line)))))
+                                  
 ;;}}}
 ;;{{{ misc file commands:
 
@@ -348,16 +384,18 @@
 (loop for f in
       '(
         org-occur org-next-link org-previous-link
+                  org-beginning-of-item
+      org-beginning-of-item-list
+      org-back-to-heading
         org-insert-heading org-insert-todo-heading)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Avoid outline errors bubbling up."
-          (cond
-           ((interactive-p)
-            (ems-with-errors-silenced ad-do-it))
-           (t ad-do-it))
-          ad-return-value)))
+          
+            (ems-with-errors-silenced ad-do-it))))
+           
+          
 
 ;;}}}
 ;;{{{ global input wizard
