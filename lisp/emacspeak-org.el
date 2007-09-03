@@ -101,6 +101,11 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'large-movement)))))
+(defadvice org-cycle-list-bullet (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
 (loop for f in
       '(org-cycle org-shifttab)
@@ -146,9 +151,11 @@
 (loop for f in
       '(
         org-insert-heading org-insert-todo-heading
+                           org-insert-subheading org-insert-todo-subheading
         org-promote-subtree org-demote-subtree
         org-do-promote org-do-demote
         org-move-subtree-up org-move-subtree-down
+        org-convert-to-odd-levels org-convert-to-oddeven-levels
         )
       do
       (eval
@@ -163,7 +170,9 @@
 
 (loop for f in
       '(
-        org-copy-subtree org-paste-subtree org-archive-subtree)
+        org-cut-subtree org-copy-subtree
+        org-paste-subtree org-archive-subtree
+        org-narrow-to-subtree )
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -193,6 +202,17 @@
 
 ;;}}}
 ;;{{{ toggles:
+
+(loop for f in
+      '(
+        org-toggle-archive-tag org-toggle-comment)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'button)
+            (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ ToDo:

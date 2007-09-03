@@ -171,7 +171,7 @@ and TABLE gives the values along that dimension."
                     (second setting)
                     (third setting)))))
    '(
-     (0 18 78)
+     (0 44 52)
      (1 50 58 )
      (2 56 56)
      (3 58 54)
