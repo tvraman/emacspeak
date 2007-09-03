@@ -172,15 +172,15 @@ and TABLE gives the values along that dimension."
                     (third setting)))))
    '(
      (0 18 78)
-     (1 25 69 )
-     (2 40 65)
-     (3 51 58)
-     (4 58 54  )
+     (1 50 58 )
+     (2 56 56)
+     (3 58 54)
+     (4 62 52  )
      (5 65 50)
-     (6 74 40)
-     (7 83 30 )
-     (8 87 26)
-     (9 92 21)))
+     (6 69 48)
+     (7 73 46 )
+     (8 77 44)
+     (9 82 40)))
   (outloud-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}

@@ -117,6 +117,29 @@
                 (emacspeak-auditory-icon 'large-movement)))
              (t (emacspeak-auditory-icon 'select-object)))))))
 
+
+(defadvice org-overview (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (message "Showing top-level overview.")))
+
+(defadvice org-content (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (message "Showing table of contents.")))
+
+
+(defadvice org-tree-to-indirect-buffer(after emacspeak pre act
+                                             comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (message "Cloned %s"
+             (save-excursion
+               (set-buffer org-last-indirect-buffer)
+               (goto-char (point-min))
+(buffer-substring
+ (line-beginning-position)
+(line-end-position))))))
 ;;}}}
 ;;{{{ Header insertion and relocation
 
