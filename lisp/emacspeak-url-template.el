@@ -627,6 +627,18 @@ Make sure to sign in before invoking this template."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "th" url 'speak)))
 
+(emacspeak-url-template-define
+ "GMail Labels"
+ "http://mail.google.com/mail/h/1m84rgwrg8118/?s=l&l=%s"
+ (list "GMail Label:")
+ #'(lambda ()
+     (declare (special emacspeak-we-class-filter))
+     (setq emacspeak-we-class-filter "msg"))
+ "Find messages having label from GMail. 
+Make sure to sign in before invoking this template."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "th" url 'speak)))
+
 ;;}}}
 ;;{{{ Calendar Mobile:
 
