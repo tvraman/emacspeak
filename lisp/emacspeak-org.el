@@ -52,7 +52,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-;(require 'emacspeak-redefine)
+                                        ;(require 'emacspeak-redefine)
 
 ;;}}}
 ;;{{{ voice locking:
@@ -122,7 +122,6 @@
                 (emacspeak-auditory-icon 'large-movement)))
              (t (emacspeak-auditory-icon 'select-object)))))))
 
-
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -133,7 +132,6 @@
   (when (interactive-p)
     (message "Showing table of contents.")))
 
-
 (defadvice org-tree-to-indirect-buffer(after emacspeak pre act
                                              comp)
   "Provide spoken feedback."
@@ -142,16 +140,16 @@
              (save-excursion
                (set-buffer org-last-indirect-buffer)
                (goto-char (point-min))
-(buffer-substring
- (line-beginning-position)
-(line-end-position))))))
+               (buffer-substring
+                (line-beginning-position)
+                (line-end-position))))))
 ;;}}}
 ;;{{{ Header insertion and relocation
 
 (loop for f in
       '(
         org-insert-heading org-insert-todo-heading
-                           org-insert-subheading org-insert-todo-subheading
+        org-insert-subheading org-insert-todo-subheading
         org-promote-subtree org-demote-subtree
         org-do-promote org-do-demote
         org-move-subtree-up org-move-subtree-down
@@ -219,6 +217,22 @@
 
 ;;}}}
 ;;{{{ timestamps and calendar:
+
+(loop for f in
+      '(
+        org-timestamp-down org-timestamp-down-day
+        org-timestamp-up org-timestamp-up-day)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-line)))))
+
+(defadvice org-eval-in-calendar (after emacspeak pre act comp)
+  "Speak what is returned."
+  (dtk-speak org-ans2))
 
 ;;}}}
 ;;{{{ Agenda:
@@ -378,22 +392,28 @@
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 
+(defadvice org-toggle-checkbox (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ fix misc commands:
 
 (loop for f in
       '(
         org-occur org-next-link org-previous-link
-                  org-beginning-of-item
-      org-beginning-of-item-list
-      org-back-to-heading
+        org-beginning-of-item
+        org-beginning-of-item-list
+        org-back-to-heading
         org-insert-heading org-insert-todo-heading)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Avoid outline errors bubbling up."
           
-            (ems-with-errors-silenced ad-do-it))))
+          (ems-with-errors-silenced ad-do-it))))
            
           
 
