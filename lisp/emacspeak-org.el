@@ -272,6 +272,12 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (emacspeak-speak-line)))))
+
+(defadvice org-agenda (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
                                   
 ;;}}}
 ;;{{{ misc file commands:
