@@ -639,6 +639,18 @@ Make sure to sign in before invoking this template."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "th" url 'speak)))
 
+(emacspeak-url-template-define
+ "GMail Inbox"
+ "http://mail.google.com/mail/h/"
+ nil
+ #'(lambda ()
+     (declare (special emacspeak-we-class-filter))
+     (setq emacspeak-we-class-filter "msg"))
+ "Open GMail Inbox"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "th" url 'speak))
+ )
+
 ;;}}}
 ;;{{{ Calendar Mobile:
 
