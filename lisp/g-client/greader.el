@@ -644,7 +644,7 @@ arrived articles."
                        g-curl-program g-curl-common-options
                        (g-cookie "SID" greader-auth-handle)
                        (format greader-search-url
-                               (g-url-encodequery))))))
+                               (g-url-encode query))))))
         (docids nil))
     (setq docids 
           (loop for i across results
