@@ -464,6 +464,7 @@ arrived articles."
     (read-from-minibuffer "Feed URL: "
                           (funcall g-url-under-point))))
   (greader-update-subscription feed-url 'title))
+
 ;;;###autoload
 (defun greader-tag-feed (feed-url )
   "Tag  specified feed."
@@ -527,6 +528,7 @@ arrived articles."
      (message "%s %s" action feed-url))
     (t (error "Error %s: %s"
               action (buffer-string))))))
+
 (defsubst greader-read-item-url (prompt)
   "Smart reader for fetching item urls."
   (let ((guess (and (fboundp g-url-under-point)
@@ -612,6 +614,59 @@ arrived articles."
       g-curl-program g-curl-common-options
       url)
      g-atom-view-xsl)))
+
+;;}}}
+;;{{{ Searching:
+
+(defvar greader-search-url
+  (concat greader-base-url
+          "api/0/search/items/ids?output=json&num=100&q=%s")
+          "URL template for GReader search.")
+
+(defvar greader-contents-rest-url
+  "http://www.google.com/reader/api/0/stream/items/contents"
+  "REST endpoint for getting content.")
+
+(defun greader-search (query)
+  "GReader search."
+  (interactive "sQuery:")
+  (declare (special greader-auth-handle
+                    g-curl-program g-curl-common-options
+                    greader-contents-rest-url
+                    g-atom-x
+                    greader-search-url g-atom-view-xsl))
+  (g-auth-ensure-token greader-auth-handle)
+  (let ((results 
+         (g-json-get 'results
+                     (g-json-get-result
+                      (format
+                       "%s %s --cookie SID='%s' '%s' 2>/dev/null"
+                       g-curl-program g-curl-common-options
+                       (g-cookie "SID" greader-auth-handle)
+                       (format greader-search-url
+                               (g-url-encodequery))))))
+        (docids nil))
+    (setq docids 
+          (loop for i across results
+                collect (cdr (assq 'id i))))
+    (g-using-scratch
+     (let ((cl  nil))
+       (insert 
+        (format "T=%s" (g-auth-token greader-auth-handle)))
+       (loop for i in docids 
+             do
+             (insert (format "&i=%s" i)))
+       (setq cl (format "-H Content-length:%s" (g-buffer-bytes)))
+       (shell-command-on-region
+        (point-min) (point-max)
+        (format
+         "%s %s --cookie SID='%s' %s -X POST --data-binary @- %s 2>/dev/null"
+         g-curl-program g-curl-common-options
+         (g-cookie "SID" greader-auth-handle)
+         cl                             ; content-length header
+         greader-contents-rest-url)
+        (current-buffer) 'replace))
+     (g-display-xml-string (buffer-string) g-atom-view-xsl))))
 
 ;;}}}
 ;;{{{ Sign out:
