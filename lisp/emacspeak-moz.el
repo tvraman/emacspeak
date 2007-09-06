@@ -125,8 +125,7 @@
 (defun emacspeak-moz-eval-expression-and-browse (exp)
   "Send expression to Moz, get output, and browse it in Emacs."
   (interactive "sJSEval: ")
-  (declare (special moz-repl-name))
-  (declare (special emacspeak-moz-output-buffer))
+  (declare (special moz-repl-name emacspeak-moz-output-buffer))
   (let ((comint-preoutput-filter-functions
          (list 'emacspeak-moz-accumulate-output)))
     (save-excursion
