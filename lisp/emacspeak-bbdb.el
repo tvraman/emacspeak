@@ -150,6 +150,7 @@
   (cond
    ((interactive-p)
     (let ((prior (point))
+	  (completion-ignore-case t)
           (completions nil )
           (window (selected-window))
           (buffer (current-buffer)))
@@ -159,13 +160,10 @@
           (progn
             (switch-to-completions)
             (setq completion-reference-buffer buffer)
-            (delete-other-windows)
             (unless (get-text-property (point) 'mouse-face)
               (goto-char (next-single-property-change (point)
                                                       'mouse-face )))
-            (dtk-speak (emacspeak-get-current-completion)))
-        (let ((dtk-stop-immediately nil ))
-          (dtk-speak (buffer-substring prior (point )))))))
+            (dtk-speak (emacspeak-get-current-completion))))))
    (t ad-do-it ))
   ad-return-value )
 
