@@ -2310,7 +2310,8 @@ Speech is scaled by the value of dtk-speak-skim-scale"
                             completion-reference-buffer)
   (emacspeak-auditory-icon 'select-object)
   (delete-window)
-  (bury-buffer "*Completions*")  (other-window 1)
+  (bury-buffer "*Completions*")
+  (other-window 1)
   (emacspeak-speak-line))
 
 (defcustom emacspeak-comint-autospeak t
