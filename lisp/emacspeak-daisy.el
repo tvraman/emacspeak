@@ -177,7 +177,9 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
          (fragment (second split))
          (path (emacspeak-daisy-resolve-uri relative
                                             emacspeak-daisy-this-book)))
-    (emacspeak-we-extract-by-id path fragment)))
+    (emacspeak-we-extract-by-id
+     fragment
+     (concat "file:" path))))
 
 ;;;###autoload
 (defun emacspeak-daisy-play-page-range (start end )

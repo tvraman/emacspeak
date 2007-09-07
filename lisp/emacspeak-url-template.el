@@ -226,8 +226,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Search MDC Wiki."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "content" url 'speak)))
+     (emacspeak-we-extract-by-id "content" url 'speak)))
 
 ;;}}}
 ;;{{{  fedex, UPS
@@ -1365,9 +1364,7 @@ name of the list.")
  nil
  "Extract content links from Money."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "mainContent"
-      url 'speak)))
+     (emacspeak-we-extract-by-id "mainContent" url 'speak)))
 
 ;;}}}
 
