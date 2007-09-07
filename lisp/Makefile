@@ -63,7 +63,6 @@ SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
         emacspeak-actions.elc \
 	voice-setup.elc \
-	html-outline.elc \
 	emacspeak-personality.elc \
         emacspeak-pronounce.elc \
 	emacspeak-sounds.elc
@@ -283,7 +282,6 @@ outloud-voices.elc: outloud-voices.el voice-setup.elc
 multispeech-voices.elc: multispeech-voices.el voice-setup.elc
 espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
-html-outline.elc: html-outline.el
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 emacspeak-amphetadesk.elc: emacspeak-amphetadesk.el
 cd-tool.elc: cd-tool.el
