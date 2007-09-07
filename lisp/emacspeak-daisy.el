@@ -270,8 +270,7 @@ the clip."
 (defun emacspeak-daisy-play-content (content)
   "Play SMIL content specified by content.
 Return buffer that holds the result of playing the content."
-  (declare (special emacspeak-daisy-base-uri
-                    emacspeak-daisy-this-book))
+  (declare (special emacspeak-daisy-this-book))
   (unless (eq major-mode 'emacspeak-daisy-mode)
     (error "Not in a digital audio book."))
   (unless
