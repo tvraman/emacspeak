@@ -579,6 +579,15 @@ content."
      (emacspeak-we-extract-by-class "g" url 'speak)))
 
 ;;}}}
+;;{{{ webmaster tools
+(emacspeak-url-template-define
+ "Google Webmaster Page Analysis"
+ "https://www.google.com/webmasters/tools/pageanalysis?siteUrl=%s"
+ (list "URL To Analyze: ")
+ nil
+ "Page Analysis From Google Webmaster tools.")
+
+;;}}}
 ;;{{{ Google views
 
 (emacspeak-url-template-define
