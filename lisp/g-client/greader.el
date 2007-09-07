@@ -626,7 +626,7 @@ arrived articles."
 (defvar greader-contents-rest-url
   "http://www.google.com/reader/api/0/stream/items/contents"
   "REST endpoint for getting content.")
-
+;;;###autoload
 (defun greader-search (query)
   "GReader search."
   (interactive "sQuery:")
