@@ -155,15 +155,16 @@
           (window (selected-window))
           (buffer (current-buffer)))
       ad-do-it
-      (if (and (setq completions (get-buffer "*Completions*"))
-               (window-live-p (get-buffer-window completions)))
-          (progn
-            (switch-to-completions)
-            (setq completion-reference-buffer buffer)
-            (unless (get-text-property (point) 'mouse-face)
-              (goto-char (next-single-property-change (point)
-                                                      'mouse-face )))
-            (dtk-speak (emacspeak-get-current-completion))))))
+      (cond
+       ((and (setq completions (get-buffer "*Completions*"))
+	     (window-live-p (get-buffer-window completions)))
+	(switch-to-completions)
+	(setq completion-reference-buffer buffer)
+	(unless (get-text-property (point) 'mouse-face)
+	  (goto-char (next-single-property-change (point)
+						  'mouse-face )))
+	(dtk-speak (emacspeak-get-current-completion)))
+       (t (dtk-speak (buffer-substring prior (point )))))))
    (t ad-do-it ))
   ad-return-value )
 
