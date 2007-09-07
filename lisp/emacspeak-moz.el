@@ -286,8 +286,11 @@ title)\n"
 (defun emacspeak-moz-browse-current ()
   "Browse current node."
   (interactive)
-  (emacspeak-moz-eval-expression-and-browse
-   "repl.updateADom(); repl.adom.html(1)"))
+  (emacspeak-webutils-with-xsl-environment
+   (emacspeak-xslt-get "nuke-noscript.xsl")
+   nil
+   (emacspeak-moz-eval-expression-and-browse
+    "repl.updateADom(); repl.adom.html(1)")))
 
 ;;;###autoload
 (defun emacspeak-moz-visit-previous-and-browse ()
