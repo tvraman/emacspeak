@@ -634,7 +634,7 @@ content."
  "Search GMail. 
 Make sure to sign in before invoking this template."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class "th" url 'speak)))
+     (emacspeak-we-xslt-filter "//form"  url 'speak)))
 
 (emacspeak-url-template-define
  "GMail Labels"
