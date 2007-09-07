@@ -1834,6 +1834,7 @@ Provide an auditory icon if possible."
 (defadvice narrow-to-defun (after emacspeak pre act)
   "Announce yourself."
   (when (interactive-p)
+    (require 'which-func)
     (emacspeak-auditory-icon 'select-object)
     (message "Narrowed to function %s"
              (which-function))))
