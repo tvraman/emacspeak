@@ -276,7 +276,7 @@ ADom.prototype.traverse = function (node, test, action) {
   }
 };
 
-    /*
+/*
  * Set view to forms array
  * Return forms array.
  */
