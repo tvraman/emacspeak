@@ -111,8 +111,11 @@ Argument KEY specifies a dictionary key e.g. directory, mode etc."
   (let ((dict  (emacspeak-pronounce-get-dictionary key)))
     (cond
      (dict
-      (setf dict
-            (cons (cons string pronunciation) dict))
+      (cond
+       ((assoc  string dict)
+	(setcdr (assoc string dict) pronunciation))
+       (t
+	(setf dict (cons (cons string pronunciation) dict))))
       (emacspeak-pronounce-set-dictionary key dict ))
      (t (emacspeak-pronounce-set-dictionary key
                                             (list (cons string

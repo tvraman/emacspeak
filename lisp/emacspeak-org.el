@@ -328,6 +328,7 @@
           ([(shift down)] org-shiftdown)
           ([(shift left)] org-shiftleft)
           ([(shift right)] org-shiftright)
+	  ([(meta shift return)] org-insert-todo-heading)
           ([(meta shift down)] org-shiftmetadown)
           ([(meta shift up)] org-shiftmetaup)
           ([(meta shift left)] org-shiftmetaleft)
