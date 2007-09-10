@@ -2306,9 +2306,10 @@ Speech is scaled by the value of dtk-speak-skim-scale"
   "Pick completion and return safely where we came from."
   (interactive)
   (declare (special completion-reference-buffer))
-  (let ((completion-ignore-case t))
+  (let ((completion-ignore-case t)
+		(base-size completion-base-size))
   (choose-completion-string (emacspeak-get-current-completion)
-                            completion-reference-buffer))
+							  completion-reference-buffer base-size))
   (emacspeak-auditory-icon 'select-object)
   (cond
    ((not (or
