@@ -184,8 +184,9 @@
   (let ((control
          (cdr
           (assoc
-           (completing-read "Control:" amixer-db
-                            nil 'must-match)
+           (let ((completion-ignore-case t))
+             (completing-read "Control:" amixer-db
+                              nil 'must-match))
            amixer-db)))
         (update nil)
         (choices nil))

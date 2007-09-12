@@ -632,7 +632,8 @@ in a separate buffer.  Interactive use provides list of class
 values as completion. "
   (interactive
    (list
-    (emacspeak-we-css-get-class-list)
+    (let ((completion-ignore-case t))
+      (emacspeak-we-css-get-class-list))
     (emacspeak-webutils-read-url)
     (or (interactive-p)
         current-prefix-arg)))
@@ -655,8 +656,9 @@ buffer.
 Interactive use provides list of id values as completion."
   (interactive
    (list
-    (completing-read "Id: "
-                     emacspeak-we-buffer-id-cache)
+    (let ((completion-ignore-case t))
+      (completing-read "Id: "
+                       emacspeak-we-buffer-id-cache))
     (emacspeak-webutils-read-url)
     (or (interactive-p)
         current-prefix-arg)))
