@@ -185,41 +185,43 @@
          (cdr
           (assoc
            (let ((completion-ignore-case t))
-             (completing-read "Control:" amixer-db
-                              nil 'must-match))
+             (completing-read
+              "Control:" amixer-db
+              nil 'must-match))
            amixer-db)))
         (update nil)
         (choices nil))
-    (when (string=
-           "ENUMERATED"
-           (amixer-control-setting-type (amixer-control-setting control)))
-      (setq choices
-            (amixer-get-enumerated-values control)))
-                 
-    
-    (setq update
-          (read-from-minibuffer 
-           (format
-            "Change %s from %s %s:"
-            (amixer-control-name control)
-            (amixer-control-setting-current
-             (amixer-control-setting
-              control))
-            (or choices "")
-            )
-           ))
-    (setf
-     (amixer-control-setting-current
-      (amixer-control-setting control))
-     update)
-    (shell-command
-     (format "amixer cset numid=%s %s"
-             (amixer-control-numid control)
-             update))
-    (message
-     "updated %s to %s"
-     (amixer-control-name control)
-     update)))
+    (cond
+     ((null control)
+      (shell-command "alsactl restore")
+      (message "Reset sound to default"))
+     (t
+      (when (string=
+             "ENUMERATED"
+             (amixer-control-setting-type (amixer-control-setting control)))
+        (setq choices
+              (amixer-get-enumerated-values control)))
+      (setq update
+            (read-from-minibuffer 
+             (format
+              "Change %s from %s %s:"
+              (amixer-control-name control)
+              (amixer-control-setting-current
+               (amixer-control-setting
+                control))
+              (or choices ""))))
+      (setf
+       (amixer-control-setting-current
+        (amixer-control-setting control))
+       update)
+      (shell-command
+       (format "amixer cset numid=%s %s"
+               (amixer-control-numid control)
+               update))
+      (message
+       "updated %s to %s"
+       (amixer-control-name control)
+       update)))))
 
 ;;}}}
 (provide 'amixer)      
