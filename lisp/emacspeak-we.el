@@ -180,7 +180,7 @@ Nil means no transform is used. "
   (emacspeak-webutils-with-xsl-environment
    xsl
    nil
-   nil
+   emacspeak-xslt-options
    (browse-url (funcall emacspeak-webutils-current-url))))
 
 ;;;###autoload
