@@ -935,11 +935,10 @@ from English to German.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list
-  'emacspeak-webutils-google-autocomplete)
-  #'(lambda nil
-      (declare (special  emacspeak-websearch-google-number-of-results))
-      emacspeak-websearch-google-number-of-results))
+ (list 'emacspeak-webutils-google-autocomplete
+       #'(lambda nil
+	   (declare (special  emacspeak-websearch-google-number-of-results))
+	   emacspeak-websearch-google-number-of-results))
  nil
  "Only show Google hits."
  #'(lambda (url)
