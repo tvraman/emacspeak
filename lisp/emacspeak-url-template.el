@@ -592,7 +592,8 @@ content."
 (emacspeak-url-template-define
  "Google TimeLine View"
  "http://www.google.com/views?q=%s+view:timeline&num=25"
- (list "Google For: ")
+ (list
+  'emacspeak-webutils-google-autocomplete)
  #'(lambda nil
      (re-search-forward "^ Timeline View" nil t)
      (forward-line 1)

@@ -222,12 +222,13 @@ ARGS specifies additional arguments to SPEAKER if any."
         (aref (read (current-buffer)) 2)
         nil)))))
 
-(defsubst emacspeak-webutils-google-autocomplete (prompt)
+(defsubst emacspeak-webutils-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let ((minibuffer-completing-file-name t) ;; so we can type
         ;; spaces
         (completion-ignore-case t))
-    (completing-read prompt
+    (completing-read
+     (or prompt "Google: ")
                      (dynamic-completion-table emacspeak-webutils-google-suggest))))
 
 ;;}}}
