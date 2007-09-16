@@ -89,7 +89,7 @@ ADom.prototype.body = function () {
  * Move to  element identified by id 
  * @return {node} current node.
  */
-ADom.prototype.id = function (elementId) {
+ADom.prototype.selectId = function (elementId) {
     return this.current_ =  this.document_.getElementById(elementId);
 };
 
