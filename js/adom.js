@@ -84,6 +84,17 @@ ADom.prototype.body = function () {
     return this.current_ =  this.document_.body;
 };
 
+
+/*
+ * Move to  element identified by id 
+ * @return {node} current node.
+ */
+ADom.prototype.id = function (elementId) {
+    return this.current_ =  this.document_.getElementById(elementId);
+};
+
+
+
 // >
 // <Summarizers:
 
@@ -155,6 +166,15 @@ ADom.prototype.url = function () {
 ADom.prototype.document = function () {
     return this.document_;
 };
+
+
+/*
+ * Return root of document being viewed.
+ */
+ADom.prototype.root = function () {
+    return this.root_;
+};
+
 
 /*
  * Return the current node being viewed.
@@ -323,6 +343,7 @@ ADom.prototype.view = function () {
     for (var i = 0; i < len; i++) {
         this.visit();
         html += this.html();
+        html += '<br/>';
     }
     return html;
 };
