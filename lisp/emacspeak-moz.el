@@ -281,7 +281,7 @@ title)\n"
   (interactive "sXPath Filter: ")
   (emacspeak-moz-eval-expression-and-browse
    (format
-    "repl.adom.filter('%s'); repl.adom.view()"
+    "repl.adom.filter(\"%s\"); repl.adom.view()"
     xpath)))
 
 
