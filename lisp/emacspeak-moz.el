@@ -76,6 +76,7 @@
         ("c" emacspeak-moz-close-tab-or-browser)
         ("e" emacspeak-moz-eval-expression-and-go)
         ("i" emacspeak-moz-inspect)
+        ("I" emacspeak-moz-id-browse)
         ("j" emacspeak-moz-jump)
         ("\;" inferior-moz-switch-to-mozilla)
         ("," emacspeak-moz-browser-back)
@@ -282,6 +283,17 @@ title)\n"
    (format
     "repl.adom.filter('%s'); repl.adom.view()"
     xpath)))
+
+
+;;;###autoload
+(defun emacspeak-moz-id-browse(id)
+  "Browse node having specified id."
+  (interactive "sId: ")
+  (emacspeak-moz-eval-expression-and-browse
+   (format
+    "repl.adom.id('%s'); repl.adom.html(1)"
+    id)))
+
 ;;;###autoload
 (defun emacspeak-moz-locate-and-browse(element)
   "Browse document filtered by element locator."
