@@ -41,12 +41,15 @@ Emacspeak.prototype.init = function() {
     var js = 'file://localhost' + this.path_ + 'js/';
     repl.load(js + 'di.js');
     repl.load(js + 'adom.js');
+    window.addEventListener(
+                            'load',
+                            function () {repl.updateADom(); },
+                            true);
     this.say('Emacspeak Enabled Firefox');
   } catch (err) {
     repl.print('Error during init ' + err);
   }
 };
-
 
 /**
  * Launch the server
