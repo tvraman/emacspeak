@@ -101,7 +101,6 @@ ADom.prototype.base = function () {
  *@Return {string}; HTML
  */
 ADom.prototype.html = function (gen_base) {
-    if (this.current_.tagName.match(/noscript/i)) return '';
     var html ="";
     if (gen_base) {
         html += this.base();
