@@ -84,7 +84,8 @@
         (">" emacspeak-moz-browser-forward)
         ("F" browse-url-firefox)
         ("g" emacspeak-moz-goto-url)
-        ("x" emacspeak-moz-filter-and-browse)
+        ("f" emacspeak-moz-filter-and-browse)
+        ("l" emacspeak-moz-locate-and-browse)
         ("u" emacspeak-moz-goto-url-at-point)
         ("s" emacspeak-moz-search)
         ("r" emacspeak-moz-refresh)
@@ -281,6 +282,14 @@ title)\n"
    (format
     "repl.adom.filter('%s'); repl.adom.view()"
     xpath)))
+;;;###autoload
+(defun emacspeak-moz-locate-and-browse(element)
+  "Browse document filtered by element locator."
+  (interactive "sElement: ")
+  (emacspeak-moz-eval-expression-and-browse
+   (format
+    "repl.adom.locate('%s'); repl.adom.view()"
+    element)))
 
 ;;;###autoload
 (defun emacspeak-moz-browse-current ()
