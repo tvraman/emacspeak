@@ -291,7 +291,7 @@ title)\n"
   (interactive "sId: ")
   (emacspeak-moz-eval-expression-and-browse
    (format
-    "repl.adom.id('%s'); repl.adom.html(1)"
+    "repl.adom.selectId('%s'); repl.adom.html(1)"
     id)))
 
 ;;;###autoload
