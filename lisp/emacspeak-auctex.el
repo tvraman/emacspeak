@@ -140,6 +140,11 @@ Provide auditory feedback after formatting region"
   (when (interactive-p)
     (emacspeak-speak-this-char  (preceding-char ))))
 
+(defadvice TeX-insert-backslash (after emacspeak pre act comp)
+  "Speak what you inserted"
+  (when (interactive-p)
+    (emacspeak-speak-this-char  (preceding-char ))))
+
 ;;}}}
 ;;{{{  Inserting structures
 
