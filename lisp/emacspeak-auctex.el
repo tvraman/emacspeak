@@ -134,16 +134,14 @@ Provide auditory feedback after formatting region"
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
   ad-return-value)
-
-(defadvice TeX-insert-dollar (after emacspeak pre act comp)
-  "Speak what you inserted"
-  (when (interactive-p)
-    (emacspeak-speak-this-char  (preceding-char ))))
-
-(defadvice TeX-insert-backslash (after emacspeak pre act comp)
-  "Speak what you inserted"
-  (when (interactive-p)
-    (emacspeak-speak-this-char  (preceding-char ))))
+(loop for f in
+      '(TeX-insert-dollar TeX-insert-backslash)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Speak what you inserted"
+	  (when (interactive-p)
+	    (emacspeak-speak-this-char  (preceding-char ))))))
 
 ;;}}}
 ;;{{{  Inserting structures
