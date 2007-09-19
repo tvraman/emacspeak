@@ -660,10 +660,12 @@ Produce an auditory icon if possible."
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
-  (let ((prompt  (ad-get-arg 0)))
-    (if  prompt
+  (let ((prompt
+         (or
+          (ad-get-arg 0)
+          "Char: ")))
         (tts-with-punctuations 'all
-                               (dtk-speak prompt)))))
+                               (dtk-speak prompt))))
 
 ;;}}}
 ;;{{{  advice completion functions to speak:
