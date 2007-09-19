@@ -486,9 +486,11 @@ the words that were capitalized."
 
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
-  (if (ad-get-arg 0)
-      (tts-with-punctuations 'all
-                             (dtk-speak (ad-get-arg 0)))))
+  (tts-with-punctuations 'all
+                         (dtk-speak
+                          (or
+                           (ad-get-arg 0)
+                           "Char:"))))
 
 (defadvice previous-history-element (after emacspeak pre act)
   "Speak the history element just inserted."
@@ -654,9 +656,12 @@ Produce an auditory icon if possible."
 
 (defadvice read-char (before emacspeak pre act comp)
   "Speak the prompt"
-  (tts-with-punctuations 'all
-                         (let ((prompt  (ad-get-arg 0)))
-                           (and prompt (dtk-speak prompt)))))
+  (let ((prompt
+                                (or
+                                 (ad-get-arg 0)
+                                 "Char:")))
+    (tts-with-punctuations 'all
+     (dtk-speak prompt))))
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
