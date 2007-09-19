@@ -661,13 +661,13 @@ Interactive use provides list of id values as completion."
       (completing-read "Id: "
                        emacspeak-we-buffer-id-cache))
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (emacspeak-we-xslt-filter
    (format "//*[@id=\"%s\"]"
            id)
    url
-   speak))
+   (or (interactive-p)
+       speak)))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-id-list(ids   url &optional speak)
