@@ -100,20 +100,24 @@
 user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
-  (declare (special emacspeak-alsaplayer-program
-                    emacspeak-alsaplayer-buffer))
+  (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
       (set-buffer buffer)
-      (setq buffer-undo-list t)
-      (shell-command
-       (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
-       (current-buffer)))
-    (switch-to-buffer buffer)
-    (emacspeak-alsaplayer-mode)
+      (cond
+       ((and (get-buffer-process buffer)
+             (eq 'run (process-status (get-buffer-process buffer))))
+        (switch-to-buffer buffer))
+       (t
+        (setq buffer-undo-list t)
+        (shell-command
+         (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
+         (current-buffer))
+        (switch-to-buffer buffer)
+        (emacspeak-alsaplayer-mode)))
     (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line))))
+      (emacspeak-speak-mode-line)))))
 
 ;;}}}
 ;;{{{  Invoke commands:
@@ -529,3 +533,4 @@ Optional second arg watch-pattern specifies line of output to
 ;;; end: 
 
 ;;}}}
+ 
