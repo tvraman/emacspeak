@@ -656,13 +656,17 @@ Produce an auditory icon if possible."
 
 (defadvice read-char (before emacspeak pre act comp)
   "Speak the prompt"
-  (tts-with-punctuations 'all
-                         (dtk-speak (ad-get-arg 0))))
+  (tts-with-punctuations
+   'all
+   (dtk-speak
+    (or (ad-get-arg 0) ""))))
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
-        (tts-with-punctuations 'all
-                               (dtk-speak (ad-get-arg 0))))
+  (tts-with-punctuations 'all
+                               (dtk-speak
+                                (or (ad-get-arg 0)
+                                    ""))))
 
 ;;}}}
 ;;{{{  advice completion functions to speak:
