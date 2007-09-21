@@ -2949,8 +2949,9 @@ dates.")
 (defun emacspeak-wizards-units ()
   "Run units in a comint sub-process."
   (interactive)
-  (make-comint "units" "units"
-               nil "--verbose")
+  (let ((process-environment '("PAGER=cat")))
+    (make-comint "units" "units"
+		 nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
