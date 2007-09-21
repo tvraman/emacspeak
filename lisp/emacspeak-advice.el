@@ -488,9 +488,7 @@ the words that were capitalized."
   "Speak the prompt."
   (tts-with-punctuations 'all
                          (dtk-speak
-                          (or
-                           (ad-get-arg 0)
-                           "Char:"))))
+                          (ad-get-arg 0))))
 
 (defadvice previous-history-element (after emacspeak pre act)
   "Speak the history element just inserted."
