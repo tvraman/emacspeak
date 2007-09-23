@@ -647,6 +647,17 @@ Argument COMPLEMENT  is the complement of separator."
                 (overlay-get o 'auditory-icon))
             (overlays-at position)))))
 
+(defsubst next-true-single-property-change (start  prop object  limit)
+  "Similar to next-single-property-change, but compares property values with equal if they are not atoms."
+  (let ((initial-value (get-text-property start  prop object)))
+    (if (atom initial-value)
+	(next-single-property-change start prop object limit)
+      (let ((pos start))
+	(while  (and (< pos limit)
+		     (equal initial-value (get-text-property pos prop object)))
+	  (setq pos (next-single-property-change pos prop object limit)))
+	pos))))
+
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
 Arguments START and END specify region to speak."
@@ -664,7 +675,7 @@ Arguments START and END specify region to speak."
           (personality (get-text-property start 'personality )))
       (while (and (< start end )
                   (setq last
-                        (next-single-property-change  start 'personality
+                        (next-true-single-property-change start 'personality
                                                       (current-buffer) end)))
         (if personality
             (dtk-speak-using-voice personality
