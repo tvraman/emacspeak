@@ -59,6 +59,7 @@
 
 (voice-setup-add-map
  '(
+   (org-code voice-monotone)
    (org-level-1 voice-bolden-medium)
    (org-level-2 voice-bolden)
    (org-level-3 voice-animate)
