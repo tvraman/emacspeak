@@ -139,7 +139,9 @@
   (string-match
    (regexp-opt
     (list ".m3u$" ".asx$" ".pls$" ".rpm$" ".ram$"  ))
-   resource));;;###autoload
+   resource))
+
+;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list noselect)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
@@ -167,8 +169,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                     emacspeak-m-player-program
                     emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
-    (setq resource
-          (expand-file-name resource)))
+    (setq resource (expand-file-name resource)))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status
                        emacspeak-m-player-process))
@@ -189,7 +190,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    (directory-files (expand-file-name resource)
                                     'full
                                     "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
-           (t (nconc options (list resource)))))
+           (t (nconc options (list
+                              (shell-quote-wildcard-pattern resource))))))
     (setq emacspeak-m-player-process
           (get-buffer-process
            (apply 'make-comint
