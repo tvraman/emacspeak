@@ -148,16 +148,17 @@ Optional second arg watch-pattern specifies line of output to
   "Add specified resource to queue."
   (interactive
    (list
-    (read-file-name "Media Resource: "
-                    (if 
-                        (string-match "mp3" (expand-file-name default-directory))
-                        default-directory
-                      emacspeak-alsaplayer-media-directory))))
+    (expand-file-name
+     (read-file-name "Media Resource: "
+                     (if 
+                         (string-match "mp3" (expand-file-name default-directory))
+                         default-directory
+                       emacspeak-alsaplayer-media-directory)))))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (if (file-directory-p resource)
                (format "%s/*" resource)
-             resource))
+              (shell-quote-wildcard-pattern resource)))
    "playlist_length:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))

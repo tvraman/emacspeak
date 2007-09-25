@@ -133,7 +133,13 @@
        (lookup-key emacspeak-m-player-mode-map
                    (format "%c" command-char)))))))
 
-;;;###autoload
+
+(defsubst emacspeak-m-player-playlist-p (resource)
+  "Check if specified resource matches a playlist type."
+  (string-match
+   (regexp-opt
+    (list ".m3u$" ".asx$" ".pls$" ".rpm$" ".ram$"  ))
+   resource));;;###autoload
 (defun emacspeak-m-player (resource &optional play-list noselect)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
@@ -170,13 +176,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
-        (playlist-p (or
-                     play-list
-                     (string-match ".m3u$"  resource)
-                     (string-match ".asx$"  resource)
-                     (string-match ".pls$"  resource)
-                     (string-match ".rpm$"  resource)
-                     (string-match ".ram$"  resource)))
+        (playlist-p
+         (or play-list
+             (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options)))
     (setq options
           (cond
