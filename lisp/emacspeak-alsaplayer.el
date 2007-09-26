@@ -156,9 +156,10 @@ Optional second arg watch-pattern specifies line of output to
                        emacspeak-alsaplayer-media-directory)))))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
-           (if (file-directory-p resource)
-               (format "%s/*" resource)
-              (shell-quote-wildcard-pattern resource)))
+           (shell-quote-wildcard-pattern
+            (if (file-directory-p resource)
+                (format "%s/*" resource)
+              resource)))
    "playlist_length:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
