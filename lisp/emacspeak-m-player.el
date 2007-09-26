@@ -186,12 +186,16 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (playlist-p
             (nconc options (list "-playlist" resource)))
            ((file-directory-p resource)
-            (nconc options
-                   (directory-files (expand-file-name resource)
-                                    'full
-                                    "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
-           (t (nconc options (list
-                              (shell-quote-wildcard-pattern resource))))))
+            (nconc
+             options
+             (directory-files
+              (expand-file-name resource)
+              'full
+              "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
+           (t
+            (nconc
+             options
+             (list resource)))))
     (setq emacspeak-m-player-process
           (get-buffer-process
            (apply 'make-comint
