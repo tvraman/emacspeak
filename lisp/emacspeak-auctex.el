@@ -135,7 +135,8 @@ Provide auditory feedback after formatting region"
    (t ad-do-it))
   ad-return-value)
 (loop for f in
-      '(TeX-insert-dollar TeX-insert-backslash)
+      '(TeX-insert-dollar TeX-insert-backslash
+                          LaTeX-babel-insert-hyphen)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
