@@ -148,12 +148,14 @@ Optional second arg watch-pattern specifies line of output to
   "Add specified resource to queue."
   (interactive
    (list
-    (expand-file-name
-     (read-file-name "Media Resource: "
-                     (if 
-                         (string-match "mp3" (expand-file-name default-directory))
-                         default-directory
-                       emacspeak-alsaplayer-media-directory)))))
+    (let ((completion-ignore-case t)
+          (read-file-name-completion-ignore-case t))
+      (expand-file-name
+       (read-file-name "Media Resource: "
+                       (if 
+                           (string-match "mp3" (expand-file-name default-directory))
+                           default-directory
+                         emacspeak-alsaplayer-media-directory))))))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (shell-quote-wildcard-pattern
@@ -170,8 +172,11 @@ Optional second arg watch-pattern specifies line of output to
   "Replace currently playing music."
   (interactive
    (list
-    (read-file-name "New MP3 Resource: "
-                    emacspeak-alsaplayer-media-directory)))
+    (let ((completion-ignore-case t)
+          (read-file-name-completion-ignore-case t))
+      (expand-file-name
+       (read-file-name "New MP3 Resource: "
+                       emacspeak-alsaplayer-media-directory)))))
   (emacspeak-alsaplayer-send-command
    (format "--replace %s"
            (if (file-directory-p resource)
@@ -458,7 +463,10 @@ Optional second arg watch-pattern specifies line of output to
   "Invoke mp3splt to clip selected range."
   (interactive
    (list
-    (read-file-name "Path:")
+    (let ((completion-ignore-case t)
+          (read-file-name-completion-ignore-case t))
+      (expand-file-name
+       (read-file-name "Path:")))
     (read-minibuffer "Start: " emacspeak-alsaplayer-mark)
     (read-minibuffer "End: ")))
   (cd (file-name-directory path))
