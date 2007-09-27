@@ -151,6 +151,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t)
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
