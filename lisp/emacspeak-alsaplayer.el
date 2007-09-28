@@ -514,6 +514,7 @@ Optional second arg watch-pattern specifies line of output to
         ("]" emacspeak-alsaplayer-forward-ten-minutes)
         ("[" emacspeak-alsaplayer-backward-ten-minutes)
         ("a" emacspeak-alsaplayer-add-to-queue)
+        ("d" cd)
         ("f" emacspeak-alsaplayer-find-and-add-to-queue)
         ("A"
          emacspeak-alsaplayer-replace-queue)
