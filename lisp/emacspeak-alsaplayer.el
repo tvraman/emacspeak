@@ -167,6 +167,19 @@ Optional second arg watch-pattern specifies line of output to
              (interactive-p))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
+;;;###autoload
+(defun emacspeak-alsaplayer-find-and-add-to-queue (pattern)
+  "Find  specified resource and add to queue."
+  (interactive
+   (list
+    (read-from-minibuffer "Pattern")))
+  (shell-command
+   (format "find . -iname '%s' -print0 | xargs -0 alsaplayer -e "
+           pattern))
+  (when (and emacspeak-alsaplayer-auditory-feedback
+             (interactive-p))
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-replace-queue (resource)
   "Replace currently playing music."
@@ -500,9 +513,8 @@ Optional second arg watch-pattern specifies line of output to
         ("<" emacspeak-alsaplayer-backward-minute)
         ("]" emacspeak-alsaplayer-forward-ten-minutes)
         ("[" emacspeak-alsaplayer-backward-ten-minutes)
-
-        ("a"
-         emacspeak-alsaplayer-add-to-queue)
+        ("a" emacspeak-alsaplayer-add-to-queue)
+        ("f" emacspeak-alsaplayer-find-and-add-to-queue)
         ("A"
          emacspeak-alsaplayer-replace-queue)
         ("c"
