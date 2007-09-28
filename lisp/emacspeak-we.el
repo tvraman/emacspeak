@@ -444,13 +444,13 @@ Default is to extract from current page."
    (list
     (read-from-minibuffer "Extract Table: ")
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (emacspeak-we-xslt-filter
    (format "/descendant::table[%s]"
            position)
    url
-   speak))
+   (or (interactive-p)
+       speak)))
 
 ;;;###autoload
 (defun emacspeak-we-extract-tables-by-position-list (positions url &optional speak)
@@ -461,8 +461,7 @@ Tables are specified by their position in the list
    (list
     (emacspeak-we-get-table-list)
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (i)
@@ -472,7 +471,8 @@ Tables are specified by their position in the list
     (emacspeak-we-xslt-filter
      filter
      url
-     speak)))
+     (or (interactive-p)
+         speak))))
 
 ;;;###autoload
 (defun emacspeak-we-extract-table-by-match (match   url &optional speak)
@@ -482,13 +482,13 @@ Tables are specified by their position in the list
    (list
     (read-from-minibuffer "Tables Matching: ")
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (emacspeak-we-xslt-filter
    (format "(/descendant::table[contains(., \"%s\")])[last()]"
            match)
    url
-   speak))
+   (or (interactive-p)
+       speak)))
 
 ;;;###autoload
 (defun emacspeak-we-extract-tables-by-match-list (match-list
@@ -500,8 +500,7 @@ Tables are specified by containing  match pattern
    (list
     (emacspeak-we-get-table-match-list)
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (i)
@@ -511,7 +510,8 @@ Tables are specified by containing  match pattern
     (emacspeak-we-xslt-filter
      filter
      url
-     speak)))
+     (or (interactive-p)
+         speak))))
 
 (defvar emacspeak-we-buffer-class-cache nil
   "Caches class attribute values for current buffer.")
@@ -637,8 +637,7 @@ values as completion. "
     (let ((completion-ignore-case t))
       (emacspeak-we-css-get-class-list))
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+        current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (c)
@@ -667,8 +666,7 @@ Interactive use provides list of id values as completion."
    (format "//*[@id=\"%s\"]"
            id)
    url
-   (or (interactive-p)
-       speak)))
+   (or (interactive-p) speak)))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-id-list(ids   url &optional speak)
@@ -679,8 +677,7 @@ separate buffer. Interactive use provides list of id values as completion. "
    (list
     (emacspeak-we-get-id-list)
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (c)
@@ -690,7 +687,8 @@ separate buffer. Interactive use provides list of id values as completion. "
     (emacspeak-we-xslt-filter
      (format "//*[%s]" filter)
      url
-     speak)))
+     (or (interactive-p)
+         speak))))
 
 ;;;###autoload
 (defun emacspeak-we-junk-by-class-list(classes   url &optional speak)
@@ -703,8 +701,7 @@ completion. "
    (list
     (emacspeak-we-css-get-class-list)
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (c)
@@ -714,7 +711,8 @@ completion. "
     (emacspeak-we-xslt-junk
      (format "//*[%s]" filter)
      url
-     speak)))
+     (or (interactive-p)
+         speak))))
 
 (defvar emacspeak-we-url-rewrite-rule nil
   "URL rewrite rule to use in current buffer.")
@@ -796,11 +794,11 @@ specifies the page to extract contents  from."
    (list
     (read-from-minibuffer "Style: ")
     (emacspeak-webutils-read-url)
-    (or (interactive-p)
-        current-prefix-arg)))
+    current-prefix-arg))
   (emacspeak-we-xslt-filter
    (format "//*[contains(@style,  \"%s\")]" style)
-   url speak))
+   url
+   (or (interactive-p) speak)))
 
 ;;}}}
 ;;{{{ xpath  filter
