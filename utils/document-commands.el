@@ -182,7 +182,7 @@
     ("emacspeak-tnt"  . ("tnt-prepare"))
     ("emacspeak-jabber"  . nil)
     ("emacspeak-url-template"  . nil )
-    ("emacspeak-view-process"  .nil ); ("view-ps-prepare" "view-process-mode"))
+    ("emacspeak-view-process"  ("view-ps-prepare" "view-process-mode"))
     ("emacspeak-view"  . nil )
     ("emacspeak-vm"  . ("vm-prepare"))
     ("emacspeak-w3"  . ("w3-prepare"))
