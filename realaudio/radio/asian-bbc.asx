@@ -1,0 +1,13 @@
+<ASX version="3.0">
+   <ABSTRACT>http://www.bbc.co.uk/asiannetwork/</ABSTRACT>
+   <TITLE>BBC Asian Network</TITLE>
+   <AUTHOR>BBC</AUTHOR>
+   <COPYRIGHT>(c) British Broadcasting Corporation</COPYRIGHT>
+   <MoreInfo href="http://www.bbc.co.uk/asiannetwork" />
+   <Entry>
+        <ref href="mms://wmlive.bbc.co.uk/wms/asian/lo_s1" />
+        <ref href="mms://wmlive.bbc.co.uk/wms/asian/lo_s2" />
+          <MoreInfo href ="http://www.bbc.co.uk/asiannetwork/" />
+          <Abstract>BBC Asian Network</Abstract>
+   </Entry>
+</ASX>
