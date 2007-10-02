@@ -98,6 +98,8 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "text/html")
                 self.end_headers()
                 self.wfile.write("0")
+            else:
+                self.send_error(501, 'Unknown POST message')
     
 def start():
     if sys.argv[1:]:
