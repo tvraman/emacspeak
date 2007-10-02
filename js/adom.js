@@ -350,6 +350,19 @@ ADom.prototype.view = function () {
 
 // >
 // < Eventing:
+/**
+ * Dispatches a left click event on the element that is the targetNode.
+ * @param {Node} targetNode The target node of this operation.
+ * @return {Null}
+ */
+ADom.prototype.click = function(targetNode){
+  var evt = document.createEvent('MouseEvents');
+  evt.initMouseEvent('click',true,true,document.defaultView,
+                     1,0,0,0,0,false,false,false,false,0,null);
+  targetNode.dispatchEvent(evt);
+};
+
+
 /*
  * Send a keypress event to specified target.
  * @target: DOM node
@@ -362,6 +375,22 @@ this.document_.createEvent('KeyboardEvent');
 evt.initKeyEvent('keypress',true,true,null,false,false,false,false,keyCode,charCode);
 target.dispatchEvent(evt);
 };
+
+
+
+/*
+ * Send a keypress event to specified target.
+ * @target: DOM node
+ * @keyCode: KeyDown
+ * @charCode: character code of key being pressed.
+ */
+
+ADom.prototype.keyDown = function (target, keyCode, charCode) {  var evt =
+this.document_.createEvent('KeyboardEvent');
+evt.initKeyEvent('keypress',true,true,null,false,false,false,false,keyCode,charCode);
+target.dispatchEvent(evt);
+};
+
 // >
 // < A11y Reflection:
 
