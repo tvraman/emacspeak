@@ -350,7 +350,18 @@ ADom.prototype.view = function () {
 
 // >
 // < Eventing:
+/*
+ * Send a keypress event to specified target.
+ * @target: DOM node
+ * @keyCode: KeyPress
+ * @charCode: character code of key being pressed.
+ */
 
+ADom.prototype.keyPress = function (target, keyCode, charCode) {  var evt =
+this.document_.createEvent('KeyboardEvent');
+evt.initKeyEvent('keypress',true,true,null,false,false,false,false,keyCode,charCode);
+target.dispatchEvent(evt);
+};
 // >
 // < A11y Reflection:
 
