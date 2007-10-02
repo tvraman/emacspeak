@@ -81,6 +81,24 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200, self.path)
         else: self.send_error(501, "Speaker error")
 
+    def do_POST(self):
+        """Handle speech request in a POST message. """
+        contentLength = self.headers.getheader('content-length')
+        if contentLength:
+            contentLength = int(contentLength)
+            inputBody = self.rfile.read(contentLength)
+            if inputBody.startswith("speak:"):
+                self.server.speaker.speak( inputBody[6:])
+                self.send_response(200, 'OK')
+            elif inputBody == "stop":
+                self.server.speaker.stop()
+                self.send_response(200, 'OK')
+            elif inputBody == "isSpeaking":
+                self.send_response(200, 'OK')
+                self.send_header("Content-type", "text/html")
+                self.end_headers()
+                self.wfile.write("0")
+    
 def start():
     if sys.argv[1:]:
         engine = sys.argv[1]
