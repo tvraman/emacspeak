@@ -61,11 +61,15 @@
 ;;;###autoload
 (define-prefix-command 'emacspeak-alsaplayer-prefix-command
   'emacspeak-alsaplayer-mode-map)
+(defun emacspeak-alsaplayer-header-line ()
+  "Return information suitable for header line."
+  (shell-command-to-string "alsaplayer --status | grep title:"))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
-\\{emacspeak-alsaplayer-mode-map}")
+\\{emacspeak-alsaplayer-mode-map}"
+  (setq header-line-format '((:eval (emacspeak-alsaplayer-header-line)))))
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
