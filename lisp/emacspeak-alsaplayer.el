@@ -297,7 +297,7 @@ Optional second arg watch-pattern specifies line of output to
   "Set volume."
   (interactive "sVolume")
   (emacspeak-alsaplayer-send-command
-   (format "--volume %d" setting)
+   (format "--volume %s" setting)
    "volume:")
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
