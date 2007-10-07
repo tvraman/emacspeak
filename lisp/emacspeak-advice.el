@@ -1044,7 +1044,6 @@ Produce an auditory icon if possible."
    ((interactive-p)
     (let ((prior (point ))
           (emacspeak-speak-messages nil))
-      (emacspeak-kill-buffer-carefully "*Completions*")
       ad-do-it
       (if (> (point) prior)
           (tts-with-punctuations 'all
