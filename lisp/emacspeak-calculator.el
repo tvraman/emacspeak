@@ -59,6 +59,14 @@
 
 ;;}}}
 ;;{{{  advice interactive commands 
+(defadvice calculator (around emacspeak pre act comp)
+  "Fix while waiting for a bug-fix in Emacs."
+  (cond
+   ((interactive-p)
+    (let ((header-line-format nil))
+      ad-do-it))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice calculator (after emacspeak pre act comp)
   "Speech enable calculator."
