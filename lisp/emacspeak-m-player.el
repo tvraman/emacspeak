@@ -93,7 +93,7 @@
   :type 'string
   :group 'emacspeak-m-player)
 (defvar emacspeak-m-player-default-options
-  (list "-slave"  "-nortc" )
+  (list "-slave"  "-nortc""-softvol" "100" )
   "Default options for MPlayer.")
 
 (defcustom emacspeak-m-player-options 
