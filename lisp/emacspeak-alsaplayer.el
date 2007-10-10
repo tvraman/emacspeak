@@ -63,7 +63,9 @@
   'emacspeak-alsaplayer-mode-map)
 (defun emacspeak-alsaplayer-header-line ()
   "Return information suitable for header line."
-  (shell-command-to-string "alsaplayer --status | grep title:"))
+  (substring
+   (shell-command-to-string "alsaplayer --status | grep title:")
+   0 -1))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"
