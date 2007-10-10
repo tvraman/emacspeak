@@ -133,13 +133,17 @@
        (lookup-key emacspeak-m-player-mode-map
                    (format "%c" command-char)))))))
 
+(defvar  emacspeak-m-player-playlist-pattern
+  (concat
+   (regexp-opt
+    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"  ))
+   "$")
+  "Pattern for matching playlists.")
 
 (defsubst emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
-  (string-match
-   (regexp-opt
-    (list ".m3u$" ".asx$" ".pls$" ".rpm$" ".ram$"  ))
-   resource))
+  (declare (special emacspeak-m-player-playlist-pattern))
+  (string-match emacspeak-m-player-playlist-pattern resource))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list noselect)
