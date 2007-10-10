@@ -260,7 +260,7 @@ from Web page -- default is the current page being viewed."
    (list
     (read-from-minibuffer "XPath: ")
     (emacspeak-webutils-read-url)
-    (interactive-p)))
+    current-prefix-arg))
   (declare (special emacspeak-we-xsl-filter ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
     (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
@@ -269,7 +269,9 @@ from Web page -- default is the current page being viewed."
      emacspeak-we-xsl-filter
      params
      emacspeak-xslt-options             ;options
-     (browse-url url))))
+     (browse-url url)
+     (or speak (interactive-p)))))
+
 
 ;;;###autoload
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
