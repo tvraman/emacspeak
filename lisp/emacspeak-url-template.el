@@ -521,6 +521,19 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ market summary from google finance
+(emacspeak-url-template-define
+ "Market summary from Google"
+ "http://finance.google.com/finance"
+ nil
+ nil
+ "Display financial market summary."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id
+      "mktsumm" url 'speak)))
+ 
+
+;;}}}
 ;;{{{ google CSE and Google Reader:
 (defcustom emacspeak-url-template-reading-list-opml nil
   "OPML feed location to use for our Custom Search."
