@@ -71,8 +71,6 @@
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
 \\{emacspeak-alsaplayer-mode-map}"
-  (declare (special emacspeak-alsaplayer-height))
-  (set-window-text-height nil emacspeak-alsaplayer-height)
   (setq header-line-format '((:eval (emacspeak-alsaplayer-header-line)))))
 
 ;;}}}
@@ -122,14 +120,15 @@ Alsaplayer session."
       (cond
        ((and (get-buffer-process buffer)
              (eq 'run (process-status (get-buffer-process buffer))))
-        (switch-to-buffer buffer)
+        (pop-to-buffer buffer 'other-window)
 	(set-window-text-height nil emacspeak-alsaplayer-height))
        (t
         (setq buffer-undo-list t)
         (shell-command
          (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
          (current-buffer))
-        (switch-to-buffer buffer)
+        (pop-to-buffer buffer 'other-window)
+	(set-window-text-height nil emacspeak-alsaplayer-height)
         (emacspeak-alsaplayer-mode)))
     (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
       (emacspeak-auditory-icon 'open-object)
@@ -546,8 +545,8 @@ Optional second arg watch-pattern specifies line of output to
          emacspeak-alsaplayer-next)
         ("p"
          emacspeak-alsaplayer-previous)
-        ("q"
-         emacspeak-alsaplayer-quit)
+        ("q" emacspeak-alsaplayer-quit)
+	("o" 'other-window)
         ("r" emacspeak-alsaplayer-relative)
         ("s"
          emacspeak-alsaplayer-start)
