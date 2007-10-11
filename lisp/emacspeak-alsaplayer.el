@@ -71,6 +71,8 @@
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
 \\{emacspeak-alsaplayer-mode-map}"
+  (declare (special emacspeak-alsaplayer-height))
+  (set-window-text-height nil emacspeak-alsaplayer-height)
   (setq header-line-format '((:eval (emacspeak-alsaplayer-header-line)))))
 
 ;;}}}
@@ -85,6 +87,12 @@
   "Turn this on if you want spoken feedback and auditory icons from alsaplayer."
   :type 'boolean
   :group 'emacspeak-alsaplayer)
+
+(defcustom emacspeak-alsaplayer-height 1
+  "Height of alsaplayer window."
+  :type 'number
+  :group 'emacspeak-alsaplayer)
+
 ;;;###autoload
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
@@ -106,14 +114,16 @@
 user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
-  (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer))
+  (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer
+		    emacspeak-alsaplayer-height))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
       (set-buffer buffer)
       (cond
        ((and (get-buffer-process buffer)
              (eq 'run (process-status (get-buffer-process buffer))))
-        (switch-to-buffer buffer))
+        (switch-to-buffer buffer)
+	(set-window-text-height nil emacspeak-alsaplayer-height))
        (t
         (setq buffer-undo-list t)
         (shell-command

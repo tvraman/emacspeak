@@ -87,7 +87,10 @@
 (defgroup emacspeak-m-player nil
   "Emacspeak media player settings."
   :group 'emacspeak)
-
+(defcustom emacspeak-m-player-height 1
+  "Height of MPlayer window."
+  :type 'number
+  :group 'emacspeak-m-player)
 (defcustom emacspeak-m-player-program "mplayer"
   "Media player program."
   :type 'string
@@ -119,13 +122,14 @@
   (interactive
    (list
     (read-char "MPlayer Command: ")))
-  (declare (special emacspeak-m-player-process))
+  (declare (special emacspeak-m-player-process
+		    emacspeak-m-player-height))
   (cond
    ((=  command-char ?\;)
-    (pop-to-buffer (process-buffer
-                    emacspeak-m-player-process)
-                   nil 'norecord)
-    (set-window-text-height nil 3)
+    (pop-to-buffer
+     (process-buffer emacspeak-m-player-process)
+     nil 'norecord)
+    (set-window-text-height nil emacspeak-m-player-height)
     (emacspeak-speak-mode-line))
    (t
     (save-window-excursion
@@ -170,9 +174,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     current-prefix-arg
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
-                    emacspeak-m-player-process
-                    emacspeak-m-player-program
-                    emacspeak-m-player-options))
+		    emacspeak-m-player-height emacspeak-m-player-process
+                    emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
   (when (and emacspeak-m-player-process
@@ -214,7 +217,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (ansi-color-for-comint-mode-on))
     (unless noselect
       (switch-to-buffer (process-buffer emacspeak-m-player-process))
-      (set-window-text-height nil 3))))
+      (set-window-text-height nil emacspeak-m-player-height))))
 
 ;;}}}
 ;;{{{ commands 
