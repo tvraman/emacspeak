@@ -38,7 +38,7 @@ only support the current Atom namespace.
         </xsl:if>
         <xsl:apply-templates select="atom:entry|w3a:entry"/>
         <h2>
-          <xsl:value-of select="title"/>
+          <xsl:value-of select="atom:title" disable-output-escaping="yes"/>
         </h2>
 
         <p>
@@ -159,4 +159,7 @@ only support the current Atom namespace.
       <xsl:value-of select="w3a:name|atom:name"/>
     </a>
   </xsl:template>
-</xsl:stylesheet>
+
+  <xsl:template match="atom:title|w3a:title">
+    <xsl:value-of select="." disable-output-escaping="yes"/>
+  </xsl:template></xsl:stylesheet>
