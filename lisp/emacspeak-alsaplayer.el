@@ -348,9 +348,10 @@ Optional second arg watch-pattern specifies line of output to
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-alsaplayer-quit ()
-  "Quit or resume alsaplayer"
+  "Quit  alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command "--quit")
+  (delete-window)
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (when (eq major-mode 'emacspeak-alsaplayer-mode)
       (kill-buffer (current-buffer)))
