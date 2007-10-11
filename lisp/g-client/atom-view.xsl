@@ -39,7 +39,8 @@ View an Atom feed as clean HTML
 
         <p>
           <xsl:apply-templates select="atom:tagline"/><br/>
-          <xsl:apply-templates select="atom:author"/><br/>
+          <xsl:apply-templates select="atom:author"/>
+          <br/>
         </p>
         <h2>Feed-Level Links</h2>
         <table>
@@ -147,5 +148,8 @@ View an Atom feed as clean HTML
       </xsl:attribute>
       <xsl:value-of select="atom:name"/>
     </a>
+  </xsl:template>
+  <xsl:template match="atom:title">
+    <xsl:value-of select="." disable-output-escaping="yes"/>
   </xsl:template>
 </xsl:stylesheet>
