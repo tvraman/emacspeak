@@ -130,6 +130,7 @@
      (process-buffer emacspeak-m-player-process)
      nil 'norecord)
     (set-window-text-height nil emacspeak-m-player-height)
+    (set-window-dedicated-p (selected-window) t)
     (emacspeak-speak-mode-line))
    (t
     (save-window-excursion
@@ -217,7 +218,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (ansi-color-for-comint-mode-on))
     (unless noselect
       (switch-to-buffer (process-buffer emacspeak-m-player-process))
-      (set-window-text-height nil emacspeak-m-player-height))))
+      (set-window-text-height nil emacspeak-m-player-height)
+      (set-window-dedicated-p (selected-window) t))))
 
 ;;}}}
 ;;{{{ commands 
