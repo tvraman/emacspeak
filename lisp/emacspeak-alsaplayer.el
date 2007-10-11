@@ -546,7 +546,7 @@ Optional second arg watch-pattern specifies line of output to
         ("p"
          emacspeak-alsaplayer-previous)
         ("q" emacspeak-alsaplayer-quit)
-	("o" 'other-window)
+	("o" other-window)
         ("r" emacspeak-alsaplayer-relative)
         ("s"
          emacspeak-alsaplayer-start)
