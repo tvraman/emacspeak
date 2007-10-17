@@ -362,10 +362,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Quit media player."
   (interactive)
   (when (eq (process-status emacspeak-m-player-process) 'run)
-    (emacspeak-m-player-dispatch "quit"))
+    (let ((buffer (process-buffer emacspeak-m-player-process)))
+    (emacspeak-m-player-dispatch "quit")
+    (and (buffer-live-p buffer)
+         (kill-buffer buffer))))
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
     (delete-process  emacspeak-m-player-process))
-  (bury-buffer)
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-m-player-volume-up ()
