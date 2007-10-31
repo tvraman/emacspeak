@@ -150,6 +150,7 @@ FORMS =etc/forms/*.el
 REALAUDIO=realaudio
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
+PYLIB=servers/python
 ESPEAK=servers/linux-espeak/tclespeak.cpp \
 servers/linux-espeak/Makefile\
 servers/linux-espeak/makefile.tcl83\
@@ -277,8 +278,10 @@ install:
 	$(INSTALL) -m 0644  ${IGUIDE}   $(libdir)/install-guide
 	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
+	$(INSTALL) -d $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL)  -m 755 ${PYLIB}  $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
 	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
 	$(INSTALL) -d $(libdir)/servers/software-dtk

@@ -58,20 +58,9 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
         """Produce speech."""
         cmd = None
         arg = None
+        pass
 
-        # we either get a cmd or a cmd?arg
-        q=self.path.find('?')
-        if q == -1:
-            cmd =self.path[1:]
-        else:
-            cmd = self.path[1:q]
-            arg = self.path[q+1:].replace('+', ' ')
-
-        if cmd not in self.handlers:
-            sys.stderr.write("cmd %s handlers %s" % (cmd, self.handlers))
-            self.send_error(501, "unknown method %s" % cmd)
-            return
-
+        
         if hasattr(self.server.speaker, cmd):
             method = getattr(self.server.speaker, cmd)
             if arg is None:
@@ -99,7 +88,7 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write("0")
             else:
-                self.send_error(501, 'Unknown POST message')
+                self.send_error(501, 'Unknown POST message ' + inputBody)
     
 def start():
     if sys.argv[1:]:
