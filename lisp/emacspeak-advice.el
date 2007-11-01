@@ -2715,6 +2715,17 @@ Variable mark-even-if-inactive is set true ."
      "Warning:  show-paren mode with Emacspeak will not work.")))
 
 ;;}}}
+;;{{{ display world time
+
+(defadvice display-time-world (after emacspeak pre act comp)
+  "Speak what you displayed."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (save-excursion
+      (set-buffer "*wclock*")
+      (emacspeak-speak-buffer))))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 

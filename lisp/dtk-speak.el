@@ -730,7 +730,6 @@ pattern `.' (this is already added by default) emacspeak
 will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period
 ''"
-
   (interactive "P")
   (declare (special dtk-cleanup-patterns ))
   (cond
