@@ -2067,7 +2067,10 @@ visiting the xls file."
                                 (file-name-nondirectory filename)))))
     (shell-command
      (format "%s %s  %s - | cat -s "
-             emacspeak-wizards-pdf-to-text-program emacspeak-wizards-pdf-to-text-options filename)
+             emacspeak-wizards-pdf-to-text-program
+             emacspeak-wizards-pdf-to-text-options
+             (shell-quote-argument
+              (expand-file-name filename)))
      output-buffer)
     (switch-to-buffer output-buffer)
     (set-buffer-modified-p nil)
