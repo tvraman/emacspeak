@@ -268,11 +268,21 @@ XPathRingBuffer.prototype.previous = function () {
 
 ADom.prototype.filter = function (xpath) {
     var start = this.current_ || this.root_;
-    var snap   =
-    this.document_.evaluate(xpath,
-                            start, null,
-                            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+    try {
+      var snap   =
+          this.document_.evaluate(xpath,
+                                  start,
+                                  null, // no namespace resolver
+                                  XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+                                  null); // no previous results
     return this.view_ = new XPathRingBuffer(snap);
+    } catch (err) {
+      repl.print("Error evaluating XPath '"
+                 +  xpath
++"': "
+                 +err);
+      return null;
+    }
 };
 
 // >
