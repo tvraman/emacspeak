@@ -62,7 +62,7 @@ View an RSS feed as clean HTML
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|nsrss:title|nsrss:description">
-    <xsl:apply-templates/>
+    <xsl:value-of select="." disable-output-escaping="yes"/>
   </xsl:template>
   <!-- } -->
   <!-- {rss 0.9 -naked namespaces -->
