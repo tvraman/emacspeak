@@ -2051,6 +2051,18 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Look up term in WordNet.")
 
 ;;}}}
+;;{{{ prairie home companion 
+
+(emacspeak-url-template-define
+ "PHC Prairie Home Companion"
+ "http://www.publicradio.org/tools/media/player/phc/%s_phc.ram"
+ (list 'emacspeak-url-template-date-year/month/date)
+ nil
+ "Play Prairie Home Companion"
+ #'(lambda (url)
+     (funcall emacspeak-media-player  url 'play-list))) 
+
+;;}}}
 
 ;;}}}
 ;;{{{ Interactive commands
