@@ -127,8 +127,7 @@
   (cond
    ((=  command-char ?\;)
     (pop-to-buffer
-     (process-buffer emacspeak-m-player-process)
-     nil 'norecord)
+     (process-buffer emacspeak-m-player-process))
     (set-window-text-height nil emacspeak-m-player-height)
     (set-window-dedicated-p (selected-window) t)
     (emacspeak-speak-mode-line))
@@ -217,7 +216,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq buffer-undo-list t)
       (ansi-color-for-comint-mode-on))
     (unless noselect
-      (switch-to-buffer (process-buffer emacspeak-m-player-process))
+      (pop-to-buffer (process-buffer emacspeak-m-player-process))
       (set-window-text-height nil emacspeak-m-player-height)
       (set-window-dedicated-p (selected-window) t))))
 
