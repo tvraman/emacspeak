@@ -1,6 +1,3 @@
-;http://abc.net.au/streaming/cricket/cricket.ram
-rtsp://cricketstreaming.abc.net.au/broadcast/702.rm
-rtsp://cricketstreaming.abc.net.au/broadcast/7022.rm
-rtsp://cricketstreaming.abc.net.au/broadcast/702.rm
-rtsp://cricketstreaming.abc.net.au/broadcast/7022.rm
+rtsp://cricketstreaming.abc.net.au/broadcast/www2.rm
+rtsp://cricketstreaming.abc.net.au/broadcast/www22.rm
 http://abc.net.au/streaming/cricket_apol/generic_apol.rm
