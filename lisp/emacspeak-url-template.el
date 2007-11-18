@@ -316,10 +316,11 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "(//table//table)[8]//td[position()=3 or position()=5]"
+     (let ((w3-auto-image-alt "[IMAGE(%s)]"))
+     (emacspeak-we-extract-table-by-match
+      "Rank"
       url
-      'speak)))
+      'speak))))
 
 ;;}}}
 ;;{{{  old time radio
