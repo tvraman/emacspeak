@@ -430,7 +430,8 @@ instances."
   (declare (special emacspeak-media-player))
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (message "Playing media  URL under point")
-    (funcall emacspeak-media-player  url)))
+    (funcall emacspeak-media-player  url
+	     nil 'noselect)))
 
 ;;;###autoload
 (defun emacspeak-webutils-view-feed-via-google-reader ()
