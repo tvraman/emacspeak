@@ -1,0 +1,7 @@
+<ASX version="3.0">
+    <TITLE>CNN U.S. Audio</TITLE>
+   <ENTRY>
+      <REF HREF="http://cnn-us-audio-1.wm.llnwd.net/cnn_us_audio_1"/>
+      <REF HREF="http://cnn-us-audio-2.wm.llnwd.net/cnn_us_audio_2"/>
+   </ENTRY>
+</ASX>

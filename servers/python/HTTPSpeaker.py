@@ -33,7 +33,9 @@ class HTTPSpeaker (HTTPServer):
                  engine='outloud'):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
-        self.speaker = Speaker(engine)
+        self.speaker = Speaker(engine,
+                               'localhost',
+                               {'punctuations' : 'some'})
 
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
