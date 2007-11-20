@@ -172,7 +172,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                       (when (eq major-mode 'dired-mode)
                         (dired-get-filename))))
     current-prefix-arg
-    current-prefix-arg))
+    'noselect))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
 		    emacspeak-m-player-height emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
