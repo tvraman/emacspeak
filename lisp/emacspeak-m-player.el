@@ -368,16 +368,24 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
     (delete-process  emacspeak-m-player-process))
   (emacspeak-speak-mode-line))
-
+;;;###autoload
 (defun emacspeak-m-player-volume-up ()
   "Increase volume."
   (interactive)
   (emacspeak-m-player-dispatch "volume 1"))
 
+;;;###autoload
 (defun emacspeak-m-player-volume-down ()
   "Decrease volume."
   (interactive)
   (emacspeak-m-player-dispatch "volume -1"))
+;;;###autload
+(defun emacspeak-m-player-volume-change (offset)
+  "Change volume."
+  (interactive"sChange Volume By:")
+  (emacspeak-m-player-dispatch
+   (format "volume %s"
+           offset)))
    
 
 (defun emacspeak-m-player-display-position ()
@@ -536,6 +544,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("g" emacspeak-m-player-seek-absolute)
         (" " emacspeak-m-player-pause)
         ("q" emacspeak-m-player-quit)
+        ("v" emacspeak-m-player-volume-change)
         ("-" emacspeak-m-player-volume-down)
         ("=" emacspeak-m-player-volume-up)
         ("+" emacspeak-m-player-volume-up)
