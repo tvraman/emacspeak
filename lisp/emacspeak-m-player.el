@@ -381,7 +381,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch "volume -1"))
 ;;;###autload
 (defun emacspeak-m-player-volume-change (offset)
-  "Change volume."
+  "Change volume.
+A value of <number> changes volume by specified offset.
+A string of the form `<number> 1' sets volume as an absolute."
   (interactive"sChange Volume By:")
   (emacspeak-m-player-dispatch
    (format "volume %s"
