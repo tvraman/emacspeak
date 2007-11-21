@@ -530,6 +530,9 @@ Tables are specified by containing  match pattern
       (emacspeak-xslt-run
        (emacspeak-xslt-get "class-values.xsl")
        (point-min) (point-max))
+      (goto-char (point-min))
+      (skip-syntax-forward " ")
+      (delete-region (point-min) (point))
       (setq values (split-string (buffer-string)
                                  "\n" 'omit-null)))
     (add-hook
@@ -538,11 +541,7 @@ Tables are specified by containing  match pattern
       `(function
         (lambda nil
           (declare (special  emacspeak-we-buffer-class-cache))
-          (setq emacspeak-we-buffer-class-cache
-                ',(mapcar
-                   #'(lambda (v)
-                       (cons v v ))
-                   values))))))
+          (setq emacspeak-we-buffer-class-cache values)))))
     (kill-buffer content)))
 
 
