@@ -530,7 +530,8 @@ Tables are specified by containing  match pattern
       (emacspeak-xslt-run
        (emacspeak-xslt-get "class-values.xsl")
        (point-min) (point-max))
-      (setq values (split-string (buffer-string))))
+      (setq values (split-string (buffer-string)
+                                 "\n" 'omit-null)))
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
@@ -543,6 +544,7 @@ Tables are specified by containing  match pattern
                        (cons v v ))
                    values))))))
     (kill-buffer content)))
+
 
 (defvar emacspeak-we-buffer-id-cache nil
   "Caches id attribute values for current buffer.")
