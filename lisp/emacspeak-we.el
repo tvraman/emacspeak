@@ -533,15 +533,16 @@ Tables are specified by containing  match pattern
       (goto-char (point-min))
       (skip-syntax-forward " ")
       (delete-region (point-min) (point))
-      (setq values (split-string (buffer-string)
-                                 "\n" 'omit-null)))
+      (setq values (split-string (buffer-string))))
+    (message "Values: %s" values)
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
       `(function
         (lambda nil
           (declare (special  emacspeak-we-buffer-class-cache))
-          (setq emacspeak-we-buffer-class-cache values)))))
+          (setq emacspeak-we-buffer-class-cache
+                ',(copy-sequence values))))))
     (kill-buffer content)))
 
 
@@ -568,10 +569,7 @@ Tables are specified by containing  match pattern
         (lambda nil
           (declare (special  emacspeak-we-buffer-id-cache))
           (setq emacspeak-we-buffer-id-cache
-                ',(mapcar
-                   #'(lambda (v)
-                       (cons v v ))
-                   values))))))
+                ',(copy-sequence values))))))
     (kill-buffer content)))
 
 ;;;###autoload
