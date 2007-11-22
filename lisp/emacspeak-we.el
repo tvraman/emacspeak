@@ -583,7 +583,7 @@ buffer. Interactive use provides list of class values as completion."
                      emacspeak-we-buffer-class-cache)
     (emacspeak-webutils-read-url)
     current-prefix-arg))
-  (let ((filter (format "//*[@class=\"%s\"]" class)))
+  (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
     (message "filter:%s" filter)
     (emacspeak-we-xslt-filter filter
                               url
