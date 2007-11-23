@@ -10,7 +10,7 @@ LIBS= -ltclx8.3 -ldl
 TTS=tcleci.so eci.ini VIAVOICE
 ATTS=atcleci.cpp  ALSA asoundrc
 MISC=alsaparams.c
-all: tcleci.so 
+all: tcleci.so  atcleci.so
 
 tcleci.lo: tcleci.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
