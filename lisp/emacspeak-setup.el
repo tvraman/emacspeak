@@ -129,7 +129,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "LeadDog"
+  "FastDog"
   "Code name of present release.")
 
 ;;}}}
