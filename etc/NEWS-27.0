@@ -21,7 +21,6 @@ Package ess provides an Emacs interface to statistical packages
 like R.
 
 **  Header Line Support:
-
 Emacspeak now supports Emacs22 header-line feature.
 There is a new command `emacspeak-speak-header-line'
 bound to C-e SPC  that 
