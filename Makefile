@@ -283,7 +283,7 @@ install:
 	$(INSTALL) -d $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
-	$(INSTALL)  -m 755 ${PYLIB}  $(libdir)/servers/python
+	cp -r  ${PYLIB}  $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
 	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
 	$(INSTALL) -d $(libdir)/servers/software-dtk
