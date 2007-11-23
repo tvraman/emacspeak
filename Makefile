@@ -164,7 +164,7 @@ ${ECI}/*.h \
 ${ECI}/*.cpp \
 ${ECI}/*.so \
 ${ECI}/VIAVOICE ${ECI}/ALSA ${ECI}/asoundrc \
-${ECI}/Makefile
+${ECI}/Makefile ${ECI}/makefile.tcl83
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/FAQ etc/HELP etc/applications.html   etc/tips.html
