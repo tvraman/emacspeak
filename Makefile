@@ -192,6 +192,7 @@ INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
+${PYLIB} \
 ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
 # }}}
