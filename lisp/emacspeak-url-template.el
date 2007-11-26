@@ -444,7 +444,7 @@ content."
                     content
                     ".rpm"))
       (kill-new uri)
-      (funcall emacspeak-media-player  uri 'play-list)
+      (funcall emacspeak-media-player  uri 'play-list 'noselect)
       (message "Playing content under point.")))))
 
 (emacspeak-url-template-define
