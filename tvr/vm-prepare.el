@@ -1,11 +1,12 @@
 ;;; Augment load path:
-(augment-load-path "vm" "vm")
+(augment-load-path "vm/lisp" "vm")
 (load-library "vm")
+
 (global-set-key "\M-\C-v" 'vm-visit-folder)
+(defalias 'w3-region 'w3m-region)
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
 
 (add-hook 'vm-quit-hook 'vm-expunge-folder)
-(add-hook 'vm-quit-hook 'display-time)
 (global-set-key "\C-xm" 'vm-mail)
 (add-hook 'vm-mode-hook
           (function
@@ -13,11 +14,7 @@
              (and (featurep 'emacspeak)
                   (define-key vm-mode-map '[delete]
                     'dtk-toggle-punctuation-mode)))))
-;;{{{ w3m
-;;;w3-region is broken --kluge to use w3m.
-(defalias 'w3-region 'w3m-region)
 
-;;}}}
 ;;{{{ spamassassin
 
 (defun  vm-spam-assassinate ()
@@ -29,5 +26,22 @@
   (call-interactively 'vm-next-message))
 
 (define-key vm-mode-map "\C-\M-s" 'vm-spam-assassinate)
+
+ ;;}}}
+
+;;{{{ GMail:
+;; I set these via custom, 
+;; and in addition, I push 
+;; (list "~/gbox" (first vm-imap-server-list) "~/gbox.crash")
+;; on to vm-spool-files.
+;; Required
+;(setq vm-imap-server-list
+      ;'("imap-ssl:imap.gmail.com:993:inbox:login:tv.raman.tv@gmail.com:*"))
+
+;; Optional
+;(setq vm-imap-folder-cache-directory (expand-file-name "IMAP"
+;vm-folder-directory))
+;(setq vm-imap-save-to-server t)
+
 
  ;;}}}
