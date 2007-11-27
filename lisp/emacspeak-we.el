@@ -890,6 +890,34 @@ used as well."
      'speak)))
 
 ;;}}}
+;;{{{ Property filter
+
+
+;;;###autoload
+(defun emacspeak-we-extract-by-property (property)
+  "Interactively prompt for an HTML property, e.g. id or class,
+and provide a completion list of applicable  property values. Filter document by property that is specified."
+  (interactive
+   (list
+    (read
+    (completing-read "Property:"
+         '("id" "class")))))
+  (let* ((values (emacspeak-webutils-get-property-from-html-stack
+                 (emacspeak-w3-html-stack)
+                 property))
+         (v (completing-read "Having value: "
+                             values))
+    (filter nil))
+    (emacspeak-we-xslt-filter
+    (format "//*[@%s=\"%s\"]"
+           property v)
+    url
+    'speak)))
+    
+  
+    
+
+;;}}}
 ;;{{{  xsl keymap
 
 (declaim (special emacspeak-we-xsl-map))
@@ -897,6 +925,7 @@ used as well."
 (loop for binding in
       '(
         ("C" emacspeak-we-extract-by-class-list)
+        ("w" emacspeak-we-extract-by-property)
         ("M" emacspeak-we-extract-tables-by-match-list)
         ("P" emacspeak-we-extract-print-streams)
         ("R" emacspeak-we-extract-media-streams-under-point)
