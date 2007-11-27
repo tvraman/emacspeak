@@ -656,7 +656,7 @@ values as completion. "
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion."
-  (interactive
+ (interactive
    (list
     (let ((completion-ignore-case t))
       (completing-read "Id: "
@@ -894,25 +894,24 @@ used as well."
 
 
 ;;;###autoload
-(defun emacspeak-we-extract-by-property (property)
+(defun emacspeak-we-extract-by-property (property url &optional speak)
   "Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified."
   (interactive
    (list
     (read
-    (completing-read "Property:"
-         '("id" "class")))))
-  (let* ((values (emacspeak-webutils-get-property-from-html-stack
-                 (emacspeak-w3-html-stack)
-                 property))
-         (v (completing-read "Having value: "
-                             values))
-    (filter nil))
-    (emacspeak-we-xslt-filter
-    (format "//*[@%s=\"%s\"]"
-           property v)
-    url
-    'speak)))
+     (completing-read "Property: "
+                      '("id" "class")))
+    (emacspeak-webutils-read-url)
+    current-prefix-arg))
+  (let* ((completion-ignore-case t)
+         (values (emacspeak-webutils-get-property-from-html-stack
+                  (emacspeak-w3-html-stack)
+                  property))
+         (v (completing-read "Having value: " values))
+         (filter (format "//*[contains(@%s, \"%s\")]"
+                         property v)))
+    (emacspeak-we-xslt-filter filter url speak)))
     
   
     
