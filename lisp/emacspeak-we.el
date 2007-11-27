@@ -534,7 +534,6 @@ Tables are specified by containing  match pattern
       (skip-syntax-forward " ")
       (delete-region (point-min) (point))
       (setq values (split-string (buffer-string))))
-    (message "Values: %s" values)
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
