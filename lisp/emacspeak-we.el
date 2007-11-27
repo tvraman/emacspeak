@@ -909,9 +909,14 @@ and provide a completion list of applicable  property values. Filter document by
                   (emacspeak-w3-html-stack)
                   property))
          (v (completing-read "Having value: " values))
-         (filter (format "//*[contains(@%s, \"%s\")]"
-                         property v)))
-    (emacspeak-we-xslt-filter filter url speak)))
+         (filter
+          (if (eq property 'class)
+              (format "//*[contains(@%s, \"%s\")]"
+                      property v)
+            (format "//*[@%s=\"%s\"]"
+                    property v))))
+    (emacspeak-we-xslt-filter filter url
+                              (or (interactive-p) speak))))
     
   
     
