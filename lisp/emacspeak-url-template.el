@@ -793,6 +793,21 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 ;;}}}
 ;;{{{ google maps
 
+;;; public transit using Google Maps:
+
+(emacspeak-url-template-define
+ "Public Transit Via Google Maps"
+ "http://www.google.com/maps?output=html&ie=UTF8&f=d&dirflg=r&q=%s&ttype=dep&date=%s&time=now"
+ (list
+  "Trip Details: "
+  #'(lambda ()
+      (emacspeak-url-encode
+      (format-time-string "%m/%d/%y"))))
+ nil
+ "Public transit directions from Google."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id "dirpanel" url 'speak)))
+
 (emacspeak-url-template-define
  "EmapSpeak Via Google"
  "http://maps.google.com/maps?q=%s&output=kml"
