@@ -864,7 +864,7 @@ Here are some examples:
 ;;{{{ googl blogsearch
 (emacspeak-url-template-define
  "BlogSearch Google"
- "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&scoring=d&ie=utf-8&num=10&output=atom"
+ "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&as_drrb=q&as_qdr=d&ie=utf-8&num=25&output=atom"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
