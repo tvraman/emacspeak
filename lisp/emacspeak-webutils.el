@@ -621,7 +621,17 @@ unescape HTML tags."
 ;;}}}
 
 ;;}}}
+
+
 ;;{{{ Properties from HTML stack:
+
+(defsubst emacspeak-webutils-property-names-from-html-stack (html-stack)
+  "Returns list of attributes from HTML stack."
+  (delete nil
+          (loop for e in html-stack
+                append
+                (mapcar 'car (rest e)))))
+
 (defun emacspeak-webutils-get-property-from-html-stack (html-stack prop)
   "Extract and return list of prop values from HTML  stack.
 Stack is a list of the form ((element-name (attribute-alist)))."

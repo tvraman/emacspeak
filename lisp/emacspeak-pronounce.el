@@ -548,7 +548,7 @@ Activates pronunciation dictionaries if not already active."
     (":-I" .  " shrug ")
     (":->" . " sarcastic smile ")
     (">:->" . " devillish smile ")
-    (">;->" . " lews smile ")
+    (">;->" . " lewd smile ")
     (";-)" . " wink "))
   "Pronunciation dictionary used in all instant messenger and IRC chat
 modes.
