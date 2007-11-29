@@ -893,17 +893,22 @@ used as well."
 
 
 ;;;###autoload
-(defun emacspeak-we-extract-by-property (property url &optional speak)
+(defun emacspeak-we-extract-by-property (url &optional speak)
   "Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified."
   (interactive
    (list
-    (read
-     (completing-read "Property: "
-                      '("id" "class")))
     (emacspeak-webutils-read-url)
     current-prefix-arg))
   (let* ((completion-ignore-case t)
+         (choices
+          (mapcar 'symbol-name (intersection
+                      '(id class style)
+                      (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
+         (property
+          (read
+     (completing-read "Property: "
+                      choices)))
          (values (emacspeak-webutils-get-property-from-html-stack
                   (emacspeak-w3-html-stack)
                   property))
