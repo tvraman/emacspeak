@@ -388,6 +388,12 @@ A string of the form `<number> 1' sets volume as an absolute."
   (emacspeak-m-player-dispatch
    (format "volume %s"
            offset)))
+
+;;;###autoload
+(defun emacspeak-m-player-get-length ()
+  "Display length of track in seconds."
+  (interactive)
+  (emacspeak-m-player-dispatch "get_time_length"))
    
 
 (defun emacspeak-m-player-display-position ()
@@ -518,7 +524,8 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("O" emacspeak-m-player-reset-options)
         ("f" emacspeak-m-player-add-filter)
         ("b" bury-buffer)
-        ("l" emacspeak-m-player-load-file)
+	("l" emacspeak-m-player-get-length)
+        ("L" emacspeak-m-player-load-file)
         ("L" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
         ("t" emacspeak-m-player-play-tree-step)
