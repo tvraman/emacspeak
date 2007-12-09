@@ -562,6 +562,32 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 ;;}}}
+;;{{{ YouTube Player
+
+(defcustom emacspeak-m-player-youtube-dl
+  "/usr/local/bin/youtube-dl"
+  "YouTube download tool"
+  :type 'string
+  :group 'emacspeak-m-player)
+
+  
+;;;###autoload
+
+(defun emacspeak-m-player-youtube-player (url)
+  "Use youtube-dl and mplayer to stream YouTube content."
+  (interactive
+   (list
+    (emacspeak-webutils-read-this-url)))
+  (declare (special emacspeak-m-player-youtube-dl))
+  (unless (file-executable-p emacspeak-m-player-youtube-dl)
+    (error "Please install youtube-dl first."))
+  (emacspeak-m-player
+   (shell-command-to-string
+    (format "%s -g %s"
+	    emacspeak-m-player-youtube-dl url))
+   nil t))
+
+;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
 
