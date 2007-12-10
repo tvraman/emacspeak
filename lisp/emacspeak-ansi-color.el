@@ -101,9 +101,9 @@
          (voice (when (listp face)
                   (emacspeak-ansi-color-to-voice face))))
     (when voice
-      (ems-modify-buffer-safely
-       (put-text-property start end
-                          'personality voice)))))
+      (funcall emacspeak-personality-voiceify-faces
+	       start end
+	       voice nil))))
 
 ;;}}}
 ;;{{{ advice interactive commands

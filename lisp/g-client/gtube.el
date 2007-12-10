@@ -146,6 +146,12 @@ Arguments is a list of name/value pairs."
   "Retrieve and display YouTube response."
   (declare (special gtube-view
                     g-curl-program))
+  (when (featurep 'emacspeak)
+    (add-hook 'emacspeak-web-post-process-hook
+	      #'(lambda ()
+		  (declare (special emacspeak-we-url-executor))
+		  (setq emacspeak-we-url-executor
+			'emacspeak-m-player-youtube-player))))
   (g-display-result
    (format "%s --silent '%s' %s"
            g-curl-program resource
