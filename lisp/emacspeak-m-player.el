@@ -400,7 +400,7 @@ A string of the form `<number> 1' sets volume as an absolute."
   "Display current position in track and its length."
   (interactive)
   (emacspeak-m-player-dispatch
-   "get_percent_pos\nget_time_length\n"))
+   "get_time_pos\nget_percent_pos\nget_time_length\n"))
 
 (defun emacspeak-m-player-load-file(f)
   "Load specified file."
