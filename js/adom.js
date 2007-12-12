@@ -281,10 +281,7 @@ ADom.prototype.filter = function (xpath) {
                                   null); // no previous results
     return this.view_ = new XPathRingBuffer(snap);
     } catch (err) {
-      repl.print("Error evaluating XPath '"
-                 +  xpath
-+"': "
-                 +err);
+      repl.print("Error evaluating XPath '" +  xpath +"': " +err);
       return null;
     }
 };
