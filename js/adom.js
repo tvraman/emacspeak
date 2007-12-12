@@ -117,6 +117,10 @@ ADom.prototype.html = function (gen_base) {
         html += this.base();
     }
     html +='<' + this.current_.tagName;
+    if (this.current_.value !== undefined) {
+      html += ' value' + '=';
+      html += '\"' +this.current_.value + '\"\n';
+    }
     var map = this.current_.attributes;
     if (map  instanceof NamedNodeMap) {
         for (var i = 0; i < map.length; i++) {
