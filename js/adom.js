@@ -193,7 +193,7 @@ ADom.prototype.current = function () {
 /*
  *  Implements iteration.
  */
-RingBuffer = function (list) {
+var RingBuffer = function (list) {
     this.list_ = list;
     this.index_ = -1;
     this.len_ = list.length;
@@ -230,7 +230,7 @@ RingBuffer.prototype.previous = function () {
 /*
  *  Implements RingBuffer.
  */
-XPathRingBuffer = function (nodes) {
+var XPathRingBuffer = function (nodes) {
     this.list_ = nodes;
     this.index_ = -1;
     this.len_ = nodes.snapshotLength;
@@ -430,7 +430,7 @@ repl.updateADom = function ()  {
 // >
 // <end of file
 
-"loaded adom.js";
+
 
 // local variables:
 // folded-file: t

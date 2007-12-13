@@ -633,7 +633,6 @@ arrived articles."
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-contents-rest-url
-                    g-atom-x
                     greader-search-url g-atom-view-xsl))
   (g-auth-ensure-token greader-auth-handle)
   (let ((results 
