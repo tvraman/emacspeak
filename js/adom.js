@@ -7,13 +7,13 @@
  * Constructor takes  the   document to view as argument
  */
 
-function ADom (document) {
+ADom = function  (document) {
     this.document_ = document;
     document.adom = this;
     this.root_ = document.documentElement;
     this.current_ = document.documentElement;
     this.view_ = null;
-}
+};
 
 // >
 // < Navigators:
