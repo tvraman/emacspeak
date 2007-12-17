@@ -151,6 +151,7 @@ REALAUDIO=realaudio
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
 PYLIB=servers/python
+PYFILES=servers/python/*.py
 ESPEAK=servers/linux-espeak/tclespeak.cpp \
 servers/linux-espeak/Makefile\
 servers/linux-espeak/makefile.tcl83\
@@ -285,7 +286,7 @@ install:
 	$(INSTALL) -d $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
-	cp -r  ${PYLIB}  $(libdir)/servers/python
+	cp   ${PYFILES}  $(libdir)/servers/python
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
 	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
 	$(INSTALL) -d $(libdir)/servers/software-dtk
