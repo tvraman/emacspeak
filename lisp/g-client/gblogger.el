@@ -258,7 +258,7 @@ The retrieved entry is placed in a buffer ready for editing.
     (search-forward "</title>")
     (insert
      (format "
-     <category scheme='http://www.blogger.com/atom/ns#'term='%s'/>"
+     <category scheme='http://www.blogger.com/atom/ns#' term='%s'/>"
              label))))
 
 
