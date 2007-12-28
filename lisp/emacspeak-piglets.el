@@ -76,7 +76,8 @@
 (define-derived-mode emacspeak-piglets-mode inferior-moz-mode
   "Piglets Interaction"
   "Major mode for Piglets interaction.
-Keystrokes are sent to a connected Firefox.")
+Keystrokes are sent to a connected Firefox."
+  (emacspeak-piglets-forward-keys))
 
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:

@@ -84,13 +84,27 @@ to the running game. ")
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
 
-(defun emacspeak-jawbreaker-open ()
+
+(defvar emacspeak-jawbreaker-buffer "*Jaw Breaker Interaction*"
+  "Buffer where we play JawBreaker.")
+
+(defun emacspeak-jawbreaker ()
   "Opens JawBreaker game in Firefox."
-  (declare (special emacspeak-jawbreaker-url))
+  (interactive)
+  (declare (special emacspeak-jawbreaker-url
+                    emacspeak-jawbreaker-buffer))
   (comint-send-string
    (inferior-moz-process)
    (format "content.location.href='%s'\n"
-           emacspeak-jawbreaker-url)))
+           emacspeak-jawbreaker-url))
+  (save-excursion
+    (set-buffer (get-buffer-create emacspeak-jawbreaker-buffer))
+    (erase-buffer)
+    (setq buffer-undo-list t)
+    (emacspeak-jawbreaker-mode)
+    (switch-to-buffer emacspeak-jawbreaker-buffer)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'emacspeak-jawbreaker)
