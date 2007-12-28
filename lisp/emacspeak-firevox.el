@@ -85,16 +85,14 @@
 (defun emacspeak-firevox-read-next ()
   "Read next item on page."
   (interactive)
-  (comint-send-string
-   (inferior-moz-process)
+  (emacspeak-moz-eval-expression
    "CLC_SR_ReadContent(1)\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-read-previous ()
   "Read next item on page."
   (interactive)
-  (comint-send-string
-   (inferior-moz-process)
+  (emacspeak-moz-eval-expression
    "CLC_SR_ReadContent(-1)\n"))
 
              
@@ -102,17 +100,23 @@
            ;;; think mute
 (defun emacspeak-firevox-read-current ()
 "Read current node."
-(comint-send-string
- (inferior-moz-process)
+(emacspeak-moz-eval-expression
  "CLC_SR_ReadCurrentAtomicObject()\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-read-parent ()
           "Read parent node."
           (interactive)
-          (comint-send-string
-           (inferior-moz-process)
+          (emacspeak-moz-eval-expression
            "CLC_SR_SayParentTextContent()\n"))
+
+;;;###autoload
+(defun emacspeak-firevox-websearch (query)
+          "Perform Websearch via the Firefox URL bar."
+          (interactive "sWebSearch:")
+          (emacspeak-moz-eval-expression
+           (format "repl.adom.webSearch('%s')\n" query)))
+
 
 
 
@@ -128,6 +132,7 @@
           ("\C-@" emacspeak-firevox-read-current)
           ("\C-^" emacspeak-firevox-read-parent)
           ("\C-o" emacspeak-moz-goto-url)
+          ("\C-w" emacspeak-firevox-websearch)
           )
         do
         (emacspeak-keymap-update  emacspeak-piglets-mode-map  k)))

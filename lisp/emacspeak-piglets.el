@@ -104,7 +104,7 @@ Keystrokes are sent to a connected Firefox."
                 do
                     (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
 
-(defun emacspeak-piglets-enter (c)
+(defun emacspeak-piglets-enter ()
   "Send enter to Firefox."
   (interactive)
   (comint-send-string
