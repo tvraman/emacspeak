@@ -62,7 +62,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'derived)
 (require 'emacspeak-piglets)
 
 ;;}}}
@@ -73,14 +72,7 @@
   "URL for game page.")
 
 ;;}}}
-;;{{{ Define our mode:
 
-(define-derived-mode emacspeak-firevox-mode emacspeak-piglets-mode
-  "Firevox Interaction"
-  "Major mode for Firevox interaction.
-Invokes FireVox commands from Emacs.")
-
-;;}}}
 ;;{{{ Interactive Commands And Keybindings:
 
 (defvar emacspeak-firevox-buffer "*Fire Vox Interaction*"
@@ -122,30 +114,34 @@ Invokes FireVox commands from Emacs.")
            (inferior-moz-process)
            "CLC_SR_SayParentTextContent()\n"))
 
+
+
 (defun emacspeak-firevox-setup-keys ()
   "Set up FireVox keybindings."
-  (declare (special emacspeak-firevox-mode-map))
+  (declare (special emacspeak-piglets))
   (loop for k in
         '(
           ("\C-n" emacspeak-firevox-read-next)
           ("\C-p" emacspeak-firevox-read-previous)
-          ("\C-m" emacspeak-piglets-silence) ;;; think mute
+          ("\C-m" emacspeak-piglets-enter)
+          ("\M-m" emacspeak-piglets-silence) ;;; think mute
           ("\C-@" emacspeak-firevox-read-current)
           ("\C-^" emacspeak-firevox-read-parent)
+          ("\C-o" emacspeak-moz-goto-url)
           )
         do
-        (emacspeak-keymap-update  emacspeak-firevox-mode-map  k))
-  )
+        (emacspeak-keymap-update  emacspeak-piglets-mode-map  k)))
+
 (defun emacspeak-firevox ()
   "Creates FireVox interaction."
   (interactive)
   (declare (special emacspeak-firevox-buffer))
-  
   (save-excursion
     (set-buffer (get-buffer-create emacspeak-firevox-buffer))
     (erase-buffer)
     (setq buffer-undo-list t)
-    (emacspeak-firevox-mode)
+    (emacspeak-piglets-mode)
+    (emacspeak-firevox-setup-keys))
     (switch-to-buffer emacspeak-firevox-buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
