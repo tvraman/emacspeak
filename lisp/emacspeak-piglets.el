@@ -77,7 +77,8 @@
   "Piglets Interaction"
   "Major mode for Piglets interaction.
 Keystrokes are sent to a connected Firefox."
-  (emacspeak-piglets-forward-keys))
+  (progn
+  (emacspeak-piglets-forward-keys)))
 
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
@@ -94,15 +95,14 @@ Keystrokes are sent to a connected Firefox."
 
 (defun emacspeak-piglets-forward-keys ()
   "Set up Piglets mode to forward keys to Firefox."
-  (declare (special emacspeak-piglets-edit-commands))
+  (declare (special emacspeak-piglets-edit-commands
+                    emacspeak-piglets-mode-map))
   (loop for edit-command in emacspeak-piglets-edit-commands
         do
         (let ((edit-keys (where-is-internal edit-command emacspeak-piglets-mode-map)))
           (loop for key in edit-keys 
                 do
-                (let ((command (lookup-key emacspeak-keymap key)))
-                  (when command
-                    (define-key emacspeak-piglemts-mode-map  key command)))))))
+                    (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
 
 (defun emacspeak-piglets-keypress (c)
   "Send keypress to Firefox."
