@@ -361,6 +361,22 @@ ADom.prototype.view = function () {
 
 // >
 // < Eventing:
+
+/*
+ * target: Return a suitable target for sending keypresses
+ * We need to know where the focus is,
+ * for now, we depend on Fire Vox  doing the work for us.
+ * Uses Fire Vox global CLC_SR_CurrentAtomicObject
+ * that gets set by Fire Vox whenever a focus event occurs.
+ * If that variable is 0 i.e. unset,
+ * we return document.body
+ * @Return: Node
+ */
+
+ADom.prototype.target = function () {
+  CLC_SR_CurrentAtomicObject  || this.document_.body;
+};
+
 /**
  * Dispatches a left click event on the element that is the targetNode.
  * @param {Node} targetNode The target node of this operation.

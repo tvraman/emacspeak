@@ -180,6 +180,7 @@ emacspeak-outline.elc \
 emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
 emacspeak-php-mode.elc \
+emacspeak-piglets.elc \
 emacspeak-psgml.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
@@ -363,7 +364,7 @@ emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-iswitchb.elc: emacspeak-iswitchb.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
-emacspeak-jawbreaker.elc: emacspeak-jawbreaker.el emacspeak-moz.elc
+emacspeak-jawbreaker.elc: emacspeak-jawbreaker.el emacspeak-piglets.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
@@ -388,6 +389,7 @@ emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
+emacspeak-piglets.elc: emacspeak-piglets.el emacspeak-moz.elc
 emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-personality.elc: emacspeak-personality.el
