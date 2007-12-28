@@ -1,7 +1,7 @@
-;;; emacspeak-jawbreaker.el.el --- Talk to Firefox/JawBreaker  via MozRepl
+;;; emacspeak-piglets.el.el --- Result of large pigs connecting over a socket
 ;;; $Id$
 ;;; $Author$
-;;; Description:  Play JawBreaker game from Emacs in Firefox
+;;; Description:  Result of connecting Emacs and Firefox
 ;;; Keywords: Emacspeak,  Audio Desktop Firefox, Piglets 
 ;;{{{  LCD Archive entry:
 
@@ -44,15 +44,17 @@
 
 ;;; MozRepl provides a read-eval-print loop into Firefox
 ;;;  Module emacspeak-moz provides convenient functions for driving MozRepl
+;;; Consequently, Emacs and Firefox connect over  a socket 4242
 ;;; See http://repo.hyperstruct.net/mozlab
 ;;; Using that module, you can connect two large pigs ---
 ;;; Emacs and Firefox  via a socket ---
 ;;; the result as you can expect is to produce piglets.
-;;; emacspeak-jawbreaker is a piglet that enables one to play 
-;;; The JawBreaker game from within Emacspeak.
-;;; I run Firefox headless using the etc/firebox script
-;;; And I have Fire Vox installed to provide the Firefox side of the spoken output.
 
+;;; This module provides the needed Emacs plumbing 
+;;; To drive Firefox from Emacs.
+;;; Install Firefox extension Fire-Vox to provide spoken output from the Firefox side.
+;;; Use commands provided by emacspeak-moz.el
+;;; to render the Firefox DOM using Emacs/W3 or Emacs/W3M
 
 ;;; Code:
 
@@ -68,63 +70,61 @@
 ;;}}}
 ;;{{{ Constants
 
-(defvar emacspeak-jawbreaker-url
-  "http://www.minijuegosgratis.com/juegos/jawbreaker/jawbreaker.htm"
-  "URL for game page.")
-
 ;;}}}
 ;;{{{ Define our mode:
 
-(define-derived-mode emacspeak-jawbreaker-mode inferior-moz-mode
-  "JawBreaker Interaction"
-  "Major mode for JawBreaker interaction.
-Launches the game, and sends keypresses from the special buffer 
-to the running game. ")
+(define-derived-mode emacspeak-piglets-mode inferior-moz-mode
+  "Piglets Interaction"
+  "Major mode for Piglets interaction.
+Keystrokes are sent to a connected Firefox.")
 
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
 
+(defvar emacspeak-piglets-edit-commands
+  (list 'emacspeak-self-insert-command
+        'completion-separator-self-insert-autofilling
+        'completion-separator-self-insert-command
+        'delete-char
+        'backward-delete-char
+        'backward-delete-char-untabify
+        'completion-kill-region)
+  "Editting commands that emacspeak should rebind in Piglets mode")
 
-(defun emacspeak-jawbreaker-open ()
-  "Opens JawBreaker game in Firefox."
-  (declare (special emacspeak-jawbreaker-url))
-  (comint-send-string
-   (inferior-moz-process)
-   (format "content.location.href='%s'\n"
-           emacspeak-jawbreaker-url)))
-  
-  
-(defun emacspeak-jawbreaker-keypress (c)
-  "Send keypress to jawbreaker."
+(defun emacspeak-piglets-forward-keys ()
+  "Set up Piglets mode to forward keys to Firefox."
+  (declare (special emacspeak-piglets-edit-commands))
+  (loop for edit-command in emacspeak-piglets-edit-commands
+        do
+        (let ((edit-keys (where-is-internal edit-command emacspeak-piglets-mode-map)))
+          (loop for key in edit-keys 
+                do
+                (let ((command (lookup-key emacspeak-keymap key)))
+                  (when command
+                    (define-key emacspeak-piglemts-mode-map  key command)))))))
+
+(defun emacspeak-piglets-keypress (c)
+  "Send keypress to Firefox."
   (interactive "%c")
   (comint-send-string (inferior-moz-process) 
-   (format
-    "b=repl.adom.body(); repl.adom.keyPress(b,'%c')\n" c)))
+   (format "repl.adom.keyPress(repl.adom.target(),'%c')\n" c)))
 
-
-(defun emacspeak-jawbreaker-key ()
-  "Send keypress to jawbreaker."
+(defun emacspeak-piglets-key ()
+  "Send last keypress to Firefox."
   (interactive)
-  (emacspeak-jawbreaker-keypress last-input-char))
-   
+  (declare (special last-input-char))
+  (emacspeak-piglets-keypress last-input-char))
 
-(defun emacspeak-jawbreaker-silence()
-  "Stop speech."
+
+(defun emacspeak-piglets-silence()
+  "Stop speech output from FireVox."
   (interactive)
-  (comint-send-string (inferior-moz-process)
-                      "CLC_SR_StopSpeaking()"))
-
-(loop for key in
-      '("a" "b" "e" "t"
-        "j" "k" "h" "l"
-        "r" "c" " " "s" "n" "?"
-           )
-      do
-      (define-key emacspeak-jawbreaker-mode-map key 'emacspeak-jawbreaker-key))
-(define-key emacspeak-jawbreaker-mode-map "q" 'emacspeak-jawbreaker-silence)
+  (comint-send-string
+   (inferior-moz-process)
+   "CLC_SR_StopSpeaking()"))
 
 ;;}}}
-(provide 'emacspeak-jawbreaker)
+(provide 'emacspeak-piglets)
 ;;{{{ end of file
 
 ;;; local variables:
