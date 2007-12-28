@@ -431,6 +431,18 @@ target.dispatchEvent(evt);
 // < A11y Reflection:
 
 // >
+// <WebSearch:
+
+/*
+ * Perform a webSearch:
+ */
+ADom.prototype.webSearch = function(q) {
+  var ub = document.getElementById('urlbar');
+  ub.value = q;
+handleURLBarCommand();
+};
+
+// >
 // <repl hookup
 
 /*

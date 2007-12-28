@@ -100,6 +100,11 @@
 
 ;;}}}
 ;;{{{ Interactive commands:
+;;;###autoload 
+(defun emacspeak-moz-eval-expression (exp)
+  "Send expression to Moz."
+  (interactive "sJSEval: ")
+  (comint-send-string (inferior-moz-process) exp))
 
 ;;;###autoload
 (defun emacspeak-moz-eval-expression-and-go (exp)
@@ -160,7 +165,7 @@
                           (or
                            (browse-url-url-at-point)
                            "http://"))))
-  (emacspeak-moz-eval-expression-and-go
+  (emacspeak-moz-eval-expression
    (format "content.location.href='%s'\n"
            url)))
 
@@ -174,7 +179,7 @@
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (cond
      (url
-      (emacspeak-moz-eval-expression-and-go
+      (emacspeak-moz-eval-expression
        (format "content.location.href=\"%s\";\n"
                url))
       (message "Sent url at point to firefox."))
@@ -184,7 +189,7 @@
 (defun emacspeak-moz-browser-forward ()
   "Move forward in history."
   (interactive)
-  (emacspeak-moz-eval-expression-and-go
+  (emacspeak-moz-eval-expression
    "BrowserForward(); repl.updateADom()\n")
   (when (interactive-p)
     (emacspeak-moz-eval-expression-and-go
@@ -197,7 +202,7 @@
   (emacspeak-moz-eval-expression-and-go
    "BrowserBack(); repl.updateADom(); ")
   (when (interactive-p)
-    (emacspeak-moz-eval-expression-and-go
+    (emacspeak-moz-eval-expression
      "repl.emacspeak.say(title)\n")))
 
 ;;;###autoload
