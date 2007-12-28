@@ -30,12 +30,14 @@ class HTTPSpeaker (HTTPServer):
     """Speech server via HTTP."""
 
     def __init__(self, address, handler,
-                 engine='outloud'):
+                 engine='outloud',
+                 rate = 75):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
         self.speaker = Speaker(engine,
                                'localhost',
-                               {'punctuations' : 'some'})
+                               {'punctuations' : 'some',
+                                'rate' : rate})
 
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
@@ -101,9 +103,14 @@ def start():
         port = int(sys.argv[2])
     else:
         port = 8000
+    if sys.argv[3:]:
+        rate = int(sys.argv[3])
+    else:
+        rate = 75
+    server_address = ('', port)
     server_address = ('', port)
     httpd = HTTPSpeaker  (server_address,
-    SpeakHTTPRequestHandler, engine)
+    SpeakHTTPRequestHandler, engine, rate)
     httpd.serve_forever()
 
 
