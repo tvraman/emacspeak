@@ -63,7 +63,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'derived)
-(require 'emacspeak-moz)
+(require 'emacspeak-piglets)
 
 ;;}}}
 ;;{{{ Constants
@@ -75,7 +75,7 @@
 ;;}}}
 ;;{{{ Define our mode:
 
-(define-derived-mode emacspeak-jawbreaker-mode inferior-moz-mode
+(define-derived-mode emacspeak-jawbreaker-mode emacspeak-piglets-mode
   "JawBreaker Interaction"
   "Major mode for JawBreaker interaction.
 Launches the game, and sends keypresses from the special buffer 
@@ -84,7 +84,6 @@ to the running game. ")
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
 
-
 (defun emacspeak-jawbreaker-open ()
   "Opens JawBreaker game in Firefox."
   (declare (special emacspeak-jawbreaker-url))
@@ -92,36 +91,6 @@ to the running game. ")
    (inferior-moz-process)
    (format "content.location.href='%s'\n"
            emacspeak-jawbreaker-url)))
-  
-  
-(defun emacspeak-jawbreaker-keypress (c)
-  "Send keypress to jawbreaker."
-  (interactive "%c")
-  (comint-send-string (inferior-moz-process) 
-   (format
-    "b=repl.adom.body(); repl.adom.keyPress(b,'%c')\n" c)))
-
-
-(defun emacspeak-jawbreaker-key ()
-  "Send keypress to jawbreaker."
-  (interactive)
-  (emacspeak-jawbreaker-keypress last-input-char))
-   
-
-(defun emacspeak-jawbreaker-silence()
-  "Stop speech."
-  (interactive)
-  (comint-send-string (inferior-moz-process)
-                      "CLC_SR_StopSpeaking()"))
-
-(loop for key in
-      '("a" "b" "e" "t"
-        "j" "k" "h" "l"
-        "r" "c" " " "s" "n" "?"
-           )
-      do
-      (define-key emacspeak-jawbreaker-mode-map key 'emacspeak-jawbreaker-key))
-(define-key emacspeak-jawbreaker-mode-map "q" 'emacspeak-jawbreaker-silence)
 
 ;;}}}
 (provide 'emacspeak-jawbreaker)
