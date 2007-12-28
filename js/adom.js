@@ -374,6 +374,10 @@ ADom.prototype.view = function () {
  */
 
 ADom.prototype.target = function () {
+  if (!CLC_SR_CurrentAtomicObject){
+      CLC_SR_CurrentAtomicObject =
+CLC_GetFirstAtomicObject(CLC_Window().document.body);
+      }
   return CLC_SR_CurrentAtomicObject  || this.document_.body;
 };
 
