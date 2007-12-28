@@ -84,12 +84,22 @@ to the running game. ")
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
 
+
+(defun emacspeak-jawbreaker-open ()
+  "Opens JawBreaker game in Firefox."
+  (declare (special emacspeak-jawbreaker-url))
+  (comint-send-string
+   (inferior-moz-process)
+   (format "content.location.href='%s'\n"
+           emacspeak-jawbreaker-url)))
+  
+  
 (defun emacspeak-jawbreaker-keypress (c)
   "Send keypress to jawbreaker."
   (interactive "%c")
   (comint-send-string (inferior-moz-process) 
    (format
-    "b=repl.adom.body(); repl.adom.keyPress(b,'%c')" c)))
+    "b=repl.adom.body(); repl.adom.keyPress(b,'%c')\n" c)))
 
 
 (defun emacspeak-jawbreaker-key ()
