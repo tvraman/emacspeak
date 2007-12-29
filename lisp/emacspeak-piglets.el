@@ -127,6 +127,8 @@ Keystrokes are sent to a connected Firefox."
   "Send last keypress to Firefox."
   (interactive)
   (declare (special last-input-char))
+  (when (interactive-p)
+    (emacspeak-piglets-silence))
   (emacspeak-piglets-keypress last-input-char))
 
 
