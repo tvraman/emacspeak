@@ -449,7 +449,7 @@ handleURLBarCommand();
  * Update adom pointer in repl to point to current document.
  * @return {ADom}
  */
-repl.updateADom = function ()  {
+repl.prototype.updateADom = function ()  {
     if (content.document.adom == undefined) {
         // constructor caches adom in content.document
         repl.adom = new ADom(content.document);
