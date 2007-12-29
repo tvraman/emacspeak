@@ -135,7 +135,7 @@ Keystrokes are sent to a connected Firefox."
   (interactive)
   (comint-send-string
    (inferior-moz-process)
-   "CLC_SR_StopSpeaking()"))
+   "CLC_SR_StopSpeaking() \n"))
 
 ;;}}}
 (provide 'emacspeak-piglets)
