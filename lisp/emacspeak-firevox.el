@@ -132,6 +132,7 @@
           ("\C-@" emacspeak-firevox-read-current)
           ("\C-^" emacspeak-firevox-read-parent)
           ("\C-o" emacspeak-moz-goto-url)
+          ("\C-r" emacspeak-moz-refresh)
           ("\C-w" emacspeak-firevox-websearch)
           )
         do

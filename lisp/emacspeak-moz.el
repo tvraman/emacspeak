@@ -239,11 +239,8 @@ title)\n"
 (defun emacspeak-moz-refresh ()
   "Reload document."
   (interactive)
-  (emacspeak-moz-eval-expression-and-go
-   (format "BrowserReload();repl.updateADom();repl.print(\"\\n\"+title)\n"))
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line)))
+  (emacspeak-moz-eval-expression
+   (format "BrowserReload();repl.updateADom();repl.print(\"\\n\"+title)\n")))
 
 ;;;###autoload
 (defun emacspeak-moz-visit-next-and-browse ()
