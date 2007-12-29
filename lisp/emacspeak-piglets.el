@@ -115,7 +115,7 @@ Keystrokes are sent to a connected Firefox."
   "Send keypress to Firefox."
   (interactive "%c")
   (comint-send-string (inferior-moz-process) 
-   (format "repl.adom.keyPress(repl.adom.target(),'%c', false, false, true)\n"
+   (format "repl.adom.keyPress(repl.adom.target(),'%c', false, false, %s)\n"
            c
            (if (and (<= 65 c)
                     (<= c 90))
