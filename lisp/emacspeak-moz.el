@@ -199,7 +199,7 @@
 (defun emacspeak-moz-browser-back ()
   "Move back in history."
   (interactive)
-  (emacspeak-moz-eval-expression-and-go
+  (emacspeak-moz-eval-expression
    "BrowserBack(); repl.updateADom(); ")
   (when (interactive-p)
     (emacspeak-moz-eval-expression
@@ -209,7 +209,7 @@
 (defun emacspeak-moz-jump (index)
   "Jump to specified index in history."
   (interactive "nHistory Index: ")
-  (emacspeak-moz-eval-expression-and-go
+  (emacspeak-moz-eval-expression
    (format
     "getWebNavigation().gotoIndex(%d);repl.print(\"\\n\" +
 title)\n"
