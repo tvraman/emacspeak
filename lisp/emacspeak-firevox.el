@@ -138,6 +138,7 @@
         do
         (emacspeak-keymap-update  emacspeak-piglets-mode-map  k)))
 
+;;;###autoload
 (defun emacspeak-firevox ()
   "Creates FireVox interaction."
   (interactive)
@@ -150,7 +151,7 @@
     (emacspeak-firevox-setup-keys))
     (switch-to-buffer emacspeak-firevox-buffer)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-firevox)

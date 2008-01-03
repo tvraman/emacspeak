@@ -82,12 +82,11 @@ Launches the game, and sends keypresses from the special buffer
 to the running game. ")
 
 ;;}}}
-;;{{{ Interactive Commands And Keybindings:
-
+;;{{{ Interactive Commands 
 
 (defvar emacspeak-jawbreaker-buffer "*Jaw Breaker Interaction*"
   "Buffer where we play JawBreaker.")
-
+;;;###autoload
 (defun emacspeak-jawbreaker ()
   "Opens JawBreaker game in Firefox."
   (interactive)
