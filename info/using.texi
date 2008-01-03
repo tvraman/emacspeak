@@ -74,7 +74,10 @@ completion buffer. Sound cues act as a supplement to the spoken
 interface, and are especially valuable to the experienced user in
 facilitating rapid interaction. Note that in order to support auditory
 icons, the computer must be equipped with sound hardware for which the
-operating system has been correctly configured @xref{emacspeak-sounds}.@node Working
+operating system has been correctly configured
+@xref{emacspeak-sounds}.
+
+@node Working 
 @section Working In Emacs Buffers.
 
 While typing in an Emacs buffer, hitting space  speaks  the recently typed
