@@ -102,6 +102,7 @@ class Speaker:
     
     def say(self, text="", acss=None):
         """Speaks specified text. All queued text is spoken immediately."""
+        text = unicode(text, 'utf-8').encode('iso8859-1')
         if acss is not None:
             code =self.getvoice(acss)
             self._w.write("q {%s %s %s}\nd\n" %(code[0], text, code[1]))
@@ -220,8 +221,8 @@ def _test():
     import acss
     s=Speaker()
     a=acss.ACSS()
-    s.punctuations('some')
-    s.queueText("This is an initial test.");
+    s.punctuations('all')
+    s.queueText("This is an initial test. more  » test.");
     s.queueText("Next, we'll test audio formatted output.")
     for d in ['average-pitch', 'pitch-range',
               'richness', 'stress']:
