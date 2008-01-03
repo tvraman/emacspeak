@@ -103,14 +103,14 @@ Keystrokes are sent to a connected Firefox."
           (loop for key in edit-keys 
                 do
                     (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
-
+;;;###autoload
 (defun emacspeak-piglets-enter ()
   "Send enter to Firefox."
   (interactive)
   (comint-send-string
    (inferior-moz-process) 
    (format "repl.adom.keyPress(repl.adom.target(),'ENTER')\n" )))
-
+;;;###autoload
 (defun emacspeak-piglets-keypress (c)
   "Send keypress to Firefox."
   (interactive "%c")
@@ -122,7 +122,7 @@ Keystrokes are sent to a connected Firefox."
                "true"
              "false"))))
 
-
+;;;###autoload
 (defun emacspeak-piglets-key ()
   "Send last keypress to Firefox."
   (interactive)
@@ -131,7 +131,7 @@ Keystrokes are sent to a connected Firefox."
     (emacspeak-piglets-silence))
   (emacspeak-piglets-keypress last-input-char))
 
-
+;;;###autoload
 (defun emacspeak-piglets-silence()
   "Stop speech output from FireVox."
   (interactive)
