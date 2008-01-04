@@ -82,8 +82,7 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
             inputBody = self.rfile.read(contentLength)
             if inputBody.startswith("speak:"):
                 text = inputBody[6:]
-                text = unicode(text, 'utf-8').encode('iso8859-1')
-                self.server.speaker.speak(unicode(text ))
+                self.server.speaker.speak(text )
                 self.send_response(200, 'OK')
             elif inputBody == "stop":
                 self.server.speaker.stop()
