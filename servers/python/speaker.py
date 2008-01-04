@@ -103,6 +103,7 @@ class Speaker:
     def say(self, text="", acss=None):
         """Speaks specified text. All queued text is spoken immediately."""
         text = unicode(text, 'utf-8').encode('iso8859-1')
+        text = unicode(text, 'utf-8').encode('iso8859-1')
         if acss is not None:
             code =self.getvoice(acss)
             self._w.write("q {%s %s %s}\nd\n" %(code[0], text, code[1]))
