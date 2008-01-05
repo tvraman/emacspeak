@@ -57,11 +57,10 @@
 
 # }}}
 # {{{source common code
-
 set wd [file dirname $argv0]
 lappend auto_path $wd
-#source $wd/tts-lib.tcl
-source tts-lib.tcl
+source $wd/tts-lib.tcl
+#source tts-lib.tcl
 # }}}
 # {{{ procedures
 
