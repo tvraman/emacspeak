@@ -25,6 +25,8 @@ if [expr $argc == 0] {
 } else {
     set remote [lindex $argv 0]
 }
+set wd [file dirname $argv0]
+lappend auto_path $wd
 # split out port 
 set host_port [split $remote ":"]
 set host [lindex $host_port 0]
