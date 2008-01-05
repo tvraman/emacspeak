@@ -149,6 +149,7 @@ TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
 SHOUTCAST=shoutcast
+HTTPD=servers/httpd
 ECI=servers/linux-outloud
 PYLIB=servers/python
 PYFILES=servers/python/*.py
@@ -160,6 +161,7 @@ DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
 servers/software-dtk/Makefile
 JS=js/*.js  js/jsl.conf js/Makefile
+TCLHTTPD=${HTTPD}/tts.tcl
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
@@ -284,6 +286,8 @@ install:
 	$(INSTALL)  -m 644 ${JS}  $(libdir)/js
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/python
+	$(INSTALL) -d $(libdir)/servers/httpd
+	$(INSTALL)  -m 644 ${TCLHTTPD}  $(libdir)/servers/tts.tcl
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	cp   ${PYFILES}  $(libdir)/servers/python
