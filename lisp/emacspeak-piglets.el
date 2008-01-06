@@ -72,15 +72,29 @@
 
 ;;}}}
 ;;{{{ Define our mode:
+(defcustom emacspeak-piglets-tts-rate 75
+  "Speech rate for HTTP  TTS server."
+  :type 'number
+  :group 'emacspeak-piglets)
 
 (define-derived-mode emacspeak-piglets-mode inferior-moz-mode
   "Piglets Interaction"
   "Major mode for Piglets interaction.
 Keystrokes are sent to a connected Firefox."
   (progn
+    (start-process
+     "HTTP-TTS"
+     "* HTTP TTS *"
+     "python"
+     (expand-file-name
+      "python/HTTPSpeaker.py"
+      emacspeak-servers-directory)
+     dtk-program
+     "2222"
+     (format "%d" emacspeak-piglets-tts-rate))
     (comint-send-string
      (inferior-moz-process)
-     "repl.setenv('printPrompt', false)\n")
+     ";\n;\nrepl.setenv('printPrompt', false)\n")
   (emacspeak-piglets-forward-keys)))
 
 ;;}}}
