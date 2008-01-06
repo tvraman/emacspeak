@@ -78,6 +78,9 @@
   "Major mode for Piglets interaction.
 Keystrokes are sent to a connected Firefox."
   (progn
+    (comint-send-string
+     (inferior-moz-process)
+     "repl.setenv('printPrompt', false)\n")
   (emacspeak-piglets-forward-keys)))
 
 ;;}}}
@@ -103,6 +106,15 @@ Keystrokes are sent to a connected Firefox."
           (loop for key in edit-keys 
                 do
                     (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
+;;;###autoload
+(defun emacspeak-piglets-tab ()
+  "Send TAB to Firefox."
+  (interactive)
+  (comint-send-string
+   (inferior-moz-process) 
+   (format "repl.adom.keyPress(repl.adom.target(),'TAB')\n" )))
+
+
 ;;;###autoload
 (defun emacspeak-piglets-enter ()
   "Send enter to Firefox."
