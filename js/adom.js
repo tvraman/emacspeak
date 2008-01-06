@@ -404,8 +404,9 @@ ADom.prototype.keyPress = function(targetNode,
   var charCode = 0;
   if (theKey == "ENTER"){
     keyCode = 13;
-  }
-  else if (theKey.length == 1){
+  } else   if (theKey == "TAB"){
+    keyCode = 9;
+  } else if (theKey.length == 1){
     charCode = theKey.charCodeAt(0);
   }
   var evt = document.createEvent('KeyboardEvent');
