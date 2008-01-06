@@ -42,6 +42,20 @@
 ;(setq vm-imap-folder-cache-directory (expand-file-name "IMAP"
 ;vm-folder-directory))
 ;(setq vm-imap-save-to-server t)
+(defcustom vm-gmail-email-address
+  "tv.raman.tv@gmail.com"
+  "Set this to your GMail address.")
 
+(defun vm-gmail-spam (&optional count)
+  "Save to IMAP Spam folder."
+  (interactive (list (prefix-numeric-value current-prefix-arg)))
+  (vm-save-message-to-imap-folder
+   (format "imap-ssl:imap.gmail.com:993:[Gmail]/Spam:login:%s:*"
+           vm-gmail-email-address)
+           count)
+  (call-interactively 'vm-next-message))
+
+(define-key vm-mode-map "!" 'vm-gmail-spam)
+(define-key vm-mode-map "ls" 'vm-gmail-spam)
 
  ;;}}}
