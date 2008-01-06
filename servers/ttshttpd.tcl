@@ -22,7 +22,7 @@
 #  accepts:	a count of accepted connections so far
 
 # HTTP/1.0 error codes (the ones we use)
-
+set httpdLog stderr
 array set HttpdErrors {
     204 {No Content}
     400 {Bad Request}
@@ -30,6 +30,14 @@ array set HttpdErrors {
     503 {Service Unavailable}
     504 {Service Temporarily Unavailable}
     }
+
+# Our Url to command map 
+
+array set httpdUrl2CmdMap {
+    /say httpd_say
+    /stop httpd_stop
+    /isSpeaking httpd_isSpeaking
+}
 
 array set Httpd {
     bufsize	32768
@@ -86,11 +94,13 @@ proc HttpdRead { sock } {
 	return
     }
 
-    # string compare $readCount 0 maps -1 to -1, 0 to 0, and > 0 to 1
-
+    # string compare $readCount 0 maps -1 to -1, 0 to 0, and > 0
+    # to 1
+    # tvr: also mapping -1 to 0
     set state [string compare $readCount 0],$data(state),$data(proto)
     switch -- $state {
 	0,mime,GET	-
+	-1,query,POST	-
 	0,query,POST	{ HttpdRespond $sock }
 	0,mime,POST	{ set data(state) query }
 	1,mime,POST	-
@@ -101,6 +111,7 @@ proc HttpdRead { sock } {
 	}
 	1,query,POST	{
 	    set data(query) $line
+	    puts stderr "got here"
 	    HttpdRespond $sock
 	}
 	default {
@@ -128,32 +139,32 @@ proc HttpdSockDone { sock } {
 # map URLs to TTS commands.
 
 proc HttpdRespond { sock } {
-    global Httpd
+    global Httpd httpdUrl2CmdMap
     upvar #0 Httpd$sock data
 
-    set mypath   $data(url)
-    if {[string length $mypath] == 0} {
+    set cmd   $data(url)
+    puts stderr "Handler: $cmd"
+    if {[string length $cmd] == 0} {
 	HttpdError $sock 400
-	Httpd_Log $sock Error "$data(url) invalid path"
+	Httpd_Log $sock Error "$data(url) in29valid path"
 	HttpdSockDone $sock
 	return
     }
-# handle request, and send out a 200 response on success: <ToDo>
-    if {![catch {open $mypath} in]} {
+# handle request, and send out a 200 response on success:
+    if {[info exists httpdUrl2CmdMap($cmd)]} {
+	puts stderr "handling $cmd"
 	puts $sock "HTTP/1.0 200 Data follows"
 	puts $sock "Date: [HttpdDate [clock clicks]]"
-	puts $sock "Last-Modified: [HttpdDate [file mtime $mypath]]"
-	puts $sock "Content-Type: [HttpdContentType $mypath]"
-	puts $sock "Content-Length: [file size $mypath]"
+	puts $sock "Content-Type: text/plain"
+	puts $sock "Content-Length: 0"
 	puts $sock ""
-	fconfigure $sock -translation binary -blocking $Httpd(sockblock)
-	fconfigure $in -translation binary -blocking 1
 	flush $sock
 	HttpdSockDone $sock
     } else {
-	# 404 on unknown request 
+	# 404 on unknown request
+puts stderr "unknown cmd $cmd"
 	HttpdError $sock 404
-	Httpd_Log $sock Error "$data(url) $in"
+	Httpd_Log $sock Error "$data(url) "
 	HttpdSockDone $sock
     }
 }
@@ -219,16 +230,16 @@ proc Httpd_Log {sock reason args} {
 # Convert a url into a command 
 
 proc HttpdUrl2Cmd {root url} {
-    global  Httpd  HttpdCmdMap
+    global  Httpd  HttpdUrl2CmdMap
     	
     	# split out cmd and do the mapping
-    # url decode via HttpdCgiMap
+    # url decode via HttpdUrlDecode
     return $HttpdCmdMap($url)
 }
 
 # Decode url-encoded strings.
 
-proc HttpdCgiMap {data} {
+proc HttpdUrlDecode {data} {
     regsub -all {([][$\\])} $data {\\\1} data
     regsub -all {%([0-9a-fA-F][0-9a-fA-F])} $data  {[format %c 0x\1]} data
     return [subst $data]
@@ -238,7 +249,7 @@ proc bgerror {msg} {
     global errorInfo
     puts stderr "bgerror: $msg\n$errorInfo"
 }
-catch {rename unsupported0 copychannel}
+
 
 
 Httpd_Server "/tmp"  8080 index.html
