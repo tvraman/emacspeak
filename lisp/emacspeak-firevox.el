@@ -128,6 +128,7 @@
           ("\C-n" emacspeak-firevox-read-next)
           ("\C-p" emacspeak-firevox-read-previous)
           ("\C-m" emacspeak-piglets-enter)
+	  ("\C-i" emacspeak-piglets-tab)
           ("\M-m" emacspeak-piglets-silence) ;;; think mute
           ("\C-@" emacspeak-firevox-read-current)
           ("\C-^" emacspeak-firevox-read-parent)
