@@ -64,14 +64,12 @@ proc ::tts::/ {{user none}} {
 #	This implements /tts/say
 
 proc ::tts::/say {text} {
-    q $text
-    d
     return 0
 }
 
 
 # }}}
-source dtk-exp
+
 # {{{ Emacs local variables  
 
 ### Local variables:

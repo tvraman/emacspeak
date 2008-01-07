@@ -81,9 +81,11 @@ proc HttpdRead { sock } {
     upvar #0 Httpd$sock data
 
     set readCount [gets $sock line]
+    puts stderr "Read $readCount bytes into <$line>"
     if {![info exists data(state)]} {
 	if [regexp {(POST|GET) ([^?]+)\??([^ ]*) HTTP/1.0} \
 		$line x data(proto) data(url) data(query)] {
+	    puts stderr "$data(proto) $data(url) $data(query)"
 	    set data(state) mime
 	    Httpd_Log $sock Query $line
 	} else {
@@ -94,13 +96,11 @@ proc HttpdRead { sock } {
 	return
     }
 
-    # string compare $readCount 0 maps -1 to -1, 0 to 0, and > 0
-    # to 1
-    # tvr: also mapping -1 to 0
+    # string compare $readCount 0 maps -1 to -1, 0 to 0, and > 0 to 1
+    
     set state [string compare $readCount 0],$data(state),$data(proto)
     switch -- $state {
 	0,mime,GET	-
-	-1,query,POST	-
 	0,query,POST	{ HttpdRespond $sock }
 	0,mime,POST	{ set data(state) query }
 	1,mime,POST	-
@@ -111,7 +111,6 @@ proc HttpdRead { sock } {
 	}
 	1,query,POST	{
 	    set data(query) $line
-	    puts stderr "got here"
 	    HttpdRespond $sock
 	}
 	default {
