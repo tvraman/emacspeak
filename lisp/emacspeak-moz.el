@@ -368,7 +368,7 @@ title)\n"
 (defadvice inferior-moz-start-process (after emacspeak pre act
                                              comp)
   "Init emacspeak ADom bits."
-  (funcall emacspeak-moz-init))
+  (emacspeak-moz-init))
 (add-hook 'javascript-mode-hook
           'emacspeak-setup-programming-mode)
 ;;}}}
