@@ -2056,7 +2056,7 @@ visiting the xls file."
           (const :tag "None" nil)
           (string :tag "Options" "-layout"))
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-wizards-pdf-open (filename)
   "Open pdf file as text."
   (interactive "fFilename:")

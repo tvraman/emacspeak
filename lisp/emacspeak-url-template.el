@@ -733,6 +733,17 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (browse-url url))))
 
 ;;}}}
+;;{{{ YouTube:
+(emacspeak-url-template-define
+ "YouTube Results"
+ "http://gdata.youtube.com/feeds/api/videos?orderby=updated&vq=%s"
+ (list "YouTube:")
+ #'(lambda (nil)
+     (setq emacspeak-we-url-executor
+	   'emacspeak-m-player-youtube-player))
+ "YouTube Search Via Feeds"
+ 'emacspeak-webutils-atom-display)
+;;}}}
 ;;{{{  Google Video:
 
 (emacspeak-url-template-define
