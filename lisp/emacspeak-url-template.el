@@ -1084,15 +1084,6 @@ from English to German.")
  "Transcode site via Google.")
 
 (emacspeak-url-template-define
- "Google RSS News"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&ie=ISO-8859-1&output=rss"
- (list "Search news for: ")
- nil
- "Search Google news."
- #'(lambda (url)
-     (emacspeak-webutils-rss-display url)))
-
-(emacspeak-url-template-define
  "Google Atom News"
  "http://news.google.com/news?ned=us&topic=%s&output=atom"
  (list "Topic Code: ")
