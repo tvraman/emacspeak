@@ -77,21 +77,29 @@
   :type 'number
   :group 'emacspeak-piglets)
 
+
+;;;###autoload
+(defun emacspeak-piglets-tts-init ()
+  "Start TTS  engine for Piglets."
+  (interactive)
+  (declare (special emacspeak-piglets-tts-rate
+                    dtk-program emacspeak-servers-directory emacspeak-servers-directory))
+  (start-process
+   "HTTP-TTS"
+   "* HTTP TTS *"
+   "python"
+   (expand-file-name
+    "python/HTTPSpeaker.py"
+    emacspeak-servers-directory)
+   dtk-program
+   "2222"
+   (format "%d" emacspeak-piglets-tts-rate)))
 (define-derived-mode emacspeak-piglets-mode inferior-moz-mode
   "Piglets Interaction"
   "Major mode for Piglets interaction.
 Keystrokes are sent to a connected Firefox."
   (progn
-    (start-process
-     "HTTP-TTS"
-     "* HTTP TTS *"
-     "python"
-     (expand-file-name
-      "python/HTTPSpeaker.py"
-      emacspeak-servers-directory)
-     dtk-program
-     "2222"
-     (format "%d" emacspeak-piglets-tts-rate))
+    (emacspeak-piglets-tts-init)
     (comint-send-string
      (inferior-moz-process)
      ";\n;\nrepl.setenv('printPrompt', false)\n")

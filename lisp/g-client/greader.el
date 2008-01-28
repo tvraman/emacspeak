@@ -304,6 +304,11 @@ user."
           "api/0/subscription/list?output=json")
   "URL for retrieving list of subscribed feeds.")
 
+(defvar greader-unread-count-url
+  (concat greader-base-url
+          "api/0/unread-count?all=true&output=json")
+  "URL for retrieving unread counts for subscribed  feeds.")
+
 (defvar greader-subscription-opml-url
   (concat greader-base-url
           "subscriptions/export")
@@ -314,7 +319,7 @@ user."
           "api/0/tag/list?output=json")
   "URL for retrieving list of tags.")
 
-(defun greader-view-json-subscriptions (subscriptions)
+(defun greader-view-json-subscriptions (subscriptions counts)
   "View Greader Subscription list."
   (declare (special greader-atom-base))
   (g-using-scratch
@@ -330,14 +335,16 @@ user."
             (g-auth-username greader-auth-handle)))
    (loop for s across subscriptions
          do
-         (let ((id (g-json-get 'id s)))
+         (let* ((id (g-json-get 'id s))
+                    (count (greader-get-unread-count-by-id id counts)))
            (insert
             (format
-             "<li><a href=\"%s\">%s (%s)</a></li>\n"
+             "<li><a href=\"%s\">%s: %s (%s)</a></li>\n"
              (let ((url (substring id 5)))
                (cond
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url))))
+             count
              (g-json-get 'title s)
              (cond
               ((string-match "rss" id) "R")
@@ -346,17 +353,51 @@ user."
    (insert "</ol></body></html>\n")
    (browse-url-of-region (point-min) (point-max))))
 
+(defun greader-unread-count ()
+  "Retrieve unread counts for subscribed feeds."
+  (declare (special greader-auth-handle
+                    g-curl-program g-curl-common-options
+                    greader-unread-count-url))
+  (let ((counts
+         (g-json-get 'unreadcounts
+                     (g-json-get-result
+                      (format
+                       "%s %s --cookie SID='%s' '%s' 2>/dev/null"
+                       g-curl-program g-curl-common-options
+                       (g-cookie "SID" greader-auth-handle)
+                       greader-unread-count-url)))))
+    counts))
 ;;;###autoload
-(defun greader-feed-list (&optional sort)
+
+(defsubst greader-get-unread-count-by-id (id counts)
+  "Given a Feed Id, get the unread count from the cache in counts."
+  (let ((c
+         (find-if
+          #'(lambda (a)
+              (equal (g-json-get 'id a) id))
+          counts)))
+    (g-json-get 'count  c)))
+
+(defsubst greader-get-timestamp-by-id (id counts)
+  "Given a Feed Id, get the timestamp from the cache in counts."
+  (let ((c
+         (find-if
+          #'(lambda (a)
+              (equal (g-json-get 'id a) id))
+          counts)))
+    (g-json-get 'newestItemTimestampUsec c)))
+
+
+(defun greader-feed-list ()
   "Retrieve list of subscribed feeds.
-Optional interactive prefix arg `sort' sorts feeds based on newly
-arrived articles."
-  (interactive "P")
+Feeds are sorted by timestamp of newly arrived articles."
+  (interactive)
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
   (g-auth-ensure-token greader-auth-handle)
-  (let ((subscriptions
+  (let ((counts (greader-unread-count))
+        (subscriptions
          (g-json-get 'subscriptions
                      (g-json-get-result
                       (format
@@ -364,13 +405,15 @@ arrived articles."
                        g-curl-program g-curl-common-options
                        (g-cookie "SID" greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
-    (when sort
-      (setq subscriptions
-            (sort* subscriptions
-                   #'(lambda (a b)
-                       (< (string-to-number (g-json-get 'firstitemmsec b))
-                          (string-to-number (g-json-get 'firstitemmsec a)))))))
-    (greader-view-json-subscriptions subscriptions)))
+    (setq subscriptions
+          (sort* subscriptions
+                 #'(lambda (a b)
+                     (let ((a-id (g-json-get 'id a))
+                           (b-id (g-json-get 'id b)))
+                       (>
+                        (greader-get-unread-count-by-id a-id counts)
+                        (greader-get-unread-count-by-id b-id counts))))))
+    (greader-view-json-subscriptions subscriptions counts)))
 
 ;;;###autoload
 
@@ -621,7 +664,7 @@ arrived articles."
 (defvar greader-search-url
   (concat greader-base-url
           "api/0/search/items/ids?output=json&num=100&q=%s")
-          "URL template for GReader search.")
+  "URL template for GReader search.")
 
 (defvar greader-contents-rest-url
   "http://www.google.com/reader/api/0/stream/items/contents"
