@@ -165,7 +165,6 @@ TCLHTTPD=${HTTPD}/tts.tcl
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
-${ECI}/*.so \
 ${ECI}/VIAVOICE ${ECI}/ALSA ${ECI}/asoundrc \
 ${ECI}/Makefile ${ECI}/makefile.tcl83
 
