@@ -28,7 +28,7 @@ function Emacspeak( basepath) {
    * @private url_
    * URL of our local server
    */
-  this.url_ ='http://localhost:8000/';
+  this.url_ ='http://localhost:2222/';
 }
 
 
