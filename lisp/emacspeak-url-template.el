@@ -608,10 +608,21 @@ content."
  (list
   'emacspeak-webutils-google-autocomplete)
  #'(lambda nil
-     (re-search-forward "^ Timeline View" nil t)
+     (re-search-forward " Timeline View" nil t)
      (forward-line 1)
      (emacspeak-speak-rest-of-buffer))
  "Do a Google search and get a timeline view of results.")
+(emacspeak-url-template-define
+ "Google Info View"
+ "http://www.google.com/views?q=%s+view:info&sa=N&ct=infoview"
+ (list
+  'emacspeak-webutils-google-autocomplete)
+ #'(lambda nil
+     (re-search-forward "Info View" nil t)
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
+ "Do a Google search and get a Info view of results.")
+
 
 ;;}}}
 
