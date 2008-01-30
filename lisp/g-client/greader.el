@@ -323,7 +323,6 @@ user."
   "View Greader Subscription list."
   (declare (special greader-atom-base))
   (g-using-scratch
-   (erase-buffer)
    (insert
     (format
      "<html><head>
@@ -352,6 +351,32 @@ user."
               (t ""))))))
    (insert "</ol></body></html>\n")
    (browse-url-of-region (point-min) (point-max))))
+
+(defun greader-view-json-results (query results)
+  "View Greader results list."
+  (declare (special greader-atom-base))
+  (let ((items (g-json-get 'items results)))
+    (g-using-scratch
+         (insert
+    (format
+     "<html><head>
+<title> Results Matching %s</title>
+</head>\n"
+     query))
+   (insert
+    (format "<body><h1>Results Matching  %s</h1>\n<ol>"
+            query))
+   (loop for item across items
+         do
+         (insert
+          (format "<h2><a href=\"%s\">%s</a></h2>\n"
+         (g-json-get 'title item)
+(g-json-get 'title item)))
+(insert
+ (format "<div>%s</div>\n"
+         (g-json-get 'content
+                     (g-json-get 'content item))))))))
+
 
 (defun greader-unread-count ()
   "Retrieve unread counts for subscribed feeds."
@@ -708,7 +733,10 @@ Feeds are sorted by timestamp of newly arrived articles."
          cl                             ; content-length header
          greader-contents-rest-url)
         (current-buffer) 'replace))
-     (g-display-xml-string (buffer-string) g-atom-view-xsl))))
+     (greader-view-json-results
+      query
+      (json-read-from-string
+       (buffer-string))))))
 
 ;;}}}
 ;;{{{ Sign out:
