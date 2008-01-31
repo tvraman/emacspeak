@@ -136,8 +136,22 @@
                                                comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-auditory-icon 'open-object)
     (message "Sent default presence.")))
+
+(defadvice jabber-send-away-presence (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Set to be away.")))
+
+(defadvice jabber-send-xa-presence (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Set extended  away.")))
+
+
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
   "Allow emacspeak to control if the message is spoken."
