@@ -338,13 +338,13 @@ user."
                     (count (greader-get-unread-count-by-id id counts)))
            (insert
             (format
-             "<li><a href=\"%s\">%s: %s (%s)</a></li>\n"
+             "<li><a href=\"%s\">%s (%s: %s)</a></li>\n"
              (let ((url (substring id 5)))
                (cond
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url))))
-             count
              (g-json-get 'title s)
+             count
              (cond
               ((string-match "rss" id) "R")
               ((string-match "atom" id) "A")
