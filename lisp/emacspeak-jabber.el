@@ -132,7 +132,12 @@
   "Set to T if you want to hear presence alerts."
   :type  'boolean
   :group 'emacspeak-jabber)
-
+(defadvice jabber-send-default-presence (after emacspeak pre act
+                                               comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Sent default presence.")))
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
   "Allow emacspeak to control if the message is spoken."
