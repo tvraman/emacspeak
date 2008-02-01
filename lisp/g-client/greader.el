@@ -392,7 +392,6 @@ user."
                        (g-cookie "SID" greader-auth-handle)
                        greader-unread-count-url)))))
     counts))
-;;;###autoload
 
 (defsubst greader-get-unread-count-by-id (id counts)
   "Given a Feed Id, get the unread count from the cache in counts."
@@ -412,7 +411,7 @@ user."
           counts)))
     (g-json-get 'newestItemTimestampUsec c)))
 
-
+;;;###autoload
 (defun greader-feed-list ()
   "Retrieve list of subscribed feeds.
 Feeds are sorted by timestamp of newly arrived articles."
