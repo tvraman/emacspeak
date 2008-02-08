@@ -412,10 +412,11 @@ user."
     (g-json-get 'newestItemTimestampUsec c)))
 
 ;;;###autoload
-(defun greader-feed-list ()
+(defun greader-feed-list (&optional nosort)
   "Retrieve list of subscribed feeds.
-Feeds are sorted by timestamp of newly arrived articles."
-  (interactive)
+Feeds are sorted by timestamp of newly arrived articles.
+Optional interactive prefix arg `nosort' turns off sorting."
+  (interactive "P")
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
@@ -429,6 +430,7 @@ Feeds are sorted by timestamp of newly arrived articles."
                        g-curl-program g-curl-common-options
                        (g-cookie "SID" greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
+    (unless nosort 
     (setq subscriptions
           (sort* subscriptions
                  #'(lambda (a b)
@@ -436,7 +438,7 @@ Feeds are sorted by timestamp of newly arrived articles."
                            (b-id (g-json-get 'id b)))
                        (>
                         (greader-get-unread-count-by-id a-id counts)
-                        (greader-get-unread-count-by-id b-id counts))))))
+                        (greader-get-unread-count-by-id b-id counts)))))))
     (greader-view-json-subscriptions subscriptions counts)))
 
 ;;;###autoload
