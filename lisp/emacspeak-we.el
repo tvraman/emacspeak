@@ -951,7 +951,7 @@ and provide a completion list of applicable  property values. Filter document by
         ("i" emacspeak-we-extract-by-id)
         ("I" emacspeak-we-extract-by-id-list)
         ("j" emacspeak-we-xslt-junk)
-        ("k" emacspeak-we-set-xsl-keep-result)
+        ("k" emacspeak-we-toggle-xsl-keep-result)
         ("m" emacspeak-we-extract-table-by-match)
         ("o" emacspeak-we-xsl-toggle)
         ("p" emacspeak-we-xpath-filter-and-follow)
