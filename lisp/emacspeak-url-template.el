@@ -66,12 +66,12 @@
 
 (defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
-  name                                ;Human-readable name
-  template                            ;template URL string
-  generators                          ; list of param generator
-  post-action                         ;action to perform after opening
-  documentation                       ;resource  documentation
-  fetcher                             ; custom fetcher
+  name                           ;Human-readable name
+  template                       ;template URL string
+  generators                     ; list of param generator
+  post-action                    ;action to perform after opening
+  documentation                  ;resource  documentation
+  fetcher                        ; custom fetcher
   dont-url-encode)
 
 ;;}}}
@@ -623,7 +623,6 @@ content."
      (emacspeak-speak-rest-of-buffer))
  "Do a Google search and get a Info view of results.")
 
-
 ;;}}}
 
 ;;{{{ Anonimize google search
@@ -682,7 +681,7 @@ Make sure to sign in before invoking this template."
  "Open GMail Inbox"
  #'(lambda (url)
      (emacspeak-we-xslt-filter "//form"
- url 'speak)))
+                               url 'speak)))
 
 ;;}}}
 ;;{{{ Calendar Mobile:
@@ -823,7 +822,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
   "Trip Details: "
   #'(lambda ()
       (emacspeak-url-encode
-      (format-time-string "%m/%d/%y"))))
+       (format-time-string "%m/%d/%y"))))
  nil
  "Public transit directions from Google."
  #'(lambda (url)
@@ -1137,6 +1136,19 @@ from English to German.")
  nil
  "Display tech news from CNET"
  'emacspeak-webutils-rss-display)
+
+(emacspeak-url-template-define
+ "PodCast CNet"
+ "http://podcast-files.cnet.com/podcast/cnet_podcast_%s.mp3"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer
+       "Date: "
+       (format-time-string "%m%d%y"))))
+ nil
+ "Play Podcast from CNET"
+ #'(lambda (url)
+     (funcall emacspeak-media-player url)))
 
 ;;}}}
 ;;{{{ Infoworld RSS
