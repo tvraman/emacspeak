@@ -1475,8 +1475,8 @@ name of the list.")
  nil
  "CNN Content"
  #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "//p|//h1|//h2|//h3|//ul|//ol"
+     (emacspeak-we-extract-by-id
+      "cnnContentContainer"
       url
       'speak)))
 
