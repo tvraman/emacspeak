@@ -129,7 +129,6 @@
     (pop-to-buffer
      (process-buffer emacspeak-m-player-process))
     (set-window-text-height nil emacspeak-m-player-height)
-    (set-window-dedicated-p (selected-window) t)
     (emacspeak-speak-mode-line))
    (t
     (save-window-excursion
@@ -218,7 +217,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (unless noselect
       (pop-to-buffer (process-buffer emacspeak-m-player-process))
       (set-window-text-height nil emacspeak-m-player-height)
-      (set-window-dedicated-p (selected-window) t))))
+      )))
 
 ;;}}}
 ;;{{{ commands 
