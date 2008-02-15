@@ -71,6 +71,17 @@
 (defgroup gcal nil
   "Google Calendar"
   :group 'g)
+
+;;;###autoload
+(defcustom gcal-default-user-email nil
+  "Default user id for Calendar."
+  :type '(choice
+          (const :tag "none" nil)
+          (string :tag "username@gmail.com" ""))
+  :group 'gcal)
+
+  
+
 ;;;###autoload
 (defcustom gcal-user-email nil
   "Mail address that identifies calendar user."
@@ -803,9 +814,11 @@ date under point."
 (defun gcal-sign-in()
   "Sign in, useful when changing to a different user profile."
   (interactive)
-  (declare (special gcal-auth-handle gcal-user-email))
+  (declare (special gcal-auth-handle gcal-user-email
+                    gcal-default-user-email))
   (setq gcal-user-email
-        (read-from-minibuffer "Calendar User: "))
+        (read-from-minibuffer "Calendar User: "
+                              gcal-default-user-email))
   (setq gcal-auth-handle (make-gcal-auth))
   (gcal-authenticate))
 
