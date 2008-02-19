@@ -2059,7 +2059,15 @@ visiting the xls file."
 ;;;###autoload
 (defun emacspeak-wizards-pdf-open (filename)
   "Open pdf file as text."
-  (interactive "fFilename:")
+  (interactive
+   (list
+   (let ((completion-ignored-extensions nil))
+      (expand-file-name
+       (read-file-name "PDF File: "
+                       nil default-directory
+                       t nil
+                       #'(lambda (name)
+                           (string-match ".pdf$" name)))))))
   (declare (special emacspeak-wizards-pdf-to-text-options
                     emacspeak-wizards-pdf-to-text-program))
   (let ((output-buffer (format "%s"
