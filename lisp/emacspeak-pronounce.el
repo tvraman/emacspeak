@@ -552,7 +552,7 @@ Activates pronunciation dictionaries if not already active."
     (";-)" . " wink "))
   "Pronunciation dictionary used in all instant messenger and IRC chat
 modes.
-See http://oz.uc.edu/~solkode/smileys.html for a full list."
+See http://www.charm.net/~kmarsh/smiley.html. "
   :link '(url-link :tag "Smileys Dictionary "
                    "http://oz.uc.edu/~solkode/smileys.html")
   :type '(repeat
