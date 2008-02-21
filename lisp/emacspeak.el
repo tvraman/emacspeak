@@ -317,9 +317,7 @@ speech-enabling extensions."
 (defun emacspeak-export-environment ()
   "Export shell environment.
 This exports emacspeak's system variables to the environment
-so it can be passed to subprocesses.
-Additionally, we set EMACS_UNIBYTE to avoid problems under
-Emacs 20.3"
+so it can be passed to subprocesses."
   (declare (special emacspeak-directory
                     emacspeak-play-program
                     emacspeak-sounds-directory
@@ -328,8 +326,7 @@ Emacs 20.3"
     (setenv "EMACS_UNIBYTE" "1"))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
-  (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program)
-  )
+  (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program))
 
 ;;}}}
 ;;{{{ setup programming modes
@@ -397,9 +394,15 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   :type 'boolean
   :group 'emacspeak)
 
-(defvar emacspeak-unibyte t
-  "Set this to nil before starting  emacspeak
-if you are running in a multibyte enabled environment.")
+;;;###autoload
+(defcustom emacspeak-unibyte nil
+  "Emacspeak will force emacs to unibyte unless this
+variable is set to nil.
+To use emacspeak with emacs running in multibyte mode, this
+variable should be set to nil *before*
+emacspeak is compiled or started."
+  :type 'boolean
+  :group 'emacspeak)
 ;;;###autoload
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -439,7 +442,7 @@ functions for details.   "
                     emacspeak-sounds-directory))
 ;;; fixes transient mark mode in emacspeak
   (setq mark-even-if-inactive t)
-;;; force unibyte
+;;; propagate   unibyte
   (when emacspeak-unibyte
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
