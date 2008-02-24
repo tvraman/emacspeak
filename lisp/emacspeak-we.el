@@ -583,7 +583,6 @@ buffer. Interactive use provides list of class values as completion."
     (emacspeak-webutils-read-url)
     current-prefix-arg))
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
-    (message "filter:%s" filter)
     (emacspeak-we-xslt-filter filter
                               url
                               (or (interactive-p)
