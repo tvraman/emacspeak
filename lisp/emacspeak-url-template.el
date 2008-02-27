@@ -685,7 +685,8 @@ Make sure to sign in before invoking this template."
 
 (emacspeak-url-template-define
  "GMail Inbox"
- "http://mail.google.com/mail/h/"
+ (concat emacspeak-url-template-gmail-search-url
+         "h/")
  nil
  #'(lambda ()
      (declare (special emacspeak-we-class-filter))
