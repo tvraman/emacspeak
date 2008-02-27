@@ -647,9 +647,21 @@ content."
 ;;}}}
 ;;{{{ GMail HTML
 
+
+(defcustom emacspeak-url-template-gmail-search-url
+  "http://mail.google.com/mail/"
+  "URL eng-point for GMail searches.
+For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"   
+  :type '(choice
+          (const :tag "GMail"  "http://mail.google.com/mail/")
+          (const :tag "Corporate"  "https://mail.google.com/a/google.com/"))
+  :group 'emacspeak-url-template)
+
+
 (emacspeak-url-template-define
  "GMail Search"
- "http://mail.google.com/mail/h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1"
+ (concat emacspeak-url-template-gmail-search-url
+         "h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1")
  (list "GMail Search:")
  #'(lambda ()
      (declare (special emacspeak-we-class-filter))
@@ -657,7 +669,7 @@ content."
  "Search GMail. 
 Make sure to sign in before invoking this template."
  #'(lambda (url)
-     (emacspeak-we-xslt-filter "//form"  url 'speak)))
+     (emacspeak-we-extract-by-class "th"  url 'speak)))
 
 (emacspeak-url-template-define
  "GMail Labels"
