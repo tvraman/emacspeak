@@ -118,6 +118,7 @@ part of the libxslt package."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options
                     emacspeak-xslt-keep-errors modification-flag ))
   (let ((command nil)
+        (default-process-coding-system (cons 'utf-8 'utf-8))
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
