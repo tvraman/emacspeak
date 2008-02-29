@@ -53,6 +53,29 @@
 (require 'emacspeak-we)
 
 ;;}}}
+;;{{{ WebSpace Speaker:
+(defun emacspeak-webspace-display (infolet)
+  "Displays specified infolet.
+Display includes auditory and visual display."
+  (declare (special header-line-format))
+  (setq header-line-format
+        `((:eval ,infolet)))
+  (dtk-speak (eval infolet))
+(emacspeak-auditory-icon 'progress))
+
+(declaim (special emacspeak-webspace-keymap))
+(loop for k in
+      '(
+        ("w" emacspeak-webspace-weather)
+        ("h" emacspeak-webspace-headlines)
+        )
+      do
+      (define-key emacspeak-webspace-keymap (first k) (second k)))
+
+;;}}}
+;;{{{ CNN Headlines:
+
+;;}}}
 ;;{{{ Weather Wizard:
 
 (defvar emacspeak-webspace-weather-command-template
@@ -92,6 +115,12 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (setq emacspeak-webspace-weather-updates-timer
         (run-at-time  "1 hour" nil
                       'emacspeak-webspace-setup-weather-updates)))
+
+(defun  emacspeak-webspace-weather ()
+  "Speak current weather."
+  (interactive)
+  (declare (special emacspeak-webspace-current-weather))
+  (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
 (provide 'emacspeak-webspace)
