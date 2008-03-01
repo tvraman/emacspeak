@@ -63,7 +63,7 @@ Generates  auditory and visual display."
   (declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
-(emacspeak-auditory-icon 'progress))
+  (emacspeak-auditory-icon 'progress))
 ;;;###autoload
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
@@ -137,7 +137,9 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
   "Speak current news headline."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
-  (emacspeak-webspace-display (ring-remove emacspeak-webspace-headlines)))
+  (emacspeak-webspace-display
+   '((:eval (ring-remove emacspeak-webspace-headlines)))))
+   
 
 ;;}}}
 ;;{{{ Weather:
