@@ -64,8 +64,9 @@ Generates  auditory and visual display."
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
 (emacspeak-auditory-icon 'progress))
-
+;;;###autoload
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
+
 
 (declaim (special emacspeak-webspace-keymap))
 (loop for k in

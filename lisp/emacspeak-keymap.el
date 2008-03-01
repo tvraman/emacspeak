@@ -265,7 +265,7 @@ field in the customization buffer.  You can use the notation
 
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
-
+(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 ;;{{{ helper: emacspeak-keymap-update
 
