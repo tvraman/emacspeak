@@ -56,11 +56,11 @@
 ;;{{{ WebSpace Speaker:
 (defun emacspeak-webspace-display (infolet)
   "Displays specified infolet.
+Infolets use the same structure as mode-line-format and header-line-format.
 Display includes auditory and visual display."
   (declare (special header-line-format))
-  (setq header-line-format
-        `((:eval ,infolet)))
-  (dtk-speak (eval infolet))
+  (setq header-line-format infolet)
+  (dtk-speak (format-mode-line header-line-format))
 (emacspeak-auditory-icon 'progress))
 
 (declaim (special emacspeak-webspace-keymap))
@@ -74,6 +74,50 @@ Display includes auditory and visual display."
 
 ;;}}}
 ;;{{{ CNN Headlines:
+
+(defvar emacspeak-webspace-cnn-us-headlines-command-template
+  (when (executable-find "xmlstarlet")
+    "xmlstarlet sel --net -t -m //item/title  -v . --nl \
+http://rss.cnn.com/rss/cnn_us.rss"
+    )
+  "Command line that gives us CNN US news headlines.")
+
+(defvar emacspeak-webspace-cnn-us-headlines (make-ring 10)
+  "Ring of CNN USheadlines.")
+
+(defun emacspeak-webspace-cnn-us-headlines-get ()
+  "Populate a ring of CNN US headlines."
+  (declare (special emacspeak-webspace-cnn-us-headlines-command-template
+                    emacspeak-webspace-cnn-us-headlines))
+  (when emacspeak-webspace-cnn-us-headlines-command-template
+    (mapc
+     #'(lambda (h)
+         (ring-insert emacspeak-webspace-cnn-us-headlines
+                      h))
+    (split-string
+     (shell-command-to-string emacspeak-webspace-cnn-us-headlines-command-template)
+     "\n"))))
+
+(defvar emacspeak-webspace-cnn-us-headlines-timer nil
+  "Timer holding our CNN headlines update timer.")
+
+(defun emacspeak-webspace-update-cnn-us-headlines (period)
+  "Setup periodic CNN updates.
+Period is specified as documented in function run-at-time.
+Updated headlines  found in ring  `emacspeak-webspace-cnn-us-headlines"
+  (interactive "sUpdate Frequencey: ")
+  (declare (special emacspeak-webspace-cnn-us-headlines
+                    emacspeak-webspace-cnn-us-headlines-timer ))
+  (emacspeak-webspace-cnn-us-headlines-get)
+  (setq emacspeak-webspace-cnn-us-headlines-timer
+        (run-at-time  period nil
+                      'emacspeak-webspace-update-cnn-us-headlines)))
+
+(defun  emacspeak-webspace-headlines ()
+  "Speak current headline."
+  (interactive)
+  (declare (special emacspeak-webspace-cnn-us-headlines))
+  (emacspeak-webspace-display (ring-remove emacspeak-webspace-cnn-us-headlines)))
 
 ;;}}}
 ;;{{{ Weather Wizard:
@@ -98,23 +142,25 @@ http://www.wunderground.com/auto/rss_full/%s.xml")
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
-(defvar emacspeak-webspace-weather-updates-timer nil
+
+(defvar emacspeak-webspace-weather-timer nil
   "Timer holding our weather update timer.")
 
-(defun emacspeak-webspace-setup-weather-updates ()
+(defun emacspeak-webspace-update-weather (period)
   "Setup periodic weather updates.
+Period is specified as documented in function run-at-time.
 Updated weather is found in `emacspeak-webspace-current-weather'."
-  (interactive)
+  (interactive "sUpdate Frequencey: ")
   (declare (special emacspeak-webspace-current-weather
-                    emacspeak-webspace-weather-updates-timer ))
+                    emacspeak-webspace-weather-timer ))
   (unless emacspeak-url-template-weather-city-state
     (error
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
   (setq emacspeak-webspace-current-weather
         (emacspeak-webspace-weather-conditions))
-  (setq emacspeak-webspace-weather-updates-timer
-        (run-at-time  "1 hour" nil
-                      'emacspeak-webspace-setup-weather-updates)))
+  (setq emacspeak-webspace-weather-timer
+        (run-at-time  period nil
+                      'emacspeak-webspace-update-weather)))
 
 (defun  emacspeak-webspace-weather ()
   "Speak current weather."
