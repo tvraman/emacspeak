@@ -49,19 +49,23 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'ring)
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 
 ;;}}}
-;;{{{ WebSpace Speaker:
+;;{{{ WebSpace Display:
+
 (defun emacspeak-webspace-display (infolet)
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
-Display includes auditory and visual display."
+Generates  auditory and visual display."
   (declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
 (emacspeak-auditory-icon 'progress))
+
+(define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
 (declaim (special emacspeak-webspace-keymap))
 (loop for k in
@@ -73,56 +77,71 @@ Display includes auditory and visual display."
       (define-key emacspeak-webspace-keymap (first k) (second k)))
 
 ;;}}}
-;;{{{ CNN Headlines:
+;;{{{  Headlines:
 
-(defvar emacspeak-webspace-cnn-us-headlines-command-template
+(defvar emacspeak-webspace-rss-headlines-template
   (when (executable-find "xmlstarlet")
-    "xmlstarlet sel --net -t -m //item/title  -v . --nl \
-http://rss.cnn.com/rss/cnn_us.rss"
-    )
-  "Command line that gives us CNN US news headlines.")
+    "xmlstarlet sel --net -t -m //item/title  -v . --nl \ %s")
+  "Command line that gives us RSS  news headlines.")
 
-(defvar emacspeak-webspace-cnn-us-headlines (make-ring 10)
-  "Ring of CNN USheadlines.")
 
-(defun emacspeak-webspace-cnn-us-headlines-get ()
-  "Populate a ring of CNN US headlines."
-  (declare (special emacspeak-webspace-cnn-us-headlines-command-template
-                    emacspeak-webspace-cnn-us-headlines))
-  (when emacspeak-webspace-cnn-us-headlines-command-template
-    (mapc
-     #'(lambda (h)
-         (ring-insert emacspeak-webspace-cnn-us-headlines
-                      h))
-    (split-string
-     (shell-command-to-string emacspeak-webspace-cnn-us-headlines-command-template)
-     "\n"))))
 
-(defvar emacspeak-webspace-cnn-us-headlines-timer nil
-  "Timer holding our CNN headlines update timer.")
 
-(defun emacspeak-webspace-update-cnn-us-headlines (period)
-  "Setup periodic CNN updates.
+(defcustom emacspeak-webspace-headlines-feeds
+  '("http://rss.cnn.com/rss/cnn_world.rss"
+    "http://rss.cnn.com/rss/cnn_us.rss"
+    "http://rss.cnn.com/rss/money_topstories.rss"
+    "http://rss.cnn.com/rss/cnn_tech"
+    "http://rss.cnn.com/rss/cnn_allpolitics.rss"
+    "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml")
+  "List of RSS  News Feed URLs"
+  :type '(repeat (string :tag "RSS Feed"))
+  :group 'emacspeak-webspace)
+
+(defvar emacspeak-webspace-headlines (make-ring 50)
+  "Ring of Headlines.")
+
+(defun emacspeak-webspace-headlines-get ()
+  "Populate a ring of  headlines."
+  (declare (special emacspeak-webspace-rss-headlines-template
+                    emacspeak-webspace-headlines))
+  (when emacspeak-webspace-rss-headlines-template
+    (loop for feed in
+          emacspeak-webspace-headlines-feeds
+          do
+          (mapc
+           #'(lambda (h)
+               (ring-insert emacspeak-webspace-headlines h))
+           (split-string
+            (shell-command-to-string
+             (format emacspeak-webspace-rss-headlines-template feed))
+            "\n")))))
+
+(defvar emacspeak-webspace-headlines-timer nil
+  "Timer holding our  headlines update timer.")
+
+(defun emacspeak-webspace-update-headlines (period)
+  "Setup periodic news  updates.
 Period is specified as documented in function run-at-time.
-Updated headlines  found in ring  `emacspeak-webspace-cnn-us-headlines"
+Updated headlines  found in ring  `emacspeak-webspace-headlines"
   (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-cnn-us-headlines
-                    emacspeak-webspace-cnn-us-headlines-timer ))
-  (emacspeak-webspace-cnn-us-headlines-get)
-  (setq emacspeak-webspace-cnn-us-headlines-timer
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-headlines-timer ))
+  (emacspeak-webspace-headlines-get)
+  (setq emacspeak-webspace-headlines-timer
         (run-at-time  period nil
-                      'emacspeak-webspace-update-cnn-us-headlines)))
+                      'emacspeak-webspace-update-headlines)))
 
-(defun  emacspeak-webspace-headlines ()
-  "Speak current headline."
+(defun  emacspeak-webspace-news ()
+  "Speak current news headline."
   (interactive)
-  (declare (special emacspeak-webspace-cnn-us-headlines))
-  (emacspeak-webspace-display (ring-remove emacspeak-webspace-cnn-us-headlines)))
+  (declare (special emacspeak-webspace-headlines))
+  (emacspeak-webspace-display (ring-remove emacspeak-webspace-headlines)))
 
 ;;}}}
-;;{{{ Weather Wizard:
+;;{{{ Weather:
 
-(defvar emacspeak-webspace-weather-command-template
+(defvar emacspeak-webspace-weather-template
   (when (executable-find "xmlstarlet")
     "xmlstarlet sel --net -t -v '//item[1]/title' \
 http://www.wunderground.com/auto/rss_full/%s.xml")
@@ -131,12 +150,12 @@ http://www.wunderground.com/auto/rss_full/%s.xml")
 (defun emacspeak-webspace-weather-conditions  ()
   "Return weather conditions for `emacspeak-url-template-weather-city-state'."
   (declare (special emacspeak-url-template-weather-city-state
-                    emacspeak-webspace-weather-command-template))
-  (when (and emacspeak-webspace-weather-command-template
+                    emacspeak-webspace-weather-template))
+  (when (and emacspeak-webspace-weather-template
              emacspeak-url-template-weather-city-state)
     (substring
      (shell-command-to-string
-      (format emacspeak-webspace-weather-command-template
+      (format emacspeak-webspace-weather-template
               emacspeak-url-template-weather-city-state))
      0 -1)))
 
