@@ -132,8 +132,9 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
   (emacspeak-webspace-headlines-get)
   (setq emacspeak-webspace-headlines-timer
         (run-at-time
-         period nil
-         emacspeak-webspace-update-headlines period)))
+         period
+         (timer-duration period)
+         'emacspeak-webspace-headlines-get)))
 
 ;;;###autoload
 
@@ -172,23 +173,26 @@ http://www.wunderground.com/auto/rss_full/%s.xml")
 
 (defvar emacspeak-webspace-weather-timer nil
   "Timer holding our weather update timer.")
+(defsubst emacspeak-webspace-weather-get ()
+  "Get weather."
+  (declare (special emacspeak-webspace-current-weather))
+  (setq emacspeak-webspace-current-weather
+        (emacspeak-webspace-weather-conditions)))
 
 (defun emacspeak-webspace-update-weather (period)
   "Setup periodic weather updates.
 Period is specified as documented in function run-at-time.
 Updated weather is found in `emacspeak-webspace-current-weather'."
   (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-current-weather
-                    emacspeak-webspace-weather-timer ))
+  (declare (special emacspeak-webspace-weather-timer ))
   (unless emacspeak-url-template-weather-city-state
     (error
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
-  (setq emacspeak-webspace-current-weather
-        (emacspeak-webspace-weather-conditions))
+  (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
         (run-at-time
-         period nil
-         'emacspeak-webspace-update-weather period)))
+         period (timer-duration period)
+         'emacspeak-webspace-weather-get )))
 
 (defun  emacspeak-webspace-weather ()
   "Speak current weather."
