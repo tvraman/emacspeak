@@ -100,7 +100,7 @@ Generates  auditory and visual display."
   :group 'emacspeak-webspace)
 
 (defvar emacspeak-webspace-headlines (make-ring
-                                      (* 10 (length  emacspeak-webspace-headlines-feeds)))
+                                      (* 20 (length  emacspeak-webspace-headlines-feeds)))
   "Ring of Headlines.")
 
 (defun emacspeak-webspace-headlines-get ()
