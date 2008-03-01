@@ -99,7 +99,8 @@ Generates  auditory and visual display."
   :type '(repeat (string :tag "RSS Feed"))
   :group 'emacspeak-webspace)
 
-(defvar emacspeak-webspace-headlines (make-ring 50)
+(defvar emacspeak-webspace-headlines (make-ring
+                                      (* 10 (length  emacspeak-webspace-headlines-feeds)))
   "Ring of Headlines.")
 
 (defun emacspeak-webspace-headlines-get ()
@@ -138,7 +139,8 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
   (interactive)
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-display
-   '((:eval (ring-remove emacspeak-webspace-headlines)))))
+   '((:eval (ring-ref emacspeak-webspace-headlines
+                      (random (ring-length emacspeak-webspace-headlines)))))))
    
 
 ;;}}}
