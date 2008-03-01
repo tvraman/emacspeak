@@ -186,8 +186,9 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (setq emacspeak-webspace-current-weather
         (emacspeak-webspace-weather-conditions))
   (setq emacspeak-webspace-weather-timer
-        (run-at-time  period nil
-                      'emacspeak-webspace-update-weather)))
+        (run-at-time
+         period nil
+         'emacspeak-webspace-update-weather period)))
 
 (defun  emacspeak-webspace-weather ()
   "Speak current weather."
