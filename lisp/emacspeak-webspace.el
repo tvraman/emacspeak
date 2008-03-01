@@ -113,7 +113,8 @@ Generates  auditory and visual display."
           do
           (mapc
            #'(lambda (h)
-               (ring-insert emacspeak-webspace-headlines h))
+               (unless (zerop (length h))
+               (ring-insert emacspeak-webspace-headlines h)))
            (split-string
             (shell-command-to-string
              (format emacspeak-webspace-rss-headlines-template feed))
