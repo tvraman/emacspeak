@@ -133,8 +133,7 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
   (setq emacspeak-webspace-headlines-timer
         (run-at-time
          period nil
-         #'(lambda ()
-             (emacspeak-webspace-update-headlines period)))))
+         emacspeak-webspace-update-headlines period)))
 
 ;;;###autoload
 
