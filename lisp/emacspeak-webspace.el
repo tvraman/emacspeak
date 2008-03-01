@@ -132,8 +132,8 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
   (setq emacspeak-webspace-headlines-timer
         (run-at-time  period nil
                       'emacspeak-webspace-update-headlines)))
-
-(defun  emacspeak-webspace-news ()
+;;;###autoload
+(defun  emacspeak-webspace-headlines ()
   "Speak current news headline."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
