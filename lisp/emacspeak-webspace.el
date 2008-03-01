@@ -119,6 +119,7 @@ Generates  auditory and visual display."
              (format emacspeak-webspace-rss-headlines-template feed))
             "\n")))))
 
+
 (defvar emacspeak-webspace-headlines-timer nil
   "Timer holding our  headlines update timer.")
 
@@ -137,11 +138,13 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
          'emacspeak-webspace-headlines-get)))
 
 ;;;###autoload
-
 (defun  emacspeak-webspace-headlines ()
   "Speak current news headline."
   (interactive)
-  (declare (special emacspeak-webspace-headlines))
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-headlines-timer))
+  (unless emacspeak-webspace-headlines-timer
+    (call-interactively 'emacspeak-webspace-update-headlines))
   (emacspeak-webspace-display
    '((:eval (ring-ref emacspeak-webspace-headlines
                       (random (ring-length emacspeak-webspace-headlines)))))))
@@ -197,7 +200,10 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 (defun  emacspeak-webspace-weather ()
   "Speak current weather."
   (interactive)
-  (declare (special emacspeak-webspace-current-weather))
+  (declare (special emacspeak-webspace-current-weather
+                    emacspeak-webspace-weather-timer))
+  (unless emacspeak-webspace-weather-timer
+    (call-interactively 'emacspeak-webspace-update-weather))
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
