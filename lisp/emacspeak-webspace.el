@@ -198,6 +198,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
          period (timer-duration period)
          'emacspeak-webspace-weather-get )))
 
+;;;###autoload
 (defun  emacspeak-webspace-weather ()
   "Speak current weather."
   (interactive)
