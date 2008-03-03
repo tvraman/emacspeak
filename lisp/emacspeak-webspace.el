@@ -52,7 +52,9 @@
 (require 'ring)
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
-
+(eval-when '(load)
+     (unless (executable-find "xmlstarlet")
+       (message "Install xmlstarlet first.")))
 ;;}}}
 ;;{{{ WebSpace Display:
 
@@ -90,8 +92,7 @@ Generates auditory and visual display."
   "Command line that gives us Atom Feed headlines.")
 
 (defvar emacspeak-webspace-rss-headlines-template
-  (when (executable-find "xmlstarlet")
-    "xmlstarlet sel --net -t -m //item/title -v . --nl %s")
+  "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
   "Command line that gives us RSS news headlines.")
 
 ;;;###autoload
@@ -186,9 +187,8 @@ Updated headlines found in ring `emacspeak-webspace-headlines"
 ;;{{{ Weather:
 
 (defvar emacspeak-webspace-weather-template
-  (when (executable-find "xmlstarlet")
-    "xmlstarlet sel --net -t -v '//item[1]/title' \
-http://www.wunderground.com/auto/rss_full/%s.xml")
+  "xmlstarlet sel --net -t -v '//item[1]/title' \
+http://www.wunderground.com/auto/rss_full/%s.xml"
   "Command line that gives us weather conditions as a short string.")
 
 (defun emacspeak-webspace-weather-conditions ()
