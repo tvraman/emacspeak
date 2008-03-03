@@ -108,10 +108,9 @@ Generates auditory and visual display."
 
 ;;;###autoload
 (defcustom emacspeak-webspace-atom-feeds
-  '("http://www.google.com/reader/public/atom/user/10949413115399023739/label/officialgoogleblogs"
-    "http://emacspeak.blogspot.com/atom.xml")
+  '("http://emacspeak.blogspot.com/atom.xml")
   "List of RSS News Feed URLs"
-  :type '(repeat (string :tag "RSS Feed"))
+  :type '(repeat (string :tag "Atom Feed"))
   :group 'emacspeak-webspace)
 
 (defvar emacspeak-webspace-headlines
@@ -135,7 +134,8 @@ Generates auditory and visual display."
  
 (defun emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
-  (declare (special emacspeak-webspace-rss-headlines-template emacspeak-webspace-atom-headlines-template ))
+  (declare (special emacspeak-webspace-rss-headlines-template
+                    emacspeak-webspace-atom-headlines-template))
   (loop for feed in emacspeak-webspace-rss-feeds
         do
         (emacspeak-webspace-headlines-fetch
@@ -157,8 +157,7 @@ Updated headlines found in ring `emacspeak-webspace-headlines"
   (emacspeak-webspace-headlines-get)
   (setq emacspeak-webspace-headlines-timer
         (run-at-time
-         period
-         (timer-duration period)
+         period (timer-duration period)
          'emacspeak-webspace-headlines-get)))
 
 (defsubst emacspeak-webspace-next-headline ()
