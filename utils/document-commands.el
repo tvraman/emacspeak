@@ -187,6 +187,7 @@
     ("emacspeak-vm"  . ("vm-prepare"))
     ("emacspeak-w3"  . ("w3-prepare"))
     ("emacspeak-websearch"  . nil )
+    ("emacspeak-webspace"  . nil )
     ("emacspeak-widget"  . nil )
     ("emacspeak-windmove"  . nil )
     ("emacspeak-winring"  . nil )
