@@ -83,7 +83,7 @@ Generates  auditory and visual display."
   (when (executable-find "xmlstarlet")
     "xmlstarlet sel --net -t -m //item/title  -v . --nl \ %s")
   "Command line that gives us RSS  news headlines.")
-
+;;;###autoload
 (defcustom emacspeak-webspace-headlines-feeds
   '("http://rss.cnn.com/rss/cnn_world.rss"
     "http://rss.cnn.com/rss/cnn_us.rss"
