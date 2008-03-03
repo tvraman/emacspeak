@@ -143,9 +143,6 @@ Updated headlines  found in ring  `emacspeak-webspace-headlines"
       (ring-insert-at-beginning emacspeak-webspace-headlines
                                 headline)
       headline))))
-      
-
-(
                       
 ;;;###autoload
  (defun  emacspeak-webspace-headlines ()
