@@ -1,20 +1,20 @@
 ;;; emacspeak-webspace.el --- Webspaces In Emacspeak
 ;;; $Id: emacspeak-webspace.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  WebSpace provides smart updates from the Web.
-;;; Keywords: Emacspeak,  Audio Desktop webspace
-;;{{{  LCD Archive entry:
+;;; Description: WebSpace provides smart updates from the Web.
+;;; Keywords: Emacspeak, Audio Desktop webspace
+;;{{{ LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
+;;; $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
-;;{{{  Copyright:
+;;{{{ Copyright:
 ;;;Copyright (C) 1995 -- 2007, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -28,26 +28,26 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNWEBSPACE FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNWEBSPACE FOR A PARTICULAR PURPOSE. See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; along with GNU Emacs; see the file COPYING. If not, write to
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  introduction
+;;{{{ introduction
 
 ;;; Commentary:
-;;; WEBSPACE ==  Smart Web Gadgets For The Emacspeak Desktop
+;;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
 ;;}}}
-;;{{{  Required modules
+;;{{{ Required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
+(declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ring)
 (require 'emacspeak-webutils)
@@ -59,7 +59,7 @@
 (defun emacspeak-webspace-display (infolet)
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
-Generates  auditory and visual display."
+Generates auditory and visual display."
   (declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
@@ -77,23 +77,22 @@ Generates  auditory and visual display."
       (define-key emacspeak-webspace-keymap (first k) (second k)))
 
 ;;}}}
-;;{{{  Headlines:
+;;{{{ Headlines:
 
 (defvar emacspeak-webspace-atom-xmlns-uri
   "http://www.w3.org/2005/Atom"
   "Atom NS URI.")
 
-
 (defvar emacspeak-webspace-atom-headlines-template
-    (format 
-    "xmlstarlet sel --net -N a=%s -t -m a:feed/a:entry/a:title -v . --nl %%s"
-    emacspeak-webspace-atom-xmlns-uri)
-  "Command line that gives us Atom  Feed headlines.")
+  (format 
+   "xmlstarlet sel --net -N a=%s -t -m a:feed/a:entry/a:title -v . --nl %%s"
+   emacspeak-webspace-atom-xmlns-uri)
+  "Command line that gives us Atom Feed headlines.")
 
 (defvar emacspeak-webspace-rss-headlines-template
   (when (executable-find "xmlstarlet")
-    "xmlstarlet sel --net -t -m //item/title  -v . --nl  %s")
-  "Command line that gives us RSS  news headlines.")
+    "xmlstarlet sel --net -t -m //item/title -v . --nl %s")
+  "Command line that gives us RSS news headlines.")
 
 ;;;###autoload
 (defcustom emacspeak-webspace-rss-feeds
@@ -103,7 +102,7 @@ Generates  auditory and visual display."
     "http://rss.cnn.com/rss/cnn_tech"
     "http://rss.cnn.com/rss/cnn_allpolitics.rss"
     "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml")
-  "List of RSS  News Feed URLs"
+  "List of RSS News Feed URLs"
   :type '(repeat (string :tag "RSS Feed"))
   :group 'emacspeak-webspace)
 
@@ -111,7 +110,7 @@ Generates  auditory and visual display."
 (defcustom emacspeak-webspace-atom-feeds
   '("http://www.google.com/reader/public/atom/user/10949413115399023739/label/officialgoogleblogs"
     "http://emacspeak.blogspot.com/atom.xml")
-  "List of RSS  News Feed URLs"
+  "List of RSS News Feed URLs"
   :type '(repeat (string :tag "RSS Feed"))
   :group 'emacspeak-webspace)
 
@@ -119,139 +118,135 @@ Generates  auditory and visual display."
   (make-ring
    (* 20
       (+
-       (length  emacspeak-webspace-rss-feeds)
-       (length  emacspeak-webspace-atom-feeds))))
+       (length emacspeak-webspace-rss-feeds)
+       (length emacspeak-webspace-atom-feeds))))
   "Ring of Headlines.")
 
+(defsubst emacspeak-webspace-headlines-fetch (template feed)
+  "Add headlines from specified feed to our cache."
+  (declare (special emacspeak-webspace-headlines))
+  (mapc
+   #'(lambda (h)
+       (unless (zerop (length h))
+         (ring-insert emacspeak-webspace-headlines h)))
+   (split-string
+    (shell-command-to-string (format template feed))
+    "\n")))
+ 
 (defun emacspeak-webspace-headlines-get ()
-  "Populate a ring of  headlines."
-  (declare (special emacspeak-webspace-headlines
-            emacspeak-webspace-rss-headlines-template emacspeak-webspace-atom-headlines-template ))
+  "Populate a ring of headlines."
+  (declare (special emacspeak-webspace-rss-headlines-template emacspeak-webspace-atom-headlines-template ))
   (loop for feed in emacspeak-webspace-rss-feeds
         do
-        (mapc
-         #'(lambda (h)
-             (unless (zerop (length h))
-               (ring-insert emacspeak-webspace-headlines h)))
-         (split-string
-          (shell-command-to-string
-           (format emacspeak-webspace-rss-headlines-template feed))
-          "\n")))
+        (emacspeak-webspace-headlines-fetch
+         emacspeak-webspace-rss-headlines-template feed))
   (loop for feed in emacspeak-webspace-atom-feeds
         do
-        (mapc
-         #'(lambda (h)
-             (unless (zerop (length h))
-               (ring-insert emacspeak-webspace-headlines h)))
-         (split-string
-          (shell-command-to-string
-           (format emacspeak-webspace-atom-headlines-template feed))
-          "\n"))))
+        (emacspeak-webspace-headlines-fetch
+         emacspeak-webspace-atom-headlines-template feed)))
 
 (defvar emacspeak-webspace-headlines-timer nil
-  "Timer holding our  headlines update timer.")
+  "Timer holding our headlines update timer.")
 
 (defun emacspeak-webspace-update-headlines (period)
-  "Setup periodic news  updates.
+  "Setup periodic news updates.
 Period is specified as documented in function run-at-time.
-Updated headlines  found in ring  `emacspeak-webspace-headlines"
+Updated headlines found in ring `emacspeak-webspace-headlines"
   (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-headlines
-                    emacspeak-webspace-headlines-timer ))
+  (declare (special emacspeak-webspace-headlines-timer ))
   (emacspeak-webspace-headlines-get)
   (setq emacspeak-webspace-headlines-timer
         (run-at-time
          period
          (timer-duration period)
          'emacspeak-webspace-headlines-get)))
+
 (defsubst emacspeak-webspace-next-headline ()
   "Return next headline to display."
   (declare (special emacspeak-webspace-headlines))
   (cond
-   ((ring-empty-p  emacspeak-webspace-headlines) "No News Is Good News")
+   ((ring-empty-p emacspeak-webspace-headlines) "No News Is Good News")
    (t
-    (let ((headline (ring-remove emacspeak-webspace-headlines
-                                 0)))
-      (ring-insert-at-beginning emacspeak-webspace-headlines
-                                headline)
-      headline))))
-                      
+    (let ((h (ring-remove emacspeak-webspace-headlines 0)))
+      (ring-insert-at-beginning emacspeak-webspace-headlines h)
+      h))))
+ 
 ;;;###autoload
- (defun  emacspeak-webspace-headlines ()
-   "Speak current news headline."
-   (interactive)
-   (declare (special emacspeak-webspace-headlines
-                     emacspeak-webspace-headlines-timer))
-   (unless emacspeak-webspace-headlines-timer
-     (call-interactively 'emacspeak-webspace-update-headlines))
-   (emacspeak-webspace-display
-    '((:eval (emacspeak-webspace-next-headline)))))
-   
+(defun emacspeak-webspace-headlines ()
+  "Speak current news headline."
+  (interactive)
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-headlines-timer))
+  (unless emacspeak-webspace-headlines-timer
+    (call-interactively 'emacspeak-webspace-update-headlines))
+  (emacspeak-webspace-display
+   '((:eval (emacspeak-webspace-next-headline)))))
+ 
 
- ;;}}}
- ;;{{{ Weather:
+;;}}}
+;;{{{ Weather:
 
- (defvar emacspeak-webspace-weather-template
-   (when (executable-find "xmlstarlet")
-     "xmlstarlet sel --net -t -v '//item[1]/title' \
+(defvar emacspeak-webspace-weather-template
+  (when (executable-find "xmlstarlet")
+    "xmlstarlet sel --net -t -v '//item[1]/title' \
 http://www.wunderground.com/auto/rss_full/%s.xml")
-   "Command line that gives us weather conditions as a short string.")
+  "Command line that gives us weather conditions as a short string.")
 
- (defun emacspeak-webspace-weather-conditions  ()
-   "Return weather conditions for `emacspeak-url-template-weather-city-state'."
-   (declare (special emacspeak-url-template-weather-city-state
-                     emacspeak-webspace-weather-template))
-   (when (and emacspeak-webspace-weather-template
-              emacspeak-url-template-weather-city-state)
-     (substring
-      (shell-command-to-string
-       (format emacspeak-webspace-weather-template
-               emacspeak-url-template-weather-city-state))
-      0 -1)))
+(defun emacspeak-webspace-weather-conditions ()
+  "Return weather conditions for `emacspeak-url-template-weather-city-state'."
+  (declare (special emacspeak-url-template-weather-city-state
+                    emacspeak-webspace-weather-template))
+  (when (and emacspeak-webspace-weather-template
+             emacspeak-url-template-weather-city-state)
+    (substring
+     (shell-command-to-string
+      (format emacspeak-webspace-weather-template
+              emacspeak-url-template-weather-city-state))
+     0 -1)))
 
- (defvar emacspeak-webspace-current-weather nil
-   "Holds cached value of current weather conditions.")
+(defvar emacspeak-webspace-current-weather nil
+  "Holds cached value of current weather conditions.")
 
- (defvar emacspeak-webspace-weather-timer nil
-   "Timer holding our weather update timer.")
- (defsubst emacspeak-webspace-weather-get ()
-   "Get weather."
-   (declare (special emacspeak-webspace-current-weather))
-   (setq emacspeak-webspace-current-weather
-         (emacspeak-webspace-weather-conditions)))
+(defvar emacspeak-webspace-weather-timer nil
+  "Timer holding our weather update timer.")
+(defsubst emacspeak-webspace-weather-get ()
+  "Get weather."
+  (declare (special emacspeak-webspace-current-weather))
+  (setq emacspeak-webspace-current-weather
+        (emacspeak-webspace-weather-conditions)))
 
- (defun emacspeak-webspace-update-weather (period)
-   "Setup periodic weather updates.
+(defun emacspeak-webspace-update-weather (period)
+  "Setup periodic weather updates.
 Period is specified as documented in function run-at-time.
 Updated weather is found in `emacspeak-webspace-current-weather'."
-   (interactive "sUpdate Frequencey: ")
-   (declare (special emacspeak-webspace-weather-timer ))
-   (unless emacspeak-url-template-weather-city-state
-     (error
-      "First set option emacspeak-url-template-weather-city-state to your city/state."))
-   (emacspeak-webspace-weather-get)
-   (setq emacspeak-webspace-weather-timer
-         (run-at-time
-          period (timer-duration period)
-          'emacspeak-webspace-weather-get )))
+  (interactive "sUpdate Frequencey: ")
+  (declare (special emacspeak-webspace-weather-timer ))
+  (unless emacspeak-url-template-weather-city-state
+    (error
+     "First set option emacspeak-url-template-weather-city-state to your city/state."))
+  (emacspeak-webspace-weather-get)
+  (setq emacspeak-webspace-weather-timer
+        (run-at-time
+         period (timer-duration period)
+         'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
- (defun  emacspeak-webspace-weather ()
-   "Speak current weather."
-   (interactive)
-   (declare (special emacspeak-webspace-current-weather
-                     emacspeak-webspace-weather-timer))
-   (unless emacspeak-webspace-weather-timer
-     (call-interactively 'emacspeak-webspace-update-weather))
-   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
+(defun emacspeak-webspace-weather ()
+  "Speak current weather."
+  (interactive)
+  (declare (special emacspeak-webspace-current-weather
+                    emacspeak-webspace-weather-timer))
+  (unless emacspeak-webspace-weather-timer
+    (call-interactively 'emacspeak-webspace-update-weather))
+  (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
- ;;}}}
- (provide 'emacspeak-webspace)
- ;;{{{ end of file
+;;}}}
+(provide 'emacspeak-webspace)
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end:
 
- ;;}}}
+;;}}}
