@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{ WebSpace Display:
 
-(defun emacspeak-webspace-display (infolet)
+(defsubst emacspeak-webspace-display (infolet)
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
 Generates auditory and visual display."
@@ -109,7 +109,7 @@ Generates auditory and visual display."
   "Return URL."
   (first feed))
 
-(defsubst emacspeak-webspace-feed-type (feed)
+(defun emacspeak-webspace-feed-type (feed)
   "Return type."
   (second feed))
 
@@ -143,7 +143,7 @@ Generates auditory and visual display."
   "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
   "Command line that gives us RSS news headlines.")
 
-(defsubst emacspeak-webspace-headlines-fetch ( feed)
+(defun emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-feedstore
                     emacspeak-webspace-rss-headlines-template
@@ -166,7 +166,7 @@ Generates auditory and visual display."
       (shell-command-to-string (format template url))
       "\n"))))
  
-(defun emacspeak-webspace-headlines-get ()
+(defsubst emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
   (declare (special emacspeak-webspace-ticker))
   (mapc 'emacspeak-webspace-headlines-fetch
@@ -185,14 +185,15 @@ Updated headlines found in emacspeak-webspace-feedstore."
          period (timer-duration period)
          'emacspeak-webspace-headlines-get)))
 
-(defsubst emacspeak-webspace-next-headline ()
+(defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
-  (declare (special emacspeak-webspace-headlines))
+  (declare (special emacspeak-webspace-feedstore))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-ticker)))
   (cond
-   ((ring-empty-p emacspeak-webspace-headlines) "No News Is Good News")
+   ((ring-empty-p headlines) "No News Is Good News")
    (t
-    (let ((h (ring-remove emacspeak-webspace-headlines 0)))
-      (ring-insert-at-beginning emacspeak-webspace-headlines h)
+    (let ((h (ring-remove headlines 0)))
+      (ring-insert-at-beginning headlines h)
       h))))
  
 ;;;###autoload
@@ -231,7 +232,7 @@ http://www.wunderground.com/auto/rss_full/%s.xml"
 
 (defvar emacspeak-webspace-weather-timer nil
   "Timer holding our weather update timer.")
-(defsubst emacspeak-webspace-weather-get ()
+(defun emacspeak-webspace-weather-get ()
   "Get weather."
   (declare (special emacspeak-webspace-current-weather))
   (setq emacspeak-webspace-current-weather
