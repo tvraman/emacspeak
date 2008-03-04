@@ -53,8 +53,8 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (eval-when '(load)
-     (unless (executable-find "xmlstarlet")
-       (message "Install xmlstarlet first.")))
+  (unless (executable-find "xmlstarlet")
+    (message "Install xmlstarlet first.")))
 ;;}}}
 ;;{{{ WebSpace Display:
 
@@ -189,12 +189,12 @@ Updated headlines found in emacspeak-webspace-feedstore."
   "Return next headline to display."
   (declare (special emacspeak-webspace-feedstore))
   (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-ticker)))
-  (cond
-   ((ring-empty-p headlines) "No News Is Good News")
-   (t
-    (let ((h (ring-remove headlines 0)))
-      (ring-insert-at-beginning headlines h)
-      h))))
+    (cond
+     ((ring-empty-p headlines) "No News Is Good News")
+     (t
+      (let ((h (ring-remove headlines 0)))
+        (ring-insert-at-beginning headlines h)
+        h)))))
  
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
