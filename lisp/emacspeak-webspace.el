@@ -80,6 +80,41 @@ Generates auditory and visual display."
 
 ;;}}}
 ;;{{{ Headlines:
+;;{{{ FeedStore
+
+;;;###autoload
+(defcustom emacspeak-webspace-feeds
+  '(("http://news.com.com/2547-1_3-0-5.xml" rss)
+    ("http://news.bbc.co.uk/rss/newsonline_world_edition/south_asia/rss091.xml" rss)
+    ("http://news.bbc.co.uk/rss/sportonline_world_edition/front_page/rss091.xml" rss)
+    ("http://rss.cnn.com/rss/cnn_world.rss" rss)
+    ("http://rss.cnn.com/rss/cnn_us.rss" rss)
+    ("http://rss.cnn.com/rss/money_topstories.rss" rss)
+    ("http://rss.cnn.com/rss/cnn_tech" rss)
+    ("http://rss.cnn.com/rss/cnn_allpolitics.rss" rss)
+    ("http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml" rss)
+ 
+    ("http://www.google.com/reader/public/atom/user/10949413115399023739/label/officialgoogleblogs" atom)
+    ("http://emacspeak.blogspot.com/atom.xml" atom)
+    )
+  "Collection of ATOM and RSS feeds."
+  :type '(repeat
+          (list :tag "Feed"
+                (string :tag "URL")
+                (choice :tag "Type"
+                        (const atom :tag "ATOM")
+                        (const :tag "RSS" rss))))
+  :group  'emacspeak-webspace)
+
+(defsubst emacspeak-webspace-feed-uri (feed)
+  "Return URL."
+  (first feed))
+
+(defsubst emacspeak-webspace-feed-type (feed)
+  "Return type."
+  (second feed))
+
+;;}}}
 
 (defvar emacspeak-webspace-atom-xmlns-uri
   "http://www.w3.org/2005/Atom"
@@ -95,77 +130,36 @@ Generates auditory and visual display."
   "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
   "Command line that gives us RSS news headlines.")
 
-
-;;;###autoload
-(defcustom emacspeak-webspace-feeds nil 
-  "Collection of ATOM and RSS feeds."
-:type '(repeat
-        (list :tag "Feed"
-            (string :tag "URL")
-            (choice :tag "Type"
-                    (const 'atom :tag "ATOM")
-                    (const :tag "RSS" 'rss))))
-             :group  'emacspeak-webspace)
-
-(defsubst emacspeak-webspace-feed-uri (feed)
-  "Return URL."
-  (first feed))
-
-(defsubst emacspeak-webspace-feed-type (feed)
-  "Return type."
-  (second feed))
-
-
-;;;###autoload
-(defcustom emacspeak-webspace-rss-feeds
-  '("http://rss.cnn.com/rss/cnn_world.rss"
-    "http://rss.cnn.com/rss/cnn_us.rss"
-    "http://rss.cnn.com/rss/money_topstories.rss"
-    "http://rss.cnn.com/rss/cnn_tech"
-    "http://rss.cnn.com/rss/cnn_allpolitics.rss"
-    "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml")
-  "List of RSS News Feed URLs"
-  :type '(repeat (string :tag "RSS Feed"))
-  :group 'emacspeak-webspace)
-
-;;;###autoload
-(defcustom emacspeak-webspace-atom-feeds
-  '("http://emacspeak.blogspot.com/atom.xml")
-  "List of RSS News Feed URLs"
-  :type '(repeat (string :tag "Atom Feed"))
-  :group 'emacspeak-webspace)
-
 (defvar emacspeak-webspace-headlines
   (make-ring
-   (* 20
-      (+
-       (length emacspeak-webspace-rss-feeds)
-       (length emacspeak-webspace-atom-feeds))))
+   (* 20 (length emacspeak-webspace-feeds)))
   "Ring of Headlines.")
 
-(defsubst emacspeak-webspace-headlines-fetch (template feed)
+(defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
-  (declare (special emacspeak-webspace-headlines))
-  (mapc
-   #'(lambda (h)
-       (unless (zerop (length h))
-         (ring-insert emacspeak-webspace-headlines h)))
-   (split-string
-    (shell-command-to-string (format template feed))
-    "\n")))
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-rss-headlines-template
+                    emacspeak-webspace-atom-headlines-template))
+  (let ((type (emacspeak-webspace-feed-type feed))
+        (uri (emacspeak-webspace-feed-uri feed))
+        (template nil))
+    (cond
+     ((eq type 'atom)
+      (setq template emacspeak-webspace-atom-headlines-template))
+     ((eq type 'rss)
+      (setq template emacspeak-webspace-rss-headlines-template))
+     (t (error "Unknown feed type %s" type)))
+    (mapc
+     #'(lambda (h)
+         (unless (zerop (length h))
+           (ring-insert emacspeak-webspace-headlines h)))
+     (split-string
+      (shell-command-to-string (format template feed))
+      "\n"))))
  
 (defun emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
-  (declare (special emacspeak-webspace-rss-headlines-template
-                    emacspeak-webspace-atom-headlines-template))
-  (loop for feed in emacspeak-webspace-rss-feeds
-        do
-        (emacspeak-webspace-headlines-fetch
-         emacspeak-webspace-rss-headlines-template feed))
-  (loop for feed in emacspeak-webspace-atom-feeds
-        do
-        (emacspeak-webspace-headlines-fetch
-         emacspeak-webspace-atom-headlines-template feed)))
+  (mapc 'emacspeak-webspace-headlines-fetch emacspeak-webspace-feeds))
 
 (defvar emacspeak-webspace-headlines-timer nil
   "Timer holding our headlines update timer.")
