@@ -82,20 +82,7 @@ Generates auditory and visual display."
 ;;{{{ Headlines:
 
 ;;;###autoload
-(defcustom emacspeak-webspace-feeds
-  '(("http://news.com.com/2547-1_3-0-5.xml" rss)
-    ("http://news.bbc.co.uk/rss/newsonline_world_edition/south_asia/rss091.xml" rss)
-    ("http://news.bbc.co.uk/rss/sportonline_world_edition/front_page/rss091.xml" rss)
-    ("http://rss.cnn.com/rss/cnn_world.rss" rss)
-    ("http://rss.cnn.com/rss/cnn_us.rss" rss)
-    ("http://rss.cnn.com/rss/money_topstories.rss" rss)
-    ("http://rss.cnn.com/rss/cnn_tech" rss)
-    ("http://rss.cnn.com/rss/cnn_allpolitics.rss" rss)
-    ("http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml" rss)
- 
-    ("http://www.google.com/reader/public/atom/user/10949413115399023739/label/officialgoogleblogs" atom)
-    ("http://emacspeak.blogspot.com/atom.xml" atom)
-    )
+(defcustom emacspeak-webspace-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
           (list :tag "Feed"
