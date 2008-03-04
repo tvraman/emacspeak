@@ -141,7 +141,7 @@ Generates auditory and visual display."
                     emacspeak-webspace-rss-headlines-template
                     emacspeak-webspace-atom-headlines-template))
   (let ((type (emacspeak-webspace-feed-type feed))
-        (uri (emacspeak-webspace-feed-uri feed))
+        (url (emacspeak-webspace-feed-uri feed))
         (template nil))
     (cond
      ((eq type 'atom)
@@ -154,7 +154,7 @@ Generates auditory and visual display."
          (unless (zerop (length h))
            (ring-insert emacspeak-webspace-headlines h)))
      (split-string
-      (shell-command-to-string (format template feed))
+      (shell-command-to-string (format template url))
       "\n"))))
  
 (defun emacspeak-webspace-headlines-get ()
