@@ -80,7 +80,6 @@ Generates auditory and visual display."
 
 ;;}}}
 ;;{{{ Headlines:
-;;{{{ FeedStore
 
 ;;;###autoload
 (defcustom emacspeak-webspace-feeds
@@ -114,7 +113,21 @@ Generates auditory and visual display."
   "Return type."
   (second feed))
 
-;;}}}
+;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
+
+(defstruct emacspeak-webspace-feedstore
+  feeds
+  headlines
+  timer
+  index 
+  period)
+  
+(defvar emacspeak-webspace-ticker
+  (make-emacspeak-webspace-feedstore
+   :feeds emacspeak-webspace-feeds
+   :headlines (make-ring (* 20 (length emacspeak-webspace-feeds)))
+   :index 0)
+  "Feedstore structure to use a continuously updating ticker.")
 
 (defvar emacspeak-webspace-atom-xmlns-uri
   "http://www.w3.org/2005/Atom"
@@ -130,17 +143,13 @@ Generates auditory and visual display."
   "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
   "Command line that gives us RSS news headlines.")
 
-(defvar emacspeak-webspace-headlines
-  (make-ring
-   (* 20 (length emacspeak-webspace-feeds)))
-  "Ring of Headlines.")
-
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
-  (declare (special emacspeak-webspace-headlines
+  (declare (special emacspeak-webspace-feedstore
                     emacspeak-webspace-rss-headlines-template
                     emacspeak-webspace-atom-headlines-template))
-  (let ((type (emacspeak-webspace-feed-type feed))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-ticker))
+        (type (emacspeak-webspace-feed-type feed))
         (url (emacspeak-webspace-feed-uri feed))
         (template nil))
     (cond
@@ -152,26 +161,26 @@ Generates auditory and visual display."
     (mapc
      #'(lambda (h)
          (unless (zerop (length h))
-           (ring-insert emacspeak-webspace-headlines h)))
+           (ring-insert headlines h)))
      (split-string
       (shell-command-to-string (format template url))
       "\n"))))
  
 (defun emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
-  (mapc 'emacspeak-webspace-headlines-fetch emacspeak-webspace-feeds))
-
-(defvar emacspeak-webspace-headlines-timer nil
-  "Timer holding our headlines update timer.")
+  (declare (special emacspeak-webspace-ticker))
+  (mapc 'emacspeak-webspace-headlines-fetch
+        (emacspeak-webspace-feedstore-feeds emacspeak-webspace-ticker)))
 
 (defun emacspeak-webspace-update-headlines (period)
   "Setup periodic news updates.
 Period is specified as documented in function run-at-time.
-Updated headlines found in ring `emacspeak-webspace-headlines"
+Updated headlines found in emacspeak-webspace-feedstore."
   (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-headlines-timer ))
+  (declare (special emacspeak-webspace-ticker ))
   (emacspeak-webspace-headlines-get)
-  (setq emacspeak-webspace-headlines-timer
+  (setf (emacspeak-webspace-feedstore-period emacspeak-webspace-ticker) period)
+  (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-ticker)
         (run-at-time
          period (timer-duration period)
          'emacspeak-webspace-headlines-get)))
@@ -196,7 +205,6 @@ Updated headlines found in ring `emacspeak-webspace-headlines"
     (call-interactively 'emacspeak-webspace-update-headlines))
   (emacspeak-webspace-display
    '((:eval (emacspeak-webspace-next-headline)))))
- 
 
 ;;}}}
 ;;{{{ Weather:
