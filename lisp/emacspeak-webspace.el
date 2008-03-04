@@ -95,6 +95,27 @@ Generates auditory and visual display."
   "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
   "Command line that gives us RSS news headlines.")
 
+
+;;;###autoload
+(defcustom emacspeak-webspace-feeds nil 
+  "Collection of ATOM and RSS feeds."
+:type '(repeat
+        (list :tag "Feed"
+            (string :tag "URL")
+            (choice :tag "Type"
+                    (const 'atom :tag "ATOM")
+                    (const :tag "RSS" 'rss))))
+             :group  'emacspeak-webspace)
+
+(defsubst emacspeak-webspace-feed-uri (feed)
+  "Return URL."
+  (first feed))
+
+(defsubst emacspeak-webspace-feed-type (feed)
+  "Return type."
+  (second feed))
+
+
 ;;;###autoload
 (defcustom emacspeak-webspace-rss-feeds
   '("http://rss.cnn.com/rss/cnn_world.rss"
