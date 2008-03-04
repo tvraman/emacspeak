@@ -103,13 +103,10 @@ Generates auditory and visual display."
 ;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
 
 (defstruct emacspeak-webspace-feedstore
-  feeds
-  headlines
-  timer
-  index 
-  period)
+  feeds headlines
+  timer index period)
   
-(defvar emacspeak-webspace-ticker
+(defvar emacspeak-webspace-headlines
   (make-emacspeak-webspace-feedstore
    :feeds emacspeak-webspace-feeds
    :headlines (make-ring (* 20 (length emacspeak-webspace-feeds)))
@@ -135,7 +132,7 @@ Generates auditory and visual display."
   (declare (special emacspeak-webspace-feedstore
                     emacspeak-webspace-rss-headlines-template
                     emacspeak-webspace-atom-headlines-template))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-ticker))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines))
         (type (emacspeak-webspace-feed-type feed))
         (url (emacspeak-webspace-feed-uri feed))
         (template nil))
@@ -155,19 +152,19 @@ Generates auditory and visual display."
  
 (defsubst emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
-  (declare (special emacspeak-webspace-ticker))
+  (declare (special emacspeak-webspace-headlines))
   (mapc 'emacspeak-webspace-headlines-fetch
-        (emacspeak-webspace-feedstore-feeds emacspeak-webspace-ticker)))
+        (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
 
 (defun emacspeak-webspace-update-headlines (period)
   "Setup periodic news updates.
 Period is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
   (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-ticker ))
+  (declare (special emacspeak-webspace-headlines ))
   (emacspeak-webspace-headlines-get)
-  (setf (emacspeak-webspace-feedstore-period emacspeak-webspace-ticker) period)
-  (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-ticker)
+  (setf (emacspeak-webspace-feedstore-period emacspeak-webspace-headlines) period)
+  (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
         (run-at-time
          period (timer-duration period)
          'emacspeak-webspace-headlines-get)))
@@ -175,7 +172,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
   (declare (special emacspeak-webspace-feedstore))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-ticker)))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
     (cond
      ((ring-empty-p headlines) "No News Is Good News")
      (t
