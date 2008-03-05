@@ -104,7 +104,7 @@ Generates auditory and visual display."
 
 (defstruct emacspeak-webspace-feedstore
   feeds headlines
-  timer index period)
+  timer index frequency)
   
 (defvar emacspeak-webspace-headlines
   (make-emacspeak-webspace-feedstore
@@ -156,18 +156,32 @@ Generates auditory and visual display."
   (mapc 'emacspeak-webspace-headlines-fetch
         (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
 
-(defun emacspeak-webspace-update-headlines (period)
-  "Setup periodic news updates.
-Period is specified as documented in function run-at-time.
+
+(defun emacspeak-webspace-feedstore-update()
+  "Update feedstore with headlines from the `next' feed.
+Feeds in the feestore are visited in cyclic order."
+  (declare (special emacspeak-webspace-headlines))
+  (let ((l (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+        (feeds (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+    (emacspeak-webspace-headlines-fetch (nth index feeds))
+    (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
+          (% (1+ index  ) l))))
+    
+        
+
+(defun emacspeak-webspace-update-headlines (frequency)
+  "Setup frequency news updates.
+Frequency is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
   (interactive "sUpdate Frequencey: ")
   (declare (special emacspeak-webspace-headlines ))
-  (emacspeak-webspace-headlines-get)
-  (setf (emacspeak-webspace-feedstore-period emacspeak-webspace-headlines) period)
-  (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
-        (run-at-time
-         period (timer-duration period)
-         'emacspeak-webspace-headlines-get)))
+  (let ((freq (/ (timer-duration frequency)
+                 (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+    (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
+    (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
+          (run-at-time t freq 
+                       'emacspeak-webspace-feestore-update))
+    (emacspeak-webspace-feedstore-update)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
@@ -186,10 +200,9 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (interactive)
   (declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-timer))
-  (unless emacspeak-webspace-headlines-timer
+  (unless (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
-  (emacspeak-webspace-display
-   '((:eval (emacspeak-webspace-next-headline)))))
+  (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
 
 ;;}}}
 ;;{{{ Weather:
