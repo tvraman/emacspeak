@@ -106,11 +106,7 @@ Generates auditory and visual display."
   feeds headlines
   timer index frequency)
   
-(defvar emacspeak-webspace-headlines
-  (make-emacspeak-webspace-feedstore
-   :feeds emacspeak-webspace-feeds
-   :headlines (make-ring (* 20 (length emacspeak-webspace-feeds)))
-   :index 0)
+(defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
 
 (defvar emacspeak-webspace-atom-xmlns-uri
@@ -156,7 +152,6 @@ Generates auditory and visual display."
   (mapc 'emacspeak-webspace-headlines-fetch
         (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
 
-
 (defun emacspeak-webspace-feedstore-update()
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feestore are visited in cyclic order."
@@ -201,6 +196,12 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (interactive)
   (declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-timer))
+  (unless emacspeak-webspace-headlines
+    (setq emacspeak-webspace-headlines
+          (make-emacspeak-webspace-feedstore
+           :feeds emacspeak-webspace-feeds
+           :headlines (make-ring (* 20 (length emacspeak-webspace-feeds)))
+           :index 0)))
   (unless (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
   (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
