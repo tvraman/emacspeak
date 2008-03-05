@@ -162,6 +162,7 @@ Generates auditory and visual display."
 Feeds in the feestore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
   (let ((l (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+        (index (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
         (feeds (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
     (emacspeak-webspace-headlines-fetch (nth index feeds))
     (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
