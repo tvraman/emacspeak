@@ -175,7 +175,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
     (setq timer
 	  (run-at-time (current-time)  freq
-     'emacspeak-webspace-feestore-update))
+     'emacspeak-webspace-feedstore-update))
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
