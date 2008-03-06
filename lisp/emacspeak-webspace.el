@@ -139,30 +139,32 @@ Generates auditory and visual display."
       (setq template emacspeak-webspace-rss-headlines-template))
      (t (error "Unknown feed type %s" type)))
     (with-local-quit
-    (mapc
-     #'(lambda (h)
-         (unless (zerop (length h))
-           (ring-insert headlines h)))
-     (split-string
-      (shell-command-to-string (format template url))
-      "\n")))))
- 
-(defsubst emacspeak-webspace-headlines-get ()
-  "Populate a ring of headlines."
+      (mapc
+       #'(lambda (h)
+           (unless (zerop (length h))
+             (ring-insert headlines h)))
+       (split-string
+        (shell-command-to-string (format template url))
+        "\n")))))
+
+(defun emacspeak-webspace-headlines-populate ()
+  "populate feedstore with headlines form all feeds."
   (declare (special emacspeak-webspace-headlines))
   (mapc 'emacspeak-webspace-headlines-fetch
         (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
 
-(defun emacspeak-webspace-feedstore-update()
+(defun emacspeak-webspace-feedstore-update ()
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feestore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
+  (with-timeout (30 t)
     (emacspeak-webspace-headlines-fetch
      (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
 	  (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
     (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
           (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
-	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))))
+
 (defun emacspeak-webspace-update-headlines (frequency)
   "Setup frequency news updates.
 Frequency is specified as documented in function run-at-time.
