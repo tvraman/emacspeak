@@ -157,24 +157,26 @@ Generates auditory and visual display."
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feestore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
-  (let ((l (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-        (feeds (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-    (emacspeak-webspace-headlines-fetch (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) feeds))
+    (emacspeak-webspace-headlines-fetch
+     (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
+	  (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
     (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-          (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)  ) l))))
-
+          (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
+	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
 (defun emacspeak-webspace-update-headlines (frequency)
   "Setup frequency news updates.
 Frequency is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
   (interactive "sUpdate Frequencey: ")
   (declare (special emacspeak-webspace-headlines ))
-  (let ((freq (/ (timer-duration frequency)
+  (let ((timer nil)
+	(freq (/ (timer-duration frequency)
                  (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
-    (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
-          (run-at-time (current-time)  freq
-		       'emacspeak-webspace-feestore-update))))
+    (setq timer
+	  (run-at-time (current-time)  freq
+     'emacspeak-webspace-feestore-update))
+    (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
