@@ -81,7 +81,7 @@ Generates auditory and visual display."
 ;;}}}
 ;;{{{ Headlines:
 
-;;;###autoload
+
 (defcustom emacspeak-webspace-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
