@@ -138,6 +138,9 @@ type="text/xsl"?>
       In addition, see the Web wizards in <a
       href="#wizards">Emacspeak Wizards</a>.
     </application>
+<application name="webspace">
+      Emacspeak WebSpace --- provides interaction-free information access.
+    </application>
     <application name="xslt">
       Ability to apply XSL transforms to Web content before it is
       displayed.
