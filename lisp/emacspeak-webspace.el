@@ -96,7 +96,7 @@ Generates auditory and visual display."
   "Return URL."
   (first feed))
 
-(defun emacspeak-webspace-feed-type (feed)
+(defsubst emacspeak-webspace-feed-type (feed)
   "Return type."
   (second feed))
 
@@ -105,7 +105,7 @@ Generates auditory and visual display."
 (defstruct emacspeak-webspace-feedstore
   feeds headlines
   timer index frequency)
-  
+
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
 
@@ -162,8 +162,6 @@ Feeds in the feestore are visited in cyclic order."
     (emacspeak-webspace-headlines-fetch (nth index feeds))
     (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
           (% (1+ index  ) l))))
-    
-        
 
 (defun emacspeak-webspace-update-headlines (frequency)
   "Setup frequency news updates.
@@ -175,7 +173,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
                  (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
-          (run-at-time t freq 
+          (run-at-time freq  freq 
                        'emacspeak-webspace-feestore-update))
     (emacspeak-webspace-feedstore-update)))
 
