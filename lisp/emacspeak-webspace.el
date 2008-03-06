@@ -155,7 +155,7 @@ Generates auditory and visual display."
 
 (defun emacspeak-webspace-feedstore-update ()
   "Update feedstore with headlines from the `next' feed.
-Feeds in the feestore are visited in cyclic order."
+Feeds in the feedstore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
   (with-timeout (30 t)
     (emacspeak-webspace-headlines-fetch
