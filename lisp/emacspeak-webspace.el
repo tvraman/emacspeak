@@ -138,13 +138,14 @@ Generates auditory and visual display."
      ((eq type 'rss)
       (setq template emacspeak-webspace-rss-headlines-template))
      (t (error "Unknown feed type %s" type)))
+    (with-local-quit
     (mapc
      #'(lambda (h)
          (unless (zerop (length h))
            (ring-insert headlines h)))
      (split-string
       (shell-command-to-string (format template url))
-      "\n"))))
+      "\n")))))
  
 (defsubst emacspeak-webspace-headlines-get ()
   "Populate a ring of headlines."
@@ -217,11 +218,12 @@ http://www.wunderground.com/auto/rss_full/%s.xml"
                     emacspeak-webspace-weather-template))
   (when (and emacspeak-webspace-weather-template
              emacspeak-url-template-weather-city-state)
+    (with-local-quit
     (substring
      (shell-command-to-string
       (format emacspeak-webspace-weather-template
               emacspeak-url-template-weather-city-state))
-     0 -1)))
+     0 -1))))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
