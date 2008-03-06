@@ -157,11 +157,10 @@ Generates auditory and visual display."
 Feeds in the feestore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
   (let ((l (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-        (index (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
         (feeds (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-    (emacspeak-webspace-headlines-fetch (nth index feeds))
+    (emacspeak-webspace-headlines-fetch (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) feeds))
     (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-          (% (1+ index  ) l))))
+          (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)  ) l))))
 
 (defun emacspeak-webspace-update-headlines (frequency)
   "Setup frequency news updates.
@@ -173,8 +172,8 @@ Updated headlines found in emacspeak-webspace-feedstore."
                  (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
-          (run-at-time freq  freq 
-                       'emacspeak-webspace-feestore-update))
+          (run-at-time freq  freq
+		       'emacspeak-webspace-feestore-update))
     (emacspeak-webspace-feedstore-update)))
 
 (defun emacspeak-webspace-next-headline ()
