@@ -173,9 +173,8 @@ Updated headlines found in emacspeak-webspace-feedstore."
                  (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
-          (run-at-time freq  freq
-		       'emacspeak-webspace-feestore-update))
-    (emacspeak-webspace-feedstore-update)))
+          (run-at-time (current-time)  freq
+		       'emacspeak-webspace-feestore-update))))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
@@ -248,7 +247,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
         (run-at-time
-         period (timer-duration period)
+         (current-time) (timer-duration period)
          'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
