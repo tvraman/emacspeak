@@ -115,12 +115,12 @@ Generates auditory and visual display."
 
 (defvar emacspeak-webspace-atom-headlines-template
   (format 
-   "xmlstarlet sel --net -N a=%s -t -m a:feed/a:entry/a:title -v . --nl %%s"
+   "xmlstarlet sel --net -N a=%s -t -m a:feed/a:entry/a:title -v . --nl '%%s'"
    emacspeak-webspace-atom-xmlns-uri)
   "Command line that gives us Atom Feed headlines.")
 
 (defvar emacspeak-webspace-rss-headlines-template
-  "xmlstarlet sel --net -t -m //item/title -v . --nl %s"
+  "xmlstarlet sel --net -t -m //item/title -v . --nl '%s'"
   "Command line that gives us RSS news headlines.")
 
 (defun emacspeak-webspace-headlines-fetch ( feed)
@@ -148,10 +148,11 @@ Generates auditory and visual display."
         "\n")))))
 
 (defun emacspeak-webspace-headlines-populate ()
-  "populate feedstore with headlines form all feeds."
+  "populate feedstore with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
-  (mapc 'emacspeak-webspace-headlines-fetch
-        (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+  (loop for i from 0 to (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))
+        do
+        (emacspeak-webspace-feedstore-update)))
 
 (defun emacspeak-webspace-feedstore-update ()
   "Update feedstore with headlines from the `next' feed.
