@@ -120,7 +120,7 @@ Generates auditory and visual display."
   "Command line that gives us Atom Feed headlines.")
 
 (defvar emacspeak-webspace-rss-headlines-template
-  "xmlstarlet sel --net -t -m //item/title -v . --nl '%s'"
+  "xmlstarlet sel --net -t -m //item/title -v . --nl '%s' 2>/dev/null"
   "Command line that gives us RSS news headlines.")
 
 (defun emacspeak-webspace-headlines-fetch ( feed)
