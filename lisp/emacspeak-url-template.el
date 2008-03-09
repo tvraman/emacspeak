@@ -912,7 +912,7 @@ Here are some examples:
 ;;{{{ googl blogsearch
 (emacspeak-url-template-define
  "BlogSearch Google"
- "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&ie=utf-8&num=25&output=atom"
+ "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&ie=utf-8&num=25&scoring=d&output=atom"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
