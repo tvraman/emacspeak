@@ -38,6 +38,15 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
+;;{{{ Customizations:
+(defcustom amixer-pcm-volume 'max
+  "PCM Playback volume. "
+  :type '(choice
+          (integer :tag "Volume ")
+          (const :tag "Maximum" max))
+  :group 'amixer)
+
+;;}}}
 ;;{{{ Definitions
 
 (defvar amixer-db nil
@@ -112,6 +121,7 @@
         (slots nil))
     (save-excursion
       (set-buffer scratch)
+      (setq buffer-undo-list t)
       (erase-buffer)
       (shell-command "amixer controls | sed -e s/\\'//g"
                      (current-buffer))
@@ -207,8 +217,7 @@
               "Change %s from %s %s:"
               (amixer-control-name control)
               (amixer-control-setting-current
-               (amixer-control-setting
-                control))
+               (amixer-control-setting control))
               (or choices ""))))
       (setf
        (amixer-control-setting-current
