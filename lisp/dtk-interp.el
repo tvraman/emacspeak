@@ -104,10 +104,9 @@
 
 (defsubst dtk-interp-queue (text)
   (declare (special dtk-speaker-process))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
-    (process-send-string dtk-speaker-process
-			 (format "q {%s }\n"
-				 text))))
+  (process-send-string dtk-speaker-process
+                       (format "q {%s }\n"
+                               text)))
 
 (defsubst dtk-interp-queue-set-rate(rate)
   (declare (special dtk-speaker-process))
@@ -127,10 +126,9 @@
 
 (defsubst dtk-interp-say (string)
   (declare (special dtk-speaker-process))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
-    (process-send-string dtk-speaker-process
-			 (format  "tts_say { %s}\n"
-				  string ))))
+  (process-send-string dtk-speaker-process
+                       (format  "tts_say { %s}\n"
+                                string )))
 
 ;;}}}
 ;;{{{ dispatch
@@ -138,10 +136,9 @@
 ;;;synonym for above in current server:
 (defsubst dtk-interp-dispatch (string)
   (declare (special dtk-speaker-process))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
-    (process-send-string dtk-speaker-process
-			 (format  "tts_say { %s}\n"
-				  string ))))
+  (process-send-string dtk-speaker-process
+                       (format  "tts_say { %s}\n"
+                                string )))
 
 ;;}}}
 ;;{{{ stop
@@ -171,9 +168,8 @@
 
 (defsubst dtk-interp-letter (letter)
   (declare (special dtk-speaker-process))
-  (let ((default-process-coding-system (cons 'utf-8 'utf-8)))
-    (process-send-string dtk-speaker-process
-			 (format "l {%s}\n" letter ))))
+  (process-send-string dtk-speaker-process
+                       (format "l {%s}\n" letter )))
 
 ;;}}}
 ;;{{{  language
