@@ -1624,6 +1624,7 @@ Default is to use pipes.")
                      (eq 'stop (process-status dtk-speaker-process ))))
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
+	  (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
       (tts-configure-synthesis-setup dtk-program)
       (run-hooks 'dtk-startup-hook ))
      (t
