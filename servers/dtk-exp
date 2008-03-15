@@ -360,8 +360,12 @@ proc clean {element} {
 # {{{ initialize
 
 tts_setserial
-# Dectalk does not talk utf-8
-fconfigure $tts(write) -encoding binary
+# Dectalk likes only ascii
+fconfigure $tts(write) -encoding ascii
+
+# Emacspeak sends utf-8
+fconfigure file0 -encoding utf-8
+
 tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
