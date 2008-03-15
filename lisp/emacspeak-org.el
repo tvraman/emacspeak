@@ -281,15 +281,6 @@
     (emacspeak-speak-line)))
                                   
 ;;}}}
-;;{{{ misc file commands:
-
-(defadvice org-end-of-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (dtk-stop)
-    (emacspeak-auditory-icon 'select-object)))
-
-;;}}}
 ;;{{{ tables:
 
 ;;}}}
@@ -391,12 +382,7 @@
   "Placed on org-mode-hook to do Emacspeak setup."
   (declare (special org-mode-map))
   (unless emacspeak-audio-indentation
-    (emacspeak-toggle-audio-indentation))
-  (define-key org-mode-map
-    emacspeak-prefix'emacspeak-prefix-command)
-  (define-key org-mode-map
-    (concat emacspeak-prefix "e")
-    'org-end-of-line))
+    (emacspeak-toggle-audio-indentation)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 

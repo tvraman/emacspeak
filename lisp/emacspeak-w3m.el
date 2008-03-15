@@ -150,13 +150,29 @@ instead of the modeline."
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
   (if (get-text-property (point) 'w3m-anchor-sequence)
-      (buffer-substring
-       (previous-single-property-change
-        (1+ (point)) 'w3m-anchor-sequence nil (point-min))
-       (next-single-property-change
-        (point) 'w3m-anchor-sequence nil (point-max)))
-    (or default "")))
-
+	  (let* ((anchor-index  (get-text-property (point) 'w3m-anchor-sequence))
+			 (start (text-property-any (point-min) (+ 1 (point)) 'w3m-anchor-sequence anchor-index))
+			 (pos (next-single-property-change start 'w3m-anchor-sequence nil (point-max)))
+			 (value-at-start anchor-index)
+			 (value-at-pos nil)
+			 anchor-text)
+		(save-excursion
+		  (goto-char start)
+		  (loop do
+				(when (and (integerp value-at-start) (not value-at-pos))
+				  (push (buffer-substring start pos) anchor-text)
+				  (push " " anchor-text)
+				  (put-text-property 0 1 'personality
+									 (get-text-property 0 'personality  (cadr anchor-text))
+									 (car anchor-text)))
+				(setq start pos
+					  value-at-start value-at-pos
+					  pos (next-single-property-change pos 'w3m-anchor-sequence nil (point-max)))
+				(setq value-at-pos (get-text-property pos 'w3m-anchor-sequence))
+				(when (or (eq start (point-max)) (and (integerp value-at-pos) (not (eq value-at-pos anchor-index))))
+				  (return (apply 'concat  (nreverse anchor-text)))))))
+	default))
+				
 (defun emacspeak-w3m-speak-cursor-anchor ()
   (dtk-speak (emacspeak-w3m-anchor-text "Not found")))
 

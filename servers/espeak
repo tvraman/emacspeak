@@ -503,6 +503,9 @@ proc clean {element} {
 #do not die if you see a control-c
 signal ignore {sigint}
 
+# Set input encoding to utf-8
+fconfigure file0 -encoding utf-8
+
 #initialize eSpeak
 tts_initialize
 set tts(speech_rate)  225

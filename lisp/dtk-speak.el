@@ -1739,6 +1739,7 @@ only speak upto the first ctrl-m."
           (inherit-strip-octals tts-strip-octals)
           (complement-separator(dtk-complement-chunk-separator-syntax ))
           (speech-rate dtk-speech-rate)
+		  (inherit-enable-multibyte-characters enable-multibyte-characters)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
           (end nil )
@@ -1763,6 +1764,7 @@ only speak upto the first ctrl-m."
                 tts-strip-octals inherit-strip-octals
                 voice-lock-mode voice-lock)
           (set-syntax-table syntax-table )
+		  (set-buffer-multibyte inherit-enable-multibyte-characters)
           (insert  text)
           (delete-invisible-text)
           (when pronunciation-table

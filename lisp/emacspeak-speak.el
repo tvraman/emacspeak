@@ -2983,7 +2983,8 @@ Also display match context in minibuffer."
                         (buffer-substring blinkpos (1+ blinkpos)))))))
           (message "Matches %s"
                    (substring-no-properties
-                    open-paren-line-string))))))))
+                    open-paren-line-string))
+		  (sit-for blink-matching-delay)))))))
 
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.
