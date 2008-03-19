@@ -493,20 +493,27 @@ file."
         (headers nil)
         (body nil)
         (response nil)
-        (location nil))
-    (setq response
-          (gcal-post-event event (gcal-private-feed-url)))
-    (setq headers (first response)
-          body (second response))
-    (setq status (g-http-header "Status" headers))
-    (when (string= "302" status)
-      (setq location (g-http-header "Location" headers))
-      (unless location
-        (error "Could not find redirect."))
-      (setq response  (gcal-post-event event location)))
-    (setq headers (first response)
-          body (second response))
-    (when  (string-equal "201" (g-http-header "Status" headers))
+        (location (format gcal-private-feed-url
+                          (g-auth-email gcal-auth-handle))))
+    (while (or  (null  status)
+                (string= "302" status))
+      (message "posting.")
+      (setq response
+            (gcal-post-event event 
+                             (or location gcal-private-feed-url)))
+      (setq headers (first response)
+            body (second response))
+      (setq status (g-http-header "Status" headers)
+            location (g-http-header "Location" headers))
+      (message "Status: %s Location: %s"
+               status location)
+      (when (and status
+                 (string= "302" status))
+        (unless location
+          (error "Could not find redirect."))
+        (message "Following redirect to %s" location)))
+    (cond
+     ((string-equal "201" (g-http-header "Status" headers))
       (and (> (length body)0)
            (g-display-xml-string body
                                  gcal-calendar-view))
@@ -517,7 +524,9 @@ file."
          (gcal-event-as-diary-entry event))
         (save-excursion
           (set-buffer (find-file-noselect diary-file))
-          (save-buffer))))))
+          (save-buffer))))
+     (t (error "Got %s"
+               (g-http-header "Status" headers))))))
 
 ;;;###autoload
 (defun gcal-quickadd-event (event-desc)
