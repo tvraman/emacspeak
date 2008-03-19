@@ -1,4 +1,4 @@
-;;; emacspeak-jawbreaker.el.el --- Talk to Firefox/JawBreaker  via MozRepl
+;;; emacspeak-jawbreaker.el --- Talk to Firefox/JawBreaker  via MozRepl
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Play JawBreaker game from Emacs in Firefox
