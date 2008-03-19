@@ -69,13 +69,7 @@ only support the current Atom namespace.
       </a>
     </h2>
     
-    <TABLE>
-      <tr>
-        <xsl:for-each select="atom:link|w3a:link">
-          <td><xsl:apply-templates select="."/></td>
-        </xsl:for-each>
-      </tr>
-    </TABLE>
+    
     <p>
       <xsl:apply-templates select="atom:summary|w3a:summary"/><br/>
       <xsl:apply-templates select="atom:content|w3a:content"/><br/>
@@ -85,6 +79,13 @@ only support the current Atom namespace.
       </xsl:if>
       <xsl:value-of select="atom:published|w3a:published"/>
     </p>
+    <TABLE>
+      <tr>
+        <xsl:for-each select="atom:link|w3a:link">
+          <td><xsl:apply-templates select="."/></td>
+        </xsl:for-each>
+      </tr>
+    </TABLE>
   </xsl:template>
   <xsl:template match="atom:entry|w3a:entry" mode="toc">
     <li>

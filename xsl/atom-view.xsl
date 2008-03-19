@@ -66,13 +66,7 @@ View an Atom feed as clean HTML
       </a>
     </h2>
     
-    <TABLE>
-      <tr>
-        <xsl:for-each select="atom:link">
-          <td><xsl:apply-templates select="."/></td>
-        </xsl:for-each>
-      </tr>
-    </TABLE>
+    
     <div>
       <xsl:apply-templates select="atom:summary"/><br/>
       <xsl:apply-templates select="atom:content"/><br/>
@@ -82,6 +76,13 @@ View an Atom feed as clean HTML
       </xsl:if>
       <xsl:value-of select="atom:published"/>
     </div>
+    <TABLE>
+      <tr>
+        <xsl:for-each select="atom:link">
+          <td><xsl:apply-templates select="."/></td>
+        </xsl:for-each>
+      </tr>
+    </TABLE>
   </xsl:template>
   <xsl:template match="atom:entry" mode="toc">
     <li>
