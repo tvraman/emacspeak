@@ -275,6 +275,19 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
 
 ;;}}}
+;;{{{  Explicit autoloads:
+
+
+;;; These need to be hand-generated for now:
+
+(autoload 'emacspeak-webspeace-headlines "emacspeak-webspace"
+  "Webspace Headlines" t)
+(autoload 'emacspeak-webspeace-weather "emacspeak-webspace"
+  "Webspace Weather" t)
+
+(autoload 'emacspeak-alsaplayer-launch "emacspeak-alsaplayer "
+  "Emacspeak alsaplayer" t)
+;;}}}
 ;;{{{  Submit bugs
 
 (defconst emacspeak-bug-address
