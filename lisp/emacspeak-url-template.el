@@ -761,7 +761,10 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "YouTube Results"
  "http://gdata.youtube.com/feeds/api/videos?orderby=updated&vq=%s"
  (list "YouTube:")
- nil
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
+           'emacspeak-m-player-youtube-player))
  "YouTube Search Via Feeds"
  'emacspeak-webutils-atom-display)
 
