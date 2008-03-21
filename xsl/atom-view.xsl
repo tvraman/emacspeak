@@ -17,39 +17,39 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:feed">
     <html>
       <head>
-        <title>
-          <xsl:apply-templates select="atom:title"/>
-        </title>
+	<title>
+	  <xsl:apply-templates select="atom:title"/>
+	</title>
       </head>
       <body>
-        <h1><xsl:value-of select="atom:title"
-        disable-output-escaping="yes"/>
-        </h1>
-        
-        <xsl:if test="count(atom:entry) > 1 ">
-          <h2>Table Of Contents</h2>
-          <ol>
-            <xsl:apply-templates select="atom:entry" mode="toc"/>
-          </ol>
-        </xsl:if>
-        <xsl:apply-templates select="atom:entry"/>
-        <h2>
-          <xsl:value-of select="title"/>
-        </h2>
+	<h1><xsl:value-of select="atom:title"
+	disable-output-escaping="yes"/>
+	</h1>
+	
+	<xsl:if test="count(atom:entry) > 1 ">
+	  <h2>Table Of Contents</h2>
+	  <ol>
+	    <xsl:apply-templates select="atom:entry" mode="toc"/>
+	  </ol>
+	</xsl:if>
+	<xsl:apply-templates select="atom:entry"/>
+	<h2>
+	  <xsl:value-of select="title"/>
+	</h2>
 
-        <p>
-          <xsl:apply-templates select="atom:tagline"/><br/>
-          <xsl:apply-templates select="atom:author"/>
-          <br/>
-        </p>
-        <h2>Feed-Level Links</h2>
-        <table>
-          <tr>
-            <xsl:for-each select="atom:link">
-              <td><xsl:apply-templates select="."/></td>
-            </xsl:for-each>
-          </tr>
-        </table>
+	<p>
+	  <xsl:apply-templates select="atom:tagline"/><br/>
+	  <xsl:apply-templates select="atom:author"/>
+	  <br/>
+	</p>
+	<h2>Feed-Level Links</h2>
+	<table>
+	  <tr>
+	    <xsl:for-each select="atom:link">
+	      <td><xsl:apply-templates select="."/></td>
+	    </xsl:for-each>
+	  </tr>
+	</table>
       </body>
     </html>
   </xsl:template>
@@ -57,41 +57,43 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:entry">
     <h2>
       <a>
-        <xsl:attribute name="name">
-          <xsl:value-of select="generate-id(.)"/> 
-        </xsl:attribute>
-        <xsl:attribute name="id"> <xsl:value-of select="generate-id(.)"/>
-        </xsl:attribute>
-        <xsl:apply-templates select="atom:title"/>
+	<xsl:attribute name="name">
+	  <xsl:value-of select="generate-id(.)"/> 
+	</xsl:attribute>
+	<xsl:attribute name="id"> <xsl:value-of select="generate-id(.)"/>
+	</xsl:attribute>
+	<xsl:apply-templates select="atom:title"/>
       </a>
     </h2>
     
     
     <div>
       <xsl:apply-templates select="atom:summary"/><br/>
-      <xsl:apply-templates select="atom:content"/><br/>
-      <em><xsl:apply-templates select="atom:author"/></em>
-      <xsl:if test="atom:published">
-        <xsl:text> at </xsl:text>
-      </xsl:if>
-      <xsl:value-of select="atom:published"/>
+      <xsl:apply-templates select="atom:content"/>
     </div>
     <TABLE>
       <tr>
-        <xsl:for-each select="atom:link">
-          <td><xsl:apply-templates select="."/></td>
-        </xsl:for-each>
+	<xsl:for-each select="atom:link">
+	  <td><xsl:apply-templates select="."/></td>
+	</xsl:for-each>
       </tr>
     </TABLE>
+    <p>
+      <em><xsl:apply-templates select="atom:author"/></em>
+      <xsl:if test="atom:published">
+	<xsl:text> at </xsl:text>
+      </xsl:if>
+      
+      </p><xsl:value-of select="atom:published"/>
   </xsl:template>
   <xsl:template match="atom:entry" mode="toc">
     <li>
       <a>
-        <xsl:attribute name="href">
-          #<xsl:value-of select="generate-id(.)"/> 
-        </xsl:attribute>
-        <xsl:value-of select="atom:title"
-                      disable-output-escaping="yes"/>
+	<xsl:attribute name="href">
+	  #<xsl:value-of select="generate-id(.)"/> 
+	</xsl:attribute>
+	<xsl:value-of select="atom:title"
+		      disable-output-escaping="yes"/>
       </a>
     </li>
   </xsl:template>
@@ -99,22 +101,22 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:content|atom:summary">
     <xsl:choose>
       <xsl:when test="@src">
-        [<a>
-        <xsl:attribute name="href">
-          <xsl:value-of select="@src"/>
-        </xsl:attribute>
-        <img alt=" Download">
-          <xsl:attribute name="src"><xsl:value-of
-          select="@src"/></xsl:attribute>
-        </img>
-        </a>]
+	[<a>
+	<xsl:attribute name="href">
+	  <xsl:value-of select="@src"/>
+	</xsl:attribute>
+	<img alt=" Download">
+	  <xsl:attribute name="src"><xsl:value-of
+	  select="@src"/></xsl:attribute>
+	</img>
+	</a>]
       </xsl:when>
       <xsl:when test="@type='html' or @type='text/html'">
-        <xsl:value-of disable-output-escaping="yes"
-                      select="node()"/>
+	<xsl:value-of disable-output-escaping="yes"
+		      select="node()"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:copy-of select="node()"/>
+	<xsl:copy-of select="node()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -122,21 +124,21 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:link">
     <a>
       <xsl:attribute name="href">
-        <xsl:value-of
-            select="@href"/>
+	<xsl:value-of
+	    select="@href"/>
       </xsl:attribute>
       <xsl:choose>
-        <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
-        <xsl:when test="@rel='edit'">[Edit]</xsl:when>
-        <xsl:when
-            test="@rel='edit-media'">[Edit-Media]</xsl:when>
-        <xsl:when test="@rel='media-edit'">[Media-Edit]</xsl:when>
-        <xsl:when test="@rel='service.post'">[Post]</xsl:when>
-        <xsl:when test="@rel='next'">[Next]</xsl:when>
-        <xsl:when test="@rel='self'">[Self]</xsl:when>
-        <xsl:when test="@rel='alternate'">[HTML]</xsl:when>
-        <xsl:when test="@rel='enclosure'">[<xsl:value-of select="@type"/>]</xsl:when>
-        <xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>Link]</xsl:otherwise>
+	<xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
+	<xsl:when test="@rel='edit'">[Edit]</xsl:when>
+	<xsl:when
+	    test="@rel='edit-media'">[Edit-Media]</xsl:when>
+	<xsl:when test="@rel='media-edit'">[Media-Edit]</xsl:when>
+	<xsl:when test="@rel='service.post'">[Post]</xsl:when>
+	<xsl:when test="@rel='next'">[Next]</xsl:when>
+	<xsl:when test="@rel='self'">[Self]</xsl:when>
+	<xsl:when test="@rel='alternate'">[HTML]</xsl:when>
+	<xsl:when test="@rel='enclosure'">[<xsl:value-of select="@type"/>]</xsl:when>
+	<xsl:otherwise>[<xsl:value-of select="substring-after(@rel,'#')"/>Link]</xsl:otherwise>
       </xsl:choose>
     </a>
   </xsl:template>
@@ -145,7 +147,7 @@ View an Atom feed as clean HTML
   <xsl:template match="atom:author">
     <a>
       <xsl:attribute name="href">
-        <xsl:value-of select="atom:uri"/>
+	<xsl:value-of select="atom:uri"/>
       </xsl:attribute>
       <xsl:value-of select="atom:name"/>
     </a>
