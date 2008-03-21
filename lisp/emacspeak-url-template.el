@@ -1066,7 +1066,10 @@ from English to German.")
  "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Search news for: ")
- nil
+ #'(lambda ()
+     (declare (special emacspeak-we-xpath-filter))
+     (setq emacspeak-we-xpath-filter
+	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"))
  "Search Google news."
  'emacspeak-webutils-atom-display)
 
