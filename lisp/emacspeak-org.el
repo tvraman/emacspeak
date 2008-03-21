@@ -385,9 +385,10 @@
     (emacspeak-toggle-audio-indentation))
   (define-key org-mode-map
     emacspeak-prefix'emacspeak-prefix-command)
-  (define-key org-mode-map
-    (concat emacspeak-prefix "e")
-    'org-end-of-line))
+  (when (fboundp 'org-end-of-line)
+    (define-key org-mode-map
+      (concat emacspeak-prefix "e")
+      'org-end-of-line)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 
