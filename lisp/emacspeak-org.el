@@ -387,6 +387,14 @@
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 
+;;; advice end-of-line here to call org specific action 
+(defadvice end-of-line (after emacspeak-org pre act comp)
+  "Call org specific actions in org mode."
+  (when (and (interactive-p)
+	     (eq major-mode 'org-mode)
+	     (fboundp 'org-end-of-line))
+    (org-end-of-line)))
+
 (defadvice org-toggle-checkbox (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
