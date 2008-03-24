@@ -667,7 +667,7 @@ widget before summarizing."
               )
         do
         (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
-        (define-key map  "\C-e\C-e" 'widget-end-of-line)
+        ;(define-key map  "\C-e\C-e" 'widget-end-of-line)
         (define-key map "\M-h" 'emacspeak-widget-help)
         (define-key map "\M-p" 'emacspeak-widget-summarize-parent)
         (define-key map "\M-\C-m"
