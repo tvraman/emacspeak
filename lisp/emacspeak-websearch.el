@@ -660,7 +660,7 @@ Optional second arg as-html processes the results as HTML rather than data."
             (results (format "*%s*" ticker))
             (process nil))
         (setq process
-              (start-process   "lynx"
+              (start-process   "curl"
                                results
                                emacspeak-websearch-curl-program
                                "--silent" "--location"
