@@ -2475,32 +2475,31 @@ message area.  You can use command
   :group 'emacspeak-speak)
 
 ;;;###autoload
-(defun emacspeak-speak-message-again (&optional not-from-message-cache)
+(defun emacspeak-speak-message-again ()
   "Speak the last message from Emacs once again.
-Optional interactive prefix arg
-`not-from-message
-from the *Messages* buffer.
 The message is also placed in the kill ring for convenient yanking
 if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
-  (interactive "P")
+  (interactive)
   (declare (special emacspeak-last-message
                     emacspeak-speak-message-again-should-copy-to-kill-ring))
+  
   (cond
-   ((not not-from-message-cache)
+   (emacspeak-last-message
     (dtk-speak   emacspeak-last-message)
     (when (and (interactive-p)
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
-   (t (save-excursion
-        (set-buffer "*Messages*")
-        (goto-char (point-max))
-        (skip-syntax-backward " ")
-        (emacspeak-speak-line)
-        (when (and (interactive-p)
-                   emacspeak-speak-message-again-should-copy-to-kill-ring)
-          (kill-new
-           (buffer-substring (line-beginning-position)
-                             (line-end-position))))))))
+   (t ;;; need to retrieve message from *Messages*
+    (save-excursion
+      (set-buffer "*Messages*")
+      (goto-char (point-max))
+      (skip-syntax-backward " ")
+      (emacspeak-speak-line)
+      (when (and (interactive-p)
+                 emacspeak-speak-message-again-should-copy-to-kill-ring)
+        (kill-new
+         (buffer-substring (line-beginning-position)
+                           (line-end-position))))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
