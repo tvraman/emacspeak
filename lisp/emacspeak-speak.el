@@ -2475,19 +2475,19 @@ message area.  You can use command
   :group 'emacspeak-speak)
 
 ;;;###autoload
-(defun emacspeak-speak-message-again (&optional from-message-cache)
+(defun emacspeak-speak-message-again (&optional not-from-message-cache)
   "Speak the last message from Emacs once again.
 Optional interactive prefix arg
-`from-message-cache' speaks message cached from the most
-recent call to function `message'.
+`not-from-message
+from the *Messages* buffer.
 The message is also placed in the kill ring for convenient yanking
 if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
   (interactive "P")
   (declare (special emacspeak-last-message
                     emacspeak-speak-message-again-should-copy-to-kill-ring))
   (cond
-   (from-message-cache
-    (dtk-speak   emacspeak-last-message )
+   ((not not-from-message-cache)
+    (dtk-speak   emacspeak-last-message)
     (when (and (interactive-p)
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))

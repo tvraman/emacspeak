@@ -246,7 +246,7 @@ specifies the filter"
   (interactive)
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
-       (dtk-speak (emacspeak-table-current-element emacspeak-table))))
+       (message (emacspeak-table-current-element emacspeak-table))))
 
 (defun emacspeak-table-speak-row-header-and-element ()
   "Speak  row header and table element"
@@ -257,14 +257,11 @@ specifies the filter"
        (let ((head (format "%s"
                            (emacspeak-table-row-header-element emacspeak-table
                                                                (emacspeak-table-current-row emacspeak-table )))))
-         (put-text-property 0 (length head)
-                            'personality
-                            emacspeak-table-row-header-personality head)
-         (dtk-speak
+         (put-text-property 0 (length head) 'face 'italic head)
+         (message
           (concat head
                   (format " %s"
-                          (emacspeak-table-current-element
-                           emacspeak-table)))))))
+                          (emacspeak-table-current-element emacspeak-table)))))))
 
 (defun emacspeak-table-speak-column-header-and-element ()
   "Speak  column header and table element"
@@ -276,13 +273,11 @@ specifies the filter"
                            (emacspeak-table-column-header-element emacspeak-table
                                                                   (emacspeak-table-current-column emacspeak-table )))))
          (put-text-property 0 (length head)
-                            'personality
-                            emacspeak-table-column-header-personality head)
-         (dtk-speak
+                            'face 'italic head)
+         (message
           (concat head
                   (format " %s"
-                          (emacspeak-table-current-element
-                           emacspeak-table)))))))
+                          (emacspeak-table-current-element emacspeak-table)))))))
 
 (defun emacspeak-table-speak-both-headers-and-element ()
   "Speak  both row and column header and table element"
@@ -298,13 +293,13 @@ specifies the filter"
                                (emacspeak-table-row-header-element emacspeak-table
                                                                    (emacspeak-table-current-row emacspeak-table )))))
          (put-text-property 0 (length row-head)
-                            'personality
-                            emacspeak-table-row-header-personality
+                            'face
+                            'italic
                             row-head)
          (put-text-property 0 (length column-head)
                             'personality
                             emacspeak-table-column-header-personality column-head)
-         (dtk-speak
+         (message
           (concat row-head" "  column-head
                   (format " %s"
                           (emacspeak-table-current-element
@@ -324,8 +319,7 @@ specifies the filter"
                                 emacspeak-table row))))
          (and row-head-p
               (put-text-property 0 (length row-head)
-                                 'personality
-                                 emacspeak-table-row-header-personality
+                                 'face 'italic
                                  row-head))
          (and col-head-p
               (put-text-property 0 (length column-head)
@@ -366,7 +360,7 @@ Optional prefix arg prompts for a new filter."
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
   (let ((voice-lock-mode t))
-    (dtk-speak
+    (message
      (mapconcat
       #'(lambda (token)
           (let ((value nil))
@@ -378,7 +372,7 @@ Optional prefix arg prompts for a new filter."
                      (emacspeak-table-current-row emacspeak-table)
                      token))
               (put-text-property 0 (length value)
-                                 'personality voice-smoothen  value)
+                                 'face 'bold  value)
               value)
              ((and (listp token)
                    (numberp (first token))
@@ -388,7 +382,7 @@ Optional prefix arg prompts for a new filter."
                      (first token)
                      (second token)))
               (put-text-property 0 (length value)
-                                 'personality voice-smoothen value)
+                                 'face 'bold value)
               value)
              (t  (format "%s" token)))))
       emacspeak-table-speak-row-filter
@@ -410,7 +404,7 @@ Optional prefix arg prompts for a new filter."
                 (not prefix))
     (setq emacspeak-table-speak-column-filter
           (read-minibuffer "Specify column filter as a list: " "(")))
-  (dtk-speak
+  (message
    (mapconcat
     #'(lambda (token)
         (cond
