@@ -606,7 +606,10 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 (defun emacspeak-websearch-view-csv-data (process state )
   "Process csv data and put it in emacspeak table mode. "
-  (emacspeak-table-view-csv-buffer (process-buffer process)))
+  (message "state: %s" state)
+  (when (string-match "^finished" state)
+    (emacspeak-auditory-icon 'select-object)
+  (emacspeak-table-view-csv-buffer (process-buffer process))))
 
 ;;;###autoload
 (defun emacspeak-websearch-yahoo-historical-chart (ticker
@@ -620,8 +623,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   (declare (special emacspeak-websearch-curl-program
                     emacspeak-websearch-yahoo-charts-uri
                     emacspeak-websearch-yahoo-csv-charts-uri))
-  (let (
-        (start-month
+  (let ((start-month
          (read-from-minibuffer "Start Month: "
                                (format-time-string "%m")))
         (start-date

@@ -618,7 +618,8 @@ The processed  data and presented using emacspeak table navigation. "
       (goto-char (point-min))
       (setq table (emacspeak-table-make-table (read scratch))))
     (kill-buffer scratch)
-    (emacspeak-table-prepare-table-buffer table buffer)))
+    (emacspeak-table-prepare-table-buffer table buffer)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 ;;{{{ Processing a region of tabular data
