@@ -100,7 +100,6 @@ emacspeak-bookmark.elc \
 emacspeak-browse-kill-ring.elc \
 emacspeak-bs.elc \
 emacspeak-buff-menu.elc \
-emacspeak-buff-sel.elc \
 emacspeak-c.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
@@ -304,7 +303,6 @@ emacspeak-bookmark.elc: emacspeak-bookmark.el dtk-speak.elc voice-setup.elc
 emacspeak-browse-kill-ring.elc: emacspeak-browse-kill-ring.el dtk-speak.elc voice-setup.elc
 emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc voice-setup.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc voice-setup.elc
-emacspeak-buff-sel.elc: emacspeak-buff-sel.el dtk-speak.elc voice-setup.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc voice-setup.elc
 emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
 emacspeak-calc.elc: emacspeak-calc.el
