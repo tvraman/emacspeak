@@ -170,7 +170,6 @@ emacspeak-mpg123.elc \
 emacspeak-moz.elc \
 emacspeak-muse.elc \
 emacspeak-mspools.elc \
-emacspeak-nero.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
@@ -380,7 +379,6 @@ emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc voice-setup.elc
 emacspeak-moz.elc: emacspeak-moz.el dtk-speak.elc voice-setup.elc
 emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
-emacspeak-nero.elc: emacspeak-nero.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
 emacspeak-nxml.elc: emacspeak-nxml.el dtk-speak.elc voice-setup.elc
