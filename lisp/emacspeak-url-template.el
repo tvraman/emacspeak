@@ -591,6 +591,15 @@ content."
      (emacspeak-we-extract-by-class "g" url 'speak)))
 
 ;;}}}
+;;{{{ utils:
+
+(defun emacspeak-url-template-setup-content-filter ()
+  "Set up content filter in displayed page."
+     (declare (special emacspeak-we-xpath-filter))
+     (setq emacspeak-we-xpath-filter
+	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"))
+
+;;}}}
 ;;{{{ webmaster tools
 (emacspeak-url-template-define
  "Google Webmaster Page Analysis"
@@ -840,9 +849,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (emacspeak-url-encode
        (format-time-string "%m/%d/%y"))))
  nil
- "Public transit directions from Google."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "dirpanel" url 'speak)))
+ "Public transit directions from Google.")
 
 (emacspeak-url-template-define
  "EmapSpeak Via Google"
@@ -1066,10 +1073,7 @@ from English to German.")
  "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Search news for: ")
- #'(lambda ()
-     (declare (special emacspeak-we-xpath-filter))
-     (setq emacspeak-we-xpath-filter
-	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"))
+ 'emacspeak-url-template-setup-content-filter
  "Search Google news."
  'emacspeak-webutils-atom-display)
 
@@ -1152,7 +1156,7 @@ from English to German.")
  "Tech News From CNet"
  "http://rss.com.com/2547-12-0-20.xml"
  nil
- nil
+ 'emacspeak-url-template-setup-content-filter
  "Display tech news from CNET"
  'emacspeak-webutils-rss-display)
 
