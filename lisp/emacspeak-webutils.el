@@ -122,6 +122,9 @@ Note that the Web browser should reset this hook after using it.")
   "Setup post process hook to speak the Web page when rendered."
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
+                (declare (special emacspeak-we-xpath-filter))
+     (setq emacspeak-we-xpath-filter
+	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div")
                 (emacspeak-speak-buffer))))
 
 (defsubst emacspeak-webutils-browser-check ()
