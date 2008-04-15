@@ -162,8 +162,7 @@
   ad-return-value)
 
 ;;;this is what I use as my jabber alert function:
-(defun emacspeak-jabber-message-default-message (from buffer
-                                                      text)
+(defun emacspeak-jabber-message-default-message (from buffer text)
   "Speak the message."
   (declare (special jabber-message-alert-same-buffer))
   (when (or jabber-message-alert-same-buffer

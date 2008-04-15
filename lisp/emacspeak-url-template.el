@@ -658,7 +658,7 @@ content."
 
 
 (defcustom emacspeak-url-template-gmail-search-url
-  "http://mail.google.com/mail/"
+  "https://mail.google.com/mail/"
   "URL eng-point for GMail searches.
 For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"   
   :type '(choice
