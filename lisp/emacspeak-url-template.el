@@ -814,7 +814,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 (emacspeak-url-template-define
  "Seeking Alpha Stock Search"
- "http://seekingalpha.com/symbol/%s?source=search"
+ "http://seekingalpha.com/search/?cx=001514237567335583750%%3Acdhc2yeo2ko&cof=FORID%%3A11%%3BNB%%3A1&q=%s"
  (list "Company:")
  nil
  "Seeking Alpha search.")
