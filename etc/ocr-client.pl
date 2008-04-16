@@ -5,8 +5,8 @@
 use strict;
 use File::Basename;
 
-my $OCR = 'ocrxtr';
-#my $OCR = 'xtrclilite';
+#my $OCR = 'ocrxtr';
+my $OCR = 'xtrclilite';
 my $image =shift;
 die "No image specified" unless defined ($image);
 my $host =shift;
@@ -15,7 +15,8 @@ my $input = "/tmp/$$-$name.tiff";
 my $output = "/tmp/ocr-output-$$.txt";
 $host ='localhost' unless defined ($host);
 if ( $host =~ m/localhost/) {
-  qx($OCR -out_text_name $output $image 2>/dev/null);
+  #qx($OCR -out_text_name $output $image 2>/dev/null);
+  qx($OCR $image $output 2>/dev/null);
   open (OUT, "cat -s $output |");
   while ( <OUT>) {
     print;
@@ -23,7 +24,8 @@ if ( $host =~ m/localhost/) {
   unlink $output;
 } else {
   qx(scp $image  $host:$input);
-  qx(ssh $host $OCR -out_text_name $output $input 2>&1 > /dev/null);
+  #qx(ssh $host $OCR -out_text_name $output $input 2>&1 > /dev/null);
+  qx(ssh $host $OCR  $input $output 2>&1 > /dev/null);
   open (OUT, "ssh $host cat -s $output |");
   while (<OUT>) {
     print;

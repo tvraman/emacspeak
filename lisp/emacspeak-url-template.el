@@ -810,6 +810,16 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 ;;}}}
 ;;{{{ google finance
+;;{{{ seeking alpha stock search
+
+(emacspeak-url-template-define
+ "Seeking Alpha Stock Search"
+ "http://seekingalpha.com/symbol/%s?source=search"
+ (list "Company:")
+ nil
+ "Seeking Alpha search.")
+
+;;}}}
 ;;; pull google finance search results via the transcoder
 
 (emacspeak-url-template-define
