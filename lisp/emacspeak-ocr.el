@@ -76,19 +76,19 @@ OCR engine for optical character recognition."
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-scan-image-options 
-  "--format tiff --resolution 400"
+  nil
   "Command line options to pass to image acquisition program."
   :type 'string 
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-compress-image "tiffcp"
+(defcustom emacspeak-ocr-compress-image nil
   "Command used to compress the scanned tiff file."
   :type '(choice
           (const :tag "None" nil)
           (string :tag "Command"))
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-image-extension ".tiff"
+(defcustom emacspeak-ocr-image-extension ".pnm"
   "Filename extension used for acquired image."
   :type 'string
   :group 'emacspeak-ocr)

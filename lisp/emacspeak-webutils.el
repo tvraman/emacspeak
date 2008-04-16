@@ -225,6 +225,19 @@ ARGS specifies additional arguments to SPEAKER if any."
         (aref (read (current-buffer)) 2)
         nil)))))
 
+
+(defun emacspeak-webutils-google-suggest-completer (string predicate mode)
+  "Generate completions using Google Suggest. "
+  (save-current-buffer 
+    (set-buffer 
+     (let ((window (minibuffer-selected-window))) 
+       (if (window-live-p window) 
+           (window-buffer window) 
+         (current-buffer)))) 
+    (complete-with-action mode 
+                          (emacspeak-webutils-google-suggest string) 
+                          string predicate)))
+
 (defsubst emacspeak-webutils-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let ((minibuffer-completing-file-name t) ;; so we can type
@@ -233,7 +246,7 @@ ARGS specifies additional arguments to SPEAKER if any."
     (emacspeak-url-encode
     (completing-read
      (or prompt "Google: ")
-                     (dynamic-completion-table emacspeak-webutils-google-suggest)))))
+                     'emacspeak-webutils-google-suggest-completer))))
 
 ;;}}}
 ;;{{{ helper macros:
