@@ -184,7 +184,7 @@
           ("F" emacspeak-webutils-fv)
           ("X" emacspeak-xslt-view-xml)
           ("C" emacspeak-webutils-google-extract-from-cache)
-          ("\M-L" emacspeak-w3-lynx-url-under-point)
+          ("\M-l" emacspeak-w3-lynx-url-under-point)
           ("N" emacspeak-speak-next-personality-chunk)
           ("P" emacspeak-speak-previous-personality-chunk)
           ("R" emacspeak-webutils-rss-display)
