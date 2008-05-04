@@ -530,7 +530,7 @@ content."
  "Display financial market summary."
  #'(lambda (url)
      (emacspeak-we-extract-by-id
-      "mktsumm" url 'speak)))
+      "sfe-mktsumm" url 'speak)))
  
 
 ;;}}}
