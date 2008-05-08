@@ -662,8 +662,8 @@ content."
   "URL eng-point for GMail searches.
 For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"   
   :type '(choice
-          (const :tag "GMail"  "http://mail.google.com/mail/")
-          (const :tag "Corporate"  "https://mail.google.com/a/google.com/"))
+          (const :tag "GMail"  "https://mail.google.com/mail/h/")
+          (const :tag "Corporate"  "https://mail.google.com/a/google.com/h/"))
   :group 'emacspeak-url-template)
 
 
