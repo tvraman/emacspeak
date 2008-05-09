@@ -223,7 +223,7 @@ def _test():
     s=Speaker()
     a=acss.ACSS()
     s.punctuations('all')
-    s.queueText("This is an initial test. more  » test.");
+    s.queueText("This is an initial test. test.");
     s.queueText("Next, we'll test audio formatted output.")
     for d in ['average-pitch', 'pitch-range',
               'richness', 'stress']:
