@@ -83,7 +83,7 @@
   "Start TTS  engine for Piglets."
   (interactive)
   (declare (special emacspeak-piglets-tts-rate
-                    dtk-program emacspeak-servers-directory emacspeak-servers-directory))
+                    dtk-program emacspeak-servers-directory))
   (start-process
    "HTTP-TTS"
    "* HTTP TTS *"

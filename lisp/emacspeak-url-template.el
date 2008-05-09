@@ -662,15 +662,15 @@ content."
   "URL eng-point for GMail searches.
 For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"   
   :type '(choice
-          (const :tag "GMail"  "https://mail.google.com/mail/h/")
-          (const :tag "Corporate"  "https://mail.google.com/a/google.com/h/"))
+          (const :tag "GMail"  "https://mail.google.com/mail/")
+          (const :tag "Corporate"  "https://mail.google.com/a/google.com/"))
   :group 'emacspeak-url-template)
 
 
 (emacspeak-url-template-define
  "GMail Search"
  (concat emacspeak-url-template-gmail-search-url
-         "h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1")
+         "h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1&ui=html")
  (list "GMail Search:")
  #'(lambda ()
      (declare (special emacspeak-we-class-filter))
