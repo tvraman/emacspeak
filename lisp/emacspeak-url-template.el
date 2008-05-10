@@ -670,7 +670,7 @@ For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"
 (emacspeak-url-template-define
  "GMail Search"
  (concat emacspeak-url-template-gmail-search-url
-         "h/?ui=html&s=q&q=%s&nvp_site_mail=Search+Mail&f=1")
+         "h/?s=q&q=%s&nvp_site_mail=Search+Mail&f=1&ui=html")
  (list "GMail Search:")
  #'(lambda ()
      (declare (special emacspeak-we-class-filter))
