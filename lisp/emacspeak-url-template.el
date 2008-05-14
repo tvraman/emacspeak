@@ -210,6 +210,17 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{  template resources
+;;{{{  powerset
+
+(emacspeak-url-template-define
+ "PowerSet Wikipedia Search"
+ "http://www.powerset.com/explore/pset?q=%s"
+ (list "PowerSet: ")
+ nil
+ "Perform powerset query.")
+
+
+;;}}}
 ;;{{{ Mozilla MDC
 
 (emacspeak-url-template-define
