@@ -133,6 +133,12 @@
                 (line-beginning-position)
                 (line-end-position))
                ","))
+;;; only need 3 fields:
+        (setq fields
+              (list 
+               (nth 0 fields)
+               (nth 1 fields)
+               (mapconcat #'identity (nthcdr 2 fields) " ")))
         (setq slots
               (loop for f in fields
                     collect
@@ -145,7 +151,7 @@
            :iface (second slots)
            :name (third slots)))
          controls)
-        (forward-line 1))               ; done collecting controls
+        (forward-line 1))              ; done collecting controls
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 
