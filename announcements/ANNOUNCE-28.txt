@@ -110,6 +110,8 @@ http://code.google.com/p/emacspeak/ You can visit
 Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
 to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
 mail to the list request address emacspeak-request@cs.vassar.edu.
+The PuppyDog release is at 
+http://emacspeak.googlecode.com/files/emacspeak-28.0.tar.bz2.
 The latest development snapshot of Emacspeak is available via
 Subversion from Google Code Hosting at 
 http://emacspeak.googlecode.com/svn/trunk/
