@@ -111,6 +111,12 @@ the Emacspeak desktop." )
   :type 'hook
   :group 'emacspeak)
 
+
+;;;###autoload
+(defun emacspeak-tvr-startup-hook ()
+  "Emacspeak startup hook that I use."
+  (load-library "emacspeak-alsaplayer")
+  (load-library "emacspeak-webspace"))
 ;;;###autoload
 (defcustom emacspeak-media-player 'emacspeak-m-player
   "Default media player to use.
