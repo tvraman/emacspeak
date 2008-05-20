@@ -60,11 +60,8 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         """Produce speech."""
-        cmd = None
-        arg = None
-        pass
-
-        
+        #cmd = None
+        #arg = None
         if hasattr(self.server.speaker, cmd):
             method = getattr(self.server.speaker, cmd)
             if arg is None:
