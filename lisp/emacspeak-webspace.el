@@ -81,6 +81,10 @@ Generates auditory and visual display."
 ;;}}}
 ;;{{{ Headlines:
 
+(defcustom emacspeak-webspace-update-frequency "30 minutes"
+  "Update frequency used as default when prompting."
+  :type 'string
+  :group 'emacspeak-webspace)
 
 (defcustom emacspeak-webspace-feeds nil
   "Collection of ATOM and RSS feeds."
@@ -170,8 +174,12 @@ Feeds in the feedstore are visited in cyclic order."
   "Setup frequency news updates.
 Frequency is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
-  (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-headlines ))
+  (interactive
+   (list
+    (read-from-minibuffer "Update frequency: "
+			  emacspeak-webspace-update-frequency)))
+  (declare (special emacspeak-webspace-headlines
+		    emacspeak-webspace-update-frequency))
   (let ((timer nil)
 	(freq (/ (timer-duration frequency)
                  (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
@@ -244,8 +252,12 @@ http://www.wunderground.com/auto/rss_full/%s.xml"
   "Setup periodic weather updates.
 Period is specified as documented in function run-at-time.
 Updated weather is found in `emacspeak-webspace-current-weather'."
-  (interactive "sUpdate Frequencey: ")
-  (declare (special emacspeak-webspace-weather-timer ))
+  (interactive
+   (list
+    (read-from-minibuffer "Update frequency: "
+			  emacspeak-webspace-update-frequency)))
+  (declare (special emacspeak-webspace-weather-timer
+		    emacspeak-webspace-update-frequency))
   (unless emacspeak-url-template-weather-city-state
     (error
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
