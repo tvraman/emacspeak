@@ -1,0 +1,5 @@
+Emacspeak  Revision 5491
+Distribution created by raman on retriever.corp.google.com
+Unpack the  distribution And type make config 
+Then type make
+See the Makefile for details. 
