@@ -86,29 +86,29 @@
   "Read next item on page."
   (interactive)
   (emacspeak-moz-eval-expression
-   "CLC_SR_ReadContent(1)\n"))
+   "CLC_SR_StopSpeaking();CLC_SR_ReadContent(1)\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-read-previous ()
   "Read next item on page."
   (interactive)
   (emacspeak-moz-eval-expression
-   "CLC_SR_ReadContent(-1)\n"))
+   "CLC_SR_StopSpeaking();CLC_SR_ReadContent(-1)\n"))
 
              
           
-           ;;; think mute
+           
 (defun emacspeak-firevox-read-current ()
 "Read current node."
 (emacspeak-moz-eval-expression
- "CLC_SR_ReadCurrentAtomicObject()\n"))
+ "CLC_SR_StopSpeaking();CLC_SR_ReadCurrentAtomicObject()\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-read-parent ()
           "Read parent node."
           (interactive)
           (emacspeak-moz-eval-expression
-           "CLC_SR_SayParentTextContent()\n"))
+           "CLC_SR_StopSpeaking();CLC_SR_SayParentTextContent()\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-websearch (query)
