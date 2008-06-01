@@ -198,7 +198,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (directory-files
               (expand-file-name resource)
               'full
-              "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
+              "\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
            (t
             (nconc
              options
