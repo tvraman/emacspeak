@@ -834,7 +834,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 ;;; pull google finance search results via the transcoder
 
 (emacspeak-url-template-define
- "Finance Google Search"
+ "Mobile Finance Google Search"
  "http://finance.google.com/finance?q=%s"
  (list "Finance Search: ")
  #'(lambda nil
@@ -845,6 +845,18 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (format emacspeak-webutils-google-transcoder-url
               (emacspeak-url-encode
                url)))))
+
+(emacspeak-url-template-define
+ "Finance Google Search"
+ "http://finance.google.com/finance?q=%s"
+ (list "Finance Search: ")
+ #'(lambda nil
+     (call-interactively 'emacspeak-imenu-goto-next-index-position))
+ "Display content from Google Finance."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "results"
+                                    url
+                                    'speak)))
 
 (emacspeak-url-template-define
  "Finance Google news"
