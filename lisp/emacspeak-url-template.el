@@ -864,6 +864,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil nil
  "Download and display portfolio from Google Finance."
  #'(lambda (url)
+     (declare (special emacspeak-google-finance-row-filter))
      (let ((buffer (url-retrieve-synchronously url)))
        (save-excursion
          (set-buffer buffer)
