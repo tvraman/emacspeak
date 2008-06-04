@@ -855,6 +855,21 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  )
 
 (emacspeak-url-template-define
+ "Finance Google Portfolio"
+ "http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
+ nil
+ "Download and display portfolio from Google Finance."
+ #'(lambda (url)
+     
+     (let ((buffer (url-retrieve-synchronously url)))
+       (save-excursion
+         (set-buffer buffer)
+         (goto-char (point-min))
+         (search-forward "\n\n")
+         (delete-region (point-min) (point))
+         (emacspeak-table-view-csv-buffer buffer)))))
+
+(emacspeak-url-template-define
  "Finance Google news"
  "http://finance.google.com/"
  nil
