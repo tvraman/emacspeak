@@ -853,22 +853,29 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Display content from Google Finance."
  )
+(defvar emacspeak-google-finance-row-filter
+  '(0 " closed at " 2  "giving it   a market cap of " 4 
+      "The intra-day range was " 8 " to " 7)
+  "Template used as a row formatter for Finance Portfolios.")
 
 (emacspeak-url-template-define
  "Finance Google Portfolio"
  "http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
- nil
- nil
+ nil nil
  "Download and display portfolio from Google Finance."
  #'(lambda (url)
      (let ((buffer (url-retrieve-synchronously url)))
        (save-excursion
          (set-buffer buffer)
-         (rename-buffer "Portfolio From Google Finance")
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))
-         (emacspeak-table-view-csv-buffer buffer)))))
+         (emacspeak-table-view-csv-buffer buffer)
+         (kill-buffer buffer)
+         (rename-buffer "Portfolio From Google Finance")
+         (setq emacspeak-table-speak-row-filter
+          emacspeak-google-finance-row-filter)
+         (emacspeak-table-next-row)))))
 
 (emacspeak-url-template-define
  "Finance Google news"
