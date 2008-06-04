@@ -860,7 +860,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Download and display portfolio from Google Finance."
  #'(lambda (url)
-     
      (let ((buffer (url-retrieve-synchronously url)))
        (save-excursion
          (set-buffer buffer)
