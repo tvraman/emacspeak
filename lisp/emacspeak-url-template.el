@@ -850,13 +850,9 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "Finance Google Search"
  "http://finance.google.com/finance?q=%s"
  (list "Finance Search: ")
- #'(lambda nil
-     (call-interactively 'emacspeak-imenu-goto-next-index-position))
+ nil
  "Display content from Google Finance."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "results"
-                                    url
-                                    'speak)))
+ )
 
 (emacspeak-url-template-define
  "Finance Google news"
