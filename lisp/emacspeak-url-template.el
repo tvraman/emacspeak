@@ -863,6 +863,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (let ((buffer (url-retrieve-synchronously url)))
        (save-excursion
          (set-buffer buffer)
+         (rename-buffer "Portfolio From Google Finance")
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))
