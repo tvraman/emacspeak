@@ -17,6 +17,7 @@ shown in the output.
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <!-- { html   -->
+<xsl:include href="object.xsl"/>
   <xsl:template match="//script|//meta|//iframe"/>
   <!--add base uri if available. -->
   <xsl:template match="head">
@@ -57,7 +58,6 @@ shown in the output.
       <br/>
     </xsl:if>
   </xsl:template>
-  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- nuke these -->
   
