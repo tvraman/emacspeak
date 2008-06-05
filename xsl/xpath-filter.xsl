@@ -16,8 +16,8 @@ shown in the output.
   <xsl:param name="path"/>
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+  <xsl:include href="object.xsl"/>
   <!-- { html   -->
-<xsl:include href="object.xsl"/>
   <xsl:template match="//script|//meta|//iframe"/>
   <!--add base uri if available. -->
   <xsl:template match="head">
@@ -34,7 +34,7 @@ shown in the output.
   </xsl:template>
   <xsl:template match="body">
     <body>
-      <xsl:apply-templates select="$locator" mode="copy"/>
+      <xsl:apply-templates select="$locator" />
       <h2>
         Nodes Matching   <xsl:value-of select="$path"/>
       </h2>
