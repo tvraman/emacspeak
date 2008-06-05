@@ -684,7 +684,10 @@ For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"
          "?ui=html&s=q&q=%s&nvp_site_mail=Search+Mail&f=1")
  (list "GMail Search:")
  #'(lambda ()
-     (declare (special emacspeak-we-class-filter))
+     (declare (special emacspeak-we-class-filter
+                       emacspeak-we-url-rewrite-rule))
+     (setq emacspeak-we-url-rewrite-rule
+           '("/\\?" "/h/?"))
      (setq emacspeak-we-class-filter "msg"))
  "Search GMail. 
 Make sure to sign in before invoking this template."
