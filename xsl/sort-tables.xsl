@@ -40,8 +40,9 @@ relevant tables bubble to the top.
   exclude-result-prefixes="set">
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
-  <xsl:include href="object.xsl"/>
+  
   <xsl:include href="identity.xsl"/>
+  <xsl:include href="object.xsl"/>
   <xsl:include href="auto-rss-discover.xsl"/>
   <!--<xsl:include href="auto-atom-discover.xsl"/>-->
   <!-- { html body  -->
