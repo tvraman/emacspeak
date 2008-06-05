@@ -856,11 +856,12 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 (defun emacspeak-finance-google-up-or-down (value)
   "Return up/down by value."
-  (cond
-   ((string-match "-" value)
-    (format " down by %s"
-            (substring value 1)))
-   (t (format " up by %s " value))))
+  (let ((minus-p (string-match "-" value)))
+    (cond
+     (minus-p
+      (format " down by %s"
+              (substring value (1+ minus-p ))))
+     (t (format " up by %s " value)))))
   
 (defvar emacspeak-google-finance-row-filter
   '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  "giving it   a market cap of " 4 
