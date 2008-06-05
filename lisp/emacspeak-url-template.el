@@ -865,7 +865,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
   
 (defvar emacspeak-google-finance-row-filter
   '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  "giving it   a market cap of " 4 
-      "The intra-day range was " 8 " to " 7)
+      "The intra-day range was " 8 " to " 7 " with volume of " 5)
   "Template used as a row formatter for Finance Portfolios.")
 
 (emacspeak-url-template-define
