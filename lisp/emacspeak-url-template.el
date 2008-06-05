@@ -853,8 +853,17 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Display content from Google Finance."
  )
+
+(defun emacspeak-finance-google-up-or-down (value)
+  "Return up/down by value."
+  (cond
+   ((string-match "-" value)
+    (format " down by %s"
+            (substring value 1)))
+   (t (format " up by %s " value))))
+  
 (defvar emacspeak-google-finance-row-filter
-  '(0 " closed at " 2  "giving it   a market cap of " 4 
+  '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  "giving it   a market cap of " 4 
       "The intra-day range was " 8 " to " 7)
   "Template used as a row formatter for Finance Portfolios.")
 
