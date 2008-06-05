@@ -343,10 +343,7 @@ specifies the filter"
   "Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter."
   (interactive "P")
-  (declare (special emacspeak-table-speak-row-filter
-                    voice-animate
-                    voice-smoothen
-                    emacspeak-table))
+  (declare (special emacspeak-table-speak-row-filter emacspeak-table))
   (unless (and  emacspeak-table-speak-row-filter
                 (listp emacspeak-table-speak-row-filter)
                 (not prefix))
@@ -384,6 +381,26 @@ Optional prefix arg prompts for a new filter."
               (put-text-property 0 (length value)
                                  'face 'bold value)
               value)
+             ((and
+               (symbolp (first token))
+               (fboundp  (first token)))
+              (setq value
+                    (funcall
+                     (first token)
+                     (cond
+                      ((and (= 2 (length token))
+                            (numberp (second token)))
+                       (emacspeak-table-get-entry-with-headers
+                        (emacspeak-table-current-row emacspeak-table)
+                        (second token)))
+                      ((and (= 3 (length token))
+                            (numberp (second token))
+                            (numberp (third token)))
+                       (emacspeak-table-get-entry-with-headers
+                        (second token) (third token))))))
+              (put-text-property 0 (length value)
+                                 'face 'bold  value)
+              value)
              (t  (format "%s" token)))))
       emacspeak-table-speak-row-filter
       " "))))
@@ -419,6 +436,9 @@ Optional prefix arg prompts for a new filter."
           (emacspeak-table-get-entry-with-headers
            (first token)
            (second token)))
+         ((and (symbolp (first token))
+               (fboundp  (first token)))
+          (eval token))
          (t  (format "%s" token))))
     emacspeak-table-speak-column-filter
     " ")))
