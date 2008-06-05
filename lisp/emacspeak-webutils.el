@@ -262,7 +262,8 @@ ARGS specifies additional arguments to SPEAKER if any."
        (add-hook 'emacspeak-web-post-process-hook
                  #'(lambda ()
                      (declare (special emacspeak-we-xsl-p))
-                     (setq emacspeak-we-xsl-p t))))
+                     (setq emacspeak-we-xsl-p t))
+                 'append))
      ,@body))
 
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
@@ -272,10 +273,6 @@ and xsl environment specified by style, params and options."
          (save-options ,emacspeak-xslt-options)
          (save-style ,emacspeak-we-xsl-transform)
          (save-params ,emacspeak-we-xsl-params))
-     (setq emacspeak-we-xsl-p t
-           emacspeak-xslt-options ,options
-           emacspeak-we-xsl-transform ,style
-           emacspeak-we-xsl-params ,params)
      (add-hook
       'emacspeak-web-post-process-hook
       (eval
@@ -288,7 +285,12 @@ and xsl environment specified by style, params and options."
            (setq emacspeak-we-xsl-p ,save-flag
                  emacspeak-xslt-options ,save-options
                  emacspeak-we-xsl-transform ,save-style
-                 emacspeak-we-xsl-params ,save-params)))))
+                 emacspeak-we-xsl-params ,save-params))))
+      'append)
+     (setq emacspeak-we-xsl-p t
+           emacspeak-xslt-options ,options
+           emacspeak-we-xsl-transform ,style
+           emacspeak-we-xsl-params ,params)
      ,@body))
 
 ;;}}}
