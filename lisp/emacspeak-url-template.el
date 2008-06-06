@@ -687,7 +687,7 @@ For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"
      (declare (special emacspeak-we-class-filter
                        emacspeak-we-url-rewrite-rule))
      (setq emacspeak-we-url-rewrite-rule
-           '("/\\?" "/h/?"))
+           '("com/?\\?" "com/h/?"))
      (setq emacspeak-we-class-filter "msg")
      )
  "Search GMail. 
