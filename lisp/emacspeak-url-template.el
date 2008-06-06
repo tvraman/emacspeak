@@ -688,7 +688,9 @@ For  corporate email using GMail, change /a/google.com/ to /a/<your.domain>/"
                        emacspeak-we-url-rewrite-rule))
      (setq emacspeak-we-url-rewrite-rule
            '("/\\?" "/h/?"))
-     (setq emacspeak-we-class-filter "msg"))
+     (setq emacspeak-we-class-filter "msg")
+     (setq emacspeak-we-url-rewrite-rule
+           '("$" "\\&ui=html")))
  "Search GMail. 
 Make sure to sign in before invoking this template."
  #'(lambda (url)
