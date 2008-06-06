@@ -14,7 +14,7 @@ View an RSS feed as clean HTML
                 xmlns:str="http://exslt.org/strings"
                 version="1.0">
   <xsl:param name="base"/>
-  http://127.0.0.1:8888/my_channels.html</xsl:variable>
+  <xsl:variable name="amphetadesk">http://127.0.0.1:8888/my_channels.html</xsl:variable>
   <xsl:output encoding="utf-8" method="xml" indent="yes"/>
   <!-- {rss 1.0 -->
   <xsl:template match="img">
@@ -39,6 +39,10 @@ View an RSS feed as clean HTML
             <xsl:attribute name="href"> <xsl:value-of select="$base"/> </xsl:attribute>
             RSS 
           </xsl:element>
+          <form action="{$amphetadesk}" method="POST">
+            <input type="hidden" name="add_url" value="{$base}"/>
+            <input type="submit" name="submit" value="Add to AmphetaDesk" />
+          </form>
         </p>
       </body>
     </html>
@@ -83,6 +87,9 @@ View an RSS feed as clean HTML
             RSS 
           </xsl:element>
           <form action="{$amphetadesk}" method="POST">
+            <input type="hidden" name="add_url" value="{$base}"/>
+            <input type="submit" name="submit" value="Add to AmphetaDesk" />
+          </form>
         </p>
       </body>
     </html>
