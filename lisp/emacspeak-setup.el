@@ -182,6 +182,7 @@ pronunciation dictionaries are stored. ")
 (defun emacspeak-tvr-startup-hook ()
   "Emacspeak startup hook that I use."
   (load-library "emacspeak-alsaplayer")
+  (load-library "emacspeak-webmarks")
   (load-library "emacspeak-webspace"))
 
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
