@@ -125,7 +125,8 @@ Note that the Web browser should reset this hook after using it.")
                 (declare (special emacspeak-we-xpath-filter))
      (setq emacspeak-we-xpath-filter
 	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div")
-                (emacspeak-speak-buffer))))
+                (emacspeak-speak-buffer))
+            'at-end))
 
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
@@ -183,7 +184,8 @@ ARGS specifies additional arguments to SPEAKER if any."
                      ((search-forward ,locator nil t)
                       (recenter 0)
                       (apply(quote ,speaker) ,args))
-                     (t (message "Your search appears to have failed.")))))))))
+                     (t (message "Your search appears to have failed."))))))
+               'at-end)))
 
 ;;}}}
 ;;{{{ google suggest helper:
@@ -269,23 +271,18 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."
-  `(let ((save-flag ,emacspeak-we-xsl-p)
-         (save-options ,emacspeak-xslt-options)
-         (save-style ,emacspeak-we-xsl-transform)
-         (save-params ,emacspeak-we-xsl-params))
+  `(progn
      (add-hook
       'emacspeak-web-post-process-hook
       (eval
        `(function
          (lambda ()
-           (declare (special emacspeak-we-xsl-p
-                             emacspeak-we-xsl-transform
-                             emacspeak-xslt-options
-                             emacspeak-we-xsl-params))
-           (setq emacspeak-we-xsl-p ,save-flag
-                 emacspeak-xslt-options ,save-options
-                 emacspeak-we-xsl-transform ,save-style
-                 emacspeak-we-xsl-params ,save-params))))
+           (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
+                             emacspeak-xslt-options emacspeak-we-xsl-params))
+           (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
+                 emacspeak-xslt-options ,emacspeak-xslt-options
+                 emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
+                 emacspeak-we-xsl-params ,emacspeak-we-xsl-params))))
       'append)
      (setq emacspeak-we-xsl-p t
            emacspeak-xslt-options ,options
