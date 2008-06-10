@@ -1037,7 +1037,7 @@ http://www.google.com/options/specialsearches.html "
     (emacspeak-websearch-google
      (concat
       (emacspeak-url-encode query )
-      (format " daterange:%s-%s"
+      (format "+daterange:%s-%s"
               (min from to)
               (max from to))))))
 
