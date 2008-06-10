@@ -19,7 +19,6 @@ Description: Display all RSS links
   </xsl:template>
   
   <xsl:template match="h:link|link" mode="rss">
-    <xsl:variable name="amphetadesk">http://127.0.0.1:8888/my_channels.html</xsl:variable>
     <xsl:if test="@type='application/rss+xml'">
       <p>
         <a>
@@ -28,10 +27,6 @@ Description: Display all RSS links
           </xsl:attribute>
           <xsl:value-of select="@title"/>
         </a>
-        <form action="{$amphetadesk}" method="POST">
-          <input type="hidden" name="add_url" value="{@href}"/>
-          <input type="submit" name="submit" value="Add to AmphetaDesk" />
-        </form>
       </p>
     </xsl:if>
   </xsl:template>
