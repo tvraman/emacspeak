@@ -153,7 +153,7 @@ Use form bookmark-add.html, and use the resulting zx param as key"))
            query)))
 
 ;;;###autoload
-(defun emacspeak-webmarks-add (url title notes)
+(defun emacspeak-webmarks-add (url title labels notes)
   "Add WebMark."
   (interactive
    (list
@@ -171,15 +171,17 @@ Use form bookmark-add.html, and use the resulting zx param as key"))
                             (buffer-substring
                              (line-beginning-position)
                              (line-end-position))))
+    (read-from-minibuffer "Labels: ")
     (read-from-minibuffer "Notes: ")))
   (declare (special emacspeak-webmarks-key))
   (unless emacspeak-webmarks-key
     (error "WebMarks key not set."))
-  (let ((base-url (format "%s&title=%s&bkmk=%s&annotation=%s"
+  (let ((base-url (format "%s&title=%s&bkmk=%s&annotation=%s&labels=%s"
                           (emacspeak-webmarks-url emacspeak-webmarks-add-url-template)
                           (emacspeak-url-encode title)
                           (emacspeak-url-encode url)
-                          (emacspeak-url-encode notes))))
+                          (emacspeak-url-encode notes)
+                          (emacspeak-url-encode labels))))
     (emacspeak-webutils-with-xsl-environment
      (expand-file-name "xpath-filter.xsl" emacspeak-xslt-directory)
      (emacspeak-xslt-params-from-xpath
