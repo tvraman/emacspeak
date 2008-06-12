@@ -253,7 +253,10 @@ dont-url-encode if true then url arguments are not url-encoded "
  "http://wwwapps.ups.com/WebTracking/processInputRequest?HTMLVersion=5.0&sort_by=status&tracknums_displayed=5&TypeOfInquiryNumber=T&loc=en_US&InquiryNumber1=%s&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&track.x=0&track.y=0&AgreeToTermsAndConditions=yes"
  (list "Tracking Number: ")
  nil
- "Display package tracking information from UPS.")
+ "Display package tracking information from UPS."
+ #'(lambda (url)
+(emacspeak-we-extract-table-by-match "Package Progress"
+                                     url 'speak)))
 
 ;;}}}
 ;;{{{ amazon
