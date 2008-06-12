@@ -12,7 +12,7 @@ Transform HTML Object element into an anchor usable in W3.
   
   <xsl:output encoding="iso8859-15"
   method="html"  indent="yes"/>
-<xsl:template match="@title">
+<xsl:template match="td/@title">
 <xsl:text> </xsl:text>
  <xsl:value-of select="."/> 
 <xsl:text> </xsl:text>
