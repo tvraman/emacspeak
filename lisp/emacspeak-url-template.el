@@ -866,13 +866,13 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
   (let ((minus-p (string-match "-" value)))
     (cond
      (minus-p
-      (format " down by %s"
+      (format " down  %s"
               (substring value (1+ minus-p ))))
-     (t (format " up by %s " value)))))
+     (t (format " up  %s " value)))))
   
 (defvar emacspeak-google-finance-row-filter
-  '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  "giving it   a market cap of " 4 
-      "The intra-day range was " 8 " to " 7 " on a  volume of " 5)
+  '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  " for  a market cap of " 4 
+      "Traded today between " 8 " and " 7 " on a  volume of " 5)
   "Template used as a row formatter for Finance Portfolios.")
 
 (emacspeak-url-template-define
@@ -891,6 +891,8 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
          (delete-region (point-min) (point))
          (emacspeak-table-view-csv-buffer buffer)
          (kill-buffer buffer)
+         (when (get-buffer "Portfolio From Google Finance")
+           (kill-buffer "Portfolio From Google Finance"))
          (rename-buffer "Portfolio From Google Finance")
          (setq emacspeak-table-speak-row-filter
                emacspeak-google-finance-row-filter)
