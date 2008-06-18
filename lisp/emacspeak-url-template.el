@@ -756,6 +756,14 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 ;;}}}
 ;;{{{ google code search
+
+(emacspeak-url-template-define
+ "Google API Search"
+ "http://www.google.com/cse?cx=001456098540849067467%%3A6whlsytkdqg&cof=FORID%%3A0&q=%s&sa=Search"
+ (list "Google API Search: ")
+ nil
+ "Search Google APIDocs")
+
 (emacspeak-url-template-define
  "Code Search From Google"
  "http://www.google.com/codesearch?q=%s"
