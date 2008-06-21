@@ -289,8 +289,7 @@ Then speak the screenful. "
 (declaim (special vm-mode-map))
 (eval-when (load)
   (load-library "vm-vars")
-  (emacspeak-keymap-remove-emacspeak-edit-commands
-   vm-mode-map))
+  )
 
 (declaim (special vm-mode-map))
 (define-key vm-mode-map "\M-\C-m" 'widget-button-press)

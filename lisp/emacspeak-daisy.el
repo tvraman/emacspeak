@@ -451,9 +451,7 @@ navigate and listen to Daisy talking books.
 Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
-  (progn
-    (emacspeak-keymap-remove-emacspeak-edit-commands
-     emacspeak-daisy-mode-map)))
+  (progn))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map "m" 'emacspeak-daisy-mark-position-in-content-under-point)

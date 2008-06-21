@@ -411,8 +411,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 ;;}}}
 ;;{{{  keys
-(eval-when (load)
-  (emacspeak-keymap-remove-emacspeak-edit-commands dired-mode-map))
+(eval-when (load))
 
 (defun emacspeak-dired-setup-keys ()
   "Add emacspeak keys to dired."

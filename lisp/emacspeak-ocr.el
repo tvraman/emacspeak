@@ -287,9 +287,7 @@ See \\{emacspeak-ocr-mode-map}.
           emacspeak-ocr-last-page-number 0
           emacspeak-ocr-page-positions
           (make-vector 25 nil))
-    (emacspeak-ocr-update-mode-line)
-    (emacspeak-keymap-remove-emacspeak-edit-commands
-     emacspeak-ocr-mode-map)))
+    (emacspeak-ocr-update-mode-line)))
 
 (define-key emacspeak-ocr-mode-map "?" 'describe-mode)
 (define-key emacspeak-ocr-mode-map "c" 'emacspeak-ocr-customize)

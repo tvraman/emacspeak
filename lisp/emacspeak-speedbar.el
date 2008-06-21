@@ -240,8 +240,7 @@ An automatically updating speedbar consumes resources.")
 ;;{{{  hooks
 (declaim (special speedbar-key-map))
 (eval-when (load)
-  
-  (emacspeak-keymap-remove-emacspeak-edit-commands speedbar-key-map))
+  )
 (defun emacspeak-speedbar-enter-hook ()
   "Actions taken when we enter the Speedbar"
   (declare (special speedbar-key-map

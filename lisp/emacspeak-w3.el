@@ -154,7 +154,6 @@
              (not (featurep 'w3-speak-table)))
     (load-library "w3-speak-table")
     (provide 'w3-speak-table))
-  (emacspeak-keymap-remove-emacspeak-edit-commands w3-mode-map)
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations 'w3-mode
                                                 emacspeak-pronounce-common-xml-namespace-uri-pronunciations)

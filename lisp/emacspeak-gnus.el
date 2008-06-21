@@ -77,12 +77,10 @@
   (declare (special gnus-summary-mode-map
                     gnus-group-mode-map
                     gnus-article-mode-map))
-  (when (boundp 'gnus-summary-mode-map)
-    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-summary-mode-map))
+  (when (boundp 'gnus-summary-mode-map))
   (when (boundp 'gnus-article-mode-map)
-    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-article-mode-map))
-  (when (boundp 'gnus-group-mode-map)
-    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-group-mode-map))
+    )
+  (when (boundp 'gnus-group-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map "T" 'gnus-summary-hide-all-headers )
   (define-key gnus-summary-mode-map "t"

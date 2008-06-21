@@ -363,9 +363,7 @@
 
 ;;}}}
 ;;{{{  keymap
-(eval-when (load)
-  (emacspeak-keymap-remove-emacspeak-edit-commands
-   calendar-mode-map))
+(eval-when (load))
 
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"

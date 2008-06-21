@@ -300,7 +300,6 @@
                       (declare (special ediff-mode-map
                                         voice-lock-mode))
                       (setq voice-lock-mode t)
-                      (emacspeak-keymap-remove-emacspeak-edit-commands ediff-mode-map)
                       (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)
                       (emacspeak-ediff-voicify-differences))))
 
