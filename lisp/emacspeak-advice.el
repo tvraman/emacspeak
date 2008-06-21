@@ -998,7 +998,6 @@ Produce an auditory icon if possible."
 
 (defadvice comint-output-filter (around emacspeak pre act)
   "Make comint speak its output."
-  (save-excursion
     (set-buffer (process-buffer (ad-get-arg 0)))
     (let ((prior (point ))
           (monitor emacspeak-comint-output-monitor)
@@ -1023,7 +1022,7 @@ Produce an auditory icon if possible."
             (emacspeak-speak-region prior (point ))
           (error (emacspeak-auditory-icon 'scroll)
                  (dtk-stop ))))
-      ad-return-value)))
+      ad-return-value))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
