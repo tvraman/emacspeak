@@ -134,7 +134,7 @@ Keystrokes are sent to a connected Firefox."
   (interactive)
   (comint-send-string
    (inferior-moz-process) 
-   (format "CLC_SR_StopSpeaking();repl.adom.keyPress(repl.adom.target(),'TAB')\n" )))
+   (format "CLC_SR_StopSpeaking();repl.adom.keyPress(repl.adom.root(),'TAB')\n" )))
 
 
 ;;;###autoload
