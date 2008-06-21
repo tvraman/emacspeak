@@ -124,7 +124,7 @@ Keystrokes are sent to a connected Firefox."
                     emacspeak-piglets-mode-map))
   (loop for edit-command in emacspeak-piglets-edit-commands
         do
-        (let ((edit-keys (where-is-internal edit-command emacspeak-piglets-mode-map)))
+        (let ((edit-keys (where-is-internal edit-command (list emacspeak-piglets-mode-map))))
           (loop for key in edit-keys 
                 do
                     (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))

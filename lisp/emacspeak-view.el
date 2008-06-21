@@ -300,7 +300,7 @@ keybindings for view mode")
     (setq emacspeak-view-keys-optimized t)
     (loop for edit-command in emacspeak-view-edit-commands
           do
-          (let ((edit-keys (where-is-internal edit-command view-mode-map)))
+          (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
             (loop for key in edit-keys 
                   do
                   (let ((command (lookup-key emacspeak-keymap key)))

@@ -143,7 +143,7 @@ speech flush as you type."
 
 (defun emacspeak-rebind(old-fn new-fn &optional keymap)
   "Rebinds new-fn to all those keys that normally invoke old-fn"
-  (let ((keys (where-is-internal old-fn keymap)))
+  (let ((keys (where-is-internal old-fn (list keymap))))
     (mapcar
      (if keymap
          #'(lambda (key)
