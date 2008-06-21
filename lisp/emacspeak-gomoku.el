@@ -350,10 +350,10 @@
 (defun emacspeak-gomoku-setup-keys ()
   "Add additional keybindings"
   (declare (special gomoku-mode-map))
-  (loop for key in (where-is-internal 'backward-char gomoku-mode-map)
+  (loop for key in (where-is-internal 'backward-char (list gomoku-mode-map))
         do
         (define-key gomoku-mode-map key 'gomoku-move-left))
-  (loop for key in (where-is-internal 'forward-char gomoku-mode-map)
+  (loop for key in (where-is-internal 'forward-char (list gomoku-mode-map))
         do
         (define-key gomoku-mode-map key 'gomoku-move-right))
   (define-key gomoku-mode-map "\t"

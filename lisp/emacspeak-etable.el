@@ -58,7 +58,7 @@
   (declare (special table-cell-map))
   (when  table-cell-map
     (loop for k in
-          (where-is-internal 'emacspeak-self-insert-command table-cell-map)
+          (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
           do
           (define-key table-cell-map k '*table--cell-self-insert-command ))
     (loop for k in
