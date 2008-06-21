@@ -502,9 +502,10 @@ relief."
   "We define keys that invoke editting commands to be undefined"
   (loop for k in
         (where-is-internal 'emacspeak-self-insert-command
-                           keymap)
+                           (list keymap))
         do
-        (define-key keymap k 'undefined )))
+        (define-key keymap k 'undefined )
+	))
 
 (defun emacspeak-keymap-refresh ()
   "Load emacspeak-keymap module."

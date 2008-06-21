@@ -346,8 +346,8 @@ Checked by emacspeak specific dis-mode-hooks entry.")
                      dismal-saved-variables)))))
 
 (declaim (special dismal-map))
-(eval-when (load)
-  (emacspeak-keymap-remove-emacspeak-edit-commands dismal-map))
+(eval-when (load))
+
 ;;; this assumes emacspeak-prefix is C-e
 ;;; and function-key-prefix is M-[
 (add-hook 'dis-mode-hooks

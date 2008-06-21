@@ -70,7 +70,7 @@
 (declaim (special mspools-mode-map))
 (eval-when (load)
   (require 'emacspeak-keymap)
-  (emacspeak-keymap-remove-emacspeak-edit-commands mspools-mode-map))
+  )
 
 ;;}}}
 (provide 'emacspeak-mspools)

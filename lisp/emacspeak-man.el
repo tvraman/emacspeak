@@ -160,7 +160,7 @@ Also provide an auditory icon"
   "emacspeak-view" "Move current line to top of window"  t)
 (declaim (special Man-mode-map))
 (eval-when (load)
-  (emacspeak-keymap-remove-emacspeak-edit-commands Man-mode-map))
+  )
 (declaim (special  Man-mode-map))
 (define-key Man-mode-map ";"
   'emacspeak-speak-current-window)

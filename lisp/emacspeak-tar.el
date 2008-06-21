@@ -176,7 +176,6 @@
 (defun emacspeak-tar-setup-keys ()
   "Setup emacspeak keys for tar mode"
   (declare (special tar-mode-map))
-  (emacspeak-keymap-remove-emacspeak-edit-commands tar-mode-map)
   (define-key tar-mode-map "z" 'emacspeak-tar-speak-file-size)       
   (define-key tar-mode-map "/" 'emacspeak-tar-speak-file-permissions)
   (define-key tar-mode-map "c" 'emacspeak-tar-speak-file-date)

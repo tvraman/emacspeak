@@ -215,7 +215,6 @@ first initializing it if necessary."
 (defun emacspeak-arc-setup-keys ()
   "Setup emacspeak keys for arc mode"
   (declare (special archive-mode-map))
-  (emacspeak-keymap-remove-emacspeak-edit-commands archive-mode-map)
   (define-key archive-mode-map "." 'emacspeak-arc-speak-file-name)
   (define-key archive-mode-map "c" 'emacspeak-arc-speak-file-modification-time)
   (define-key archive-mode-map "z" 'emacspeak-arc-speak-file-size)
