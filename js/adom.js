@@ -410,22 +410,57 @@ ADom.prototype.keyPress = function(targetNode,
     charCode = theKey.charCodeAt(0);
   }
   var evt = document.createEvent('KeyboardEvent');
-  evt.initKeyEvent('keypress',true,true,null,holdCtrl,
+  evt.initKeyEvent('keypress',true,true,
+  this.document_.defaultView,holdCtrl,
                    holdAlt,holdShift,false,keyCode,charCode);
   targetNode.dispatchEvent(evt);
 };
 
-/*
- * Send a keypress event to specified target.
- * @target: DOM node
- * @keyCode: KeyDown
- * @charCode: character code of key being pressed.
- */
 
-ADom.prototype.keyDown = function (target, keyCode, charCode) {  var evt =
-this.document_.createEvent('KeyboardEvent');
-evt.initKeyEvent('keypress',true,true,null,false,false,false,false,keyCode,charCode);
-target.dispatchEvent(evt);
+  /*
+   * send a key down 
+   */
+
+ADom.prototype.keyDown = function(targetNode,
+                                   theKey,
+                                   holdCtrl, holdAlt, holdShift){
+  var keyCode = 0;
+  var charCode = 0;
+  if (theKey == "ENTER"){
+    keyCode = 13;
+  } else   if (theKey == "TAB"){
+    keyCode = 9;
+  } else if (theKey.length == 1){
+    charCode = theKey.charCodeAt(0);
+  }
+  var evt = document.createEvent('KeyboardEvent');
+  evt.initKeyEvent('keydown',true,true,null,holdCtrl,
+                   holdAlt,holdShift,false,keyCode,charCode);
+  targetNode.dispatchEvent(evt);
+};
+
+
+
+  /*
+   * send a key up 
+   */
+
+ADom.prototype.keyUp = function(targetNode,
+                                   theKey,
+                                   holdCtrl, holdAlt, holdShift){
+  var keyCode = 0;
+  var charCode = 0;
+  if (theKey == "ENTER"){
+    keyCode = 13;
+  } else   if (theKey == "TAB"){
+    keyCode = 9;
+  } else if (theKey.length == 1){
+    charCode = theKey.charCodeAt(0);
+  }
+  var evt = document.createEvent('KeyboardEvent');
+  evt.initKeyEvent('keyup',true,true,null,holdCtrl,
+                   holdAlt,holdShift,false,keyCode,charCode);
+  targetNode.dispatchEvent(evt);
 };
 
 // >
