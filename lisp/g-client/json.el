@@ -1,30 +1,25 @@
 ;;; json.el --- JavaScript Object Notation parser / generator
 
-;; Copyright (C) 2006  Edward O'Connor <ted@oconnor.cx>
+;; Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
 
 ;; Author: Edward O'Connor <ted@oconnor.cx>
+;; Version: 1.2
 ;; Keywords: convenience
 
-;; This file is NOT part of GNU Emacs.
+;; This file is part of GNU Emacs.
 
-;; This is free software; you can redistribute it and/or modify it under
-;; the terms of the GNU General Public License as published by the Free
-;; Software Foundation; either version 2, or (at your option) any later
-;; version.
+;; GNU Emacs is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
 
-;; This file is distributed in the hope that it will be useful, but
-;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-;; General Public License for more details.
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with Emacs; see the file COPYING, or type `C-h C-c'. If not,
-;; write to the Free Software Foundation at this address:
-
-;;   Free Software Foundation
-;;   51 Franklin Street, Fifth Floor
-;;   Boston, MA 02110-1301
-;;   USA
+;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -45,17 +40,23 @@
 ;; Similarly, since `false' and `null' are distinct in JSON, you can
 ;; distinguish them by binding `json-false' and `json-null' as desired.
 
-;; The latest version of json.el can be found here:
-
-;;            <URL:http://edward.oconnor.cx/elisp/json.el>
-
 ;;; History:
 
 ;; 2006-03-11 - Initial version.
 ;; 2006-03-13 - Added JSON generation in addition to parsing. Various
 ;;              other cleanups, bugfixes, and improvements.
+;; 2006-12-29 - XEmacs support, from Aidan Kehoe <kehoea@parhasard.net>.
+;; 2008-02-21 - Installed in GNU Emacs.
 
 ;;; Code:
+
+(eval-when-compile (require 'cl))
+
+;; Compatibility code
+
+(defalias 'json-encode-char0 'encode-char)
+(defalias 'json-decode-char0 'decode-char)
+
 
 ;; Parameters
 
@@ -87,15 +88,15 @@ Sufficiently Weird keys. Consider let-binding this around your call to
 
 (defvar json-false :json-false
   "Value to use when reading JSON `false'.
-If this has the same value as `json-read-null-value', you might not be
-able to tell the difference between `false' and `null'. Consider let-
-binding this around your call to `json-read' instead of `setq'ing it.")
+If this has the same value as `json-null', you might not be able to tell
+the difference between `false' and `null'. Consider let-binding this
+around your call to `json-read' instead of `setq'ing it.")
 
 (defvar json-null nil
   "Value to use when reading JSON `null'.
-If this has the same value as `json-read-false-value', you might not be
-able to tell the difference between `false' and `null'. Consider let-
-binding this around your call to `json-read' instead of `setq'ing it.")
+If this has the same value as `json-false', you might not be able to
+tell the difference between `false' and `null'. Consider let-binding
+this around your call to `json-read' instead of `setq'ing it.")
 
 
 
@@ -106,13 +107,13 @@ binding this around your call to `json-read' instead of `setq'ing it.")
   (mapconcat 'identity strings separator))
 
 (defun json-alist-p (list)
-  "Non-null iff LIST is an alist."
+  "Non-null if and only if LIST is an alist."
   (or (null list)
       (and (consp (car list))
            (json-alist-p (cdr list)))))
 
 (defun json-plist-p (list)
-  "Non-null iff LIST is a plist."
+  "Non-null if and only if LIST is a plist."
   (or (null list)
       (and (keywordp (car list))
            (consp (cdr list))
@@ -196,14 +197,14 @@ KEYWORD is the keyword expected."
             (signal 'json-unknown-keyword
                     (list (save-excursion
                             (backward-word 1)
-                            (word-at-point)))))
+                            (thing-at-point 'word)))))
           (json-advance))
         keyword)
   (unless (looking-at "\\(\\s-\\|[],}]\\|$\\)")
     (signal 'json-unknown-keyword
             (list (save-excursion
                     (backward-word 1)
-                    (word-at-point)))))
+                    (thing-at-point 'word)))))
   (cond ((string-equal keyword "true") t)
         ((string-equal keyword "false") json-false)
         ((string-equal keyword "null") json-null)))
@@ -221,7 +222,9 @@ KEYWORD is the keyword expected."
 ;; Number parsing
 
 (defun json-read-number ()
-  "Read the JSON number following point."
+  "Read the JSON number following point.
+N.B.: Only numbers which can fit in Emacs Lisp's native number
+representation will be parsed correctly."
   (if (char-equal (json-peek) ?-)
       (progn
         (json-advance)
@@ -265,7 +268,7 @@ KEYWORD is the keyword expected."
      ((looking-at "[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]")
       (let ((hex (match-string 0)))
         (json-advance 4)
-        (decode-char 'ucs (string-to-number hex 16))))
+        (json-decode-char0 'ucs (string-to-number hex 16))))
      (t
       (signal 'json-string-escape (list (point)))))))
 
@@ -285,13 +288,15 @@ KEYWORD is the keyword expected."
       (setq char (json-peek)))
     ;; Skip over the '"'
     (json-advance)
-    (apply 'string (nreverse characters))))
+    (if characters
+        (apply 'string (nreverse characters))
+      "")))
 
 ;; String encoding
 
 (defun json-encode-char (char)
   "Encode CHAR as a JSON string."
-  (setq char (encode-char char 'ucs))
+  (setq char (json-encode-char0 char 'ucs))
   (let ((control-char (car (rassoc char json-special-chars))))
     (cond
      ;; Special JSON character (\n, \r, etc.)
@@ -517,4 +522,6 @@ Advances point just past JSON object."
         (t                     (signal 'json-error (list object)))))
 
 (provide 'json)
+
+;; arch-tag: 15f6e4c8-b831-4172-8749-bbc680c50ea1
 ;;; json.el ends here
