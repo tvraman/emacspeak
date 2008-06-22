@@ -143,6 +143,7 @@ speech flush as you type."
 
 (defun emacspeak-rebind(old-fn new-fn &optional keymap)
   "Rebinds new-fn to all those keys that normally invoke old-fn"
+  (when keymapp keymap)
   (let ((keys (where-is-internal old-fn (list keymap))))
     (mapcar
      (if keymap
@@ -150,7 +151,7 @@ speech flush as you type."
              (define-key keymap  key new-fn ))
        #'(lambda (key)
            (global-set-key key new-fn )))
-     keys )))
+     keys ))))
 
 (defvar emacspeak-functions-that-bypass-function-cell
   (list 'backward-char 'forward-char 'self-insert-command )
