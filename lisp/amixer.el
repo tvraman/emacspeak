@@ -196,7 +196,7 @@
   "Interactively manipulate ALSA settings."
   (interactive)
   (declare (special amixer-db))
-  (or amixer-db (amixer-load-db))
+  (amixer-load-db)
   (let ((control
          (cdr
           (assoc
