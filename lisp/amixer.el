@@ -155,8 +155,6 @@
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 
-
-
 ;;}}}
 ;;{{{ Amixer:
 
@@ -189,11 +187,14 @@
                   
 
 ;;;###autoload
-(defun amixer ()
-  "Interactively manipulate ALSA settings."
-  (interactive)
+(defun amixer (&optional refresh)
+  "Interactively manipulate ALSA settings.
+Interactive prefix arg refreshes cache."
+  (interactive "P")
   (declare (special amixer-db))
-  (amixer-build-db)
+  (when (or refresh
+            (null amixer-db))
+    (amixer-build-db))
   (let ((control
          (cdr
           (assoc
@@ -207,8 +208,8 @@
     (cond
      ((null control)
       (shell-command "alsactl restore")
-      (amixer-build-db)
-      (message "Reset sound to default"))
+      (message "Resetting  sound to default")
+      (amixer-build-db))
      (t
       (when (string=
              "ENUMERATED"
