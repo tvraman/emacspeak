@@ -39,12 +39,6 @@
 
 ;;}}}
 ;;{{{ Customizations:
-(defcustom amixer-pcm-volume 'max
-  "PCM Playback volume. "
-  :type '(choice
-          (integer :tag "Volume ")
-          (const :tag "Maximum" max))
-  :group 'amixer)
 
 ;;}}}
 ;;{{{ Definitions
