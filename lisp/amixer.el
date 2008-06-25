@@ -155,10 +155,7 @@
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
 
-(defun amixer-load-db ()
-  "Load amixer DB, after building it first if needed."
-  (unless amixer-db
-    (amixer-build-db)))
+
 
 ;;}}}
 ;;{{{ Amixer:
@@ -196,7 +193,7 @@
   "Interactively manipulate ALSA settings."
   (interactive)
   (declare (special amixer-db))
-  (amixer-load-db)
+  (amixer-build-db)
   (let ((control
          (cdr
           (assoc
@@ -210,6 +207,7 @@
     (cond
      ((null control)
       (shell-command "alsactl restore")
+      (amixer-build-db)
       (message "Reset sound to default"))
      (t
       (when (string=
