@@ -883,7 +883,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 (emacspeak-url-template-define
  "Finance Google Portfolio"
- "http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
+"http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
  nil nil
  "Download and display portfolio from Google Finance."
  #'(lambda (url)
