@@ -571,33 +571,8 @@ the documentation on the table browser."
   "Process a csv (comma separated values) file.
 The processed  data and presented using emacspeak table navigation. "
   (interactive "FFind CSV file: ")
-  (let ((scratch (get-buffer-create "*csv-scratch*"))
-        (table nil)
-        (elements nil)
-        (fields nil)
-        (buffer (get-buffer-create
-                 (format "*%s-table*"
-                         (file-name-nondirectory filename)))))
-    (save-excursion
-      (set-buffer scratch)
-      (fundamental-mode)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (insert-file-contents filename)
-      (flush-lines "^ *$")
-      (goto-char (point-min))
-      (setq elements
-            (make-vector (count-lines (point-min) (point-max))
-                         nil))
-      (loop for i from 0 to (1- (length elements))
-            do
-            (setq fields (ems-csv-get-fields))
-            (aset elements i (apply 'vector fields))
-            (forward-line 1))
-      (setq table (emacspeak-table-make-table elements)))
-    (kill-buffer scratch)
-    (emacspeak-table-prepare-table-buffer table buffer filename )
-    (emacspeak-table-speak-current-element)))
+  (let  ((buffer (find-file-noselect filename)))
+    (emacspeak-table-view-csv-buffer buffer)))
 
 ;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
