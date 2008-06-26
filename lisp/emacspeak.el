@@ -354,6 +354,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
        (add-hook hook
                  'emacspeak-setup-programming-mode))
    (list 'c-mode-common-hook
+         'conf-unix-mode-hook
          'prolog-mode-hook
          'lisp-mode-hook
          'emacs-lisp-mode-hook
