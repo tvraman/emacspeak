@@ -180,6 +180,7 @@ emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
 emacspeak-php-mode.elc \
 emacspeak-piglets.elc \
+emacspeak-proced.elc \
 emacspeak-psgml.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
@@ -391,6 +392,7 @@ emacspeak-piglets.elc: emacspeak-piglets.el emacspeak-moz.elc
 emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-personality.elc: emacspeak-personality.el
+emacspeak-proced.elc: emacspeak-proced.el dtk-speak.elc voice-setup.elc
 emacspeak-psgml.elc: emacspeak-psgml.el dtk-speak.elc voice-setup.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
