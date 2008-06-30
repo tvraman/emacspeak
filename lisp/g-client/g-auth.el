@@ -83,9 +83,9 @@
           (string :tag "username@gmail.com" ""))
   :group 'g)
 
-(defcustom g-auth-lifetime '(0 1800 0)
+(defcustom g-auth-lifetime '(18 30057 25269)
   "Lifetime of authentication token as a list suitable for
-`current-time'."
+`current-time'. Approximately 2 weeks."
   :type 'sexp
   :group 'g-auth)
 
