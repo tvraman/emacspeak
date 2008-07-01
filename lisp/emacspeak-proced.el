@@ -84,17 +84,31 @@
       (setq start next))
     (push
        (cons (substring header start)
-             (cons start  (1- (length header))))
+             (cons start  (window-width)))
        positions)
     (setq emacspeak-proced-fields
           (nreverse positions))))
+
+;;; Destructuring: (field-name . (start . end))
+(defsubst emacspeak-proced-field-name (entry)
+  "Return field name."
+  (car entry))
+
+(defsubst emacspeak-proced-field-start (entry)
+  "Return start column."
+  (cadr entry))
+
+(defsubst emacspeak-proced-field-end (entry)
+  "Return end column."
+  (cddr entry))
+
 (defsubst emacspeak-proced-field-to-position (field)
   "Return column position of this field."
   (declare (special emacspeak-proced-fields))
   (cdr (assoc field emacspeak-proced-fields)))
 
 (defun emacspeak-proced-position-to-field (position)
-  "Return field name for this position."
+  "Return field  for this position."
   (declare (special emacspeak-proced-fields))
   (let ((fields emacspeak-proced-fields)
     (field nil)
@@ -109,7 +123,18 @@
            (<= (car range) position)
            (<= position (cdr range)))
       (setq found t)))
-  (car field)))
+   field))
+
+(defun emacspeak-proced-speak-this-field (&optional position)
+  "Speak field at specified column --- defaults to current column."
+  (setq position
+        (or position (current-column)))
+  (let ((field (emacspeak-proced-position-to-field position)))
+          (message "%s %s"
+                   (car field)
+                   (buffer-substring
+                    (+ (line-beginning-position) (emacspeak-proced-field-start field))
+                    (+ (line-beginning-position) (emacspeak-proced-field-end field))))))
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -117,14 +142,16 @@
   (declare (special emacspeak-proced-fields))
   (let ((tabs emacspeak-proced-fields))
     (while (and tabs
-                (>= (current-column) (car tabs)))
+                (>= (current-column) (emacspeak-proced-field-start (car tabs))))
       (setq tabs (cdr tabs)))
     (cond
      ((null tabs) (error "On last field "))
      (t
       (goto-char
-       (+ (line-beginning-position) (car tabs)))
-      (emacspeak-auditory-icon 'large-movement)))))
+       (+ (line-beginning-position)
+          (emacspeak-proced-field-start (car tabs))))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-proced-speak-this-field)))))
 
 (defun emacspeak-proced-previous-field ()
   "Navigate to previous field."
@@ -134,23 +161,42 @@
         (target nil))
     (forward-char -1)
     (while (and tabs
-                (>= (current-column) (car tabs)))
+                (>= (current-column) (emacspeak-proced-field-start (car tabs))))
       (setq target (car tabs)
             tabs (cdr tabs)))
     (cond
      ((null target) (error "On first field "))
      (t
       (goto-char
-       (+ (line-beginning-position) target))
-      (emacspeak-auditory-icon 'large-movement)))))
+       (+ (line-beginning-position)
+          (emacspeak-proced-field-start target)))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-proced-speak-this-field)))))
 
-;;}}}
+(defun emacspeak-proced-speak-field (field-name)
+  "Speak value of specified field in current line."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+    (completing-read
+     "Field: "
+    (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)))))
+   (declare (special emacspeak-proced-fields))
+   (let ((field (assoc field-name emacspeak-proced-fields)))
+   (message "%s"
+            (buffer-substring
+             (+ (line-beginning-position) (emacspeak-proced-field-start field))
+             (+ (line-beginning-position) (emacspeak-proced-field-end field))))))
+  ;;}}}
 ;;{{{ Advice interactive commands:
 
-
-(defadvice proced-update (after emacspeak pre act comp)
+(loop for f in
+      '(proced proced-update)
+      do
+(eval
+ `(defadvice ,f (after emacspeak pre act comp)
   "Update cache of field positions."
-  (emacspeak-proced-update-fields))
+  (emacspeak-proced-update-fields))))
 
 (loop for f in
       '(proced-next-line proced-previous-line)
@@ -160,6 +206,8 @@
 	  "Speak relevant information."
 	  (emacspeak-speak-line 1)
 	  (emacspeak-auditory-icon 'select-object))))
+
+
 
 ;;}}}
 (provide 'emacspeak-proced)
