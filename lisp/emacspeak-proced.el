@@ -59,23 +59,61 @@
 ;;{{{ Variables
 
 (defvar emacspeak-proced-fields nil
-  "Records column position where each field starts.")
+  "Association list holding field-name . column-position pairs.")
 
 ;;}}}
 ;;{{{ Helpers and actions
 
-(defun emacspeak-proced-field-positions (header)
-  "Return list of column positions marking start of each field."
+(defun emacspeak-proced-update-fields ()
+  "Updates cache of field-name .column-positions alist."
+  (declare (special proced-header-line
+                    emacspeak-proced-fields))
   (let ((positions nil)
+        (next nil)
+        (header proced-header-line)
         (start 0)
         (end 0))
     (setq start (string-match "[A-Za-z%]" header))
-    (push start positions)
     (while (and (<  end (length header))
       (setq end (string-match " " header start)))
-      (setq start (string-match "[A-Za-z%]" header end))
-      (push start positions))
-    (nreverse positions)))
+      (setq next (string-match "[A-Za-z%]" header end))
+      (push
+       (cons (substring header start end)
+             (cons start (1- next)))
+       positions)
+      (setq start next))
+    (push
+       (cons (substring header start)
+             (cons start  (1- (length header))))
+       positions)
+    (setq emacspeak-proced-fields
+          (nreverse positions)))))
+
+(defsubst emacspeak-proced-field-to-position (field)
+  "Return column position of this field."
+  (declare (special emacspeak-proced-fields))
+  (cdr (assoc field emacspeak-proced-fields)))
+
+(defun emacspeak-proced-position-to-field (position)
+  "Return field name for this position."
+  (declare (special emacspeak-proced-fields))
+  (let ((fields emacspeak-proced-fields)
+    (field nil)
+    (range nil)
+    (found nil))
+  (while (and fields
+              (not found))
+    (setq field (car fields))
+    (setq range (cdr field))
+    (setq fields (cdr fields))
+    (when (and
+           (<= (car range) position)
+           (<= position (cdr range)))
+      (setq found t)))
+  (car field)))
+    (when (and
+           
+              
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -113,10 +151,11 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
+
 (defadvice proced-update (after emacspeak pre act comp)
   "Update cache of field positions."
   (setq emacspeak-proced-fields
-        (emacspeak-proced-field-positions proced-header-line)))
+        (emacspeak-proced-update-fields))
 (loop for f in
       '(proced-next-line proced-previous-line)
       do
