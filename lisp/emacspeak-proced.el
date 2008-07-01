@@ -87,8 +87,7 @@
              (cons start  (1- (length header))))
        positions)
     (setq emacspeak-proced-fields
-          (nreverse positions)))))
-
+          (nreverse positions))))
 (defsubst emacspeak-proced-field-to-position (field)
   "Return column position of this field."
   (declare (special emacspeak-proced-fields))
@@ -111,9 +110,6 @@
            (<= position (cdr range)))
       (setq found t)))
   (car field)))
-    (when (and
-           
-              
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -154,8 +150,8 @@
 
 (defadvice proced-update (after emacspeak pre act comp)
   "Update cache of field positions."
-  (setq emacspeak-proced-fields
-        (emacspeak-proced-update-fields))
+  (emacspeak-proced-update-fields))
+
 (loop for f in
       '(proced-next-line proced-previous-line)
       do
