@@ -58,6 +58,9 @@
 ;;}}}
 ;;{{{ Variables
 
+(defvar emacspeak-proced-fields nil
+  "Records column position where each field starts.")
+
 ;;}}}
 ;;{{{ Helpers and actions
 
@@ -74,9 +77,47 @@
       (push start positions))
     (nreverse positions)))
 
+(defun emacspeak-proced-next-field ()
+  "Navigate to next field."
+  (interactive)
+  (declare (special emacspeak-proced-fields))
+  (let ((tabs emacspeak-proced-fields))
+    
+    (while (and tabs
+                (>= (current-column) (car tabs)))
+      (setq tabs (cdr tabs)))
+    (cond
+     ((null tabs) (error "On last field "))
+     (t
+      (goto-char
+       (+ (line-beginning-position) (car tabs)))
+      (emacspeak-auditory-icon 'large-movement)))))
+
+(defun emacspeak-proced-previous-field ()
+  "Navigate to previous field."
+  (interactive)
+  (declare (special emacspeak-proced-fields))
+  (let ((tabs emacspeak-proced-fields)
+        (target nil))
+    (forward-char -1)
+    (while (and tabs
+                (>= (current-column) (car tabs)))
+      (setq target (car tabs)
+            tabs (cdr tabs)))
+    (cond
+     ((null target) (error "On first field "))
+     (t
+      (goto-char
+       (+ (line-beginning-position) target))
+      (emacspeak-auditory-icon 'large-movement)))))
+
 ;;}}}
 ;;{{{ Advice interactive commands:
 
+(defadvice proced-update (after emacspeak pre act comp)
+  "Update cache of field positions."
+  (setq emacspeak-proced-fields
+        (emacspeak-proced-field-positions proced-header-line)))
 (loop for f in
       '(proced-next-line proced-previous-line)
       do
