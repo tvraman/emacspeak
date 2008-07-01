@@ -61,6 +61,19 @@
 ;;}}}
 ;;{{{ Helpers and actions
 
+(defun emacspeak-proced-field-positions (header)
+  "Return list of column positions marking start of each field."
+  (let ((positions nil)
+        (start 0)
+        (end 0))
+    (setq start (string-match "[A-Za-z%]" header))
+    (push start positions)
+    (while (and (<  end (length header))
+      (setq end (string-match " " header start)))
+      (setq start (string-match "[A-Za-z%]" header end))
+      (push start positions))
+    (nreverse positions)))
+
 ;;}}}
 ;;{{{ Advice interactive commands:
 
