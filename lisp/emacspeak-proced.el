@@ -82,7 +82,6 @@
   (interactive)
   (declare (special emacspeak-proced-fields))
   (let ((tabs emacspeak-proced-fields))
-    
     (while (and tabs
                 (>= (current-column) (car tabs)))
       (setq tabs (cdr tabs)))
