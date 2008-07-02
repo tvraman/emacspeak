@@ -129,12 +129,24 @@
   "Speak field at specified column --- defaults to current column."
   (setq position
         (or position (current-column)))
-  (let ((field (emacspeak-proced-position-to-field position)))
-          (message "%s %s"
-                   (car field)
-                   (buffer-substring
-                    (+ (line-beginning-position) (emacspeak-proced-field-start field))
-                    (+ (line-beginning-position) (emacspeak-proced-field-end field))))))
+  (let ((field (emacspeak-proced-position-to-field position))
+        (start nil))
+    (save-excursion
+      (goto-char
+       (+ (line-beginning-position)
+          (emacspeak-proced-field-start field)))
+      (setq start (point))
+      (when (looking-at "[^ ]")
+        (skip-syntax-backward "^ ")
+        (setq start (point)))
+      (skip-syntax-forward " ")
+      (skip-syntax-forward "^ ")
+      (message
+       "%s: %s"
+       (emacspeak-proced-field-name field)
+       (buffer-substring start (point))))))
+      
+    
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -183,10 +195,8 @@
     (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)))))
    (declare (special emacspeak-proced-fields))
    (let ((field (assoc field-name emacspeak-proced-fields)))
-   (message "%s"
-            (buffer-substring
-             (+ (line-beginning-position) (emacspeak-proced-field-start field))
-             (+ (line-beginning-position) (emacspeak-proced-field-end field))))))
+   (emacspeak-proced-speak-this-field
+    (emacspeak-proced-field-start field))))
   ;;}}}
 ;;{{{ Advice interactive commands:
 
