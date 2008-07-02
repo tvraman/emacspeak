@@ -206,7 +206,7 @@
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
 (add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
-)
+
   ;;}}}
 ;;{{{ Advice interactive commands:
 
