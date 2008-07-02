@@ -58,6 +58,9 @@
 ;;}}}
 ;;{{{ Variables
 
+(defvar emacspeak-proced-minibuffer-history nil
+  "History variable to track minibuffer usage in proced.")
+
 (defvar emacspeak-proced-fields nil
   "Association list holding field-name . column-position pairs.")
 
@@ -192,7 +195,8 @@
     (let ((completion-ignore-case t))
     (completing-read
      "Field: "
-    (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)))))
+    (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
+    nil t nil))))
    (declare (special emacspeak-proced-fields))
    (let ((field (assoc field-name emacspeak-proced-fields)))
    (emacspeak-proced-speak-this-field
