@@ -197,6 +197,16 @@
    (let ((field (assoc field-name emacspeak-proced-fields)))
    (emacspeak-proced-speak-this-field
     (emacspeak-proced-field-start field))))
+
+(defun emacspeak-proced-add-keys ()
+  "Add additional keybindings for emacspeak."
+  (declare (special proced-mode-map))
+  (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
+  (define-key proced-mode-map [BACKTAB] 'emacspeak-proced-previous-field)
+  (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
+(add-hook 'proced-mode-hook
+          'emacspeak-proced-add-keys)
+)
   ;;}}}
 ;;{{{ Advice interactive commands:
 
