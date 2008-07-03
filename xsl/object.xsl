@@ -17,6 +17,12 @@ Transform HTML Object element into an anchor usable in W3.
  <xsl:value-of select="."/> 
 <xsl:text> </xsl:text>
 </xsl:template>
+<xsl:template match="button">
+  <input>
+      <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="node()"/>
+  </input>
+</xsl:template>
 <xsl:template match="a/div">
   <span>
       <xsl:apply-templates select="@*"/>
