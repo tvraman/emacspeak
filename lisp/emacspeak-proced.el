@@ -78,7 +78,7 @@
         (end 0))
     (setq start (string-match "[A-Za-z%]" header))
     (while (and (<  end (length header))
-      (setq end (string-match " " header start)))
+                (setq end (string-match " " header start)))
       (setq next (string-match "[A-Za-z%]" header end))
       (push
        (cons (substring header start end)
@@ -86,9 +86,9 @@
        positions)
       (setq start next))
     (push
-       (cons (substring header start)
-             (cons start  (window-width)))
-       positions)
+     (cons (substring header start)
+           (cons start  (window-width)))
+     positions)
     (setq emacspeak-proced-fields
           (nreverse positions))))
 
@@ -114,19 +114,19 @@
   "Return field  for this position."
   (declare (special emacspeak-proced-fields))
   (let ((fields emacspeak-proced-fields)
-    (field nil)
-    (range nil)
-    (found nil))
-  (while (and fields
-              (not found))
-    (setq field (car fields))
-    (setq range (cdr field))
-    (setq fields (cdr fields))
-    (when (and
-           (<= (car range) position)
-           (<= position (cdr range)))
-      (setq found t)))
-   field))
+        (field nil)
+        (range nil)
+        (found nil))
+    (while (and fields
+                (not found))
+      (setq field (car fields))
+      (setq range (cdr field))
+      (setq fields (cdr fields))
+      (when (and
+             (<= (car range) position)
+             (<= position (cdr range)))
+        (setq found t)))
+    field))
 
 (defun emacspeak-proced-speak-this-field (&optional position)
   "Speak field at specified column --- defaults to current column."
@@ -149,8 +149,27 @@
        "%s: %s"
        (emacspeak-proced-field-name field)
        (buffer-substring start (point))))))
-      
-    
+
+(defun emacspeak-proced-speak-that-field ()
+  "Speak desired field via single keystroke."
+  (interactive)
+  (case (read-char "?")
+    (?u (emacspeak-proced-speak-field "USER"))
+    (?p (emacspeak-proced-speak-field "PID"))
+    (?c (emacspeak-proced-speak-field "%CPU"))
+    (?m (emacspeak-proced-speak-field "%MEM"))
+    (?v (emacspeak-proced-speak-field "VSZ"))
+    (?r (emacspeak-proced-speak-field "RSS"))
+    (?T (emacspeak-proced-speak-field "TTY"))
+    (?S (emacspeak-proced-speak-field "STAT"))
+    (?s (emacspeak-proced-speak-field "START"))
+    (?t (emacspeak-proced-speak-field "TIME"))
+    (?\ (emacspeak-proced-speak-field "COMMAND"))
+    (otherwise (message "Pick field using mnemonic chars"))
+    (sit-for 1)))
+
+
+
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -194,14 +213,14 @@
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (completing-read
-     "Field: "
-    (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
-    nil t nil))))
-   (declare (special emacspeak-proced-fields))
-   (let ((field (assoc field-name emacspeak-proced-fields)))
-   (emacspeak-proced-speak-this-field
-    (emacspeak-proced-field-start field))))
+      (completing-read
+       "Field: "
+       (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
+       nil t nil))))
+  (declare (special emacspeak-proced-fields))
+  (let ((field (assoc field-name emacspeak-proced-fields)))
+    (emacspeak-proced-speak-this-field
+     (emacspeak-proced-field-start field))))
 
 (defun emacspeak-proced-add-keys ()
   "Add additional keybindings for emacspeak."
@@ -209,10 +228,12 @@
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
   (define-key proced-mode-map [BACKTAB] 'emacspeak-proced-previous-field)
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
+(define-key proced-mode-map ";" 'emacspeak-proced-speak-that-field)
+(define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
 (add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
 
-  ;;}}}
+;;}}}
 ;;{{{ Advice interactive commands:
 (defadvice proced-mark (before emacspeak pre act comp)
   "Provide auditory feedback."
@@ -226,7 +247,6 @@
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-proced-speak-this-field)))
 
-
 (defadvice proced-mark-all (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -239,14 +259,14 @@
     (message "Removed all marks. ")
     (emacspeak-auditory-icon 'deselect-object)))
 
-    
+
 (loop for f in
       '(proced proced-update)
       do
-(eval
- `(defadvice ,f (after emacspeak pre act comp)
-  "Update cache of field positions."
-  (emacspeak-proced-update-fields))))
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Update cache of field positions."
+          (emacspeak-proced-update-fields))))
 
 (loop for f in
       '(proced-next-line proced-previous-line)
@@ -256,8 +276,6 @@
 	  "Speak relevant information."
 	  (emacspeak-speak-line 1)
 	  (emacspeak-auditory-icon 'select-object))))
-
-
 
 ;;}}}
 (provide 'emacspeak-proced)
