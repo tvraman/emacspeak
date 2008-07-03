@@ -228,7 +228,7 @@
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
   (define-key proced-mode-map [BACKTAB] 'emacspeak-proced-previous-field)
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
-(define-key proced-mode-map ";" 'emacspeak-proced-speak-that-field)
+(define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
 (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
 (add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
