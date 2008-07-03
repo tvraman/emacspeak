@@ -130,6 +130,7 @@
 
 (defun emacspeak-proced-speak-this-field (&optional position)
   "Speak field at specified column --- defaults to current column."
+  (interactive)
   (setq position
         (or position (current-column)))
   (let ((field (emacspeak-proced-position-to-field position))
