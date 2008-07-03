@@ -63,6 +63,8 @@
 
 (defvar emacspeak-proced-fields nil
   "Association list holding field-name . column-position pairs.")
+(defvar emacspeak-proced-process-cache nil
+  "Cache of processes that are displayed.")
 
 ;;}}}
 ;;{{{ Helpers and actions
@@ -225,6 +227,7 @@
 (defun emacspeak-proced-add-keys ()
   "Add additional keybindings for emacspeak."
   (declare (special proced-mode-map))
+  (define-key proced-mode-map "j" 'emacspeak-proced-jump-to-process)
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
   (define-key proced-mode-map [BACKTAB] 'emacspeak-proced-previous-field)
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
@@ -232,6 +235,36 @@
 (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
 (add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
+
+(defun emacspeak-proced-update-process-cache ()
+  "Update cache of processes we are displaying."
+  (declare (special emacspeak-proced-process-cache))
+  (let ((cache nil))
+    (save-excursion
+      (goto-char (point-min))
+      (while (not (eobp))
+        (goto-char (+ (line-beginning-position)
+                      (car (emacspeak-proced-field-to-position "COMMAND"))))
+        (push
+         (buffer-substring-no-properties (point)
+                                         (line-end-position))
+         cache)
+        (forward-line 1))
+      (setq emacspeak-proced-process-cache (nreverse cache)))))
+
+
+(defun emacspeak-proced-jump-to-process (name)
+  "Jump to process by name."
+  (interactive
+   (list
+    (completing-read
+    "Jump to process: "
+    emacspeak-proced-process-cache)))
+  (declare (special emacspeak-proced-process-cache))
+  (goto-line
+   (1+ (position name  emacspeak-proced-process-cache
+                 :test #'string-equal)))
+  (emacspeak-proced-speak-this-field))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
@@ -266,7 +299,8 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Update cache of field positions."
-          (emacspeak-proced-update-fields))))
+          (emacspeak-proced-update-fields)
+          (emacspeak-proced-update-process-cache))))
 
 (loop for f in
       '(proced-next-line proced-previous-line)
