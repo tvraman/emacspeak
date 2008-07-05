@@ -15,7 +15,7 @@ shown in the output.
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
-  <xsl:output method="html" indent="yes" encoding="utf8"/>
+  <xsl:output method="html" indent="yes" encoding="utf-8"/>
   <xsl:include href="object.xsl"/>
   <!-- { html   -->
   <xsl:template match="//script|//meta|//iframe"/>
