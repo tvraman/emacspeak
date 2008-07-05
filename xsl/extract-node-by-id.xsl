@@ -13,7 +13,7 @@ Parameter base specifies base URL of source document.
   
   
   <xsl:output method="html" indent="yes"
-  encoding="utf8"/>
+  encoding="utf-8"/>
   <xsl:param name="node-id">1</xsl:param>  
   <xsl:param name="base"/>
   <xsl:include href="object.xsl"/>

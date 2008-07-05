@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--$Id$-->
 
 <!--
@@ -10,7 +10,7 @@ Transform HTML Object element into an anchor usable in W3.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
   
-  <xsl:output encoding="utf8"
+  <xsl:output encoding="utf-8"
   method="html"  indent="yes"/>
 <xsl:template match="td/@title">
 <xsl:text> </xsl:text>

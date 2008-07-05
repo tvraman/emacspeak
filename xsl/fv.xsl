@@ -8,7 +8,7 @@ Kitchen-sink Feed Viewer.
 <xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="1.0">
-  <xsl:output encoding="utf8" method="html" indent="yes"/>
+  <xsl:output encoding="utf-8" method="html" indent="yes"/>
   <xsl:include href="legacy-atom.xsl"/>
   <xsl:include href="rss.xsl"/>
 </xsl:stylesheet>
