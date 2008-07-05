@@ -715,6 +715,20 @@ If a rewrite rule is defined in the current buffer, we change
   "Tidy HTML before rendering."
   :type 'boolean
   :group 'emacspeak-w3)
+(defun emacspeak-w3-cleanup-bogus-quotes ()
+  "hack to fix magic quotes."
+  (goto-char (point-min))
+ (while (search-forward "’" nil t)
+      (replace-match "\'"))
+    (goto-char (point-min))
+    (while (search-forward "&\#147\;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&\#148\;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&\#180\;" nil t)
+      (replace-match "\'")))
 
 (defun emacspeak-w3-tidy (&optional buff)
   "Use html tidy to clean up the HTML in the current buffer."
@@ -727,6 +741,8 @@ If a rewrite rule is defined in the current buffer, we change
         (setq buff (current-buffer)))
       (setq buffer-undo-list t)
       (widen)
+      (when  emacspeak-we-cleanup-bogus-quotes
+    (emacspeak-w3-cleanup-bogus-quotes))
       (apply 'call-process-region
              (point-min) (point-max)
              emacspeak-w3-tidy-program
@@ -742,16 +758,9 @@ If a rewrite rule is defined in the current buffer, we change
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
 HTML."
-  (when emacspeak-we-cleanup-bogus-quotes
-    (goto-char (point-min))
-    (while (search-forward "&\#147\;" nil t)
-      (replace-match "\""))
-    (goto-char (point-min))
-    (while (search-forward "&\#148\;" nil t)
-      (replace-match "\""))
-    (goto-char (point-min))
-    (while (search-forward "&\#180\;" nil t)
-      (replace-match "\'")))
+ (when (and emacspeak-we-cleanup-bogus-quotes
+	    (not emacspeak-w3-tidy-html))
+    (emacspeak-w3-cleanup-bogus-quotes))
   (unless
       (or emacspeak-we-xsl-p
           (string-match "temp"
