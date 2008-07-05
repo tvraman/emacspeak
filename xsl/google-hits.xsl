@@ -6,7 +6,7 @@ License: GPL
 Description: Just show me the google hit list
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+  <xsl:output method="html" indent="yes" encoding="utf8"/>
   <xsl:param name="query"></xsl:param>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>

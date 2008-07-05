@@ -3,7 +3,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
   
-  <xsl:output encoding="iso8859-15"
+  <xsl:output encoding="utf8"
   method="html"  indent="yes"/>
   <xsl:template match="/">
     <html>

@@ -11,7 +11,7 @@ Description: Show  jabber messages.
   
   
   <xsl:output method="html" indent="yes"
-  encoding="iso8859-15"/>
+  encoding="utf8"/>
   <xsl:param name="session"/>
   
   <xsl:template match="jabber">

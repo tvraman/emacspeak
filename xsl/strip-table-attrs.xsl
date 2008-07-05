@@ -6,7 +6,7 @@ License: GPL
 Description: Strip attributes on table cells -utility sheet
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="xml" indent="yes" encoding="iso8859-15"/>
+  <xsl:output method="xml" indent="yes" encoding="utf8"/>
   <xsl:template match="*|@*">
     <xsl:copy>
       <xsl:if test="not (name(.)='table')         and not(name(.) ='tr')         and not(name(.)='td')">

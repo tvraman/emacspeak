@@ -35,7 +35,7 @@ used as the table-index for extract-tables.xsl.
   <!-- cache these for readability and efficiency -->
   <xsl:variable name="all" select="/descendant::table"/>
   <xsl:variable name="nested" select="//table//table"/>
-  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+  <xsl:output method="html" indent="yes" encoding="utf8"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
