@@ -751,8 +751,6 @@ HTML."
       (replace-match "\""))
     (goto-char (point-min))
     (while (search-forward "&\#180\;" nil t)
-      (replace-match "\'"))
-    (while (search-forward "’" nil t)
       (replace-match "\'")))
   (unless
       (or emacspeak-we-xsl-p
