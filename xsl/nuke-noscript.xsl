@@ -8,7 +8,7 @@ Nuke noscript element, otherwise identity.
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="iso8859-15"
+  <xsl:output encoding="utf8"
               method="html"  indent="yes"/>
   <!-- {identity default  -->   
   <!-- nuke these -->  

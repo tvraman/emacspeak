@@ -11,7 +11,7 @@ Description: Display all RSS links
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
   
-  <xsl:output method="xml" indent="yes" encoding="iso8859-1"/>
+  <xsl:output method="xml" indent="yes" encoding="utf8"/>
   <xsl:template name="generate-rss">
     <xsl:if test="count(//link[@type='application/rss+xml'])">
       <xsl:apply-templates select="//link[@type='application/rss+xml']" mode="rss"/>

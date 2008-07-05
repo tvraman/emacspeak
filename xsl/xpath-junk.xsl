@@ -15,7 +15,7 @@ shown in the output.
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
-  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+  <xsl:output method="html" indent="yes" encoding="utf8"/>
   <xsl:variable name="j" select="$locator"/>
   <xsl:template match="*|@*" mode="copy" >
     <xsl:if test="not(set:intersection(., $j))">

@@ -37,7 +37,7 @@ used as the table-index for extract-tables.xsl.
   version="1.0"
   exclude-result-prefixes="set">
   <xsl:output method="html" indent="yes"
-  encoding="iso8859-15"/>
+  encoding="utf8"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
