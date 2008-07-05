@@ -14,7 +14,7 @@ View an RSS feed as clean HTML
                 xmlns:str="http://exslt.org/strings"
                 version="1.0">
   <xsl:param name="base"/>
-  <xsl:output encoding="utf-8" method="xml" indent="yes"/>
+  <xsl:output encoding="utf8" method="xml" indent="yes"/>
   <!-- {rss 1.0 -->
   <xsl:template match="img">
     <xsl:if test="@alt">
