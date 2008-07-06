@@ -65,6 +65,10 @@
     (tts-restart)
     (message "This is Emacspeak! ")))
 
+(defun flite-configure-tts ()
+  (dectalk-configure-tts)
+  (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1 eight-bit-graphic)))
+
 ;;}}}
 
 (provide 'flite-voices)
