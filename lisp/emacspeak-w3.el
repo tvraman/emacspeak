@@ -706,7 +706,8 @@ If a rewrite rule is defined in the current buffer, we change
   (list "--show-warnings" "no" "--show-errors" "0" "--force-output" "yes"
         "-asxml" "-quiet"  "-bare" "-omit"
         "--drop-proprietary-attributes" "yes" "--hide-comments"
-        "yes")
+        "yes"
+	"-utf8")
   "Options to pass to tidy program"
   :type '(repeat string)
   :group 'emacspeak-w3)
@@ -717,9 +718,6 @@ If a rewrite rule is defined in the current buffer, we change
   :group 'emacspeak-w3)
 (defun emacspeak-w3-cleanup-bogus-quotes ()
   "hack to fix magic quotes."
-  (goto-char (point-min))
-  (while (search-forward "’" nil t)
-      (replace-match "\'"))
     (goto-char (point-min))
     (while (search-forward "&\#147\;" nil t)
       (replace-match "\""))
