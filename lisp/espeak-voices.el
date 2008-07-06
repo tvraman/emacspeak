@@ -459,6 +459,20 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ Configurater 
 
+(defvar espeak-character-to-speech-table nil
+  "Table that records how ISO ascii characters are spoken.")
+
+(defun espeak-setup-character-to-speech-table ()
+  (when (and (null espeak-character-to-speech-table)
+			 (boundp 'dtk-character-to-speech-table)
+			 (vectorp dtk-character-to-speech-table))
+	(setq espeak-character-to-speech-table
+		  (let ((table (copy-seq dtk-character-to-speech-table)))
+			(loop for entry across-ref table 
+				  when   (string-match "\\(\\[\\*\\]\\)"  entry) do
+				  (setf entry (replace-match " " nil nil  entry 1)))
+			table))))
+
 (defun espeak-configure-tts ()
   "Configure TTS environment to use eSpeak."
   (declare (special tts-default-speech-rate
@@ -471,7 +485,9 @@ and TABLE gives the values along that dimension."
   (fset 'tts-define-voice-from-speech-style 'espeak-define-voice-from-speech-style)
   (setq tts-default-voice nil)
   (setq tts-default-speech-rate espeak-default-speech-rate)
-  (set-default 'tts-default-speech-rate espeak-default-speech-rate))
+  (set-default 'tts-default-speech-rate espeak-default-speech-rate)
+  (espeak-setup-character-to-speech-table)
+  (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1)))
 
 ;;}}}
 (provide 'espeak-voices)

@@ -56,10 +56,12 @@
 (require 'backquote)
 (require 'custom)
 (require 'dtk-interp)
+(require 'dtk-unicode)
 (require 'dectalk-voices)
 (require 'outloud-voices)
 (require 'multispeech-voices)
 (require 'espeak-voices)
+(require 'flite-voices)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -1517,9 +1519,10 @@ available TTS servers.")
 (defsubst dtk-char-to-speech (char)
   "Translate CHAR to speech string."
   (declare (special dtk-character-to-speech-table))
-  (if (> char 127 )
-      (format "octal %o"  char )
-    (aref dtk-character-to-speech-table char )))
+  (if  (eq (char-charset char) 'ascii)
+	  (aref dtk-character-to-speech-table char )
+	(or (dtk-unicode-short-name-for-char char)
+		 (format "octal %o"  char ))))
 
 ;;}}}
 ;;{{{  interactively selecting the server:
@@ -1545,6 +1548,8 @@ This is setup on a per engine basis.")
     (espeak-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
+   ((string-match "eflite" tts-name)
+	(flite-configure-tts))
    (t (dectalk-configure-tts)           ; will become
                                         ; generic-configure)))
       ))
@@ -1770,6 +1775,7 @@ only speak upto the first ctrl-m."
           (when pronunciation-table
             (tts-apply-pronunciations
              pronunciation-table))
+		  (dtk-unicode-replace-chars mode)
           (dtk-handle-repeating-patterns mode)
           (dtk-quote mode))
         (goto-char (point-min))

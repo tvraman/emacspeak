@@ -963,7 +963,8 @@ spelt instead of being spoken."
 
 (defsubst emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
-  (= 119 (char-syntax c)))
+  (and (= ?w (char-syntax c))
+	   (memq (char-charset c) dtk-unicode-untouched-charsets)))
 
 ;;{{{  phonemic table
 
@@ -1040,6 +1041,7 @@ char is assumed to be one of a--z."
   (let ((char-string   (char-to-string char )))
     (or   (cdr
            (assoc char-string emacspeak-char-to-phonetic-table ))
+		  (dtk-unicode-full-name-for-char char)
           " ")))
 
 ;;}}}
@@ -1054,9 +1056,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
        ((and (not prefix)
              (emacspeak-is-alpha-p char))
         (dtk-speak (emacspeak-get-phonetic-string char )))
-       ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
-       (t (dtk-dispatch
-           (dtk-char-to-speech char )))))))
+	   (t (emacspeak-speak-this-char char))))))
 
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."

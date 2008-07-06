@@ -57,7 +57,7 @@ COMPILE =  -f batch-byte-compile
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
 outloud-voices.elc multispeech-voices.elc \
-espeak-voices.elc dtk-interp.elc
+espeak-voices.elc dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
@@ -277,7 +277,8 @@ emacspeak-cus-load.el: force
 #Modules using functions from the dtk module should depend on dtk-speak
 
 dtk-interp.elc: dtk-interp.el
-dtk-speak.elc: dtk-speak.el  dtk-interp.elc
+dtk-unicode.elc: dtk-unicode.el
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc
 acss-structure.elc: acss-structure.el
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc
 outloud-voices.elc: outloud-voices.el voice-setup.elc
