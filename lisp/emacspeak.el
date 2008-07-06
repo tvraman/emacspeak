@@ -77,9 +77,8 @@
                    "http://emacspeak.sf.net/publications"
                    :help-echo "Read papers describing Emacspeak
 design and implementation.")
-  :link '(url-link :tag "Mail"
-                   "http://www.cs.vassar.edu/~priestdo/emacspeak/"
-                   :help-echo "Browse Emacspeak mail archive at Vassar.")
+  :link '(url-link :tag "Emacs Tour" "http://www.gnu.org/s/emacs/tour/"
+                   :help-echo "A guided Tour Of Emacs")
   :link '(url-link :tag "Search"
                    "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
                    :help-echo "Search Emacspeak mail archive at Vassar.")
