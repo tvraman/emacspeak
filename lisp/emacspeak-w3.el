@@ -717,9 +717,6 @@ If a rewrite rule is defined in the current buffer, we change
   :group 'emacspeak-w3)
 (defun emacspeak-w3-cleanup-bogus-quotes ()
   "hack to fix magic quotes."
-  (goto-char (point-min))
- (while (search-forward "’" nil t)
-      (replace-match "\'"))
     (goto-char (point-min))
     (while (search-forward "&\#147\;" nil t)
       (replace-match "\""))
