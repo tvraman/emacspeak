@@ -752,6 +752,15 @@ If a rewrite rule is defined in the current buffer, we change
 (add-hook 'w3-parse-hooks 'emacspeak-w3-tidy)
 
 ;;}}}
+;;{{{ utf-8 
+(defadvice  w3-slow-parse-buffer (around emacspeak pre act comp)
+  "Force buffer encoding to utf-8."
+  (let ((coding-system-for-read 'utf-8)
+        (coding-system-for-write 'utf-8))
+    ad-do-it
+    ad-return-value))
+
+;;}}}
 ;;{{{ advice to call xslt
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
