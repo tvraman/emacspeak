@@ -1,6 +1,8 @@
 ;;; dtk-unicode.el --- Pronounce more characters correctly
 
 ;; Copyright 2007 Lukas Loehrer
+;;; TVR: Integrated into Emacspeak July 6, 2008
+;;; Using patch from Lukas.
 ;;
 ;; Author: Lukas Loehrer <loehrerl |at| gmx.net>
 ;; Version: $Id: dtk-unicode.el,v 0.0 2007/09/24 09:15:24 luke Exp $
@@ -24,9 +26,7 @@
 ;;; Commentary:
 
 ;; 
-
-;; Put this file into your load-path and the following into your ~/.emacs:
-;;   (require 'dtk-unicode)
+;;; This  Provides Unicode support to the speech layer.
 
 ;;; Code:
 
