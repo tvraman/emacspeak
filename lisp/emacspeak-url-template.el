@@ -931,6 +931,15 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "Public transit directions from Google.")
 
 (emacspeak-url-template-define
+ "Walking Directions From Google"
+ "http://maps.google.com/maps?f=d&output=html&hl=en&q=%s&dirmode=walking&ie=UTF8&dirflg=w"
+ (list "Route: ")
+ nil
+ "Display walking directions using Google."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "dir" url 'speak)))
+
+(emacspeak-url-template-define
  "EmapSpeak Via Google"
  "http://maps.google.com/maps?q=%s&output=kml"
  (list "Query: ")
