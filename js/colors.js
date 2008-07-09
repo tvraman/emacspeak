@@ -1,6 +1,9 @@
 //$Id:$
 
+
 /*
+ * Author: Charles Chen (clchen)
+ * Description:
   * This will convert RGB or HSV values to a named color.
  * RGB colors are first converted to HSV and then identifed by HSV.
  *
@@ -352,7 +355,7 @@ function identifyHSVColor(h,s,v){
   }
 
   // Now find the best S matches out of those
-  var length = hIndicesToCheck.length;
+  length = hIndicesToCheck.length;
   var sIndicesToCheck = new Array();
   for (i=0; currentColor = hsv[hIndicesToCheck[i]]; i++){
     sIndicesToCheck.push(hIndicesToCheck[i]);
@@ -373,7 +376,7 @@ function identifyHSVColor(h,s,v){
 
 
   // Now find the best V matches out of those
-  var length = sIndicesToCheck.length;
+  length = sIndicesToCheck.length;
   for (i=0; currentColor = hsv[sIndicesToCheck[i]]; i++){
 	currentColor = hsv[sIndicesToCheck[i]];
     if (i+1 >= length){
