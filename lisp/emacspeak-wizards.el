@@ -2971,6 +2971,23 @@ dates.")
   (emacspeak-speak-mode-line))
 
 ;;}}}
+;;{{{ JS wizard
+
+;;;###autoload
+(defun emacspeak-wizards-js ()
+  "Run JS in a comint sub-process."
+  (interactive)
+  (let ((process-environment '("PAGER=cat")))
+    (make-comint "js" "js"))
+  (switch-to-buffer "*js*")
+  (emacspeak-auditory-icon 'select-object)
+  (goto-char (point-max))
+  (unless emacspeak-comint-autospeak
+    (emacspeak-toggle-comint-autospeak))
+  (emacspeak-speak-mode-line))
+
+;;}}}
+
 ;;{{{ rivo
 
 (defvar emacspeak-wizards-rivo-program
