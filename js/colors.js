@@ -11,7 +11,6 @@
  * var myColorNameFromRGB = identifyRGBColor(r,g,b);
  * var myColorNameFromHSV= identifyHSVColor(h,s,v);
  */
-
 //Values are sorted so that H is more important than S which is more important than V
 var hsv =
 [
@@ -355,7 +354,7 @@ function identifyHSVColor(h,s,v){
   }
 
   // Now find the best S matches out of those
-  length = hIndicesToCheck.length;
+  var length = hIndicesToCheck.length;
   var sIndicesToCheck = new Array();
   for (i=0; currentColor = hsv[hIndicesToCheck[i]]; i++){
     sIndicesToCheck.push(hIndicesToCheck[i]);
@@ -376,7 +375,7 @@ function identifyHSVColor(h,s,v){
 
 
   // Now find the best V matches out of those
-  length = sIndicesToCheck.length;
+  var length = sIndicesToCheck.length;
   for (i=0; currentColor = hsv[sIndicesToCheck[i]]; i++){
 	currentColor = hsv[sIndicesToCheck[i]];
     if (i+1 >= length){
