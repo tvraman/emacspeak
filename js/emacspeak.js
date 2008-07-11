@@ -42,9 +42,12 @@ Emacspeak.prototype.init = function() {
     repl.load(js + 'di.js');
     repl.load(js + 'adom.js');
     window.addEventListener(
-                            'load',
-                            function () {repl.updateADom(); },
-                            true);
+                        "load",
+                        function () {
+                                     gBrowser.addEventListener('load', repl.updateADom, true);
+                                     },
+                        false);
+
     this.say('Emacspeak Enabled Firefox');
   } catch (err) {
     repl.print('Error during init ' + err);

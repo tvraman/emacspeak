@@ -355,9 +355,9 @@ title)\n"
   (comint-send-string
    (inferior-moz-process)
    (format
-    "%s.load('file://localhost%s');
-%s.emacspeak = new Emacspeak('%s');
-%s.emacspeak.init();"
+    "%s.load('file://localhost%s') \;
+%s.emacspeak = new Emacspeak('%s')\;
+%s.emacspeak.init()\;"
     moz-repl-name (expand-file-name "emacspeak.js" emacspeak-moz-js-directory)
     moz-repl-name emacspeak-directory
     moz-repl-name)))
