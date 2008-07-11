@@ -595,8 +595,8 @@ Optional interactive prefix arg `sort' turns on sorting."
    (cond
     ((looking-at "OK")
      (message "%s %s" action feed-url))
-    (t (error "Error %s: %s"
-              action (buffer-string))))))
+    (t (error "Error %s: "
+              action )))))
 
 (defsubst greader-read-item-url (prompt)
   "Smart reader for fetching item urls."
