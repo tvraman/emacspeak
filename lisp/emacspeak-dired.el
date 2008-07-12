@@ -341,8 +341,7 @@ options passed to command `file'."
 On a directory line, run du -s on the directory to speak its size."
   (interactive)
   (let ((filename (dired-get-filename nil t))
-        (size 0)
-        (dtk-stop-immediately nil))
+        (size 0))
     (cond
      ((and filename
            (file-directory-p filename))
