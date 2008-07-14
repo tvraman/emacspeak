@@ -478,6 +478,8 @@ instances."
 (defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
   (let ((buffer (url-retrieve-synchronously feed-url))
+	(coding-system-for-read 'utf-8)
+	(coding-system-for-write 'utf-8)
         (emacspeak-xslt-options nil))
     (when speak (emacspeak-webutils-autospeak))
     (cond
@@ -490,7 +492,7 @@ instances."
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))
-		 (decode-coding-region (point-min) (point-max) 'utf-8)
+	 (decode-coding-region (point-min) (point-max) 'utf-8)
          (emacspeak-xslt-region style
                                 (point-min) (point-max))
          (browse-url-of-buffer)))))))
