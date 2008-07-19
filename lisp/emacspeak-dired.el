@@ -347,7 +347,7 @@ On a directory line, run du -s on the directory to speak its size."
            (file-directory-p filename))
       (emacspeak-auditory-icon 'progress)
       (emacspeak-shell-command (format "du -s \'%s\'"
-				       (shell-quote-argumentfilename ))))
+				       (shell-quote-argument filename ))))
      (filename
       (setq size (nth 7 (file-attributes filename )))
                                         ; check for ange-ftp
