@@ -36,10 +36,12 @@ if {$port == ""} {set  port 22}
 set user_host [split $host "@"]
 set user [lindex $user_host 0]
 set host [lindex $user_host 1]
-if {$user == ""} {
-    set  user [exec whoami]
+if {$host == ""} {
+    set host $user
+    set user [exec whoami]
 }
-puts stderr "user is <$user>"
+    
+
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
