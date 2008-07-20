@@ -408,6 +408,7 @@ ADom.prototype.keyPress = function(targetNode,
     keyCode = 9;
   } else if (theKey.length == 1){
     charCode = theKey.charCodeAt(0);
+    keyCode = charCode;
   }
   var evt = document.createEvent('KeyboardEvent');
   evt.initKeyEvent('keypress',true,true,
