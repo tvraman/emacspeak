@@ -39,6 +39,7 @@ set host [lindex $user_host 1]
 if {$user == ""} {
     set  user [exec whoami]
 }
+puts stderr "user is <$user>"
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
