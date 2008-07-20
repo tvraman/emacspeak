@@ -22,7 +22,7 @@ my ($time, $line, $host) = unpack(RECORD_FORMAT, $record);
 if ( $host) {
 my $home=$ENV{HOME};
 open (OUT, "> $home/.emacspeak/.current-remote-hostname") or die "Cannot write output $!";
-print OUT $host, "\n";
+print OUT "$u\@$host\n";
 close OUT;
 } else {
   qx($CONSOLE_SND);
