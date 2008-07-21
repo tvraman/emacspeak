@@ -84,29 +84,27 @@ a local  Emacspeak terminal buffer.")
 (add-hook 'emacspeak-remote-hooks 'emacspeak-remote-default-hook)
 ;;}}}
 ;;{{{ Helper for guessing host where we came from:
+;;; see etc/last-log.pl
 
-;;; To get this to work,
-;;; put the following into your .login (csh)
-;;; or translate it to bash syntax and place it in your
-;;; .profile:
-
-                                        ;/bin/rm -f  ~/.emacspeak/.current-remote-hostname
-                                        ;set remote=`who am i`
-                                        ;if ( $;remote == 6 ) then
-                                        ;eval   set remote=$remote[6]
-                                        ;echo -n  "$remote" > ~/.emacspeak/.current-remote-hostname
-                                        ;endif
 
 ;;;Remote hostname guessing
 ;;;
 (declaim (special emacspeak-resource-directory))
 
 (defvar emacspeak-remote-hostname
-  (concat emacspeak-resource-directory
-          "/"
-          ".current-remote-hostname")
+  (expand-file-name  ".current-remote-hostname"
+          emacspeak-resource-directory)
   "Filename containing the name of the host we connected from")
 
+
+
+;;;###autoload
+(defun emacspeak-remote-edit-current-remote-hostname  ()
+  "Interactively set up where we came from.
+Value is persisted for use with ssh servers."
+  (declare (special emacspeak-remote-hostname))
+  (when (file-exists-p   emacspeak-remote-hostname )
+    (find-file emacspeak-remote-hostname)))
 (defun emacspeak-remote-get-current-remote-hostname  ()
   "Return the name of the remote hostname from where we connected if known"
   (declare (special emacspeak-remote-hostname))
