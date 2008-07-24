@@ -827,7 +827,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 (emacspeak-url-template-define
  "Google Reader"
  "http://www.google.com/reader/public/atom/feed/%s?n=100"
- (list "Feed:")
+ (list 'emacspeak-webutils-read-this-url )
  nil
  "Google Reader"
  'emacspeak-webutils-atom-display)
