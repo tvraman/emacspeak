@@ -102,6 +102,7 @@ a local  Emacspeak terminal buffer.")
 (defun emacspeak-remote-edit-current-remote-hostname  ()
   "Interactively set up where we came from.
 Value is persisted for use with ssh servers."
+  (interactive)
   (declare (special emacspeak-remote-hostname))
   (when (file-exists-p   emacspeak-remote-hostname )
     (find-file emacspeak-remote-hostname)))

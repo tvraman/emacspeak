@@ -1,18 +1,6 @@
-//$Id:$
 
-
-/*
- * Author: Charles Chen (clchen)
- * Description:
-  * This will convert RGB or HSV values to a named color.
- * RGB colors are first converted to HSV and then identifed by HSV.
- *
- * Usage:
- * var myColorNameFromRGB = identifyRGBColor(r,g,b);
- * var myColorNameFromHSV= identifyHSVColor(h,s,v);
- */
 //Values are sorted so that H is more important than S which is more important than V
-var hsv =
+var hsv = 
 [
 ['Chestnut',0,55,80],
 ['Falu red',0,81,50],
@@ -295,33 +283,24 @@ var hsv =
 ['Pale chestnut',358,22,87]
 ];
 
+
 function idSVOnlyColor(h,s,v){
-  var tol = 5;
-  if  ( (s + tol >= 0) &&
-        (s - tol <= 0) &&
-        (v + tol >= 0) &&
-        (v - tol <= 0) ){
-	return 'Black';
+  // This causes Platinum and Old Lavendar to be ignored.
+  // Platinum 	40	1	90
+  // Old Lavender 	270	3	22
+  if (s > 5){
+    return '';
+  }	
+  if (v < 25){
+    return 'Black';
   }
-  if  ( (s + tol >= 0) &&
-        (s - tol <= 0) &&
-        (v + tol >= 50) &&
-        (v - tol <= 50) ){
-	return 'Grey';
+  if (v < 70){
+    return 'Grey';
   }
-  if  ( (s + tol >= 0) &&
-        (s - tol <= 0) &&
-        (v + tol >= 75) &&
-        (v - tol <= 75) ){
-	return 'Silver';
+  if (v < 90){
+    return 'Silver';
   }
-  if  ( (s + tol >= 0) &&
-        (s - tol <= 0) &&
-        (v + tol >= 100) &&
-        (v - tol <= 100) ){
-	return 'White';
-  }
-  return '';
+  return 'White';
 }
 
 
@@ -341,7 +320,7 @@ function identifyHSVColor(h,s,v){
 	currentColor = hsv[i];
     if (i+1 >= length){
 	  break;
-	}
+	}	
 	nextColor = hsv[i+1];
 	var currentHDelta = Math.abs(currentColor[1] - h);
 	var nextHDelta = Math.abs(nextColor[1] - h);
@@ -353,15 +332,15 @@ function identifyHSVColor(h,s,v){
 	}
   }
 
-  // Now find the best S matches out of those
-  var length = hIndicesToCheck.length;
+  // Now find the best S matches out of those  
+  var length = hIndicesToCheck.length; 
   var sIndicesToCheck = new Array();
   for (i=0; currentColor = hsv[hIndicesToCheck[i]]; i++){
     sIndicesToCheck.push(hIndicesToCheck[i]);
 	currentColor = hsv[hIndicesToCheck[i]];
     if (i+1 >= length){
 	  break;
-	}
+	}	
 	nextColor = hsv[hIndicesToCheck[i+1]];
 	var currentSDelta = Math.abs(currentColor[2] - s);
 	var nextSDelta = Math.abs(nextColor[2] - s);
@@ -372,15 +351,15 @@ function identifyHSVColor(h,s,v){
       sIndicesToCheck = new Array();
 	}
   }
-
-
-  // Now find the best V matches out of those
-  var length = sIndicesToCheck.length;
+  
+  
+  // Now find the best V matches out of those  
+  var length = sIndicesToCheck.length; 
   for (i=0; currentColor = hsv[sIndicesToCheck[i]]; i++){
 	currentColor = hsv[sIndicesToCheck[i]];
     if (i+1 >= length){
 	  break;
-	}
+	}	
 	nextColor = hsv[sIndicesToCheck[i+1]];
 	var currentVDelta = Math.abs(currentColor[3] - v);
 	var nextVDelta = Math.abs(nextColor[3] - v);
@@ -397,11 +376,11 @@ function identifyRGBColor(r,g,b){
   var h = 0;
   var s = 0;
   var v = 0;
-
+  
   r = r/255;
   g = g/255;
   b = b/255;
-
+  
   var min = Math.min(r, g, b);
   var max = Math.max(r, g, b);
   var delta = max - min;
@@ -412,7 +391,7 @@ function identifyRGBColor(r,g,b){
 	s = 0;
   } else {
     s = (delta / max) * 100;
-
+	
 	deltaR = (((max - r) / 6) + (delta / 2)) / delta;
 	deltaG = (((max - g) / 6) + (delta / 2)) / delta;
 	deltaB = (((max - b) / 6) + (delta / 2)) / delta;
@@ -422,15 +401,15 @@ function identifyRGBColor(r,g,b){
 	} else if (g == max) {
 	  h = (1 / 3) + deltaR - deltaB;
 	} else {
-	  h = (2 / 3) + deltaG - deltaR;
+	  h = (2 / 3) + deltaG - deltaR;	
 	}
     // Loop around the circle if needed
 	if (h < 0){
 	  h = h + 1;
-	}
+	}  
 	if (h > 1){
 	  h = h - 1;
-	}
+	}  
     h = h * 360;
   }
   return(identifyHSVColor(h,s,v));
