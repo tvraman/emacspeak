@@ -113,14 +113,15 @@
 ;;{{{ Feed of feeds:
 
 (defvar gfinance-feeds-template-url
-  "'https://www.google.com/calendar/feeds/%s'"
-  "URL template for feed of feeds from calendar.")
+  "http://finance.google.com/finance/feeds/default/portfolios"
+  "URL template for feed of portfolios from Finance.")
+
 (defsubst gfinance-feeds-url (userid)
   "Return url for feed of feeds."
   (declare (special gfinance-feeds-template-url))
-  (format gfinance-feeds-template-url userid))
+   gfinance-feeds-template-url )
 
-(defun gfinance-skels ()
+(defun gfinance-portfolios ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
   (declare (special gfinance-auth-handle
