@@ -1019,7 +1019,7 @@ Here are some examples:
 ;;}}}
 ;;{{{ google translation service
 
-black(emacspeak-url-template-define
+(emacspeak-url-template-define
       "Multilingual dictionary via Google."
       "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
       (list
