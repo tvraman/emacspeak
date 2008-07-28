@@ -113,14 +113,14 @@
 ;;{{{ Feed of feeds:
 
 (defvar gfinance-feeds-template-url
-  "http://finance.google.com/finance/feeds/default/portfolios"
+  "'http://finance.google.com/finance/feeds/%s/portfolios'"
   "URL template for feed of portfolios from Finance.")
 
 (defsubst gfinance-feeds-url (userid)
   "Return url for feed of feeds."
   (declare (special gfinance-feeds-template-url))
-   gfinance-feeds-template-url )
-
+  (format gfinance-feeds-template-url userid))
+;;;###autoload
 (defun gfinance-portfolios ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
@@ -137,6 +137,23 @@
     (g-authorization gfinance-auth-handle)
     (gfinance-feeds-url
      (g-url-encode (g-auth-email gfinance-auth-handle))))
+   g-atom-view-xsl))
+;;;###autoload
+(defun gfinance-display-feed (feed-url)
+  "Retrieve and display feedat feed-url  after authenticating."
+  (interactive "sURL:")
+  (declare (special gfinance-auth-handle
+                    g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gfinance-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gfinance-auth-handle)
+    feed-url)
    g-atom-view-xsl))
 
 ;;}}}
