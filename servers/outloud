@@ -432,6 +432,7 @@ proc clean {element} {
         regsub -all --  {--} $element { `p10  } element
         regsub -all -- {-}  $element { `p1   } element 
     }
+    regsub -all {\240} $element " " element
     if {$tts(capitalize) } {
         regsub -all {[A-Z]} $element { `ar `p10   & } element
     }
