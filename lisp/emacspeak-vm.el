@@ -68,7 +68,7 @@ Note that some badly formed mime messages  cause trouble."
   "Setup function placed on vm-mode-hook by Emacspeak."
   (declare (special  dtk-punctuation-mode emacspeak-vm-voice-lock-messages
                      dtk-allcaps-beep))
-  (setq dtk-punctuation-mode 'some)
+  (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep))
   (emacspeak-dtk-sync)
