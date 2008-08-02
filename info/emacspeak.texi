@@ -9,6 +9,25 @@
  * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 @end direntry
 
+@titlepage
+
+     @title Emacspeak --The Complete Audio Desktop
+@subtitle User Manual
+@author T. V. Raman 
+     
+     @page
+     @vskip 0pt plus 1filll
+     Copyright @copyright{} 1994--2002 T. V. Raman. All Rights Reserved.
+
+
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+
+@summarycontents
+@contents
+@end titlepage
 
 @include preamble.texi
 @include copyright.texi
@@ -34,8 +53,5 @@
 @node Key Index
 @chapter Key Index
 @printindex ky
-
-@summarycontents
-@contents
      
      @bye
