@@ -358,6 +358,19 @@ Optional second arg watch-pattern specifies line of output to
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+;;;###autoload
+(defun emacspeak-alsaplayer-cd (directory)
+  "Change default directory, and silence its pronounciation."
+  (interactive
+   (list
+    (read-directory-name "Change to directory: ")))
+  (cd directory)
+  (save-excursion
+    (set-buffer emacspeak-alsaplayer-buffer)
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry
+     (expand-file-name directory)
+     ""))
+  (emacspeak-auditory-icon 'item))
 ;;}}}
 ;;{{{ additional temporal navigation 
 
@@ -530,7 +543,7 @@ Optional second arg watch-pattern specifies line of output to
         ("]" emacspeak-alsaplayer-forward-ten-minutes)
         ("[" emacspeak-alsaplayer-backward-ten-minutes)
         ("a" emacspeak-alsaplayer-add-to-queue)
-        ("d" cd)
+        ("d" emacspeak-alsaplayer-cd)
         ("f" emacspeak-alsaplayer-find-and-add-to-queue)
         ("A"
          emacspeak-alsaplayer-replace-queue)
