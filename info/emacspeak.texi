@@ -17,7 +17,7 @@
      
      @page
      @vskip 0pt plus 1filll
-     Copyright @copyright{} 1994--2002 T. V. Raman. All Rights Reserved.
+     Copyright @copyright{} 1994--2008 T. V. Raman. All Rights Reserved.
 
 
 Permission is granted to make and distribute verbatim copies of this
