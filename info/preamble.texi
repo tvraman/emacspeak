@@ -4,8 +4,10 @@
 @top Emacspeak
 
 
-This manual documents Emacspeak, a speech interface to Emacs.  The
-manual is divided into the following chapters.
+This manual documents Emacspeak, a speech interface to Emacs.  
+@ifinfo 
+The manual is divided into the following chapters. 
+@end ifinfo
 
 @menu
 * Copying: Copyright.
