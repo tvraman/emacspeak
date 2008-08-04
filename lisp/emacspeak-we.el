@@ -571,6 +571,33 @@ Tables are specified by containing  match pattern
                 ',(copy-sequence values))))))
     (kill-buffer content)))
 
+
+(defvar emacspeak-we-buffer-role-cache nil
+  "Caches role attribute values for current buffer.")
+
+(make-variable-buffer-local 'emacspeak-we-buffer-role-cache)
+
+(defsubst emacspeak-we-build-role-cache ()
+  "Build role cache and forward it to rendered page."
+  (let ((values nil)
+        (content (clone-buffer)))
+    (save-excursion
+      (set-buffer content)
+      (setq buffer-undo-list t)
+      (emacspeak-xslt-run
+       (emacspeak-xslt-get "role-values.xsl")
+       (point-min) (point-max))
+      (setq values (split-string (buffer-string))))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     (eval
+      `(function
+        (lambda nil
+          (declare (special  emacspeak-we-buffer-role-cache))
+          (setq emacspeak-we-buffer-role-cache
+                ',(copy-sequence values))))))
+    (kill-buffer content)))
+
 ;;;###autoload
 (defun emacspeak-we-extract-by-class (class    url &optional speak)
   "Extract elements having specified class attribute from HTML. Extracts
