@@ -929,7 +929,7 @@ and provide a completion list of applicable  property values. Filter document by
   (let* ((completion-ignore-case t)
          (choices
           (mapcar 'symbol-name (intersection
-                      '(id class style)
+                      '(id class style role)
                       (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
          (property
           (read
