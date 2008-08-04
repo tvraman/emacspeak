@@ -773,7 +773,8 @@ HTML."
           (string-match "temp"
                         (buffer-name)))
     (emacspeak-we-build-id-cache)
-    (emacspeak-we-build-class-cache))
+    (emacspeak-we-build-class-cache)
+    (emacspeak-we-build-role-cache))
   (when (and emacspeak-we-xsl-p
              emacspeak-we-xsl-transform
              (not  (string-match "temp" (buffer-name))))
