@@ -928,7 +928,10 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (emacspeak-url-encode
        (format-time-string "%m/%d/%y"))))
  nil
- "Public transit directions from Google.")
+ "Public transit directions from Google."
+ #'(lambda (url)
+(emacspeak-we-extract-by-class "directions"
+                            url 'speak)))
 
 (emacspeak-url-template-define
  "Walking Directions From Google"
