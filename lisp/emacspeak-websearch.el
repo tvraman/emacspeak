@@ -1788,7 +1788,7 @@ Results"
 (emacspeak-websearch-set-searcher 'exchange-rate-convertor
                                   'emacspeak-websearch-exchange-rate-convertor)
 
-(emacspeak-websearch-set-key ?x 'exchange-rate-convertor)
+(emacspeak-websearch-set-key ?X 'exchange-rate-convertor)
 
 (defvar emacspeak-websearch-exchange-rate-form
   (expand-file-name "xml-forms/exchange-rate-convertor.xml"
@@ -1817,6 +1817,33 @@ Results"
      "XEsmall"
      url 'speak)))
 
+;;}}}
+;;{{{ Yahoo Exchange rate convertor
+
+(emacspeak-websearch-set-searcher 'y-exchange-rate-convertor
+                                  'emacspeak-websearch-yahoo-exchange-rate-convertor)
+
+(emacspeak-websearch-set-key ?x 'y-exchange-rate-convertor)
+
+
+
+(defvar emacspeak-websearch-yahoo-exchange-rate-convertor-uri
+  "http://download.finance.yahoo.com/d/quotes.csv?s=%s=X&f=sl1d1t1ba&e=.csv"
+  "URI template  for currency conversion.")
+
+;;;###autoload
+(defun emacspeak-websearch-yahoo-exchange-rate-convertor (conversion-spec)
+  "Currency convertor."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Currency Convertor: FromTo:")))
+  (declare (special emacspeak-websearch-yahoo-exchange-rate-convertor-uri))
+  (let ((url 
+          (format emacspeak-websearch-yahoo-exchange-rate-convertor-uri
+                  (upcase  conversion-spec))))
+    
+))
 ;;}}}
 ;;{{{ my rss
 
