@@ -1839,11 +1839,22 @@ Results"
     (read-from-minibuffer
      "Currency Convertor: FromTo:")))
   (declare (special emacspeak-websearch-yahoo-exchange-rate-convertor-uri))
-  (let ((url 
+  (let* ((url 
           (format emacspeak-websearch-yahoo-exchange-rate-convertor-uri
-                  (upcase  conversion-spec))))
+		  (upcase  conversion-spec)))
+	 (buffer (url-retrieve-synchronously url)))
+    (save-excursion
+      (set-buffer buffer)
+      (goto-char (point-min))
+      (search-forward "\n\n")
+      (delete-region (point-min) (point))
+      (emacspeak-table-view-csv-buffer buffer)
+      (kill-buffer buffer)
+      (when (get-buffer "Currency Rates")
+	(kill-buffer "Currency Rates"))
+      (rename-buffer "Currency Rates"))))
     
-))
+
 ;;}}}
 ;;{{{ my rss
 
