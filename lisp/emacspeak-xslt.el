@@ -109,6 +109,8 @@ This is useful when handling bad HTML."
 
 ;;}}}
 ;;{{{ Functions:
+(defvar emacspeak-xslt-last-command nil
+  "Cache last xsltproc command we exectued.")
 
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
@@ -116,6 +118,7 @@ This is useful when handling bad HTML."
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options
+                    emacspeak-xslt-last-command
                     emacspeak-xslt-keep-errors modification-flag ))
   (let ((command nil)
         (parameters (when params
@@ -138,6 +141,8 @@ part of the libxslt package."
            (if emacspeak-xslt-keep-errors
                ""
              " 2>/dev/null ")))
+    (setq emacspeak-xslt-last-command
+          command)
     (shell-command-on-region start end
                              command
                              (current-buffer)
