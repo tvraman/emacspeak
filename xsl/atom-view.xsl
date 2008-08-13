@@ -25,6 +25,9 @@ View an Atom feed as clean HTML
 	<h1><xsl:value-of select="atom:title"
 	disable-output-escaping="yes"/>
 	</h1>
+<p>
+<xsl:apply-templates select="atom:subtitle"/>
+</p>
 	
 	<xsl:if test="count(atom:entry) > 1 ">
 	  <h2>Table Of Contents</h2>

@@ -607,7 +607,6 @@
    (list
     (read-from-minibuffer "Entry URL:")))
   (declare (special gphoto-auth-handle))
-
   (g-app-delete-entry gphoto-auth-handle url))
 
 ;;}}}
