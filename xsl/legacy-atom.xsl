@@ -28,6 +28,9 @@ only support the current Atom namespace.
         <h1><xsl:value-of select="atom:title|w3a:title"
         disable-output-escaping="yes"/>
         </h1>
+<p>
+<xsl:apply-templates select="atom:subtitle"/>
+</p>
         
         <xsl:if test="(count(atom:entry) > 1)
                       or (count(w3a:entry) > 1)">
