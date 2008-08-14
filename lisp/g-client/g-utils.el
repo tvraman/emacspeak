@@ -240,6 +240,22 @@ Customize this to live on your local disk."
   "Return object.key from json object or nil if not found."
   (cdr (assoc key object)))
 
+;;; Make sure to call json-read
+;;; with json-key-type bound to 'string before using this:
+
+(defsubst g-json-lookup (key object)
+  "Return object.key from json object or nil if not found.
+Key  is a string of of the form a.b.c"
+  (let ((name  (split-string key "\\." 'omit-null))
+        (v object))
+    (while (and name
+                (setq v (cdr (assoc (car name) v))))
+      (setq name (cdr name)))
+    (cond
+     ((null name) v)
+     (t nil))))
+
+
 (defalias 'g-json-aref 'aref)
 
 ;;}}}
