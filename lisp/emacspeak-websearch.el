@@ -1136,8 +1136,7 @@ Optional interactive  prefix arg local-flag prompts for local
    (list
     (completing-read "Engine: "
                      emacspeak-websearch-google-launch-uris)
-    (completing-read "Google For:"
-                     (dynamic-completion-table emacspeak-webutils-google-suggest))))
+    (emacspeak-webutils-google-autocomplete "Google for: ")))
   (declare (special emacspeak-websearch-read-query))
   (browse-url
    (concat (cdr (assoc engine
@@ -1228,8 +1227,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "Google mobile search."
   (interactive
    (list
-    (completing-read  "Google Mobile for: "
-                      (dynamic-completion-table emacspeak-webutils-google-suggest))))
+    (emacspeak-webutils-google-autocomplete "Google Mobile: ")))
   (declare (special emacspeak-websearch-google-mobile-uri))
   (browse-url
    (concat emacspeak-websearch-google-mobile-uri
