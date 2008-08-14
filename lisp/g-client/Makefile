@@ -51,6 +51,7 @@ gfinance.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
+gsearch.elc \
 gtube.elc \
 gsheet.elc
 
@@ -86,6 +87,7 @@ g.elc: g.el  g-auth.elc
 gfinance.elc: gfinance.el g-app.elc
 greader.elc: greader.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
+gsearch.elc: gsearch.el g-utils.elc
 gcal.elc: gcal.el g-app.elc
 gnotebook.elc: gnotebook.el g-app.elc
 gblogger.elc: gblogger.el g-app.elc
