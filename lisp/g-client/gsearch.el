@@ -69,9 +69,62 @@
 ;;}}}
 ;;{{{ Variables
 
-(defvar gsearch-url-template
-    "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s"
-    "URL template for Websearch end-point.")
+(defvar gsearch-search-command
+  "curl -s 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s'"
+  "URL template for Websearch command.")
+
+;;}}}
+;;{{{ Search Helpers
+(defsubst gsearch-results (query)
+  "Return results list."
+  (declare (special gsearch-search-command))
+  (let ((buffer (get-buffer-create "*Google Results*"))
+        (json-key-type 'string))
+    (save-current-buffer
+      (set-buffer buffer)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (shell-command
+       (format gsearch-search-command (g-url-encode query))
+       buffer)
+      (goto-char (point-min))
+      (g-json-lookup "responseData.results"
+                     (json-read)))))
+
+;;}}}
+;;{{{ Interactive Commands:
+
+(defun gsearch-google-at-point (search-term)
+  "Google for term at point, and display top result succinctly.
+Attach URL at point so we can follow it later."
+  (interactive
+   (list
+    (unless (get-text-property (point) 'lucky-url)
+      (let ((word (thing-at-point 'word)))
+        (completing-read
+         "Google: "
+         (gsearch-suggest word)
+         nil nil  word nil)))))
+  (cond
+   ((get-text-property (point) 'lucky-url)
+    (browse-url (get-text-property (point) 'lucky-url)))
+   (t 
+    (let ((lucky (aref (gsearch-results (g-url-encode search-term)) 0))
+          (inhibit-read-only t)
+          (bounds (bounds-of-thing-at-point 'word))
+          (modified-p (buffer-modified-p)))
+      (add-text-properties   (car bounds) (cdr bounds)
+                             (list 'lucky-url
+                                   (g-json-get "url" lucky)
+                                   'face 'highlight
+                                   'front-sticky nil
+                                   'rear-sticky nil))
+      (set-buffer-modified-p modification-flag)
+      (message "%s %s"
+               (g-json-get "titleNoFormatting" lucky)
+               (g-json-get "content" lucky))))))
+
+
 
 ;;}}}
 ;;{{{ google suggest helper:
@@ -132,9 +185,9 @@
         ;; spaces
         (completion-ignore-case t))
     (g-url-encode
-    (completing-read
-     (or prompt "Google: ")
-                     'gsearch-suggest-completer))))
+     (completing-read
+      (or prompt "Google: ")
+      'gsearch-suggest-completer))))
 
 ;;}}}
 
