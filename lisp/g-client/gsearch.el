@@ -96,41 +96,6 @@
       result)))
 
 ;;}}}
-;;{{{ Interactive Commands:
-
-(defun gsearch-google-at-point (search-term)
-  "Google for term at point, and display top result succinctly.
-Attach URL at point so we can follow it later."
-  (interactive
-   (list
-    (unless (get-text-property (point) 'lucky-url)
-      (let ((word (thing-at-point 'word)))
-        (completing-read
-         "Google: "
-         (gsearch-suggest word)
-         nil nil  word nil)))))
-  (cond
-   ((get-text-property (point) 'lucky-url)
-    (browse-url (get-text-property (point) 'lucky-url)))
-   (t 
-    (let ((lucky (aref (gsearch-results (g-url-encode search-term)) 0))
-          (inhibit-read-only t)
-          (bounds (bounds-of-thing-at-point 'word))
-          (modified-p (buffer-modified-p)))
-      (add-text-properties   (car bounds) (cdr bounds)
-                             (list 'lucky-url
-                                   (g-json-get "url" lucky)
-                                   'face 'highlight
-                                   'front-sticky nil
-                                   'rear-sticky nil))
-      (set-buffer-modified-p modification-flag)
-      (message "%s %s"
-               (g-json-get "titleNoFormatting" lucky)
-               (g-json-get "content" lucky))))))
-
-
-
-;;}}}
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
@@ -194,6 +159,46 @@ Attach URL at point so we can follow it later."
       'gsearch-suggest-completer))))
 
 ;;}}}
+;;{{{ Interactive Commands:
+
+(defun gsearch-google-at-point (search-term &optional refresh)
+  "Google for term at point, and display top result succinctly.
+Attach URL at point so we can follow it later --- subsequent invocations of this command simply follow that URL.
+Optional interactive prefix arg `refresh' forces this cached URL to be refreshed."
+  (interactive
+   (list
+    (unless(and (not current-prefix-arg)
+                (get-text-property (point) 'lucky-url))
+      (let ((word (thing-at-point 'word)))
+        (completing-read
+         "Google: "
+         (gsearch-suggest word)
+         nil nil  word nil)))
+    current-prefix-arg))
+  (cond
+   ((and (not refresh)
+         (get-text-property (point) 'lucky-url))
+    (browse-url (get-text-property (point) 'lucky-url)))
+   (t 
+    (let ((lucky (aref (gsearch-results (g-url-encode search-term)) 0))
+          (inhibit-read-only t)
+          (bounds (bounds-of-thing-at-point 'word))
+          (modified-p (buffer-modified-p)))
+      (add-text-properties   (car bounds) (cdr bounds)
+                             (list 'lucky-url
+                                   (g-json-get "url" lucky)
+                                   'face 'highlight
+                                   'front-sticky nil
+                                   'rear-sticky nil))
+      (set-buffer-modified-p modified-p)
+      (message "%s %s"
+               (g-json-get "titleNoFormatting" lucky)
+               (g-json-get "content" lucky))))))
+
+
+
+;;}}}
+
 
 
 (provide 'gsearch)
