@@ -42,6 +42,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'gsearch)
 (require  'emacspeak-we)
 (require 'calendar)
 
@@ -944,7 +945,7 @@ Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google."
   (interactive
    (list
-    (emacspeak-webutils-google-autocomplete)
+    (gsearch-google-autocomplete)
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
@@ -986,7 +987,7 @@ I'm Feeling Lucky button on Google."
   "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
    (list
-    (emacspeak-webutils-google-autocomplete "AGoogle: ")))
+    (gsearch-google-autocomplete "AGoogle: ")))
   (declare (special emacspeak-websearch-accessible-google-url
                     emacspeak-websearch-google-uri))
   (let ((emacspeak-w3-tidy-html nil)
@@ -1004,7 +1005,7 @@ I'm Feeling Lucky button on Google."
   "Do a I'm Feeling Lucky Google search."
   (interactive
    (list
-    (emacspeak-webutils-google-autocomplete "Google Lucky Search: ")))
+    (gsearch-google-autocomplete "Google Lucky Search: ")))
   (emacspeak-websearch-google query 'lucky))
 
 (emacspeak-websearch-set-searcher 'google-specialize
@@ -1136,7 +1137,7 @@ Optional interactive  prefix arg local-flag prompts for local
    (list
     (completing-read "Engine: "
                      emacspeak-websearch-google-launch-uris)
-    (emacspeak-webutils-google-autocomplete "Google for: ")))
+    (gsearch-google-autocomplete "Google for: ")))
   (declare (special emacspeak-websearch-read-query))
   (browse-url
    (concat (cdr (assoc engine
@@ -1227,7 +1228,7 @@ Optional interactive  prefix arg local-flag prompts for local
   "Google mobile search."
   (interactive
    (list
-    (emacspeak-webutils-google-autocomplete "Google Mobile: ")))
+    (gsearch-google-autocomplete "Google Mobile: ")))
   (declare (special emacspeak-websearch-google-mobile-uri))
   (browse-url
    (concat emacspeak-websearch-google-mobile-uri
