@@ -152,11 +152,14 @@
   "Read user input using Google Suggest for auto-completion."
   (let ((minibuffer-completing-file-name t) ;; so we can type
         ;; spaces
-        (completion-ignore-case t))
+        (completion-ignore-case t)
+        (word (thing-at-point 'word)))
     (g-url-encode
      (completing-read
       (or prompt "Google: ")
-      'gsearch-suggest-completer))))
+      'gsearch-suggest-completer
+      nil nil
+      word nil word))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
