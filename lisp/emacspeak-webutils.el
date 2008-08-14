@@ -188,69 +188,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                'at-end)))
 
 ;;}}}
-;;{{{ google suggest helper:
-
-;;; Get search completions from Google
-;;; Inspired by code found on Emacs Wiki:
-;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
-;;; Changed to using csv=true thanks to Ami Fishman
-;;; As a result, this version is  more efficient
-(defvar emacspeak-webutils-google-suggest-command
-  "curl -s\
- 'http://www.google.com/complete/search?csv=true&qu=%s' \
- | head -2 | tail -1 \
-| sed -e 's/\"//g'"
-  "Command that gets suggestions from Google.")
-
-(defvar emacspeak-webutils-google-suggest-json
-  "curl -s\
- 'http://www.google.com/complete/search?json=true&qu=%s' "
-  "URL  that gets suggestions from Google as JSON.")
-
-(defsubst emacspeak-webutils-google-suggest (input)
-  "Get completion list from Google Suggest."
-  (declare (special emacspeak-webutils-google-suggest-json))
-  (let ((buffer (get-buffer-create "*Google AutoComplete*")))
-    (save-current-buffer
-      (set-buffer buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (shell-command
-       (format emacspeak-webutils-google-suggest-json
-               (emacspeak-url-encode input))
-       buffer)
-      (goto-char (point-min))
-      ;; A JSON array is a vector.
-      ;; read it, filter the comma separators found as symbols.
-      (delq'\,
-       (append                          ; vector->list
-        (aref (read (current-buffer)) 2)
-        nil)))))
-
-
-(defun emacspeak-webutils-google-suggest-completer (string predicate mode)
-  "Generate completions using Google Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer)))) 
-    (complete-with-action mode 
-                          (emacspeak-webutils-google-suggest string) 
-                          string predicate)))
-
-(defsubst emacspeak-webutils-google-autocomplete (&optional prompt)
-  "Read user input using Google Suggest for auto-completion."
-  (let ((minibuffer-completing-file-name t) ;; so we can type
-        ;; spaces
-        (completion-ignore-case t))
-    (emacspeak-url-encode
-    (completing-read
-     (or prompt "Google: ")
-                     'emacspeak-webutils-google-suggest-completer))))
-
-;;}}}
 ;;{{{ helper macros:
 
 ;;; tVR: moving these from emacspeak-w3 to this module.
