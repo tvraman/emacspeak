@@ -78,7 +78,8 @@
 (defsubst gsearch-results (query)
   "Return results list."
   (declare (special gsearch-search-command))
-  (let ((buffer (get-buffer-create "*Google Results*"))
+  (let ((result nil)
+        (buffer (get-buffer-create " *Google Results*"))
         (json-key-type 'string))
     (save-current-buffer
       (set-buffer buffer)
@@ -88,8 +89,11 @@
        (format gsearch-search-command (g-url-encode query))
        buffer)
       (goto-char (point-min))
+      (setq result
       (g-json-lookup "responseData.results"
-                     (json-read)))))
+                     (json-read)))
+      (bury-buffer result)
+      result)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
