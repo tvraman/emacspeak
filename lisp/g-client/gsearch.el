@@ -104,7 +104,7 @@
       (erase-buffer)
       (shell-command
        (format gsearch-suggest-json
-               (emacspeak-url-encode input))
+               (g-url-encode input))
        buffer)
       (goto-char (point-min))
       ;; A JSON array is a vector.
@@ -131,7 +131,7 @@
   (let ((minibuffer-completing-file-name t) ;; so we can type
         ;; spaces
         (completion-ignore-case t))
-    (emacspeak-url-encode
+    (g-url-encode
     (completing-read
      (or prompt "Google: ")
                      'gsearch-suggest-completer))))
