@@ -92,7 +92,7 @@
       (setq result
       (g-json-lookup "responseData.results"
                      (json-read)))
-      (bury-buffer result)
+      (bury-buffer buffer)
       result)))
 
 ;;}}}
