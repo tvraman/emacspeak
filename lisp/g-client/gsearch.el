@@ -161,6 +161,11 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+;;; Need to be smarter about guessing default term 
+;;; thing-at-point can return an empty string,
+;;; and this is not a good thing for Google Suggest which will error out.
+
+;;;###autoload
 (defun gsearch-google-at-point (search-term &optional refresh)
   "Google for term at point, and display top result succinctly.
 Attach URL at point so we can follow it later --- subsequent invocations of this command simply follow that URL.
@@ -172,7 +177,8 @@ Optional interactive prefix arg `refresh' forces this cached URL to be refreshed
       (let ((word (thing-at-point 'word)))
         (completing-read
          "Google: "
-         (gsearch-suggest word)
+         (when word 
+           (gsearch-suggest word))
          nil nil  word nil)))
     current-prefix-arg))
   (cond
