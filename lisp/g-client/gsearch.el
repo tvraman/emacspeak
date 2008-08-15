@@ -178,7 +178,8 @@ Optional interactive prefix arg `refresh' forces this cached URL to be refreshed
    (list
     (unless(and (not current-prefix-arg)
                 (get-text-property (point) 'lucky-url))
-      (let ((word (thing-at-point 'word)))
+      (let ((word (thing-at-point 'word))
+            (minibuffer-completing-file-name t));;  can typespace
         (completing-read
          "Google: "
          (when word 
