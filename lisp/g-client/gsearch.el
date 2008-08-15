@@ -82,7 +82,7 @@
   (let ((result nil)
         (buffer (get-buffer-create " *Google Results*"))
         (json-key-type 'string))
-    (save-current-buffer
+    (save-excursion
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
