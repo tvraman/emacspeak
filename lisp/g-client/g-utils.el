@@ -276,8 +276,11 @@ Key  is a string of of the form a.b.c"
 
 (defsubst g-get-result (command)
   "Run command and return its output."
+  (declare (special shell-file-name shell-command-switch))
   (g-using-scratch
-   (shell-command command (current-buffer) 'replace)
+   (call-process shell-file-name nil t
+                      nil shell-command-switch 
+                      command)
    (buffer-string)))
 
 (defsubst g-json-get-result(command)
@@ -292,7 +295,9 @@ Typically, content is pulled using Curl , converted to HTML using style  and
   previewed via `g-html-handler'."
   (declare (special g-xslt-program g-html-handler))
   (g-using-scratch
-   (shell-command command (current-buffer))
+   (call-process shell-file-name nil t
+                      nil shell-command-switch 
+                      command)
    (when style
      (g-xsl-transform-region (point-min) (point-max) style))
    (funcall g-html-handler (current-buffer))))
