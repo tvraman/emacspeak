@@ -147,17 +147,20 @@
 
 (defsubst gsearch-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
-  (let ((minibuffer-completing-file-name t) ;; so we can type
-        ;; spaces
+  (let ((minibuffer-completing-file-name t) ;; accept spaces
         (completion-ignore-case t)
-        (word (thing-at-point 'word)))
-    (g-url-encode
-     (completing-read
-      (or prompt "Google: ")
-      'gsearch-suggest-completer
-      nil nil
-      nil nil
-      'gsearch-history word))))
+        (word (thing-at-point 'word))
+        (query nil))
+    (setq query
+          (g-url-encode
+           (completing-read
+            (or prompt "Google: ")
+            'gsearch-suggest-completer
+            nil nil nil nil
+            'gsearch-history word)))
+    (setq gsearch-history
+          (cons query (delete query gsearch-history)))
+    query))
 
 ;;}}}
 ;;{{{ Interactive Commands:
