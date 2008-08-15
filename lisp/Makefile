@@ -45,7 +45,11 @@ SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file   -eval '(setq vc-handled-backends nil\
 byte-compile-warnings t)'
-DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/emacspeak-cus-load.el
+DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
+-l $(SRC)/lisp/emacspeak-loaddefs.el \
+-l $(SRC)/lisp/emacspeak-cus-load.el \
+ -l $(SRC)/lisp/g-client/g-load-path.el
+
 COMPILE =  -f batch-byte-compile
 # How to compile
 %.elc:  %.el
