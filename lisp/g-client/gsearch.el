@@ -83,17 +83,17 @@
         (buffer (get-buffer-create " *Google Results*"))
         (json-key-type 'string))
     (save-window-excursion
-    (save-excursion
-      (set-buffer buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (shell-command
-       (format gsearch-search-command (g-url-encode query))
-       buffer)
-      (goto-char (point-min))
-      (setq result
-            (g-json-lookup "responseData.results"
-                           (json-read)))))
+      (save-excursion
+        (set-buffer buffer)
+        (setq buffer-undo-list t)
+        (erase-buffer)
+        (call-process shell-file-name nil t
+                      nil shell-command-switch 
+                      (format gsearch-search-command (g-url-encode query)))
+        (goto-char (point-min))
+        (setq result
+              (g-json-lookup "responseData.results"
+                             (json-read)))))
     (bury-buffer buffer)
     result))
 
@@ -101,17 +101,6 @@
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
-;;; Inspired by code found on Emacs Wiki:
-;;; http://www.emacswiki.org/cgi-bin/wiki/emacs-w3m#WThreeM
-
-;;; csv version not used, but here for reference.
-
-(defvar gsearch-suggest-command
-  "curl -s\
- 'http://www.google.com/complete/search?csv=true&qu=%s' \
- | head -2 | tail -1 \
-| sed -e 's/\"//g'"
-  "Command that gets suggestions from Google.")
 
 (defvar gsearch-suggest-json
   "curl -s\
@@ -122,21 +111,23 @@
   "Get completion list from Google Suggest."
   (declare (special gsearch-suggest-json))
   (let ((buffer (get-buffer-create " *Google AutoComplete*")))
-    (save-current-buffer
-      (set-buffer buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (shell-command
-       (format gsearch-suggest-json
-               (g-url-encode input))
-       buffer)
-      (goto-char (point-min))
-      ;; A JSON array is a vector.
-      ;; read it, filter the comma separators found as symbols.
-      (delq'\,
-       (append                          ; vector->list
-        (aref (read (current-buffer)) 2)
-        nil)))))
+    (save-window-excursion
+      (save-excursion
+        (set-buffer buffer)
+        (setq buffer-undo-list t)
+        (erase-buffer)
+        (call-process shell-file-name nil t
+                      nil shell-command-switch 
+                      (format gsearch-suggest-json
+                              (g-url-encode input)))
+        {"responseData": {"results":[{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.1800flowers.com/","url":"http://www.1800flowers.com/","visibleUrl":"www.1800flowers.com","cacheUrl":"http://www.google.com/search?q\u003dcache:DmQxhdKmc88J:www.1800flowers.com","title":"\u003cb\u003eFlowers\u003c/b\u003e, Roses, Plants, Gift Basket Delivery - 1-800-\u003cb\u003eFLOWERS\u003c/b\u003e.COM \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"Flowers, Roses, Plants, Gift Basket Delivery - 1-800-FLOWERS.COM ...","content":"In 1976, Jim McCann, founder and CEO of 1-800-\u003cb\u003eFLOWERS\u003c/b\u003e. \u003cb\u003e...\u003c/b\u003e Be sure to visit our   Summer Garden of Values for the best summer \u003cb\u003eflowers\u003c/b\u003e for all your summer \u003cb\u003e...\u003c/b\u003e"},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.ftd.com/","url":"http://www.ftd.com/","visibleUrl":"www.ftd.com","cacheUrl":"http://www.google.com/search?q\u003dcache:D_MQAIEeVpAJ:www.ftd.com","title":"FTD.COM - \u003cb\u003eFlowers\u003c/b\u003e | Florist Delivered Roses | Plants | Gift Basket \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"FTD.COM - Flowers | Florist Delivered Roses | Plants | Gift Basket ...","content":"Official Site - Same day delivery of fresh \u003cb\u003eflowers\u003c/b\u003e, roses, and unique gift baskets   from FTD. \u003cb\u003eFlower\u003c/b\u003e delivery online by local florists for birthday \u003cb\u003eflowers\u003c/b\u003e, \u003cb\u003e...\u003c/b\u003e"},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.proflowers.com/","url":"http://www.proflowers.com/","visibleUrl":"www.proflowers.com","cacheUrl":"http://www.google.com/search?q\u003dcache:wIL7JFatcPwJ:www.proflowers.com","title":"Send \u003cb\u003eflowers\u003c/b\u003e, plants, \u0026amp; gifts baskets. \u003cb\u003eFlower\u003c/b\u003e delivery from \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"Send flowers, plants, \u0026amp; gifts baskets. Flower delivery from ...","content":"\u003cb\u003eFlowers\u003c/b\u003e, roses, plants \u0026amp; gift baskets delivered. Order \u003cb\u003eflowers\u003c/b\u003e from ProFlowers-   your online florist for \u003cb\u003eflower\u003c/b\u003e delivery fresh from the fields."},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://en.wikipedia.org/wiki/Flower","url":"http://en.wikipedia.org/wiki/Flower","visibleUrl":"en.wikipedia.org","cacheUrl":"http://www.google.com/search?q\u003dcache:m7LnzHIMnAcJ:en.wikipedia.org","title":"\u003cb\u003eFlower\u003c/b\u003e - Wikipedia, the free encyclopedia","titleNoFormatting":"Flower - Wikipedia, the free encyclopedia","content":"A \u003cb\u003eflower\u003c/b\u003e, also known as a bloom or blossom, is the reproductive structure found   in flowering plants (plants of the division Magnoliophyta, \u003cb\u003e...\u003c/b\u003e"}],"cursor":{"pages":[{"start":"0","label":1},{"start":"4","label":2},{"start":"8","label":3},{"start":"12","label":4}],"estimatedResultCount":"21300000","currentPageIndex":0,"moreResultsUrl":"http://www.google.com/search?oe\u003dutf8\u0026ie\u003dutf8\u0026source\u003duds\u0026start\u003d0\u0026hl\u003den\u0026q\u003dflowers"}}, "responseDetails": null, "responseStatus": 200}
+        (goto-char (point-min))
+        ;; A JSON array is a vector.
+        ;; read it, filter the comma separators found as symbols.
+        (delq'\,
+         (append                        ; vector->list
+          (aref (read (current-buffer)) 2)
+          nil))))))
 
 (defun gsearch-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
@@ -174,19 +165,12 @@
 (defun gsearch-google-at-point (search-term &optional refresh)
   "Google for term at point, and display top result succinctly.
 Attach URL at point so we can follow it later --- subsequent invocations of this command simply follow that URL.
-Optional interactive prefix arg `refresh' forces this cached URL to be refreshed."
+Optional interactive prefix arg refresh forces this cached URL to be refreshed."
   (interactive
    (list
     (unless(and (not current-prefix-arg)
                 (get-text-property (point) 'lucky-url))
-      (let ((word (thing-at-point 'word))
-            (minibuffer-completing-file-name t));;  can typespace
-        (completing-read
-         "Google: "
-         (when word 
-           (gsearch-suggest word))
-         nil nil nil nil
-         word)))
+      (gsearch-google-autocomplete))
     current-prefix-arg))
   (cond
    ((and (not refresh)
@@ -198,12 +182,12 @@ Optional interactive prefix arg `refresh' forces this cached URL to be refreshed
           (bounds (bounds-of-thing-at-point 'word))
           (modified-p (buffer-modified-p)))
       (when bounds 
-      (add-text-properties   (car bounds) (cdr bounds)
-                             (list 'lucky-url
-                                   (g-json-get "url" lucky)
-                                   'face 'highlight
-                                   'front-sticky nil
-                                   'rear-sticky nil)))
+        (add-text-properties   (car bounds) (cdr bounds)
+                               (list 'lucky-url
+                                     (g-json-get "url" lucky)
+                                     'face 'highlight
+                                     'front-sticky nil
+                                     'rear-sticky nil)))
       (set-buffer-modified-p modified-p)
       (message "%s %s"
                (g-json-get "titleNoFormatting" lucky)
