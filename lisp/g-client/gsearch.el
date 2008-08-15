@@ -184,7 +184,8 @@ Optional interactive prefix arg `refresh' forces this cached URL to be refreshed
          "Google: "
          (when word 
            (gsearch-suggest word))
-         nil nil  word nil)))
+         nil nil nil nil
+         word)))
     current-prefix-arg))
   (cond
    ((and (not refresh)
