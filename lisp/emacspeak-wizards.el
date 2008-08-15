@@ -2997,7 +2997,7 @@ dates.")
 (defun emacspeak-wizards-rivo (when channel stop-time output directory)
   "Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
-  UNIX AT scheduling facility.
+  UNIX At scheduling facility.
 RIVO is implemented by rivo.pl ---
  a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration."

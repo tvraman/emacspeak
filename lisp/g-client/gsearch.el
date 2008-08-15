@@ -140,6 +140,10 @@
     (complete-with-action mode 
                           (gsearch-suggest string) 
                           string predicate)))
+(defvar gsearch-history nil
+  "History of Google Search queries.")
+
+(put 'gsearch-history 'history-length 100)
 
 (defsubst gsearch-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
@@ -152,7 +156,8 @@
       (or prompt "Google: ")
       'gsearch-suggest-completer
       nil nil
-      nil nil word))))
+      nil nil
+      'gsearch-history word))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -189,6 +194,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
                                      'face 'highlight
                                      'front-sticky nil
                                      'rear-sticky nil)))
+      (pushnew (g-json-get "url" lucky) minibuffer-history)
       (set-buffer-modified-p modified-p)
       (message "%s %s"
                (g-json-get "titleNoFormatting" lucky)
