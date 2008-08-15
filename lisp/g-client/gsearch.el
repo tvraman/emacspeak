@@ -91,10 +91,10 @@
        buffer)
       (goto-char (point-min))
       (setq result
-      (g-json-lookup "responseData.results"
-                     (json-read)))
-      (bury-buffer buffer)
-      result)))
+            (g-json-lookup "responseData.results"
+                           (json-read))))
+    (bury-buffer buffer)
+    result))
 
 ;;}}}
 ;;{{{ google suggest helper:
@@ -120,7 +120,7 @@
 (defsubst gsearch-suggest (input)
   "Get completion list from Google Suggest."
   (declare (special gsearch-suggest-json))
-  (let ((buffer (get-buffer-create "*Google AutoComplete*")))
+  (let ((buffer (get-buffer-create " *Google AutoComplete*")))
     (save-current-buffer
       (set-buffer buffer)
       (setq buffer-undo-list t)
