@@ -69,7 +69,7 @@
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
-(defcustom g-curl-program "curl"
+(defcustom g-curl-program "/usr/bin/curl"
   "Name of CURL executable."
   :type 'string
   :group 'g)

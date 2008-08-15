@@ -74,27 +74,32 @@
 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s'"
   "URL template for Websearch command.")
 
+(defvar gsearch-search-url
+"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s"
+  "URL template for Websearch command.")
+(defvar gsearch-referer "http://emacspeak.sf.net"
+  "Referer URL to send to the API.")
+
 ;;}}}
 ;;{{{ Search Helpers
+
 (defsubst gsearch-results (query)
   "Return results list."
-  (declare (special gsearch-search-command))
+  (declare (special gsearch-search-url
+                    gsearch-referer))
   (let ((result nil)
-        (buffer (get-buffer-create " *Google Results*"))
         (json-key-type 'string))
-    (save-window-excursion
-      (save-excursion
-        (set-buffer buffer)
-        (setq buffer-undo-list t)
-        (erase-buffer)
-        (call-process shell-file-name nil t
-                      nil shell-command-switch 
-                      (format gsearch-search-command (g-url-encode query)))
-        (goto-char (point-min))
-        (setq result
-              (g-json-lookup "responseData.results"
-                             (json-read)))))
-    (bury-buffer buffer)
+    (g-using-scratch
+     (call-process g-curl-program nil
+                   '(t nil)
+                   "-s"
+                   "-e"
+                   gsearch-referer
+                   (format gsearch-search-url (g-url-encode query)))
+     (goto-char (point-min))
+     (setq result
+           (g-json-lookup "responseData.results"
+                          (json-read))))
     result))
 
 ;;}}}
@@ -107,27 +112,25 @@
  'http://www.google.com/complete/search?json=true&qu=%s' "
   "URL  that gets suggestions from Google as JSON.")
 
+(defvar gsearch-suggest-url
+  "http://www.google.com/complete/search?json=true&qu=%s"
+  "URL  that gets suggestions from Google as JSON.")
+
 (defsubst gsearch-suggest (input)
   "Get completion list from Google Suggest."
-  (declare (special gsearch-suggest-json))
-  (let ((buffer (get-buffer-create " *Google AutoComplete*")))
-    (save-window-excursion
-      (save-excursion
-        (set-buffer buffer)
-        (setq buffer-undo-list t)
-        (erase-buffer)
-        (call-process shell-file-name nil t
-                      nil shell-command-switch 
-                      (format gsearch-suggest-json
-                              (g-url-encode input)))
-        {"responseData": {"results":[{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.1800flowers.com/","url":"http://www.1800flowers.com/","visibleUrl":"www.1800flowers.com","cacheUrl":"http://www.google.com/search?q\u003dcache:DmQxhdKmc88J:www.1800flowers.com","title":"\u003cb\u003eFlowers\u003c/b\u003e, Roses, Plants, Gift Basket Delivery - 1-800-\u003cb\u003eFLOWERS\u003c/b\u003e.COM \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"Flowers, Roses, Plants, Gift Basket Delivery - 1-800-FLOWERS.COM ...","content":"In 1976, Jim McCann, founder and CEO of 1-800-\u003cb\u003eFLOWERS\u003c/b\u003e. \u003cb\u003e...\u003c/b\u003e Be sure to visit our   Summer Garden of Values for the best summer \u003cb\u003eflowers\u003c/b\u003e for all your summer \u003cb\u003e...\u003c/b\u003e"},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.ftd.com/","url":"http://www.ftd.com/","visibleUrl":"www.ftd.com","cacheUrl":"http://www.google.com/search?q\u003dcache:D_MQAIEeVpAJ:www.ftd.com","title":"FTD.COM - \u003cb\u003eFlowers\u003c/b\u003e | Florist Delivered Roses | Plants | Gift Basket \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"FTD.COM - Flowers | Florist Delivered Roses | Plants | Gift Basket ...","content":"Official Site - Same day delivery of fresh \u003cb\u003eflowers\u003c/b\u003e, roses, and unique gift baskets   from FTD. \u003cb\u003eFlower\u003c/b\u003e delivery online by local florists for birthday \u003cb\u003eflowers\u003c/b\u003e, \u003cb\u003e...\u003c/b\u003e"},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://www.proflowers.com/","url":"http://www.proflowers.com/","visibleUrl":"www.proflowers.com","cacheUrl":"http://www.google.com/search?q\u003dcache:wIL7JFatcPwJ:www.proflowers.com","title":"Send \u003cb\u003eflowers\u003c/b\u003e, plants, \u0026amp; gifts baskets. \u003cb\u003eFlower\u003c/b\u003e delivery from \u003cb\u003e...\u003c/b\u003e","titleNoFormatting":"Send flowers, plants, \u0026amp; gifts baskets. Flower delivery from ...","content":"\u003cb\u003eFlowers\u003c/b\u003e, roses, plants \u0026amp; gift baskets delivered. Order \u003cb\u003eflowers\u003c/b\u003e from ProFlowers-   your online florist for \u003cb\u003eflower\u003c/b\u003e delivery fresh from the fields."},{"GsearchResultClass":"GwebSearch","unescapedUrl":"http://en.wikipedia.org/wiki/Flower","url":"http://en.wikipedia.org/wiki/Flower","visibleUrl":"en.wikipedia.org","cacheUrl":"http://www.google.com/search?q\u003dcache:m7LnzHIMnAcJ:en.wikipedia.org","title":"\u003cb\u003eFlower\u003c/b\u003e - Wikipedia, the free encyclopedia","titleNoFormatting":"Flower - Wikipedia, the free encyclopedia","content":"A \u003cb\u003eflower\u003c/b\u003e, also known as a bloom or blossom, is the reproductive structure found   in flowering plants (plants of the division Magnoliophyta, \u003cb\u003e...\u003c/b\u003e"}],"cursor":{"pages":[{"start":"0","label":1},{"start":"4","label":2},{"start":"8","label":3},{"start":"12","label":4}],"estimatedResultCount":"21300000","currentPageIndex":0,"moreResultsUrl":"http://www.google.com/search?oe\u003dutf8\u0026ie\u003dutf8\u0026source\u003duds\u0026start\u003d0\u0026hl\u003den\u0026q\u003dflowers"}}, "responseDetails": null, "responseStatus": 200}
-        (goto-char (point-min))
-        ;; A JSON array is a vector.
-        ;; read it, filter the comma separators found as symbols.
-        (delq'\,
-         (append                        ; vector->list
-          (aref (read (current-buffer)) 2)
-          nil))))))
+  (declare (special gsearch-suggest-url))
+  (g-using-scratch
+   (call-process g-curl-program nil 
+                 '(t nil)
+                 "-s"
+                 (format gsearch-suggest-url (g-url-encode input)))
+   (goto-char (point-min))
+   ;; A JSON array is a vector.
+   ;; read it, filter the comma separators found as symbols.
+   (delq'\,
+    (append                             ; vector->list
+     (aref (read (current-buffer)) 2)
+     nil))))
 
 (defun gsearch-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
