@@ -163,8 +163,7 @@
             'gsearch-suggest-completer
             nil nil nil 
             'gsearch-history word)))
-    (setq gsearch-history
-          (cons query (delete query gsearch-history)))
+    (pushnew  query gsearch-history)
     query))
 
 ;;}}}
