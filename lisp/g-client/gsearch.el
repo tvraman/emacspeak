@@ -160,7 +160,7 @@
       (or prompt "Google: ")
       'gsearch-suggest-completer
       nil nil
-      word nil word))))
+      nil nil word))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
