@@ -70,7 +70,8 @@
 ;;{{{ Variables
 
 (defvar gsearch-search-command
-  "curl -s 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s'"
+  "curl -s -e http://emacspeak.sf.net \
+'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s'"
   "URL template for Websearch command.")
 
 ;;}}}
