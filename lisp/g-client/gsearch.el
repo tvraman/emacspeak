@@ -156,7 +156,7 @@
            (completing-read
             (or prompt "Google: ")
             'gsearch-suggest-completer
-            nil nil nil nil
+            nil nil nil 
             'gsearch-history word)))
     (setq gsearch-history
           (cons query (delete query gsearch-history)))
