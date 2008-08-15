@@ -177,10 +177,11 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
    (t 
-    (let ((lucky (aref (gsearch-results (g-url-encode search-term)) 0))
-          (inhibit-read-only t)
-          (bounds (bounds-of-thing-at-point 'word))
-          (modified-p (buffer-modified-p)))
+    (let
+        ((lucky (aref (gsearch-results  search-term) 0))
+         (inhibit-read-only t)
+         (bounds (bounds-of-thing-at-point 'word))
+         (modified-p (buffer-modified-p)))
       (when bounds 
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url
@@ -193,11 +194,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
                (g-json-get "titleNoFormatting" lucky)
                (g-json-get "content" lucky))))))
 
-
-
 ;;}}}
-
-
 
 (provide 'gsearch)
 ;;{{{ end of file
