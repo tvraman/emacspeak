@@ -141,8 +141,10 @@
            (window-buffer window) 
          (current-buffer)))) 
     (complete-with-action mode 
-                          (gsearch-suggest string) 
+                          (gsearch-suggest
+                           (or string minibuffer-default)) 
                           string predicate)))
+
 (defvar gsearch-history nil
   "History of Google Search queries.")
 
