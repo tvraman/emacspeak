@@ -82,6 +82,7 @@
   (let ((result nil)
         (buffer (get-buffer-create " *Google Results*"))
         (json-key-type 'string))
+    (save-window-excursion
     (save-excursion
       (set-buffer buffer)
       (setq buffer-undo-list t)
@@ -92,7 +93,7 @@
       (goto-char (point-min))
       (setq result
             (g-json-lookup "responseData.results"
-                           (json-read))))
+                           (json-read)))))
     (bury-buffer buffer)
     result))
 
