@@ -520,7 +520,7 @@ file."
       (message "Event added as %s" (g-http-header "Location"
                                                   headers))
       (when gcal-autoinsert-into-emacs-calendar
-        (make-diary-entry
+        (diary-make-entry
          (gcal-event-as-diary-entry event))
         (save-excursion
           (set-buffer (find-file-noselect diary-file))

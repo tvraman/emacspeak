@@ -69,14 +69,10 @@
 ;;}}}
 ;;{{{ Variables
 
-(defvar gsearch-search-command
-  "curl -s -e http://emacspeak.sf.net \
-'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s'"
-  "URL template for Websearch command.")
-
 (defvar gsearch-search-url
 "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s"
   "URL template for Websearch command.")
+
 (defvar gsearch-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
 
@@ -85,32 +81,24 @@
 
 (defsubst gsearch-results (query)
   "Return results list."
-  (declare (special gsearch-search-url
-                    gsearch-referer))
+  (declare (special gsearch-search-url gsearch-referer))
   (let ((result nil)
         (json-key-type 'string))
     (g-using-scratch
-     (call-process g-curl-program nil
-                   '(t nil)
+     (call-process g-curl-program nil t nil
                    "-s"
                    "-e"
                    gsearch-referer
                    (format gsearch-search-url (g-url-encode query)))
      (goto-char (point-min))
      (setq result
-           (g-json-lookup "responseData.results"
-                          (json-read))))
+           (g-json-lookup "responseData.results" (json-read))))
     result))
 
 ;;}}}
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
-
-(defvar gsearch-suggest-json
-  "curl -s\
- 'http://www.google.com/complete/search?json=true&qu=%s' "
-  "URL  that gets suggestions from Google as JSON.")
 
 (defvar gsearch-suggest-url
   "http://www.google.com/complete/search?json=true&qu=%s"
@@ -120,8 +108,7 @@
   "Get completion list from Google Suggest."
   (declare (special gsearch-suggest-url))
   (g-using-scratch
-   (call-process g-curl-program nil 
-                 '(t nil)
+   (call-process g-curl-program nil t nil
                  "-s"
                  (format gsearch-suggest-url (g-url-encode input)))
    (goto-char (point-min))
@@ -140,9 +127,8 @@
        (if (window-live-p window) 
            (window-buffer window) 
          (current-buffer)))) 
-    (complete-with-action mode 
-                          (gsearch-suggest
-                           (or string minibuffer-default)) 
+    (complete-with-action mode
+                          (gsearch-suggest string)
                           string predicate)))
 
 (defvar gsearch-history nil
