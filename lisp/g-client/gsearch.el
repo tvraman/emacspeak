@@ -143,14 +143,13 @@
         (word (thing-at-point 'word))
         (query nil))
     (setq query
-          (g-url-encode
            (completing-read
             (or prompt "Google: ")
             'gsearch-suggest-completer
             nil nil nil 
-            'gsearch-history word)))
+            'gsearch-history word))
     (pushnew  query gsearch-history)
-    query))
+    (g-url-encode query)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
