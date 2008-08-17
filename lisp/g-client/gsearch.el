@@ -146,7 +146,7 @@
            (completing-read
             (or prompt "Google: ")
             'gsearch-suggest-completer
-            nil nil nil 
+            nil nil word 
             'gsearch-history word))
     (pushnew  query gsearch-history)
     (g-url-encode query)))
