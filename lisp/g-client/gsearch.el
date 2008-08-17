@@ -121,12 +121,7 @@
 
 (defun gsearch-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer)))) 
+  (save-excursion
     (complete-with-action mode
                           (gsearch-suggest string)
                           string predicate)))
