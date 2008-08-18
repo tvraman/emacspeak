@@ -107,7 +107,6 @@
 (defsubst gsearch-suggest (input)
   "Get completion list from Google Suggest."
   (declare (special gsearch-suggest-url))
-  (message "debug: %s" input)
   (unless (and (stringp input)
 	     (> (length input) 0))
     (setq input minibuffer-default))
@@ -135,18 +134,31 @@
 
 (put 'gsearch-history 'history-length 100)
 
+
+(defun gsearch-lazy-suggest (input)
+  "Used to generate completions lazily."
+  (lexical-let ((input input)
+                table)
+    (setq table (lazy-completion-table
+                 table (lambda () (gsearch-suggest input))))
+    table))
+
 (defsubst gsearch-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
-  (let ((minibuffer-completing-file-name t) ;; accept spaces
-        (completion-ignore-case t)
-        (word (thing-at-point 'word))
-        (query nil))
+  (let* ((minibuffer-completing-file-name t) ;; accept spaces
+         (completion-ignore-case t)
+         (word (thing-at-point 'word))
+         (suggestions (when (> (length word) 0)
+                        (cons word 
+                        (gsearch-suggest  word))))
+         (query nil))
     (setq query
-           (completing-read
-            (or prompt "Google: ")
-            'gsearch-suggest-completer
-            nil nil nil 
-            'gsearch-history word))
+          (completing-read
+           (or prompt "Google: ")
+           'gsearch-suggest-completer
+           nil nil nil
+           'gsearch-history
+           suggestions))
     (pushnew  query gsearch-history)
     (g-url-encode query)))
 
@@ -173,8 +185,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
    (t 
-    (let
-        ((lucky (aref (gsearch-results  search-term) 0))
+    (let ((lucky (aref (gsearch-results  search-term) 0))
          (inhibit-read-only t)
          (bounds (bounds-of-thing-at-point 'word))
          (modified-p (buffer-modified-p)))
