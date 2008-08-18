@@ -152,8 +152,9 @@
   "Read user input using Google Suggest for auto-completion."
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
-         (word (format "%s" (thing-at-point 'word)))
-         (suggestions (when (> (length word) 0)
+         (word (thing-at-point 'word))
+         (suggestions (when (and word
+                                 (> (length word) 0))
                         (cons  word 
                                (gsearch-suggest  word))))
          (query nil))
@@ -203,9 +204,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
       (when bounds 
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
-                                     'face 'highlight
-                                     'front-sticky nil
-                                     'rear-sticky nil)))
+                                     'face 'highlight)))
       (pushnew lucky minibuffer-history)
       (set-buffer-modified-p modified-p)
       (kill-new content)

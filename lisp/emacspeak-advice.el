@@ -2375,8 +2375,9 @@ Produce auditory icons if possible."
         (default
           (cond
            ((and minibuffer-default (listp minibuffer-default))
-            (first minibuffer-default))
-           (minibuffer-default minibuffer-default)
+            (format "Default: %s " (first minibuffer-default)))
+           (minibuffer-default
+            (format "Default: %s" minibuffer-default))
            (t ""))))
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
