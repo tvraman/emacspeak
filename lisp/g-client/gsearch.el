@@ -190,25 +190,26 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
    (t 
-    (let ((lucky (aref (gsearch-results  search-term) 0))
+    (let* ((lucky (aref (gsearch-results  search-term) 0))
          (inhibit-read-only t)
          (bounds (bounds-of-thing-at-point 'word))
-         (modified-p (buffer-modified-p)))
+         (modified-p (buffer-modified-p))
+         (title (g-json-get "titleNoFormatting" lucky))
+         (url (g-json-get "url" lucky))
+         (content (shell-command-to-string
+		(format
+		 "echo '%s' | lynx -dump -stdin 2>/dev/null"
+		 (g-json-get "content" lucky)))))
       (when bounds 
         (add-text-properties   (car bounds) (cdr bounds)
-                               (list 'lucky-url
-                                     (g-json-get "url" lucky)
+                               (list 'lucky-url url
                                      'face 'highlight
                                      'front-sticky nil
                                      'rear-sticky nil)))
-      (pushnew (g-json-get "url" lucky) minibuffer-history)
+      (pushnew lucky minibuffer-history)
       (set-buffer-modified-p modified-p)
-      (message "%s %s"
-	       (g-json-get "titleNoFormatting" lucky)
-	       (shell-command-to-string
-		(format
-		 "echo '%s' | lynx -dump -stdin 2>/dev/null"
-		 (g-json-get "content" lucky))))))))
+      (kill-new content)
+      (message "%s %s" title content)))))
 
 ;;}}}
 
