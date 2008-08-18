@@ -107,6 +107,10 @@
 (defsubst gsearch-suggest (input)
   "Get completion list from Google Suggest."
   (declare (special gsearch-suggest-url))
+  (message "debug: %s" input)
+  (unless (and (stringp input)
+	     (> (length input) 0))
+    (setq input minibuffer-default))
   (g-using-scratch
    (call-process g-curl-program nil t nil
                  "-s"
