@@ -124,9 +124,14 @@
 
 (defun gsearch-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
-  (save-excursion
-    (complete-with-action mode
-                          (gsearch-suggest string)
+  (save-current-buffer 
+    (set-buffer 
+     (let ((window (minibuffer-selected-window))) 
+       (if (window-live-p window) 
+           (window-buffer window) 
+         (current-buffer)))) 
+    (complete-with-action mode 
+                          (gsearch-suggest string) 
                           string predicate)))
 
 (defvar gsearch-history nil
@@ -147,10 +152,10 @@
   "Read user input using Google Suggest for auto-completion."
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
-         (word (thing-at-point 'word))
+         (word (format "%s" (thing-at-point 'word)))
          (suggestions (when (> (length word) 0)
-                        (cons word 
-                        (gsearch-suggest  word))))
+                        (cons  word 
+                               (gsearch-suggest  word))))
          (query nil))
     (setq query
           (completing-read
