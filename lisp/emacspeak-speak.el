@@ -2479,12 +2479,12 @@ message area.  You can use command
   "Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
 if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-last-message
                     emacspeak-speak-message-again-should-copy-to-kill-ring))
   (cond
    (from-message-cache
-    (dtk-speak   emacspeak-last-message )
+    (dtk-speak   emacspeak-last-message)
     (when (and (interactive-p)
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
