@@ -50,11 +50,7 @@
 (declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ring)
-(require 'emacspeak-webutils)
-(require 'emacspeak-we)
-(eval-when '(load)
-  (unless (executable-find "xmlstarlet")
-    (message "Install xmlstarlet first.")))
+(require 'gfeeds)
 ;;}}}
 ;;{{{ WebSpace Display:
 
@@ -86,23 +82,11 @@ Generates auditory and visual display."
   :type 'string
   :group 'emacspeak-webspace)
 
-(defcustom emacspeak-webspace-feeds nil
+(defcustom emacspeak-webspace-headlines-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
-          (list :tag "Feed"
-                (string :tag "URL")
-                (choice :tag "Type"
-                        (const atom :tag "ATOM")
-                        (const :tag "RSS" rss))))
+                (string :tag "URL"))
   :group  'emacspeak-webspace)
-
-(defsubst emacspeak-webspace-feed-uri (feed)
-  "Return URL."
-  (first feed))
-
-(defsubst emacspeak-webspace-feed-type (feed)
-  "Return type."
-  (second feed))
 
 ;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
 
@@ -113,43 +97,17 @@ Generates auditory and visual display."
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
 
-(defvar emacspeak-webspace-atom-xmlns-uri
-  "http://www.w3.org/2005/Atom"
-  "Atom NS URI.")
-
-(defvar emacspeak-webspace-atom-headlines-template
-  (format 
-   "xmlstarlet sel --net -N a=%s -t -m a:feed/a:entry/a:title -v . --nl '%%s'"
-   emacspeak-webspace-atom-xmlns-uri)
-  "Command line that gives us Atom Feed headlines.")
-
-(defvar emacspeak-webspace-rss-headlines-template
-  "xmlstarlet sel --net -t -m //item/title -v . --nl '%s' 2>/dev/null"
-  "Command line that gives us RSS news headlines.")
-
 (defun emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
-  (declare (special emacspeak-webspace-feedstore
-                    emacspeak-webspace-rss-headlines-template
-                    emacspeak-webspace-atom-headlines-template))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines))
-        (type (emacspeak-webspace-feed-type feed))
-        (url (emacspeak-webspace-feed-uri feed))
-        (template nil))
-    (cond
-     ((eq type 'atom)
-      (setq template emacspeak-webspace-atom-headlines-template))
-     ((eq type 'rss)
-      (setq template emacspeak-webspace-rss-headlines-template))
-     (t (error "Unknown feed type %s" type)))
+  (declare (special emacspeak-webspace-feedstore))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
     (with-local-quit
       (mapc
        #'(lambda (h)
            (unless (zerop (length h))
              (ring-insert headlines h)))
-       (split-string
-        (shell-command-to-string (format template url))
-        "\n")))))
+       (gfeeds-titles feed)))))
+       
 
 (defun emacspeak-webspace-headlines-populate ()
   "populate feedstore with headlines from all feeds."
@@ -171,7 +129,7 @@ Feeds in the feedstore are visited in cyclic order."
 	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))))
 
 (defun emacspeak-webspace-update-headlines (frequency)
-  "Setup frequency news updates.
+  "Setup  news updates.
 Frequency is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
   (interactive
@@ -209,8 +167,8 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-feedstore
-           :feeds emacspeak-webspace-feeds
-           :headlines (make-ring (* 20 (length emacspeak-webspace-feeds)))
+           :feeds emacspeak-webspace-headlines-feeds
+           :headlines (make-ring (* 20 (length emacspeak-webspace-headlines-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
@@ -219,23 +177,21 @@ Updated headlines found in emacspeak-webspace-feedstore."
 ;;}}}
 ;;{{{ Weather:
 
-(defvar emacspeak-webspace-weather-template
-  "xmlstarlet sel --net -t -v '//item[1]/title' \
-http://www.wunderground.com/auto/rss_full/%s.xml"
-  "Command line that gives us weather conditions as a short string.")
+(defvar emacspeak-webspace-weather-url-template
+"http://www.wunderground.com/auto/rss_full/%s.xml"
+  "URL template for weather feed.")
 
 (defun emacspeak-webspace-weather-conditions ()
   "Return weather conditions for `emacspeak-url-template-weather-city-state'."
   (declare (special emacspeak-url-template-weather-city-state
-                    emacspeak-webspace-weather-template))
-  (when (and emacspeak-webspace-weather-template
+                    emacspeak-webspace-weather-url-template))
+  (when (and emacspeak-webspace-weather-url-template
              emacspeak-url-template-weather-city-state)
     (with-local-quit
-    (substring
-     (shell-command-to-string
-      (format emacspeak-webspace-weather-template
-              emacspeak-url-template-weather-city-state))
-     0 -1))))
+    (first
+     (gfeeds-titles
+      (format emacspeak-webspace-weather-url-template
+              emacspeak-url-template-weather-city-state))))))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
