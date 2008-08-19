@@ -1,6 +1,6 @@
 ;;; emacspeak-jawbreaker.el --- Talk to Firefox/JawBreaker  via MozRepl
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-jawbreaker.el 5530 2008-03-19 14:02:19Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Play JawBreaker game from Emacs in Firefox
 ;;; Keywords: Emacspeak,  Audio Desktop Firefox, Piglets 
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-03-19 07:02:19 -0700 (Wed, 19 Mar 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

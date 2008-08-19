@@ -1,6 +1,6 @@
 ;;; emacspeak-we.el --- Transform Web Pages Using XSLT
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-we.el 5714 2008-08-04 16:12:03Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Edit/Transform Web Pages using XSLT
 ;;; Keywords: Emacspeak,  Audio Desktop Web, XSLT
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-08-04 09:12:03 -0700 (Mon, 04 Aug 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-nxml.el --- Speech enable nxml mode
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-nxml.el 5561 2008-04-16 01:29:37Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description: Controlling mplayer from emacs 
 ;;; Keywords: Emacspeak, nxml streaming media 
 ;;{{{  LCD Archive entry: 
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-04-15 18:29:37 -0700 (Tue, 15 Apr 2008) $ |
 ;;;  $Revision: 4532 $ | 
 ;;; Location undetermined
 ;;;

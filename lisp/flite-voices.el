@@ -1,6 +1,6 @@
 ;;; flite.el --- Emacspeak FLite
-;;; $Id$
-;;; $Author$
+;;; $Id: flite-voices.el 5675 2008-07-06 17:18:30Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  FLite interface 
 ;;; Keywords: Emacspeak,  Audio Desktop FLite
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

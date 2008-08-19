@@ -1,6 +1,6 @@
 ;;; emacspeak-jabber.el --- Speech-Enable jabber
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-jabber.el 5560 2008-04-15 13:25:36Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description: speech-enable jabber
 ;;; Keywords: Emacspeak, jabber
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-04-15 06:25:36 -0700 (Tue, 15 Apr 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

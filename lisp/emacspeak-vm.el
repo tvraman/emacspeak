@@ -1,6 +1,6 @@
 ;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-vm.el 5708 2008-07-31 17:49:44Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enhance vm
 ;;; Keywords: Emacspeak, VM, Email, Spoken Output, Voice annotations
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-07-31 10:49:44 -0700 (Thu, 31 Jul 2008) $ |
 ;;;  $Revision: 4557 $ |
 ;;; Location undetermined
 ;;;

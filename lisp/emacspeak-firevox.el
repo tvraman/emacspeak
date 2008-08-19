@@ -1,6 +1,6 @@
 ;;; emacspeak-firevox.el.el --- FireVox Piglet
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-firevox.el 5592 2008-05-31 04:37:49Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Play Firevox game from Emacs in Firefox
 ;;; Keywords: Emacspeak,  Audio Desktop Firefox, Piglets 
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-05-30 21:37:49 -0700 (Fri, 30 May 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-table-ui.el --- Emacspeak's current notion of an ideal table UI
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-table-ui.el 5646 2008-06-26 22:46:49Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description: Emacspeak table handling module
 ;;; Keywords:emacspeak, audio interface to emacs tables are structured
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-06-26 15:46:49 -0700 (Thu, 26 Jun 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

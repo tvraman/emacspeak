@@ -1,6 +1,6 @@
 ;;; emacspeak-fix-interactive.el --- Tools to make  Emacs' builtin prompts   speak
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-fix-interactive.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description: Fixes functions that use interactive to prompt for args.
 ;;; Approach suggested by hans@cs.buffalo.edu
 ;;; Keywords: Emacspeak, Advice, Automatic advice, Interactive
@@ -9,7 +9,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

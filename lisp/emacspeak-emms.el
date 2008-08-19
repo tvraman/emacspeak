@@ -1,6 +1,6 @@
 ;;; emacspeak-emms.el --- Speech-enable EMMS Multimedia UI
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-emms.el 5228 2007-08-28 00:54:54Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable EMMS
 ;;; Keywords: Emacspeak, Multimedia
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-08-27 17:54:54 -0700 (Mon, 27 Aug 2007) $ |
 ;;;  $Revision: 4150 $ |
 ;;; Location undetermined
 ;;;

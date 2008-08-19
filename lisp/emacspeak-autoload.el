@@ -1,6 +1,6 @@
 ;;; emacspeak-autoload.el --- Emacspeak Autoload Generator
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-autoload.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  autoload Wizard for the emacspeak desktop
 ;;; Keywords: Emacspeak,  Audio Desktop autoload
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

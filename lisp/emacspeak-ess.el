@@ -1,6 +1,6 @@
 ;;; emacspeak-ess.el --- Speech-enable ESS: Emacs Speaks Statistics 
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-ess.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ESS An Emacs Interface to R and others
 ;;; Keywords: Emacspeak,  Audio Desktop Statistics, R
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-09-01 15:30:13 -0700 (Sat, 01 Sep 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

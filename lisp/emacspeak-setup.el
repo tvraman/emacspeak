@@ -1,13 +1,13 @@
 ;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-setup.el 5617 2008-06-07 02:00:23Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  File for setting up and starting Emacspeak
 ;;; Keywords: Emacspeak, Setup, Spoken Output
 ;;{{{  LCD Archive entry:
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-06-06 19:00:23 -0700 (Fri, 06 Jun 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-w3.el 5713 2008-08-04 16:09:31Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak enhancements for W3
 ;;; Keywords: Emacspeak, W3, WWW
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-08-04 09:09:31 -0700 (Mon, 04 Aug 2008) $ |
 ;;;  $Revision: 4671 $ |
 ;;; Location undetermined
 ;;;
