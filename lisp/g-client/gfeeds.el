@@ -68,7 +68,7 @@
 ;;{{{ Variables
 
 (defvar gfeeds-feeds-url
-  "http://ajax.googleapis.com/ajax/services/feed/load?q=%s&v=1.0"
+  "http://ajax.googleapis.com/ajax/services/feed/load?q=%s&num=10&v=1.0"
   "URL template for pulling feeds.")
 
 (defvar gfeeds-lookup-url
