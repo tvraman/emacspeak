@@ -103,6 +103,17 @@
           (cdr (assoc ,slot f)))))
 
 ;;}}}
+;;{{{ Convenience commands:
+
+(defun gfeeds-titles (feed-url)
+  "Return list of titles from feed at feed-url."
+  (let ((feed (gfeeds-feed feed-url)))
+    (when feed
+      (loop for article across 
+            (gfeeds-feed-entries feed)
+            collect (cdr (assoc "title" article))))))
+
+;;}}}
 (provide 'gfeeds)
 ;;{{{ end of file
 
