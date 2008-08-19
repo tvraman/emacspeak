@@ -68,8 +68,17 @@
 ;;{{{ Variables
 
 (defvar gfeeds-feeds-url
-"http://ajax.googleapis.com/ajax/services/feed/load?q=%s&v=1.0"
+  "http://ajax.googleapis.com/ajax/services/feed/load?q=%s&v=1.0"
   "URL template for pulling feeds.")
+
+(defvar gfeeds-lookup-url
+  "http://ajax.googleapis.com/ajax/services/feed/lookup?q=%s&v=1.0"
+  "Rest end-point for feed lookup.")
+
+(defvar gfeeds-find-url
+  "http://ajax.googleapis.com/ajax/services/feed/find?q=%s&v=1.0"
+  "Rest end-point for finding feeds.")
+
 
 (defvar gfeeds-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
@@ -77,6 +86,7 @@
 ;;}}}
 ;;{{{ gfeed Helpers
 
+;;;###autoload
 (defsubst gfeeds-feed (feed-url)
   "Return feed structure."
   (declare (special gfeeds-feeds-url gfeeds-referer))
@@ -91,6 +101,36 @@
      (setq result (json-read))
      (when (= 200 (g-json-get "responseStatus" result))
        (g-json-lookup "responseData.feed" result)))))
+;;;###autoload
+(defsubst gfeeds-lookup (url)
+  "Lookup feed for a given Web page."
+  (declare (special gfeeds-lookup-url gfeeds-referer))
+  (let ((json-key-type 'string)
+        (result nil))
+    (g-using-scratch
+     (call-process g-curl-program nil t nil
+                   "-s"
+                   "-e" gfeeds-referer
+                   (format gfeeds-lookup-url (g-url-encode url)))
+     (goto-char (point-min))
+     (setq result (json-read))
+     (when (= 200 (g-json-get "responseStatus" result))
+       (g-json-lookup "responseData.url" result)))))
+;;;###autoload
+(defsubst gfeeds-find (query)
+  "Find feeds matching a query."
+  (declare (special gfeeds-find-url gfeeds-referer))
+  (let ((json-key-type 'string)
+        (result nil))
+    (g-using-scratch
+     (call-process g-curl-program nil t nil
+                   "-s"
+                   "-e" gfeeds-referer
+                   (format gfeeds-find-url (g-url-encode query)))
+     (goto-char (point-min))
+     (setq result (json-read))
+     (when (= 200 (g-json-get "responseStatus" result))
+       (g-json-lookup "responseData.entries" result)))))
 
 ;;; Feed slot accessors:
 
@@ -104,7 +144,7 @@
 
 ;;}}}
 ;;{{{ Convenience commands:
-
+;;;###autoload
 (defun gfeeds-titles (feed-url)
   "Return list of titles from feed at feed-url."
   (let ((feed (gfeeds-feed feed-url)))
@@ -176,7 +216,6 @@
 ;;; Provide Google Feed services --- such as 
 ;;; For use from within Emacs tools.
 
-
 ;;}}}
 ;;{{{  Required modules
 
@@ -192,7 +231,6 @@
   :group 'g)
 
 ;;}}}
-
 
 (provide 'gfeeds)
 ;;{{{ end of file
