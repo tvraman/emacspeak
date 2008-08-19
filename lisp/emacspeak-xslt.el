@@ -1,6 +1,6 @@
 ;;; emacspeak-xslt.el --- Implements Emacspeak  xslt transform engine
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-xslt.el 5720 2008-08-12 17:48:54Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  xslt transformation routines
 ;;; Keywords: Emacspeak,  Audio Desktop XSLT
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-08-12 10:48:54 -0700 (Tue, 12 Aug 2008) $ |
 ;;;  $Revision: 4562 $ |
 ;;; Location undetermined
 ;;;

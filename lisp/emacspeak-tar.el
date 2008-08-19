@@ -1,6 +1,6 @@
 ;;; emacspeak-tar.el --- Speech enable Tar Mode -- Manipulate tar archives from Emacs
-;;; $Id$
-;;; $Author$ 
+;;; $Id: emacspeak-tar.el 5634 2008-06-21 17:50:41Z tv.raman.tv $
+;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to tar mode
 ;;; Keywords: Emacspeak, Speak, Spoken Output, tar
 ;;{{{  LCD Archive entry: 
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
 ;;;  $Revision: 4532 $ | 
 ;;; Location undetermined
 ;;;

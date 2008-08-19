@@ -1,6 +1,6 @@
 ;;; emacspeak-finder.el --- Generate a database of keywords and descriptions for all Emacspeak  packages
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-finder.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface
 ;;; Keywords: Emacspeak, Finder
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
@@ -54,7 +54,7 @@
 
 (defvar emacspeak-finder-preamble
   (concat
-   ";;;$Id$\n"
+   ";;;$Id: emacspeak-finder.el 5222 2007-08-26 01:28:19Z tv.raman.tv $\n"
    ";;; emacspeak-finder-inf.el --- keyword-to-package mapping\n"
    ";; Keywords: help\n"
    ";;; Commentary:\n"

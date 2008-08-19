@@ -1,6 +1,6 @@
 ;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server
-;;; $Id$
-;;; $Author$
+;;; $Id: dtk-interp.el 5527 2008-03-12 01:41:19Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Interfacing to the speech server
 ;;; Keywords: TTS, Dectalk, Speech Server
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-03-11 18:41:19 -0700 (Tue, 11 Mar 2008) $ |
 ;;;  $Revision: 4670 $ |
 ;;; Location undetermined
 ;;;

@@ -1,6 +1,6 @@
 ;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-ediff.el 5634 2008-06-21 17:50:41Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for ediff
 ;;; Keywords:emacspeak, audio interface to emacs, Comparing files
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

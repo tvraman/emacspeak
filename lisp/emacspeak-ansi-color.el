@@ -1,6 +1,6 @@
 ;;; emacspeak-ansi-color.el --- Speech-enable ansi-color terminal
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-ansi-color.el 5403 2007-12-10 01:51:46Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for ansi-color
 ;;; Keywords: Emacspeak, ansi-color
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-12-09 17:51:46 -0800 (Sun, 09 Dec 2007) $ |
 ;;;  $Revision: 4502 $ |
 ;;; Location undetermined
 ;;;

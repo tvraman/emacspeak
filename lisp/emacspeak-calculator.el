@@ -1,6 +1,6 @@
 ;;; emacspeak-calculator.el --- Speech enable  desktop calculator
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-calculator.el 5329 2007-10-09 14:30:27Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable desktop calculator
 ;;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date$ |
+;;; $Date: 2007-10-09 07:30:27 -0700 (Tue, 09 Oct 2007) $ |
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;

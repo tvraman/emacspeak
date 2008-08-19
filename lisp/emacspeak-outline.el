@@ -1,6 +1,6 @@
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents
-;;; $Id$
-;;; $Author$
+;;; $Id: emacspeak-outline.el 5236 2007-08-31 17:22:40Z tv.raman.tv $
+;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for outline-mode
 ;;; Keywords:emacspeak, audio interface to emacs Outlines
 ;;{{{  LCD Archive entry:
