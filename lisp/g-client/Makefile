@@ -48,6 +48,7 @@ g.elc \
 gblogger.elc \
 gcal.elc \
 gfinance.elc \
+gfeeds.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
@@ -84,6 +85,7 @@ g-utils.elc: g-utils.el
 g-auth.elc: g-auth.el g-utils.elc
 g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
+gfeeds.elc: g-utils.elc gfeeds.el
 gfinance.elc: gfinance.el g-app.elc
 greader.elc: greader.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
