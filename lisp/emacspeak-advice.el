@@ -2371,8 +2371,7 @@ Produce auditory icons if possible."
   "Actions  taken when entering the minibuffer with emacspeak. "
   (declare (special emacspeak-minibuffer-enter-auditory-icon
 		    minibuffer-default))
-  (let ((inhibit-field-text-motion t)
-        (default
+  (let ((default
           (cond
            ((and minibuffer-default (listp minibuffer-default))
             (format "Default: %s " (first minibuffer-default)))
