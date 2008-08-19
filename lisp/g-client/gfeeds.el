@@ -61,7 +61,7 @@
 ;;{{{ Customizations
 
 (defgroup gfeeds nil
-  "Google search"
+  "Google Feeds"
   :group 'g)
 
 ;;}}}
@@ -103,7 +103,6 @@
           (cdr (assoc ,slot f)))))
 
 ;;}}}
-
 (provide 'gfeeds)
 ;;{{{ end of file
 
@@ -113,10 +112,10 @@
 ;;; end:
 
 ;;}}}
-;;; gfeeds.el --- Google Search
+;;; gfeeds.el --- Google Feeds
 ;;;$Id: gcal.el,v 1.30 2006/09/28 17:47:44 raman Exp $
 ;;; $Author: raman $
-;;; Description:  AJAX Search -> Lisp
+;;; Description:  AJAX Feeds -> Lisp
 ;;; Keywords: Google   AJAX API
 ;;{{{  LCD Archive entry:
 
@@ -163,9 +162,9 @@
 ;;; Commentary:
 ;;{{{  introduction
 
-;;; Provide Google services --- such as search, search-based completion etc.
+;;; Provide Google Feed services --- such as 
 ;;; For use from within Emacs tools.
-;;; This is meant to be fast and efficient --- and uses WebAPIs as opposed to HTML  scraping.
+
 
 ;;}}}
 ;;{{{  Required modules
@@ -178,154 +177,11 @@
 ;;{{{ Customizations
 
 (defgroup gfeeds nil
-  "Google search"
+  "Google Feeds"
   :group 'g)
 
 ;;}}}
-;;{{{ Variables
 
-(defvar gfeeds-search-url
-"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s"
-  "URL template for Websearch command.")
-
-(defvar gfeeds-referer "http://emacspeak.sf.net"
-  "Referer URL to send to the API.")
-
-;;}}}
-;;{{{ Search Helpers
-
-(defsubst gfeeds-results (query)
-  "Return results list."
-  (declare (special gfeeds-search-url gfeeds-referer))
-  (let ((result nil)
-        (json-key-type 'string))
-    (g-using-scratch
-     (call-process g-curl-program nil t nil
-                   "-s"
-                   "-e"
-                   gfeeds-referer
-                   (format gfeeds-search-url (g-url-encode query)))
-     (goto-char (point-min))
-     (setq result
-           (g-json-lookup "responseData.results" (json-read))))
-    result))
-
-;;}}}
-;;{{{ google suggest helper:
-
-;;; Get search completions from Google
-
-(defvar gfeeds-suggest-url
-  "http://www.google.com/complete/search?json=true&qu=%s"
-  "URL  that gets suggestions from Google as JSON.")
-
-(defsubst gfeeds-suggest (input)
-  "Get completion list from Google Suggest."
-  (declare (special gfeeds-suggest-url))
-  (unless (and (stringp input)
-	     (> (length input) 0))
-    (setq input minibuffer-default))
-  (g-using-scratch
-   (call-process g-curl-program nil t nil
-                 "-s"
-                 (format gfeeds-suggest-url (g-url-encode input)))
-   (goto-char (point-min))
-   ;; A JSON array is a vector.
-   ;; read it, filter the comma separators found as symbols.
-   (delq'\,
-    (append                             ; vector->list
-     (aref (read (current-buffer)) 2)
-     nil))))
-
-(defun gfeeds-suggest-completer (string predicate mode)
-  "Generate completions using Google Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer)))) 
-    (complete-with-action mode 
-                          (gfeeds-suggest string) 
-                          string predicate)))
-
-(defvar gfeeds-history nil
-  "History of Google Search queries.")
-
-(put 'gfeeds-history 'history-length 100)
-
-
-(defun gfeeds-lazy-suggest (input)
-  "Used to generate completions lazily."
-  (lexical-let ((input input)
-                table)
-    (setq table (lazy-completion-table
-                 table (lambda () (gfeeds-suggest input))))
-    table))
-
-(defsubst gfeeds-google-autocomplete (&optional prompt)
-  "Read user input using Google Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (suggestions
-	  (when (and word (> (length word) 0))
-	    (set-text-properties 0 (length word) nil word)
-	    (cons  word (gfeeds-suggest  word))))
-         (query nil))
-    (setq query
-          (completing-read
-           (or prompt "Google: ")
-           'gfeeds-suggest-completer
-           nil nil nil
-           'gfeeds-history
-           suggestions))
-    (pushnew  query gfeeds-history)
-    (g-url-encode query)))
-
-;;}}}
-;;{{{ Interactive Commands:
-
-;;; Need to be smarter about guessing default term 
-;;; thing-at-point can return an empty string,
-;;; and this is not a good thing for Google Suggest which will error out.
-
-;;;###autoload
-(defun gfeeds-google-at-point (search-term &optional refresh)
-  "Google for term at point, and display top result succinctly.
-Attach URL at point so we can follow it later --- subsequent invocations of this command simply follow that URL.
-Optional interactive prefix arg refresh forces this cached URL to be refreshed."
-  (interactive
-   (list
-    (unless(and (not current-prefix-arg)
-                (get-text-property (point) 'lucky-url))
-      (gfeeds-google-autocomplete))
-    current-prefix-arg))
-  (cond
-   ((and (not refresh)
-         (get-text-property (point) 'lucky-url))
-    (browse-url (get-text-property (point) 'lucky-url)))
-   (t 
-    (let* ((lucky (aref (gfeeds-results  search-term) 0))
-         (inhibit-read-only t)
-         (bounds (bounds-of-thing-at-point 'word))
-         (modified-p (buffer-modified-p))
-         (title (g-json-get "titleNoFormatting" lucky))
-         (url (g-json-get "url" lucky))
-         (content (shell-command-to-string
-		(format
-		 "echo '%s' | lynx -dump -stdin 2>/dev/null"
-		 (g-json-get "content" lucky)))))
-      (when bounds 
-        (add-text-properties   (car bounds) (cdr bounds)
-                               (list 'lucky-url url
-                                     'face 'highlight)))
-      (pushnew lucky minibuffer-history)
-      (set-buffer-modified-p modified-p)
-      (kill-new content)
-      (message "%s %s" title content)))))
-
-;;}}}
 
 (provide 'gfeeds)
 ;;{{{ end of file
