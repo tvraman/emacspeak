@@ -54,6 +54,7 @@
 (require 'backquote)
 (require 'emacspeak-preamble)
 (require 'url)
+(require 'gfeeds)
 (require 'browse-url)
 ;;}}}
 ;;{{{ keymap: web-prefix
@@ -455,12 +456,10 @@ instances."
 
 ;;;###autoload
 (defun emacspeak-webutils-fv (feed-url )
-  "Display RSS or ATOM feed."
-  (interactive (list (emacspeak-webutils-read-this-url)))
+  "Display RSS or ATOM feed URL."
+  (interactive (list (emacspeak-webutils-read-url)))
   (emacspeak-auditory-icon 'select-object)
-  (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url
-                                   (emacspeak-xslt-get "fv.xsl")))
+  (message (gfeeds-lookup  feed-url)))
 
 ;;}}}
 ;;{{{ RSS:
