@@ -69,8 +69,12 @@
 ;;}}}
 ;;{{{ Variables
 
+(defvar gsearch-base-url
+"http://ajax.googleapis.com/ajax/services/search/%s?v=1.0&q=%%s"
+  "Base URL template for Websearch command.")
+
 (defvar gsearch-search-url
-"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s"
+(format gsearch-base-url "web")
   "URL template for Websearch command.")
 
 (defvar gsearch-referer "http://emacspeak.sf.net"
