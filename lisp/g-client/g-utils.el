@@ -193,12 +193,13 @@ Customize this to live on your local disk."
 (defsubst g-xsl-transform-region (start end xsl)
   "Replace region by result of transforming via XSL."
   (declare (special g-xslt-program))
-  (call-process-region start end shell-file-name t
-                       t
-                       nil shell-command-switch
-                       (format "%s %s - %s"
-                               g-xslt-program xsl (g-xslt-debug))
-                       'delete))
+  (call-process-region
+   start end
+   g-xslt-program
+   t t nil 
+            xsl
+            "-"
+            (g-xslt-debug)))
 
 ;;}}}
 ;;{{{ html unescape
