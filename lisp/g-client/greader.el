@@ -436,12 +436,6 @@ user."
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url)))))))
              
-             
-             
-        )
-    
-    
-
 ;;;###autoload
 (defun greader-feed-list (&optional sort)
   "Retrieve list of subscribed feeds.
