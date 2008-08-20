@@ -411,6 +411,37 @@ user."
           counts)))
     (g-json-get 'newestItemTimestampUsec c)))
 
+
+
+
+(defsubst greader-subscriptions ()
+  "Return subscribed feeds as a list of URLs."
+  (declare (special greader-auth-handle
+                    g-curl-program g-curl-common-options
+                    greader-subscribed-feed-list-url))
+  (g-auth-ensure-token greader-auth-handle)
+  (let ((subscriptions
+         (g-json-get 'subscriptions
+              (g-json-get-result
+               (format
+                "%s %s --cookie SID='%s' %s 2>/dev/null"
+                g-curl-program g-curl-common-options
+                (g-cookie "SID" greader-auth-handle)
+                greader-subscribed-feed-list-url)))))
+        (loop for s across subscriptions
+         collect
+         (let* ((id (g-json-get 'id s))
+                (url (substring id 5)))
+           (cond
+                ((string-match "^http" url) url)
+                (t (concat greader-atom-base url)))))))
+             
+             
+             
+        )
+    
+    
+
 ;;;###autoload
 (defun greader-feed-list (&optional sort)
   "Retrieve list of subscribed feeds.
