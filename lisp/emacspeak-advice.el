@@ -2022,6 +2022,13 @@ Produce an auditory icon if possible."
     (dtk-stop )
     (emacspeak-auditory-icon 'scroll)))
 
+(defadvice recenter-top-bottom (before emacspeak pre act)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (dtk-stop )
+    (dtk-speak (format "Recentered to %s" recenter-last-op))
+    (emacspeak-auditory-icon 'scroll)))
+
 ;;}}}
 ;;{{{  yanking and popping
 
