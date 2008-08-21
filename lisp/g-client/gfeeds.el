@@ -169,13 +169,23 @@
    ""))))
 
 ;;;###autoload
-(defun gfeeds-view (feed-url)
-  "Display Feed in a browser."
-  (interactive "sURL: ")
-  (let ((html (gfeeds-html feed-url)))
-    (g-using-scratch
-     (mapc 'insert html)
-     (browse-url-of-buffer))))
+(defun gfeeds-view (url &optional lookup)
+  "Display Feed in a browser.
+Interactive prefix arg causes the feed url to be looked up given a Web site."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: "
+                          (browse-url-url-at-point))
+    current-prefix-arg))
+  (let* ((feed-url (if lookup (gfeeds-lookup url) url))
+         (html (when feed-url (gfeeds-html feed-url))))
+    (cond
+     ((null html)
+      (message "No feed found."))
+     (t 
+      (g-using-scratch
+       (mapc 'insert html)
+       (browse-url-of-buffer))))))
 
 
 ;;}}}
