@@ -153,6 +153,31 @@
             (gfeeds-feed-entries feed)
             collect (cdr (assoc "title" article))))))
 
+(defun gfeeds-html (feed-url)
+  "Return a simplified HTML view."
+  (let ((feed (gfeeds-feed feed-url)))
+  (concat
+   (format "<title>%s</title>"
+           (gfeeds-feed-title  feed))
+  (mapconcat 
+   #'(lambda (a)
+       (format "<h2><a href='%s'>%s</a></h2>\n<div>%s</div>"
+               (cdr (assoc "link" a))
+               (cdr (assoc "title" a))
+               (cdr (assoc "contentSnippet" a))))
+   (gfeeds-feed-entries feed)
+   ""))))
+
+;;;###autoload
+(defun gfeeds-view (feed-url)
+  "Display Feed in a browser."
+  (interactive "sURL: ")
+  (let ((html (gfeeds-html feed-url)))
+    (g-using-scratch
+     (mapc 'insert html)
+     (browse-url-of-buffer))))
+
+
 ;;}}}
 (provide 'gfeeds)
 ;;{{{ end of file
