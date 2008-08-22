@@ -157,7 +157,7 @@
   "Return a simplified HTML view."
   (let ((feed (gfeeds-feed feed-url)))
   (concat
-   (format "<title>%s</title>"
+   (format "<html><title>%s</title>"
            (gfeeds-feed-title  feed))
   (mapconcat 
    #'(lambda (a)
@@ -166,7 +166,9 @@
                (cdr (assoc "title" a))
                (cdr (assoc "contentSnippet" a))))
    (gfeeds-feed-entries feed)
-   ""))))
+   "")
+  "</html>")
+))
 
 ;;;###autoload
 (defun gfeeds-view (url &optional lookup)
