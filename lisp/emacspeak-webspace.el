@@ -145,7 +145,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
     (setq timer
 	  (run-at-time (current-time)  freq
      'emacspeak-webspace-feedstore-update))
-    (timer-set-idle-time timer 10 'repeat)
+    (timer-set-idle-time timer 3 'repeat)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
@@ -223,7 +223,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
         (run-at-time
          (current-time) (timer-duration period)
          'emacspeak-webspace-weather-get )
-        (timer-set-idle-time timer 10 'repeat)))
+        (timer-set-idle-time timer 3 'repeat)))
 
 ;;;###autoload
 (defun emacspeak-webspace-weather ()
