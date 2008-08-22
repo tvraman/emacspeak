@@ -189,7 +189,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
       (message "No feed found."))
      (t 
       (g-using-scratch
-       (mapc 'insert html)
+       (insert html)
        (browse-url-of-buffer))))))
 
 ;;}}}
