@@ -199,7 +199,7 @@
        (format "<html><title>News Results For %s</title><ol>" query)
        (mapconcat 
         #'(lambda (a)
-            (format "<li><a href='%s'>%s</a>\n<div>%s</div>
+            (format "<li><a href='%s'>%s</a>\n%s
 <a href='%s'>Related Stories</a></li>"
                     (cdr (assoc "unescapedUrl" a))
                     (cdr (assoc "title" a))
