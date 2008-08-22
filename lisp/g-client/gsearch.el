@@ -73,9 +73,14 @@
 "http://ajax.googleapis.com/ajax/services/search/%s?v=1.0&q=%%s"
   "Base URL template for Websearch command.")
 
-(defvar gsearch-search-url
+(defvar gsearch-web-url
 (format gsearch-base-url "web")
   "URL template for Websearch command.")
+
+(defvar gsearch-news-url
+(format gsearch-base-url "news")
+  "URL template for News Search  command.")
+
 
 (defvar gsearch-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
@@ -83,16 +88,16 @@
 ;;}}}
 ;;{{{ Search Helpers
 
-(defsubst gsearch-results (query)
+(defsubst gsearch-web-results (query)
   "Return results list."
-  (declare (special gsearch-search-url gsearch-referer))
+  (declare (special gsearch-web-url gsearch-referer))
   (let ((result nil)
         (json-key-type 'string))
     (g-using-scratch
      (call-process g-curl-program nil t nil
                    "-s"
                    "-e" gsearch-referer
-                   (format gsearch-search-url (g-url-encode query)))
+                   (format gsearch-web-url (g-url-encode query)))
      (goto-char (point-min))
      (setq result
            (g-json-lookup "responseData.results" (json-read))))
@@ -194,7 +199,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
    (t 
-    (let* ((lucky (aref (gsearch-results  search-term) 0))
+    (let* ((lucky (aref (gsearch-web-results  search-term) 0))
          (inhibit-read-only t)
          (bounds (bounds-of-thing-at-point 'word))
          (modified-p (buffer-modified-p))
