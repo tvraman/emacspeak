@@ -1105,7 +1105,7 @@ from English to German.")
  nil
  "Only show Google hits."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class "g"
+     (emacspeak-we-extract-by-id "res"
                                     url 'speak)))
 
 ;;}}}
