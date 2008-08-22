@@ -1,5 +1,5 @@
 ;;; emacspeak-net-utils.el --- Speech enable net-utils
-;;; $Id: emacspeak-net-utils.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable net-utils
 ;;; Keywords: Emacspeak, network utilities 

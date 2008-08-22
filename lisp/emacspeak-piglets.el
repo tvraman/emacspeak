@@ -1,5 +1,5 @@
 ;;; emacspeak-piglets.el.el --- Result of large pigs connecting over a socket
-;;; $Id: emacspeak-piglets.el 5660 2008-07-02 23:44:27Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Result of connecting Emacs and Firefox
 ;;; Keywords: Emacspeak,  Audio Desktop Firefox, Piglets 

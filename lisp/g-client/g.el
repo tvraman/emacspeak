@@ -1,5 +1,5 @@
 ;;; g.el --- Google Client
-;;;$Id: g.el,v 1.10 2006/08/18 22:01:42 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Client
 ;;; Keywords: emacs g-client, Google   Atom API, Google Services

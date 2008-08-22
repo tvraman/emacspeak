@@ -1,5 +1,5 @@
 ;;; emacspeak-gomoku.el --- Speech enable the game of Gomoku
-;;; $Id: emacspeak-gomoku.el 5635 2008-06-21 21:58:40Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to gomoku
 ;;; Keywords: Emacspeak, Speak, Spoken Output, gomoku

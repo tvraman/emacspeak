@@ -1,5 +1,5 @@
 ;;; emacspeak-forms.el --- Speech enable Emacs' forms mode  -- provides  a convenient database interface
-;;; $Id: emacspeak-forms.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for forms-mode 
 ;;; Keywords:emacspeak, audio interface to emacs forms 

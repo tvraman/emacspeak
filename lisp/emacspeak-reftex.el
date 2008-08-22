@@ -1,5 +1,5 @@
 ;;; emacspeak-reftex.el --- speech enable reftex
-;;; $Id: emacspeak-reftex.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable
 ;;; reftex 

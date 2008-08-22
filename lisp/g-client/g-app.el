@@ -1,5 +1,5 @@
 ;;; g-app.el --- Google Client APP methods
-;;;$Id: g-app.el,v 1.14 2006/10/13 01:38:19 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Client APP
 ;;; Keywords: Google   Atom API, Google Services

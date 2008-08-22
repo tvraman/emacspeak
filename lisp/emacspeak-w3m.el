@@ -1,5 +1,5 @@
 ;;; emacspeak-w3m.el --- speech-enables w3m-el
-;;;$Id: emacspeak-w3m.el 5528 2008-03-15 02:06:50Z tv.raman.tv $
+;;;$Id$
 ;;{{{ Copyright
 
 ;;; This file is not part of Emacs, but the same terms and

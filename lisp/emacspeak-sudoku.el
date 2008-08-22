@@ -1,5 +1,5 @@
 ;;; emacspeak-sudoku.el --- Play SuDoku 
-;;; $Id: emacspeak-sudoku.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Playing SuDoku ;;; Keywords: Emacspeak, sudoku
 ;;{{{  LCD Archive entry: 

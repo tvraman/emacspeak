@@ -1,5 +1,5 @@
 ;;; emacspeak-calc.el --- Speech enable the Emacs Calculator -- a powerful symbolic algebra system
-;;; $Id: emacspeak-calc.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: 
 ;;; Keywords:

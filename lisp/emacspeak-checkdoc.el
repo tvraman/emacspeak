@@ -1,5 +1,5 @@
 ;;; emacspeak-checkdoc.el --- Speech-enable checkdoc
-;;; $Id: emacspeak-checkdoc.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:Speech-enable checkdoc
 ;;; Keywords: Emacspeak, Speak, Spoken Output, maintain code 

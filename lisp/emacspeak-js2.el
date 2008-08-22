@@ -1,5 +1,5 @@
 ;;; emacspeak-js2.el --- Speech-enable JS2
-;;; $Id: emacspeak-js2.el,v 1.1 2008/04/03 15:05:55 raman Exp raman $
+;;; $Id$
 ;;; $Author: raman $
 ;;; Description:  Speech-enable JS2 An Emacs Interface to js2
 ;;; Keywords: Emacspeak,  Audio Desktop js2

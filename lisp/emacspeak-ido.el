@@ -1,5 +1,5 @@
 ;;; emacspeak-ido.el --- speech-enable ido
-;;; $Id: emacspeak-ido.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable ido
 ;;; Keywords: Emacspeak, Audio Desktop

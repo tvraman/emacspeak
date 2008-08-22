@@ -1,5 +1,5 @@
 ;;; emacspeak-sh-script.el --- Speech enable  sh-script mode
-;;; $Id: emacspeak-sh-script.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable sh-script 
 ;;; Keywords: Emacspeak, Audio Desktop

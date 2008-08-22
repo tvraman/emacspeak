@@ -1,5 +1,5 @@
 ;;; emacspeak-emms.el --- Speech-enable EMMS Multimedia UI
-;;; $Id: emacspeak-emms.el 5228 2007-08-28 00:54:54Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable EMMS
 ;;; Keywords: Emacspeak, Multimedia

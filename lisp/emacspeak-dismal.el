@@ -1,5 +1,5 @@
 ;;; emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program
-;;; $Id: emacspeak-dismal.el 5634 2008-06-21 17:50:41Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: spread sheet extension
 ;;; Keywords:emacspeak, audio interface to emacs spread sheets

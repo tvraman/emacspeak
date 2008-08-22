@@ -1,5 +1,5 @@
 ;;; emacspeak-filtertext.el --- Utilities to filter text
-;;; $Id: emacspeak-filtertext.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Implement text filters 
 ;;; Keywords: Emacspeak, Audio Desktop

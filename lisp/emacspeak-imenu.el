@@ -1,5 +1,5 @@
 ;;; emacspeak-imenu.el --- Speech enable Imenu -- produce buffer-specific table of contents
-;;; $Id: emacspeak-imenu.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface buffer indices
 ;;; Keywords: Emacspeak, Speak, Spoken Output, indices

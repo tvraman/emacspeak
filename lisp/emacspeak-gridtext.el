@@ -1,5 +1,5 @@
 ;;; emacspeak-gridtext.el --- Overlay Grids To filter columnar text
-;;; $Id: emacspeak-gridtext.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for laying grids on text
 ;;; Keywords: Emacspeak, gridtext

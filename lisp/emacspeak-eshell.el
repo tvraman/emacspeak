@@ -1,5 +1,5 @@
 ;;; emacspeak-eshell.el --- Speech-enable EShell - Emacs Shell
-;;; $Id: emacspeak-eshell.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Speech-enable EShell
 ;;; Keywords: Emacspeak, Audio Desktop

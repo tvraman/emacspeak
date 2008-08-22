@@ -1,5 +1,5 @@
 ;;; emacspeak-rpm-spec.el --- Speech enable rpm spec editor
-;;; $Id: emacspeak-rpm-spec.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling mplayer from emacs 
 ;;; Keywords: Emacspeak, rpm-spec streaming media 

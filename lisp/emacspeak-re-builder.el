@@ -1,5 +1,5 @@
 ;;; emacspeak-re-builder.el --- speech-enable re-builder
-;;; $Id: emacspeak-re-builder.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable re-builder
 ;;; Keywords: Emacspeak, Audio Desktop

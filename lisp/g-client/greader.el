@@ -1,5 +1,5 @@
 ;;; greader.el --- Google Reader
-;;;$Id: greader.el,v 1.74 2006/10/13 01:37:30 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Reader
 ;;; Keywords: Google   Atom API

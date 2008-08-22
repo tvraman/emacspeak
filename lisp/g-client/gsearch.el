@@ -1,5 +1,5 @@
 ;;; gsearch.el --- Google Search
-;;;$Id: gcal.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  AJAX Search -> Lisp
 ;;; Keywords: Google   AJAX API

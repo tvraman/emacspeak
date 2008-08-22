@@ -1,5 +1,5 @@
 ;;; emacspeak-windmove.el --- speech-enable windmove 
-;;; $Id: emacspeak-windmove.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for WINDMOVE
 ;;; Keywords: Emacspeak, windmove

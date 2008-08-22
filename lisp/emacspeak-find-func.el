@@ -1,5 +1,5 @@
 ;;; emacspeak-find-func.el --- Speech enable emacs' code finder
-;;; $Id: emacspeak-find-func.el 5246 2007-09-01 22:30:13Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable find-func
 ;;; Keywords: Emacspeak, find-func

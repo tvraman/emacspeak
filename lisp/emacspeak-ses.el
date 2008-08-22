@@ -1,5 +1,5 @@
 ;;; emacspeak-ses.el --- Speech-enable ses spread-sheet
-;;; $Id: emacspeak-ses.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for SES 
 ;;; Keywords: Emacspeak, ses 

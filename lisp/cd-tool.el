@@ -1,5 +1,5 @@
 ;;; cd-tool.el --- Play  CDs from Emacs
-;;;$Id: cd-tool.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;;$Id$
 ;;;Emacs front-end to CDTool
 ;;{{{  Copyright:
 

@@ -1,5 +1,5 @@
 ;;; emacspeak-pcl-cvs.el --- Speech enabled CVS access 
-;;; $Id: emacspeak-pcl-cvs.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable CVS
 ;;; access 

@@ -1,5 +1,5 @@
 ;;; emacspeak-sql.el --- Speech enable sql-mode
-;;; $Id: emacspeak-sql.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable sql-mode
 ;;; Keywords: Emacspeak, database interaction
