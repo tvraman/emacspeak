@@ -67,18 +67,21 @@
 ;;}}}
 ;;{{{ Variables
 
+(defvar gfeeds-base-url
+  "http://ajax.googleapis.com/ajax/services/feed/%s?q=%%s&num=10&v=1.0"
+  "Base URL for Feed service.")
+
 (defvar gfeeds-feeds-url
-  "http://ajax.googleapis.com/ajax/services/feed/load?q=%s&num=10&v=1.0"
+  (format gfeeds-base-url "load")
   "URL template for pulling feeds.")
 
 (defvar gfeeds-lookup-url
-  "http://ajax.googleapis.com/ajax/services/feed/lookup?q=%s&v=1.0"
+  (format gfeeds-base-url "lookup")
   "Rest end-point for feed lookup.")
 
 (defvar gfeeds-find-url
-  "http://ajax.googleapis.com/ajax/services/feed/find?q=%s&v=1.0"
+  (format gfeeds-base-url "find")
   "Rest end-point for finding feeds.")
-
 
 (defvar gfeeds-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
@@ -188,7 +191,6 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
       (g-using-scratch
        (mapc 'insert html)
        (browse-url-of-buffer))))))
-
 
 ;;}}}
 (provide 'gfeeds)
