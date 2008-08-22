@@ -201,7 +201,7 @@
         #'(lambda (a)
             (format "<li><a href='%s'>%s</a>\n<div>%s</div>
 <a href='%s'>Related Stories</a></li>"
-                    (cdr (assoc "url" a))
+                    (cdr (assoc "unescapedUrl" a))
                     (cdr (assoc "title" a))
                     (cdr (assoc "content" a))
                     (cdr (assoc "clusterUrl" a))))
