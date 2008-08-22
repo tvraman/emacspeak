@@ -170,7 +170,7 @@
      (call-process g-curl-program nil t nil
                    "-s"
                    "-e" gsearch-referer
-                   (format url-end-point (g-url-encode query)))
+                   (format url-end-point  query))
      (goto-char (point-min))
      (setq response (json-read))
      (when (= 200 (g-json-get "responseStatus" response))
@@ -188,7 +188,7 @@
 (defsubst gsearch-news-results (query)
   "Return News Search results."
   (declare (special gsearch-news-url))
-(gsearch-results query gsearch-news-url))
+(gsearch-results (g-url-encode query) gsearch-news-url))
 
 
 (defun gsearch-news-html (query)
