@@ -145,6 +145,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
     (setq timer
 	  (run-at-time (current-time)  freq
      'emacspeak-webspace-feedstore-update))
+    (timer-set-idle-time timer 60 'repeat)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
