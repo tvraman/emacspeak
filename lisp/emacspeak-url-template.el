@@ -57,7 +57,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
-(require 'gsearch)
+(require 'gweb)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (eval-when-compile
@@ -630,7 +630,7 @@ content."
  "Google TimeLine View"
  "http://www.google.com/views?q=%s+view:timeline&num=25"
  (list
-  'gsearch-google-autocomplete)
+  'gweb-google-autocomplete)
  #'(lambda nil
      (re-search-forward " Timeline View" nil t)
      (forward-line 1)
@@ -640,7 +640,7 @@ content."
  "Google Info View"
  "http://www.google.com/views?q=%s+view:info&sa=N&ct=infoview"
  (list
-  'gsearch-google-autocomplete)
+  'gweb-google-autocomplete)
  #'(lambda nil
      (re-search-forward "Info View" nil t)
      (forward-line 1)
@@ -1098,7 +1098,7 @@ from English to German.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list 'gsearch-google-autocomplete
+ (list 'gweb-google-autocomplete
        #'(lambda nil
 	   (declare (special  emacspeak-websearch-google-number-of-results))
 	   emacspeak-websearch-google-number-of-results))
