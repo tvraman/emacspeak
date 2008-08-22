@@ -164,7 +164,7 @@
            (gfeeds-feed-title  feed))
   (mapconcat 
    #'(lambda (a)
-       (format "<li><a href='%s'>%s</a>\n<div>%s</div></li>"
+       (format "<li><a href='%s'>%s</a>\n%s</li>"
                (cdr (assoc "link" a))
                (cdr (assoc "title" a))
                (cdr (assoc "contentSnippet" a))))
