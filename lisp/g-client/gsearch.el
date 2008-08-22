@@ -86,24 +86,6 @@
   "Referer URL to send to the API.")
 
 ;;}}}
-;;{{{ Search Helpers
-
-(defsubst gsearch-web-results (query)
-  "Return results list."
-  (declare (special gsearch-web-url gsearch-referer))
-  (let ((result nil)
-        (json-key-type 'string))
-    (g-using-scratch
-     (call-process g-curl-program nil t nil
-                   "-s"
-                   "-e" gsearch-referer
-                   (format gsearch-web-url (g-url-encode query)))
-     (goto-char (point-min))
-     (setq result
-           (g-json-lookup "responseData.results" (json-read))))
-    result))
-
-;;}}}
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
@@ -176,6 +158,68 @@
     (pushnew  query gsearch-history)
     (g-url-encode query)))
 
+;;}}}
+;;{{{ Search Helpers
+
+(defsubst gsearch-results (query url-end-point)
+  "Return results list obtained from url-end-point."
+  (declare (special  gsearch-referer))
+  (let ((response nil)
+        (json-key-type 'string))
+    (g-using-scratch
+     (call-process g-curl-program nil t nil
+                   "-s"
+                   "-e" gsearch-referer
+                   (format url-end-point (g-url-encode query)))
+     (goto-char (point-min))
+     (setq response (json-read))
+     (when (= 200 (g-json-get "responseStatus" response))
+       (g-json-lookup "responseData.results" response)))))
+
+(defsubst gsearch-web-results (query)
+  "Return Web Search results list."
+  (declare (special gsearch-web-url ))
+  (gsearch-results query gsearch-web-url))
+
+;;}}}
+;;{{{ News Helpers:
+
+;;; Google News Search
+(defsubst gsearch-news-results (query)
+  "Return News Search results."
+  (declare (special gsearch-news-url))
+(gsearch-results query gsearch-news-url))
+
+
+(defun gsearch-news-html (query)
+  "Return simple HTML from News search."
+  (let ((results (gsearch-news-results query )))
+    (when results
+      (concat
+       (format "<html><title>News Results For %s</title><ol>" query)
+       (mapconcat 
+        #'(lambda (a)
+            (format "<li><a href='%s'>%s</a>\n<div>%s</div>
+<a href='%s'>Related Stories</a></li>"
+                    (cdr (assoc "url" a))
+                    (cdr (assoc "title" a))
+                    (cdr (assoc "content" a))
+                    (cdr (assoc "clusterUrl" a))))
+        results
+        "")
+       "</ol></html>"))))
+    
+(defun gsearch-news-view (query )
+  "Display News Search results  in a browser."
+  (interactive "sNews Search: ")
+  (let ((html (gsearch-news-html query)))
+    (cond
+     ((null html)
+      (message "No news found."))
+     (t 
+      (g-using-scratch
+       (insert html)
+       (browse-url-of-buffer))))))
 ;;}}}
 ;;{{{ Interactive Commands:
 
