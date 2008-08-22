@@ -1,5 +1,5 @@
 ;;; emacspeak-midge.el --- Speech-enable MIDI editor
-;;; $Id: emacspeak-midge.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable MIDGE
 ;;; Keywords: Emacspeak, MIDI 

@@ -1,5 +1,5 @@
 ;;; emacspeak-xslide.el --- Speech enable  XSL authoring
-;;; $Id: emacspeak-xslide.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable xslide
 ;;; Keywords: Emacspeak, Audio Desktop

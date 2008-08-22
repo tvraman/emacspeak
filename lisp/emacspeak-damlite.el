@@ -1,5 +1,5 @@
 ;;; emacspeak-damlite.el --- Speech-enable damlite
-;;; $Id: emacspeak-damlite.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for daml  authoring mode 
 ;;; Keywords: Emacspeak, damlite 

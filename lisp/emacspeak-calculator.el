@@ -1,5 +1,5 @@
 ;;; emacspeak-calculator.el --- Speech enable  desktop calculator
-;;; $Id: emacspeak-calculator.el 5329 2007-10-09 14:30:27Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable desktop calculator
 ;;; Keywords: Emacspeak, Audio Desktop

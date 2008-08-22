@@ -1,5 +1,5 @@
 ;;; emacspeak-metapost.el --- speech-enable metapost mode
-;;; $Id: emacspeak-metapost.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling
 ;;; metapost mode

@@ -1,5 +1,5 @@
 ;;; gfeeds.el --- Google Access To Feeds
-;;;$Id: gcal.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  AJAX Feeds -> Lisp
 ;;; Keywords: Google   AJAX Feeds API
@@ -203,7 +203,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
 
 ;;}}}
 ;;; gfeeds.el --- Google Feeds
-;;;$Id: gcal.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  AJAX Feeds -> Lisp
 ;;; Keywords: Google   AJAX API

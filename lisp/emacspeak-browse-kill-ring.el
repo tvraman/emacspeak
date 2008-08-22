@@ -1,5 +1,5 @@
 ;;; emacspeak-browse-kill-ring.el --- browse-kill-ring  for emacspeak desktop
-;;; $Id: emacspeak-browse-kill-ring.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for BROWSE-KILL-RING
 ;;; Keywords: Emacspeak, browse-kill-ring

@@ -1,5 +1,5 @@
 ;;; g-photo.el ---  Google  Picasa Client
-;;;$Id: gphoto.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:   Client  For Accessing Picasa (Photo Albums)
 ;;; Keywords: Google   Atom API

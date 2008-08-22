@@ -1,5 +1,5 @@
 ;;; emacspeak-muse.el --- Speech-enable Muse
-;;; $Id: emacspeak-muse.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable Muse
 ;;; Keywords: Emacspeak,  Audio Desktop Muse

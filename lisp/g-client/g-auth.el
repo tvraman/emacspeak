@@ -1,5 +1,5 @@
 ;;; g-auth.el --- Google Authentication Module
-;;;$Id: g-auth.el,v 1.6 2006/10/23 16:51:50 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Authentication Module
 ;;; Keywords: Google   Auth

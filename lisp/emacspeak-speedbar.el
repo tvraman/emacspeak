@@ -1,5 +1,5 @@
 ;;; emacspeak-speedbar.el --- Speech enable speedbar -- Tool for context-sensitive navigation
-;;; $Id: emacspeak-speedbar.el 5634 2008-06-21 17:50:41Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to speedbar
 ;;; Keywords: Emacspeak, Speedbar

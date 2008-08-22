@@ -1,5 +1,5 @@
 ;;; emacspeak-dictation.el --- Speech enable dictation -- Dictation Interface
-;;; $Id: emacspeak-dictation.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to dictation
 ;;; Keywords: Emacspeak, Speak, Spoken Output, dictation

@@ -1,5 +1,5 @@
 ;;; emacspeak-iswitchb.el --- speech-enable iswitchb buffer selection
-;;; $Id: emacspeak-iswitchb.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable iswitchb
 ;;; Keywords: Emacspeak, Audio Desktop

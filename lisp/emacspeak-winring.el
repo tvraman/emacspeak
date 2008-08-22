@@ -1,5 +1,5 @@
 ;;; emacspeak-winring.el --- Speech enable WinRing -- Manage multiple Emacs window configurations
-;;; $Id: emacspeak-winring.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to winring
 ;;; Keywords: Emacspeak, Speak, Spoken Output, winring

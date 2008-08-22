@@ -1,5 +1,5 @@
 ;;; emacspeak-kmacro.el --- Speech-enable kbd macro interface
-;;; $Id: emacspeak-kmacro.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for KMACRO 
 ;;; Keywords: Emacspeak, kmacro 

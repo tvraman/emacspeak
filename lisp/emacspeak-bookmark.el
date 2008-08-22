@@ -1,5 +1,5 @@
 ;;; emacspeak-bookmark.el --- Speech enable Emacs' builtin bookmarks
-;;; $Id: emacspeak-bookmark.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to bookmark
 ;;; Keywords: Emacspeak, Speak, Spoken Output, bookmark

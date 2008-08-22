@@ -1,5 +1,5 @@
 ;;; gnotebook.el --- Google Notebook
-;;;$Id: gnotebook.el,v 1.30 2006/09/28 17:47:44 raman Exp $
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Notebook
 ;;; Keywords: Google   Services

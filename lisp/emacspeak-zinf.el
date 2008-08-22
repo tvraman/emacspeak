@@ -1,5 +1,5 @@
 ;;; emacspeak-zinf.el --- Control zinf from Emacs
-;;; $Id: emacspeak-zinf.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling zinf from emacs 
 ;;; Keywords: Emacspeak, zinf

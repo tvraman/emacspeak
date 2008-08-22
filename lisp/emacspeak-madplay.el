@@ -1,5 +1,5 @@
 ;;; emacspeak-madplay.el --- Control madplay from Emacs
-;;; $Id: emacspeak-madplay.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling madplay from emacs 
 ;;; Keywords: Emacspeak, madplay

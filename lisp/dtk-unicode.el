@@ -5,7 +5,7 @@
 ;;; Using patch from Lukas.
 ;;
 ;; Author: Lukas Loehrer <loehrerl |at| gmx.net>
-;; Version: $Id: dtk-unicode.el,v 0.0 2007/09/24 09:15:24 luke Exp $
+;; Version: $Id$
 ;; Keywords: 
 ;; X-URL: not distributed yet
 

@@ -1,5 +1,5 @@
 ;;; emacspeak-swbuff.el --- speech-enable swbuff mode
-;;; $Id: emacspeak-swbuff.el 5222 2007-08-26 01:28:19Z tv.raman.tv $
+;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling swbuff 
 ;;; Keywords: Emacspeak, swbuff
