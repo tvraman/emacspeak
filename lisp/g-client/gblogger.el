@@ -1,5 +1,5 @@
 ;;; gblogger.el ---  new Atom Blogger API client
-;;; $Id:$
+;;; $Id$
 ;;; $Author:$
 ;;; Description:  ATOM Blogger API
 ;;; Keywords: g-client, Blogger Atom API
@@ -242,13 +242,7 @@ The retrieved entry is placed in a buffer ready for editing.
   (g-app-delete-entry gblogger-auth-handle edit-url))
 
 ;;;### autoload
-(defun gblogger-delete-entry (url)
-  "Delete specified entry."
-  (interactive
-   (list
-    (read-from-minibuffer "Entry URL:")))
-  (declare (special gblogger-auth-handle))
-  (g-app-delete-entry gblogger-auth-handle url))
+
 ;;;###autoload
 (defun gblogger-add-label (label)
   "Adds labels to gblogger entry being editted."

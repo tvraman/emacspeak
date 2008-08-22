@@ -169,15 +169,6 @@ Returns HTTP response as (list headers body)."
 
 ;;; HTTP DELETE:
 
-(defun g-app-delete-entry (auth-handle url)
-  "Delete specified entry."
-  (shell-command
-   (format "%s %s %s -X DELETE %s %s"
-           g-curl-program g-curl-common-options
-           (g-authorization auth-handle)
-           url
-           (g-curl-debug))))
-
 (defun g-app-publish ()
   "Publish current entry."
   (interactive)
