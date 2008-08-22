@@ -459,6 +459,7 @@ instances."
   "Display RSS or ATOM feed URL."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (emacspeak-auditory-icon 'select-object)
+  (emacspeak-webutils-autospeak)
   (gfeeds-view  feed-url))
 
 ;;}}}
