@@ -91,8 +91,7 @@
     (g-using-scratch
      (call-process g-curl-program nil t nil
                    "-s"
-                   "-e"
-                   gsearch-referer
+                   "-e" gsearch-referer
                    (format gsearch-search-url (g-url-encode query)))
      (goto-char (point-min))
      (setq result
