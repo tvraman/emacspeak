@@ -52,7 +52,7 @@ gfeeds.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
-gsearch.elc \
+gweb.elc \
 gtube.elc \
 gsheet.elc
 
@@ -89,7 +89,7 @@ gfeeds.elc: g-utils.elc gfeeds.el
 gfinance.elc: gfinance.el g-app.elc
 greader.elc: greader.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
-gsearch.elc: gsearch.el g-utils.elc
+gweb.elc: gweb.el g-utils.elc
 gcal.elc: gcal.el g-app.elc
 gnotebook.elc: gnotebook.el g-app.elc
 gblogger.elc: gblogger.el g-app.elc
