@@ -222,7 +222,8 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (setq emacspeak-webspace-weather-timer
         (run-at-time
          (current-time) (timer-duration period)
-         'emacspeak-webspace-weather-get )))
+         'emacspeak-webspace-weather-get )
+        (timer-set-idle-time timer 60 'repeat)))
 
 ;;;###autoload
 (defun emacspeak-webspace-weather ()
