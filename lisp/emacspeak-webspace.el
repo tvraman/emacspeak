@@ -100,12 +100,14 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-feedstore))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
+  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines))
+        (id (cdr (assoc "title" feed))))
     (with-local-quit
       (mapc
        #'(lambda (h)
            (unless (zerop (length h))
-             (ring-insert headlines h)))
+             (ring-insert headlines
+                          (concat h " " id))))
        (gfeeds-titles feed)))))
        
 
