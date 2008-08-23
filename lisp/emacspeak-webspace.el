@@ -88,11 +88,11 @@ Generates auditory and visual display."
                 (string :tag "URL"))
   :group  'emacspeak-webspace)
 
-;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
+;;; Encapsulate collection feeds, headlines, , and  recently updated feed.-index
 
 (defstruct emacspeak-webspace-feedstore
   feeds headlines
-  timer index frequency)
+   timer index frequency)
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
@@ -113,9 +113,10 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-headlines-populate ()
   "populate feedstore with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
-  (loop for i from 0 to (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))
-        do
-        (emacspeak-webspace-feedstore-update)))
+  (mapc
+   'emacspeak-webspace-feedstore-update
+   (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+        
 
 (defun emacspeak-webspace-feedstore-update ()
   "Update feedstore with headlines from the `next' feed.
@@ -139,14 +140,13 @@ Updated headlines found in emacspeak-webspace-feedstore."
 			  emacspeak-webspace-update-frequency)))
   (declare (special emacspeak-webspace-headlines
 		    emacspeak-webspace-update-frequency))
-  (let ((timer nil)
-	(freq (/ (timer-duration frequency)
-                 (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+  (let ((freq (/ (timer-duration frequency)
+                 (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))
+	(timer nil))
     (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
-    (setq timer
-	  (run-at-time (current-time)  freq
+    (setq timer 
+	  (run-with-idle-timer  3 'repeat
      'emacspeak-webspace-feedstore-update))
-    (timer-set-idle-time timer 3 'repeat)
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
@@ -221,10 +221,8 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
-        (run-at-time
-         (current-time) (timer-duration period)
-         'emacspeak-webspace-weather-get )
-        (timer-set-idle-time timer 3 'repeat)))
+        (run-with-idle-timer 3 'repeat
+         'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
 (defun emacspeak-webspace-weather ()
