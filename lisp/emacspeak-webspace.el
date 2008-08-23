@@ -76,12 +76,6 @@ Generates auditory and visual display."
 
 ;;}}}
 ;;{{{ Headlines:
-
-(defcustom emacspeak-webspace-update-frequency "30 minutes"
-  "Update frequency used as default when prompting."
-  :type 'string
-  :group 'emacspeak-webspace)
-
 (defcustom emacspeak-webspace-headlines-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
@@ -92,7 +86,7 @@ Generates auditory and visual display."
 
 (defstruct emacspeak-webspace-feedstore
   feeds headlines
-   timer index frequency)
+   timer index )
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
@@ -130,23 +124,15 @@ Feeds in the feedstore are visited in cyclic order."
           (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
 	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))))
 
-(defun emacspeak-webspace-update-headlines (frequency)
+(defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
-Frequency is specified as documented in function run-at-time.
 Updated headlines found in emacspeak-webspace-feedstore."
-  (interactive
-   (list
-    (read-from-minibuffer "Update frequency: "
-			  emacspeak-webspace-update-frequency)))
-  (declare (special emacspeak-webspace-headlines
-		    emacspeak-webspace-update-frequency))
-  (let ((freq (/ (timer-duration frequency)
-                 (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))
-	(timer nil))
-    (setf (emacspeak-webspace-feedstore-frequency emacspeak-webspace-headlines) freq)
+  (interactive)
+  (declare (special emacspeak-webspace-headlines))
+  (let ((timer nil))
     (setq timer 
 	  (run-with-idle-timer  3 'repeat
-     'emacspeak-webspace-feedstore-update))
+				'emacspeak-webspace-feedstore-update))
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
@@ -206,16 +192,11 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (setq emacspeak-webspace-current-weather
         (emacspeak-webspace-weather-conditions)))
 
-(defun emacspeak-webspace-update-weather (period)
+(defun emacspeak-webspace-update-weather ()
   "Setup periodic weather updates.
-Period is specified as documented in function run-at-time.
 Updated weather is found in `emacspeak-webspace-current-weather'."
-  (interactive
-   (list
-    (read-from-minibuffer "Update frequency: "
-			  emacspeak-webspace-update-frequency)))
-  (declare (special emacspeak-webspace-weather-timer
-		    emacspeak-webspace-update-frequency))
+  (interactive)
+  (declare (special emacspeak-webspace-weather-timer))
   (unless emacspeak-url-template-weather-city-state
     (error
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
