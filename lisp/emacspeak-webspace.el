@@ -116,14 +116,13 @@ Generates auditory and visual display."
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feedstore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
-  (with-timeout (5 t)
-    (emacspeak-webspace-headlines-fetch
-     (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-	  (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-    (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-          (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
-	     (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))))))
-
+  (emacspeak-webspace-headlines-fetch
+   (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
+   (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))
+  (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
+	(% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
+	   (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+x
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
 Updated headlines found in emacspeak-webspace-feedstore."
@@ -131,8 +130,8 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil))
     (setq timer 
-	  (run-with-idle-timer  60 'repeat
-				'emacspeak-webspace-feedstore-update))
+	  (run-with-idle-timer
+	   300 'repeat 'emacspeak-webspace-feedstore-update))
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
@@ -202,7 +201,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
-        (run-with-idle-timer 60 'repeat
+        (run-with-idle-timer 600 'repeat
          'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
