@@ -131,7 +131,7 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil))
     (setq timer 
-	  (run-with-idle-timer  3 'repeat
+	  (run-with-idle-timer  60 'repeat
 				'emacspeak-webspace-feedstore-update))
     (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
 
@@ -202,7 +202,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
      "First set option emacspeak-url-template-weather-city-state to your city/state."))
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
-        (run-with-idle-timer 3 'repeat
+        (run-with-idle-timer 60 'repeat
          'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
