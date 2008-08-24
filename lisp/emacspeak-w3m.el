@@ -669,8 +669,9 @@ instead of the modeline."
   "Preview this buffer in w3m."
   (interactive)
   (let ((filename
-         (format "/tmp/%s.html"
-                 (make-temp-name "w3m"))))
+         (make-temp-file
+	  (format "%s.html"
+                 (make-temp-name "w3m")))))
     (write-region (point-min)
                   (point-max)
                   filename)
