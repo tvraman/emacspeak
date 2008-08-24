@@ -95,13 +95,11 @@ Generates auditory and visual display."
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-feedstore))
   (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
-    (with-local-quit
-      (mapc
-       #'(lambda (h)
-           (unless (zerop (length h))
-             (ring-insert headlines
-                          h )))
-       (gfeeds-titles feed)))))
+    (mapc
+     #'(lambda (h)
+	 (unless (zerop (length h))
+	   (ring-insert headlines h )))
+     (gfeeds-titles feed))))
        
 
 (defun emacspeak-webspace-headlines-populate ()
@@ -117,12 +115,12 @@ Generates auditory and visual display."
 Feeds in the feedstore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch
-   (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
-   (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines))
+   (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
+	(emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
   (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-	(% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines) )
-	   (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
-x
+	 (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
+	    (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
 Updated headlines found in emacspeak-webspace-feedstore."
@@ -149,13 +147,12 @@ Updated headlines found in emacspeak-webspace-feedstore."
 (defun emacspeak-webspace-headlines ()
   "Speak current news headline."
   (interactive)
-  (declare (special emacspeak-webspace-headlines
-                    emacspeak-webspace-headlines-timer))
+  (declare (special emacspeak-webspace-headlines))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-feedstore
            :feeds emacspeak-webspace-headlines-feeds
-           :headlines (make-ring (* 20 (length emacspeak-webspace-headlines-feeds)))
+           :headlines (make-ring (* 10 (length emacspeak-webspace-headlines-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
