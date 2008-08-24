@@ -152,9 +152,9 @@
   "Return list of titles from feed at feed-url."
   (let ((feed (gfeeds-feed feed-url)))
     (when feed
-      (loop for article across 
-            (gfeeds-feed-entries feed)
-            collect (cdr (assoc "title" article))))))
+      (mapcar #'(lambda (article)
+		  (cdr (assoc "title" article)))
+	      (gfeeds-feed-entries feed)))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
