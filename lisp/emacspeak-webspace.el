@@ -105,9 +105,8 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
-  (mapc
-   'emacspeak-webspace-fs-update
-   (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+  (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+   (emacspeak-webspace-fs-update)))
         
 
 (defun emacspeak-webspace-fs-update ()
