@@ -239,8 +239,10 @@ Customize this to live on your local disk."
 ;;{{{ json conveniences:
 
 (defsubst g-json-get (key object)
-  "Return object.key from json object or nil if not found."
-  (cdr (assoc key object)))
+  "Return object.key from json object or nil if not found.
+Key must be a symbol.
+For using string keys, use g-json-lookup."
+  (cdr (assq key object)))
 
 ;;; Make sure to call json-read
 ;;; with json-key-type bound to 'string before using this:

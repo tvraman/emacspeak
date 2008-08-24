@@ -93,8 +93,7 @@
 (defsubst gfeeds-feed (feed-url)
   "Return feed structure."
   (declare (special gfeeds-feeds-url gfeeds-referer))
-  (let ((json-key-type 'string)
-        (result nil))
+  (let ((result nil))
     (g-using-scratch
      (call-process g-curl-program nil t nil
                    "-s"
@@ -102,14 +101,16 @@
                    (format gfeeds-feeds-url (g-url-encode feed-url)))
      (goto-char (point-min))
      (setq result (json-read))
-     (when (= 200 (g-json-get "responseStatus" result))
-       (g-json-lookup "responseData.feed" result)))))
+     (when (= 200 (g-json-get 'responseStatus result))
+       (g-json-get
+	'feed
+	(g-json-get 'responseData result))))))
+
 ;;;###autoload
 (defsubst gfeeds-lookup (url)
   "Lookup feed for a given Web page."
   (declare (special gfeeds-lookup-url gfeeds-referer))
-  (let ((json-key-type 'string)
-        (result nil))
+  (let ((result nil))
     (g-using-scratch
      (call-process g-curl-program nil t nil
                    "-s"
@@ -117,14 +118,16 @@
                    (format gfeeds-lookup-url (g-url-encode url)))
      (goto-char (point-min))
      (setq result (json-read))
-     (when (= 200 (g-json-get "responseStatus" result))
-       (g-json-lookup "responseData.url" result)))))
+     (when (= 200 (g-json-get 'responseStatus result))
+       (g-json-get
+        'url
+(g-json-get 'responseData result))))))
+
 ;;;###autoload
 (defsubst gfeeds-find (query)
   "Find feeds matching a query."
   (declare (special gfeeds-find-url gfeeds-referer))
-  (let ((json-key-type 'string)
-        (result nil))
+  (let ((result nil))
     (g-using-scratch
      (call-process g-curl-program nil t nil
                    "-s"
@@ -132,18 +135,20 @@
                    (format gfeeds-find-url (g-url-encode query)))
      (goto-char (point-min))
      (setq result (json-read))
-     (when (= 200 (g-json-get "responseStatus" result))
-       (g-json-lookup "responseData.entries" result)))))
+     (when (= 200 (g-json-get 'responseStatus result))
+       (g-json-get
+	'entries
+	(g-json-get 'responseData result))))))
 
 ;;; Feed slot accessors:
 
 (loop for slot in
-      '("entries" "type" "description" "author" "link" "title")
+      (list 'entries 'type 'description 'author 'link 'title)
       do
       (eval
        `(defsubst ,(intern (format "gfeeds-feed-%s" slot)) (f)
           ,(format "Return %s from feed." slot)
-          (cdr (assoc ,slot f)))))
+          (cdr (assq ',slot f)))))
 
 ;;}}}
 ;;{{{ Convenience commands:
@@ -153,8 +158,8 @@
   (let ((feed (gfeeds-feed feed-url)))
     (when feed
       (mapcar #'(lambda (article)
-		  (cdr (assoc "title" article)))
-	      (gfeeds-feed-entries feed)))))
+                  (cdr (assq 'title article)))
+              (gfeeds-feed-entries feed)))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
@@ -165,9 +170,9 @@
   (mapconcat 
    #'(lambda (a)
        (format "<li><a href='%s'>%s</a>\n%s</li>"
-               (cdr (assoc "link" a))
-               (cdr (assoc "title" a))
-               (cdr (assoc "contentSnippet" a))))
+               (cdr (assq 'link a))
+               (cdr (assq 'title a))
+               (cdr (assq 'contentSnippet a))))
    (gfeeds-feed-entries feed)
    "")
   "</ol></html>")
