@@ -164,17 +164,18 @@
 (defsubst gweb-results (query url-end-point)
   "Return results list obtained from url-end-point."
   (declare (special  gweb-referer))
-  (let ((response nil)
-        (json-key-type 'string))
-    (g-using-scratch
-     (call-process g-curl-program nil t nil
-                   "-s"
-                   "-e" gweb-referer
-                   (format url-end-point  query))
-     (goto-char (point-min))
-     (setq response (json-read))
-     (when (= 200 (g-json-get "responseStatus" response))
-       (g-json-lookup "responseData.results" response)))))
+  (let((response nil))
+      (g-using-scratch
+	(call-process g-curl-program nil t nil
+		      "-s"
+		      "-e" gweb-referer
+		      (format url-end-point  query))
+	(goto-char (point-min))
+	(setq response (json-read))
+	(when (= 200 (g-json-get 'responseStatus response))
+	  (g-json-get
+	   'results
+	   (g-json-get 'responseData response))))))
 
 (defsubst gweb-web-results (query)
   "Return Web Search results list."
@@ -201,10 +202,10 @@
         #'(lambda (a)
             (format "<li><a href='%s'>%s</a>\n%s
 <a href='%s'>Related Stories</a></li>"
-                    (cdr (assoc "unescapedUrl" a))
-                    (cdr (assoc "title" a))
-                    (cdr (assoc "content" a))
-                    (cdr (assoc "clusterUrl" a))))
+                    (cdr (assq 'unescapedUrl a))
+                    (cdr (assq 'title a))
+                    (cdr (assq 'content a))
+                    (cdr (assq 'clusterUrl a))))
         results
         "")
        "</ol></html>"))))
