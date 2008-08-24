@@ -136,7 +136,9 @@ Updated headlines found in emacspeak-webspace-fs."
   (declare (special emacspeak-webspace-fs))
   (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
     (cond
-     ((ring-empty-p headlines) "No News Is Good News")
+     ((ring-empty-p headlines)
+      (emacspeak-webspace-fs-update)
+      "No News Is Good Nes")
      (t
       (let ((h (ring-remove headlines 0)))
         (ring-insert-at-beginning headlines h)
