@@ -1831,17 +1831,20 @@ Extracted content is placed as a csv file in task.csv."
     (read-from-minibuffer "URL: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
-  (declare (special
-            emacspeak-wizards-table-content-extractor))
-  (let ((output (format "/tmp/%s.csv" task)))
+  (declare (special emacspeak-wizards-table-content-extractor))
+  (let ((output
+	 (expand-file-name 
+	 (format "%s.csv" task)
+	 emacspeak-resource-directory)))
     (shell-command
      (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
               emacspeak-wizards-table-content-extractor
-              task
+              output
               url
               depth count ))
     (emacspeak-table-find-csv-file output)
     (delete-file output)))
+
 ;;;###autoload
 (defun emacspeak-wizards-get-table-content-from-file (task file depth count )
   "Extract table specified by depth and count from HTML
@@ -1855,11 +1858,14 @@ Extracted content is placed as a csv file in task.csv."
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
+  (let ((output
+	 (expand-file-name (format "%s.csv" task)
+	 emacspeak-resource-directory)))
   (shell-command
    (format  "%s --task=%s --file=%s --depth=%s --count=%s"
             emacspeak-wizards-table-content-extractor
-            task file depth count ))
-  (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
+            output file depth count ))
+  (emacspeak-table-find-csv-file output))
 
 ;;}}}
 ;;{{{ annotation wizard
@@ -2226,8 +2232,10 @@ emacspeak-wizards-personal-portfolio."
                     emacspeak-wizards-quote-command
                     emacspeak-wizards-quote-row-filter))
   (let ((temp-file
-         (format "/tmp/%s.csv"
-                 (gensym "quotes"))))
+         (expand-file-name
+	  (format "%s.csv"
+                 (gensym "quotes"))
+	  emacspeak-resource-directory)))
     (shell-command
      (format
       "echo '%s' | perl %s > %s"
