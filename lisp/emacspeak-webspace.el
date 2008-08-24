@@ -129,7 +129,7 @@ Updated headlines found in emacspeak-webspace-fs."
   (let ((timer nil))
     (setq timer 
 	  (run-with-idle-timer
-	   300 'repeat 'emacspeak-webspace-fs-update))
+	   60 'repeat 'emacspeak-webspace-fs-update))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
