@@ -84,17 +84,17 @@ Generates auditory and visual display."
 
 ;;; Encapsulate collection feeds, headlines, , and  recently updated feed.-index
 
-(defstruct emacspeak-webspace-feedstore
+(defstruct emacspeak-webspace-fs
   feeds headlines
    timer index )
 
 (defvar emacspeak-webspace-headlines nil
-  "Feedstore structure to use a continuously updating ticker.")
+  "Feedstore  structure to use a continuously updating ticker.")
 
 (defun emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
-  (declare (special emacspeak-webspace-feedstore))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
+  (declare (special emacspeak-webspace-headlines))
+  (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
     (mapc
      #'(lambda (h)
 	 (unless (zerop (length h))
@@ -103,39 +103,39 @@ Generates auditory and visual display."
        
 
 (defun emacspeak-webspace-headlines-populate ()
-  "populate feedstore with headlines from all feeds."
+  "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
   (mapc
-   'emacspeak-webspace-feedstore-update
-   (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
+   'emacspeak-webspace-fs-update
+   (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
         
 
-(defun emacspeak-webspace-feedstore-update ()
+(defun emacspeak-webspace-fs-update ()
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feedstore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch
-   (nth (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-	(emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))
-  (setf (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines)
-	 (% (1+ (emacspeak-webspace-feedstore-index emacspeak-webspace-headlines))
-	    (length (emacspeak-webspace-feedstore-feeds emacspeak-webspace-headlines)))))
+   (nth (emacspeak-webspace-fs-index emacspeak-webspace-headlines)
+	(emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+  (setf (emacspeak-webspace-fs-index emacspeak-webspace-headlines)
+	 (% (1+ (emacspeak-webspace-fs-index emacspeak-webspace-headlines))
+	    (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))))
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
-Updated headlines found in emacspeak-webspace-feedstore."
+Updated headlines found in emacspeak-webspace-fs."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil))
     (setq timer 
 	  (run-with-idle-timer
-	   300 'repeat 'emacspeak-webspace-feedstore-update))
-    (setf (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines) timer)))
+	   300 'repeat 'emacspeak-webspace-fs-update))
+    (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
-  (declare (special emacspeak-webspace-feedstore))
-  (let ((headlines (emacspeak-webspace-feedstore-headlines emacspeak-webspace-headlines)))
+  (declare (special emacspeak-webspace-fs))
+  (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
     (cond
      ((ring-empty-p headlines) "No News Is Good News")
      (t
@@ -150,11 +150,11 @@ Updated headlines found in emacspeak-webspace-feedstore."
   (declare (special emacspeak-webspace-headlines))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
-          (make-emacspeak-webspace-feedstore
+          (make-emacspeak-webspace-fs
            :feeds emacspeak-webspace-headlines-feeds
            :headlines (make-ring (* 10 (length emacspeak-webspace-headlines-feeds)))
            :index 0)))
-  (unless (emacspeak-webspace-feedstore-timer emacspeak-webspace-headlines)
+  (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
   (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
 
