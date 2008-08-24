@@ -248,12 +248,12 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
          (inhibit-read-only t)
          (bounds (bounds-of-thing-at-point 'word))
          (modified-p (buffer-modified-p))
-         (title (g-json-get "titleNoFormatting" lucky))
-         (url (g-json-get "url" lucky))
+         (title (g-json-get 'titleNoFormatting lucky))
+         (url (g-json-get 'url lucky))
          (content (shell-command-to-string
 		(format
 		 "echo '%s' | lynx -dump -stdin 2>/dev/null"
-		 (g-json-get "content" lucky)))))
+		 (g-json-get 'content lucky)))))
       (when bounds 
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
