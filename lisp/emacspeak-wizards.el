@@ -1865,7 +1865,7 @@ Extracted content is placed as a csv file in task.csv."
    (format  "%s --task=%s --file=%s --depth=%s --count=%s"
             emacspeak-wizards-table-content-extractor
             output file depth count ))
-  (emacspeak-table-find-csv-file output))
+  (emacspeak-table-find-csv-file output)))
 
 ;;}}}
 ;;{{{ annotation wizard
