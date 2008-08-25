@@ -761,7 +761,7 @@ Optional interactive prefix arg `sort' turns on sorting."
         (current-buffer) 'replace))
      (setq results
            (json-read-from-string (buffer-string))))
-    (greader-view-json-results query results))))
+    (greader-view-json-results query results)))
 
 ;;}}}
 ;;{{{ Sign out:
