@@ -357,25 +357,25 @@ user."
   (declare (special greader-atom-base))
   (let ((items (g-json-get 'items results)))
     (g-using-scratch
-         (insert
-    (format
-     "<html><head>
+     (insert
+      (format
+       "<html><head>
 <title> Results Matching %s</title>
 </head>\n"
-     query))
-   (insert
-    (format "<body><h1>Results Matching  %s</h1>\n<ol>"
-            query))
-   (loop for item across items
-         do
-         (insert
-          (format "<h2><a href=\"%s\">%s</a></h2>\n"
-         (g-json-get 'title item)
-(g-json-get 'title item)))
-(insert
- (format "<div>%s</div>\n"
-         (g-json-get 'content
-                     (g-json-get 'content item))))))))
+       query))
+     (insert
+      (format "<body><h1>Results Matching  %s</h1>\n<ol>"
+              query))
+     (loop for item across items
+           do
+           (insert
+            (format "<h2><a href=\"%s\">%s</a></h2>\n"
+                    (g-json-get 'title item)
+                    (g-json-get 'title item)))
+           (insert
+            (format "<div>%s</div>\n"
+                    (g-json-get 'content
+                                (g-json-get 'content item))))))))
 
 
 (defun greader-unread-count ()
@@ -759,10 +759,9 @@ Optional interactive prefix arg `sort' turns on sorting."
          cl                             ; content-length header
          greader-contents-rest-url)
         (current-buffer) 'replace))
-     (greader-view-json-results
-      query
-      (json-read-from-string
-       (buffer-string))))))
+     (setq results
+           (json-read-from-string (buffer-string))))
+    (greader-view-json-results query results))))
 
 ;;}}}
 ;;{{{ Sign out:
