@@ -121,6 +121,7 @@ Generates auditory and visual display."
 (defsubst emacspeak-webspace-headlines-refresh ()
   "Update headlines."()
   (declare (special emacspeak-webspace-headlines))
+  (emacspeak-auditory-icon 'progress)
   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
 
 (defun emacspeak-webspace-update-headlines ()
