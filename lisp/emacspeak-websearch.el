@@ -1120,14 +1120,14 @@ Optional interactive  prefix arg local-flag prompts for local
 
 (defvar emacspeak-websearch-google-launch-uris
   (list
-   (cons "web" emacspeak-websearch-google-uri)
-   (cons "images"  emacspeak-websearch-google-images)
-   (cons "news" emacspeak-websearch-google-news-uri)
-   (cons "froogle" emacspeak-websearch-froogle-uri)
-   (cons "books" emacspeak-websearch-google-books-uri)
-   (cons "scholar" emacspeak-websearch-google-scholar-uri)
-   (cons "maps" emacspeak-websearch-google-html-maps-uri)
-   (cons "videos" emacspeak-websearch-google-videos-uri))
+   (cons 'web emacspeak-websearch-google-uri)
+   (cons 'images  emacspeak-websearch-google-images)
+   (cons 'news emacspeak-websearch-google-news-uri)
+   (cons 'froogle emacspeak-websearch-froogle-uri)
+   (cons 'books emacspeak-websearch-google-books-uri)
+   (cons 'scholar emacspeak-websearch-google-scholar-uri)
+   (cons 'maps emacspeak-websearch-google-html-maps-uri)
+   (cons 'videos emacspeak-websearch-google-videos-uri))
   "Association list of Google search URIs.")
 
 ;;;###autoload
@@ -1140,7 +1140,7 @@ Optional interactive  prefix arg local-flag prompts for local
     (gweb-google-autocomplete "Google for: ")))
   (declare (special emacspeak-websearch-read-query))
   (browse-url
-   (concat (cdr (assoc engine
+   (concat (cdr (assq engine
                        emacspeak-websearch-google-launch-uris))
            (emacspeak-url-encode query))))
 

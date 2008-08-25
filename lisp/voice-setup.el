@@ -497,7 +497,7 @@ font-lock.  Voicification is effective only if font lock is on."
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
-(unless (assoc 'personality text-property-default-nonsticky)
+(unless (assq 'personality text-property-default-nonsticky)
   (push  (cons 'personality t) text-property-default-nonsticky))
 
 (unless (assq 'voice-lock-mode minor-mode-alist)

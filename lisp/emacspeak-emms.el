@@ -62,7 +62,7 @@
   "Speak current track."
   (interactive)
   (message
-   (cdr (assoc 'name (emms-playlist-current-track)))))
+   (cdr (assq 'name (emms-playlist-current-track)))))
 
 (loop for f in
       '(emms-next emms-next-noerror emms-previous)
