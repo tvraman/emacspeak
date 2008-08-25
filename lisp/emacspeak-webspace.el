@@ -105,27 +105,19 @@ Generates auditory and visual display."
   "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
   (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-   (emacspeak-webspace-fs-update)))
-
-
+   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
   (let ((feed-url (aref
 		   (emacspeak-webspace-fs-feeds fs)
 		   (emacspeak-webspace-fs-index fs))))
-  
     (setf (emacspeak-webspace-fs-index fs)
 	  (% (1+ (emacspeak-webspace-fs-index fs))
 	     (length (emacspeak-webspace-fs-feeds fs))))
     feed-url))
 
-(defun emacspeak-webspace-fs-update ()
-  "Update feedstore with headlines from the `next' feed.
-Feeds in the feedstore are visited in cyclic order."
-  (declare (special emacspeak-webspace-headlines))
-  (let ((feed-url  (emacspeak-webspace-fs-next emacspeak-webspace-headlines))  )
-    (emacspeak-webspace-headlines-fetch feed-url)))
+
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
@@ -135,21 +127,19 @@ Updated headlines found in emacspeak-webspace-fs."
   (let ((timer nil))
     (setq timer 
 	  (run-with-idle-timer
-	   60 'repeat 'emacspeak-webspace-fs-update))
+	   10 'repeat '
+	   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
   (declare (special emacspeak-webspace-fs))
   (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
-    (cond
-     ((ring-empty-p headlines)
-      (emacspeak-webspace-fs-update)
-      "No News Is Good Nes")
-     (t
-      (let ((h (ring-remove headlines 0)))
-        (ring-insert-at-beginning headlines h)
-        h)))))
+    (when (ring-empty-p headlines)
+      (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
+    (let ((h (ring-remove headlines 0)))
+      (ring-insert-at-beginning headlines h)
+      h)))
  
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
