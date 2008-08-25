@@ -131,7 +131,9 @@ Updated headlines found in emacspeak-webspace-headlines."
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil))
     (setq timer 
-	  (run-with-idle-timer 60 t 'emacspeak-webspace-headlines-refresh))
+	  (run-with-idle-timer
+           (/ 3600 (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+           t 'emacspeak-webspace-headlines-refresh))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
