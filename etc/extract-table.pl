@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #$Id$
 # Accepts a URI and table spec
-#returns a csv file
+#returns csv output on STDOUT 
 use strict;
 use FileHandle;
 use LWP::UserAgent;
@@ -10,27 +10,26 @@ use IO::File;
 use File::Temp qw(tempfile);
 use Getopt::Long;
 use vars qw (%options);
-my ($url, $file, $task, $depth, $count, $cols);
+my ($url, $file, $depth, $count, $cols);
 
-my %options = (task => \$task,
-           url => \$url,
-file => \$file,
-           depth => \$depth,
-count => \$count,
-headers => \$cols);
+my %options = (
+    url => \$url,
+    file => \$file,
+    depth => \$depth,
+    count => \$count,
+    headers => \$cols);
 GetOptions (\%options,
             'file=s',
             'url=s',
-            'task=s',
             'depth=i',
             'count=i',
             'headers=s');
-$task ||= "extract-table";
+
 my ($input, $inputname);
 if (defined ($file)) {
   $input = $file;
 } else {
-    ($input, $inputname) = tempfile( $task.'XXXX', SUFFIX => '.html');
+    ($input, $inputname) = tempfile(suffix=>'.html');
   RetrieveURLToFile($url, $inputname);
 }
 
