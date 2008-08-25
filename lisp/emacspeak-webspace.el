@@ -118,6 +118,10 @@ Generates auditory and visual display."
     feed-url))
 
 
+(defsubst emacspeak-webspace-headlines-update
+  "Update headlines."
+  (declare (special emacspeak-webspace-headlines))
+  (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
@@ -128,7 +132,7 @@ Updated headlines found in emacspeak-webspace-fs."
     (setq timer 
 	  (run-with-idle-timer
 	   60 'repeat '
-	   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
+	   #'emacspeak-webspace-headlines-update))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
