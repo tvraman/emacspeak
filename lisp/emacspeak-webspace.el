@@ -76,16 +76,17 @@ Generates auditory and visual display."
 
 ;;}}}
 ;;{{{ Headlines:
-(defcustom emacspeak-webspace-headlines-feeds nil
+
+(defcustom emacspeak-webspace-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
                 (string :tag "URL"))
   :group  'emacspeak-webspace)
 
-;;; Encapsulate collection feeds, headlines, , and  recently updated feed.-index
+;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
 
 (defstruct emacspeak-webspace-fs
-  feeds headlines
+  feeds titles
    timer index )
 
 (defvar emacspeak-webspace-headlines nil
@@ -94,11 +95,11 @@ Generates auditory and visual display."
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-headlines))
-  (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
+  (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (mapc
      #'(lambda (h)
 	 (unless (zerop (length h))
-	   (ring-insert headlines h )))
+	   (ring-insert titles h )))
      (gfeeds-titles feed))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
@@ -117,30 +118,29 @@ Generates auditory and visual display."
   (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
-(defsubst emacspeak-webspace-headlines-update ()
+(defsubst emacspeak-webspace-headlines-refresh ()
   "Update headlines."()
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
-Updated headlines found in emacspeak-webspace-fs."
+Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil))
     (setq timer 
-	  (run-with-idle-timer 60 t 'emacspeak-webspace-headlines-update))
-    (timer-activate-when-idle timer t)
+	  (run-with-idle-timer 60 t 'emacspeak-webspace-headlines-refresh))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
-  (declare (special emacspeak-webspace-fs))
-  (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
-    (when (ring-empty-p headlines)
-      (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
-    (let ((h (ring-remove headlines 0)))
-      (ring-insert-at-beginning headlines h)
+  (declare (special emacspeak-webspace-headlines))
+  (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+    (when (ring-empty-p titles)
+      (emacspeak-webspace-headlines-refresh))
+    (let ((h (ring-remove titles 0)))
+      (ring-insert-at-beginning titles h)
       h)))
  
 ;;;###autoload
@@ -151,8 +151,8 @@ Updated headlines found in emacspeak-webspace-fs."
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
-           :feeds (apply 'vector emacspeak-webspace-headlines-feeds)
-           :headlines (make-ring (* 10 (length emacspeak-webspace-headlines-feeds)))
+           :feeds (apply 'vector emacspeak-webspace-feeds)
+           :titles (make-ring (* 10 (length emacspeak-webspace-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
