@@ -127,7 +127,7 @@ Updated headlines found in emacspeak-webspace-fs."
   (let ((timer nil))
     (setq timer 
 	  (run-with-idle-timer
-	   10 'repeat '
+	   60 'repeat '
 	   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
 
