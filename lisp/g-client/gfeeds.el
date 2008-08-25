@@ -155,13 +155,15 @@
 (defvar gfeeds-freshness-internal nil
   "Internal cached value of freshness as a time value.")
 
+;;;###autoload
 (defcustom gfeeds-freshness "4 hours"
   "Freshness used to decide if we return titles."
   :type  'string
-  :set #'(lambda (sym val)
+  :set  #'(lambda (sym val)
            (declare (special gfeeds-freshness-internal))
            (setq gfeeds-freshness-internal
-                 (seconds-to-time(timer-duration value))))
+                 (seconds-to-time(timer-duration val)))
+           (set-default sym val))
   :group 'gfeeds)
 
 ;;;###autoload
