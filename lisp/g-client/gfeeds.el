@@ -152,14 +152,31 @@
 
 ;;}}}
 ;;{{{ Convenience commands:
+(defvar gfeeds-freshness-internal nil
+  "Internal cached value of freshness as a time value.")
+
+(defcustom gfeeds-freshness "4 hours"
+  "Freshness used to decide if we return titles."
+  :type  'string
+  :set #'(lambda (sym val)
+           (declare (special gfeeds-freshness-internal))
+           (setq gfeeds-freshness-internal
+                 (seconds-to-time(timer-duration value))))
+  :group 'gfeeds)
+
 ;;;###autoload
 (defun gfeeds-titles (feed-url)
   "Return list of titles from feed at feed-url."
+  (declare (special gfeeds-freshness))
   (let ((feed (gfeeds-feed feed-url)))
     (when feed
-      (mapcar #'(lambda (article)
-                  (cdr (assq 'title article)))
-              (gfeeds-feed-entries feed)))))
+      (delq nil
+      (mapcar
+       #'(lambda (article)
+           (let ((since (time-since  (cdr (assq 'publishedDate article)))))
+             (when (time-less-p  since gfeeds-freshness-internal)
+               (cdr (assq 'title article)))))
+       (gfeeds-feed-entries feed))))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
