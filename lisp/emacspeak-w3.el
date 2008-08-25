@@ -321,19 +321,19 @@ document is displayed in a separate buffer. "
 
 (defsubst emacspeak-w3-get-onclick ()
   "Return onclick handler if any at point."
-  (cdr (assoc 'onclick (cdar (emacspeak-w3-html-stack)))))
+  (cdr (assq 'onclick (cdar (emacspeak-w3-html-stack)))))
 
 (defsubst emacspeak-w3-get-class ()
   "Return class if any at point."
-  (cdr (assoc 'class (cdar (emacspeak-w3-html-stack)))))
+  (cdr (assq 'class (cdar (emacspeak-w3-html-stack)))))
 
 (defsubst emacspeak-w3-get-onchange ()
   "Return onchange handler if any at point."
-  (cdr (assoc 'onchange (cdar (emacspeak-w3-html-stack)))))
+  (cdr (assq 'onchange (cdar (emacspeak-w3-html-stack)))))
 
 (defsubst emacspeak-w3-get-style ()
   "Return style if any at point."
-  (cdr (assoc 'style (cdar (emacspeak-w3-html-stack)))))
+  (cdr (assq 'style (cdar (emacspeak-w3-html-stack)))))
 
 (defsubst emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
