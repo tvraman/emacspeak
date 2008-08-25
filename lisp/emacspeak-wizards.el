@@ -1833,15 +1833,12 @@ Extracted content is placed as a csv file in task.csv."
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
   (let ((output
-	 (expand-file-name 
-	 (format "%s.csv" task)
-	 emacspeak-resource-directory)))
+	 (make-temp-file
+	 (format "%s.csv" task))))
     (shell-command
      (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
               emacspeak-wizards-table-content-extractor
-              output
-              url
-              depth count ))
+              output url depth count ))
     (emacspeak-table-find-csv-file output)
     (delete-file output)))
 
@@ -1859,13 +1856,12 @@ Extracted content is placed as a csv file in task.csv."
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
   (let ((output
-	 (expand-file-name (format "%s.csv" task)
-	 emacspeak-resource-directory)))
-  (shell-command
-   (format  "%s --task=%s --file=%s --depth=%s --count=%s"
-            emacspeak-wizards-table-content-extractor
-            output file depth count ))
-  (emacspeak-table-find-csv-file output)))
+	 (make-temp-file (format "%s.csv" task))))
+    (shell-command
+     (format  "%s --task=%s --file=%s --depth=%s --count=%s"
+              emacspeak-wizards-table-content-extractor
+              output file depth count ))
+    (emacspeak-table-find-csv-file output)))
 
 ;;}}}
 ;;{{{ annotation wizard
