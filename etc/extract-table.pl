@@ -7,6 +7,7 @@ use FileHandle;
 use LWP::UserAgent;
 use HTML::TableExtract;
 use IO::File;
+use File::Temp qw(tempfile);
 use Getopt::Long;
 use vars qw (%options);
 my ($url, $file, $task, $depth, $count, $cols);
@@ -25,12 +26,12 @@ GetOptions (\%options,
             'count=i',
             'headers=s');
 $task ||= "extract-table";
-my $input;
+my ($input, $inputname);
 if (defined ($file)) {
   $input = $file;
 } else {
-  $input="/tmp/$options{task}.html";
-  RetrieveURLToFile($url, $input);
+    ($input, $inputname) = tempfile( $task.'XXXX', SUFFIX => '.html');
+  RetrieveURLToFile($url, $inputname);
 }
 
 my $te;
@@ -41,8 +42,8 @@ if ( defined ($cols)) {
  $te = new HTML::TableExtract( depth => $depth, count=>$count); 
 }
 $te->parse_file($input);
-my $output = new FileHandle (">  /tmp/$task.csv");
 my ($ts,$row);
+my $output =\*STDOUT;
 foreach $ts ($te->table_states) {
           foreach $row ($ts->rows) {
              $output->print ( join(',', @$row), "\n");
@@ -52,7 +53,7 @@ foreach $ts ($te->table_states) {
 $output->close();
 
 if (defined ($url)) {
-  unlink ($input);
+  unlink ($inputname);
 }
 # {{{  retrieve URL to file
 
@@ -66,7 +67,7 @@ sub RetrieveURLToFile {
   if ($res->is_success()) {
     warn"table: Retrieved $url to $filename\n";
   } elsif ($res->is_error()) {
-    exit ("Retrieval for $url failed\n");
+      die ("Retrieval failed  for $url");
   }
 }
 
