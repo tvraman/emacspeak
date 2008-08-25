@@ -91,7 +91,7 @@ Generates auditory and visual display."
 (defvar emacspeak-webspace-headlines nil
   "Feedstore  structure to use a continuously updating ticker.")
 
-(defun emacspeak-webspace-headlines-fetch ( feed)
+(defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-headlines))
   (let ((headlines (emacspeak-webspace-fs-headlines emacspeak-webspace-headlines)))
@@ -100,25 +100,32 @@ Generates auditory and visual display."
 	 (unless (zerop (length h))
 	   (ring-insert headlines h )))
      (gfeeds-titles feed))))
-       
 
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
   (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
    (emacspeak-webspace-fs-update)))
-        
+
+
+
+(defsubst emacspeak-webspace-fs-next (fs)
+  "Return next feed and increment index for fs."
+  (let ((feed-url (aref
+		   (emacspeak-webspace-fs-feeds fs)
+		   (emacspeak-webspace-fs-index fs))))
+  
+    (setf (emacspeak-webspace-fs-index fs)
+	  (% (1+ (emacspeak-webspace-fs-index fs))
+	     (length (emacspeak-webspace-fs-feeds fs))))
+    feed-url))
 
 (defun emacspeak-webspace-fs-update ()
   "Update feedstore with headlines from the `next' feed.
 Feeds in the feedstore are visited in cyclic order."
   (declare (special emacspeak-webspace-headlines))
-  (emacspeak-webspace-headlines-fetch
-   (nth (emacspeak-webspace-fs-index emacspeak-webspace-headlines)
-	(emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-  (setf (emacspeak-webspace-fs-index emacspeak-webspace-headlines)
-	 (% (1+ (emacspeak-webspace-fs-index emacspeak-webspace-headlines))
-	    (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))))
+  (let ((feed-url  (emacspeak-webspace-fs-next emacspeak-webspace-headlines))  )
+    (emacspeak-webspace-headlines-fetch feed-url)))
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
@@ -152,7 +159,7 @@ Updated headlines found in emacspeak-webspace-fs."
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
-           :feeds emacspeak-webspace-headlines-feeds
+           :feeds (apply 'vector emacspeak-webspace-headlines-feeds)
            :headlines (make-ring (* 10 (length emacspeak-webspace-headlines-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
