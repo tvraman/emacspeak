@@ -101,12 +101,6 @@ Generates auditory and visual display."
 	   (ring-insert headlines h )))
      (gfeeds-titles feed))))
 
-(defun emacspeak-webspace-headlines-populate ()
-  "populate fs with headlines from all feeds."
-  (declare (special emacspeak-webspace-headlines))
-  (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
-
 (defsubst emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
   (let ((feed-url (aref
@@ -117,9 +111,14 @@ Generates auditory and visual display."
 	     (length (emacspeak-webspace-fs-feeds fs))))
     feed-url))
 
+(defun emacspeak-webspace-headlines-populate ()
+  "populate fs with headlines from all feeds."
+  (declare (special emacspeak-webspace-headlines))
+  (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
-(defsubst emacspeak-webspace-headlines-update
-  "Update headlines."
+(defsubst emacspeak-webspace-headlines-update ()
+  "Update headlines."()
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
 
