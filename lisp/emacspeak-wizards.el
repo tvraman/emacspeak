@@ -1820,48 +1820,56 @@ Signals beginning  of buffer."
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
 ;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-url (task url depth count )
+(defun emacspeak-wizards-get-table-content-from-url (url depth count )
   "Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv."
   (interactive
    (list
-    (read-from-minibuffer "Task:"
-                          "table")
     (read-from-minibuffer "URL: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
-  (let ((output
-	 (make-temp-file
-	 (format "%s.csv" task))))
-    (shell-command
-     (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
-              emacspeak-wizards-table-content-extractor
-              output url depth count ))
-    (emacspeak-table-find-csv-file output)
-    (delete-file output)))
+  (let ((buffer (get-buffer-create " *table extractor*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (call-process
+       emacspeak-wizards-table-content-extractor
+       nil t nil
+       "--url"  url
+       "--depth" depth
+       "--count" count
+       "2>/dev/null")
+      (emacspeak-table-view-csv-buffer))))
 
 ;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-file (task file depth count )
+(defun emacspeak-wizards-get-table-content-from-file ( file depth count )
   "Extract table specified by depth and count from HTML
 content at file.
-Extracted content is placed as a csv file in task.csv."
+Extracted content is sent to STDOUT."
   (interactive
    (list
-    (read-from-minibuffer "Task:"
-                          "table")
     (read-file-name "File: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
-  (let ((output
-	 (make-temp-file (format "%s.csv" task))))
-    (shell-command
-     (format  "%s --task=%s --file=%s --depth=%s --count=%s"
-              emacspeak-wizards-table-content-extractor
-              output file depth count ))
-    (emacspeak-table-find-csv-file output)))
+  (let ((
+	 (get-buffer-create " *table extractor* ")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (call-process
+  emacspeak-wizards-table-content-extractor
+  nil t nil
+  "--file" file
+  "--depth" depth
+  "--count" count
+  "2>/dev/null")    
+    (emacspeak-table-view-csv-buffer))))
+
 
 ;;}}}
 ;;{{{ annotation wizard
