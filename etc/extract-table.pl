@@ -41,6 +41,7 @@ if ( defined ($cols)) {
  $te = new HTML::TableExtract( depth => $depth, count=>$count); 
 }
 $te->parse_file($input);
+
 my ($ts,$row);
 my $output =\*STDOUT;
 foreach $ts ($te->table_states) {
@@ -64,7 +65,6 @@ sub RetrieveURLToFile {
   # Pass request to the user agent and get a response back
   my $res = $ua->request($req, $filename);
   if ($res->is_success()) {
-    warn"table: Retrieved $url to $filename\n";
   } elsif ($res->is_error()) {
       die ("Retrieval failed  for $url");
   }
