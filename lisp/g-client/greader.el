@@ -294,8 +294,8 @@ user."
           do
           (push
            (cons
-            (cdr (assoc 'id v))
-            (cdr (assoc 'value v)))
+            (cdr (assq 'id v))
+            (cdr (assq 'value v)))
            preferences))
     (setq greader-preferences preferences)))
 
