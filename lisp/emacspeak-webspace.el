@@ -67,6 +67,7 @@ Generates auditory and visual display."
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
 (declaim (special emacspeak-webspace-keymap))
+(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
 (loop for k in
       '(
         ("w" emacspeak-webspace-weather)
