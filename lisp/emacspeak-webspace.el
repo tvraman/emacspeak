@@ -67,7 +67,7 @@ Generates auditory and visual display."
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
 (declaim (special emacspeak-webspace-keymap))
-(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
+
 (loop for k in
       '(
         ("w" emacspeak-webspace-weather)
@@ -163,10 +163,11 @@ Updated headlines found in emacspeak-webspace-headlines."
 \\{emacspeak-webspace-headlines-mode-map")
 
 (declaim (special emacspeak-webspace-headlines-mode-map))
-
+(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
 (loop for k in 
       '(
         ("q" bury-buffer)
+        ("t" emacspeak-webspace-headlines-transcode)
         ("\C-m" emacspeak-webspace-headlines-open)
         ("." emacspeak-webspace-headlines-filter)
         ("n" next-line)
@@ -174,6 +175,16 @@ Updated headlines found in emacspeak-webspace-headlines."
       do
       (emacspeak-keymap-update  emacspeak-webspace-headlines-mode-map k))
 
+;;;###autoload
+
+(defun emacspeak-webspace-headlines-transcode ()
+  "Transcode headline at point by following its link property."
+  (interactive)
+  (let ((link (get-text-property (point) 'link)))
+    (if link
+        (emacspeak-webutils-transcode-this-url-via-google link)
+      (message "No link under point."))))
+;;;###autoload
 (defun emacspeak-webspace-headlines-open ()
   "Open headline at point by following its link property."
   (interactive)

@@ -315,6 +315,13 @@ With a prefix argument, extracts url under point."
       (let* ((args (substring url (length prefix)))
              (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
         (url-unhex-string (cdr (assoc "u" arg-alist)))))))
+;;;###autoload 
+(defsubst emacspeak-webutils-transcode-this-url-via-google (url)
+  "Transcode specified url via Google."
+  (declare (special emacspeak-webutils-google-transcoder-url))
+  (browse-url
+     (format emacspeak-webutils-google-transcoder-url
+             (emacspeak-url-encode url))))
 
 ;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)
@@ -327,10 +334,7 @@ With a prefix argument, extracts url under point."
   (let ((url-mime-encoding-string "gzip"))
     (cond
      ((null untranscode)
-      (browse-url
-       (format emacspeak-webutils-google-transcoder-url
-               (emacspeak-url-encode
-                (funcall emacspeak-webutils-url-at-point)))))
+      (emacspeak-webutils-transcode-this-url-via-google (funcall emacspeak-webutils-url-at-point)))
      (t
       (let ((plain-url (emacspeak-webutils-transcoded-to-plain-url (funcall emacspeak-webutils-url-at-point))))
         (when plain-url
@@ -346,9 +350,8 @@ With a prefix argument, extracts url under point."
   ;; removing the above line makes the untranscode work
   (cond
    ((null untranscode)
-    (browse-url
-     (format emacspeak-webutils-google-transcoder-url
-             (emacspeak-url-encode (funcall emacspeak-webutils-current-url)))))
+    (emacspeak-webutils-transcode-this-url-via-google
+     (funcall emacspeak-webutils-current-url)))
    (t
     (let ((plain-url (emacspeak-webutils-transcoded-to-plain-url (funcall emacspeak-webutils-current-url))))
       (when plain-url
