@@ -2114,13 +2114,17 @@ Also produce an auditory icon if possible."
   (emacspeak-speak-string isearch-string voice-bolden)
   (when  (sit-for 0.5)
     (emacspeak-auditory-icon 'search-hit)
-    (ems-set-personality-temporarily
-     (point)
-     (if  isearch-forward
-         (- (point) (length isearch-string ))
-       (+ (point) (length isearch-string )))
-     voice-bolden
-     (emacspeak-speak-line))))
+    (save-excursion
+      (ems-set-personality-temporarily
+       (point)
+       (if  isearch-forward
+           (- (point) (length isearch-string ))
+         (+ (point) (length isearch-string )))
+       voice-bolden
+       (dtk-speak
+        (buffer-substring
+         (line-beginning-position)
+         (line-end-position)))))))
 
 (defadvice isearch-delete-char (after emacspeak pre act)
   "Speak the search hit.
