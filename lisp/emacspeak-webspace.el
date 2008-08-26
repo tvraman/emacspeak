@@ -50,6 +50,7 @@
 (declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ring)
+(require 'derived)
 (require 'gfeeds)
 ;;}}}
 ;;{{{ WebSpace Display:
@@ -152,7 +153,47 @@ Updated headlines found in emacspeak-webspace-headlines."
     (let ((h (ring-remove titles 0)))
       (ring-insert-at-beginning titles h)
       h)))
- 
+
+
+
+(define-derived-mode emacspeak-webspace-headlines-mode fundamental-mode
+  "Webspace Headlines"
+  "Major mode for Webspace Headlines.\n\n
+\\{emacspeak-webspace-headlines-mode-map")
+(declaim (special emacspeak-webspace-headlines-mode-map))
+(define-key emacspeak-webspace-headlines-mode-map "\C-m"
+  'emacspeak-webspace-headlines-open)
+
+(defun emacspeak-webspace-headlines-open ()
+  "Open headline at point by following its link property."
+  (interactive)
+  (let ((link (get-text-property (point) 'link)))
+    (if link
+        (browse-url link)
+      (message "No link under point."))))
+
+;;;###autoload
+(defun emacspeak-webspace-headlines-view ()
+  "Display all cached headlines in a special interaction buffer."
+  (interactive)
+  (declare (special emacspeak-webspace-headlines))
+  (let ((buffer (get-buffer-create "*Headlines*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (mapc
+       #'(lambda (r)
+           (insert (format "%s\n" r)))
+       (ring-elements
+        (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))))
+    (switch-to-buffer buffer)
+    (emacspeak-webspace-headlines-mode)
+    (goto-char (point-min))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
   "Speak current news headline."
