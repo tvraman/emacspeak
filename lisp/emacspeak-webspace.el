@@ -96,6 +96,8 @@ Generates auditory and visual display."
   "Add headlines from specified feed to our cache."
   (declare (special emacspeak-webspace-headlines))
   (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+    (put-text-property 0 1
+		       'last-update (current-time) feed)
     (mapc
      #'(lambda (h)
 	 (unless (zerop (length h))
