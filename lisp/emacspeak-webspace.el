@@ -99,9 +99,7 @@ Generates auditory and visual display."
     (put-text-property 0 1
 		       'last-update (current-time) feed)
     (mapc
-     #'(lambda (h)
-	 (unless (zerop (length h))
-	   (ring-insert titles h )))
+     #'(lambda (h) (ring-insert titles h ))
      (gfeeds-titles feed))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
