@@ -62,7 +62,7 @@ Generates auditory and visual display."
   (declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
-  (emacspeak-auditory-icon 'working))
+  (emacspeak-auditory-icon 'progress))
 ;;;###autoload
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
@@ -126,7 +126,7 @@ Generates auditory and visual display."
   "Update headlines."()
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
-  (emacspeak-auditory-icon 'progress))
+  (emacspeak-auditory-icon 'working))
 
 (defun emacspeak-webspace-update-headlines ()
   "Setup  news updates.
