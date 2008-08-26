@@ -319,7 +319,7 @@ user."
           "api/0/tag/list?output=json")
   "URL for retrieving list of tags.")
 
-(defun greader-view-json-subscriptions (subscriptions counts)
+(defun greader-view-json-subscriptions (subscriptions)
   "View Greader Subscription list."
   (declare (special greader-atom-base))
   (g-using-scratch
@@ -334,17 +334,15 @@ user."
             (g-auth-username greader-auth-handle)))
    (loop for s across subscriptions
          do
-         (let* ((id (g-json-get 'id s))
-                    (count (greader-get-unread-count-by-id id counts)))
+         (let* ((id (g-json-get 'id s)))
            (insert
             (format
-             "<li><a href=\"%s\">%s (%s: %s)</a></li>\n"
+             "<li><a href=\"%s\">%s (%s)</a></li>\n"
              (let ((url (substring id 5)))
                (cond
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url))))
              (g-json-get 'title s)
-             count
              (cond
               ((string-match "rss" id) "R")
               ((string-match "atom" id) "A")
@@ -437,34 +435,22 @@ user."
                 (t (concat greader-atom-base url)))))))
              
 ;;;###autoload
-(defun greader-feed-list (&optional sort)
-  "Retrieve list of subscribed feeds.
-Feeds are sorted by timestamp of newly arrived articles.
-Optional interactive prefix arg `sort' turns on sorting."
-  (interactive "P")
+(defun greader-feed-list ()
+  "Retrieve list of subscribed feeds."
+  (interactive)
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
   (g-auth-ensure-token greader-auth-handle)
-  (let ((counts (greader-unread-count))
-        (subscriptions
-         (g-json-get 'subscriptions
+  (let (
+        (subscriptions (g-json-get 'subscriptions
                      (g-json-get-result
                       (format
                        "%s %s --cookie SID='%s' %s 2>/dev/null"
                        g-curl-program g-curl-common-options
                        (g-cookie "SID" greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
-    (when sort
-    (setq subscriptions
-          (sort* subscriptions
-                 #'(lambda (a b)
-                     (let ((a-id (g-json-get 'id a))
-                           (b-id (g-json-get 'id b)))
-                       (>
-                        (greader-get-unread-count-by-id a-id counts)
-                        (greader-get-unread-count-by-id b-id counts)))))))
-    (greader-view-json-subscriptions subscriptions counts)))
+    (greader-view-json-subscriptions subscriptions)))
 
 ;;;###autoload
 

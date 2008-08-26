@@ -175,6 +175,7 @@ Populate auth-handle with the returned cookies and token."
     (save-excursion
       (set-buffer buff)
       (erase-buffer)
+      (setq buffer-undo-list t)
       (insert
        (format "Email=%s&Passwd=%s&source=g-emacs&accountType=hosted_or_google"
                (g-url-encode email)
