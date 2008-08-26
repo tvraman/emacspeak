@@ -87,7 +87,7 @@ Generates auditory and visual display."
 
 (defstruct emacspeak-webspace-fs
   feeds titles
-   timer index )
+   timer slow-timer index )
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore  structure to use a continuously updating ticker.")
@@ -129,12 +129,17 @@ Generates auditory and visual display."
 Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
-  (let ((timer nil))
+  (let ((timer nil)
+	(slow-timer nil))
     (setq timer 
 	  (run-with-idle-timer
-           (/ 3600 (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-           t 'emacspeak-webspace-headlines-refresh))
-    (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)))
+           30 t 'emacspeak-webspace-headlines-refresh))
+    (setq slow-timer 
+	  (run-with-idle-timer
+           3600 
+           t 'emacspeak-webspace-headlines-populate))
+    (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
+    (setf (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines) slow-timer)))
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
