@@ -173,12 +173,16 @@
   (let ((feed (gfeeds-feed feed-url)))
     (when feed
       (delq nil
-      (mapcar
-       #'(lambda (article)
-           (let ((since (time-since  (cdr (assq 'publishedDate article)))))
-             (when (time-less-p  since gfeeds-freshness-internal)
-               (cdr (assq 'title article)))))
-       (gfeeds-feed-entries feed))))))
+	    (mapcar
+	     #'(lambda (article)
+		 (let ((since (time-since  (cdr (assq 'publishedDate article))))
+		       (title (cdr (assq 'title article)))
+		       (link (cdr (assq 'link article))))
+		   (when (time-less-p  since gfeeds-freshness-internal)
+		     (put-text-property 0 (1- (length title))
+					'link link title)
+		     title)))
+	     (gfeeds-feed-entries feed))))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
