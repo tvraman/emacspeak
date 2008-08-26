@@ -167,7 +167,7 @@ Updated headlines found in emacspeak-webspace-headlines."
       '(
         ("q" bury-buffer)
         ("\C-m" emacspeak-webspace-headlines-open)
-        ("." emacspeak-we-xpath-filter-and-follow)
+        ("." emacspeak-webspace-headlines-filter)
         ("n" next-line)
         ("p" previous-line))
       do
@@ -179,6 +179,16 @@ Updated headlines found in emacspeak-webspace-headlines."
   (let ((link (get-text-property (point) 'link)))
     (if link
         (browse-url link)
+      (message "No link under point."))))
+
+(defun emacspeak-webspace-headlines-filter ()
+  "Open headline at point by following its link property and filter for content."
+  (interactive)
+  (let ((link (get-text-property (point) 'link)))
+    (if link
+        (emacspeak-we-xslt-filter
+         "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
+         link 'speak)
       (message "No link under point."))))
 
 ;;;###autoload
