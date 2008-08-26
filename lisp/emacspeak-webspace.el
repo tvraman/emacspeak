@@ -160,9 +160,15 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Webspace Headlines"
   "Major mode for Webspace Headlines.\n\n
 \\{emacspeak-webspace-headlines-mode-map")
+
 (declaim (special emacspeak-webspace-headlines-mode-map))
-(define-key emacspeak-webspace-headlines-mode-map "\C-m"
-  'emacspeak-webspace-headlines-open)
+
+(loop for k in 
+      '(
+        ("q" bury-buffer)
+        ("\C-m" emacspeak-webspace-headlines-open))
+      do
+      (emacspeak-keymap-update  emacspeak-webspace-headlines-mode-map k))
 
 (defun emacspeak-webspace-headlines-open ()
   "Open headline at point by following its link property."
