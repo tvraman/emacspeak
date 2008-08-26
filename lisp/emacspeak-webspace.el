@@ -166,7 +166,10 @@ Updated headlines found in emacspeak-webspace-headlines."
 (loop for k in 
       '(
         ("q" bury-buffer)
-        ("\C-m" emacspeak-webspace-headlines-open))
+        ("\C-m" emacspeak-webspace-headlines-open)
+        ("." emacspeak-we-xpath-filter-and-follow)
+        ("n" next-line)
+        ("p" previous-line))
       do
       (emacspeak-keymap-update  emacspeak-webspace-headlines-mode-map k))
 
