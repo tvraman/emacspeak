@@ -2454,14 +2454,12 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ advice where-is and friends
 
-(defadvice describe-key-briefly (around emacspeak pre act comp)
+(defadvice describe-key-briefly (after emacspeak pre act comp)
   "Speak what you displayed"
-  (cond
-   ((interactive-p)
-    ad-do-it
+  (when (interactive-p)
     (dtk-speak ad-return-value))
-   (t ad-do-it))
   ad-return-value)
+  
 
 (defadvice where-is (around emacspeak pre act comp)
   "Provide spoken feedback"
