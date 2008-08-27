@@ -116,7 +116,7 @@
   (cond
    ((and emacspeak-m-player-process
          (eq 'run (process-status emacspeak-m-player-process)))
-    (call-interactively 'emacspeak-m-player-command)   )
+    (call-interactively 'emacspeak-m-player-command))
    (t  (call-interactively 'emacspeak-m-player))))
 
 (defun emacspeak-m-player-command (command-char)
