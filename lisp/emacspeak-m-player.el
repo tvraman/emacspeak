@@ -212,6 +212,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   options)))
     (save-excursion
       (set-buffer (process-buffer emacspeak-m-player-process))
+      (kill-all-local-variables)
       (emacspeak-m-player-mode)
       (setq buffer-undo-list t)
       (ansi-color-for-comint-mode-on))
