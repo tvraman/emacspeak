@@ -82,6 +82,7 @@
 
 ;;}}}
 ;;{{{ emacspeak-m-player
+
 ;;;###autoload
 
 (defgroup emacspeak-m-player nil
@@ -91,7 +92,11 @@
 (defcustom emacspeak-m-player-program "mplayer"
   "Media player program."
   :type 'string
+  :set  #'(lambda (sym val)
+	    (set-default sym
+			 (executable-find val)))
   :group 'emacspeak-m-player)
+
 (defvar emacspeak-m-player-default-options
   (list "-slave"  "-nortc""-softvol"  )
   "Default options for MPlayer.")
@@ -211,8 +216,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq buffer-undo-list t)
       (ansi-color-for-comint-mode-on))
     (unless noselect
-      (pop-to-buffer (process-buffer emacspeak-m-player-process))
-      )))
+      (pop-to-buffer (process-buffer emacspeak-m-player-process)))))
 
 ;;}}}
 ;;{{{ commands 
@@ -232,10 +236,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive "nFactor:")
   (emacspeak-m-player-dispatch
    (format "speed_mult %f" factor)))
+
 (defun emacspeak-m-player-slower ()
   "Slow down playback."
   (interactive)
   (emacspeak-m-player-scale-speed 0.9091))
+
 (defun emacspeak-m-player-faster ()
   "Speed up  playback."
   (interactive)
