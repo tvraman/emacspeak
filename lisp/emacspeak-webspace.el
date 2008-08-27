@@ -208,7 +208,8 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Display all cached headlines in a special interaction buffer."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
-  (let ((buffer (get-buffer-create "Headlines")))
+  (let ((buffer (get-buffer-create "Headlines"))
+        (inhibit-read-only t))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
@@ -224,8 +225,6 @@ Updated headlines found in emacspeak-webspace-headlines."
     (goto-char (point-min))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
-
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
