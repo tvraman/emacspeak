@@ -53,7 +53,81 @@
 (require 'derived)
 (require 'gfeeds)
 ;;}}}
+;;{{{ WebSpace Mode:
+
+;;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
+
+(define-derived-mode emacspeak-webspace-mode fundamental-mode
+  "Webspace Interaction"
+  "Major mode for Webspace interaction.\n\n
+\\{emacspeak-webspace-mode-map")
+
+(declaim (special emacspeak-webspace-mode-map))
+
+(loop for k in 
+      '(
+        ("q" bury-buffer)
+        ("t" emacspeak-webspace-transcode)
+        ("\C-m" emacspeak-webspace-open)
+        ("." emacspeak-webspace-filter)
+        ("n" next-line)
+        ("p" previous-line))
+      do
+      (emacspeak-keymap-update  emacspeak-webspace-mode-map k))
+
+(defsubst emacspeak-webspace-act-on-link (action &rest args)
+  "Apply action to link  under point."
+  (let ((link (get-text-property (point) 'link)))
+    (if link
+        (apply action  link args)
+      (message "No link under point."))))
+
+;;;###autoload
+(defun emacspeak-webspace-transcode ()
+  "Transcode headline at point by following its link property."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'emacspeak-webutils-transcode-this-url-via-google))
+
+;;;###autoload
+(defun emacspeak-webspace-open ()
+  "Open headline at point by following its link property."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'browse-url))
+
+;;;###autoload
+(defun emacspeak-webspace-filter ()
+  "Open headline at point by following its link property and filter for content."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'emacspeak-we-xslt-filter
+                                  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div" 'speak))
+
+;;}}}
 ;;{{{ WebSpace Display:
+
+(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
+
+;;;###autoload
+(defun emacspeak-webspace-headlines-view ()
+  "Display all cached headlines in a special interaction buffer."
+  (interactive)
+  (declare (special emacspeak-webspace))
+  (let ((buffer (get-buffer-create "Headlines"))
+        (inhibit-read-only t))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (mapc
+       #'(lambda (r)
+           (insert (format "%s\n" r)))
+       (ring-elements
+        (emacspeak-webspace-fs-titles emacspeak-webspace))))
+    (switch-to-buffer buffer)
+    (setq buffer-read-only t)
+    (emacspeak-webspace-mode)
+    (goto-char (point-min))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
 
 (defsubst emacspeak-webspace-display (infolet)
   "Displays specified infolet.
@@ -156,74 +230,6 @@ Updated headlines found in emacspeak-webspace-headlines."
       (ring-insert-at-beginning titles h)
       h)))
 
-(define-derived-mode emacspeak-webspace-headlines-mode fundamental-mode
-  "Webspace Headlines"
-  "Major mode for Webspace Headlines.\n\n
-\\{emacspeak-webspace-headlines-mode-map")
-
-(declaim (special emacspeak-webspace-headlines-mode-map))
-(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
-(loop for k in 
-      '(
-        ("q" bury-buffer)
-        ("t" emacspeak-webspace-headlines-transcode)
-        ("\C-m" emacspeak-webspace-headlines-open)
-        ("." emacspeak-webspace-headlines-filter)
-        ("n" next-line)
-        ("p" previous-line))
-      do
-      (emacspeak-keymap-update  emacspeak-webspace-headlines-mode-map k))
-
-;;;###autoload
-
-(defun emacspeak-webspace-headlines-transcode ()
-  "Transcode headline at point by following its link property."
-  (interactive)
-  (let ((link (get-text-property (point) 'link)))
-    (if link
-        (emacspeak-webutils-transcode-this-url-via-google link)
-      (message "No link under point."))))
-;;;###autoload
-(defun emacspeak-webspace-headlines-open ()
-  "Open headline at point by following its link property."
-  (interactive)
-  (let ((link (get-text-property (point) 'link)))
-    (if link
-        (browse-url link)
-      (message "No link under point."))))
-
-(defun emacspeak-webspace-headlines-filter ()
-  "Open headline at point by following its link property and filter for content."
-  (interactive)
-  (let ((link (get-text-property (point) 'link)))
-    (if link
-        (emacspeak-we-xslt-filter
-         "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
-         link 'speak)
-      (message "No link under point."))))
-
-;;;###autoload
-(defun emacspeak-webspace-headlines-view ()
-  "Display all cached headlines in a special interaction buffer."
-  (interactive)
-  (declare (special emacspeak-webspace-headlines))
-  (let ((buffer (get-buffer-create "Headlines"))
-        (inhibit-read-only t))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (mapc
-       #'(lambda (r)
-           (insert (format "%s\n" r)))
-       (ring-elements
-        (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))))
-    (switch-to-buffer buffer)
-    (setq buffer-read-only t)
-    (emacspeak-webspace-headlines-mode)
-    (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line)))
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
