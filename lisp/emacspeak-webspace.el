@@ -105,13 +105,20 @@
   (interactive)
   (emacspeak-webspace-act-on-link 'emacspeak-webutils-rss-display))
 
-
 (defun emacspeak-webspace-feed-view ()
   "View  feed using gfeeds."
   (interactive)
-  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'gfeeds-view))
 
+
+(defadvice gfeeds-view (around emacspeak pre act comp)
+  "Automatically speak display."
+  (when (interactive-p)
+    (emacspeak-webutils-autospeak))
+  ad-do-it
+  ad-return-value)
+
+    
 ;;;###autoload
 (defun emacspeak-webspace-open ()
   "Open headline at point by following its link property."
