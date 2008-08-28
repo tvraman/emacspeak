@@ -69,6 +69,8 @@
 (loop for k in 
       '(
         ("q" bury-buffer)
+        ("\t" emacspeak-webspace-next-link)
+        ([backtab] emacspeak-webspace-previous-link)
         ("A"emacspeak-webspace-atom-view)
         ("R" emacspeak-webspace-rss-view)
         ("F" emacspeak-webspace-feed-view)
@@ -125,6 +127,25 @@
          "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
          link 'speak)
       (message "No link under point."))))
+;;;###autoload
+(defun emacspeak-webspace-next-link()
+  "Move to next link."
+  (interactive)
+  (goto-char
+   (next-single-property-change
+    (point) 'link nil (point-max)))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
+
+;;;###autoload
+(defun emacspeak-webspace-previous-link()
+  "Move to previous link."
+  (interactive)
+  (goto-char
+   (previous-single-property-change
+    (point) 'link nil (point-min)))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ WebSpace Display:
@@ -384,8 +405,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
                 (g-json-get 'content r)))))
             (put-text-property
              start (point)
-             'link (g-json-get 'url r))
-            (insert "\n"))
+             'link (g-json-get 'url r)))
       (emacspeak-webspace-mode)
       (setq buffer-read-only t)
       (goto-char (point-min)))
