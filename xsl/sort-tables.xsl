@@ -46,7 +46,15 @@ relevant tables bubble to the top.
   <xsl:include href="auto-rss-discover.xsl"/>
   <!--<xsl:include href="auto-atom-discover.xsl"/>-->
   <!-- { html body  -->
+<xsl:template match="iframe">
+  <a>
+<xsl:attribute name="href">
+<xsl:value-of select="@src"/>
+</xsl:attribute>
+Embedded IFrame</a>
+</xsl:template>
   <!-- handle images -->
+
   <xsl:template match="img">
     <xsl:if test="@alt">
       <xsl:value-of select="@alt"/>

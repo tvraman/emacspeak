@@ -10,7 +10,7 @@ Description: common rules
   
   <xsl:output method="html" indent="yes"
   encoding="utf-8"/>
-  <xsl:template match="//script|//meta|//iframe"/>
+  <xsl:template match="//script|//meta"/>
   <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
