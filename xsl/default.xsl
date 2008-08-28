@@ -20,7 +20,13 @@ Description: default transformation applied by Bubbles.
   <!-- {nuke these elements. --> 
   
   <xsl:template match="script|meta|link"/>
-  
+  <xsl:template match="iframe">
+  <a>
+<xsl:attribute name="href">
+<xsl:value-of select="@src"/>
+</xsl:attribute>
+Embedded IFrame</a>
+</xsl:template>
   <!-- } -->
 </xsl:stylesheet>
 
