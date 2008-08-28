@@ -433,11 +433,11 @@ user."
            (cond
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url)))))))
-             
+
+
 ;;;###autoload
-(defun greader-feed-list ()
-  "Retrieve list of subscribed feeds."
-  (interactive)
+(defun greader-subscriptions ()
+  "Return list of subscribed feeds."
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
@@ -450,8 +450,14 @@ user."
                        g-curl-program g-curl-common-options
                        (g-cookie "SID" greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
-    (greader-view-json-subscriptions subscriptions)))
-
+    subscriptions))
+             
+;;;###autoload
+(defun greader-feed-list ()
+  "Retrieve list of subscribed feeds."
+  (interactive)
+  (greader-view-json-subscriptions (greader-subscriptions)))
+  
 ;;;###autoload
 
 (defun greader-opml ()
