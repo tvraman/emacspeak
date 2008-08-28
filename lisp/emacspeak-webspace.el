@@ -53,6 +53,7 @@
 (require 'derived)
 (require 'gfeeds)
 (require 'greader)
+(require 'gweb)
 ;;}}}
 ;;{{{ WebSpace Mode:
 
@@ -351,9 +352,52 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
     (emacspeak-auditory-icon 'open-object)
     (goto-char (point-min))
     (emacspeak-speak-line)))
-    
 
+;;}}}
+;;{{{ Google Search in WebSpace:
 
+(defun emacspeak-webspace-google-save-results(results)
+  "Save results in a WebSpace mode buffer for later use."
+  (declare (special  gweb-history))
+  (let ((buffer
+         (get-buffer-create
+          (format "Search %s" (first gweb-history))))
+        (inhibit-read-only t)
+        (start nil))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (insert (format "Search Results For %s\n\n"
+                      (first gweb-history)))
+      (center-line)
+      (loop for r across results
+            do
+            (setq start (point))
+            (insert
+             (format
+              "%s\n%s"
+              (g-json-get 'titleNoFormatting r)
+              (shell-command-to-string
+               (format
+                "echo '%s' | lynx -dump -stdin 2>/dev/null"
+                (g-json-get 'content r)))))
+            (put-text-property
+             start (point)
+             'link (g-json-get 'url r))
+            (insert "\n"))
+      (emacspeak-webspace-mode)
+      (setq buffer-read-only t)
+      (goto-char (point-min)))
+    (display-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)))
+
+;;;###autoload
+(defun emacspeak-webspace-google ()
+  "Display Google Search in a WebSpace buffer."
+  (interactive)
+  (let ((gweb-search-results-handler 'emacspeak-webspace-google-save-results))
+    (call-interactively 'gweb-google-at-point)))
 
 ;;}}}
 (provide 'emacspeak-webspace)

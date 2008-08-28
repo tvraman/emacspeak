@@ -227,6 +227,8 @@
 ;;; Need to be smarter about guessing default term 
 ;;; thing-at-point can return an empty string,
 ;;; and this is not a good thing for Google Suggest which will error out.
+(defvar gweb-search-results-handler nil
+  "Hook for saving away retrieved Google results.")
 
 ;;;###autoload
 (defun gweb-google-at-point (search-term &optional refresh)
@@ -239,21 +241,23 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
                 (get-text-property (point) 'lucky-url))
       (gweb-google-autocomplete))
     current-prefix-arg))
+  (declare (special gweb-search-results-handler))
   (cond
    ((and (not refresh)
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
    (t 
-    (let* ((lucky (aref (gweb-web-results  search-term) 0))
-         (inhibit-read-only t)
-         (bounds (bounds-of-thing-at-point 'word))
-         (modified-p (buffer-modified-p))
-         (title (g-json-get 'titleNoFormatting lucky))
-         (url (g-json-get 'url lucky))
-         (content (shell-command-to-string
-		(format
-		 "echo '%s' | lynx -dump -stdin 2>/dev/null"
-		 (g-json-get 'content lucky)))))
+    (let* ((results (gweb-web-results  search-term))
+           (lucky (aref results 0))
+           (inhibit-read-only t)
+           (bounds (bounds-of-thing-at-point 'word))
+           (modified-p (buffer-modified-p))
+           (title (g-json-get 'titleNoFormatting lucky))
+           (url (g-json-get 'url lucky))
+           (content (shell-command-to-string
+                     (format
+                      "echo '%s' | lynx -dump -stdin 2>/dev/null"
+                      (g-json-get 'content lucky)))))
       (when bounds 
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
@@ -261,6 +265,9 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
       (pushnew lucky minibuffer-history)
       (set-buffer-modified-p modified-p)
       (kill-new content)
+      (when (and gweb-search-results-handler
+                 (fboundp gweb-search-results-handler))
+        (funcall gweb-search-results-handler results))
       (message "%s %s" title content)))))
 
 ;;}}}
