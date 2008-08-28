@@ -98,8 +98,12 @@
 (defun emacspeak-webspace-filter ()
   "Open headline at point by following its link property and filter for content."
   (interactive)
-  (emacspeak-webspace-act-on-link 'emacspeak-we-xslt-filter
-                                  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div" 'speak))
+  (let ((link (get-text-property (point) 'link)))
+    (if link
+        (emacspeak-we-xslt-filter
+         "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
+         link 'speak)
+      (message "No link under point."))))
 
 ;;}}}
 ;;{{{ WebSpace Display:
@@ -110,7 +114,7 @@
 (defun emacspeak-webspace-headlines-view ()
   "Display all cached headlines in a special interaction buffer."
   (interactive)
-  (declare (special emacspeak-webspace))
+  (declare (special emacspeak-webspace-headlines))
   (let ((buffer (get-buffer-create "Headlines"))
         (inhibit-read-only t))
     (save-excursion
@@ -121,7 +125,7 @@
        #'(lambda (r)
            (insert (format "%s\n" r)))
        (ring-elements
-        (emacspeak-webspace-fs-titles emacspeak-webspace))))
+        (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))))
     (switch-to-buffer buffer)
     (setq buffer-read-only t)
     (emacspeak-webspace-mode)
