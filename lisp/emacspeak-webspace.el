@@ -52,6 +52,7 @@
 (require 'ring)
 (require 'derived)
 (require 'gfeeds)
+(require 'greader)
 ;;}}}
 ;;{{{ WebSpace Mode:
 
@@ -67,6 +68,9 @@
 (loop for k in 
       '(
         ("q" bury-buffer)
+        ("A"emacspeak-webspace-atom-view)
+        ("R" emacspeak-webspace-rss-view)
+        ("F" emacspeak-webspace-feed-view)
         ("t" emacspeak-webspace-transcode)
         ("\C-m" emacspeak-webspace-open)
         ("." emacspeak-webspace-filter)
@@ -87,6 +91,22 @@
   "Transcode headline at point by following its link property."
   (interactive)
   (emacspeak-webspace-act-on-link 'emacspeak-webutils-transcode-this-url-via-google))
+
+(defun emacspeak-webspace-atom-view ()
+  "View Atom feed."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'emacspeak-webutils-atom-display))
+
+(defun emacspeak-webspace-rss-view ()
+  "View RSS feed."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'emacspeak-webutils-rss-display))
+
+
+(defun emacspeak-webspace-feed-view ()
+  "View  feed using gfeeds."
+  (interactive)
+  (emacspeak-webspace-act-on-link 'gfeeds-view))
 
 ;;;###autoload
 (defun emacspeak-webspace-open ()
@@ -309,8 +329,26 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 (defun emacspeak-webspace-reader ()
   "Display Google Reader Feed list in a WebSpace buffer."
   (interactive)
-  (let ((subscriptions (greader-subscriptions)))
-    subscriptions))
+  (let ((subscriptions (greader-subscriptions))
+        (buffer (get-buffer-create "Reader"))
+        (inhibit-read-only t))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (goto-char (point-min))
+      (loop for feed across subscriptions
+            do
+            (insert (format "\n%s"
+                            (cdr (assoc 'title feed))))
+            (put-text-property (line-beginning-position) (line-end-position)
+                               'link (greader-id-to-url (cdr (assoc 'id feed))))))
+    (switch-to-buffer buffer)
+    (emacspeak-webspace-mode)
+    (emacspeak-auditory-icon 'open-object)
+    (goto-char (point-min))
+    (emacspeak-speak-line)))
+    
 
 
 

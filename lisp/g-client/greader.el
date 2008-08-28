@@ -319,6 +319,16 @@ user."
           "api/0/tag/list?output=json")
   "URL for retrieving list of tags.")
 
+
+
+(defsubst greader-id-to-url (id)
+  "Translate Google Reader ids to URLs."
+  (let ((url (substring id 5)))
+    (cond
+     ((string-match "^http" url) url)
+     (t (concat greader-atom-base url)))))
+
+
 (defun greader-view-json-subscriptions (subscriptions)
   "View Greader Subscription list."
   (declare (special greader-atom-base))
@@ -338,10 +348,7 @@ user."
            (insert
             (format
              "<li><a href=\"%s\">%s (%s)</a></li>\n"
-             (let ((url (substring id 5)))
-               (cond
-                ((string-match "^http" url) url)
-                (t (concat greader-atom-base url))))
+             (greader-id-to-url id)
              (g-json-get 'title s)
              (cond
               ((string-match "rss" id) "R")
