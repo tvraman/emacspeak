@@ -2378,25 +2378,37 @@ Produce auditory icons if possible."
 (defvar emacspeak-minibuffer-enter-auditory-icon t
   "Produce auditory icon when entering the minibuffer.")
 
+;; (defun emacspeak-minibuffer-setup-hook ()
+;;   "Actions  taken when entering the minibuffer with emacspeak. "
+;;   (declare (special emacspeak-minibuffer-enter-auditory-icon
+;; 		    minibuffer-default))
+;;   (let ((default
+;;           (cond
+;;            ((and minibuffer-default (listp minibuffer-default))
+;;             (format "Default: %s " (first minibuffer-default)))
+;;            (minibuffer-default
+;;             (format "Default: %s" minibuffer-default))
+;;            (t ""))))
+;;     (when emacspeak-minibuffer-enter-auditory-icon
+;;       (emacspeak-auditory-icon 'open-object))
+;;     (tts-with-punctuations
+;;      'all
+;;      (dtk-speak 
+;;       (format "%s %s"
+;;               (buffer-string)
+;;               default)))))
+
 (defun emacspeak-minibuffer-setup-hook ()
-  "Actions  taken when entering the minibuffer with emacspeak. "
-  (declare (special emacspeak-minibuffer-enter-auditory-icon
-		    minibuffer-default))
-  (let ((default
-          (cond
-           ((and minibuffer-default (listp minibuffer-default))
-            (format "Default: %s " (first minibuffer-default)))
-           (minibuffer-default
-            (format "Default: %s" minibuffer-default))
-           (t ""))))
+  "Actions to take when entering the minibuffer with
+emacspeak running."
+  (declare (special emacspeak-minibuffer-enter-auditory-icon))
+  (let ((inhibit-field-text-motion t))
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
-    (tts-with-punctuations
-     'all
-     (dtk-speak 
-      (format "%s %s"
-              (buffer-string)
-              default)))))
+    (unwind-protect
+        (tts-with-punctuations 'all
+                               (emacspeak-speak-buffer)))))
+
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
