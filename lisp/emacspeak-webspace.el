@@ -108,6 +108,7 @@
 (defun emacspeak-webspace-feed-view ()
   "View  feed using gfeeds."
   (interactive)
+  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'gfeeds-view))
 
 
