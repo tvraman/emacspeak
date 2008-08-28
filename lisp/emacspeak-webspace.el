@@ -304,6 +304,17 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
+;;{{{ Google Reader In Webspace:
+
+(defun emacspeak-webspace-reader ()
+  "Display Google Reader Feed list in a WebSpace buffer."
+  (interactive)
+  (let ((subscriptions (greader-subscriptions)))
+    subscriptions))
+
+
+
+;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
 
