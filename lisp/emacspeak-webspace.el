@@ -116,6 +116,7 @@
 (defun emacspeak-webspace-open ()
   "Open headline at point by following its link property."
   (interactive)
+  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'browse-url))
 
 ;;;###autoload
