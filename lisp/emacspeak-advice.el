@@ -2756,6 +2756,21 @@ Variable mark-even-if-inactive is set true ."
       (emacspeak-speak-buffer))))
 
 ;;}}}
+;;{{{ browse-url
+(loop for f in
+      '(browse-url-of-buffer browse-url-of-region)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+          "Automatically speak results of rendering."
+          (cond
+           ((interactive-p)
+            (emacspeak-webutils-autospeak)
+            ad-do-it)
+           (t ad-do-it))
+          ad-return-value)))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
