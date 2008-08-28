@@ -344,7 +344,8 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
             (insert (format "\n%s"
                             (cdr (assoc 'title feed))))
             (put-text-property (line-beginning-position) (line-end-position)
-                               'link (greader-id-to-url (cdr (assoc 'id feed))))))
+                               'link (greader-id-to-url (cdr (assoc 'id feed)))))
+      (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-webspace-mode)
     (emacspeak-auditory-icon 'open-object)
