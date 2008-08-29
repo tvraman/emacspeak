@@ -317,7 +317,7 @@ field in the customization buffer.  You can use the notation
         ("." emacspeak-speak-current-field)
         ("/" emacspeak-speak-this-buffer-other-window-display)
         (":" emacspeak-realaudio )
-        (";" emacspeak-multimedia)
+        ("\;" emacspeak-multimedia)
         ("<" emacspeak-speak-previous-field)
         ("=" emacspeak-speak-current-column)
         (">"  emacspeak-speak-next-field)
