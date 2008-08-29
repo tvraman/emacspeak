@@ -372,8 +372,11 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (insert "Google Reader")
       (center-line)
       (loop for feed across subscriptions
+            and i from 1
             do
-            (insert (format "\n%s"
+            (insert
+             (format "\n%d. %s"
+                     i
                             (cdr (assoc 'title feed))))
             (put-text-property (line-beginning-position) (line-end-position)
                                'link (greader-id-to-url (cdr (assoc 'id feed)))))
@@ -403,11 +406,13 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
                       (first gweb-history)))
       (center-line)
       (loop for r across results
+            and i from 1
             do
             (setq start (point))
             (insert
              (format
-              "%s\n%s"
+              "%d. %s\n%s"
+              i
               (g-json-get 'titleNoFormatting r)
               (shell-command-to-string
                (format
