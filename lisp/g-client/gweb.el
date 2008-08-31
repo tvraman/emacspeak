@@ -118,11 +118,12 @@
     (set-buffer 
      (let ((window (minibuffer-selected-window))) 
        (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer)))) 
+	   (window-buffer window) 
+	 (current-buffer)))) 
     (complete-with-action mode 
-                          (gweb-suggest string) 
-                          string predicate)))
+			  (gweb-suggest string)
+			  string predicate)))
+  
 
 (defvar gweb-history nil
   "History of Google Search queries.")
@@ -137,8 +138,8 @@
     (setq table (lazy-completion-table
                  table (lambda () (gweb-suggest input))))
     table))
-
-(defsubst gweb-google-autocomplete (&optional prompt)
+(if (fboundp 'complete-with-action)
+    (defsubst gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
@@ -157,6 +158,16 @@
            suggestions))
     (pushnew  query gweb-history)
     (g-url-encode query)))
+;;; Emacs 22
+(defsubst gweb-google-autocomplete (&optional prompt)
+  "Read user input using Google Suggest for auto-completion."
+  (let ((minibuffer-completing-file-name t) ;; so we can type
+        ;; spaces
+        (completion-ignore-case t))
+    (emacspeak-url-encode
+    (completing-read
+     (or prompt "Google: ")
+                     (dynamic-completion-table emacspeak-webutils-google-suggest))))))
 
 ;;}}}
 ;;{{{ Search Helpers
