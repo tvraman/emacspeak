@@ -164,10 +164,10 @@
   (let ((minibuffer-completing-file-name t) ;; so we can type
         ;; spaces
         (completion-ignore-case t))
-    (emacspeak-url-encode
+    (g-url-encode
     (completing-read
      (or prompt "Google: ")
-                     (dynamic-completion-table emacspeak-webutils-google-suggest))))))
+                     (dynamic-completion-table gweb-suggest))))))
 
 ;;}}}
 ;;{{{ Search Helpers
