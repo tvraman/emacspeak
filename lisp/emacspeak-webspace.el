@@ -268,7 +268,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 	(slow-timer nil))
     (setq timer 
 	  (run-with-idle-timer
-           30 t 'emacspeak-webspace-headlines-refresh))
+           60 t 'emacspeak-webspace-headlines-refresh))
     (setq slow-timer 
 	  (run-with-idle-timer
            3600 
