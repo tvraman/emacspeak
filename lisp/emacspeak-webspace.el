@@ -254,7 +254,7 @@ Generates auditory and visual display."
    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
 (defsubst emacspeak-webspace-headlines-refresh ()
-  "Update headlines."()
+  "Update headlines."
   (declare (special emacspeak-webspace-headlines))
   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
   (emacspeak-auditory-icon 'working)

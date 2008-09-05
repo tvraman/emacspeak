@@ -169,9 +169,11 @@
 ;;;###autoload
 (defun gfeeds-titles (feed-url)
   "Return list of titles from feed at feed-url."
-  (declare (special gfeeds-freshness))
+  (declare (special gfeeds-freshness-internal))
   (let ((feed (gfeeds-feed feed-url)))
     (when feed
+      (cond
+       (gfeeds-freshness-internal
       (delq nil
 	    (mapcar
 	     #'(lambda (article)
@@ -183,7 +185,8 @@
 		     (put-text-property 0 (1- (length title))
 					'link link title)
 		     title)))
-	     (gfeeds-feed-entries feed))))))
+	     (gfeeds-feed-entries feed))))
+      (t (gfeeds-feed-entries feed))))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
