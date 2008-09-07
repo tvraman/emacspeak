@@ -29,9 +29,9 @@ View an RSS feed as clean HTML
         </title>
       </head>
       <body>
-        <ul>
+        <ol>
           <xsl:apply-templates select="rss:item|nsrss:item"/>
-        </ul>
+        </ol>
         <p>
           <xsl:apply-templates select="rss:description| nsrss:description"/>
           <xsl:element name="a">
@@ -70,9 +70,9 @@ View an RSS feed as clean HTML
         </title>
       </head>
       <body>
-        <ul>
+        <ol>
           <xsl:apply-templates select="item"/>
-        </ul>
+        </ol>
         <p>
           <xsl:apply-templates select="description"/>
           <xsl:element name="a">
