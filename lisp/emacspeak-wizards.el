@@ -1054,6 +1054,7 @@ Warning! Contents of file commands.texi will be overwritten."
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
+	(coding-system-for-write  'utf-8-unix)
         (module nil))
     (save-excursion
       (set-buffer buffer)
@@ -1145,6 +1146,7 @@ Warning! Contents of file filename will be overwritten."
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
+	(coding-system-for-write  'utf-8-unix)
         (module nil))
     (save-excursion
       (set-buffer buffer)
