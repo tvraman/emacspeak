@@ -250,7 +250,9 @@ proc tts_say {text} {
     set la $langcode(current)
 
     set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\"><prosody rate=\"[convert_speech_rate $r]\">"
-    regsub -all {\[\*\]} $text { `p1 } text 
+    # CMB change: ESpeak doesn't treat `p1 as a pause.  I'm guessing this
+    # is Outloud's behavior?  Replace [*] with a single space.
+    regsub -all {\[\*\]} $text { } text 
     synth " $prefix $text"
     service
     return ""
