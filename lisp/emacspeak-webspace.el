@@ -72,6 +72,7 @@
         ("q" bury-buffer)
         ("\t" emacspeak-webspace-next-link)
         ([S-tab] emacspeak-webspace-previous-link)
+        ("y" emacspeak-webspace-yank-link)
         ("A"emacspeak-webspace-atom-view)
         ("R" emacspeak-webspace-rss-view)
         ("F" emacspeak-webspace-feed-view)
@@ -111,6 +112,21 @@
   (interactive)
   (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'gfeeds-view))
+
+;;;###autoload
+(defun emacspeak-webspace-yank-link ()
+  "Yank link under point into kill ring."
+  (interactive)
+  (let ((link (get-text-property (point) 'link)))
+    (cond
+     (link
+      (kill-new link)
+      (message link))
+     (t (error "No link under point")))))
+      
+        
+  )
+
 
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
