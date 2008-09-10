@@ -123,12 +123,7 @@
       (kill-new link)
       (message link))
      (t (error "No link under point")))))
-      
-        
-  )
-
-
-
+  
 (defadvice gfeeds-view (around emacspeak pre act comp)
   "Automatically speak display."
   (when (interactive-p)
