@@ -121,8 +121,10 @@
     (cond
      (link
       (kill-new link)
-      (message link))
-     (t (error "No link under point")))))
+      (emacspeak-auditory-icon 'yank-object)
+      (message "Yanked link under point."))
+     (t (error "No link under point")))))k
+
   
 (defadvice gfeeds-view (around emacspeak pre act comp)
   "Automatically speak display."
