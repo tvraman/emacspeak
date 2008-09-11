@@ -712,22 +712,21 @@ user."
 ;;}}}
 ;;{{{ Searching:
 
-(defvar greader-search-url
+(defvar greader-search-results-url
   (concat greader-base-url
           "api/0/search/items/ids?output=json&num=100&q=%s")
   "URL template for GReader search.")
 
 (defvar greader-contents-rest-url
   "http://www.google.com/reader/api/0/stream/items/contents"
-  "REST endpoint for getting content.")
-;;;###autoload
-(defun greader-search (query)
-  "GReader search."
-  (interactive "sQuery:")
+  "REST endpoint for getting content.")e
+
+(defun greader-search-results (query)
+  "Return GReader search results."
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-contents-rest-url
-                    greader-search-url g-atom-view-xsl))
+                    greader-search-url ))
   (g-auth-ensure-token greader-auth-handle)
   (let ((results 
          (g-json-get 'results
@@ -761,7 +760,19 @@ user."
         (current-buffer) 'replace))
      (setq results
            (json-read-from-string (buffer-string))))
-    (greader-view-json-results query results)))
+    results))
+
+;;;###autoload
+
+;;;###autoload
+(defun greader-search (query)
+  "GReader search."
+  (interactive "sQuery:")
+  
+  
+  (greader-view-json-results
+   query
+   (greader-search-results query)))
 
 ;;}}}
 ;;{{{ Sign out:
@@ -792,7 +803,7 @@ session."))))
   (g-authenticate greader-auth-handle))
 
 ;;;###autoload
-(defun greader-reauth()
+(defun greader-re-authenticate()
   "Reauthenticate current user."
   (interactive)
   (declare (special greader-auth-handle))
