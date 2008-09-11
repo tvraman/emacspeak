@@ -382,7 +382,9 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (erase-buffer)
       (setq buffer-undo-list t)
       (goto-char (point-min))
-      (insert "Google Reader")
+      (insert
+       (format "Google Reader %d"
+	      (length subscriptions)))
       (center-line)
       (loop for feed across subscriptions
             and i from 1
