@@ -374,13 +374,14 @@ user."
      (loop for item across items
            do
            (insert
-            (format "<h2><a href=\"%s\">%s</a></h2>\n"
+            (format "<h2><a href='%s'>%s</a></h2>\n"
                     (g-json-get 'title item)
                     (g-json-get 'title item)))
            (insert
             (format "<div>%s</div>\n"
                     (g-json-get 'content
-                                (g-json-get 'content item))))))))
+                                (g-json-get 'content item)))))
+     (browse-url-of-buffer))))
 
 
 (defun greader-unread-count ()
