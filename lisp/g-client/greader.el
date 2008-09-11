@@ -790,6 +790,18 @@ session."))))
   (setq greader-auth-handle (make-greader-auth))
   (g-authenticate greader-auth-handle))
 
+;;;###autoload
+(defun greader-reauth()
+  "Reauthenticate current user."
+  (interactive)
+  (declare (special greader-auth-handle))
+  (cond
+   (greader-auth-handle
+  (g-authenticate greader-auth-handle)
+  (message "Re-authenticated %s"
+           (g-auth-email greader-auth-handle)))
+   (t (error "You've not signed in yet."))))
+
 ;;}}}
 
 (provide 'greader)
