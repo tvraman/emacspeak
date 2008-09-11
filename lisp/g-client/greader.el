@@ -745,9 +745,9 @@ user."
      (let ((cl  nil))
        (insert 
         (format "T=%s" (g-auth-token greader-auth-handle)))
-       (loop for i in docids 
-             do
-             (insert (format "&i=%s" i)))
+       (mapc
+        #'(lambda (i) (insert (format "&i=%s" i)))
+        docids)
        (setq cl (format "-H Content-length:%s" (g-buffer-bytes)))
        (shell-command-on-region
         (point-min) (point-max)
@@ -761,8 +761,6 @@ user."
      (setq results
            (json-read-from-string (buffer-string))))
     results))
-
-;;;###autoload
 
 ;;;###autoload
 (defun greader-search (query)
