@@ -29,18 +29,18 @@ class ContactsShell(object):
 
   def __init__(self, email, password):
     """Constructor for the ContactsShell object.
-    
+
     Takes an email and password corresponding to a gmail account 
     and sets up things for Emacs to access Contact services.
-    
+
     Args:
       email: [string] The e-mail address of the account to use for the sample.
       password: [string] The password corresponding to the account specified by
-          the email parameter.
-    
+        the email parameter.
+
     Yields:
       A ContactsShell handle.
-      
+
     """
     self.gd_client = gdata.contacts.service.ContactsService()
     self.gd_client.email = email
@@ -50,7 +50,7 @@ class ContactsShell(object):
 
   def PrintFeed(self, feed):
     """Print out feed so Emacs can use it.
-   
+
     Args:
       feed: A gdata.contacts.ContactsFeed instance.
     """
@@ -138,7 +138,7 @@ class ContactsShell(object):
     query.updated_min = updated_min
     feed = self.gd_client.GetGroupsFeed(query.ToUri())
     self.PrintGroupsFeed(feed)
-   
+
   def _SelectContact(self):
     feed = self.gd_client.GetContactsFeed()
     self.PrintFeed(feed)
@@ -174,10 +174,10 @@ class ContactsShell(object):
 
   def GetMenuChoice(self, max):
     """Retrieves the menu selection from the user.
-    
+
     Args:
       max: [int] The maximum number of allowed choices (inclusive)
-      
+
     Returns:
       The integer of the menu item chosen by the user.
     """
@@ -189,7 +189,7 @@ class ContactsShell(object):
       except ValueError:
         print 'Invalid choice. Please choose a value between 1 and', max
         continue
-      
+
       if num > max or num < 1:
         print 'Invalid choice. Please choose a value between 1 and', max
       else:
@@ -225,10 +225,8 @@ class ContactsShell(object):
       print '\nGoodbye.'
       return
 
-def startShell():
-  """Starts our Contacts Shell and returns a handle to it.""""Demonstrates use of the Contacts extension using the ContactsShell object."""
-  user = ''
-  pw = ''
+def startShell(user='', pw=''):
+  """Starts our Contacts Shell and returns a handle to it."""
   while not user:
     user = raw_input('Please enter your username: ')
   while not pw:
@@ -242,8 +240,6 @@ def startShell():
     print 'Invalid user credentials given.'
     return
   return shell
-
-  
 
 if __name__ == '__main__':
   startShell()
