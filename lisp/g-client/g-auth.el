@@ -83,10 +83,18 @@
           (string :tag "username@gmail.com" ""))
   :group 'g)
 
-(defcustom g-auth-lifetime '(18 30057 25269)
-  "Lifetime of authentication token as a list suitable for
-`current-time'. Approximately 2 weeks."
-  :type 'sexp
+(defvar g-auth-lifetime-internal nil
+  "Internal cached value of g-auth-lifetime as a time value.")
+
+;;;###autoload
+(defcustom g-auth-lifetime "4 hours"
+  "Auth lifetime."
+  :type  'string
+  :set  #'(lambda (sym val)
+           (declare (special g-auth-lifetime-internal))
+           (setq g-auth-lifetime-internal
+                 (seconds-to-time(timer-duration val)))
+           (set-default sym val))
   :group 'g-auth)
 
 ;;}}}
@@ -119,7 +127,7 @@
   session-id                            ;gsession-id
   cookie-alist
   service
-  (lifetime  g-auth-lifetime)
+  (lifetime  g-auth-lifetime-internal)
   timestamp
   post-auth-action)
 
