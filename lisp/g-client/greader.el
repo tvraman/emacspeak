@@ -758,8 +758,8 @@ user."
          cl                             ; content-length header
          greader-contents-rest-url)
         (current-buffer) 'replace))
-     (setq results
-           (json-read-from-string (buffer-string))))
+     (goto-char (point-min))
+     (setq results (json-read)))
     results))
 
 ;;;###autoload
