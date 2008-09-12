@@ -17,17 +17,12 @@
 # Provide a Contacts interface for calling from Emacs
 # Cloned from GData library sample
 
-
 __author__ = 'T. V. Raman'
 
-
-import sys
-import getopt
 import getpass
 import atom
 import gdata.contacts
 import gdata.contacts.service
-
 
 class ContactsShell(object):
   """ContactsShell provides Emacs-g-client access to Contact lists.""""ContactsSample object demonstrates operations with the Contacts feed."""
@@ -187,10 +182,10 @@ class ContactsShell(object):
       The integer of the menu item chosen by the user.
     """
     while True:
-      input = raw_input('> ')
+      choice = raw_input('> ')
 
       try:
-        num = int(input)
+        num = int(choice)
       except ValueError:
         print 'Invalid choice. Please choose a value between 1 and', max
         continue
@@ -230,42 +225,25 @@ class ContactsShell(object):
       print '\nGoodbye.'
       return
 
-
-def main():
-  """Demonstrates use of the Contacts extension using the ContactsShell object."""
-  # Parse command line options
-  try:
-    opts, args = getopt.getopt(sys.argv[1:], '', ['user=', 'pw='])
-  except getopt.error, msg:
-    print 'python contacts_example.py --user [username] --pw [password]'
-    sys.exit(2)
-
+def startShell():
+  """Starts our Contacts Shell and returns a handle to it.""""Demonstrates use of the Contacts extension using the ContactsShell object."""
   user = ''
   pw = ''
-  # Process options
-  for option, arg in opts:
-    if option == '--user':
-      user = arg
-    elif option == '--pw':
-      pw = arg
-
   while not user:
-    print 'NOTE: Please run these tests only with a test account.'
     user = raw_input('Please enter your username: ')
   while not pw:
     pw = getpass.getpass()
     if not pw:
       print 'Password cannot be blank.'
 
-
   try:
-    sample = ContactsShell(user, pw)
+    shell = ContactsShell(user, pw)
   except gdata.service.BadAuthentication:
     print 'Invalid user credentials given.'
     return
+  return shell
 
-  sample.Run()
-
+  
 
 if __name__ == '__main__':
-  main()
+  startShell()
