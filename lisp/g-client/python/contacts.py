@@ -225,7 +225,7 @@ class ContactsShell(object):
       print '\nGoodbye.'
       return
 
-def startShell(user='', pw=''):
+def shell(user='', pw=''):
   """Starts our Contacts Shell and returns a handle to it."""
   while not user:
     user = raw_input('Please enter your username: ')
@@ -242,4 +242,4 @@ def startShell(user='', pw=''):
   return shell
 
 if __name__ == '__main__':
-  startShell()
+  shell()
