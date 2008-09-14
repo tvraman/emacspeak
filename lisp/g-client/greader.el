@@ -712,7 +712,7 @@ user."
 ;;}}}
 ;;{{{ Searching:
 
-(defvar greader-search-results-url
+(defvar greader-search-url
   (concat greader-base-url
           "api/0/search/items/ids?output=json&num=100&q=%s")
   "URL template for GReader search.")
