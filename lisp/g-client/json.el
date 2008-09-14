@@ -280,30 +280,25 @@ representation will be parsed correctly."
      (t
       (signal 'json-string-escape (list (point)))))))
 
-;; (defun json-read-string ()
-;;   "Read the JSON string at point."
-;;   (unless (char-equal (json-peek) ?\")
-;;     (signal 'json-string-format (list "doesn't start with '\"'!")))
-;;   ;; Skip over the '"'
-;;   (json-advance)
-;;   (let ((characters '())
-;;         (char (json-peek)))
-;;     (while (not (char-equal char ?\"))
-;;       (push (if (char-equal char ?\\)
-;;                 (json-read-escaped-char)
-;;               (json-pop))
-;;             characters)
-;;       (setq char (json-peek)))
-;;     ;; Skip over the '"'
-;;     (json-advance)
-;;     (if characters
-;;         (apply 'string (nreverse characters))
-;;       "")))
-
-;;; Optimization Hack --- here so it can be tested:
-(defsubst json-read-string ()
-  "Invoke Emacs Lisp  native read function."
-  (read (current-buffer)))
+(defun json-read-string ()
+  "Read the JSON string at point."
+  (unless (char-equal (json-peek) ?\")
+    (signal 'json-string-format (list "doesn't start with '\"'!")))
+  ;; Skip over the '"'
+  (json-advance)
+  (let ((characters '())
+        (char (json-peek)))
+    (while (not (char-equal char ?\"))
+      (push (if (char-equal char ?\\)
+                (json-read-escaped-char)
+              (json-pop))
+            characters)
+      (setq char (json-peek)))
+    ;; Skip over the '"'
+    (json-advance)
+    (if characters
+        (apply 'string (nreverse characters))
+      "")))
 
 ;; String encoding
 
