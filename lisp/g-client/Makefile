@@ -41,7 +41,8 @@ EMACS = emacs
 BATCH = -batch -q -no-site-file  -eval '(setq vc-handled-backends nil)'
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
-OBJECTS= g-auth.elc \
+OBJECTS= json.elc \
+g-auth.elc \
 g-app.elc \
 g-utils.elc \
 g.elc \
