@@ -72,6 +72,8 @@
         ("q" bury-buffer)
         ("\t" emacspeak-webspace-next-link)
         ([S-tab] emacspeak-webspace-previous-link)
+        ("f" emacspeak-webspace-next-link)
+        ("b" emacspeak-webspace-previous-link)
         ("y" emacspeak-webspace-yank-link)
         ("A"emacspeak-webspace-atom-view)
         ("R" emacspeak-webspace-rss-view)
