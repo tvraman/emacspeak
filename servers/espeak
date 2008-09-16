@@ -213,19 +213,12 @@ proc tts_set_punctuations {mode} {
     return ""
 }
 
-proc convert_speech_rate {rate} {
-    global tts
-
-    set value [ expr ( int (0.0606 * $rate))/10.0 ]
-    return $value
-}
-
 proc tts_set_speech_rate {rate} {
     global tts
 
     set factor $tts(char_factor) 
     set tts(speech_rate) $rate
-    say "<prosody rate=\"[convert_speech_rate $rate]\">"
+    setRate 0 $rate
     service
     return ""
 }
@@ -246,10 +239,9 @@ proc tts_say {text} {
     global langsynth
 
     service 
-    set r $tts(speech_rate)
     set la $langcode(current)
 
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\"><prosody rate=\"[convert_speech_rate $r]\">"
+    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
     regsub -all {\[\*\]} $text { } text 
     synth " $prefix $text"
     service
@@ -261,10 +253,8 @@ proc l {text} {
     global langcode
     global langsynth
 
-    set r $tts(speech_rate)
     set la $langcode(current)
-    set r2 [ convert_speech_rate $r ]
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\"><prosody rate=\"$r2\">"
+    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
     if {[regexp  {[A-Z]} $text]} {
 	# pitch instead of 80%, high which could be 75%.
         set prefix "$prefix <prosody pitch=\"high\">"
@@ -341,7 +331,7 @@ proc tts_split_caps {flag} {
 	set tts(capitalize) 0
 	caps "spelling"
     } else {
-	if { [ $tts(capitalize) == 0 ] && [ $tts(allcaps_beep) == 0 ] } {
+	if { ( $tts(capitalize) == 0 ) && ( $tts(allcaps_beep) == 0 ) } {
 	    caps "none"
 	}
     }
@@ -359,7 +349,7 @@ proc tts_capitalize {flag} {
 	set tts(allcaps_beep) 0
 	caps "pitch"
     } else {
-	if { [ $tts(split_caps) == 0 ] && [ $tts(allcaps_beep) == 0 ] } {
+	if { ( $tts(split_caps) == 0 ) && ( $tts(allcaps_beep) == 0 ) } {
 	    caps "none"
 	}
     }
@@ -378,7 +368,7 @@ proc tts_allcaps_beep {flag} {
 	set tts(capitalize) 0
 	caps "tone"
     } else {
-	if { [ $tts(split_caps) == 0 ] && [ $tts(capitalize) == 0 ] } {
+	if { ( $tts(split_caps) == 0 ) && ( $tts(capitalize) == 0 ) } {
 	    caps "none"
 	}
     }
@@ -397,7 +387,7 @@ proc tts_reset {} {
 proc r {rate} {
     global queue  tts
 
-    set queue($tts(q_tail)) [list s  "<prosody rate=\"[convert_speech_rate $rate]\">"]
+    set queue($tts(q_tail)) [list r  $rate]
     incr tts(q_tail)
     return ""
 }
@@ -442,11 +432,10 @@ proc speech_task {} {
 
     set tts(talking?) 1
     set tts(not_stopped) 1
-    set r $tts(speech_rate)
     set length [queue_length]
     set la $langcode(current)
 
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\"><prosody rate=\"[convert_speech_rate $r]\">"
+    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
     loop index 0 $length {
 
         set event   [queue_remove]
@@ -469,6 +458,11 @@ proc speech_task {} {
                     lvarpop event 
                     eval beep $event
                 }
+            }
+            r {
+
+# The first argument to setRate is ignored.
+                setRate 0 [lindex  $event 1]
             }
         }
         if {$tts(talking?) == 0} {break;} 
