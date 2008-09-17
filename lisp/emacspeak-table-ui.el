@@ -728,6 +728,8 @@ browsing table elements"
   'emacspeak-table-speak-current-element
   "Function to call when automatically speaking table elements.")
 
+(make-variable-buffer-local 'emacspeak-table-speak-element)
+
 (defun emacspeak-table-next-row (&optional count)
   "Move to the next row if possible"
   (interactive "p")
