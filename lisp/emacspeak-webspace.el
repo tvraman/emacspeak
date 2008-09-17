@@ -387,17 +387,16 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (setq buffer-undo-list t)
       (goto-char (point-min))
       (insert
-       (format "Google Reader %d"
-	      (length subscriptions)))
-      (center-line)
+       (format "Google Reader %d\n"
+               (length subscriptions)))
       (loop for feed across subscriptions
             and i from 1
             do
             (insert
-             (format "\n%d. %s"
+             (format "%d. %s\n"
                      i
-                            (cdr (assoc 'title feed))))
-            (put-text-property (line-beginning-position) (line-end-position)
+                     (cdr (assoc 'title feed))))
+            (put-text-property (line-beginning-position) (point)
                                'link (greader-id-to-url (cdr (assoc 'id feed)))))
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
