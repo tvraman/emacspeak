@@ -1601,6 +1601,18 @@ name of the list.")
       url
       'speak)))
 
+(emacspeak-url-template-define
+ "Money Content "
+ "http://money.cnn.com/"
+ nil
+ nil
+ "CNN Content"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id
+      "content"
+      url
+      'speak)))
+
 ;;}}}
 ;;{{{ pbs --pulpit
 (emacspeak-url-template-define
