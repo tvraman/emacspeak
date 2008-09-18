@@ -409,9 +409,20 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-webspace-mode)
+    (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe)
     (emacspeak-auditory-icon 'open-object)
     (goto-char (point-min))
     (emacspeak-speak-line)))
+
+;;;###autoload
+(defun emacspeak-webspace-reader-unsubscribe ()
+  "Unsubscribe to link under point."
+  (interactive)
+  (let ((link (get-text-property (point) 'link)))
+    (cond
+     (link 
+  (greader-unsubscribe-feed link))
+     (t (call-interactively 'greader-unsubscribe-feed)))))
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
