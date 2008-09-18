@@ -2615,11 +2615,6 @@ Variable mark-even-if-inactive is set true ."
              (if transient-mark-mode "on" "off"))))
 
 ;;}}}
-;;{{{ sync with tts engine on major mode change.
-
-(add-hook 'change-major-mode-hook 'emacspeak-dtk-sync)
-
-;;}}}
 ;;{{{ provide auditory icon when window config changes
 
 (defun emacspeak-window-resize (ignore)
