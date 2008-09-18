@@ -61,7 +61,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
-(require 'desktop)
+(require 'emacspeak-webutils)
 (require 'dired)
 (require 'comint)
 
@@ -71,14 +71,14 @@
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player." )
 
-(define-prefix-command 'emacspeak-m-player-prefix-command
-  'emacspeak-m-player-mode-map)
-
 (define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
+
+(define-prefix-command 'emacspeak-m-player-prefix-command
+  'emacspeak-m-player-mode-map)
 
 ;;}}}
 ;;{{{ emacspeak-m-player
