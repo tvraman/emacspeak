@@ -140,12 +140,8 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  average pitch
 
-;;; Average pitch for standard male voice is 65hz --this is mapped to
+;;; Average pitch of standard text is aurally mapped to 
 ;;; a setting of 5.
-;;; Average pitch varies inversely with speaker head size --a child
-;;; has a small head and a higher pitched voice.
-;;; We change parameter head-size in conjunction with average pitch to
-;;; produce a more natural change on the TTS engine.
 
 ;;{{{  paul average pitch
 
@@ -158,16 +154,16 @@ and TABLE gives the values along that dimension."
             (format "<prosody pitch=\"%s\">"
                     (second setting)))))
    '(
-     (0 32.5)
-     (1 39)
-     (2 45.5)
-     (3 52)
-     (4 58.5 ) 
-     (5 65)
-     (6 71.5)
-     (7 78)
-     (8 84.5)
-     (9 91)))
+     (0 0)
+     (1 10)
+     (2 20)
+     (3 30)
+     (4 40)
+     (5 50)
+     (6 60)
+     (7 70)
+     (8 80)
+     (9 90)))
   (espeak-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}
@@ -230,13 +226,8 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{  pitch range
-
-;;;  This parameter is modelled by an abstract sampling frequency.
-
-;;;  Standard value is 16000 and is  mapped to
-;;; a setting of 5.
-;;; A value of 15000 refers to a flat monotone voice --maximum value of 16800
-;;; refers to a highly animated voice.
+;;; Based on the sampler, it seems this setting is a range of 
+;;; values from 0 to 100%, 0 being monotone.
 
 ;;{{{  paul pitch range
 
@@ -249,16 +240,16 @@ and TABLE gives the values along that dimension."
             (format "<prosody range=\"%s\">"
                     (second setting)))))
    '(
-     (0 15)
-     (1 30)
-     (2 45)
-     (3 60)
-     (4 75)
-     (5 90)
-     (6 105)
-     (7 120)
-     (8 135)
-     (9 150)))
+     (0 0)
+     (1 10)
+     (2 30)
+     (3 40)
+     (4 50)
+     (5 60)
+     (6 70)
+     (7 80)
+     (8 90)
+     (9 100)))
   (espeak-css-set-code-table 'paul 'pitch-range table ))
 
 ;;}}}
@@ -273,16 +264,16 @@ and TABLE gives the values along that dimension."
             (format "<prosody range=\"%s\">"
                     (second setting)))))
    '(
-     (0 15)
-     (1 30)
-     (2 45)
-     (3 60)
-     (4 75)
-     (5 90)
-     (6 105)
-     (7 120)
-     (8 135)
-     (9 150)))
+     (0 0)
+     (1 10)
+     (2 30)
+     (3 40)
+     (4 50)
+     (5 60)
+     (6 70)
+     (7 80)
+     (8 90)
+     (9 100)))
   (espeak-css-set-code-table 'harry 'pitch-range table ))
 
 ;;}}}
@@ -297,16 +288,16 @@ and TABLE gives the values along that dimension."
             (format "<prosody range=\"%s\">"
                     (second setting)))))
    '(
-     (0 15)
-     (1 30)
-     (2 45)
-     (3 60)
-     (4 75)
-     (5 90)
-     (6 105)
-     (7 120)
-     (8 135)
-     (9 150)))
+     (0 0)
+     (1 10)
+     (2 30)
+     (3 40)
+     (4 50)
+     (5 60)
+     (6 70)
+     (7 80)
+     (8 90)
+     (9 100)))
   (espeak-css-set-code-table 'betty 'pitch-range table ))
 
 ;;}}}
@@ -331,6 +322,8 @@ and TABLE gives the values along that dimension."
 ;;{{{  richness
 
 ;;; Smoothness and richness vary inversely.
+;;; Richness is currently implemented as volume, with a setting of 0
+;;; corresponding to mute.  Smoothness is not implemented.
 
 ;;{{{  paul richness
 
@@ -345,15 +338,15 @@ and TABLE gives the values along that dimension."
    ;;            (format " ri:%s sm:%s "
    ;;                    (third setting)))))
    '(
-     (0 0 100)
-     (1 14 80)
-     (2 28 60)
-     (3 42 40 )
-     (4 56 20)
-     (5 70  3 )
-     (6 60 24 )
-     (7 70 16)
-     (8 80 20)
+     (0 10 100)
+     (1 20 80)
+     (2 30 60)
+     (3 40 40)
+     (4 50 20)
+     (5 60 3)
+     (6 70 24)
+     (7 80 16)
+     (8 90 20)
      (9 100  0)))
   (espeak-css-set-code-table 'paul 'richness table))
 
@@ -371,17 +364,16 @@ and TABLE gives the values along that dimension."
    ;;                     (second setting)
    ;;                     (third setting)))))
    '(
-     (0 100 0)
-     (1 96 3)
-     (2 93 6)
-     (3 90 9)
-     (4 88 11)
-     (5 86 12)
-     (6 60 24 )
-     (7 40 44)
-     (8 20 65)
-     (9 0 70)
-     ))
+     (0 10 100)
+     (1 20 80)
+     (2 30 60)
+     (3 40 40)
+     (4 50 20)
+     (5 60 3)
+     (6 70 24)
+     (7 80 16)
+     (8 90 20)
+     (9 100  0)))
   (espeak-css-set-code-table 'harry 'richness table))
 
 ;;}}}
@@ -398,15 +390,15 @@ and TABLE gives the values along that dimension."
    ;;                     (second setting)
    ;;                     (third setting)))))
    '(
-     (0 0 100)
-     (1 8 76)
-     (2 16 52)
-     (3 24  28)
-     (4 32 10)
-     (5 40 4)
-     (6 50 3)
-     (7 65 3)
-     (8 80 2)
+     (0 10 100)
+     (1 20 80)
+     (2 30 60)
+     (3 40 40)
+     (4 50 20)
+     (5 60 3)
+     (6 70 24)
+     (7 80 16)
+     (8 90 20)
      (9 100  0)))
   (espeak-css-set-code-table 'betty 'richness table))
 
