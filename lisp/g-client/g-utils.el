@@ -285,6 +285,7 @@ Key  is a string of of the form a.b.c"
    (call-process shell-file-name nil t
                       nil shell-command-switch 
                       command)
+   (set-buffer-multibyte nil) ;return raw binary string
    (buffer-string)))
 
 (defsubst g-json-get-result(command)
