@@ -998,31 +998,32 @@ Produce an auditory icon if possible."
 
 (defadvice comint-output-filter (around emacspeak pre act)
   "Make comint speak its output."
-    (set-buffer (process-buffer (ad-get-arg 0)))
-    (let ((prior (point ))
+    (let ((inhibit-read-only t)
           (monitor emacspeak-comint-output-monitor)
           (dtk-stop-immediately nil))
-      ad-do-it
-      (when (and (boundp 'comint-last-prompt-overlay)
-                 comint-last-prompt-overlay)
-        (add-text-properties
-         (overlay-start comint-last-prompt-overlay)
-         (overlay-end comint-last-prompt-overlay)
-         (list
-          'personality
-          'emacspeak-comint-prompt-personality
-          'rear-sticky nil)))
-      (when (and (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-                 (or
-                  monitor
-                  (eq (selected-window)
-                      (get-buffer-window (process-buffer (ad-get-arg 0))))))
-        (setq emacspeak-speak-comint-output nil)
-        (condition-case nil
-            (emacspeak-speak-region prior (point ))
-          (error (emacspeak-auditory-icon 'scroll)
-                 (dtk-stop ))))
-      ad-return-value))
+      (save-excursion
+	(set-buffer (process-buffer (ad-get-arg 0)))
+	ad-do-it
+	(when (and (boundp 'comint-last-prompt-overlay)
+		   comint-last-prompt-overlay)
+	  (add-text-properties
+	   (overlay-start comint-last-prompt-overlay)
+	   (overlay-end comint-last-prompt-overlay)
+	   (list
+	    'personality
+	    'emacspeak-comint-prompt-personality
+	    'rear-sticky nil)))
+	(when (and
+	       (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
+	       (or monitor
+		(eq (selected-window)
+		    (get-buffer-window (process-buffer (ad-get-arg 0))))))
+	  (setq emacspeak-speak-comint-output nil)
+	  (condition-case nil
+	      (emacspeak-speak-region comint-last-output-start (point ))
+	    (error (emacspeak-auditory-icon 'scroll)
+		   (dtk-stop ))))
+	ad-return-value)))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
