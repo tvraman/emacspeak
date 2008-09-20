@@ -1001,7 +1001,6 @@ Produce an auditory icon if possible."
     (let ((inhibit-read-only t)
           (monitor emacspeak-comint-output-monitor)
           (dtk-stop-immediately nil))
-      (save-excursion
 	(set-buffer (process-buffer (ad-get-arg 0)))
 	ad-do-it
 	(when (and (boundp 'comint-last-prompt-overlay)
@@ -1023,7 +1022,7 @@ Produce an auditory icon if possible."
 	      (emacspeak-speak-region comint-last-output-start (point ))
 	    (error (emacspeak-auditory-icon 'scroll)
 		   (dtk-stop ))))
-	ad-return-value)))
+	ad-return-value))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
