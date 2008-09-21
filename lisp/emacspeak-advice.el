@@ -104,17 +104,20 @@
 (defadvice previous-line (after emacspeak pre act)
   "Speak line that you just moved to."
   (when (interactive-p) (emacspeak-speak-line  )))
-
-(defadvice forward-button (after emacspeak pre act comp)
-  "Speak the button."
-  (when (interactive-p)
-    (condition-case nil
-	(let* ((button (button-at (point)))
-	       (start (button-start button))
-	       (end (button-end button)))
-	  (dtk-speak (buffer-substring start end)))
-      (error nil))
-    (emacspeak-auditory-icon 'large-movement)))
+(loop for f in 
+      '(forward-button backward-button)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Speak the button."
+	  (when (interactive-p)
+	    (condition-case nil
+		(let* ((button (button-at (point)))
+		       (start (button-start button))
+		       (end (button-end button)))
+		  (dtk-speak (buffer-substring start end)))
+	      (error nil))
+	    (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice forward-word (after emacspeak pre act)
   "Speak the word you just moved to."
