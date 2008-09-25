@@ -6,11 +6,11 @@ use strict;
 use File::Temp qw(tempfile);
 use File::Basename;
 
-my $OCR = 'ocropus';
+my $OCR = 'ocroscript';
 my ($out, $output) = tempfile(suffix=>'.html');
 my $image =shift;
 die "No image specified" unless defined ($image);
-qx($OCR  ocr $image > $output 2>/dev/null);
+qx($OCR  recognize $image > $output 2>/dev/null);
 open(OUT, "lynx -dump $output 2>/dev/null | cat -s |");
 while (<OUT>) {
   print;
