@@ -131,11 +131,8 @@
      (process-buffer emacspeak-m-player-process))
     (emacspeak-speak-mode-line))
    (t
-    (save-excursion
-    (save-window-excursion
-      (call-interactively
-       (lookup-key emacspeak-m-player-mode-map
-                   (format "%c" command-char))))))))
+    (call-interactively
+     (lookup-key emacspeak-m-player-mode-map (format "%c" command-char))))))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
@@ -522,14 +519,13 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("\C-m" emacspeak-m-player)
         (":" emacspeak-m-player)
         ("e" emacspeak-m-player-add-equalizer)
-	("o" other-window)
-        ("O" emacspeak-m-player-customize-options)
+        ("o" emacspeak-m-player-customize-options)
         ("O" emacspeak-m-player-reset-options)
         ("f" emacspeak-m-player-add-filter)
         ("b" bury-buffer)
 	("l" emacspeak-m-player-get-length)
         ("L" emacspeak-m-player-load-file)
-        ("L" emacspeak-m-player-load-playlist)
+        ("\M-l" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
         ("t" emacspeak-m-player-play-tree-step)
         ("p" emacspeak-m-player-previous-track)
