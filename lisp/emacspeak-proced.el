@@ -230,7 +230,7 @@
   (declare (special proced-mode-map))
   (define-key proced-mode-map "j" 'emacspeak-proced-jump-to-process)
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
-  (define-key proced-mode-map [backtab] 'emacspeak-proced-previous-field)
+  (define-key proced-mode-map [S-tab] 'emacspeak-proced-previous-field)
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
 (define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
 (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
