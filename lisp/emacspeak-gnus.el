@@ -155,13 +155,16 @@ reading news."
     (emacspeak-dtk-sync)
     (cond
      ((< (count-lines (point-min) (point-max))
-         emacspeak-gnus-large-article)
+	 emacspeak-gnus-large-article)
       (emacspeak-speak-buffer  ))
      (t (emacspeak-auditory-icon 'large-movement )
-        (let ((start (point)))
-          (move-to-window-line -1)
-          (end-of-line)
-          (emacspeak-speak-region start (point)))))))
+	(let ((start (point))
+	      (window (get-buffer-window (current-buffer))))
+	  (with-selected-window window
+	    (save-excursion
+	      (move-to-window-line -1)
+	      (end-of-line)
+	      (emacspeak-speak-region start (point)))))))))
 
 ;;}}}
 ;;{{{ Advise top-level gnus command
@@ -648,8 +651,11 @@ indicating the article is being opened."
       (emacspeak-dtk-sync)
       (let ((start  (point ))
             (window (get-buffer-window (current-buffer ))))
-        (forward-line (window-height window))
-        (emacspeak-speak-region start (point ))))))
+        (with-selected-window window
+	  (save-excursion
+	   (move-to-window-line -1)
+	   (end-of-line)
+	   (emacspeak-speak-region start (point ))))))))
 
 (defadvice gnus-summary-kill-same-subject (after emacspeak pre act)
   "Speak the line.
@@ -726,8 +732,11 @@ instead you hear only the first screenful.")
     (set-buffer  "*Article*")
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
-      (forward-line (window-height window))
-      (emacspeak-speak-region start (point )))))
+      (with-selected-window window
+	(save-excursion
+	  (move-to-window-line -1)
+	  (end-of-line)
+	  (emacspeak-speak-region start (point )))))))
 
 (defadvice gnus-summary-prev-page (after emacspeak pre act)
   "Speak the previous  pageful "
@@ -737,8 +746,11 @@ instead you hear only the first screenful.")
     (set-buffer  "*Article*")
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
-      (forward-line (-  (window-height window)))
-      (emacspeak-speak-region start (point )))))
+      (with-selected-window window
+	(save-excursion
+	  (move-to-window-line -1)
+	  (end-of-line)
+	  (emacspeak-speak-region start (point )))))))
 
 (defadvice gnus-summary-beginning-of-article (after emacspeak pre act)
   "Speak the first line. "(save-excursion
