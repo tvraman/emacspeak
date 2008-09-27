@@ -259,13 +259,16 @@
   (interactive
    (list
     (completing-read
-    "Jump to process: "
-    emacspeak-proced-process-cache)))
+     "Jump to process: "
+     emacspeak-proced-process-cache)))
   (declare (special emacspeak-proced-process-cache))
-  (goto-line
-   (1+ (position name  emacspeak-proced-process-cache
-                 :test #'string-equal)))
-  (emacspeak-proced-speak-this-field))
+  (let ((pos (position name  emacspeak-proced-process-cache
+		       :test #'string-equal)))
+    (cond
+     (pos 
+      (goto-line (1+ pos))
+      (emacspeak-proced-speak-this-field))
+     (t (error "Cant find %s" name)))))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
