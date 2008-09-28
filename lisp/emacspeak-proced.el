@@ -308,6 +308,19 @@
           (emacspeak-proced-update-fields)
           (emacspeak-proced-update-process-cache))))
 
+(loop for f  in
+'(proced-sort-pcpu proced-sort-start
+		   proced-sort-time
+		   proced-sort-user  proced-sort-pmem
+		   proced-sort-pid)
+do
+(eval
+ `(defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedbak."
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-proced-speak-this-field)))))
+
 
 
 ;;}}}
