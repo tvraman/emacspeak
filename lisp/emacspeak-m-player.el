@@ -128,8 +128,7 @@
   (declare (special emacspeak-m-player-process))
   (cond
    ((=  command-char ?\;)
-    (pop-to-buffer
-     (process-buffer emacspeak-m-player-process))
+    (pop-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-speak-mode-line))
    (t
     (call-interactively
