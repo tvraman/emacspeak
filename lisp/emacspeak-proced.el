@@ -228,6 +228,8 @@
 (defun emacspeak-proced-add-keys ()
   "Add additional keybindings for emacspeak."
   (declare (special proced-mode-map))
+  (define-key proced-mode-map "n" 'emacspeak-proced-next-line)
+  (define-key proced-mode-map "p" 'emacspeak-proced-previous-line)
   (define-key proced-mode-map "j" 'emacspeak-proced-jump-to-process)
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
   (define-key proced-mode-map [S-tab] 'emacspeak-proced-previous-field)
@@ -306,14 +308,22 @@
           (emacspeak-proced-update-fields)
           (emacspeak-proced-update-process-cache))))
 
-(loop for f in
-      '(proced-next-line proced-previous-line)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-	  "Speak relevant information."
-	  (emacspeak-speak-line 1)
-	  (emacspeak-auditory-icon 'select-object))))
+
+
+;;}}}
+;;{{{ additional commands:
+
+(defun emacspeak-proced-next-line ()
+  "Move to next line and speak a summary."
+  (interactive)
+  (forward-line 1)
+  (emacspeak-proced-speak-field "ARGS"))
+
+(defun emacspeak-proced-previous-line ()
+  "Move to next line and speak a summary."
+  (interactive)
+  (forward-line -1)
+  (emacspeak-proced-speak-field "ARGS"))
 
 ;;}}}
 (provide 'emacspeak-proced)
