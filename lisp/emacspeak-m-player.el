@@ -75,9 +75,12 @@
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
-  (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
-(
-define-prefix-command 'emacspeak-m-player-prefix-command
+  (progn
+    (setq buffer-undo-list t)
+    (ansi-color-for-comint-mode-on)
+    (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
+
+(define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
 
 ;;}}}
@@ -209,10 +212,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   options)))
     (save-excursion
       (set-buffer (process-buffer emacspeak-m-player-process))
-      (kill-all-local-variables)
-      (emacspeak-m-player-mode)
-      (setq buffer-undo-list t)
-      (ansi-color-for-comint-mode-on))
+      (emacspeak-m-player-mode))
     (unless noselect
       (pop-to-buffer (process-buffer emacspeak-m-player-process)))))
 
