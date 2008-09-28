@@ -124,9 +124,7 @@
 
 (defun emacspeak-m-player-command (command-char)
   "Invoke MPlayer commands."
-  (interactive
-   (list
-    (read-char "MPlayer Command: ")))
+  (interactive "cMPlayer Command: ")
   (declare (special emacspeak-m-player-process))
   (cond
    ((=  command-char ?\;)
@@ -183,7 +181,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
-  (let ((process-connection-type nil)
+  (let ((buffer nil)
+	(process-connection-type nil)
         (playlist-p
          (or play-list
              (emacspeak-m-player-playlist-p resource)))
@@ -203,14 +202,14 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (nconc
              options
              (list resource)))))
-    (setq emacspeak-m-player-process
-          (get-buffer-process
-           (apply 'make-comint
-                  "m-player" emacspeak-m-player-program
-                  nil
-                  options)))
+    
+    (setq buffer
+	  (apply 'make-comint
+		 "m-player" emacspeak-m-player-program
+		 nil
+		 options))
     (save-excursion
-      (set-buffer (process-buffer emacspeak-m-player-process))
+      (set-buffer buffer)
       (emacspeak-m-player-mode))))
 
 ;;}}}
@@ -357,9 +356,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive)
   (when (eq (process-status emacspeak-m-player-process) 'run)
     (let ((buffer (process-buffer emacspeak-m-player-process)))
-    (emacspeak-m-player-dispatch "quit")
-    (and (buffer-live-p buffer)
-         (kill-buffer buffer))))
+      (emacspeak-m-player-dispatch "quit")
+      (and (buffer-live-p buffer)
+	   (kill-buffer buffer))))
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
     (delete-process  emacspeak-m-player-process))
   (emacspeak-speak-mode-line))
@@ -389,7 +388,7 @@ A string of the form `<number> 1' sets volume as an absolute."
   "Display length of track in seconds."
   (interactive)
   (emacspeak-m-player-dispatch "get_time_length"))
-   
+
 
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
@@ -507,7 +506,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         emacspeak-m-player-default-options)
   (message "Reset options."))
 
-  
+
 ;;}}}
 ;;{{{ keys
 (declaim (special emacspeak-m-player-mode-map))
@@ -565,7 +564,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   "YouTube download tool"
   :type 'string
   :group 'emacspeak-m-player)
-  
+
 ;;;###autoload
 
 (defun emacspeak-m-player-youtube-player (url)
