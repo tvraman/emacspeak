@@ -150,7 +150,7 @@
   (string-match emacspeak-m-player-playlist-pattern resource))
 
 ;;;###autoload
-(defun emacspeak-m-player (resource &optional play-list noselect)
+(defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
 Resource is a media resource or playlist containing media resources.
@@ -171,8 +171,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                         emacspeak-realaudio-shortcuts-directory)
                       (when (eq major-mode 'dired-mode)
                         (dired-get-filename))))
-    current-prefix-arg
-    'noselect))
+    current-prefix-arg))
   (declare (special emacspeak-realaudio-history
                     emacspeak-realaudio-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
@@ -212,9 +211,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   options)))
     (save-excursion
       (set-buffer (process-buffer emacspeak-m-player-process))
-      (emacspeak-m-player-mode))
-    (unless noselect
-      (pop-to-buffer (process-buffer emacspeak-m-player-process)))))
+      (emacspeak-m-player-mode))))
 
 ;;}}}
 ;;{{{ commands 
@@ -568,7 +565,6 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   "YouTube download tool"
   :type 'string
   :group 'emacspeak-m-player)
-
   
 ;;;###autoload
 
@@ -583,8 +579,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   (emacspeak-m-player
    (shell-command-to-string
     (format "%s -g %s"
-	    emacspeak-m-player-youtube-dl url))
-   nil t))
+	    emacspeak-m-player-youtube-dl url))))
 
 ;;}}}
 (provide 'emacspeak-m-player)
