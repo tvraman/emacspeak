@@ -119,17 +119,17 @@
     (call-interactively 'emacspeak-m-player-command))
    (t  (call-interactively 'emacspeak-m-player))))
 
-(defun emacspeak-m-player-command (command-char)
+(defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
-  (interactive "cMPlayer Command: ")
+  (interactive (list (read-key-sequence "MPlayer Key: ")))
   (declare (special emacspeak-m-player-process))
   (cond
-   ((=  command-char ?\;)
+   ((and (stringp key)
+	 (string= ";" key))
     (pop-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-speak-mode-line))
    (t
-    (call-interactively
-     (lookup-key emacspeak-m-player-mode-map (format "%c" command-char))))))
+    (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
