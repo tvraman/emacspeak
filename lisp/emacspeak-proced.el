@@ -233,7 +233,9 @@
   (define-key proced-mode-map "j" 'emacspeak-proced-jump-to-process)
   (define-key proced-mode-map "\t" 'emacspeak-proced-next-field)
   (define-key proced-mode-map [S-tab] 'emacspeak-proced-previous-field)
-  (define-key proced-mode-map "." 'emacspeak-proced-speak-field))
+  (define-key proced-mode-map "." 'emacspeak-proced-speak-field)
+  (define-key proced-mode-map "<" 'beginning-of-buffer)
+  (define-key proced-mode-map ">" 'end-of-buffer))
 (define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
 (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
 (add-hook 'proced-mode-hook
@@ -274,6 +276,9 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
+
+
+
 (defadvice proced-mark (before emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -298,6 +303,10 @@
     (message "Removed all marks. ")
     (emacspeak-auditory-icon 'deselect-object)))
 
+(defadvice proced(before emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
 (loop for f in
       '(proced proced-update)
