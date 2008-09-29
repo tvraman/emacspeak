@@ -80,9 +80,6 @@
     (ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
-(define-prefix-command 'emacspeak-m-player-prefix-command
-  'emacspeak-m-player-mode-map)
-
 ;;}}}
 ;;{{{ emacspeak-m-player
 
