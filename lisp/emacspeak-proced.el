@@ -312,10 +312,15 @@
       '(proced proced-update)
       do
       (eval
-       `(defadvice ,f (after emacspeak pre act comp)
+       `(defadvice ,f (around emacspeak pre act comp)
           "Update cache of field positions."
-          (emacspeak-proced-update-fields)
-          (emacspeak-proced-update-process-cache))))
+	  (let ((emacspeak-speak-messages nil))
+	    ad-do-it
+	    (emacspeak-proced-update-fields)
+	    (emacspeak-proced-update-process-cache)
+	    (when (interactive-p)
+	      (let ((header-line-format nil))
+	      (emacspeak-speak-mode-line)))))))
 
 (loop for f  in
 '(proced-sort-pcpu proced-sort-start
@@ -324,11 +329,14 @@
 		   proced-sort-pid)
 do
 (eval
- `(defadvice ,f (after emacspeak pre act comp)
+ `(defadvice ,f (around emacspeak pre act comp)
     "Provide auditory feedbak."
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'task-done)
-      (emacspeak-proced-speak-this-field)))))
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (when (interactive-p)
+	(let ((header-line-format nil))
+	  (emacspeak-auditory-icon 'task-done)
+	  (emacspeak-speak-mode-line)))))))
 
 
 
