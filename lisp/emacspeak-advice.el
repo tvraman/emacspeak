@@ -1485,7 +1485,8 @@ Produce an auditory icon if possible."
   "Produce an auditory icon to indicate closing of an object.
 Then indicate current buffer by speaking  the modeline."
   (when (interactive-p )
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 (defadvice other-window (after emacspeak pre act )
   "Speak modeline.
@@ -1494,6 +1495,7 @@ Indicate change of selection with an auditory icon
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
+
 (defadvice delete-frame (after emacspeak pre act comp)
   "Provide auditory feedback about frame and buffer that becomes current."
   (when (interactive-p)
