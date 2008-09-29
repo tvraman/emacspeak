@@ -124,12 +124,10 @@
   (interactive (list (read-key-sequence "MPlayer Key: ")))
   (declare (special emacspeak-m-player-process))
   (cond
-   ((and (stringp key)
-	 (string= ";" key))
+   ((and (stringp key) (string= ";" key))
     (pop-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-speak-mode-line))
-   (t
-    (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
+   (t (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
@@ -155,8 +153,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (emacspeak-speak-messages nil)
           (read-file-name-completion-ignore-case t)
           (minibuffer-history emacspeak-realaudio-history))
-      (emacspeak-pronounce-define-local-pronunciation
-       emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
       (read-file-name "MP3 Resource: "
                       (if
                           (string-match
@@ -195,15 +191,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
               'full
               "\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
            (t
-            (nconc
-             options
-             (list resource)))))
-    
+            (nconc options (list resource)))))
     (setq buffer
 	  (apply 'make-comint
 		 "m-player" emacspeak-m-player-program
-		 nil
-		 options))
+		 nil options))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-m-player-mode))))
@@ -505,11 +497,11 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ;;}}}
 ;;{{{ keys
+
 (declaim (special emacspeak-m-player-mode-map))
 (loop for k in 
       '(
         ("\C-m" emacspeak-m-player)
-        (":" emacspeak-m-player)
         ("e" emacspeak-m-player-add-equalizer)
         ("o" emacspeak-m-player-customize-options)
         ("O" emacspeak-m-player-reset-options)
