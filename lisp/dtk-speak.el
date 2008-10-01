@@ -159,7 +159,7 @@ Do not set this variable by hand, use command
   "Non-nil means produce a beep to indicate  capitalization.
 Do not set this variable by hand, use command dtk-toggle-capitalization
 bound to \\[dtk-toggle-capitalization].")
-(make-variable-buffer-local 'dtk-captialize)
+(make-variable-buffer-local 'dtk-capitalize)
 
 (defvar dtk-allcaps-beep nil
   "Option to indicate capitalization.
@@ -1087,6 +1087,8 @@ You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
 
+
+(make-variable-buffer-local 'dtk-punctuation-mode)
 ;;; forward declaration
 (defvar emacspeak-servers-directory
   (expand-file-name
