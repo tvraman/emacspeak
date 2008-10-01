@@ -353,7 +353,7 @@ See
   http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
   for details."
   (when (interactive-p)
-    (dtk-set-punctuations "some")
+    (dtk-set-punctuations 'some)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
