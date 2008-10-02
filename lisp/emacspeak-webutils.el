@@ -383,11 +383,9 @@ instances."
 (defun emacspeak-webutils-play-media-at-point ()
   "Play media url under point "
   (interactive )
-  (declare (special emacspeak-media-player))
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (message "Playing media  URL under point")
-    (funcall emacspeak-media-player  url
-	     nil 'noselect)))
+    (funcall emacspeak-media-player  url)))
 
 ;;;###autoload
 (defun emacspeak-webutils-view-feed-via-google-reader ()
