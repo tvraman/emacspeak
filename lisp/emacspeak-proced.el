@@ -323,21 +323,26 @@
 	      (emacspeak-speak-mode-line)))))))
 
 (loop for f  in
-'(proced-sort-pcpu proced-sort-start
-		   proced-sort-time
-		   proced-sort-user  proced-sort-pmem
-		   proced-sort-pid)
-do
-(eval
- `(defadvice ,f (around emacspeak pre act comp)
-    "Provide auditory feedbak."
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it
-      (when (interactive-p)
-	(let ((header-line-format nil))
-	  (emacspeak-auditory-icon 'task-done)
-	  (emacspeak-speak-mode-line)))))))
-
+      '(proced-sort-pcpu proced-sort-start
+                         proced-sort-time
+                         proced-sort-user  proced-sort-pmem
+                         proced-sort-pid)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+          "Provide auditory feedbak."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it
+            (when (interactive-p)
+              (let ((target (cdr (assoc "ARGS" emacspeak-proced-fields))))
+                (emacspeak-auditory-icon 'task-done)
+                (dtk-speak
+                 (format "%d of %d: %s"
+                         (line-number-at-pos)
+                         (count-lines (point-min) (point-max))
+                         (buffer-substring
+                          (+ (point) (car target))
+                          (+ (point) (cdr target)))))))))))
 
 
 ;;}}}
