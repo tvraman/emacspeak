@@ -324,7 +324,7 @@
 
 (loop for f  in
       '(proced-sort-pcpu proced-sort-start
-                         proced-sort-time
+                         proced-sort-time proced-sort-interactive
                          proced-sort-user  proced-sort-pmem
                          proced-sort-pid)
       do
