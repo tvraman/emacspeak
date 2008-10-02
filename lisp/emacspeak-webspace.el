@@ -70,6 +70,8 @@
 (loop for k in 
       '(
         ("q" bury-buffer)
+	("<" beginning-of-buffer)
+	(">" end-of-buffer)
 	("/" search-forward)
 	("?" search-backward)
         ("\t" emacspeak-webspace-next-link)
