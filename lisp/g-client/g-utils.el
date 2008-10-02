@@ -117,7 +117,7 @@ Receives buffer containing HTML as its argument."
   :group 'g)
 
 (defcustom g-cookie-jar
-  (expand-file-name "~/.g-cookie-jar")
+  (make-temp-file ".g-cookie-jar")
   "Cookie jar used for Google services.
 Customize this to live on your local disk."
   :type 'file
