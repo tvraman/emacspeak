@@ -385,6 +385,16 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ bbc
 
 (emacspeak-url-template-define
+ "Radio4 Program"
+ "rtsp://rmv8.bbc.net.uk/radio4/%s_%s.ra"
+ (list
+  "Time: HHMM"
+  "Weekday: ")
+ nil
+ "Play BBC  Radio4 show for a given day/time."
+ 'emacspeak-m-player)
+
+(emacspeak-url-template-define
  "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
  (list
@@ -2373,3 +2383,4 @@ launch the realmedia player after fetching the resource.\n\n"
 ;;; end:
 
 ;;}}}
+
