@@ -220,14 +220,27 @@ KEYWORD is the keyword expected."
 
 ;; Number parsing
 
-(defsubst  json-read-number (&optional sign)
+(defun json-read-number (&optional sign)
  "Read the JSON number following point.
 The optional SIGN  argument is for internal use.
 
 N.B.: Only numbers which can fit in Emacs Lisp's native number
 representation will be parsed correctly."
- ;;; we just call read.
- (read (current-buffer)))
+ ;; If SIGN is non-nil, the number is explicitly signed.
+ (let ((number-regexp
+        "\\([0-9]+\\)?\\(\\.[0-9]+\\)?\\([Ee][+-]?[0-9]+\\)?"))
+   (cond ((and (null sign) (char-equal (json-peek) ?-))
+          (json-advance)
+          (- (json-read-number t)))
+         ((and (null sign) (char-equal (json-peek) ?+))
+          (json-advance)
+          (json-read-number t))
+         ((and (looking-at number-regexp)
+               (or (match-beginning 1)
+                   (match-beginning 2)))
+          (goto-char (match-end 0))
+          (string-to-number (match-string 0)))
+         (t (signal 'json-number-format (list (point)))))))
 
 ;; Number encoding
 
