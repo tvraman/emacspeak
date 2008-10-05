@@ -142,10 +142,9 @@ this around your call to `json-read' instead of `setq'ing it.")
       (json-advance)
       char)))
 
-(defun json-skip-whitespace ()
+(defsubst json-skip-whitespace ()
   "Skip past the whitespace at point."
-  (while (looking-at "[\t\r\n\f\b ]")
-    (goto-char (match-end 0))))
+  (skip-syntax-forward " "))
 
 
 
