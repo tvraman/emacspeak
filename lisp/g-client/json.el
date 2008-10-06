@@ -123,11 +123,8 @@ this around your call to `json-read' instead of `setq'ing it.")
 
 (defsubst json-advance (&optional n)
   "Skip past the following N characters."
-  (unless n (setq n 1))
-  (let ((goal (+ (point) n)))
-    (goto-char goal)
-    (when (< (point) goal)
-      (signal 'end-of-file nil))))
+  (forward-char n))
+
 
 (defsubst json-peek ()
   "Return the character at point."
