@@ -77,6 +77,7 @@
 \\{emacspeak-m-player-mode-map}"
   (progn
     (setq buffer-undo-list t)
+    (comint-mode)
     (ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
@@ -98,7 +99,7 @@
   :group 'emacspeak-m-player)
 
 (defvar emacspeak-m-player-default-options
-  (list "-slave"  "-nortc""-softvol"  )
+  (list "-slave"  "-nortc""-softvol" "-quiet" )
   "Default options for MPlayer.")
 
 (defcustom emacspeak-m-player-options 
