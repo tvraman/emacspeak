@@ -1,5 +1,5 @@
 ;;; g-tube.el --- YouTube Google  Client
-;;;$Id:$
+;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  YouTube API Client
 ;;; Keywords: Google    API

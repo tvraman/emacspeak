@@ -154,9 +154,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (read-file-name-completion-ignore-case t)
           (minibuffer-history emacspeak-realaudio-history))
       (read-file-name "MP3 Resource: "
-                      (if
-                          (string-match
-                           "mp3" (expand-file-name default-directory))
+                      (if (string-match "mp3" (expand-file-name default-directory))
                           default-directory
                         emacspeak-realaudio-shortcuts-directory)
                       (when (eq major-mode 'dired-mode)
@@ -173,7 +171,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
-  (let ((buffer nil)
+  (let ((buffer "*M-Player*")
 	(process-connection-type nil)
         (playlist-p
          (or play-list
@@ -193,10 +191,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (t
             (nconc options (list resource)))))
     (save-excursion
-    (setq buffer
-	  (apply 'make-comint
-		 "m-player" emacspeak-m-player-program
-		 nil options))
+      (setq emacspeak-m-player-process
+            (apply 'start-process "M PLayer" buffer
+                           emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode))))
 
