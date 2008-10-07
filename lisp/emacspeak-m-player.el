@@ -192,11 +192,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
               "\\(wma\\)\\|\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
            (t
             (nconc options (list resource)))))
+    (save-excursion
     (setq buffer
 	  (apply 'make-comint
 		 "m-player" emacspeak-m-player-program
 		 nil options))
-    (save-excursion
       (set-buffer buffer)
       (emacspeak-m-player-mode))))
 
