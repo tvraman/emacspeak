@@ -77,7 +77,6 @@
 \\{emacspeak-m-player-mode-map}"
   (progn
     (setq buffer-undo-list t)
-    (comint-mode)
     (ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
