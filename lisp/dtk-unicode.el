@@ -53,7 +53,7 @@
 	(?― . "----") ; horizontal bar
 	(?‖ . "||")
 	(?… . "...")
-	(?• . "*") ; bullet
+	(?• . " bullet ") ; bullet
 	(?™ . "TM") ; trademark
 	)
   "Explicit replacements for some characters."
