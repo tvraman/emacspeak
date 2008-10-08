@@ -54,6 +54,7 @@
 	(?‖ . "||")
 	(?… . "...")
 	(?• . " bullet ") ; bullet
+        (? . " ... ") ; message-waiting
 	(?™ . "TM") ; trademark
 	)
   "Explicit replacements for some characters."
