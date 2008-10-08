@@ -141,7 +141,7 @@ this around your call to `json-read' instead of `setq'ing it.")
 
 (defsubst json-skip-whitespace ()
   "Skip past the whitespace at point."
-  (skip-syntax-forward " "))
+  (skip-chars-forward "\t\r\n\f\b "))
 
 
 
