@@ -1,4 +1,5 @@
 ;;; dtk-unicode.el --- Pronounce more characters correctly
+;;{{{ Header: Lukas
 
 ;; Copyright 2007 Lukas Loehrer
 ;;; TVR: Integrated into Emacspeak July 6, 2008
@@ -7,6 +8,8 @@
 ;; Author: Lukas Loehrer <loehrerl |at| gmx.net>
 ;; Version: $Id$
 ;; Keywords:  TTS, Unicode
+
+;;}}}
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -50,8 +53,13 @@
 ;;; Code:
 
 ;;}}}
+;;{{{ Preamble
+
 (require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'descr-text)
+
+;;}}}
 ;;{{{ Customizations
 
 (defgroup dtk-unicode
@@ -62,16 +70,16 @@
 
 (defcustom dtk-unicode-character-replacement-alist
   '(
-	(?“ . "\"")
-	(?” . "\"")
-	(?⋆ . "*")
-	(?‘ . "'")
-	(?’ . "'")
-	(?– . "--")
-	(?— . "--")
-	(?― . "----") ; horizontal bar
-	(?‖ . "||")
-	(?… . "...")
+	(?“ . "\"") ;LEFT DOUBLE QUOTATION MARK
+	(?” . "\"") ; RIGHT DOUBLE QUOTATION MARK
+	(?⋆ . "*") ; STAR OPERATOR
+	(?‘ . " backquote  ") ; LEFT SINGLE QUOTATION MARK
+	(?’ . "'") ; right SINGLE QUOTATION MARK
+	(?– . "--") ; n-dash
+	(?— . "---") ; m-dash
+	(?― . "----") ; horizontal bar 
+	(?‖ . "||") ; vertical bar
+	(?… . "...") ; ellipses
 	(?• . " bullet ") ; bullet
         (? . " ... ") ; message-waiting
 	(?™ . "TM") ; trademark
@@ -97,9 +105,6 @@
 
 ;;}}}
 ;;{{{ Variables
-
-
-
 
 (defvar dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
