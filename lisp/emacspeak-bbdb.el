@@ -187,6 +187,14 @@
     (emacspeak-speak-other-window 1)))
 
 ;;}}}
+;;{{{ silence messages 
+
+(defadvice bbdb-update-records (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+ad-do-it))
+
+;;}}}
 (provide  'emacspeak-bbdb)
 ;;{{{  emacs local variables 
 
