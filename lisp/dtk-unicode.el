@@ -70,6 +70,7 @@
 
 (defcustom dtk-unicode-character-replacement-alist
   '(
+    (?° . " degrees ") ; degree sign 
 	(?“ . "\"") ;LEFT DOUBLE QUOTATION MARK
 	(?” . "\"") ; RIGHT DOUBLE QUOTATION MARK
 	(?⋆ . "*") ; STAR OPERATOR
