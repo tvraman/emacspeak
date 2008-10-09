@@ -209,10 +209,10 @@ When called interactively, CHAR defaults to the character after point."
 ;;}}}
 ;;{{{ Character replacement handlers
 
-(defun dtk-unicode-user-table-handler (char pos)
+(defsubst dtk-unicode-user-table-handler (char pos)
   "Return user defined replacement character if it exists."
-  (let ((replacement (cdr (assq char dtk-unicode-character-replacement-alist))))
-	replacement))
+  (cdr (assq char dtk-unicode-character-replacement-alist)))
+	
 
 (defun dtk-unicode-full-table-handler (char pos)
   "Uses the unicode data file to find the name of CHAR."
