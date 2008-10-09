@@ -6,22 +6,41 @@
 ;;
 ;; Author: Lukas Loehrer <loehrerl |at| gmx.net>
 ;; Version: $Id$
-;; Keywords: 
-;; X-URL: not distributed yet
+;; Keywords:  TTS, Unicode
+;;{{{  LCD Archive entry:
 
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; if not, write to the Free Software
-;; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; A speech interface to Emacs |
+;;; $Date: 2008-07-06 10:18:30 -0700 (Sun, 06 Jul 2008) $ |
+;;;  $Revision: 4670 $ |
+;;; Location undetermined
+;;;
+
+;;}}}
+;;{{{  Copyright:
+;;;Copyright (C) 1995 -- 2007, T. V. Raman
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved.
+;;;
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;;
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;;
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;;
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+;;}}}
+;;{{{ Introduction
 
 ;;; Commentary:
 
@@ -30,10 +49,10 @@
 
 ;;; Code:
 
+;;}}}
 (require 'cl)
 (require 'descr-text)
-
-;;{{{Customization
+;;{{{ Customizations
 
 (defgroup dtk-unicode
   nil
@@ -77,8 +96,7 @@
   )
 
 ;;}}}
-
-;;{{{Variables
+;;{{{ Variables
 
 
 
@@ -94,8 +112,7 @@
 A handler returns a non-nil value if the   replacement was successful, nil otherwise.")
 
 ;;}}}
-
-;;{{{Helper functions
+;;{{{ Helper functions
 
 (defun dtk-unicode-charset-limits (charset)
   "Return rough lower and upper limits for character codes in CHARSET."
@@ -184,8 +201,7 @@ When called interactively, CHAR defaults to the character after point."
   (push (cons char replacement) dtk-unicode-character-replacement-alist))
 
 ;;}}}
-
-;;{{{Character replacement handlers
+;;{{{ Character replacement handlers
 
 (defun dtk-unicode-user-table-handler (char pos)
   "Return user defined replacement character if it exists."
@@ -199,8 +215,7 @@ When called interactively, CHAR defaults to the character after point."
 	  (format  " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
 
 ;;}}}
-
-;;{{{External interface
+;;{{{ External interface
 
 (defun dtk-unicode-full-name-for-char (char)
   "Return full name of CHAR.
@@ -241,9 +256,7 @@ Does nothing for unibyte buffers."
 	(message "%s" (downcase (or
 							 (dtk-unicode-full-name-for-char char)
 							 "Unknown character")))))
-
 ;;}}}
-
 (provide 'dtk-unicode)
 
 ;;{{{  emacs local variables
