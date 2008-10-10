@@ -76,7 +76,7 @@ OCR engine for optical character recognition."
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-scan-image-options 
-  nil
+  "--resolution 300 --mode lineart --format=tiff"
   "Command line options to pass to image acquisition program."
   :type 'string 
   :group 'emacspeak-ocr)
@@ -88,7 +88,7 @@ OCR engine for optical character recognition."
           (string :tag "Command"))
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-image-extension ".pnm"
+(defcustom emacspeak-ocr-image-extension ".tif"
   "Filename extension used for acquired image."
   :type 'string
   :group 'emacspeak-ocr)
