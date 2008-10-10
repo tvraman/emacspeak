@@ -70,6 +70,7 @@
 
 (defcustom dtk-unicode-character-replacement-alist
   '(
+    (? . "-") ; START OF GUARDED AREA
     (?° . " degrees ") ; degree sign 
 	(?“ . "\"") ;LEFT DOUBLE QUOTATION MARK
 	(?” . "\"") ; RIGHT DOUBLE QUOTATION MARK
@@ -209,12 +210,12 @@ When called interactively, CHAR defaults to the character after point."
 ;;}}}
 ;;{{{ Character replacement handlers
 
-(defsubst dtk-unicode-user-table-handler (char pos)
+(defsubst dtk-unicode-user-table-handler (char)
   "Return user defined replacement character if it exists."
   (cdr (assq char dtk-unicode-character-replacement-alist)))
 	
 
-(defun dtk-unicode-full-table-handler (char pos)
+(defsubst dtk-unicode-full-table-handler (char)
   "Uses the unicode data file to find the name of CHAR."
   (let ((char-desc (dtk-unicode-name-for-char char)))
 	(when char-desc
@@ -249,7 +250,7 @@ Does nothing for unibyte buffers."
 	  (while (re-search-forward dtk-unicode-charset-filter-regexp  nil t)
 		(let* ((pos (match-beginning 0))
 			   (char (char-after pos))
-			   (replacement (save-match-data (run-hook-with-args-until-success 'dtk-unicode-handlers char pos))))
+			   (replacement (save-match-data (run-hook-with-args-until-success 'dtk-unicode-handlers char))))
 		  (when replacement
 			(let ((props (text-properties-at pos)))
 			  (replace-match replacement t t nil)
