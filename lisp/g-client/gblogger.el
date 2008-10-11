@@ -222,7 +222,8 @@ The retrieved entry is placed in a buffer ready for editing.
       (g-app-mode)
       (setq g-app-this-url url
             g-app-auth-handle gblogger-auth-handle
-            g-app-publish-action 'g-app-post-entry)      (goto-char (point-max))
+            g-app-publish-action 'g-app-post-entry)
+      (goto-char (point-max))
       (insert
        (format gblogger-new-entry-template
                gblogger-generator-name gblogger-generator-name
