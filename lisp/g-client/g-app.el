@@ -131,7 +131,7 @@ Returns HTTP response as (list headers body)."
     (error "Not in a correctly initialized Atom Entry."))
   (goto-char (point-min))
   (let ((cl
-	 (format "-H Content-length:%s -H Content-Type:text/html" (g-buffer-bytes))))
+	 (format "-H Content-length:%s" (g-buffer-bytes))))
     (shell-command-on-region
      (point-min) (point-max)
      (format
