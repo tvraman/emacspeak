@@ -234,7 +234,7 @@ nil if CHAR is not in Unicode."
 		(string-match "punctuation" category))))
 
 (defsubst dtk-unicode-apply-name-transformation-rules (name)
-  "Apply transformation rules in dtk-unicode-simplification-rules-alist to NAME."
+  "Apply transformation rules in dtk-unicode-name-transformation-rules-alist to NAME."
   (funcall
    (or (assoc-default name dtk-unicode-name-transformation-rules-alist 'string-match)
 	   'identity)
