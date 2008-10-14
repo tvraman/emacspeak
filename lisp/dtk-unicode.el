@@ -101,7 +101,7 @@
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
-	("^GREEK\\( SMALL\\| CAPITAL\\)? letter \\(.*\\)$" .  (lambda (s) (match-string 2 s)))
+	("^greek\\( small\\| capital\\)? letter \\(.*\\)$" .  (lambda (s) (match-string 2 s)))
 	("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
 	)
   "Alist of character name transformation rules."
