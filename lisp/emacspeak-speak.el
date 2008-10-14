@@ -964,7 +964,7 @@ spelt instead of being spoken."
 (defsubst emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
   (and (= ?w (char-syntax c))
-	   (memq (char-charset c) dtk-unicode-untouched-charsets)))
+	   (dtk-unicode-char-untouched-p c)))
 
 ;;{{{  phonemic table
 
