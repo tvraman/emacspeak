@@ -104,7 +104,7 @@ speech flush as you type."
         (emacspeak-speak-word)))
      (emacspeak-character-echo
       (when dtk-stop-immediately-while-typing (dtk-stop))
-      (emacspeak-speak-this-char last-command-event ))))
+      (emacspeak-speak-this-char (preceding-char) ))))
   (and auto-fill-function
        (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
