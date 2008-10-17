@@ -153,8 +153,8 @@
           (completing-read
            (or prompt "Google: ")
            'gweb-suggest-completer
-           nil nil nil
-           'gweb-history
+           nil nil
+           word 'gweb-history
            suggestions))
     (pushnew  query gweb-history)
     (g-url-encode query)))
