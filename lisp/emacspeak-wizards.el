@@ -514,8 +514,7 @@ also copied to the kill ring for convenient yanking."
      (t (setq command
               emacspeak-speak-show-active-network-interfaces-command)))
     (emacspeak-shell-command command )
-    (when (and address
-               (not emacspeak-speak-message-again-should-copy-to-kill-ring))
+    (when  address
       (kill-new emacspeak-last-message))))
 
 ;;}}}
