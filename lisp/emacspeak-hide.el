@@ -260,7 +260,7 @@ Returns t if a block was found and hidden."
 
 ;;}}}
 ;;{{{  Hiding and exposing  all blocks in a buffer
-
+;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
   "Hide all blocks in current buffer."
   (declare (special emacspeak-speak-messages))
