@@ -282,7 +282,6 @@ field in the customization buffer.  You can use the notation
       '(
         ( " " customize-group)
         ( "B" customize-browse)
-        ( "E" emacspeak-websearch-emacspeak-archive)
         ( "G" customize-group)
         ( "M" emacspeak-speak-popup-messages)
         ( "V" customize-variable)
