@@ -102,17 +102,17 @@ this around your call to `json-read' instead of `setq'ing it.")
 
 ;;; Utilities
 
-(defsubst json-join (strings separator)
+(defun json-join (strings separator)
   "Join STRINGS with SEPARATOR."
   (mapconcat 'identity strings separator))
 
-(defsubst json-alist-p (list)
+(defun json-alist-p (list)
   "Non-null if and only if LIST is an alist."
   (or (null list)
       (and (consp (car list))
            (json-alist-p (cdr list)))))
 
-(defsubst json-plist-p (list)
+(defun json-plist-p (list)
   "Non-null if and only if LIST is a plist."
   (or (null list)
       (and (keywordp (car list))
@@ -124,7 +124,6 @@ this around your call to `json-read' instead of `setq'ing it.")
 (defsubst json-advance (&optional n)
   "Skip past the following N characters."
   (forward-char n))
-
 
 (defsubst json-peek ()
   "Return the character at point."
@@ -139,7 +138,7 @@ this around your call to `json-read' instead of `setq'ing it.")
       (json-advance)
       char)))
 
-(defsubst json-skip-whitespace ()
+(defun json-skip-whitespace ()
   "Skip past the whitespace at point."
   (skip-chars-forward "\t\r\n\f\b "))
 
