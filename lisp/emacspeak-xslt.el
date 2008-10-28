@@ -130,7 +130,8 @@ part of the libxslt package."
                        params
                        " ")))
 		(coding-system-for-write 'utf-8)
-		(coding-system-for-read 'utf-8))
+		(coding-system-for-read 'utf-8)
+		(buffer-file-coding-system 'utf-8))
     (setq command
           (format
            "%s %s  %s  %s - %s"
@@ -163,12 +164,15 @@ part of the libxslt package."
 (defsubst emacspeak-xslt-run (xsl start end)
   "Run xslt on region, and return output filtered by sort -u"
   (declare (special emacspeak-xslt-program emacspeak-xslt-options))
-  (shell-command-on-region
-   start end
-   (format "%s %s %s - 2>/dev/null | sort -u"
-           emacspeak-xslt-program emacspeak-xslt-options xsl)
-   (current-buffer) 'replace)
-  (current-buffer))
+  (let ((coding-system-for-read 'utf-8)
+	(coding-system-for-write 'utf-8)
+	(buffer-file-coding-system 'utf-8))
+    (shell-command-on-region
+     start end
+     (format "%s %s %s - 2>/dev/null | sort -u"
+	     emacspeak-xslt-program emacspeak-xslt-options xsl)
+     (current-buffer) 'replace)
+    (current-buffer)))
 
 ;;; uses wget in a pipeline to avoid libxml2 bug:
 ;;;###autoload
@@ -191,7 +195,6 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        
         (parameters (when params
                       (mapconcat
                        #'(lambda (pair)
@@ -223,15 +226,18 @@ part of the libxslt package."
       (kill-all-local-variables)
       (erase-buffer)
       (setq buffer-undo-list t)
-      (shell-command command (current-buffer)
-                     (when emacspeak-xslt-keep-errors
-                       "*xslt errors*"))
-      (when emacspeak-xslt-nuke-null-char
-        (goto-char (point-min))
-        (while (search-forward
-                ( format "%c" 0)
-                nil  t)
-          (replace-match " ")))
+      (let ((coding-system-for-write 'utf-8)
+	    (coding-system-for-read 'utf-8)
+	    (buffer-file-coding-system 'utf-8))
+	(shell-command command (current-buffer)
+		       (when emacspeak-xslt-keep-errors
+			 "*xslt errors*"))
+	(when emacspeak-xslt-nuke-null-char
+	  (goto-char (point-min))
+	  (while (search-forward
+		  ( format "%c" 0)
+		  nil  t)
+	    (replace-match " "))))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))
@@ -286,10 +292,13 @@ part of the libxslt package."
       (set-buffer result)
       (kill-all-local-variables)
       (erase-buffer)
-      (shell-command command
-                     (current-buffer)
-                     (when emacspeak-xslt-keep-errors
-                       "*xslt errors*"))
+      (let ((coding-system-for-write 'utf-8)
+	    (coding-system-for-read 'utf-8)
+	    (buffer-file-coding-system 'utf-8))
+	(shell-command command
+		       (current-buffer)
+		       (when emacspeak-xslt-keep-errors
+			 "*xslt errors*")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))

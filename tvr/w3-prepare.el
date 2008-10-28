@@ -27,3 +27,4 @@
 ;;; end: 
 
 ;;}}}
+(setq w3-explicit-coding-system 'utf-8)
