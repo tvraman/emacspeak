@@ -70,6 +70,7 @@
    (cons "base"
          (format "\"'%s'\""
                  base))))
+
 ;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
@@ -158,6 +159,7 @@ part of the libxslt package."
        (format "<!--\n %s \n-->\n"
                command)))
     (setq modification-flag nil)
+    (set-buffer-multibyte t)
     (current-buffer)))
 
 ;;;###autoload
@@ -172,6 +174,7 @@ part of the libxslt package."
      (format "%s %s %s - 2>/dev/null | sort -u"
 	     emacspeak-xslt-program emacspeak-xslt-options xsl)
      (current-buffer) 'replace)
+    (set-buffer-multibyte t)
     (current-buffer)))
 
 ;;; uses wget in a pipeline to avoid libxml2 bug:
@@ -246,6 +249,7 @@ part of the libxslt package."
          (format "<!--\n %s \n-->\n"
                  command)))
       (setq modification-flag nil)
+      (set-buffer-multibyte t)
       (goto-char (point-min))
       result)))
 
@@ -307,6 +311,7 @@ part of the libxslt package."
                command))
       (setq modification-flag nil)
       (goto-char (point-min))
+      (set-buffer-multibyte t)
       result)))
 
 ;;}}}
