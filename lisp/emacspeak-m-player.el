@@ -561,9 +561,13 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (emacspeak-m-player
+   (substring
    (shell-command-to-string
-    (format "%s -g %s"
-	    emacspeak-m-player-youtube-dl url))))
+    (format "%s -g '%s'"
+	    emacspeak-m-player-youtube-dl
+             url))
+   0
+   -1))))
 
 ;;}}}
 (provide 'emacspeak-m-player)
