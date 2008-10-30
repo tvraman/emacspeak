@@ -567,7 +567,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 	    emacspeak-m-player-youtube-dl
              url))
    0
-   -1))))
+   -1)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
