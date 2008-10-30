@@ -116,8 +116,8 @@ View an RSS feed as clean HTML
         </xsl:when>
         <xsl:otherwise>Boom</xsl:otherwise>
       </xsl:choose>
-      Enclosure: Type <xsl:value-of select="@type"/>
-      Length: <xsl:value-of select="@length"/>
+      Enclosure: <!--Type <xsl:value-of select="@type"/>-->
+       <xsl:value-of select="@length"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="title|description">
