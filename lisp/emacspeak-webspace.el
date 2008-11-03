@@ -128,7 +128,7 @@
      (link
       (kill-new link)
       (emacspeak-auditory-icon 'yank-object)
-      (message "Yanked link under point."))
+      (message link))
      (t (error "No link under point")))))k
 
   
