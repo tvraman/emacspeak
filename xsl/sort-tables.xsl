@@ -39,7 +39,7 @@ relevant tables bubble to the top.
   version="1.0"
   exclude-result-prefixes="set">
   <xsl:param name="base"/>
-  <xsl:output method="html" indent="yes" encoding="utf-8"/>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
   
   <xsl:include href="identity.xsl"/>
   <xsl:include href="object.xsl"/>

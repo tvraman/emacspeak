@@ -11,7 +11,7 @@ Description: Display all atom links
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
   
-  <xsl:output method="xml" indent="yes" encoding="utf-8"/>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
   <xsl:template name="generate-atom">
     <xsl:if test="count(//link[@type='application/atom+xml'])">
       <xsl:apply-templates select="//link[@type='application/atom+xml']" mode="atom"/>

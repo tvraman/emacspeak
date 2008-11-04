@@ -7,7 +7,7 @@ View OPML feeds as XHTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
-  <xsl:output encoding="utf-8" method="xml" indent="yes"/>
+  <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:template match="/opml">
     <html>
       <xsl:apply-templates/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--$Id$
 
 
@@ -27,7 +27,7 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="end" select="1"/>
   <xsl:param name="base" />
   <xsl:param name="css">revstd.css</xsl:param>
-  <xsl:output method="html" indent="yes" encoding="utf-8"/>
+  <xsl:output method="html" indent="yes" encoding="UTF-8"/>
   <xsl:key name="pageKey" match="pagenum" use="number(text())"/>
   <xsl:template match="/">
     <html>

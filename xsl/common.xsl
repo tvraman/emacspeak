@@ -9,7 +9,7 @@ Description: common rules
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:output method="html" indent="yes"
-  encoding="utf-8"/>
+  encoding="UTF-8"/>
   <xsl:template match="//script|//meta"/>
   <xsl:template match="head">
     <head>
