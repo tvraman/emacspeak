@@ -11,7 +11,7 @@ Transform KML to speakable XHTML
                 xmlns:kml="http://earth.google.com/kml/2.0"
                 xmlns:kml21="http://earth.google.com/kml/2.1"
                 >
-  <xsl:output encoding="utf-8"
+  <xsl:output encoding="UTF-8"
               method="xml"  indent="yes"/>
   
   <xsl:template match="kml:kml">

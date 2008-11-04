@@ -12,7 +12,7 @@ View an Atom feed as clean HTML
     xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/"
     xmlns:gr="http://www.google.com/schemas/reader/atom/"
     version="1.0">
-  <xsl:output encoding="utf-8" method="html" indent="yes"/>
+  <xsl:output encoding="UTF-8" method="html" indent="yes"/>
   
   <xsl:template match="atom:feed">
     <html>

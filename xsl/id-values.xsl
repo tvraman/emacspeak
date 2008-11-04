@@ -6,7 +6,7 @@ License: GPL
 Description: Display all values of attribute id
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="text" indent="yes" encoding="utf-8"/>
+  <xsl:output method="text" indent="yes" encoding="UTF-8"/>
   <xsl:template match="/">
     <xsl:apply-templates select="//@id"/>
   </xsl:template>

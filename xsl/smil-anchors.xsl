@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
@@ -9,7 +9,7 @@ navigation list
 
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="utf-8"
+  <xsl:output encoding="UTF-8"
   method="html"  indent="yes"/>
   <xsl:template match="/smil">
     <html><head>

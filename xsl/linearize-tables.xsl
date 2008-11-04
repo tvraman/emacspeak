@@ -13,7 +13,7 @@ into a paragraph.
   
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes"
-  encoding="utf-8"/>
+  encoding="UTF-8"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 

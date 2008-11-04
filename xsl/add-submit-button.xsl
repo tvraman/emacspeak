@@ -15,7 +15,7 @@ button so that one can submit such forms without Javascript.
   
   
   <xsl:output method="html" indent="yes"
-  encoding="utf-8"/>
+  encoding="UTF-8"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
