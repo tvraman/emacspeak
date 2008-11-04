@@ -126,7 +126,7 @@
   "http://docs.google.com/feeds/documents/private/full"
   "URLtemplate for DocList feed.")
 
-(defsubst gdocs-feeds-url (userid)
+(defsubst gdocs-feeds-url ()
   "Return url for feed of feeds."
   (declare (special gdocs-feeds-template-url))
   gdocs-feeds-template-url)
@@ -176,13 +176,40 @@
 ;;}}}
 ;;{{{ Publishing via org:
 
-(defun org-export-to-gdocs-as-html ()
+(defvar gdocs-upload-options
+  "--data-binary @- -H 'Content-Type: text/html' -H 'Slug: %s'"
+  "Options template for uploading a document without metadata.")
+;;;###autooad
+(defun gdocs-publish-from-org ()
   "Export from Org  to Google Docs as HTML."
   (interactive)
-  (let ((export-html (org-export-region-as-html
-                      (point-min) (point-max) t 'string))
-        (metadata  (org-infile-export-plist)))
-    ))
+  (declare (special  gdocs-auth-handle g-curl-program gdocs-upload-options))
+  (unless (eq major-mode 'org-mode)
+    (error "Not in an org-mode buffer."))
+  (g-auth-ensure-token gdocs-auth-handle)
+  (let ((target-url (gdocs-feeds-url))
+        (title(or
+               (plist-get   (org-infile-export-plist) :title)
+               (read-from-minibuffer "Title: ")))
+        (export-html (org-export-region-as-html
+                      (point-min) (point-max) nil 'string)))
+    (g-using-scratch
+     (insert export-html)
+     (let ((status nil)
+           (data (format gdocs-upload-options title)))
+       (let ((cl
+	 (format "-H Content-length:%s" (g-buffer-bytes))))
+       (shell-command-on-region
+        (point-min) (point-max)
+        (format
+         "%s %s %s %s %s &"
+         g-curl-program data cl
+         (g-authorization gdocs-auth-handle)
+         target-url)
+        (format "*upload %s"
+                title))
+       (message "Uploading document asynchronously.")))))
+  
 ;;}}}
 (provide 'gdocs)
 ;;{{{ end of file
