@@ -187,6 +187,7 @@
     (error "Not in an org-mode buffer."))
   (g-auth-ensure-token gdocs-auth-handle)
   (let ((target-url (gdocs-feeds-url))
+        (extra-options "--silent --include")
         (title(or
                (plist-get   (org-infile-export-plist) :title)
                (read-from-minibuffer "Title: ")))
@@ -194,20 +195,19 @@
                       (point-min) (point-max) nil 'string)))
     (g-using-scratch
      (insert export-html)
-     (let ((status nil)
-           (data (format gdocs-upload-options title)))
-       (let ((cl
-              (format "-H Content-length:%s" (g-buffer-bytes))))
-         (shell-command-on-region
-          (point-min) (point-max)
-          (format
-           "%s %s %s -X post %s %s &"
-           g-curl-program data cl
-           (g-authorization gdocs-auth-handle)
-           target-url))
-         (format "*upload %s"
-                 title))
-       (message "Uploading document asynchronously."))))))  
+     (let ((data (format gdocs-upload-options title))
+           (cl
+            (format "-H Content-length:%s" (g-buffer-bytes))))
+       (shell-command-on-region
+        (point-min) (point-max)
+        (format
+         "%s %s %s %s -X post %s %s &"
+         g-curl-program extra-options data cl 
+         (g-authorization gdocs-auth-handle)
+         target-url)
+        (format "*upload %s" title))
+       (message "Uploading document asynchronously.")))))
+
 ;;}}}
 ;;{{{ deleting a document:
 ;;;###autoload
