@@ -197,17 +197,28 @@
      (let ((status nil)
            (data (format gdocs-upload-options title)))
        (let ((cl
-	 (format "-H Content-length:%s" (g-buffer-bytes))))
-       (shell-command-on-region
-        (point-min) (point-max)
-        (format
-         "%s %s %s -X post %s %s &"
-         g-curl-program data cl
-         (g-authorization gdocs-auth-handle)
-         target-url)
-        (format "*upload %s"
-                title))
+              (format "-H Content-length:%s" (g-buffer-bytes))))
+         (shell-command-on-region
+          (point-min) (point-max)
+          (format
+           "%s %s %s -X post %s %s &"
+           g-curl-program data cl
+           (g-authorization gdocs-auth-handle)
+           target-url))
+         (format "*upload %s"
+                 title))
        (message "Uploading document asynchronously."))))))  
+;;}}}
+;;{{{ deleting a document:
+;;;###autoload
+(defun gdocs-delete-item (url)
+  "Delete specified item."
+  (interactive
+   (list
+    (read-from-minibuffer "Entry URL:")))
+  (declare (special gdocs-auth-handle))
+  (g-app-delete-entry gdocs-auth-handle url))
+
 ;;}}}
 (provide 'gdocs)
 ;;{{{ end of file
