@@ -326,7 +326,7 @@
           '(title summary location keywords)
           do
           (eval
-           `(setf (,(intern (format "gphoto-album-%s" slot))
+           `(setf ,(intern (format "gphoto-album-%s" slot))
                    album)
                   (read-from-minibuffer (format "%s: " slot)))))
     (setf (gphoto-album-access album)
@@ -339,7 +339,7 @@
                                 gphoto-album-default-commenting-enabled
                                 nil nil nil
                                 gphoto-album-default-commenting-enabled))
-    album))
+    album)
 
 (defun gphoto-album-as-xml (album)
   "Return Atom entry for  album structure."
@@ -461,11 +461,7 @@
   (let ((location (format
                    "%s/%s/album/%s"
                    gphoto-base-url
-                   (g-url-encode (g-auth-email gphoto-auth-handle))
-                   album-name))
-        (headers nil)
-        (body nil)
-        (response nil))
+                   (g-url-encode (g-auth-email gphoto-auth-handle)) album-name)))
     (gphoto-async-post-photo photo location)))
 
 ;;;###autoload
