@@ -202,7 +202,7 @@
        (shell-command-on-region
         (point-min) (point-max)
         (format
-         "%s %s %s %s %s &"
+         "%s %s %s -X post %s %s &"
          g-curl-program data cl
          (g-authorization gdocs-auth-handle)
          target-url)
