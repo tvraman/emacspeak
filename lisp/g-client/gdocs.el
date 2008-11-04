@@ -47,8 +47,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Commentary:
 ;;{{{  introduction
+
 ;;; See http://code.google.com/apis/documents/overview.html
-;;; <insert description here>
+;;;Basic Design:
+;;; Use gdocs-doclist to get a list of documents,
+;;; Follow the download link to read the document as HTML,
+;;; And use the edit-media URL to edit the content.
+;;; Editting will be done using org-mode,
+;;; And we will use org-export to turn org-authored content into HTML before posting.
+;;; Function org-infile-export-plist will be used to get metadata from the org-mode source buffer
+;;; ToDo: To figure out how to round-trip back from Docs-generated HTMLinto org.
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -56,7 +65,9 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
 (require 'g-auth)
+(require 'g-app)
 (require 'browse-url)
+(require 'org-exp)
 
 ;;}}}
 ;;{{{ Customizations
@@ -162,6 +173,16 @@
   (setq gdocs-auth-handle (make-gdocs-auth))
   (g-authenticate gdocs-auth-handle))
 
+;;}}}
+;;{{{ Publishing via org:
+
+(defun org-export-to-gdocs-as-html ()
+  "Export from Org  to Google Docs as HTML."
+  (interactive)
+  (let ((export-html (org-export-region-as-html
+                      (point-min) (point-max) t 'string))
+        (metadata  (org-infile-export-plist)))
+    ))
 ;;}}}
 (provide 'gdocs)
 ;;{{{ end of file
