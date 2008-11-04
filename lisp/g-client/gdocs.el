@@ -145,8 +145,7 @@
     g-curl-program g-curl-common-options
     g-cookie-options
     (g-authorization gdocs-auth-handle)
-    (gdocs-feeds-url
-     (g-url-encode (g-auth-email gdocs-auth-handle))))
+    (gdocs-feeds-url))
    g-atom-view-xsl))
 
 ;;}}}
@@ -208,8 +207,7 @@
          target-url)
         (format "*upload %s"
                 title))
-       (message "Uploading document asynchronously.")))))
-  
+       (message "Uploading document asynchronously."))))))  
 ;;}}}
 (provide 'gdocs)
 ;;{{{ end of file
