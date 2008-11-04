@@ -206,7 +206,7 @@
          (g-authorization gdocs-auth-handle)
          target-url)
         (format "*upload %s" title))
-       (message "Uploading document asynchronously.")))))
+       (message "Uploading %s asynchronously" title)))))
 
 ;;}}}
 ;;{{{ deleting a document:
