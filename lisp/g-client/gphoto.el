@@ -368,7 +368,7 @@
                     g-curl-atom-header))
   (g-using-scratch
    (insert (gphoto-album-as-xml album))
-   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
+   (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
          (status nil))
      (shell-command-on-region
       (point-min) (point-max)
@@ -520,7 +520,7 @@
                     g-curl-atom-header))
   (g-using-scratch
    (insert update)
-   (let ((cl (format "-H Content-length:%s" (g-buffer-bytes)))
+   (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
          (status nil))
      (shell-command-on-region
       (point-min) (point-max)
