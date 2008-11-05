@@ -154,7 +154,7 @@
   (let ((link (get-text-property (point) 'link)))
     (if link
         (emacspeak-we-xslt-filter
-         "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
+         "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
          link 'speak)
       (message "No link under point."))))
 ;;;###autoload

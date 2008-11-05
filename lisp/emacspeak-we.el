@@ -835,7 +835,7 @@ urls.")
 
 (make-variable-buffer-local 'emacspeak-we-xpath-filter)
 (defcustom emacspeak-we-recent-xpath-filter
-  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
+  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
   "Caches most recently used xpath filter.
 Can be customized to set up initial default."
   :type 'string
