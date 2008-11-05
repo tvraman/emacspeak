@@ -829,6 +829,15 @@ specifies the page to extract contents  from."
 ;;}}}
 ;;{{{ xpath  filter
 
+(defvar emacspeak-we-xpath-filter-history 
+(list
+ "//p"
+"//p|//div"
+  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote")
+"History list recording XPath filters we've used.")
+
+(put 'emacspeak-we-xpath-filter-history 'history-length 10)
+
 (defvar emacspeak-we-xpath-filter nil
   "Buffer local variable specifying a XPath filter for following
 urls.")
@@ -849,7 +858,7 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
   (declare (special emacspeak-we-xpath-filter
-                    emacspeak-we-recent-xpath-filter
+                    emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter-history
                     emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point))
@@ -863,8 +872,12 @@ used as well."
              url)))
     (when (or prompt (null emacspeak-we-xpath-filter))
       (setq emacspeak-we-xpath-filter
-            (read-from-minibuffer  "Specify XPath: "
-                                   emacspeak-we-recent-xpath-filter))
+            (read-from-minibuffer
+             "Specify XPath: "
+             nil nil nil
+             emacspeak-we-xpath-filter-history
+             emacspeak-we-recent-xpath-filter))
+      (pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history)
       (setq emacspeak-we-recent-xpath-filter
             emacspeak-we-xpath-filter))
     (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
