@@ -950,12 +950,11 @@ I'm Feeling Lucky button on Google."
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
-  (if lucky
-      (emacspeak-speak-line)
+  (when lucky
     (emacspeak-webutils-post-process
      "results"
      'emacspeak-speak-line))
-  (let ((emacspeak-w3-tidy-html nil))
+  (let ((emacspeak-w3-tidy-html t))
     (emacspeak-webutils-with-xsl-environment
      (expand-file-name "default.xsl" emacspeak-xslt-directory)
      nil emacspeak-xslt-options
