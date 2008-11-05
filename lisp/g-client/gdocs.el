@@ -124,16 +124,17 @@
 
 (defvar gdocs-feeds-template-url
   "http://docs.google.com/feeds/documents/private/full"
-  "URLtemplate for DocList feed.")
+  "URL template for DocList feed.")
 
 (defsubst gdocs-feeds-url ()
   "Return url for feed of feeds."
   (declare (special gdocs-feeds-template-url))
   gdocs-feeds-template-url)
-
-(defun gdocs-doclist ()
-  "Retrieve and display feed of feeds after authenticating."
-  (interactive)
+;;;###autoload
+(defun gdocs-doclist (&optional query)
+  "Retrieve and display feed of feeds after authenticating.
+Interactive prefix arg prompts for a query string."
+  (interactive "P")
   (declare (special gdocs-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
@@ -145,7 +146,12 @@
     g-curl-program g-curl-common-options
     g-cookie-options
     (g-authorization gdocs-auth-handle)
-    (gdocs-feeds-url))
+    (if query
+        (concat
+         (gdocs-feeds-url)
+         (format "?q=%s"
+                 (g-url-encode (read-from-minibuffer "Documents Matching: "))))
+      (gdocs-feeds-url)))
    g-atom-view-xsl))
 
 ;;}}}
