@@ -875,7 +875,7 @@ used as well."
             (read-from-minibuffer
              "Specify XPath: "
              nil nil nil
-             emacspeak-we-xpath-filter-history
+             'emacspeak-we-xpath-filter-history
              emacspeak-we-recent-xpath-filter))
       (pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history)
       (setq emacspeak-we-recent-xpath-filter
