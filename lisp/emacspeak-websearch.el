@@ -950,7 +950,8 @@ I'm Feeling Lucky button on Google."
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
-  (when lucky
+  (if lucky
+      (emacspeak-webutils-autospeak)
     (emacspeak-webutils-post-process
      "results"
      'emacspeak-speak-line))
