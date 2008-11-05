@@ -622,7 +622,7 @@ content."
   "Set up content filter in displayed page."
      (declare (special emacspeak-we-xpath-filter))
      (setq emacspeak-we-xpath-filter
-	   "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"))
+	   "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"))
 
 ;;}}}
 ;;{{{ webmaster tools
@@ -1644,7 +1644,7 @@ name of the list.")
  "Read pulpit from PBS. Published on the Thursday of the week."
  #'(lambda (url)
      (emacspeak-we-xslt-filter
-      "//p|ul|ol|dl|h1|h2|h3|h4|h5|h6|blockquote" url 'speak)))
+      "//p|//ul|//ol|//dl|//h1|//h2|//h3|//h4|//h5|//h6|// blockquote|//div" url 'speak)))
 
 ;;}}}
 ;;{{{  NPR programs
