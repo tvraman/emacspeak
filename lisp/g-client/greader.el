@@ -606,7 +606,7 @@ user."
                      ('add-tags "Add Tag:")
                      ('remove-tags "Remove Tag:")))
                 "")))
-     (setq cl (format "-H Content-length:%s" (g-buffer-bytes)))
+     (setq cl (format "'-H Content-Length: %s'" (g-buffer-bytes)))
      (shell-command-on-region
       (point-min) (point-max)
       (format
@@ -748,7 +748,7 @@ user."
        (mapc
         #'(lambda (i) (insert (format "&i=%s" i)))
         docids)
-       (setq cl (format "-H Content-length:%s" (g-buffer-bytes)))
+       (setq cl (format "-H 'Content-Length: %ss'" (g-buffer-bytes)))
        (shell-command-on-region
         (point-min) (point-max)
         (format

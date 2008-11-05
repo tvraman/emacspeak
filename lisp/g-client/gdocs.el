@@ -139,20 +139,68 @@ Interactive prefix arg prompts for a query string."
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
                     g-cookie-options))
+  (let ((location (if query
+                      (concat
+                       (gdocs-feeds-url)
+                       (format "?q=%s"
+                               (g-url-encode (read-from-minibuffer "Documents Matching: "))))
+                    (gdocs-feeds-url))))
+    (g-auth-ensure-token gdocs-auth-handle)
+    (g-display-result
+     (format
+      "%s %s %s %s '%s' 2>/dev/null"
+      g-curl-program g-curl-common-options
+      g-cookie-options
+      (g-authorization gdocs-auth-handle) location)
+     g-atom-view-xsl)))
+
+;;}}}
+;;{{{ Publishing via org:
+
+(defvar gdocs-upload-options
+  "--data-ascii @- -H 'Content-Type: text/html' -H 'Slug: %s'"
+  "Options template for uploading a document without metadata.")
+
+;;;###autooad
+(defun gdocs-publish-from-org ()
+  "Export from Org  to Google Docs as HTML."
+  (interactive)
+  (declare (special  gdocs-auth-handle g-curl-program gdocs-upload-options))
+  (unless (eq major-mode 'org-mode)
+    (error "Not in an org-mode buffer."))
   (g-auth-ensure-token gdocs-auth-handle)
-  (g-display-result
-   (format
-    "%s %s %s %s '%s' 2>/dev/null"
-    g-curl-program g-curl-common-options
-    g-cookie-options
-    (g-authorization gdocs-auth-handle)
-    (if query
-        (concat
-         (gdocs-feeds-url)
-         (format "?q=%s"
-                 (g-url-encode (read-from-minibuffer "Documents Matching: "))))
-      (gdocs-feeds-url)))
-   g-atom-view-xsl))
+  (let ((target-url (gdocs-feeds-url))
+        (extra-options "--silent --include")
+        (title(or
+               (plist-get   (org-infile-export-plist) :title)
+               (read-from-minibuffer "Title: ")))
+        (export-html (org-export-region-as-html
+                      (point-min) (point-max)
+                      nil 'string)))
+    (g-using-scratch
+     (insert export-html)
+     (let ((data (format gdocs-upload-options title))
+           (cl (format "-H Content-Length:%s" (g-buffer-bytes))))
+       (shell-command-on-region
+        (point-min) (point-max)
+        (format
+         "%s %s %s %s -X post %s %s &"
+         g-curl-program extra-options data cl 
+         (g-authorization gdocs-auth-handle)
+         target-url)
+        (format "*upload %s" title))
+       (message "Uploading %s asynchronously" title)))))
+
+;;}}}
+;;{{{ deleting a document:
+;;;###autoload
+(defun gdocs-delete-item (url)
+  "Delete specified item."
+  (interactive
+   (list
+    (read-from-minibuffer "Entry URL:")))
+  (declare (special gdocs-auth-handle))
+  (g-app-delete-entry gdocs-auth-handle url))
 
 ;;}}}
 ;;{{{ Sign out:
@@ -177,53 +225,6 @@ Interactive prefix arg prompts for a query string."
         (read-from-minibuffer "User Email:"))
   (setq gdocs-auth-handle (make-gdocs-auth))
   (g-authenticate gdocs-auth-handle))
-
-;;}}}
-;;{{{ Publishing via org:
-
-(defvar gdocs-upload-options
-  "--data-binary @- -H 'Content-Type: text/html' -H 'Slug: %s'"
-  "Options template for uploading a document without metadata.")
-;;;###autooad
-(defun gdocs-publish-from-org ()
-  "Export from Org  to Google Docs as HTML."
-  (interactive)
-  (declare (special  gdocs-auth-handle g-curl-program gdocs-upload-options))
-  (unless (eq major-mode 'org-mode)
-    (error "Not in an org-mode buffer."))
-  (g-auth-ensure-token gdocs-auth-handle)
-  (let ((target-url (gdocs-feeds-url))
-        (extra-options "--silent --include")
-        (title(or
-               (plist-get   (org-infile-export-plist) :title)
-               (read-from-minibuffer "Title: ")))
-        (export-html (org-export-region-as-html
-                      (point-min) (point-max) nil 'string)))
-    (g-using-scratch
-     (insert export-html)
-     (let ((data (format gdocs-upload-options title))
-           (cl
-            (format "-H Content-length:%s" (g-buffer-bytes))))
-       (shell-command-on-region
-        (point-min) (point-max)
-        (format
-         "%s %s %s %s -X post %s %s &"
-         g-curl-program extra-options data cl 
-         (g-authorization gdocs-auth-handle)
-         target-url)
-        (format "*upload %s" title))
-       (message "Uploading %s asynchronously" title)))))
-
-;;}}}
-;;{{{ deleting a document:
-;;;###autoload
-(defun gdocs-delete-item (url)
-  "Delete specified item."
-  (interactive
-   (list
-    (read-from-minibuffer "Entry URL:")))
-  (declare (special gdocs-auth-handle))
-  (g-app-delete-entry gdocs-auth-handle url))
 
 ;;}}}
 (provide 'gdocs)
