@@ -158,7 +158,7 @@ Interactive prefix arg prompts for a query string."
 ;;{{{ Publishing via org:
 
 (defvar gdocs-upload-options
-  "--data-ascii @- -H 'Content-Type: text/html' -H 'Slug: %s'"
+  "--data-binary @- -H 'Content-Type: text/html'"
   "Options template for uploading a document without metadata.")
 
 ;;;###autooad
@@ -169,27 +169,24 @@ Interactive prefix arg prompts for a query string."
   (unless (eq major-mode 'org-mode)
     (error "Not in an org-mode buffer."))
   (g-auth-ensure-token gdocs-auth-handle)
-  (let ((target-url (gdocs-feeds-url))
-        (extra-options "--silent --include")
-        (title(or
-               (plist-get   (org-infile-export-plist) :title)
-               (read-from-minibuffer "Title: ")))
-        (export-html (org-export-region-as-html
+  (let ((org-export-buffer " org-doc-export"))
+(org-export-region-as-html
                       (point-min) (point-max)
-                      nil 'string)))
+                      nil org-export-buffer)
     (g-using-scratch
-     (insert export-html)
-     (let ((data (format gdocs-upload-options title))
-           (cl (format "-H Content-Length:%s" (g-buffer-bytes))))
+     (insert-buffer org-export-buffer)
+     (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes))))
+       (emacspeak-auditory-icon 'progress)
        (shell-command-on-region
         (point-min) (point-max)
         (format
-         "%s %s %s %s -X post %s %s &"
-         g-curl-program extra-options data cl 
+         "%s %s %s %s '%s'&"
+         g-curl-program 
+         gdocs-upload-options cl 
          (g-authorization gdocs-auth-handle)
-         target-url)
-        (format "*upload %s" title))
-       (message "Uploading %s asynchronously" title)))))
+         (gdocs-feeds-url))
+        "Uploaded Document")
+       (message "Uploading document  asynchronously" )))))
 
 ;;}}}
 ;;{{{ deleting a document:
