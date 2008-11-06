@@ -176,11 +176,11 @@ Interactive prefix arg prompts for a query string."
     (g-using-scratch
      (insert-buffer org-export-buffer)
      (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes))))
-       (emacspeak-auditory-icon 'progress)
        (shell-command-on-region
         (point-min) (point-max)
         (format
          "%s %s %s %s '%s'&"
+
          g-curl-program 
          gdocs-upload-options cl 
          (g-authorization gdocs-auth-handle)
