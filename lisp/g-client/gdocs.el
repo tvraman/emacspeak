@@ -165,18 +165,17 @@ Interactive prefix arg prompts for a query string."
 (defun gdocs-publish-from-org ()
   "Export from Org  to Google Docs as HTML."
   (interactive)
-  (declare (special  gdocs-auth-handle g-curl-program gdocs-upload-options))
+  (declare (special  gdocs-auth-handle g-curl-program
+                     gdocs-upload-options g-atom-view-xsl))
   (unless (eq major-mode 'org-mode)
     (error "Not in an org-mode buffer."))
   (g-auth-ensure-token gdocs-auth-handle)
-  (let ((org-buffer (current-buffer))
-        (response (get-buffer-create " *Response*")))
+  (let ((org-buffer (current-buffer)))
     (g-using-scratch
      (save-excursion
        (set-buffer org-buffer)
-       (org-export-region-as-html
-        (point-min) (point-max)
-        nil g-scratch-buffer))
+       (org-export-region-as-html (point-min) (point-max)
+                                  nil g-scratch-buffer))
      (set-buffer-multibyte nil)
      (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes))))
        (shell-command-on-region
@@ -187,7 +186,16 @@ Interactive prefix arg prompts for a query string."
          gdocs-upload-options cl 
          (g-authorization gdocs-auth-handle)
          (gdocs-feeds-url))
-        "Uploaded Document")))))
+        nil 'replace
+        "*Messages*"))
+     (let ((headers (g-http-headers (point-min) (point-max)))
+           (body (g-http-body (point-min) (point-max))))
+       (cond
+        ((string-equal "201" (g-http-header "Status" headers))
+         (g-display-xml-string body g-atom-view-xsl))
+        (t (error "Received %s"
+                  (g-http-header "Status" headers))))))))
+    )))
 
 ;;}}}
 ;;{{{ deleting a document:
