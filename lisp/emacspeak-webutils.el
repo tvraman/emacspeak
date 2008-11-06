@@ -125,7 +125,7 @@ Note that the Web browser should reset this hook after using it.")
             #'(lambda nil
                 (declare (special emacspeak-we-xpath-filter))
      (setq emacspeak-we-xpath-filter
-	   "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div")
+	   "//p")
                 (emacspeak-speak-buffer))
             'at-end))
 
