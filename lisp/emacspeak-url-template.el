@@ -622,7 +622,7 @@ content."
   "Set up content filter in displayed page."
      (declare (special emacspeak-we-xpath-filter))
      (setq emacspeak-we-xpath-filter
-	   "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"))
+	   "//p"))
 
 ;;}}}
 ;;{{{ webmaster tools
