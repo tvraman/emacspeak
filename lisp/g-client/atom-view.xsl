@@ -7,6 +7,7 @@ View an Atom feed as clean HTML
 -->
 <xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:gd='http://schemas.google.com/g/2005'
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/"
@@ -73,8 +74,14 @@ View an Atom feed as clean HTML
         <xsl:for-each select="atom:link">
           <td><xsl:apply-templates select="."/></td>
         </xsl:for-each>
+<td>
+<a>
+<xsl:attribute name="href">
+<xsl:value-of select="gd:feedLink/@href"/>
+</xsl:attribute>
+ACL</a></td>
       </tr>
-    </TABLE>
+ </TABLE>
     <div>
       <xsl:apply-templates select="atom:summary"/><br/>
       <xsl:apply-templates select="atom:content"/><br/>
