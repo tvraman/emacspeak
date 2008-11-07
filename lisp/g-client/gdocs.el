@@ -195,7 +195,7 @@ Interactive prefix arg prompts for a query string."
          (g-display-xml-string body g-atom-view-xsl))
         (t (error "Received %s"
                   (g-http-header "Status" headers))))))))
-    )))
+    
 
 ;;}}}
 ;;{{{ deleting a document:
