@@ -79,7 +79,7 @@ View an Atom feed as clean HTML
 <xsl:attribute name="href">
 <xsl:value-of select="gd:feedLink/@href"/>
 </xsl:attribute>
-ACL</a></td>
+[ACL]</a></td>
       </tr>
  </TABLE>
     <div>
