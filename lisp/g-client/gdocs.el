@@ -233,7 +233,8 @@ You can find the acl-url through the DocList."
                 (g-http-header "Status" (car response))))))))
 
 ;;}}}
-;;{{{ deleting a document:
+;;{{{ deleting an item:
+
 ;;;###autoload
 (defun gdocs-delete-item (url)
   "Delete specified item."
@@ -242,6 +243,18 @@ You can find the acl-url through the DocList."
     (read-from-minibuffer "Entry URL:")))
   (declare (special gdocs-auth-handle))
   (g-app-delete-entry gdocs-auth-handle url))
+
+;;}}}
+;;{{{ Viewing an item:
+ 
+;;;###autoload
+(defun gdocs-view-item (url)
+  "View specified item."
+  (interactive
+   (list
+    (read-from-minibuffer "Entry URL:")))
+  (declare (special gdocs-auth-handle))
+  (g-app-view gdocs-auth-handle url))
 
 ;;}}}
 ;;{{{ Sign out:
