@@ -26,8 +26,8 @@ View an Atom feed as clean HTML
         <h1><xsl:value-of select="atom:title"
         disable-output-escaping="yes"/>
         </h1>
-<p><xsl:apply-templates select="atom:subtitle"/>
-</p>
+        <p><xsl:apply-templates select="atom:subtitle"/>
+        </p>
         
         <xsl:if test="count(atom:entry) > 1 ">
           <h2>Table Of Contents</h2>
@@ -74,14 +74,9 @@ View an Atom feed as clean HTML
         <xsl:for-each select="atom:link">
           <td><xsl:apply-templates select="."/></td>
         </xsl:for-each>
-<td>
-<a>
-<xsl:attribute name="href">
-<xsl:value-of select="gd:feedLink/@href"/>
-</xsl:attribute>
-[ACL]</a></td>
+        <xsl:apply-templates  select="gd:feedLink" mode="acl"/>
       </tr>
- </TABLE>
+    </TABLE>
     <div>
       <xsl:apply-templates select="atom:summary"/><br/>
       <xsl:apply-templates select="atom:content"/><br/>
@@ -91,6 +86,17 @@ View an Atom feed as clean HTML
       </xsl:if>
       <xsl:value-of select="atom:published"/>
     </div>
+  </xsl:template>
+  <xsl:template match="gd:feedLink" mode="acl">
+    <xsl:if test="@rel='http://schemas.google.com/acl/2007#accessControlList'">
+      <td>
+        <a>
+          <xsl:attribute name="href">
+            <xsl:value-of select="gd:feedLink/@href"/>
+          </xsl:attribute>
+      [ACL]</a></td>
+      
+    </xsl:if>
   </xsl:template>
   <xsl:template match="atom:entry" mode="toc">
     <li>
