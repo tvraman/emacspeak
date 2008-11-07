@@ -318,6 +318,17 @@ XML string is transformed via style
      (g-xsl-transform-region (point-min) (point-max) style))
    (funcall g-html-handler (current-buffer))))
 
+(defsubst g-display-xml-buffer (buffer style)
+  "Display XML buffer  using specified style.
+XML  is transformed via style
+  and previewed via `g-html-handler'."
+  (declare (special g-xslt-program g-html-handler))
+  (save-excursion
+    (set-buffer buffer)
+    (when style
+      (g-xsl-transform-region (point-min) (point-max) style))
+    (funcall g-html-handler (current-buffer))))
+
 ;;}}}
 ;;{{{  HTTP Headers:
 (defvar g-curl-atom-header
