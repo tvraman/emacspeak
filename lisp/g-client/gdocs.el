@@ -23,7 +23,7 @@
 <gAcl:role value='writer'/>
 <gAcl:scope type='user' value='%s'/>
 </entry> "
-"Atom Entry template for adding a collaborator.")
+  "Atom Entry template for adding a collaborator.")
 ;;;###autoload
 (defun gdocs-add-collaborator (email acl-url)
   "Add collaborator to ACL at acl-url.
