@@ -1856,7 +1856,7 @@ Extracted content is sent to STDOUT."
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
-  (let ((
+  (let ((buffer
 	 (get-buffer-create " *table extractor* ")))
     (save-excursion
       (set-buffer buffer)
