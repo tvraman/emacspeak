@@ -140,6 +140,21 @@
   "Check if specified resource matches a playlist type."
   (declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
+;;;###autoload
+(defvar emacspeak-media-extensions
+  (concat
+   (regexp-opt
+    (list ".wma"
+          ".m4a"
+          ".flac"
+          ".ogg"
+          ".mp3"
+          ".MP3"
+          ".m4a"
+          ".mp4")
+    'parens)
+   "$")
+  "Extensions that match media files.")
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -161,6 +176,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                         (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history
+                    emacspeak-media-extensions
                     emacspeak-realaudio-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
@@ -187,13 +203,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (directory-files
               (expand-file-name resource)
               'full
-              "\\(wma\\)\\|\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)\\|\\(.m4a$\\)\\|\\(mp4$\\)")))
+              emacspeak-media-extensions)))
            (t
             (nconc options (list resource)))))
     (save-excursion
       (setq emacspeak-m-player-process
             (apply 'start-process "M PLayer" buffer
-                           emacspeak-m-player-program options))
+                   emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode))))
 
