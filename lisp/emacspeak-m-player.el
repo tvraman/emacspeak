@@ -187,7 +187,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (directory-files
               (expand-file-name resource)
               'full
-              "\\(wma\\)\\|\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)\\|\\(.m4a$\\)")))
+              "\\(wma\\)\\|\\(flac$\\)\\|\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)\\|\\(.m4a$\\)\\|\\(mp4$\\)")))
            (t
             (nconc options (list resource)))))
     (save-excursion
