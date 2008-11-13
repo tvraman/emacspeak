@@ -552,7 +552,8 @@ take effect."
          (gethash face voice-setup-buffer-face-voice-table)
          personality)
         (emacspeak-auditory-icon 'close-object)))
-    (normal-mode)))
+    (when (buffer-file-name)
+      (normal-mode))))
 
 ;;}}}
 (provide 'voice-setup)
