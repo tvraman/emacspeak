@@ -175,6 +175,14 @@ type="text/xsl"?>
     <application name="gphoto">
       Google Picasa (photo albums)  client using ATOM and GData.
     </application>
+    <application name="gdocs">
+      Enables publishing documents to Google Docs from within Emacs
+    using org-mode for authoring content.</application>
+    <application name="gweb">
+      Provides a highly efficient suite of WebSearch utilities using
+    Google's AJAX  Search API.</application>
+    <application name="gfeeds">
+    Provides efficient access to Blogs using Google's AJAX BlogSearch APIs.</application>
     <application name="youtube">
       Google Video and YouTube
     </application>
