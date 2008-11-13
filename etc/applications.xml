@@ -113,55 +113,58 @@ type="text/xsl"?>
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
     support.</application>
-    <application name="w3m">
-      Light-weight WWW browser.
-    Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
     
-    <application name="mozrepl">
-      Speech-enabled bridge between Emacs and the MozREPL extenxion for
-    Firefox.</application>
-    <application name="url-template">
-      Emacspeak client  that provides programmable  URL templates.
-      Pre-defined templates offer easy access to W3C mailing
-      lists, CNN sites etc.
-    </application>
-    <application name="EmapSpeak">
-      <a
-          href="http://emacspeak.sf.net/releases/release-EmapSpeak.html">Audio-formatted
-      access to Google Maps</a>
-    </application>
-    <application name="webspace">
-      Emacspeak tool for displaying continuously updating
-      headers, and browsing conveniently setup hypertext links to
-    WebSpace content.</application>
-    <application name="websearch">
-      Emacspeak websearch client with single click access to
-      popular search engines.
-      Once selected,  the searcher prompts for the relevant input,
-      performs the search, and speaks the  result.
-      In addition, see the Web wizards in <a
-      href="#wizards">Emacspeak Wizards</a>.
-    </application>
-    <application name="webspace">
-      Emacspeak WebSpace --- provides interaction-free information access.
-    </application>
-    <application name="xslt">
-      Ability to apply XSL transforms to Web content before it is
-      displayed.
-    </application>
-    <application name="lynx">
-      Single key interface for invoking lynx in an appropriately
-      customized terminal buffer.
-    </application>
-    <application name="net-utils">
-      Front-end to networking tools.
-    </application>
-    <application name="babel">
-      Access Internet  translation services.
-    </application>
-    <application name="mozrepl">
-      Connect to Firefox.
-    </application>
+    <application name="piglets">
+      Integrates Emacspeak with Firefox, with Fire-Vox providing spoken
+      output through the emacspeak TTS server.</application><application name="w3m">
+      Light-weight WWW browser.
+      Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
+      
+      <application name="mozrepl">
+        Speech-enabled bridge between Emacs and the MozREPL extenxion for
+      Firefox.</application>
+      <application name="url-template">
+        Emacspeak client  that provides programmable  URL templates.
+        Pre-defined templates offer easy access to W3C mailing
+        lists, CNN sites etc.
+      </application>
+      <application name="EmapSpeak">
+        <a
+            href="http://emacspeak.sf.net/releases/release-EmapSpeak.html">Audio-formatted
+        access to Google Maps</a>
+      </application>
+      <application name="webspace">
+        Emacspeak tool for displaying continuously updating
+        headers, and browsing conveniently setup hypertext links to
+      WebSpace content.</application>
+      <application name="websearch">
+        Emacspeak websearch client with single click access to
+        popular search engines.
+        Once selected,  the searcher prompts for the relevant input,
+        performs the search, and speaks the  result.
+        In addition, see the Web wizards in <a
+        href="#wizards">Emacspeak Wizards</a>.
+      </application>
+      <application name="webspace">
+        Emacspeak WebSpace --- provides interaction-free information access.
+      </application>
+      <application name="xslt">
+        Ability to apply XSL transforms to Web content before it is
+        displayed.
+      </application>
+      <application name="lynx">
+        Single key interface for invoking lynx in an appropriately
+        customized terminal buffer.
+      </application>
+      <application name="net-utils">
+        Front-end to networking tools.
+      </application>
+      <application name="babel">
+        Access Internet  translation services.
+      </application>
+      <application name="mozrepl">
+        Connect to Firefox.
+      </application>
   </category>
   <category name="Google Client">
     <application name="gblogger">
@@ -659,6 +662,11 @@ type="text/xsl"?>
       Speech-enabled version of the popular number placement
       game, <em>SuDoKu</em>
     </application>
+    <application name="jawbreaker">
+      Provides a fluent auditory user interface to the JawBreaker game
+      implemented in JavaScript on the Web. This uses the Piglets
+      framework for Emacs integration, and uses the AxsJAX-enabled version
+    of the JawBreaker game.</application>
   </category>
   <postamble>
     <p>
