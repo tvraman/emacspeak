@@ -13,6 +13,28 @@ manager proced.
 This replaces view-process-mode which no longer works in emacs
 23.
 
+** Integrates Unicode Support
+
+Thanks to Lukas' work, Emacspeak now works with the unicode
+support in Emacs 22 and Emacs 23.
+
+** emacspeak-webspace
+
+Module Webspace provides a suite of  efficient Web content access
+tools.
+
+** G-Client:
+
+G-Client now includes support for many more Google Web APIs,
+including WebSearch and BlogSearch.
+
+** Initial Support For Google Docs:
+
+There is now preliminary support for uploading and viewing
+document lists from Google Docs in G-Client.
+
+
+
 
 Local variables:
 mode: org
