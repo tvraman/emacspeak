@@ -23,7 +23,8 @@ import getpass
 import atom
 import gdata.contacts
 import gdata.contacts.service
-
+# fix for now:
+gdata.contacts.REL_MOBILE='http://schemas.google.com/g/2005#mobile'
 class ContactsShell(object):
   """ContactsShell provides Emacs-g-client access to Contact lists.""""ContactsSample object demonstrates operations with the Contacts feed."""
 
@@ -64,6 +65,8 @@ class ContactsShell(object):
       for email in entry.email:
         if email.primary and email.primary == 'true':
           print '    %s' % (email.address)
+      for phone in entry.phone_number:
+        print '    %s: %s' %  (phone.rel, phone.text)
       # Show the contact groups that this contact is a member of.
       for group in entry.group_membership_info:
         print '    Member of group: %s' % (group.href)
@@ -107,12 +110,18 @@ class ContactsShell(object):
     name = raw_input('Enter contact\'s name: ')
     notes = raw_input('Enter notes for contact: ')
     primary_email = raw_input('Enter primary email address: ')
+    phone = raw_input('Enter mobile  number: ')
 
     new_contact = gdata.contacts.ContactEntry(title=atom.Title(text=name))
     new_contact.content = atom.Content(text=notes)
     # Create a work email address for the contact and use as primary. 
     new_contact.email.append(gdata.contacts.Email(address=primary_email, 
         primary='true', rel=gdata.contacts.REL_WORK))
+    # Create a mobile phone address for the contact and use as primary. 
+    new_contact.phone_number.append(gdata.contacts.PhoneNumber(
+      primary='true',
+      rel=gdata.contacts.REL_MOBILE,text=phone))
+    
     entry = self.gd_client.CreateContact(new_contact)
 
     if entry:
@@ -225,7 +234,7 @@ class ContactsShell(object):
       print '\nGoodbye.'
       return
 
-def shell(user='', pw=''):
+def Shell(user='', pw=''):
   """Starts our Contacts Shell and returns a handle to it."""
   while not user:
     user = raw_input('Please enter your username: ')
