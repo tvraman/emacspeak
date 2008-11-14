@@ -108,12 +108,12 @@ class ContactsShell(object):
   def CreateMenu(self):
     """Prompts that enable a user to create a contact."""
     name = raw_input('Enter contact\'s name: ')
-    notes = raw_input('Enter notes for contact: ')
+    #notes = raw_input('Enter notes for contact: ')
     primary_email = raw_input('Enter primary email address: ')
     phone = raw_input('Enter mobile  number: ')
 
     new_contact = gdata.contacts.ContactEntry(title=atom.Title(text=name))
-    new_contact.content = atom.Content(text=notes)
+    new_contact.content = atom.Content()
     # Create a work email address for the contact and use as primary. 
     new_contact.email.append(gdata.contacts.Email(address=primary_email, 
         primary='true', rel=gdata.contacts.REL_WORK))
