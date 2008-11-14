@@ -130,6 +130,27 @@ class ContactsShell(object):
     else:
       print 'Upload error.'
 
+  def CreateContact(self,
+                    name, email, phone,
+                    email_primary='true',
+                    phone_rel=gdata.contacts.REL_MOBILE):
+    """Create a new contact non-interactively.""""Prompts that enable a user to create a contact."""
+    new_contact = gdata.contacts.ContactEntry(title=atom.Title(text=name))
+    new_contact.email.append(
+      gdata.contacts.Email(address=email, 
+                           primary=email_primary))
+    new_contact.phone_number.append(gdata.contacts.PhoneNumber(
+      primary='true',
+      rel=phone_rel,text=phone))
+    
+    entry = self.gd_client.CreateContact(new_contact)
+
+    if entry:
+      print 'Creation successful!'
+      print 'ID for the new contact:', entry.id.text
+    else:
+      print 'Upload error.'
+
   def QueryMenu(self):
     """Prompts for updated-min query parameters and displays results."""
     updated_min = raw_input(
@@ -249,6 +270,3 @@ def Shell(user='', pw=''):
     print 'Invalid user credentials given.'
     return
   return shell
-
-if __name__ == '__main__':
-  shell()
