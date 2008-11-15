@@ -175,6 +175,9 @@ type="text/xsl"?>
     </application>
     <application name="gcal">
     Google Calendar client using ATOM and GData.</application>
+    
+    <application name="gcontacts">
+    Google Contacts access from Emacs.</application>
     <application name="gphoto">
       Google Picasa (photo albums)  client using ATOM and GData.
     </application>

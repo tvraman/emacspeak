@@ -264,6 +264,7 @@ install:
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/xml-forms
 	$(INSTALL) -d $(libdir)/lisp/g-client
+$(INSTALL) -d $(libdir)/lisp/g-client/python
 	$(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
 	$(INSTALL) -d $(libdir)/xsl
@@ -274,6 +275,7 @@ install:
 	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
+	$(INSTALL) -m 0644  lisp/g-client/python/*.py    $(libdir)/lisp/g-client/python
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -m 0644  ${UGUIDE}   $(libdir)/user-guide
