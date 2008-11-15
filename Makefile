@@ -264,7 +264,7 @@ install:
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/xml-forms
 	$(INSTALL) -d $(libdir)/lisp/g-client
-$(INSTALL) -d $(libdir)/lisp/g-client/python
+	$(INSTALL) -d $(libdir)/lisp/g-client/python
 	$(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
 	$(INSTALL) -d $(libdir)/xsl
