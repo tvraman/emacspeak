@@ -135,7 +135,7 @@
 ;;;###autoload
 (defun gcontacts-create (name email mobile)
   "Create a new contact as specified."
-  (interactive "sName\nsEMail\nsPhone")
+  (interactive "sName: \nsEMail: \nsPhone: ")
   (declare (special gcontacts-process))
   (when (eq 'run (process-status gcontacts-process))
     (process-send-string gcontacts-process
