@@ -104,7 +104,7 @@ gblogger.elc: gblogger.el g-app.elc
 
 dist:g-client.tar.bz2
 
-g-client.tar.bz2: ${SOURCES}
+g-client.tar.bz2: 
 	rm -f $@
 	tar  cfj $@ -X .excludes -C ..  g-client
 
