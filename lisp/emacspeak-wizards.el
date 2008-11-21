@@ -2920,7 +2920,8 @@ Location is specified by name."
   (declare (special emacspeak-wizards-tramp-locations))
   (let ((location (cdr (assoc name
                               emacspeak-wizards-tramp-locations))))
-    (find-file location)))
+    (find-file
+     (read-file-name "Open: "location))))
 
 ;;}}}
 ;;{{{ ISO dates
