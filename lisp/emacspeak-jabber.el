@@ -254,7 +254,7 @@ session."
     (emacspeak-auditory-icon 'large-movement)
     (goto-char (car extent))))
       
-(proclaim (special jabber-chat-mode-map))
+
 (when (boundp 'jabber-chat-mode-map)
   (loop for k in
         '(
