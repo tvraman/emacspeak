@@ -67,7 +67,9 @@
 (require 'g-auth)
 (require 'g-app)
 (require 'browse-url)
-(require 'org-exp)
+(condition-case nil
+    (require 'org-exp)
+  (error "You need a recent version of org."))
 
 ;;}}}
 ;;{{{ Customizations
