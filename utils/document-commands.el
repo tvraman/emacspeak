@@ -230,6 +230,7 @@ This helps pull in all emacspeak modules cleanly.")
   (let ((emacspeak-speak-messages nil)
         (debug-on-error t)
         (dtk-quiet t))
+    (setq default-enable-multibyte-characters nil)
     (mapcar
      #'(lambda (pair)
          (condition-case nil
