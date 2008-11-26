@@ -1036,6 +1036,7 @@ end:\n\n")
 
 (defsubst ems-texinfo-escape (string)
   "Escape texinfo special chars"
+  (when string 
   (save-excursion
     (set-buffer (get-buffer-create " *doc-temp*"))
     (erase-buffer)
@@ -1043,7 +1044,8 @@ end:\n\n")
     (goto-char (point-min))
     (while (re-search-forward "[{}@]" nil t)
       (replace-match "@\\&"))
-    (buffer-string)))
+    (buffer-string))))
+
 ;;;###autoload
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
@@ -1053,10 +1055,10 @@ Warning! Contents of file commands.texi will be overwritten."
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
-	(coding-system-for-write  'utf-8-unix)
         (module nil))
     (save-excursion
       (set-buffer buffer)
+      (set-buffer-multibyte nil)
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
@@ -1099,7 +1101,7 @@ This chapter documents a total of %d commands.\n\n"
                   module module )))
               (insert
                (format "\n\n%s\n\n"
-                       (or commentary "")))
+                       (or commentary "No Commentary")))
               (insert
                (format
                 "Automatically generated documentation
@@ -1118,13 +1120,13 @@ for commands defined in module  %s.\n\n"
                               key " ")))
                       (insert
                        (format "@kbd{%s}\n\n"
-                               key-description)))
-                  (error nil)))
+                               (or key-description
+                                   "No Key Description"))))
+                  (error "No Key Description")))
             (insert
              (or
-              (ems-texinfo-escape
-               (documentation f))
-              ""))
+              (when (documentation f)(ems-texinfo-escape (documentation f))
+                    "Not Documented")))
             (insert "\n@end deffn\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
@@ -1144,11 +1146,11 @@ Warning! Contents of file filename will be overwritten."
   (interactive "FEnter filename to save options documentation in: ")
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
-        (buffer (find-file-noselect filename))
-	(coding-system-for-write  'utf-8-unix)
+        (buffer (find-file-noselect filename)) 
         (module nil))
     (save-excursion
       (set-buffer buffer)
+      (set-buffer-multibyte nil)
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
@@ -1200,9 +1202,11 @@ These options are customizable via Emacs' Custom interface.\n\n"
                              o))
              (insert
               (or
-               (ems-texinfo-escape
-                (documentation-property  o 'variable-documentation))
-               ""))
+               (when
+                   (documentation-property  o 'variable-documentation)
+                   (ems-texinfo-escape
+                (documentation-property  o 'variable-documentation)))
+               "Not Documented"))
              (insert "\n@end defvar\n\n")))
        (emacspeak-list-emacspeak-options))
       (texinfo-all-menus-update)

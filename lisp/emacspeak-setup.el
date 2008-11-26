@@ -100,7 +100,7 @@ pronunciation dictionaries are stored. ")
 (defconst emacspeak-version
   (eval-when-compile
     (format
-     "28.0 %s"
+     "29.0 %s"
      (cond
       ((file-exists-p emacspeak-readme-file)
        (let ((buffer (find-file-noselect emacspeak-readme-file))
