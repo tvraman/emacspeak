@@ -1058,7 +1058,6 @@ Warning! Contents of file commands.texi will be overwritten."
         (module nil))
     (save-excursion
       (set-buffer buffer)
-      (set-buffer-multibyte nil)
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
@@ -1071,70 +1070,69 @@ documentation.
 This chapter documents a total of %d commands.\n\n"
         (length (emacspeak-list-emacspeak-commands))))
       (mapcar
-       (function
-        (lambda (f)
-          (let ((key (where-is-internal f))
-                (key-description nil)
-                (commentary nil)
-                (this-module (symbol-file f))
-                (source-file nil))
-            (when this-module
-              (setq source-file (locate-library this-module ))
-              (if (char-equal (aref source-file (1- (length source-file))) ?c)
-                  (setq source-file (substring  source-file 0 -1)))
-              (setq commentary (lm-commentary source-file))
-              (setq this-module
-                    (file-name-sans-extension this-module))
-              (when commentary
-                (setq commentary
-                      (ems-cleanup-commentary commentary)))
-              (setq this-module
-                    (file-name-nondirectory this-module)))
-            (unless (string-equal module this-module)
-              (if this-module
-                  (setq module this-module)
-                (setq module nil))
-              (when module
-                (insert
-                 (format
-                  "@node %s\n@section %s\n\n\n"
-                  module module )))
-              (insert
-               (format "\n\n%s\n\n"
-                       (or commentary "No Commentary")))
-              (insert
-               (format
-                "Automatically generated documentation
+       #'(lambda (f)
+           (condition-case nil
+               (let ((key (where-is-internal f))
+                     (key-description "")
+                     (commentary nil)
+                     (this-module (symbol-file f))
+                     (source-file nil))
+                 (when this-module
+                   (setq source-file (locate-library this-module ))
+                   (if (char-equal (aref source-file (1- (length source-file))) ?c)
+                       (setq source-file (substring  source-file 0 -1)))
+                   (setq commentary (lm-commentary source-file))
+                   (setq this-module
+                         (file-name-sans-extension this-module))
+                   (when commentary
+                     (setq commentary
+                           (ems-cleanup-commentary commentary)))
+                   (setq this-module
+                         (file-name-nondirectory this-module)))
+                 (unless (string-equal module this-module)
+                   (if this-module
+                       (setq module this-module)
+                     (setq module nil))
+                   (when module
+                     (insert
+                      (format
+                       "@node %s\n@section %s\n\n\n"
+                       module module )))
+                   (insert
+                    (format "\n\n%s\n\n"
+                            (or commentary "No Commentary")))
+                   (insert
+                    (format
+                     "Automatically generated documentation
 for commands defined in module  %s.\n\n"
-                module)))
-            (insert (format "\n\n@deffn {Interactive Command} %s %s\n"
-                            f
-                            (eldoc-function-argstring f)))
-            (if key
-                (condition-case nil
-                    (progn
-                      (setq key-description
-                            (ems-texinfo-escape
-                             (mapconcat
-                              'key-description
-                              key " ")))
-                      (insert
-                       (format "@kbd{%s}\n\n"
-                               (or key-description
-                                   "No Key Description"))))
-                  (error "No Key Description")))
-            (insert
-             (or
-              (when (documentation f)(ems-texinfo-escape (documentation f))
-                    "Not Documented")))
-            (insert "\n@end deffn\n\n"))))
+                     module)))
+                 (insert (format "\n\n@deffn {Interactive Command} %s %s\n"
+                                 f
+                                 (eldoc-function-argstring f)))
+                 (setq key-description
+                       (cond
+                        (key
+                         (ems-texinfo-escape
+                          (mapconcat 'key-description key " ")))
+                        (t "Not bound to any key.")))
+                 (when key-description 
+                   (insert
+                    (format "@kbd{%s}\n\n"
+                            key-description)))
+                 (insert 
+                  (if
+                      (documentation f)
+                      (ems-texinfo-escape (documentation f))
+                    "Not Documented"))
+                 (insert "\n@end deffn\n\n"))
+             (error (insert
+                     (format "Caught %s" f)))))
        (emacspeak-list-emacspeak-commands))
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
-      (shell-command-on-region (point-min) (point-max)
-                               "cat -s"
-                               (current-buffer)
-                               'replace)
+      (shell-command-on-region
+       (point-min) (point-max)
+       "cat -s" (current-buffer) 'replace)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
