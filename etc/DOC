@@ -46,7 +46,7 @@ will say ``aw fifteen dot'' when speaking the string
 
  Pause ongoing speech.
 The speech can be resumed with command `dtk-resume'
-normally bound to C-e SPC.  Pausing speech is useful when one needs to
+normally bound to M-x dtk-resume.  Pausing speech is useful when one needs to
 perform a few actions before continuing to read a large document.  Emacspeak
 gives you speech feedback as usual once speech has been paused.  `dtk-resume'
 continues the interrupted speech irrespective of the buffer
@@ -62,9 +62,7 @@ Typically used after the Dectalk has been power   cycled.
 
 ------------------------------------------------------------
 
-** dtk-resume	Key Sequence: control e SPACE 
-
- Resume paused speech.
+** dtk-resume Resume paused speech.
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to C-e p.
 If speech has not been paused,
@@ -193,7 +191,9 @@ Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 
 ------------------------------------------------------------
 
-** dtk-toggle-punctuation-mode Toggle punctuation mode between "some" and "all".
+** dtk-toggle-punctuation-mode	Key Sequence: control e d , 
+
+ Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global. 
 
 ------------------------------------------------------------
@@ -261,6 +261,18 @@ value to the result.
 
 ------------------------------------------------------------
 
+** dtk-unicode-customize-char Add a custom replacement string for CHAR.
+
+When called interactively, CHAR defaults to the character after point. 
+
+------------------------------------------------------------
+
+** dtk-unicode-uncustomize-char Delete custom replacement for CHAR.
+
+When called interactively, CHAR defaults to the character after point. 
+
+------------------------------------------------------------
+
 ** emacspeak-alsaplayer-add-to-queue Add specified resource to queue. 
 
 ------------------------------------------------------------
@@ -277,11 +289,19 @@ value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-alsaplayer-cd Change default directory, and silence its pronounciation. 
+
+------------------------------------------------------------
+
 ** emacspeak-alsaplayer-clear Clear or resume alsaplayer 
 
 ------------------------------------------------------------
 
 ** emacspeak-alsaplayer-clip Invoke mp3splt to clip selected range. 
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-find-and-add-to-queue Find  specified resource and add to queue. 
 
 ------------------------------------------------------------
 
@@ -334,12 +354,15 @@ S		emacspeak-alsaplayer-stop
 ]		emacspeak-alsaplayer-forward-ten-minutes
 a		emacspeak-alsaplayer-add-to-queue
 c		emacspeak-alsaplayer-clear
+d		emacspeak-alsaplayer-cd
+f		emacspeak-alsaplayer-find-and-add-to-queue
 g		emacspeak-alsaplayer-seek
 i		emacspeak-alsaplayer-info
 j		emacspeak-alsaplayer-jump
 l		emacspeak-alsaplayer-launch
 m		emacspeak-alsaplayer-mark-position
 n		emacspeak-alsaplayer-next
+o		other-window
 p		emacspeak-alsaplayer-previous
 q		emacspeak-alsaplayer-quit
 r		emacspeak-alsaplayer-relative
@@ -367,7 +390,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-alsaplayer-quit Quit or resume alsaplayer 
+** emacspeak-alsaplayer-quit Quit  alsaplayer 
 
 ------------------------------------------------------------
 
@@ -432,9 +455,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file.
 
 ------------------------------------------------------------
 
-** emacspeak-aumix	Key Sequence: control e ( 
-
- Setup output parameters of the auditory display.
+** emacspeak-aumix Setup output parameters of the auditory display.
  Launch this tool while you have auditory output on
 multiple channels playing so you can
 adjust the settings to your preference.  Hit q to quit when
@@ -813,7 +834,12 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -849,7 +875,12 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1207,6 +1238,22 @@ node-spec.
 
 ------------------------------------------------------------
 
+** emacspeak-jabber-chat-next-message Move forward to and speak the next message in this chat
+session. 
+
+------------------------------------------------------------
+
+** emacspeak-jabber-chat-previous-message Move backward to and speak the previous message in this chat
+session. 
+
+------------------------------------------------------------
+
+** emacspeak-jabber-chat-speak-this-message Speaks message starting on current line.
+Assumes point is at the front of the message.
+Returns a cons (start . end) that delimits the message. 
+
+------------------------------------------------------------
+
 ** emacspeak-jabber-popup-roster Pop to Jabber roster. 
 
 ------------------------------------------------------------
@@ -1223,8 +1270,8 @@ relief.
 
 ** emacspeak-mark-forward-mark	Key Sequence: <control down> 
 
- Jump to mark, and pop a new position for mark off the ring
-(does not affect global mark ring).
+ Jump to mark, and pop a new position for mark off the ring.
+(Does not affect global mark ring).
 
 This function is advised.
 
@@ -1318,6 +1365,10 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-get-length Display length of track in seconds. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-half-speed Scale speed by 0.5. 
 
 ------------------------------------------------------------
@@ -1337,17 +1388,17 @@ key             binding
 ---             -------
 
 RET		emacspeak-m-player
+ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 +		emacspeak-m-player-volume-up
 ,		emacspeak-m-player-backward-10s
 -		emacspeak-m-player-volume-down
 .		emacspeak-m-player-forward-10s
-:		emacspeak-m-player
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
 ?		emacspeak-m-player-display-position
-L		emacspeak-m-player-load-playlist
+L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
 [		emacspeak-m-player-slower
 ]		emacspeak-m-player-faster
@@ -1355,7 +1406,7 @@ b		bury-buffer
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
-l		emacspeak-m-player-load-file
+l		emacspeak-m-player-get-length
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
@@ -1363,6 +1414,7 @@ q		emacspeak-m-player-quit
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tree-step
+v		emacspeak-m-player-volume-change
 {		emacspeak-m-player-half-speed
 }		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
@@ -1374,6 +1426,8 @@ DEL		emacspeak-m-player-reset-speed
 <prior>		emacspeak-m-player-backward-10min
 <right>		emacspeak-m-player-forward-10s
 <up>		emacspeak-m-player-backward-1min
+
+M-l		emacspeak-m-player-load-playlist
 
 
 
@@ -1431,11 +1485,21 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-volume-change Change volume.
+A value of <number> changes volume by specified offset.
+A string of the form `<number> 1' sets volume as an absolute. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-volume-down Decrease volume. 
 
 ------------------------------------------------------------
 
 ** emacspeak-m-player-volume-up Increase volume. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-youtube-player Use youtube-dl and mplayer to stream YouTube content. 
 
 ------------------------------------------------------------
 
@@ -1513,6 +1577,14 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 
 ------------------------------------------------------------
 
+** emacspeak-ocr-flipflop-and-recognize-image Run OCR engine on current image after flip-flopping it.
+Useful if you've scanned a page upside down and are using an engine that does not automatically flip the image for you.
+You need the imagemagik family of tools --- we use mogrify to transform the image.
+Prompts for image file if file corresponding to the expected
+`current page' is not found. 
+
+------------------------------------------------------------
+
 ** emacspeak-ocr-forward-page Like forward page, but tracks page number of current document. 
 
 ------------------------------------------------------------
@@ -1583,6 +1655,7 @@ I		emacspeak-ocr-set-scan-image-options
 ]		emacspeak-ocr-forward-page
 c		emacspeak-ocr-customize
 d		emacspeak-ocr-open-working-directory
+f		emacspeak-ocr-flipflop-and-recognize-image
 i		emacspeak-ocr-scan-image
 j		emacspeak-ocr-scan-photo
 n		emacspeak-ocr-name-document
@@ -1838,7 +1911,7 @@ Prompts for start and end times as well as file  to save the clippi
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: Generic char 491520: all of JISX0213-2   Generic char 458752: all of Tibetan 2-col   Generic char 442368: all of Indian 2-col   Generic char 425984: all of CNS11643-7   Generic char 409600: all of CNS11643-6   Generic char 393216: all of CNS11643-5   Generic char 376832: all of CNS11643-4   Generic char 360448: all of CNS11643-3   Generic char 344064: all of Ethiopic   Generic char 327680: all of Unicode subset   Generic char 311296: all of Unicode subset 3   Generic char 294912: all of Unicode subset 2   Generic char 278528: all of Tibetan 1-col   Generic char 262144: all of Indian glyph   Generic char 14464: all of IS 13194   Generic char 14336: all of Arabic 2-col   Generic char 7040: all of Lao   Generic char 6912: all of rev ASCII   Generic char 6784: all of Arabic 1-col   Generic char 6656: all of Arabic digit   Generic char 6528: all of VISCII upper   Generic char 6400: all of VISCII lower   Generic char 6272: all of IPA   Generic char 6144: all of SiSheng   Generic char 163840: all of Big5 (Level-2)   Generic char 147456: all of Big5 (Level-1)   Generic char 131072: all of JISX0213-1   Generic char 114688: all of CNS11643-2   Generic char 98304: all of CNS11643-1   Generic char 81920: all of JISX0212   Generic char 65536: all of KSC5601   Generic char 49152: all of JISX0208   Generic char 32768: all of GB2312   Generic char 16384: all of JISX0208.1978   Generic char 3968: all of RHP of Latin-8   Generic char 3840: all of RHP of Latin-9   Generic char 3712: all of RHP of Latin-5   Generic char 3584: all of RHP of ISO8859/5   Generic char 3328: all of JISX0201 Roman   Generic char 3200: all of JISX0201 Katakana   Generic char 3072: all of RHP of ISO8859/8   Generic char 2944: all of RHP of ISO8859/6   Generic char 2816: all of RHP of ISO8859/7   Generic char 2688: all of RHP of TIS620   Generic char 2560: all of RHP of Latin-4   Generic char 2432: all of RHP of Latin-3   Generic char 2304: all of RHP of Latin-2   Generic char 2176: all of RHP of Latin-1   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
+** emacspeak-self-insert-command	Key Sequence: €   SPACE 
 
  Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -1855,6 +1928,11 @@ speech flush as you type.
 and listening on port port.  Host is the hostname of the remote
 server, typically the desktop machine.  Port is the tcp port that that
 host is listening on for speech requests. 
+
+------------------------------------------------------------
+
+** emacspeak-remote-edit-current-remote-hostname Interactively set up where we came from.
+Value is persisted for use with ssh servers. 
 
 ------------------------------------------------------------
 
@@ -1891,6 +1969,12 @@ Use this once you are sure the guesses are usually correct.
 ------------------------------------------------------------
 
 ** emacspeak-solitaire-speak-coordinates Speak coordinates of current position 
+
+------------------------------------------------------------
+
+** emacspeak-audio-setup	Key Sequence: control e ( 
+
+ Call appropriate audio environment set command. 
 
 ------------------------------------------------------------
 
@@ -2154,7 +2238,17 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
 
 ------------------------------------------------------------
 
+** emacspeak-speak-face-interval-and-move Speaks region delimited by text in current face, and moves past the chunk. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-front-of-buffer Speak   the buffer from start to   point 
+
+------------------------------------------------------------
+
+** emacspeak-speak-header-line	Key Sequence: control e SPACE 
+
+ Speak header line if set. 
 
 ------------------------------------------------------------
 
@@ -2228,9 +2322,6 @@ directory.
 ** emacspeak-speak-message-again	Key Sequence: control e a 
 
  Speak the last message from Emacs once again.
-Optional interactive prefix arg
-`from-message-cache' speaks message cached from the most
-recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
 if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set. 
 
@@ -2259,7 +2350,13 @@ Negative prefix arg speaks from start of buffer to point.
 ** emacspeak-speak-mode-line	Key Sequence: control e m 
 
  Speak the mode-line.
+Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-next-face-chunk Moves to the front of next chunk having current face.
+Speak that chunk after moving. 
 
 ------------------------------------------------------------
 
@@ -2340,6 +2437,11 @@ two or three.
 Argument ARG determines the 'other' window to speak.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-previous-face-chunk Moves to the front of previous chunk having current face.
+Speak that chunk after moving. 
 
 ------------------------------------------------------------
 
@@ -2437,6 +2539,10 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 ------------------------------------------------------------
 
+** emacspeak-speak-this-face-chunk Speak chunk of text around point that has current face. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-this-personality-chunk Speak chunk of text around point that has current
 personality. 
 
@@ -2528,6 +2634,10 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result. 
+
+------------------------------------------------------------
+
+** emacspeak-toggle-header-line Toggle Emacspeak's default header line. 
 
 ------------------------------------------------------------
 
@@ -2870,10 +2980,6 @@ but quickly switch to a window by name.
 
 ------------------------------------------------------------
 
-** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
-
-------------------------------------------------------------
-
 ** emacspeak-url-template-fetch	Key Sequence: control e u 
 
  Fetch a pre-defined resource.
@@ -2898,50 +3004,7 @@ resources.
 
 ------------------------------------------------------------
 
-** emacspeak-view-process-goto-current-field-next-line Set point to the current field in the next line. 
-
-------------------------------------------------------------
-
-** emacspeak-view-process-speak-current-field Speak current field 
-
-------------------------------------------------------------
-
 ** emacspeak-view-line-to-top Moves current line to top of window 
-
-------------------------------------------------------------
-
-** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
-Useful when you're reading a message
-that has been forwarded multiple times. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-mode-line VM mode line information.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-next-button Move point to N buttons forward.
-If N is negative, move backward instead. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-labels Speak a message's labels 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-message Move point to the message body. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-yank-header Yank specified header into kill ring. 
 
 ------------------------------------------------------------
 
@@ -3103,6 +3166,11 @@ separate buffer. Interactive use provides list of id values as completion.
 
 ------------------------------------------------------------
 
+** emacspeak-we-extract-by-property Interactively prompt for an HTML property, e.g. id or class,
+and provide a completion list of applicable  property values. Filter document by property that is specified. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-extract-matching-urls Extracts links whose URL matches pattern. 
 
 ------------------------------------------------------------
@@ -3233,6 +3301,22 @@ from Web page -- default is the current page being viewed.
 ------------------------------------------------------------
 
 ** emacspeak-we-xslt-select Select XSL transformation applied to Web pages before they are displayed . 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-add Add WebMark. 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-history Search search history. 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-list List WebMarks. 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-search Search WebMarks. 
 
 ------------------------------------------------------------
 
@@ -3494,12 +3578,104 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-yahoo-exchange-rate-convertor Currency convertor. 
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-yahoo-historical-chart Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data. 
 
 ------------------------------------------------------------
 
 ** emacspeak-websearch-youtube Search YouTube 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-atom-view View Atom feed. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-feed-view View  feed using gfeeds. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-filter Open headline at point by following its link property and filter for content. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-google Display Google Search in a WebSpace buffer. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-headlines	Key Sequence: hyper  SPACE h 
+
+ Speak current news headline. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-headlines-view	Key Sequence: <control return> 
+
+ Display all cached headlines in a special interaction buffer. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-mode Major mode for Webspace interaction.
+
+
+
+Uses keymap "emacspeak-webspace-mode-map
+
+This mode runs the hook `emacspeak-webspace-mode-hook', as the final step
+during initialization.", which is not currently defined.
+ 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-next-link Move to next link. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-open Open headline at point by following its link property. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-previous-link Move to previous link. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-reader Display Google Reader Feed list in a WebSpace buffer. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-reader-unsubscribe Unsubscribe to link under point. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-rss-view View RSS feed. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-transcode Transcode headline at point by following its link property. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-update-headlines Setup  news updates.
+Updated headlines found in emacspeak-webspace-headlines. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-update-weather Setup periodic weather updates.
+Updated weather is found in `emacspeak-webspace-current-weather'. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-weather	Key Sequence: hyper  SPACE w 
+
+ Speak current weather. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-yank-link Yank link under point into kill ring. 
 
 ------------------------------------------------------------
 
@@ -3521,7 +3697,7 @@ Optional second arg as-html processes the results as HTML rather than data.
 
 ------------------------------------------------------------
 
-** emacspeak-webutils-fv Display RSS or ATOM feed. 
+** emacspeak-webutils-fv Display RSS or ATOM feed URL. 
 
 ------------------------------------------------------------
 
@@ -3816,7 +3992,7 @@ If no property is set, show a message and exit.
 
 ------------------------------------------------------------
 
-** emacspeak-skip-blank-lines-backward	Key Sequence: <shift> <up> 
+** emacspeak-skip-blank-lines-backward	Key Sequence: <shift up> 
 
  Move backward  across blank lines.
 The line under point is   then spoken.
@@ -3824,7 +4000,7 @@ Signals beginning  of buffer.
 
 ------------------------------------------------------------
 
-** emacspeak-skip-blank-lines-forward	Key Sequence: <shift> <down> 
+** emacspeak-skip-blank-lines-forward	Key Sequence: <shift down> 
 
  Move forward across blank lines.
 The line under point is then spoken.
@@ -3875,10 +4051,6 @@ also copied to the kill ring for convenient yanking.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-show-memory-used Convenience command to view state of memory used in this session so far. 
-
-------------------------------------------------------------
-
 ** emacspeak-speak-telephone-directory Lookup and display a phone number.
 With prefix arg, opens the phone book for editting. 
 
@@ -3909,7 +4081,7 @@ the display to speak.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-this-buffer-previous-display	Key Sequence: control e <aleft> 
+** emacspeak-speak-this-buffer-previous-display	Key Sequence: control e <left> 
 
  Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -3918,7 +4090,7 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-ssh-tts-restart	Key Sequence: control e <delete> 
+** emacspeak-ssh-tts-restart	Key Sequence: control e <delete>   control e <deletechar> 
 
  Restart specified ssh tts server. 
 
@@ -3971,7 +4143,19 @@ Default is to add autoload cookies to current file.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-byte-compile-current-buffer byte compile current buffer 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-comma-at-end-of-word   
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-count-slides-in-region Count slides starting from point. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-display-pod-as-manpage Create a virtual manpage in Emacs from the Perl Online Documentation. 
 
 ------------------------------------------------------------
 
@@ -3999,6 +4183,10 @@ key             binding
 
 ** emacspeak-wizards-edit-file-as-root Edit file as root using sudo vi.
 See /etc/sudoers for how to set up sudo. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-end-of-word move to end of word 
 
 ------------------------------------------------------------
 
@@ -4066,7 +4254,7 @@ for the current voice family.
 
 ** emacspeak-wizards-get-table-content-from-file Extract table specified by depth and count from HTML
 content at file.
-Extracted content is placed as a csv file in task.csv. 
+Extracted content is sent to STDOUT. 
 
 ------------------------------------------------------------
 
@@ -4097,12 +4285,28 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-js Run JS in a comint sub-process. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-lacheck-buffer-file   
+
+------------------------------------------------------------
+
+** emacspeak-wizards-load-current-file   
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-move-and-speak Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
 first.  Point is left at the target position.  Interactively,
 command is specified by pressing the key that invokes the
 command. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-next-interactive-defun Move point to the next interactive defun 
 
 ------------------------------------------------------------
 
@@ -4162,7 +4366,7 @@ This is for use in conjunction with bash to allow multiple emacs
 
 ** emacspeak-wizards-rivo Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
-  UNIX AT scheduling facility.
+  UNIX At scheduling facility.
 RIVO is implemented by rivo.pl ---
  a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration. 
@@ -4188,13 +4392,17 @@ RIVO is implemented by rivo.pl ---
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-show-eval-result	Key Sequence: control e & 
+** emacspeak-wizards-show-eval-result	Key Sequence: control e &   META ESCAPE : 
 
  Convenience command to pretty-print and view Lisp evaluation results. 
 
 ------------------------------------------------------------
 
 ** emacspeak-wizards-show-face Show salient properties of specified face. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-show-memory-used Convenience command to view state of memory used in this session so far. 
 
 ------------------------------------------------------------
 
@@ -4212,6 +4420,14 @@ for `word' and displays hits in a compilation buffer.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-terminal Launch terminal and rename buffer appropriately. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-tex-tie-current-word   
+
+------------------------------------------------------------
+
+** emacspeak-wizards-thanks-mail-signature insert thanks , --Raman at the end of mail message 
 
 ------------------------------------------------------------
 
@@ -4440,6 +4656,42 @@ take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-firevox Creates FireVox interaction.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-firevox-read-next Read next item on page.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-firevox-read-parent Read parent node.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-firevox-read-previous Read next item on page.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-firevox-websearch Perform Websearch via the Firefox URL bar.
+
+(fn QUERY) 
+
+------------------------------------------------------------
+
+** emacspeak-jawbreaker Opens JawBreaker game in Firefox.
+
+(fn) 
+
+------------------------------------------------------------
+
 ** emacspeak-moz-browse-current Browse current node.
 
 (fn) 
@@ -4467,6 +4719,12 @@ take effect.
 ** emacspeak-moz-down Go Down a level and browse.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-eval-expression Send expression to Moz.
+
+(fn EXP) 
 
 ------------------------------------------------------------
 
@@ -4500,6 +4758,12 @@ take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-moz-id-browse Browse node having specified id.
+
+(fn ID) 
+
+------------------------------------------------------------
+
 ** emacspeak-moz-inspect Inspect specified object.
 
 (fn WHAT) 
@@ -4515,6 +4779,12 @@ take effect.
 ** emacspeak-moz-left Go left and browse.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-moz-locate-and-browse Browse document filtered by element locator.
+
+(fn ELEMENT) 
 
 ------------------------------------------------------------
 
@@ -4560,27 +4830,39 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-webmarks-add Add WebMark.
-
-(fn URL TITLE NOTES) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-history Search search history.
-
-(fn QUERY) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-list List WebMarks.
+** emacspeak-piglets-enter Send enter to Firefox.
 
 (fn) 
 
 ------------------------------------------------------------
 
-** emacspeak-webmarks-search Search WebMarks.
+** emacspeak-piglets-key Send last keypress to Firefox.
 
-(fn QUERY) 
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-piglets-keypress Send keypress to Firefox.
+
+(fn C) 
+
+------------------------------------------------------------
+
+** emacspeak-piglets-silence Stop speech output from FireVox.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-piglets-tab Send TAB to Firefox.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-piglets-tts-init Start TTS  engine for Piglets.
+
+(fn) 
 
   
 

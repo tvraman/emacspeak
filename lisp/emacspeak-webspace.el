@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 ;;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
-
+;;; Code:
 ;;}}}
 ;;{{{ Required modules
 
@@ -63,7 +63,7 @@
 (define-derived-mode emacspeak-webspace-mode fundamental-mode
   "Webspace Interaction"
   "Major mode for Webspace interaction.\n\n
-\\{emacspeak-webspace-mode-map")
+\\{emacspeak-webspace-mode-map}")
 
 (declaim (special emacspeak-webspace-mode-map))
 
