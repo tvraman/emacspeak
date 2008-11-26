@@ -2106,7 +2106,8 @@ Also produce an auditory icon if possible."
                     emacspeak-speak-cue-errors))
   (emacspeak-auditory-icon 'open-object)
   (setq emacspeak-speak-messages nil
-        emacspeak-speak-cue-errors nil))
+        emacspeak-speak-cue-errors nil)
+  (dtk-speak "I-Search: "))
 
 (defsubst emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."
