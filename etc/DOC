@@ -764,6 +764,10 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-emms-speak-current-track Speak current track. 
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1055,6 +1059,10 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
+
+------------------------------------------------------------
+
+** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -1829,15 +1837,6 @@ explicitly turn pronunciations on or off.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-yank-word Yank word at point into minibuffer. 
-
-------------------------------------------------------------
-
-** emacspeak-py-next-block Move forward to the beginning of the next block. 
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-block Move backward to the beginning of the current block.
-If already at the beginning then move to previous block. 
 
 ------------------------------------------------------------
 
@@ -2731,6 +2730,108 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
+** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+ 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-column Erase current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-row Erase current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-hint Provide hint for current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-push Push current state on to history stack. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-column Speak current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-row Speak current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
+
+------------------------------------------------------------
+
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -2977,6 +3078,10 @@ but quickly switch to a window by name.
 ------------------------------------------------------------
 
 ** emacspeak-tetris-speak-x-coordinate Speak current position 
+
+------------------------------------------------------------
+
+** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
 
 ------------------------------------------------------------
 
@@ -3622,12 +3727,32 @@ Optional second arg as-html processes the results as HTML rather than data.
 ** emacspeak-webspace-mode Major mode for Webspace interaction.
 
 
+key             binding
+---             -------
 
-Uses keymap "emacspeak-webspace-mode-map
+TAB		emacspeak-webspace-next-link
+RET		emacspeak-webspace-open
+.		emacspeak-webspace-filter
+/		search-forward
+<		beginning-of-buffer
+>		end-of-buffer
+?		search-backward
+A		emacspeak-webspace-atom-view
+F		emacspeak-webspace-feed-view
+R		emacspeak-webspace-rss-view
+b		emacspeak-webspace-previous-link
+f		emacspeak-webspace-next-link
+n		next-line
+p		previous-line
+q		bury-buffer
+t		emacspeak-webspace-transcode
+y		emacspeak-webspace-yank-link
+<S-tab>		emacspeak-webspace-previous-link
+
+
 
 This mode runs the hook `emacspeak-webspace-mode-hook', as the final step
-during initialization.", which is not currently defined.
- 
+during initialization. 
 
 ------------------------------------------------------------
 
@@ -4653,6 +4778,10 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internal Search IBM using trevi 
 
 ------------------------------------------------------------
 
