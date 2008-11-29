@@ -56,7 +56,7 @@ config:
 # {{{maintainer target 
 
 pub: tips.html applications.html
-	scp tips.html applications.html   raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs 
+	scp tips.html applications.html    raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs
 # }}}
 # {{{ end of file 
 

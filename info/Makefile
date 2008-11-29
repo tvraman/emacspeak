@@ -1,5 +1,5 @@
 #$Id$
-SF_HOME=raman@emacspeak.sf.net:~/www-emacspeak/htdocs
+SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs
 HTML_FILES=$(shell find . -name '*.html' -print)
 TEXINDEX=texindex
 FILES=*.texi

@@ -412,8 +412,8 @@ previous window configuration."
   (byte-compile-file  (buffer-file-name )))
 ;;;###autoload
 (defun emacspeak-wizards-load-current-file ()
-  (interactive)
   "load file into emacs"
+  (interactive)
   (load-file (buffer-file-name)))
 
 (defun emacspeak-wizards-next-interactive-defun ()
@@ -437,23 +437,23 @@ previous window configuration."
 
 ;;;###autoload
 (defun emacspeak-wizards-comma-at-end-of-word()
+  "Move to the end of current word and add a comma."
   (interactive)
-  "Move point to end of word and put a comma."
   (forward-word 1)
   (insert-char
    (string-to-char ",") 1))
 
 ;;;###autoload
 (defun emacspeak-wizards-lacheck-buffer-file()
+  "Run Lacheck on current buffer."
   (interactive)
-  "Lacheck file visited in current buffer"
   (compile (format "lacheck %s"
                    (buffer-file-name (current-buffer)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-tex-tie-current-word(n)
-  (interactive "P")
   "Tie the next n  words."
+  (interactive "P")
   (or n (setq n 1))
   (while
       (> n 0)
