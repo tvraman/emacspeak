@@ -6243,7 +6243,7 @@ byte compile current buffer
 @deffn {Interactive Command} emacspeak-wizards-comma-at-end-of-word nil
 @kbd{Not bound to any key.}
 
-Not Documented
+Move to the end of current word and add a comma.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-count-slides-in-region nil
@@ -6430,13 +6430,13 @@ Run JS in a comint sub-process.
 @deffn {Interactive Command} emacspeak-wizards-lacheck-buffer-file nil
 @kbd{Not bound to any key.}
 
-Not Documented
+Run Lacheck on current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-load-current-file nil
 @kbd{Not bound to any key.}
 
-Not Documented
+load file into emacs
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-move-and-speak nil
@@ -6606,7 +6606,7 @@ Launch terminal and rename buffer appropriately.
 @deffn {Interactive Command} emacspeak-wizards-tex-tie-current-word nil
 @kbd{Not bound to any key.}
 
-Not Documented
+Tie the next n  words.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-thanks-mail-signature nil

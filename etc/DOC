@@ -4272,7 +4272,7 @@ Default is to add autoload cookies to current file.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-comma-at-end-of-word   
+** emacspeak-wizards-comma-at-end-of-word Move to the end of current word and add a comma. 
 
 ------------------------------------------------------------
 
@@ -4414,11 +4414,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-lacheck-buffer-file   
+** emacspeak-wizards-lacheck-buffer-file Run Lacheck on current buffer. 
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-load-current-file   
+** emacspeak-wizards-load-current-file load file into emacs 
 
 ------------------------------------------------------------
 
@@ -4548,7 +4548,7 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-tex-tie-current-word   
+** emacspeak-wizards-tex-tie-current-word Tie the next n  words. 
 
 ------------------------------------------------------------
 
