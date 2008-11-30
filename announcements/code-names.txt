@@ -1,3 +1,8 @@
+#    -*- mode: org -*-
+
+*  Emacspeak Codenames 
+
+
 |------+-----------------+----------------|
 |  3.0 | May 1995        | Illinois       |
 | 3.75 | September 1995  | Final-DEC      |
