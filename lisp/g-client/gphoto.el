@@ -149,11 +149,12 @@
   (declare (special gphoto-album-or-tag-template-url))
   (format gphoto-album-or-tag-template-url userid kind))
 ;;;###autoload
-(defun gphoto-feeds (kind)
+(defun gphoto-feeds (kind user)
   "Retrieve and display feed of albums or tags after authenticating."
   (interactive
    (list
-    (gphoto-read-feed-kind "Album or Tag: " gphoto-album-or-tag)))
+    (gphoto-read-feed-kind "Album or Tag: " gphoto-album-or-tag)
+    (or user (g-auth-email gphoto-auth-handle))))
   (declare (special gphoto-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
@@ -166,16 +167,22 @@
     g-cookie-options
     (g-authorization gphoto-auth-handle)
     (gphoto-album-or-tag-url
-     (g-url-encode (g-auth-email gphoto-auth-handle))
+     (g-url-encode user)
      kind)
     (g-curl-debug))
    g-atom-view-xsl))
 
 ;;;###autoload
-(defun gphoto-albums()
-  "Display feed of albums."
-  (interactive)
-  (gphoto-feeds "album"))
+(defun gphoto-albums(&optional prompt)
+  "Display feed of albums.
+Interactive prefix arg prompts for userid whose albums we request."
+  (interactive "P")
+  (cond
+   ((null prompt)
+    (gphoto-feeds "album"))
+   (t (gphoto-feeds "album"
+                    (read-from-minibuffer "userId:")))))
+   
 
 ;;;###autoload
 (defun gphoto-tags()
@@ -326,9 +333,10 @@
           '(title summary location keywords)
           do
           (eval
-           `(setf ,(intern (format "gphoto-album-%s" slot))
-                   album)
-                  (read-from-minibuffer (format "%s: " slot)))))
+           `(setf
+             (,(intern (format "gphoto-album-%s" slot))
+              album)
+             (read-from-minibuffer (format "%s: " slot)))))
     (setf (gphoto-album-access album)
           (read-from-minibuffer "access:"
                                 gphoto-album-default-access
@@ -339,7 +347,7 @@
                                 gphoto-album-default-commenting-enabled
                                 nil nil nil
                                 gphoto-album-default-commenting-enabled))
-    album)
+    album))
 
 (defun gphoto-album-as-xml (album)
   "Return Atom entry for  album structure."
