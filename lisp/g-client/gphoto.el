@@ -241,7 +241,8 @@ Interactive prefix arg prompts for userid whose albums we request."
   (declare (special gphoto-community-search-url-template))
   (gphoto-view
    (format
-    gphoto-community-search-url-template query)))
+    gphoto-community-search-url-template
+    (g-url-encode query))))
 
 (defvar gphoto-recent-url-template
   (format "%s/%%s?kind=%%s&max-results=25"
@@ -268,7 +269,7 @@ Interactive prefix arg prompts for userid whose albums we request."
 
 ;;;###autoload
 (defun gphoto-user-search (user query)
-  "Retrieve feed o recently uploaded comments for  specified user."
+  "Retrieve feed of recently uploaded comments for  specified user."
   (interactive
    (list
     (read-from-minibuffer
@@ -278,7 +279,8 @@ Interactive prefix arg prompts for userid whose albums we request."
   (declare (special gphoto-user-search-url-template))
   (gphoto-view
    (format
-    gphoto-user-search-url-template user query)))
+    gphoto-user-search-url-template user
+    (g-url-encode query))))
 
 (defvar gphoto-user-tagsearch-url-template
   (format "%s/%%s?kind=photo&tag=%%s"
@@ -295,7 +297,8 @@ Interactive prefix arg prompts for userid whose albums we request."
   (declare (special gphoto-user-tagsearch-url-template))
   (gphoto-view
    (format
-    gphoto-user-tagsearch-url-template user tag)))
+    gphoto-user-tagsearch-url-template user
+    (g-url-encode tag))))
 
 ;;}}}
 ;;{{{ Adding an album:
