@@ -177,11 +177,10 @@
   "Display feed of albums.
 Interactive prefix arg prompts for userid whose albums we request."
   (interactive "P")
-  (cond
-   ((null prompt)
-    (gphoto-feeds "album"))
-   (t (gphoto-feeds "album"
-                    (read-from-minibuffer "userId:")))))
+  (gphoto-feeds "album"
+                (if prompt
+                    (read-from-minibuffer "UserId:")
+                  (g-auth-email gphoto-auth-handle))))
    
 
 ;;;###autoload
