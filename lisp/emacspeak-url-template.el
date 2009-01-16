@@ -385,6 +385,26 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ bbc
 
 (emacspeak-url-template-define
+ "BBC  7 Radio Bridge"
+ "rtsp://rmv8.bbc.net.uk:554/bbc7coyopa/bbc7_-_%s_%s.ra"
+ (list
+  "Weekeday: "
+  "Time: ")
+ nil
+ "Play BBC  Radio7 show for a given day/time."
+ 'emacspeak-m-player)
+
+(emacspeak-url-template-define
+ "Radio4 radioBridge"
+ "rtsp://rmv8.bbc.net.uk:554/radio4fmcoyopa/radio_4_fm_-_%s_%s.ra"
+ (list
+  "Weekeday: "
+  "Time: ")
+ nil
+ "Play BBC  Radio4 show for a given day/time."
+ 'emacspeak-m-player)
+
+(emacspeak-url-template-define
  "Radio4 Program"
  "rtsp://rmv8.bbc.net.uk/radio4/%s_%s.ra"
  (list
