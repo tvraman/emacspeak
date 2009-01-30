@@ -332,7 +332,7 @@ XML  is transformed via style
 ;;}}}
 ;;{{{  HTTP Headers:
 (defvar g-curl-atom-header
-  "--header 'Content-Type: application/atom+xml'"
+  "--header 'Content-Type: application/atom+xml' --header 'GData-Version: 2'"
   "Content type header for application/atom+xml")
 
 (defvar g-curl-data-binary
