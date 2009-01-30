@@ -91,7 +91,7 @@
 ;;; Get search completions from Google
 
 (defvar gweb-suggest-url
-  "http://www.google.com/complete/search?json=true&qu=%s"
+  "http://clients1.google.com/complete/search?json=true&qu=%s"
   "URL  that gets suggestions from Google as JSON.")
 
 (defsubst gweb-suggest (input)
