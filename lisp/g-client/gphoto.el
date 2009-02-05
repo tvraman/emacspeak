@@ -141,7 +141,7 @@
                    nil 'require-matchs))
 
 (defvar gphoto-album-or-tag-template-url
-  (format "%s/%%s?kind=%%s" gphoto-base-url)
+  (format "%s/%%s?kind=%%s&v=2" gphoto-base-url)
   "URL template for feed of albums or tags from Picasa.")
 
 (defsubst gphoto-album-or-tag-url (userid kind)
@@ -469,9 +469,10 @@ Interactive prefix arg prompts for userid whose albums we request."
                     gphoto-base-url))
   (g-auth-ensure-token gphoto-auth-handle)
   (let ((location (format
-                   "%s/%s/album/%s"
+                   "%s/%s/album/%s?v=2"
                    gphoto-base-url
-                   (g-url-encode (g-auth-email gphoto-auth-handle)) album-name)))
+                   (g-url-encode (g-auth-email gphoto-auth-handle))
+                   album-name)))
     (gphoto-async-post-photo photo location)))
 
 ;;;###autoload
