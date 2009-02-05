@@ -34,7 +34,9 @@ shown in the output.
   </xsl:template>
   <xsl:template match="body">
     <body>
-      <xsl:apply-templates select="$locator" />
+      <xsl:for-each select="$locator" >
+        <xsl:apply-templates/><br/>
+      </xsl:for-each>
       <h2>
         Nodes Matching   <xsl:value-of select="$path"/>
       </h2>
