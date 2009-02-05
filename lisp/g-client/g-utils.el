@@ -88,7 +88,7 @@ For now, this is blogger specific."
   :group 'g)
 
 (defcustom g-curl-common-options
-  "--compressed --silent --location --location-trusted"
+  "--http1.0 --compressed --silent --location --location-trusted"
   "Common options to pass to all Curl invocations."
   :type 'string
   :group 'g)
