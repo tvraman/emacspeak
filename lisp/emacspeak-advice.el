@@ -669,6 +669,7 @@ Produce an auditory icon if possible."
 (defadvice read-passwd (before emacspeak pre act comp)
   "Speak the prompt."
   (emacspeak-auditory-icon 'open-object)
+  (dtk-stop)
   (dtk-speak (ad-get-arg 0)))
 
 (defadvice read-char (before emacspeak pre act comp)
