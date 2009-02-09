@@ -211,6 +211,17 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{  template resources
+;;{{{ twitter:
+
+(emacspeak-url-template-define
+ "Twitter Search"
+ "http://search.twitter.com/search.atom?q=%s"
+ (list "Twitter Search: ")
+ nil
+ "Twitter search and display results feed."
+ 'emacspeak-webutils-atom-display)
+
+;;}}}
 ;;{{{  powerset
 
 (emacspeak-url-template-define
