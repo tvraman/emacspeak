@@ -32,11 +32,19 @@ shown in the output.
       </xsl:if>
     </head>
   </xsl:template>
+  <xsl:template match="*|@*" mode="copy" >
+    <xsl:variable name="i" select="$locator"/>
+    <xsl:if test="not(set:intersection(ancestor::*, $i))">
+      <xsl:copy-of select="."/>
+      <br/>
+    </xsl:if>
+  </xsl:template>
   <xsl:template match="body">
     <body>
       <xsl:for-each select="$locator" >
         <xsl:apply-templates/><br/>
       </xsl:for-each>
+
       <h2>
         Nodes Matching   <xsl:value-of select="$path"/>
       </h2>
@@ -47,18 +55,10 @@ shown in the output.
           <xsl:attribute name="href">
             <xsl:value-of select="$base"/>
           </xsl:attribute>
-          document 
+          document.
         </xsl:element>
-        .
       </p>
     </body>
-  </xsl:template>
-  <xsl:template match="*|@*" mode="copy" >
-    <xsl:variable name="i" select="$locator"/>
-    <xsl:if test="not(set:intersection(ancestor::*, $i))">
-      <xsl:copy-of select="."/>
-      <br/>
-    </xsl:if>
   </xsl:template>
   <xsl:include href="identity.xsl"/>
   <!-- nuke these -->
