@@ -18,7 +18,6 @@ shown in the output.
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
   <xsl:include href="object.xsl"/>
   <!-- { html   -->
-  <xsl:template match="//script|//meta|//iframe"/>
   <!--add base uri if available. -->
   <xsl:template match="head">
     <head>
