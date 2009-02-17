@@ -41,23 +41,23 @@ shown in the output.
   <xsl:template match="body">
     <body>
       <xsl:for-each select="$locator" >
-        <xsl:apply-templates/><br/>
+        <xsl:copy-of  select="."/>
       </xsl:for-each>
-      <xsl:apply-templates select="." mode="summarize"/>
+      <h2>
+        Summary:
+        <xsl:value-of select="count($locator)"/>  Nodes Matching   <xsl:value-of select="$path"/>
+        in <xsl:element name="a">
+        <xsl:attribute name="href">
+          <xsl:value-of select="$base"/>
+        </xsl:attribute>
+        document.
+      </xsl:element>
+      </h2> 
     </body>
   </xsl:template>
-  <xsl:template match="body" mode="summarize">
-    <h2>
-      Summary:
-      <xsl:value-of select="count($locator)"/>  Nodes Matching   <xsl:value-of select="$path"/>
-      in <xsl:element name="a">
-      <xsl:attribute name="href">
-        <xsl:value-of select="$base"/>
-      </xsl:attribute>
-      document.
-    </xsl:element>
-    </h2>
-  </xsl:template>
+  
+  
+  
   <xsl:include href="identity.xsl"/>
   <!-- nuke these -->
   
