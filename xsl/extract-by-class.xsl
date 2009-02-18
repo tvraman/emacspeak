@@ -38,12 +38,7 @@ This style-sheet is here mostly as  a sample template.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
-        <!--
-        <p>
-        <xsl:value-of select="name(.)"/>
-        </p>
-        -->
-        <xsl:apply-templates/>
+        <xsl:copy-of  select="."/>
         <br/>
       </xsl:for-each>
       <h2>About This Document</h2>
