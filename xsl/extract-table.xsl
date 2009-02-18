@@ -45,10 +45,7 @@ Parameter base specifies base URL of source document.
       </h2>
       <xsl:for-each select="//table//table">
         <xsl:if test="position() = $table-index">
-          <xsl:element name="table">
-            <xsl:apply-templates select="@*"/>
-            <xsl:apply-templates/>
-          </xsl:element>
+          <xsl:copy-of select="."/>
         </xsl:if>
       </xsl:for-each>
       

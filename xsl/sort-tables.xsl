@@ -126,10 +126,7 @@ Embedded IFrame</a>
             Rows And <xsl:value-of select="count(./tr/td)"/>
             Cells
           </h2>
-          <table>
-            <xsl:apply-templates select="@*"/>
-            <xsl:apply-templates/>
-          </table>
+          <xsl:copy-of select="."/>
         </xsl:for-each>
         <h2>
           <a name="__about_sorted_tables">About This Style</a>
