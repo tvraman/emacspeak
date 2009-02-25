@@ -653,7 +653,7 @@ content."
   "Set up content filter in displayed page."
      (declare (special emacspeak-we-xpath-filter))
      (setq emacspeak-we-xpath-filter
-	   "//p"))
+	   emacspeak-we-recent-xpath-filter))
 
 ;;}}}
 ;;{{{ webmaster tools
@@ -1654,7 +1654,7 @@ name of the list.")
  "Money Content "
  "http://money.cnn.com/"
  nil
- nil
+ 'emacspeak-url-template-setup-content-filter
  "CNN Content"
  #'(lambda (url)
      (emacspeak-we-extract-by-id
