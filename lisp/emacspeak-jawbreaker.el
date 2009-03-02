@@ -94,7 +94,7 @@ to the running game. ")
                     emacspeak-jawbreaker-buffer))
   (comint-send-string
    (inferior-moz-process)
-   (format "content.location.href='%s'\n"
+   (format "window.location.href='%s'\n"
            emacspeak-jawbreaker-url))
   (save-excursion
     (set-buffer (get-buffer-create emacspeak-jawbreaker-buffer))
