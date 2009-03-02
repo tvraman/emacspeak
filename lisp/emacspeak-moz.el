@@ -166,7 +166,7 @@
                            (browse-url-url-at-point)
                            "http://"))))
   (emacspeak-moz-eval-expression
-   (format "content.location.href='%s'\n"
+   (format "window.location.href='%s'\n"
            url)))
 
 ;;;###autoload
@@ -180,7 +180,7 @@
     (cond
      (url
       (emacspeak-moz-eval-expression
-       (format "content.location.href=\"%s\";\n"
+       (format "window.location.href=\"%s\";\n"
                url))
       (message "Sent url at point to firefox."))
      (t (error "No url under point.")))))
