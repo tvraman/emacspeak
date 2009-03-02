@@ -86,20 +86,18 @@ ADom.prototype.body = function () {
 
 
 /*
- * Move to  element identified by id 
+ * Move to  element identified by id
  * @return {node} current node.
  */
 ADom.prototype.selectId = function (elementId) {
     return this.current_ =  this.document_.getElementById(elementId);
 };
 
-
-
 // >
 // <Summarizers:
 
 /*
- * base: Return appropriately encoded <base ../>
+ * base: Return appropriately encoded <base .
  * @return: {String} HTML base element.
  */
 ADom.prototype.base = function () {
@@ -215,7 +213,7 @@ RingBuffer.prototype.next = function () {
     this.index_++;
     return this.list_.item(this.index_);
 };
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
 RingBuffer.prototype.previous = function () {
     if (this.index_ === -1 || this.index_ === 0) {
         this.index_ = this.len_;
@@ -235,7 +233,7 @@ var XPathRingBuffer = function (nodes) {
     this.index_ = -1;
     this.len_ = nodes.snapshotLength;
 };
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
 
 /*
  * item: Return item at specified index.
@@ -253,7 +251,7 @@ XPathRingBuffer.prototype.next = function () {
     this.index_++;
     return this.list_.snapshotItem(this.index_);
 };
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
 XPathRingBuffer.prototype.previous = function () {
     if (this.index_ === -1 || this.index_ === 0) {
         this.index_ = this.len_;
@@ -419,7 +417,7 @@ ADom.prototype.keyPress = function(targetNode,
 
 
   /*
-   * send a key down 
+   * send a key down
    */
 
 ADom.prototype.keyDown = function(targetNode,
@@ -443,7 +441,7 @@ ADom.prototype.keyDown = function(targetNode,
 
 
   /*
-   * send a key up 
+   * send a key up
    */
 
 ADom.prototype.keyUp = function(targetNode,
@@ -486,7 +484,7 @@ handleURLBarCommand();
  * Update adom pointer in repl to point to current document.
  * @return {ADom}
  */
-repl.updateADom = function ()  {
+repl.prototype.updateADom = function ()  {
     if (content.document.adom == undefined) {
         // constructor caches adom in content.document
         repl.adom = new ADom(content.document);
