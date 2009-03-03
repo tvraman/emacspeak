@@ -394,6 +394,13 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ bbc
+(emacspeak-url-template-define
+"Mobile BBC"
+"http://www.bbc.co.uk/mobile/radio/listen/"
+nil
+nil
+"BBC Mobile Streams.")
+
 
 (emacspeak-url-template-define
  "BBC  7 Radio Bridge"
@@ -835,6 +842,17 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 (emacspeak-url-template-define
  "YouTube Results"
  "http://gdata.youtube.com/feeds/api/videos?vq=%s"
+ (list "YouTube:")
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
+           'emacspeak-m-player-youtube-player))
+ "YouTube Search Via Feeds"
+ 'emacspeak-webutils-atom-display)
+
+(emacspeak-url-template-define
+ "Recent YouTube Results"
+ "http://gdata.youtube.com/feeds/api/videos?vq=%s&orderby=updated"
  (list "YouTube:")
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
