@@ -834,7 +834,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 ;;{{{ YouTube:
 (emacspeak-url-template-define
  "YouTube Results"
- "http://gdata.youtube.com/feeds/api/videos?orderby=updated&vq=%s"
+ "http://gdata.youtube.com/feeds/api/videos?vq=%s"
  (list "YouTube:")
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
