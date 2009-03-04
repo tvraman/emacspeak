@@ -3188,7 +3188,7 @@ Default is to add autoload cookies to current file."
   "Navigate to and speak next `bullet'."
   (interactive)
   (search-forward-regexp
-   "\\(^[0-9]+\.\s\\)\\|\\(^O\s\\)")
+   "\\(^[0-9]+\.\\)\\|\\(^O\\) *")
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
@@ -3196,7 +3196,7 @@ Default is to add autoload cookies to current file."
   "Navigate to and speak previous `bullet'."
   (interactive)
   (search-backward-regexp
-   "\\(^[0-9]+\.\s\\)\\|\\(^O\s\\)")
+   "\\(^[0-9]+\.\\)\\|\\(^O\s\\) *")
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
