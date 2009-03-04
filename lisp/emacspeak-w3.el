@@ -186,6 +186,8 @@
           ("\M-l" emacspeak-w3-lynx-url-under-point)
           ("N" emacspeak-speak-next-personality-chunk)
           ("P" emacspeak-speak-previous-personality-chunk)
+          ("o" emacspeak-wizards-next-bullet)
+          ("O" emacspeak-wizards-previous-bullet)
           ("R" emacspeak-webutils-rss-display)
           ("\C-f" w3-table-focus-on-this-cell)
           ("\M- " emacspeak-imenu-speak-this-section)
