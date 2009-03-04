@@ -3189,7 +3189,7 @@ Default is to add autoload cookies to current file."
   (interactive)
   (search-forward-regexp
    "\\(^[0-9]+\.\\)\\|\\(^O\\) *")
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
 
 (defun emacspeak-wizards-previous-bullet ()
@@ -3197,7 +3197,7 @@ Default is to add autoload cookies to current file."
   (interactive)
   (search-backward-regexp
    "\\(^[0-9]+\.\\)\\|\\(^O\s\\) *")
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
 
 
