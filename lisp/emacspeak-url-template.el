@@ -584,7 +584,18 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ product search: Google (used to be  froogle)
+
+(emacspeak-url-template-define
+ "Google Product Search"
+ "http://www.google.com/products?q=%s&output=html"
+ (list "Product: ")
+ nil
+ "Perform Google Product Search")
+
+;;}}}
 ;;{{{ market summary from google finance
+
 (emacspeak-url-template-define
  "Market summary from Google"
  "http://finance.google.com/finance"
