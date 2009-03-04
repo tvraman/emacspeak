@@ -39,7 +39,6 @@ This style-sheet is here mostly as  a sample template.
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
         <xsl:copy-of  select="."/>
-        <br/>
       </xsl:for-each>
       <h2>About This Document</h2>
       <p> Found <xsl:value-of select="count(//*[@class=$class])"/>
