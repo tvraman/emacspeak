@@ -3182,6 +3182,26 @@ Default is to add autoload cookies to current file."
     (call-interactively 'find-file)))
 
 ;;}}}
+;;{{{ Bullet navigation 
+
+(defun emacspeak-wizards-next-bullet ()
+  "Navigate to and speak next `bullet'."
+  (interactive)
+  (search-forward-regexp
+   "\\(^[0-9]+\.\s\\)\\|\\(^O\s\\)")
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
+
+(defun emacspeak-wizards-previous-bullet ()
+  "Navigate to and speak previous `bullet'."
+  (interactive)
+  (search-backward-regexp
+   "\\(^[0-9]+\.\s\\)\\|\\(^O\s\\)")
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
