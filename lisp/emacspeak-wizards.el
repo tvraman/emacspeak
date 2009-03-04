@@ -1590,7 +1590,7 @@ personal customizations."
   "Show value of property personality (and possibly face)
 at point."
   (interactive )
-  (let ((p (get-text-property (point) 'personality))
+  (let ((p (get-char-property (point) 'personality))
         (f (get-text-property (point) 'face))
         (o
          (delq nil
