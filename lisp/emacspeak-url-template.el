@@ -590,8 +590,15 @@ content."
  "Google Product Search"
  "http://www.google.com/products?q=%s&output=html"
  (list "Product: ")
- nil
- "Perform Google Product Search")
+ #'(lambda ()
+     (search-forward "Please" nil t)
+     (forward-line 2)
+     (emacspeak-speak-line))
+ "Perform Google Product Search"
+ #'(lambda (url)
+     (emacspeak-we-xslt-filter
+      "id(\"res0\")/.."
+      url )))
 
 ;;}}}
 ;;{{{ market summary from google finance
