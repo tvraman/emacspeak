@@ -74,7 +74,7 @@
 
 ;;}}}
 ;;{{{  The new functions:
-
+;;;###autoload
 (defun emacspeak-self-insert-command (&optional arg)
   "Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -109,7 +109,7 @@ speech flush as you type."
        (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
        (funcall auto-fill-function)))
-
+;;;###autoload
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
   (interactive "p")
