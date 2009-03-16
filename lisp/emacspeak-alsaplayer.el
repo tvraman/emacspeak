@@ -166,11 +166,12 @@ Optional second arg watch-pattern specifies line of output to
     (let ((completion-ignore-case t)
           (read-file-name-completion-ignore-case t))
       (expand-file-name
-       (read-file-name "Media Resource: "
-                       (if 
-                           (string-match "mp3" (expand-file-name default-directory))
-                           default-directory
-                         emacspeak-alsaplayer-media-directory))))))
+       (read-file-name
+	  "Media Resource: "
+	  (if 
+	      (string-match "\\(audio\\)\\|\\(mp3\\)" (expand-file-name default-directory))
+	      default-directory
+	    emacspeak-alsaplayer-media-directory))))))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (shell-quote-wildcard-pattern
