@@ -167,12 +167,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (emacspeak-speak-messages nil)
           (read-file-name-completion-ignore-case t)
           (minibuffer-history emacspeak-realaudio-history))
-      (read-file-name "MP3 Resource: "
-                      (if (string-match "mp3" (expand-file-name default-directory))
-                          default-directory
-                        emacspeak-realaudio-shortcuts-directory)
-                      (when (eq major-mode 'dired-mode)
-                        (dired-get-filename))))
+      (read-file-name
+       "MP3 Resource: "
+       (if
+	   (string-match "\\(mp3\\)\\|\\(audio\\)"
+			 (expand-file-name default-directory))
+	   default-directory
+	 emacspeak-realaudio-shortcuts-directory)
+       (when (eq major-mode 'dired-mode)
+	 (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history
                     emacspeak-media-extensions
