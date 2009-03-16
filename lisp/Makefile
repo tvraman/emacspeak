@@ -88,6 +88,7 @@ AUX_OBJECTS =  cd-tool.elc \
 amixer.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
+emacspeak-amark.elc \
 emacspeak-amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
@@ -290,6 +291,7 @@ multispeech-voices.elc: multispeech-voices.el voice-setup.elc
 espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
+emacspeak-amark.elc: emacspeak-amark.el
 emacspeak-amphetadesk.elc: emacspeak-amphetadesk.el
 cd-tool.elc: cd-tool.el
 amixer.elc: amixer.el
