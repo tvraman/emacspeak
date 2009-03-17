@@ -102,8 +102,8 @@
                   (emacspeak-ansi-color-to-voice face))))
     (when voice
       (funcall emacspeak-personality-voiceify-faces
-	       start end
-	       voice nil))))
+               start end
+               voice nil))))
 
 ;;}}}
 ;;{{{ advice interactive commands

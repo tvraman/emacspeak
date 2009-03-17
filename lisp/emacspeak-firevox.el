@@ -53,7 +53,6 @@
 ;;; I run Firefox headless using the etc/firebox script
 ;;; And I have Fire Vox installed to provide the Firefox side of the spoken output.
 
-
 ;;; Code:
 
 ;;}}}
@@ -78,7 +77,6 @@
 (defvar emacspeak-firevox-buffer "*Fire Vox Interaction*"
   "Buffer where we talk to  Firevox.")
 
-
 ;;; Interactive commands:
 
 ;;;###autoload
@@ -99,26 +97,23 @@
           
            
 (defun emacspeak-firevox-read-current ()
-"Read current node."
-(emacspeak-moz-eval-expression
- "CLC_SR_StopSpeaking();CLC_SR_ReadCurrentAtomicObject()\n"))
+  "Read current node."
+  (emacspeak-moz-eval-expression
+   "CLC_SR_StopSpeaking();CLC_SR_ReadCurrentAtomicObject()\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-read-parent ()
-          "Read parent node."
-          (interactive)
-          (emacspeak-moz-eval-expression
-           "CLC_SR_StopSpeaking();CLC_SR_SayParentTextContent()\n"))
+  "Read parent node."
+  (interactive)
+  (emacspeak-moz-eval-expression
+   "CLC_SR_StopSpeaking();CLC_SR_SayParentTextContent()\n"))
 
 ;;;###autoload
 (defun emacspeak-firevox-websearch (query)
-          "Perform Websearch via the Firefox URL bar."
-          (interactive "sWebSearch:")
-          (emacspeak-moz-eval-expression
-           (format "repl.adom.webSearch('%s')\n" query)))
-
-
-
+  "Perform Websearch via the Firefox URL bar."
+  (interactive "sWebSearch:")
+  (emacspeak-moz-eval-expression
+   (format "repl.adom.webSearch('%s')\n" query)))
 
 (defun emacspeak-firevox-setup-keys ()
   "Set up FireVox keybindings."
@@ -128,7 +123,7 @@
           ("\C-n" emacspeak-firevox-read-next)
           ("\C-p" emacspeak-firevox-read-previous)
           ("\C-m" emacspeak-piglets-enter)
-	  ("\C-i" emacspeak-piglets-tab)
+          ("\C-i" emacspeak-piglets-tab)
           ("\M-m" emacspeak-piglets-silence) ;;; think mute
           ("\C-@" emacspeak-firevox-read-current)
           ("\C-^" emacspeak-firevox-read-parent)
@@ -150,9 +145,9 @@
     (setq buffer-undo-list t)
     (emacspeak-piglets-mode)
     (emacspeak-firevox-setup-keys))
-    (switch-to-buffer emacspeak-firevox-buffer)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object))
+  (switch-to-buffer emacspeak-firevox-buffer)
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-firevox)

@@ -551,7 +551,6 @@ Prompts for image file if file corresponding to the expected
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
 
-
 (defvar emacspeak-ocr-image-flipflop
   (executable-find "mogrify")
   "Executable used to transform images.")

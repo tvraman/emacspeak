@@ -109,7 +109,7 @@ STRING.PRONUNCIATION to the   dictionary.
 Argument KEY specifies a dictionary key e.g. directory, mode etc."
   (declare (special emacspeak-pronounce-dictionaries ))
   (let* ((dict  (emacspeak-pronounce-get-dictionary key))
-	 (entry (and dict (assoc string dict))))
+         (entry (and dict (assoc string dict))))
     (cond
      ((and dict entry)
       (setcdr entry pronunciation))
@@ -118,7 +118,7 @@ Argument KEY specifies a dictionary key e.g. directory, mode etc."
       (emacspeak-pronounce-set-dictionary key dict ))
      (t
       (emacspeak-pronounce-set-dictionary key
-					  (list (cons string pronunciation)))))))
+                                          (list (cons string pronunciation)))))))
 
 (defun emacspeak-pronounce-remove-buffer-local-dictionary-entry (string)
   "Remove pronunciation entry."

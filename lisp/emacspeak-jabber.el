@@ -153,7 +153,6 @@
     (emacspeak-auditory-icon 'close-object)
     (message "Set extended  away.")))
 
-
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
   "Allow emacspeak to control if the message is spoken."

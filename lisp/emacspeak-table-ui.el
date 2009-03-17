@@ -550,21 +550,21 @@ the documentation on the table browser."
   (let ((fields nil)
         (this-field nil)
         (start (line-beginning-position)))
-    ;(save-excursion
-      (goto-char start)
-      (while (not (eolp))
-        (ems-csv-forward-field)
-        (setq this-field
-              (cond
-               ((= (preceding-char) ?\")
-                (buffer-substring-no-properties (1+ start)
-                                                (1- (point))))
-               (t (buffer-substring-no-properties start  (point)))))
-        (push this-field fields)
-        (when (= (char-after) ?,)
-          (forward-char 1))
-        (setq start (point)))
-;)
+                                        ;(save-excursion
+    (goto-char start)
+    (while (not (eolp))
+      (ems-csv-forward-field)
+      (setq this-field
+            (cond
+             ((= (preceding-char) ?\")
+              (buffer-substring-no-properties (1+ start)
+                                              (1- (point))))
+             (t (buffer-substring-no-properties start  (point)))))
+      (push this-field fields)
+      (when (= (char-after) ?,)
+        (forward-char 1))
+      (setq start (point)))
+                                        ;)
     (when (= (preceding-char) ?,)
       (push "" fields))
     (nreverse fields)))
@@ -597,7 +597,7 @@ The processed  data and presented using emacspeak table navigation. "
       (insert-buffer buffer-name)
       (goto-char (point-min))
       (flush-lines "^ *$")
-    (goto-char (point-min))
+      (goto-char (point-min))
       (setq elements
             (make-vector (count-lines (point-min) (point-max))
                          nil))

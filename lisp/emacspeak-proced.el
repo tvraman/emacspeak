@@ -171,9 +171,6 @@
     (otherwise (message "Pick field using mnemonic chars"))
     (sit-for 1)))
 
-
-
-
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
   (interactive)
@@ -257,7 +254,6 @@
         (forward-line 1))
       (setq emacspeak-proced-process-cache (nreverse cache)))))
 
-
 (defun emacspeak-proced-jump-to-process (name)
   "Jump to process by name."
   (interactive
@@ -267,7 +263,7 @@
      emacspeak-proced-process-cache)))
   (declare (special emacspeak-proced-process-cache))
   (let ((pos (position name  emacspeak-proced-process-cache
-		       :test #'string-equal)))
+                       :test #'string-equal)))
     (cond
      (pos 
       (goto-line (1+ pos))
@@ -276,8 +272,6 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
-
-
 
 (defadvice proced-mark (before emacspeak pre act comp)
   "Provide auditory feedback."
@@ -314,13 +308,13 @@
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Update cache of field positions."
-	  (let ((emacspeak-speak-messages nil))
-	    ad-do-it
-	    (emacspeak-proced-update-fields)
-	    (emacspeak-proced-update-process-cache)
-	    (when (interactive-p)
-	      (let ((header-line-format nil))
-	      (emacspeak-speak-mode-line)))))))
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it
+            (emacspeak-proced-update-fields)
+            (emacspeak-proced-update-process-cache)
+            (when (interactive-p)
+              (let ((header-line-format nil))
+                (emacspeak-speak-mode-line)))))))
 
 (loop for f  in
       '(proced-sort-pcpu proced-sort-start
@@ -343,7 +337,6 @@
                          (buffer-substring
                           (+ (point) (car target))
                           (+ (point) (cdr target)))))))))))
-
 
 ;;}}}
 ;;{{{ additional commands:

@@ -653,12 +653,12 @@ Argument COMPLEMENT  is the complement of separator."
   "Similar to next-single-property-change, but compares property values with equal if they are not atoms."
   (let ((initial-value (get-text-property start  prop object)))
     (if (atom initial-value)
-	(next-single-property-change start prop object limit)
+        (next-single-property-change start prop object limit)
       (let ((pos start))
-	(while  (and (< pos limit)
-		     (equal initial-value (get-text-property pos prop object)))
-	  (setq pos (next-single-property-change pos prop object limit)))
-	pos))))
+        (while  (and (< pos limit)
+                     (equal initial-value (get-text-property pos prop object)))
+          (setq pos (next-single-property-change pos prop object limit)))
+        pos))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
@@ -678,7 +678,7 @@ Arguments START and END specify region to speak."
       (while (and (< start end )
                   (setq last
                         (next-true-single-property-change start 'personality
-                                                      (current-buffer) end)))
+                                                          (current-buffer) end)))
         (if personality
             (dtk-speak-using-voice personality
                                    (buffer-substring start last ))
@@ -1086,7 +1086,6 @@ Possible values are some, all or none.
 You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
-
 
 (make-variable-buffer-local 'dtk-punctuation-mode)
 ;;; forward declaration
@@ -1522,9 +1521,9 @@ available TTS servers.")
   "Translate CHAR to speech string."
   (declare (special dtk-character-to-speech-table))
   (if  (eq (char-charset char) 'ascii)
-	  (aref dtk-character-to-speech-table char )
-	(or (dtk-unicode-short-name-for-char char)
-		 (format "octal %o"  char ))))
+      (aref dtk-character-to-speech-table char )
+    (or (dtk-unicode-short-name-for-char char)
+        (format "octal %o"  char ))))
 
 ;;}}}
 ;;{{{  interactively selecting the server:
@@ -1551,7 +1550,7 @@ This is setup on a per engine basis.")
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
    ((string-match "eflite" tts-name)
-	(flite-configure-tts))
+    (flite-configure-tts))
    (t (dectalk-configure-tts)           ; will become
                                         ; generic-configure)))
       ))
@@ -1631,7 +1630,7 @@ Default is to use pipes.")
                      (eq 'stop (process-status dtk-speaker-process ))))
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
-	  (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
+      (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
       (tts-configure-synthesis-setup dtk-program)
       (run-hooks 'dtk-startup-hook ))
      (t
@@ -1746,7 +1745,7 @@ only speak upto the first ctrl-m."
           (inherit-strip-octals tts-strip-octals)
           (complement-separator(dtk-complement-chunk-separator-syntax ))
           (speech-rate dtk-speech-rate)
-		  (inherit-enable-multibyte-characters enable-multibyte-characters)
+          (inherit-enable-multibyte-characters enable-multibyte-characters)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
           (end nil )
@@ -1771,13 +1770,13 @@ only speak upto the first ctrl-m."
                 tts-strip-octals inherit-strip-octals
                 voice-lock-mode voice-lock)
           (set-syntax-table syntax-table )
-		  (set-buffer-multibyte inherit-enable-multibyte-characters)
+          (set-buffer-multibyte inherit-enable-multibyte-characters)
           (insert  text)
           (delete-invisible-text)
           (when pronunciation-table
             (tts-apply-pronunciations
              pronunciation-table))
-		  (dtk-unicode-replace-chars mode)
+          (dtk-unicode-replace-chars mode)
           (dtk-handle-repeating-patterns mode)
           (dtk-quote mode))
         (goto-char (point-min))

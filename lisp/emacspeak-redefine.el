@@ -152,7 +152,6 @@ speech flush as you type."
            (global-set-key key new-fn )))
      keys )))
 
-
 (defvar emacspeak-functions-that-bypass-function-cell
   (list 'backward-char 'forward-char 'self-insert-command )
   "These commands are activated directly through C,

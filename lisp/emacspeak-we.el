@@ -272,7 +272,6 @@ from Web page -- default is the current page being viewed."
      (browse-url url)
      (or speak (interactive-p)))))
 
-
 ;;;###autoload
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
   "Junk elements matching specified locator."
@@ -544,7 +543,6 @@ Tables are specified by containing  match pattern
                 ',(copy-sequence values))))))
     (kill-buffer content)))
 
-
 (defvar emacspeak-we-buffer-id-cache nil
   "Caches id attribute values for current buffer.")
 
@@ -570,7 +568,6 @@ Tables are specified by containing  match pattern
           (setq emacspeak-we-buffer-id-cache
                 ',(copy-sequence values))))))
     (kill-buffer content)))
-
 
 (defvar emacspeak-we-buffer-role-cache nil
   "Caches role attribute values for current buffer.")
@@ -663,7 +660,7 @@ values as completion. "
     (let ((completion-ignore-case t))
       (emacspeak-we-css-get-class-list))
     (emacspeak-webutils-read-url)
-        current-prefix-arg))
+    current-prefix-arg))
   (let ((filter
          (mapconcat
           #'(lambda  (c)
@@ -681,7 +678,7 @@ values as completion. "
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion."
- (interactive
+  (interactive
    (list
     (let ((completion-ignore-case t))
       (completing-read "Id: "
@@ -830,11 +827,11 @@ specifies the page to extract contents  from."
 ;;{{{ xpath  filter
 
 (defvar emacspeak-we-xpath-filter-history 
-(list
- "//p"
-"//p|//div"
-  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote")
-"History list recording XPath filters we've used.")
+  (list
+   "//p"
+   "//p|//div"
+   "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote")
+  "History list recording XPath filters we've used.")
 
 (put 'emacspeak-we-xpath-filter-history 'history-length 10)
 
@@ -930,7 +927,6 @@ used as well."
 ;;}}}
 ;;{{{ Property filter
 
-
 ;;;###autoload
 (defun emacspeak-we-extract-by-property (url &optional speak)
   "Interactively prompt for an HTML property, e.g. id or class,
@@ -942,12 +938,12 @@ and provide a completion list of applicable  property values. Filter document by
   (let* ((completion-ignore-case t)
          (choices
           (mapcar 'symbol-name (intersection
-                      '(id class style role)
-                      (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
+                                '(id class style role)
+                                (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
          (property
           (read
-     (completing-read "Property: "
-                      choices)))
+           (completing-read "Property: "
+                            choices)))
          (values (emacspeak-webutils-get-property-from-html-stack
                   (emacspeak-w3-html-stack)
                   property))

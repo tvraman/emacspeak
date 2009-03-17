@@ -53,7 +53,6 @@
 ;;; I run Firefox headless using the etc/firebox script
 ;;; And I have Fire Vox installed to provide the Firefox side of the spoken output.
 
-
 ;;; Code:
 
 ;;}}}

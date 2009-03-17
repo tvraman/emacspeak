@@ -286,7 +286,6 @@ title)\n"
     "repl.adom.filter(\"%s\"); repl.adom.view()"
     xpath)))
 
-
 ;;;###autoload
 (defun emacspeak-moz-id-browse(id)
   "Browse node having specified id."
