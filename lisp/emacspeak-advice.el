@@ -109,15 +109,15 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Speak the button."
-	  (when (interactive-p)
-	    (condition-case nil
-		(let* ((button (button-at (point)))
-		       (start (button-start button))
-		       (end (button-end button)))
-		  (dtk-speak (buffer-substring start end)))
-	      (error nil))
-	    (emacspeak-auditory-icon 'large-movement)))))
+          "Speak the button."
+          (when (interactive-p)
+            (condition-case nil
+                (let* ((button (button-at (point)))
+                       (start (button-start button))
+                       (end (button-end button)))
+                  (dtk-speak (buffer-substring start end)))
+              (error nil))
+            (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice forward-word (after emacspeak pre act)
   "Speak the word you just moved to."
@@ -501,9 +501,9 @@ the words that were capitalized."
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
   (when (ad-get-arg 0)
-  (tts-with-punctuations 'all
-                         (dtk-speak
-                          (ad-get-arg 0)))))
+    (tts-with-punctuations 'all
+                           (dtk-speak
+                            (ad-get-arg 0)))))
 
 (defadvice previous-history-element (after emacspeak pre act)
   "Speak the history element just inserted."
@@ -663,8 +663,8 @@ Produce an auditory icon if possible."
       (tts-with-punctuations 'all
                              (dtk-speak prompt)))
     ad-do-it
-    ;(tts-with-punctuations 'all
-                           ;(dtk-speak (format "%s" ad-return-value)))
+                                        ;(tts-with-punctuations 'all
+                                        ;(dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
 (defadvice read-passwd (before emacspeak pre act comp)
   "Speak the prompt."
@@ -684,8 +684,8 @@ Produce an auditory icon if possible."
   "Speak the prompt"
   (when (ad-get-arg 0)
     (tts-with-punctuations 'all
-			   (dtk-speak
-			    (ad-get-arg 0)))))
+                           (dtk-speak
+                            (ad-get-arg 0)))))
 
 ;;}}}
 ;;{{{  advice completion functions to speak:
@@ -1014,24 +1014,24 @@ Produce an auditory icon if possible."
 (defadvice comint-output-filter (around emacspeak pre act)
   "Make comint speak its output."
   (let ((inhibit-read-only t)
-	(monitor emacspeak-comint-output-monitor)
-	(dtk-stop-immediately nil))
+        (monitor emacspeak-comint-output-monitor)
+        (dtk-stop-immediately nil))
     (set-buffer (process-buffer (ad-get-arg 0)))
     ad-do-it
     (when (and (boundp 'comint-last-prompt-overlay)
-	       comint-last-prompt-overlay)
+               comint-last-prompt-overlay)
       (add-text-properties
        (overlay-start comint-last-prompt-overlay)
        (overlay-end comint-last-prompt-overlay)
        (list
-	'personality
-	'emacspeak-comint-prompt-personality
-	'rear-sticky nil)))
+        'personality
+        'emacspeak-comint-prompt-personality
+        'rear-sticky nil)))
     (when (and
-	   (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-	   (or monitor
-	       (eq (selected-window)
-		   (get-buffer-window (process-buffer (ad-get-arg 0))))))
+           (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
+           (or monitor
+               (eq (selected-window)
+                   (get-buffer-window (process-buffer (ad-get-arg 0))))))
       (emacspeak-speak-region comint-last-output-start (point )))
     ad-return-value))
 
@@ -2395,7 +2395,7 @@ Produce auditory icons if possible."
 ;; (defun emacspeak-minibuffer-setup-hook ()
 ;;   "Actions  taken when entering the minibuffer with emacspeak. "
 ;;   (declare (special emacspeak-minibuffer-enter-auditory-icon
-;; 		    minibuffer-default))
+;;                  minibuffer-default))
 ;;   (let ((default
 ;;           (cond
 ;;            ((and minibuffer-default (listp minibuffer-default))
@@ -2422,7 +2422,6 @@ emacspeak running."
     (unwind-protect
         (tts-with-punctuations 'all
                                (emacspeak-speak-buffer)))))
-
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 

@@ -77,7 +77,6 @@
   :type 'number
   :group 'emacspeak-piglets)
 
-
 ;;;###autoload
 (defun emacspeak-piglets-tts-init ()
   "Start TTS  engine for Piglets."
@@ -103,7 +102,7 @@ Keystrokes are sent to a connected Firefox."
     (comint-send-string
      (inferior-moz-process)
      ";\n;\nrepl.setenv('printPrompt', false)\n")
-  (emacspeak-piglets-forward-keys)))
+    (emacspeak-piglets-forward-keys)))
 
 ;;}}}
 ;;{{{ Interactive Commands And Keybindings:
@@ -112,7 +111,7 @@ Keystrokes are sent to a connected Firefox."
   (list 'emacspeak-self-insert-command
         'completion-separator-self-insert-autofilling
         'completion-separator-self-insert-command
-'self-insert-command
+        'self-insert-command
         'delete-char
         'backward-delete-char
         'backward-delete-char-untabify
@@ -128,7 +127,7 @@ Keystrokes are sent to a connected Firefox."
         (let ((edit-keys (where-is-internal edit-command  emacspeak-piglets-mode-map)))
           (loop for key in edit-keys 
                 do
-                    (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
+                (define-key emacspeak-piglets-mode-map  key 'emacspeak-piglets-key)))))
 ;;;###autoload
 (defun emacspeak-piglets-tab ()
   "Send TAB to Firefox."
@@ -136,7 +135,6 @@ Keystrokes are sent to a connected Firefox."
   (comint-send-string
    (inferior-moz-process) 
    (format "CLC_SR_StopSpeaking();repl.adom.keyPress(repl.adom.root(),'TAB')\n" )))
-
 
 ;;;###autoload
 (defun emacspeak-piglets-enter ()
@@ -150,12 +148,12 @@ Keystrokes are sent to a connected Firefox."
   "Send keypress to Firefox."
   (interactive "%c")
   (comint-send-string (inferior-moz-process) 
-   (format "CLC_SR_StopSpeaking();repl.adom.keyPress(repl.adom.target(),'%c', false, false, %s)\n"
-           c
-           (if (and (<= 65 c)
-                    (<= c 90))
-               "true"
-             "false"))))
+                      (format "CLC_SR_StopSpeaking();repl.adom.keyPress(repl.adom.target(),'%c', false, false, %s)\n"
+                              c
+                              (if (and (<= 65 c)
+                                       (<= c 90))
+                                  "true"
+                                "false"))))
 
 ;;;###autoload
 (defun emacspeak-piglets-key ()

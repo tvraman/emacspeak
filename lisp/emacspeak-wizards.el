@@ -1037,14 +1037,14 @@ end:\n\n")
 (defsubst ems-texinfo-escape (string)
   "Escape texinfo special chars"
   (when string 
-  (save-excursion
-    (set-buffer (get-buffer-create " *doc-temp*"))
-    (erase-buffer)
-    (insert string)
-    (goto-char (point-min))
-    (while (re-search-forward "[{}@]" nil t)
-      (replace-match "@\\&"))
-    (buffer-string))))
+    (save-excursion
+      (set-buffer (get-buffer-create " *doc-temp*"))
+      (erase-buffer)
+      (insert string)
+      (goto-char (point-min))
+      (while (re-search-forward "[{}@]" nil t)
+        (replace-match "@\\&"))
+      (buffer-string))))
 
 ;;;###autoload
 (defun emacspeak-generate-texinfo-command-documentation (filename)
@@ -1202,8 +1202,8 @@ These options are customizable via Emacs' Custom interface.\n\n"
               (or
                (when
                    (documentation-property  o 'variable-documentation)
-                   (ems-texinfo-escape
-                (documentation-property  o 'variable-documentation)))
+                 (ems-texinfo-escape
+                  (documentation-property  o 'variable-documentation)))
                "Not Documented"))
              (insert "\n@end defvar\n\n")))
        (emacspeak-list-emacspeak-options))
@@ -1859,20 +1859,19 @@ Extracted content is sent to STDOUT."
     (read-from-minibuffer "Count: ")))
   (declare (special emacspeak-wizards-table-content-extractor))
   (let ((buffer
-	 (get-buffer-create " *table extractor* ")))
+         (get-buffer-create " *table extractor* ")))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
       (setq buffer-undo-list t)
       (call-process
-  emacspeak-wizards-table-content-extractor
-  nil t nil
-  "--file" file
-  "--depth" depth
-  "--count" count
-  "2>/dev/null")    
-    (emacspeak-table-view-csv-buffer))))
-
+       emacspeak-wizards-table-content-extractor
+       nil t nil
+       "--file" file
+       "--depth" depth
+       "--count" count
+       "2>/dev/null")    
+      (emacspeak-table-view-csv-buffer))))
 
 ;;}}}
 ;;{{{ annotation wizard
@@ -2074,7 +2073,7 @@ visiting the xls file."
   "Open pdf file as text."
   (interactive
    (list
-   (let ((completion-ignored-extensions nil))
+    (let ((completion-ignored-extensions nil))
       (expand-file-name
        (read-file-name "PDF File: "
                        nil default-directory
@@ -2240,9 +2239,9 @@ emacspeak-wizards-personal-portfolio."
                     emacspeak-wizards-quote-row-filter))
   (let ((temp-file
          (expand-file-name
-	  (format "%s.csv"
-                 (gensym "quotes"))
-	  emacspeak-resource-directory)))
+          (format "%s.csv"
+                  (gensym "quotes"))
+          emacspeak-resource-directory)))
     (shell-command
      (format
       "echo '%s' | perl %s > %s"
@@ -2978,7 +2977,7 @@ dates.")
   (interactive)
   (let ((process-environment '("PAGER=cat")))
     (make-comint "units" "units"
-		 nil "--verbose"))
+                 nil "--verbose"))
   (switch-to-buffer "*units*")
   (emacspeak-auditory-icon 'select-object)
   (goto-char (point-max))
@@ -3199,7 +3198,6 @@ Default is to add autoload cookies to current file."
    "\\(^[0-9]+\.\\)\\|\\(^O\s\\) *")
   (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
-
 
 ;;}}}
 (provide 'emacspeak-wizards)

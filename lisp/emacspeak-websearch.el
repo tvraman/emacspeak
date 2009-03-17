@@ -610,7 +610,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
   (message "state: %s" state)
   (when (string-match "^finished" state)
     (emacspeak-auditory-icon 'select-object)
-  (emacspeak-table-view-csv-buffer (process-buffer process))))
+    (emacspeak-table-view-csv-buffer (process-buffer process))))
 
 ;;;###autoload
 (defun emacspeak-websearch-yahoo-historical-chart (ticker
@@ -1141,7 +1141,7 @@ Optional interactive  prefix arg local-flag prompts for local
   (declare (special emacspeak-websearch-read-query))
   (browse-url
    (concat (cdr (assq engine
-                       emacspeak-websearch-google-launch-uris))
+                      emacspeak-websearch-google-launch-uris))
            (emacspeak-url-encode query))))
 
 ;;}}}
@@ -1824,8 +1824,6 @@ Results"
 
 (emacspeak-websearch-set-key ?x 'y-exchange-rate-convertor)
 
-
-
 (defvar emacspeak-websearch-yahoo-exchange-rate-convertor-uri
   "http://download.finance.yahoo.com/d/quotes.csv?s=%s=X&f=sl1d1t1ba&e=.csv"
   "URI template  for currency conversion.")
@@ -1840,8 +1838,8 @@ Results"
   (declare (special emacspeak-websearch-yahoo-exchange-rate-convertor-uri))
   (let* ((url 
           (format emacspeak-websearch-yahoo-exchange-rate-convertor-uri
-		  (upcase  conversion-spec)))
-	 (buffer (url-retrieve-synchronously url)))
+                  (upcase  conversion-spec)))
+         (buffer (url-retrieve-synchronously url)))
     (save-excursion
       (set-buffer buffer)
       (goto-char (point-min))
@@ -1850,7 +1848,7 @@ Results"
       (emacspeak-table-view-csv-buffer buffer)
       (kill-buffer buffer)
       (when (get-buffer "Currency Rates")
-	(kill-buffer "Currency Rates"))
+        (kill-buffer "Currency Rates"))
       (rename-buffer "Currency Rates"))))
     
 

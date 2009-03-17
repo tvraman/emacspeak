@@ -456,14 +456,14 @@ and TABLE gives the values along that dimension."
 
 (defun espeak-setup-character-to-speech-table ()
   (when (and (null espeak-character-to-speech-table)
-			 (boundp 'dtk-character-to-speech-table)
-			 (vectorp dtk-character-to-speech-table))
-	(setq espeak-character-to-speech-table
-		  (let ((table (copy-seq dtk-character-to-speech-table)))
-			(loop for entry across-ref table 
-				  when   (string-match "\\(\\[\\*\\]\\)"  entry) do
-				  (setf entry (replace-match " " nil nil  entry 1)))
-			table))))
+             (boundp 'dtk-character-to-speech-table)
+             (vectorp dtk-character-to-speech-table))
+    (setq espeak-character-to-speech-table
+          (let ((table (copy-seq dtk-character-to-speech-table)))
+            (loop for entry across-ref table 
+                  when   (string-match "\\(\\[\\*\\]\\)"  entry) do
+                  (setf entry (replace-match " " nil nil  entry 1)))
+            table))))
 
 (defun espeak-configure-tts ()
   "Configure TTS environment to use eSpeak."

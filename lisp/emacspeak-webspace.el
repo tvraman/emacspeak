@@ -70,10 +70,10 @@
 (loop for k in 
       '(
         ("q" bury-buffer)
-	("<" beginning-of-buffer)
-	(">" end-of-buffer)
-	("/" search-forward)
-	("?" search-backward)
+        ("<" beginning-of-buffer)
+        (">" end-of-buffer)
+        ("/" search-forward)
+        ("?" search-backward)
         ("\t" emacspeak-webspace-next-link)
         ([S-tab] emacspeak-webspace-previous-link)
         ("f" emacspeak-webspace-next-link)
@@ -232,14 +232,14 @@ Generates auditory and visual display."
 (defcustom emacspeak-webspace-feeds nil
   "Collection of ATOM and RSS feeds."
   :type '(repeat
-                (string :tag "URL"))
+          (string :tag "URL"))
   :group  'emacspeak-webspace)
 
 ;;; Encapsulate collection feeds, headlines, timer, and  recently updated feed.-index
 
 (defstruct emacspeak-webspace-fs
   feeds titles
-   timer slow-timer index )
+  timer slow-timer index )
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore  structure to use a continuously updating ticker.")
@@ -247,10 +247,10 @@ Generates auditory and visual display."
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache."
   (let ((last-update (get-text-property 0 'last-update feed))
-	(titles  (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+        (titles  (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when (or (null last-update)
-	      (time-less-p '(0 1800 0)	; 30 minutes 
-			   (time-since last-update)))
+              (time-less-p '(0 1800 0)  ; 30 minutes 
+                           (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h) (ring-insert titles h ))
@@ -259,18 +259,18 @@ Generates auditory and visual display."
 (defsubst emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
   (let ((feed-url (aref
-		   (emacspeak-webspace-fs-feeds fs)
-		   (emacspeak-webspace-fs-index fs))))
+                   (emacspeak-webspace-fs-feeds fs)
+                   (emacspeak-webspace-fs-index fs))))
     (setf (emacspeak-webspace-fs-index fs)
-	  (% (1+ (emacspeak-webspace-fs-index fs))
-	     (length (emacspeak-webspace-fs-feeds fs))))
+          (% (1+ (emacspeak-webspace-fs-index fs))
+             (length (emacspeak-webspace-fs-feeds fs))))
     feed-url))
 
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
   (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-   (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
+    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
 (defsubst emacspeak-webspace-headlines-refresh ()
   "Update headlines."
@@ -287,12 +287,12 @@ Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
   (declare (special emacspeak-webspace-headlines))
   (let ((timer nil)
-	(slow-timer nil))
+        (slow-timer nil))
     (setq timer 
-	  (run-with-idle-timer
+          (run-with-idle-timer
            60 t 'emacspeak-webspace-headlines-refresh))
     (setq slow-timer 
-	  (run-with-idle-timer
+          (run-with-idle-timer
            3600 
            t 'emacspeak-webspace-headlines-populate))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
@@ -308,7 +308,6 @@ Updated headlines found in emacspeak-webspace-headlines."
     (let ((h (ring-remove titles 0)))
       (ring-insert-at-beginning titles h)
       h)))
-
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
@@ -329,7 +328,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 ;;{{{ Weather:
 
 (defvar emacspeak-webspace-weather-url-template
-"http://www.wunderground.com/auto/rss_full/%s.xml"
+  "http://www.wunderground.com/auto/rss_full/%s.xml"
   "URL template for weather feed.")
 
 (defun emacspeak-webspace-weather-conditions ()
@@ -339,10 +338,10 @@ Updated headlines found in emacspeak-webspace-headlines."
   (when (and emacspeak-webspace-weather-url-template
              emacspeak-url-template-weather-city-state)
     (with-local-quit
-    (first
-     (gfeeds-titles
-      (format emacspeak-webspace-weather-url-template
-              emacspeak-url-template-weather-city-state))))))
+      (first
+       (gfeeds-titles
+        (format emacspeak-webspace-weather-url-template
+                emacspeak-url-template-weather-city-state))))))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
@@ -366,7 +365,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
         (run-with-idle-timer 600 'repeat
-         'emacspeak-webspace-weather-get )))
+                             'emacspeak-webspace-weather-get )))
 
 ;;;###autoload
 (defun emacspeak-webspace-weather ()
@@ -425,7 +424,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (let ((link (get-text-property (point) 'link)))
     (cond
      (link 
-  (greader-unsubscribe-feed link))
+      (greader-unsubscribe-feed link))
      (t (call-interactively 'greader-unsubscribe-feed)))))
 
 ;;}}}

@@ -124,8 +124,8 @@ Note that the Web browser should reset this hook after using it.")
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
                 (declare (special emacspeak-we-xpath-filter))
-     (setq emacspeak-we-xpath-filter
-	   "//p")
+                (setq emacspeak-we-xpath-filter
+                      "//p")
                 (emacspeak-speak-buffer))
             'at-end))
 
@@ -320,8 +320,8 @@ With a prefix argument, extracts url under point."
   "Transcode specified url via Google."
   (declare (special emacspeak-webutils-google-transcoder-url))
   (browse-url
-     (format emacspeak-webutils-google-transcoder-url
-             (emacspeak-url-encode url))))
+   (format emacspeak-webutils-google-transcoder-url
+           (emacspeak-url-encode url))))
 
 ;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)
@@ -417,8 +417,8 @@ instances."
 (defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
   (let ((buffer (url-retrieve-synchronously feed-url))
-	(coding-system-for-read 'utf-8)
-	(coding-system-for-write 'utf-8)
+        (coding-system-for-read 'utf-8)
+        (coding-system-for-write 'utf-8)
         (emacspeak-xslt-options nil))
     (when speak (emacspeak-webutils-autospeak))
     (cond
@@ -431,7 +431,7 @@ instances."
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))
-	 (decode-coding-region (point-min) (point-max) 'utf-8)
+         (decode-coding-region (point-min) (point-max) 'utf-8)
          (emacspeak-xslt-region style
                                 (point-min) (point-max))
          (browse-url-of-buffer)))))))
@@ -576,7 +576,6 @@ unescape HTML tags."
 ;;}}}
 
 ;;}}}
-
 
 ;;{{{ Properties from HTML stack:
 

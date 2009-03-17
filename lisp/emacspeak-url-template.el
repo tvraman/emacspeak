@@ -67,12 +67,12 @@
 
 (defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
-  name                           ;Human-readable name
-  template                       ;template URL string
-  generators                     ; list of param generator
-  post-action                    ;action to perform after opening
-  documentation                  ;resource  documentation
-  fetcher                        ; custom fetcher
+  name                                ;Human-readable name
+  template                            ;template URL string
+  generators                          ; list of param generator
+  post-action                         ;action to perform after opening
+  documentation                       ;resource  documentation
+  fetcher                             ; custom fetcher
   dont-url-encode)
 
 ;;}}}
@@ -231,7 +231,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Perform powerset query.")
 
-
 ;;}}}
 ;;{{{ Mozilla MDC
 
@@ -267,8 +266,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display package tracking information from UPS."
  #'(lambda (url)
-(emacspeak-we-extract-table-by-match "Package Progress"
-                                     url 'speak)))
+     (emacspeak-we-extract-table-by-match "Package Progress"
+                                          url 'speak)))
 
 ;;}}}
 ;;{{{ amazon
@@ -395,12 +394,11 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ bbc
 (emacspeak-url-template-define
-"Mobile BBC"
-"http://www.bbc.co.uk/mobile/radio/listen/"
-nil
-nil
-"BBC Mobile Streams.")
-
+ "Mobile BBC"
+ "http://www.bbc.co.uk/mobile/radio/listen/"
+ nil
+ nil
+ "BBC Mobile Streams.")
 
 (emacspeak-url-template-define
  "BBC  7 Radio Bridge"
@@ -676,9 +674,9 @@ content."
 
 (defun emacspeak-url-template-setup-content-filter ()
   "Set up content filter in displayed page."
-     (declare (special emacspeak-we-xpath-filter))
-     (setq emacspeak-we-xpath-filter
-	   emacspeak-we-recent-xpath-filter))
+  (declare (special emacspeak-we-xpath-filter))
+  (setq emacspeak-we-xpath-filter
+        emacspeak-we-recent-xpath-filter))
 
 ;;}}}
 ;;{{{ webmaster tools
@@ -736,7 +734,6 @@ content."
 
 ;;}}}
 ;;{{{ GMail HTML
-
 
 (defcustom emacspeak-url-template-gmail-search-url
   "https://mail.google.com/mail/h/"
@@ -961,7 +958,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 
 (emacspeak-url-template-define
  "Finance Google Portfolio"
-"http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
+ "http://finance.google.com/finance/portfolio?action=view&pid=1&pview=sview&output=csv"
  nil nil
  "Download and display portfolio from Google Finance."
  #'(lambda (url)
@@ -1008,8 +1005,8 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Public transit directions from Google."
  #'(lambda (url)
-(emacspeak-we-extract-by-class "directions"
-                            url 'speak)))
+     (emacspeak-we-extract-by-class "directions"
+                                    url 'speak)))
 
 (emacspeak-url-template-define
  "Walking Directions From Google"
@@ -1109,13 +1106,13 @@ Here are some examples:
 ;;{{{ google translation service
 
 (emacspeak-url-template-define
-      "Multilingual dictionary via Google."
-      "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
-      (list
-       "Word: "
-       "Translate from|To:")
-      nil
-      "Translate word using Google.
+ "Multilingual dictionary via Google."
+ "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
+ (list
+  "Word: "
+  "Translate from|To:")
+ nil
+ "Translate word using Google.
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German")
@@ -1185,13 +1182,13 @@ from English to German.")
  "http://www.google.com/search?q=%s&num=%s"
  (list 'gweb-google-autocomplete
        #'(lambda nil
-	   (declare (special  emacspeak-websearch-google-number-of-results))
-	   emacspeak-websearch-google-number-of-results))
+           (declare (special  emacspeak-websearch-google-number-of-results))
+           emacspeak-websearch-google-number-of-results))
  nil
  "Only show Google hits."
  #'(lambda (url)
      (emacspeak-we-extract-by-id "res"
-                                    url 'speak)))
+                                 url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times

@@ -61,9 +61,9 @@
 ;;{{{ Structure:
 
 (defstruct emacspeak-amark
-  path ; fully qualified pathname
-  name ; Bookmark tag
-  position ; Offset in ms from start
+  path                                  ; fully qualified pathname
+  name                                  ; Bookmark tag
+  position                              ; Offset in ms from start
   )
 
 ;;}}}

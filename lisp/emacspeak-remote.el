@@ -86,17 +86,14 @@ a local  Emacspeak terminal buffer.")
 ;;{{{ Helper for guessing host where we came from:
 ;;; see etc/last-log.pl
 
-
 ;;;Remote hostname guessing
 ;;;
 (declaim (special emacspeak-resource-directory))
 
 (defvar emacspeak-remote-hostname
   (expand-file-name  ".current-remote-hostname"
-          emacspeak-resource-directory)
+                     emacspeak-resource-directory)
   "Filename containing the name of the host we connected from")
-
-
 
 ;;;###autoload
 (defun emacspeak-remote-edit-current-remote-hostname  ()

@@ -115,7 +115,7 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer
-		    emacspeak-alsaplayer-height))
+                    emacspeak-alsaplayer-height))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
       (set-buffer buffer)
@@ -123,18 +123,18 @@ Alsaplayer session."
        ((and (get-buffer-process buffer)
              (eq 'run (process-status (get-buffer-process buffer))))
         (pop-to-buffer buffer 'other-window)
-	(set-window-text-height nil emacspeak-alsaplayer-height))
+        (set-window-text-height nil emacspeak-alsaplayer-height))
        (t
         (setq buffer-undo-list t)
         (shell-command
          (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
          (current-buffer))
         (pop-to-buffer buffer 'other-window)
-	(set-window-text-height nil emacspeak-alsaplayer-height)
+        (set-window-text-height nil emacspeak-alsaplayer-height)
         (emacspeak-alsaplayer-mode)))
-    (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line)))))
+      (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+        (emacspeak-auditory-icon 'open-object)
+        (emacspeak-speak-mode-line)))))
 
 ;;}}}
 ;;{{{  Invoke commands:
@@ -169,11 +169,11 @@ Optional second arg watch-pattern specifies line of output to
           (read-file-name-completion-ignore-case t))
       (expand-file-name
        (read-file-name
-	  "Media Resource: "
-	  (if 
-	      (string-match "\\(audio\\)\\|\\(mp3\\)" (expand-file-name default-directory))
-	      default-directory
-	    emacspeak-alsaplayer-media-directory))))))
+          "Media Resource: "
+          (if 
+              (string-match "\\(audio\\)\\|\\(mp3\\)" (expand-file-name default-directory))
+              default-directory
+            emacspeak-alsaplayer-media-directory))))))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (shell-quote-wildcard-pattern
@@ -454,7 +454,6 @@ Optional second arg watch-pattern specifies line of output to
          (line-end-position))
         ": ")))))
 
-
 (defsubst emacspeak-alsaplayer-get-position ()
   "Return currently displayed position."
   (emacspeak-alsaplayer-get-field "position:"))
@@ -469,7 +468,6 @@ Optional second arg watch-pattern specifies line of output to
 (defvar emacspeak-alsaplayer-mark nil
   "Saved mark position.")
 (make-variable-buffer-local 'emacspeak-alsaplayer-mark)
-
 
 (defun emacspeak-alsaplayer-mark-position   ()
   "Mark currently displayed position."
@@ -560,9 +558,8 @@ As the default, use current position."
   (message "Added Amark %s" name))
 ;;;###autoload
 (defun emacspeak-alsaplayer-amark-jump ()
-"Jump to specified AMark."
-)
-
+  "Jump to specified AMark."
+  )
 
 ;;}}}
 ;;{{{ bind keys
@@ -600,7 +597,7 @@ As the default, use current position."
         ("p"
          emacspeak-alsaplayer-previous)
         ("q" emacspeak-alsaplayer-quit)
-	("o" other-window)
+        ("o" other-window)
         ("r" emacspeak-alsaplayer-relative)
         ("s"
          emacspeak-alsaplayer-start)

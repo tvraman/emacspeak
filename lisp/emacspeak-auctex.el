@@ -140,9 +140,9 @@ Provide auditory feedback after formatting region"
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Speak what you inserted"
-	  (when (interactive-p)
-	    (emacspeak-speak-this-char  (preceding-char ))))))
+          "Speak what you inserted"
+          (when (interactive-p)
+            (emacspeak-speak-this-char  (preceding-char ))))))
 
 ;;}}}
 ;;{{{  Inserting structures
