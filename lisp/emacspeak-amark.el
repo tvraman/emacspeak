@@ -64,7 +64,7 @@
   path ; fully qualified pathname
   name ; Bookmark tag
   position ; Offset in ms from start
-)
+  )
 
 ;;}}}
 ;;{{{ AMark List:
@@ -95,8 +95,7 @@ AMarks are bookmarks in audio content."
   (declare (special emacspeak-amark-list))
   (find name emacspeak-amark-list
         :test #'(lambda (name item)
-                  (string-equal name
-                                (emacspeak-amark-name item)))))
+                  (string= name (emacspeak-amark-name item)))))
 
 (defvar emacspeak-amark-file ".amarks.el"
   "Name of file used to save AMarks.")
@@ -113,7 +112,7 @@ AMarks are bookmarks in audio content."
       (set-buffer buff)
       (setq buffer-undo-list t)
       (erase-buffer)
-       (print  l buff) 
+      (print  l buff) 
       (save-buffer buff)
       (kill-buffer buff))))
 
@@ -121,27 +120,22 @@ AMarks are bookmarks in audio content."
   "Locate AMarks file from current directory, and load it."
   (interactive)
   (declare (special emacspeak-amark-list
-            emacspeak-amark-file))
+                    emacspeak-amark-file))
   (let ((buff nil)
         (l nil)
-        (where (locate-dominating-file default-directory
-                                       emacspeak-amark-file)))
-    (unless where
-      (error "No AMarks found."))
-    (setq buff (find-file-noselect (expand-file-name
-                                    emacspeak-amark-file where)))
+        (where
+         (locate-dominating-file default-directory emacspeak-amark-file)))
+    (unless where (error "No AMarks found."))
+    (setq buff
+          (find-file-noselect (expand-file-name emacspeak-amark-file where)))
     (save-excursion
       (set-buffer buff)
       (goto-char (point-min))
-    (setq l (read buff))
-    (kill-buffer buff))
+      (setq l (read buff))
+      (kill-buffer buff))
     (setq emacspeak-amark-list l)))
 
-   
-    
-
 ;;}}}
-
 (provide  'emacspeak-amark)
 ;;{{{  emacs local variables
 
