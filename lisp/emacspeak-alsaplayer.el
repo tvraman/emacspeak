@@ -560,6 +560,8 @@ As the default, use current position."
   (message "Added Amark %s" name))
 ;;;###autoload
 (defun emacspeak-alsaplayer-amark-jump ()
+"Jump to specified AMark."
+)
 
 
 ;;}}}
