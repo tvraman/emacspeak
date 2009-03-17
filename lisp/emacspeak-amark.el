@@ -76,6 +76,71 @@ Automatically becomes buffer-local when set.")
 (make-variable-buffer-local 'emacspeak-amark-list)
 
 ;;}}}
+;;{{{ AMark Functions:
+
+(defun emacspeak-amark-add (path name position)
+  "Add an AMark to the buffer local list of AMarks.
+AMarks are bookmarks in audio content."
+  (interactive "fPath\nsName\nnPosition")
+  (declare (special emacspeak-amark-list))
+  (push
+   (make-emacspeak-amark :path path
+                         :name name
+                         :position position )
+   emacspeak-amark-list))
+
+(defun emacspeak-amark-find (name)
+  "Return matching AMark if found in buffer-local AMark list."
+  (interactive "sName:")
+  (declare (special emacspeak-amark-list))
+  (find name emacspeak-amark-list
+        :test #'(lambda (name item)
+                  (string-equal name
+                                (emacspeak-amark-name item)))))
+
+(defvar emacspeak-amark-file ".amarks.el"
+  "Name of file used to save AMarks.")
+
+(defun emacspeak-amark-save ()
+  "Save buffer-local AMarks in current directory."
+  (interactive)
+  (declare (special emacspeak-amark-file))
+  (let ((l emacspeak-amark-list)
+        (buff
+         (find-file-noselect
+          (expand-file-name emacspeak-amark-file default-directory))))
+    (save-excursion
+      (set-buffer buff)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+       (print  l buff) 
+      (save-buffer buff)
+      (kill-buffer buff))))
+
+(defun emacspeak-amark-load ()
+  "Locate AMarks file from current directory, and load it."
+  (interactive)
+  (declare (special emacspeak-amark-list
+            emacspeak-amark-file))
+  (let ((buff nil)
+        (l nil)
+        (where (locate-dominating-file default-directory
+                                       emacspeak-amark-file)))
+    (unless where
+      (error "No AMarks found."))
+    (setq buff (find-file-noselect (expand-file-name
+                                    emacspeak-amark-file where)))
+    (save-excursion
+      (set-buffer buff)
+      (goto-char (point-min))
+    (setq l (read buff))
+    (kill-buffer buff))
+    (setq emacspeak-amark-list l)))
+
+   
+    
+
+;;}}}
 
 (provide  'emacspeak-amark)
 ;;{{{  emacs local variables
