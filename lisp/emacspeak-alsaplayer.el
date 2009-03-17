@@ -543,7 +543,7 @@ Optional second arg watch-pattern specifies line of output to
 
 ;;}}}
 ;;{{{ AMarks:
-
+;;;###autoload
 (defun emacspeak-alsaplayer-amark-add (name &optional prompt-position)
   "Set AMark `name' at current position in current audio stream.
 Interactive prefix arg prompts for position.
@@ -558,6 +558,9 @@ As the default, use current position."
     (prompt-position (read-number "Position: "))
     (t (emacspeak-alsaplayer-get-position))))
   (message "Added Amark %s" name))
+;;;###autoload
+(defun emacspeak-alsaplayer-amark-jump ()
+
 
 ;;}}}
 ;;{{{ bind keys
