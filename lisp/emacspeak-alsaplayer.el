@@ -52,6 +52,8 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-amark)
+
 ;;}}}
 ;;{{{ define a derived mode for alsaplayer interaction
 
@@ -436,18 +438,15 @@ Optional second arg watch-pattern specifies line of output to
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{  saving positions, marking and clipping:
+;;{{{ Helper Accessors:
 
-(defvar emacspeak-alsaplayer-mark nil
-  "Saved mark position.")
-
-(defsubst emacspeak-alsaplayer-get-position ()
-  "Return currently displayed position."
+(defsubst emacspeak-alsaplayer-get-field (field)
+  "Return specified field value."
   (declare (special emacspeak-alsaplayer-buffer))
   (save-current-buffer
     (set-buffer emacspeak-alsaplayer-buffer)
     (goto-char (point-min))
-    (when (search-forward "position:" nil t)
+    (when (search-forward field  nil t)
       (second
        (split-string
         (buffer-substring-no-properties
@@ -455,10 +454,28 @@ Optional second arg watch-pattern specifies line of output to
          (line-end-position))
         ": ")))))
 
+
+(defsubst emacspeak-alsaplayer-get-position ()
+  "Return currently displayed position."
+  (emacspeak-alsaplayer-get-field "position:"))
+
+(defsubst emacspeak-alsaplayer-get-path ()
+  "Return currently displayed path."
+  (emacspeak-alsaplayer-get-field "path:"))
+
+;;}}}
+;;{{{  saving positions, marking and clipping:
+
+(defvar emacspeak-alsaplayer-mark nil
+  "Saved mark position.")
+(make-variable-buffer-local 'emacspeak-alsaplayer-mark)
+
+
 (defun emacspeak-alsaplayer-mark-position   ()
   "Mark currently displayed position."
   (interactive)
   (declare (special emacspeak-alsaplayer-mark))e
+  (emacspeak-alsaplayer-status)
   (setq emacspeak-alsaplayer-mark
         (emacspeak-alsaplayer-get-position))
   (when (and (interactive-p)
@@ -523,8 +540,24 @@ Optional second arg watch-pattern specifies line of output to
            (format "%d.%d"
                    (/ end 60)
                    (% end 60)))))
-           
-                    
+
+;;}}}
+;;{{{ AMarks:
+
+(defun emacspeak-alsaplayer-amark-add (name &optional prompt-position)
+  "Set AMark `name' at current position in current audio stream.
+Interactive prefix arg prompts for position.
+As the default, use current position."
+  (interactive "sAMark Name:\np")
+  (declare  (special emacspeak-alsaplayer-mark))
+  (emacspeak-alsaplayer-status)
+  (emacspeak-amark-add
+   (emacspeak-alsaplayer-get-path)
+   name
+   (cond
+    (prompt-position (read-number "Position: "))
+    (t (emacspeak-alsaplayer-get-position))))
+  (message "Added Amark %s" name))
 
 ;;}}}
 ;;{{{ bind keys
@@ -534,6 +567,7 @@ Optional second arg watch-pattern specifies line of output to
 (loop for k in
       '(
         ("m" emacspeak-alsaplayer-mark-position)
+        ("M" emacspeak-alsaplayer-amark-add)
         ("w" emacspeak-alsaplayer-where)
         ("x" emacspeak-alsaplayer-clip)
         ("." emacspeak-alsaplayer-forward-10-seconds)
