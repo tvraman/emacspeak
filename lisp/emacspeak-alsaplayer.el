@@ -458,6 +458,10 @@ Optional second arg watch-pattern specifies line of output to
   "Return currently displayed position."
   (emacspeak-alsaplayer-get-field "position:"))
 
+(defsubst emacspeak-alsaplayer-get-playlist-length ()
+  "Return playlist length."
+  (emacspeak-alsaplayer-get-field "playlist_length:"))
+
 (defsubst emacspeak-alsaplayer-get-path ()
   "Return currently displayed path."
   (emacspeak-alsaplayer-get-field "path:"))
@@ -546,7 +550,7 @@ Optional second arg watch-pattern specifies line of output to
   "Set AMark `name' at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position."
-  (interactive "sAMark Name:\np")
+  (interactive "sAMark Name:\nP")
   (declare  (special emacspeak-alsaplayer-mark))
   (emacspeak-alsaplayer-status)
   (emacspeak-amark-add
@@ -559,7 +563,16 @@ As the default, use current position."
 ;;;###autoload
 (defun emacspeak-alsaplayer-amark-jump ()
   "Jump to specified AMark."
-  )
+  (interactive)
+  (let ((amark (call-interactively 'emacspeak-amark-find))
+        (length 0))
+    (emacspeak-alsaplayer-add-to-queue
+     (emacspeak-amark-path amark))
+    (emacspeak-alsaplayer-status)
+    (setq length (emacspeak-alsaplayer-get-playlist-length))
+    (emacspeak-alsaplayer-jump  length)
+    (emacspeak-alsaplayer-seek (emacspeak-amark-position amark))))
+  
 
 ;;}}}
 ;;{{{ bind keys
@@ -570,6 +583,9 @@ As the default, use current position."
       '(
         ("m" emacspeak-alsaplayer-mark-position)
         ("M" emacspeak-alsaplayer-amark-add)
+        ("J" emacspeak-alsaplayer-amark-jump)
+        ("\M-s" emacspeak-amark-save)
+        ("\M-l" emacspeak-amark-load)
         ("w" emacspeak-alsaplayer-where)
         ("x" emacspeak-alsaplayer-clip)
         ("." emacspeak-alsaplayer-forward-10-seconds)
