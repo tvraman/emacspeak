@@ -119,7 +119,10 @@ AMarks are bookmarks in audio content."
       (erase-buffer)
       (print  l buff) 
       (save-buffer buff)
-      (kill-buffer buff))))
+      (kill-buffer buff)
+      (when (interactive-p)
+        (message "Saved AMarks in %s"
+                 default-directory)))))
 
 (defun emacspeak-amark-load ()
   "Locate AMarks file from current directory, and load it."
@@ -138,7 +141,9 @@ AMarks are bookmarks in audio content."
       (goto-char (point-min))
       (setq l (read buff))
       (kill-buffer buff))
-    (setq emacspeak-amark-list l)))
+    (setq emacspeak-amark-list l)
+    (when (interactive-p)
+      (message "Loaded AMarks from %s" where))))
 
 ;;}}}
 (provide  'emacspeak-amark)
