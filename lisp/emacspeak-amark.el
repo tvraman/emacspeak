@@ -91,7 +91,12 @@ AMarks are bookmarks in audio content."
 
 (defun emacspeak-amark-find (name)
   "Return matching AMark if found in buffer-local AMark list."
-  (interactive "sName:")
+  (interactive
+   (list
+    (completing-read
+     "Name: "
+     (loop for a in emacspeak-amark-list
+           collect (emacspeak-amark-name a)))))
   (declare (special emacspeak-amark-list))
   (find name emacspeak-amark-list
         :test #'(lambda (name item)
