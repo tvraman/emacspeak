@@ -143,6 +143,7 @@ AMarks are bookmarks in audio content."
       (kill-buffer buff))
     (setq emacspeak-amark-list l)
     (when (interactive-p)
+      (emacspeak-auditory-icon 'open-object)
       (message "Loaded AMarks from %s" where))))
 
 ;;}}}
