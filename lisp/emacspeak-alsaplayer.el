@@ -134,6 +134,7 @@ Alsaplayer session."
         (emacspeak-alsaplayer-mode)))
       (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
         (emacspeak-auditory-icon 'open-object)
+        (emacspeak-amark-load)
         (emacspeak-speak-mode-line)))))
 
 ;;}}}
