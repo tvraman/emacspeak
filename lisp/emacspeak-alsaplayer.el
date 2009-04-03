@@ -374,6 +374,7 @@ Optional second arg watch-pattern specifies line of output to
     (emacspeak-pronounce-add-buffer-local-dictionary-entry
      (expand-file-name directory)
      ""))
+  (emacspeak-amark-load)
   (emacspeak-auditory-icon 'item))
 ;;}}}
 ;;{{{ additional temporal navigation 

@@ -133,8 +133,11 @@ AMarks are bookmarks in audio content."
         (l nil)
         (where
          (locate-dominating-file default-directory emacspeak-amark-file)))
-    (unless where (error "No AMarks found."))
-    (setq buff
+    (cond
+     ((null where)
+      (when (interactive-p)
+(message "No AMarks found.")))
+    (t (setq buff
           (find-file-noselect (expand-file-name emacspeak-amark-file where)))
     (save-excursion
       (set-buffer buff)
@@ -144,7 +147,7 @@ AMarks are bookmarks in audio content."
     (setq emacspeak-amark-list l)
     (when (interactive-p)
       (emacspeak-auditory-icon 'open-object)
-      (message "Loaded AMarks from %s" where))))
+      (message "Loaded AMarks from %s" where))))))
 
 ;;}}}
 (provide  'emacspeak-amark)
