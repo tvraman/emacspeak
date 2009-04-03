@@ -2070,8 +2070,8 @@ plays entire program."
  nil
  "Find live streams for Air Traffic Control."
  #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "//table[@class=\"body\""
+     (emacspeak-we-extract-by-class
+      "col1wrap"
  url
  'speak)))
 
