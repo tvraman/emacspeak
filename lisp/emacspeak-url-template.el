@@ -2070,8 +2070,10 @@ plays entire program."
  nil
  "Find live streams for Air Traffic Control."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class 
-      "col1wrap" url 'speak)))
+     (emacspeak-we-xslt-filter
+      "//table[@class=\"body\""
+ url
+ 'speak)))
 
 ;;}}}
 ;;{{{ flights from travelocity
