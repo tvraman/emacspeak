@@ -2061,6 +2061,19 @@ plays entire program."
  )
 
 ;;}}}
+;;{{{ Listening to Air Traffic control
+
+(emacspeak-url-template-define
+ "Air Traffic Control"
+ "http://www.liveatc.net/search?icao=%s"
+ (list "Airport Code: ")
+ nil
+ "Find live streams for Air Traffic Control."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class 
+      "col1wrap" url 'speak)))
+
+;;}}}
 ;;{{{ flights from travelocity
 
 (emacspeak-url-template-define
