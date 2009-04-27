@@ -1285,7 +1285,7 @@ from English to German.")
  "Transcode site via Google.")
 
 (emacspeak-url-template-define
- "Google Atom News"
+ "Google topical  News"
  "http://news.google.com/news?ned=us&topic=%s&output=atom"
  (list "Topic Code: ")
  nil

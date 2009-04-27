@@ -122,7 +122,8 @@ AMarks are bookmarks in audio content."
       (kill-buffer buff)
       (when (interactive-p)
         (message "Saved AMarks in %s"
-                 default-directory)))))
+                 default-directory)
+	(emacspeak-auditory-icon 'save-object)))))
 
 (defun emacspeak-amark-load ()
   "Locate AMarks file from current directory, and load it."
