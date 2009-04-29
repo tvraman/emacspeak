@@ -608,8 +608,9 @@ content."
  nil
  "Display financial market summary."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "sfe-mktsumm" url 'speak)))
+     (emacspeak-we-extract-by-id-list
+      (list "mktsumm" "sfe-mktsumm" )
+      url 'speak)))
  
 
 ;;}}}
