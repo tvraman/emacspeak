@@ -1,6 +1,8 @@
-<asx version="3.0">
-<entry>
-        <ref href="mms://a84.l3760657607.c37606.n.lm.akamaistream.net/D/84/37606/v0001/reflector:57607"/>
-</entry>
-</asx>
-<!-- http://www.cnn.com/video/live/cnnlive_control.asx-->
+<ASX Version="3.0">
+<REPEAT>
+<Entry>
+        <Ref Href="mms://a1181.l3760631180.c37606.n.lm.akamaistream.net/D/1181/37606/v0001/reflector:31180"/>
+</Entry>
+</REPEAT>
+</ASX>
+<!-- from: http://www.cnn.com/audio/radio/liveaudio.asx-->
