@@ -263,6 +263,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "texinfo" 'emacspeak-texinfo)
 (emacspeak-do-package-setup "tmm" 'emacspeak-facemenu)
 (emacspeak-do-package-setup "todo-mode" 'emacspeak-todo-mode)
+(emacspeak-do-package-setup "twit" 'emacspeak-twit)
 (emacspeak-do-package-setup "view" 'emacspeak-view)
 (emacspeak-do-package-setup "view-process-mode" 'emacspeak-view-process)
 (emacspeak-do-package-setup "vm" 'emacspeak-vm)
