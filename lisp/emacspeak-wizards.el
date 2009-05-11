@@ -3182,7 +3182,7 @@ Default is to add autoload cookies to current file."
 
 ;;}}}
 ;;{{{ Bullet navigation 
-
+;;;###autoload
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
   (interactive)
@@ -3190,7 +3190,7 @@ Default is to add autoload cookies to current file."
    "\\(^[0-9]+\.\\)\\|\\(^O\\) *")
   (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
-
+;;;###autoload
 (defun emacspeak-wizards-previous-bullet ()
   "Navigate to and speak previous `bullet'."
   (interactive)
