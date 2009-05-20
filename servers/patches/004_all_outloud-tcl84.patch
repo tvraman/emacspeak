@@ -1,0 +1,32 @@
+--- servers/outloud	2008-10-02 19:43:51.000000000 -0500
++++ servers/outloud	2009-05-19 11:17:26.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/tcl
++#!/usr/bin/tclsh
+ # Keywords: Emacspeak, ViaVoice Outloud , TCL
+ # {{{ LCD Entry: 
+ 
+@@ -34,6 +34,7 @@
+ # }}}
+ # {{{source common code 
+ 
++package require Tclx
+ set wd [file dirname $argv0]
+ lappend auto_path $wd
+ #source tts-lib.tcl
+@@ -472,13 +473,13 @@
+ signal ignore {sigint}
+ 
+ # Set input encoding to utf-8
+-fconfigure file0 -encoding utf-8
++fconfigure stdin -encoding utf-8
+ 
+ #initialize outloud 
+ tts_initialize
+ set tts(speech_rate)  75
+ beep_initialize
+-set tts(input) file0
++set tts(input) stdin
+ if {[info exists server_p]} {
+     set tts(input) sock0
+ }
