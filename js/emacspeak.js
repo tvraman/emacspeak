@@ -83,7 +83,7 @@ Emacspeak.prototype.initserver = function() {
 Emacspeak.prototype.say = function(text) {
   var url = this.url_ + 'say?' +encodeURIComponent(text);
   var xhr  = new XMLHttpRequest();
-  xhr.open('GET', url,true);
+  xhr.open('POST', url,true);
   // xhr.onreadystatechange = function (data) {repl.print(data);};
   xhr.send(null);
 };
