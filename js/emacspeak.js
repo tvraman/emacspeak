@@ -37,16 +37,22 @@ function Emacspeak( basepath) {
  */
 
 Emacspeak.prototype.init = function() {
+  function setupUpdateADom(){
+    if (repl.setupUpdateADomRan) return;
+    if(window.gBrowser){
+      gBrowser.addEventListener('load', repl.updateADom, true);
+      repl.setupUpdateADomRan = true;
+    }
+  }
   try {
     var js = 'file://localhost' + this.path_ + 'js/';
     repl.load(js + 'di.js');
     repl.load(js + 'adom.js');
-    window.addEventListener(
-                        "load",
-                        function () {
-                                     gBrowser.addEventListener('load', repl.updateADom, true);
-                                     },
-                        false);
+
+    // for if the window hasn't loaded yet:
+    window.addEventListener("load", setupUpdateADom, false);
+    // for if the window has already loaded:
+    setupUpdateADom();
 
     this.say('Emacspeak Enabled Firefox');
   } catch (err) {
@@ -81,11 +87,11 @@ Emacspeak.prototype.initserver = function() {
  * @return void
  */
 Emacspeak.prototype.say = function(text) {
-  var url = this.url_ + 'say?' +encodeURIComponent(text);
-  var xhr  = new XMLHttpRequest();
-  xhr.open('POST', url,true);
-  // xhr.onreadystatechange = function (data) {repl.print(data);};
-  xhr.send(null);
+  var url = this.url_;
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.send('speak:' + text);
 };
 
 repl.print('Loaded emacspeak.js');
