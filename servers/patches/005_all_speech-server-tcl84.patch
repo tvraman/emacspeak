@@ -1,0 +1,8 @@
+--- servers/speech-server	2008-10-02 19:43:51.000000000 -0500
++++ servers/speech-server	2009-05-19 11:34:45.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/tcl
++#!/usr/bin/tclsh
+ # $Id: speech-server 4725 2007-07-02 02:12:26Z tv.raman.tv $
+ # Description:  Speech server
+ #Usage: tcl speech-server port device-specific-script

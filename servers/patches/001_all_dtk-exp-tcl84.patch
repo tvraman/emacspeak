@@ -1,0 +1,32 @@
+--- servers/dtk-exp	2009-05-19 11:13:41.000000000 -0500
++++ servers/dtk-exp	2009-05-19 11:08:29.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/tcl
++#!/usr/bin/tclsh
+ # $Id: dtk-exp 5528 2008-03-15 02:06:50Z tv.raman.tv $
+ # Description:  Interfacing to a Dectalk via TCL.
+ # Keywords: Emacspeak, Dectalk, TCL
+@@ -57,6 +57,7 @@
+ 
+ # }}}
+ # {{{source common code
++package require Tclx
+ set wd [file dirname $argv0]
+ lappend auto_path $wd
+ source $wd/tts-lib.tcl
+@@ -364,13 +365,13 @@
+ fconfigure $tts(write) -encoding ascii
+ 
+ # Emacspeak sends utf-8
+-fconfigure file0 -encoding utf-8
++fconfigure stdin -encoding utf-8
+ 
+ tts_initialize
+ set tts(speech_rate)  225
+ set tts(say_rate) [round \
+                        [expr $tts(speech_rate) * $tts(char_factor)]]
+-set tts(input) file0
++set tts(input) stdin
+ if {[info exists server_p]} {
+     set tts(input) sock0
+ }
