@@ -133,7 +133,9 @@
   "Send expression to Moz, get output, and browse it in Emacs."
   (interactive "sJSEval: ")
   (declare (special moz-repl-name emacspeak-moz-output-buffer))
-  (let ((comint-preoutput-filter-functions
+  (let ((coding-system-for-read 'utf-8-unix)
+        (coding-system-for-write 'utf-8-unix)
+        (comint-preoutput-filter-functions
          (list 'emacspeak-moz-accumulate-output)))
     (save-excursion
       (set-buffer (get-buffer-create emacspeak-moz-output-buffer))
