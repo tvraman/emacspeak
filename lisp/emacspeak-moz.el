@@ -126,7 +126,7 @@
     (set-buffer emacspeak-moz-output-buffer)
     (goto-char (point-max))
     (insert output)
-    ""))
+    t))
 
 ;;;###autoload
 (defun emacspeak-moz-eval-expression-and-browse (exp)
@@ -142,14 +142,20 @@
       (comint-send-string (inferior-moz-process) exp)
       (while (accept-process-output (inferior-moz-process) 0.5)
         (goto-char (point-max)))
+      (set-buffer emacspeak-moz-output-buffer)
       (goto-char (point-min))
       (flush-lines
        (format "^%s> *$" moz-repl-name))
+      (goto-char (point-min))
+      (delete-char 1)
+      (goto-char (point-max))
+      (backward-delete-char 3)
       (when (or   (eq browse-url-browser-function 'w3-fetch)
                   (eq browse-url-browser-function 'browse-url-w3)
                   (eq browse-url-browser-function 'w3m-browse-url))
         (emacspeak-webutils-autospeak))
       (browse-url-of-buffer emacspeak-moz-output-buffer ))))
+
 ;;;###autoload
 (defun emacspeak-moz-close-tab-or-browser ()
   "Close tab, or browser when one tab left."
