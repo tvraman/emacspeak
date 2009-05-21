@@ -83,6 +83,7 @@
 
 (loop for f in
       '(jabber-keepalive-do
+        jabber-process-roster
         jabber-keepalive-got-response)
       do
       (eval
