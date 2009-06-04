@@ -569,7 +569,7 @@ initLanguage (Tcl_Interp * interp)
     {
       char buffer_i[3];
       snprintf(buffer_i, 3, "%d", i);
-      Tcl_SetVar2(interp,"langalias", voices[i]->languages, buffer_i, 0);
+      Tcl_SetVar2(interp,"langalias", (char*)(voices[i]->languages), buffer_i, 0);
     }
 
   langInfoMax = i;
@@ -601,11 +601,11 @@ initLanguage (Tcl_Interp * interp)
       if (strncmp(aDefaultLang, aLangCode, 2) == 0)
 	{
 	  Tcl_SetVar2(interp, "langsynth", "current", buffer_i, 0);
-	  Tcl_SetVar2(interp, "langcode", "current", aLangCode, 0);
+	  Tcl_SetVar2(interp, "langcode", "current", (char*) aLangCode, 0);
 	}
 
-      Tcl_SetVar2(interp, "langlabel", buffer_j, voices[i]->name, 0);
-      Tcl_SetVar2(interp, "langcode", buffer_j, aLangCode, 0);
+      Tcl_SetVar2(interp, "langlabel", buffer_j, (char*)(voices[i]->name), 0);
+      Tcl_SetVar2(interp, "langcode", buffer_j, (char*)aLangCode, 0);
       Tcl_SetVar2(interp, "langsynth", "top", buffer_j, 0);
     }
 }
