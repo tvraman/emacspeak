@@ -444,8 +444,8 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
   (interactive)
-  (emacspeak-m-player-dispatch "get_time_length"))
-
+  (emacspeak-m-player-dispatch "get_time_length")
+  (accept-process-output))
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
   (interactive)
