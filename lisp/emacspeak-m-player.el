@@ -189,7 +189,7 @@ on a specific director."
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
   (let ((emacspeak-media-shortcuts-directory (expand-file-name
-                                                  (file-name-as-directorydirectory))))
+                                                  (file-name-as-directory directory))))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer
                        emacspeak-m-player-process))
