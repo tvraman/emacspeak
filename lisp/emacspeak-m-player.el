@@ -156,14 +156,30 @@
    "$")
   "Extensions that match media files.")
 
-
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
-  (let ((emacspeak-realaudio-shortcuts-directory (expand-file-name location)))
+  (let ((emacspeak-realaudio-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer
-                       emacspeak-m-player-process))))
+                       emacspeak-m-player-process))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
+;;;###autoload
+(defun emacspeak-m-player-bind-accelerator (directory key)
+  "Binds key to invoke m-player accelerator on specified
+directory."
+  (interactive
+   (list
+    (read-directory-name"Media Directory: ")
+    (read-key-sequence "Key: ")))
+  (interactive)
+  (eval
+   `(global-set-key key
+                    #'(lambda nil
+                        (interactive)
+                        (emacspeak-m-player-accelerator ,directory)))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
