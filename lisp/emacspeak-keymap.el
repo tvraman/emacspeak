@@ -253,15 +253,15 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-  (mapc
-   (lambda (binding)
-     (let ((key (car binding))
-           (command (cdr binding )))
-       (when (string-match "\\[.+]" key)
-         (setq key (car (read-from-string key))))
-       (define-key emacspeak-hyper-keymap key command)))
-   val)
-  (set-default sym val)))
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-hyper-keymap key command)))
+           val)
+          (set-default sym val)))
 
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)

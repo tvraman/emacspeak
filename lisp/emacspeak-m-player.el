@@ -67,6 +67,17 @@
 
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction 
+(defvar emacspeak-media-shortcuts-directory 
+  (expand-file-name "realaudio/" emacspeak-directory)
+  "*Directory where we keep media shortcuts.
+I typically keep .ram --Media metafiles-- in this
+directory.
+Media metafiles typically contain a single line that
+specifies the actual location of the media stream
+--typically the .ra file.")
+
+(defvar emacspeak-media-history nil
+  "History list holding resources we played recently")
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player." )
@@ -100,13 +111,31 @@
 (defvar emacspeak-m-player-default-options
   (list "-slave"  "-nortc""-softvol" "-quiet" )
   "Default options for MPlayer.")
-
 (defcustom emacspeak-m-player-options 
   (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer."
   :type  '(repeat
            (string :tag "option"))
   :group 'emacspeak-m-player)
+
+(defcustom emacspeak-media-location-bindings  nil
+  "*Map specific key sequences to launching MPlayer accelerators 
+on a specific director."
+  :group 'emacspeak-m-player
+  :type '(repeat :tag "Emacspeak Media Locations"
+                 (cons  :tag "KeyBinding"
+                        (string :tag "Key")
+                        (file :tag "Directory")))
+  :set '(lambda (sym val)
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (directory (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (emacspeak-m-player-bind-accelerator directory key)))
+           val)
+          (set-default sym val)))
 
 ;;;###autoload
 (defun emacspeak-multimedia  ()
@@ -159,7 +188,8 @@
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
-  (let ((emacspeak-realaudio-shortcuts-directory (expand-file-name directory)))
+  (let ((emacspeak-media-shortcuts-directory (expand-file-name
+                                                  (file-name-as-directorydirectory))))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer
                        emacspeak-m-player-process))
@@ -191,20 +221,20 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
           (read-file-name-completion-ignore-case t)
-          (minibuffer-history emacspeak-realaudio-history))
+          (minibuffer-history emacspeak-media-history))
       (read-file-name
        "MP3 Resource: "
        (if
            (string-match "\\(mp3\\)\\|\\(audio\\)"
                          (expand-file-name default-directory))
            default-directory
-         emacspeak-realaudio-shortcuts-directory)
+         emacspeak-media-shortcuts-directory)
        (when (eq major-mode 'dired-mode)
          (dired-get-filename))))
     current-prefix-arg))
-  (declare (special emacspeak-realaudio-history
+  (declare (special emacspeak-media-history
                     emacspeak-media-extensions
-                    emacspeak-realaudio-shortcuts-directory emacspeak-m-player-process
+                    emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
