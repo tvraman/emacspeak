@@ -168,8 +168,7 @@
 
 ;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
-  "Binds key to invoke m-player accelerator on specified
-directory."
+  "Binds key to invoke m-player  on specified directory."
   (interactive
    (list
     (read-directory-name"Media Directory: ")
