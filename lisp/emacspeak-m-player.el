@@ -146,6 +146,7 @@
    (regexp-opt
     (list ".wma"
           ".m4a"
+          ".m4b"
           ".flac"
           ".ogg"
           ".mp3"
@@ -154,6 +155,15 @@
     'parens)
    "$")
   "Extensions that match media files.")
+
+
+;;;###autoload
+(defun emacspeak-m-player-accelerator (directory)
+  "Launch MPlayer on specified directory and switch to it."
+  (let ((emacspeak-realaudio-shortcuts-directory (expand-file-name location)))
+    (call-interactively 'emacspeak-multimedia)
+    (switch-to-buffer (process-buffer
+                       emacspeak-m-player-process))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
