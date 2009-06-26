@@ -125,7 +125,7 @@ on a specific director."
   :type '(repeat :tag "Emacspeak Media Locations"
                  (cons  :tag "KeyBinding"
                         (string :tag "Key")
-                        (file :tag "Directory")))
+                        (directory :tag "Directory")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -188,8 +188,7 @@ on a specific director."
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
-  (let ((emacspeak-media-shortcuts-directory (expand-file-name
-                                                  (file-name-as-directory directory))))
+  (let ((emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer
                        emacspeak-m-player-process))
