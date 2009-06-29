@@ -72,7 +72,7 @@
 (defadvice midge-close-bracket(after emacspeak pre act comp)
   "Speak closing delimiter we inserted"
   (when (interactive-p)
-    (emacspeak-speak-this-char last-input-char)))
+    (emacspeak-speak-this-char last-input-event)))
 
 (defadvice midge-head-block(after emacspeak pre act comp)
   "Announce insertion of head block"

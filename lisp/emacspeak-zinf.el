@@ -96,8 +96,8 @@
 (defun emacspeak-zinf-zinf-call-command ()
   "Call appropriate zinf command."
   (interactive)
-  (emacspeak-zinf-zinf-command last-input-char)
-  (when (char-equal last-input-char ?q)
+  (emacspeak-zinf-zinf-command last-input-event)
+  (when (char-equal last-input-event ?q)
     (emacspeak-aumix-reset)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))

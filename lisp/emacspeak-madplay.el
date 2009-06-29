@@ -99,8 +99,8 @@
   "Call appropriate madplay command."
   (interactive)
   (declare (special emacspeak-madplay-buffer-name))
-  (emacspeak-madplay-madplay-command last-input-char)
-  (when (char-equal last-input-char ?q)
+  (emacspeak-madplay-madplay-command last-input-event)
+  (when (char-equal last-input-event ?q)
     (emacspeak-aumix-reset)
     (emacspeak-auditory-icon 'close-object)
     (when (equal emacspeak-madplay-buffer-name (buffer-name))

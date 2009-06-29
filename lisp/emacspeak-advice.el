@@ -471,7 +471,7 @@ the words that were capitalized."
 ;;   (condition-case nil
 ;;       ad-do-it
 ;;     (error (set-syntax-table cmpl-saved-syntax)
-;;            (emacspeak-self-insert-command last-input-char ))))
+;;            (emacspeak-self-insert-command last-input-event ))))
 
 (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
   "Speak what was completed."

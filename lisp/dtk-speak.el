@@ -828,10 +828,10 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (declare (special dtk-speech-rate-step
                     dtk-speech-rate-base
-                    last-input-char))
+                    last-input-event))
   (let ((level
          (condition-case nil
-             (read (format "%c" last-input-char ))
+             (read (format "%c" last-input-event ))
            (error nil ))))
     (or (numberp level)
         (setq level

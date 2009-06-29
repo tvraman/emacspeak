@@ -2697,8 +2697,8 @@ Use with caution."
 (defun emacspeak-wizards-vc-n ()
   "Accelerator for VC viewer."
   (interactive)
-  (declare (special last-input-char))
-  (emacspeak-wizards-vc-viewer (format "%c" last-input-char))
+  (declare (special last-input-event))
+  (emacspeak-wizards-vc-viewer (format "%c" last-input-event))
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
 

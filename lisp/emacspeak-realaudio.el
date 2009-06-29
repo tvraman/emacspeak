@@ -469,7 +469,7 @@ commands via single keystrokes."
 (defun emacspeak-realaudio-trplayer-call-command ()
   "Call appropriate TRPlayer command."
   (interactive)
-  (emacspeak-realaudio-trplayer-command last-input-char))
+  (emacspeak-realaudio-trplayer-command last-input-event))
 
 (defun emacspeak-realaudio-select-realaudio-buffer ()
   "Switch to realaudio buffer."

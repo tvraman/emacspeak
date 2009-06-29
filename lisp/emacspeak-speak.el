@@ -3099,13 +3099,13 @@ Argument O specifies overlay."
 typed. If no such group exists, then we try to search for that
 char, or dont move. "
   (interactive)
-  (declare (special last-input-char))
+  (declare (special last-input-event))
   (let ((pattern
          (format
           "[ \t\n]%s%c"
           (or (emacspeak-get-minibuffer-contents) "")
-          last-input-char))
-        (input (format "%c" last-input-char))
+          last-input-event))
+        (input (format "%c" last-input-event))
         (case-fold-search t))
     (when (or (re-search-forward pattern nil t)
               (re-search-backward pattern nil t)
@@ -3200,8 +3200,8 @@ Speak text between point and the char we hit."
 (defun emacspeak-speak-and-skip-extent-upto-this-char ()
   "Speak extent delimited by point and last character typed."
   (interactive)
-  (declare (special last-input-char))
-  (emacspeak-speak-and-skip-extent-upto-char last-input-char))
+  (declare (special last-input-event))
+  (emacspeak-speak-and-skip-extent-upto-char last-input-event))
 
 ;;}}}
 ;;{{{  speak message at time
