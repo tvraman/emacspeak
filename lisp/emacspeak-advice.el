@@ -465,14 +465,6 @@ the words that were capitalized."
 ;;}}}
 ;;{{{  advice insertion commands to speak.
 
-;; (defadvice completion-separator-self-insert-autofilling
-;;   (around fix-bug pre act comp)
-;;   "This fixes a bug in completion under Emacs 19.34."
-;;   (condition-case nil
-;;       ad-do-it
-;;     (error (set-syntax-table cmpl-saved-syntax)
-;;            (emacspeak-self-insert-command last-input-event ))))
-
 (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
   "Speak what was completed."
   (declare (special emacspeak-word-echo))
@@ -719,7 +711,8 @@ Produce an auditory icon if possible."
           ad-return-value)))
 
 (loop for f in
-      '(lisp-complete-symbol complete-symbol)
+      '(lisp-complete-symbol complete-symbol
+                             widget-complete)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act)
