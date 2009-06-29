@@ -277,6 +277,16 @@ When called interactively, CHAR defaults to the character after point.
 
 ------------------------------------------------------------
 
+** emacspeak-alsaplayer-amark-add Set AMark `name' at current position in current audio stream.
+Interactive prefix arg prompts for position.
+As the default, use current position. 
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-amark-jump Jump to specified AMark. 
+
+------------------------------------------------------------
+
 ** emacspeak-alsaplayer-backward-10-seconds Skip backward by  10 seconds. 
 
 ------------------------------------------------------------
@@ -341,6 +351,7 @@ Alsaplayer session.
 key             binding
 ---             -------
 
+ESC		Prefix Command
 SPC		emacspeak-alsaplayer-pause
 ,		emacspeak-alsaplayer-backward-10-seconds
 .		emacspeak-alsaplayer-forward-10-seconds
@@ -349,6 +360,8 @@ SPC		emacspeak-alsaplayer-pause
 >		emacspeak-alsaplayer-forward-minute
 ?		emacspeak-alsaplayer-status
 A		emacspeak-alsaplayer-replace-queue
+J		emacspeak-alsaplayer-amark-jump
+M		emacspeak-alsaplayer-amark-add
 S		emacspeak-alsaplayer-stop
 [		emacspeak-alsaplayer-backward-ten-minutes
 ]		emacspeak-alsaplayer-forward-ten-minutes
@@ -370,6 +383,9 @@ s		emacspeak-alsaplayer-start
 v		emacspeak-alsaplayer-volume
 w		emacspeak-alsaplayer-where
 x		emacspeak-alsaplayer-clip
+
+M-l		emacspeak-amark-load
+M-s		emacspeak-amark-save
 
 
 
@@ -427,6 +443,23 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-alsaplayer-where Speak current position and copy it to kill ring. 
+
+------------------------------------------------------------
+
+** emacspeak-amark-add Add an AMark to the buffer local list of AMarks.
+AMarks are bookmarks in audio content. 
+
+------------------------------------------------------------
+
+** emacspeak-amark-find Return matching AMark if found in buffer-local AMark list. 
+
+------------------------------------------------------------
+
+** emacspeak-amark-load Locate AMarks file from current directory, and load it. 
+
+------------------------------------------------------------
+
+** emacspeak-amark-save Save buffer-local AMarks in current directory. 
 
 ------------------------------------------------------------
 
@@ -1330,6 +1363,10 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 ------------------------------------------------------------
 
 ** emacspeak-m-player-beginning-of-track Move to beginning of track. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-bind-accelerator Binds key to invoke m-player  on specified directory. 
 
 ------------------------------------------------------------
 
@@ -3113,6 +3150,41 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-mode-line VM mode line information.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-next-button Move point to N buttons forward.
+If N is negative, move backward instead. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-labels Speak a message's labels 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-message Move point to the message body. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-yank-header Yank specified header into kill ring. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio	Key Sequence: control e : 
 
  Start or control streaming audio including MP3 and
@@ -4431,6 +4503,10 @@ command.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-next-bullet Navigate to and speak next `bullet'. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-next-interactive-defun Move point to the next interactive defun 
 
 ------------------------------------------------------------
@@ -4480,6 +4556,10 @@ key             binding
 ---             -------
 
  
+
+------------------------------------------------------------
+
+** emacspeak-wizards-previous-bullet Navigate to and speak previous `bullet'. 
 
 ------------------------------------------------------------
 

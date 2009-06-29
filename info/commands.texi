@@ -5,13 +5,14 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 842 commands.
+This chapter documents a total of 859 commands.
 
 @menu
 * cd-tool::                     
 * dtk-speak::                   
 * dtk-unicode::                 
 * emacspeak-alsaplayer::        
+* emacspeak-amark::             
 * emacspeak-amphetadesk::       
 * emacspeak-arc::               
 * emacspeak-aumix::             
@@ -69,6 +70,7 @@ This chapter documents a total of 842 commands.
 * emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
+* emacspeak-vm::                
 * emacspeak-w3::                
 * emacspeak-w3m::               
 * emacspeak-we::                
@@ -433,6 +435,20 @@ for commands defined in module  emacspeak-alsaplayer.
 Add specified resource to queue.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-alsaplayer-amark-add nil
+@kbd{Not bound to any key.}
+
+Set AMark `name' at current position in current audio stream.
+Interactive prefix arg prompts for position.
+As the default, use current position.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-amark-jump nil
+@kbd{Not bound to any key.}
+
+Jump to specified AMark.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-alsaplayer-backward-10-seconds nil
 @kbd{Not bound to any key.}
 
@@ -527,6 +543,7 @@ Major mode for alsaplayer interaction.
 key             binding
 ---             -------
 
+ESC		Prefix Command
 SPC		emacspeak-alsaplayer-pause
 ,		emacspeak-alsaplayer-backward-10-seconds
 .		emacspeak-alsaplayer-forward-10-seconds
@@ -535,6 +552,8 @@ SPC		emacspeak-alsaplayer-pause
 >		emacspeak-alsaplayer-forward-minute
 ?		emacspeak-alsaplayer-status
 A		emacspeak-alsaplayer-replace-queue
+J		emacspeak-alsaplayer-amark-jump
+M		emacspeak-alsaplayer-amark-add
 S		emacspeak-alsaplayer-stop
 [		emacspeak-alsaplayer-backward-ten-minutes
 ]		emacspeak-alsaplayer-forward-ten-minutes
@@ -556,6 +575,9 @@ s		emacspeak-alsaplayer-start
 v		emacspeak-alsaplayer-volume
 w		emacspeak-alsaplayer-where
 x		emacspeak-alsaplayer-clip
+
+M-l		emacspeak-amark-load
+M-s		emacspeak-amark-save
 
 This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization.
@@ -637,6 +659,46 @@ Set volume.
 @kbd{Not bound to any key.}
 
 Speak current position and copy it to kill ring.
+@end deffn
+
+@node emacspeak-amark
+@section emacspeak-amark
+
+Commentary:
+Structure emacspeak-amark holds a bookmark into an mp3 file
+path: fully qualified pathname  to file being marked
+name: Bookmark tag
+Position: time offset from start 
+
+This library will be used from emacspeak-m-player,
+emacspeak-alsaplayer and friends to set and jump to bookmarks.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-amark.
+
+@deffn {Interactive Command} emacspeak-amark-add nil
+@kbd{Not bound to any key.}
+
+Add an AMark to the buffer local list of AMarks.
+AMarks are bookmarks in audio content.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-amark-find nil
+@kbd{Not bound to any key.}
+
+Return matching AMark if found in buffer-local AMark list.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-amark-load nil
+@kbd{Not bound to any key.}
+
+Locate AMarks file from current directory, and load it.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-amark-save nil
+@kbd{Not bound to any key.}
+
+Save buffer-local AMarks in current directory.
 @end deffn
 
 @node emacspeak-amphetadesk
@@ -2205,6 +2267,12 @@ Move back by 1 minute.
 @kbd{Not bound to any key.}
 
 Move to beginning of track.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-bind-accelerator nil
+@kbd{Not bound to any key.}
+
+Binds key to invoke m-player  on specified directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-command nil
@@ -4640,6 +4708,65 @@ for commands defined in module  emacspeak-view.
 Moves current line to top of window
 @end deffn
 
+@node emacspeak-vm
+@section emacspeak-vm
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-vm.
+
+@deffn {Interactive Command} emacspeak-vm-browse-message nil
+@kbd{Not bound to any key.}
+
+Browse an email message --read it paragraph at a time. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-catch-up-all-messages nil
+@kbd{Not bound to any key.}
+
+Mark all messages in folder to be deleted. Use with caution.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-locate-subject-line nil
+@kbd{Not bound to any key.}
+
+Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-mode-line nil
+@kbd{Not bound to any key.}
+
+VM mode line information. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-next-button nil
+@kbd{Not bound to any key.}
+
+Move point to N buttons forward.
+If N is negative, move backward instead.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-labels nil
+@kbd{Not bound to any key.}
+
+Speak a message's labels
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-message nil
+@kbd{Not bound to any key.}
+
+Move point to the message body.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-yank-header nil
+@kbd{Not bound to any key.}
+
+Yank specified header into kill ring.
+@end deffn
+
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -6450,6 +6577,12 @@ command is specified by pressing the key that invokes the
 command.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-next-bullet nil
+@kbd{Not bound to any key.}
+
+Navigate to and speak next `bullet'.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-next-interactive-defun nil
 @kbd{Not bound to any key.}
 
@@ -6514,6 +6647,12 @@ during initialization.
 key             binding
 ---             -------
 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-previous-bullet nil
+@kbd{Not bound to any key.}
+
+Navigate to and speak previous `bullet'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-refresh-shell-history nil
@@ -7384,7 +7523,7 @@ Start TTS  engine for Piglets.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 148 URL Templates.
+This section documents a total of 155 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -7402,6 +7541,10 @@ Each URL template carries out the following steps:
 As an example, the URL templates that enable access to NPR media
 streams prompt for a program id and date, and automatically
 launch the realmedia player after fetching the resource.
+
+@kbd{Air Traffic Control}
+
+Find live streams for Air Traffic Control.
 
 @kbd{Airport conditions}
 
@@ -7442,6 +7585,10 @@ Ask Local Search.
 @kbd{Ask Walking Directions}
 
 Walking directions from Ask.com
+
+@kbd{BBC  7 Radio Bridge}
+
+Play BBC  Radio7 show for a given day/time.
 
 @kbd{BBC 7 Schedule}
 
@@ -7634,10 +7781,6 @@ Play specified edition of Geek  Linux DailyShow
 
 Search Google APIDocs
 
-@kbd{Google Atom News}
-
-Display specified news feed.
-
 @kbd{Google Books}
 
 Google Books Search with text when available
@@ -7677,6 +7820,10 @@ Search Google news.
 @kbd{Google Print}
 
 Google Print Search
+
+@kbd{Google Product Search}
+
+Perform Google Product Search
 
 @kbd{Google Reader}
 
@@ -7718,6 +7865,10 @@ Google WebQuotes.
 
 Page Analysis From Google Webmaster tools.
 
+@kbd{Google topical  News}
+
+Display specified news feed.
+
 @kbd{InfoWorld RSS Feeds}
 
 Produce  a set of RSS links published by InfoWorld.
@@ -7749,6 +7900,10 @@ Meerkat Profile
 @kbd{Meerkat Recipe}
 
 Meerkat tool
+
+@kbd{Mobile BBC}
+
+BBC Mobile Streams.
 
 @kbd{Mobile Finance Google Search}
 
@@ -7859,6 +8014,10 @@ Read pulpit from PBS. Published on the Thursday of the week.
 
 Play BBC  Radio4 show for a given day/time.
 
+@kbd{Radio4 radioBridge}
+
+Play BBC  Radio4 show for a given day/time.
+
 @kbd{Reader Subscription Search}
 
 Search within feeds subscribed to in Google Reader.
@@ -7866,6 +8025,10 @@ Search within feeds subscribed to in Google Reader.
 @kbd{Recent BlogSearch Google}
 
 Google Blog Search
+
+@kbd{Recent YouTube Results}
+
+YouTube Search Via Feeds
 
 @kbd{Redhat Linux Show}
 
@@ -7909,6 +8072,10 @@ from English to German.
 @kbd{Travelocity Lookup}
 
 Show arrival/departure information from Travelocity.
+
+@kbd{Twitter Search}
+
+Twitter search and display results feed.
 
 @kbd{UPS Packages}
 
