@@ -117,7 +117,7 @@ specifies the actual location of the media stream
   :type  '(repeat
            (string :tag "option"))
   :group 'emacspeak-m-player)
-
+;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "*Map specific key sequences to launching MPlayer accelerators 
 on a specific director."
@@ -186,16 +186,6 @@ on a specific director."
   "Extensions that match media files.")
 
 ;;;###autoload
-(defun emacspeak-m-player-accelerator (directory)
-  "Launch MPlayer on specified directory and switch to it."
-  (let ((emacspeak-media-shortcuts-directory (expand-file-name directory)))
-    (call-interactively 'emacspeak-multimedia)
-    (switch-to-buffer (process-buffer
-                       emacspeak-m-player-process))
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
-
-;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
   "Binds key to invoke m-player  on specified directory."
   (interactive
@@ -207,7 +197,19 @@ on a specific director."
    `(global-set-key key
                     #'(lambda nil
                         (interactive)
-                        (emacspeak-m-player-accelerator ,directory)))))
+                        (emacspeak-m-player-accelerator
+                         ,directory)))))
+
+
+;;;###autoload
+(defun emacspeak-m-player-accelerator (directory)
+  "Launch MPlayer on specified directory and switch to it."
+  (let ((emacspeak-media-shortcuts-directory (expand-file-name directory)))
+    (call-interactively 'emacspeak-multimedia)
+    (switch-to-buffer (process-buffer
+                       emacspeak-m-player-process))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
