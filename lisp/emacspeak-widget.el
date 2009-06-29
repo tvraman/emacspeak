@@ -520,6 +520,9 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{  Widget motion
 
+
+
+
 ;;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
   (let ((emacspeak-speak-messages nil))
