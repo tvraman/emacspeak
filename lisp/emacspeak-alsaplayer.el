@@ -497,20 +497,6 @@ Optional second arg watch-pattern specifies line of output to
       (emacspeak-auditory-icon 'yank-object)
       (message "%s" where))))
 
-(defsubst emacspeak-alsaplayer-get-path ()
-  "Return currently displayed path."
-  (declare (special emacspeak-alsaplayer-buffer))
-  (save-current-buffer
-    (set-buffer emacspeak-alsaplayer-buffer)
-    (goto-char (point-min))
-    (when (search-forward "path:" nil t)
-      (second
-       (split-string
-        (buffer-substring-no-properties
-         (line-beginning-position)
-         (line-end-position))
-        ": ")))))
-
 (defun emacspeak-alsaplayer-info ()
   "Speak current path and copy it to kill ring."
   (interactive)
