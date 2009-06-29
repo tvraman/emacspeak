@@ -159,10 +159,10 @@ Keystrokes are sent to a connected Firefox."
 (defun emacspeak-piglets-key ()
   "Send last keypress to Firefox."
   (interactive)
-  (declare (special last-input-char))
+  (declare (special last-input-event))
   (when (interactive-p)
     (emacspeak-piglets-silence))
-  (emacspeak-piglets-keypress last-input-char))
+  (emacspeak-piglets-keypress last-input-event))
 
 ;;;###autoload
 (defun emacspeak-piglets-silence()

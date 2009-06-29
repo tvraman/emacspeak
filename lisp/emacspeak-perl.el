@@ -51,7 +51,7 @@
 (defadvice electric-perl-terminator  (after emacspeak pre act comp )
   "Speak what you inserted."
   (when (interactive-p)
-    (emacspeak-speak-this-char last-input-char)))
+    (emacspeak-speak-this-char last-input-event)))
 
 ;;}}}
 ;;{{{  Program structure:

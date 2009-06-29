@@ -82,7 +82,7 @@
     (let ((start (point)))
       ad-do-it
       (if (= (point) (1+ start))
-          (emacspeak-speak-this-char last-input-char)
+          (emacspeak-speak-this-char last-input-event)
         (message "Started a shell here  document."))))
    (t ad-do-it))
   ad-return-value)

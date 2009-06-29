@@ -358,7 +358,7 @@
   (when (and emacspeak-character-echo
              (interactive-p ))
     (when dtk-stop-immediately-while-typing (dtk-stop))
-    (emacspeak-speak-this-char last-input-char )))
+    (emacspeak-speak-this-char last-input-event )))
 
 (defadvice org-delete-char (around emacspeak pre act)
   "Speak character you're deleting."

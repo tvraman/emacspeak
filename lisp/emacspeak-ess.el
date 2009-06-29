@@ -73,7 +73,7 @@
 Cue electric insertion with a tone."
   (when (interactive-p)
     (let ((emacspeak-speak-messages nil))
-      (emacspeak-speak-this-char last-input-char)
+      (emacspeak-speak-this-char last-input-event)
       (dtk-tone 800 50 t))))
 
 ;;}}}

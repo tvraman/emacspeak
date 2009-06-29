@@ -95,7 +95,7 @@
   "Provide spoken output."
   (when  (interactive-p)
     (cond
-     ((and (= 32 last-input-char)
+     ((and (= 32 last-input-event)
            emacspeak-word-echo)
       (save-excursion
         (let ((orig (point)))
@@ -104,7 +104,7 @@
           (emacspeak-speak-region orig (point)))))
      (emacspeak-character-echo
       (when dtk-stop-immediately-while-typing (dtk-stop))
-      (emacspeak-speak-this-char last-input-char )))))
+      (emacspeak-speak-this-char last-input-event )))))
 
 (defadvice *table--cell-quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
