@@ -144,6 +144,17 @@
     (emacspeak-speak-mode-line )))
       
 ;;}}}
+;;{{{ silence chatter from info
+
+(defadvice emms-info-really-initialize-track (around emacspeak
+                                                     pre act
+                                                     comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
+
 (provide 'emacspeak-emms)
 ;;{{{ end of file
 
