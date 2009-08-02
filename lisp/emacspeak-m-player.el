@@ -413,6 +413,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
+  (let ((kill-buffer-query-functions nil))
   (when (eq (process-status emacspeak-m-player-process) 'run)
     (let ((buffer (process-buffer emacspeak-m-player-process)))
       (emacspeak-m-player-dispatch "quit")
@@ -420,7 +421,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (kill-buffer buffer))))
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
     (delete-process  emacspeak-m-player-process))
-  (emacspeak-speak-mode-line))
+  (emacspeak-speak-mode-line)))
+
 ;;;###autoload
 (defun emacspeak-m-player-volume-up ()
   "Increase volume."
