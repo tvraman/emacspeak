@@ -70,15 +70,20 @@
 ;;{{{ Adding Friends
 
 (defun emacspeak-twit-follow (friend)
-  "Follow friend. Prompts for Twitter  password."
+  "Follow friend. Prompts for Twitter  password if necessary."
   (interactive "sFriend: ")
-  (let ((passwd (read-passwd "Twitter Password: ")))
+  (declare (special twitter-username twitter-password))
+  (let ((passwd (or twitter-password
+                    (read-passwd "Twitter Password: "))))
     (shell-command
      (format
       "wget --user=%s --password=%s  http://twitter.com/friendships/create/%s.xml --post-data=\"\""
       twitter-username
       passwd
       friend))))
+
+
+
 
 ;;}}}
 (provide 'emacspeak-twit)
