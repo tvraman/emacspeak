@@ -82,22 +82,24 @@
   "Instantiate URL identified by URL template."
   (declare (special emacspeak-url-template-current-ut))
   (setq emacspeak-url-template-current-ut nil)
-  (apply 'format
-         ( emacspeak-url-template-template ut)
-         (mapcar
-          #'(lambda (g)
-              (let ((input nil))
-                (setq input
-                      (cond
-                       ((stringp g)
-                        (if (emacspeak-url-template-dont-url-encode ut)
-                            (read-from-minibuffer g)
-                          (emacspeak-url-encode (read-from-minibuffer g))))
-                       (t (funcall g))))
-                (setq emacspeak-url-template-current-ut
-                      (list (emacspeak-url-template-name ut) input))
-                input))
-          (emacspeak-url-template-generators ut))))
+  (let ((url 
+         (apply 'format
+                ( emacspeak-url-template-template ut)
+                (mapcar
+                 #'(lambda (g)
+                     (let ((input nil))
+                       (setq input
+                             (cond
+                              ((stringp g)
+                               (if (emacspeak-url-template-dont-url-encode ut)
+                                   (read-from-minibuffer g)
+                                 (emacspeak-url-encode (read-from-minibuffer g))))
+                              (t (funcall g))))
+                       input))
+                 (emacspeak-url-template-generators ut)))))
+    (setq emacspeak-url-template-current-ut
+          (list (emacspeak-url-template-name ut)))
+    url))
 
 (defun emacspeak-url-template-collect-date (prompt time-format-string)
   "Smart date collector.
@@ -611,7 +613,7 @@ content."
      (emacspeak-we-extract-by-id-list
       (list "mktsumm" "sfe-mktsumm" )
       url 'speak)))
- 
+
 
 ;;}}}
 ;;{{{ google CSE and Google Reader:
@@ -951,7 +953,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (format " down  %s"
               (substring value (1+ minus-p ))))
      (t (format " up  %s " value)))))
-  
+
 (defvar emacspeak-google-finance-row-filter
   '(0 (emacspeak-finance-google-up-or-down 3)" to " 2  " for  a market cap of " 4 
       "Traded today between " 8 " and " 7 " on a  volume of " 5)
@@ -1178,6 +1180,19 @@ from English to German.")
  (list "Term: ")
  nil
  "Google Glossary lookup.")
+
+(emacspeak-url-template-define
+ "Sandbox Google"
+ "http://www2.sandbox.google.com/search?hl=en&q=%s&btnG=Google+Search"
+ (list 'gweb-google-autocomplete
+       #'(lambda nil
+           (declare (special  emacspeak-websearch-google-number-of-results))
+           emacspeak-websearch-google-number-of-results))
+ #'(lambda nil
+     (search-forward "Search Results" nil)
+     (emacspeak-speak-rest-of-buffer))
+ "Google Sandbox Results")
+
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
@@ -2073,8 +2088,8 @@ plays entire program."
  #'(lambda (url)
      (emacspeak-we-extract-by-class
       "col1wrap"
- url
- 'speak)))
+      url
+      'speak)))
 
 ;;}}}
 ;;{{{ flights from travelocity
