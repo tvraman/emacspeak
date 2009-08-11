@@ -424,7 +424,7 @@ proc clean {element} {
         regsub -all  {[.,!?;:+=/'\"@$%&_*()]} $element  \
             { `00 \0 `p10 }   element
     } else {
-        regsub -all  {[*%&()\"]} $element  {}   element
+        regsub -all  {[*&()\"]} $element  {}   element
         regsub -all {\-([0-9]+\.[0-9]+)} $element \
             {minus `p3 \1 } element
         regsub -all {([a-zA-Z])([@!;/:()=\#,.\"])+([0-9a-zA-Z])} $element \
