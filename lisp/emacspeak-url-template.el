@@ -1182,7 +1182,7 @@ from English to German.")
  "Google Glossary lookup.")
 
 (emacspeak-url-template-define
- "Sandbox Google"
+ "GCaffeine Search"
  "http://www2.sandbox.google.com/search?hl=en&q=%s&btnG=Google+Search"
  (list 'gweb-google-autocomplete
        #'(lambda nil
