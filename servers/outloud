@@ -82,7 +82,6 @@ proc tts_say {text} {
     regsub -all {\[\*\]} $text { `p1 } text 
     synth " $prefix $text"
     service
-    closeDSP
     return ""
 }
 
@@ -99,7 +98,6 @@ proc l {text} {
     set tts(not_stopped) 1
     synth "$prefix  `ts2 $text `ts0"
     service
-    closeDSP
     return ""
 }
 
@@ -397,7 +395,6 @@ proc speech_task {} {
     }
     set tts(talking?) 0
     service
-    if {$tts(talking?) == 0} {closeDSP} 
     return ""
 }
 
@@ -495,9 +492,7 @@ if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
 if {[file exists /usr/include/alsa/asoundlib.h]
     && [file exists  $tclTTS/atcleci.so]} {
     load $tclTTS/atcleci.so
-    proc closeDSP {} {
-        #stubbed out 
-    }
+    
     set tts(play) /usr/bin/aplay
     synth {`v1 Via Voice using Alsa.}
 } else {
