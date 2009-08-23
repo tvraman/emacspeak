@@ -354,13 +354,14 @@ Optional second arg watch-pattern specifies line of output to
 (defun emacspeak-alsaplayer-quit ()
   "Quit  alsaplayer"
   (interactive)
+  (let ((kill-buffer-query-functions nil))
   (emacspeak-alsaplayer-send-command "--quit")
   (delete-window)
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (when (eq major-mode 'emacspeak-alsaplayer-mode)
       (kill-buffer (current-buffer)))
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line))))
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-cd (directory)
