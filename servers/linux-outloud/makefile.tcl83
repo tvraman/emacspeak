@@ -24,8 +24,13 @@ tcleci.so: tcleci.lo langswitch.lo
 atcleci.lo: atcleci.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
-atcleci.so: atcleci.lo langswitch.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ -lasound $(LIBS)  -shared
+libatcleci.la: atcleci.lo langswitch.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ -lasound $(LIBS) -rpath /usr/local/lib -shared
+
+.libs/libatcleci.so: libatcleci.la
+
+atcleci.so: .libs/libatcleci.so
+			cp -H $< $@
 
 alsaparams.o: alsaparams.c
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
@@ -33,8 +38,9 @@ alsaparams.o: alsaparams.c
 alsaparams: alsaparams.o
 	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $<  -lasound 
 clean:
-	rm -f *.so *.o *.lo \
+	rm -f *.so *.la *.o *.lo \
 atcleci.so atcleci.o atcleci.lo
+	rm -rf .libs
 
 install: tcleci.so
 	if test ! -d $(libdir) ; then mkdir $(libdir); fi ; \
