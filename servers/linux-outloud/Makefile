@@ -4,28 +4,28 @@ INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/servers/linux-outloud
-CFLAGS=   -g    -O2 -fPIC  -DPIC -pedantic -ansi -Wall 
-LIBS= -ltcl -ldl
+#for tcl8.4, remove -pedantic to help the compile to finish
+CFLAGS= -g    -O2 -fPIC  -DPIC  -ansi -Wall  -I/usr/include/tcl8.4
+LIBS= -ltcl8.4 -ltclx8.4 -ldl    
 
-TTS=tcleci.so eci.ini VIAVOICE
-ATTS=atcleci.so atcleci.cpp  ALSA asoundrc
+ATTS=atcleci.cpp  ALSA asoundrc
 MISC=alsaparams.c
-all: tcleci.so  atcleci.so
-
-tcleci.lo: tcleci.cpp
-	libtool --mode=compile $(CC) $(CFLAGS) -c $<
+all:   atcleci.so
+#note that this does not yet compile when including tcl8.4/tcl.h
 
 langswitch.lo: langswitch.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
-tcleci.so: tcleci.lo langswitch.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ $(LIBS) -shared
-
 atcleci.lo: atcleci.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
-atcleci.so: atcleci.lo langswitch.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ -lasound $(LIBS)  -shared
+libatcleci.la: atcleci.lo langswitch.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $^ -lasound $(LIBS) -rpath /usr/local/lib -shared
+
+.libs/libatcleci.so: libatcleci.la
+
+atcleci.so: .libs/libatcleci.so
+			cp -H $< $@
 
 alsaparams.o: alsaparams.c
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
@@ -33,10 +33,11 @@ alsaparams.o: alsaparams.c
 alsaparams: alsaparams.o
 	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $<  -lasound 
 clean:
-	rm -f *.so *.o *.lo \
+	rm -f *.so *.la *.o *.lo \
 atcleci.so atcleci.o atcleci.lo
+	rm -rf .libs
 
-install:  tcleci.so atcleci.so
+install: atcleci.so
 	if test ! -d $(libdir) ; then mkdir $(libdir); fi ; \
 	chmod 755 $(libdir); \
-	$(INSTALL) -m 0644 $(TTS) $(ATTS) $(libdir)
+	$(INSTALL) -m 0644  $(ATTS) $(libdir)
