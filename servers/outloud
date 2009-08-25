@@ -489,21 +489,11 @@ if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
     set env(ECIINI) $tclTTS/eci.ini
 }
 #conditionally use alsa if available
-if {[file exists /usr/include/alsa/asoundlib.h]
-    && [file exists  $tclTTS/atcleci.so]} {
-    load $tclTTS/atcleci.so
-    
-    set tts(play) /usr/bin/aplay
-    synth {`v1 Via Voice using Alsa.}
-} else {
-    load $tclTTS/tcleci.so
-    set tts(stereo) 1
-    useStereoOutput
-    proc alsaState {} {
-        #stubbed out 
-    }
-    synth {`v1 Via Voice.}
-}
+
+load $tclTTS/atcleci.so
+set tts(play) /usr/bin/aplay
+synth {`v1 Via Voice using Alsa.}
+
 
 service
 alsaState
