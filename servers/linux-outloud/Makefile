@@ -4,14 +4,13 @@ INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/servers/linux-outloud
-#for tcl8.4, remove -pedantic to help the compile to finish
+
 CFLAGS= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I/usr/include/tcl8.4
 LIBS= -ltcl8.4 -ltclx8.4 -ldl    
 
 ATTS=atcleci.cpp  ALSA asoundrc
 MISC=alsaparams.c
 all:   atcleci.so
-#note that this does not yet compile when including tcl8.4/tcl.h
 
 langswitch.lo: langswitch.cpp
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
