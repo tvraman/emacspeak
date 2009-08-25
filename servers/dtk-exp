@@ -1,4 +1,4 @@
-#!/usr/bin/tcl
+#!/usr/bin/tclsh
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL.
 # Keywords: Emacspeak, Dectalk, TCL
@@ -57,6 +57,7 @@
 
 # }}}
 # {{{source common code
+package require Tclx
 set wd [file dirname $argv0]
 lappend auto_path $wd
 source $wd/tts-lib.tcl
@@ -364,13 +365,13 @@ tts_setserial
 fconfigure $tts(write) -encoding ascii
 
 # Emacspeak sends utf-8
-fconfigure file0 -encoding utf-8
+fconfigure stdin -encoding utf-8
 
 tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                        [expr $tts(speech_rate) * $tts(char_factor)]]
-set tts(input) file0
+set tts(input) stdin
 if {[info exists server_p]} {
     set tts(input) sock0
 }
