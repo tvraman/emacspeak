@@ -42,7 +42,7 @@
 #include <stdlib.h>
 #include <string>
 #include <assert.h>
-#include "speak_lib.h"
+#include <espeak/speak_lib.h>
 #ifndef ESPEAK_API_REVISION
 #define ESPEAK_API_REVISION 1
 #endif
@@ -556,7 +556,7 @@ initLanguage (Tcl_Interp * interp)
       aDefaultLang = (char*)getenv("LANG");
       if (aDefaultLang == NULL)
 	{
-	  aDefaultLang = "en";
+	  aDefaultLang = (char *) "en";
 	}
     }
 
