@@ -165,8 +165,6 @@ int             Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int             Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int             SetLanguage(ClientData, Tcl_Interp *, int,
                             Tcl_Obj * CONST[]);
-static int      setOutput(ClientData, Tcl_Interp *, int,
-                          Tcl_Obj * CONST[]);
 int             alsa_close();
 int             eciCallback(void *, int, long, void *);
 
@@ -741,8 +739,6 @@ Atcleci_Init(Tcl_Interp * interp)
                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "resume", Resume,
                        (ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand(interp, "setOutput", setOutput,
-                       (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "setLanguage", SetLanguage,
                        (ClientData) eciHandle, TclEciFree);
   // >
@@ -960,17 +956,6 @@ Resume(ClientData eciHandle, Tcl_Interp * interp, int objc,
     return TCL_OK;
   Tcl_SetResult(interp, const_cast<char*>("Could not resume synthesis"), TCL_STATIC);
   return TCL_ERROR;
-}
-
-// >
-// <setOutput:NoOp
-
-int
-setOutput(ClientData eciHandle, Tcl_Interp * interp, int objc,
-          Tcl_Obj * CONST objv[])
-{
-  Tcl_AppendResult(interp, "setOuputput: No-Op under Alsa\n", TCL_STATIC);
-  return TCL_OK;
 }
 
 // >
