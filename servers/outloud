@@ -186,13 +186,6 @@ proc r {rate} {
     return ""
 }
 
-proc useStereoOutput {} {
-    global tts
-    setOutput buffer
-}
-
-
-
 # Language switching
 #
 # langsynth: available languages of the voice synthesis
