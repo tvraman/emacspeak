@@ -16,8 +16,8 @@ all:   atcleci.so
 atcleci.so: langswitch.o atcleci.o
 	$(CXX) -shared -o $@ langswitch.o atcleci.o $(LIBS)
 
-alsaparams: alsaparams.c
-	$(CC) $(CFLAGS) -o $@ $<  -lasound 
+alsaparams: alsaparams.o
+	$(CC) -o $@ alsaparams.o -lasound
 
 clean:
 	rm -f *.so *.o 
