@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 859 commands.
+This chapter documents a total of 834 commands.
 
 @menu
 * cd-tool::                     
@@ -33,7 +33,6 @@ This chapter documents a total of 859 commands.
 * emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
-* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -53,6 +52,7 @@ This chapter documents a total of 859 commands.
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
+* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -61,13 +61,11 @@ This chapter documents a total of 859 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
-* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
 * emacspeak-tar::               
 * emacspeak-tetris::            
-* emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
 * emacspeak-vm::                
@@ -85,7 +83,6 @@ This chapter documents a total of 859 commands.
 * emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
-* emacspeak-w3search::          
 * emacspeak-firevox::           
 * emacspeak-jawbreaker::        
 * emacspeak-moz::               
@@ -1459,11 +1456,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1512,11 +1504,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -1755,24 +1742,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail nil
-@kbd{Not bound to any key.}
-
-Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -2973,6 +2942,28 @@ explicitly turn pronunciations on or off.
 Yank word at point into minibuffer.
 @end deffn
 
+@node emacspeak-python
+@section emacspeak-python
+
+Commentary:
+This speech-enables python-mode available on sourceforge
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
+@deffn {Interactive Command} emacspeak-py-next-block nil
+@kbd{Not bound to any key.}
+
+Move forward to the beginning of the next block.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-previous-block nil
+@kbd{Not bound to any key.}
+
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
+@end deffn
+
 @node emacspeak-realaudio
 @section emacspeak-realaudio
 
@@ -4090,168 +4081,6 @@ Does the equivalent of the mouse click from the keyboard
 Switch to the speedbar
 @end deffn
 
-@node emacspeak-sudoku
-@section emacspeak-sudoku
-
-Commentary:
-Playing SuDoku using speech output.
-Written to discover what type of feedback one needs for  this
-task.
-See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-
-Automatically generated documentation
-for commands defined in module  emacspeak-sudoku.
-
-@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize columns --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize nil
-@kbd{Not bound to any key.}
-
-Shows distribution of filled numbers.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize rows --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize sub-squares --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-summarizer nil
-@kbd{Not bound to any key.}
-
-Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
-
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-down-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of  sub-square below current one.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-column nil
-@kbd{Not bound to any key.}
-
-Erase current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-row nil
-@kbd{Not bound to any key.}
-
-Erase current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square nil
-@kbd{Not bound to any key.}
-
-Erase current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-hint nil
-@kbd{Not bound to any key.}
-
-Provide hint for current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-pop nil
-@kbd{Not bound to any key.}
-
-Pop saved state off stack and redraw board.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-push nil
-@kbd{Not bound to any key.}
-
-Push current state on to history stack.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining nil
-@kbd{Not bound to any key.}
-
-Speak number of remaining squares to fill.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-next-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of next sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of previous sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates nil
-@kbd{Not bound to any key.}
-
-speak current cell coordinates.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value nil
-@kbd{Not bound to any key.}
-
-Speak value in current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-column nil
-@kbd{Not bound to any key.}
-
-Speak current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-row nil
-@kbd{Not bound to any key.}
-
-Speak current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square nil
-@kbd{Not bound to any key.}
-
-Speak current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-up-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of  sub-square above current one.
-@end deffn
-
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -4631,22 +4460,6 @@ Speak the score
 @kbd{Not bound to any key.}
 
 Speak current position
-@end deffn
-
-@node emacspeak-tnt
-@section emacspeak-tnt
-
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-tnt.
-
-@deffn {Interactive Command} emacspeak-tnt-toggle-autospeak nil
-@kbd{Not bound to any key.}
-
-Toggle TNT autospeak for this chat session.
 @end deffn
 
 @node emacspeak-url-template
@@ -7120,43 +6933,6 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-    (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
-  )
-
-(provide 'emacspeak-w3search)
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
-@kbd{Not bound to any key.}
-
-Search IBM using trevi
-@end deffn
-
 @node emacspeak-firevox
 @section emacspeak-firevox
 
@@ -7523,7 +7299,7 @@ Start TTS  engine for Piglets.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 155 URL Templates.
+This section documents a total of 156 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -7750,6 +7526,10 @@ Display content from Google Finance.
 @kbd{Flight Tracker}
 
 Display flight arrival and departure information.
+
+@kbd{GCaffeine Search}
+
+Google Sandbox Results
 
 @kbd{GCalendar Mobile}
 
