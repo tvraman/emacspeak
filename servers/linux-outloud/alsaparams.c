@@ -30,7 +30,9 @@ int main() {
   result = snd_pcm_open(&handle, "default", SND_PCM_STREAM_PLAYBACK, 0);
   if (result < 0) 
     showErrorAndExit(result, "Error: Unable to open PCM device: %s\n");
-  snd_pcm_hw_params_alloca(&params);
+  result = snd_pcm_hw_params_malloc(&params);
+  if (result < 0) 
+    showErrorAndExit(result, "Error: No memory for hardware parameters: %s\n");
   result = snd_pcm_hw_params_any(handle, params);
   if (result < 0) 
     showErrorAndExit(result, "Error: Cannot read HW params: %s\n");
