@@ -487,13 +487,17 @@ Interactive prefix arg prompts for userid whose albums we request."
                                 'full
                                 "\\(jpg$\\)\\|\\(JPG$\\)\\|\\(jpeg\\|\\(JPEG\\)$\\)")))
     (loop for file in files
+          and i from 0
           do
           (gphoto-photo-add album-name
                             (make-gphoto-photo
                              :filepath (shell-quote-argument file)
                              :title
                              (shell-quote-argument
-                              (file-name-nondirectory file)))))))
+                              (file-name-nondirectory file))))
+          (when (zerop (% i 10))
+            (message "Throttling uploads")
+            (sit-for 10)))))
 
 ;;}}}
 ;;{{{ Adding comments and tags:
