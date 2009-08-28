@@ -7,8 +7,8 @@ LIBDIR =$(LIBPARENTDIR)/emacspeak/servers/linux-outloud
 
 TCL_VERSION=8.4
 TCL_INCLUDE=/usr/include/tcl$(TCL_VERSION)
-CFLAGS= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
-CXXFLAGS= $(CFLAGS)
+CFLAGS+= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
+CXXFLAGS+= $(CFLAGS)
 LIBS= -ltcl$(TCL_VERSION) -lasound -ldl    
 
 all:   atcleci.so
