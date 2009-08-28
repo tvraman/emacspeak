@@ -154,7 +154,6 @@ PYLIB=servers/python
 PYFILES=servers/python/*.py
 ESPEAK=servers/linux-espeak/tclespeak.cpp \
 servers/linux-espeak/Makefile\
-servers/linux-espeak/makefile.tcl83\
 
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
@@ -164,7 +163,7 @@ OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
 ${ECI}/VIAVOICE ${ECI}/ALSA ${ECI}/asoundrc \
-${ECI}/Makefile ${ECI}/makefile.tcl83
+${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/FAQ etc/HELP etc/applications.html   etc/tips.html
