@@ -871,12 +871,7 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -912,12 +907,7 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -1092,10 +1082,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
-
-------------------------------------------------------------
-
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -1874,6 +1860,15 @@ explicitly turn pronunciations on or off.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-yank-word Yank word at point into minibuffer. 
+
+------------------------------------------------------------
+
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
 
 ------------------------------------------------------------
 
@@ -2767,108 +2762,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
-** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
- 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-column Erase current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-row Erase current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-hint Provide hint for current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-push Push current state on to history stack. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-column Speak current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-row Speak current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
-
-------------------------------------------------------------
-
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -3115,10 +3008,6 @@ but quickly switch to a window by name.
 ------------------------------------------------------------
 
 ** emacspeak-tetris-speak-x-coordinate Speak current position 
-
-------------------------------------------------------------
-
-** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
 
 ------------------------------------------------------------
 
@@ -4858,10 +4747,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM using trevi 
 
 ------------------------------------------------------------
 
