@@ -257,58 +257,58 @@ config:
 
 install:
 	$(MAKE) config SRC=$(libdir)
-	  $(INSTALL)  -d $(libparentdir)
-	  $(INSTALL) -d $(libdir)
-	touch $(libdir)/.nosearch
-	  $(INSTALL) -d $(libdir)/lisp
-	$(INSTALL) -d $(libdir)/lisp/xml-forms
-	$(INSTALL) -d $(libdir)/lisp/g-client
-	$(INSTALL) -d $(libdir)/lisp/g-client/python
-	$(INSTALL) -d $(libdir)/etc
-	$(INSTALL) -d $(libdir)/sawfish
-	$(INSTALL) -d $(libdir)/xsl
-	$(INSTALL) -d $(libdir)/user-guide
-	$(INSTALL) -d $(libdir)/install-guide
-	$(INSTALL) -m 0644  ${ID} $(libdir)
-	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
-	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
-	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
-	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
-	$(INSTALL) -m 0644  lisp/g-client/python/*.py    $(libdir)/lisp/g-client/python
-	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
-	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
-	$(INSTALL) -m 0644  ${UGUIDE}   $(libdir)/user-guide
-	$(INSTALL) -m 0644  ${IGUIDE}   $(libdir)/install-guide
-	$(INSTALL) -d $(libdir)/sounds
-	$(INSTALL) -d $(libdir)/js
-	$(INSTALL)  -m 644 ${JS}  $(libdir)/js
-	$(INSTALL) -d $(libdir)/servers
-	$(INSTALL) -d $(libdir)/servers/python
-	$(INSTALL) -d $(libdir)/servers/linux-outloud
-	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
-	cp   ${PYFILES}  $(libdir)/servers/python
-	$(INSTALL) -d $(libdir)/servers/linux-espeak
-	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
-	$(INSTALL) -d $(libdir)/servers/software-dtk
-	$(INSTALL)  -m 755 ${DTKTTS}  $(libdir)/servers/software-dtk
-	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
-	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
-	cp   ${MISC}   $(libdir)/etc
-	$(CP) -r $(SOUNDS) $(libdir)/sounds
-	chmod -R go+rX  $(libdir)/sounds
-	$(CP) -r $(REALAUDIO) $(libdir)
-	chmod -R go+rX  $(libdir)/realaudio
-	$(CP) -r $(SHOUTCAST) $(libdir)
-	chmod -R go+rX  $(libdir)/shoutcast
-	$(INSTALL) -d $(libdir)/etc/forms
-	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
-	$(INSTALL) -d $(libdir)/etc/tables
-	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
-	$(INSTALL) -d $(bindir)
-	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
-	$(INSTALL) -d $(infodir)
+	  $(INSTALL)  -d $(DESTDIR)$(libparentdir)
+	  $(INSTALL) -d $(DESTDIR)$(libdir)
+	touch $(DESTDIR)$(libdir)/.nosearch
+	  $(INSTALL) -d $(DESTDIR)$(libdir)/lisp
+	$(INSTALL) -d $(DESTDIR)$(libdir)/lisp/xml-forms
+	$(INSTALL) -d $(DESTDIR)$(libdir)/lisp/g-client
+	$(INSTALL) -d $(DESTDIR)$(libdir)/lisp/g-client/python
+	$(INSTALL) -d $(DESTDIR)$(libdir)/etc
+	$(INSTALL) -d $(DESTDIR)$(libdir)/sawfish
+	$(INSTALL) -d $(DESTDIR)$(libdir)/xsl
+	$(INSTALL) -d $(DESTDIR)$(libdir)/user-guide
+	$(INSTALL) -d $(DESTDIR)$(libdir)/install-guide
+	$(INSTALL) -m 0644  ${ID} $(DESTDIR)$(libdir)
+	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(DESTDIR)$(libdir)/lisp
+	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(DESTDIR)$(libdir)/lisp/xml-forms
+	$(INSTALL) -m 0644  lisp/g-client/*.el    $(DESTDIR)$(libdir)/lisp/g-client
+	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(DESTDIR)$(libdir)/lisp/g-client
+	$(INSTALL) -m 0644  lisp/g-client/python/*.py    $(DESTDIR)$(libdir)/lisp/g-client/python
+	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(DESTDIR)$(libdir)/sawfish
+	$(INSTALL) -m 0644  xsl/*.xsl    $(DESTDIR)$(libdir)/xsl
+	$(INSTALL) -m 0644  ${UGUIDE}   $(DESTDIR)$(libdir)/user-guide
+	$(INSTALL) -m 0644  ${IGUIDE}   $(DESTDIR)$(libdir)/install-guide
+	$(INSTALL) -d $(DESTDIR)$(libdir)/sounds
+	$(INSTALL) -d $(DESTDIR)$(libdir)/js
+	$(INSTALL)  -m 644 ${JS}  $(DESTDIR)$(libdir)/js
+	$(INSTALL) -d $(DESTDIR)$(libdir)/servers
+	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/python
+	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/linux-outloud
+	$(INSTALL)  -m 755 ${OUTLOUD}  $(DESTDIR)$(libdir)/servers/linux-outloud
+	cp   ${PYFILES}  $(DESTDIR)$(libdir)/servers/python
+	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/linux-espeak
+	$(INSTALL)  -m 755 ${ESPEAK}  $(DESTDIR)$(libdir)/servers/linux-espeak
+	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/software-dtk
+	$(INSTALL)  -m 755 ${DTKTTS}  $(DESTDIR)$(libdir)/servers/software-dtk
+	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(DESTDIR)$(libdir)/servers
+	$(INSTALL) -m 0644   ${NEWS}   $(DESTDIR)$(libdir)/etc
+	cp   ${MISC}   $(DESTDIR)$(libdir)/etc
+	$(CP) -r $(SOUNDS) $(DESTDIR)$(libdir)/sounds
+	chmod -R go+rX  $(DESTDIR)$(libdir)/sounds
+	$(CP) -r $(REALAUDIO) $(DESTDIR)$(libdir)
+	chmod -R go+rX  $(DESTDIR)$(libdir)/realaudio
+	$(CP) -r $(SHOUTCAST) $(DESTDIR)$(libdir)
+	chmod -R go+rX  $(DESTDIR)$(libdir)/shoutcast
+	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/forms
+	$(INSTALL)  -m 0644 $(FORMS) $(DESTDIR)$(libdir)/etc/forms
+	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/tables
+	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(DESTDIR)$(libdir)/etc/tables
+	$(INSTALL) -d $(DESTDIR)$(bindir)
+	$(INSTALL) -m 0755  etc/emacspeak.sh $(DESTDIR)$(bindir)/emacspeak
+	$(INSTALL) -d $(DESTDIR)$(infodir)
 	cd info; \
-	$(MAKE) install infodir=$(infodir)
+	$(MAKE) install DESTDIR="$(DESTDIR)" infodir="$(infodir)"
 
 uninstall:
 	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak
