@@ -30,7 +30,7 @@ install: emacspeak.info
 	if test  -x /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
-	$(INSTALL)  -m 644 *.info* $(infodir)
+	$(INSTALL)  -m 644 *.info* $(DESTDIR)$(infodir)
 
 uninstall:
 	if test  -e /sbin/install-info ; then \
