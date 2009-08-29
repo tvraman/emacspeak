@@ -201,7 +201,7 @@ proc r {rate} {
 # langsynth(top)=2
 # langlabel: what will be announced
 # e.g. langlabel(0)="Finnish"
-# This variable is set by tcldtk
+# This variable is set by tcldtk? doesn't work
 
 #set langlabel(0) "American"
 
