@@ -14,7 +14,7 @@ then
 fi
 
 echo  Downloading and installing youtube-dl
-
+#sudo wget http://bitbucket.org/rg3/youtube-dl/raw/2009.08.08/youtube-dl
 cd /usr/local/bin && wget -c http://www.arrakis.es/~rggi3/youtube-dl/youtube-dl && chmod 755 youtube-dl
 
 echo youtube-dl installed
