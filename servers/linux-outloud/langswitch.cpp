@@ -1,15 +1,15 @@
-//<Changelog:
+// <Changelog:
 // * Language switching, 
 // March 2007: 
 // Initial public release, Gilles Casse <gcasse@oralux.org>
 //
-//>
-//<includes
+// >
+// <includes
 #include <stdlib.h>
 #include <string.h>
 #include "langswitch.h"
-//>
-//<decls and function prototypes
+// >
+// <decls and function prototypes
 
 struct langInfo {
   enum ECILanguageDialect lang;
@@ -58,8 +58,8 @@ static struct langInfo TheLanguages[]={
   {eciStandardThaiTIS,NULL,NULL,NULL,NULL}, 
 };
 
-//>
-//<initLanguage
+// >
+// <initLanguage
 
 enum ECILanguageDialect 
 initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLanguages)
@@ -163,8 +163,8 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
 
   return aCurrentLanguage;
 }
-//>
-//<getAnnotation
+// >
+// <getAnnotation
 
 const char* getAnnotation (Tcl_Interp *interp, int* theIndex) 
 {
@@ -182,8 +182,8 @@ const char* getAnnotation (Tcl_Interp *interp, int* theIndex)
   return code;
 }
 
-//>
-//<convertFromUTF8
+// >
+// <convertFromUTF8
 
 char* 
 convertFromUTF8 (Tcl_Interp * interp, const char* src)
@@ -218,10 +218,9 @@ convertFromUTF8 (Tcl_Interp * interp, const char* src)
 }
 
 
-//>
-
-//<end of file
+// >
+// <end of file
 //local variables:
 //folded-file: t
 //end:
-//>
+// >
