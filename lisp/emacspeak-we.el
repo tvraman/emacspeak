@@ -881,6 +881,60 @@ used as well."
                               (or redirect url)
                               'speak)))
 
+
+
+(defvar emacspeak-we-class-filter-history 
+  nil
+  "History list recording Class filters we've used.")
+
+(put 'emacspeak-we-class-filter-history 'history-length 10)
+
+(defvar emacspeak-we-class-filter nil
+  "Buffer local variable specifying a Class filter for following
+urls.")
+
+(make-variable-buffer-local 'emacspeak-we-class-filter)
+(defcustom emacspeak-we-recent-class-filter
+  nil
+  "Caches most recently used class filter.
+Can be customized to set up initial default."
+  :type 'string
+  :group 'emacspeak-we)
+;;;###autoload
+(defun emacspeak-we-class-filter-and-follow (&optional prompt)
+  "Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well."
+  (interactive "P")
+  (declare (special emacspeak-we-class-filter
+                    emacspeak-we-recent-class-filter emacspeak-we-class-filter-history
+                    emacspeak-we-url-rewrite-rule))
+  (emacspeak-webutils-browser-check)
+  (let ((url (funcall emacspeak-webutils-url-at-point))
+        (redirect nil))
+    (unless url (error "Not on a link."))
+    (when emacspeak-we-url-rewrite-rule
+      (setq redirect
+            (replace-regexp-in-string
+             (first emacspeak-we-url-rewrite-rule)
+             (second emacspeak-we-url-rewrite-rule)
+             url)))
+    (when (or prompt (null emacspeak-we-class-filter))
+      (setq emacspeak-we-class-filter
+            (read-from-minibuffer
+             "Specify Class: "
+             nil nil nil
+             'emacspeak-we-class-filter-history
+             emacspeak-we-recent-class-filter))
+      (pushnew emacspeak-we-class-filter emacspeak-we-class-filter-history)
+      (setq emacspeak-we-recent-class-filter
+            emacspeak-we-class-filter))
+    (emacspeak-we-xslt-filter
+     (format "//*[@class=\"%s\"]"emacspeak-we-class-filter)
+                              (or redirect url)
+                              'speak)))
+
 (defvar emacspeak-we-xpath-junk nil
   "Records XPath pattern used to junk elements.")
 
@@ -989,7 +1043,7 @@ and provide a completion list of applicable  property values. Filter document by
         ("k" emacspeak-we-toggle-xsl-keep-result)
         ("m" emacspeak-we-extract-table-by-match)
         ("o" emacspeak-we-xsl-toggle)
-        ("p" emacspeak-we-xpath-filter-and-follow)
+        ("p" emacspeak-we-class-filter-and-follow)
         ("r" emacspeak-we-extract-media-streams)
         ("S" emacspeak-we-style-filter)
         ("s" emacspeak-we-xslt-select)
