@@ -2220,7 +2220,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
 ;;{{{ weather underground
 ;;;###autoload
 (defcustom emacspeak-url-template-weather-city-state
-  "CA/San_Jose"
+  ""95123"
   "Default city/state for weather forecasts"
   :type 'string
   :group 'emacspeak-url-template)
