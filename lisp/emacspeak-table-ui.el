@@ -343,7 +343,9 @@ specifies the filter"
   "Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter."
   (interactive "P")
-  (declare (special emacspeak-table-speak-row-filter emacspeak-table))
+  (declare (special emacspeak-table-speak-row-filter
+  emacspeak-table))
+  (and emacspeak-table-speak-row-filter(push emacspeak-table-speak-row-filter minibuffer-default))
   (unless (and  emacspeak-table-speak-row-filter
                 (listp emacspeak-table-speak-row-filter)
                 (not prefix))
