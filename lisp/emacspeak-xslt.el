@@ -328,8 +328,12 @@ part of the libxslt package."
       (insert-file file)
       (shell-command-on-region
        (point-min) (point-max)
-       (format "%s %s - "
-               emacspeak-xslt-program  style file)
+       (format "%s --param base %s  %s - "
+               emacspeak-xslt-program
+                 (format "\"'file://%s'\""
+                         (expand-file-name file))
+               (expand-file-name style)
+               (expand-file-name file))
        (current-buffer) 'replace)
       (set-buffer-multibyte t)
       (browse-url-of-buffer))))
