@@ -338,8 +338,6 @@ part of the libxslt package."
       (set-buffer-multibyte t)
       (browse-url-of-buffer))))
 
-  "Apply transform to 
-
 ;;;###autoload
 (defun emacspeak-xslt-view (style url)
   "Browse URL with specified XSL style."
