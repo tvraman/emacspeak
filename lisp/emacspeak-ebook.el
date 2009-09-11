@@ -76,8 +76,8 @@
   "Open specified EBook.
 `toc' is the pathname to an EPubs table of contents."
   (interactive "FEPubs TOC: ")
-  (declare (special emacspeak-ebook-toc-transform
-))
+  (declare (special emacspeak-ebook-toc-transform))
+  (emacspeak-webutils-autospeak)
   (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
 
 ;;}}}
