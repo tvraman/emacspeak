@@ -4,11 +4,17 @@
                 version="1.0">
 
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
+  <xsl:param name="base"/>
   <xsl:template match="/">
     <html>
       <head>
-        
-        
+        <xsl:if test="string-length($base) &gt; 0">
+          <base>
+            <xsl:attribute name="href">
+              <xsl:value-of select="$base"/>
+            </xsl:attribute>
+          </base>
+        </xsl:if>
         <title>
           <xsl:value-of select="/ns:ncx/ns:docTitle/ns:text"/>
         </title>

@@ -75,7 +75,7 @@
 (defun emacspeak-ebook-open (toc)
   "Open specified EBook.
 `toc' is the pathname to an EPubs table of contents."
-  (interactive "FTOC: ")
+  (interactive "FEPubs TOC: ")
   (declare (special emacspeak-ebook-toc-transform
 ))
   (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
