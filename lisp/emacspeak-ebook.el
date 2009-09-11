@@ -71,6 +71,20 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+(defvar emacspeak-ebook-keymap nil
+  "Keymap used for EBooks.")
+
+;;;###autoload
+(define-prefix-command  'emacspeak-ebook-command
+  'emacspeak-ebook-keymap) 
+
+(loop for k in
+      '(
+        ("o" emacspeak-ebook-open)
+        ("g" emacspeak-ebook-google)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-ebook-keymap k))
 ;;;###autoload
 (defun emacspeak-ebook-open (toc)
   "Open specified EBook.
@@ -79,6 +93,19 @@
   (declare (special emacspeak-ebook-toc-transform))
   (emacspeak-webutils-autospeak)
   (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
+
+(defvar emacspeak-ebook-google-search-template
+  "http://books.google.com/books/feeds/volumes?min-viewability=full&ebook=epub&q=%s"
+  "REST  end-point for performing Google Books Search to find EBooks  having full viewability.")
+
+;;;###autoload
+(defun emacspeak-ebook-google (query)
+  "Search for EBooks from Gooble Books."
+  (interactive "sGoogle Books Query: ")
+  (declare (special emacspeak-ebook-google-search-template))
+  (emacspeak-webutils-atom-display
+   (format emacspeak-ebook-google-search-template
+           (emacspeak-url-encode query))))
 
 ;;}}}
 
