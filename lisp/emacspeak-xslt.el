@@ -328,7 +328,7 @@ part of the libxslt package."
       (insert-file file)
       (shell-command-on-region
        (point-min) (point-max)
-       (format "%s --param base %s  %s - "
+       (format "%s --param base %s  %s - %s "
                emacspeak-xslt-program
                  (format "\"'file://%s'\""
                          (expand-file-name file))
@@ -401,6 +401,7 @@ part of the libxslt package."
       (emacspeak-webutils-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
+
 
 ;;}}}
 (provide 'emacspeak-xslt)
