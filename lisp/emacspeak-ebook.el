@@ -51,7 +51,6 @@
 ;;; This module will also implement the Google Books GData API
 ;;; --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
 
-
 ;;; Code:
 
 (require 'emacspeak-preamble)
@@ -63,6 +62,23 @@
 (defgroup emacspeak-ebook nil
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
+
+(defvar emacspeak-ebook-toc-transform
+  (expand-file-name "epub-toc.xsl"
+                    emacspeak-xslt-directory)
+  "Transformation that takes epub table of contents to XHTML.")
+
+;;}}}
+;;{{{ Interactive Commands:
+
+;;;###autoload
+(defun emacspeak-ebook-open (toc)
+  "Open specified EBook.
+`toc' is the pathname to an EPubs table of contents."
+  (interactive "FTOC: ")
+  (declare (special emacspeak-ebook-toc-transform
+))
+  (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
 
 ;;}}}
 
