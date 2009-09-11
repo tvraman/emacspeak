@@ -316,6 +316,26 @@ part of the libxslt package."
 
 ;;}}}
 ;;{{{ interactive commands:
+
+;;;###autoload
+(defun emacspeak-xslt-view-file(style file)
+  "Transform `file' using `style' and preview via browse-url."
+  (interactive "FStyle:\nFFile:")
+  (with-temp-buffer
+    (let ((coding-system-for-read 'utf-8)
+          (coding-system-for-write 'utf-8)
+          (buffer-file-coding-system 'utf-8))
+      (insert-file file)
+      (shell-command-on-region
+       (point-min) (point-max)
+       (format "%s %s - "
+               emacspeak-xslt-program  style file)
+       (current-buffer) 'replace)
+      (set-buffer-multibyte t)
+      (browse-url-of-buffer))))
+
+  "Apply transform to 
+
 ;;;###autoload
 (defun emacspeak-xslt-view (style url)
   "Browse URL with specified XSL style."
