@@ -63,6 +63,19 @@
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
 
+(defcustom emacspeak-ebook-library-root
+  (expand-file-name "~/ebooks/")
+  "Directory under which we store EBooks."
+  :type 'directory
+  :group 'emacspeak-ebook)
+
+
+(defcustom emacspeak-ebook-toc-path
+  "OEBPS/toc.ncx"
+  "Path component  to table of contents in an EBook."
+  :type 'string
+  :group 'emacspeak-ebook)
+
 (defvar emacspeak-ebook-toc-transform
   (expand-file-name "epub-toc.xsl"
                     emacspeak-xslt-directory)
@@ -85,11 +98,26 @@
         )
       do
       (emacspeak-keymap-update emacspeak-ebook-keymap k))
+
+(defsubst emacspeak-ebook-get-toc-path ()
+  "Read book location and return path to table of contents."
+  (declare (special emacspeak-ebook-toc-path
+                    emacspeak-ebook-library-root))
+  (expand-file-name
+   (concat 
+   (read-directory-name
+    "EBook:"
+    emacspeak-ebook-library-root)
+   emacspeak-ebook-toc-path))
+)
+
 ;;;###autoload
 (defun emacspeak-ebook-open (toc)
   "Open specified EBook.
 `toc' is the pathname to an EPubs table of contents."
-  (interactive "FEPubs TOC: ")
+  (interactive
+   (list
+    (emacspeak-ebook-get-toc-path)))
   (declare (special emacspeak-ebook-toc-transform))
   (emacspeak-webutils-autospeak)
   (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
