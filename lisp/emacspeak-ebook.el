@@ -84,9 +84,10 @@
 ;;}}}
 ;;{{{ Define EBook Minor Mode
 
-(define-minor-mode emacspeak-ebook
- "EBooks minor mode."
-    :lighter " EBooks")
+(define-minor-mode emacspeak-ebook-mode
+  "EBooks minor mode."
+  :keymap  emacspeak-ebook-keymap
+  :lighter " EBooks")
     
 
 ;;}}}
