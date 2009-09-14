@@ -55,7 +55,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-
+(require 'easy-mmode)
 ;;}}}
 ;;{{{  Customization variables
 
@@ -80,6 +80,14 @@
   (expand-file-name "epub-toc.xsl"
                     emacspeak-xslt-directory)
   "Transformation that takes epub table of contents to XHTML.")
+
+;;}}}
+;;{{{ Define EBook Minor Mode
+
+(define-minor-mode emacspeak-ebook
+ "EBooks minor mode."
+    :lighter " EBooks")
+    
 
 ;;}}}
 ;;{{{ Interactive Commands:
