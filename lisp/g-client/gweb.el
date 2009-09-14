@@ -94,6 +94,8 @@
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&q=%s"
   "URL  that gets suggestions from Google as JSON.")
 
+;;; for news suggest: "http://clients1.google.com/complete/search?hl=en&ds=n&nolabels=t&hjson=t&q=India"
+
 (defsubst gweb-suggest (input)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
