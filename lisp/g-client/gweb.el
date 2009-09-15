@@ -93,20 +93,25 @@
 (defvar gweb-suggest-url
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&q=%s"
   "URL  that gets suggestions from Google as JSON.")
+;;; corpus is ds=n for News
 
-;;; for news suggest: "http://clients1.google.com/complete/search?hl=en&ds=n&nolabels=t&hjson=t&q=India"
-
-(defsubst gweb-suggest (input)
+(defsubst gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
   (unless (and (stringp input)
-	     (> (length input) 0))
+               (> (length input) 0))
     (setq input minibuffer-default))
   (g-using-scratch
-   (call-process g-curl-program nil t nil
-                 "-s"
-                 (format gweb-suggest-url (g-url-encode input)))
-   (goto-char (point-min))
+   (let ((url (format gweb-suggest-url (g-url-encode input))))
+     (when corpus
+       (setq url
+             (format "%s&%s"
+                     url corpus)))
+     (call-process
+      g-curl-program
+      nil t nil
+      "-s" url)
+     (goto-char (point-min)))
    ;; A JSON array is a vector.
    ;; read it, filter the comma separators found as symbols.
    (delq'\,
@@ -125,7 +130,19 @@
     (complete-with-action mode 
 			  (gweb-suggest string)
 			  string predicate)))
-  
+
+
+(defun gweb-news-suggest-completer (string predicate mode)
+  "Generate completions using Google News Suggest. "
+  (save-current-buffer 
+    (set-buffer 
+     (let ((window (minibuffer-selected-window))) 
+       (if (window-live-p window) 
+	   (window-buffer window) 
+	 (current-buffer)))) 
+    (complete-with-action mode 
+			  (gweb-suggest string "ds=n")
+			  string predicate)))  
 
 (defvar gweb-history nil
   "History of Google Search queries.")
@@ -170,6 +187,40 @@
     (completing-read
      (or prompt "Google: ")
                      (dynamic-completion-table gweb-suggest))))))
+
+;;; For news:
+(if (fboundp 'complete-with-action)
+    (defsubst gweb-news-autocomplete (&optional prompt)
+  "Read user input using Google News Suggest for auto-completion."
+  (let* ((minibuffer-completing-file-name t) ;; accept spaces
+         (completion-ignore-case t)
+         (word (thing-at-point 'word))
+         (suggestions
+	  (when (and word (> (length word) 0))
+	    (set-text-properties 0 (length word) nil word)
+	    (cons  word (gweb-suggest  word "ds=n"))))
+         (query nil))
+    (setq query
+          (completing-read
+           (or prompt "Google News: ")
+           'gweb-news-suggest-completer
+           nil nil
+           word 'gweb-history
+           suggestions))
+    (pushnew  query gweb-history)
+    (g-url-encode query)))
+;;; Emacs 22
+(defsubst gweb-news-autocomplete (&optional prompt)
+  "Read user input using Google News Suggest for auto-completion."
+  (let ((minibuffer-completing-file-name t) ;; so we can type
+        ;; spaces
+        (completion-ignore-case t))
+    (g-url-encode
+    (completing-read
+     (or prompt "Google News: ")
+                     (dynamic-completion-table
+                      #'(lambda (w)
+                          (gweb-suggest w "ds=n"))))))))
 
 ;;}}}
 ;;{{{ Search Helpers
