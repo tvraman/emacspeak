@@ -163,7 +163,7 @@ Nil means no transform is used. "
 
 ;;; Note that emacspeak-we-xsl-transform, emacspeak-we-xsl-params
 ;;; and emacspeak-we-xsl-p
-;;; need to be set at top-lvle since the page-rendering code is
+;;; need to be set at top-level since the page-rendering code is
 ;;; called asynchronously.
 
 ;;;###autoload
