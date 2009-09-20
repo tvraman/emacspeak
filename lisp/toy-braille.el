@@ -92,3 +92,4 @@
 
 ;;;; toy-braille.el ends here.
 
+(provide 'toy-braille)
