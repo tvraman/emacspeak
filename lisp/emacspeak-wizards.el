@@ -3200,6 +3200,16 @@ Default is to add autoload cookies to current file."
   (emacspeak-speak-line))
 
 ;;}}}
+;;{{{ Braille  
+
+;;;###autoload
+(defun emacspeak-wizards-braille (s)
+  "Insert Braille string at point."
+  (interactive "sBraille: ")
+  (require 'toy-braille)
+  (insert (get-toy-braille-string s)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
