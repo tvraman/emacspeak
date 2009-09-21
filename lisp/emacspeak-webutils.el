@@ -226,12 +226,7 @@ and xsl environment specified by style, params and options."
            emacspeak-xslt-options ,options
            emacspeak-we-xsl-transform ,style
            emacspeak-we-xsl-params ,params)
-     (unwind-protect
-         (progn ,@body)
-       (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
-                 emacspeak-xslt-options ,emacspeak-xslt-options
-                 emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
-                 emacspeak-we-xsl-params ,emacspeak-we-xsl-params))))
+     ,@body))
 
 ;;}}}
 ;;{{{ variables
