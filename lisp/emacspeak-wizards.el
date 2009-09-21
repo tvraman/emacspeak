@@ -3207,7 +3207,9 @@ Default is to add autoload cookies to current file."
   "Insert Braille string at point."
   (interactive "sBraille: ")
   (require 'toy-braille)
-  (insert (get-toy-braille-string s)))
+  (insert (get-toy-braille-string s))
+  (emacspeak-auditory-icon 'yank-object)
+  (message "Brailled %s" s))
 
 ;;}}}
 (provide 'emacspeak-wizards)
