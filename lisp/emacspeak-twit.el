@@ -56,7 +56,6 @@
 ;;{{{ Map->Voice Mappings:
 (voice-setup-add-map
  '(
-   
    (twit-message-face voice-lighten)
    (twit-author-face voice-brighten)
    (twit-info-face voice-smoothen)
