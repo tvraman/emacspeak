@@ -67,23 +67,17 @@
    (twit-fail-whale-face voice-lighten-extra)
    ))
 ;;}}}
-;;{{{ Adding Friends
+;;{{{ Advice interactive commands: twit.el Version 3 
 
-(defun emacspeak-twit-follow (friend)
-  "Follow friend. Prompts for Twitter  password if necessary."
-  (interactive "sFriend: ")
-  (declare (special twitter-username twitter-password))
-  (let ((passwd (or twitter-password
-                    (read-passwd "Twitter Password: "))))
-    (shell-command
-     (format
-      "wget --user=%s --password=%s  http://twitter.com/friendships/create/%s.xml --post-data=\"\""
-      twitter-username
-      passwd
-      friend))))
-
-
-
+(loop for command in
+      '(twit-next-tweet twit-previous-tweet)
+      do
+      (eval
+       `(defadvice ,command (after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-twit)
