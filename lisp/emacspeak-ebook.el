@@ -92,7 +92,7 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-
+;;;###autoload
 (defvar emacspeak-ebook-keymap nil
   "Keymap used for EBooks.")
 
