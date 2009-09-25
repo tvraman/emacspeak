@@ -54,7 +54,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'calendar)
+
 (require 'g-utils)
 (require 'g-auth)
 (require 'browse-url)
@@ -67,14 +67,14 @@
   :group 'g)
 
 (defcustom gskeleton-user-email nil
-  "Mail address that identifies calendar user."
+  "Mail address that identifies skeleton user."
   :type '(choice
           (const :tag "none" nil)
           (string :tag "username@gmail.com" ""))
   :group 'gskeleton)
 
 (defcustom gskeleton-user-password nil
-  "Password for authenticating to calendar account."
+  "Password for authenticating to skeleton account."
   :type '(radio (const :tag "Prompt for password" nil)
                 (string :tag "Save password in .emacs"))
   :group 'gskeleton)
@@ -86,7 +86,7 @@
   "Service name for accessing Google skeleton.")
 
 (defsubst gskeleton-p (service)
-  "Check if this is Calendar."
+  "Check if this is Skeleton."
   (declare (special gskeleton-service-name))
   (string-equal service gskeleton-service-name))
 
@@ -102,10 +102,10 @@
                :password gskeleton-user-password))
 
 (defvar gskeleton-auth-handle (make-gskeleton-auth)
-  "G auth handle used for signing into calendar.")
+  "G auth handle used for signing into skeleton.")
 
 (defun gskeleton-authenticate ()
-  "Authenticate into Google Calendar."
+  "Authenticate into Google Skeleton."
   (declare (special gskeleton-auth-handle))
   (g-authenticate gskeleton-auth-handle))
 
@@ -113,8 +113,8 @@
 ;;{{{ Feed of feeds:
 
 (defvar gskeleton-feeds-template-url
-  "'https://www.google.com/calendar/feeds/%s'"
-  "URL template for feed of feeds from calendar.")
+  "'https://www.google.com/skeleton/feeds/%s'"
+  "URL template for feed of feeds from skeleton.")
 (defsubst gskeleton-feeds-url (userid)
   "Return url for feed of feeds."
   (declare (special gskeleton-feeds-template-url))
@@ -146,7 +146,7 @@
   (interactive)
   (declare (special gskeleton-auth-handle
                     gskeleton-user-email gskeleton-user-password))
-  (message "Signing out %s from Calendar"
+  (message "Signing out %s from Skeleton"
            (g-auth-email gskeleton-auth-handle))
   (setq gskeleton-user-email nil
         gskeleton-user-password nil)

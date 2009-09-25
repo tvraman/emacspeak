@@ -98,9 +98,6 @@
 (defvar gcontacts-process nil
   "Process handle to Python subprocess that holds the ContactsShell.")
 
-(defvar gcontacts-python (executable-find "python")
-  "Python interpreter used by GContcats.")
-
 ;;;###autoload
 (defun gcontacts-initialize (username)
   "Initialize GContacts process handle."
@@ -110,7 +107,7 @@
                           nil nil nil nil
                           gcontacts-user-email)))
   (declare (special gcontacts-process gcontacts-user-email
-                    gcontacts-python))
+                    py-python-command))
   (when (and gcontacts-process
              (eq (process-status gcontacts-process) 'run))
     (delete-process gcontacts-process))
@@ -121,7 +118,7 @@
     (setq gcontacts-process
           (start-process
            "Contacts" "*Contacts*"
-           gcontacts-python))
+           py-python-command))
     (process-send-string gcontacts-process
                          "import contacts\n")
     (process-send-string

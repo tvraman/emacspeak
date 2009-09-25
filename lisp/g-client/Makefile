@@ -52,6 +52,7 @@ gcontacts.elc \
 gdocs.elc \
 gfinance.elc \
 gfeeds.elc \
+ghealth.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
@@ -90,6 +91,7 @@ g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
 gfeeds.elc: g-utils.elc gfeeds.el
 gfinance.elc: gfinance.el g-app.elc
+ghealth.elc: ghealth.el g-app.elc
 greader.elc: greader.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
 gweb.elc: gweb.el g-utils.elc
