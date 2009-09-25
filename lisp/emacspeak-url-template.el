@@ -2241,7 +2241,8 @@ Meerkat realy needs an xml-rpc method for getting this.")
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
- (list "Zip: ")
+ (list
+  #'(lambda () (read-from-minibuffer "Zip: " emacspeak-url-template-weather-city-state)))
  'emacspeak-speak-buffer
  "Weather forecast from weather underground mobile."
  )
