@@ -79,6 +79,14 @@
             (emacspeak-speak-line)))))
 
 ;;}}}
+;;{{{ turn on voice lock:
+;;; no minor mode hook for now alas:
+
+(defadvice twit-write-recent-tweets (after emacspeak pre act comp)
+  "Turn on voice lock."
+  (voice-lock-mode 1))
+
+;;}}}
 (provide 'emacspeak-twit)
 ;;{{{ end of file
 
