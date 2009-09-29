@@ -52,7 +52,7 @@ gcontacts.elc \
 gdocs.elc \
 gfinance.elc \
 gfeeds.elc \
-ghealth.elc \
+#ghealth.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
