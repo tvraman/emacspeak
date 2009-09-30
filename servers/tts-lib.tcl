@@ -183,7 +183,7 @@ proc queue_restore {} {
 #play a sound over the server
 proc p {sound} {
     global tts
-    catch "exec $tts(play) $sound 1>&- 2>&- & " errcode
+    catch "exec $tts(play) -N $sound 1>&- 2>&- & " errcode
     speech_task
 }
 
