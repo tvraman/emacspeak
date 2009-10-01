@@ -1036,7 +1036,7 @@ end:\n\n")
 
 (defsubst ems-texinfo-escape (string)
   "Escape texinfo special chars"
-  (when string 
+  (when string
     (save-excursion
       (set-buffer (get-buffer-create " *doc-temp*"))
       (erase-buffer)
@@ -1115,11 +1115,11 @@ for commands defined in module  %s.\n\n"
                          (ems-texinfo-escape
                           (mapconcat 'key-description key " ")))
                         (t "Not bound to any key.")))
-                 (when key-description 
+                 (when key-description
                    (insert
                     (format "@kbd{%s}\n\n"
                             key-description)))
-                 (insert 
+                 (insert
                   (if
                       (documentation f)
                       (ems-texinfo-escape (documentation f))
@@ -1144,7 +1144,7 @@ Warning! Contents of file filename will be overwritten."
   (interactive "FEnter filename to save options documentation in: ")
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
-        (buffer (find-file-noselect filename)) 
+        (buffer (find-file-noselect filename))
         (module nil))
     (save-excursion
       (set-buffer buffer)
@@ -1870,7 +1870,7 @@ Extracted content is sent to STDOUT."
        "--file" file
        "--depth" depth
        "--count" count
-       "2>/dev/null")    
+       "2>/dev/null")
       (emacspeak-table-view-csv-buffer))))
 
 ;;}}}
@@ -2456,7 +2456,10 @@ directory to where find is to be launched."
   (shell-command-on-region start end
                            "cat -s"
                            (current-buffer)
-                           'replace))
+                           'replace)
+  (indent-buffer)
+  (untabify-buffer)
+  (delete-trailing-whitespace))
 
 ;;}}}
 ;;{{{  count slides in region: (LaTeX specific.
@@ -3181,7 +3184,7 @@ Default is to add autoload cookies to current file."
     (call-interactively 'find-file)))
 
 ;;}}}
-;;{{{ Bullet navigation 
+;;{{{ Bullet navigation
 ;;;###autoload
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
@@ -3200,7 +3203,7 @@ Default is to add autoload cookies to current file."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Braille  
+;;{{{ Braille
 
 ;;;###autoload
 (defun emacspeak-wizards-braille (s)
