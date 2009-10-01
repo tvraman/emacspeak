@@ -339,11 +339,7 @@ proc tts_initialize {} {
     if {[info exists env(EMACSPEAK_PLAY_PROGRAM)] } {
         set tts(play)  $env(EMACSPEAK_PLAY_PROGRAM)
     } else {
-        if [file exists /usr/bin/aplay] {
         set tts(play) "/usr/bin/aplay"
-        } else {
-            set tts(play) "play"
-        }
     }
     
     #optional debuggin output
