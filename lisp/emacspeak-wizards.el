@@ -607,6 +607,14 @@ default-directory after switching."
         (insert (format "pushd %s" dir))
         (comint-send-input)
         (shell-process-cd dir)))))
+
+;;;###autoload
+(defun emacspeak-sudo-edit (&optional arg)
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 ;;;###autoload
 (defun emacspeak-sudo (command)
   "SUDo command --run command as super user."
@@ -1872,6 +1880,19 @@ Extracted content is sent to STDOUT."
        "--count" count
        "2>/dev/null")
       (emacspeak-table-view-csv-buffer))))
+
+;;}}}
+;;{{{ view url:
+;;;###autoload
+(defun emacspeak-wizards-view-url ()
+  "Open a new buffer containing the contents of URL."
+  (interactive)
+  (let* ((default (thing-at-point-url-at-point))
+         (url (read-from-minibuffer "URL: " default)))
+    (switch-to-buffer (url-retrieve-synchronously url))
+    (rename-buffer url t)
+    (cond ((search-forward "<?xml" nil t) (xml-mode))
+          ((search-forward "<html" nil t) (html-mode)))))
 
 ;;}}}
 ;;{{{ annotation wizard
