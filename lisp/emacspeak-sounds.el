@@ -323,7 +323,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  setup play function
 
-(defcustom emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
+(defcustom emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon
   "*Function that plays auditory icons."
   :group 'emacspeak-sounds
   :type '(choice
