@@ -210,7 +210,7 @@ Converts char to unicode if necessary (for emacs 22)."
     (and unicode (condition-case nil
                      (let ((emacspeak-speak-cue-errors nil)
                            (emacspeak-speak-messages nil))
-                       (describe-char-unicode-data unicode))
+                       (get-char-code-property unicode))
                    (error nil)))))
 
 (defsubst dtk-unicode-char-property (char prop-name)
