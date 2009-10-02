@@ -202,6 +202,8 @@ charsets returned by operations such as `find-charset-region'."
           (puthash char ad-return-value dtk-unicode-cache))
       (setq ad-return-value result))))
 
+
+
 (defsubst dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR.
 
@@ -210,7 +212,7 @@ Converts char to unicode if necessary (for emacs 22)."
     (and unicode (condition-case nil
                      (let ((emacspeak-speak-cue-errors nil)
                            (emacspeak-speak-messages nil))
-                       (get-char-code-property unicode))
+                       (describe-char-unicode-data unicode))
                    (error nil)))))
 
 (defsubst dtk-unicode-char-property (char prop-name)
