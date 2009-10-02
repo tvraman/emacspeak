@@ -315,6 +315,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
          (condition-case err
              (start-process
               "play" nil emacspeak-play-program
+              "-N"
               (emacspeak-get-sound-filename sound-name))
            (error
             (message (error-message-string err)))))))
