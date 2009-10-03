@@ -126,7 +126,7 @@
     (set-buffer emacspeak-moz-output-buffer)
     (goto-char (point-max))
     (insert output)
-    t))
+    ""))
 
 ;;;###autoload
 (defun emacspeak-moz-eval-expression-and-browse (exp)
