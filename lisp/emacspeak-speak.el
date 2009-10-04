@@ -1058,6 +1058,13 @@ Pronounces character phonetically unless  called with a PREFIX arg."
         (dtk-speak (emacspeak-get-phonetic-string char )))
        (t (emacspeak-speak-this-char char))))))
 
+;;;###autoload
+(defun emacspeak-what-is-this-char ()
+  "tell me what this is"
+  (interactive)
+  (message (car (rassq (following-char) (ucs-names)))))
+
+
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
   (when char
