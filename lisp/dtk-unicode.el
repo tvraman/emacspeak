@@ -119,8 +119,7 @@
 (defcustom dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
   "*Characters of these charsets are completely ignored by dtk-unicode-replace-chars."
-  :type '(repeat
-          (const :tag "charset")))
+  :type '(repeat symbol))
 
 (defvar dtk-unicode-handlers
   '(dtk-unicode-user-table-handler dtk-unicode-full-table-handler)
