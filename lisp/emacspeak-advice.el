@@ -1342,7 +1342,7 @@ Produce an auditory icon if possible."
 (defadvice describe-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (message "Displayed mode help in other window")
+    (message "Displayed mode help in help window")
     (emacspeak-auditory-icon 'help)))
 (loop for f in
       '(describe-bindings
@@ -1352,7 +1352,7 @@ Produce an auditory icon if possible."
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
-            (message "Displayed key bindings  in other window")
+            (message "Displayed key bindings  in help window")
             (emacspeak-auditory-icon 'help)))))
 
 (defadvice indent-for-tab-command (after emacspeak pre act comp)
