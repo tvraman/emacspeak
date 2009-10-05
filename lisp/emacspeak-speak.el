@@ -1053,16 +1053,17 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (let ((char  (following-char )))
     (when char
       (cond
+       ((> char 128) (emacspeak-speak-char-name char))
        ((and (not prefix)
              (emacspeak-is-alpha-p char))
         (dtk-speak (emacspeak-get-phonetic-string char )))
        (t (emacspeak-speak-this-char char))))))
 
 ;;;###autoload
-(defun emacspeak-what-is-this-char ()
+(defun emacspeak-speak-char-name (char)
   "tell me what this is"
   (interactive)
-  (message (car (rassq (following-char) (ucs-names)))))
+  (dtk-speak (car (rassq char (ucs-names)))))
 
 
 (defun emacspeak-speak-this-char (char)
