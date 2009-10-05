@@ -584,6 +584,16 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ html5irc 
+
+(emacspeak-url-template-define
+ "html5IRC"
+ "http://krijnhoetmer.nl/irc-logs/whatwg/%s"
+ (list 'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Show HTML5 IRC log.")
+
+;;}}}
 ;;{{{ product search: Google (used to be  froogle)
 
 (emacspeak-url-template-define
