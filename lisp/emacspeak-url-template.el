@@ -1194,6 +1194,17 @@ from English to German.")
  "Google Sandbox Results")
 
 (emacspeak-url-template-define
+ "1BoxxxxGoogle"
+ "http://www.google.com/search?q=%s"
+ (list 'gweb-google-autocomplete)
+ nil
+ "Show 1box result from Google."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class-list
+      (list "rbt" "e")
+      url 'speak)))
+
+(emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
  (list 'gweb-google-autocomplete
