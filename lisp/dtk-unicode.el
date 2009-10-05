@@ -71,7 +71,9 @@
 (defcustom dtk-unicode-character-replacement-alist
   '(
     (? . "-")                       ; START OF GUARDED AREA
-    (?° . " degrees ")                  ; degree sign 
+    (?° . " degrees ")                  ; degree sign
+    (?℃ . "Degree C") ; celsius
+    (?℉ . "Degree F ") ; Fahrenheit
     (?“ . "\"")                         ;LEFT DOUBLE QUOTATION MARK
     (?” . "\"")                         ; RIGHT DOUBLE QUOTATION MARK
     (?⋆ . "*")                          ; STAR OPERATOR
@@ -218,15 +220,23 @@ Converts char to unicode if necessary (for emacs 22)."
 (defsubst dtk-unicode-char-property (char prop-name)
   "Get character property by name."
   (second (assoc prop-name (dtk-unicode-char-properties char))))
+;;; Let's use the cache  built in ucs-names --- more efficient.
+;; (defun dtk-unicode-name-for-char (char)
+;;   "Return unicode name for character CHAR.
 
-(defun dtk-unicode-name-for-char (char)
+;; nil if CHAR is not in Unicode."
+;;   (let ((name (dtk-unicode-char-property char "Name")))
+;;     (when (and (stringp name) (string-equal name "<control>"))
+;;       (setq name (dtk-unicode-char-property char "Old name")))
+;;     (and (stringp name) (downcase name))))
+
+(defsubst dtk-unicode-name-for-char (char)
   "Return unicode name for character CHAR.
-
 nil if CHAR is not in Unicode."
-  (let ((name (dtk-unicode-char-property char "Name")))
-    (when (and (stringp name) (string-equal name "<control>"))
-      (setq name (dtk-unicode-char-property char "Old name")))
-    (and (stringp name) (downcase name))))
+  (downcase
+   (or  (car (rassq char (ucs-names)))
+        "")))
+    
 
 (defsubst dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."
