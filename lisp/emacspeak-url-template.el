@@ -1204,7 +1204,7 @@ from English to German.")
  "Google Sandbox Results")
 
 (emacspeak-url-template-define
- "1BoxxxxGoogle"
+ "1Box Google"
  "http://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)
  nil

@@ -116,9 +116,11 @@
 ;;}}}
 ;;{{{ Variables
 
-(defvar dtk-unicode-untouched-charsets
+(defcustom dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
-  "*Characters of these charsets are completely ignored by dtk-unicode-replace-chars.")
+  "*Characters of these charsets are completely ignored by dtk-unicode-replace-chars."
+  :type '(repeat
+          (const :tag "charset")))
 
 (defvar dtk-unicode-handlers
   '(dtk-unicode-user-table-handler dtk-unicode-full-table-handler)
