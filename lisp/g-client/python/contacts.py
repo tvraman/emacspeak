@@ -34,13 +34,10 @@ class ContactsShell(object):
     Takes an email and password corresponding to a gmail account 
     and sets up things for Emacs to access Contact services.
 
-    Args:
-      email: [string] The e-mail address of the account to use for the sample.
-      password: [string] The password corresponding to the account specified by
-        the email parameter.
-
-    Yields:
-      A ContactsShell handle.
+    Args       :
+      email    : [string] The e-mail address of the account to use for the sample.
+      password : [string] The password 
+    Yields     : A ContactsShell handle.
 
     """
     self.gd_client = gdata.contacts.service.ContactsService()
@@ -52,8 +49,8 @@ class ContactsShell(object):
   def PrintFeed(self, feed):
     """Print out feed so Emacs can use it.
 
-    Args:
-      feed: A gdata.contacts.ContactsFeed instance.
+    Args   :
+      feed : A gdata.contacts.ContactsFeed instance.
     """
     print '\n'
     if not feed.entry:
@@ -63,8 +60,7 @@ class ContactsShell(object):
       if entry.content:
         print '    %s' % (entry.content.text)
       for email in entry.email:
-        if email.primary and email.primary == 'true':
-          print '    %s' % (email.address)
+        print '    %s' % (email.address)
       for phone in entry.phone_number:
         print '    %s: %s' %  (phone.rel, phone.text)
       # Show the contact groups that this contact is a member of.
