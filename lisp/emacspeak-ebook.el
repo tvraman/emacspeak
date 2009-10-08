@@ -83,7 +83,7 @@
 
 ;;}}}
 ;;{{{ Define EBook Minor Mode
-
+;;;###autoload
 (define-minor-mode emacspeak-ebook-mode
   "EBooks minor mode."
   :keymap  emacspeak-ebook-keymap
