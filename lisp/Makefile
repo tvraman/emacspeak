@@ -150,6 +150,7 @@ emacspeak-generic.elc \
 emacspeak-gnuplot.elc \
 emacspeak-gnus.elc\
 emacspeak-gomoku.elc \
+emacspeak-google.elc \
 emacspeak-gridtext.elc \
 emacspeak-gud.elc \
 emacspeak-hide.elc \
@@ -360,6 +361,7 @@ emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc voice-setup.elc
 emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc voice-setup.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc voice-setup.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
+emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
 emacspeak-gomoku.elc: emacspeak-gomoku.el dtk-speak.elc voice-setup.elc
 emacspeak-gridtext.elc: emacspeak-gridtext.el dtk-speak.elc voice-setup.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
