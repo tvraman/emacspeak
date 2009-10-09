@@ -322,6 +322,27 @@ This variable is buffer-local.")
   :keymap  emacspeak-google-keymap
   :lighter " Google")
 
+
+(define-prefix-command  'emacspeak-google-command
+  'emacspeak-google-keymap)
+
+(loop for k in
+      '(
+        ("r" emacspeak-google-toolbelt-change-recent)
+        ("b" emacspeak-google-toolbelt-change-blog)
+        ("n" emacspeak-google-toolbelt-change-news)
+        ("c" emacspeak-google-toolbelt-change-commercial)
+        ("v" emacspeak-google-toolbelt-change-video)
+        ("i" emacspeak-google-toolbelt-change-images)
+        ("B" emacspeak-google-toolbelt-change-books)
+        ("t" emacspeak-google-toolbelt-change-books-type)
+        ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
+        ("l" emacspeak-google-toolbelt-change-non-commercial)
+        ("s" emacspeak-google-toolbelt-change-structured-snippets)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-google-keymap k))
+
 ;;}}}
 
 (provide 'emacspeak-google)

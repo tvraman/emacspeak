@@ -961,6 +961,7 @@ I'm Feeling Lucky button on Google."
   (let ((toolbelt (emacspeak-google-toolbelt)))
   (emacspeak-webutils-cache-google-query query)
   (emacspeak-webutils-cache-google-toolbelt toolbelt)
+  (add-hook 'emacspeak-web-post-process-hook  'emacspeak-google-mode 'at-end)
   (if lucky
       (emacspeak-webutils-autospeak)
     (emacspeak-webutils-post-process
