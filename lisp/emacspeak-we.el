@@ -901,7 +901,7 @@ Can be customized to set up initial default."
   :type 'string
   :group 'emacspeak-we)
 ;;;###autoload
-(defun emacspeak-we-class-filter-and-follow (&optional prompt)
+(defun emacspeak-we-class-filter-and-follow-link (&optional prompt)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -1044,7 +1044,7 @@ and provide a completion list of applicable  property values. Filter document by
         ("m" emacspeak-we-extract-table-by-match)
         ("o" emacspeak-we-xsl-toggle)
 ("p" emacspeak-we-xpath-filter-and-follow)
-        ("v" emacspeak-we-class-filter-and-follow)
+        ("v" emacspeak-we-class-filter-and-follow-link)
         ("r" emacspeak-we-extract-media-streams)
         ("S" emacspeak-we-style-filter)
         ("s" emacspeak-we-xslt-select)

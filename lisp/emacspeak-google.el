@@ -307,7 +307,8 @@ This variable is buffer-local.")
                 ((emacspeak-websearch-google-options
                   (emacspeak-google-toolbelt-to-tbs)))
               (emacspeak-websearch-google
-               (emacspeak-url-encode emacspeak-google-query)))))))
+               (or emacspeak-google-query
+                   (gweb-google-autocomplete))))))))
 
 ;;}}}
 ;;{{{ Minor mode and keymap
