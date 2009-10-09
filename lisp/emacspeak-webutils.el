@@ -129,6 +129,24 @@ Note that the Web browser should reset this hook after using it.")
                 (emacspeak-speak-buffer))
             'at-end))
 
+(defsubst emacspeak-webutils-cache-google-query(query)
+  "Setup post process hook to cache google query when rendered."
+  (declare (special emacspeak-google-query))
+  (let ((cache
+  (eval `(function
+          (lambda nil
+             (setq emacspeak-google-query ,query))))))
+  (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+
+(defsubst emacspeak-webutils-cache-google-toolbelt(belt)
+  "Setup post process hook to cache google toolbelt when rendered."
+  (declare (special emacspeak-google-toolbelt))
+  (let ((cache
+         (eval `(function
+                 (lambda nil
+                   (setq emacspeak-google-toolbelt' ,belt))))))
+    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode))

@@ -2402,7 +2402,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
       (set-buffer standard-output)
       (fill-region (point-min)
                    (point-max)))
-    (print-help-return-message))
+    (help-print-return-message))
   (emacspeak-speak-help)
   (emacspeak-auditory-icon 'help))
 

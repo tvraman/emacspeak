@@ -42,6 +42,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'emacspeak-google)
 (require 'gweb)
 (require  'emacspeak-we)
 (require 'calendar)
@@ -954,13 +955,18 @@ I'm Feeling Lucky button on Google."
     (gweb-google-autocomplete)
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
+                    emacspeak-google-query emacspeak-google-toolbelt
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
+  (let ((toolbelt (emacspeak-google-toolbelt)))
+  (emacspeak-webutils-cache-google-query query)
+  (emacspeak-webutils-cache-google-toolbelt toolbelt)
   (if lucky
       (emacspeak-webutils-autospeak)
     (emacspeak-webutils-post-process
      "results"
-     'emacspeak-speak-line))
+     'emacspeak-speak-line)
+    )
   (let ((emacspeak-w3-tidy-html t))
     (emacspeak-webutils-with-xsl-environment
      (expand-file-name "default.xsl" emacspeak-xslt-directory)
@@ -974,7 +980,7 @@ I'm Feeling Lucky button on Google."
                 (concat
                  "&btnI="
                  (emacspeak-url-encode
-                  "I'm Feeling Lucky"))))))))
+                  "I'm Feeling Lucky")))))))))
 
 ;;{{{ IMFA
 
