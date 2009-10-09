@@ -67,13 +67,17 @@
   default
   value ; current setting
   )
+(defvar emacspeak-google-query nil
+  "Current Google Query.
+This variable is buffer-local.")
+(make-variable-buffer-local 'emacspeak-google-query)
 
 (defvar emacspeak-google-toolbelt nil
   "List of tools on the toolbelt.")
 
 (make-variable-buffer-local 'emacspeak-google-toolbelt)
 
-(defun emacspeak-google-toolbelt-to-tbs (toolbelt)
+(defun emacspeak-google-toolbelt-to-tbs ()
   "Return value for use in tbs parameter in search queries."
   (let
       ((settings
@@ -87,14 +91,16 @@
                     (t (format "%s:%s"
                                (emacspeak-google-tool-param tool)
                                (emacspeak-google-tool-value tool)))))
-               toolbelt))))
+               (emacspeak-google-toolbelt)))))
     (when settings 
     (concat "&tbs="
             (mapconcat #'identity settings ",")))))
    
 
 (defun emacspeak-google-toolbelt ()
-  "Returns a newly initialized toolbelt."
+  "Returns buffer-local toolbelt or a a newly initialized toolbelt."
+  (declare (special emacspeak-google-toolbelt))
+  (or emacspeak-google-toolbelt
   (list
 ;;; video vid: 1/0
    (make-emacspeak-google-tool
@@ -250,7 +256,7 @@
     :param "cdcpk"
     :range '(0 1)
     :default 0
-    :value 0)))
+    :value 0))))
 
 ;;}}}
 ;;{{{ Interactive Commands
@@ -264,13 +270,14 @@
             (format
              "emacspeak-google-toolbelt-change-%s"
              (emacspeak-google-tool-name this-tool)))
-          (belt)
+          ()
           ,(format
-            "Change  %s in this Google tool."
+            "Change  %s in the currently active toolbelt."
             (emacspeak-google-tool-name this-tool))
           (interactive)
           (let*
               (
+               (belt (emacspeak-google-toolbelt))
                (tool
                 (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
                                                         ,(emacspeak-google-tool-name this-tool)))
@@ -295,10 +302,13 @@
              ((stringp range)
               (setf (emacspeak-google-tool-value tool)
                     (read-from-minibuffer  range)))
-             (t (error "Unexpected type!")))))))
-                                           
-                      
-                   
+             (t (error "Unexpected type!")))
+            (let
+                ((emacspeak-websearch-google-options
+                  (emacspeak-google-toolbelt-to-tbs)))
+              (emacspeak-websearch-google
+               (emacspeak-url-encode emacspeak-google-query)))))))
+
 ;;}}}
 ;;{{{ Minor mode and keymap
 
