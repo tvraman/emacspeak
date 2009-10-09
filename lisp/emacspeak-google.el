@@ -64,6 +64,7 @@
   name ; human readable
   param ; url param bit
   range ; range of possible values
+  default
   value ; current setting
   )
 
@@ -76,9 +77,13 @@
   "Return value for use in tbs parameter in search queries."
   (mapconcat
    #'(lambda (tool)
-       (format "%s:%s"
+       (cond
+        ((equal (emacspeak-google-tool-value tool)
+                (emacspeak-google-tool-default tool))
+         "")
+       (t (format "%s:%s"
                (emacspeak-google-tool-param tool)
-               (emacspeak-google-tool-value tool)))
+               (emacspeak-google-tool-value tool)))))
    toolbelt
    ","))
 
