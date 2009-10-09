@@ -938,6 +938,12 @@ Optional second arg as-html processes the results as HTML rather than data."
           (const :tag "None" nil)
           (string :tag "Options"))
   :group 'emacspeak-websearch)
+
+(defadvice gweb-google-autocomplete (after emacspeak pre act comp)
+  "Cache the query."
+  (declare (special emacspeak-google-query))
+  (setq emacspeak-google-query ad-return-value))
+
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform a Google search.
@@ -1039,8 +1045,8 @@ http://www.google.com/options/specialsearches.html "
         (to (read (calendar-astro-date-string (or (car calendar-mark-ring)
                                                   (error "No mark set in this buffer"))))))
     (emacspeak-websearch-google
-     (concat
-      (emacspeak-url-encode query )
+      (concat
+       (emacspeak-url-encode query )
       (format "+daterange:%s-%s"
               (min from to)
               (max from to))))))
