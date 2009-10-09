@@ -90,131 +90,160 @@
     :name "video"
     :param "vid"
     :range '(0 1)
+    :default 0
+    :default 0
     :value 0)
 ;;; Recent
    (make-emacspeak-google-tool
     :name "recent"
     :param "r"
     :range '( 0 1)
+    :default 0
     :value 0)
 ;;; Duration restrict for video
    (make-emacspeak-google-tool
     :name "duration"
     :param "dur"
     :range '("m" "s" "l")
+    :default "m"
     :value "m")
 ;;; Blog mode
    (make-emacspeak-google-tool
     :name "blog"
     :param "blg"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Books mode
    (make-emacspeak-google-tool
     :name "books"
     :param "bks"
     :range '(0 1)
+    :default 0
+    :default 0
     :value 0)
 ;;; Books viewability
    (make-emacspeak-google-tool
     :name "books-viewability"
     :param "bkv"
     :range '("a" "f")
+    :default "a"
     :value "a")
 ;;; Book Type
    (make-emacspeak-google-tool
     :name "books-type"
     :param "bkt"
     :range '("b" "p" "m")
+    :default "b"
     :value "b")
 ;;; Forums Mode
    (make-emacspeak-google-tool
     :name "forums"
     :param "frm"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; News Mode
    (make-emacspeak-google-tool
     :name "news"
     :param "nws"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Reviews
    (make-emacspeak-google-tool
     :name "reviews"
     :param "rvw"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Web History Visited
    (make-emacspeak-google-tool
     :name "web-history-visited"
     :param "whv"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Web History Not Visited
    (make-emacspeak-google-tool
     :name "web-history-not-visited"
     :param "whnv"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Images
    (make-emacspeak-google-tool
     :name "images"
     :param "img"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Structured Snippets
    (make-emacspeak-google-tool
     :name "structured-snippets"
     :param "sts"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; sort by date
    (make-emacspeak-google-tool
     :name "sort-by-date"
     :param "std"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Timeline
    (make-emacspeak-google-tool
     :name "timeline"
     :param "tl"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Timeline Low
    (make-emacspeak-google-tool
     :name "timeline-low"
     :param "tll"
     :range "YYYY/MM"
+    :default ""
     :value "")
 ;;; Date Filter
    (make-emacspeak-google-tool
     :name "date-filter"
     :param "qdr"
     :range "tn"
+    :default ""
     :value "")
 ;;; Price
    (make-emacspeak-google-tool
     :name "Price"
     :param "prc"
     :range '(0 1)
+    :default 0
     :value 0)
 ;;; Timeline High
    (make-emacspeak-google-tool
     :name "timeline-high"
     :param "tlh"
     :range "YYYY/MM"
-    :value "")))
-   
-   
+    :default ""
+    :value "")
+;;; more:commercial
+   (make-emacspeak-google-tool
+    :name "commercial"
+    :param "cpk"
+    :range '(0 1)
+    :default 0
+    :value 0)
+;;; less:commercial
+   (make-emacspeak-google-tool
+    :name "non-commercial" 
+    :param "cdcpk"
+    :range '(0 1)
+    :default 0
+    :value 0)))
 
-  
-  
-  
 ;;}}}
 ;;{{{ Interactive Commands
-
-
 
 (loop for this-tool in
       (emacspeak-google-toolbelt)
