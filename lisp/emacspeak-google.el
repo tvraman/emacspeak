@@ -75,17 +75,23 @@
 
 (defun emacspeak-google-toolbelt-to-tbs (toolbelt)
   "Return value for use in tbs parameter in search queries."
-  (mapconcat
-   #'(lambda (tool)
-       (cond
-        ((equal (emacspeak-google-tool-value tool)
-                (emacspeak-google-tool-default tool))
-         "")
-       (t (format "%s:%s"
-               (emacspeak-google-tool-param tool)
-               (emacspeak-google-tool-value tool)))))
-   toolbelt
-   ","))
+  (let
+      ((settings
+        (delq nil
+              (mapcar 
+               #'(lambda (tool)
+                   (cond
+                    ((equal (emacspeak-google-tool-value tool)
+                            (emacspeak-google-tool-default tool))
+                     nil)
+                    (t (format "%s:%s"
+                               (emacspeak-google-tool-param tool)
+                               (emacspeak-google-tool-value tool)))))
+               toolbelt))))
+    (when settings 
+    (concat "&tbs="
+            (mapconcat #'identity settings ",")))))
+   
 
 (defun emacspeak-google-toolbelt ()
   "Returns a newly initialized toolbelt."
