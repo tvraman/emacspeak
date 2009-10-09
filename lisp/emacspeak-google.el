@@ -225,30 +225,36 @@
             (format
              "emacspeak-google-toolbelt-change-%s"
              (emacspeak-google-tool-name this-tool)))
-          (tool)
+          (belt)
           ,(format
             "Change  %s in this Google tool."
             (emacspeak-google-tool-name this-tool))
           (interactive)
-          (let ((param (emacspeak-google-tool-param tool))
-                (value (emacspeak-google-tool-value tool))
-                (range (emacspeak-google-tool-range tool)))
+          (let*
+              (
+               (tool
+                (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
+                                                        ,(emacspeak-google-tool-name this-tool)))
+                         belt))
+               (param (emacspeak-google-tool-param tool))
+               (value (emacspeak-google-tool-value tool))
+               (range (emacspeak-google-tool-range tool)))
             (cond
              ((and (listp range)
                    (= 2 (length range)))
 ;;; toggle value
-              (setq (emacspeak-google-tool-value tool)
+              (setf (emacspeak-google-tool-value tool)
                     (if (equal value (first range))
                         (second range)
                       (first range))))
              ((listp range)
 ;;; Prompt using completion
-              (setq  (emacspeak-google-tool-value tool)
+              (setf  (emacspeak-google-tool-value tool)
                      (completing-read
                       "Set tool to: "
                       range)))
              ((stringp range)
-              (setq (emacspeak-google-tool-value tool)
+              (setf (emacspeak-google-tool-value tool)
                     (read-from-minibuffer  range)))
              (t (error "Unexpected type!")))))))
                                            
