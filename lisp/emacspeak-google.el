@@ -96,7 +96,7 @@
 ;;; Recent
    (make-emacspeak-google-tool
     :name "recent"
-    :param "r"
+    :param "rcnt"
     :range '( 0 1)
     :default 0
     :value 0)
@@ -213,13 +213,6 @@
     :range "tn"
     :default ""
     :value "")
-;;; Price
-   (make-emacspeak-google-tool
-    :name "Price"
-    :param "prc"
-    :range '(0 1)
-    :default 0
-    :value 0)
 ;;; Timeline High
    (make-emacspeak-google-tool
     :name "timeline-high"
@@ -227,14 +220,20 @@
     :range "YYYY/MM"
     :default ""
     :value "")
-;;; more:commercial
+;;; more:commercial promotion with prices
    (make-emacspeak-google-tool
     :name "commercial"
     :param "cpk"
     :range '(0 1)
     :default 0
     :value 0)
-;;; less:commercial
+   (make-emacspeak-google-tool
+    :name "commercial-prices"
+    :param "cp"
+    :range '(0 1)
+    :default 0
+    :value 0)
+;;; less:commercial (demotion)
    (make-emacspeak-google-tool
     :name "non-commercial" 
     :param "cdcpk"
