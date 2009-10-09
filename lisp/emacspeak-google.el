@@ -87,109 +87,109 @@
   (list
 ;;; video vid: 1/0
    (make-emacspeak-google-tool
-    :name "Video"
+    :name "video"
     :param "vid"
     :range '(0 1)
     :value 0)
 ;;; Recent
    (make-emacspeak-google-tool
-    :name "Recent"
+    :name "recent"
     :param "r"
     :range '( 0 1)
     :value 0)
 ;;; Duration restrict for video
    (make-emacspeak-google-tool
-    :name "Duration"
+    :name "duration"
     :param "dur"
     :range '("m" "s" "l")
     :value "m")
 ;;; Blog mode
    (make-emacspeak-google-tool
-    :name "Blog"
+    :name "blog"
     :param "blg"
     :range '(0 1)
     :value 0)
 ;;; Books mode
    (make-emacspeak-google-tool
-    :name "Books"
+    :name "books"
     :param "bks"
     :range '(0 1)
     :value 0)
 ;;; Books viewability
    (make-emacspeak-google-tool
-    :name "Books Viewability"
+    :name "books-viewability"
     :param "bkv"
     :range '("a" "f")
     :value "a")
 ;;; Book Type
    (make-emacspeak-google-tool
-    :name "Books Type"
+    :name "books-type"
     :param "bkt"
     :range '("b" "p" "m")
     :value "b")
 ;;; Forums Mode
    (make-emacspeak-google-tool
-    :name "Forums"
+    :name "forums"
     :param "frm"
     :range '(0 1)
     :value 0)
 ;;; News Mode
    (make-emacspeak-google-tool
-    :name "News"
+    :name "news"
     :param "nws"
     :range '(0 1)
     :value 0)
 ;;; Reviews
    (make-emacspeak-google-tool
-    :name "Reviews"
+    :name "reviews"
     :param "rvw"
     :range '(0 1)
     :value 0)
 ;;; Web History Visited
    (make-emacspeak-google-tool
-    :name "Web History Visited"
+    :name "web-history-visited"
     :param "whv"
     :range '(0 1)
     :value 0)
 ;;; Web History Not Visited
    (make-emacspeak-google-tool
-    :name "Web History Not Visited"
+    :name "web-history-not-visited"
     :param "whnv"
     :range '(0 1)
     :value 0)
 ;;; Images
    (make-emacspeak-google-tool
-    :name "Images"
+    :name "images"
     :param "img"
     :range '(0 1)
     :value 0)
 ;;; Structured Snippets
    (make-emacspeak-google-tool
-    :name "Structured Snippets"
+    :name "structured-snippets"
     :param "sts"
     :range '(0 1)
     :value 0)
 ;;; sort by date
    (make-emacspeak-google-tool
-    :name "Sort By Date"
+    :name "sort-by-date"
     :param "std"
     :range '(0 1)
     :value 0)
 ;;; Timeline
    (make-emacspeak-google-tool
-    :name "Timeline"
+    :name "timeline"
     :param "tl"
     :range '(0 1)
     :value 0)
 ;;; Timeline Low
    (make-emacspeak-google-tool
-    :name "Timeline Low"
+    :name "timeline-low"
     :param "tll"
     :range "YYYY/MM"
     :value "")
 ;;; Date Filter
    (make-emacspeak-google-tool
-    :name "Date Filter"
+    :name "date-filter"
     :param "qdr"
     :range "tn"
     :value "")
@@ -201,7 +201,7 @@
     :value 0)
 ;;; Timeline High
    (make-emacspeak-google-tool
-    :name "Timeline High"
+    :name "timeline-high"
     :param "tlh"
     :range "YYYY/MM"
     :value "")))
@@ -214,6 +214,46 @@
 ;;}}}
 ;;{{{ Interactive Commands
 
+
+
+(loop for this-tool in
+      (emacspeak-google-toolbelt)
+      do
+      (eval
+       `(defun
+          ,(intern
+            (format
+             "emacspeak-google-toolbelt-change-%s"
+             (emacspeak-google-tool-name this-tool)))
+          (tool)
+          ,(format
+            "Change  %s in this Google tool."
+            (emacspeak-google-tool-name this-tool))
+          (interactive)
+          (let ((param (emacspeak-google-tool-param tool))
+                (value (emacspeak-google-tool-value tool))
+                (range (emacspeak-google-tool-range tool)))
+            (cond
+             ((and (listp range)
+                   (= 2 (length range)))
+;;; toggle value
+              (setq (emacspeak-google-tool-value tool)
+                    (if (equal value (first range))
+                        (second range)
+                      (first range))))
+             ((listp range)
+;;; Prompt using completion
+              (setq  (emacspeak-google-tool-value tool)
+                     (completing-read
+                      "Set tool to: "
+                      range)))
+             ((stringp range)
+              (setq (emacspeak-google-tool-value tool)
+                    (read-from-minibuffer  range)))
+             (t (error "Unexpected type!")))))))
+                                           
+                      
+                   
 ;;}}}
 ;;{{{ Minor mode and keymap
 
