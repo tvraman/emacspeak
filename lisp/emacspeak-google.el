@@ -77,7 +77,7 @@ This variable is buffer-local.")
 
 (make-variable-buffer-local 'emacspeak-google-toolbelt)
 
-(defun emacspeak-google-toolbelt-to-tbs ()
+(defun emacspeak-google-toolbelt-to-tbs (belt)
   "Return value for use in tbs parameter in search queries."
   (let
       ((settings
@@ -91,7 +91,7 @@ This variable is buffer-local.")
                     (t (format "%s:%s"
                                (emacspeak-google-tool-param tool)
                                (emacspeak-google-tool-value tool)))))
-               (emacspeak-google-toolbelt)))))
+               belt))))
     (when settings 
     (concat "&tbs="
             (mapconcat #'identity settings ",")))))
@@ -304,7 +304,7 @@ This variable is buffer-local.")
              (t (error "Unexpected type!")))
             (let
                 ((emacspeak-websearch-google-options
-                  (emacspeak-google-toolbelt-to-tbs)))
+                  (emacspeak-google-toolbelt-to-tbs belt)))
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
