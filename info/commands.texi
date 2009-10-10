@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 859 commands.
+This chapter documents a total of 883 commands.
 
 @menu
 * cd-tool::                     
@@ -39,6 +39,7 @@ This chapter documents a total of 859 commands.
 * emacspeak-forms::             
 * emacspeak-gnus::              
 * emacspeak-gomoku::            
+* emacspeak-google::            
 * emacspeak-gridtext::          
 * emacspeak-hide::              
 * emacspeak-ibuffer::           
@@ -1950,6 +1951,447 @@ Speak number of moves so far
 @kbd{Not bound to any key.}
 
 Speak coordinates and state of square at point
+@end deffn
+
+@node emacspeak-google
+@section emacspeak-google
+
+Commentary:
+There are a number of search tools that can be implemented on
+the Google search page --- in a JS-powered browser, these
+show up as the Google tool-belt.
+This module implements a minor mode for use in Google result
+pages that enables these tools via single keyboard commands.
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+(require 'easy-mmode)
+
+One tool on a tool-belt
+
+(defstruct emacspeak-google-tool
+  name ; human readable
+  param ; url param bit
+  range ; range of possible values
+  default
+  value ; current setting
+  )
+(defvar emacspeak-google-query nil
+  "Current Google Query.
+This variable is buffer-local.")
+(make-variable-buffer-local 'emacspeak-google-query)
+
+(defvar emacspeak-google-toolbelt nil
+  "List of tools on the toolbelt.")
+
+(make-variable-buffer-local 'emacspeak-google-toolbelt)
+
+(defun emacspeak-google-toolbelt-to-tbs ()
+  "Return value for use in tbs parameter in search queries."
+  (let
+      ((settings
+        (delq nil
+              (mapcar 
+               #'(lambda (tool)
+                   (cond
+                    ((equal (emacspeak-google-tool-value tool)
+                            (emacspeak-google-tool-default tool))
+                     nil)
+                    (t (format "%s:%s"
+                               (emacspeak-google-tool-param tool)
+                               (emacspeak-google-tool-value tool)))))
+               (emacspeak-google-toolbelt)))))
+    (when settings 
+    (concat "&tbs="
+            (mapconcat #'identity settings ",")))))
+   
+
+(defun emacspeak-google-toolbelt ()
+  "Returns buffer-local toolbelt or a a newly initialized toolbelt."
+  (declare (special emacspeak-google-toolbelt))
+  (or emacspeak-google-toolbelt
+  (list
+video vid: 1/0
+   (make-emacspeak-google-tool
+    :name "video"
+    :param "vid"
+    :range '(0 1)
+    :default 0
+    :default 0
+    :value 0)
+Recent
+   (make-emacspeak-google-tool
+    :name "recent"
+    :param "rcnt"
+    :range '( 0 1)
+    :default 0
+    :value 0)
+Duration restrict for video
+   (make-emacspeak-google-tool
+    :name "duration"
+    :param "dur"
+    :range '("m" "s" "l")
+    :default "m"
+    :value "m")
+Blog mode
+   (make-emacspeak-google-tool
+    :name "blog"
+    :param "blg"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Books mode
+   (make-emacspeak-google-tool
+    :name "books"
+    :param "bks"
+    :range '(0 1)
+    :default 0
+    :default 0
+    :value 0)
+Books viewability
+   (make-emacspeak-google-tool
+    :name "books-viewability"
+    :param "bkv"
+    :range '("a" "f")
+    :default "a"
+    :value "a")
+Book Type
+   (make-emacspeak-google-tool
+    :name "books-type"
+    :param "bkt"
+    :range '("b" "p" "m")
+    :default "b"
+    :value "b")
+Forums Mode
+   (make-emacspeak-google-tool
+    :name "forums"
+    :param "frm"
+    :range '(0 1)
+    :default 0
+    :value 0)
+News Mode
+   (make-emacspeak-google-tool
+    :name "news"
+    :param "nws"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Reviews
+   (make-emacspeak-google-tool
+    :name "reviews"
+    :param "rvw"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Web History Visited
+   (make-emacspeak-google-tool
+    :name "web-history-visited"
+    :param "whv"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Web History Not Visited
+   (make-emacspeak-google-tool
+    :name "web-history-not-visited"
+    :param "whnv"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Images
+   (make-emacspeak-google-tool
+    :name "images"
+    :param "img"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Structured Snippets
+   (make-emacspeak-google-tool
+    :name "structured-snippets"
+    :param "sts"
+    :range '(0 1)
+    :default 0
+    :value 0)
+sort by date
+   (make-emacspeak-google-tool
+    :name "sort-by-date"
+    :param "std"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Timeline
+   (make-emacspeak-google-tool
+    :name "timeline"
+    :param "tl"
+    :range '(0 1)
+    :default 0
+    :value 0)
+Timeline Low
+   (make-emacspeak-google-tool
+    :name "timeline-low"
+    :param "tll"
+    :range "YYYY/MM"
+    :default ""
+    :value "")
+Date Filter
+   (make-emacspeak-google-tool
+    :name "date-filter"
+    :param "qdr"
+    :range "tn"
+    :default ""
+    :value "")
+Timeline High
+   (make-emacspeak-google-tool
+    :name "timeline-high"
+    :param "tlh"
+    :range "YYYY/MM"
+    :default ""
+    :value "")
+more:commercial promotion with prices
+   (make-emacspeak-google-tool
+    :name "commercial"
+    :param "cpk"
+    :range '(0 1)
+    :default 0
+    :value 0)
+   (make-emacspeak-google-tool
+    :name "commercial-prices"
+    :param "cp"
+    :range '(0 1)
+    :default 0
+    :value 0)
+less:commercial (demotion)
+   (make-emacspeak-google-tool
+    :name "non-commercial" 
+    :param "cdcpk"
+    :range '(0 1)
+    :default 0
+    :value 0))))
+
+(loop for this-tool in
+      (emacspeak-google-toolbelt)
+      do
+      (eval
+       `(defun
+          ,(intern
+            (format
+             "emacspeak-google-toolbelt-change-%s"
+             (emacspeak-google-tool-name this-tool)))
+          ()
+          ,(format
+            "Change  %s in the currently active toolbelt."
+            (emacspeak-google-tool-name this-tool))
+          (interactive)
+          (let*
+              (
+               (belt (emacspeak-google-toolbelt))
+               (tool
+                (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
+                                                        ,(emacspeak-google-tool-name this-tool)))
+                         belt))
+               (param (emacspeak-google-tool-param tool))
+               (value (emacspeak-google-tool-value tool))
+               (range (emacspeak-google-tool-range tool)))
+            (cond
+             ((and (listp range)
+                   (= 2 (length range)))
+toggle value
+              (setf (emacspeak-google-tool-value tool)
+                    (if (equal value (first range))
+                        (second range)
+                      (first range))))
+             ((listp range)
+Prompt using completion
+              (setf  (emacspeak-google-tool-value tool)
+                     (completing-read
+                      "Set tool to: "
+                      range)))
+             ((stringp range)
+              (setf (emacspeak-google-tool-value tool)
+                    (read-from-minibuffer  range)))
+             (t (error "Unexpected type!")))
+            (let
+                ((emacspeak-websearch-google-options
+                  (emacspeak-google-toolbelt-to-tbs)))
+              (emacspeak-websearch-google
+               (or emacspeak-google-query
+                   (gweb-google-autocomplete))))))))
+
+###autoload
+
+(define-minor-mode emacspeak-google-mode
+  "Google minor mode."
+  :lighter " Google"
+  )
+
+(define-prefix-command  'emacspeak-google-command
+  'emacspeak-google-keymap)
+
+(loop for k in
+      '(
+        ("r" emacspeak-google-toolbelt-change-recent)
+        ("b" emacspeak-google-toolbelt-change-blog)
+        ("n" emacspeak-google-toolbelt-change-news)
+        ("c" emacspeak-google-toolbelt-change-commercial)
+	("p" emacspeak-google-toolbelt-change-commercial-prices)
+	("n" emacspeak-google-toolbelt-change-non-commercial)
+	("f" emacspeak-google-toolbelt-change-forums)
+        ("v" emacspeak-google-toolbelt-change-video)
+        ("i" emacspeak-google-toolbelt-change-images)
+        ("B" emacspeak-google-toolbelt-change-books)
+        ("t" emacspeak-google-toolbelt-change-books-type)
+        ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
+        ("l" emacspeak-google-toolbelt-change-non-commercial)
+        ("s" emacspeak-google-toolbelt-change-structured-snippets)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-google-keymap k))
+
+(provide 'emacspeak-google)
+
+local variables:
+folded-file: t
+byte-compile-dynamic: t
+
+Automatically generated documentation
+for commands defined in module  emacspeak-google.
+
+@deffn {Interactive Command} emacspeak-google-mode nil
+@kbd{Not bound to any key.}
+
+Google minor mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-blog nil
+@kbd{Not bound to any key.}
+
+Change  blog in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-books nil
+@kbd{Not bound to any key.}
+
+Change  books in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-books-type nil
+@kbd{Not bound to any key.}
+
+Change  books-type in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-books-viewability nil
+@kbd{Not bound to any key.}
+
+Change  books-viewability in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-commercial nil
+@kbd{Not bound to any key.}
+
+Change  commercial in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-commercial-prices nil
+@kbd{Not bound to any key.}
+
+Change  commercial-prices in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-date-filter nil
+@kbd{Not bound to any key.}
+
+Change  date-filter in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-duration nil
+@kbd{Not bound to any key.}
+
+Change  duration in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-forums nil
+@kbd{Not bound to any key.}
+
+Change  forums in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-images nil
+@kbd{Not bound to any key.}
+
+Change  images in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-news nil
+@kbd{Not bound to any key.}
+
+Change  news in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-non-commercial nil
+@kbd{Not bound to any key.}
+
+Change  non-commercial in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-recent nil
+@kbd{Not bound to any key.}
+
+Change  recent in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-reviews nil
+@kbd{Not bound to any key.}
+
+Change  reviews in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-sort-by-date nil
+@kbd{Not bound to any key.}
+
+Change  sort-by-date in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-structured-snippets nil
+@kbd{Not bound to any key.}
+
+Change  structured-snippets in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline nil
+@kbd{Not bound to any key.}
+
+Change  timeline in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline-high nil
+@kbd{Not bound to any key.}
+
+Change  timeline-high in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline-low nil
+@kbd{Not bound to any key.}
+
+Change  timeline-low in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-video nil
+@kbd{Not bound to any key.}
+
+Change  video in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-web-history-not-visited nil
+@kbd{Not bound to any key.}
+
+Change  web-history-not-visited in the currently active toolbelt.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-web-history-visited nil
+@kbd{Not bound to any key.}
+
+Change  web-history-visited in the currently active toolbelt.
 @end deffn
 
 @node emacspeak-gridtext
@@ -4877,6 +5319,15 @@ Automatically generated documentation
 for commands defined in module  emacspeak-we.
 
 @deffn {Interactive Command} emacspeak-we-class-filter-and-follow nil
+@kbd{Not bound to any key.}
+
+Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-we-class-filter-and-follow-link nil
 @kbd{Not bound to any key.}
 
 Follow url and point, and filter the result by specified class.

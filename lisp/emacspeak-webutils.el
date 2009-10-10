@@ -81,9 +81,10 @@ Note that the Web browser should reset this hook after using it.")
   "Use web post process hook."
   (declare (special emacspeak-web-post-process-hook))
   (when     emacspeak-web-post-process-hook
-    (unwind-protect
-        (run-hooks  'emacspeak-web-post-process-hook)
-      (setq emacspeak-web-post-process-hook nil))))
+    (condition-case nil
+         (run-hooks  'emacspeak-web-post-process-hook)
+      (error 
+      (setq emacspeak-web-post-process-hook nil)))))
 
 ;;}}}
 ;;{{{ Helpers:

@@ -169,7 +169,7 @@
     (require 'w3-imenu))
   (loop for binding in
         '(
-          ( "\C-t" emacspeak-w3-toggle-table-borders)
+          ( "\C-t" emacspeak-google-command)
           ("'" emacspeak-speak-rest-of-buffer)
           ("\"" emacspeak-speak-skim-buffer)
           ("/" emacspeak-webutils-google-similar-to-this-page)

@@ -53,7 +53,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'easy-mmode)
+
 
 ;;}}}
 ;;{{{ Data Structures 
@@ -276,8 +276,7 @@ This variable is buffer-local.")
             (emacspeak-google-tool-name this-tool))
           (interactive)
           (let*
-              (
-               (belt (emacspeak-google-toolbelt))
+              ((belt (emacspeak-google-toolbelt))
                (tool
                 (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
                                                         ,(emacspeak-google-tool-name this-tool)))
@@ -311,16 +310,8 @@ This variable is buffer-local.")
                    (gweb-google-autocomplete))))))))
 
 ;;}}}
-;;{{{ Minor mode and keymap
-
+;;{{{  keymap
 ;;;###autoload
-
-(define-minor-mode emacspeak-google-mode
-  "Google minor mode."
-  :lighter " Google"
-  )
-
-
 (define-prefix-command  'emacspeak-google-command
   'emacspeak-google-keymap)
 

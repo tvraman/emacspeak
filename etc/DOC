@@ -1197,6 +1197,98 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
+** emacspeak-google-mode Google minor mode. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-blog Change  blog in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-books Change  books in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-books-type Change  books-type in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-books-viewability Change  books-viewability in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-commercial Change  commercial in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-commercial-prices Change  commercial-prices in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-date-filter Change  date-filter in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-duration Change  duration in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-forums Change  forums in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-images Change  images in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-news Change  news in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-non-commercial Change  non-commercial in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-recent Change  recent in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-reviews Change  reviews in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-sort-by-date Change  sort-by-date in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-structured-snippets Change  structured-snippets in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-timeline Change  timeline in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-timeline-high Change  timeline-high in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-timeline-low Change  timeline-low in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-video Change  video in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-web-history-not-visited Change  web-history-not-visited in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-web-history-visited Change  web-history-visited in the currently active toolbelt. 
+
+------------------------------------------------------------
+
 ** emacspeak-gridtext-apply	Key Sequence: control e # a 
 
  Apply grid to region. 
@@ -3254,6 +3346,13 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well. 
+
+------------------------------------------------------------
+
+** emacspeak-we-class-filter-and-follow-link Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well. 
