@@ -314,12 +314,9 @@ This variable is buffer-local.")
 ;;{{{ Minor mode and keymap
 
 ;;;###autoload
-(defvar emacspeak-google-keymap nil
-  "Keymap used in Google minor mode.")
 
 (define-minor-mode emacspeak-google-mode
   "Google minor mode."
-  :keymap  emacspeak-google-keymap
   :lighter " Google"
   )
 
@@ -333,6 +330,9 @@ This variable is buffer-local.")
         ("b" emacspeak-google-toolbelt-change-blog)
         ("n" emacspeak-google-toolbelt-change-news)
         ("c" emacspeak-google-toolbelt-change-commercial)
+	("p" emacspeak-google-toolbelt-change-commercial-prices)
+	("n" emacspeak-google-toolbelt-change-non-commercial)
+	("f" emacspeak-google-toolbelt-change-forums)
         ("v" emacspeak-google-toolbelt-change-video)
         ("i" emacspeak-google-toolbelt-change-images)
         ("B" emacspeak-google-toolbelt-change-books)
