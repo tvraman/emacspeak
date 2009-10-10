@@ -320,7 +320,8 @@ This variable is buffer-local.")
 (define-minor-mode emacspeak-google-mode
   "Google minor mode."
   :keymap  emacspeak-google-keymap
-  :lighter " Google")
+  :lighter " Google"
+  )
 
 
 (define-prefix-command  'emacspeak-google-command
