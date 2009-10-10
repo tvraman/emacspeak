@@ -106,7 +106,7 @@ Argument S specifies the syntax class.
 
 ------------------------------------------------------------
 
-** dtk-set-predefined-speech-rate	Key Sequence: control e d 0   control e d 1   control e d 2   control e d 3   control e d 4   control e d 5   control e d 6   control e d 7   control e d 8   control e d 9 
+** dtk-set-predefined-speech-rate	Key Sequence: control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
 
  Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -1085,6 +1085,10 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
+** emacspeak-eudc-send-mail Send email to the address given by the current record.  
+
+------------------------------------------------------------
+
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
  Copy over text in region to special filtertext buffer in
@@ -1314,6 +1318,13 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
@@ -1863,15 +1874,6 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-py-next-block Move forward to the beginning of the next block. 
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-block Move backward to the beginning of the current block.
-If already at the beginning then move to previous block. 
-
-------------------------------------------------------------
-
 ** emacspeak-realaudio-browse Browse RAM file before playing the selected component. 
 
 ------------------------------------------------------------
@@ -1930,19 +1932,19 @@ Prompts for start and end times as well as file  to save the clippi
 
 ------------------------------------------------------------
 
-** emacspeak-backward-char	Key Sequence: <left>   control b 
+** emacspeak-backward-char	Key Sequence: control b   <left> 
 
  Backward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-forward-char	Key Sequence: <right>   control f 
+** emacspeak-forward-char	Key Sequence: control f   <right> 
 
  Forward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: €   SPACE 
+** emacspeak-self-insert-command	Key Sequence: SPACE   € 
 
  Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2193,6 +2195,10 @@ any other key to speak entire buffer.
 
  Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-char-name tell me what this is 
 
 ------------------------------------------------------------
 
@@ -2459,7 +2465,7 @@ any other key to speak entire paragraph.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-predefined-window	Key Sequence: control e 0   control e 1   control e 2   control e 3   control e 4   control e 5   control e 6   control e 7   control e 8   control e 9 
+** emacspeak-speak-predefined-window	Key Sequence: control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
 
  Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
@@ -2762,6 +2768,108 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
+** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+ 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-column Erase current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-row Erase current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-hint Provide hint for current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-push Push current state on to history stack. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-column Speak current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-row Speak current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
+
+------------------------------------------------------------
+
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -3011,6 +3119,10 @@ but quickly switch to a window by name.
 
 ------------------------------------------------------------
 
+** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
+
+------------------------------------------------------------
+
 ** emacspeak-url-template-fetch	Key Sequence: control e u 
 
  Fetch a pre-defined resource.
@@ -3036,41 +3148,6 @@ resources.
 ------------------------------------------------------------
 
 ** emacspeak-view-line-to-top Moves current line to top of window 
-
-------------------------------------------------------------
-
-** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
-Useful when you're reading a message
-that has been forwarded multiple times. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-mode-line VM mode line information.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-next-button Move point to N buttons forward.
-If N is negative, move backward instead. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-labels Speak a message's labels 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-message Move point to the message body. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-yank-header Yank specified header into kill ring. 
 
 ------------------------------------------------------------
 
@@ -3173,17 +3250,6 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-w3-toggle-table-borders Toggle drawing of W3 table borders 
-
-------------------------------------------------------------
-
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
 
 ------------------------------------------------------------
 
@@ -4176,13 +4242,17 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-ssh-tts-restart	Key Sequence: control e <delete>   control e <deletechar> 
+** emacspeak-ssh-tts-restart	Key Sequence: control e <deletechar>   control e <delete> 
 
  Restart specified ssh tts server. 
 
 ------------------------------------------------------------
 
 ** emacspeak-sudo SUDo command --run command as super user. 
+
+------------------------------------------------------------
+
+** emacspeak-sudo-edit   
 
 ------------------------------------------------------------
 
@@ -4226,6 +4296,10 @@ Prompts for the new location and preserves modification time
 
 ** emacspeak-wizards-add-autoload-cookies Add autoload cookies to file f.
 Default is to add autoload cookies to current file. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-braille Insert Braille string at point. 
 
 ------------------------------------------------------------
 
@@ -4347,6 +4421,10 @@ Extracted content is sent to STDOUT.
 ** emacspeak-wizards-get-table-content-from-url Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-google-1box Invoke Google 1Box search. 
 
 ------------------------------------------------------------
 
@@ -4581,6 +4659,10 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-view-url Open a new buffer containing the contents of URL. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-voice-sampler Read a personality  and apply it to the current line. 
 
 ------------------------------------------------------------
@@ -4668,6 +4750,10 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-xslt-view-file Transform `file' using `style' and preview via browse-url. 
+
+------------------------------------------------------------
+
 ** emacspeak-xslt-view-region Browse XML region with specified XSL style. 
 
 ------------------------------------------------------------
@@ -4747,6 +4833,23 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internal Search IBM using trevi 
+
+------------------------------------------------------------
+
+** emacspeak-ebook-google Search for EBooks from Gooble Books.
+
+(fn QUERY) 
+
+------------------------------------------------------------
+
+** emacspeak-ebook-open Open specified EBook.
+`toc' is the pathname to an EPubs table of contents.
+
+(fn TOC) 
 
 ------------------------------------------------------------
 
@@ -4955,6 +5058,12 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-piglets-tts-init Start TTS  engine for Piglets.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
