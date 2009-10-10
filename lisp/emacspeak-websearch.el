@@ -930,7 +930,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri
-  "http://www.google.com/search?q="
+  "http://www.google.com/search?tbo=1&q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-options nil
