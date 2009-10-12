@@ -318,7 +318,7 @@ This variable is buffer-local.")
 (loop for k in
       '(
         ("h"
-      emacspeak-google-toolbelt-change-web-history-visited)
+         emacspeak-google-toolbelt-change-web-history-visited)
         ("H" emacspeak-google-toolbelt-change-web-history-not-visited)
         ("r" emacspeak-google-toolbelt-change-recent)
         ("b" emacspeak-google-toolbelt-change-blog)
@@ -334,9 +334,9 @@ This variable is buffer-local.")
         ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
         ("l" emacspeak-google-toolbelt-change-non-commercial)
         ("s"
-      emacspeak-google-toolbelt-change-structured-snippets)
+         emacspeak-google-toolbelt-change-structured-snippets)
         ("a" emacspeak-websearch-google)
-        "A" emacspeak-websearch-accessible-google)
+        ("A" emacspeak-websearch-accessible-google)
         )
       do
       (emacspeak-keymap-update emacspeak-google-keymap k))
