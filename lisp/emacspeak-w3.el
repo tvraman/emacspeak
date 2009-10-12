@@ -55,6 +55,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
+(require 'emacspeak-google)
 (require 'emacspeak-xslt)
 
 ;;}}}
