@@ -10,14 +10,14 @@
  * Emacspeak: encapsulate Emacspeak connection
  * @constructor
  * Optional: @param {path} Specifies Emacspeak install root
- * e.g., /usr/share/emacs/site-lisp/emacspeak/
+ * e.g., /usr/share/emacs/site-lisp/emacspeak/.
  */
 
-function Emacspeak( basepath) {
+function Emacspeak(basepath) {
   /**
    * @private basepath_ Install location
    */
-  this.path_ = (basepath === undefined) ? '/usr/share/emacs/site-lisp/emacspeak/'  : basepath;
+  this.path_ = (basepath === undefined) ? '/usr/share/emacs/site-lisp/emacspeak/' : basepath;
 
   /**
    * @private cmd_ location of server  executable
@@ -28,7 +28,7 @@ function Emacspeak( basepath) {
    * @private url_
    * URL of our local server
    */
-  this.url_ ='http://localhost:2222/';
+  this.url_ = 'http://localhost:2222/';
 }
 
 
@@ -39,7 +39,7 @@ function Emacspeak( basepath) {
 Emacspeak.prototype.init = function() {
   function setupUpdateADom(){
     if (repl.setupUpdateADomRan) return;
-    if(window.gBrowser){
+    if (window.gBrowser){
       gBrowser.addEventListener('load', repl.updateADom, true);
       repl.setupUpdateADomRan = true;
     }
@@ -50,7 +50,7 @@ Emacspeak.prototype.init = function() {
     repl.load(js + 'adom.js');
 
     // for if the window hasn't loaded yet:
-    window.addEventListener("load", setupUpdateADom, false);
+    window.addEventListener('load', setupUpdateADom, false);
     // for if the window has already loaded:
     setupUpdateADom();
 
@@ -84,13 +84,13 @@ Emacspeak.prototype.initserver = function() {
 /**
  * Speak argument.
  @param {string} text to speak.
- * @return void
+ * @return void.
  */
 Emacspeak.prototype.say = function(text) {
   var url = this.url_;
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url, true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
   xhr.send('speak:' + text);
 };
 
