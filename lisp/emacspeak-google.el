@@ -309,6 +309,14 @@ This variable is buffer-local.")
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
+
+(defun emacspeak-google-show-toolbelt()
+  "Reload search page with toolbelt showing."
+  (interactive)
+  (declare (special emacspeak-google-query))
+  (let ((emacspeak-websearch-google-options "&tbo=1"))
+    (emacspeak-websearch-google emacspeak-google-query)))
+
 ;;}}}
 ;;{{{  keymap
 ;;;###autoload
@@ -324,12 +332,14 @@ This variable is buffer-local.")
         ("b" emacspeak-google-toolbelt-change-blog)
         ("n" emacspeak-google-toolbelt-change-news)
         ("c" emacspeak-google-toolbelt-change-commercial)
+        ("d" emacspeak-google-toolbelt-change-sort-by-date)
 	("p" emacspeak-google-toolbelt-change-commercial-prices)
 	("f" emacspeak-google-toolbelt-change-forums)
         ("v" emacspeak-google-toolbelt-change-video)
         ("i" emacspeak-google-toolbelt-change-images)
         ("B" emacspeak-google-toolbelt-change-books)
         ("t" emacspeak-google-toolbelt-change-books-type)
+        ("\C-t" emacspeak-google-show-toolbelt)
         ("T" emacspeak-google-toolbelt-change-timeline)
         ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
         ("l" emacspeak-google-toolbelt-change-non-commercial)
