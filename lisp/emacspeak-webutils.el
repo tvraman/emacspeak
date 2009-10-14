@@ -84,7 +84,8 @@ Note that the Web browser should reset this hook after using it.")
     (condition-case nil
          (run-hooks  'emacspeak-web-post-process-hook)
       (error 
-      (setq emacspeak-web-post-process-hook nil)))))
+      (setq emacspeak-web-post-process-hook nil)))
+    (setq emacspeak-web-post-process-hook nil)))
 
 ;;}}}
 ;;{{{ Helpers:
