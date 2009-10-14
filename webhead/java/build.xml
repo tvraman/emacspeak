@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="headlessweb"
+         default="compile"
+         basedir=".">
+
+  
+
+  <property name="src.dir" value="src"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="build.dir" value="build"/>
+  <property name="build.lib" value="${build.dir}/lib"/>
+  <property name="build.classes" value="${build.dir}/classes"/>
+  <property name="build.jar"
+            value="${build.dir}/headlessweb.jar"/>
+
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build.classes}"/>
+  </target>
+
+  <target name="clean" description="Remove all generated files.">
+    <delete dir="${build.dir}"/>
+  </target>
+
+  <path id="classpath">
+    <fileset dir="${lib.dir}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="compile" depends="prepare"
+          description="Compiles all source code.">
+    <javac srcdir="${src.dir}" destdir="${build.classes}">
+      <classpath description="htmlunit lib" refid="classpath"/>
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile"
+          description="Generates headlessweb.jar in the 'dist'
+                       directory." >
+    <!-- Exclude unit tests from the final JAR file -->
+    <jar jarfile="${build.dir}/headlessweb.jar" 
+         basedir="${build.classes}"
+         excludes="**/*Test.class">
+      <manifest>
+        <attribute name="Main-Class" value="net.emacspeak.web.WebEvalPrint"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="all" depends="clean,jar"
+          description="Cleans, compiles, then builds the JAR file."/>
+  <target name="run" depends="jar">
+    <java  classname="net.emacspeak.web.WebEvalPrint" taskname="">
+      <classpath>
+        <path location="${build.dir}/classes"/>
+<path refid="classpath"/>
+</classpath>
+</java>
+  </target>
+</project>
