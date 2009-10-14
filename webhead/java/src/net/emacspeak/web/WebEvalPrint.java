@@ -14,7 +14,7 @@ public class WebEvalPrint {
         final HtmlPage page = webClient.getPage("file:///tmp/test.html");
         System.out.println( page.getTitleText());
         System.out.println( page.asText());
-        printMarkup(page.getDocumentElement());
+        // printMarkup(page.getDocumentElement());
     }
 
     protected static void printMarkup (HtmlElement doc)
