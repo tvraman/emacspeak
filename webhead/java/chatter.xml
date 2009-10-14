@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<project name="chatterbox" default="compile" basedir=".">
+  <property name="app.name" value="chatterbox"/>
+  <property name="app.version" value="1.0"/>
+  <property name="package" value="com.ibm.almaden.chatterbox"/>
+  <property name="mainClass" value="${package}.Client"/>
+  <!--  Configuration                                                      -->
+  <property name="build.home" value="./build"/>
+  <property name="dist.home" value="./dist"/>
+  <property name="lib.dir" value="./lib"/>
+  <!-- Classpath                                                           -->
+  <path id="compile.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+  <!-- All Target                                                          -->
+  <target name="all" depends="clean,compile" description="Clean build and dist, then compile"/>
+  <!-- Clean                                                               -->
+  <target name="clean" description="Delete old build and dist directories">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+  </target>
+  <!-- Compile                                                             -->
+  <target name="compile" depends="prepare" description="Compile Java sources">
+    <!-- Compile Java classes as necessary -->
+    <mkdir dir="${build.home}/classes"/>
+    <javac srcdir="src" destdir="${build.home}/classes"
+      debug="true"
+      deprecation="true"
+      optimize="true"
+      includes="**/*.java">
+      <classpath refid="compile.classpath"/>
+    </javac>
+  </target>
+  <!-- Distribution                                                        -->
+  <target name="dist" depends="javadoc" description="Create binary distribution">
+    <!-- Copy documentation subdirectory -->
+    <copy todir="${dist.home}/docs">
+      <fileset dir="docs"/>
+    </copy>
+    <!-- Create application JAR file -->
+    <jar jarfile="${dist.home}/${app.name}.jar" basedir="${build.home}/classes"/>
+  </target>
+  <!-- Javadocs                                                            -->
+  <target name="javadoc" depends="compile" description="Create Javadoc API documentation">
+    <mkdir dir="docs/api"/>
+    <javadoc sourcepath="src" destdir="docs/api" packagenames="${package}">
+      <classpath refid="compile.classpath"/>
+    </javadoc>
+  </target>
+  <!-- Javadocs                                                            -->
+  <target name="prepare">
+    <!-- Create build directory and copy static content -->
+    <mkdir dir="${build.home}"/>
+  </target>
+  <target name="run" depends="compile">
+    <java classname="${mainClass}" taskname="ST">
+      <classpath>
+        <path location="${build.home}/classes"/>
+        <path refid="compile.classpath"/>
+      </classpath>
+    </java>
+  </target>
+<!-- Adding in PMD rules -->
+<path id="pmd.classpath">
+    <fileset dir="/usr/local/pmd/lib">
+        <include name="*.jar"/>
+    </fileset>
+</path>
+
+<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
+
+<target name="pmd">
+      <pmd
+       rulesetfiles="rulesets/design.xml, rulesets/coupling.xml, rulesets/strings.xml">
+       <formatter type="text" toFile="-"/>   
+<fileset dir="src">
+              <include name="**/*.java"/>
+          </fileset>          
+      </pmd>
+  </target>
+
+
+</project>
