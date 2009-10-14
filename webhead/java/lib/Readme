@@ -1,0 +1,3 @@
+htmlunit-2.6/lib
+
+Checked in here so we can build with just an svn checkout.
