@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<project name="headlessweb"
-         default="compile"
-         basedir=".">
+<project name="webhead" default="compile" basedir=".">
+  <property name="app.name" value="webhead"/>
+  <property name="app.version" value="1.0"/>
+  <property name="package" value="net.emacspeak.web"/>
+  <property name="mainClass" value="${package}.WebEvalPrint"/>
 
   
 
-  <property name="src.dir" value="src"/>
-  <property name="lib.dir" value="lib"/>
-  <property name="build.dir" value="build"/>
-  <property name="build.lib" value="${build.dir}/lib"/>
-  <property name="build.classes" value="${build.dir}/classes"/>
+  <property name="src" value="src"/>
+  <property name="lib" value="lib"/>
+  <property name="build" value="build"/>
+  <property name="build.lib" value="${build}/lib"/>
+  <property name="build.classes" value="${build}/classes"/>
   <property name="build.jar"
-            value="${build.dir}/headlessweb.jar"/>
+            value="${build}/${app.name}jar"/>
 
   <target name="prepare">
-    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build}"/>
     <mkdir dir="${build.classes}"/>
   </target>
 
   <target name="clean" description="Remove all generated files.">
-    <delete dir="${build.dir}"/>
+    <delete dir="${build}"/>
   </target>
 
   <path id="classpath">
-    <fileset dir="${lib.dir}">
+    <fileset dir="${lib}">
       <include name="*.jar"/>
     </fileset>
   </path>
 
   <target name="compile" depends="prepare"
           description="Compiles all source code.">
-    <javac srcdir="${src.dir}" destdir="${build.classes}">
+    <javac srcdir="${src}" destdir="${build.classes}"
+           debug="true"
+           deprecation="true"
+           optimize="true">
       <classpath description="htmlunit lib" refid="classpath"/>
     </javac>
   </target>
 
   <target name="jar" depends="compile"
-          description="Generates headlessweb.jar in the 'dist'
+          description="Generates webhead.jar in the 'dist'
                        directory." >
     <!-- Exclude unit tests from the final JAR file -->
-    <jar jarfile="${build.dir}/headlessweb.jar" 
+    <jar jarfile="${build}/${app.name}.jar" 
          basedir="${build.classes}"
          excludes="**/*Test.class">
       <manifest>
@@ -51,12 +56,12 @@
 
   <target name="all" depends="clean,jar"
           description="Cleans, compiles, then builds the JAR file."/>
-  <target name="run" depends="jar">
-    <java  classname="net.emacspeak.web.WebEvalPrint" taskname="">
+  <target name="run" depends="compile">
+    <java classname="${mainClass}" taskname="WWW">
       <classpath>
-        <path location="${build.dir}/classes"/>
-<path refid="classpath"/>
-</classpath>
-</java>
+        <path location="${build}/classes"/>
+        <path refid="classpath"/>
+      </classpath>
+    </java>
   </target>
 </project>
