@@ -19,12 +19,20 @@ public class Client {
     public static void main(String args[]) 
     throws Exception {
         final WebClient webClient = new WebClient();
-        final HtmlPage page = webClient.getPage("file:///tmp/test.html");
-        //System.out.println( page.getTitleText());
-        System.out.println( page.asText());
-        // printMarkup(page.getDocumentElement());
+        final HtmlPage page = webClient.getPage("file:./tests/00-test.html");
+        writeContent(page);
+        writeXml(page);
     }
 
+
+    public static void writeContent (HtmlPage page) {
+        System.out.println( page.asText());
+    }
+
+    public static void writeXml (HtmlPage page) {
+        HtmlElement body = page.getFirstByXPath("/html");
+        System.out.println(body.asXml());
+    }
 // >
 
     
