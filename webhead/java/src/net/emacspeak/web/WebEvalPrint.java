@@ -12,7 +12,7 @@ public class WebEvalPrint {
     throws Exception {
         final WebClient webClient = new WebClient();
         final HtmlPage page = webClient.getPage("file:///tmp/test.html");
-        System.out.println( page.getTitleText());
+        //System.out.println( page.getTitleText());
         System.out.println( page.asText());
         // printMarkup(page.getDocumentElement());
     }
