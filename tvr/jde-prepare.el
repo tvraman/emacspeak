@@ -2,7 +2,7 @@
 ;;; Setup Emacs JDE
 ;;{{{ locations
 
-(augment-load-path "elib" "stack-f")
+(augment-load-path "elib" "avltree")
 
 (setq my-use-cedet t)
 (cond
