@@ -13,11 +13,13 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 //>
 /**
  * @file   Client.java
- * @author T.V Raman <rtv.raman.tv@gmail.com>
+ * @class Client
+ * @author T.V Raman <tv.raman.tv@gmail.com>
  * @date   Fri Oct 9 14:30:21 2009
  * 
- * @brief  Implements a headless web client.
+ * @brief:  Implements a headless web client.
  * class Client implements an interactive command-loop that:
+ * Encapsulates a headless browser,
  *  Accepts commands on standard-input,
  * Returns results on standard-output.
  */
