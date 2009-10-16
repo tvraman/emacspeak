@@ -19,7 +19,7 @@ public class Client {
     public static void main(String args[]) 
         throws Exception {
         final WebClient webClient = new WebClient();
-        final HtmlPage page = webClient.getPage("file:./tests/00-test.html");
+        final HtmlPage page = webClient.getPage("file:./src/test/resources/00-test.html");
         writeContent(page);
         writeXml(page);
     }
