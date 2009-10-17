@@ -43,7 +43,7 @@ public class Client {
     private static Map cliArgs;
     static {
         cliArgs = new HashMap();
-        cliArgs.put("/go", new Integer(1));
+        cliArgs.put("/go", 1);
     }
 
     //>
