@@ -1,8 +1,17 @@
 package net.emacspeak.web;
+/**
+ * @file   Client.java
+ * @author <a href="tv.raman.tv@gmail.com">T.V Raman </a>
+ * @date   Fri Oct 9 14:30:21 2009
+ * 
+ * @Description:  Implements a headless web client.
+ */
+
 //< Imports:
 
 
-
+import java.util.HashMap;
+import java.util.Map;
 import java.io.IOException;
 import java.io.StringWriter;
 
@@ -12,32 +21,71 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 //>
 /**
- * @file   Client.java
- * @class Client
- * @author T.V Raman <tv.raman.tv@gmail.com>
- * @date   Fri Oct 9 14:30:21 2009
- * 
- * @brief:  Implements a headless web client.
- * class Client implements an interactive command-loop that:
+ * @class Client implements an interactive command-loop that:
  * Encapsulates a headless browser,
  *  Accepts commands on standard-input,
  * Returns results on standard-output.
  */
 
 public class Client {
+//<Class members
 
+    private final WebClient _client;
+    private  HtmlPage _page;
+//>
+//<declare arg counts for commands.
+
+    /**
+     * Hashmap <code>cliArgs</code> holds mapping from CLI commands
+     * to implementation methods.
+     *
+     */
+    private static Map cliArgs;
+    static {
+        cliArgs = new HashMap();
+        cliArgs.put("/go", new Integer(1));
+    }
+
+    //>
+//<private helper argCheck
+
+    /**
+     * Check if command called with right number of arguments.
+     *
+     * @param command a <code>String</code> command name
+     * @param argCount an <code>int</code> arg count
+     * @return a <code>boolean</code> true if right number of arguments.
+     */
+    private  boolean argCheck(final String command, final int argCount) {
+        Integer count = (Integer) cliArgs.get(command);
+        if (count != null
+            && argCount != count.intValue()) {
+            System.err.println(command
+                     + " expects "
+                     + count
+                     + " arguments, but got "
+                     + argCount);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //>
+//<ArgCount For commands 
+//>
+//<Constructor:
 
     /** 
      * Constructor: Initialize WebClient
      * 
-     * 
-     * @return  Newly constructed Client
      */
 
     public Client () {
         _client = new WebClient();
     }
 
+//>
     //< main:
     /** 
      *  
@@ -47,30 +95,33 @@ public class Client {
     public static void main(String args[]) 
         throws Exception {
         Client c = new Client();
-        final HtmlPage page = c._client.getPage("file:./src/test/resources/00-test.html"); 
-        writeContent(page);
-        writeXml(page);
+        final HtmlPage page = c.go("file:./src/test/resources/00-test.html"); 
+        c.writeContent(page);
+        c.writeXml(page);
     }
+//>
+//<go
+
+
+public HtmlPage go (String location)
+    throws IOException {
+    return  (_page = this._client.getPage(location));
+}
 //>
     //< writeContent
 
-    public static void writeContent (HtmlPage page) {
+    public  void writeContent (HtmlPage page) {
         System.out.println( page.asText());
     }
 
     //>
     //< writeXml
 
-    public static void writeXml (HtmlPage page) {
+    public  void writeXml (HtmlPage page) {
         HtmlElement body = page.getFirstByXPath("/html");
         System.out.println(body.asXml());
     }
     //>
-
-//<Class members
-
-    private final WebClient _client;
-//>
 } // class Client
 
 //<End Of File:
