@@ -43,7 +43,7 @@ public class Client {
     private static Map cliArgs;
     static {
         cliArgs = new HashMap();
-        cliArgs.put("/go", 1);
+        cliArgs.put("/open", 1);
     }
 
     //>
@@ -95,15 +95,15 @@ public class Client {
     public static void main(String args[]) 
         throws Exception {
         Client c = new Client();
-        final HtmlPage page = c.go("file:./src/test/resources/00-test.html"); 
+        final HtmlPage page = c.open("file:./src/test/resources/00-test.html"); 
         c.writeContent(page);
         c.writeXml(page);
     }
 //>
-//<go
+//<open
 
 
-public HtmlPage go (String location)
+public HtmlPage open (String location)
     throws IOException {
     return  (_page = this._client.getPage(location));
 }
