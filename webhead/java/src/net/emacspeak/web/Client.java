@@ -95,8 +95,8 @@ public class Client {
         throws Exception {
         Client c = new Client();
         final HtmlPage page = c.open("file:./src/test/resources/00-test.html"); 
-        c.content(page);
-        c.xml(page);
+        c.content();
+        c.xml();
     }
 //>
 //<open
