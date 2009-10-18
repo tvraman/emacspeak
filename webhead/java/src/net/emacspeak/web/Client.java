@@ -11,7 +11,6 @@ package net.emacspeak.web;
 
 
 import java.util.HashMap;
-import java.util.Map;
 import java.io.IOException;
 import java.io.StringWriter;
 
@@ -40,9 +39,9 @@ public class Client {
      * to implementation methods.
      *
      */
-    private static Map cliArgs;
+    private static HashMap <String,Integer>cliArgs;
     static {
-        cliArgs = new HashMap();
+        cliArgs = new HashMap<String, Integer>();
         cliArgs.put("/open", 1);
     }
 
@@ -96,8 +95,8 @@ public class Client {
         throws Exception {
         Client c = new Client();
         final HtmlPage page = c.open("file:./src/test/resources/00-test.html"); 
-        c.writeContent(page);
-        c.writeXml(page);
+        c.content(page);
+        c.xml(page);
     }
 //>
 //<open
@@ -108,17 +107,17 @@ public HtmlPage open (String location)
     return  (_page = this._client.getPage(location));
 }
 //>
-    //< writeContent
+    //< content
 
-    public  void writeContent (HtmlPage page) {
-        System.out.println( page.asText());
+    public  void content () {
+        System.out.println( this._page.asText());
     }
 
     //>
-    //< writeXml
+    //< xml
 
-    public  void writeXml (HtmlPage page) {
-        HtmlElement body = page.getFirstByXPath("/html");
+    public  void xml () {
+        HtmlElement body = this._page.getFirstByXPath("/html");
         System.out.println(body.asXml());
     }
     //>
