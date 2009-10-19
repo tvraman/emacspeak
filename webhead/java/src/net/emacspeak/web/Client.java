@@ -82,7 +82,15 @@ cliArgs.put("/xml", 0);
 
     public Client () {
         _client = new WebClient();
+        _client.setThrowExceptionOnScriptError(false);
     }
+
+//>
+//<getWebClient 
+
+public WebClient getWebClient () {
+    return this._client;
+}
 
 //>
     //< main:
