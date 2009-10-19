@@ -37,6 +37,8 @@
            debug="true"
            deprecation="true"
            optimize="true">
+      <compilerarg value="-source"/>
+    <compilerarg value="1.5"/>
       <compilerarg value="-Xlint:unchecked"/>
       <classpath description="htmlunit lib" refid="classpath"/>
     </javac>
