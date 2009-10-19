@@ -12,8 +12,6 @@ package net.emacspeak.web;
 
 import java.util.HashMap;
 import java.io.IOException;
-import java.io.StringWriter;
-
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -112,7 +110,11 @@ public HtmlPage open (String location)
     //< content
 
     public  void content () {
-        System.out.println( this._page.asText());
+        try {
+            System.out.println( this._page.asText());
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     //>
@@ -120,7 +122,11 @@ public HtmlPage open (String location)
 
     public  void xml () {
         HtmlElement html = this._page.getFirstByXPath("/html");
+        try {
         System.out.println(html.asXml());
+        } catch( Exception e) {
+            System.err.println(e);
+        }
     }
 
     //>
