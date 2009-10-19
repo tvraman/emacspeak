@@ -1,0 +1,8 @@
+/*
+ * Web Eval Print loop
+ */
+
+import net.emacspeak.web.Client;
+c = new Client();
+print("Web Client ready, call c.<method>() to use it.");
+print ("");

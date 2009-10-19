@@ -71,8 +71,15 @@
 (defun webean ()
   "Launch a Bean Shell with web client loaded."
   (interactive)
-  (switch-to-buffer
-   (make-comint "WeBean" "java" nil "-cp" (webhead-classpath) "bsh.Interpreter")))
+  (let ((wb (make-comint "WeBean"
+                "java" nil
+                "-cp" (webhead-classpath) "bsh.Interpreter")))
+      (process-send-string
+       (get-buffer-process wb)
+       (format "source(\"%s\");"
+               (expand-file-name "java/bsh/commands/wep.bsh"
+                                 webhead-directory)))
+  (switch-to-buffer wb)))
   
 
 
