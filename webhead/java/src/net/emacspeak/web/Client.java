@@ -81,7 +81,7 @@ cliArgs.put("/xml", 0);
      */
 
     public Client () {
-        _client = new WebClient();
+        _client = new WebClient(com.gargoylesoftware.htmlunit.BrowserVersion.FIREFOX_3);
         _client.setThrowExceptionOnScriptError(false);
     }
 
