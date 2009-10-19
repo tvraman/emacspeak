@@ -43,6 +43,8 @@ public class Client {
     static {
         cliArgs = new HashMap<String, Integer>();
         cliArgs.put("/open", 1);
+        cliArgs.put("/content", 0);
+cliArgs.put("/xml", 0);
     }
 
     //>
@@ -117,9 +119,10 @@ public HtmlPage open (String location)
     //< xml
 
     public  void xml () {
-        HtmlElement body = this._page.getFirstByXPath("/html");
-        System.out.println(body.asXml());
+        HtmlElement html = this._page.getFirstByXPath("/html");
+        System.out.println(html.asXml());
     }
+
     //>
 } // class Client
 

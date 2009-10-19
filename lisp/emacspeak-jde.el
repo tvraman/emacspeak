@@ -310,6 +310,19 @@ If we are on the last call, do nothing."
             
 
 ;;}}}
+;;{{{ camel case deletion
+
+(defadvice jde-kill-camel-tok (before emacspeak pre act )
+  "Speak word before killing it."
+  (when (interactive-p )
+    (dtk-speak
+     (buffer-substring
+      (point)
+      (save-excursion (jde-end-of-camel-tok))))))
+    
+
+;;}}}
+
 (provide 'emacspeak-jde )
 ;;{{{ end of file 
 
