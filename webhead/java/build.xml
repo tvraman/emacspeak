@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<project name="webhead" default="compile" basedir=".">
+<project name="webhead" default="jar" basedir=".">
   <property name="app.name" value="webhead"/>
   <property name="app.version" value="1.0"/>
   <property name="package" value="net.emacspeak.web"/>
