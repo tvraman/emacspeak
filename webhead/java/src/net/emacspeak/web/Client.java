@@ -93,6 +93,13 @@ public WebClient getWebClient () {
 }
 
 //>
+//<getPageWebClient 
+
+public HtmlPage getPage () {
+    return this._page;
+}
+
+//>
     //< main:
     /** 
      *  
