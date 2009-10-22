@@ -10,8 +10,10 @@ package net.emacspeak.web;
 //< Imports:
 
 
-import java.util.HashMap;
+// ^javax?\.
 import java.io.IOException;
+import java.util.HashMap;
+
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -88,7 +90,12 @@ cliArgs.put("/xml", 0);
 //>
 //<getWebClient 
 
-public WebClient getWebClient () {
+/**
+ * Returns handle to stored WebClient
+ *
+ * @return a <code>WebClient</code> value
+ */
+    public WebClient getWebClient () {
     return this._client;
 }
 
