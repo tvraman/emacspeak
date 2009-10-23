@@ -7,7 +7,7 @@
          (expand-file-name "java/build/webhead.jar" 
                            (expand-file-name "../" (file-name-directory load-file-name))))
    (directory-files
-    (expand-file-name "java/lib" webhead-directory)
+    (expand-file-name "java/lib" (expand-file-name "../" (file-name-directory load-file-name)))
     'full
     ".jar")))
 

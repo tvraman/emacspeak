@@ -116,7 +116,7 @@ public HtmlPage getPage () {
     public static void main(String args[]) 
         throws Exception {
         Client c = new Client();
-        final HtmlPage page = c.open("file:./src/test/resources/00-test.html"); 
+        final HtmlPage page = c.open("http://www.google.com");
         c.content();
         c.xml();
     }
