@@ -174,6 +174,7 @@ on a specific director."
   (concat
    (regexp-opt
     (list ".wma"
+          ".wmv"
           ".m4a"
           ".m4b"
           ".flac"
