@@ -1,12 +1,12 @@
-;;; wise.el --- Web Incremental Search For Emacs
-;;;$Id: wise.el,v 1.5 2006/01/13 23:18:23 raman Exp raman $
+;;; gwis.el --- Google Web Incremental Search For Emacs
+;;;$Id: gwis.el,v 1.5 2006/01/13 23:18:23 raman Exp raman $
 ;;; $Author: raman $
 ;;; Description:  Web Incremental Search via Google
 ;;; Keywords: Web Incremental Search Google
 ;;{{{  LCD:
 
 ;;; LCD Archive Entry:
-;;; wise| T. V. tv.raman.tv@gmail.com
+;;; gwis| T. V. tv.raman.tv@gmail.com
 ;;; An emacs interface that implements web incremental search
 ;;; $Date: 2006/01/13 23:18:23 $ |
 ;;;  $Revision: 1.5 $ |
@@ -37,7 +37,7 @@
 ;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
 ;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
 ;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERGWIS) ARISING IN ANY
 ;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 ;;; SUCH DAMAGE.
 
@@ -51,16 +51,16 @@
 
 ;;; Usage: 
 
-;;; M-x wise creates a wise buffer.
+;;; M-x gwis creates a gwis buffer.
 ;;; type into it as usual;  When following conditions are true:
-;;; Emacs has been idle for wise-idle-delay seconds,
-;;; Contents of the Wise buffer have changed since last search,
-;;; and the Wise buffer is still selected, 
-;;; wise-mode will automatically launch a google search with the
-;;; contents of the wise buffer as the query.
+;;; Emacs has been idle for gwis-idle-delay seconds,
+;;; Contents of the Gwis buffer have changed since last search,
+;;; and the Gwis buffer is still selected, 
+;;; gwis-mode will automatically launch a google search with the
+;;; contents of the gwis buffer as the query.
 
 ;;; Default is to perform a Web search:
-;;; wise-select-searcher --- bound to [tab] by default 
+;;; gwis-select-searcher --- bound to [tab] by default 
 ;;; can be used to select other searches such as news.
 
 ;;; Code:
@@ -74,7 +74,7 @@
 ;;}}}
 ;;{{{  Variables:
 
-(defcustom wise-search-table
+(defcustom gwis-search-table
   '((web . "http://www.google.com/search?q=%s&num=25")
     (image
      . "http://images.google.com/images?hl=en&tab=wi&ie=UTF-8&q=%s")
@@ -87,33 +87,33 @@
                   (cons :tag "Search"
                         (symbol :tag "Type")
                         (string :tag "URI")))
-  :group 'wise)
+  :group 'gwis)
 
-(defcustom wise-search-type 'web
-  "Default Wise search type."
+(defcustom gwis-search-type 'web
+  "Default Gwis search type."
   :type  (list 'choice
-               (loop for s in wise-search-table
+               (loop for s in gwis-search-table
                      collect
                      (list 'const
                            :tag (symbol-name (car s))
                            (car s))))
-  :group 'wise)
+  :group 'gwis)
 
-(make-variable-buffer-local 'wise-search-type)
+(make-variable-buffer-local 'gwis-search-type)
 
 ;;}}}
 ;;{{{  helpers:
 
-(defsubst wise-get-search-uri (search-type)
+(defsubst gwis-get-search-uri (search-type)
   "Return URI for specified search."
-  (declare (special wise-search-table))
-  (cdr (assoc  search-type wise-search-table)))
+  (declare (special gwis-search-table))
+  (cdr (assoc  search-type gwis-search-table)))
 
-(defvar wise-query-string-cache  ""
+(defvar gwis-query-string-cache  ""
   "Cached query string.")
 
-(defsubst wise-get-query-string ()
-  "Return query string from wise buffer."
+(defsubst gwis-get-query-string ()
+  "Return query string from gwis buffer."
   (save-excursion
   (let ((start nil))
     (goto-char (point-min))
@@ -124,92 +124,92 @@
     (buffer-substring-no-properties start (point)))))
 
 ;;}}}
-;;{{{ wise mode:
-(defvar wise-idle-timer nil
-  "Idle timer used in wise mode.")
+;;{{{ gwis mode:
+(defvar gwis-idle-timer nil
+  "Idle timer used in gwis mode.")
 
-(defcustom wise-idle-delay 0.5
+(defcustom gwis-idle-delay 0.5
   "Idle delay before launching Web Incremental Search. Accepts floating point values."
   :type 'number
-  :group 'wise)
+  :group 'gwis)
 
-(define-derived-mode wise-mode  text-mode
+(define-derived-mode gwis-mode  text-mode
   "Web Incremental Search"
-  "WISE --- Web Incremental Search for Emacs
+  "GWIS --- Web Incremental Search for Emacs
 
  This mode can be thought of as the Web equivalent of
-isearch-mode.  Contents of the Wise buffer are progressively
+isearch-mode.  Contents of the Gwis buffer are progressively
 added or subtracted from a running Google query and the results
 are updated continuously to provide the Web equivalent of Emacs'
 `incremental search'.  Unlike incremental-search where individual
 keystrokes update the query string, this mode updates the query
 string via an idle-timer that runs whenever Emacs has been idle
-for more than wise-idle-delay, and the current buffer is a Wise
+for more than gwis-idle-delay, and the current buffer is a Gwis
 buffer. Once a query has been executed, the query string is
 cached to avoid repeating the query.  
 
 The default is to perform a Google Web search; hitting
-\\[wise-select-searcher] bound to command `wise-select-searcher'
+\\[gwis-select-searcher] bound to command `gwis-select-searcher'
 can be used to switch to News or Image search.
 Switching to a new searcher clears the query cache so that a new
 search is performed."
-  (setq wise-idle-timer
-        (run-with-idle-timer wise-idle-delay 5 'wise-isearch)))
+  (setq gwis-idle-timer
+        (run-with-idle-timer gwis-idle-delay 5 'gwis-isearch)))
 
 ;;}}}
 ;;{{{ Commands:
 
-(defun wise-isearch ()
-  "Perform wise search."
+(defun gwis-isearch ()
+  "Perform gwis search."
   (interactive)
-  (declare (special wise-query-string-cache
-                    wise-search-type))
-  (when (eq major-mode 'wise-mode)
-    (let ((query (wise-get-query-string)))
-      (unless(or  (string-equal  query wise-query-string-cache)
+  (declare (special gwis-query-string-cache
+                    gwis-search-type))
+  (when (eq major-mode 'gwis-mode)
+    (let ((query (gwis-get-query-string)))
+      (unless(or  (string-equal  query gwis-query-string-cache)
                   (= (length query) 0))
-        (setq wise-query-string-cache query)
+        (setq gwis-query-string-cache query)
         (browse-url
-         (format  (wise-get-search-uri wise-search-type)
+         (format  (gwis-get-search-uri gwis-search-type)
                  (webjump-url-encode query)))))))
 
-(defun wise-select-searcher (search-type)
-  "Select Wise searcher ."
+(defun gwis-select-searcher (search-type)
+  "Select Gwis searcher ."
   (interactive
    (list
     (intern
      (completing-read "Search Type: "
-                      wise-search-table
+                      gwis-search-table
                       nil 'must-match))))
-  (declare (special wise-search-type))
-  (setq wise-search-type search-type)
-  (setq wise-query-string-cache ""))
+  (declare (special gwis-search-type))
+  (setq gwis-search-type search-type)
+  (setq gwis-query-string-cache ""))
 
   
-(defun wise ()
-  "Create and initialize a `wise' buffer."
+(defun gwis ()
+  "Create and initialize a `gwis' buffer."
   (interactive)
-  (let ((buffer (get-buffer-create "*Wise Interaction*")))
+  (let ((buffer (get-buffer-create "*Gwis Interaction*")))
     (save-excursion
       (set-buffer  buffer)
       (erase-buffer)
-      (wise-mode)
-      (wise-setup-keys))
+      (gwis-mode)
+      (gwis-setup-keys))
     (switch-to-buffer buffer)))
 
-(defun wise-setup-keys ()
-  "Setup key bindings in wise mode."
-  (declare (special wise-mode-map))
+(defun gwis-setup-keys ()
+  "Setup key bindings in gwis mode."
+  (declare (special gwis-mode-map))
   (loop for binding  in
         '(
-          ("\C-i" wise-select-searcher)
+          ("\C-i" gwis-select-searcher)
           )
         do
-        (define-key wise-mode-map
+        (define-key gwis-mode-map
           (first binding) (second binding))))
 
 ;;}}}
-(provide 'wise)
+(provide 'gwis)
 ;;{{{ end of file
 
 ;;; local variables:
