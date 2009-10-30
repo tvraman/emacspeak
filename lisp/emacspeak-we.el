@@ -611,6 +611,22 @@ buffer. Interactive use provides list of class values as completion."
                               url
                               (or (interactive-p)
                                   speak))))
+;;;###autoload
+(defun emacspeak-we-junk-by-class (class    url &optional speak)
+  "Extract elements not having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of class values as completion."
+  (interactive
+   (list
+    (completing-read "Class: "
+                     emacspeak-we-buffer-class-cache)
+    (emacspeak-webutils-read-url)
+    current-prefix-arg))
+  (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
+    (emacspeak-we-xslt-junk filter
+                              url
+                              (or (interactive-p)
+                                  speak))))
 
 (defsubst  emacspeak-we-get-id-list ()
   "Collect a list of ids by prompting repeatedly in the
@@ -668,6 +684,29 @@ values as completion. "
           classes
           " or ")))
     (emacspeak-we-xslt-filter
+     (format "//*[%s]" filter)
+     url
+     (or (interactive-p) speak))))
+;;;###autoload
+(defun emacspeak-we-junk-by-class-list(classes   url &optional
+                                                    speak)
+  "Extract elements not having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion. "
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+      (emacspeak-we-css-get-class-list))
+    (emacspeak-webutils-read-url)
+    current-prefix-arg))
+  (let ((filter
+         (mapconcat
+          #'(lambda  (c)
+              (format "(@class=\"%s\")" c))
+          classes
+          " or ")))
+    (emacspeak-we-xslt-junk
      (format "//*[%s]" filter)
      url
      (or (interactive-p) speak))))
@@ -1022,6 +1061,7 @@ and provide a completion list of applicable  property values. Filter document by
 (loop for binding in
       '(
         ("C" emacspeak-we-extract-by-class-list)
+        ("D" emacspeak-we-junk-by-class-list)
         ("w" emacspeak-we-extract-by-property)
         ("M" emacspeak-we-extract-tables-by-match-list)
         ("P" emacspeak-we-extract-print-streams)
@@ -1035,6 +1075,7 @@ and provide a completion list of applicable  property values. Filter document by
         ("\C-x" emacspeak-we-count-nested-tables)
         ("a" emacspeak-we-xslt-apply)
         ("c" emacspeak-we-extract-by-class)
+        ("d" emacspeak-we-junk-by-class)
         ("e" emacspeak-we-url-expand-and-execute)
         ("f" emacspeak-we-xslt-filter)
         ("i" emacspeak-we-extract-by-id)
