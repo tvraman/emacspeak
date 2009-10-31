@@ -106,8 +106,7 @@
     (read-from-minibuffer "User Email: "
                           nil nil nil nil
                           gcontacts-user-email)))
-  (declare (special gcontacts-process gcontacts-user-email
-                    py-python-command))
+  (declare (special gcontacts-process gcontacts-user-email))
   (when (and gcontacts-process
              (eq (process-status gcontacts-process) 'run))
     (delete-process gcontacts-process))
@@ -118,7 +117,7 @@
     (setq gcontacts-process
           (start-process
            "Contacts" "*Contacts*"
-           py-python-command))
+           (executable-find "python")))
     (process-send-string gcontacts-process
                          "import contacts\n")
     (process-send-string
