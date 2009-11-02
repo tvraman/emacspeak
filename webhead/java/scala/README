@@ -1,0 +1,3 @@
+Scala scripts that use htmlunit to implement a headless
+WebClient.
+Should be less code than writing Java.
