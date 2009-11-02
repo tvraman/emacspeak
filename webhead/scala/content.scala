@@ -1,5 +1,5 @@
 import  com.gargoylesoftware.htmlunit._
-object Client {
+object Content {
   def main(args: Array[String]) = {
     val w = new com.gargoylesoftware.htmlunit.WebClient()
     w.setThrowExceptionOnScriptError(false);
