@@ -20,4 +20,4 @@ if [ -z "$TOOL_CLASSPATH" ] ; then
     done
 fi
 
-/usr/local/scala/bin/scala -cp .:$TOOL_CLASSPATH  "$@"
+/usr/local/scala/bin/scala  -cp .:$TOOL_CLASSPATH  "$@"
