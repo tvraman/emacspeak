@@ -1,5 +1,5 @@
 /*
- * $$Id:$
+ * $Id$
  * A simple script for dumping page contents given a URL
  * */
 
