@@ -11,14 +11,19 @@ object Content {
   val w = new WebClient(BrowserVersion.FIREFOX_3)
   w.setThrowExceptionOnScriptError(false)
 
+/*
+ * * content: Return page content as text
+ *  @param: url --- URL of page to open
+ * */
+
   def content (url : String) {
-    println(url)
     val p:HtmlPage  = this.w.getPage(url)
     println(p.asText())
   }
 
-  def main(args: Array[String]) = {
-    args.map(content(_))
-    print ("")
-  }
+/*
+ * * scala Content <url_string>
+ * */
+
+  def main(args: Array[String]) = content(args(0))
 }
