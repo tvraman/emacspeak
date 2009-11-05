@@ -16,6 +16,14 @@ object Content {
     println(p.asText())
   }
 
+def xml (url : String) {
+    val p:HtmlPage  = this.w.getPage(url)
+  val html : HtmlElement = p.getFirstByXPath("/html")
+    println(html.asXml())
+  }
+
+
+
 /*
  * * scala Content <url_string>
  * */
