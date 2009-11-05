@@ -3,7 +3,7 @@ import  com.gargoylesoftware.htmlunit.html._
 
 object Content {
   val w = new WebClient(BrowserVersion.FIREFOX_3)
-  w.setThrowExceptionOnScriptError(false);
+  w.setThrowExceptionOnScriptError(false)
 
   def content (url : String) {
     println(url)
