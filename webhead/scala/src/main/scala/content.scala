@@ -1,3 +1,8 @@
+/*
+ * $$Id:$
+ * A simple script for dumping page contents given a URL
+ * */
+
 import  com.gargoylesoftware.htmlunit._
 import  com.gargoylesoftware.htmlunit.html._
 
