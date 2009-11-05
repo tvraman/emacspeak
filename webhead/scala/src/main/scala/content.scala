@@ -17,5 +17,5 @@ object Content {
     println(p.asText())
   }
 
-  def main(args: Array[String]) = args.map(content(_))
+  def main(args: Array[String]) : unit = args.map(content(_))
 }
