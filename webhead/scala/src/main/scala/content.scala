@@ -11,14 +11,14 @@ object Content {
   val w = new WebClient(BrowserVersion.FIREFOX_3)
   w.setThrowExceptionOnScriptError(false)
 
-  def content (url : String) {
+  def content (url :String) {
     val p:HtmlPage  = this.w.getPage(url)
     println(p.asText())
   }
 
-def xml (url : String) {
+def xml (url :String) {
     val p:HtmlPage  = this.w.getPage(url)
-  val html : HtmlElement = p.getFirstByXPath("/html")
+  val html :HtmlElement = p.getFirstByXPath("/html")
     println(html.asXml())
   }
 
@@ -28,5 +28,5 @@ def xml (url : String) {
  * * scala Content <url_string>
  * */
 
-  def main(args: Array[String]) = content(args(0))
+  def main(args:Array[String]) = content(args(0))
 }
