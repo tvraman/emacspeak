@@ -1027,6 +1027,7 @@ Produce an auditory icon if possible."
         'emacspeak-comint-prompt-personality
         'rear-sticky nil)))
     (when (and
+           comint-last-output-start
            (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
            (or monitor (eq (window-buffer) buffer)))
       (emacspeak-speak-region comint-last-output-start (point )))
