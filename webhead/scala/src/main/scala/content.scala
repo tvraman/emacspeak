@@ -26,5 +26,5 @@ def xml (url: String) {
  * * scala Content <url_string>
  * */
 
-  def main(args:Array[String]) = content(args(0))
+  def main(args:Array[String]) = text(args(0))
 }
