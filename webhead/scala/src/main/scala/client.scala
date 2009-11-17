@@ -7,7 +7,7 @@ package net.emacspeak.web
 import  com.gargoylesoftware.htmlunit._
 import  com.gargoylesoftware.htmlunit.html._
 
-object Content {
+object Client {
   val w = new WebClient(BrowserVersion.FIREFOX_3)
   w.setThrowExceptionOnScriptError(false)
 
@@ -23,7 +23,7 @@ def xml (url: String) {
   }
 
 /*
- * * scala Content <url_string>
+ * * scala Client <url_string>
  * */
 
   def main(args:Array[String]) = text(args(0))
