@@ -343,7 +343,7 @@ Updated headlines found in emacspeak-webspace-headlines."
        (gfeeds-titles
         (format emacspeak-webspace-weather-url-template
                 emacspeak-url-template-weather-city-state)))
-      emacspeak-url-template-weather-city-state)))
+      emacspeak-url-template-weather-city-state))))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
