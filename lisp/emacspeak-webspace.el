@@ -338,10 +338,12 @@ Updated headlines found in emacspeak-webspace-headlines."
   (when (and emacspeak-webspace-weather-url-template
              emacspeak-url-template-weather-city-state)
     (with-local-quit
+      (format "%s at %s"
       (first
        (gfeeds-titles
         (format emacspeak-webspace-weather-url-template
-                emacspeak-url-template-weather-city-state))))))
+                emacspeak-url-template-weather-city-state)))
+      emacspeak-url-template-weather-city-state)))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
