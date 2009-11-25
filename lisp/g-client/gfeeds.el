@@ -156,7 +156,7 @@
   "Internal cached value of freshness as a time value.")
 
 ;;;###autoload
-(defcustom gfeeds-freshness "4 hours"
+(defcustom gfeeds-freshness "10  minutes"
   "Freshness used to decide if we return titles."
   :type  'string
   :set  #'(lambda (sym val)
