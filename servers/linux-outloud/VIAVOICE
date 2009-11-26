@@ -51,7 +51,7 @@ cd servers/linux-outloud
 make
 try starting the ViaVoice speech server by typing 
 
-bash $ tcl /usr/share/emacs/site-lisp/emacspeak/servers/outloud 
+bash $ tclsh /usr/share/emacs/site-lisp/emacspeak/servers/outloud 
 at the shell prompt.
 
 Only after verifying that the TTS engine works and that you
