@@ -1,0 +1,41 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 29.0 Additions And Changes:
+
+Emacspeak 29.0 provides the following user level enhancements:
+
+** Speech-enables proced:
+
+Module emacspeak-proced speech-enables emacs 23's new Task
+manager proced.
+This replaces view-process-mode which no longer works in emacs
+23.
+
+** Integrates Unicode Support
+
+Thanks to Lukas' work, Emacspeak now works with the unicode
+support in Emacs 22 and Emacs 23.
+
+** emacspeak-webspace
+
+Module Webspace provides a suite of  efficient Web content access
+tools.
+
+** G-Client:
+
+G-Client now includes support for many more Google Web APIs,
+including WebSearch and BlogSearch.
+
+** Initial Support For Google Docs:
+
+There is now preliminary support for uploading and viewing
+document lists from Google Docs in G-Client.
+
+
+
+
+Local variables:
+mode: org
+end:
