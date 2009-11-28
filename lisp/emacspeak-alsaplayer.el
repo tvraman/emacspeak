@@ -601,7 +601,8 @@ As the default, use current position."
          emacspeak-alsaplayer-next)
         ("p"
          emacspeak-alsaplayer-previous)
-        ("q" emacspeak-alsaplayer-quit)
+	("q" bury-buffer)
+        ("Q" emacspeak-alsaplayer-quit)
         ("o" other-window)
         ("r" emacspeak-alsaplayer-relative)
         ("s"
