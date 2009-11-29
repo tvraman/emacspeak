@@ -85,9 +85,15 @@ instead of the modeline."
 (define-key w3m-mode-map "l" 'emacspeak-webutils-play-media-at-point)
 (define-key w3m-mode-map "\C-t" 'emacspeak-webutils-transcode-current-url-via-google)
 (define-key w3m-mode-map "\M-t" 'emacspeak-webutils-transcode-via-google)
-(define-key w3m-mode-map "\C-c\C-g" 'emacspeak-webutils-google-on-this-site)
-(define-key w3m-mode-map "\C-c\C-x" 'emacspeak-webutils-google-extract-from-cache)
-(define-key w3m-mode-map "\C-c\C-l" 'emacspeak-webutils-google-similar-to-this-page)
+' Moved keybindings to avoid conflict with emacs org mode
+; Avoid use of C-g on request of Raman due to concerns of misuse/confusion
+; because C-g used for emacs quit 
+; Moved google related operations to C-cg prefix, with exception of 
+; google transcode operations, which are left as they were on C-t 
+; and M-t. TX
+(define-key w3m-mode-map "\C-cgg" 'emacspeak-webutils-google-on-this-site)
+(define-key w3m-mode-map "\C-cgx" 'emacspeak-webutils-google-extract-from-cache)
+(define-key w3m-mode-map "\C-cgl" 'emacspeak-webutils-google-similar-to-this-page)
 (define-key w3m-mode-map (kbd "<C-return>") 'emacspeak-webutils-open-in-other-browser)
 
 ;;}}}
