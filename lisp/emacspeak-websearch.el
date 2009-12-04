@@ -548,7 +548,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 (emacspeak-websearch-set-key ?d 'dictionary-google)
 
 (defvar emacspeak-websearch-dictionary-google-uri 
-"http://www.google.com/dictionary?langpair=%s&q=dictionary"
+"http://www.google.com/dictionary?langpair=%s&q=%s"
 "Search end-point for Google dictionary")
 
 (defun emacspeak-websearch-dictionary-google (word &optional langpair-prompt)
