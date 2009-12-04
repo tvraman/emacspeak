@@ -415,8 +415,6 @@ When using supported browsers,  this interface attempts to speak the most releva
             (emacspeak-url-encode query))))
 
 ;;}}}
-;;{{{ CNN
-
 ;;{{{ FolDoc
 
 (emacspeak-websearch-set-searcher 'foldoc
@@ -542,6 +540,45 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
    "Results"
    'emacspeak-speak-line))
 
+;;}}}
+;;{{{ dictionary google
+
+(emacspeak-websearch-set-searcher 'dictionary-google
+                                  'emacspeak-websearch-dictionary-google)
+(emacspeak-websearch-set-key ?d 'dictionary-google)
+
+(defvar emacspeak-websearch-dictionary-google-uri 
+"http://www.google.com/dictionary?langpair=%s&q=dictionary"
+"Search end-point for Google dictionary")
+
+(defun emacspeak-websearch-dictionary-google (word &optional langpair-prompt)
+  "Look up word in Google dictionary. 
+Optional interactive prefix arg prompts for language pair for translation.
+Default is to use English as source and target languages."
+  (interactive
+   (list
+    (read-from-minibuffer "Word: ")
+
+    
+    current-prefix-arg))
+  (let ((langpair
+         (emacspeak-url-encode
+          (if langpair-prompt
+              (read-from-minibuffer "From|To:")
+            "en|en"))))
+    (emacspeak-webutils-post-process
+     "Found in dictionary:"
+     'emacspeak-speak-rest-of-buffer)
+    (emacspeak-webutils-with-xsl-environment
+     (expand-file-name "default.xsl" emacspeak-xslt-directory)
+     nil emacspeak-xslt-options
+     (browse-url
+      (format emacspeak-websearch-dictionary-google-uri
+              langpair
+              (emacspeak-url-encode word))))))
+    
+
+   
 ;;}}}
 ;;{{{ Lookup company news at Yahoo
 
@@ -688,7 +725,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-searcher 'dejanews
                                   'emacspeak-websearch-usenet-search)
 
-(emacspeak-websearch-set-key ?d 'dejanews)
+(emacspeak-websearch-set-key ?D 'dejanews)
 
 ;;;###autoload
 (defun emacspeak-websearch-usenet-search (group)
@@ -700,10 +737,10 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;}}}
 ;;{{{ Webster
-
+;;; unbinding webster, no longer works.
 (emacspeak-websearch-set-searcher 'dictionary-hypertext-webster
                                   'emacspeak-websearch-dictionary-hypertext-webster-search)
-(emacspeak-websearch-set-key ?D 'dictionary-hypertext-webster)
+;(emacspeak-websearch-set-key ?D 'dictionary-hypertext-webster)
 
 (defvar emacspeak-websearch-dictionary-hypertext-webster-uri
   "http://work.ucsd.edu:5141/cgi-bin/http_webster?isindex="
