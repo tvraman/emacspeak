@@ -1135,7 +1135,7 @@ from English to German")
  "http://translate.google.com/translate_c?hl=en&langpair=%s&u=%s"
  (list
   "Translate from|To:"
-  "URI")
+  "URI: ")
  nil
  "Translate a Web page using google. Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
