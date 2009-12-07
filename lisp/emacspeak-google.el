@@ -310,12 +310,32 @@ This variable is buffer-local.")
                    (gweb-google-autocomplete))))))))
 
 
+
+(defun emacspeak-google-realtime-search ()
+  "Retrieve realtime searches for  current query."
+  (interactive)
+  (declare (special emacspeak-websearch-google-uri emacspeak-google-query))
+  (let ((uri
+         (concat emacspeak-websearch-google-uri
+                 (or emacspeak-google-query (gweb-google-autocomplete))   
+                 "&esrch=RTSearch")))
+    (emacspeak-webutils-cache-google-query emacspeak-google-query)
+    (emacspeak-we-extract-by-id "rtr" uri 'speak)))
+
+
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
   (interactive)
   (declare (special emacspeak-google-query))
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
+
+
+
+  
+  
+  
+                                                    
 
 ;;}}}
 ;;{{{  keymap
@@ -347,6 +367,7 @@ This variable is buffer-local.")
          emacspeak-google-toolbelt-change-structured-snippets)
         ("a" emacspeak-websearch-google)
         ("A" emacspeak-websearch-accessible-google)
+        ("R" emacspeak-google-realtime-search)
         )
       do
       (emacspeak-keymap-update emacspeak-google-keymap k))
