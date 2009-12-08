@@ -956,6 +956,10 @@ Optional second arg as-html processes the results as HTML rather than data."
 ;;}}}
 ;;{{{ google
 
+(emacspeak-websearch-set-searcher 'realtime-google
+                                  'emacspeak-google-realtime-search)
+(emacspeak-websearch-set-key ?R 'realtime-google)
+
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?i 'google)
