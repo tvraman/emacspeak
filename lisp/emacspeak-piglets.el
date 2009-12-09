@@ -93,6 +93,13 @@
    dtk-program
    "2222"
    (format "%d" emacspeak-piglets-tts-rate)))
+
+
+;;;###autoload
+(defun emacspeak-piglets-tts-stop ()
+  "Kill TTS  process."
+  (interactive)
+  (kill-buffer "* HTTP TTS *"))
 (define-derived-mode emacspeak-piglets-mode inferior-moz-mode
   "Piglets Interaction"
   "Major mode for Piglets interaction.
