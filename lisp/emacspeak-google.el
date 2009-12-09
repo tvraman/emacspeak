@@ -320,7 +320,8 @@ This variable is buffer-local.")
                  (if prefix
                      (gweb-google-autocomplete)
                  (or emacspeak-google-query (gweb-google-autocomplete))   )
-                 "&esrch=RTSearch")))
+                 ;"&esrch=RTSearch"
+                 )))
     (emacspeak-webutils-cache-google-query emacspeak-google-query)
     (emacspeak-we-extract-by-id "rtr" uri 'speak)))
 
