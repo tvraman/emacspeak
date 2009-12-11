@@ -1643,7 +1643,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 (emacspeak-websearch-set-searcher 'recorded-books
                                   'emacspeak-websearch-recorded-books-search)
 
-(emacspeak-websearch-set-key ?r 'recorded-books)
+;(emacspeak-websearch-set-key ?r 'recorded-books)
 
 (defvar emacspeak-websearch-recorded-books-advanced-form
   (expand-file-name "xml-forms/recorded-books-advanced.xml"
