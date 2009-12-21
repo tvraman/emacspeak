@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 883 commands.
+This chapter documents a total of 885 commands.
 
 @menu
 * cd-tool::                     
@@ -555,6 +555,7 @@ SPC		emacspeak-alsaplayer-pause
 A		emacspeak-alsaplayer-replace-queue
 J		emacspeak-alsaplayer-amark-jump
 M		emacspeak-alsaplayer-amark-add
+Q		emacspeak-alsaplayer-quit
 S		emacspeak-alsaplayer-stop
 [		emacspeak-alsaplayer-backward-ten-minutes
 ]		emacspeak-alsaplayer-forward-ten-minutes
@@ -570,7 +571,7 @@ m		emacspeak-alsaplayer-mark-position
 n		emacspeak-alsaplayer-next
 o		other-window
 p		emacspeak-alsaplayer-previous
-q		emacspeak-alsaplayer-quit
+q		bury-buffer
 r		emacspeak-alsaplayer-relative
 s		emacspeak-alsaplayer-start
 v		emacspeak-alsaplayer-volume
@@ -1966,7 +1967,6 @@ pages that enables these tools via single keyboard commands.
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'easy-mmode)
 
 One tool on a tool-belt
 
@@ -1987,7 +1987,7 @@ This variable is buffer-local.")
 
 (make-variable-buffer-local 'emacspeak-google-toolbelt)
 
-(defun emacspeak-google-toolbelt-to-tbs ()
+(defun emacspeak-google-toolbelt-to-tbs (belt)
   "Return value for use in tbs parameter in search queries."
   (let
       ((settings
@@ -2001,7 +2001,7 @@ This variable is buffer-local.")
                     (t (format "%s:%s"
                                (emacspeak-google-tool-param tool)
                                (emacspeak-google-tool-value tool)))))
-               (emacspeak-google-toolbelt)))))
+               belt))))
     (when settings 
     (concat "&tbs="
             (mapconcat #'identity settings ",")))))
@@ -2183,8 +2183,7 @@ less:commercial (demotion)
             (emacspeak-google-tool-name this-tool))
           (interactive)
           (let*
-              (
-               (belt (emacspeak-google-toolbelt))
+              ((belt (emacspeak-google-toolbelt))
                (tool
                 (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
                                                         ,(emacspeak-google-tool-name this-tool)))
@@ -2212,37 +2211,46 @@ Prompt using completion
              (t (error "Unexpected type!")))
             (let
                 ((emacspeak-websearch-google-options
-                  (emacspeak-google-toolbelt-to-tbs)))
+                  (emacspeak-google-toolbelt-to-tbs belt)))
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
+(defun emacspeak-google-show-toolbelt()
+  "Reload search page with toolbelt showing."
+  (interactive)
+  (declare (special emacspeak-google-query))
+  (let ((emacspeak-websearch-google-options "&tbo=1"))
+    (emacspeak-websearch-google emacspeak-google-query)))
+
 ###autoload
-
-(define-minor-mode emacspeak-google-mode
-  "Google minor mode."
-  :lighter " Google"
-  )
-
 (define-prefix-command  'emacspeak-google-command
   'emacspeak-google-keymap)
 
 (loop for k in
       '(
+        ("h"
+         emacspeak-google-toolbelt-change-web-history-visited)
+        ("H" emacspeak-google-toolbelt-change-web-history-not-visited)
         ("r" emacspeak-google-toolbelt-change-recent)
         ("b" emacspeak-google-toolbelt-change-blog)
         ("n" emacspeak-google-toolbelt-change-news)
         ("c" emacspeak-google-toolbelt-change-commercial)
+        ("d" emacspeak-google-toolbelt-change-sort-by-date)
 	("p" emacspeak-google-toolbelt-change-commercial-prices)
-	("n" emacspeak-google-toolbelt-change-non-commercial)
 	("f" emacspeak-google-toolbelt-change-forums)
         ("v" emacspeak-google-toolbelt-change-video)
         ("i" emacspeak-google-toolbelt-change-images)
         ("B" emacspeak-google-toolbelt-change-books)
         ("t" emacspeak-google-toolbelt-change-books-type)
+        ("\C-t" emacspeak-google-show-toolbelt)
+        ("T" emacspeak-google-toolbelt-change-timeline)
         ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
         ("l" emacspeak-google-toolbelt-change-non-commercial)
-        ("s" emacspeak-google-toolbelt-change-structured-snippets)
+        ("s"
+         emacspeak-google-toolbelt-change-structured-snippets)
+        ("a" emacspeak-websearch-google)
+        ("A" emacspeak-websearch-accessible-google)
         )
       do
       (emacspeak-keymap-update emacspeak-google-keymap k))
@@ -2256,10 +2264,10 @@ byte-compile-dynamic: t
 Automatically generated documentation
 for commands defined in module  emacspeak-google.
 
-@deffn {Interactive Command} emacspeak-google-mode nil
+@deffn {Interactive Command} emacspeak-google-show-toolbelt nil
 @kbd{Not bound to any key.}
 
-Google minor mode.
+Reload search page with toolbelt showing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-blog nil
@@ -5479,6 +5487,14 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-we-junk-by-class nil
+@kbd{Not bound to any key.}
+
+Extract elements not having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of class values as completion.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-we-junk-by-class-list nil
 @kbd{Not bound to any key.}
 
@@ -7582,6 +7598,14 @@ for commands defined in module  emacspeak-ebook.
 Search for EBooks from Gooble Books.
 
 (fn QUERY)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ebook-mode nil
+@kbd{Not bound to any key.}
+
+EBooks minor mode.
+
+(fn &optional ARG)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ebook-open nil

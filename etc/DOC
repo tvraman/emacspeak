@@ -362,6 +362,7 @@ SPC		emacspeak-alsaplayer-pause
 A		emacspeak-alsaplayer-replace-queue
 J		emacspeak-alsaplayer-amark-jump
 M		emacspeak-alsaplayer-amark-add
+Q		emacspeak-alsaplayer-quit
 S		emacspeak-alsaplayer-stop
 [		emacspeak-alsaplayer-backward-ten-minutes
 ]		emacspeak-alsaplayer-forward-ten-minutes
@@ -377,7 +378,7 @@ m		emacspeak-alsaplayer-mark-position
 n		emacspeak-alsaplayer-next
 o		other-window
 p		emacspeak-alsaplayer-previous
-q		emacspeak-alsaplayer-quit
+q		bury-buffer
 r		emacspeak-alsaplayer-relative
 s		emacspeak-alsaplayer-start
 v		emacspeak-alsaplayer-volume
@@ -1197,7 +1198,7 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
-** emacspeak-google-mode Google minor mode. 
+** emacspeak-google-show-toolbelt Reload search page with toolbelt showing. 
 
 ------------------------------------------------------------
 
@@ -3464,6 +3465,12 @@ used as well.
 
 ------------------------------------------------------------
 
+** emacspeak-we-junk-by-class Extract elements not having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of class values as completion. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-junk-by-class-list Junk elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer.
@@ -4942,6 +4949,12 @@ take effect.
 ** emacspeak-ebook-google Search for EBooks from Gooble Books.
 
 (fn QUERY) 
+
+------------------------------------------------------------
+
+** emacspeak-ebook-mode EBooks minor mode.
+
+(fn &optional ARG) 
 
 ------------------------------------------------------------
 
