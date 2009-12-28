@@ -1192,18 +1192,6 @@ from English to German.")
  "Google Glossary lookup.")
 
 (emacspeak-url-template-define
- "GCaffeine Search"
- "http://www2.sandbox.google.com/search?hl=en&q=%s&btnG=Google+Search"
- (list 'gweb-google-autocomplete
-       #'(lambda nil
-           (declare (special  emacspeak-websearch-google-number-of-results))
-           emacspeak-websearch-google-number-of-results))
- #'(lambda nil
-     (search-forward "Search Results" nil)
-     (emacspeak-speak-rest-of-buffer))
- "Google Sandbox Results")
-
-(emacspeak-url-template-define
  "1Box Google"
  "http://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)
