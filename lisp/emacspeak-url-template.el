@@ -1199,7 +1199,7 @@ from English to German.")
  "Show 1box result from Google."
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list
-      (list "rbt" "e")
+      (list "rbt" "e" "std")
       url 'speak)))
 
 (emacspeak-url-template-define
