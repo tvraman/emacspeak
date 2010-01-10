@@ -2352,7 +2352,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  nil
  "Show table of recent quakes."
  #'(lambda (url)
-     (emacspeak-we-xslt-filter "//table"
+     (emacspeak-we-xslt-filter "//tr[position() < 10]"
 			       url
 			       'speak)))
 
