@@ -2345,6 +2345,17 @@ Meerkat realy needs an xml-rpc method for getting this.")
  #'(lambda (url)
      (funcall emacspeak-media-player  url 'play-list))) 
 
+(emacspeak-url-template-define
+ "Earthquakes"
+ "http://earthquake.usgs.gov/earthquakes/recenteqsus/Quakes/quakes_all.php"
+ nil
+ nil
+ "Show table of recent quakes."
+ #'(lambda (url)
+     (emacspeak-we-xslt-filter "//table"
+			       url
+			       'speak)))
+
 ;;}}}
 
 ;;}}}
