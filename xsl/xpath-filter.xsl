@@ -40,19 +40,25 @@ shown in the output.
   </xsl:template>
   <xsl:template match="body">
     <body>
-      <xsl:for-each select="$locator" >
-        <xsl:copy-of  select="."/>
-      </xsl:for-each>
-      <h2>
-        Summary:
-        <xsl:value-of select="count($locator)"/>  Nodes Matching   <xsl:value-of select="$path"/>
-        in <xsl:element name="a">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
-        document.
-      </xsl:element>
-      </h2> 
+      <div>
+	<xsl:for-each select="$locator" >
+	  <xsl:copy-of  select="."/>
+	</xsl:for-each>
+	
+
+      </div>
+      <div>
+	<h2>
+	  Summary:
+	  <xsl:value-of select="count($locator)"/>  Nodes Matching   <xsl:value-of select="$path"/>
+	  in <xsl:element name="a">
+	  <xsl:attribute name="href">
+	    <xsl:value-of select="$base"/>
+	  </xsl:attribute>
+	  document.
+	</xsl:element>
+	</h2> 
+      </div>
     </body>
   </xsl:template>
   
