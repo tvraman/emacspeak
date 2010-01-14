@@ -317,7 +317,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch
    "speed_set 1.0"))
 
-(defun emacspeak-m-player-play-tree-step (step)
+(defun emacspeak-m-player-play-tracks-jump (step)
   "Move within the play tree."
   (interactive"nSkip Tracks:")
   (emacspeak-m-player-dispatch
@@ -326,12 +326,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defun emacspeak-m-player-previous-track ()
   "Move to previous track."
   (interactive)
-  (emacspeak-m-player-play-tree-step -1))
+  (emacspeak-m-player-play-tracks-jump -1))
 
 (defun emacspeak-m-player-next-track ()
   "Move to next track."
   (interactive)
-  (emacspeak-m-player-play-tree-step 1))
+  (emacspeak-m-player-play-tracks-jump 1))
 
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
@@ -583,7 +583,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("L" emacspeak-m-player-load-file)
         ("\M-l" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
-        ("t" emacspeak-m-player-play-tree-step)
+        ("t" emacspeak-m-player-play-tracks-jump)
         ("p" emacspeak-m-player-previous-track)
         ("n" emacspeak-m-player-next-track)
         ("," emacspeak-m-player-backward-10s)
