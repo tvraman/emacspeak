@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 885 commands.
+This chapter documents a total of 887 commands.
 
 @menu
 * cd-tool::                     
@@ -2216,12 +2216,31 @@ Prompt using completion
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
+(defun emacspeak-google-realtime-search (&optional prefix)
+  "Retrieve realtime searches for  current query."
+  (interactive "P")
+  (declare (special emacspeak-websearch-google-uri emacspeak-google-query))
+  (let ((uri
+         (concat emacspeak-websearch-google-uri
+                 (if prefix
+                     (gweb-google-autocomplete)
+                 (or emacspeak-google-query (gweb-google-autocomplete))   )
+                 ;"&esrch=RTSearch"
+                 )))
+    (emacspeak-webutils-cache-google-query emacspeak-google-query)
+    (emacspeak-we-extract-by-id "rtr" uri 'speak)))
+
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
   (interactive)
   (declare (special emacspeak-google-query))
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
+
+  
+  
+  
+                                                    
 
 ###autoload
 (define-prefix-command  'emacspeak-google-command
@@ -2251,6 +2270,7 @@ Prompt using completion
          emacspeak-google-toolbelt-change-structured-snippets)
         ("a" emacspeak-websearch-google)
         ("A" emacspeak-websearch-accessible-google)
+        ("R" emacspeak-google-realtime-search)
         )
       do
       (emacspeak-keymap-update emacspeak-google-keymap k))
@@ -2263,6 +2283,12 @@ byte-compile-dynamic: t
 
 Automatically generated documentation
 for commands defined in module  emacspeak-google.
+
+@deffn {Interactive Command} emacspeak-google-realtime-search nil
+@kbd{Not bound to any key.}
+
+Retrieve realtime searches for  current query.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-google-show-toolbelt nil
 @kbd{Not bound to any key.}
@@ -2842,7 +2868,7 @@ p		emacspeak-m-player-previous-track
 q		emacspeak-m-player-quit
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
-t		emacspeak-m-player-play-tree-step
+t		emacspeak-m-player-play-tracks-jump
 v		emacspeak-m-player-volume-change
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
@@ -2875,7 +2901,7 @@ Move to next track.
 Pause or unpause media player.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-m-player-play-tree-step nil
+@deffn {Interactive Command} emacspeak-m-player-play-tracks-jump nil
 @kbd{Not bound to any key.}
 
 Move within the play tree.
@@ -5719,6 +5745,14 @@ Search CPAN  Comprehensive Perl Archive Network   Site.
 Search CTAN Comprehensive TeX Archive Network   Site. 
 @end deffn
 
+@deffn {Interactive Command} emacspeak-websearch-dictionary-google nil
+@kbd{Not bound to any key.}
+
+Look up word in Google dictionary. 
+Optional interactive prefix arg prompts for language pair for translation.
+Default is to use English as source and target languages.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-dictionary-hypertext-webster-search nil
 @kbd{Not bound to any key.}
 
@@ -8192,6 +8226,10 @@ Dictionary Lookup
 
 Display Digg Feed.
 
+@kbd{Earthquakes}
+
+Show table of recent quakes.
+
 @kbd{EmacsWiki Search}
 
 EmacsWiki Search
@@ -8232,10 +8270,6 @@ Display content from Google Finance.
 @kbd{Flight Tracker}
 
 Display flight arrival and departure information.
-
-@kbd{GCaffeine Search}
-
-Google Sandbox Results
 
 @kbd{GCalendar Mobile}
 

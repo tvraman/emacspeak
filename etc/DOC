@@ -1198,6 +1198,10 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
+** emacspeak-google-realtime-search Retrieve realtime searches for  current query. 
+
+------------------------------------------------------------
+
 ** emacspeak-google-show-toolbelt Reload search page with toolbelt showing. 
 
 ------------------------------------------------------------
@@ -1548,7 +1552,7 @@ p		emacspeak-m-player-previous-track
 q		emacspeak-m-player-quit
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
-t		emacspeak-m-player-play-tree-step
+t		emacspeak-m-player-play-tracks-jump
 v		emacspeak-m-player-volume-change
 {		emacspeak-m-player-half-speed
 }		emacspeak-m-player-double-speed
@@ -1580,7 +1584,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-play-tree-step Move within the play tree. 
+** emacspeak-m-player-play-tracks-jump Move within the play tree. 
 
 ------------------------------------------------------------
 
@@ -3608,6 +3612,12 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 ------------------------------------------------------------
 
 ** emacspeak-websearch-ctan-search Search CTAN Comprehensive TeX Archive Network   Site.  
+
+------------------------------------------------------------
+
+** emacspeak-websearch-dictionary-google Look up word in Google dictionary. 
+Optional interactive prefix arg prompts for language pair for translation.
+Default is to use English as source and target languages. 
 
 ------------------------------------------------------------
 
