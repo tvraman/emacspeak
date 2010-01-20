@@ -300,6 +300,13 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Bookshare Login")
 
+(emacspeak-url-template-define
+ "BookShare Search"
+ "http://www.bookshare.org/quickSearch?keyword=%s&search=Search"
+ (list "BookShare Query: ")
+ nil
+ "BookShare Search")
+
 (defun emacspeak-url-template-calendar-to-seconds ()
   "Convert date under cursor to seconds since epoch."
   (unless (eq 'calendar-mode  major-mode)
