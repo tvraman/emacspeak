@@ -290,13 +290,11 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "BookShare"
- "https://www.bookshare.org/web/MembersLogin.html?email=%s&password=%s&operation=submit"
+ "https://www.bookshare.org/whiteListRedirect?j_userName=%s"
  (list
   #'(lambda nil
       (read-from-minibuffer "Bookshare UserId: "
-                            emacspeak-bookshare-user-id))
-  #'(lambda nil
-      (read-passwd  "Password: ")))
+                            emacspeak-bookshare-user-id)))
  nil
  "Bookshare Login")
 

@@ -110,7 +110,7 @@
 (defsubst emacspeak-proced-field-to-position (field)
   "Return column position of this field."
   (declare (special emacspeak-proced-fields))
-  (cdr (assoc field emacspeak-proced-fields)))
+  (cdr (assoc-ignore-case field emacspeak-proced-fields)))
 
 (defun emacspeak-proced-position-to-field (position)
   "Return field  for this position."
@@ -218,7 +218,7 @@
        (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
        nil t nil))))
   (declare (special emacspeak-proced-fields))
-  (let ((field (assoc field-name emacspeak-proced-fields)))
+  (let ((field (assoc-ignore-case field-name emacspeak-proced-fields)))
     (emacspeak-proced-speak-this-field
      (emacspeak-proced-field-start field))))
 
@@ -328,7 +328,7 @@
           (let ((emacspeak-speak-messages nil))
             ad-do-it
             (when (interactive-p)
-              (let ((target (cdr (assoc "ARGS" emacspeak-proced-fields))))
+              (let ((target (cdr (assoc-ignore-case "ARGS" emacspeak-proced-fields))))
                 (emacspeak-auditory-icon 'task-done)
                 (dtk-speak
                  (format "%d of %d: %s"
