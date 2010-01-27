@@ -166,8 +166,8 @@
     (?S (emacspeak-proced-speak-field "STAT"))
     (?s (emacspeak-proced-speak-field "START"))
     (?t (emacspeak-proced-speak-field "TIME"))
-    (?\ (emacspeak-proced-speak-field "ARGS"))
-    (?a (emacspeak-proced-speak-field "ARGS"))
+    (?\ (emacspeak-proced-speak-field "Args"))
+    (?a (emacspeak-proced-speak-field "Args"))
     (otherwise (message "Pick field using mnemonic chars"))
     (sit-for 1)))
 
@@ -246,7 +246,7 @@
       (goto-char (point-min))
       (while (not (eobp))
         (goto-char (+ (line-beginning-position)
-                      (car (emacspeak-proced-field-to-position "ARGS"))))
+                      (car (emacspeak-proced-field-to-position "Args"))))
         (push
          (buffer-substring-no-properties (point)
                                          (line-end-position))
