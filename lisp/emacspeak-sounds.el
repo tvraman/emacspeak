@@ -314,9 +314,10 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
        (let ((process-connection-type nil))
          (condition-case err
              (start-process
-              "play" nil emacspeak-play-program
+              emacspeak-play-program nil emacspeak-play-program
               "-N"
-              (emacspeak-get-sound-filename sound-name))
+              (emacspeak-get-sound-filename sound-name)
+              "&")
            (error
             (message (error-message-string err)))))))
 
