@@ -475,8 +475,6 @@ set tclTTS $servers/linux-outloud
 if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
     set env(ECIINI) $tclTTS/eci.ini
 }
-#conditionally use alsa if available
-
 load $tclTTS/atcleci.so
 set tts(play) /usr/bin/aplay
 synth {`v1 Via Voice using Alsa.}
