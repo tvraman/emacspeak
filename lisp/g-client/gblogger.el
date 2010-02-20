@@ -234,12 +234,10 @@ The retrieved entry is placed in a buffer ready for editing.
        (format gblogger-new-entry-template
                gblogger-generator-name gblogger-generator-name
                gblogger-author title
-	       (or str "<!--content goes here -->")
-	  )))
+	       (or text "<!--content goes here -->"))))
     (switch-to-buffer buffer)
     (search-backward "<div" nil t)
     (forward-line 1)
-    ;;(insert str)
     (message
      (substitute-command-keys
       "Use \\[g-app-publish] to publish your edits ."))))
