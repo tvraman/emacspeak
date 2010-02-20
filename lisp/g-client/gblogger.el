@@ -91,6 +91,12 @@
                 (string :tag "Save password in .emacs"))
   :group 'gblogger)
 
+(defcustom gblogger-posting-url "http://invalid.com" 
+  "URL for posting to this post.
+You can get the URL from a [post] link shown by `gblogger-blog'"
+  :type 'string
+  :group 'gblogger)
+
 (defcustom gblogger-author (user-full-name)
   "Author name under which we post."
   :type 'string
@@ -110,7 +116,7 @@
   <title mode=\"escaped\" type=\"text/html\">%s </title>
   <content type='xhtml'>
     <div xmlns=\"http://www.w3.org/1999/xhtml\">
-<!--content goes here -->
+%s
     </div>
   </content>
 </entry>"
@@ -206,7 +212,7 @@ The retrieved entry is placed in a buffer ready for editing.
    (substitute-command-keys "Use \\[g-app-publish] to publish your edits .")))
 
 ;;;###autoload
-(defun gblogger-new-entry (url)
+(defun gblogger-new-entry (url &optional title text)
   "Create a new Blog post."
   (interactive
    (list
@@ -214,7 +220,7 @@ The retrieved entry is placed in a buffer ready for editing.
   (declare (special gblogger-auth-handle gblogger-new-entry-template
                     gblogger-generator-name ))
   (g-auth-ensure-token gblogger-auth-handle)
-  (let* ((title (read-string "Title: "))
+  (let* ((title (or title (read-string "Title: ")))
          (buffer (get-buffer-create title)))
     (save-excursion
       (set-buffer buffer)
@@ -227,10 +233,13 @@ The retrieved entry is placed in a buffer ready for editing.
       (insert
        (format gblogger-new-entry-template
                gblogger-generator-name gblogger-generator-name
-               gblogger-author title)))
+               gblogger-author title
+	       (or str "<!--content goes here -->")
+	  )))
     (switch-to-buffer buffer)
     (search-backward "<div" nil t)
     (forward-line 1)
+    ;;(insert str)
     (message
      (substitute-command-keys
       "Use \\[g-app-publish] to publish your edits ."))))
