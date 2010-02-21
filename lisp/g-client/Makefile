@@ -47,6 +47,7 @@ g-app.elc \
 g-utils.elc \
 g.elc \
 gblogger.elc \
+org2blogger.elc \
 gcal.elc \
 gcontacts.elc \
 gdocs.elc \
@@ -99,7 +100,8 @@ gcal.elc: gcal.el g-app.elc
 gcontacts.elc: gcontacts.el
 gdocs.elc: gdocs.el g-app.elc
 gnotebook.elc: gnotebook.el g-app.elc
-gblogger.elc: gblogger.el g-app.elc
+gblogger.elc: gblogger.el g-app.elc 
+org2blogger.elc: org2blogger.el gblogger.elc
 
 # }}}
 # {{{dist
