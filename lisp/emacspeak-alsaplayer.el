@@ -107,7 +107,13 @@
   :group 'emacspeak-alsaplayer)
 (defvar emacspeak-alsaplayer-buffer "*alsaplayer*"
   "Buffer for alsaplayer interaction.")
-
+(defcustom emacspeak-alsaplayer-device nil
+  "Device to use for alsaplayer"
+  :type '(choice
+          (const  :tag "Ignore" nil)
+          (const  :tag "Card 1" "hw:1,0"))
+  :group  'emacspeak-alsaplayer)
+  
 ;;;###autoload
 (defun emacspeak-alsaplayer-launch ()
   "Launch Alsaplayer.
@@ -115,6 +121,7 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer
+		    emacspeak-alsaplayer-device
                     emacspeak-alsaplayer-height))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
@@ -127,7 +134,11 @@ Alsaplayer session."
        (t
         (setq buffer-undo-list t)
         (shell-command
-         (format "%s -r -i daemon &" emacspeak-alsaplayer-program)
+         (format "%s %s -r -i daemon &"
+		 emacspeak-alsaplayer-program
+		 (if emacspeak-alsaplayer-device
+		     (format "--device %s" emacspeak-alsaplayer-device)
+		   ""))
          (current-buffer))
         (pop-to-buffer buffer 'other-window)
         (set-window-text-height nil emacspeak-alsaplayer-height)
