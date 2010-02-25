@@ -2260,8 +2260,7 @@ emacspeak-wizards-personal-portfolio."
                     emacspeak-wizards-quote-row-filter))
   (let ((temp-file
          (expand-file-name
-          (format "%s.csv"
-                  (gensym "quotes"))
+          
           emacspeak-resource-directory)))
     (shell-command
      (format
