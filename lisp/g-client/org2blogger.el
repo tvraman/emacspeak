@@ -43,9 +43,7 @@
       (error "Only useful in an org-mode buffer"))
    
    (let*
-      (	 
-	 (plist (org-infile-export-plist))
-
+      ((plist (org-infile-export-plist))
 	 (title
 	    (or
 	       (plist-get plist :title)
