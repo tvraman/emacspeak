@@ -2258,10 +2258,7 @@ emacspeak-wizards-personal-portfolio."
   (declare (special emacspeak-wizards-personal-portfolio
                     emacspeak-wizards-quote-command
                     emacspeak-wizards-quote-row-filter))
-  (let ((temp-file
-         (expand-file-name
-          
-          emacspeak-resource-directory)))
+  (let ((temp-file (make-temp-file  "quotes" nil ".csv")))
     (shell-command
      (format
       "echo '%s' | perl %s > %s"
