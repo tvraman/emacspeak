@@ -70,17 +70,16 @@
 ;;{{{ Variables
 
 (defvar gweb-base-url
-"http://ajax.googleapis.com/ajax/services/search/%s?v=1.0&q=%%s"
+  "http://ajax.googleapis.com/ajax/services/search/%s?v=1.0&q=%%s"
   "Base URL template for Websearch command.")
 
 (defvar gweb-web-url
-(format gweb-base-url "web")
+  (format gweb-base-url "web")
   "URL template for Websearch command.")
 
 (defvar gweb-news-url
-(format gweb-base-url "news")
+  (format gweb-base-url "news")
   "URL template for News Search  command.")
-
 
 (defvar gweb-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
@@ -131,7 +130,6 @@
 			  (gweb-suggest string)
 			  string predicate)))
 
-
 (defun gweb-news-suggest-completer (string predicate mode)
   "Generate completions using Google News Suggest. "
   (save-current-buffer 
@@ -149,7 +147,6 @@
 
 (put 'gweb-history 'history-length 100)
 
-
 (defun gweb-lazy-suggest (input)
   "Used to generate completions lazily."
   (lexical-let ((input input)
@@ -159,68 +156,68 @@
     table))
 (if (fboundp 'complete-with-action)
     (defsubst gweb-google-autocomplete (&optional prompt)
-  "Read user input using Google Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (suggestions
-	  (when (and word (> (length word) 0))
-	    (set-text-properties 0 (length word) nil word)
-	    (cons  word (gweb-suggest  word))))
-         (query nil))
-    (setq query
-          (completing-read
-           (or prompt "Google: ")
-           'gweb-suggest-completer
-           nil nil
-           word 'gweb-history
-           suggestions))
-    (pushnew  query gweb-history)
-    (g-url-encode query)))
+      "Read user input using Google Suggest for auto-completion."
+      (let* ((minibuffer-completing-file-name t) ;; accept spaces
+             (completion-ignore-case t)
+             (word (thing-at-point 'word))
+             (suggestions
+              (when (and word (> (length word) 0))
+                (set-text-properties 0 (length word) nil word)
+                (cons  word (gweb-suggest  word))))
+             (query nil))
+        (setq query
+              (completing-read
+               (or prompt "Google: ")
+               'gweb-suggest-completer
+               nil nil
+               word 'gweb-history
+               suggestions))
+        (pushnew  query gweb-history)
+        (g-url-encode query)))
 ;;; Emacs 22
-(defsubst gweb-google-autocomplete (&optional prompt)
-  "Read user input using Google Suggest for auto-completion."
-  (let ((minibuffer-completing-file-name t) ;; so we can type
-        ;; spaces
-        (completion-ignore-case t))
-    (g-url-encode
-    (completing-read
-     (or prompt "Google: ")
-                     (dynamic-completion-table gweb-suggest))))))
+  (defsubst gweb-google-autocomplete (&optional prompt)
+    "Read user input using Google Suggest for auto-completion."
+    (let ((minibuffer-completing-file-name t) ;; so we can type
+          ;; spaces
+          (completion-ignore-case t))
+      (g-url-encode
+       (completing-read
+        (or prompt "Google: ")
+        (dynamic-completion-table gweb-suggest))))))
 
 ;;; For news:
 (if (fboundp 'complete-with-action)
     (defsubst gweb-news-autocomplete (&optional prompt)
-  "Read user input using Google News Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (suggestions
-	  (when (and word (> (length word) 0))
-	    (set-text-properties 0 (length word) nil word)
-	    (cons  word (gweb-suggest  word "ds=n"))))
-         (query nil))
-    (setq query
-          (completing-read
-           (or prompt "Google News: ")
-           'gweb-news-suggest-completer
-           nil nil
-           word 'gweb-history
-           suggestions))
-    (pushnew  query gweb-history)
-    (g-url-encode query)))
+      "Read user input using Google News Suggest for auto-completion."
+      (let* ((minibuffer-completing-file-name t) ;; accept spaces
+             (completion-ignore-case t)
+             (word (thing-at-point 'word))
+             (suggestions
+              (when (and word (> (length word) 0))
+                (set-text-properties 0 (length word) nil word)
+                (cons  word (gweb-suggest  word "ds=n"))))
+             (query nil))
+        (setq query
+              (completing-read
+               (or prompt "Google News: ")
+               'gweb-news-suggest-completer
+               nil nil
+               word 'gweb-history
+               suggestions))
+        (pushnew  query gweb-history)
+        (g-url-encode query)))
 ;;; Emacs 22
-(defsubst gweb-news-autocomplete (&optional prompt)
-  "Read user input using Google News Suggest for auto-completion."
-  (let ((minibuffer-completing-file-name t) ;; so we can type
-        ;; spaces
-        (completion-ignore-case t))
-    (g-url-encode
-    (completing-read
-     (or prompt "Google News: ")
-                     (dynamic-completion-table
-                      #'(lambda (w)
-                          (gweb-suggest w "ds=n"))))))))
+  (defsubst gweb-news-autocomplete (&optional prompt)
+    "Read user input using Google News Suggest for auto-completion."
+    (let ((minibuffer-completing-file-name t) ;; so we can type
+          ;; spaces
+          (completion-ignore-case t))
+      (g-url-encode
+       (completing-read
+        (or prompt "Google News: ")
+        (dynamic-completion-table
+         #'(lambda (w)
+             (gweb-suggest w "ds=n"))))))))
 
 ;;}}}
 ;;{{{ Search Helpers
@@ -229,17 +226,17 @@
   "Return results list obtained from url-end-point."
   (declare (special  gweb-referer))
   (let((response nil))
-      (g-using-scratch
-	(call-process g-curl-program nil t nil
-		      "-s"
-		      "-e" gweb-referer
-		      (format url-end-point  query))
-	(goto-char (point-min))
-	(setq response (json-read))
-	(when (= 200 (g-json-get 'responseStatus response))
-	  (g-json-get
-	   'results
-	   (g-json-get 'responseData response))))))
+    (g-using-scratch
+     (call-process g-curl-program nil t nil
+                   "-s"
+                   "-e" gweb-referer
+                   (format url-end-point  query))
+     (goto-char (point-min))
+     (setq response (json-read))
+     (when (= 200 (g-json-get 'responseStatus response))
+       (g-json-get
+        'results
+        (g-json-get 'responseData response))))))
 
 (defsubst gweb-web-results (query)
   "Return Web Search results list."
@@ -253,8 +250,7 @@
 (defsubst gweb-news-results (query)
   "Return News Search results."
   (declare (special gweb-news-url))
-(gweb-results (g-url-encode query) gweb-news-url))
-
+  (gweb-results (g-url-encode query) gweb-news-url))
 
 (defun gweb-news-html (query)
   "Return simple HTML from News search."
@@ -273,7 +269,7 @@
         results
         "")
        "</ol></html>"))))
-    
+
 (defun gweb-news-view (query )
   "Display News Search results  in a browser."
   (interactive "sNews Search: ")
@@ -335,7 +331,67 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
       (message "%s %s" title content)))))
 
 ;;}}}
+;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
+;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
 
+(defvar gweb-maps-geocoder-base
+  "http://maps.google.com/maps/api/geocode/json?"
+  "Base URL  end-point for talking to the Google Maps Geocoding service.")
+
+(defsubst gweb-maps-geocoder-url (address)
+  "Return URL   for geocoding address."
+  (declare (special gweb-maps-geocoder-base))
+  (format "%saddress=%s&sensor=false"
+          gweb-maps-geocoder-base address))
+
+(defsubst gweb-maps-reverse-geocoder-url (address)
+  "Return URL   for reverse geocoding location."
+  (declare (special gweb-maps-geocoder-base))
+  (format "%slatlng=%s&sensor=false"
+          gweb-maps-geocoder-base address))
+
+;;;###autoload
+(defun gweb-maps-geocode (address &optional raw-p)
+  "Geocode given address.
+Optional argument `raw-p' returns complete JSON  object."
+  (let ((result 
+         (g-json-get-result
+          (format "%s %s '%s'"
+                  g-curl-program g-curl-common-options
+                  (gweb-maps-geocoder-url address)))))
+    
+     (unless
+         (string= "OK" (g-json-get 'status result))
+       (error "Error geo-coding location."))
+     (cond
+       (raw-p (g-json-get 'results result))
+       (t
+        (g-json-get 'location 
+                    (g-json-get 'geometry
+                                (aref (g-json-get 'results result) 0)))))))
+
+;;;###autoload
+(defun gweb-maps-reverse-geocode (lat-long &optional raw-p)
+  "Reverse geocode lat-long.
+Optional argument `raw-p' returns raw JSON  object."
+  (let ((result 
+         (g-json-get-result
+          (format "%s %s '%s'"
+                  g-curl-program g-curl-common-options
+                  (gweb-maps-reverse-geocoder-url
+                   (format "%s,%s"
+                           (g-json-get 'lat lat-long)
+                           (g-json-get 'lng   lat-long)))))))
+    (unless (string= "OK" (g-json-get 'status result))
+      (error "Error reverse geo-coding."))
+    (cond
+     (raw-p (g-json-get 'results result))
+     (t
+     (g-json-get 'formatted_address
+                 (aref (g-json-get 'results result) 0))))))
+
+     
+;;}}}
 (provide 'gweb)
 ;;{{{ end of file
 
