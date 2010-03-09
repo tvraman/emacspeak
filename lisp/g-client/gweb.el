@@ -154,6 +154,7 @@
     (setq table (lazy-completion-table
                  table (lambda () (gweb-suggest input))))
     table))
+(eval-when '(load compile)
 (if (fboundp 'complete-with-action)
     (defsubst gweb-google-autocomplete (&optional prompt)
       "Read user input using Google Suggest for auto-completion."
@@ -183,7 +184,7 @@
       (g-url-encode
        (completing-read
         (or prompt "Google: ")
-        (dynamic-completion-table gweb-suggest))))))
+        (completion-table-dynamic gweb-suggest)))))))
 
 ;;; For news:
 (if (fboundp 'complete-with-action)
@@ -215,7 +216,7 @@
       (g-url-encode
        (completing-read
         (or prompt "Google News: ")
-        (dynamic-completion-table
+        (completion-table-dynamic
          #'(lambda (w)
              (gweb-suggest w "ds=n"))))))))
 
