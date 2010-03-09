@@ -316,7 +316,6 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
              (start-process
               emacspeak-play-program nil emacspeak-play-program
               "-N"
-              "-M"
               (emacspeak-get-sound-filename sound-name)
               "&")
            (error
