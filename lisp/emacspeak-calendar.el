@@ -375,7 +375,7 @@
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
       'calendar-end-of-week)
-    (define-key calendar-mode-map " " 'emacspeak-calendar-sunrise-sunset))
+    )
   (add-hook 'initial-calendar-window-hook
             (function (lambda ()
                         ))))
@@ -460,17 +460,19 @@ To use, configure variable gweb-my-address via M-x customize-variable."
              gweb-my-address))))
 
 
-(defun emacspeak-calendar-sunrise-sunset ()
+(defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."
-  (interactive)
   (declare (special gweb-my-address))
   (cond
-   (gweb-my-address
-  (let ((date (calendar-cursor-to-date t)))
-    (message "%s at %s"
-  (solar-sunrise-sunset-string date 'nolocation)
-  gweb-my-address)))
-   (t (call-interactively 'calendar-sunrise-sunset))))
+   ((and (boundp 'gweb-my-address)
+         gweb-my-address
+         (interactive-p))
+    (let ((date (calendar-cursor-to-date t)))
+      (message "%s at %s"
+               (solar-sunrise-sunset-string date 'nolocation)
+               gweb-my-address)))
+   (t ad-do-it)))
+
 ;;}}}
 
 (provide 'emacspeak-calendar)
