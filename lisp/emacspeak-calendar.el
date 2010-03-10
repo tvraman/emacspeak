@@ -374,7 +374,8 @@
     (define-key calendar-mode-map "v" 'view-diary-entries)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
-      'calendar-end-of-week))
+      'calendar-end-of-week)
+    (define-key calendar-mode-map " " 'emacspeak-calendar-sunrise-sunset))
   (add-hook 'initial-calendar-window-hook
             (function (lambda ()
                         ))))
@@ -439,6 +440,37 @@
       (message "Set alarm %s at %s"
                message time ))))
 
+;;}}}
+;;{{{ Use GWeb if available for configuring sunrise/sunset coords
+;;;###autoload
+(defun emacspeak-calendar-setup-sunrise-sunset ()
+  "Set up geo-coordinates using Google Maps reverse geocoding.
+To use, configure variable gweb-my-address via M-x customize-variable."
+  (interactive)
+  (declare (special gweb-my-location gweb-my-address
+                    calendar-latitude calendar-longitude))
+  (cond
+   ((null gweb-my-location)
+    (message "First configure gweb-my-address."))
+   (t
+    (setq calendar-latitude
+          (g-json-get 'lat gweb-my-location)
+          calendar-longitude (g-json-get 'lng gweb-my-location))
+    (message "Setup for %s"
+             gweb-my-address))))
+
+
+(defun emacspeak-calendar-sunrise-sunset ()
+  "Like calendar's sunrise-sunset, but speaks location intelligently."
+  (interactive)
+  (declare (special gweb-my-address))
+  (cond
+   (gweb-my-address
+  (let ((date (calendar-cursor-to-date t)))
+    (message "%s at %s"
+  (solar-sunrise-sunset-string date 'nolocation)
+  gweb-my-address)))
+   (t (call-interactively 'calendar-sunrise-sunset))))
 ;;}}}
 
 (provide 'emacspeak-calendar)
