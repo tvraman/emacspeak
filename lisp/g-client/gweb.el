@@ -399,12 +399,14 @@ Optional argument `raw-p' returns raw JSON  object."
 
 ;;;###autoload
 (defcustom gweb-my-address nil
-  "Location address. Setting this updates coordiantes via geocoding."
+  "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
   :type '(choice (const :tag "None" nil)
            (string  :tag "Address"))
   :set  #'(lambda (sym val)
             (declare (special gweb-my-location))
             (setq gweb-my-location (gweb-maps-geocode val))
+            (when (featurep 'emacspeak)
+              (emacspeak-calendar-setup-sunrise-sunset))
             (set-default sym val))
   :group 'gweb)
   
