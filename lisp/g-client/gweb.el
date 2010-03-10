@@ -359,7 +359,8 @@ Optional argument `raw-p' returns complete JSON  object."
          (g-json-get-result
           (format "%s %s '%s'"
                   g-curl-program g-curl-common-options
-                  (gweb-maps-geocoder-url address)))))
+                  (gweb-maps-geocoder-url
+                   (g-url-encode address))))))
     
      (unless
          (string= "OK" (g-json-get 'status result))
@@ -391,7 +392,22 @@ Optional argument `raw-p' returns raw JSON  object."
      (g-json-get 'formatted_address
                  (aref (g-json-get 'results result) 0))))))
 
-     
+;;; Example of use:
+;;;###autoload
+(defvar gweb-my-location nil
+  "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
+
+;;;###autoload
+(defcustom gweb-my-address nil
+  "Location address. Setting this updates coordiantes via geocoding."
+  :type '(choice (const :tag "None" nil)
+           (string  :tag "Address"))
+  :set  #'(lambda (sym val)
+            (declare (special gweb-my-location))
+            (setq gweb-my-location (gweb-maps-geocode val))
+            (set-default sym val))
+  :group 'gweb)
+  
 ;;}}}
 (provide 'gweb)
 ;;{{{ end of file
