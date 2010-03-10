@@ -395,19 +395,15 @@ Optional argument `raw-p' returns raw JSON  object."
 ;;; Example of use:
 ;;;###autoload
 (defvar gweb-my-location
-  (if (boundp 'gweb-my-location)
-      gweb-my-location)
+  nil
   "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
 
 ;;;###autoload
 (defcustom gweb-my-address
-  (if (boundp 'gweb-my-address)
-      gweb-my-address
-      nil)
+  nil
   "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
   :type '(choice
           (const :tag "None" nil)
-          (sexp :tag "Lisp")
                  (string  :tag "Address"))
   :set  #'(lambda (sym val)
             (declare (special gweb-my-location))
