@@ -53,7 +53,6 @@ gcontacts.elc \
 gdocs.elc \
 gfinance.elc \
 gfeeds.elc \
-#ghealth.elc \
 gnotebook.elc \
 greader.elc \
 gphoto.elc \
@@ -62,7 +61,7 @@ gtube.elc \
 gsheet.elc
 
 
-all: g-loaddefs.el g-cus-load.el ${OBJECTS}
+all:g-loaddefs.el g-cus-load.el  ${OBJECTS}
 
 
 # How to compile
