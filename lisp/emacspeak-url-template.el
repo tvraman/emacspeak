@@ -791,6 +791,16 @@ Make sure to sign in before invoking this template."
      (emacspeak-we-xslt-filter "//form" url 'speak)))
 
 (emacspeak-url-template-define
+ "GMail Contacts"
+ (concat emacspeak-url-template-gmail-search-url
+         "?v=cl&pnl=a")
+ nil
+ nil
+ "Open GMail Inbox"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "th" url )))
+
+(emacspeak-url-template-define
  "GMail Inbox"
  (concat emacspeak-url-template-gmail-search-url
          "h/")
