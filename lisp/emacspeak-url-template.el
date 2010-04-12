@@ -399,6 +399,24 @@ dont-url-encode if true then url arguments are not url-encoded "
  'emacspeak-webutils-rss-display)
 
 ;;}}}
+;;{{{ BBC iPlayer 
+
+
+
+(emacspeak-url-template-define
+ "BBC  iPlayer"
+ "http://www.bbc.co.uk/%s/programmes/schedules/%s.xml"
+ (list
+  "Station: "
+  'emacspeak-url-template-date-year/month/date)
+ nil
+ "BBC iPlayer"
+ #'(lambda (url)
+     (kill-new url)))
+  
+
+;;}}}
+
 ;;{{{ bbc
 (emacspeak-url-template-define
  "Mobile BBC"
