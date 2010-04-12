@@ -401,13 +401,16 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ BBC iPlayer 
 
-
-
 (emacspeak-url-template-define
  "BBC  iPlayer"
- "http://www.bbc.co.uk/%s/programmes/schedules/%s.xml"
+ "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.xml"
  (list
   "Station: "
+  #'(lambda ()
+      (let ((outlet (read-from-minibuffer "Outlet: ")))
+        (cond
+         ((= 0 (length outlet)) outlet)
+         (t (concat outlet "/")))))
   'emacspeak-url-template-date-year/month/date)
  nil
  "BBC iPlayer"
