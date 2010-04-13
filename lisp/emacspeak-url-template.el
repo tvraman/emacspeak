@@ -412,7 +412,10 @@ dont-url-encode if true then url arguments are not url-encoded "
          ((= 0 (length outlet)) outlet)
          (t (concat outlet "/")))))
   'emacspeak-url-template-date-year/month/date)
- nil
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
+           'emacspeak-moz-goto-url))
  "BBC iPlayer"
  #'(lambda (url)
      (emacspeak-webutils-with-xsl-environment
