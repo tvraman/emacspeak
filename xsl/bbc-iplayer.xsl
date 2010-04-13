@@ -14,12 +14,12 @@ Transform BBC iPlayer schedules to simple HTML.
   <xsl:variable name="base"> http://www.bbc.co.uk/iplayer/console/</xsl:variable>
   <xsl:template match="/">    <html>
       <head>
-<base>
-<xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-</base>
-        <title>
+<title>
           <xsl:value-of select="//title[1]"/>
         </title>
+        <base>
+<xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
+</base>
       </head>
       <body>
         <h1><xsl:value-of select="//title[1]"/></h1>
