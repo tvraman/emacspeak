@@ -18,11 +18,11 @@ Transform BBC iPlayer schedules to simple HTML.
 <xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
 </base>
         <title>
-          <xsl:value-of select="/schedule/service/title"/>
+          <xsl:value-of select="//title[1]"/>
         </title>
       </head>
       <body>
-        <h1><xsl:value-of select="/schedule/service/title"/></h1>
+        <h1><xsl:value-of select="//title[1]"/></h1>
         <xsl:apply-templates select="//broadcasts"/>
       </body>
     </html>
