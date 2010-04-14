@@ -411,7 +411,6 @@ dont-url-encode if true then url arguments are not url-encoded "
   "Take a cid particle, and invokes mplayer."
   (declare (special emacspeak-url-template-iplayer-convertor))
   (let ((handle (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
-    (kill-new handle)
     (emacspeak-m-player handle 'playlist)
     (message handle)))
 
