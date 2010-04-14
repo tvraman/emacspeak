@@ -400,6 +400,8 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ BBC iPlayer 
+;;; we need to implement this in elisp:
+;;; http://www.iplayerconverter.co.uk/convert.aspx
 
 (emacspeak-url-template-define
  "BBC  iPlayer"
