@@ -38,6 +38,7 @@ Transform BBC iPlayer schedules to simple HTML.
         <xsl:value-of select="./programme/display_titles/title"/>
 </a>
         <xsl:value-of select="./programme/display_titles/subtitle"/>
+<em><xsl:value-of select="./start"/></em>
           <xsl:value-of select="./programme/short_synopsis"/>
 </li>
   </xsl:template>
