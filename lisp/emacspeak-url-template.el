@@ -400,8 +400,18 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ BBC iPlayer 
-;;; we need to implement this in elisp:
+;;; convertor is here:
 ;;; http://www.iplayerconverter.co.uk/convert.aspx
+
+(defvar emacspeak-url-template-iplayer-convertor
+  "http://www.iplayerconverter.co.uk/pid/%s/r/stream.aspx"
+  "Template for generating persistent realplayer URL for iplayer content.")
+
+(defun emacspeak-url-template-iplayer-player (cid)
+  "Take a cid particle, and invokes mplayer."
+  (declare (special emacspeak-url-template-iplayer-convertor))
+  (let ((handle (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
+    (emacspeak-m-player handle 'playlist)))
 
 (emacspeak-url-template-define
  "BBC  iPlayer"
@@ -417,7 +427,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor
-           'emacspeak-moz-goto-url))
+           'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
  #'(lambda (url)
      (emacspeak-webutils-with-xsl-environment
