@@ -11,17 +11,11 @@ Transform BBC iPlayer schedules to simple HTML.
                 version="1.0">
 
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
-  <xsl:variable name="base">
-  http://www.bbc.co.uk/iplayer/console/</xsl:variable>
-<xsl:variable name="cvt">http://www.iplayerconverter.co.uk/pid/</xsl:variable>
   <xsl:template match="/">    <html>
       <head>
 <title>
           <xsl:value-of select="//title[1]"/>
         </title>
-        <base>
-<xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-</base>
       </head>
       <body>
         <h1><xsl:value-of select="//title[1]"/></h1>
