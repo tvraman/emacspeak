@@ -108,7 +108,7 @@
         ("k" emacspeak-table-copy-to-clipboard)
         ("T" emacspeak-table-goto-top)
         ("B" emacspeak-table-goto-bottom)
-        ("L" emacspeak-table-goto-left)
+        ("A" emacspeak-table-goto-left)
         ("E" emacspeak-table-goto-right))
       do
       (emacspeak-keymap-update emacspeak-table-keymap binding))
