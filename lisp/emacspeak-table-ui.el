@@ -577,7 +577,8 @@ the documentation on the table browser."
 The processed  data and presented using emacspeak table navigation. "
   (interactive "FFind CSV file: ")
   (let  ((buffer (find-file-noselect filename)))
-    (emacspeak-table-view-csv-buffer buffer)))
+    (emacspeak-table-view-csv-buffer buffer)
+    (kill-buffer buffer)))
 
 ;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
