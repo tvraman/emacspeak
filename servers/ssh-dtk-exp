@@ -42,7 +42,7 @@ if {$host == ""} {
 }
     
 
-set tcl /usr/bin/tcl sh
+set tcl /usr/bin/tclsh
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
 exec     ssh -o StrictHostKeyChecking=no $host \
