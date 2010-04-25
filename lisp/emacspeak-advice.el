@@ -256,6 +256,17 @@ If you moved more than a line,
   "Speak the screenful."
   (when (interactive-p)
     (emacspeak-auditory-icon 'scroll)
+    (dtk-speak (emacspeak-get-window-contents))))e
+(defadvice scroll-up-command (after emacspeak pre act comp)
+  "Speak the next screenful."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'scroll)
+    (dtk-speak (emacspeak-get-window-contents))))
+
+(defadvice scroll-down-command (after emacspeak pre act comp)
+  "Speak the screenful."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'scroll)
     (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice  beginning-of-defun (after emacspeak pre act)
