@@ -918,6 +918,7 @@ To leave, press \\[keyboard-quit]."
         (dtk-stop-immediately nil))
     (while continue
       (call-interactively 'describe-key-briefly)
+      (sit-for 1)
       (when (= last-input-event 7) (setq continue nil )))
     (message "Leaving learn mode ")))
 
