@@ -1605,7 +1605,7 @@ name of the list.")
  "CNN Content"
  #'(lambda (url)
      (emacspeak-we-extract-by-id
-      "cnnContentContainer"
+      "cnn_maincntnr"
       url
       'speak)))
 
