@@ -1521,7 +1521,7 @@ name of the list.")
  nil
  "Filter down to CNN  content area."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id "cnn_maincntnr" url 'speak)))
+     (emacspeak-we-extract-by-id "cnn_maincntnr"url 'speak)))
 
 ;;{{{ cnnfn content
 (emacspeak-url-template-define
