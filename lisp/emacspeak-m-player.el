@@ -193,7 +193,6 @@ on a specific director."
    (list
     (read-directory-name"Media Directory: ")
     (read-key-sequence "Key: ")))
-  (interactive)
   (eval
    `(global-set-key key
                     #'(lambda nil
