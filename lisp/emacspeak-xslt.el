@@ -140,17 +140,14 @@ part of the libxslt package."
            (or emacspeak-xslt-options "")
            (or parameters "")
            xsl
-           (if emacspeak-xslt-keep-errors
-               ""
-             " 2>/dev/null ")))
-    (setq emacspeak-xslt-last-command
-          command)
-    (shell-command-on-region start end
-                             command
-                             (current-buffer)
-                             'replace
-                             (when emacspeak-xslt-keep-errors
-                               "*xslt errors*"))
+           (unless  emacspeak-xslt-keep-errors " 2>/dev/null ")))
+    (setq emacspeak-xslt-last-command command)
+    (shell-command-on-region
+     start end
+     command
+     (current-buffer)
+     'replace
+     (when emacspeak-xslt-keep-errors "*xslt errors*"))
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
     (unless no-comment
@@ -213,17 +210,14 @@ part of the libxslt package."
                        emacspeak-xslt-program
                        (or parameters "")
                        xsl "-"
-                       (if emacspeak-xslt-keep-errors
-                           ""
-                         " 2>/dev/null ")))
-      (setq command (format
-                     "%s %s    --html --novalid %s '%s' %s"
-                     emacspeak-xslt-program
-                     (or parameters "")
-                     xsl url
-                     (if emacspeak-xslt-keep-errors
-                         ""
-                       " 2>/dev/null "))))
+                       (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
+      (setq command
+            (format
+             "%s %s    --html --novalid %s '%s' %s"
+             emacspeak-xslt-program
+             (or parameters "")
+             xsl url
+             (unless emacspeak-xslt-keep-errors " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (kill-all-local-variables)
@@ -232,9 +226,9 @@ part of the libxslt package."
       (let ((coding-system-for-write 'utf-8)
             (coding-system-for-read 'utf-8)
             (buffer-file-coding-system 'utf-8))
-        (shell-command command (current-buffer)
-                       (when emacspeak-xslt-keep-errors
-                         "*xslt errors*"))
+        (shell-command
+         command (current-buffer)
+         (when emacspeak-xslt-keep-errors "*xslt errors*"))
         (when emacspeak-xslt-nuke-null-char
           (goto-char (point-min))
           (while (search-forward
@@ -274,24 +268,21 @@ part of the libxslt package."
                        params
                        " "))))
     (if emacspeak-xslt-use-wget-to-download
-        (setq command (format
-                       "wget -q -O - '%s' | %s %s --novalid %s %s %s"
-                       url
-                       emacspeak-xslt-program
-                       (or parameters "")
-                       xsl "-"
-                       (if emacspeak-xslt-keep-errors
-                           ""
-                         " 2>/dev/null ")))
+        (setq command
+              (format
+               "wget -q -O - '%s' | %s %s --novalid %s %s %s"
+               url
+               emacspeak-xslt-program
+               (or parameters "")
+               xsl "-"
+               (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
       (setq command
             (format
              "%s %s --novalid %s '%s' %s"
              emacspeak-xslt-program
              (or parameters "")
              xsl url
-             (if emacspeak-xslt-keep-errors
-                 ""
-               " 2>/dev/null "))))
+             (unless emacspeak-xslt-keep-errors " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (kill-all-local-variables)
@@ -299,10 +290,10 @@ part of the libxslt package."
       (let ((coding-system-for-write 'utf-8)
             (coding-system-for-read 'utf-8)
             (buffer-file-coding-system 'utf-8))
-        (shell-command command
-                       (current-buffer)
-                       (when emacspeak-xslt-keep-errors
-                         "*xslt errors*")))
+        (shell-command
+         command (current-buffer)
+         (when emacspeak-xslt-keep-errors
+           "*xslt errors*")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))
