@@ -169,8 +169,8 @@ Customize this to live on your local disk."
   "Determines if we show stderr output."
   (declare (special g-xslt-debug))
   (if g-xslt-debug
-      " 2>/dev/null"
-    ""))
+      ""
+    " 2>/dev/null"))
 
 ;;}}}
 ;;{{{ url encode:
@@ -197,9 +197,9 @@ Customize this to live on your local disk."
    start end
    g-xslt-program
    t t nil 
-            xsl
-            "-"
-            (g-xslt-debug)))
+   xsl
+   "-"
+   (g-xslt-debug)))
 
 ;;}}}
 ;;{{{ html unescape
