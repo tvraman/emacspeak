@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 887 commands.
+This chapter documents a total of 889 commands.
 
 @menu
 * cd-tool::                     
@@ -25,6 +25,7 @@ This chapter documents a total of 887 commands.
 * emacspeak-daisy::             
 * emacspeak-dired::             
 * emacspeak-dismal::            
+* emacspeak-ebook::             
 * emacspeak-ecb::               
 * emacspeak-ediff::             
 * emacspeak-emms::              
@@ -72,6 +73,7 @@ This chapter documents a total of 887 commands.
 * emacspeak-url-template::      
 * emacspeak-view::              
 * emacspeak-w3::                
+* emacspeak-w3m::               
 * emacspeak-we::                
 * emacspeak-webmarks::          
 * emacspeak-websearch::         
@@ -85,13 +87,11 @@ This chapter documents a total of 887 commands.
 * emacspeak::                   
 * voice-setup::                 
 * emacspeak-w3search::          
-* emacspeak-ebook::             
 * emacspeak-firevox::           
 * emacspeak-jawbreaker::        
 * emacspeak-moz::               
 * emacspeak-org::               
 * emacspeak-piglets::           
-* emacspeak-w3m::               
 * URL Templates ::              
 @end menu
 
@@ -892,6 +892,13 @@ for commands defined in module  emacspeak-calendar.
 Speaks the most recently displayed appointment message if any.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-calendar-setup-sunrise-sunset nil
+@kbd{Not bound to any key.}
+
+Set up geo-coordinates using Google Maps reverse geocoding.
+To use, configure variable gweb-my-address via M-x customize-variable.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-calendar-speak-date nil
 @kbd{Not bound to any key.}
 
@@ -1216,6 +1223,42 @@ Specify or reset sheet summarizer list.
 
 Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
+@end deffn
+
+@node emacspeak-ebook
+@section emacspeak-ebook
+
+Commentary:
+In celebration of a million books and more to read from
+Google Books
+The EPubs format is slightly simpler than full Daisy ---
+emacspeak-daisy.el
+Since it only needs one level of indirection (no audio,
+therefore no smil). This module is consequently simpler than
+emacspeak-daisy.el.
+This module will also implement the Google Books GData API
+--- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
+
+Automatically generated documentation
+for commands defined in module  emacspeak-ebook.
+
+@deffn {Interactive Command} emacspeak-ebook-google nil
+@kbd{ control e g g }
+
+Search for EBooks from Gooble Books.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ebook-mode nil
+@kbd{Not bound to any key.}
+
+EBooks minor mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ebook-open nil
+@kbd{ control e g o }
+
+Open specified EBook.
+`toc' is the pathname to an EPubs table of contents.
 @end deffn
 
 @node emacspeak-ecb
@@ -2685,15 +2728,6 @@ http://www.mplayerhq.hu/DOCS/
 
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
-
-@deffn {Interactive Command} emacspeak-m-player nil
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer nil
 @kbd{Not bound to any key.}
@@ -5335,6 +5369,31 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-m-player nil
+@kbd{Not bound to any key.}
+
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@kbd{Not bound to any key.}
+
+Preview this buffer in w3m.
+@end deffn
+
 @node emacspeak-we
 @section emacspeak-we
 
@@ -7609,48 +7668,6 @@ for commands defined in module  emacspeak-w3search.
 Search IBM using trevi
 @end deffn
 
-@node emacspeak-ebook
-@section emacspeak-ebook
-
-Commentary:
-In celebration of a million books and more to read from
-Google Books
-The EPubs format is slightly simpler than full Daisy ---
-emacspeak-daisy.el
-Since it only needs one level of indirection (no audio,
-therefore no smil). This module is consequently simpler than
-emacspeak-daisy.el.
-This module will also implement the Google Books GData API
---- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
-
-Automatically generated documentation
-for commands defined in module  emacspeak-ebook.
-
-@deffn {Interactive Command} emacspeak-ebook-google nil
-@kbd{Not bound to any key.}
-
-Search for EBooks from Gooble Books.
-
-(fn QUERY)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-ebook-mode nil
-@kbd{Not bound to any key.}
-
-EBooks minor mode.
-
-(fn &optional ARG)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-ebook-open nil
-@kbd{Not bound to any key.}
-
-Open specified EBook.
-`toc' is the pathname to an EPubs table of contents.
-
-(fn TOC)
-@end deffn
-
 @node emacspeak-firevox
 @section emacspeak-firevox
 
@@ -8011,20 +8028,10 @@ Start TTS  engine for Piglets.
 (fn)
 @end deffn
 
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@deffn {Interactive Command} emacspeak-piglets-tts-stop nil
 @kbd{Not bound to any key.}
 
-Preview this buffer in w3m.
+Kill TTS  process.
 
 (fn)
 @end deffn
@@ -8035,7 +8042,7 @@ Preview this buffer in w3m.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 158 URL Templates.
+This section documents a total of 151 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8106,45 +8113,9 @@ Walking directions from Ask.com
 
 Play BBC  Radio7 show for a given day/time.
 
-@kbd{BBC 7 Schedule}
+@kbd{BBC  iPlayer}
 
-Retrieve BBC7 schedule for specified day.
-
-@kbd{BBC Channel On Demand}
-
-Display BBC Channel on demand.
-
-@kbd{BBC Genres On Demand}
-
-Display BBC Channel on demand.
-
-@kbd{BBC Listen Again}
-
-BBC Listen Again Listings
-
-@kbd{BBC News}
-
-BBC News text version.
-
-@kbd{BBC Programs On Demand}
-
-Play BBC programs on demand.
-
-@kbd{BBC Radio4 On Demand}
-
-Specify a week day (three letters -- lower case -- and a time spec
--- e.g. 1230 --
-to play a BBC Radio4 program on demand.
-
-@kbd{BBC Radio7 On Demand}
-
-Specify a week day (three letters -- lower case -- and a time spec
--- e.g. 1230 --
-to play a BBC Radio7 program on demand.
-
-@kbd{BBC Sports}
-
-BBC News text version.
+BBC iPlayer
 
 @kbd{Baseball Game Index}
 
@@ -8169,6 +8140,10 @@ Google Blog Search
 @kbd{BookShare}
 
 Bookshare Login
+
+@kbd{BookShare Search}
+
+BookShare Search
 
 @kbd{CNN Content }
 
@@ -8274,6 +8249,10 @@ Display flight arrival and departure information.
 @kbd{GCalendar Mobile}
 
 Google Calendar XHTML version.
+
+@kbd{GMail Contacts}
+
+Open GMail Inbox
 
 @kbd{GMail Inbox}
 
@@ -8529,10 +8508,6 @@ Public transit directions from Google.
 @kbd{Pulpit --- I Cringely}
 
 Read pulpit from PBS. Published on the Thursday of the week.
-
-@kbd{Radio4 Program}
-
-Play BBC  Radio4 show for a given day/time.
 
 @kbd{Radio4 radioBridge}
 

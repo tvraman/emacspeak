@@ -553,6 +553,11 @@ after saving the settings to have them take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-calendar-setup-sunrise-sunset Set up geo-coordinates using Google Maps reverse geocoding.
+To use, configure variable gweb-my-address via M-x customize-variable. 
+
+------------------------------------------------------------
+
 ** emacspeak-calendar-speak-date Speak the date under point when called in Calendar Mode.  
 
 ------------------------------------------------------------
@@ -762,6 +767,23 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-ebook-google	Key Sequence: control e g g 
+
+ Search for EBooks from Gooble Books. 
+
+------------------------------------------------------------
+
+** emacspeak-ebook-mode EBooks minor mode. 
+
+------------------------------------------------------------
+
+** emacspeak-ebook-open	Key Sequence: control e g o 
+
+ Open specified EBook.
+`toc' is the pathname to an EPubs table of contents. 
+
+------------------------------------------------------------
+
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -872,12 +894,7 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -913,12 +930,7 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -4967,25 +4979,6 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-ibm-internal Search IBM using trevi 
-
-------------------------------------------------------------
-
-** emacspeak-ebook-google Search for EBooks from Gooble Books.
-
-(fn QUERY) 
-
-------------------------------------------------------------
-
-** emacspeak-ebook-mode EBooks minor mode.
-
-(fn &optional ARG) 
-
-------------------------------------------------------------
-
-** emacspeak-ebook-open Open specified EBook.
-`toc' is the pathname to an EPubs table of contents.
-
-(fn TOC) 
 
 ------------------------------------------------------------
 
