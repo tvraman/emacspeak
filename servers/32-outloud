@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh
+#!/usr/local/bin/tclsh.32
 # Keywords: Emacspeak, ViaVoice Outloud , TCL
 # {{{ LCD Entry: 
 
