@@ -198,8 +198,7 @@ Customize this to live on your local disk."
    g-xslt-program
    t t nil 
    xsl
-   "-"
-   (g-xslt-debug)))
+   "-"))
 
 ;;}}}
 ;;{{{ html unescape
