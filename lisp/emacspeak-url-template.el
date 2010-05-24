@@ -489,7 +489,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Product Search"
- "http://www.google.com/products?q=%s&output=html"
+ "https://www.google.com/products?q=%s&output=html"
  (list "Product: ")
  #'(lambda ()
      (search-forward "Please" nil t)
