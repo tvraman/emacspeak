@@ -971,7 +971,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri
-  "http://www.google.com/search?q="
+  "https://www.google.com/search?q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-options nil
@@ -1070,7 +1070,7 @@ I'm Feeling Lucky button on Google."
 (defun emacspeak-websearch-google-specialize (specialize query)
   "Perform a specialized Google search. See the Google site for
   what is possible here:
-http://www.google.com/options/specialsearches.html "
+https://www.google.com/options/specialsearches.html "
   (interactive
    (list
     (emacspeak-websearch-read-query
@@ -1078,7 +1078,7 @@ http://www.google.com/options/specialsearches.html "
     (emacspeak-websearch-read-query
      "Google for:")))
   (let ((emacspeak-websearch-google-uri
-         (format "http://www.google.com/%s?q="
+         (format "https://www.google.com/%s?q="
                  specialize)))
     (emacspeak-websearch-google query )))
 
@@ -1111,7 +1111,7 @@ http://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
-  "http://www.google.com/products?output=html&q=%s"
+  "https://www.google.com/products?output=html&q=%s"
   "*URI for Froogle search")
 
 ;;;###autoload
@@ -1273,7 +1273,7 @@ Optional interactive  prefix arg local-flag prompts for local
 (emacspeak-websearch-set-key ?\; 'google-mobile)
 
 (defvar emacspeak-websearch-google-mobile-uri
-  "http://www.google.com/xhtml?q="
+  "https://www.google.com/xhtml?q="
   "Google mobile search.")
 
 ;;;###autoload
