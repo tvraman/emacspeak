@@ -35,6 +35,7 @@
 # {{{source common code 
 
 load /usr/lib32/libtclx8.4.so.0
+package require Tclx32
 set wd [file dirname $argv0]
 lappend auto_path $wd
 source $wd/outloud
