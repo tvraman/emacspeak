@@ -520,6 +520,8 @@ Atcleci_Init(Tcl_Interp * interp)
   if (eciLib == NULL) {
     Tcl_AppendResult(interp, "Could not load ",
                      ECILIBRARYNAME,
+                     "\n",
+                     dlerror(),
                      "\nPlease install the IBM ViaVoice Outloud RTK",
                      NULL);
     return TCL_ERROR;
