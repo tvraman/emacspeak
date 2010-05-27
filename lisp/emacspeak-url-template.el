@@ -889,7 +889,8 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
          (when (get-buffer "Portfolio From Google Finance")
            (kill-buffer "Portfolio From Google Finance"))
          (rename-buffer "Portfolio From Google Finance")
-         (setq emacspeak-table-speak-row-filter
+         (setq tab-width 12
+               emacspeak-table-speak-row-filter
                emacspeak-google-finance-row-filter)
          (emacspeak-table-next-row)))))
 
