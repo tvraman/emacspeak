@@ -45,7 +45,7 @@ Emacspeak.prototype.init = function() {
     }
   }
   try {
-    var js = 'file://localhost' + this.path_ + 'js/';
+    var js = 'file://localhost' + this.path_ + '/js/';
     repl.load(js + 'di.js');
     repl.print(js + 'di.js');
     repl.load(js + 'adom.js');
