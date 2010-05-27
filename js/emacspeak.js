@@ -22,7 +22,7 @@ function Emacspeak(basepath) {
   /**
    * @private cmd_ location of server  executable
    */
-  this.cmd_ = basepath + 'servers/python/HTTPSpeaker.py';
+  this.cmd_ = basepath + '/servers/python/HTTPSpeaker.py';
 
   /**
    * @private url_
@@ -47,8 +47,9 @@ Emacspeak.prototype.init = function() {
   try {
     var js = 'file://localhost' + this.path_ + 'js/';
     repl.load(js + 'di.js');
+    repl.print(js + 'di.js');
     repl.load(js + 'adom.js');
-
+repl.print(js + 'adom.js');
     // for if the window hasn't loaded yet:
     window.addEventListener('load', setupUpdateADom, false);
     // for if the window has already loaded:
