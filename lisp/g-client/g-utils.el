@@ -139,11 +139,6 @@ Customize this to live on your local disk."
   :type 'boolean
   :group 'g)
 
-(defcustom g-xslt-debug nil
-  "Set to T to see xsltproc  stderr output."
-  :type 'boolean
-  :group 'g)
-
 ;;}}}
 ;;{{{  buffer bytes rather than buffer size
 
@@ -162,13 +157,6 @@ Customize this to live on your local disk."
   "Determines if we show stderr output."
   (declare (special g-curl-debug))
   (if g-curl-debug
-      ""
-    " 2>/dev/null"))
-
-(defsubst g-xslt-debug ()
-  "Determines if we show stderr output."
-  (declare (special g-xslt-debug))
-  (if g-xslt-debug
       ""
     " 2>/dev/null"))
 
