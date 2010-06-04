@@ -1,0 +1,109 @@
+<ASX version="3.0">
+	<ABSTRACT>http://www.bbc.co.uk/radio1/</ABSTRACT>
+	<TITLE>BBC Radio 1</TITLE>
+	<AUTHOR>BBC</AUTHOR>
+	<COPYRIGHT>(c) British Broadcasting Corporation</COPYRIGHT>
+	<MOREINFO HREF="http://www.bbc.co.uk/radio1/" />
+	<PARAM NAME="HTMLView" VALUE="http://www.bbc.co.uk/radio1/" />
+	<PARAM NAME="GEO" VALUE="INTL" />
+
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw1?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sw0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+	<Entry>
+		<ref href="mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_ep1_sl0?BBC-UID=741c20a963c93112f848a5a28100427caca06832d040d11424cfea4fa5516c0c&amp;SSO2-UID=" />
+	</Entry>
+</ASX>
