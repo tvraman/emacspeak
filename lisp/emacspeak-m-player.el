@@ -90,7 +90,7 @@ specifies the actual location of the media stream
   (process-send-string
    emacspeak-m-player-process
    (format "%s\n" command))
-  (sit-for 1)
+  (accept-process-output emacspeak-m-player-process 0.1)
   (buffer-substring-no-properties (point-min)(1-  (point-max)))))
 
 
