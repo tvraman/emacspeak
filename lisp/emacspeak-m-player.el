@@ -118,7 +118,6 @@ specifies the actual location of the media stream
   (progn
     (setq buffer-undo-list t)
     (ansi-color-for-comint-mode-on)
-    (setq header-line-format '((:eval (emacspeak-m-player-header-line))))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
 ;;}}}
@@ -299,7 +298,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (apply 'start-process "M PLayer" buffer
                    emacspeak-m-player-program options))
       (set-buffer buffer)
-      (emacspeak-m-player-mode))))
+      (emacspeak-m-player-mode)
+      ; causes emacs to segfault!
+      ;(setq header-line-format '((:eval (emacspeak-m-player-header-line))))
+      )))
 
 ;;}}}
 ;;{{{ commands 
