@@ -81,6 +81,35 @@ specifies the actual location of the media stream
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player." )
+(defsubst emacspeak-m-player-dispatch (command)
+  "Dispatch command to m-player."
+  (declare (special emacspeak-m-player-process))
+  (save-excursion
+    (set-buffer (process-buffer emacspeak-m-player-process))
+    (erase-buffer)
+  (process-send-string
+   emacspeak-m-player-process
+   (format "%s\n" command))
+  (sit-for 1)
+  (buffer-substring-no-properties (point-min)(1-  (point-max)))))
+
+
+(defun emacspeak-m-player-current-info ()
+  "Return filename and position of current track as a list."
+  (let ((result
+         (split-string
+          (emacspeak-m-player-dispatch
+           "get_percent_pos\nget_file_name\n")
+          "[=\n]")))
+    result))
+
+(defsubst emacspeak-m-player-header-line ()
+  "Return information suitable for header line."
+  (let ((info (emacspeak-m-player-current-info)))
+    (format "%s%% in %s"
+            (second info)
+            (fourth info))))
+
 
 (define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
@@ -89,6 +118,7 @@ specifies the actual location of the media stream
   (progn
     (setq buffer-undo-list t)
     (ansi-color-for-comint-mode-on)
+    (setq header-line-format '((:eval (emacspeak-m-player-header-line))))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
 ;;}}}
@@ -274,15 +304,14 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 ;;}}}
 ;;{{{ commands 
 
-(defsubst emacspeak-m-player-dispatch (command)
-  "Dispatch command to m-player."
-  (declare (special emacspeak-m-player-process))
-  (save-excursion
-    (set-buffer (process-buffer emacspeak-m-player-process))
-    (erase-buffer))
-  (process-send-string
-   emacspeak-m-player-process
-   (format "%s\n" command)))
+
+
+(defsubst emacspeak-m-player-current-filename ()
+  "Return filename of currently playing track."
+  (second
+   (split-string
+    (emacspeak-m-player-dispatch "get_file_name\n")
+    "=")))
 
 (defun emacspeak-m-player-scale-speed (factor)
   "Scale speed by specified factor."
