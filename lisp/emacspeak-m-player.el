@@ -91,7 +91,8 @@ specifies the actual location of the media stream
    emacspeak-m-player-process
    (format "%s\n" command))
   (accept-process-output emacspeak-m-player-process 0.1)
-  (buffer-substring-no-properties (point-min)(1-  (point-max)))))
+  (unless (zerop (buffer-size))
+  (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
 
 (defun emacspeak-m-player-current-info ()
@@ -103,12 +104,19 @@ specifies the actual location of the media stream
           "[=\n]")))
     result))
 
-(defsubst emacspeak-m-player-header-line ()
-  "Return information suitable for header line."
+(defsubst emacspeak-m-player-mode-line ()
+  "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
     (format "%s%% in %s"
-            (second info)
-            (fourth info))))
+                                    (second info)
+                                    (fourth info))))
+
+(defun emacspeak-m-player-speak-mode-line ()
+  "Speak mode line"
+  (interactive)
+  (tts-with-punctuations
+   "all"
+   (dtk-speak (emacspeak-m-player-mode-line))))
 
 
 (define-derived-mode emacspeak-m-player-mode comint-mode 
@@ -299,9 +307,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode)
-      ; causes emacs to segfault!
-      ;(setq header-line-format '((:eval (emacspeak-m-player-header-line))))
-      )))
+      (setq mode-line-format '((:eval  (emacspeak-m-player-header-line)))))))
 
 ;;}}}
 ;;{{{ commands 
@@ -438,8 +444,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
-  (emacspeak-m-player-dispatch
-   "pause"))
+  (emacspeak-m-player-dispatch "pause"))
 
 (defun emacspeak-m-player-quit ()
   "Quit media player."
@@ -613,6 +618,8 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("L" emacspeak-m-player-load-file)
         ("\M-l" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
+        ("m" emacspeak-m-player-speak-mode-line)
+        ("\C-em" emacspeak-m-player-speak-mode-line)
         ("t" emacspeak-m-player-play-tracks-jump)
         ("p" emacspeak-m-player-previous-track)
         ("n" emacspeak-m-player-next-track)
