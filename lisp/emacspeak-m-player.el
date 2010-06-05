@@ -115,7 +115,7 @@ specifies the actual location of the media stream
   "Speak mode line"
   (interactive)
   (tts-with-punctuations
-   "all"
+   'all
    (dtk-speak (emacspeak-m-player-mode-line))))
 
 
