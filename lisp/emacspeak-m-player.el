@@ -94,16 +94,26 @@ specifies the actual location of the media stream
   (unless (zerop (buffer-size))
   (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
+(defvar emacspeak-m-player-info-cache nil
+  "Cache currently playing info.")
 
 (defun emacspeak-m-player-current-info ()
   "Return filename and position of current track as a list."
+  (declare (special emacspeak-m-player-info-cache))
   (let ((result
          (split-string
           (emacspeak-m-player-dispatch
            "get_percent_pos\nget_file_name\n")
           "[=\n]")))
+    (setq emacspeak-m-player-info-cache result)
     result))
 
+
+(defun emacspeak-m-player-speak-current-info ()
+  "Speak cached  info about currently playing file."
+  (interactive)
+  (declare (special emacspeak-m-player-info-cache))
+  (message emacspeak-m-player-info-cache))
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
@@ -307,7 +317,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode)
-      (setq mode-line-format '((:eval  (emacspeak-m-player-header-line)))))))
+      (setq mode-line-format '((:eval  (emacspeak-m-player-mode-line)))))))
 
 ;;}}}
 ;;{{{ commands 
@@ -618,6 +628,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("L" emacspeak-m-player-load-file)
         ("\M-l" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
+	("w" emacspeak-m-player-speak-current-info)
         ("m" emacspeak-m-player-speak-mode-line)
         ("\C-em" emacspeak-m-player-speak-mode-line)
         ("t" emacspeak-m-player-play-tracks-jump)
