@@ -1,4 +1,4 @@
-;;; emacspeak-m-player.el --- Control mplayer from Emacs
+,,,;;; emacspeak-m-player.el --- Control mplayer from Emacs
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling mplayer from emacs 
@@ -317,7 +317,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode)
-      (setq mode-line-format '((:eval  (emacspeak-m-player-mode-line)))))))
+      ;(setq mode-line-format '((:eval  (emacspeak-m-player-mode-line))))
+      )))
 
 ;;}}}
 ;;{{{ commands 
