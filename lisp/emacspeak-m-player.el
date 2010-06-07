@@ -90,7 +90,7 @@ specifies the actual location of the media stream
   (process-send-string
    emacspeak-m-player-process
    (format "%s\n" command))
-  (accept-process-output emacspeak-m-player-process 0.1)
+  (accept-process-output emacspeak-m-player-process 0.5)
   (unless (zerop (buffer-size))
   (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
@@ -113,7 +113,11 @@ specifies the actual location of the media stream
   "Speak cached  info about currently playing file."
   (interactive)
   (declare (special emacspeak-m-player-info-cache))
-  (message emacspeak-m-player-info-cache))
+  (message
+    "%s%% in %s"
+           (second emacspeak-m-player-info-cache)
+           (fourth emacspeak-m-player-info-cache)))
+
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
