@@ -1095,13 +1095,25 @@ from English to German.")
 
 (emacspeak-url-template-define
  "1Box Google"
- "http://www.google.com/search?q=%s"
+ "https://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)
  nil
  "Show 1box result from Google."
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list
       (list "rbt" "e" "std")
+      url 'speak)))
+
+
+(emacspeak-url-template-define
+ "Answers from Google Squared"
+ "https://www.google.com/search?q=%s"
+ (list 'gweb-google-autocomplete)
+ nil
+ "Answers from Google Squared snippets."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id
+      "ires"
       url 'speak)))
 
 (emacspeak-url-template-define
