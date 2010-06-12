@@ -4,3 +4,4 @@
 (load-library "nm")
 (add-hook 'nm-connected-hook 'jabber-connect-all)
 (add-hook 'nm-disconnected-hook 'jabber-disconnect)
+(nm-enable)
