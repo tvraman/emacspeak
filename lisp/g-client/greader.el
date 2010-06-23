@@ -130,9 +130,9 @@ from the server.")
   (setf (g-auth-token auth-handle)
         (g-get-result
          (format
-          "%s %s --cookie SID='%s' %s 2>/dev/null"
+          "%s %s --cookie AUTH='%s' %s 2>/dev/null"
           g-curl-program g-curl-common-options
-          (g-cookie "SID" auth-handle) greader-token-url))))
+          (g-cookie "AUTH" auth-handle) greader-token-url))))
 
 ;;}}}
 ;;{{{ Generators:
@@ -257,7 +257,7 @@ e.g., starred."
    (format
     "%s %s --cookie SID='%s' %s 2>/dev/null"
     g-curl-program g-curl-common-options
-    (g-cookie "SID" greader-auth-handle)
+    (g-cookie "auth" greader-auth-handle)
     (greader-state-url (or state greader-default-state)))
    g-atom-view-xsl))
 
