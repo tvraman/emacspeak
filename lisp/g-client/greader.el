@@ -98,11 +98,6 @@
   "http://www.google.com/reader/"
   "Base URL for Google Reader  API.")
 
-(defvar greader-token-url
-  (concat greader-base-url
-          "api/0/token ")
-  "URL for retrieving Google Reader token.")
-
 ;;}}}
 ;;{{{  Reader Authenticate
 
@@ -112,8 +107,7 @@
                     greader-user-email greader-user-password))
   (make-g-auth :service greader-service-name
                :email greader-user-email
-               :password greader-user-password
-               :post-auth-action 'greader-post-authenticate-function))
+               :password greader-user-password))
 
 (defvar greader-auth-handle
   (make-greader-auth)
@@ -121,18 +115,10 @@
 Holds user's email address, password, and the auth token received
 from the server.")
 
-(defun greader-post-authenticate-function (auth-handle)
-  "Run Googlre Reader post-auth steps."
-  (declare (special g-curl-program g-curl-common-options
-                    greader-token-url))
-  (unless (greader-p (g-auth-service auth-handle))
-    (error "This auth handle is not for Google Reader."))
-  (setf (g-auth-token auth-handle)
-        (g-get-result
-         (format
-          "%s %s --cookie AUTH='%s' %s 2>/dev/null"
-          g-curl-program g-curl-common-options
-          (g-cookie "AUTH" auth-handle) greader-token-url))))
+(defun greader-authenticate ()
+  "Authenticate into Google Reader."
+  (declare (special greader-auth-handle))
+  (g-authenticate greader-auth-handle))
 
 ;;}}}
 ;;{{{ Generators:
@@ -240,6 +226,7 @@ from the server.")
                    greader-state-alist
                    nil
                    'require-match))
+
 ;;;###autoload
 (defun greader-reading-list (&optional state)
   "Ensure our cookies are live, and get the reading list.
@@ -255,9 +242,9 @@ e.g., starred."
   (g-auth-ensure-token greader-auth-handle)
   (g-display-result
    (format
-    "%s %s --cookie SID='%s' %s 2>/dev/null"
+    "%s %s %s %s 2>/dev/null"
     g-curl-program g-curl-common-options
-    (g-cookie "auth" greader-auth-handle)
+    (g-authorization greader-auth-handle)
     (greader-state-url (or state greader-default-state)))
    g-atom-view-xsl))
 
@@ -286,9 +273,9 @@ user."
          (g-json-get 'prefs
                      (g-json-get-result
                       (format
-                       "%s %s --cookie SID='%s' %s 2>/dev/null"
+                       "%s %s %s %s 2>/dev/null"
                        g-curl-program g-curl-common-options
-                       (g-cookie "SID" greader-auth-handle)
+                       (g-authorization greader-auth-handle)
                        greader-prefs-url)))))
     (loop for v across raw-preferences
           do
@@ -393,9 +380,9 @@ user."
          (g-json-get 'unreadcounts
                      (g-json-get-result
                       (format
-                       "%s %s --cookie SID='%s' '%s' 2>/dev/null"
+                       "%s %s %s '%s' 2>/dev/null"
                        g-curl-program g-curl-common-options
-                       (g-cookie "SID" greader-auth-handle)
+                       (g-authorization greader-auth-handle)
                        greader-unread-count-url)))))
     counts))
 
@@ -420,7 +407,7 @@ user."
 
 
 
-(defsubst greader-subscriptions ()
+(defsubst greader-subscriptions-list ()
   "Return subscribed feeds as a list of URLs."
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
@@ -430,9 +417,9 @@ user."
          (g-json-get 'subscriptions
               (g-json-get-result
                (format
-                "%s %s --cookie SID='%s' %s 2>/dev/null"
+                "%s %s %s %s 2>/dev/null"
                 g-curl-program g-curl-common-options
-                (g-cookie "SID" greader-auth-handle)
+                (g-authorization greader-auth-handle)
                 greader-subscribed-feed-list-url)))))
         (loop for s across subscriptions
          collect
@@ -442,7 +429,6 @@ user."
                 ((string-match "^http" url) url)
                 (t (concat greader-atom-base url)))))))
 
-
 ;;;###autoload
 (defun greader-subscriptions ()
   "Return list of subscribed feeds."
@@ -450,16 +436,15 @@ user."
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
   (g-auth-ensure-token greader-auth-handle)
-  (let (
-        (subscriptions (g-json-get 'subscriptions
+  (let ((subscriptions (g-json-get 'subscriptions
                      (g-json-get-result
                       (format
-                       "%s %s --cookie SID='%s' %s 2>/dev/null"
+                       "%s %s %s %s 2>/dev/null"
                        g-curl-program g-curl-common-options
-                       (g-cookie "SID" greader-auth-handle)
+                       (g-authorization greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
     subscriptions))
-             
+
 ;;;###autoload
 (defun greader-feed-list ()
   "Retrieve list of subscribed feeds."
@@ -476,9 +461,9 @@ user."
   (g-auth-ensure-token greader-auth-handle)
   (shell-command
    (format
-    "%s %s --cookie SID='%s' %s 2>/dev/null"
+    "%s %s %s %s 2>/dev/null"
     g-curl-program g-curl-common-options
-    (g-cookie "SID" greader-auth-handle)
+    (g-authorization greader-auth-handle)
     greader-subscription-opml-url)))
 
 (defun greader-view-json-tags (tags)
@@ -516,9 +501,9 @@ user."
          (g-json-get 'tags
                      (g-json-get-result
                       (format
-                       "%s %s --cookie SID='%s' %s 2>/dev/null"
+                       "%s %s %s %s 2>/dev/null"
                        g-curl-program g-curl-common-options
-                       (g-cookie "SID" greader-auth-handle)
+                       (g-authorization greader-auth-handle)
                        greader-tag-list-url)))))
     (greader-view-json-tags tags)))
 
@@ -531,9 +516,9 @@ user."
   (g-auth-ensure-token greader-auth-handle)
   (g-display-result
    (format
-    "%s %s --cookie SID='%s' %s 2>/dev/null"
+    "%s %s %s %s 2>/dev/null"
     g-curl-program g-curl-common-options
-    (g-cookie "SID" greader-auth-handle)
+    (g-authorization greader-auth-handle)
     tag-url)
    g-atom-view-xsl))
 
@@ -610,9 +595,9 @@ user."
      (shell-command-on-region
       (point-min) (point-max)
       (format
-       "%s %s --cookie SID='%s' %s -X POST --data-binary @- %s 2>/dev/null"
+       "%s %s %s %s -X POST --data-binary @- %s 2>/dev/null"
        g-curl-program g-curl-common-options
-       (g-cookie "SID" greader-auth-handle)
+       (g-authorization greader-auth-handle)
        cl                               ; content-length header
        (greader-edit-url "subscription"))
       (current-buffer) 'replace))
@@ -649,9 +634,9 @@ user."
    (shell-command-on-region
     (point-min) (point-max)
     (format
-     "%s %s --cookie SID='%s' -X POST --data-binary @- %s 2>/dev/null"
+     "%s %s %s -X POST --data-binary @- %s 2>/dev/null"
      g-curl-program g-curl-common-options
-     (g-cookie "SID" greader-auth-handle)
+     (g-authorization greader-auth-handle)
      (greader-edit-url "tag"))
     (current-buffer) 'replace)
    (goto-char (point-min))
@@ -680,9 +665,9 @@ user."
    (shell-command-on-region
     (point-min) (point-max)
     (format
-     "%s %s --cookie SID='%s' -X POST --data-binary @- %s 2>/dev/null"
+     "%s %s %s -X POST --data-binary @- %s 2>/dev/null"
      g-curl-program g-curl-common-options
-     (g-cookie "SID" greader-auth-handle)
+     (g-authorization greader-auth-handle)
      (greader-edit-url "tag"))
     (current-buffer) 'replace)
    (goto-char (point-min))
@@ -732,9 +717,9 @@ user."
          (g-json-get 'results
                      (g-json-get-result
                       (format
-                       "%s %s --cookie SID='%s' '%s' 2>/dev/null"
+                       "%s %s %s '%s' 2>/dev/null"
                        g-curl-program g-curl-common-options
-                       (g-cookie "SID" greader-auth-handle)
+                       (g-authorization greader-auth-handle)
                        (format greader-search-url
                                (g-url-encode query))))))
         (docids nil))
