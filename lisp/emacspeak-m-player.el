@@ -504,6 +504,14 @@ A string of the form `<number> 1' sets volume as an absolute."
            (read-from-minibuffer "Balance: "))))
 
 ;;;###autoload
+(defun emacspeak-m-player-slave-command ()
+  "Dispatch slave comand read from minibuffer."
+  (interactive)
+  (emacspeak-m-player-dispatch
+           (read-from-minibuffer "Slave Command: ")))
+
+
+;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
   (interactive)
@@ -670,6 +678,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         (" " emacspeak-m-player-pause)
         ("q" bury-buffer)
         ("v" emacspeak-m-player-volume-change)
+        ("c" emacspeak-m-player-slave-command)
         ("-" emacspeak-m-player-volume-down)
         ("=" emacspeak-m-player-volume-up)
         ("+" emacspeak-m-player-volume-up)
