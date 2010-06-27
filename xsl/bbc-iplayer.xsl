@@ -20,7 +20,7 @@ Transform BBC iPlayer schedules to simple HTML.
       <body>
         <h1><xsl:value-of select="//title[1]"/></h1>
 <p>Press <code>e e</code> (command
-<code>emacspeak-we-url-expand-and-execute</code>
+<code>emacspeak-we-url-expand-and-execute</code>)
 on  program links to launch MPlayer on the program.</p>
 
         <xsl:apply-templates select="//broadcasts"/>
