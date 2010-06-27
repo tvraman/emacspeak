@@ -485,15 +485,23 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Decrease volume."
   (interactive)
   (emacspeak-m-player-dispatch "volume -1"))
-;;;###autload
+;;;###autoload
 (defun emacspeak-m-player-volume-change (offset)
   "Change volume.
 A value of <number> changes volume by specified offset.
 A string of the form `<number> 1' sets volume as an absolute."
   (interactive"sChange Volume By:")
   (emacspeak-m-player-dispatch
-   (format "volume %s"
-           offset)))
+   (format "volume %s" offset)))
+
+
+;;;###autoload
+(defun emacspeak-m-player-balance ()
+  "Set left/right balance."
+  (interactive)
+  (emacspeak-m-player-dispatch
+   (format "balance %s"
+           (read-from-minibuffer "Balance: "))))
 
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
@@ -628,12 +636,12 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("o" emacspeak-m-player-customize-options)
         ("O" emacspeak-m-player-reset-options)
         ("f" emacspeak-m-player-add-filter)
-        ("b" bury-buffer)
+        ("b" emacspeak-m-player-balance)
         ("l" emacspeak-m-player-get-length)
         ("L" emacspeak-m-player-load-file)
         ("\M-l" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
-	("w" emacspeak-m-player-speak-current-info)
+        ("w" emacspeak-m-player-speak-current-info)
         ("m" emacspeak-m-player-speak-mode-line)
         ("\C-em" emacspeak-m-player-speak-mode-line)
         ("t" emacspeak-m-player-play-tracks-jump)
@@ -660,11 +668,12 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("r" emacspeak-m-player-seek-relative)
         ("g" emacspeak-m-player-seek-absolute)
         (" " emacspeak-m-player-pause)
-        ("q" emacspeak-m-player-quit)
+        ("q" bury-buffer)
         ("v" emacspeak-m-player-volume-change)
         ("-" emacspeak-m-player-volume-down)
         ("=" emacspeak-m-player-volume-up)
         ("+" emacspeak-m-player-volume-up)
+        ("Q" emacspeak-m-player-quit)
         )
       do
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
