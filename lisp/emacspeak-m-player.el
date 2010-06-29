@@ -89,7 +89,7 @@ specifies the actual location of the media stream
     (erase-buffer)
   (process-send-string
    emacspeak-m-player-process
-   (format "%s\n" command))
+   (format "pausing_keep %s\n" command))
   (accept-process-output emacspeak-m-player-process 0.5)
   (unless (zerop (buffer-size))
   (buffer-substring-no-properties (point-min) (1-  (point-max))))))
