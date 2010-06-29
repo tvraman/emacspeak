@@ -70,7 +70,7 @@ class Speaker:
     listEngines = staticmethod(listEngines)
         
     def __init__ (self,
-                  engine='outloud',
+                  engine='32-outloud',
                   host='localhost',
                   initial=config):
         """Launches speech engine."""
@@ -215,6 +215,7 @@ _codeTable = {
     'dtk-mv' : 'dectalk',
     'dtk-soft' : 'dectalk',
     'outloud' : 'outloud',
+    '32-outloud' : 'outloud',
     }
 
 def _test():
