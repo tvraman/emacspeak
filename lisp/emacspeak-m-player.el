@@ -505,10 +505,11 @@ A string of the form `<number> 1' sets volume as an absolute."
 
 ;;;###autoload
 (defun emacspeak-m-player-slave-command ()
-  "Dispatch slave comand read from minibuffer."
+  "Dispatch slave command read from minibuffer."
   (interactive)
+  (message 
   (emacspeak-m-player-dispatch
-           (read-from-minibuffer "Slave Command: ")))
+           (read-from-minibuffer "Slave Command: "))))
 
 
 ;;;###autoload
