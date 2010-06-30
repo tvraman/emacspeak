@@ -462,12 +462,6 @@ See http://www.gummy-stuff.org/Yahoo-data.htm and Perl module Finance::Yahoo")
   "&d=v1"
   "*Additional default options to pass to Yahoo.")
 
-(defcustom emacspeak-websearch-personal-portfolio ""
-  "Set this to the stock tickers you want to check by
-default."
-  :type 'string
-  :group 'emacspeak-websearch)
-
 (defvar emacspeak-websearch-curl-program "curl"
   "Name of curl executable")
 
@@ -475,7 +469,7 @@ default."
 (defun emacspeak-websearch-quotes-yahoo-search (query &optional prefix)
   "Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
-emacspeak-websearch-personal-portfolio.
+emacspeak-wizards-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
 mode --optional interactive prefix arg
 causes data to be displayed as  a Web page.
@@ -484,13 +478,13 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (interactive
    (list
     (emacspeak-websearch-read-query "Lookup quotes: "
-                                    emacspeak-websearch-personal-portfolio
-                                    emacspeak-websearch-personal-portfolio)
+                                    emacspeak-wizards-personal-portfolio
+                                    emacspeak-wizards-personal-portfolio)
     current-prefix-arg))
   (declare (special emacspeak-websearch-quotes-yahoo-uri
                     emacspeak-websearch-quotes-yahoo-options
                     emacspeak-websearch-curl-program
-                    emacspeak-websearch-personal-portfolio
+                    emacspeak-wizards-personal-portfolio
                     emacspeak-websearch-quotes-csv-yahoo-uri))
   (cond
    ((null prefix)
