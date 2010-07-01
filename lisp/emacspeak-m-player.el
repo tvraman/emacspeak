@@ -325,6 +325,30 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       )))
 
 ;;}}}
+;;{{{ Table of slave commands:
+
+(defvar emacspeak-m-player-command-list nil
+  "Cache of MPlayer slave commands.")
+
+(defun emacspeak-m-player-command-list ()
+  "Return MPlayer slave command table, populating it if
+necessary."
+  (declare (special emacspeak-m-player-command-list))
+  (cond
+   (emacspeak-m-player-command-list emacspeak-m-player-command-list)
+   (t
+    (let ((commands
+           (split-string 
+           (shell-command-to-string
+            (format "%s -input cmdlist"
+  emacspeak-m-player-program))
+           "\n" 'omit-nulls)))
+      (setq emacspeak-m-player-command-list
+      (loop  for c in commands
+             collect
+             (split-string c " " 'omit-nulls)))))))
+
+;;}}}
 ;;{{{ commands 
 
 
@@ -507,9 +531,15 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-slave-command ()
   "Dispatch slave command read from minibuffer."
   (interactive)
-  (message 
-  (emacspeak-m-player-dispatch
-           (read-from-minibuffer "Slave Command: "))))
+  (let* ((command
+          (completing-read "Slave Command: " (emacspeak-m-player-command-list)))
+         (args
+          (read-from-minibuffer
+           (mapconcat #'identity
+                      (cdr (assoc command emacspeak-m-player-command-list))
+                      " "))))
+    (message 
+     (emacspeak-m-player-dispatch (format "%s %s" command args)))))
 
 
 ;;;###autoload
