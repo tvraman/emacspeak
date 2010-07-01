@@ -103,7 +103,7 @@ specifies the actual location of the media stream
   (let ((result
          (split-string
           (emacspeak-m-player-dispatch
-           "get_percent_pos\nget_file_name\n")
+           "get_file_name\nget_percent_pos")
           "[=\n]")))
     (setq emacspeak-m-player-info-cache result)
     result))
@@ -121,7 +121,7 @@ specifies the actual location of the media stream
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
-    (format "%s%% in %s"
+    (format "%s: %s%%"
                                     (second info)
                                     (fourth info))))
 
