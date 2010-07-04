@@ -115,8 +115,8 @@ specifies the actual location of the media stream
   (declare (special emacspeak-m-player-info-cache))
   (message
     "%s%% in %s"
-           (second emacspeak-m-player-info-cache)
-           (fourth emacspeak-m-player-info-cache)))
+           (fourth emacspeak-m-player-info-cache)
+           (second emacspeak-m-player-info-cache)))
 
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
