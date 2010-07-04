@@ -103,7 +103,7 @@ specifies the actual location of the media stream
   (let ((result
          (split-string
           (emacspeak-m-player-dispatch
-           "get_file_name\nget_percent_pos")
+           "get_file_name\nget_percent_pos\n")
           "[=\n]")))
     (setq emacspeak-m-player-info-cache result)
     result))
