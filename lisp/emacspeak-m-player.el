@@ -483,6 +483,7 @@ necessary."
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
+  (emacspeak-m-player-current-info)
   (emacspeak-m-player-dispatch "pause"))
 
 (defun emacspeak-m-player-quit ()
