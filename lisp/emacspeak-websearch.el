@@ -1000,8 +1000,7 @@ I'm Feeling Lucky button on Google."
       (emacspeak-webutils-autospeak)
     (emacspeak-webutils-post-process
      "results"
-     'emacspeak-speak-line)
-    )
+     'emacspeak-speak-line))
   (let ((emacspeak-w3-tidy-html t))
     (emacspeak-webutils-with-xsl-environment
      (expand-file-name "default.xsl" emacspeak-xslt-directory)
@@ -1736,22 +1735,15 @@ Optional prefix arg no-rss scrapes information from HTML."
 
 (emacspeak-websearch-set-key 23 'wikipedia)
 
-(defvar emacspeak-websearch-wikipedia-search-uri
-  "http://www.wikiseek.com/results.php?q=%s"
-  "URI for searching Wikipedia")
-
 ;;;###autoload
 (defun emacspeak-websearch-wikipedia-search (query)
-  "Search Wikipedia"
+  "Search Wikipedia using Google."
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
-  (declare (special emacspeak-websearch-wikipedia-search-uri))
-  (browse-url
-   (format emacspeak-websearch-wikipedia-search-uri
-           (emacspeak-url-encode query)))
-  (emacspeak-webutils-post-process
-   query
-   'emacspeak-speak-rest-of-buffer))
+  
+   
+  (emacspeak-websearch-google
+   (emacspeak-url-encode (format "site:wikipedia.org %s"query))))
 
 ;;}}}
 ;;{{{ People from yahoo
