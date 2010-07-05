@@ -90,7 +90,7 @@ specifies the actual location of the media stream
   (process-send-string
    emacspeak-m-player-process
    (format "pausing_keep %s\n" command))
-  (accept-process-output emacspeak-m-player-process 1)
+  (accept-process-output emacspeak-m-player-process 0.1)
   (unless (zerop (buffer-size))
   (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
@@ -100,13 +100,18 @@ specifies the actual location of the media stream
 (defun emacspeak-m-player-current-info ()
   "Return filename and position of current track as a list."
   (declare (special emacspeak-m-player-info-cache))
-  (let ((result
+  (let ((file
+	 (second
          (split-string
           (emacspeak-m-player-dispatch
-           "get_file_name\nget_percent_pos\n")
-          "[=\n]")))
-    (setq emacspeak-m-player-info-cache result)
-    result))
+           "get_file_name\n")
+          "=")))
+	(pos
+	 (second
+         (split-string
+          (emacspeak-m-player-dispatch "get_percent_pos\n")
+          "="))))
+    (setq emacspeak-m-player-info-cache (list file pos))))
 
 
 (defun emacspeak-m-player-speak-current-info ()
