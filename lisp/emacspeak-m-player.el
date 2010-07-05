@@ -127,8 +127,8 @@ specifies the actual location of the media stream
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
     (format "%s: %s%%"
-                                    (second info)
-                                    (fourth info))))
+                                    (first info)
+                                    (second info))))
 
 (defun emacspeak-m-player-speak-mode-line ()
   "Speak mode line"
@@ -497,6 +497,7 @@ necessary."
   (let ((kill-buffer-query-functions nil))
   (when (eq (process-status emacspeak-m-player-process) 'run)
     (let ((buffer (process-buffer emacspeak-m-player-process)))
+      (emacspeak-m-player-current-info) ; cache for future 
       (emacspeak-m-player-dispatch "quit")
       (and (buffer-live-p buffer)
            (kill-buffer buffer))))
