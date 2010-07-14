@@ -606,6 +606,44 @@ Specify the event in plain English."
    (setq g-app-auth-handle gcal-auth-handle
          g-app-this-url event-uri)
    (g-app-put-entry)))
+(defcustom gcal-event-reject
+  (expand-file-name "gevent-reject.xsl" g-directory)
+  "XSL transform used to reject events."
+  :group 'gcal)
+
+;;;###autoload
+(defun gcal-reject-event (event-uri)
+  "Reject (RSVP)  a calendar event."
+  (interactive
+   (list
+    (read-from-minibuffer "Event URL: "
+                          (browse-url-url-at-point))))
+  (declare (special gcal-auth-handle g-cookie-options
+                    g-curl-program g-curl-common-options g-curl-atom-header
+                    gcal-event-reject))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-using-scratch
+   (shell-command
+    (format
+     "%s %s %s %s %s  -X GET %s 2>/dev/null"
+     g-curl-program g-curl-common-options g-curl-atom-header
+     (g-authorization gcal-auth-handle)
+     g-cookie-options
+     event-uri)
+    (current-buffer) 'replace)
+   (shell-command-on-region
+    (point-min) (point-max)
+    (format
+     "%s --param 'email' \"'%s'\" %s - 2>/dev/null"
+     g-xslt-program
+     (g-auth-email gcal-auth-handle)
+     gcal-event-reject )
+    (current-buffer) 'replace)
+   (g-app-mode)
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url event-uri)
+   (g-app-put-entry)))
+
 
 ;;;###autoload
 
