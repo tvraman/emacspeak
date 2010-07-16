@@ -474,6 +474,15 @@ field in the customization buffer.  You can use the notation
 (global-set-key '[right] 'emacspeak-forward-char)
 (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 ;;}}}
+;;{{{ emacspeak under X windows
+
+;;; Get hyper, alt and super like on the console:
+(global-set-key [67108908] 'emacspeak-alt-keymap)
+(global-set-key  [67108903] 'emacspeak-super-keymap)
+(global-set-key [67108923] 'emacspeak-hyper-keymap)
+
+
+;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
 (defun emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
