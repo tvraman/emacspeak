@@ -214,7 +214,8 @@ Server is specified via custom option `emacspeak-remote-default-ssh-server'."
   (declare (special emacspeak-remote-default-ssh-server))
   (when emacspeak-remote-default-ssh-server
     (setq dtk-program emacspeak-remote-default-ssh-server)
-  (dtk-select-server emacspeak-remote-default-ssh-server)))
+  (dtk-select-server emacspeak-remote-default-ssh-server)
+  (dtk-initialize)))
 
 
 ;;;###autoload
