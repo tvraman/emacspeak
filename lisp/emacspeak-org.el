@@ -238,11 +238,12 @@
 ;;}}}
 ;;{{{ Agenda:
 
-;;; agenda navigation
+;;; AGENDA NAVIGATION
 
 (loop for f in
       '(
         org-agenda-next-date-line org-agenda-previous-date-line
+        org-agenda-next-line org-agenda-previous-line
         org-agenda-goto-today
         )
       do
