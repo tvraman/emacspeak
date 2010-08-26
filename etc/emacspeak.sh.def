@@ -1,5 +1,8 @@
 #!/bin/sh
 # emacspeak - execute emacs with speech enhancements
+# this file needs a maintainer, I, (tv.raman.tv@gmail.com) am not presently maintaining it.
+# AKA  Use at your own risk, and if it breaks, you get to keep both pieces. 
+# Patches that are fully tested always welcome.
 #$Id$
     if [ -f /etc/emacspeak.conf ]
     then
