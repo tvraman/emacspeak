@@ -1063,7 +1063,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 (defun emacspeak-speak-char-name (char)
   "tell me what this is"
   (interactive)
-  (dtk-speak (car (rassq char (ucs-names)))))
+  (dtk-speak (cadar (describe-char-unicode-data char))))
 
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
