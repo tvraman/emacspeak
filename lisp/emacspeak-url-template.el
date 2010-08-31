@@ -596,11 +596,12 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google TimeLine View"
- "http://www.google.com/views?q=%s+view:timeline&num=25"
+ "http://www.google.com/search?hl=en&tbo=1&tbs=tl:1&q=%s"
  (list
   'gweb-google-autocomplete)
  #'(lambda nil
-     (re-search-forward " Timeline View" nil t)
+     (goto-char (point-min))
+     (re-search-forward " ^About" nil t)
      (forward-line 1)
      (emacspeak-speak-rest-of-buffer))
  "Do a Google search and get a timeline view of results.")
