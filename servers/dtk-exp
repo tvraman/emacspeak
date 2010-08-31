@@ -294,6 +294,8 @@ proc clean {element} {
     global queue tts
     #remove any ctrl-s chars
     regsub -all \023 $element {} element
+    # Remove non-breaking space
+    regsub -all \240  $element { } element
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element \
             { pound } element
