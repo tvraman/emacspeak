@@ -1545,7 +1545,7 @@ name of the list.")
  nil
  "Extract content links from Money."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id "mainContent" url 'speak)))
+     (emacspeak-we-extract-by-id "cnnMoneyBody" url 'speak)))
 
 ;;}}}
 
@@ -1631,7 +1631,7 @@ name of the list.")
  "CNN Content"
  #'(lambda (url)
      (emacspeak-we-extract-by-id
-      "content"
+      "cnnMoneyBody"
       url
       'speak)))
 
