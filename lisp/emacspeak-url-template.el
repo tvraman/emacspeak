@@ -1537,18 +1537,6 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-we-extract-by-id "cnn_maincntnr"url 'speak)))
 
-;;{{{ cnnfn content
-(emacspeak-url-template-define
- "CNNFn Content"
- "http://money.cnn.com"
- nil
- nil
- "Extract content links from Money."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "cnnMoneyBody" url 'speak)))
-
-;;}}}
-
 (emacspeak-url-template-define
  "CNN headlines "
  "http://www.cnn.com"
@@ -1591,25 +1579,15 @@ name of the list.")
       url 'speak)))
 
 (emacspeak-url-template-define
- "CNN Market News "
- "http://money.cnn.com/markets/news/"
- nil
- nil
- "CNN Money"
- #'(lambda (url)
-     (emacspeak-we-extract-tables-by-position-list
-      '(10 12 15 18 20 21)
-      url 'speak)))
-
-(emacspeak-url-template-define
  "CNN Market Data "
  "http://money.cnn.com/markets/data/"
  nil
  nil
  "CNN Money"
  #'(lambda (url)
-     (emacspeak-we-extract-tables-by-position-list
-      '(14 15 20 21) url 'speak)))
+     (emacspeak-we-extract-by-id
+      "wsod_marketsOverview" 
+       url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Content "
