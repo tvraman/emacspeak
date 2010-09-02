@@ -221,6 +221,7 @@ emacspeak-texinfo.elc \
 emacspeak-tnt.elc \
 emacspeak-todo-mode.elc \
 emacspeak-twit.elc \
+emacspeak-twittering.elc \
 emacspeak-url-template.elc \
 emacspeak-view-process.elc \
 emacspeak-view.elc \
@@ -444,7 +445,8 @@ emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
 emacspeak-tnt.elc: emacspeak-tnt.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
-emacspeak-twit-mode.elc: emacspeak-twit-mode.el dtk-speak.elc voice-setup.elc
+emacspeak-twit.elc: emacspeak-twit.el dtk-speak.elc voice-setup.elc
+emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc emacspeak-we.elc
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc

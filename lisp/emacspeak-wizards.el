@@ -2476,8 +2476,8 @@ directory to where find is to be launched."
                            "cat -s"
                            (current-buffer)
                            'replace)
-  (indent-buffer)
-  (untabify-buffer)
+  (indent-region (point-min) (point-max))
+  (untabify (point-min) (point-max))
   (delete-trailing-whitespace))
 
 ;;}}}
@@ -2735,14 +2735,14 @@ Use with caution."
   "Invoke Google 1Box search."
   (interactive)
   (emacspeak-url-template-open
-       (emacspeak-url-template-get "1Box Google")))
+   (emacspeak-url-template-get "1Box Google")))
 
 ;;;###autoload
 (defun emacspeak-wizards-google-squared ()
   "Invoke Google Squared search."
   (interactive)
   (emacspeak-url-template-open
-       (emacspeak-url-template-get "Answers from Google Squared")))
+   (emacspeak-url-template-get "Answers from Google Squared")))
 
 ;;;###autoload
 (defun emacspeak-wizards-google-hits ()
