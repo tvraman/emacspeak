@@ -142,6 +142,13 @@
               (voice-lock-mode 1)))
 
 ;;}}}
+;;{{{ Silence chatter
+(defadvice twittering-get-and-render-timeline (around emacspeak pre act comp)
+  "Silence spoken messages while twitter is updating."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
 (provide 'emacspeak-twittering)
 ;;{{{ end of file
 
