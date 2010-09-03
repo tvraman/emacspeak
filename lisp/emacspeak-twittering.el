@@ -131,8 +131,12 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'task-done)
             (emacspeak-speak-mode-line)))))
-
-;;}}}
+(defadvice twittering-kill-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+;;}}}>
 ;;{{{ turn on voice lock:
 
 ;;; no minor mode hook for now alas:
