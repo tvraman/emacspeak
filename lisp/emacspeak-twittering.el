@@ -66,11 +66,7 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands: twittering-mode
-(defadvice twit (after emacspeak pre act comp)
-  "Provide spoken and auditory feedback."
-  (when (interactive)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+
 (loop for command in
       '(
         twittering-goto-next-status-of-user
@@ -145,9 +141,12 @@
 
 ;;; no minor mode hook for now alas:
 
-(add-hook 'twittering-mode-hook
-          #'(lambda ()
-              (voice-lock-mode 1)))
+(add-hook
+ 'twittering-mode-hook
+ #'(lambda ()
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-mode-line)
+     (voice-lock-mode 1)))
 
 ;;}}}
 ;;{{{ Silence chatter
