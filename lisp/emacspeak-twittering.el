@@ -82,8 +82,7 @@
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
 
-(defadvice twittering-goto-previous-status (around emacspeak pre
-                                                   act comp)
+(defadvice twittering-goto-previous-status (around emacspeak pre act comp)
   "Speak status moved to."
   (let ((orig (point)))
     ad-do-it
@@ -91,16 +90,15 @@
     (emacspeak-auditory-icon 'select-object)
     ad-return-value))
 
-(defadvice twittering-goto-next-status (around emacspeak pre
-                                               act comp)
+(defadvice twittering-goto-next-status (around emacspeak pre act comp)
   "Speak status moved to."
   (let ((orig (point)))
     ad-do-it
     (emacspeak-speak-region orig (point))
     (emacspeak-auditory-icon 'select-object)
     ad-return-value))
-(defadvice twittering-edit-post-status (after emacspeak pre act
-                                              comp)
+
+(defadvice twittering-edit-post-status (after emacspeak pre act comp)
   "Produce auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
@@ -127,7 +125,7 @@
       do
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
-          "Provide spoken and auditory feedbackfeedback."
+          "Provide spoken and auditory feedback."
           (when (interactive-p)
             (emacspeak-auditory-icon 'task-done)
             (emacspeak-speak-mode-line)))))
