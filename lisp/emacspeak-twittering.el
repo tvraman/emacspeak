@@ -81,22 +81,22 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
+(loop for command in
+      '(twittering-goto-next-status
+	twittering-goto-previous-status)
+      do
+      (eval
+       `(defadvice ,command (after emacspeak pre act comp)
+	  "Speak status moved to."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'select-object)
+	    (dtk-speak
+	     (format "%s: %s"
+		     (get-text-property (point) 'username)
+		     (get-text-property (point) 'text)))))))
 
-(defadvice twittering-goto-previous-status (around emacspeak pre act comp)
-  "Speak status moved to."
-  (let ((orig (point)))
-    ad-do-it
-    (emacspeak-speak-region orig (point))
-    (emacspeak-auditory-icon 'select-object)
-    ad-return-value))
 
-(defadvice twittering-goto-next-status (around emacspeak pre act comp)
-  "Speak status moved to."
-  (let ((orig (point)))
-    ad-do-it
-    (emacspeak-speak-region orig (point))
-    (emacspeak-auditory-icon 'select-object)
-    ad-return-value))
+
 
 (defadvice twittering-edit-post-status (after emacspeak pre act comp)
   "Produce auditory feedback."
