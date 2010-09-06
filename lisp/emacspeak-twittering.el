@@ -66,7 +66,11 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands: twittering-mode
-
+(defadvice twit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 (loop for command in
       '(
         twittering-goto-next-status-of-user
@@ -158,6 +162,22 @@
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
+
+;;}}}
+;;{{{ additional interactive comand 
+
+(defun emacspeak-twittering-jump-to-following-url ()
+  "Move to and open closest URI  following point."
+  (interactive)
+  (let ((moved t))
+    (while (and moved
+	      (not (looking-at "http")))
+      (setq moved
+    (goto-char (next-single-property-change (point) 'uri))))
+    (setq  url (get-text-property (point)  'uri))
+    (and url (browse-url url))))
+(declaim (special twittering-mode-map))
+(define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
 
 ;;}}}
 (provide 'emacspeak-twittering)
