@@ -85,6 +85,16 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
+
+
+(defun emacspeak-twittering-speak-this-tweet ()
+  "Speak tweet under point."
+  (interactive)
+(dtk-speak
+	     (format "%s: %s"
+		     (get-text-property (point) 'username)
+		     (get-text-property (point) 'text))))
+
 (loop for command in
       '(twittering-goto-next-status
 	twittering-goto-previous-status)
@@ -178,6 +188,7 @@
     (and url (browse-url url))))
 (declaim (special twittering-mode-map))
 (define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
+(define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
 
 ;;}}}
 (provide 'emacspeak-twittering)
