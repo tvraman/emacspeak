@@ -90,10 +90,10 @@
 (defun emacspeak-twittering-speak-this-tweet ()
   "Speak tweet under point."
   (interactive)
-(dtk-speak
-	     (format "%s: %s"
-		     (get-text-property (point) 'username)
-		     (get-text-property (point) 'text))))
+  (dtk-speak
+   (format "%s: %s"
+	   (get-text-property (point) 'username)
+	   (get-text-property (point) 'text))))
 
 (loop for command in
       '(twittering-goto-next-status
@@ -104,10 +104,7 @@
 	  "Speak status moved to."
 	  (when (interactive-p)
 	    (emacspeak-auditory-icon 'select-object)
-	    (dtk-speak
-	     (format "%s: %s"
-		     (get-text-property (point) 'username)
-		     (get-text-property (point) 'text)))))))
+	    (emacspeak-twittering-speak-this-tweet)))))
 
 
 
