@@ -75,8 +75,6 @@
       '(
         twittering-goto-next-status-of-user
         twittering-goto-previous-status-of-user
-        twittering-goto-next-thing
-        twittering-goto-previous-thing
         twittering-goto-first-status)
       do
       (eval
@@ -85,6 +83,17 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
+
+(loop for command in
+      '(twittering-goto-next-thing
+        twittering-goto-previous-thing)
+      do
+      (eval
+       `(defadvice ,command (after emacspeak pre act comp)
+          "Speak thing moved to."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'mark-object)
+            (emacspeak-speak-current-field)))))
 
 
 (defun emacspeak-twittering-speak-this-tweet ()
