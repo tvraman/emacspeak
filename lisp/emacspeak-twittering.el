@@ -93,7 +93,7 @@
           "Speak thing moved to."
           (when (interactive-p)
             (emacspeak-auditory-icon 'mark-object)
-            (emacspeak-speak-current-field)))))
+            (emacspeak-speak-this-face-chunk)))))
 
 
 (defun emacspeak-twittering-speak-this-tweet ()
