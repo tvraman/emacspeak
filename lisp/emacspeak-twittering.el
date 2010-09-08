@@ -195,6 +195,7 @@
 (declaim (special twittering-mode-map))
 (define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
 (define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
+(define-key twittering-mode-map "?" 'twittering-search)
 
 ;;}}}
 (provide 'emacspeak-twittering)
