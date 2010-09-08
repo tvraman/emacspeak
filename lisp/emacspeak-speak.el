@@ -751,7 +751,7 @@ with a long string of gibberish."
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
 (defcustom emacspeak-speak-space-regexp
-  "^[ \t\r]+$"
+  "^[  \t\r]+$"
   "Pattern that matches white space."
   :type 'string
   :group 'emacspeak)
@@ -2414,9 +2414,10 @@ message area.  You can use command
 
 ;;}}}
 ;;{{{  Moving across fields:
+;;; Fields are defined by property 'field
 
-;;; For the present, we define a field
-;;; as a contiguous series of non-blank characters
+
+
 ;;; helper function: speak a field
 (defsubst  emacspeak-speak-field (start end )
   "Speaks field delimited by arguments START and END."
