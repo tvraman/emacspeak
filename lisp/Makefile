@@ -263,7 +263,7 @@ config: emacspeak-loaddefs.el emacspeak-cus-load.el emacspeak-finder-inf.el
 # {{{build time target --loaddefs
 
 emacspeak-finder-inf.el: force
-	#$(EMACS) $(BATCH) -l emacspeak-load-path.el  -l emacspeak-finder.el  -f emacspeak-finder-compile-keywords
+	$(EMACS) $(BATCH) -l emacspeak-load-path.el  -l emacspeak-finder.el  -f emacspeak-finder-compile-keywords
 
 emacspeak-loaddefs.el: force
 	echo ";;;Auto generated" > emacspeak-loaddefs.el

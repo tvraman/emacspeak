@@ -62,6 +62,8 @@
    ";;; function emacspeak-finder-compile-keywords\n"
    ";;; Code:\n"
    "(require 'cl)\n"
+   "(require 'finder)\n"
+   "(defvar finder-package-info nil)\n"
    "\n(setq emacspeak-finder-package-info '(\n")
   "Preamble inserted at the front of emacspeak-finder-inf.el")
 
