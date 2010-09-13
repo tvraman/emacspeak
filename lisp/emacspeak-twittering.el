@@ -73,8 +73,6 @@
     (emacspeak-auditory-icon 'open-object)))
 (loop for command in
       '(
-        twittering-goto-next-status-of-user
-        twittering-goto-previous-status-of-user
         twittering-goto-first-status)
       do
       (eval
@@ -106,7 +104,9 @@
 
 (loop for command in
       '(twittering-goto-next-status
-	twittering-goto-previous-status)
+	twittering-goto-previous-status
+        twittering-goto-previous-status-of-user
+        twittering-goto-previous-status-of-user)
       do
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
