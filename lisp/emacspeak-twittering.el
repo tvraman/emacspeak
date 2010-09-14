@@ -66,6 +66,14 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands: twittering-mode
+
+(defadvice twittering-toggle-activate-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if twittering-active-mode 'on 'off))
+    (message "Turned %s twittering-active-mode"
+             (if twittering-active-mode 'on 'off))))
 (defadvice twit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -93,30 +101,26 @@
             (emacspeak-auditory-icon 'mark-object)
             (emacspeak-speak-this-face-chunk)))))
 
-
 (defun emacspeak-twittering-speak-this-tweet ()
   "Speak tweet under point."
   (interactive)
   (dtk-speak
    (format "%s: %s"
-	   (get-text-property (point) 'username)
-	   (get-text-property (point) 'text))))
+           (get-text-property (point) 'username)
+           (get-text-property (point) 'text))))
 
 (loop for command in
       '(twittering-goto-next-status
-	twittering-goto-previous-status
+        twittering-goto-previous-status
         twittering-goto-previous-status-of-user
         twittering-goto-previous-status-of-user)
       do
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
-	  "Speak status moved to."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'select-object)
-	    (emacspeak-twittering-speak-this-tweet)))))
-
-
-
+          "Speak status moved to."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-twittering-speak-this-tweet)))))
 
 (defadvice twittering-edit-post-status (after emacspeak pre act comp)
   "Produce auditory feedback."
@@ -178,18 +182,17 @@
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
-
 ;;}}}
-;;{{{ additional interactive comand 
+;;{{{ additional interactive comand
 
 (defun emacspeak-twittering-jump-to-following-url ()
   "Move to and open closest URI  following point."
   (interactive)
   (let ((moved t))
     (while (and moved
-	      (not (looking-at "http")))
+                (not (looking-at "http")))
       (setq moved
-    (goto-char (next-single-property-change (point) 'uri))))
+            (goto-char (next-single-property-change (point) 'uri))))
     (setq  url (get-text-property (point)  'uri))
     (and url (browse-url url))))
 (declaim (special twittering-mode-map))
