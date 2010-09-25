@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 891 commands.
+This chapter documents a total of 890 commands.
 
 @menu
 * cd-tool::                     
@@ -24,7 +24,6 @@ This chapter documents a total of 891 commands.
 * emacspeak-custom::            
 * emacspeak-daisy::             
 * emacspeak-dired::             
-* emacspeak-dismal::            
 * emacspeak-ebook::             
 * emacspeak-ecb::               
 * emacspeak-ediff::             
@@ -72,6 +71,7 @@ This chapter documents a total of 891 commands.
 * emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
+* emacspeak-vm::                
 * emacspeak-w3::                
 * emacspeak-w3m::               
 * emacspeak-we::                
@@ -1124,107 +1124,6 @@ Speak the header line of the dired buffer.
 Speaks the target of the symlink on the current line.
 @end deffn
 
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-@deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-col-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-expression nil
-@kbd{Not bound to any key.}
-
-Display the expression in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-value nil
-@kbd{Not bound to any key.}
-
-Display the cell value in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header nil
-@kbd{Not bound to any key.}
-
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header nil
-@kbd{Not bound to any key.}
-
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-row-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset col summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset row summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset sheet summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-sheet-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
 @node emacspeak-ebook
 @section emacspeak-ebook
 
@@ -1504,11 +1403,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1557,11 +1451,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -2782,6 +2671,12 @@ Move back by 10 seconds.
 Move back by 1 minute.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-m-player-balance nil
+@kbd{Not bound to any key.}
+
+Set left/right balance.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-beginning-of-track nil
 @kbd{Not bound to any key.}
 
@@ -2900,9 +2795,11 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
+Q		emacspeak-m-player-quit
 [		emacspeak-m-player-slower
 ]		emacspeak-m-player-faster
-b		bury-buffer
+b		emacspeak-m-player-balance
+c		emacspeak-m-player-slave-command
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
@@ -2911,7 +2808,7 @@ m		emacspeak-m-player-speak-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
-q		emacspeak-m-player-quit
+q		bury-buffer
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
@@ -3002,6 +2899,12 @@ Seek  to absolute specified position.
 @kbd{Not bound to any key.}
 
 Seek  by offset into stream from current position.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-slave-command nil
+@kbd{Not bound to any key.}
+
+Dispatch slave command read from minibuffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-slower nil
@@ -3670,6 +3573,13 @@ Connect to remote server.
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-remote-quick-connect-via-ssh nil
+@kbd{Not bound to any key.}
+
+Connect via ssh to remote Emacspeak server.
+Server is specified via custom option `emacspeak-remote-default-ssh-server'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-ssh-to-server nil
@@ -5250,6 +5160,65 @@ for commands defined in module  emacspeak-view.
 Moves current line to top of window
 @end deffn
 
+@node emacspeak-vm
+@section emacspeak-vm
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-vm.
+
+@deffn {Interactive Command} emacspeak-vm-browse-message nil
+@kbd{Not bound to any key.}
+
+Browse an email message --read it paragraph at a time. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-catch-up-all-messages nil
+@kbd{Not bound to any key.}
+
+Mark all messages in folder to be deleted. Use with caution.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-locate-subject-line nil
+@kbd{Not bound to any key.}
+
+Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-mode-line nil
+@kbd{Not bound to any key.}
+
+VM mode line information. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-next-button nil
+@kbd{Not bound to any key.}
+
+Move point to N buttons forward.
+If N is negative, move backward instead.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-labels nil
+@kbd{Not bound to any key.}
+
+Speak a message's labels
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-message nil
+@kbd{Not bound to any key.}
+
+Move point to the message body.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-yank-header nil
+@kbd{Not bound to any key.}
+
+Yank specified header into kill ring.
+@end deffn
+
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -6037,7 +6006,7 @@ Podzinger RSS Generator.
 
 Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
-emacspeak-websearch-personal-portfolio.
+emacspeak-wizards-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
 mode --optional interactive prefix arg
 causes data to be displayed as  a Web page.
@@ -6121,7 +6090,7 @@ Get weather forecast for specified zip code.
 @deffn {Interactive Command} emacspeak-websearch-wikipedia-search nil
 @kbd{Not bound to any key.}
 
-Search Wikipedia
+Search Wikipedia using Google.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo nil
@@ -6183,7 +6152,7 @@ Display Google Search in a WebSpace buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-headlines nil
-@kbd{ hyper  SPACE h }
+@kbd{ control ; SPACE h   hyper  SPACE h }
 
 Speak current news headline.
 @end deffn
@@ -6282,7 +6251,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-weather nil
-@kbd{ hyper  SPACE w }
+@kbd{ control ; SPACE w   hyper  SPACE w }
 
 Speak current weather.
 @end deffn
@@ -6374,6 +6343,12 @@ instances.
 
 Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webutils-open-subscribed-feeds nil
+@kbd{Not bound to any key.}
+
+Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-play-media-at-point nil
@@ -7050,6 +7025,12 @@ Invoke Google 1Box search.
 
 Filter Google results after performing search to show just the
 hits.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-google-squared nil
+@kbd{Not bound to any key.}
+
+Invoke Google Squared search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-google-transcode nil
@@ -8069,7 +8050,7 @@ Kill TTS  process.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 151 URL Templates.
+This section documents a total of 150 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8119,6 +8100,10 @@ Play This American Life  shows on demand.
 @kbd{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
+
+@kbd{Answers from Google Squared}
+
+Answers from Google Squared snippets.
 
 @kbd{Answers.com}
 
@@ -8180,10 +8165,6 @@ CNN Content
 
 CNN Money
 
-@kbd{CNN Market News }
-
-CNN Money
-
 @kbd{CNN Tecnology }
 
 CNN Technology news.
@@ -8195,10 +8176,6 @@ Retrieve and speak headline news from CNN.
 @kbd{CNNContent}
 
 Filter down to CNN  content area.
-
-@kbd{CNNFn Content}
-
-Extract content links from Money.
 
 @kbd{CNNPodCasts}
 
