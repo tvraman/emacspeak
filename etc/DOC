@@ -702,71 +702,6 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
-** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
- (the previous column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
- (the previous row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-expression Display the expression in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-value Display the cell value in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
-The `column header' is the entry in row 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
-The `row header' is the entry in column 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
- (the next column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
- (the next row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list 
-
-------------------------------------------------------------
-
 ** emacspeak-ebook-google	Key Sequence: control e g g 
 
  Search for EBooks from Gooble Books. 
@@ -894,12 +829,7 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -935,12 +865,7 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -1481,6 +1406,10 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-balance Set left/right balance. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-beginning-of-track Move to beginning of track. 
 
 ------------------------------------------------------------
@@ -1565,9 +1494,11 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
+Q		emacspeak-m-player-quit
 [		emacspeak-m-player-slower
 ]		emacspeak-m-player-faster
-b		bury-buffer
+b		emacspeak-m-player-balance
+c		emacspeak-m-player-slave-command
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
@@ -1576,7 +1507,7 @@ m		emacspeak-m-player-speak-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
-q		emacspeak-m-player-quit
+q		bury-buffer
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
@@ -1647,6 +1578,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-seek-relative Seek  by offset into stream from current position. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-slave-command Dispatch slave command read from minibuffer. 
 
 ------------------------------------------------------------
 
@@ -2113,6 +2048,11 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'.
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct. 
+
+------------------------------------------------------------
+
+** emacspeak-remote-quick-connect-via-ssh Connect via ssh to remote Emacspeak server.
+Server is specified via custom option `emacspeak-remote-default-ssh-server'. 
 
 ------------------------------------------------------------
 
@@ -3286,6 +3226,41 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-mode-line VM mode line information.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-next-button Move point to N buttons forward.
+If N is negative, move backward instead. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-labels Speak a message's labels 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-message Move point to the message body. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-yank-header Yank specified header into kill ring. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio	Key Sequence: control e : 
 
  Start or control streaming audio including MP3 and
@@ -3807,7 +3782,7 @@ Optional prefix arg no-rss scrapes information from HTML.
 
 ** emacspeak-websearch-quotes-yahoo-search Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
-emacspeak-websearch-personal-portfolio.
+emacspeak-wizards-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
 mode --optional interactive prefix arg
 causes data to be displayed as  a Web page.
@@ -3867,7 +3842,7 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-wikipedia-search Search Wikipedia 
+** emacspeak-websearch-wikipedia-search Search Wikipedia using Google. 
 
 ------------------------------------------------------------
 
@@ -3904,7 +3879,7 @@ Optional second arg as-html processes the results as HTML rather than data.
 
 ------------------------------------------------------------
 
-** emacspeak-webspace-headlines	Key Sequence: hyper  SPACE h 
+** emacspeak-webspace-headlines	Key Sequence: control ; SPACE h   hyper  SPACE h 
 
  Speak current news headline. 
 
@@ -3986,7 +3961,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'.
 
 ------------------------------------------------------------
 
-** emacspeak-webspace-weather	Key Sequence: hyper  SPACE w 
+** emacspeak-webspace-weather	Key Sequence: control ; SPACE w   hyper  SPACE w 
 
  Speak current weather. 
 
@@ -4045,6 +4020,10 @@ instances.
 
 ** emacspeak-webutils-open-in-other-browser Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-open-subscribed-feeds Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds 
 
 ------------------------------------------------------------
 
@@ -4595,6 +4574,10 @@ Extracted content is placed as a csv file in task.csv.
 
 ** emacspeak-wizards-google-hits Filter Google results after performing search to show just the
 hits. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-google-squared Invoke Google Squared search. 
 
 ------------------------------------------------------------
 
