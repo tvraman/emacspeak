@@ -419,9 +419,9 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (switch-to-buffer buffer)
       (emacspeak-webspace-mode)
       (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe))
-      
-      (goto-char (point-min))
-      (emacspeak-speak-line))))
+    (goto-char (point-min))))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
 (defun emacspeak-webspace-reader-unsubscribe ()
