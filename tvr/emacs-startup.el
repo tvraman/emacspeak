@@ -154,8 +154,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "cperl-mode" "ruby-prepare"
        "pcl-prepare" "emms-prepare"
        "erc-prepare" "jabber-prepare"
-       ;"twit"
-       "twittering-mode"
+       "twittering-prepare"
        "browse-kill-ring"
        "dictionary-prepare"
        "tramp-prepare"
@@ -168,7 +167,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  #'after-init-hook
  #'(lambda ()
-     ;(color-theme-emacs-21)
      (bbdb-insinuate-vm)
      (server-start)
      (emacspeak-tts-startup-hook)

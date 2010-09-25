@@ -385,39 +385,43 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 (defun emacspeak-webspace-reader ()
   "Display Google Reader Feed list in a WebSpace buffer."
   (interactive)
-  (let ((subscriptions (greader-subscriptions))
-        (buffer (get-buffer-create "Reader"))
-        (inhibit-read-only t)
-        (start nil))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
+  (cond
+   ((buffer-live-p  (get-buffer "Reader"))
+    (switch-to-buffer  "Reader"))
+   (t
+    (let ((subscriptions (greader-subscriptions))
+          (buffer (get-buffer-create "Reader"))
+          (inhibit-read-only t)
+          (start nil))
+      (save-excursion
+        (set-buffer buffer)
+        (erase-buffer)
+        (setq buffer-undo-list t)
+        (goto-char (point-min))
+        (insert
+         (format "Google Reader %d\n"
+                 (length subscriptions)))
+        (setq start (point))
+        (loop for feed across subscriptions
+              and i from 1
+              do
+              (insert
+               (format "%d. %s\n"
+                       i
+                       (cdr (assoc 'title feed))))
+              (put-text-property start (point)
+                                 'link (greader-id-to-url (cdr
+                                                           (assoc
+                                                            'id
+                                                            feed))))
+              (setq start (point)))
+        (setq buffer-read-only t))
+      (switch-to-buffer buffer)
+      (emacspeak-webspace-mode)
+      (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe))
+      
       (goto-char (point-min))
-      (insert
-       (format "Google Reader %d\n"
-               (length subscriptions)))
-      (setq start (point))
-      (loop for feed across subscriptions
-            and i from 1
-            do
-            (insert
-             (format "%d. %s\n"
-                     i
-                     (cdr (assoc 'title feed))))
-            (put-text-property start (point)
-                               'link (greader-id-to-url (cdr
-                                                         (assoc
-                                                          'id
-                                                          feed))))
-            (setq start (point)))
-      (setq buffer-read-only t))
-    (switch-to-buffer buffer)
-    (emacspeak-webspace-mode)
-    (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe)
-    (emacspeak-auditory-icon 'open-object)
-    (goto-char (point-min))
-    (emacspeak-speak-line)))
+      (emacspeak-speak-line))))
 
 ;;;###autoload
 (defun emacspeak-webspace-reader-unsubscribe ()
