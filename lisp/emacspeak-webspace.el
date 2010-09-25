@@ -382,15 +382,14 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 ;;}}}
 ;;{{{ Google Reader In Webspace:
 
-(defun emacspeak-webspace-reader ()
-  "Display Google Reader Feed list in a WebSpace buffer."
-  (interactive)
-  (cond
-   ((buffer-live-p  (get-buffer "Reader"))
-    (switch-to-buffer  "Reader"))
-   (t
-    (let ((subscriptions (greader-subscriptions))
-          (buffer (get-buffer-create "Reader"))
+(defvar emacspeak-webspace-reader-buffer "Reader"
+  "Name of Reader buffer.")
+
+(defun emacspeak-webspace-reader-create ()
+  "Prepare Reader buffer."
+  (declare (special emacspeak-webspace-reader-buffer))
+  (let ((subscriptions (greader-subscriptions))
+          (buffer (get-buffer-create emacspeak-webspace-reader-buffer))
           (inhibit-read-only t)
           (start nil))
       (save-excursion
@@ -415,12 +414,20 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
                                                             'id
                                                             feed))))
               (setq start (point)))
-        (setq buffer-read-only t))
-      (switch-to-buffer buffer)
-      (emacspeak-webspace-mode)
+        (setq buffer-read-only t)
+	(emacspeak-webspace-mode)
       (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe))
-    (goto-char (point-min))))
-  (emacspeak-speak-line)
+      buffer))
+
+;;;###autoload 
+(defun emacspeak-webspace-reader ()
+  "Display Google Reader Feed list in a WebSpace buffer."
+  (interactive)
+  (declare (special emacspeak-webspace-reader-buffer))
+  (unless (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))
+    (emacspeak-webspace-reader-create))
+  (switch-to-buffer emacspeak-webspace-reader-buffer)
+  (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
