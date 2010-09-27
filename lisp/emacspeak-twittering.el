@@ -79,16 +79,6 @@
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
-(loop for command in
-      '(
-        twittering-goto-first-status)
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide spoken and auditory feedbackfeedback."
-          (when (interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line)))))
 
 (loop for command in
       '(twittering-goto-next-thing
@@ -110,7 +100,10 @@
            (get-text-property (point) 'text))))
 
 (loop for command in
-      '(twittering-goto-next-status
+      '(twittering-goto-first-status
+        twittering-scroll-up
+        twittering-scroll-down
+        twittering-goto-next-status
         twittering-goto-previous-status
         twittering-goto-previous-status-of-user
         twittering-goto-previous-status-of-user)
