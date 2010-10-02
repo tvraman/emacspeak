@@ -47,7 +47,14 @@
 ;;{{{ requires
 (require 'emacspeak-preamble)
 (require 'gnus)
+(require 'gnus-art)
 (require 'gnus-sum)
+
+;; This may not be needed. It seems emacs version of gnus had 
+;; gnus-article-buffer as far back as emacs 21.
+(unless (and (symbolp 'gnus-article-buffer)
+	     (boundp 'gnus-article-buffer))
+  (defvar gnus-article-buffer "*Article*"))
 
 ;;}}}
 ;;{{{  Customizations:
@@ -146,9 +153,10 @@ reading news."
 
 (defsubst emacspeak-gnus-speak-article-body ()
   (declare (special emacspeak-gnus-large-article
-                    voice-lock-mode dtk-punctuation-mode))
+                    voice-lock-mode dtk-punctuation-mode
+		    gnus-article-buffer))
   (save-excursion
-    (set-buffer  "*Article*")
+    (set-buffer  gnus-article-buffer)
     (goto-char (point-min))
     (setq dtk-punctuation-mode 'some)
     (voice-lock-mode 1)
@@ -642,12 +650,13 @@ the previous group was closed."
   "Speak the subject and speak the first screenful.
 Produce an auditory icon
 indicating the article is being opened."
+  (declare (special gnus-article-buffer))
   (when (interactive-p)
     (emacspeak-gnus-summary-speak-subject)
     (sit-for 2)
     (emacspeak-auditory-icon 'open-object)
     (save-excursion
-      (set-buffer  "*Article*")
+      (set-buffer  gnus-article-buffer)
       (emacspeak-dtk-sync)
       (let ((start  (point ))
             (window (get-buffer-window (current-buffer ))))
@@ -726,10 +735,11 @@ instead you hear only the first screenful.")
 
 (defadvice gnus-summary-next-page (after emacspeak pre act)
   "Speak the next pageful "
+  (declare (special gnus-article-buffer))
   (dtk-stop)
   (emacspeak-auditory-icon 'scroll)
   (save-excursion
-    (set-buffer  "*Article*")
+    (set-buffer  gnus-article-buffer)
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
       (with-selected-window window
@@ -740,10 +750,11 @@ instead you hear only the first screenful.")
 
 (defadvice gnus-summary-prev-page (after emacspeak pre act)
   "Speak the previous  pageful "
+  (declare (special gnus-article-buffer))
   (dtk-stop)
   (emacspeak-auditory-icon 'scroll)
   (save-excursion
-    (set-buffer  "*Article*")
+    (set-buffer  gnus-article-buffer)
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
       (with-selected-window window
@@ -753,16 +764,20 @@ instead you hear only the first screenful.")
           (emacspeak-speak-region start (point )))))))
 
 (defadvice gnus-summary-beginning-of-article (after emacspeak pre act)
-  "Speak the first line. "(save-excursion
-                            (set-buffer "*Article*")
-                            (emacspeak-speak-line )))
+  "Speak the first line. "
+  (declare (special gnus-article-buffer))
+  (save-excursion
+    (set-buffer gnus-article-buffer)
+    (emacspeak-speak-line )))
 
 (defadvice gnus-summary-end-of-article
 
   (after emacspeak pre act)
-  "Speak the first line. "(save-excursion
-                            (set-buffer "*Article*")
-                            (emacspeak-speak-line )))
+  "Speak the first line. "
+  (declare (special gnus-article-buffer))
+  (save-excursion
+    (set-buffer gnus-article-buffer)
+    (emacspeak-speak-line )))
 
 (defadvice gnus-summary-next-unread-article (after emacspeak pre act)
   "Speak the article. "
