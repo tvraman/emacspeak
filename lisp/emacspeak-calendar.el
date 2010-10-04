@@ -380,7 +380,7 @@
             (function (lambda ()
                         ))))
 
-(add-hook 'initial-calendar-window-hook 'emacspeak-calendar-setup t)
+(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
 
 ;;}}}
 ;;{{{  Appointments:
