@@ -115,6 +115,8 @@
     (add-hook 'diary-display-hook 'fancy-diary-display)))
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
+(add-hook 'calendar-mode-hook
+          'emacspeak-calendar-setup)
 
 (loop for f in
       '(fancy-diary-display simple-diary-display
@@ -380,7 +382,7 @@
             (function (lambda ()
                         ))))
 
-(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
+;(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
 
 ;;}}}
 ;;{{{  Appointments:
