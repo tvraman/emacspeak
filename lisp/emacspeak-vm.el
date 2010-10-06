@@ -177,7 +177,10 @@ Note that some badly formed mime messages  cause trouble."
                    (vm-su-to message )))
             (self-p (or
                      (string-match emacspeak-vm-user-full-name to)
-                     (string-match  (user-login-name) to)))
+                     (string-match  (user-login-name) to)
+                     (string-match
+                      (format "%s@%s" (user-login-name) smtpmail-local-domain)
+to)))
             (lines (vm-su-line-count message))
             (summary nil))
       (dtk-speak
@@ -189,13 +192,15 @@ Note that some badly formed mime messages  cause trouble."
                 (if (and to (< (length to) 80))
                     (format "to %s" to) "")
                 (if lines (format "%s lines" lines) ""))))
+      (goto-char (point-min))
+      (search-forward  (format "%c%c" 10 10) nil)
       (cond
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others
         (emacspeak-auditory-icon 'item))
-       (self-p                          ;mail to others including me
+       (self-p                       ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t                            ;got it because of a mailing list
+       (t                       ;got it because of a mailing list
         (emacspeak-auditory-icon 'select-object ))))))
 
 (defun emacspeak-vm-speak-labels ()
