@@ -157,7 +157,6 @@ Note that some badly formed mime messages  cause trouble."
   (condition-case nil
       (emacspeak-hide-all-blocks-in-buffer)
     (error nil))
-  (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-rest-of-buffer))
 
 (defun emacspeak-vm-summarize-message ()
