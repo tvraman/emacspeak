@@ -157,7 +157,7 @@ Note that some badly formed mime messages  cause trouble."
   (condition-case nil
       (emacspeak-hide-all-blocks-in-buffer)
     (error nil))
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-rest-of-buffer))
 
 (defun emacspeak-vm-summarize-message ()
@@ -180,7 +180,7 @@ Note that some badly formed mime messages  cause trouble."
                      (string-match  (user-login-name) to)
                      (string-match
                       (format "%s@%s" (user-login-name) smtpmail-local-domain)
-to)))
+                      to)))
             (lines (vm-su-line-count message))
             (summary nil))
       (dtk-speak
