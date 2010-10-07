@@ -427,6 +427,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (unless (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))
     (emacspeak-webspace-reader-create))
   (switch-to-buffer emacspeak-webspace-reader-buffer)
+  (goto-char (point-min))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
