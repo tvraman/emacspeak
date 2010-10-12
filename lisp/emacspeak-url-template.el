@@ -501,6 +501,19 @@ dont-url-encode if true then url arguments are not url-encoded "
       "id(\"res0\")/.."
       url )))
 
+
+;;; Google Realtime standalone:
+
+(emacspeak-url-template-define
+ "Google Realtime Search"
+ "http://www.google.com/search?tbs=mbl:1&hl=en&source=hp&ie=ISO-8859-1&q=%s&btnG=Search"
+ (list "Realtime Search: ")
+ #'(lambda ()
+     (re-search-forward "^ *New Results" nil t)
+     (emacspeak-speak-rest-of-buffer))
+ "Perform Google Realtime Search"
+ )
+
 ;;}}}
 ;;{{{ market summary from google finance
 
