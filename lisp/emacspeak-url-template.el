@@ -1115,7 +1115,7 @@ from English to German.")
  "Show 1box result from Google."
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list
-      (list "rbt" "e" "std")
+      (list "rbt" "e" "std" "med")
       url 'speak)))
 
 
