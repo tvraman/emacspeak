@@ -231,6 +231,7 @@ on a specific director."
    (regexp-opt
     (list ".wma"
           ".wmv"
+	  ".flv"
           ".m4a"
           ".m4b"
           ".flac"
