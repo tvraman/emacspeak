@@ -1,6 +1,36 @@
 ;;; Augment load path:
-(augment-load-path "vm/lisp" "vm")
-(load-library "vm")
+(augment-load-path "vm" "vm")
+(defun make-local-hook (hook)
+  "Make the hook HOOK local to the current buffer.
+The return value is HOOK.
+
+You never need to call this function now that `add-hook' does it for you
+if its LOCAL argument is non-nil.
+
+When a hook is local, its local and global values
+work in concert: running the hook actually runs all the hook
+functions listed in *either* the local value *or* the global value
+of the hook variable.
+
+This function works by making t a member of the buffer-local value,
+which acts as a flag to run the hook functions in the default value as
+well.  This works for all normal hooks, but does not work for most
+non-normal hooks yet.  We will be changing the callers of non-normal
+hooks so that they can handle localness; this has to be done one by
+one.
+
+This function does nothing if HOOK is already local in the current
+buffer.
+
+Do not use `make-local-variable' to make a hook variable buffer-local."
+  (if (local-variable-p hook)
+      nil
+    (or (boundp hook) (set hook nil))
+    (make-local-variable hook)
+    (set hook (list t)))
+  hook)
+(load-library "vm-autoloads")
+(load-library "vm-pine")
 
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 (defalias 'w3-region 'w3m-region)
@@ -28,34 +58,22 @@
 (define-key vm-mode-map "\C-\M-s" 'vm-spam-assassinate)
 
  ;;}}}
+;;{{{ vm multipart reply fixup:
 
-;;{{{ GMail:
-;; I set these via custom, 
-;; and in addition, I push 
-;; (list "~/gbox" (first vm-imap-server-list) "~/gbox.crash")
-;; on to vm-spool-files.
-;; Required
-;(setq vm-imap-server-list
-      ;'("imap-ssl:imap.gmail.com:993:inbox:login:tv.raman.tv@gmail.com:*"))
-
-;; Optional
-;(setq vm-imap-folder-cache-directory (expand-file-name "IMAP"
-;vm-folder-directory))
-;(setq vm-imap-save-to-server t)
-(defcustom vm-gmail-email-address
-  "tv.raman.tv@gmail.com"
-  "Set this to your GMail address.")
+;; (defun vm-mime-text-type-layout-p (layout)
+;;   "Check for text/plain, not text."
+;;   (or (vm-mime-types-match "text/plain" (car (vm-mm-layout-type layout)))
+;;       (vm-mime-types-match "message" (car (vm-mm-layout-type layout)))))
+(define-key vm-mode-map "\M-i" 'icalendar-import-buffer)
+;;}}}
+(setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
 (defun vm-gmail-spam (&optional count)
   "Save to IMAP Spam folder."
   (interactive (list (prefix-numeric-value current-prefix-arg)))
-  (vm-save-message-to-imap-folder
-   (format "imap-ssl:imap.gmail.com:993:[Gmail]/Spam:login:%s:*"
-           vm-gmail-email-address)
-           count)
+  (vm-save-message-to-imap-folder "imap-ssl:imap.gmail.com:993:[Gmail]/Spam:login:raman@google.com:*" count)
   (call-interactively 'vm-next-message))
 
-(define-key vm-mode-map "!" 'vm-gmail-spam)
-(define-key vm-mode-map "ls" 'vm-gmail-spam)
 
- ;;}}}
+(define-key vm-mode-map "ls" 'vm-gmail-spam)
+(setq vm-auto-displayed-mime-content-type-exceptions nil)
