@@ -113,6 +113,8 @@
         twittering-scroll-down
         twittering-goto-next-status
         twittering-goto-previous-status
+        twittering-goto-next-status-of-user
+        twittering-goto-previous-status-of-user
         twittering-goto-previous-status-of-user
         twittering-goto-previous-status-of-user)
       do
