@@ -694,9 +694,11 @@ date under point."
                         gcal-privacy-choices)
       (completing-read "Projection: "
                        gcal-projection-choices)))
-    (t (list (g-auth-email  gcal-auth-handle)
-             "private" "full"))))
+    (t (list
+        (if gcal-user-email gcal-user-email g-user-email)
+        "private" "full"))))
   (declare (special gcal-auth-handle
+                    gcal-user-email g-user-email
                     gcal-privacy-choices gcal-projection-choices
                     gcal-calendar-view
                     calendar-mark-ring))
