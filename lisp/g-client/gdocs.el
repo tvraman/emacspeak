@@ -179,13 +179,19 @@ Interactive prefix arg prompts for a query string."
        (org-export-region-as-html (point-min) (point-max)
                                   nil g-scratch-buffer))
      (set-buffer-multibyte nil)
-     (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes))))
+     (let (
+           (cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
+             (title
+              (format "-H 'Slug: %s'"
+                      (or (org-export-get-title-from-subtree)
+                          (org-export-grab-title-from-buffer)
+                          (buffer-name org-buffer)))))
        (shell-command-on-region
         (point-min) (point-max)
         (format
-         "%s -s -S -i %s %s %s %s"
+                 "%s -s -S -i %s %s %s %s %s"
          g-curl-program 
-         gdocs-upload-options cl 
+                 gdocs-upload-options cl title
          (g-authorization gdocs-auth-handle)
          (gdocs-feeds-url))
         nil 'replace
