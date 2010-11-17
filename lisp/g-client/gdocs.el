@@ -179,19 +179,150 @@ Interactive prefix arg prompts for a query string."
        (org-export-region-as-html (point-min) (point-max)
                                   nil g-scratch-buffer))
      (set-buffer-multibyte nil)
-     (let (
-           (cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
-             (title
-              (format "-H 'Slug: %s'"
-                      (or (org-export-get-title-from-subtree)
-                          (org-export-grab-title-from-buffer)
-                          (buffer-name org-buffer)))))
+     (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
+	   (title (format "-H 'Slug: %s'"
+                          (or
+                           (save-excursion
+                             (set-buffer org-buffer)
+                             (or
+                              (org-export-get-title-from-subtree)
+                              (org-export-grab-title-from-buffer)))
+                           (buffer-name org-buffer)))))
+       (shell-command-on-region
+        (point-min) (point-max)
+        (format "%s -s -S -i %s %s %s %s %s"
+		g-curl-program 
+		gdocs-upload-options cl title
+		(g-authorization gdocs-auth-handle)
+		(gdocs-feeds-url))
+        nil 'replace
+        "*Messages*"))
+     (let ((headers (g-http-headers (point-min) (point-max)))
+           (body (g-http-body (point-min) (point-max))))
+       (cond
+        ((string-equal "201" (g-http-header "Status" headers))
+         (g-display-xml-string body g-atom-view-xsl))
+        (t (error "Received %s"
+                  (g-http-header "Status" headers))))))))
+
+;;}}}
+;;{{{ Retrieving plain text:
+
+(defvar gdocs-download-template-url
+  "http://docs.google.com/feeds/download/documents/Export"
+  "URL template for downloading document.")
+
+(defsubst gdocs-download-url ()
+  "Return URL for downloading a document."
+  (declare (special gdocs-download-template-url))
+  gdocs-download-template-url)
+
+(defun gdocs-fetch-document-text ()
+  "Fetch the plain text of a document."
+  (interactive)
+  ; todo: get this from a buffer local variable.
+  (setq docid (read-from-minibuffer "Doc ID:"))
+  (declare (special gdocs-auth-handle
+                    g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (let ((location 
+	 (concat (gdocs-download-url)
+		 (format "?id=%s&exportFormat=txt&format=txt" docid))))
+    (g-auth-ensure-token gdocs-auth-handle)
+    (g-get-result
+     (format
+      "%s %s %s %s '%s' 2>/dev/null"
+      g-curl-program g-curl-common-options
+      g-cookie-options
+      (g-authorization gdocs-auth-handle) location))))
+
+;;}}}
+;;{{{ Update document:
+
+(defvar gdocs-update-template-url
+  "http://docs.google.com/feeds/media/private/full/document%3A"
+  "URL template for updating document.")
+
+(defsubst gdocs-update-url ()
+  "Return URL for updating a document."
+  (declare (special gdocs-update-template-url))
+  gdocs-update-template-url)
+
+(defvar gdocs-update-options-text
+  "-H 'Content-Type: text/plain' -X PUT --data-binary  @-"
+  "Options template for uploading a document without metadata.")
+
+(defun gdocs-blind-update-from-text ()
+  "Export from plain text to a specific Google Doc, without
+checking version. This means that if there are more recent
+changes on the server side they will be overwritten."
+  (interactive)
+  ; todo: get this from a buffer local variable.
+  (setq docid (read-from-minibuffer "Doc ID:"))
+  ;(setq etag (read-from-minibuffer "ETag:"))
+  (declare (special g-cookie-options
+                    g-curl-program g-curl-common-options
+                    g-app-this-url g-app-auth-handle
+                    g-curl-atom-header
+		    gdocs-auth-handle
+		    g-curl-program))
+  (g-auth-ensure-token gdocs-auth-handle)
+  (let ((text-buffer (current-buffer))
+	(location (concat (gdocs-update-url) docid)))
+    (g-using-scratch
+     (save-excursion
+       (set-buffer text-buffer)
+       (copy-to-buffer g-scratch-buffer (point-min) (point-max)))
+     (set-buffer-multibyte nil)
+     (let* ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
+	    (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
+	    ;; Warning: This always clobbers! todo: fix this.
+	    ;(etag-header (format "-H 'If-None-Match: %s'" etag))
+	    (etag-header "-H 'If-None-Match: fixme'")
+	    (g-curl-version-header 
+	     "-H 'Content-Type: text/plain' -H 'GData-Version: 2'")
+	    (curl-cmd 
+	     (format
+	      "%s %s %s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
+	      g-curl-program g-curl-common-options g-curl-version-header cl 
+	      title etag-header
+	      (g-authorization gdocs-auth-handle)
+	      g-cookie-options
+	      "PUT"
+	      location)))
+       (shell-command-on-region
+	(point-min) (point-max)
+	curl-cmd
+	(current-buffer) 'replace)))))
+
+;;}}}
+;;{{{ Publishing plain text:
+
+(defvar gdocs-upload-options-text
+  "--data-binary @- -H 'Content-Type: text/plain'"
+  "Options template for uploading a document without metadata.")
+
+(defun gdocs-publish-from-text ()
+  "Export from plain text to Google Docs."
+  (interactive)
+  (declare (special  gdocs-auth-handle g-curl-program
+                     gdocs-upload-options-text g-atom-view-xsl))
+  (g-auth-ensure-token gdocs-auth-handle)
+  (let ((text-buffer (current-buffer)))
+    (g-using-scratch
+     (save-excursion
+       (set-buffer text-buffer)
+       (copy-to-buffer g-scratch-buffer (point-min) (point-max)))
+     (set-buffer-multibyte nil)
+     (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
+	   (title (format "-H 'Slug: %s'" (buffer-name text-buffer))))
        (shell-command-on-region
         (point-min) (point-max)
         (format
-                 "%s -s -S -i %s %s %s %s %s"
+         "%s -s -S -i %s %s %s %s %s"
          g-curl-program 
-                 gdocs-upload-options cl title
+         gdocs-upload-options-text cl title
          (g-authorization gdocs-auth-handle)
          (gdocs-feeds-url))
         nil 'replace
@@ -203,7 +334,6 @@ Interactive prefix arg prompts for a query string."
          (g-display-xml-string body g-atom-view-xsl))
         (t (error "Received %s"
                   (g-http-header "Status" headers))))))))
-    
 
 ;;}}}
 ;;{{{ ACL:
