@@ -218,10 +218,13 @@ Interactive prefix arg prompts for a query string."
   gdocs-download-template-url)
 
 (defun gdocs-fetch-document-text ()
-  "Fetch the plain text of a document."
+  "Fetch the plain text of a document. The docid is taken from
+the buffer local variable gdocs-docid. If that is not present,
+this interactively prompts for it."
   (interactive)
-  ; todo: get this from a buffer local variable.
-  (setq docid (read-from-minibuffer "Doc ID:"))
+  (if (boundp 'gdocs-docid)
+    (setq docid gdocs-docid)
+    (setq docid (read-from-minibuffer "Doc ID:")))
   (declare (special gdocs-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
@@ -256,10 +259,13 @@ Interactive prefix arg prompts for a query string."
 (defun gdocs-blind-update-from-text ()
   "Export from plain text to a specific Google Doc, without
 checking version. This means that if there are more recent
-changes on the server side they will be overwritten."
+changes on the server side they will be overwritten. The docid is
+taken from the buffer local variable gdocs-docid. If that is not
+present, this interactively prompts for it."
   (interactive)
-  ; todo: get this from a buffer local variable.
-  (setq docid (read-from-minibuffer "Doc ID:"))
+  (if (boundp 'gdocs-docid)
+    (setq docid gdocs-docid)
+    (setq docid (read-from-minibuffer "Doc ID:")))
   ;(setq etag (read-from-minibuffer "ETag:"))
   (declare (special g-cookie-options
                     g-curl-program g-curl-common-options
