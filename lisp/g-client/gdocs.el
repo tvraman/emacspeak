@@ -217,8 +217,8 @@ Interactive prefix arg prompts for a query string."
   (declare (special gdocs-download-template-url))
   gdocs-download-template-url)
 
-(defun gdocs-fetch-document-text ()
-  "Fetch the plain text of a document. The docid is taken from
+(defun gdocs-fetch-document (export-format)
+  "Fetch a document in the given format. The docid is taken from
 the buffer local variable gdocs-docid. If that is not present,
 this interactively prompts for it."
   (interactive)
@@ -231,7 +231,8 @@ this interactively prompts for it."
                     g-cookie-options))
   (let ((location 
 	 (concat (gdocs-download-url)
-		 (format "?id=%s&exportFormat=txt&format=txt" docid))))
+		 (format "?id=%s&exportFormat=%s&format=%s"
+			 docid export-format export-format))))
     (g-auth-ensure-token gdocs-auth-handle)
     (g-get-result
      (format
@@ -239,6 +240,20 @@ this interactively prompts for it."
       g-curl-program g-curl-common-options
       g-cookie-options
       (g-authorization gdocs-auth-handle) location))))
+
+(defun gdocs-fetch-document-text ()
+  "Fetch the plain text of a document. The docid is taken from
+the buffer local variable gdocs-docid. If that is not present,
+this interactively prompts for it."
+  (interactive)
+  (gdocs-fetch-document "txt"))
+
+(defun gdocs-fetch-document-html ()
+  "Fetch the HTML of a document. The docid is taken from the
+buffer local variable gdocs-docid. If that is not present, this
+interactively prompts for it."
+  (interactive)
+  (gdocs-fetch-document "html"))
 
 ;;}}}
 ;;{{{ Update document:
@@ -252,16 +267,12 @@ this interactively prompts for it."
   (declare (special gdocs-update-template-url))
   gdocs-update-template-url)
 
-(defvar gdocs-update-options-text
-  "-H 'Content-Type: text/plain' -X PUT --data-binary  @-"
-  "Options template for uploading a document without metadata.")
-
-(defun gdocs-blind-update-from-text ()
-  "Export from plain text to a specific Google Doc, without
-checking version. This means that if there are more recent
-changes on the server side they will be overwritten. The docid is
-taken from the buffer local variable gdocs-docid. If that is not
-present, this interactively prompts for it."
+(defun gdocs-blind-update (content-type)
+  "Export to a specific Google Doc, without checking
+version. This means that if there are more recent changes on the
+server side they will be overwritten. The docid is taken from the
+buffer local variable gdocs-docid. If that is not present, this
+interactively prompts for it."
   (interactive)
   (if (boundp 'gdocs-docid)
     (setq docid gdocs-docid)
@@ -287,7 +298,8 @@ present, this interactively prompts for it."
 	    ;(etag-header (format "-H 'If-None-Match: %s'" etag))
 	    (etag-header "-H 'If-None-Match: fixme'")
 	    (g-curl-version-header 
-	     "-H 'Content-Type: text/plain' -H 'GData-Version: 2'")
+	     (format "-H 'Content-Type: %s' -H 'GData-Version: 2'" 
+		     content-type))
 	    (curl-cmd 
 	     (format
 	      "%s %s %s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
@@ -302,18 +314,33 @@ present, this interactively prompts for it."
 	curl-cmd
 	(current-buffer) 'replace)))))
 
+(defun gdocs-update-from-text ()
+  "Export from plain text to a specific Google Doc, without
+checking version. This means that if there are more recent
+changes on the server side they will be overwritten. The docid is
+taken from the buffer local variable gdocs-docid. If that is not
+present, this interactively prompts for it."
+  (interactive)
+  (gdocs-blind-update "text/plain"))
+
+(defun gdocs-update-from-html ()
+  "Export from HTML to a specific Google Doc, without checking
+version. This means that if there are more recent changes on the
+server side they will be overwritten. The docid is taken from the
+buffer local variable gdocs-docid. If that is not present, this
+interactively prompts for it."
+  (interactive)
+  (gdocs-blind-update "text/html"))
+
+
 ;;}}}
 ;;{{{ Publishing plain text:
 
-(defvar gdocs-upload-options-text
-  "--data-binary @- -H 'Content-Type: text/plain'"
-  "Options template for uploading a document without metadata.")
-
-(defun gdocs-publish-from-text ()
-  "Export from plain text to Google Docs."
+(defun gdocs-publish (content-type)
+  "Export from given content type to Google Docs."
   (interactive)
   (declare (special  gdocs-auth-handle g-curl-program
-                     gdocs-upload-options-text g-atom-view-xsl))
+		     g-atom-view-xsl))
   (g-auth-ensure-token gdocs-auth-handle)
   (let ((text-buffer (current-buffer)))
     (g-using-scratch
@@ -322,13 +349,15 @@ present, this interactively prompts for it."
        (copy-to-buffer g-scratch-buffer (point-min) (point-max)))
      (set-buffer-multibyte nil)
      (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
-	   (title (format "-H 'Slug: %s'" (buffer-name text-buffer))))
+	   (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
+	   (gcurl-header (format "--data-binary @- -H 'Content-Type: %s'"
+				 content-type)))
        (shell-command-on-region
         (point-min) (point-max)
         (format
          "%s -s -S -i %s %s %s %s %s"
          g-curl-program 
-         gdocs-upload-options-text cl title
+         gcurl-header cl title
          (g-authorization gdocs-auth-handle)
          (gdocs-feeds-url))
         nil 'replace
@@ -340,6 +369,16 @@ present, this interactively prompts for it."
          (g-display-xml-string body g-atom-view-xsl))
         (t (error "Received %s"
                   (g-http-header "Status" headers))))))))
+
+(defun gdocs-publish-from-html ()
+  "Export from HTML to Google Docs."
+  (interactive)
+  (gdocs-publish "text/html"))
+
+(defun gdocs-publish-from-text ()
+  "Export from text to Google Docs."
+  (interactive)
+  (gdocs-publish "text/text"))
 
 ;;}}}
 ;;{{{ ACL:
