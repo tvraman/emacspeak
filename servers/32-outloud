@@ -38,6 +38,8 @@
 # libtclx8.4.so.0: tclx8.4
 # The following i386 packages will be installed:
 # tclx8.4
+# Also run sudo getlibs -l libtcl8.4.so
+# to install tcl8.4-dev libs if you want to rebuild the server
 # This resolves the dependency below.
 
 load /usr/lib32/libtclx8.4.so.0
