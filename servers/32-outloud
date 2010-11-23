@@ -33,6 +33,12 @@
 
 # }}}
 # {{{source common code 
+# install getlibs, then do 
+# sudo getlibs -l libtclx8.4.so.0
+# libtclx8.4.so.0: tclx8.4
+# The following i386 packages will be installed:
+# tclx8.4
+# This resolves the dependency below.
 
 load /usr/lib32/libtclx8.4.so.0
 package require Tclx32
