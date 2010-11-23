@@ -378,7 +378,7 @@ interactively prompts for it."
 (defun gdocs-publish-from-text ()
   "Export from text to Google Docs."
   (interactive)
-  (gdocs-publish "text/text"))
+  (gdocs-publish "text/plain"))
 
 ;;}}}
 ;;{{{ ACL:
