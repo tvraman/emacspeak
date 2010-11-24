@@ -34,7 +34,8 @@
 | 29.0 | November   2008 | AbleDog        |
 | 30.0 | May 2009        | SocialDog      |
 | 31.0 | November 2009   | TweetDog       |
-| 32.0 | May 2010        |                LuckyDog|
+| 32.0 | May 2010        | LuckyDog       |
+| 33.0 | November 2010   |                StarDog|
 |------+-----------------+----------------|
 
 #+TITLE:     code-names.txt
