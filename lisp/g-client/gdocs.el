@@ -51,12 +51,30 @@
 ;;; See http://code.google.com/apis/documents/overview.html
 ;;;Basic Design:
 ;;; Use gdocs-doclist to get a list of documents,
+;;; When invoked with a prefix argument, it will prompt for a search term.
 ;;; Follow the download link to read the document as HTML,
 ;;; And use the edit-media URL to edit the content.
-;;; Editting will be done using org-mode,
-;;; And we will use org-export to turn org-authored content into HTML before posting.
-;;; Function org-infile-export-plist will be used to get metadata from the org-mode source buffer
-;;; ToDo: To figure out how to round-trip back from Docs-generated HTMLinto org.
+;;;
+;;; The following functions publish the contents of the current
+;;; buffer as a new Google doc:
+;;; gdocs-publish-from-org (converts org to HTML, then
+;;; publishes. Function org-infile-export-plist will be used to get
+;;; metadata from the org-mode source buffer)
+;;; gdocs-publish-from-text
+;;; gdocs-publish-from-html
+;;; 
+;;; The following functions update an existing Google doc with the
+;;; contents of the current buffer, blindly overwriting the server's
+;;; content. They get the docid from the file variable gdocs-docid,
+;;; or else prompt for it.
+;;; gdocs-update-from-text
+;;; gdocs-update-from-html
+;;; 
+;;; The following functions fetch the contents of an existing Google
+;;; doc and leave it in the *g scratch* buffer. They get the docid
+;;; from the file variable gdocs-docid, or else prompt for it.
+;;; gdocs-fetch-document-text
+;;; gdocs-fetch-document-html
 
 ;;}}}
 ;;{{{  Required modules
@@ -334,7 +352,7 @@ interactively prompts for it."
 
 
 ;;}}}
-;;{{{ Publishing plain text:
+;;{{{ Publishing plain text and HTML:
 
 (defun gdocs-publish (content-type)
   "Export from given content type to Google Docs."
