@@ -41,9 +41,7 @@ the evolving service-oriented Web cloud.
 
     
     1. Updated URL Templates for rapid Web access. ♁
-
     2. Support for twittering-mode --- including logins using OAuth.    ●
-
     3. Updated Google docs support enables publishing from org-mode.   ○
     4. Enhanced BBC iPlayer support ☢
     5. Emacs 24 support ♺
