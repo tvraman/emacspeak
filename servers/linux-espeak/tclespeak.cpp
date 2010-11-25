@@ -216,7 +216,9 @@ int
 SetRate (ClientData handle, Tcl_Interp * interp,
 	 int objc, Tcl_Obj * CONST objv[])
 {
+  static int current_rate = -1;
   int rc, rate, voice;
+  int success = 1;
   if (objc != 3)
     {
       Tcl_AppendResult (interp, "Usage: setRate voiceCode speechRate ",
@@ -230,7 +232,13 @@ SetRate (ClientData handle, Tcl_Interp * interp,
   if (rc != TCL_OK)
     return rc;
 
-  return (espeak_SetParameter(espeakRATE, rate, 0) == EE_OK) ? TCL_OK : TCL_ERROR;
+  if (rate != current_rate)
+    {
+      success =  (espeak_SetParameter(espeakRATE, rate, 0) == EE_OK);
+      if (success)
+        current_rate = rate;
+    }
+  return success ? TCL_OK : TCL_ERROR;
 }
 
 //>
@@ -447,22 +455,31 @@ int
 Caps (ClientData handle,
       Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
 {
+  static const char *current_mode = "";
   char* a_mode = (char*)Tcl_GetStringFromObj (objv[1], NULL);
-  if (a_mode)
+  if (a_mode && strcmp(a_mode, current_mode))
     {
       int a_type = 0; // none
   
       if (strcmp(a_mode,"tone") == 0)
 	{
 	  a_type = 1;
+	  current_mode = "tone";
 	}
       else if (strcmp(a_mode,"spelling") == 0)
 	{
 	  a_type = 2;
+	  current_mode = "spelling";
 	}
       else if (strcmp(a_mode,"pitch") == 0)
 	{
 	  a_type = 30;
+	  current_mode = "pitch";
+	}
+      else if (strcmp(a_mode, "none") == 0)
+	{
+	    current_mode = "none";
+	    // a_type is already 0 (none).  No need to assign.
 	}
 
       espeak_SetParameter(espeakCAPITALS, a_type, 0);
@@ -478,21 +495,25 @@ Punct (ClientData handle,
        Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[])
 {
   char* a_mode = (char*)Tcl_GetStringFromObj (objv[1], NULL);
-  if (a_mode)
+  static const char *current_mode = "";
+  if (a_mode && strcmp(a_mode, current_mode))
     {
       espeak_PUNCT_TYPE a_type = espeakPUNCT_NONE;
   
       if (strcmp(a_mode,"none")==0)
 	{
 	  a_type = espeakPUNCT_NONE;
+	  current_mode = "none";
 	}
       else if (strcmp(a_mode,"all")==0)
 	{
 	  a_type = espeakPUNCT_ALL;
+	  current_mode = "all";
 	}
       else if (strcmp(a_mode,"some")==0)
 	{
 	  a_type = espeakPUNCT_SOME;
+	  current_mode = "some";
 	}
 
       espeak_SetParameter(espeakPUNCTUATION, a_type, 0);
