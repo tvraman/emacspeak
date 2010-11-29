@@ -1,0 +1,32 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 6485 2010-05-11 00:26:49Z tv.raman.tv $
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 33 -- Emacspeak 33 User Visible Changes 
+
+** BBC iPlayer 
+
+Adds support to BBC  iPlayer
+
+** emacspeka-url-templates:
+
+Many new URL  templates
+
+** emacspeak-google.el:
+
+Adds support for Google power-search tools
+
+
+** Emacspeak-ebooks.el:
+
+Adds epub support
+
+** Emacs 24 Support:
+
+Adds support for Emacs 24
+
+** Twitter:
+
+Supports Twittering via tiwt.el
+
+
