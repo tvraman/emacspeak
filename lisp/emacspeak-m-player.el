@@ -357,13 +357,11 @@ Interactive prefix arg appends the new resource to what is playing."
                     emacspeak-media-shortcuts-directory))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
-  
-             
-    (emacspeak-m-player-dispatch 
-(format "loadfile %s %s" resource
-        (if append 1 ""))))
+  (emacspeak-m-player-dispatch 
+   (format "loadfile %s %s" resource
+           (if append 1 ""))))
 
-    ))
+    
 
 ;;}}}
 ;;{{{ Table of slave commands:
