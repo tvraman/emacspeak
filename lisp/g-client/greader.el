@@ -704,7 +704,7 @@ user."
 
 (defvar greader-contents-rest-url
   "http://www.google.com/reader/api/0/stream/items/contents"
-  "REST endpoint for getting content.")e
+  "REST endpoint for getting content.")
 
 (defun greader-search-results (query)
   "Return GReader search results."
