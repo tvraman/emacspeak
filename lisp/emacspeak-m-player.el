@@ -330,6 +330,41 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       ;(setq mode-line-format '((:eval  (emacspeak-m-player-mode-line))))
       )))
 
+
+;;;###autoload
+
+(defun emacspeak-m-player-load (resource  &optional append)
+  "Load specified resource into a running  m-player.
+Interactive prefix arg appends the new resource to what is playing."
+  (interactive
+   (list
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t)
+          (minibuffer-history emacspeak-media-history))
+      (read-file-name
+       "MP3 Resource: "
+       (if
+           (string-match "\\(mp3\\)\\|\\(audio\\)"
+                         (expand-file-name default-directory))
+           default-directory
+         emacspeak-media-shortcuts-directory)
+       (when (eq major-mode 'dired-mode)
+         (dired-get-filename))))
+    current-prefix-arg))
+  (declare (special emacspeak-media-history
+                    emacspeak-media-extensions
+                    emacspeak-media-shortcuts-directory))
+  (unless (string-match "^[a-z]+:"  resource)
+    (setq resource (expand-file-name resource)))
+  
+             
+    (emacspeak-m-player-dispatch 
+(format "loadfile %s %s" resource
+        (if append 1 ""))))
+
+    ))
+
 ;;}}}
 ;;{{{ Table of slave commands:
 
@@ -679,7 +714,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 (declaim (special emacspeak-m-player-mode-map))
 (loop for k in 
       '(
-        ("\C-m" emacspeak-m-player)
+        ("\C-m" emacspeak-m-player-load)
         ("e" emacspeak-m-player-add-equalizer)
         ("o" emacspeak-m-player-customize-options)
         ("O" emacspeak-m-player-reset-options)
