@@ -103,8 +103,10 @@ specifies the actual location of the media stream
   (let ((file
 	 (second
          (split-string
+          (or 
           (emacspeak-m-player-dispatch
            "get_file_name\n")
+          "")
           "=")))
 	(pos
 	 (second
