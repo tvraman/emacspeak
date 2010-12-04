@@ -15,7 +15,7 @@ TTS=tclespeak.so
 all:   $(TTS)
 
 $(TTS): tclespeak.o
-	$(CXX) -shared -o $@ $< $(LIBS)
+	$(CXX) $(LDFLAGS) -shared -o $@ $< $(LIBS)
 
 clean:
 	rm -f *.so *.o

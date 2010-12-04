@@ -11,7 +11,7 @@ SERVER_DIR=/usr/share/emacs/site-lisp/emacspeak/servers/software-dtk
 FILES=tcldtk.c tcldtk.so tcldtk.o Makefile
 
 tcldtk.so: tcldtk.o
-	$(CC) -shared -o $@ $< $(LIBS)
+	$(CC) $(LDFLAGS) -shared -o $@ $< $(LIBS)
 
 dist: software-dtk.tar.gz
 

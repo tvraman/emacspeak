@@ -15,10 +15,10 @@ LIBS= -ltcl$(TCL_VERSION) -lasound -ldl
 all:   atcleci.so
 
 atcleci.so: langswitch.o atcleci.o
-	$(CXX) -m32 -shared -o $@ langswitch.o atcleci.o $(LIBS)
+	$(CXX) $(LDFLAGS) -m32 -shared -o $@ langswitch.o atcleci.o $(LIBS)
 
 alsaparams: alsaparams.o
-	$(CC) -o $@ alsaparams.o -lasound
+	$(CC) $(LDFLAGS) -o $@ alsaparams.o -lasound
 
 clean:
 	rm -f *.so *.o 
