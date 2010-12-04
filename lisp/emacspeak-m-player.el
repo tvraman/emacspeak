@@ -100,19 +100,12 @@ specifies the actual location of the media stream
 (defun emacspeak-m-player-current-info ()
   "Return filename and position of current track as a list."
   (declare (special emacspeak-m-player-info-cache))
-  (let ((file
-	 (second
-         (split-string
-          (or 
-          (emacspeak-m-player-dispatch
-           "get_file_name\n")
-          "")
-          "=")))
-	(pos
-	 (second
-         (split-string
-          (emacspeak-m-player-dispatch "get_percent_pos\n")
-          "="))))
+  (let ((file (emacspeak-m-player-dispatch "get_file_name\n"))
+        (pos (emacspeak-m-player-dispatch "get_percent_pos\n")))
+    (when (and file pos)
+      (setq
+       file (second (split-string file "="))
+                        post (second (split-string pos "="))))
     (setq emacspeak-m-player-info-cache (list file pos))))
 
 
