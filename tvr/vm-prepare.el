@@ -31,6 +31,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
   hook)
 (load-library "vm-autoloads")
 (load-library "vm-pine")
+(load-library "vm-pgg")
 
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 (defalias 'w3-region 'w3m-region)
