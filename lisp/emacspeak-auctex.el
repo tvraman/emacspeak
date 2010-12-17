@@ -223,7 +223,6 @@ the opening line of the newly inserted environment. "
                       (nil
                        "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
                        2))))))
-              
 
 ;;}}}
 ;;{{{ advice font changes 

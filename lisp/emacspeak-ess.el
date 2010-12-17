@@ -108,13 +108,13 @@ Cue electric insertion with a tone."
 (loop for f in
       '(
         ess-eval-function ess-eval-buffer
-        ess-eval-function-and-go ess-eval-buffer-and-go
-        ess-eval-chunk ess-eval-chunk-and-go
-        ess-eval-line ess-eval-line-and-go
-        ess-eval-paragraph ess-eval-paragraph-and-go
-        ess-eval-paragraph-and-step
-        ess-eval-region ess-eval-region-and-go
-        ess-eval-line-and-step ess-eval-function-or-paragraph-and-step)
+                          ess-eval-function-and-go ess-eval-buffer-and-go
+                          ess-eval-chunk ess-eval-chunk-and-go
+                          ess-eval-line ess-eval-line-and-go
+                          ess-eval-paragraph ess-eval-paragraph-and-go
+                          ess-eval-paragraph-and-step
+                          ess-eval-region ess-eval-region-and-go
+                          ess-eval-line-and-step ess-eval-function-or-paragraph-and-step)
       do
       (eval
        `

@@ -449,8 +449,8 @@ and TABLE gives the values along that dimension."
   "Configure TTS environment to use ViaVoice  family of synthesizers."
   (declare (special tts-default-speech-rate
                     outloud-default-speech-rate
-		    dtk-speech-rate-step
-		    dtk-speech-rate-base
+                    dtk-speech-rate-step
+                    dtk-speech-rate-base
                     dtk-speaker-process))
   (fset 'tts-list-voices'outloud-list-voices)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
@@ -459,9 +459,9 @@ and TABLE gives the values along that dimension."
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate outloud-default-speech-rate)
   (setq dtk-speech-rate-step 8
-	dtk-speech-rate-base 50)
+        dtk-speech-rate-base 50)
   (setq-default dtk-speech-rate-step 8
-	dtk-speech-rate-base 50)
+                dtk-speech-rate-base 50)
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
 ;;}}}

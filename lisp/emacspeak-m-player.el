@@ -86,12 +86,12 @@ specifies the actual location of the media stream
   (declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (erase-buffer)
-  (process-send-string
-   emacspeak-m-player-process
-   (format "pausing_keep %s\n" command))
-  (accept-process-output emacspeak-m-player-process 0.1)
-  (unless (zerop (buffer-size))
-  (buffer-substring-no-properties (point-min) (1-  (point-max))))))
+    (process-send-string
+     emacspeak-m-player-process
+     (format "pausing_keep %s\n" command))
+    (accept-process-output emacspeak-m-player-process 0.1)
+    (unless (zerop (buffer-size))
+      (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
 (defvar emacspeak-m-player-info-cache nil
   "Cache currently playing info.")
@@ -104,25 +104,24 @@ specifies the actual location of the media stream
     (when (and file pos)
       (setq
        file (second (split-string file "="))
-                        post (second (split-string pos "="))))
+       post (second (split-string pos "="))))
     (setq emacspeak-m-player-info-cache (list file pos))))
-
 
 (defun emacspeak-m-player-speak-current-info ()
   "Speak cached  info about currently playing file."
   (interactive)
   (declare (special emacspeak-m-player-info-cache))
   (message
-    "%s%% in %s"
-           (second emacspeak-m-player-info-cache)
-	   (first emacspeak-m-player-info-cache)))
+   "%s%% in %s"
+   (second emacspeak-m-player-info-cache)
+   (first emacspeak-m-player-info-cache)))
 
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-current-info)))
     (format "%s: %s%%"
-                                    (first info)
-                                    (second info))))
+            (first info)
+            (second info))))
 
 (defun emacspeak-m-player-speak-mode-line ()
   "Speak mode line"
@@ -130,7 +129,6 @@ specifies the actual location of the media stream
   (tts-with-punctuations
    'all
    (dtk-speak (emacspeak-m-player-mode-line))))
-
 
 (define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
@@ -225,7 +223,7 @@ on a specific director."
    (regexp-opt
     (list ".wma"
           ".wmv"
-	  ".flv"
+          ".flv"
           ".m4a"
           ".m4b"
           ".flac"
@@ -250,7 +248,6 @@ on a specific director."
                         (interactive)
                         (emacspeak-m-player-accelerator
                          ,directory)))))
-
 
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
@@ -321,9 +318,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode)
-      ;(setq mode-line-format '((:eval  (emacspeak-m-player-mode-line))))
+                                        ;(setq mode-line-format '((:eval  (emacspeak-m-player-mode-line))))
       )))
-
 
 ;;;###autoload
 
@@ -355,8 +351,6 @@ Interactive prefix arg appends the new resource to what is playing."
    (format "loadfile %s %s" resource
            (if append 1 ""))))
 
-    
-
 ;;}}}
 ;;{{{ Table of slave commands:
 
@@ -372,19 +366,17 @@ necessary."
    (t
     (let ((commands
            (split-string 
-           (shell-command-to-string
-            (format "%s -input cmdlist"
-  emacspeak-m-player-program))
-           "\n" 'omit-nulls)))
+            (shell-command-to-string
+             (format "%s -input cmdlist"
+                     emacspeak-m-player-program))
+            "\n" 'omit-nulls)))
       (setq emacspeak-m-player-command-list
-      (loop  for c in commands
-             collect
-             (split-string c " " 'omit-nulls)))))))
+            (loop  for c in commands
+                   collect
+                   (split-string c " " 'omit-nulls)))))))
 
 ;;}}}
 ;;{{{ commands 
-
-
 
 (defsubst emacspeak-m-player-current-filename ()
   "Return filename of currently playing track."
@@ -523,15 +515,15 @@ necessary."
   "Quit media player."
   (interactive)
   (let ((kill-buffer-query-functions nil))
-  (when (eq (process-status emacspeak-m-player-process) 'run)
-    (let ((buffer (process-buffer emacspeak-m-player-process)))
-      (emacspeak-m-player-current-info) ; cache for future 
-      (emacspeak-m-player-dispatch "quit")
-      (and (buffer-live-p buffer)
-           (kill-buffer buffer))))
-  (unless (eq (process-status emacspeak-m-player-process) 'exit)
-    (delete-process  emacspeak-m-player-process))
-  (emacspeak-speak-mode-line)))
+    (when (eq (process-status emacspeak-m-player-process) 'run)
+      (let ((buffer (process-buffer emacspeak-m-player-process)))
+        (emacspeak-m-player-current-info) ; cache for future 
+        (emacspeak-m-player-dispatch "quit")
+        (and (buffer-live-p buffer)
+             (kill-buffer buffer))))
+    (unless (eq (process-status emacspeak-m-player-process) 'exit)
+      (delete-process  emacspeak-m-player-process))
+    (emacspeak-speak-mode-line)))
 
 ;;;###autoload
 (defun emacspeak-m-player-volume-up ()
@@ -553,7 +545,6 @@ A string of the form `<number> 1' sets volume as an absolute."
   (emacspeak-m-player-dispatch
    (format "volume %s" offset)))
 
-
 ;;;###autoload
 (defun emacspeak-m-player-balance ()
   "Set left/right balance."
@@ -569,14 +560,13 @@ A string of the form `<number> 1' sets volume as an absolute."
   (let* ((command
           (completing-read "Slave Command: " (emacspeak-m-player-command-list)))
          (args
-	  (when (cdr (assoc command emacspeak-m-player-command-list))
-          (read-from-minibuffer
-           (mapconcat #'identity
-		      (cdr (assoc command emacspeak-m-player-command-list))
-                      " ")))))
+          (when (cdr (assoc command emacspeak-m-player-command-list))
+            (read-from-minibuffer
+             (mapconcat #'identity
+                        (cdr (assoc command emacspeak-m-player-command-list))
+                        " ")))))
     (message 
      (emacspeak-m-player-dispatch (format "%s %s" command args)))))
-
 
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()

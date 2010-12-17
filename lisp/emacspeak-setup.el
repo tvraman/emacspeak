@@ -187,7 +187,7 @@ pronunciation dictionaries are stored. ")
 
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
 (add-hook 'emacspeak-startup-hook 'emacspeak-tvr-startup-hook)
-          
+
 ;;; Use (add-hook 'emacspeak-startup-hook ...)
 ;;; to add your personal settings.
 

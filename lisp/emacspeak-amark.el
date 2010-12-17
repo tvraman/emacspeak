@@ -123,7 +123,7 @@ AMarks are bookmarks in audio content."
       (when (interactive-p)
         (message "Saved AMarks in %s"
                  default-directory)
-	(emacspeak-auditory-icon 'save-object)))))
+        (emacspeak-auditory-icon 'save-object)))))
 
 (defun emacspeak-amark-load ()
   "Locate AMarks file from current directory, and load it."
@@ -137,18 +137,18 @@ AMarks are bookmarks in audio content."
     (cond
      ((null where)
       (when (interactive-p)
-(message "No AMarks found.")))
-    (t (setq buff
-          (find-file-noselect (expand-file-name emacspeak-amark-file where)))
-    (save-excursion
-      (set-buffer buff)
-      (goto-char (point-min))
-      (setq l (read buff))
-      (kill-buffer buff))
-    (setq emacspeak-amark-list l)
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'open-object)
-      (message "Loaded AMarks from %s" where))))))
+        (message "No AMarks found.")))
+     (t (setq buff
+              (find-file-noselect (expand-file-name emacspeak-amark-file where)))
+        (save-excursion
+          (set-buffer buff)
+          (goto-char (point-min))
+          (setq l (read buff))
+          (kill-buffer buff))
+        (setq emacspeak-amark-list l)
+        (when (interactive-p)
+          (emacspeak-auditory-icon 'open-object)
+          (message "Loaded AMarks from %s" where))))))
 
 ;;}}}
 (provide  'emacspeak-amark)

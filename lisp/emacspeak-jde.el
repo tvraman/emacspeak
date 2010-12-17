@@ -67,7 +67,7 @@
                                         ;jde-java-font-lock-link-face
                                         ;jde-java-font-lock-doc-tag-face
                                         ;jde-java-font-lock-modifier-face
-                                        
+
 ;;}}}
 ;;{{{ Advice interactive commands:
 (defadvice jde-open-class-source (after emacspeak pre act comp)
@@ -274,7 +274,6 @@
     (emacspeak-auditory-icon 'delete-object)
     (message "Cleared all break points.")))
 
-    
 ;;}}}
 ;;{{{ advice jde-xref
 (defadvice jde-xref-first-caller(after emacspeak pre act comp)
@@ -294,9 +293,6 @@ If we are on the last call, do nothing."
      (emacspeak-speak-line))
    (t ad-do-it))
   ad-return-value)
-  
-   
-  
 
 ;;}}}
 ;;{{{ Advice EFC widgets:
@@ -306,8 +302,6 @@ If we are on the last call, do nothing."
   (emacspeak-auditory-icon 'open-object)
   (dtk-speak
    (ad-get-arg 0)))
-            
-            
 
 ;;}}}
 ;;{{{ camel case deletion
@@ -319,7 +313,6 @@ If we are on the last call, do nothing."
      (buffer-substring
       (point)
       (save-excursion (jde-end-of-camel-tok))))))
-    
 
 ;;}}}
 

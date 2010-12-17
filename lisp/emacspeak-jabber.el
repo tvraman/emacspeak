@@ -253,7 +253,6 @@ session."
   (let ((extent (emacspeak-jabber-chat-speak-this-message)))
     (emacspeak-auditory-icon 'large-movement)
     (goto-char (car extent))))
-      
 
 (when (boundp 'jabber-chat-mode-map)
   (loop for k in

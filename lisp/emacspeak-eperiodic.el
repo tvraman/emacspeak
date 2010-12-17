@@ -142,7 +142,6 @@
              (format  emacspeak-eperiodic-media-location
                       (eperiodic-get-element-property e 'symbol))
              nil 'noselect)))
-   
 
 ;;}}}
 ;;{{{ advice interactive commands

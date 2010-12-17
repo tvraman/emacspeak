@@ -542,8 +542,8 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 (emacspeak-websearch-set-key ?d 'dictionary-google)
 
 (defvar emacspeak-websearch-dictionary-google-uri 
-"http://www.google.com/dictionary?langpair=%s&q=%s"
-"Search end-point for Google dictionary")
+  "http://www.google.com/dictionary?langpair=%s&q=%s"
+  "Search end-point for Google dictionary")
 
 (defun emacspeak-websearch-dictionary-google (word &optional langpair-prompt)
   "Look up word in Google dictionary. 
@@ -570,9 +570,7 @@ Default is to use English as source and target languages."
       (format emacspeak-websearch-dictionary-google-uri
               langpair
               (emacspeak-url-encode word))))))
-    
 
-   
 ;;}}}
 ;;{{{ Lookup company news at Yahoo
 
@@ -734,7 +732,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 ;;; unbinding webster, no longer works.
 (emacspeak-websearch-set-searcher 'dictionary-hypertext-webster
                                   'emacspeak-websearch-dictionary-hypertext-webster-search)
-;(emacspeak-websearch-set-key ?D 'dictionary-hypertext-webster)
+                                        ;(emacspeak-websearch-set-key ?D 'dictionary-hypertext-webster)
 
 (defvar emacspeak-websearch-dictionary-hypertext-webster-uri
   "http://work.ucsd.edu:5141/cgi-bin/http_webster?isindex="
@@ -994,27 +992,27 @@ I'm Feeling Lucky button on Google."
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (let ((toolbelt (emacspeak-google-toolbelt)))
-  (emacspeak-webutils-cache-google-query query)
-  (emacspeak-webutils-cache-google-toolbelt toolbelt)
-  (if lucky
-      (emacspeak-webutils-autospeak)
-    (emacspeak-webutils-post-process
-     "results"
-     'emacspeak-speak-line))
-  (let ((emacspeak-w3-tidy-html t))
-    (emacspeak-webutils-with-xsl-environment
-     (expand-file-name "default.xsl" emacspeak-xslt-directory)
-     nil emacspeak-xslt-options
-     (browse-url
-      (concat emacspeak-websearch-google-uri query
-              (format "&num=%s%s"
-                      emacspeak-websearch-google-number-of-results
-                      (or emacspeak-websearch-google-options ""))
-              (when lucky
-                (concat
-                 "&btnI="
-                 (emacspeak-url-encode
-                  "I'm Feeling Lucky")))))))))
+    (emacspeak-webutils-cache-google-query query)
+    (emacspeak-webutils-cache-google-toolbelt toolbelt)
+    (if lucky
+        (emacspeak-webutils-autospeak)
+      (emacspeak-webutils-post-process
+       "results"
+       'emacspeak-speak-line))
+    (let ((emacspeak-w3-tidy-html t))
+      (emacspeak-webutils-with-xsl-environment
+       (expand-file-name "default.xsl" emacspeak-xslt-directory)
+       nil emacspeak-xslt-options
+       (browse-url
+        (concat emacspeak-websearch-google-uri query
+                (format "&num=%s%s"
+                        emacspeak-websearch-google-number-of-results
+                        (or emacspeak-websearch-google-options ""))
+                (when lucky
+                  (concat
+                   "&btnI="
+                   (emacspeak-url-encode
+                    "I'm Feeling Lucky")))))))))
 
 ;;{{{ IMFA
 
@@ -1085,8 +1083,8 @@ https://www.google.com/options/specialsearches.html "
         (to (read (calendar-astro-date-string (or (car calendar-mark-ring)
                                                   (error "No mark set in this buffer"))))))
     (emacspeak-websearch-google
-      (concat
-       (emacspeak-url-encode query )
+     (concat
+      (emacspeak-url-encode query )
       (format "+daterange:%s-%s"
               (min from to)
               (max from to))))))
@@ -1636,7 +1634,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 (emacspeak-websearch-set-searcher 'recorded-books
                                   'emacspeak-websearch-recorded-books-search)
 
-;(emacspeak-websearch-set-key ?r 'recorded-books)
+                                        ;(emacspeak-websearch-set-key ?r 'recorded-books)
 
 (defvar emacspeak-websearch-recorded-books-advanced-form
   (expand-file-name "xml-forms/recorded-books-advanced.xml"
@@ -1741,7 +1739,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
   
-   
+  
   (emacspeak-websearch-google
    (emacspeak-url-encode (format "site:wikipedia.org %s"query))))
 
@@ -1889,7 +1887,6 @@ Results"
       (when (get-buffer "Currency Rates")
         (kill-buffer "Currency Rates"))
       (rename-buffer "Currency Rates"))))
-    
 
 ;;}}}
 ;;{{{ my rss

@@ -103,7 +103,7 @@
              :step (nth 5 slots)
              :current current))))
   control)
-  
+
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db))
@@ -177,8 +177,6 @@
            values))
         (forward-line 1))
       (nreverse values))))
-
-                  
 
 ;;;###autoload
 (defun amixer (&optional refresh)

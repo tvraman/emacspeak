@@ -153,7 +153,7 @@ spoken.")
          (setq start (point))
          (search-forward " ")
          (buffer-substring start (1- (point))))))))
-     
+
 (defun emacspeak-erc-add-name-to-monitor (name &optional
                                                quiten-pronunciation)
   "Add people to moniter in this room.
@@ -317,7 +317,7 @@ set the current local value to the result.")
   'emacspeak-erc-add-name-to-monitor)
 (define-key erc-mode-map "\C-c\C-d" 'emacspeak-erc-delete-name-from-monitor)
 ;;}}}
- 
+
 ;;{{{ cricket rules 
 (defvar emacspeak-erc-cricket-bowling-figures-pattern
   " [0-9]+-[0-9]+-[0-9]+-[0-9] "

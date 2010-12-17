@@ -382,7 +382,7 @@
             (function (lambda ()
                         ))))
 
-;(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
+                                        ;(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
 
 ;;}}}
 ;;{{{  Appointments:
@@ -460,7 +460,6 @@ To use, configure variable gweb-my-address via M-x customize-variable."
           calendar-longitude (g-json-get 'lng gweb-my-location))
     (message "Setup for %s"
              gweb-my-address))))
-
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."

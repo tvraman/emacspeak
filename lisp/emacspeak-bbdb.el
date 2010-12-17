@@ -67,7 +67,7 @@
                       (define-key bbdb-mode-map "N" 'bbdb-name)
                       (define-key bbdb-mode-map "c" 'bbdb-create)
                       )))
-                      
+
 ;;}}}
 
 ;;}}}

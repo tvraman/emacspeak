@@ -111,8 +111,6 @@ The default value of 12 is too high for using ido effectively with speech. "
      (format "Turned %s IDo everywhere."
              (if ido-everywhere " on " " off ")))))
 
- 
-
 (defadvice ido-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

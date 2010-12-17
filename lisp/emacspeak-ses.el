@@ -176,8 +176,7 @@ is nil if SYM is not a symbol that names a cell."
                     'emacspeak-ses-backward-row-and-summarize
                     ses-mode-map)
   )
-        
-        
+
 (defadvice ses-forward-or-insert (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

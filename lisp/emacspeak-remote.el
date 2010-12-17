@@ -205,7 +205,6 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
           (string  :tag "SSH Server"))
   :group 'emacspeak-remote)
 
-  
 ;;;###autoload
 (defun emacspeak-remote-quick-connect-via-ssh ()
   "Connect via ssh to remote Emacspeak server.
@@ -214,9 +213,8 @@ Server is specified via custom option `emacspeak-remote-default-ssh-server'."
   (declare (special emacspeak-remote-default-ssh-server))
   (when emacspeak-remote-default-ssh-server
     (setq dtk-program emacspeak-remote-default-ssh-server)
-  (dtk-select-server emacspeak-remote-default-ssh-server)
-  (dtk-initialize)))
-
+    (dtk-select-server emacspeak-remote-default-ssh-server)
+    (dtk-initialize)))
 
 ;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)

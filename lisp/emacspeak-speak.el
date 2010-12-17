@@ -594,8 +594,8 @@ current local  value to the result.")
    (format
     "(cl-puthash
 (intern \"%s\")
- '%s
- emacspeak-speak-filter-table)\n" k v )))
+'%s
+emacspeak-speak-filter-table)\n" k v )))
 
 (defcustom emacspeak-speak-filter-persistent-store
   (expand-file-name ".filters"
@@ -1759,8 +1759,6 @@ dont customize the header."
   "Default header-line-format defined by Emacspeak.
 Displays name of current buffer.")
 
-    
-
 (defun emacspeak-speak-header-line ()
   "Speak header line if set."
   (interactive)
@@ -2145,7 +2143,7 @@ Speak that chunk after moving."
      (buffer-substring start end))
     (goto-char end)
     (emacspeak-auditory-icon 'large-movement)))
-    
+
 ;;}}}
 ;;{{{ speaking Face chunks
 
@@ -2205,23 +2203,23 @@ Speak that chunk after moving."
   (interactive
    (list
     (read-command "Command to execute repeatedly:")))  (let ((key "")
-    (position (point ))
-    (continue t )
-    (message (format "Press space to execute %s again" command)))
-   (while continue
-     (call-interactively command )
-     (cond
-      ((= (point) position ) (setq continue nil))
-      (t (setq position (point))
-         (setq key
-               (let ((dtk-stop-immediately nil ))
+                                                             (position (point ))
+                                                             (continue t )
+                                                             (message (format "Press space to execute %s again" command)))
+                                                         (while continue
+                                                           (call-interactively command )
+                                                           (cond
+                                                            ((= (point) position ) (setq continue nil))
+                                                            (t (setq position (point))
+                                                               (setq key
+                                                                     (let ((dtk-stop-immediately nil ))
                                         ;(sit-for 2)
-                 (read-key-sequence message )))
-         (when(and (stringp key)
-                   (not (=  32  (string-to-char key ))))
-           (dtk-stop)
-           (setq continue nil )))))
-   (dtk-speak "Exited continuous mode ")))
+                                                                       (read-key-sequence message )))
+                                                               (when(and (stringp key)
+                                                                         (not (=  32  (string-to-char key ))))
+                                                                 (dtk-stop)
+                                                                 (setq continue nil )))))
+                                                         (dtk-speak "Exited continuous mode ")))
 
 ;;;###autoload
 (defun emacspeak-speak-continuously ()
@@ -2420,8 +2418,6 @@ message area.  You can use command
 ;;}}}
 ;;{{{  Moving across fields:
 ;;; Fields are defined by property 'field
-
-
 
 ;;; helper function: speak a field
 (defsubst  emacspeak-speak-field (start end )

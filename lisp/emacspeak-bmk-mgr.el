@@ -201,7 +201,7 @@
           (emacspeak-speak-line)))
       (if (not (bmk-mgr-node-folder-p (bmk-mgr-get-node-at-point)))
           (emacspeak-auditory-icon 'open-object)))))
-        
+
 (defadvice bmk-mgr-add-current-page (after emacspeak pre act comp)
   "Speach enable bmk-mgr."
   (when (interactive-p)

@@ -159,7 +159,7 @@
    voice-setup-face-voice-table
    unless (facep v)
    collect v))
-        
+
 ;;}}}
 ;;{{{ special form def-voice-font
 

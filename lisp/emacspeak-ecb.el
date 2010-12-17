@@ -114,7 +114,6 @@
   (dtk-speak  tree-buffer-incr-searchpattern)
   (emacspeak-auditory-icon 'delete-object))
 
-             
 (defun emacspeak-ecb-tree-clear ()
   "Clear search pattern during incremental search in tree buffers."
   (interactive)
@@ -140,8 +139,6 @@
     (end-of-line)
     (emacspeak-speak-line)))
 
-              
-             
 (defun emacspeak-ecb-tree-shift-return ()
   "Do shift return in ECB tree browser."
   (interactive)
@@ -211,7 +208,7 @@ available."
        ((tree-node-is-expanded node)
         (emacspeak-auditory-icon 'open-object))
        (t (emacspeak-auditory-icon 'close-object))))))
-      
+
 (defadvice tree-buffer-update (after emacspeak pre act comp)
   "Provide context speech feedback."
   (when (interactive-p)

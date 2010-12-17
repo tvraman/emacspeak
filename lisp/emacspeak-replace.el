@@ -154,7 +154,6 @@ that is being replaced."
                      emacspeak-replace-end nil
                      emacspeak-replace-highlight-on nil)))
       (error  nil ))))
-    
 
 ;;}}}
 (provide 'emacspeak-replace)

@@ -610,9 +610,9 @@ and TABLE gives the values along that dimension."
   (setq tts-default-speech-rate dectalk-default-speech-rate)
   (set-default 'tts-default-speech-rate dectalk-default-speech-rate)
   (setq dtk-speech-rate-step 50
-	dtk-speech-rate-base 150)
+        dtk-speech-rate-base 150)
   (setq-default dtk-speech-rate-step 50
-		dtk-speech-rate-base 150))
+                dtk-speech-rate-base 150))
 
 ;;}}}
 (provide 'dectalk-voices)
