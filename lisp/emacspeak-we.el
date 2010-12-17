@@ -753,28 +753,7 @@ separate buffer. Interactive use provides list of id values as completion. "
          speak))))
 
 ;;;###autoload
-(defun emacspeak-we-junk-by-class-list(classes   url &optional speak)
-  "Junk elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer.
- Interactive use provides list of class values as
-completion. "
-  (interactive
-   (list
-    (emacspeak-we-css-get-class-list)
-    (emacspeak-webutils-read-url)
-    current-prefix-arg))
-  (let ((filter
-         (mapconcat
-          #'(lambda  (c)
-              (format "(@class=\"%s\")" c))
-          classes
-          " or ")))
-    (emacspeak-we-xslt-junk
-     (format "//*[%s]" filter)
-     url
-     (or (interactive-p)
-         speak))))
+
 
 (defvar emacspeak-we-url-rewrite-rule nil
   "URL rewrite rule to use in current buffer.")

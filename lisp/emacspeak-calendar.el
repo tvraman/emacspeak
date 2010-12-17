@@ -144,7 +144,7 @@
 (defadvice  mark-visible-calendar-date (after emacspeak pre act )
   "Use voice locking to mark date. "
   (let ((date (ad-get-arg 0 )))
-    (if (calendar-date-is-legal-p date)
+    (if (calendar-date-is-valid-p date)
         (save-excursion
           (set-buffer calendar-buffer)
           (calendar-cursor-to-visible-date date)

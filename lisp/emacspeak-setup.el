@@ -174,11 +174,11 @@ pronunciation dictionaries are stored. ")
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to show a default header line."
   (declare (special emacspeak-use-header-line
-                    default-header-line-format
-                    emacspeak-default-header-line-format))
+                    header-line-format
+                    emacspeak-header-line-format))
   (when emacspeak-use-header-line
-    (setq default-header-line-format
-          emacspeak-default-header-line-format)))
+    (setq header-line-format
+          emacspeak-header-line-format)))
 (defun emacspeak-tvr-startup-hook ()
   "Emacspeak startup hook that I use."
   (load-library "emacspeak-alsaplayer")

@@ -110,7 +110,7 @@
 (defsubst emacspeak-proced-field-to-position (field)
   "Return column position of this field."
   (declare (special emacspeak-proced-fields))
-  (cdr (assoc-ignore-case field emacspeak-proced-fields)))
+  (cdr (assoc-string field emacspeak-proced-fields)))
 
 (defun emacspeak-proced-position-to-field (position)
   "Return field  for this position."
@@ -218,7 +218,7 @@
        (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
        nil t nil))))
   (declare (special emacspeak-proced-fields))
-  (let ((field (assoc-ignore-case field-name emacspeak-proced-fields)))
+  (let ((field (assoc-string field-name emacspeak-proced-fields)))
     (emacspeak-proced-speak-this-field
      (emacspeak-proced-field-start field))))
 
@@ -233,10 +233,11 @@
   (define-key proced-mode-map [backtab] 'emacspeak-proced-previous-field)
   (define-key proced-mode-map "." 'emacspeak-proced-speak-field)
   (define-key proced-mode-map "<" 'beginning-of-buffer)
-  (define-key proced-mode-map ">" 'end-of-buffer))
-(define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
-(define-key proced-mode-map "," 'emacspeak-proced-speak-this-field)
-(add-hook 'proced-mode-hook
+  (define-key proced-mode-map ">" 'end-of-buffer)
+  (define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
+  (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field))
+
+  (add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
 
 (defun emacspeak-proced-update-process-cache ()
@@ -329,7 +330,7 @@
           (let ((emacspeak-speak-messages nil))
             ad-do-it
             (when (interactive-p)
-              (let ((target (cdr (assoc-ignore-case "ARGS" emacspeak-proced-fields))))
+              (let ((target (cdr (assoc-string "ARGS" emacspeak-proced-fields))))
                 (emacspeak-auditory-icon 'task-done)
                 (dtk-speak
                  (format "%d of %d: %s"
