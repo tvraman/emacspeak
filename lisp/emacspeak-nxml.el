@@ -160,7 +160,6 @@
         (emacspeak-auditory-icon 'close-object))))
    (t ad-do-it))
   ad-return-value)
-    
 
 (defadvice nxml-complete (around emacspeak pre act comp)
   "Provide spoken feedback."
@@ -236,7 +235,7 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (emacspeak-speak-line)))))
- 
+
 ;;}}}
 ;;{{{ Outline summarizer:
 
@@ -259,7 +258,7 @@
                     (overlay-get o-close 'display)))))
     (emacspeak-auditory-icon 'ellipses))
    (t (message "Not on a hidden outline"))))
-  
+
 ;;}}}
 ;;}}}
 (provide 'emacspeak-nxml)

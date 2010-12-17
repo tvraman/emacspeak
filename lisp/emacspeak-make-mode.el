@@ -131,7 +131,7 @@
       (emacspeak-speak-line)))
    (t ad-do-it))
   ad-return-value)
-    
+
 (defadvice makefile-browser-insert-selection (after
                                               emacspeak
                                               pre act comp)

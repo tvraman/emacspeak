@@ -68,7 +68,7 @@
     (setq start (point))
     ad-do-it
     (emacspeak-speak-region start (point))))
-        
+
 ;;}}}
 (provide 'emacspeak-dictation )
 ;;{{{ end of file 

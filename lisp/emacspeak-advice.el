@@ -382,7 +382,6 @@ the words that were capitalized."
    (t ad-do-it))
   ad-return-value)
 
-
 (defadvice ucs-insert (after emacspeak pre act comp)
   "Speak char we inserted."
   (emacspeak-speak-char-name (ad-get-arg 0)))
@@ -1032,7 +1031,7 @@ Produce an auditory icon if possible."
   "Make comint speak its output."
   (let ((inhibit-read-only t)
         (monitor emacspeak-comint-output-monitor)
-		(buffer (process-buffer (ad-get-arg 0)))
+        (buffer (process-buffer (ad-get-arg 0)))
         (dtk-stop-immediately nil))
     (set-buffer buffer)
     ad-do-it
@@ -2504,7 +2503,6 @@ emacspeak running."
   (when (interactive-p)
     (dtk-speak ad-return-value))
   ad-return-value)
-  
 
 (defadvice where-is (around emacspeak pre act comp)
   "Provide spoken feedback"

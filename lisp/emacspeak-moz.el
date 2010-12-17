@@ -372,7 +372,6 @@ title)\n"
 (add-hook 'inferior-moz-mode-hook
           'emacspeak-moz-init)
 
-
 (add-hook 'javascript-mode-hook
           'emacspeak-setup-programming-mode)
 ;;}}}

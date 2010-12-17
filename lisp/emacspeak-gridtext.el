@@ -85,7 +85,7 @@ future  use."
   (declare (special  major-mode))
   (or (buffer-file-name)
       (format "%s:%s" (buffer-name) major-mode)))
-   
+
 (defun emacspeak-gridtext-vector-region (start end grid)
   "Returns a vector containing the text bounded by start and
 end   as specified by grid."
@@ -128,7 +128,6 @@ end   as specified by grid."
               (forward-line 1))
         result-grid))))
 
-          
 ;;}}}
 ;;{{{  persistent store 
 
@@ -209,7 +208,6 @@ end   as specified by grid."
      (emacspeak-gridtext-generate-key) grid)
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
 
-                         
 ;;}}}
 ;;{{{  keymaps 
 (defvar emacspeak-gridtext-keymap nil

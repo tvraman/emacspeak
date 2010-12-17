@@ -80,15 +80,15 @@
 (defun get-toy-braille-string (instr)
   (let ((inlst (string-to-list instr)))
     (apply 'concat
-      (mapcar (lambda (c)
-                (let ((tc (assoc c toy-braille-map)))
-                  (if tc
-                    (cdr tc)
-                    (error
-                     (concat "Character `"
-                             (string c)
-                             "' not found in `toy-braille-map'")))))
-      inlst))))
+           (mapcar (lambda (c)
+                     (let ((tc (assoc c toy-braille-map)))
+                       (if tc
+                           (cdr tc)
+                         (error
+                          (concat "Character `"
+                                  (string c)
+                                  "' not found in `toy-braille-map'")))))
+                   inlst))))
 
 ;;;; toy-braille.el ends here.
 

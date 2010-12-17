@@ -86,11 +86,11 @@ instead of the modeline."
 (define-key w3m-mode-map "\C-t" 'emacspeak-webutils-transcode-current-url-via-google)
 (define-key w3m-mode-map "\M-t" 'emacspeak-webutils-transcode-via-google)
 ' Moved keybindings to avoid conflict with emacs org mode
-; Avoid use of C-g on request of Raman due to concerns of misuse/confusion
-; because C-g used for emacs quit 
-; Moved google related operations to C-cg prefix, with exception of 
-; google transcode operations, which are left as they were on C-t 
-; and M-t. TX
+                                        ; Avoid use of C-g on request of Raman due to concerns of misuse/confusion
+                                        ; because C-g used for emacs quit 
+                                        ; Moved google related operations to C-cg prefix, with exception of 
+                                        ; google transcode operations, which are left as they were on C-t 
+                                        ; and M-t. TX
 (define-key w3m-mode-map "\C-cgg" 'emacspeak-webutils-google-on-this-site)
 (define-key w3m-mode-map "\C-cgx" 'emacspeak-webutils-google-extract-from-cache)
 (define-key w3m-mode-map "\C-cgl" 'emacspeak-webutils-google-similar-to-this-page)
@@ -178,7 +178,7 @@ instead of the modeline."
                 (when (or (eq start (point-max)) (and (integerp value-at-pos) (not (eq value-at-pos anchor-index))))
                   (return (apply 'concat  (nreverse anchor-text)))))))
     default))
-                                
+
 (defun emacspeak-w3m-speak-cursor-anchor ()
   (dtk-speak (emacspeak-w3m-anchor-text "Not found")))
 

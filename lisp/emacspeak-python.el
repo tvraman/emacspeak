@@ -239,7 +239,7 @@
                                  (line-end-position)))
              (count-lines (point-min)
                           (point-max)))))
-    
+
 (defadvice py-mark-def-or-class (after emacspeak pre act comp)
   "Speak number of lines marked"
   (when (interactive-p)

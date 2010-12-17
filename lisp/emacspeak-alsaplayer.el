@@ -113,7 +113,7 @@
           (const  :tag "Ignore" nil)
           (const  :tag "Card 1" "hw:1,0"))
   :group  'emacspeak-alsaplayer)
-  
+
 ;;;###autoload
 (defun emacspeak-alsaplayer-launch ()
   "Launch Alsaplayer.
@@ -121,7 +121,7 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer
-		    emacspeak-alsaplayer-device
+                    emacspeak-alsaplayer-device
                     emacspeak-alsaplayer-height))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
@@ -135,10 +135,10 @@ Alsaplayer session."
         (setq buffer-undo-list t)
         (shell-command
          (format "%s %s -r -i daemon &"
-		 emacspeak-alsaplayer-program
-		 (if emacspeak-alsaplayer-device
-		     (format "--device %s" emacspeak-alsaplayer-device)
-		   ""))
+                 emacspeak-alsaplayer-program
+                 (if emacspeak-alsaplayer-device
+                     (format "--device %s" emacspeak-alsaplayer-device)
+                   ""))
          (current-buffer))
         (pop-to-buffer buffer 'other-window)
         (set-window-text-height nil emacspeak-alsaplayer-height)
@@ -172,7 +172,7 @@ Optional second arg watch-pattern specifies line of output to
              (eq (current-buffer) (get-buffer emacspeak-alsaplayer-buffer)))
     (goto-char (point-min))
     (search-forward watch-pattern  nil t)))
-         
+
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
   (interactive
@@ -276,7 +276,7 @@ Optional second arg watch-pattern specifies line of output to
              (interactive-p))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
-    
+
 (defun emacspeak-alsaplayer-start ()
   "Start  alsaplayer"
   (interactive)
@@ -366,13 +366,13 @@ Optional second arg watch-pattern specifies line of output to
   "Quit  alsaplayer"
   (interactive)
   (let ((kill-buffer-query-functions nil))
-  (emacspeak-alsaplayer-send-command "--quit")
-  (delete-window)
-  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
-    (when (eq major-mode 'emacspeak-alsaplayer-mode)
-      (kill-buffer (current-buffer)))
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line))))
+    (emacspeak-alsaplayer-send-command "--quit")
+    (delete-window)
+    (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
+      (when (eq major-mode 'emacspeak-alsaplayer-mode)
+        (kill-buffer (current-buffer)))
+      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-speak-mode-line))))
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-cd (directory)
@@ -572,7 +572,6 @@ As the default, use current position."
     (setq length (emacspeak-alsaplayer-get-playlist-length))
     (emacspeak-alsaplayer-jump  length)
     (emacspeak-alsaplayer-seek (emacspeak-amark-position amark))))
-  
 
 ;;}}}
 ;;{{{ bind keys
@@ -612,7 +611,7 @@ As the default, use current position."
          emacspeak-alsaplayer-next)
         ("p"
          emacspeak-alsaplayer-previous)
-	("q" bury-buffer)
+        ("q" bury-buffer)
         ("Q" emacspeak-alsaplayer-quit)
         ("o" other-window)
         ("r" emacspeak-alsaplayer-relative)
@@ -639,4 +638,4 @@ As the default, use current position."
 ;;; end: 
 
 ;;}}}
- 
+

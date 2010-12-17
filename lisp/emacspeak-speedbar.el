@@ -209,8 +209,6 @@ An automatically updating speedbar consumes resources.")
                (setq start (point))
                (end-of-line)
                (buffer-substring start (point)))))))
-  
-  
 
 (defun emacspeak-speedbar-click ()
   "Does the equivalent of the mouse click from the keyboard"

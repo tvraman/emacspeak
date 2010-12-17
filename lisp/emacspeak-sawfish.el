@@ -145,8 +145,6 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
- 
-
 (defadvice sawfish-complete-symbol (around emacspeak pre act)
   "Say what you completed."
   (let ((prior (point ))

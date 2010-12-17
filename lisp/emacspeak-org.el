@@ -150,12 +150,12 @@
 (loop for f in
       '(
         org-insert-heading org-insert-todo-heading
-        org-insert-subheading org-insert-todo-subheading
-        org-promote-subtree org-demote-subtree
-        org-do-promote org-do-demote
-        org-move-subtree-up org-move-subtree-down
-        org-convert-to-odd-levels org-convert-to-oddeven-levels
-        )
+                           org-insert-subheading org-insert-todo-subheading
+                           org-promote-subtree org-demote-subtree
+                           org-do-promote org-do-demote
+                           org-move-subtree-up org-move-subtree-down
+                           org-convert-to-odd-levels org-convert-to-oddeven-levels
+                           )
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -170,8 +170,8 @@
 (loop for f in
       '(
         org-cut-subtree org-copy-subtree
-        org-paste-subtree org-archive-subtree
-        org-narrow-to-subtree )
+                        org-paste-subtree org-archive-subtree
+                        org-narrow-to-subtree )
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
@@ -222,7 +222,7 @@
 (loop for f in
       '(
         org-timestamp-down org-timestamp-down-day
-        org-timestamp-up org-timestamp-up-day)
+                           org-timestamp-up org-timestamp-up-day)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -243,9 +243,9 @@
 (loop for f in
       '(
         org-agenda-next-date-line org-agenda-previous-date-line
-        org-agenda-next-line org-agenda-previous-line
-        org-agenda-goto-today
-        )
+                                  org-agenda-next-line org-agenda-previous-line
+                                  org-agenda-goto-today
+                                  )
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -253,7 +253,7 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
-            
+
 (loop for f in
       '(
         org-agenda-quit org-agenda-exit)
@@ -280,7 +280,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-                                  
+
 ;;}}}
 ;;{{{ tables:
 
@@ -413,18 +413,16 @@
 (loop for f in
       '(
         org-occur org-next-link org-previous-link
-        org-beginning-of-item
-        org-beginning-of-item-list
-        org-back-to-heading
-        org-insert-heading org-insert-todo-heading)
+                  org-beginning-of-item
+                  org-beginning-of-item-list
+                  org-back-to-heading
+                  org-insert-heading org-insert-todo-heading)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Avoid outline errors bubbling up."
           
           (ems-with-errors-silenced ad-do-it))))
-           
-          
 
 ;;}}}
 ;;{{{ global input wizard

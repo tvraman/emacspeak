@@ -170,7 +170,6 @@
        (t (emacspeak-auditory-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
-        
 
 (defadvice rmail-previous-labeled-message (around emacspeak pre act comp)
   "Provide auditory feedback"

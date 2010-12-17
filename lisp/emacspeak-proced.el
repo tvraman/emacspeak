@@ -237,7 +237,7 @@
   (define-key proced-mode-map "\;" 'emacspeak-proced-speak-that-field)
   (define-key proced-mode-map "," 'emacspeak-proced-speak-this-field))
 
-  (add-hook 'proced-mode-hook
+(add-hook 'proced-mode-hook
           'emacspeak-proced-add-keys)
 
 (defun emacspeak-proced-update-process-cache ()

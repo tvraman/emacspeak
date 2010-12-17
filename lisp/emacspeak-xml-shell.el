@@ -148,8 +148,7 @@ Interactive XML browser.
   (switch-to-buffer (process-buffer
                      emacspeak-xml-shell-process))
   (emacspeak-speak-mode-line))
-  
-   
+
 ;;}}}
 ;;{{{ Navigate the tree
 

@@ -321,8 +321,8 @@ part of the libxslt package."
        (point-min) (point-max)
        (format "%s --param base %s  %s - %s "
                emacspeak-xslt-program
-                 (format "\"'file://%s'\""
-                         (expand-file-name file))
+               (format "\"'file://%s'\""
+                       (expand-file-name file))
                (expand-file-name style)
                (expand-file-name file))
        (current-buffer) 'replace)
@@ -390,7 +390,6 @@ part of the libxslt package."
       (emacspeak-webutils-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
-
 
 ;;}}}
 (provide 'emacspeak-xslt)

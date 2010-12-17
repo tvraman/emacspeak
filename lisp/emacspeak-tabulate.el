@@ -209,7 +209,6 @@ in the white-space."
                      br end)))
            (ems-tabulate-process-column tl tr br bl
                                         mark-fields start)))))))
-           
 
 ;;}}}
 ;;{{{ Parse a region of tabular data

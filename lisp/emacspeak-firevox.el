@@ -93,9 +93,6 @@
   (emacspeak-moz-eval-expression
    "CLC_SR_StopSpeaking();CLC_SR_ReadContent(-1)\n"))
 
-             
-          
-           
 (defun emacspeak-firevox-read-current ()
   "Read current node."
   (emacspeak-moz-eval-expression

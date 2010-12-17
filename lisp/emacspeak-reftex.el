@@ -94,7 +94,6 @@
       (emacspeak-outline-speak-this-heading))
      (t
       (emacspeak-speak-predefined-window 1)))))
-      
 
 (defadvice reftex-toc-goto-line-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."

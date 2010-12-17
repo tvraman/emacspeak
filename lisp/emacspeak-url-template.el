@@ -432,9 +432,9 @@ dont-url-encode if true then url arguments are not url-encoded "
  "BBC iPlayer"
  #'(lambda (url)
      (emacspeak-webutils-with-xsl-environment
-     (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
-     nil emacspeak-xslt-options
-     (browse-url url))))
+      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
+      nil emacspeak-xslt-options
+      (browse-url url))))
 
 ;;}}}
 ;;{{{ bbc
@@ -501,7 +501,6 @@ dont-url-encode if true then url arguments are not url-encoded "
       "id(\"res0\")/.."
       url )))
 
-
 ;;; Google Realtime standalone:
 
 (emacspeak-url-template-define
@@ -527,7 +526,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-by-id-list
       (list "mktsumm" "sfe-mktsumm" )
       url 'speak)))
-
 
 ;;}}}
 ;;{{{ google CSE and Google Reader:
@@ -1118,7 +1116,6 @@ from English to German.")
       (list "rbt" "e" "std" "med")
       url 'speak)))
 
-
 (emacspeak-url-template-define
  "Answers from Google Squared"
  "https://www.google.com/search?q=%s"
@@ -1600,7 +1597,7 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-we-extract-by-id
       "wsod_marketsOverview" 
-       url 'speak)))
+      url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Content "
@@ -2259,8 +2256,8 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Show table of recent quakes."
  #'(lambda (url)
      (emacspeak-we-xslt-filter "//tr[position() < 10]"
-			       url
-			       'speak)))
+                               url
+                               'speak)))
 
 ;;}}}
 

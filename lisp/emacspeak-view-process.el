@@ -213,7 +213,7 @@
   "Task manager for the Emacspeak Desktop."
   :group 'emacspeak
   :prefix "emacspeak-view-process-")
-  
+
 (defcustom View-process-child-line-personality 'kid
   "personality for child process "
   :type 'symbol
@@ -239,7 +239,6 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-         
 (defcustom View-process-renice-line-personality voice-monotone-medium
   "Indicate a reniced process"
   :type 'symbol

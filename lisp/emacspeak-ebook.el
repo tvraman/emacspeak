@@ -69,7 +69,6 @@
   :type 'directory
   :group 'emacspeak-ebook)
 
-
 (defcustom emacspeak-ebook-toc-path
   "OEBPS/toc.ncx"
   "Path component  to table of contents in an EBook."
@@ -88,7 +87,6 @@
   "EBooks minor mode."
   :keymap  emacspeak-ebook-keymap
   :lighter " EBooks")
-    
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -114,11 +112,11 @@
                     emacspeak-ebook-library-root))
   (expand-file-name
    (concat 
-   (read-directory-name
-    "EBook:"
-    emacspeak-ebook-library-root)
-   emacspeak-ebook-toc-path))
-)
+    (read-directory-name
+     "EBook:"
+     emacspeak-ebook-library-root)
+    emacspeak-ebook-toc-path))
+  )
 
 ;;;###autoload
 (defun emacspeak-ebook-open (toc)

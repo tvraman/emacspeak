@@ -197,7 +197,6 @@ Calls callback once per column."
       (setf (emacspeak-table-current-column table) column))
      (t (error "Current table has %s rows and %s columns"
                row-count column-count )))))
-        
 
 (defun emacspeak-table-move-up (table &optional count)
   "Move up in the table if possible."

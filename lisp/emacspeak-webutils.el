@@ -82,9 +82,9 @@ Note that the Web browser should reset this hook after using it.")
   (declare (special emacspeak-web-post-process-hook))
   (when     emacspeak-web-post-process-hook
     (condition-case nil
-         (run-hooks  'emacspeak-web-post-process-hook)
+        (run-hooks  'emacspeak-web-post-process-hook)
       (error 
-      (setq emacspeak-web-post-process-hook nil)))
+       (setq emacspeak-web-post-process-hook nil)))
     (setq emacspeak-web-post-process-hook nil)))
 
 ;;}}}
@@ -135,10 +135,10 @@ Note that the Web browser should reset this hook after using it.")
   "Setup post process hook to cache google query when rendered."
   (declare (special emacspeak-google-query))
   (let ((cache
-  (eval `(function
-          (lambda nil
-             (setq emacspeak-google-query ,query))))))
-  (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+         (eval `(function
+                 (lambda nil
+                   (setq emacspeak-google-query ,query))))))
+    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
 
 (defsubst emacspeak-webutils-cache-google-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
@@ -536,13 +536,11 @@ unescape HTML tags."
 
 ;;;###autoload
 
-  
 (defun emacspeak-webutils-open-subscribed-feeds ()
   "Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds"
   (interactive)
   (declare (special emacspeak-my-subscribed-feeds))
   (emacspeak-opml-display emacspeak-my-subscribed-feeds))
-
 
 ;;;###autoload
 (defun emacspeak-rss-browse (feed)
@@ -632,7 +630,6 @@ Stack is a list of the form ((element-name (attribute-alist)))."
     (nreverse (delq nil props))))
 
 ;;}}}
-   
 
 (provide 'emacspeak-webutils)
 ;;{{{ end of file

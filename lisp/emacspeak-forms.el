@@ -274,7 +274,6 @@ Assumes that point is at the front of a field value."
                     forms-mode-map))
 ;;; move to first field
              (forms-next-field 1))))
-  
 
 ;;}}}
 (provide  'emacspeak-forms)

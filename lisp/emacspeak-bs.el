@@ -113,7 +113,6 @@
           (format " %s "this-buffer-size)))))
      (t(emacspeak-auditory-icon 'error)
        (emacspeak-speak-line)))))
-   
 
 ;;}}}
 ;;{{{ speech enable interactive commands 

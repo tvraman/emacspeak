@@ -127,7 +127,6 @@ Argument KEY specifies a dictionary key e.g. directory, mode etc."
     (remhash    string
                 emacspeak-pronounce-pronunciation-table)))
 
-  
 (defun emacspeak-pronounce-add-buffer-local-dictionary-entry  (string pronunciation)
   "Add specified pronunciation for current buffer.
 Arguments STRING and PRONUNCIATION specify what is being defined."
@@ -739,7 +738,7 @@ specified pronunciation dictionary key."
                 (+ 1900 (third fields)))
                (t (third fields)))))
        'personality voice-punctuations-some))))
-                   
+
 ;;}}}
 ;;{{{ phone numbers
 

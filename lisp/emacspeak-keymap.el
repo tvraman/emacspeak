@@ -481,7 +481,6 @@ field in the customization buffer.  You can use the notation
 (global-set-key  [67108903] 'emacspeak-super-keymap)
 (global-set-key [67108923] 'emacspeak-hyper-keymap)
 
-
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload

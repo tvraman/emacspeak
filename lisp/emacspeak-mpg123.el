@@ -96,8 +96,6 @@ mpg123 defines this as a macro which causes compile trouble."
   (when (interactive-p)
     (emacspeak-mpg123-speak-current-time)))
 
-  
-
 (defadvice mpg123-next-line (after emacspeak pre act comp)
   "Speak line moveed to."
   (when (interactive-p)

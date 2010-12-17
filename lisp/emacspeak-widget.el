@@ -180,8 +180,6 @@ Returns a string with appropriate personality."
     (concat label
             help-echo
             value)))
-     
-           
 
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
@@ -252,7 +250,6 @@ Returns a string with appropriate personality."
     (concat label
             help-echo
             context )))
-       
 
 (widget-put (get 'push-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-push-button)
@@ -373,7 +370,6 @@ Returns a string with appropriate personality."
             (if child
                 (widget-apply child :emacspeak-help)
               value))))
-      
 
 (widget-put (get 'menu-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
@@ -411,8 +407,6 @@ Returns a string with appropriate personality."
             " has "
             selections 
             " checked ")))
-     
-      
 
 (widget-put (get 'checklist 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checklist)
@@ -519,9 +513,6 @@ Returns a string with appropriate personality."
 
 ;;}}}
 ;;{{{  Widget motion
-
-
-
 
 ;;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)

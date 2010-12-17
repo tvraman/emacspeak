@@ -93,7 +93,7 @@
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'yank-object)))
-  
+
 (defadvice sc-open-line (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)

@@ -420,7 +420,6 @@ commands via single keystrokes."
       (setq component
             (concat component option )))
     (emacspeak-realaudio-play  component)))
-     
 
 ;;}}}
 ;;{{{ define a derived mode for realaudio interaction 

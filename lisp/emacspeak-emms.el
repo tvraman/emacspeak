@@ -142,7 +142,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line )))
-      
+
 ;;}}}
 ;;{{{ silence chatter from info
 

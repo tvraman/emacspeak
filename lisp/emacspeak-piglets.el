@@ -94,7 +94,6 @@
    "2222"
    (format "%d" emacspeak-piglets-tts-rate)))
 
-
 ;;;###autoload
 (defun emacspeak-piglets-tts-stop ()
   "Kill TTS  process."

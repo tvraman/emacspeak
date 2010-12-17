@@ -344,7 +344,7 @@ specifies the filter"
 Optional prefix arg prompts for a new filter."
   (interactive "P")
   (declare (special emacspeak-table-speak-row-filter
-  emacspeak-table))
+                    emacspeak-table))
   (and emacspeak-table-speak-row-filter(push emacspeak-table-speak-row-filter minibuffer-default))
   (unless (and  emacspeak-table-speak-row-filter
                 (listp emacspeak-table-speak-row-filter)
@@ -570,7 +570,7 @@ the documentation on the table browser."
     (when (= (preceding-char) ?,)
       (push "" fields))
     (nreverse fields)))
-        
+
 ;;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file.
