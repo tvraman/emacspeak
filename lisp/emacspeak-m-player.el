@@ -84,8 +84,7 @@ specifies the actual location of the media stream
 (defsubst emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
-  (save-excursion
-    (set-buffer (process-buffer emacspeak-m-player-process))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
     (erase-buffer)
   (process-send-string
    emacspeak-m-player-process

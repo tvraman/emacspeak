@@ -1452,10 +1452,9 @@ Produce an auditory icon if possible."
 Use an auditory icon if possible."
   (cond
    ((interactive-p)
-    (let ((count (count-lines (region-beginning)
-                              (region-end))))
-      ad-do-it
+    (let ((count (count-lines (region-beginning) (region-end))))
       (emacspeak-auditory-icon 'delete-object )
+      ad-do-it
       (message "Killed region containing %s lines" count)))
    (t ad-do-it))
   ad-return-value)

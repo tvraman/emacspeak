@@ -2611,6 +2611,7 @@ Use with caution."
    (list
     (expand-file-name
      (read-file-name "Enter name of POD file: "))))
+  (declare (special pod2man-program))
   (require 'man)
   (let* ((pod2man-args (concat filename " | nroff -man "))
          (bufname (concat "Man " filename))

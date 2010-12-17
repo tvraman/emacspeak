@@ -162,6 +162,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (declare (special vm-message-pointer
+                    smtpmail-local-domain
                     emacspeak-vm-headers-strip-octals
                     emacspeak-vm-user-full-name emacspeak-vm-user-login-name))
   (when vm-message-pointer

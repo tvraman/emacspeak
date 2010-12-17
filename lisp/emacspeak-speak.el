@@ -1754,7 +1754,7 @@ dont customize the header."
   :type 'boolean
   :group 'emacspeak)
 
-(defvar emacspeak-default-header-line-format
+(defvar emacspeak-header-line-format
   '((:eval (buffer-name)))
   "Default header-line-format defined by Emacspeak.
 Displays name of current buffer.")
@@ -1775,14 +1775,14 @@ Displays name of current buffer.")
 (defun emacspeak-toggle-header-line ()
   "Toggle Emacspeak's default header line."
   (interactive)
-  (declare (special emacspeak-default-header-line-format
-                    default-header-line-format))
-  (if default-header-line-format
-      (setq default-header-line-format nil)
-    (setq default-header-line-format emacspeak-default-header-line-format))
-  (emacspeak-auditory-icon (if default-header-line-format 'on 'off))
+  (declare (special emacspeak-header-line-format
+                    header-line-format))
+  (if header-line-format
+      (setq header-line-format nil)
+    (setq header-line-format emacspeak-header-line-format))
+  (emacspeak-auditory-icon (if header-line-format 'on 'off))
   (message "Turned %s default header line."
-           (if default-header-line-format 'on 'off)))
+           (if header-line-format 'on 'off)))
 
 ;;}}}
 ;;{{{  Speak text without moving point
@@ -2710,7 +2710,7 @@ Argument PROMPT specifies the prompt to display."
 any other key to speak entire buffer."
   (interactive)
   (emacspeak-speak-buffer
-   (emacspeak-ask-how-to-speak "buffer" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "buffer" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-help-interactively ()
@@ -2720,7 +2720,7 @@ any other key to speak entire buffer."
 any other key to speak entire help."
   (interactive)
   (emacspeak-speak-help
-   (emacspeak-ask-how-to-speak "help" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "help" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-line-interactively ()
@@ -2730,7 +2730,7 @@ any other key to speak entire help."
 any other key to speak entire line."
   (interactive)
   (emacspeak-speak-line
-   (emacspeak-ask-how-to-speak "line" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "line" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-paragraph-interactively ()
@@ -2740,7 +2740,7 @@ any other key to speak entire line."
 any other key to speak entire paragraph."
   (interactive)
   (emacspeak-speak-paragraph
-   (emacspeak-ask-how-to-speak "paragraph" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "paragraph" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-page-interactively ()
@@ -2750,7 +2750,7 @@ any other key to speak entire paragraph."
 any other key to speak entire page."
   (interactive)
   (emacspeak-speak-page
-   (emacspeak-ask-how-to-speak "page" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "page" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-word-interactively ()
@@ -2760,7 +2760,7 @@ any other key to speak entire page."
 any other key to speak entire word."
   (interactive)
   (emacspeak-speak-word
-   (emacspeak-ask-how-to-speak "word" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "word" (sit-for 1))))
 
 ;;;###autoload
 (defun emacspeak-speak-sexp-interactively ()
@@ -2770,7 +2770,7 @@ any other key to speak entire word."
 any other key to speak entire sexp."
   (interactive)
   (emacspeak-speak-sexp
-   (emacspeak-ask-how-to-speak "sexp" (sit-for 1 0 nil ))))
+   (emacspeak-ask-how-to-speak "sexp" (sit-for 1))))
 
 ;;}}}
 ;;{{{  emacs rectangles and regions:

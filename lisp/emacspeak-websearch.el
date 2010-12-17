@@ -482,9 +482,9 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
                                     emacspeak-wizards-personal-portfolio)
     current-prefix-arg))
   (declare (special emacspeak-websearch-quotes-yahoo-uri
+                    emacspeak-wizards-personal-portfolio
                     emacspeak-websearch-quotes-yahoo-options
                     emacspeak-websearch-curl-program
-                    emacspeak-wizards-personal-portfolio
                     emacspeak-websearch-quotes-csv-yahoo-uri))
   (cond
    ((null prefix)
