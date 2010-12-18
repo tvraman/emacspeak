@@ -144,7 +144,7 @@ pronunciation dictionaries are stored. ")
   :group 'tts
   :type 'integer)
 
-(defcustom espeak-default-speech-rate 170
+(defcustom espeak-default-speech-rate 100
   "Default speech rate for eSpeak."
   :group 'tts
   :type 'integer)
