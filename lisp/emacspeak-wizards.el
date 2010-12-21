@@ -3264,8 +3264,12 @@ Default is to add autoload cookies to current file."
   (when (and emacspeak-alsaplayer-process
              (eq 'run (process-status emacspeak-alsaplayer-process)))
     (emacspeak-alsaplayer-pause))
-  (when (boundp 'emms-player-paused-p)
+  (when (and (boundp 'emms-player-playing-p)
+           (not (null emms-player-playing-p)))
     (emms-player-pause)))
+    
+     
+     
   
         
         
