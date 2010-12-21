@@ -80,3 +80,4 @@
 (define-key function-key-map "\e[U" [(control tab)])
 ; shift space
 (define-key function-key-map "\e[ " [(shift space)])
+(define-key function-key-map "\e[S" [(silence)])
