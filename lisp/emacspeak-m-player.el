@@ -104,7 +104,7 @@ specifies the actual location of the media stream
     (when (and file pos)
       (setq
        file (second (split-string file "="))
-       post (second (split-string pos "="))))
+       pos (second (split-string pos "="))))
     (setq emacspeak-m-player-info-cache (list file pos))))
 
 (defun emacspeak-m-player-speak-current-info ()
@@ -771,6 +771,19 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
              url))
     0
     -1)))
+
+;;}}}
+;;{{{ pause/resume if needed
+
+;;;###autoload
+(defun emacspeak-m-player-pause-or-resume ()
+  "Pause/resume if m-player is running. For use  in
+emacspeak-silence-hook."
+  (declare (special emacspeak-m-player-process))
+  (when (and emacspeak-m-player-process
+             (eq 'run (process-status emacspeak-m-player-process)))
+    (emacspeak-m-player-pause)))
+(add-hook 'emacspeak-silence-hook 'emacspeak-m-player-pause-or-resume)
 
 ;;}}}
 (provide 'emacspeak-m-player)

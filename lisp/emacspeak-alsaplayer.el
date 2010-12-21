@@ -629,6 +629,20 @@ As the default, use current position."
       (emacspeak-keymap-update  emacspeak-alsaplayer-mode-map k))
 
 ;;}}}
+;;{{{ pause/resume if needed
+
+;;;###autoload
+(defun emacspeak-alsaplayer-pause-or-resume ()
+  "Pause/resume if alsaplayer is running. For use  in
+emacspeak-silence-hook."
+  (declare (special emacspeak-alsaplayer-process))
+  (when (and emacspeak-alsaplayer-process
+             (eq 'run (process-status emacspeak-alsaplayer-process)))
+    (emacspeak-alsaplayer-pause)))
+
+(add-hook 'emacspeak-silence-hook 'emacspeak-alsaplayer-pause-or-resume)
+
+;;}}}
 (provide 'emacspeak-alsaplayer)
 ;;{{{ end of file 
 
