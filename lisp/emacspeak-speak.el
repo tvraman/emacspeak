@@ -3289,6 +3289,20 @@ settings? "))
         (error (message "Error loading settings %s" settings))))))
 
 ;;}}}
+;;{{{ silence:
+
+;;;###autoload
+(defun emacspeak-silence()
+  "Silence is golden. Stop speech, and pause/resume any media
+streams.
+Runs `emacspeak-silence-hook' which can be used to configure
+which media players get silenced or paused/resumed."
+  (interactive)
+  (declare (special  emacspeak-silence-hook))
+  (dtk-stop)
+  (run-hooks 'emacspeak-silence-hook))
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
