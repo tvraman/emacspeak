@@ -3249,10 +3249,7 @@ Default is to add autoload cookies to current file."
 
 ;;}}}
 ;;{{{ Smart  pause/resume media 
-;;;###autoload
-(defcustom emacspeak-wizards-media-players
-  '((#'lambda ()
-    
+
 ;;;###autoload
 (defun emacspeak-wizards-smart-pause-or-resume ()
   "Pause/resume  all media. This includes text-to-speech as well as other media sources, e.g., mp3 playback via the various Emacspeak media players."
