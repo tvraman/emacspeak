@@ -3248,6 +3248,34 @@ Default is to add autoload cookies to current file."
   (message "Brailled %s" s))
 
 ;;}}}
+;;{{{ Smart  pause/resume media 
+;;;###autoload
+(defcustom emacspeak-wizards-media-players
+  '((#'lambda ()
+    
+;;;###autoload
+(defun emacspeak-wizards-smart-pause-or-resume ()
+  "Pause/resume  all media. This includes text-to-speech as well as other media sources, e.g., mp3 playback via the various Emacspeak media players."
+  (interactive)
+  (declare (special emacspeak-m-player-process
+                    emacspeak-alsaplayer-process
+                    emms-player-paused-p))
+  (dtk-stop)
+  (when (and emacspeak-m-player-process
+             (eq 'run (process-status emacspeak-m-player-process)))
+    (emacspeak-m-player-pause))
+  (when (and emacspeak-alsaplayer-process
+             (eq 'run (process-status emacspeak-alsaplayer-process)))
+    (emacspeak-alsaplayer-pause))
+  (when (boundp 'emms-player-paused-p)
+    (emms-player-pause)))
+  
+        
+        
+                   
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
