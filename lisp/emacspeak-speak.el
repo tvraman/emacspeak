@@ -3290,6 +3290,11 @@ settings? "))
 
 ;;}}}
 ;;{{{ silence:
+;;;###autoload
+(defcustom emacspeak-silence-hook nil
+  "Functions run after emacspeak-silence is called."
+  :type '(repeat  function)
+  :group 'emacspeak)
 
 ;;;###autoload
 (defun emacspeak-silence()

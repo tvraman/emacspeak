@@ -482,7 +482,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key [67108923] 'emacspeak-hyper-keymap)
 ;;; Our very own silence key on the console
 ;;; I use the Windows key.
-(global-set-key '[silence] 'emacspeak-wizards-smart-pause-or-resume)
+(global-set-key '[silence] 'emacspeak-silence)
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
