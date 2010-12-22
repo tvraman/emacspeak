@@ -70,7 +70,7 @@ grep path:")))
      ((>  (length title) 0)
   (substring title 6 -1))
      ((>  (length path) 0)
-  (substring path 5 -1))
+  (substring path 6 -1))
   (t ""))))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
