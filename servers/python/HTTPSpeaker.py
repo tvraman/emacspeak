@@ -59,7 +59,7 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
                 'version'             ]
 
     def do_GET(self):
-        """Produce speech."""
+        """Not Implemented."""
         #cmd = None
         #arg = None
         if hasattr(self.server.speaker, cmd):
