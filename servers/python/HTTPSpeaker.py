@@ -106,7 +106,6 @@ def start():
     else:
         rate = 75
     server_address = ('', port)
-    server_address = ('', port)
     httpd = HTTPSpeaker  (server_address,
     SpeakHTTPRequestHandler, engine, rate)
     httpd.serve_forever()
