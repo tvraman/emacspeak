@@ -57,9 +57,6 @@
 ;;}}}
 ;;{{{ define a derived mode for alsaplayer interaction
 
-(defvar emacspeak-alsaplayer-process nil
-  "Process handle to alsaplayer." )
-
 ;;;###autoload
 (define-prefix-command 'emacspeak-alsaplayer-prefix-command
   'emacspeak-alsaplayer-mode-map)
@@ -635,9 +632,9 @@ As the default, use current position."
 (defun emacspeak-alsaplayer-pause-or-resume ()
   "Pause/resume if alsaplayer is running. For use  in
 emacspeak-silence-hook."
-  (declare (special emacspeak-alsaplayer-process))
-  (when (and emacspeak-alsaplayer-process
-             (eq 'run (process-status emacspeak-alsaplayer-process)))
+  (declare (special emacspeak-alsaplayer-buffer))
+  (when (and (get-buffer-process emacspeak-alsaplayer-buffer)
+             (eq 'run (process-status (get-buffer-process emacspeak-alsaplayer-buffer))))
     (emacspeak-alsaplayer-pause)))
 
 (add-hook 'emacspeak-silence-hook 'emacspeak-alsaplayer-pause-or-resume)
