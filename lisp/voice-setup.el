@@ -277,9 +277,9 @@ command \\[customize-variable] on <personality>-settings.. "
   `(progn
      (defvar  ,personality
        (voice-setup-personality-from-style ,settings)
-       (concat
-        ,doc
-        ,(format "Customize this overlay via %s-settings."
+       ,(concat
+        doc
+        (format "Customize this overlay via %s-settings."
                  personality )))
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings
