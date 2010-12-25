@@ -60,7 +60,7 @@
 
 ;;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
 
-(define-derived-mode emacspeak-webspace-mode fundamental-mode
+(define-derived-mode emacspeak-webspace-mode special-mode
   "Webspace Interaction"
   "Major mode for Webspace interaction.\n\n
 \\{emacspeak-webspace-mode-map}")
