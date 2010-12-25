@@ -519,6 +519,7 @@ necessary."
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (emacspeak-m-player-current-info) ; cache for future 
         (emacspeak-m-player-dispatch "quit")
+	(emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
              (kill-buffer buffer))))
     (unless (eq (process-status emacspeak-m-player-process) 'exit)
