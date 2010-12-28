@@ -57,6 +57,17 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
+;;{{{ Forward declarations:
+;;; From dtk-speak.el
+
+(defvar dtk-speaker-process)
+(defvar dtk-punctuation-mode )
+(defvar dtk-capitalize )
+(defvar dtk-allcaps-beep )
+(defvar dtk-split-caps )
+(defvar dtk-speech-rate )
+
+;;}}}
 ;;{{{ macros
 
 (defmacro tts-with-punctuations (setting &rest body)
