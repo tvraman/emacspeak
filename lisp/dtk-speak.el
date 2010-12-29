@@ -64,6 +64,16 @@
 (require 'flite-voices)
 
 ;;}}}
+;;{{{ Forward Declarations:
+
+(defvar emacspeak-pronounce-pronunciation-table)
+(defvar emacspeak-ssh-tts-server )
+(defvar emacspeak-auditory-icon-function )
+(defvar emacspeak-directory )
+(defvar emacspeak-use-auditory-icons )
+(defvar emacspeak-pronounce-pronunciation-personality )
+
+;;}}}
 ;;{{{  user customizations:
 
 (defgroup tts nil
