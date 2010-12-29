@@ -45,6 +45,16 @@
 ;;; This module is Dectalk specific.
 
 ;;}}}
+;;{{{ Forward declarations:
+;;; From dtkk-speak.el:
+
+(defvar tts-default-speech-rate )
+(defvar dectalk-default-speech-rate )
+(defvar dtk-speech-rate-step )
+(defvar dtk-speech-rate-base )
+
+;;}}}
+
 ;;{{{ required modules
 
 ;;; Code:
