@@ -259,6 +259,8 @@ force:
 
 config: emacspeak-loaddefs.el emacspeak-cus-load.el emacspeak-finder-inf.el
 
+lint:
+	echo "." | emacs -batch -q -l emacspeak-load-path.el  -f elint-directory 
 # }}}
 # {{{build time target --loaddefs
 
