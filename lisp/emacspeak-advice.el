@@ -76,6 +76,10 @@
 (require 'emacspeak-sounds)
 
 ;;}}}
+;;{{{ Forward Declarations:
+(defvar emacspeak-prefix)
+
+;;}}}
 ;;{{{ Advice ding
 
 (defadvice ding (before emacspeak pre act comp)
