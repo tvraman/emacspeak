@@ -59,6 +59,8 @@
 (require 'time-date)
 (require 'voice-setup)
 (require 'thingatpt)
+(require 'dtk-speak)
+(require 'dtk-unicode)
 (eval-when-compile
   (require 'shell)
   (require 'which-func nil))
