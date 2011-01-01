@@ -174,7 +174,7 @@ on a specific director."
                  (cons  :tag "KeyBinding"
                         (string :tag "Key")
                         (directory :tag "Directory")))
-  :set '(lambda (sym val)
+  :set #'(lambda (sym val)
           (mapc
            (lambda (binding)
              (let ((key (car binding))
@@ -725,6 +725,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ([next] emacspeak-m-player-forward-10min)
         ([home] emacspeak-m-player-beginning-of-track)
         ([end] emacspeak-m-player-end-of-track)
+	("k"emacspeak-m-player-bind-accelerator)
         ("s" emacspeak-m-player-scale-speed)
         ("[" emacspeak-m-player-slower)
         ("]" emacspeak-m-player-faster)
