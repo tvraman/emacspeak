@@ -71,9 +71,6 @@
   (expand-file-name "realaudio/" emacspeak-directory)
   "*Directory where we organize  mp3  libraries and media shortcuts. ")
 
-(defvar emacspeak-media-history nil
-  "History list holding resources we played recently")
-
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player." )
 (defsubst emacspeak-m-player-dispatch (command)
@@ -268,15 +265,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
-          (read-file-name-completion-ignore-case t)
-          (minibuffer-history emacspeak-media-history))
+          (read-file-name-completion-ignore-case t))
       (read-file-name
        "MP3 Resource: "
        (emacspeak-m-player-guess-directory)
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
-  (declare (special emacspeak-media-history
-                    emacspeak-media-extensions
+  (declare (special emacspeak-media-extensions
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
@@ -323,8 +318,7 @@ Interactive prefix arg appends the new resource to what is playing."
    (list
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
-          (read-file-name-completion-ignore-case t)
-          (minibuffer-history emacspeak-media-history))
+          (read-file-name-completion-ignore-case t))
       (read-file-name
        "MP3 Resource: "
        (if
@@ -335,8 +329,7 @@ Interactive prefix arg appends the new resource to what is playing."
        (when (eq major-mode 'dired-mode)
          (dired-get-filename))))
     current-prefix-arg))
-  (declare (special emacspeak-media-history
-                    emacspeak-media-extensions
+  (declare (special emacspeak-media-extensions
                     emacspeak-media-shortcuts-directory))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
