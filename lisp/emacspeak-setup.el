@@ -129,21 +129,23 @@ pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{ speech rate
 
+;;;###autoload
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
   :group 'tts
   :type 'integer)
 
+;;;###autoload
 (defcustom multispeech-default-speech-rate 225
   "Default speech rate for multispeech."
   :group 'tts
   :type 'integer)
-
+;;;###autoload
 (defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
   :group 'tts
   :type 'integer)
-
+;;;###autoload
 (defcustom espeak-default-speech-rate 100
   "Default speech rate for eSpeak."
   :group 'tts
