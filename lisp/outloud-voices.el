@@ -39,20 +39,31 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;; Commentary:
 ;;{{{  Introduction:
 
 ;;; This module defines the various voices used in voice-lock mode.
 ;;; This module is IBM ViaVoice Outloud specific.
 
 ;;}}}
+;;; Commentary:
 ;;{{{ Required modules
 
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
+(require 'dtk-unicode)
 
+;;}}}
+;;{{{ Forward declarations:
+
+;;; From dtkk-speak.el:
+(defvar dtk-speech-rate)
+(defvar tts-default-speech-rate )
+(defvar dectalk-default-speech-rate )
+(defvar dtk-speech-rate-step )
+(defvar dtk-speech-rate-base )
+(defvar outloud-default-speech-rate)
 ;;}}}
 ;;{{{  voice table
 
