@@ -69,12 +69,7 @@
 ;;{{{ define a derived mode for m-player interaction 
 (defvar emacspeak-media-shortcuts-directory 
   (expand-file-name "realaudio/" emacspeak-directory)
-  "*Directory where we keep media shortcuts.
-I typically keep .ram --Media metafiles-- in this
-directory.
-Media metafiles typically contain a single line that
-specifies the actual location of the media stream
---typically the .ra file.")
+  "*Directory where we organize  mp3  libraries and media shortcuts. ")
 
 (defvar emacspeak-media-history nil
   "History list holding resources we played recently")
@@ -168,7 +163,7 @@ specifies the actual location of the media stream
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "*Map specific key sequences to launching MPlayer accelerators 
-on a specific director."
+on a specific directory."
   :group 'emacspeak-m-player
   :type '(repeat :tag "Emacspeak Media Locations"
                  (cons  :tag "KeyBinding"
@@ -243,19 +238,19 @@ on a specific director."
     (read-directory-name"Media Directory: ")
     (read-key-sequence "Key: ")))
   (eval
-   `(global-set-key key
-                    #'(lambda nil
-                        (interactive)
-                        (emacspeak-m-player-accelerator
-                         ,directory)))))
+   `(global-set-key
+     key
+     (function
+      (lambda nil
+        (interactive)
+        (emacspeak-m-player-accelerator ,directory))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
   (let ((emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
-    (switch-to-buffer (process-buffer
-                       emacspeak-m-player-process))
+    (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -288,8 +283,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
   (when (and emacspeak-m-player-process
-             (eq 'run (process-status
-                       emacspeak-m-player-process))
+             (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
