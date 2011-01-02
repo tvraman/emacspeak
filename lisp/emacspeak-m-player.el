@@ -253,7 +253,11 @@ on a specific directory."
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
-
+(defsubst emacspeak-m-player-guess-directory ()
+  "Guess default directory."
+  (if (string-match "\\(mp3\\)\\|\\(audio\\)"  default-directory)
+      default-directory
+    emacspeak-media-shortcuts-directory))
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
@@ -268,13 +272,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (minibuffer-history emacspeak-media-history))
       (read-file-name
        "MP3 Resource: "
-       (if
-           (string-match "\\(mp3\\)\\|\\(audio\\)"
-                         (expand-file-name default-directory))
-           default-directory
-         emacspeak-media-shortcuts-directory)
-       (when (eq major-mode 'dired-mode)
-         (dired-get-filename))))
+       (emacspeak-m-player-guess-directory)
+       (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-history
                     emacspeak-media-extensions
