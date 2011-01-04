@@ -1466,6 +1466,11 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-load Load specified resource into a running  m-player.
+Interactive prefix arg appends the new resource to what is playing. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-load-file Load specified file. 
 
 ------------------------------------------------------------
@@ -1481,7 +1486,7 @@ key             binding
 ---             -------
 
 C-e		Prefix Command
-RET		emacspeak-m-player
+RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 +		emacspeak-m-player-volume-up
@@ -1502,6 +1507,7 @@ c		emacspeak-m-player-slave-command
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
+k		emacspeak-m-player-bind-accelerator
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
 n		emacspeak-m-player-next-track
@@ -2215,6 +2221,15 @@ Default is to read the previous line.
 
 ** emacspeak-read-previous-word Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word.  
+
+------------------------------------------------------------
+
+** emacspeak-silence	Key Sequence: <silence> 
+
+ Silence is golden. Stop speech, and pause/resume any media
+streams.
+Runs `emacspeak-silence-hook' which can be used to configure
+which media players get silenced or paused/resumed. 
 
 ------------------------------------------------------------
 
@@ -3499,11 +3514,10 @@ buffer. Interactive use provides list of class values as completion.
 
 ------------------------------------------------------------
 
-** emacspeak-we-junk-by-class-list Junk elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer.
- Interactive use provides list of class values as
-completion.  
+** emacspeak-we-junk-by-class-list Extract elements not having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion.  
 
 ------------------------------------------------------------
 
@@ -3918,7 +3932,8 @@ y		emacspeak-webspace-yank-link
 
 
 
-This mode runs the hook `emacspeak-webspace-mode-hook', as the final step
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-webspace-mode-hook', as the final step
 during initialization. 
 
 ------------------------------------------------------------

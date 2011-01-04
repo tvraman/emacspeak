@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2009, T. V. Raman
+;;; Copyright (c) 1995 -- 2011, T. V. Raman
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -68,10 +68,10 @@ grep title:"))
 grep path:")))
     (cond
      ((>  (length title) 0)
-  (substring title 6 -1))
+      (substring title 6 -1))
      ((>  (length path) 0)
-  (substring path 6 -1))
-  (t ""))))
+      (substring path 6 -1))
+     (t ""))))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"

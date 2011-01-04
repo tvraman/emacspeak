@@ -162,7 +162,7 @@
 emacspeak-silence-hook."
   (declare (special emms-player-playing-p))
   (when (and (boundp 'emms-player-playing-p)
-           (not (null emms-player-playing-p)))
+             (not (null emms-player-playing-p)))
     (emms-player-pause)))
 
 (add-hook 'emacspeak-silence-hook 'emacspeak-emms-pause-or-resume)

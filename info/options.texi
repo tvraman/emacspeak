@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 653 user customizable
+This chapter documents a total of 654 user customizable
   options.
 
 @menu
@@ -1319,6 +1319,10 @@ option.
 Name of executable that plays sound files. 
 @end defvar
 
+@defvar {User Option} emacspeak-silence-hook
+Functions run after emacspeak-silence is called.
+@end defvar
+
 @defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
 @end defvar
@@ -1378,7 +1382,7 @@ YouTube download tool
 
 @defvar {User Option} emacspeak-media-location-bindings
 *Map specific key sequences to launching MPlayer accelerators 
-on a specific director.
+on a specific directory.
 @end defvar
 
 @node emacspeak-madplay Options

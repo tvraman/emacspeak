@@ -1,7 +1,7 @@
 #!/usr/bin/tclsh
 #$Id: ssh-outloud 6477 2010-04-23 17:22:59Z tv.raman.tv $
 #Description: Launch a TTS server on a remote host.
-#Copyright (C) 1995 -- 2007, T. V. Raman 
+#Copyright (C) 1995 -- 2011, T. V. Raman 
 # {{{  documentation
 
 # Running TTS server remotely.

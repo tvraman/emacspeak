@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 892 commands.
+This chapter documents a total of 894 commands.
 
 @menu
 * cd-tool::                     
@@ -1945,170 +1945,169 @@ This variable is buffer-local.")
                                (emacspeak-google-tool-value tool)))))
                belt))))
     (when settings 
-    (concat "&tbs="
-            (mapconcat #'identity settings ",")))))
-   
+      (concat "&tbs="
+              (mapconcat #'identity settings ",")))))
 
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
   (declare (special emacspeak-google-toolbelt))
   (or emacspeak-google-toolbelt
-  (list
+      (list
 video vid: 1/0
-   (make-emacspeak-google-tool
-    :name "video"
-    :param "vid"
-    :range '(0 1)
-    :default 0
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "video"
+        :param "vid"
+        :range '(0 1)
+        :default 0
+        :default 0
+        :value 0)
 Recent
-   (make-emacspeak-google-tool
-    :name "recent"
-    :param "rcnt"
-    :range '( 0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "recent"
+        :param "rcnt"
+        :range '( 0 1)
+        :default 0
+        :value 0)
 Duration restrict for video
-   (make-emacspeak-google-tool
-    :name "duration"
-    :param "dur"
-    :range '("m" "s" "l")
-    :default "m"
-    :value "m")
+       (make-emacspeak-google-tool
+        :name "duration"
+        :param "dur"
+        :range '("m" "s" "l")
+        :default "m"
+        :value "m")
 Blog mode
-   (make-emacspeak-google-tool
-    :name "blog"
-    :param "blg"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "blog"
+        :param "blg"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Books mode
-   (make-emacspeak-google-tool
-    :name "books"
-    :param "bks"
-    :range '(0 1)
-    :default 0
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "books"
+        :param "bks"
+        :range '(0 1)
+        :default 0
+        :default 0
+        :value 0)
 Books viewability
-   (make-emacspeak-google-tool
-    :name "books-viewability"
-    :param "bkv"
-    :range '("a" "f")
-    :default "a"
-    :value "a")
+       (make-emacspeak-google-tool
+        :name "books-viewability"
+        :param "bkv"
+        :range '("a" "f")
+        :default "a"
+        :value "a")
 Book Type
-   (make-emacspeak-google-tool
-    :name "books-type"
-    :param "bkt"
-    :range '("b" "p" "m")
-    :default "b"
-    :value "b")
+       (make-emacspeak-google-tool
+        :name "books-type"
+        :param "bkt"
+        :range '("b" "p" "m")
+        :default "b"
+        :value "b")
 Forums Mode
-   (make-emacspeak-google-tool
-    :name "forums"
-    :param "frm"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "forums"
+        :param "frm"
+        :range '(0 1)
+        :default 0
+        :value 0)
 News Mode
-   (make-emacspeak-google-tool
-    :name "news"
-    :param "nws"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "news"
+        :param "nws"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Reviews
-   (make-emacspeak-google-tool
-    :name "reviews"
-    :param "rvw"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "reviews"
+        :param "rvw"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Web History Visited
-   (make-emacspeak-google-tool
-    :name "web-history-visited"
-    :param "whv"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "web-history-visited"
+        :param "whv"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Web History Not Visited
-   (make-emacspeak-google-tool
-    :name "web-history-not-visited"
-    :param "whnv"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "web-history-not-visited"
+        :param "whnv"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Images
-   (make-emacspeak-google-tool
-    :name "images"
-    :param "img"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "images"
+        :param "img"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Structured Snippets
-   (make-emacspeak-google-tool
-    :name "structured-snippets"
-    :param "sts"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "structured-snippets"
+        :param "sts"
+        :range '(0 1)
+        :default 0
+        :value 0)
 sort by date
-   (make-emacspeak-google-tool
-    :name "sort-by-date"
-    :param "std"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "sort-by-date"
+        :param "std"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Timeline
-   (make-emacspeak-google-tool
-    :name "timeline"
-    :param "tl"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "timeline"
+        :param "tl"
+        :range '(0 1)
+        :default 0
+        :value 0)
 Timeline Low
-   (make-emacspeak-google-tool
-    :name "timeline-low"
-    :param "tll"
-    :range "YYYY/MM"
-    :default ""
-    :value "")
+       (make-emacspeak-google-tool
+        :name "timeline-low"
+        :param "tll"
+        :range "YYYY/MM"
+        :default ""
+        :value "")
 Date Filter
-   (make-emacspeak-google-tool
-    :name "date-filter"
-    :param "qdr"
-    :range "tn"
-    :default ""
-    :value "")
+       (make-emacspeak-google-tool
+        :name "date-filter"
+        :param "qdr"
+        :range "tn"
+        :default ""
+        :value "")
 Timeline High
-   (make-emacspeak-google-tool
-    :name "timeline-high"
-    :param "tlh"
-    :range "YYYY/MM"
-    :default ""
-    :value "")
+       (make-emacspeak-google-tool
+        :name "timeline-high"
+        :param "tlh"
+        :range "YYYY/MM"
+        :default ""
+        :value "")
 more:commercial promotion with prices
-   (make-emacspeak-google-tool
-    :name "commercial"
-    :param "cpk"
-    :range '(0 1)
-    :default 0
-    :value 0)
-   (make-emacspeak-google-tool
-    :name "commercial-prices"
-    :param "cp"
-    :range '(0 1)
-    :default 0
-    :value 0)
+       (make-emacspeak-google-tool
+        :name "commercial"
+        :param "cpk"
+        :range '(0 1)
+        :default 0
+        :value 0)
+       (make-emacspeak-google-tool
+        :name "commercial-prices"
+        :param "cp"
+        :range '(0 1)
+        :default 0
+        :value 0)
 less:commercial (demotion)
-   (make-emacspeak-google-tool
-    :name "non-commercial" 
-    :param "cdcpk"
-    :range '(0 1)
-    :default 0
-    :value 0))))
+       (make-emacspeak-google-tool
+        :name "non-commercial" 
+        :param "cdcpk"
+        :range '(0 1)
+        :default 0
+        :value 0))))
 
 (loop for this-tool in
       (emacspeak-google-toolbelt)
@@ -2166,8 +2165,8 @@ Prompt using completion
          (concat emacspeak-websearch-google-uri
                  (if prefix
                      (gweb-google-autocomplete)
-                 (or emacspeak-google-query (gweb-google-autocomplete))   )
-                 ;"&esrch=RTSearch"
+                   (or emacspeak-google-query (gweb-google-autocomplete))   )
+                                        ;"&esrch=RTSearch"
                  )))
     (emacspeak-webutils-cache-google-query emacspeak-google-query)
     (emacspeak-we-extract-by-id "rtr" uri 'speak)))
@@ -2178,11 +2177,6 @@ Prompt using completion
   (declare (special emacspeak-google-query))
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
-
-  
-  
-  
-                                                    
 
 ###autoload
 (define-prefix-command  'emacspeak-google-command
@@ -2198,8 +2192,8 @@ Prompt using completion
         ("n" emacspeak-google-toolbelt-change-news)
         ("c" emacspeak-google-toolbelt-change-commercial)
         ("d" emacspeak-google-toolbelt-change-sort-by-date)
-	("p" emacspeak-google-toolbelt-change-commercial-prices)
-	("f" emacspeak-google-toolbelt-change-forums)
+        ("p" emacspeak-google-toolbelt-change-commercial-prices)
+        ("f" emacspeak-google-toolbelt-change-forums)
         ("v" emacspeak-google-toolbelt-change-video)
         ("i" emacspeak-google-toolbelt-change-images)
         ("B" emacspeak-google-toolbelt-change-books)
@@ -2761,6 +2755,13 @@ Display length of track in seconds.
 Scale speed by 0.5.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-m-player-load nil
+@kbd{Not bound to any key.}
+
+Load specified resource into a running  m-player.
+Interactive prefix arg appends the new resource to what is playing.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-load-file nil
 @kbd{Not bound to any key.}
 
@@ -2782,7 +2783,7 @@ key             binding
 ---             -------
 
 C-e		Prefix Command
-RET		emacspeak-m-player
+RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 +		emacspeak-m-player-volume-up
@@ -2803,6 +2804,7 @@ c		emacspeak-m-player-slave-command
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
+k		emacspeak-m-player-bind-accelerator
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
 n		emacspeak-m-player-next-track
@@ -3829,6 +3831,15 @@ Default is to read the previous line.
 
 Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-silence nil
+@kbd{ <silence> }
+
+Silence is golden. Stop speech, and pause/resume any media
+streams.
+Runs `emacspeak-silence-hook' which can be used to configure
+which media players get silenced or paused/resumed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-char nil
@@ -5579,11 +5590,10 @@ buffer. Interactive use provides list of class values as completion.
 @deffn {Interactive Command} emacspeak-we-junk-by-class-list nil
 @kbd{Not bound to any key.}
 
-Junk elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer.
- Interactive use provides list of class values as
-completion. 
+Extract elements not having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it
+in a separate buffer.  Interactive use provides list of class
+values as completion. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-style-filter nil
@@ -6190,7 +6200,8 @@ t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
 
-This mode runs the hook `emacspeak-webspace-mode-hook', as the final step
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-webspace-mode-hook', as the final step
 during initialization.
 @end deffn
 
