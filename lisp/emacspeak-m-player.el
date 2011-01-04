@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1995 -- 2009, T. V. Raman
+;;; Copyright (c) 1995 -- 2011, T. V. Raman
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -167,15 +167,15 @@ on a specific directory."
                         (string :tag "Key")
                         (directory :tag "Directory")))
   :set #'(lambda (sym val)
-          (mapc
-           (lambda (binding)
-             (let ((key (car binding))
-                   (directory (cdr binding )))
-               (when (string-match "\\[.+]" key)
-                 (setq key (car (read-from-string key))))
-               (emacspeak-m-player-bind-accelerator directory key)))
-           val)
-          (set-default sym val)))
+           (mapc
+            (lambda (binding)
+              (let ((key (car binding))
+                    (directory (cdr binding )))
+                (when (string-match "\\[.+]" key)
+                  (setq key (car (read-from-string key))))
+                (emacspeak-m-player-bind-accelerator directory key)))
+            val)
+           (set-default sym val)))
 
 ;;;###autoload
 (defun emacspeak-multimedia  ()
@@ -505,7 +505,7 @@ necessary."
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (emacspeak-m-player-current-info) ; cache for future 
         (emacspeak-m-player-dispatch "quit")
-	(emacspeak-auditory-icon 'close-object)
+        (emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
              (kill-buffer buffer))))
     (unless (eq (process-status emacspeak-m-player-process) 'exit)
@@ -711,7 +711,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ([next] emacspeak-m-player-forward-10min)
         ([home] emacspeak-m-player-beginning-of-track)
         ([end] emacspeak-m-player-end-of-track)
-	("k"emacspeak-m-player-bind-accelerator)
+        ("k"emacspeak-m-player-bind-accelerator)
         ("s" emacspeak-m-player-scale-speed)
         ("[" emacspeak-m-player-slower)
         ("]" emacspeak-m-player-faster)
