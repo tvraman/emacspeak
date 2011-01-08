@@ -223,7 +223,6 @@ emacspeak-todo-mode.elc \
 emacspeak-twit.elc \
 emacspeak-twittering.elc \
 emacspeak-url-template.elc \
-emacspeak-view-process.elc \
 emacspeak-view.elc \
 emacspeak-vm.elc \
 emacspeak-w3.elc \
@@ -453,7 +452,6 @@ emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-twit.elc: emacspeak-twit.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc emacspeak-we.elc
-emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
 emacspeak-w3.elc: emacspeak-w3.el emacspeak-webutils.elc emacspeak-we.elc
