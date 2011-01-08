@@ -71,7 +71,7 @@ grep path:")))
       (substring title 6 -1))
      ((>  (length path) 0)
       (substring path 6 -1))
-     (t ""))))
+     (t "New Session"))))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"
