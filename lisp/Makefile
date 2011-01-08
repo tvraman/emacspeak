@@ -89,7 +89,6 @@ amixer.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
 emacspeak-amark.elc \
-emacspeak-amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
 emacspeak-apt-sources.elc \
@@ -102,7 +101,6 @@ emacspeak-babel.elc \
 emacspeak-bbdb.elc \
 emacspeak-bibtex.elc \
 emacspeak-bookmark.elc \
-emacspeak-bmk-mgr.elc \
 emacspeak-browse-kill-ring.elc \
 emacspeak-bs.elc \
 emacspeak-buff-menu.elc \
@@ -220,7 +218,6 @@ emacspeak-tetris.elc \
 emacspeak-texinfo.elc \
 emacspeak-tnt.elc \
 emacspeak-todo-mode.elc \
-emacspeak-twit.elc \
 emacspeak-twittering.elc \
 emacspeak-url-template.elc \
 emacspeak-view.elc \
@@ -299,8 +296,7 @@ multispeech-voices.elc: multispeech-voices.el voice-setup.elc
 espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
-emacspeak-amark.elc: emacspeak-amark.el
-emacspeak-amphetadesk.elc: emacspeak-amphetadesk.el
+ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
@@ -318,7 +314,6 @@ emacspeak-babel.elc: emacspeak-babel.el dtk-speak.elc voice-setup.elc
 emacspeak-bbdb.elc: emacspeak-bbdb.el dtk-speak.elc voice-setup.elc
 emacspeak-bibtex.elc: emacspeak-bibtex.el dtk-speak.elc voice-setup.elc
 emacspeak-bookmark.elc: emacspeak-bookmark.el dtk-speak.elc voice-setup.elc
-emacspeak-bmk-mgr.elc: emacspeak-bmk-mgr.el dtk-speak.elc voice-setup.elc
 emacspeak-browse-kill-ring.elc: emacspeak-browse-kill-ring.el dtk-speak.elc voice-setup.elc
 emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc voice-setup.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc voice-setup.elc
@@ -449,7 +444,6 @@ emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
 emacspeak-tnt.elc: emacspeak-tnt.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
-emacspeak-twit.elc: emacspeak-twit.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc emacspeak-we.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
