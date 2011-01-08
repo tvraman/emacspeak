@@ -71,7 +71,9 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-  (when  ido-matches (emacspeak-auditory-icon 'progress))
+  (when (and ido-matches
+             (sit-for 0.1))
+    (emacspeak-auditory-icon 'progress))
   (dtk-speak
    (concat 
     (car ido-matches)
