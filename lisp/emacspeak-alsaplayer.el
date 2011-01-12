@@ -70,7 +70,9 @@ grep path:")))
      ((>  (length title) 0)
       (substring title 6 -1))
      ((>  (length path) 0)
-      (substring path 6 -1))
+      (setq path (substring path 6 -1))
+      (substring  path
+                  (length (file-name-directory path))))
      (t "New Session"))))
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
