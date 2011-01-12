@@ -74,6 +74,7 @@ grep path:")))
       (substring  path
                   (length (file-name-directory path))))
      (t "New Session"))))
+(declare-function fundamental-mode ())
 
 (define-derived-mode emacspeak-alsaplayer-mode fundamental-mode 
   "Alsaplayer Interaction"
@@ -496,7 +497,7 @@ Optional second arg watch-pattern specifies line of output to
 (defun emacspeak-alsaplayer-mark-position   ()
   "Mark currently displayed position."
   (interactive)
-  (declare (special emacspeak-alsaplayer-mark))e
+  (declare (special emacspeak-alsaplayer-mark))
   (emacspeak-alsaplayer-status)
   (setq emacspeak-alsaplayer-mark
         (emacspeak-alsaplayer-get-position))
