@@ -82,15 +82,13 @@ a rewrite rule even if one is already defined."
   (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
     (unless url (error "Not on a link."))
-    (when (or prompt
-              (null emacspeak-we-url-rewrite-rule))
+    (when (or prompt (null emacspeak-we-url-rewrite-rule))
       (setq emacspeak-we-url-rewrite-rule
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
           (replace-regexp-in-string
            (first emacspeak-we-url-rewrite-rule)
-           (second emacspeak-we-url-rewrite-rule) url)
-          url)
+           (second emacspeak-we-url-rewrite-rule)))
     (emacspeak-auditory-icon 'select-object)
     (browse-url (or redirect url))))
 
