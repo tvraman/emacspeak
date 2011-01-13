@@ -66,6 +66,26 @@
   (require 'which-func nil))
 
 ;;}}}
+;;{{{ forward declarations:
+(defvar emacspeak-codename)
+(defvar emacspeak-last-message)
+(defvar emacspeak-resource-directory)
+(defvar emacspeak-sounds-directory)
+(defvar emacspeak-version)
+(defvar semantic--buffer-cache)
+(defvar voice-animate)
+(defvar voice-annotate)
+(defvar voice-bolden)
+(defvar voice-bolden-medium)
+(defvar voice-indent)
+(defvar voice-punctuations-some)
+(defvar voice-smoothen)
+
+
+
+(declare-function operate-on-rectangle(start end coerse-tabs))
+
+;;}}}
 ;;{{{  custom group
 (defgroup emacspeak-speak nil
   "Basic speech output commands."
