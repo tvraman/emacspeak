@@ -1410,9 +1410,9 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
    (list (emacspeak-websearch-read-query "Ask Jeeves for: ")))
   (declare (special emacspeak-websearch-jeeves-uri))
   (browse-url
-     (concat emacspeak-websearch-jeeves-uri
-             (emacspeak-url-encode query)))
-  (emacspeak-webutils-post-process query 'emacspeak-speak-line)))
+   (concat emacspeak-websearch-jeeves-uri
+           (emacspeak-url-encode query)))
+  (emacspeak-webutils-post-process query 'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Driving directions from Yahoo
