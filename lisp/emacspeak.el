@@ -241,7 +241,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
-(emacspeak-do-package-setup "sawfish" 'emacspeak-sawfish)
 (emacspeak-do-package-setup "ses" 'emacspeak-ses)
 (emacspeak-do-package-setup "sql-mode" 'emacspeak-sql)
 (emacspeak-do-package-setup "sql" 'emacspeak-sql)
