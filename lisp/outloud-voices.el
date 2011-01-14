@@ -41,14 +41,13 @@
 
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module defines the various voices used in voice-lock mode.
 ;;; This module is IBM ViaVoice Outloud specific.
-
+;;; Code:
 ;;}}}
-;;; Commentary:
 ;;{{{ Required modules
 
-;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
