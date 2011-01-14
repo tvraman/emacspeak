@@ -519,11 +519,8 @@ Optional second arg watch-pattern specifies line of output to
 (defun emacspeak-alsaplayer-info ()
   "Speak current path and copy it to kill ring."
   (interactive)
-  (let ((path (emacspeak-alsaplayer-get-path)))
-    (when path
-      (kill-new path)
-      (emacspeak-auditory-icon 'yank-object)
-      (message "%s" path))))
+  (with-current-buffer emacspeak-alsaplayer-buffer
+    (dtk-speak (emacspeak-alsaplayer-header-line))))
 
 (defvar emacspeak-alsaplayer-mp3split-program "mp3splt"
   "Program used to clip mp3 files.")
