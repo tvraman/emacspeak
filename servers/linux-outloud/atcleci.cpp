@@ -682,7 +682,7 @@ Atcleci_Init(Tcl_Interp * interp)
   chunk_bytes = alsa_init();
   // <Finally, allocate waveBuffer
 
-  fprintf(stderr, "allocating %d samples\n", chunk_bytes);
+  fprintf(stderr, "allocating %d samples\n", (int)chunk_bytes);
   waveBuffer = (short *) malloc(chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
@@ -715,7 +715,7 @@ Atcleci_Init(Tcl_Interp * interp)
     return TCL_ERROR;
   }
   fprintf(stderr,
-          "output buffered to waveBuffer with size %d\n", chunk_bytes);
+          "output buffered to waveBuffer with size %d\n", (int) chunk_bytes);
 
   // >
   // <register tcl commands
