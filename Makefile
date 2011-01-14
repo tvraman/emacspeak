@@ -179,6 +179,7 @@ servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/speech-server
 ELISP = lisp/*.el \
+emacspeak-pkg.el \
 lisp/g-client \
 lisp/xml-forms/*.xml \
 lisp/Makefile
