@@ -434,6 +434,35 @@
   (emacspeak-wizards-popup-input-buffer 'org-mode))
 
 ;;}}}
+;;{{{ org capture
+
+(defadvice org-capture-goto-target (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice org-capture-finalize (after emacspeak pre act comp)
+  "Provide auditory feedback."
+    (emacspeak-auditory-icon 'save-object))
+
+(defun emacspeak-org-capture-mode-hook ()
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+(add-hook 'org-capture-mode-hook
+      'emacspeak-org-capture-mode-hook)
+
+(defadvice org-capture-kill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'close-object))
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
