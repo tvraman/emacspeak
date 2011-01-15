@@ -87,7 +87,7 @@
 
 (loop for f in
       '(org-mark-ring-goto
-        org-next-link org-previous-link
+        org-next-link org-previous-link org-open-at-point
         org-goto  org-goto-ret
         org-goto-left org-goto-right
         org-goto-quit
@@ -436,10 +436,17 @@
 ;;}}}
 ;;{{{ org capture
 
-(defadvice org-capture-goto-target (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+(defcustom emacspeak-org-bookmark-key "h"
+  "Key of template used for capturing  hot list."
+  :type 'string
+  :group 'emacspeak-org)
+
+;;;###autoload
+(defun emacspeak-org-bookmark (&optional goto)
+  "Bookmark from org."
+  (interactive "P")
+  (declare (special emacspeak-org-bookmark-key))
+  (org-capture goto emacspeak-org-bookmark-key))
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -447,16 +454,15 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
+(defadvice org-capture-goto-target (after emacspeak pre act comp)
+  "Provide auditory feedback."
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line))
+
 (defadvice org-capture-finalize (after emacspeak pre act comp)
   "Provide auditory feedback."
-    (emacspeak-auditory-icon 'save-object))
-
-(defun emacspeak-org-capture-mode-hook ()
-  "Provide auditory feedback."
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
-(add-hook 'org-capture-mode-hook
-      'emacspeak-org-capture-mode-hook)
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'save-object)))
 
 (defadvice org-capture-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
