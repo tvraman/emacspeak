@@ -328,7 +328,6 @@
           ([(meta shift right)] org-shiftmetaright)
           ([(meta shift return)] org-insert-todo-heading)
 	  ("\C-e" emacspeak-prefix-command)
-	  ("\C-ee" orrg-end-of-line)
           ("\C-j" org-insert-heading)
           ("\M-n" org-next-item)
           ("\M-p" org-previous-item)
@@ -338,7 +337,6 @@
   (loop for k in
         '(
           ( "\C-e" emacspeak-prefix-command)
-	  ("\C-ee" orrg-end-of-line)
           ( "\C-h" help-command))
         do
         (emacspeak-keymap-update  org-goto-map k)))
