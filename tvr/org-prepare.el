@@ -5,7 +5,7 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-(setq org-directory "~/.org/")
+(define-key global-map "\C-cb" 'org-switchb)(setq org-directory "~/.org/")
 (setq org-default-notes-file (expand-file-name "notes.org"  org-directory))
 (define-prefix-command 'org-todo-state-map)
 (define-key org-mode-map "\C-cx" 'org-todo-state-map)
