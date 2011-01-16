@@ -1,4 +1,4 @@
-;;;$Id:$
+;;;$Id$
 
 (augment-load-path "w3/lisp" "w3")
 (load-library "url")
@@ -12,6 +12,8 @@
 (global-set-key  "\C-x\C-h" 'w3-use-hotlist )
 (define-key w3-mode-map "\M-m" 'back-to-indentation)
 (define-key w3-mode-map "\C-d" 'w3-wget)
+(define-key w3-mode-map "*" 'emacspeak-org-bookmark)
+(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "8" 'emacspeak-org-bookmark)
 ;;}}}
 ;;{{{ ssl
 ;;; customized via custom
@@ -42,3 +44,5 @@
       (file-name-directory (substring file 0 (match-beginning 0)))))
    (x (file-name-nondirectory file))
    (t (file-name-directory file))))
+(setq w3-explicit-coding-system 'utf-8)
+(setq mm-inline-text-html-renderer 'w3-display-node)
