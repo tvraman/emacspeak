@@ -150,7 +150,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "bibtex" 'emacspeak-bibtex)
 (emacspeak-do-package-setup "bookmark" 'emacspeak-bookmark)
 (emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
-(emacspeak-do-package-setup "buff-sel" 'emacspeak-buff-sel)
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
 (emacspeak-do-package-setup "buff-menu" 'emacspeak-buff-menu)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
