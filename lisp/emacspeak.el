@@ -149,6 +149,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb )
 (emacspeak-do-package-setup "bibtex" 'emacspeak-bibtex)
 (emacspeak-do-package-setup "bookmark" 'emacspeak-bookmark)
+(emacspeak-do-package-setup "bmk-mgr" 'emacspeak-bmk-mgr)
 (emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
 (emacspeak-do-package-setup "buff-menu" 'emacspeak-buff-menu)
