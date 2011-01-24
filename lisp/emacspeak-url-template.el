@@ -268,8 +268,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display package tracking information from UPS."
  #'(lambda (url)
-     (emacspeak-we-extract-table-by-match "Package Progress"
-                                          url 'speak)))
+     (emacspeak-we-extract-by-class "dataTable" url 'speak)))
 
 ;;}}}
 ;;{{{ amazon
