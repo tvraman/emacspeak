@@ -462,8 +462,7 @@
 
 (defadvice org-capture-finalize (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'save-object)))
+    (emacspeak-auditory-icon 'save-object))
 
 (defadvice org-capture-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
