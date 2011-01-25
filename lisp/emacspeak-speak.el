@@ -2344,8 +2344,7 @@ Speech is scaled by the value of dtk-speak-skim-scale"
   (interactive)
   (declare (special completion-reference-buffer))
   (let ((completion-ignore-case t))
-    (choose-completion-string (emacspeak-get-current-completion)
-                              completion-reference-buffer))
+    (choose-completion-string (emacspeak-get-current-completion) completion-reference-buffer))
   (emacspeak-auditory-icon 'select-object)
   (cond
    ((not (or
@@ -3155,14 +3154,12 @@ char, or dont move. "
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
 
-(declaim (special completion-list-mode-map))
-(define-key completion-list-mode-map "\C-o"
-  'emacspeak-switch-to-reference-buffer)
+
+(declaim (special completion-list-mode-map))  
+(define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
 (define-key completion-list-mode-map " "'next-completion)
-(define-key completion-list-mode-map [S-Return]
-  'choose-completion)
-(define-key completion-list-mode-map "\C-m"
-  'emacspeak-completion-pick-completion)
+(define-key completion-list-mode-map "\C-m"  'choose-completion)
+(define-key completion-list-mode-map "\M-\C-m" 'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (loop for char across chars
