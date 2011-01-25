@@ -160,10 +160,6 @@
       (let* ((minibuffer-completing-file-name t) ;; accept spaces
              (completion-ignore-case t)
              (word (thing-at-point 'word))
-             (suggestions
-              (when (and word (> (length word) 0))
-                (set-text-properties 0 (length word) nil word)
-                (cons  word (gweb-suggest  word))))
              (query nil))
         (setq query
               (completing-read
@@ -171,7 +167,7 @@
                'gweb-suggest-completer
                nil nil ; required-match, predicate
                word ; initial input
-               'gweb-history suggestions))
+               'gweb-history word))
         (pushnew  query gweb-history)
         (g-url-encode query)))
 ;;; Emacs 22
