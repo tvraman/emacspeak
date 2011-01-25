@@ -166,7 +166,7 @@
                (or prompt "Google: ")
                'gweb-suggest-completer ; collection
                nil nil ; predicate required-match
-               nil ; initial input
+               word ; initial input
                'gweb-history))
         (pushnew  query gweb-history)
         (g-url-encode query)))
