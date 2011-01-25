@@ -168,10 +168,10 @@
         (setq query
               (completing-read
                (or prompt "Google: ")
-               'gweb-suggest-completer
-               nil nil
-               word 'gweb-history
-               suggestions))
+               suggestions ; collection
+               nil nil ; required-match, predicate
+               word ; initial input
+               'gweb-history suggestions))
         (pushnew  query gweb-history)
         (g-url-encode query)))
 ;;; Emacs 22
