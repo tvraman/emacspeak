@@ -168,7 +168,7 @@
         (setq query
               (completing-read
                (or prompt "Google: ")
-               suggestions ; collection
+               'gweb-suggest-completer
                nil nil ; required-match, predicate
                word ; initial input
                'gweb-history suggestions))
