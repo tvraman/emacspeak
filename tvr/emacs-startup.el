@@ -64,6 +64,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   (let ((gc-cons-threshold 8000000)
         (debug-on-quit t)
         (debug-on-error t))
+    (setq outline-minor-mode-prefix "\C-x@h")
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
     (when (file-exists-p  emacs-personal-library)
