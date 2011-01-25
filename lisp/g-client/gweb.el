@@ -110,13 +110,15 @@
       g-curl-program
       nil t nil
       "-s" url)
+     (goto-char (point-min))
+     (while (re-search-forward "," nil t)
+       (replace-match ""))
      (goto-char (point-min)))
    ;; A JSON array is a vector.
-   ;; read it, filter the comma separators found as symbols.
-   (delq'\,
+   ;; read it
     (append                             ; vector->list
-     (aref (read (current-buffer)) 2)
-     nil))))
+     (aref (read (current-buffer)) 1)
+     nil)))
 
 (defun gweb-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
