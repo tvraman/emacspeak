@@ -168,15 +168,13 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   "Play text clip specified by clip.
 Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
   (declare (special emacspeak-daisy-this-book))
-  (unless
-      (string-equal "text" (xml-tag-name clip))
-    (error "Invalid audio clip."))
+  (unless (string-equal "text" (xml-tag-name clip))
+    (error "Invalid text clip."))
   (let* ((src (xml-tag-attr  clip "src"))
          (split (split-string src "#"))
          (relative (first split))
          (fragment (second split))
-         (path (emacspeak-daisy-resolve-uri relative
-                                            emacspeak-daisy-this-book)))
+         (path (emacspeak-daisy-resolve-uri relative emacspeak-daisy-this-book)))
     (emacspeak-we-xslt-filter
      (format "//*[@id=\"%s\"]" fragment)
      (concat "file:" path))))
@@ -262,10 +260,8 @@ the clip."
         (seq (xml-tag-child  clip "seq")))
     (when (and (not audio) seq)
       (setq audio (xml-tag-child seq "audio")))
-    (when audio
-      (emacspeak-daisy-play-audio audio))
-    (when text
-      (emacspeak-daisy-play-text text))))
+    (when audio (emacspeak-daisy-play-audio audio))
+    (when text (emacspeak-daisy-play-text text))))
 
 (defun emacspeak-daisy-play-content (content)
   "Play SMIL content specified by content.
@@ -753,7 +749,91 @@ Also puts the displayed buffer in outline-minor-mode and gives it
               (t (emacspeak-speak-mode-line)))))))
 
 ;;}}}
+;;{{{ w3 support update:
+ eed to handle text/xml and application/xml
+(defun w3-fetch-callback (url)
+  (w3-nasty-disgusting-http-equiv-handling (current-buffer) url)
+  ;; Process any cookie and refresh headers.
+  (let (headers)
+    (ignore-errors
+      (save-restriction
+	(mail-narrow-to-head)
+	(goto-char (point-min))
+	(unless (save-excursion
+		  (search-forward ":" (line-end-position) t))
+	  (forward-line))
+	(setq headers (mail-header-extract))
+	(let (refreshed)
+	  (dolist (header headers)
+	    ;; Act on multiple cookies if necessary, but only on a
+	    ;; single refresh request in case there's more than one.
+	    (case (car header)
+	      (refresh (unless refreshed
+			 (w3-handle-refresh-header (cdr header))
+			 (setq refreshed t))))))))
+    (let ((handle (mm-dissect-buffer t))
+	  (w3-explicit-coding-system
+	   (or w3-explicit-coding-system
+	       (w3-recall-explicit-coding-system url)))
+	  (buff nil))
+      (message "Downloading of `%s' complete." url)
+      (url-mark-buffer-as-dead (current-buffer))
+      (unless headers
+	(setq headers (list (cons 'content-type
+				  (mm-handle-media-type handle)))))
+      ;; Fixme: can handle be null?
+      (cond
+       ((or (equal (mm-handle-media-type handle) "text/html")
+	    ;; Ultimately this should be handled by an XML parser, but
+	    ;; this will mostly work for now:
+	    (equal (mm-handle-media-type handle) "application/xhtml+xml")
+        (equal (mm-handle-media-type handle) "text/xml")
+        (equal (mm-handle-media-type handle) "application/xml"))
+	;; Special case text/html if it comes through w3-fetch
+	(set-buffer (generate-new-buffer " *w3-html*"))
+	(mm-insert-part handle)
+	(w3-decode-charset handle)
+	(setq url-current-object (url-generic-parse-url url))
+	(w3-prepare-buffer)
+	(setq url-current-mime-headers headers)
+	(w3-notify-when-ready (current-buffer))
+	(mm-destroy-parts handle))
+	;;        ((equal (mm-handle-media-type handle) "text/xml")
+	;; 	;; Special case text/xml if it comes through w3-fetch
+	;; 	(set-buffer (generate-new-buffer " *w3-xml*"))
+	;; 	(mm-disable-multibyte)
+	;; 	(mm-insert-part handle)
+	;; 	(w3-decode-charset handle)
+	;;      !!! Need some function to view XML nicely... maybe the
+	;;      !!! customize tree control?
+	;; 	(setq url-current-object (url-generic-parse-url url)
+	;; 	      url-current-mime-headers headers)
+	;; 	(mm-destroy-parts handle)
+	;; 	(w3-notify-when-ready (current-buffer)))
+       ((equal (car-safe (mm-handle-type handle))
+	       "application/x-elisp-parsed-html")
+	;; Also need to special-case pre-parsed representations of HTML.
+	;; Fixme: will this need decoding?
+	(w3-prepare-tree (read (set-marker (make-marker) 1
+					   (mm-handle-buffer handle)))))
+       ((mm-inlinable-p handle)
+	;; We can view it inline!
+	(set-buffer (generate-new-buffer url))
+	(require 'mm-view)	       ; make sure methods are defined
+	(mm-display-part handle)
+	(set-buffer-modified-p nil)
+	(w3-mode)
+	(if (equal "image" (mm-handle-media-supertype handle))
+	    (setq cursor-type nil))
+	(setq url-current-mime-headers headers)
+	(w3-notify-when-ready (current-buffer)))
+       (t
+	;; Must be an external viewer
+	(mm-display-part handle)
+	;;(mm-destroy-parts handle)
+	)))))
 
+;;}}}
 (provide 'emacspeak-daisy)
 ;;{{{ end of file
 
