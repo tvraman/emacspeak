@@ -313,14 +313,18 @@ Return buffer that holds the result of playing the content."
    "head"
    "title"
    "docTitle"
+   "docAuthor"
    "text"
    "audio"
    "content"
+   "navList"
+   "pageList"
    "navStruct" ;;; old ncx
    "navObject" ;;; old ncx
    "navLabel"
    "navLisp"
    "navMap"
+   "navInfo"
    "navPoint"
    "navTarget")
   "Daisy XML elements.")
@@ -394,6 +398,12 @@ Return buffer that holds the result of playing the content."
   (mapc #'emacspeak-daisy-apply-handler
         (xml-tag-children element )))
 
+(defun emacspeak-daisy-navInfo-handler (element)
+  "Handle navInfo element."
+  (mapc #'emacspeak-daisy-apply-handler
+        (xml-tag-children element )))
+
+
 (defun emacspeak-daisy-navPoint-handler (element)
   "Handle navPoint element."
   (let ((label (xml-tag-child element "navLabel"))
@@ -415,8 +425,19 @@ Return buffer that holds the result of playing the content."
     (put-text-property start (point)
                        'audio audio)))
 
+(defun emacspeak-daisy-docAuthor-handler (element)
+  "Handle <docAuthor>...</docAuthor>"
+  (let ((text (xml-tag-child  element "text"))
+        (audio (xml-tag-child element "audio"))
+        (start (point)))
+    (emacspeak-daisy-text-handler   text)
+    (put-text-property start (point)
+                       'audio audio)))
+
 ;;; Ignore navList for now
 (emacspeak-daisy-set-handler "navList" 'ignore)
+; ignore pageList
+(emacspeak-daisy-set-handler "PageList" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 
