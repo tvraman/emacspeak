@@ -344,11 +344,10 @@ Return buffer that holds the result of playing the content."
   (let* ((tag (xml-tag-name element))
          (handler  (emacspeak-daisy-get-handler tag)))
     (cond
-     ((and handler
-           (fboundp handler))(funcall handler element))
+     ((and handler (fboundp handler))
+      (funcall handler element))
      (t
-      (insert
-       (format "Handler for %s not implemented yet.\n" tag))))))
+      (insert (format "Handler for %s not implemented yet.\n" tag))))))
 
 (defun  emacspeak-daisy-ncx-handler (ncx)
   "Process top-level NCX element."

@@ -159,25 +159,22 @@
 (defsubst gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
-  (unless (and (stringp input)
-               (> (length input) 0))
-    (setq input minibuffer-default))
+  (unless (> (length input) 0) (setq input minibuffer-default))
   (g-using-scratch
    (let ((url (format gweb-suggest-url (g-url-encode input))))
      (when corpus
-       (setq url
-             (format "%s&%s"
-                     url corpus)))
+       (setq url (format "%s&%s" url corpus)))
      (call-process
       g-curl-program
       nil t nil
       "-s" url)
+     (goto-char (point-min))
+                                        ; nuke comma separator gives:   json array -> lisp vector
+     (while (re-search-forward "\"," nil t) (replace-match "\""))
      (goto-char (point-min)))
-   ;; A JSON array is a vector.
-   ;; read it
-   (append                              ; vector->list
-    (aref (json-read) 1)
-    nil)))
+   ;; The  JSON array is now a vector. So  read it
+                                        ; and turn it into a list
+   (append (aref (read) 1) nil)))
 
 (defun gweb-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
