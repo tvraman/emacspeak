@@ -266,7 +266,7 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-with-xsl-environment
      emacspeak-we-xsl-filter
      params
-     emacspeak-xslt-options             ;options
+emacspeak-xslt-options             ;options
      (browse-url url)
      (or speak (interactive-p)))))
 
