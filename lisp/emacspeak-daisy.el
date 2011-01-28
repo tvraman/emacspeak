@@ -819,18 +819,6 @@ Also puts the displayed buffer in outline-minor-mode and gives it
 	(setq url-current-mime-headers headers)
 	(w3-notify-when-ready (current-buffer))
 	(mm-destroy-parts handle))
-	;;        ((equal (mm-handle-media-type handle) "text/xml")
-	;; 	;; Special case text/xml if it comes through w3-fetch
-	;; 	(set-buffer (generate-new-buffer " *w3-xml*"))
-	;; 	(mm-disable-multibyte)
-	;; 	(mm-insert-part handle)
-	;; 	(w3-decode-charset handle)
-	;;      !!! Need some function to view XML nicely... maybe the
-	;;      !!! customize tree control?
-	;; 	(setq url-current-object (url-generic-parse-url url)
-	;; 	      url-current-mime-headers headers)
-	;; 	(mm-destroy-parts handle)
-	;; 	(w3-notify-when-ready (current-buffer)))
        ((equal (car-safe (mm-handle-type handle))
 	       "application/x-elisp-parsed-html")
 	;; Also need to special-case pre-parsed representations of HTML.
