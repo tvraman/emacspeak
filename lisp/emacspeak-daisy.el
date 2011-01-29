@@ -178,6 +178,18 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
     (emacspeak-we-xslt-filter
      (format "//*[@id=\"%s\"]" fragment)
      (concat "file:" path))))
+;;;###autoload
+
+(defun emacspeak-daisy-html ()
+  "Apply xslt transform specified by \\{emacspeak-daisy-xsl}
+to convert and view Daisy Books as a Web page."
+  (interactive)
+  (declare (special emacspeak-daisy-xsl emacspeak-daisy-this-book))
+  (emacspeak-xslt-view-file
+   emacspeak-daisy-xsl
+   (expand-file-name
+    (format "%s.xml" (emacspeak-daisy-book-basename emacspeak-daisy-this-book))
+    (emacspeak-daisy-book-base emacspeak-daisy-this-book))))
 
 ;;;###autoload
 (defun emacspeak-daisy-play-page-range (start end )
@@ -468,7 +480,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn))
-
+(define-key emacspeak-daisy-mode-map "h" 'emacspeak-daisy-html)
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map "m" 'emacspeak-daisy-mark-position-in-content-under-point)
 (define-key emacspeak-daisy-mode-map "s"
@@ -499,6 +511,14 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-daisy)
+
+(defcustom emacspeak-daisy-xsl
+  (expand-file-name "daisyTransform.xsl" emacspeak-daisy-books-directory)
+  "Style sheet for transforming Daisy books to HTML. 
+Bookshare provides this with newer books."
+  :type 'file
+  :group 'emacspeak-daisy)
+
 (defcustom emacspeak-daisy-completion-extensions-to-ignore
   '(".xml" ".smil" ".bks"
     "~" ".opf" ".css" ".espeak.el")
