@@ -1490,13 +1490,17 @@ indicating the arrival  of new mail when displaying the mode line.")
 (defsubst emacspeak-get-voicefied-mode-name (mode-name)
   "Return voicefied version of this mode-name."
   (declare (special emacspeak-voicefied-mode-names))
-  (let ((result (gethash mode-name emacspeak-voicefied-mode-names)))
+  (let* ((mode-name-str
+          (if (stringp mode-name)
+              mode-name
+            (format-mode-line mode-name)))
+         (result (gethash mode-name-str emacspeak-voicefied-mode-names)))
     (or result
         (progn
-          (setq result (copy-sequence mode-name))
+          (setq result (copy-sequence mode-name-str))
           (put-text-property 0 (length result)
                              'personality voice-animate result)
-          (puthash mode-name result emacspeak-voicefied-mode-names)
+          (puthash mode-name-str result emacspeak-voicefied-mode-names)
           result))))
 
 ;;}}}
@@ -1563,37 +1567,6 @@ semantic to do the work."
                (which-function)
                "Not inside a function."))))
 ;;; not used
-(defsubst ems-process-mode-line-format (spec)
-  "Process mode line format spec."
-  (cond
-;;; leaves
-   ((symbolp spec) (symbol-value  spec))
-   ((stringp spec) spec)
-;;; leaf + tree:
-   ((and (listp spec)
-         (stringp (car spec)))
-    (concat
-     (car spec)
-     (ems-process-mode-line-format (cdr spec))))
-   ((and (listp spec)
-         (symbolp (car spec))
-         (null (car spec)))
-    (ems-process-mode-line-format (cdr spec)))
-   ((and (listp spec)
-         (eq :eval  (car spec)))
-    (eval (cadr spec)))
-   ((and (listp spec)
-         (symbolp (car spec)))
-    (concat
-     (ems-process-mode-line-format (symbol-value (car spec)))
-     (if (cdr spec)
-         (ems-process-mode-line-format (cdr spec))
-       "")))
-   ((and (listp spec)
-         (caar spec))
-    (concat
-     (ems-process-mode-line-format  (symbol-value (cadar spec)))
-     (ems-process-mode-line-format (cdr spec))))))
 
 (defun emacspeak-speak-buffer-info ()
   "Speak buffer information."
