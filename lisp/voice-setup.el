@@ -278,8 +278,8 @@ command \\[customize-variable] on <personality>-settings.. "
      (defvar  ,personality
        (voice-setup-personality-from-style ,settings)
        ,(concat
-        doc
-        (format "Customize this overlay via %s-settings."
+         doc
+         (format "Customize this overlay via %s-settings."
                  personality )))
      (defcustom ,(intern (format "%s-settings"  personality))
        ,settings
@@ -312,7 +312,7 @@ command \\[customize-variable] on <personality>-settings.. "
        '(lambda  (sym val)
           (let ((voice-name (voice-setup-personality-from-style val)))
             (setq ,personality voice-name)
-;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
             (voice-setup-update-personalities ',personality)
             (set-default sym val))))))
 

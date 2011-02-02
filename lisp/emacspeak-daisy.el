@@ -481,14 +481,10 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (define-key emacspeak-daisy-mode-map "h" 'emacspeak-daisy-html)
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map "m" 'emacspeak-daisy-mark-position-in-content-under-point)
-(define-key emacspeak-daisy-mode-map "s"
-  'emacspeak-daisy-stop-audio)
-(define-key emacspeak-daisy-mode-map "n"
-  'emacspeak-daisy-next-line)
-(define-key emacspeak-daisy-mode-map "p"
-  'emacspeak-daisy-previous-line)
-(define-key emacspeak-daisy-mode-map "o"
-  'emacspeak-daisy-define-outline-pattern)
+(define-key emacspeak-daisy-mode-map "s" 'emacspeak-daisy-stop-audio)
+(define-key emacspeak-daisy-mode-map "n" 'emacspeak-daisy-next-line)
+(define-key emacspeak-daisy-mode-map "p" 'emacspeak-daisy-previous-line)
+(define-key emacspeak-daisy-mode-map "o" 'emacspeak-daisy-define-outline-pattern)
 (define-key emacspeak-daisy-mode-map "S" 'emacspeak-daisy-save-bookmarks)
 (define-key emacspeak-daisy-mode-map "q" 'bury-buffer)
 (define-key emacspeak-daisy-mode-map " "
