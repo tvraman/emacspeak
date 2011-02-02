@@ -212,6 +212,54 @@ For now, we user-authenticate  all operations."
 ;;; grades to enable complex searches.
 
 ;;}}}
+;;{{{ Bookshare Mode:
+
+(define-derived-mode emacspeak-bookshare-mode text-mode
+  "Bookshare Library Of Accessible Books And Periodicals"
+  "A Bookshare front-end for the Emacspeak desktop.
+
+Pre-requisites:
+
+
+
+
+The Emacspeak Bookshare front-end is launched by command
+emacspeak-bookshare bound to \\[emacspeak-bookshare]
+
+This command switches to a special buffer that has Bookshare
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+emacspeak-bookshare-mode provides the necessary functionality to
+Search and download Bookshare material,
+Manage a local library of downloaded Bookshare content,
+And commands to easily read newer Daisy books from Bookshare.
+For legacy Bookshare material, see command \\[emacspeak-daisy-open-book].
+
+Here is a list of all emacspeak Bookshare commands along with their key-bindings:
+
+\\{emacspeak-bookshare-mode-map}"
+  (progn
+    (goto-char (point-min))
+    (insert "Browse And Read Bookshare Materials\n\n")Browse And Read Bookshare 
+    (setq header-line-format "Bookshare Library")))
+
+
+
+(defvar emacspeak-bookshare-interaction-buffer "*Bookshare*"
+  "Buffer for Bookshare interaction.")
+
+(defun emacspeak-bookshare ()
+  "Bookshare  Interaction."
+  (interactive)
+  (declare (special emacspeak-bookshare-interaction-buffer))
+  (let ((buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)))
+        (with-current-buffer buffer
+          (erase-buffer)
+          (emacspeak-bookshare-mode))
+        (switch-to-buffer buffer)))
+;;}}}
 (provide 'emacspeak-bookshare)
 ;;{{{ end of file
 
