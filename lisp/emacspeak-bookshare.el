@@ -165,51 +165,159 @@ For now, we user-authenticate  all operations."
 ;;{{{ Book Actions:
 
 ;;;  Following actions return book metadata:
-(defun emacspeak-bookshare-id-search (query)
+
+(defsubst emacspeak-bookshare-isbn-search (query)
+  "Perform a Bookshare isbn search."
+  (interactive "sISBN: ")
+  (emacspeak-bookshare-api-call "book/isbn" query))
+(defsubst emacspeak-bookshare-id-search (query)
   "Perform a Bookshare id search."
+  (interactive "sId: ")
   (emacspeak-bookshare-api-call "book/id" query))
-
-
 
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
-(defun emacspeak-bookshare-author-search (query)
+(defsubst emacspeak-bookshare-author-search (query)
   "Perform a Bookshare author search."
+  (interactive "sAuthor: ")
   (emacspeak-bookshare-api-call "book/searchFTS/author" query))
 
-(defun emacspeak-bookshare-title-search (query)
+(defsubst emacspeak-bookshare-title-search (query)
   "Perform a Bookshare title search."
+  (interactive "sTitle: ")
   (emacspeak-bookshare-api-call "book/searchFTS/title" query))
 
-(defun emacspeak-bookshare-isbn-search (query)
-  "Perform a Bookshare isbn search."
-  (emacspeak-bookshare-api-call "book/isbn" query))
-
-
-
-(defun emacspeak-bookshare-title/author-search (query)
+(defsubst emacspeak-bookshare-title/author-search (query)
   "Perform a Bookshare title/author  search."
+  (interactive "sTitle/Author: ")
   (emacspeak-bookshare-api-call "book/searchTA" query))
 
-(defun emacspeak-bookshare-since-search (query)
+(defsubst emacspeak-bookshare-fulltext-search (query)
+  "Perform a Bookshare fulltext search."
+  (interactive "sFulltext Search: ")
+  (emacspeak-bookshare-api-call "book/searchFTS" query))
+
+
+(defsubst emacspeak-bookshare-since-search (query)
   "Perform a Bookshare since  search."
+  (interactive "sDate: ")
   (emacspeak-bookshare-api-call "book/since" query))
 
-(defun emacspeak-bookshare-browse-latest()
+(defsubst emacspeak-bookshare-browse-latest()
   "Return latest books."
+  (interactive)
   (emacspeak-bookshare-api-call "book/browse/latest" ""))
 
-(defun emacspeak-bookshare-browse-popular()
+(defsubst emacspeak-bookshare-browse-popular()
   "Return popular books."
+  (interactive)
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
 
-
-
-(defun emacspeak-bookshare-fulltext-search (query)
-  "Perform a Bookshare fulltext search."
-  (emacspeak-bookshare-api-call "book/searchFTS" query))
 ;;; Need to implement code to build a cache of categories and
 ;;; grades to enable complex searches.
+
+;;}}}
+;;{{{ Actions Table:
+
+(defvar emacspeak-bookshare-action-table (make-hash-table :test #'equal)
+  "Table mapping Bookshare actions to their appropriate
+  handlers.")
+
+(defsubst emacspeak-bookshare-action-set (action handler)
+  "Set up action handler."
+  (declare (special emacspeak-bookshare-action-table))
+  (setf (gethash action emacspeak-bookshare-action-table)
+        handler))
+
+(defsubst emacspeak-bookshare-action-get (action)
+  "Retrieve action handler."
+  (declare (special emacspeak-bookshare-action-table))
+  (or (gethash action emacspeak-bookshare-action-table)
+      (error "No handler defined for action %s" action)))
+
+  
+
+(loop for a in
+      '(
+        ("a" emacspeak-bookshare-author-search)
+        ("t" emacspeak-bookshare-title-search)
+        ("s" emacspeak-bookshare-fulltext-search)
+        ("A" emacspeak-bookshare-title/author-search)
+        ("d" emacspeak-bookshare-since-search)
+        ("i" emacspeak-bookshare-isbn-search)
+        ("I" emacspeak-bookshare-id-search)
+        ("p" emacspeak-bookshare-browse-popular)
+        ("l" emacspeak-bookshare-browse-latest)
+        )
+      do
+      (progn
+      (emacspeak-bookshare-action-set (first a) (second a))
+      (define-key emacspeak-bookshare-mode-map (first a) 'emacspeak-bookshare-action)))
+
+;;}}}
+;;{{{ Bookshare XML  handlers:
+
+(defvar emacspeak-bookshare-handler-table  (make-hash-table :test
+                                                            #'equal)
+  "Table of handlers for processing various Bookshare response
+elements.")
+
+(defsubst emacspeak-bookshare-handler-set (element handler)
+  "Set up element handler."
+  (declare (special emacspeak-bookshare-handler-table))
+  (setf (gethash element emacspeak-bookshare-handler-table) handler))
+
+(defsubst emacspeak-bookshare-handler-get (element)
+  "Retrieve action handler."
+  (declare (special emacspeak-bookshare-handler-table))
+  (or (gethash element emacspeak-bookshare-handler-table)
+      (error "No handler defined for element %s" element)))
+
+(defvar emacspeak-bookshare-response-elements
+  '("bookshare"
+    "version"
+    "messages"
+    "string"
+    "book"
+    "list"
+    "page"
+    "num-pages"
+    "limit"
+    "result")
+  "Bookshare response elements for which we have explicit
+  handlers.")
+
+(loop for e in emacspeak-bookshare-response-elements
+      do
+      (emacspeak-bookshare-handler-set e
+                                   (intern
+                                    (format
+                                     "emacspeak-bookshare-%s-handler" e))))
+
+
+(defsubst emacspeak-bookshare-apply-handler (element)
+  "Lookup and apply installed handler."
+  (let* ((tag (xml-tag-name element))
+         (handler  (emacspeak-bookshare-handler-get tag)))
+    (cond
+     ((and handler (fboundp handler))
+      (funcall handler element))
+     (t (insert (format "Handler for %s not implemented yet.\n" tag))))))
+
+(defun emacspeak-bookshare-bookshare-handler (messages)
+  "Handle Bookshare response."
+  (unless (string-equal (xml-tag-name response) "bookshare")
+    (error "Does not look like a Bookshare response."))
+  (mapc 'emacspeak-bookshare-apply-handler (xml-tag-children
+                                            response)))
+
+
+(defalias 'emacspeak-bookshare-version-handler 'ignore)
+
+
+(defun emacspeak-bookshare-messages-handler (messages)
+  "Handle messages element."
+  (mapc #'insert(rest  (xml-tag-child messages "string"))))
 
 ;;}}}
 ;;{{{ Bookshare Mode:
@@ -250,6 +358,7 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
   (declare (special emacspeak-bookshare-mode-map))
   (loop for k in 
       '(
+        ("q" bury-buffer)
         )
       do
       (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
@@ -267,7 +376,28 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
     (with-current-buffer buffer
       (erase-buffer)
       (emacspeak-bookshare-mode))
-    (switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+(defun emacspeak-bookshare-action  ()
+  "Call action specified by  invoking key."
+  (interactive)
+  (let* ((key (format "%c" last-input-event))
+         (response (call-interactively (emacspeak-bookshare-action-get key))))
+    (emacspeak-bookshare-bookshare-handler response)))
+
+
+(defun emacspeak-bookshare-insert-response (response)
+  "Insert formatted response into Bookshare Interaction buffer."
+  (with-current-buffer emacspeak-bookshare-interaction-buffer
+    (goto-char (point-max))
+    (insert "\n\n")
+    (emacspeak-bookshare-handle-bookshare response)))
+
+;;}}}
+;;{{{ Book List Viewers:
 
 ;;}}}
 (provide 'emacspeak-bookshare)
