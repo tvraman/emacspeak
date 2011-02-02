@@ -68,7 +68,7 @@
   '(choice :tag "Key: "
            (const :tag "Unspecified" nil)
            (string :tag "API Key: "))
-           :group 'emacspeak-bookshare)
+  :group 'emacspeak-bookshare)
 
 (defcustom emacspeak-bookshare-user-id nil
   "Bookshare user Id."
@@ -76,8 +76,6 @@
                  (const :tag "None" nil)
                  (string :tag "Email"))
   :group 'emacspeak-bookshare)
-
-
 
 (defcustom emacspeak-bookshare-downloads-directory (expand-file-name "~/")
   "Customize this to the root of where books are organized."
@@ -93,8 +91,6 @@
 (defvar emacspeak-bookshare-curl-common-options
   " --insecure "
   "Common Curl options for Bookshare. Includes --insecure  as per Bookshare docs.")
-
-
 
 (defvar emacspeak-bookshare-api-base "https://api.bookshare.org"
   "Base end-point for Bookshare API  access.")
@@ -117,7 +113,6 @@ with X-password HTTP header for use with Curl."
    "-H 'X-password: %s'"
    emacspeak-bookshare-md5-cached-token))
 
-
 (defsubst emacspeak-bookshare-rest-endpoint (operation operand)
   "Return  URL  end point for specified operation.
 For now, we user-authenticate  all operations."
@@ -134,7 +129,6 @@ For now, we user-authenticate  all operations."
 (defvar emacspeak-bookshare-scratch-buffer " *Bookshare Scratch* "
   "Scratch buffer for Bookshare operations.")
 
-
 (defmacro emacspeak-bookshare-using-scratch(&rest body)
   "Evaluate forms in a  ready to use temporary buffer."
   `(let ((buffer (get-buffer-create emacspeak-bookshare-scratch-buffer))
@@ -144,9 +138,9 @@ For now, we user-authenticate  all operations."
          (buffer-undo-list t))
      (save-excursion
        (set-buffer buffer)
-                       (kill-all-local-variables)
-                       (erase-buffer)
-                       (progn ,@body))))
+       (kill-all-local-variables)
+       (erase-buffer)
+       (progn ,@body))))
 
 (defsubst emacspeak-bookshare-get-result (command)
   "Run command and return its output."
@@ -166,6 +160,51 @@ For now, we user-authenticate  all operations."
     emacspeak-bookshare-curl-program emacspeak-bookshare-curl-common-options
     (emacspeak-bookshare-user-password)
     (emacspeak-bookshare-rest-endpoint operation operand))))
+
+;;}}}
+;;{{{ Actions:
+
+(defun emacspeak-bookshare-author-search (query)
+  "Perform a Bookshare author search."
+  (emacspeak-bookshare-api-call "book/searchFTS/author" query))
+
+(defun emacspeak-bookshare-title-search (query)
+  "Perform a Bookshare title search."
+  (emacspeak-bookshare-api-call "book/searchFTS/title" query))
+
+(defun emacspeak-bookshare-isbn-search (query)
+  "Perform a Bookshare isbn search."
+  (emacspeak-bookshare-api-call "book/isbn" query))
+
+(defun emacspeak-bookshare-id-search (query)
+  "Perform a Bookshare id search."
+  (emacspeak-bookshare-api-call "book/id" query))
+
+(defun emacspeak-bookshare-title/author-search (query)
+  "Perform a Bookshare title/author  search."
+  (emacspeak-bookshare-api-call "book/searchTA" query))
+
+(defun emacspeak-bookshare-since-search (query)
+  "Perform a Bookshare since  search."
+  (emacspeak-bookshare-api-call "book/since" query))
+
+(defun emacspeak-bookshare-browse-latest()
+  "Return latest books."
+  (emacspeak-bookshare-api-call "book/browse/latest" ""))
+
+(defun emacspeak-bookshare-browse-popular()
+  "Return popular books."
+  (emacspeak-bookshare-api-call "book/browse/popular" ""))
+
+(defun emacspeak-bookshare-title-search (query)
+  "Perform a Bookshare title search."
+  (emacspeak-bookshare-api-call "book/searchFTS/title" query))
+
+(defun emacspeak-bookshare-fulltext-search (query)
+  "Perform a Bookshare fulltext search."
+  (emacspeak-bookshare-api-call "book/searchFTS" query))
+;;; Need to implement code to build a cache of categories and
+;;; grades to enable complex searches.
 
 ;;}}}
 (provide 'emacspeak-bookshare)
