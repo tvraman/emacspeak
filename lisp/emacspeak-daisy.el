@@ -123,13 +123,12 @@
 ;;{{{ return matching children
 (defun xml-children-by-name  (tag name)
   "Return list of children  matching NAME, of an xml-parse'd XML TAG."
-  (let ((children (xml-tag-children tag))
-        (result nil))
-    (while children
-      (when (string-equal name (xml-tag-name (car children)))
-        (nconc result (car children)))
-      (setq children (cdr children)))
-    result))
+  (let ((children (xml-tag-children tag)))
+    (remove-if 
+     #'(lambda (tag)
+         (not (string-equal name (xml-tag-name tag))))
+     children)))
+    
 
 ;;}}}
 ;;{{{  play audio clip
@@ -329,8 +328,6 @@ Return buffer that holds the result of playing the content."
    "text"
    "audio"
    "content"
-   "navList"
-   "pageList"
    "navStruct" ;;; old ncx
    "navObject" ;;; old ncx
    "navLabel"
@@ -422,11 +419,12 @@ Return buffer that holds the result of playing the content."
         (content (xml-tag-child element "content"))
         (nav-points (xml-children-by-name element "navPoint"))
         (start (point)))
+    (when label (print label))
     (when label (emacspeak-daisy-navLabel-handler label))
     (when content
-      (put-text-property start (point)
-                         'content content))
-    (mapc #'emacspeak-daisy-apply-handler nav-points)))
+      (put-text-property start (point) 'content content))
+    (message "navPoint Children: %s" (length nav-points))
+    (mapc #'emacspeak-daisy-navPoint-handler nav-points)))
 
 (defun emacspeak-daisy-docTitle-handler (element)
   "Handle <doctitle>...</doctitle>"
@@ -449,7 +447,7 @@ Return buffer that holds the result of playing the content."
 ;;; Ignore navList for now
 (emacspeak-daisy-set-handler "navList" 'ignore)
 ; ignore pageList
-(emacspeak-daisy-set-handler "PageList" 'ignore)
+(emacspeak-daisy-set-handler "pageList" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 

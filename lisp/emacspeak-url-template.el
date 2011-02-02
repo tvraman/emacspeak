@@ -280,29 +280,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Retrieve product details from Amazon by either ISBN or ASIN.")
 ;;}}}
 ;;{{{ bookshare
-(defcustom emacspeak-bookshare-user-id nil
-  "Bookshare user Id."
-  :type '(choice :tag "Bookshare User id"
-                 (const :tag "None" nil)
-                 (string :tag "Email"))
-  :group 'emacspeak-url-template)
-
-(emacspeak-url-template-define
- "BookShare"
- "https://www.bookshare.org/whiteListRedirect?j_userName=%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "Bookshare UserId: "
-                            emacspeak-bookshare-user-id)))
- nil
- "Bookshare Login")
-
-(emacspeak-url-template-define
- "BookShare Search"
- "http://www.bookshare.org/quickSearch?keyword=%s&search=Search"
- (list "BookShare Query: ")
- nil
- "BookShare Search")
+;;; replacing with API  client:
 
 (defun emacspeak-url-template-calendar-to-seconds ()
   "Convert date under cursor to seconds since epoch."
@@ -316,14 +294,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                           (first date)
                           (third date)))))        )
 
-(emacspeak-url-template-define
- "Periodicals from Bookshare"
- "http://www.bookshare.org/web/DownloadPeriodical.html?publishtitleid=%s&date=%s&format=1"
- (list
-  "Periodical: "
-  'emacspeak-url-template-calendar-to-seconds)
- nil
- "Fetch periodical from Bookshare.")
+
 
 ;;}}}
 ;;{{{ shoutcast
@@ -2410,4 +2381,3 @@ launch the realmedia player after fetching the resource.\n\n"
 ;;; end:
 
 ;;}}}
-
