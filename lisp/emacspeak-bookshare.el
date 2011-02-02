@@ -242,23 +242,33 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
 \\{emacspeak-bookshare-mode-map}"
   (progn
     (goto-char (point-min))
-    (insert "Browse And Read Bookshare Materials\n\n")Browse And Read Bookshare 
+    (insert "Browse And Read Bookshare Materials\n\n")
     (setq header-line-format "Bookshare Library")))
 
-
+(defun emacspeak-bookshare-define-keys ()
+  "Define keys for  Bookshare Interaction."
+  (declare (special emacspeak-bookshare-mode-map))
+  (loop for k in 
+      '(
+        )
+      do
+      (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
+  
+(emacspeak-bookshare-define-keys)
 
 (defvar emacspeak-bookshare-interaction-buffer "*Bookshare*"
   "Buffer for Bookshare interaction.")
-
+;;;###autoload
 (defun emacspeak-bookshare ()
   "Bookshare  Interaction."
   (interactive)
   (declare (special emacspeak-bookshare-interaction-buffer))
   (let ((buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)))
-        (with-current-buffer buffer
-          (erase-buffer)
-          (emacspeak-bookshare-mode))
-        (switch-to-buffer buffer)))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (emacspeak-bookshare-mode))
+    (switch-to-buffer buffer)))
+
 ;;}}}
 (provide 'emacspeak-bookshare)
 ;;{{{ end of file
