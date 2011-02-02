@@ -185,9 +185,7 @@ For now, we user-authenticate  all operations."
   "Perform a Bookshare isbn search."
   (emacspeak-bookshare-api-call "book/isbn" query))
 
-(defun emacspeak-bookshare-id-search (query)
-  "Perform a Bookshare id search."
-  (emacspeak-bookshare-api-call "book/id" query))
+
 
 (defun emacspeak-bookshare-title/author-search (query)
   "Perform a Bookshare title/author  search."
@@ -205,9 +203,7 @@ For now, we user-authenticate  all operations."
   "Return popular books."
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
 
-(defun emacspeak-bookshare-title-search (query)
-  "Perform a Bookshare title search."
-  (emacspeak-bookshare-api-call "book/searchFTS/title" query))
+
 
 (defun emacspeak-bookshare-fulltext-search (query)
   "Perform a Bookshare fulltext search."
