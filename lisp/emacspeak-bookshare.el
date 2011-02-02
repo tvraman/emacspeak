@@ -162,7 +162,16 @@ For now, we user-authenticate  all operations."
     (emacspeak-bookshare-rest-endpoint operation operand))))
 
 ;;}}}
-;;{{{ Actions:
+;;{{{ Book Actions:
+
+;;;  Following actions return book metadata:
+(defun emacspeak-bookshare-id-search (query)
+  "Perform a Bookshare id search."
+  (emacspeak-bookshare-api-call "book/id" query))
+
+
+
+;;; Following Actions return book-list structures within a bookshare envelope.
 
 (defun emacspeak-bookshare-author-search (query)
   "Perform a Bookshare author search."
