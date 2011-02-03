@@ -250,7 +250,7 @@ Optional argument 'no-auth says we dont need a user auth."
   (interactive)
   (shell-command
    (format
-    "%s %s %s  '%s' -o %s 2>/dev/null"
+    "%s %s %s  '%s' -o %s &"
     emacspeak-bookshare-curl-program
     emacspeak-bookshare-curl-common-options
     (emacspeak-bookshare-user-password)
@@ -586,11 +586,10 @@ Target location is generated from author and title."
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
      (t
-      (cond
-       ((zerop (emacspeak-bookshare-download-daisy id target))
+      (emacspeak-bookshare-download-daisy id target)
         (emacspeak-auditory-icon 'task-done)
-        (message "Downloaded content to %s" target))
-       (t (error "Error downloading content.")))))))
+        (message "Downloading content to %s" target)))))
+       
 
 (defun emacspeak-bookshare-download-brf-at-point ()
   "Download Braille version of book under point.
@@ -606,11 +605,10 @@ Target location is generated from author and title."
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
      (t
-      (cond
-       ((zerop (emacspeak-bookshare-download-brf id target))
+      (emacspeak-bookshare-download-brf id target)
         (emacspeak-auditory-icon 'task-done)
-        (message "Downloaded content to %s" target))
-       (t (error "Error downloading content.")))))))
+        (message "Downloading content to %s" target)))))
+       
                  
 
 ;;}}}
