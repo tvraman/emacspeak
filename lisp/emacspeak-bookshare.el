@@ -55,6 +55,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'xml-parse)
+
 ;;}}}
 ;;{{{ Customizations
 
@@ -92,7 +93,8 @@
   " --insecure "
   "Common Curl options for Bookshare. Includes --insecure  as per Bookshare docs.")
 
-(defvar emacspeak-bookshare-api-base "https://api.bookshare.org"
+(defvar emacspeak-bookshare-api-base
+  "https://api.bookshare.org"
   "Base end-point for Bookshare API  access.")
 
 ;;}}}
@@ -108,22 +110,22 @@ with X-password HTTP header for use with Curl."
   (declare (special emacspeak-bookshare-md5-cached-token))
   (or emacspeak-bookshare-md5-cached-token
       (setq emacspeak-bookshare-md5-cached-token
-            (md5 (read-passwd (format "Bookshare password for %s: " emacspeak-bookshare-user-id)))))
-  (format
-   "-H 'X-password: %s'"
-   emacspeak-bookshare-md5-cached-token))
+            (md5 (read-passwd (format
+                               "Bookshare password for %s: "
+                               emacspeak-bookshare-user-id)))))
+  (format "-H 'X-password: %s'" emacspeak-bookshare-md5-cached-token))
 
-(defsubst emacspeak-bookshare-rest-endpoint (operation operand)
+(defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional no-auth)
   "Return  URL  end point for specified operation.
-For now, we user-authenticate  all operations."
-
-  (declare (special emacspeak-bookshare-api-base
-                    emacspeak-bookshare-user-id))
-  (format "%s/%s/%s/for/%s?api_key=%s"
+Optional argument `no-auth' says no user auth needed."
+  (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
+  (format "%s/%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
           operation
           (emacspeak-url-encode operand)
-          emacspeak-bookshare-user-id
+          (if no-auth
+              ""
+          (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
 
 (defvar emacspeak-bookshare-scratch-buffer " *Bookshare Scratch* "
@@ -152,14 +154,17 @@ For now, we user-authenticate  all operations."
    (goto-char (point-min))
    (read-xml)))
 
-(defun emacspeak-bookshare-api-call (operation operand)
-  "Make a Bookshare API  call and get the result."
+(defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
+  "Make a Bookshare API  call and get the result.
+Optional argument 'no-auth says we dont need a user auth for this
+  call."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
-    emacspeak-bookshare-curl-program emacspeak-bookshare-curl-common-options
-    (emacspeak-bookshare-user-password)
-    (emacspeak-bookshare-rest-endpoint operation operand))))
+    emacspeak-bookshare-curl-program
+  emacspeak-bookshare-curl-common-options
+  (if no-auth "" (emacspeak-bookshare-user-password))
+    (emacspeak-bookshare-rest-endpoint operation operand no-auth))))
 
 ;;}}}
 ;;{{{ Book Actions:
@@ -169,7 +174,8 @@ For now, we user-authenticate  all operations."
 (defsubst emacspeak-bookshare-isbn-search (query)
   "Perform a Bookshare isbn search."
   (interactive "sISBN: ")
-  (emacspeak-bookshare-api-call "book/isbn" query))
+  (emacspeak-bookshare-api-call "book/isbn" query ))
+
 (defsubst emacspeak-bookshare-id-search (query)
   "Perform a Bookshare id search."
   (interactive "sId: ")
@@ -180,7 +186,7 @@ For now, we user-authenticate  all operations."
 (defsubst emacspeak-bookshare-author-search (query)
   "Perform a Bookshare author search."
   (interactive "sAuthor: ")
-  (emacspeak-bookshare-api-call "book/searchFTS/author" query))
+  (emacspeak-bookshare-api-call "book/searchFTS/author" query ))
 
 (defsubst emacspeak-bookshare-title-search (query)
   "Perform a Bookshare title search."
@@ -234,7 +240,36 @@ For now, we user-authenticate  all operations."
   (or (gethash action emacspeak-bookshare-action-table)
       (error "No handler defined for action %s" action)))
 
-  
+(define-derived-mode emacspeak-bookshare-mode text-mode
+  "Bookshare Library Of Accessible Books And Periodicals"
+  "A Bookshare front-end for the Emacspeak desktop.
+
+Pre-requisites:
+
+
+
+
+The Emacspeak Bookshare front-end is launched by command
+emacspeak-bookshare bound to \\[emacspeak-bookshare]
+
+This command switches to a special buffer that has Bookshare
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+emacspeak-bookshare-mode provides the necessary functionality to
+Search and download Bookshare material,
+Manage a local library of downloaded Bookshare content,
+And commands to easily read newer Daisy books from Bookshare.
+For legacy Bookshare material, see command \\[emacspeak-daisy-open-book].
+
+Here is a list of all emacspeak Bookshare commands along with their key-bindings:
+
+\\{emacspeak-bookshare-mode-map}"
+  (progn
+    (goto-char (point-min))
+    (insert "Browse And Read Bookshare Materials\n\n")
+    (setq header-line-format "Bookshare Library")))  
 (declaim (special emacspeak-bookshare-mode-map))
 
 (loop for a in
@@ -270,13 +305,13 @@ elements.")
 (defsubst emacspeak-bookshare-handler-get (element)
   "Retrieve action handler."
   (declare (special emacspeak-bookshare-handler-table))
-  (if (fboundp (gethash element emacspeak-bookshare-handler-table))
-      (gethash element emacspeak-bookshare-handler-table)
-    'emacspeak-bookshare-recurse))
+  (let ((handler (gethash element emacspeak-bookshare-handler-table)))
+  (if (fboundp handler) handler 'emacspeak-bookshare-recurse)))
 
 (defvar emacspeak-bookshare-response-elements
   '("bookshare"
     "version"
+    "metadata"
     "messages"
     "string"
     "book"
@@ -325,15 +360,6 @@ elements.")
   (mapc #'insert(rest  (xml-tag-child messages "string")))
   (insert "\n"))
 
-(defun emacspeak-bookshare-book-handler (book)
-  "Handle book element in book list response."
-  (emacspeak-bookshare-apply-handler (xml-tag-child book
-                                                    "list")))
-(defun emacspeak-bookshare-list-handler (list)
-  "Handle list element in Bookshare book list response."
-  (mapc #'emacspeak-bookshare-apply-handler
-        (xml-tag-children list )))
-
 (defun emacspeak-bookshare-page-handler (page)
   "Handle page element."
   (insert (format "Page: %s\t" (second page))))
@@ -359,39 +385,18 @@ elements.")
      start (point)
                               (list 'author author 'title title 'id id))))
 
+
+(defun emacspeak-bookshare-metadata-handler (metadata)
+  "Handle metadata element."
+  (loop for child in (xml-tag-children metadata)
+        do
+        (insert
+         (format "%s: %s\n"
+                 (first child) (second child)))))
 ;;}}}
 ;;{{{ Bookshare Mode:
 
-(define-derived-mode emacspeak-bookshare-mode text-mode
-  "Bookshare Library Of Accessible Books And Periodicals"
-  "A Bookshare front-end for the Emacspeak desktop.
 
-Pre-requisites:
-
-
-
-
-The Emacspeak Bookshare front-end is launched by command
-emacspeak-bookshare bound to \\[emacspeak-bookshare]
-
-This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes-- see the ke-binding
-list at the end of this description.  Use Emacs online help
-facility to look up help on these commands.
-
-emacspeak-bookshare-mode provides the necessary functionality to
-Search and download Bookshare material,
-Manage a local library of downloaded Bookshare content,
-And commands to easily read newer Daisy books from Bookshare.
-For legacy Bookshare material, see command \\[emacspeak-daisy-open-book].
-
-Here is a list of all emacspeak Bookshare commands along with their key-bindings:
-
-\\{emacspeak-bookshare-mode-map}"
-  (progn
-    (goto-char (point-min))
-    (insert "Browse And Read Bookshare Materials\n\n")
-    (setq header-line-format "Bookshare Library")))
 
 (defun emacspeak-bookshare-define-keys ()
   "Define keys for  Bookshare Interaction."
@@ -399,6 +404,7 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
   (loop for k in 
       '(
         ("q" bury-buffer)
+        (" " emacspeak-bookshare-details)
         )
       do
       (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
@@ -442,8 +448,30 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
     (goto-char start)
     (emacspeak-speak-line)))
 
-;;}}}
-;;{{{ Book List Viewers:
+;;;###autoload
+(defun emacspeak-bookshare-details ()
+  "Pop to a buffer displaying details of this book."
+  (interactive)
+  (unless (eq major-mode 'emacspeak-bookshare-mode)
+    (error "Not in Bookshare Interaction."))
+  (let* ((id (get-text-property (point) 'id))
+        (response (emacspeak-bookshare-id-search id))
+        (buffer
+         (get-buffer-create
+          (format "Book %s %s"
+                  (get-text-property (point) 'author)
+                  (get-text-property (point) 'title)))))
+  (put-text-property (point) (1+ (point))
+                     'metadata buffer)
+  (with-temp-buffer buffer
+                    (emacspeak-bookshare-bookshare-handler response))
+  (switch-to-buffer buffer)))
+  
+           
+    
+  
+  
+
 
 ;;}}}
 (provide 'emacspeak-bookshare)
