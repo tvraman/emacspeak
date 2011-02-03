@@ -55,7 +55,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'xml-parse)
-
+(require 'xml)
+(require 'derived)
 ;;}}}
 ;;{{{ Customizations
 
@@ -175,6 +176,17 @@ Optional argument 'no-auth says we dont need a user auth."
     emacspeak-bookshare-curl-common-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     (emacspeak-bookshare-rest-endpoint operation operand no-auth))))
+(defsubst emacspeak-bookshare-generate-target (author title)
+  "Generate a suitable filename target."
+  (declare (special emacspeak-bookshare-downloads-directory))
+  (expand-file-name
+  (shell-quote-argument
+   (replace-regexp-in-string " " "-"
+                             (format "%s-%s.zip"
+                                     (xml-substitute-special
+  (xml-substitute-numeric-entities author))
+                                     (xml-substitute-numeric-entities title))))
+  emacspeak-bookshare-downloads-directory))
 
 ;;}}}
 ;;{{{ Book Actions:
@@ -236,16 +248,14 @@ Optional argument 'no-auth says we dont need a user auth."
 (defsubst emacspeak-bookshare-download-internal(url target)
   "Download content  to target location."
   (interactive)
-  (declare (special emacspeak-bookshare-downloads-directory))
   (shell-command
-     (format
-    "%s %s %s  %s -o %s 2>/dev/null"
+   (format
+    "%s %s %s  '%s' -o %s 2>/dev/null"
     emacspeak-bookshare-curl-program
     emacspeak-bookshare-curl-common-options
     (emacspeak-bookshare-user-password)
     url
-    (expand-file-name emacspeak-bookshare-downloads-directory
-                      target))))
+    target)))
 
 (defun emacspeak-bookshare-download-daisy(id target)
   "Download Daisy format of specified book to target location."
@@ -264,11 +274,7 @@ Optional argument 'no-auth says we dont need a user auth."
 ;;}}}
 ;;{{{ Downloading Content:
    
-(defsubst emacspeak-bookshare-download-brf(id)
-  "Download Braille  format of specified book."
-  (emacspeak-bookshare-api-call
-   (format "download/content/%s/version/0" id)
-   ""))
+
 
 ;;}}}
 ;;{{{ Actions Table:
@@ -314,7 +320,7 @@ d Date Search
 l Browse Latest Books
 p Browse Popular Books
 \\{emacspeak-bookshare-mode-map}"
-  (progn
+    (let ((inhibit-read-only t))
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
     (setq header-line-format "Bookshare Library")))
@@ -442,7 +448,9 @@ p Browse Popular Books
              (xml-substitute-special(xml-substitute-numeric-entities title))))
     (add-text-properties
      start (point)
-     (list 'author author 'title title 'id id))))
+     (list 'author author 'title title 'id id
+           'target (emacspeak-bookshare-generate-target author title)))))
+
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '("author"
     "bookshare-id"
@@ -481,6 +489,8 @@ p Browse Popular Books
         '(
           ("q" bury-buffer)
           (" " emacspeak-bookshare-expand-at-point)
+          ("D" emacspeak-bookshare-download-daisy-at-point)
+          ("B" emacspeak-bookshare-download-brf-at-point)
           )
         do
         (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
@@ -528,33 +538,80 @@ p Browse Popular Books
       (goto-char start)
       (emacspeak-speak-line))))
 
+
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
+  (emacspeak-auditory-icon 'select-object)
   (let* ((inhibit-read-only t)
          (id (get-text-property (point) 'id))
+         (author (get-text-property (point) 'author))
+         (title (get-text-property (point) 'title))
+         (target (emacspeak-bookshare-generate-target author title))
          (metadata (get-text-property (point) 'metadata))
          (start nil)
          (response (emacspeak-bookshare-id-search id)))
     (cond
      (metadata (message "Entry already expanded."))
      (t
-      (put-text-property (line-beginning-position)
+      (add-text-properties (line-beginning-position)
                          (line-end-position)
-                         'metadata t)
+                         (list  'metadata t))
       (goto-char (line-end-position))
       (insert "\n")
       (setq start (point))
       (emacspeak-bookshare-bookshare-handler response)
       (add-text-properties start (point)
-                           (list 'metadata t 'id id))
+                           (list 'metadata t 'id id 'target target))
       (indent-rigidly start (point) 4)))
     (goto-char start)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
+
+(defun emacspeak-bookshare-download-daisy-at-point ()
+  "Download Daisy version of book under point.
+Target location is generated from author and title."
+  (interactive)
+  (let* ((id (get-text-property (point) 'id))
+         (author (get-text-property (point) 'author))
+         (title (get-text-property (point) 'title))
+         (target (emacspeak-bookshare-generate-target author
+                                                      title)))
+    (emacspeak-auditory-icon 'select-object)
+    (cond
+     ((file-exists-p target)
+      (message "This content is available locally at %s" target))
+     (t
+      (cond
+       ((zerop (emacspeak-bookshare-download-daisy id target))
+        (emacspeak-auditory-icon 'task-done)
+        (message "Downloaded content to %s" target))
+       (t (error "Error downloading content.")))))))
+
+(defun emacspeak-bookshare-download-brf-at-point ()
+  "Download Braille version of book under point.
+Target location is generated from author and title."
+  (interactive)
+  (let* ((id (get-text-property (point) 'id))
+         (author (get-text-property (point) 'author))
+         (title (get-text-property (point) 'title))
+         (target (emacspeak-bookshare-generate-target author
+  title)))
+    (emacspeak-auditory-icon 'select-object)
+    (cond
+     ((file-exists-p target)
+      (message "This content is available locally at %s" target))
+     (t
+      (cond
+       ((zerop (emacspeak-bookshare-download-brf id target))
+        (emacspeak-auditory-icon 'task-done)
+        (message "Downloaded content to %s" target))
+       (t (error "Error downloading content.")))))))
+                 
 
 ;;}}}
 (provide 'emacspeak-bookshare)
