@@ -421,16 +421,18 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
   "Call action specified by  invoking key."
   (interactive)
   (let* ((key (format "%c" last-input-event))
-         (response (call-interactively (emacspeak-bookshare-action-get key))))
-    (emacspeak-bookshare-bookshare-handler response)))
+         (response (call-interactively
+                    (emacspeak-bookshare-action-get key)))
+         (start (point)))
+    (emacspeak-bookshare-bookshare-handler response)
+    (emacspeak-auditory-icon 'task-done)
+    (goto-char start)
+    (emacspeak-speak-line)))
 
 
-(defun emacspeak-bookshare-insert-response (response)
-  "Insert formatted response into Bookshare Interaction buffer."
-  (with-current-buffer emacspeak-bookshare-interaction-buffer
-    (goto-char (point-max))
-    (insert "\n\n")
-    (emacspeak-bookshare-bookshare-handler response)))
+
+
+-buffer
 
 ;;}}}
 ;;{{{ Book List Viewers:
