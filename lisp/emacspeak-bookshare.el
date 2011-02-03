@@ -408,24 +408,32 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
   "Bookshare  Interaction."
   (interactive)
   (declare (special emacspeak-bookshare-interaction-buffer))
-  (let ((buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (emacspeak-bookshare-mode))
-    (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+  (let ((buffer (get-buffer emacspeak-bookshare-interaction-buffer)))
+    (cond
+     ((buffer-live-p buffer)
+      (switch-to-buffer buffer)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line))
+     (t
+      (with-current-buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)
+        (erase-buffer)
+        (emacspeak-bookshare-mode))
+      (switch-to-buffer emacspeak-bookshare-interaction-buffer)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line)))))
 
 
 (defun emacspeak-bookshare-action  ()
   "Call action specified by  invoking key."
   (interactive)
+  (insert "\n")
   (let* ((key (format "%c" last-input-event))
-         (response (call-interactively
-                    (emacspeak-bookshare-action-get key)))
+         (response (call-interactively (emacspeak-bookshare-action-get key)))
          (start (point)))
     (emacspeak-bookshare-bookshare-handler response)
     (emacspeak-auditory-icon 'task-done)
+    (put-text-property start (point)
+                       'action (emacspeak-bookshare-action-get key))
     (goto-char start)
     (emacspeak-speak-line)))
 
