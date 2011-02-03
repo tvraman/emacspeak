@@ -325,10 +325,19 @@ elements.")
 
 (loop for e in emacspeak-bookshare-response-elements
       do
-      (emacspeak-bookshare-handler-set e
-                                   (intern
-                                    (format
-                                     "emacspeak-bookshare-%s-handler" e))))
+      (emacspeak-bookshare-handler-set
+       e
+       (intern (format "emacspeak-bookshare-%s-handler" e))))
+
+(loop for container in
+      '("book" "list")
+      do
+      (eval
+       `(defun
+          ,(intern (format "emacspeak-bookshare-%s-handler" container))
+          (element)
+          "Process children silently."
+          (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children element)))))
 
 
 (defsubst emacspeak-bookshare-apply-handler (element)
@@ -393,6 +402,7 @@ elements.")
         (insert
          (format "%s: %s\n"
                  (first child) (second child)))))
+
 ;;}}}
 ;;{{{ Bookshare Mode:
 
