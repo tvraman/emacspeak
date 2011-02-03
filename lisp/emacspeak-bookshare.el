@@ -403,6 +403,7 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
 
 (defvar emacspeak-bookshare-interaction-buffer "*Bookshare*"
   "Buffer for Bookshare interaction.")
+
 ;;;###autoload
 (defun emacspeak-bookshare ()
   "Bookshare  Interaction."
@@ -436,11 +437,6 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
                        'action (emacspeak-bookshare-action-get key))
     (goto-char start)
     (emacspeak-speak-line)))
-
-
-
-
--buffer
 
 ;;}}}
 ;;{{{ Book List Viewers:
