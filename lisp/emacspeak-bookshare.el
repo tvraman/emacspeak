@@ -128,6 +128,17 @@ Optional argument `no-auth' says no user auth needed."
             (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
 
+(defsubst emacspeak-bookshare-download-url (id fmt )
+  "Return  URL  end point for content download.
+Argument id specifies content. Argument fmt = 0 for Braille, 1
+  for Daisy."
+  (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
+  (format "%s/%s/%s?api_key=%s"
+          emacspeak-bookshare-api-base
+          (format "download/content/%s/version/%s" id fmt)
+          (format "for/%s" emacspeak-bookshare-user-id)
+          emacspeak-bookshare-api-key))
+
 (defvar emacspeak-bookshare-scratch-buffer " *Bookshare Scratch* "
   "Scratch buffer for Bookshare operations.")
 
@@ -156,8 +167,7 @@ Optional argument `no-auth' says no user auth needed."
 
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
-Optional argument 'no-auth says we dont need a user auth for this
-  call."
+Optional argument 'no-auth says we dont need a user auth."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
@@ -220,6 +230,45 @@ Optional argument 'no-auth says we dont need a user auth for this
 
 ;;; Need to implement code to build a cache of categories and
 ;;; grades to enable complex searches.
+
+;;}}}
+;;{{{ Downloading Content:
+(defsubst emacspeak-bookshare-download-internal(url target)
+  "Download content  to target location."
+  (interactive)
+  (declare (special emacspeak-bookshare-downloads-directory))
+  (shell-command
+     (format
+    "%s %s %s  %s -o %s 2>/dev/null"
+    emacspeak-bookshare-curl-program
+    emacspeak-bookshare-curl-common-options
+    (emacspeak-bookshare-user-password)
+    url
+    (expand-file-name emacspeak-bookshare-downloads-directory
+                      target))))
+
+(defun emacspeak-bookshare-download-daisy(id target)
+  "Download Daisy format of specified book to target location."
+  (interactive)
+  (emacspeak-bookshare-download-internal
+   (emacspeak-bookshare-download-url id 1)
+   target))
+
+(defun emacspeak-bookshare-download-brf(id target)
+  "Download Daisy format of specified book to target location."
+  (interactive)
+  (emacspeak-bookshare-download-internal
+   (emacspeak-bookshare-download-url id 0)
+   target))
+
+;;}}}
+;;{{{ Downloading Content:
+   
+(defsubst emacspeak-bookshare-download-brf(id)
+  "Download Braille  format of specified book."
+  (emacspeak-bookshare-api-call
+   (format "download/content/%s/version/0" id)
+   ""))
 
 ;;}}}
 ;;{{{ Actions Table:
