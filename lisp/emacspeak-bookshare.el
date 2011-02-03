@@ -231,8 +231,7 @@ Optional argument 'no-auth says we dont need a user auth for this
 (defsubst emacspeak-bookshare-action-set (action handler)
   "Set up action handler."
   (declare (special emacspeak-bookshare-action-table))
-  (setf (gethash action emacspeak-bookshare-action-table)
-        handler))
+  (setf (gethash action emacspeak-bookshare-action-table) handler))
 
 (defsubst emacspeak-bookshare-action-get (action)
   "Retrieve action handler."
@@ -244,18 +243,13 @@ Optional argument 'no-auth says we dont need a user auth for this
   "Bookshare Library Of Accessible Books And Periodicals"
   "A Bookshare front-end for the Emacspeak desktop.
 
-Pre-requisites:
-
-
-
-
 The Emacspeak Bookshare front-end is launched by command
 emacspeak-bookshare bound to \\[emacspeak-bookshare]
 
 This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes-- see the ke-binding
-list at the end of this description.  Use Emacs online help
-facility to look up help on these commands.
+commands bounds to single keystrokes-- see the ke-binding list at
+the end of this description. Use Emacs online help facility to
+look up help on these commands.
 
 emacspeak-bookshare-mode provides the necessary functionality to
 Search and download Bookshare material,
@@ -264,12 +258,19 @@ And commands to easily read newer Daisy books from Bookshare.
 For legacy Bookshare material, see command \\[emacspeak-daisy-open-book].
 
 Here is a list of all emacspeak Bookshare commands along with their key-bindings:
-
+a Author Search
+A Author/Title Search
+t Title Search
+s Full Text Search
+d Date Search
+l Browse Latest Books
+p Browse Popular Books
 \\{emacspeak-bookshare-mode-map}"
   (progn
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
     (setq header-line-format "Bookshare Library")))  
+
 (declaim (special emacspeak-bookshare-mode-map))
 
 (loop for a in
@@ -292,10 +293,9 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
 ;;}}}
 ;;{{{ Bookshare XML  handlers:
 
-(defvar emacspeak-bookshare-handler-table  (make-hash-table :test
-                                                            #'equal)
-  "Table of handlers for processing various Bookshare response
-elements.")
+(defvar emacspeak-bookshare-handler-table
+  (make-hash-table :test #'equal)
+  "Table of handlers for processing  Bookshare response elements.")
 
 (defsubst emacspeak-bookshare-handler-set (element handler)
   "Set up element handler."
@@ -339,7 +339,6 @@ elements.")
           "Process children silently."
           (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children element)))))
 
-
 (defsubst emacspeak-bookshare-apply-handler (element)
   "Lookup and apply installed handler."
   (let* ((tag (xml-tag-name element))
@@ -347,7 +346,8 @@ elements.")
     (cond
      ((and handler (fboundp handler))
       (funcall handler element))
-     (t (insert (format "Handler for %s not implemented yet.\n" tag))))))
+     (t ; Cant get here:
+      (insert (format "Handler for %s not implemented yet.\n" tag))))))
 
 (defun emacspeak-bookshare-bookshare-handler (response)
   "Handle Bookshare response."
@@ -389,24 +389,21 @@ elements.")
         (id (second (assoc "id" children)))
         (title (second (assoc "title" children)))
         (author (second (assoc "author" children))))
-    (insert (format "Author:\t%s \t Title:%s" author title))
+    (insert (format "Author:\t%s \t Title:\t%s" author title))
     (add-text-properties
      start (point)
                               (list 'author author 'title title 'id id))))
-
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
   (loop for child in (xml-tag-children metadata)
         do
         (insert
-         (format "%s: %s\n"
+         (format "%s: \t %s\n"
                  (first child) (second child)))))
 
 ;;}}}
 ;;{{{ Bookshare Mode:
-
-
 
 (defun emacspeak-bookshare-define-keys ()
   "Define keys for  Bookshare Interaction."
@@ -414,7 +411,7 @@ elements.")
   (loop for k in 
       '(
         ("q" bury-buffer)
-        (" " emacspeak-bookshare-details)
+        (" " emacspeak-bookshare-expand-at-point)
         )
       do
       (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
@@ -432,56 +429,58 @@ elements.")
   (let ((buffer (get-buffer emacspeak-bookshare-interaction-buffer)))
     (cond
      ((buffer-live-p buffer)
-      (switch-to-buffer buffer)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line))
+      (switch-to-buffer buffer))
      (t
       (with-current-buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)
         (erase-buffer)
         (emacspeak-bookshare-mode))
-      (switch-to-buffer emacspeak-bookshare-interaction-buffer)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line)))))
-
+      (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 (defun emacspeak-bookshare-action  ()
   "Call action specified by  invoking key."
   (interactive)
-  (insert "\n")
-  (let* ((key (format "%c" last-input-event))
-         (response (call-interactively (emacspeak-bookshare-action-get key)))
-         (start (point)))
-    (emacspeak-bookshare-bookshare-handler response)
-    (emacspeak-auditory-icon 'task-done)
-    (put-text-property start (point)
-                       'action (emacspeak-bookshare-action-get key))
-    (goto-char start)
-    (emacspeak-speak-line)))
+  (with-current-buffer emacspeak-bookshare-interaction-buffer
+    (goto-char (point-max))
+    (insert "\n")
+    (let* ((key (format "%c" last-input-event))
+           (response (call-interactively (emacspeak-bookshare-action-get key)))
+           (start (point)))
+      (emacspeak-bookshare-bookshare-handler response)
+      (put-text-property start (point)
+                         'action (emacspeak-bookshare-action-get key))
+      (emacspeak-auditory-icon 'task-done)
+      (goto-char start)
+      (emacspeak-speak-line))))
 
-;;;###autoload
-(defun emacspeak-bookshare-details ()
-  "Pop to a buffer displaying details of this book."
+
+(defun emacspeak-bookshare-expand-at-point ()
+  "Expand entry at point by retrieving metadata.
+Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
   (let* ((id (get-text-property (point) 'id))
-        (response (emacspeak-bookshare-id-search id))
-        (buffer
-         (get-buffer-create
-          (format "Book %s %s"
-                  (get-text-property (point) 'author)
-                  (get-text-property (point) 'title)))))
-  (put-text-property (point) (1+ (point))
-                     'metadata buffer)
-  (with-temp-buffer buffer
-                    (emacspeak-bookshare-bookshare-handler response))
-  (switch-to-buffer buffer)))
-  
-           
-    
-  
-  
-
+         (metadata (get-text-property (point) 'metadata))
+         (start nil)
+        (response (emacspeak-bookshare-id-search id)))
+    (cond
+     (metadata (message "Entry already expanded."))
+     (t
+      (put-text-property (line-beginning-position)
+  (line-end-position)
+  'metadata t)
+     (goto-char (line-end-position))
+     (insert "\n")
+     (setq start (point))
+     (emacspeak-bookshare-bookshare-handler response)
+     (put-text-property start (point) 'metadata t)
+     (indent-rigidly start (point) 4)))
+  (goto-char start)
+  (forward-line 1)
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-bookshare)
