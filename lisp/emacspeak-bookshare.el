@@ -54,7 +54,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'xml-parse)
 ;;}}}
 ;;{{{ Customizations
 
@@ -236,6 +236,7 @@ For now, we user-authenticate  all operations."
       (error "No handler defined for action %s" action)))
 
   
+(declaim (special emacspeak-bookshare-mode-map))
 
 (loop for a in
       '(
@@ -304,12 +305,11 @@ elements.")
       (funcall handler element))
      (t (insert (format "Handler for %s not implemented yet.\n" tag))))))
 
-(defun emacspeak-bookshare-bookshare-handler (messages)
+(defun emacspeak-bookshare-bookshare-handler (response)
   "Handle Bookshare response."
   (unless (string-equal (xml-tag-name response) "bookshare")
     (error "Does not look like a Bookshare response."))
-  (mapc 'emacspeak-bookshare-apply-handler (xml-tag-children
-                                            response)))
+  (mapc 'emacspeak-bookshare-apply-handler (xml-tag-children response)))
 
 
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
@@ -317,7 +317,43 @@ elements.")
 
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
-  (mapc #'insert(rest  (xml-tag-child messages "string"))))
+  (mapc #'insert(rest  (xml-tag-child messages "string")))
+  (insert "\n"))
+
+(defun emacspeak-bookshare-book-handler (book)
+  "Handle book element in book list response."
+  (emacspeak-bookshare-apply-handler (xml-tag-child book
+                                                    "list")))
+(defun emacspeak-bookshare-list-handler (list)
+  "Handle list element in Bookshare book list response."
+  (mapc #'emacspeak-bookshare-apply-handler
+        (xml-tag-children list )))
+
+(defun emacspeak-bookshare-page-handler (page)
+  "Handle page element."
+  (insert (format "Page: %s" (second page))))
+
+(defun emacspeak-bookshare-limit-handler (limit)
+  "Handle limit element."
+  (insert (format "Limit: %s" (second limit))))
+
+(defun emacspeak-bookshare-num-pages-handler (num-pages)
+  "Handle num-pages element."
+  (insert
+   (format "Num-Pages: %s" (second num-pages))))
+
+(defun emacspeak-bookshare-result-handler (result)
+  "Handle result element in Bookshare response."
+  (insert "\n")
+  (let* ((children (xml-tag-children result))
+        (start (point))
+        (id (second (assoc "id" children)))
+        (title (second (assoc "title" children)))
+        (author (second (assoc "author" children))))
+    (insert (format "Author:\t%s Title:%s" author title))
+    (add-text-properties
+     start (point)
+                              (list 'author author 'title title 'id id))))
 
 ;;}}}
 ;;{{{ Bookshare Mode:
@@ -394,7 +430,7 @@ Here is a list of all emacspeak Bookshare commands along with their key-bindings
   (with-current-buffer emacspeak-bookshare-interaction-buffer
     (goto-char (point-max))
     (insert "\n\n")
-    (emacspeak-bookshare-handle-bookshare response)))
+    (emacspeak-bookshare-bookshare-handler response)))
 
 ;;}}}
 ;;{{{ Book List Viewers:
