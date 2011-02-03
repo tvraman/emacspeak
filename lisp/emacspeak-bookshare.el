@@ -269,8 +269,7 @@ p Browse Popular Books
   (progn
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
-    (setq header-line-format "Bookshare Library")
-    (emacspeak-toggle-audio-indentation t)))  
+    (setq header-line-format "Bookshare Library")))  
 
 (declaim (special emacspeak-bookshare-mode-map))
 
@@ -390,19 +389,40 @@ p Browse Popular Books
         (id (second (assoc "id" children)))
         (title (second (assoc "title" children)))
         (author (second (assoc "author" children))))
-    (insert (format "Author:\t%s \t Title:\t%s" author title))
+    (insert
+     (format "Author:\t%s \t Title:\t%s"
+             (xml-substitute-special (xml-substitute-numeric-entities author))
+             (xml-substitute-special(xml-substitute-numeric-entities title))))
     (add-text-properties
      start (point)
                               (list 'author author 'title title 'id id))))
+(defvar emacspeak-bookshare-metadata-filtered-elements
+  '("author"
+    "bookshare-id"
+    "brf"
+    "content-id"
+    "daisy"
+    "images"
+    "title")
+  "Elements in Bookshare Metadata that we filter.")
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
-  (loop for child in
-        (sort (xml-tag-children metadata)
-              #'(lambda (a b )
-                  (string-lessp (car a) (car b))))
-        do
-        (insert (format "%s: \t %s\n" (first child) (second child)))))
+  (declare (special emacspeak-bookshare-metadata-filtered-elements))
+  (mapc
+   #'(lambda (child)
+       (let ((start (point)))
+         (insert (format "%s: \t %s\n"
+                         (first child)
+                         (xml-substitute-special (xml-substitute-numeric-entities(second child)))))
+         (fill-region-as-paragraph start (point))))
+   (remove-if
+    #'(lambda (c)
+        (member (car  c) emacspeak-bookshare-metadata-filtered-elements))
+    (sort
+     (xml-tag-children metadata)
+     #'(lambda (a b ) (string-lessp (car a) (car b)))))))
+        
         
 ;;}}}
 ;;{{{ Bookshare Mode:
@@ -435,7 +455,11 @@ p Browse Popular Books
      (t
       (with-current-buffer (get-buffer-create emacspeak-bookshare-interaction-buffer)
         (erase-buffer)
-        (emacspeak-bookshare-mode))
+        (setq buffer-undo-list t)
+        (setq buffer-read-only t)
+        (emacspeak-bookshare-mode)
+        (setq emacspeak-audio-indentation t)
+        (emacspeak-toggle-audio-indentation t))
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -445,10 +469,11 @@ p Browse Popular Books
   (interactive)
   (with-current-buffer emacspeak-bookshare-interaction-buffer
     (goto-char (point-max))
-    (insert "\n")
-    (let* ((key (format "%c" last-input-event))
+    (let* ((inhibit-read-only t)
+           (key (format "%c" last-input-event))
            (response (call-interactively (emacspeak-bookshare-action-get key)))
            (start (point)))
+      (insert "\n")
       (emacspeak-bookshare-bookshare-handler response)
       (put-text-property start (point)
                          'action (emacspeak-bookshare-action-get key))
@@ -463,7 +488,8 @@ Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
-  (let* ((id (get-text-property (point) 'id))
+  (let* ((inhibit-read-only t)
+         (id (get-text-property (point) 'id))
          (metadata (get-text-property (point) 'metadata))
          (start nil)
          (response (emacspeak-bookshare-id-search id)))
@@ -481,7 +507,6 @@ Once retrieved, memoize to avoid multiple retrievals."
                            (list 'metadata t 'id id))
       (indent-rigidly start (point) 4)))
     (goto-char start)
-    (forward-line 1)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
