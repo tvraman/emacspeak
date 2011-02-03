@@ -125,7 +125,7 @@ Optional argument `no-auth' says no user auth needed."
           (emacspeak-url-encode operand)
           (if no-auth
               ""
-          (format "for/%s" emacspeak-bookshare-user-id))
+            (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
 
 (defvar emacspeak-bookshare-scratch-buffer " *Bookshare Scratch* "
@@ -162,8 +162,8 @@ Optional argument 'no-auth says we dont need a user auth for this
    (format
     "%s %s %s  %s 2>/dev/null"
     emacspeak-bookshare-curl-program
-  emacspeak-bookshare-curl-common-options
-  (if no-auth "" (emacspeak-bookshare-user-password))
+    emacspeak-bookshare-curl-common-options
+    (if no-auth "" (emacspeak-bookshare-user-password))
     (emacspeak-bookshare-rest-endpoint operation operand no-auth))))
 
 ;;}}}
@@ -202,7 +202,6 @@ Optional argument 'no-auth says we dont need a user auth for this
   "Perform a Bookshare fulltext search."
   (interactive "sFulltext Search: ")
   (emacspeak-bookshare-api-call "book/searchFTS" query))
-
 
 (defsubst emacspeak-bookshare-since-search (query)
   "Perform a Bookshare since  search."
@@ -269,7 +268,7 @@ p Browse Popular Books
   (progn
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
-    (setq header-line-format "Bookshare Library")))  
+    (setq header-line-format "Bookshare Library")))
 
 (declaim (special emacspeak-bookshare-mode-map))
 
@@ -287,8 +286,8 @@ p Browse Popular Books
         )
       do
       (progn
-      (emacspeak-bookshare-action-set (first a) (second a))
-      (define-key emacspeak-bookshare-mode-map (first a) 'emacspeak-bookshare-action)))
+        (emacspeak-bookshare-action-set (first a) (second a))
+        (define-key emacspeak-bookshare-mode-map (first a) 'emacspeak-bookshare-action)))
 
 ;;}}}
 ;;{{{ Bookshare XML  handlers:
@@ -306,7 +305,7 @@ p Browse Popular Books
   "Retrieve action handler."
   (declare (special emacspeak-bookshare-handler-table))
   (let ((handler (gethash element emacspeak-bookshare-handler-table)))
-  (if (fboundp handler) handler 'emacspeak-bookshare-recurse)))
+    (if (fboundp handler) handler 'emacspeak-bookshare-recurse)))
 
 (defvar emacspeak-bookshare-response-elements
   '("bookshare"
@@ -355,7 +354,6 @@ p Browse Popular Books
     (error "Does not look like a Bookshare response."))
   (mapc 'emacspeak-bookshare-apply-handler (xml-tag-children response)))
 
-
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
 
 (defun emacspeak-bookshare-recurse (tree)
@@ -385,17 +383,17 @@ p Browse Popular Books
   "Handle result element in Bookshare response."
   (insert "\n")
   (let* ((children (xml-tag-children result))
-        (start (point))
-        (id (second (assoc "id" children)))
-        (title (second (assoc "title" children)))
-        (author (second (assoc "author" children))))
+         (start (point))
+         (id (second (assoc "id" children)))
+         (title (second (assoc "title" children)))
+         (author (second (assoc "author" children))))
     (insert
      (format "Author:\t%s \t Title:\t%s"
              (xml-substitute-special (xml-substitute-numeric-entities author))
              (xml-substitute-special(xml-substitute-numeric-entities title))))
     (add-text-properties
      start (point)
-                              (list 'author author 'title title 'id id))))
+     (list 'author author 'title title 'id id))))
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '("author"
     "bookshare-id"
@@ -422,22 +420,22 @@ p Browse Popular Books
     (sort
      (xml-tag-children metadata)
      #'(lambda (a b ) (string-lessp (car a) (car b)))))))
-        
-        
+
+
 ;;}}}
 ;;{{{ Bookshare Mode:
 
 (defun emacspeak-bookshare-define-keys ()
   "Define keys for  Bookshare Interaction."
   (declare (special emacspeak-bookshare-mode-map))
-  (loop for k in 
-      '(
-        ("q" bury-buffer)
-        (" " emacspeak-bookshare-expand-at-point)
-        )
-      do
-      (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
-  
+  (loop for k in
+        '(
+          ("q" bury-buffer)
+          (" " emacspeak-bookshare-expand-at-point)
+          )
+        do
+        (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
+
 (emacspeak-bookshare-define-keys)
 
 (defvar emacspeak-bookshare-interaction-buffer "*Bookshare*"
@@ -480,7 +478,6 @@ p Browse Popular Books
       (emacspeak-auditory-icon 'task-done)
       (goto-char start)
       (emacspeak-speak-line))))
-
 
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
