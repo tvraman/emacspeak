@@ -220,8 +220,7 @@ For now, we user-authenticate  all operations."
 ;;{{{ Actions Table:
 
 (defvar emacspeak-bookshare-action-table (make-hash-table :test #'equal)
-  "Table mapping Bookshare actions to their appropriate
-  handlers.")
+  "Table mapping Bookshare actions to  handlers.")
 
 (defsubst emacspeak-bookshare-action-set (action handler)
   "Set up action handler."
@@ -271,8 +270,8 @@ elements.")
 (defsubst emacspeak-bookshare-handler-get (element)
   "Retrieve action handler."
   (declare (special emacspeak-bookshare-handler-table))
-  (or (gethash element emacspeak-bookshare-handler-table)
-      (error "No handler defined for element %s" element)))
+  (or (fboundp (gethash element emacspeak-bookshare-handler-table))
+      'emacspeak-bookshare-recurse))
 
 (defvar emacspeak-bookshare-response-elements
   '("bookshare"
@@ -314,6 +313,11 @@ elements.")
 
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
 
+(defun emacspeak-bookshare-recurse (tree)
+  "Recurse down tree."
+  (insert (format "Begin %s:\n" (xml-tag-name tree)))
+  (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children tree))
+  (insert (format "End %s\n" (xml-tag-name tree))))
 
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
