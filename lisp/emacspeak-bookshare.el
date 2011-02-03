@@ -269,7 +269,8 @@ p Browse Popular Books
   (progn
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
-    (setq header-line-format "Bookshare Library")))  
+    (setq header-line-format "Bookshare Library")
+    (emacspeak-toggle-audio-indentation t)))  
 
 (declaim (special emacspeak-bookshare-mode-map))
 
@@ -396,12 +397,13 @@ p Browse Popular Books
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
-  (loop for child in (xml-tag-children metadata)
+  (loop for child in
+        (sort (xml-tag-children metadata)
+              #'(lambda (a b )
+                  (string-lessp (car a) (car b))))
         do
-        (insert
-         (format "%s: \t %s\n"
-                 (first child) (second child)))))
-
+        (insert (format "%s: \t %s\n" (first child) (second child)))))
+        
 ;;}}}
 ;;{{{ Bookshare Mode:
 
@@ -464,23 +466,24 @@ Once retrieved, memoize to avoid multiple retrievals."
   (let* ((id (get-text-property (point) 'id))
          (metadata (get-text-property (point) 'metadata))
          (start nil)
-        (response (emacspeak-bookshare-id-search id)))
+         (response (emacspeak-bookshare-id-search id)))
     (cond
      (metadata (message "Entry already expanded."))
      (t
       (put-text-property (line-beginning-position)
-  (line-end-position)
-  'metadata t)
-     (goto-char (line-end-position))
-     (insert "\n")
-     (setq start (point))
-     (emacspeak-bookshare-bookshare-handler response)
-     (put-text-property start (point) 'metadata t)
-     (indent-rigidly start (point) 4)))
-  (goto-char start)
-  (forward-line 1)
-  (emacspeak-auditory-icon 'large-movement)
-  (emacspeak-speak-line)))
+                         (line-end-position)
+                         'metadata t)
+      (goto-char (line-end-position))
+      (insert "\n")
+      (setq start (point))
+      (emacspeak-bookshare-bookshare-handler response)
+      (add-text-properties start (point)
+                           (list 'metadata t 'id id))
+      (indent-rigidly start (point) 4)))
+    (goto-char start)
+    (forward-line 1)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-bookshare)
