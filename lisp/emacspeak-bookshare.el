@@ -270,8 +270,9 @@ elements.")
 (defsubst emacspeak-bookshare-handler-get (element)
   "Retrieve action handler."
   (declare (special emacspeak-bookshare-handler-table))
-  (or (fboundp (gethash element emacspeak-bookshare-handler-table))
-      'emacspeak-bookshare-recurse))
+  (if (fboundp (gethash element emacspeak-bookshare-handler-table))
+      (gethash element emacspeak-bookshare-handler-table)
+    'emacspeak-bookshare-recurse))
 
 (defvar emacspeak-bookshare-response-elements
   '("bookshare"
@@ -335,16 +336,15 @@ elements.")
 
 (defun emacspeak-bookshare-page-handler (page)
   "Handle page element."
-  (insert (format "Page: %s" (second page))))
+  (insert (format "Page: %s\t" (second page))))
 
 (defun emacspeak-bookshare-limit-handler (limit)
   "Handle limit element."
-  (insert (format "Limit: %s" (second limit))))
+  (insert (format "Limit: %s\t" (second limit))))
 
 (defun emacspeak-bookshare-num-pages-handler (num-pages)
   "Handle num-pages element."
-  (insert
-   (format "Num-Pages: %s" (second num-pages))))
+  (insert (format "Num-Pages: %s\n" (second num-pages))))
 
 (defun emacspeak-bookshare-result-handler (result)
   "Handle result element in Bookshare response."
@@ -354,7 +354,7 @@ elements.")
         (id (second (assoc "id" children)))
         (title (second (assoc "title" children)))
         (author (second (assoc "author" children))))
-    (insert (format "Author:\t%s Title:%s" author title))
+    (insert (format "Author:\t%s \t Title:%s" author title))
     (add-text-properties
      start (point)
                               (list 'author author 'title title 'id id))))
