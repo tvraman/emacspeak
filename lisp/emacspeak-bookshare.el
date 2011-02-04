@@ -181,11 +181,12 @@ Optional argument 'no-auth says we dont need a user auth."
   (declare (special emacspeak-bookshare-downloads-directory))
   (expand-file-name
   (shell-quote-argument
-   (replace-regexp-in-string " " "-"
-                             (format "%s-%s.zip"
-                                     (xml-substitute-special
-  (xml-substitute-numeric-entities author))
-                                     (xml-substitute-numeric-entities title))))
+   (replace-regexp-in-string
+    " " "-"
+    (format
+     "%s-%s.zip"
+     (xml-substitute-special (xml-substitute-numeric-entities author))
+     (xml-substitute-special(xml-substitute-numeric-entities title)))))
   emacspeak-bookshare-downloads-directory))
 
 ;;}}}
@@ -493,6 +494,7 @@ p Browse Popular Books
           ("["  backward-page)
           ("]" forward-page)
           (" " emacspeak-bookshare-expand-at-point)
+          ("U" emacspeak-bookshare-unpack-at-point)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
           )
@@ -614,7 +616,46 @@ Target location is generated from author and title."
       (emacspeak-bookshare-download-brf id target)
         (emacspeak-auditory-icon 'task-done)
         (message "Downloading content to %s" target)))))
-       
+
+
+
+(defun emacspeak-bookshare-unpack-at-point ()
+  "Unpack downloaded content if necessary."
+  (interactive)
+  (declare (special emacspeak-bookshare-downloads-directory))
+  (unless (eq major-mode 'emacspeak-bookshare-mode)
+    (error "Not in Bookshare Interaction."))
+  (let ((target (get-text-property (point) 'target))
+        (author (get-text-property (point) 'author))
+        (title (get-text-property (point) 'title))
+        (directory nil))
+    (when (null target) (error  "No downloaded content here."))
+    (unless   (file-exists-p target) (error "First download this content."))
+    (setq directory 
+          (expand-file-name
+           (shell-quote-argument
+            (replace-regexp-in-string
+             " " "-"
+             (format
+              "%s/%s"
+              (xml-substitute-special (xml-substitute-numeric-entities author))
+              (xml-substitute-special
+               (xml-substitute-numeric-entities title)))))))
+    (when (file-exists-p directory) (error "Already unpacked."))
+    (make-directory directory 'parents)
+    (shell-command
+     (format "cd %s; unzip -P %s %s"
+             directory
+             (read-passwd
+              (format "Password for %s" emacspeak-bookshare-user-id))
+             target))
+    (message "Unpacked content.")))
+    
+      
+  
+      
+  
+  
                  
 
 ;;}}}
