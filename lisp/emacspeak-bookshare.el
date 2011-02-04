@@ -481,6 +481,18 @@ p Browse Popular Books
 
 
 ;;}}}
+;;{{{  Property Accessors:
+
+(loop
+ for p in
+ '(author title id metadata target)
+ do
+ (eval
+  `(defsubst ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
+     ,(format "Get %s at point. " p)
+     (get-text-property (point) ',p))))
+
+;;}}}
 ;;{{{ Bookshare Mode:
 
 (defun emacspeak-bookshare-define-keys ()
@@ -555,11 +567,11 @@ Once retrieved, memoize to avoid multiple retrievals."
     (error "Not in Bookshare Interaction."))
   (emacspeak-auditory-icon 'select-object)
   (let* ((inhibit-read-only t)
-         (id (get-text-property (point) 'id))
-         (author (get-text-property (point) 'author))
-         (title (get-text-property (point) 'title))
+         (id (emacspeak-bookshare-get-id))
+         (author (emacspeak-bookshare-get-author))
+         (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title))
-         (metadata (get-text-property (point) 'metadata))
+         (metadata (emacspeak-bookshare-get-metadata))
          (start nil)
          (response (emacspeak-bookshare-id-search id)))
     (cond
@@ -584,30 +596,28 @@ Once retrieved, memoize to avoid multiple retrievals."
   "Download Daisy version of book under point.
 Target location is generated from author and title."
   (interactive)
-  (let* ((id (get-text-property (point) 'id))
-         (author (get-text-property (point) 'author))
-         (title (get-text-property (point) 'title))
-         (target (emacspeak-bookshare-generate-target author
-                                                      title)))
+  (let* ((id (emacspeak-bookshare-get-id))
+         (author (emacspeak-bookshare-get-author))
+         (title (emacspeak-bookshare-get-title))
+         (target (emacspeak-bookshare-generate-target author title)))
     (emacspeak-auditory-icon 'select-object)
     (cond
      ((file-exists-p target)
       (message "This content is available locally at %s" target))
      (t
       (emacspeak-bookshare-download-daisy id target)
-        (emacspeak-auditory-icon 'task-done)
-        (message "Downloading content to %s" target)))))
+      (emacspeak-auditory-icon 'task-done)
+      (message "Downloading content to %s" target)))))
        
 
 (defun emacspeak-bookshare-download-brf-at-point ()
   "Download Braille version of book under point.
 Target location is generated from author and title."
   (interactive)
-  (let* ((id (get-text-property (point) 'id))
-         (author (get-text-property (point) 'author))
-         (title (get-text-property (point) 'title))
-         (target (emacspeak-bookshare-generate-target author
-  title)))
+  (let* ((id (emacspeak-bookshare-get-id))
+         (author (emacspeak-bookshare-get-author))
+         (title (emacspeak-bookshare-get-title))
+         (target (emacspeak-bookshare-generate-target author title)))
     (emacspeak-auditory-icon 'select-object)
     (cond
      ((file-exists-p target)
@@ -625,9 +635,9 @@ Target location is generated from author and title."
   (declare (special emacspeak-bookshare-downloads-directory))
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
-  (let ((target (get-text-property (point) 'target))
-        (author (get-text-property (point) 'author))
-        (title (get-text-property (point) 'title))
+  (let ((target (emacspeak-bookshare-get-target))
+        (author (emacspeak-bookshare-get-author))
+        (title (emacspeak-bookshare-get-title))
         (directory nil))
     (when (null target) (error  "No downloaded content here."))
     (unless   (file-exists-p target) (error "First download this content."))
@@ -650,13 +660,6 @@ Target location is generated from author and title."
               (format "Password for %s" emacspeak-bookshare-user-id))
              target))
     (message "Unpacked content.")))
-    
-      
-  
-      
-  
-  
-                 
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
