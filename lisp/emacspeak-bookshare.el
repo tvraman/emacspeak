@@ -324,7 +324,8 @@ p Browse Popular Books
     (let ((inhibit-read-only t))
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
-    (setq header-line-format "Bookshare Library")))
+    (setq header-line-format "Bookshare Library")
+    ))
 
 (declaim (special emacspeak-bookshare-mode-map))
 
@@ -459,25 +460,43 @@ p Browse Popular Books
     "content-id"
     "daisy"
     "images"
+    "download-format"
     "title")
   "Elements in Bookshare Metadata that we filter.")
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
-  (declare (special emacspeak-bookshare-metadata-filtered-elements))
-  (mapc
-   #'(lambda (child)
-       (let ((start (point)))
-         (insert (format "%s: \t %s\n"
-                         (first child)
-                         (xml-substitute-special (xml-substitute-numeric-entities(second child)))))
-         (fill-region-as-paragraph start (point))))
-   (remove-if
-    #'(lambda (c)
-        (member (car  c) emacspeak-bookshare-metadata-filtered-elements))
-    (sort
-     (xml-tag-children metadata)
-     #'(lambda (a b ) (string-lessp (car a) (car b)))))))
+  (declare (special
+            emacspeak-bookshare-metadata-filtered-elements))
+  (let*
+      ((children (xml-tag-children metadata))
+       (available
+        (remove-if-not
+         #'(lambda (c)
+             (string= (car c) "download-format"))
+         children)))
+    (mapc
+     #'(lambda (child)
+         (let ((start (point)))
+           (insert (format "%s: \t %s\n"
+                           (capitalize (first child))
+                           (xml-substitute-special (xml-substitute-numeric-entities(second child)))))
+           (fill-region-as-paragraph start (point))))
+     (remove-if
+      #'(lambda (c)
+          (member (car  c) emacspeak-bookshare-metadata-filtered-elements))
+      (sort
+       children
+       #'(lambda (a b ) (string-lessp (car a) (car b))))))
+  (insert
+   (format "Available: %s"
+           (mapconcat
+            #'(lambda (a) (second a))
+            available
+            " ")))))
+  
+   
+  
 
 
 ;;}}}
@@ -502,7 +521,7 @@ p Browse Popular Books
         '(
           ("q" bury-buffer)
           ("\M-n" emacspeak-bookshare-next-result)
-          ("\M-p" emacspeak-bookshare-next-result)
+          ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
           ("]" forward-page)
           (" " emacspeak-bookshare-expand-at-point)
@@ -667,6 +686,7 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-next-result ()
   "Move to next result."
   (interactive)
+  (goto-char (line-end-position))
   (goto-char (next-single-property-change (point) 'id))
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
