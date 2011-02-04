@@ -131,7 +131,7 @@ Optional argument `no-auth' says no user auth needed."
   (format "%s/%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
           operation
-          (emacspeak-url-encode operand)
+          operand
           (if no-auth
               ""
             (format "for/%s" emacspeak-bookshare-user-id))
@@ -241,12 +241,26 @@ Optional argument 'no-auth says we dont need a user auth."
 
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
-(defsubst emacspeak-bookshare-author-search (query)
-  "Perform a Bookshare author search."
-  (interactive "sAuthor: ")
-  (emacspeak-bookshare-api-call "book/searchFTS/author" query ))
+(defun emacspeak-bookshare-author-search (query &optional category)
+  "Perform a Bookshare author search.
+Interactive prefix arg filters search by category."
+  (interactive
+   (list
+    (read-from-minibuffer "author: ")
+    current-prefix-arg))
+  (cond
+   ((null category)                     ; plain search
+    (emacspeak-bookshare-api-call "book/searchFTS/author" query))
+   (t                                   ; filter using category:
+    (let ((filter
+           (completing-read "Category: "
+                            (emacspeak-bookshare-categories))))
+      (emacspeak-bookshare-api-call
+       "book/searchFTS/author"
+       (format "%s/category/%s"
+               query filter))))))
 
-(defsubst emacspeak-bookshare-title-search (query &optional category)
+(defun emacspeak-bookshare-title-search (query &optional category)
   "Perform a Bookshare title search.
 Interactive prefix arg filters search by category."
   (interactive
@@ -262,8 +276,8 @@ Interactive prefix arg filters search by category."
                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/searchFTS/title"
-       (format "%s/category/%s/"
-               query category))))))
+       (format "%s/category/%s"
+               query filter))))))
 
 (defsubst emacspeak-bookshare-title/author-search (query)
   "Perform a Bookshare title/author  search."
