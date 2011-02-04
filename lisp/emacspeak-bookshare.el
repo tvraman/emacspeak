@@ -78,8 +78,13 @@
                  (const :tag "None" nil)
                  (string :tag "Email"))
   :group 'emacspeak-bookshare)
+(defcustom emacspeak-bookshare-directory (expand-file-name "~/")
+  "Customize this to the root of where books are organized."
+  :type 'directory
+  :group 'emacspeak-bookshare)
 
-(defcustom emacspeak-bookshare-downloads-directory (expand-file-name "~/")
+(defcustom emacspeak-bookshare-downloads-directory
+  (expand-file-name "~/" emacspeak-bookshare-directory)
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-bookshare)
@@ -657,7 +662,7 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
-  (declare (special emacspeak-bookshare-downloads-directory))
+  (declare (special emacspeak-bookshare-directory))
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
   (let ((target (emacspeak-bookshare-get-target))
@@ -675,7 +680,8 @@ Target location is generated from author and title."
               "%s/%s"
               (xml-substitute-special (xml-substitute-numeric-entities author))
               (xml-substitute-special
-               (xml-substitute-numeric-entities title)))))))
+               (xml-substitute-numeric-entities title)))))
+           emacspeak-bookshare-directory))
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
     (shell-command
