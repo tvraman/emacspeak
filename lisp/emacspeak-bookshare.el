@@ -190,8 +190,7 @@ Optional argument 'no-auth says we dont need a user auth."
     " " "-"
     (format
      "%s-%s.zip"
-     (xml-substitute-special (xml-substitute-numeric-entities author))
-     (xml-substitute-special(xml-substitute-numeric-entities title)))))
+     author title)))
   emacspeak-bookshare-downloads-directory))
 
 ;;}}}
@@ -447,12 +446,17 @@ p Browse Popular Books
   (let* ((children (xml-tag-children result))
          (start (point))
          (id (second (assoc "id" children)))
-         (title (second (assoc "title" children)))
-         (author (second (assoc "author" children))))
+         (title
+          (xml-substitute-special
+           (xml-substitute-numeric-entities
+            (second (assoc "title" children)))))
+         (author
+          (xml-substitute-special
+           (xml-substitute-numeric-entities
+          (second (assoc "author" children))))))
     (insert
      (format "Author:\t%s \t Title:\t%s"
-             (xml-substitute-special (xml-substitute-numeric-entities author))
-             (xml-substitute-special(xml-substitute-numeric-entities title))))
+             author title))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
@@ -471,34 +475,41 @@ p Browse Popular Books
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
-  (declare (special
-            emacspeak-bookshare-metadata-filtered-elements))
+  (declare (special emacspeak-bookshare-metadata-filtered-elements))
   (let*
       ((children (xml-tag-children metadata))
        (available
         (remove-if-not
          #'(lambda (c)
              (string= (car c) "download-format"))
+         children))
+       (display
+        (remove-if
+         #'(lambda (c)
+             (member (car  c) emacspeak-bookshare-metadata-filtered-elements))
          children)))
     (mapc
      #'(lambda (child)
          (let ((start (point)))
-           (insert (format "%s: \t %s\n"
-                           (capitalize (first child))
-                           (xml-substitute-special (xml-substitute-numeric-entities(second child)))))
+           (insert (format "%s: "
+                           (capitalize (first child))))
+           (put-text-property start (point)
+                              'face 'highlight)
+           (insert
+            (format "%s\n"
+                    (xml-substitute-special
+                     (xml-substitute-numeric-entities
+                      (second child)))))
            (fill-region-as-paragraph start (point))))
-     (remove-if
-      #'(lambda (c)
-          (member (car  c) emacspeak-bookshare-metadata-filtered-elements))
-      (sort
-       children
-       #'(lambda (a b ) (string-lessp (car a) (car b))))))
-  (insert
-   (format "Available: %s"
-           (mapconcat
-            #'(lambda (a) (second a))
-            available
-            " ")))))
+     (sort
+      display
+      #'(lambda (a b ) (string-lessp (car a) (car b)))))
+    (insert
+     (format "Available: %s"
+             (mapconcat
+              #'(lambda (a) (second a))
+              available
+              " ")))))
   
    
   
@@ -676,11 +687,7 @@ Target location is generated from author and title."
            (shell-quote-argument
             (replace-regexp-in-string
              " " "-"
-             (format
-              "%s/%s"
-              (xml-substitute-special (xml-substitute-numeric-entities author))
-              (xml-substitute-special
-               (xml-substitute-numeric-entities title)))))
+             (format "%s/%s" author title)))
            emacspeak-bookshare-directory))
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
