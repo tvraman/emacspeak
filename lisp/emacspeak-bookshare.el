@@ -204,7 +204,29 @@ Optional argument 'no-auth says we dont need a user auth."
 
 ;;}}}
 ;;{{{ Book Actions:
+(defvar emacspeak-bookshare-categories nil
+  "Cached list of categories.")
 
+(defun emacspeak-bookshare-categories ()
+  "Return memoized list of categories."
+  (declare (special emacspeak-bookshare-categories))
+  (or
+   emacspeak-bookshare-categories
+   (setq
+    emacspeak-bookshare-categories
+    (let ((result
+           (emacspeak-bookshare-api-call
+            "reference/category/list" "" 'no-auth)))
+      (setq result (xml-tag-child result  "category"))
+      (setq result (xml-tag-child result "list"))
+      (setq result (xml-tag-children result))
+      (setq result
+            (remove-if-not
+             #'(lambda (c) (string= "result" (xml-tag-name c)))
+             result))
+    (loop for r in result
+          collect
+          (emacspeak-url-encode(cadr (second r))))))))
 ;;;  Following actions return book metadata:
 
 (defsubst emacspeak-bookshare-isbn-search (query)
@@ -224,10 +246,24 @@ Optional argument 'no-auth says we dont need a user auth."
   (interactive "sAuthor: ")
   (emacspeak-bookshare-api-call "book/searchFTS/author" query ))
 
-(defsubst emacspeak-bookshare-title-search (query)
-  "Perform a Bookshare title search."
-  (interactive "sTitle: ")
-  (emacspeak-bookshare-api-call "book/searchFTS/title" query))
+(defsubst emacspeak-bookshare-title-search (query &optional category)
+  "Perform a Bookshare title search.
+Interactive prefix arg filters search by category."
+  (interactive
+   (list
+    (read-from-minibuffer "Title: ")
+    current-prefix-arg))
+  (cond
+   ((null category)                     ; plain search
+    (emacspeak-bookshare-api-call "book/searchFTS/title" query))
+   (t                                   ; filter using category:
+    (let ((filter
+           (completing-read "Category: "
+                            (emacspeak-bookshare-categories))))
+      (emacspeak-bookshare-api-call
+       "book/searchFTS/title"
+       (format "%s/category/%s/"
+               query category))))))
 
 (defsubst emacspeak-bookshare-title/author-search (query)
   "Perform a Bookshare title/author  search."
@@ -253,29 +289,7 @@ Optional argument 'no-auth says we dont need a user auth."
   "Return popular books."
   (interactive)
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
-(defvar emacspeak-bookshare-categories nil
-  "Cached list of categories.")
 
-(defun emacspeak-bookshare-categories ()
-  "Return memoized list of categories."
-  (declare (special emacspeak-bookshare-categories))
-  (or
-   emacspeak-bookshare-categories
-   (setq
-    emacspeak-bookshare-categories
-    (let ((result
-           (emacspeak-bookshare-api-call
-            "reference/category/list" "" 'no-auth)))
-      (setq result (xml-tag-child result  "category"))
-      (setq result (xml-tag-child result "list"))
-      (setq result (xml-tag-children result))
-      (setq result
-            (remove-if-not
-             #'(lambda (c) (string= "result" (xml-tag-name c)))
-             result))
-    (loop for r in result
-          collect
-          (emacspeak-url-encode(cadr (second r))))))))
       
 ;;}}}
 ;;{{{ Downloading Content:
