@@ -488,6 +488,10 @@ p Browse Popular Books
   (loop for k in
         '(
           ("q" bury-buffer)
+          ("\M-n" emacspeak-bookshare-next-result)
+          ("\M-p" emacspeak-bookshare-next-result)
+          ("["  backward-page)
+          ("]" forward-page)
           (" " emacspeak-bookshare-expand-at-point)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
@@ -524,19 +528,21 @@ p Browse Popular Books
 (defun emacspeak-bookshare-action  ()
   "Call action specified by  invoking key."
   (interactive)
-  (with-current-buffer emacspeak-bookshare-interaction-buffer
-    (goto-char (point-max))
-    (let* ((inhibit-read-only t)
+  (unless (eq major-mode 'emacspeak-bookshare-mode)
+    (error "Not in Bookshare Interaction."))
+  (goto-char (point-max))
+  (let* ((inhibit-read-only t)
            (key (format "%c" last-input-event))
-           (response (call-interactively (emacspeak-bookshare-action-get key)))
-           (start (point)))
-      (insert "\n")
+           (start (point))
+           (response (call-interactively (emacspeak-bookshare-action-get key))))
+      (insert "\n\f\n")
       (emacspeak-bookshare-bookshare-handler response)
       (put-text-property start (point)
-                         'action (emacspeak-bookshare-action-get key))
-      (emacspeak-auditory-icon 'task-done)
+                         'action (emacspeak-bookshare-action-get
+                                  key))
       (goto-char start)
-      (emacspeak-speak-line))))
+      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-speak-line)))
 
 
 (defun emacspeak-bookshare-expand-at-point ()
@@ -610,6 +616,29 @@ Target location is generated from author and title."
         (message "Downloading content to %s" target)))))
        
                  
+
+;;}}}
+;;{{{ Navigation in  Bookshare Interaction
+
+(defun emacspeak-bookshare-next-result ()
+  "Move to next result."
+  (interactive)
+  (goto-char (next-single-property-change (point) 'id))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
+
+(defun emacspeak-bookshare-previous-result() 
+  "Move to previous result."
+  (interactive)
+  (goto-char (previous-single-property-change (point) 'id))
+  (beginning-of-line)
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
+
+
+
+
+
 
 ;;}}}
 (provide 'emacspeak-bookshare)
