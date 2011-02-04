@@ -312,6 +312,7 @@ part of the libxslt package."
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
   (interactive "FStyle:\nFFile:")
+  (declare (special emacspeak-xslt-options))
   (with-temp-buffer
     (let ((coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)
@@ -319,8 +320,8 @@ part of the libxslt package."
       (insert-file file)
       (shell-command-on-region
        (point-min) (point-max)
-       (format "%s --param base %s  %s - %s "
-               emacspeak-xslt-program
+       (format "%s %s --param base %s  %s - %s "
+               emacspeak-xslt-program emacspeak-xslt-options
                (format "\"'file://%s'\""
                        (expand-file-name file))
                (expand-file-name style)

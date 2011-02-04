@@ -728,10 +728,10 @@ Make sure it's downloaded and unpacked first."
       (error "No suitable XSL  transformation found."))
     (emacspeak-xslt-view-file
      xsl
-     (expand-file-name
-      (format "%s.xml"
-      (replace-regexp-in-string " " "_" title))
-       directory))))
+     (first
+      (directory-files directory
+                      'full
+                      ".xml")))))
      
     
    
