@@ -108,17 +108,21 @@
 
 (defvar emacspeak-bookshare-md5-cached-token nil
   "Cache MD5 token for future use.")
+(defvar emacspeak-bookshare-password-cache nil
+  "Cache user password for this session.")
+
 
 (defsubst emacspeak-bookshare-user-password ()
   "User password.
 Memoize token, and return token encoded using md5, and packaged
 with X-password HTTP header for use with Curl."
-  (declare (special emacspeak-bookshare-md5-cached-token))
-  (or emacspeak-bookshare-md5-cached-token
-      (setq emacspeak-bookshare-md5-cached-token
-            (md5 (read-passwd (format
-                               "Bookshare password for %s: "
-                               emacspeak-bookshare-user-id)))))
+  (declare (special emacspeak-bookshare-md5-cached-token emacspeak-bookshare-password-cache))
+  (setq emacspeak-bookshare-password-cache
+         (or  emacspeak-bookshare-password-cache
+             (read-passwd
+              (format "Bookshare password for %s: "
+                      emacspeak-bookshare-user-id))))
+        (setq emacspeak-bookshare-md5-cached-token (md5 emacspeak-bookshare-password-cache))
   (format "-H 'X-password: %s'" emacspeak-bookshare-md5-cached-token))
 
 (defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional no-auth)
@@ -185,13 +189,10 @@ Optional argument 'no-auth says we dont need a user auth."
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
   (expand-file-name
-  (shell-quote-argument
    (replace-regexp-in-string
     " " "-"
-    (format
-     "%s-%s.zip"
-     author title)))
-  emacspeak-bookshare-downloads-directory))
+    (format "%s-%s.zip" author title))
+   emacspeak-bookshare-downloads-directory))
 
 ;;}}}
 ;;{{{ Book Actions:
@@ -670,10 +671,12 @@ Target location is generated from author and title."
 
 
 
+  
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
-  (declare (special emacspeak-bookshare-directory))
+  (declare (special emacspeak-bookshare-directory
+                    emacspeak-bookshare-password-cache))
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
   (let ((target (emacspeak-bookshare-get-target))
@@ -684,18 +687,18 @@ Target location is generated from author and title."
     (unless   (file-exists-p target) (error "First download this content."))
     (setq directory 
           (expand-file-name
-           (shell-quote-argument
             (replace-regexp-in-string
              " " "-"
-             (format "%s/%s" author title)))
+             (format "%s/%s" author title))
            emacspeak-bookshare-directory))
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
     (shell-command
      (format "cd %s; unzip -P %s %s"
              directory
-             (read-passwd
-              (format "Password for %s" emacspeak-bookshare-user-id))
+             (or emacspeak-bookshare-password-cache
+                 (read-passwd
+              (format "Password for %s" emacspeak-bookshare-user-id)))
              target))
     (message "Unpacked content.")))
 
