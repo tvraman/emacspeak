@@ -253,10 +253,30 @@ Optional argument 'no-auth says we dont need a user auth."
   "Return popular books."
   (interactive)
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
+(defvar emacspeak-bookshare-categories nil
+  "Cached list of categories.")
 
-;;; Need to implement code to build a cache of categories and
-;;; grades to enable complex searches.
-
+(defun emacspeak-bookshare-categories ()
+  "Return memoized list of categories."
+  (declare (special emacspeak-bookshare-categories))
+  (or
+   emacspeak-bookshare-categories
+   (setq
+    emacspeak-bookshare-categories
+    (let ((result
+           (emacspeak-bookshare-api-call
+            "reference/category/list" "" 'no-auth)))
+      (setq result (xml-tag-child result  "category"))
+      (setq result (xml-tag-child result "list"))
+      (setq result (xml-tag-children result))
+      (setq result
+            (remove-if-not
+             #'(lambda (c) (string= "result" (xml-tag-name c)))
+             result))
+    (loop for r in result
+          collect
+          (emacspeak-url-encode(cadr (second r))))))))
+      
 ;;}}}
 ;;{{{ Downloading Content:
 (defsubst emacspeak-bookshare-download-internal(url target)
@@ -597,9 +617,9 @@ p Browse Popular Books
     (insert "\n\f\n")
     (emacspeak-bookshare-bookshare-handler response)
     (put-text-property start (point)
-                       'action (emacspeak-bookshare-action-get
-                                key))
+                       'action (emacspeak-bookshare-action-get key))
     (goto-char start)
+    (search-forward "^Results" nil t)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
