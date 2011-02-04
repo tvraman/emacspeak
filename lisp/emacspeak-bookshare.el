@@ -194,6 +194,15 @@ Optional argument 'no-auth says we dont need a user auth."
     (format "%s-%s.zip" author title))
    emacspeak-bookshare-downloads-directory))
 
+(defsubst emacspeak-bookshare-generate-directory (author title)
+  "Generate name of unpack directory."
+  (declare (special emacspeak-bookshare-directory))
+  (expand-file-name
+            (replace-regexp-in-string
+             " " "-"
+             (format "%s/%s" author title))
+           emacspeak-bookshare-directory))
+
 ;;}}}
 ;;{{{ Book Actions:
 
@@ -461,6 +470,8 @@ p Browse Popular Books
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
+           'directory (emacspeak-bookshare-generate-directory
+                       author title)
            'target (emacspeak-bookshare-generate-target author title)))))
 
 (defvar emacspeak-bookshare-metadata-filtered-elements
@@ -521,7 +532,7 @@ p Browse Popular Books
 
 (loop
  for p in
- '(author title id metadata target)
+ '(author title id metadata target directory)
  do
  (eval
   `(defsubst ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
@@ -543,6 +554,7 @@ p Browse Popular Books
           ("]" forward-page)
           (" " emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
+          ("V" emacspeak-bookshare-view-at-point)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
           )
@@ -675,8 +687,7 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
-  (declare (special emacspeak-bookshare-directory
-                    emacspeak-bookshare-password-cache))
+  (declare (special emacspeak-bookshare-password-cache))
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction."))
   (let ((target (emacspeak-bookshare-get-target))
@@ -684,13 +695,9 @@ Target location is generated from author and title."
         (title (emacspeak-bookshare-get-title))
         (directory nil))
     (when (null target) (error  "No downloaded content here."))
-    (unless   (file-exists-p target) (error "First download this content."))
-    (setq directory 
-          (expand-file-name
-            (replace-regexp-in-string
-             " " "-"
-             (format "%s/%s" author title))
-           emacspeak-bookshare-directory))
+    (unless   (file-exists-p target) (error "First download this
+content."))
+    (setq directory (emacspeak-bookshare-get-directory))
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
     (shell-command
@@ -701,6 +708,34 @@ Target location is generated from author and title."
               (format "Password for %s" emacspeak-bookshare-user-id)))
              target))
     (message "Unpacked content.")))
+(defvar emacspeak-bookshare-xslt "daisyTransform.xsl"
+  "Name of bookshare supplied XSL transform.")
+
+(defun emacspeak-bookshare-view-at-point ()
+  "View book at point.
+Make sure it's downloaded and unpacked first."
+  (interactive)
+  (declare (special emacspeak-bookshare-xslt))
+  (let* ((target (emacspeak-bookshare-get-target))
+        (directory (emacspeak-bookshare-get-directory))
+        (title (emacspeak-bookshare-get-title))
+        (xsl (expand-file-name emacspeak-bookshare-xslt directory)))
+    (unless (file-exists-p target)
+      (error "First download this content."))
+    (unless (file-exists-p directory)
+      (error "First unpack this content."))
+    (unless (file-exists-p xsl)
+      (error "No suitable XSL  transformation found."))
+    (emacspeak-xslt-view-file
+     xsl
+     (expand-file-name
+      (format "%s.xml"
+      (replace-regexp-in-string " " "_" title))
+       directory))))
+     
+    
+   
+   
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
