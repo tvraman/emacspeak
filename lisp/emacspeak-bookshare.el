@@ -111,18 +111,17 @@
 (defvar emacspeak-bookshare-password-cache nil
   "Cache user password for this session.")
 
-
 (defsubst emacspeak-bookshare-user-password ()
   "User password.
 Memoize token, and return token encoded using md5, and packaged
 with X-password HTTP header for use with Curl."
   (declare (special emacspeak-bookshare-md5-cached-token emacspeak-bookshare-password-cache))
   (setq emacspeak-bookshare-password-cache
-         (or  emacspeak-bookshare-password-cache
+        (or  emacspeak-bookshare-password-cache
              (read-passwd
               (format "Bookshare password for %s: "
                       emacspeak-bookshare-user-id))))
-        (setq emacspeak-bookshare-md5-cached-token (md5 emacspeak-bookshare-password-cache))
+  (setq emacspeak-bookshare-md5-cached-token (md5 emacspeak-bookshare-password-cache))
   (format "-H 'X-password: %s'" emacspeak-bookshare-md5-cached-token))
 
 (defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional no-auth)
@@ -198,10 +197,10 @@ Optional argument 'no-auth says we dont need a user auth."
   "Generate name of unpack directory."
   (declare (special emacspeak-bookshare-directory))
   (expand-file-name
-            (replace-regexp-in-string
-             " " "-"
-             (format "%s/%s" author title))
-           emacspeak-bookshare-directory))
+   (replace-regexp-in-string
+    " " "-"
+    (format "%s/%s" author title))
+   emacspeak-bookshare-directory))
 
 ;;}}}
 ;;{{{ Book Actions:
@@ -288,7 +287,6 @@ Optional argument 'no-auth says we dont need a user auth."
 
 ;;}}}
 ;;{{{ Downloading Content:
-   
 
 
 ;;}}}
@@ -335,7 +333,7 @@ d Date Search
 l Browse Latest Books
 p Browse Popular Books
 \\{emacspeak-bookshare-mode-map}"
-    (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t))
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
     (setq header-line-format "Bookshare Library")
@@ -463,7 +461,7 @@ p Browse Popular Books
          (author
           (xml-substitute-special
            (xml-substitute-numeric-entities
-          (second (assoc "author" children))))))
+            (second (assoc "author" children))))))
     (insert
      (format "Author:\t%s \t Title:\t%s"
              author title))
@@ -522,9 +520,8 @@ p Browse Popular Books
               #'(lambda (a) (second a))
               available
               " ")))))
-  
-   
-  
+
+
 
 
 ;;}}}
@@ -594,18 +591,17 @@ p Browse Popular Books
     (error "Not in Bookshare Interaction."))
   (goto-char (point-max))
   (let* ((inhibit-read-only t)
-           (key (format "%c" last-input-event))
-           (start (point))
-           (response (call-interactively (emacspeak-bookshare-action-get key))))
-      (insert "\n\f\n")
-      (emacspeak-bookshare-bookshare-handler response)
-      (put-text-property start (point)
-                         'action (emacspeak-bookshare-action-get
-                                  key))
-      (goto-char start)
-      (emacspeak-auditory-icon 'task-done)
-      (emacspeak-speak-line)))
-
+         (key (format "%c" last-input-event))
+         (start (point))
+         (response (call-interactively (emacspeak-bookshare-action-get key))))
+    (insert "\n\f\n")
+    (emacspeak-bookshare-bookshare-handler response)
+    (put-text-property start (point)
+                       'action (emacspeak-bookshare-action-get
+                                key))
+    (goto-char start)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
@@ -626,8 +622,8 @@ Once retrieved, memoize to avoid multiple retrievals."
      (metadata (message "Entry already expanded."))
      (t
       (add-text-properties (line-beginning-position)
-                         (line-end-position)
-                         (list  'metadata t))
+                           (line-end-position)
+                           (list  'metadata t))
       (goto-char (line-end-position))
       (insert "\n")
       (setq start (point))
@@ -638,7 +634,6 @@ Once retrieved, memoize to avoid multiple retrievals."
     (goto-char start)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
 
 (defun emacspeak-bookshare-download-daisy-at-point ()
   "Download Daisy version of book under point.
@@ -658,7 +653,7 @@ Target location is generated from author and title."
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))))))
-       
+
 
 (defun emacspeak-bookshare-download-brf-at-point ()
   "Download Braille version of book under point.
@@ -678,12 +673,10 @@ Target location is generated from author and title."
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))
-        (emacspeak-auditory-icon 'task-done)
-        (message "Downloading content to %s" target)))))
+      (emacspeak-auditory-icon 'task-done)
+      (message "Downloading content to %s" target)))))
 
 
-
-  
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
@@ -705,7 +698,7 @@ content."))
              directory
              (or emacspeak-bookshare-password-cache
                  (read-passwd
-              (format "Password for %s" emacspeak-bookshare-user-id)))
+                  (format "Password for %s" emacspeak-bookshare-user-id)))
              target))
     (message "Unpacked content.")))
 (defvar emacspeak-bookshare-xslt "daisyTransform.xsl"
@@ -717,9 +710,9 @@ Make sure it's downloaded and unpacked first."
   (interactive)
   (declare (special emacspeak-bookshare-xslt))
   (let* ((target (emacspeak-bookshare-get-target))
-        (directory (emacspeak-bookshare-get-directory))
-        (title (emacspeak-bookshare-get-title))
-        (xsl (expand-file-name emacspeak-bookshare-xslt directory)))
+         (directory (emacspeak-bookshare-get-directory))
+         (title (emacspeak-bookshare-get-title))
+         (xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (unless (file-exists-p target)
       (error "First download this content."))
     (unless (file-exists-p directory)
@@ -730,12 +723,12 @@ Make sure it's downloaded and unpacked first."
      xsl
      (first
       (directory-files directory
-                      'full
-                      ".xml")))))
-     
-    
-   
-   
+                       'full
+                       ".xml")))))
+
+
+
+
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
@@ -748,18 +741,13 @@ Make sure it's downloaded and unpacked first."
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
-(defun emacspeak-bookshare-previous-result() 
+(defun emacspeak-bookshare-previous-result()
   "Move to previous result."
   (interactive)
   (goto-char (previous-single-property-change (point) 'id))
   (beginning-of-line)
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
-
-
-
-
-
 
 ;;}}}
 (provide 'emacspeak-bookshare)
