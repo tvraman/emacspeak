@@ -642,7 +642,6 @@ p Browse Popular Books
         (setq buffer-undo-list t)
         (setq buffer-read-only t)
         (emacspeak-bookshare-mode)
-        (setq emacspeak-audio-indentation t)
         (emacspeak-toggle-audio-indentation t))
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
