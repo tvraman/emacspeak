@@ -247,7 +247,8 @@ Optional argument 'no-auth says we dont need a user auth."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (read-from-minibuffer "author: ")
+    (emacspeak-url-encode
+     (read-from-minibuffer "author: "))
     current-prefix-arg))
   (cond
    ((null category)                     ; plain search
@@ -266,7 +267,8 @@ Interactive prefix arg filters search by category."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (read-from-minibuffer "Title: ")
+    (emacspeak-url-encode
+     (read-from-minibuffer "Title: "))
     current-prefix-arg))
   (cond
    ((null category)                     ; plain search
