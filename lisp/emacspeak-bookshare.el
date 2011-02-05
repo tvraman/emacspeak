@@ -496,8 +496,11 @@ p Browse Popular Books
 
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
+  (let ((start (point)))
   (mapc #'insert(rest  (xml-tag-child messages "string")))
-  (insert "\n"))
+  (put-text-property  start (point)
+		      'face 'font-lock-string-face)
+  (insert "\n")))
 
 (defun emacspeak-bookshare-page-handler (page)
   "Handle page element."
