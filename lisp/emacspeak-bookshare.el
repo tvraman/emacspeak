@@ -517,8 +517,7 @@ p Browse Popular Books
 (defun emacspeak-bookshare-result-handler (result)
   "Handle result element in Bookshare response."
   (insert "\n")
-  (put-text-property (point) 'result t)
-  (let* ((children (xml-tag-children result))
+    (let* ((children (xml-tag-children result))
          (start (point))
          (id (second (assoc "id" children)))
          (title (second (assoc "title" children)))
@@ -805,14 +804,14 @@ Make sure it's downloaded and unpacked first."
   "Move to next result."
   (interactive)
   (goto-char (line-end-position))
-  (goto-char (next-single-property-change (point) 'result))
+  (goto-char (next-single-property-change (point) 'id))
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
 
 (defun emacspeak-bookshare-previous-result()
   "Move to previous result."
   (interactive)
-  (goto-char (previous-single-property-change (point) 'result))
+  (goto-char (previous-single-property-change (point) 'id))
   (beginning-of-line)
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
