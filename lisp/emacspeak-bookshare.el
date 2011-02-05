@@ -527,10 +527,10 @@ p Browse Popular Books
       (setq author
             (xml-substitute-special
             (xml-substitute-numeric-entities author))))
-    (when author
-      (insert (format "Author: \t %s\t" author)))
     (when title
-      (insert (format "Title: \t %s" title)))
+      (insert (format "%s\t" title)))
+    (when author
+      (insert (format "%s" author)))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
