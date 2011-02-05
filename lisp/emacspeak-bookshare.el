@@ -411,8 +411,6 @@ p Browse Popular Books
         ("d" emacspeak-bookshare-since-search)
         ("i" emacspeak-bookshare-isbn-search)
         ("I" emacspeak-bookshare-id-search)
-        ("p" emacspeak-bookshare-browse-popular)
-        ("l" emacspeak-bookshare-browse-latest)
         ("L" emacspeak-bookshare-periodical-list)
         )
       do
@@ -618,6 +616,7 @@ p Browse Popular Books
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
           ("]" forward-page)
+	  ("b" emacspeak-bookshare-browse)
           (" " emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
           ("V" emacspeak-bookshare-view-at-point)
@@ -669,6 +668,15 @@ p Browse Popular Books
     (goto-char start)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
+
+(defun emacspeak-bookshare-browse ()
+  "Browse Bookshare."
+  (interactive)
+  (let ((action (read-char "p Popular, l Latest")))
+    (case action
+      (?p (call-interactively 'emacspeak-bookshare-browse-popular))
+      (?l 'emacspeak-bookshare-browse-latest)
+      (otherwise (error "Unrecognized browse action.")))))
 
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
@@ -793,9 +801,16 @@ Make sure it's downloaded and unpacked first."
                        'full
                        ".xml")))))
 
-
-
-
+(defun emacspeak-bookshare-sign-out ()
+  "Sign out, clearing password."
+  (interactive)
+  (declare (special emacspeak-bookshare-md5-cached-token
+		    emacspeak-bookshare-password-cache))
+  (setq emacspeak-bookshare-password-cache nil
+	emacspeak-bookshare-md5-cached-token nil)
+  (emacspeak-auditory-icon 'close-object)
+  (message "Signed out from Bookshare."))
+	
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
