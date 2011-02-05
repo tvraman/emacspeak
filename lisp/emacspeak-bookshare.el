@@ -204,6 +204,7 @@ Optional argument 'no-auth says we dont need a user auth."
 
 ;;}}}
 ;;{{{ Book Actions:
+
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
 
@@ -304,7 +305,17 @@ Interactive prefix arg filters search by category."
   (interactive)
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
 
-      
+;;}}}
+;;{{{ Periodical Actions:
+
+;;; Returns periodical list
+
+(defun emacspeak-bookshare-periodical-list ()
+  "Return list of periodicals."
+  (interactive)
+  (emacspeak-bookshare-api-call
+   "periodical" "list"))
+
 ;;}}}
 ;;{{{ Downloading Content:
 (defsubst emacspeak-bookshare-download-internal(url target)
@@ -400,6 +411,7 @@ p Browse Popular Books
         ("I" emacspeak-bookshare-id-search)
         ("p" emacspeak-bookshare-browse-popular)
         ("l" emacspeak-bookshare-browse-latest)
+        ("L" emacspeak-bookshare-periodical-list)
         )
       do
       (progn
@@ -431,6 +443,7 @@ p Browse Popular Books
     "messages"
     "string"
     "book"
+    "periodical"
     "list"
     "page"
     "num-pages"
@@ -446,7 +459,7 @@ p Browse Popular Books
        (intern (format "emacspeak-bookshare-%s-handler" e))))
 
 (loop for container in
-      '("book" "list")
+      '("book" "list" "periodical")
       do
       (eval
        `(defun
@@ -477,7 +490,7 @@ p Browse Popular Books
   "Recurse down tree."
   (insert (format "Begin %s:\n" (xml-tag-name tree)))
   (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children tree))
-  (insert (format "End %s\n" (xml-tag-name tree))))
+  (insert (format "\nEnd %s\n" (xml-tag-name tree))))
 
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
@@ -502,17 +515,20 @@ p Browse Popular Books
   (let* ((children (xml-tag-children result))
          (start (point))
          (id (second (assoc "id" children)))
-         (title
-          (xml-substitute-special
-           (xml-substitute-numeric-entities
-            (second (assoc "title" children)))))
-         (author
-          (xml-substitute-special
-           (xml-substitute-numeric-entities
-            (second (assoc "author" children))))))
-    (insert
-     (format "Author:\t%s \t Title:\t%s"
-             author title))
+         (title (second (assoc "title" children)))
+         (author (second (assoc "author" children))))
+    (when title
+      (setq title
+            (xml-substitute-special
+            (xml-substitute-numeric-entities title))))
+    (when author
+      (setq author
+            (xml-substitute-special
+            (xml-substitute-numeric-entities author))))
+    (when author
+      (insert (format "Author: \t %s\t" author)))
+    (when title
+      (insert (format "Title: \t %s" title)))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
@@ -647,7 +663,6 @@ p Browse Popular Books
     (put-text-property start (point)
                        'action (emacspeak-bookshare-action-get key))
     (goto-char start)
-    (search-forward "^Results" nil t)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
