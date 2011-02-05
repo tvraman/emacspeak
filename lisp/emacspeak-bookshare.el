@@ -409,6 +409,8 @@ p Browse Popular Books
         ("s" emacspeak-bookshare-fulltext-search)
         ("A" emacspeak-bookshare-title/author-search)
         ("d" emacspeak-bookshare-since-search)
+	("p" emacspeak-bookshare-browse-popular)
+	("l" emacspeak-bookshare-browse-latest)
         ("i" emacspeak-bookshare-isbn-search)
         ("I" emacspeak-bookshare-id-search)
         ("L" emacspeak-bookshare-periodical-list)
@@ -531,7 +533,7 @@ p Browse Popular Books
     (when title
       (insert (format "%s\t" title)))
     (when author
-      (insert (format "%s" author)))
+      (insert (format "By %s" author)))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
@@ -674,8 +676,8 @@ p Browse Popular Books
   (interactive)
   (let ((action (read-char "p Popular, l Latest")))
     (case action
-      (?p (call-interactively 'emacspeak-bookshare-browse-popular))
-      (?l 'emacspeak-bookshare-browse-latest)
+      (?p (call-interactively 'emacspeak-bookshare-action))
+      (?l 'emacspeak-bookshare-action)
       (otherwise (error "Unrecognized browse action.")))))
 
 (defun emacspeak-bookshare-expand-at-point ()
