@@ -677,7 +677,7 @@ p Browse Popular Books
   (let ((action (read-char "p Popular, l Latest")))
     (case action
       (?p (call-interactively 'emacspeak-bookshare-action))
-      (?l 'emacspeak-bookshare-action)
+      (?l (call-interactively 'emacspeak-bookshare-action))
       (otherwise (error "Unrecognized browse action.")))))
 
 (defun emacspeak-bookshare-expand-at-point ()
