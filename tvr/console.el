@@ -81,3 +81,4 @@
 ; shift space
 (define-key function-key-map "\e[ " [(shift space)])
 (define-key function-key-map "\e[S" [(silence)])
+(define-key function-key-map"\e[P" '[pause])                
