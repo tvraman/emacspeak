@@ -302,10 +302,20 @@ Interactive prefix arg filters search by category."
   (interactive)
   (emacspeak-bookshare-api-call "book/browse/latest" ""))
 
-(defsubst emacspeak-bookshare-browse-popular()
-  "Return popular books."
-  (interactive)
+(defun emacspeak-bookshare-browse-popular(&optional category)
+  "Browse popular books.
+Optional interactive prefix arg prompts for a category to use as a filter."
+  (interactive "P")
+  (cond
+   ((null category)                     ; plain search
   (emacspeak-bookshare-api-call "book/browse/popular" ""))
+   (t                                   ; filter using category:
+    (let ((filter
+           (completing-read "Category: "
+                            (emacspeak-bookshare-categories))))
+      (emacspeak-bookshare-api-call
+       "book/browse/popular"
+       (format "category/%s" filter))))      ))
 
 ;;}}}
 ;;{{{ Periodical Actions:
