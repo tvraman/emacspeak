@@ -759,6 +759,10 @@ Target location is generated from author and title."
      (t
       (cond
        ((zerop (emacspeak-bookshare-download-daisy id target))
+	(add-text-properties
+	 (line-beginning-position) (line-end-position)
+	 (list'face 'bold
+	 'auditory-icon 'select-object))
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))))))
@@ -779,6 +783,10 @@ Target location is generated from author and title."
      (t
       (cond
        ((zerop (emacspeak-bookshare-download-brf id target))
+	(add-text-properties
+	 (line-beginning-position) (line-end-position)
+	 (list'face 'bold
+	 'auditory-icon 'select-object))
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))
@@ -797,8 +805,7 @@ Target location is generated from author and title."
         (title (emacspeak-bookshare-get-title))
         (directory nil))
     (when (null target) (error  "No downloaded content here."))
-    (unless   (file-exists-p target) (error "First download this
-content."))
+    (unless   (file-exists-p target) (error "First download this content."))
     (setq directory (emacspeak-bookshare-get-directory))
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
@@ -809,6 +816,10 @@ content."))
                  (read-passwd
                   (format "Password for %s" emacspeak-bookshare-user-id)))
              target))
+    (add-text-properties
+	 (line-beginning-position) (line-end-position)
+	 (list'face 'highlight
+	 'auditory-icon 'item))
     (message "Unpacked content.")))
 (defvar emacspeak-bookshare-xslt "daisyTransform.xsl"
   "Name of bookshare supplied XSL transform.")
