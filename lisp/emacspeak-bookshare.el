@@ -105,7 +105,10 @@
 
 ;;}}}
 ;;{{{ Helpers:
-
+(defsubst emacspeak-bookshare-assert ()
+  "Error out if not in bookshre mode."
+  (unless (eq major-mode 'emacspeak-bookshare-mode)
+    (error "Not in Bookshare Interaction.")))
 (defvar emacspeak-bookshare-md5-cached-token nil
   "Cache MD5 token for future use.")
 (defvar emacspeak-bookshare-password-cache nil
@@ -181,7 +184,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 Optional argument 'no-auth says we dont need a user auth."
   (declare (special emacspeak-bookshare-last-action-uri))
   (setq emacspeak-bookshare-last-action-uri
-	(emacspeak-bookshare-rest-endpoint operation operand no-auth))
+        (emacspeak-bookshare-rest-endpoint operation operand no-auth))
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
@@ -231,9 +234,9 @@ Optional argument 'no-auth says we dont need a user auth."
             (remove-if-not
              #'(lambda (c) (string= "result" (xml-tag-name c)))
              result))
-    (loop for r in result
-          collect
-          (emacspeak-url-encode(cadr (second r))))))))
+      (loop for r in result
+            collect
+            (emacspeak-url-encode(cadr (second r))))))))
 ;;;  Following actions return book metadata:
 
 (defsubst emacspeak-bookshare-isbn-search (query)
@@ -314,7 +317,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (interactive "P")
   (cond
    ((null category)                     ; plain search
-  (emacspeak-bookshare-api-call "book/browse/popular" ""))
+    (emacspeak-bookshare-api-call "book/browse/popular" ""))
    (t                                   ; filter using category:
     (let ((filter
            (completing-read "Category: "
@@ -364,7 +367,6 @@ Optional interactive prefix arg prompts for a category to use as a filter."
 
 ;;}}}
 ;;{{{ Downloading Content:
-
 
 ;;}}}
 ;;{{{ Actions Table:
@@ -425,8 +427,8 @@ p Browse Popular Books
         ("s" emacspeak-bookshare-fulltext-search)
         ("A" emacspeak-bookshare-title/author-search)
         ("d" emacspeak-bookshare-since-search)
-	("p" emacspeak-bookshare-browse-popular)
-	("l" emacspeak-bookshare-browse-latest)
+        ("p" emacspeak-bookshare-browse-popular)
+        ("l" emacspeak-bookshare-browse-latest)
         ("i" emacspeak-bookshare-isbn-search)
         ("I" emacspeak-bookshare-id-search)
         ("L" emacspeak-bookshare-periodical-list)
@@ -514,11 +516,11 @@ p Browse Popular Books
   "Handle messages element."
   (declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
-  (mapc #'insert(rest  (xml-tag-child messages "string")))
-  (add-text-properties  start (point)
-		      (list 'uri emacspeak-bookshare-last-action-uri
-			    'face 'font-lock-string-face))
-  (insert "\n")))
+    (mapc #'insert(rest  (xml-tag-child messages "string")))
+    (add-text-properties  start (point)
+                          (list 'uri emacspeak-bookshare-last-action-uri
+                                'face 'font-lock-string-face))
+    (insert "\n")))
 
 (defun emacspeak-bookshare-page-handler (page)
   "Handle page element."
@@ -535,43 +537,43 @@ p Browse Popular Books
 (defun emacspeak-bookshare-result-handler (result)
   "Handle result element in Bookshare response."
   (insert "\n")
-    (let* ((children (xml-tag-children result))
+  (let* ((children (xml-tag-children result))
          (start (point))
          (id (second (assoc "id" children)))
          (title (second (assoc "title" children)))
          (author (second (assoc "author" children)))
-	 (directory nil)
-	 (target nil)
-	 (face nil)
-	 (icon nil))
+         (directory nil)
+         (target nil)
+         (face nil)
+         (icon nil))
     (when title
       (setq title
             (xml-substitute-special
-            (xml-substitute-numeric-entities title))))
+             (xml-substitute-numeric-entities title))))
     (when author
       (setq author
             (xml-substitute-special
-            (xml-substitute-numeric-entities author))))
+             (xml-substitute-numeric-entities author))))
     (when (or author title)
-       (setq
-	directory (emacspeak-bookshare-generate-directory author title)
-	target (emacspeak-bookshare-generate-target author title))
+      (setq
+       directory (emacspeak-bookshare-generate-directory author title)
+       target (emacspeak-bookshare-generate-target author title))
       (cond
        ((file-exists-p directory)
-	(setq face 'highlight
-	      icon 'item))
+        (setq face 'highlight
+              icon 'item))
        ((file-exists-p target)
-	(setq face 'bold
-	      icon 'select-object)))) 
+        (setq face 'bold
+              icon 'select-object))))
     (when title (insert (format "%s\t" title)))
     (when author (insert (format "By %s" author)))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
-             'directory directory
+           'directory directory
            'target target
-	   'face face 
-	   'auditory-icon icon))))
+           'face face
+           'auditory-icon icon))))
 
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '("author"
@@ -622,9 +624,6 @@ p Browse Popular Books
               available
               " ")))))
 
-
-
-
 ;;}}}
 ;;{{{  Property Accessors:
 
@@ -650,7 +649,7 @@ p Browse Popular Books
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
           ("]" forward-page)
-	  ("b" emacspeak-bookshare-browse)
+          ("b" emacspeak-bookshare-browse)
           (" " emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
           ("V" emacspeak-bookshare-view-at-point)
@@ -688,8 +687,7 @@ p Browse Popular Books
 (defun emacspeak-bookshare-action  ()
   "Call action specified by  invoking key."
   (interactive)
-  (unless (eq major-mode 'emacspeak-bookshare-mode)
-    (error "Not in Bookshare Interaction."))
+  (emacspeak-bookshare-assert)
   (goto-char (point-max))
   (let* ((inhibit-read-only t)
          (key (format "%c" last-input-event))
@@ -716,8 +714,7 @@ p Browse Popular Books
   "Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
-  (unless (eq major-mode 'emacspeak-bookshare-mode)
-    (error "Not in Bookshare Interaction."))
+  (emacspeak-bookshare-assert)
   (emacspeak-auditory-icon 'select-object)
   (let* ((inhibit-read-only t)
          (id (emacspeak-bookshare-get-id))
@@ -748,7 +745,8 @@ Once retrieved, memoize to avoid multiple retrievals."
   "Download Daisy version of book under point.
 Target location is generated from author and title."
   (interactive)
-  (let* ((id (emacspeak-bookshare-get-id))
+  (let* ((inhibit-read-only t)
+         (id (emacspeak-bookshare-get-id))
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title)))
@@ -759,20 +757,20 @@ Target location is generated from author and title."
      (t
       (cond
        ((zerop (emacspeak-bookshare-download-daisy id target))
-	(add-text-properties
-	 (line-beginning-position) (line-end-position)
-	 (list'face 'bold
-	 'auditory-icon 'select-object))
+        (add-text-properties
+         (line-beginning-position) (line-end-position)
+         (list'face 'bold
+                    'auditory-icon 'select-object))
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))))))
-
 
 (defun emacspeak-bookshare-download-brf-at-point ()
   "Download Braille version of book under point.
 Target location is generated from author and title."
   (interactive)
-  (let* ((id (emacspeak-bookshare-get-id))
+  (let* ((inhibit-read-only t)
+         (id (emacspeak-bookshare-get-id))
          (author (emacspeak-bookshare-get-author))
          (title (emacspeak-bookshare-get-title))
          (target (emacspeak-bookshare-generate-target author title)))
@@ -783,24 +781,23 @@ Target location is generated from author and title."
      (t
       (cond
        ((zerop (emacspeak-bookshare-download-brf id target))
-	(add-text-properties
-	 (line-beginning-position) (line-end-position)
-	 (list'face 'bold
-	 'auditory-icon 'select-object))
+        (add-text-properties
+         (line-beginning-position) (line-end-position)
+         (list'face 'bold
+                    'auditory-icon 'select-object))
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
        (t (error "Error downloading content.")))
       (emacspeak-auditory-icon 'task-done)
       (message "Downloading content to %s" target)))))
 
-
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
   (declare (special emacspeak-bookshare-password-cache))
-  (unless (eq major-mode 'emacspeak-bookshare-mode)
-    (error "Not in Bookshare Interaction."))
-  (let ((target (emacspeak-bookshare-get-target))
+  (emacspeak-bookshare-assert)
+  (let ((inhibit-read-only t)
+        (target (emacspeak-bookshare-get-target))
         (author (emacspeak-bookshare-get-author))
         (title (emacspeak-bookshare-get-title))
         (directory nil))
@@ -817,9 +814,9 @@ Target location is generated from author and title."
                   (format "Password for %s" emacspeak-bookshare-user-id)))
              target))
     (add-text-properties
-	 (line-beginning-position) (line-end-position)
-	 (list'face 'highlight
-	 'auditory-icon 'item))
+     (line-beginning-position) (line-end-position)
+     (list'face 'highlight
+                'auditory-icon 'item))
     (message "Unpacked content.")))
 (defvar emacspeak-bookshare-xslt "daisyTransform.xsl"
   "Name of bookshare supplied XSL transform.")
@@ -850,12 +847,12 @@ Make sure it's downloaded and unpacked first."
   "Sign out, clearing password."
   (interactive)
   (declare (special emacspeak-bookshare-md5-cached-token
-		    emacspeak-bookshare-password-cache))
+                    emacspeak-bookshare-password-cache))
   (setq emacspeak-bookshare-password-cache nil
-	emacspeak-bookshare-md5-cached-token nil)
+        emacspeak-bookshare-md5-cached-token nil)
   (emacspeak-auditory-icon 'close-object)
   (message "Signed out from Bookshare."))
-	
+
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
