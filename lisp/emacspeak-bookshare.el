@@ -512,10 +512,12 @@ p Browse Popular Books
 
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
+  (declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
   (mapc #'insert(rest  (xml-tag-child messages "string")))
-  (put-text-property  start (point)
-		      'face 'font-lock-string-face)
+  (add-text-properties  start (point)
+		      (list 'uri emacspeak-bookshare-last-action-uri
+			    'face 'font-lock-string-face))
   (insert "\n")))
 
 (defun emacspeak-bookshare-page-handler (page)
@@ -537,7 +539,11 @@ p Browse Popular Books
          (start (point))
          (id (second (assoc "id" children)))
          (title (second (assoc "title" children)))
-         (author (second (assoc "author" children))))
+         (author (second (assoc "author" children)))
+	 (directory nil)
+	 (target nil)
+	 (face nil)
+	 (icon nil))
     (when title
       (setq title
             (xml-substitute-special
@@ -546,16 +552,26 @@ p Browse Popular Books
       (setq author
             (xml-substitute-special
             (xml-substitute-numeric-entities author))))
-    (when title
-      (insert (format "%s\t" title)))
-    (when author
-      (insert (format "By %s" author)))
+    (when (or author title)
+       (setq
+	directory (emacspeak-bookshare-generate-directory author title)
+	target (emacspeak-bookshare-generate-target author title))
+      (cond
+       ((file-exists-p directory)
+	(setq face 'highlight
+	      icon 'item))
+       ((file-exists-p target)
+	(setq face 'bold
+	      icon 'select-object)))) 
+    (when title (insert (format "%s\t" title)))
+    (when author (insert (format "By %s" author)))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
-           'directory (emacspeak-bookshare-generate-directory
-                       author title)
-           'target (emacspeak-bookshare-generate-target author title)))))
+             'directory directory
+           'target target
+	   'face face 
+	   'auditory-icon icon))))
 
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '("author"
