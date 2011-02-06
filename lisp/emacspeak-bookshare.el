@@ -695,8 +695,6 @@ p Browse Popular Books
          (response (call-interactively (emacspeak-bookshare-action-get key))))
     (insert "\n\f\n")
     (emacspeak-bookshare-bookshare-handler response)
-    (put-text-property start (point)
-                       'action (emacspeak-bookshare-action-get key))
     (goto-char start)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
