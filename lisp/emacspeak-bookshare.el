@@ -173,17 +173,23 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
                  command)
    (goto-char (point-min))
    (read-xml)))
+(defvar emacspeak-bookshare-last-action-uri nil
+  "Cache last API call URI.")
 
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
 Optional argument 'no-auth says we dont need a user auth."
+  (declare (special emacspeak-bookshare-last-action-uri))
+  (setq emacspeak-bookshare-last-action-uri
+	(emacspeak-bookshare-rest-endpoint operation operand no-auth))
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
     emacspeak-bookshare-curl-program
     emacspeak-bookshare-curl-common-options
     (if no-auth "" (emacspeak-bookshare-user-password))
-    (emacspeak-bookshare-rest-endpoint operation operand no-auth))))
+    emacspeak-bookshare-last-action-uri)))
+
 (defsubst emacspeak-bookshare-generate-target (author title)
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
