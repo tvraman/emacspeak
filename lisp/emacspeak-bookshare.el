@@ -748,10 +748,10 @@ Once retrieved, memoize to avoid multiple retrievals."
       (emacspeak-bookshare-bookshare-handler response)
       (add-text-properties start (point)
                            (list 'metadata t 'id id 'target target))
-      (indent-rigidly start (point) 4)))
+      (indent-rigidly start (point) 4)
+      (emacspeak-speak-region start (point))))
     (goto-char start)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-bookshare-download-daisy-at-point ()
   "Download Daisy version of book under point.
