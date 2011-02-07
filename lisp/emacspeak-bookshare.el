@@ -304,7 +304,7 @@ Interactive prefix arg filters search by category."
 (defsubst emacspeak-bookshare-since-search (query)
   "Perform a Bookshare since  search."
   (interactive "sDate: ")
-  (emacspeak-bookshare-api-call "book/since" query))
+  (emacspeak-bookshare-api-call "book/search/since" query))
 
 (defsubst emacspeak-bookshare-browse-latest()
   "Return latest books."
