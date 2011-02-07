@@ -409,8 +409,8 @@ A Author/Title Search
 t Title Search
 s Full Text Search
 d Date Search
-l Browse Latest Books
-p Browse Popular Books
+b Browse
+
 \\{emacspeak-bookshare-mode-map}"
   (let ((inhibit-read-only t))
     (goto-char (point-min))
@@ -431,7 +431,7 @@ p Browse Popular Books
         ("l" emacspeak-bookshare-browse-latest)
         ("i" emacspeak-bookshare-isbn-search)
         ("I" emacspeak-bookshare-id-search)
-        ("L" emacspeak-bookshare-periodical-list)
+        ("m" emacspeak-bookshare-periodical-list)
         )
       do
       (progn
