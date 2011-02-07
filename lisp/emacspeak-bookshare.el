@@ -301,10 +301,24 @@ Interactive prefix arg filters search by category."
   (interactive "sFulltext Search: ")
   (emacspeak-bookshare-api-call "book/searchFTS" query))
 
-(defsubst emacspeak-bookshare-since-search (query)
-  "Perform a Bookshare since  search."
-  (interactive "sDate: ")
-  (emacspeak-bookshare-api-call "book/search/since" query))
+(defun emacspeak-bookshare-since-search (query &optional category)
+  "Perform a Bookshare date  search.
+Optional interactive prefix arg filters by category."
+  (interactive
+   (list
+    (read-from-minibuffer "Date: ")
+    current-prefix-arg))
+  (cond
+   ((null category)                     ; plain search
+    (emacspeak-bookshare-api-call "book/search/since" query))
+   (t                                   ; filter using category:
+    (let ((filter
+           (completing-read "Category: "
+                            (emacspeak-bookshare-categories))))
+      (emacspeak-bookshare-api-call
+       "book/search/since"
+       (format "%s/category/%s"
+               query filter))))))
 
 (defsubst emacspeak-bookshare-browse-latest()
   "Return latest books."
