@@ -140,6 +140,15 @@ Optional argument `no-auth' says no user auth needed."
             (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
 
+(defsubst emacspeak-bookshare-destruct-rest-url (url)
+  "Return operator and operand used to construct this REST end-point."
+  (declare (special emacspeak-bookshare-api-base))
+  (let* ((start (length emacspeak-bookshare-api-base))
+         (end (string-match "for/" url)))
+    (nthcdr 2
+            (split-string
+             (substring url start end) "/" 'no-null))))
+
 (defsubst emacspeak-bookshare-download-url (id fmt )
   "Return  URL  end point for content download.
 Argument id specifies content. Argument fmt = 0 for Braille, 1
@@ -531,6 +540,11 @@ b Browse
   (declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
     (mapc #'insert(rest  (xml-tag-child messages "string")))
+    (insert
+     (mapconcat
+      #'identity
+      (emacspeak-bookshare-destruct-rest-url emacspeak-bookshare-last-action-uri)
+      " "))
     (add-text-properties  start (point)
                           (list 'uri emacspeak-bookshare-last-action-uri
                                 'face 'font-lock-string-face))
@@ -710,6 +724,7 @@ b Browse
     (insert "\n\f\n")
     (emacspeak-bookshare-bookshare-handler response)
     (goto-char start)
+    (forward-line 2)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
@@ -864,7 +879,6 @@ Make sure it's downloaded and unpacked first."
         emacspeak-bookshare-md5-cached-token nil)
   (emacspeak-auditory-icon 'close-object)
   (message "Signed out from Bookshare."))
-
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
