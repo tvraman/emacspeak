@@ -540,6 +540,7 @@ b Browse
   (declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
     (mapc #'insert(rest  (xml-tag-child messages "string")))
+    (insert "\t")
     (insert
      (mapconcat
       #'identity
@@ -594,7 +595,11 @@ b Browse
         (setq face 'bold
               icon 'select-object))))
     (when title (insert (format "%s\t" title)))
-    (when author (insert (format "By %s" author)))
+    (when author
+      (while (< (current-column)50)
+        (insert "\t"))
+      (insert (format "By %s" author)))
+    (untabify start (point))
     (add-text-properties
      start (point)
      (list 'author author 'title title 'id id
