@@ -889,6 +889,7 @@ Make sure it's downloaded and unpacked first."
   (goto-char (line-end-position))
   (goto-char (next-single-property-change (point) 'id))
   (emacspeak-auditory-icon 'large-movement)
+  (forward-char 1)
   (emacspeak-speak-line))
 
 (defun emacspeak-bookshare-previous-result()
