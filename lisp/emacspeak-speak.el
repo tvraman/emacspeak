@@ -3300,6 +3300,19 @@ which media players get silenced or paused/resumed."
   (run-hooks 'emacspeak-silence-hook))
 
 ;;}}}
+;;{{{ Search 
+
+(defcustom emacspeak-search 'emacspeak-websearch-google
+  "Default search engine."
+  :type 'function
+  :group 'emacspeak)
+
+(defun emacspeak-search ()
+  "Call search defined in \\[emacspeak-search]."
+  (interactive)
+  (declare (special emacspeak-search))
+  (call-interactively emacspeak-search))
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 

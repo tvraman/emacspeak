@@ -484,6 +484,7 @@ field in the customization buffer.  You can use the notation
 ;;; Our very own silence key on the console
 ;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
+(global-set-key '[search] 'emacspeak-search)
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
