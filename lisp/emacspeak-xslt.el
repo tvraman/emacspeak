@@ -321,7 +321,7 @@ part of the libxslt package."
       (shell-command-on-region
        (point-min) (point-max)
        (format "%s %s --param base %s  %s - %s 2>/dev/null"
-               emacspeak-xslt-program emacspeak-xslt-options
+               emacspeak-xslt-program ""
                (format "\"'file://%s'\""
                        (expand-file-name file))
                (expand-file-name style)
