@@ -254,6 +254,13 @@ This variable is buffer-local.")
         :param "cdcpk"
         :range '(0 1)
         :default 0
+        :value 0)
+       ;;; soc
+       (make-emacspeak-google-tool
+        :name "social" 
+        :param "sa"
+        :range '(0 1)
+        :default 0
         :value 0))))
 
 ;;}}}
