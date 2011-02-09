@@ -253,7 +253,7 @@ When using supported browsers,  this interface attempts to speak the most releva
 
 (emacspeak-websearch-set-searcher 'altavista
                                   'emacspeak-websearch-altavista-search)
-(emacspeak-websearch-set-key ?a 'altavista)
+(emacspeak-websearch-set-key ?A 'altavista)
 
 (defvar emacspeak-websearch-altavista-uri
   "http://www.altavista.com/sites/search/res_text?sc=on&hl=on&amb=txt&kl=en&search=Search&q="
@@ -944,7 +944,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
-(emacspeak-websearch-set-key ?i 'google)
+(emacspeak-websearch-set-key ?g 'google)
 
 ;;;###autoload
 (defcustom emacspeak-websearch-google-number-of-results 25
@@ -1009,7 +1009,7 @@ I'm Feeling Lucky button on Google."
 (emacspeak-websearch-set-searcher 'agoogle
                                   'emacspeak-websearch-accessible-google)
 
-(emacspeak-websearch-set-key ?g 'agoogle)
+(emacspeak-websearch-set-key ?a 'agoogle)
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
