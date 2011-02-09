@@ -875,6 +875,23 @@ Make sure it's downloaded and unpacked first."
                        'full
                        ".xml")))))
 
+(defun emacspeak-bookshare-view (directory)
+  "View book in specified directory."
+  (interactive
+   (list
+    (expand-file-name
+    (read-directory-name "Book Directory: "
+                         emacspeak-bookshare-directory))))
+  (declare (special emacspeak-bookshare-xslt
+                    emacspeak-bookshare-directory))
+  (let* ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
+    (unless (file-exists-p xsl)
+      (error "No suitable XSL  transformation found."))
+    (emacspeak-xslt-view-file
+     xsl
+     (first
+      (directory-files directory 'full ".xml")))))
+
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
   (interactive)
