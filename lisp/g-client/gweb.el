@@ -174,7 +174,7 @@
      (goto-char (point-min)))
    ;; The  JSON array is now a vector. So  read it
                                         ; and turn it into a list
-   (append (aref (read) 1) nil)))
+   (append (aref (read (current-buffer)) 1) nil)))
 
 (defun gweb-suggest-completer (string predicate mode)
   "Generate completions using Google Suggest. "
