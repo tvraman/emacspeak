@@ -140,6 +140,25 @@ Optional argument `no-auth' says no user auth needed."
             (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
 
+(defsubst emacspeak-bookshare-page-rest-endpoint ()
+  "Generate REST endpoint for the next page of results."
+  (declare (special emacspeak-bookshare-last-action-uri))
+  (unless emacspeak-bookshare-last-action-uri
+    (error "No query to  page!"))
+  (let ((root
+         (first (split-string emacspeak-bookshare-last-action-uri "/for")))
+        (page nil))
+    (setq page (string-match root "/page/"))
+    (cond
+     (page ; Already paged once
+       )
+      (t
+       (format "%s/page/2/for/%s?%s"
+               root
+               emacspeak-bookshare-user-id
+               emacspeak-bookshare-api-key)))))
+    
+
 (defsubst emacspeak-bookshare-destruct-rest-url (url)
   "Return operator and operand used to construct this REST end-point."
   (declare (special emacspeak-bookshare-api-base))
@@ -257,6 +276,22 @@ Optional argument 'no-auth says we dont need a user auth."
   "Perform a Bookshare id search."
   (interactive "sId: ")
   (emacspeak-bookshare-api-call "book/id" query))
+
+(defun emacspeak-bookshare-get-more-results ()
+  "Get next page of results for last query."
+  (interactive)
+  (declare (special emacspeak-bookshare-last-action-uri))
+  (setq emacspeak-bookshare-last-action-uri
+        (emacspeak-bookshare-page-rest-endpoint))
+  (emacspeak-bookshare-get-result
+   (format
+    "%s %s %s  %s 2>/dev/null"
+    emacspeak-bookshare-curl-program
+    emacspeak-bookshare-curl-common-options
+    (emacspeak-bookshare-user-password)
+    emacspeak-bookshare-last-action-uri)))
+
+
 
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
@@ -445,9 +480,11 @@ b Browse
 
 (loop for a in
       '(
+        ("+ " emacspeak-bookshare-get-more-results)
         ("a" emacspeak-bookshare-author-search)
         ("t" emacspeak-bookshare-title-search)
         ("s" emacspeak-bookshare-fulltext-search)
+        (" " emacspeak-bookshare-action)
         ("A" emacspeak-bookshare-title/author-search)
         ("d" emacspeak-bookshare-since-search)
         ("p" emacspeak-bookshare-browse-popular)
