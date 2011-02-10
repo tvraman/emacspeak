@@ -968,8 +968,9 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-flush-lines(regexp)
   "Flush lines matching regexp in Bookshare buffer."
   (interactive "sRegexp: ")
-  (let ((inhibit-read-only t))
-    (flush-lines regexp (point-min) (point-max))))
+  (save-excursion
+    (let ((inhibit-read-only t))
+      (flush-lines regexp (point-min) (point-max)))))
 
 
 ;;}}}
