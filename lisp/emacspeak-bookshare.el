@@ -148,12 +148,17 @@ Optional argument `no-auth' says no user auth needed."
   (let ((root
          (first (split-string emacspeak-bookshare-last-action-uri "/for")))
         (page nil))
-    (setq page (string-match root "/page/"))
+    (setq page (string-match "/page/" root))
     (cond
-     (page ; Already paged once
-       )
+     (page
+      (setq page (split-string root "/page/"))Already paged once
+      (format "%s/page/%s/for/%s?api_key=%s"
+               (first page)
+               (1+ (read (second page)))
+               emacspeak-bookshare-user-id
+               emacspeak-bookshare-api-key))
       (t
-       (format "%s/page/2/for/%s?%s"
+       (format "%s/page/2/for/%s?api_key=%s"
                root
                emacspeak-bookshare-user-id
                emacspeak-bookshare-api-key)))))
