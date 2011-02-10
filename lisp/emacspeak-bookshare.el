@@ -720,6 +720,7 @@ b Browse
   (loop for k in
         '(
           ("q" bury-buffer)
+          ("f" emacspeak-bookshare-flush-lines)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
@@ -963,6 +964,13 @@ Make sure it's downloaded and unpacked first."
   (beginning-of-line)
   (emacspeak-auditory-icon 'large-movement)
   (emacspeak-speak-line))
+
+(defun emacspeak-bookshare-flush-lines(regexp)
+  "Flush lines matching regexp in Bookshare buffer."
+  (interactive "sRegexp: ")
+  (let ((inhibit-read-only t))
+    (flush-lines regexp (point-min) (point-max))))
+
 
 ;;}}}
 (provide 'emacspeak-bookshare)
