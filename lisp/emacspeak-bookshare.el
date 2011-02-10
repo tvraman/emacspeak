@@ -207,6 +207,8 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
 
+
+
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
 Optional argument 'no-auth says we dont need a user auth."
@@ -220,6 +222,20 @@ Optional argument 'no-auth says we dont need a user auth."
     emacspeak-bookshare-curl-common-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     emacspeak-bookshare-last-action-uri)))
+
+(defun emacspeak-bookshare-get-more-results ()
+  "Get next page of results for last query."
+  (interactive)
+  (declare (special emacspeak-bookshare-last-action-uri))
+  (setq emacspeak-bookshare-last-action-uri
+        (emacspeak-bookshare-page-rest-endpoint))
+  (emacspeak-bookshare-get-result
+   (format "%s %s %s  %s 2>/dev/null"
+           emacspeak-bookshare-curl-program
+           emacspeak-bookshare-curl-common-options
+           (emacspeak-bookshare-user-password)
+           emacspeak-bookshare-last-action-uri)))
+
 
 (defsubst emacspeak-bookshare-generate-target (author title)
   "Generate a suitable filename target."
@@ -276,22 +292,6 @@ Optional argument 'no-auth says we dont need a user auth."
   "Perform a Bookshare id search."
   (interactive "sId: ")
   (emacspeak-bookshare-api-call "book/id" query))
-
-(defun emacspeak-bookshare-get-more-results ()
-  "Get next page of results for last query."
-  (interactive)
-  (declare (special emacspeak-bookshare-last-action-uri))
-  (setq emacspeak-bookshare-last-action-uri
-        (emacspeak-bookshare-page-rest-endpoint))
-  (emacspeak-bookshare-get-result
-   (format
-    "%s %s %s  %s 2>/dev/null"
-    emacspeak-bookshare-curl-program
-    emacspeak-bookshare-curl-common-options
-    (emacspeak-bookshare-user-password)
-    emacspeak-bookshare-last-action-uri)))
-
-
 
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
@@ -480,7 +480,7 @@ b Browse
 
 (loop for a in
       '(
-        ("+ " emacspeak-bookshare-get-more-results)
+        ("+" emacspeak-bookshare-get-more-results)
         ("a" emacspeak-bookshare-author-search)
         ("t" emacspeak-bookshare-title-search)
         ("s" emacspeak-bookshare-fulltext-search)
