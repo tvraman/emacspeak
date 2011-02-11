@@ -728,6 +728,7 @@ b Browse
         '(
           ("q" bury-buffer)
           ("f" emacspeak-bookshare-flush-lines)
+          ("v" emacspeak-bookshare-view)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
