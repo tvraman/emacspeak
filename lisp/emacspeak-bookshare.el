@@ -901,18 +901,24 @@ Target location is generated from author and title."
      (list'face 'highlight
                 'auditory-icon 'item))
     (message "Unpacked content.")))
-(defvar emacspeak-bookshare-xslt "daisyTransform.xsl"
+(defvar emacspeak-bookshare-xslt
+  "daisyTransform.xsl" 
   "Name of bookshare supplied XSL transform.")
+
+(defsubst emacspeak-bookshare-xslt (directory)
+  "Return suitable XSL  transform."
+  (or
+   (file-exists-p (expand-file-name emacspeak-bookshare-xslt directory))
+   (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))
 
 (defun emacspeak-bookshare-view-at-point ()
   "View book at point.
 Make sure it's downloaded and unpacked first."
   (interactive)
-  (declare (special emacspeak-bookshare-xslt))
   (let* ((target (emacspeak-bookshare-get-target))
          (directory (emacspeak-bookshare-get-directory))
          (title (emacspeak-bookshare-get-title))
-         (xsl (expand-file-name emacspeak-bookshare-xslt directory)))
+         (xsl (emacspeak-bookshare-xslt  directory)))
     (unless (file-exists-p target)
       (error "First download this content."))
     (unless (file-exists-p directory)
@@ -933,11 +939,8 @@ Make sure it's downloaded and unpacked first."
     (expand-file-name
     (read-directory-name "Book Directory: "
                          emacspeak-bookshare-directory))))
-  (declare (special emacspeak-bookshare-xslt
-                    emacspeak-bookshare-directory))
-  (let* ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
-    (unless (file-exists-p xsl)
-      (error "No suitable XSL  transformation found."))
+  (declare (special emacspeak-bookshare-directory))
+  (let* ((xsl (emacspeak-bookshare-xslt directory)))
     (emacspeak-xslt-view-file
      xsl
      (first
