@@ -907,9 +907,10 @@ Target location is generated from author and title."
 
 (defsubst emacspeak-bookshare-xslt (directory)
   "Return suitable XSL  transform."
-  (or
-   (file-exists-p (expand-file-name emacspeak-bookshare-xslt directory))
-   (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))
+  (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
+    (cond
+     ((file-exists-p xsl) xsl)
+   (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
 
 (defun emacspeak-bookshare-view-at-point ()
   "View book at point.
