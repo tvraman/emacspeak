@@ -22,7 +22,7 @@ xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/">
   *******************************-->
 
   <!-- docbook translates to html -->
-  <xsl:template match="dtb:dtbook">
+  <xsl:template match="/dtb:dtbook">
     <html><xsl:apply-templates/></html>
   </xsl:template>
 

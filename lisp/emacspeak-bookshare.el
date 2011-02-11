@@ -924,8 +924,6 @@ Make sure it's downloaded and unpacked first."
       (error "First download this content."))
     (unless (file-exists-p directory)
       (error "First unpack this content."))
-    (unless (file-exists-p xsl)
-      (error "No suitable XSL  transformation found."))
     (emacspeak-xslt-view-file
      xsl
      (first

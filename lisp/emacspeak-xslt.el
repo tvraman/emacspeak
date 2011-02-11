@@ -318,12 +318,10 @@ part of the libxslt package."
           (coding-system-for-write 'utf-8)
           (buffer-file-coding-system 'utf-8))
       (insert-file file)
-      (shell-command-on-region
-       (point-min) (point-max)
-       (format "%s %s --param base %s  %s - %s 2>/dev/null"
-               emacspeak-xslt-program ""
-               (format "\"'file://%s'\""
-                       (expand-file-name file))
+      (shell-command
+       (format "%s  --param base %s  %s  %s  2>/dev/null"
+               emacspeak-xslt-program 
+               (format "\"'file://%s'\"" (expand-file-name file))
                (expand-file-name style)
                (expand-file-name file))
        (current-buffer) 'replace)
