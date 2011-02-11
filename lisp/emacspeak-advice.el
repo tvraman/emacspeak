@@ -773,6 +773,20 @@ Produce an auditory icon if possible."
                (or emacspeak-last-message "")))
       ad-return-value)))
 
+(defadvice minibuffer-complete-shell-command (around emacspeak pre act)
+  "Say what you completed."
+  (let ((emacspeak-speak-messages nil)
+        (emacspeak-last-message nil))
+    ad-do-it
+    (when  (interactive-p)
+      (dtk-speak
+       (format "%s %s"
+               (save-excursion (backward-char 1)
+                               (sexp-at-point ))
+               (or emacspeak-last-message "")))
+      ad-return-value)))
+
+
 (defadvice  next-completion (after emacspeak  pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
