@@ -305,6 +305,24 @@ Optional argument 'no-auth says we dont need a user auth."
   (interactive "sId: ")
   (emacspeak-bookshare-api-call "book/id" query))
 
+;;; preference  getter/setter:
+
+(defun emacspeak-bookshare-list-preferences ()
+  "Return preference list."
+  (interactive)
+  (emacspeak-bookshare-api-call
+   "user" "preferences/list"))
+
+
+(defun emacspeak-bookshare-set-preference (preference-id value)
+  "Set preference preference-id to value."
+  (interactive "sPreference Id:\nsValue: ")
+  (emacspeak-bookshare-api-call
+   "user"
+   (format "preference/%s/set/%s"
+           preference-id value)))
+
+
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
 (defun emacspeak-bookshare-author-search (query &optional category)
@@ -493,6 +511,8 @@ b Browse
 (loop for a in
       '(
         ("+" emacspeak-bookshare-get-more-results)
+        ("P" emacspeak-bookshare-list-preferences)
+        ("S" emacspeak-bookshare-set-preference)
         ("a" emacspeak-bookshare-author-search)
         ("t" emacspeak-bookshare-title-search)
         ("s" emacspeak-bookshare-fulltext-search)
@@ -535,6 +555,11 @@ b Browse
     "messages"
     "string"
     "book"
+    "user"
+    "string" "downloads-remaining"
+"id" "name" "value" "editable"
+    
+    "id" "name" "value" "editable"
     "periodical"
     "list"
     "page"
@@ -551,7 +576,7 @@ b Browse
        (intern (format "emacspeak-bookshare-%s-handler" e))))
 
 (loop for container in
-      '("book" "list" "periodical")
+      '("book" "list" "periodical" "user")
       do
       (eval
        `(defun
@@ -612,6 +637,12 @@ b Browse
   "Handle num-pages element."
   (insert (format "Num-Pages: %s\n" (second num-pages))))
 
+
+(defun emacspeak-bookshare-display-setting (result)
+  "Display user setting result."
+  (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children
+                                             result)))
+
 (defun emacspeak-bookshare-result-handler (result)
   "Handle result element in Bookshare response."
   (insert "\n")
@@ -624,38 +655,42 @@ b Browse
          (target nil)
          (face nil)
          (icon nil))
-    (when title
-      (setq title
-            (xml-substitute-special
-             (xml-substitute-numeric-entities title))))
-    (when author
-      (setq author
-            (xml-substitute-special
-             (xml-substitute-numeric-entities author))))
-    (when (or author title)
-      (setq
-       directory (emacspeak-bookshare-generate-directory author title)
-       target (emacspeak-bookshare-generate-target author title))
-      (cond
-       ((file-exists-p directory)
-        (setq face 'highlight
-              icon 'item))
-       ((file-exists-p target)
-        (setq face 'bold
-              icon 'select-object))))
-    (when title (insert (format "%s\t" title)))
-    (when author
-      (while (< (current-column)50)
-        (insert "\t"))
-      (insert (format "By %s" author)))
-    (untabify start (point))
-    (add-text-properties
-     start (point)
-     (list 'author author 'title title 'id id
-           'directory directory
-           'target target
-           'face face
-           'auditory-icon icon))))
+    (cond
+     ((member "editable" children) ; Handle user settings result:
+      (emacspeak-bookshare-display-setting result))
+     (t
+      (when title
+        (setq title
+              (xml-substitute-special
+               (xml-substitute-numeric-entities title))))
+      (when author
+        (setq author
+              (xml-substitute-special
+               (xml-substitute-numeric-entities author))))
+      (when (or author title)
+        (setq
+         directory (emacspeak-bookshare-generate-directory author title)
+         target (emacspeak-bookshare-generate-target author title))
+        (cond
+         ((file-exists-p directory)
+          (setq face 'highlight
+                icon 'item))
+         ((file-exists-p target)
+          (setq face 'bold
+                icon 'select-object))))
+      (when title (insert (format "%s\t" title)))
+      (when author
+        (while (< (current-column)50)
+          (insert "\t"))
+        (insert (format "By %s" author)))
+      (untabify start (point))
+      (add-text-properties
+       start (point)
+       (list 'author author 'title title 'id id
+             'directory directory
+             'target target
+             'face face
+             'auditory-icon icon))))))
 
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '("author"
@@ -667,6 +702,24 @@ b Browse
     "download-format"
     "title")
   "Elements in Bookshare Metadata that we filter.")
+(defvar emacspeak-bookshare-leaf-elements
+  (list "string" "downloads-remaining"
+        "id" "name" "value" "editable")
+  "Leaf level elements, just print element name: children.")
+
+(loop for e in
+      emacspeak-bookshare-leaf-elements
+      do
+      (eval
+       `(defun
+          ,(intern (format "emacspeak-bookshare-%s-handler" e))
+          (element)
+  ,(format "Handle leaf-level element  %s. " e)
+  (insert (format "%s:\t" ,e))
+  (mapc #'insert (xml-tag-children  element))
+  (insert "\n"))))
+  
+
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
