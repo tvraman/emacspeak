@@ -656,7 +656,9 @@ b Browse
          (face nil)
          (icon nil))
     (cond
-     ((member "editable" children) ; Handle user settings result:
+     ((find-if
+       #'(lambda (e) (string= (car e) "editable"))
+       children) ; Handle user settings result:
       (emacspeak-bookshare-display-setting result))
      (t
       (when title
