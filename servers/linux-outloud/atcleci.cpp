@@ -470,7 +470,10 @@ int
 alsa_init()
 {
   int             err;
-  const char           *device = "default";
+  const char           *device = getenv ("ALSA_DEFAULT");
+  if (device == null) {
+    device = "default";
+  }
   size_t          chunk_bytes = 0;
   if ((err =
        snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
