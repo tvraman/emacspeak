@@ -42,6 +42,15 @@ will say ``aw fifteen dot'' when speaking the string
 
 ------------------------------------------------------------
 
+** dtk-async-server	Key Sequence: control e d  cap A  
+
+ Select and start an async  speech server interactively.
+Async servers allow external programs like self-voicing Web browsers to use
+the Emacspeak TTS server abstraction.
+Argument PROGRAM specifies the speech server program. 
+
+------------------------------------------------------------
+
 ** dtk-pause	Key Sequence: control e p 
 
  Pause ongoing speech.
@@ -464,15 +473,6 @@ AMarks are bookmarks in audio content.
 
 ------------------------------------------------------------
 
-** emacspeak-amphetadesk Open amphetadesk.
-Interactive prefix-arg use-opml opens the myChannels.opml file. 
-
-------------------------------------------------------------
-
-** emacspeak-amphetadesk-quick-add Quick add URL to Amphetadesk by prompting for URL. 
-
-------------------------------------------------------------
-
 ** emacspeak-arc-speak-file-modification-time Speak modification time of the file on current line 
 
 ------------------------------------------------------------
@@ -520,6 +520,187 @@ after saving the settings to have them take effect.
 ------------------------------------------------------------
 
 ** emacspeak-aumix-wave-increase Increase volume of wave output.  
+
+------------------------------------------------------------
+
+** emacspeak-bookshare Bookshare  Interaction. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-action Call action specified by  invoking key. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-author-search Perform a Bookshare author search.
+Interactive prefix arg filters search by category. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-browse Browse Bookshare. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-browse-latest Return latest books. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-browse-popular Browse popular books.
+Optional interactive prefix arg prompts for a category to use as a filter. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-download-brf Download Daisy format of specified book to target location. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-download-brf-at-point Download Braille version of book under point.
+Target location is generated from author and title. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-download-daisy Download Daisy format of specified book to target location. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-download-daisy-at-point Download Daisy version of book under point.
+Target location is generated from author and title. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-download-internal Download content  to target location. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-expand-at-point Expand entry at point by retrieving metadata.
+Once retrieved, memoize to avoid multiple retrievals. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-flush-lines Flush lines matching regexp in Bookshare buffer. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-fulltext-search Perform a Bookshare fulltext search. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-get-more-results Get next page of results for last query. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-id-search Perform a Bookshare id search. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-isbn-search Perform a Bookshare isbn search. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-mode A Bookshare front-end for the Emacspeak desktop.
+
+The Emacspeak Bookshare front-end is launched by command
+emacspeak-bookshare bound to M-x emacspeak-bookshare
+
+This command switches to a special buffer that has Bookshare
+commands bounds to single keystrokes-- see the ke-binding list at
+the end of this description. Use Emacs online help facility to
+look up help on these commands.
+
+emacspeak-bookshare-mode provides the necessary functionality to
+Search and download Bookshare material,
+Manage a local library of downloaded Bookshare content,
+And commands to easily read newer Daisy books from Bookshare.
+For legacy Bookshare material, see command C-e C-b.
+
+Here is a list of all emacspeak Bookshare commands along with their key-bindings:
+a Author Search
+A Author/Title Search
+t Title Search
+s Full Text Search
+d Date Search
+b Browse
+
+key             binding
+---             -------
+
+ESC		Prefix Command
+SPC		emacspeak-bookshare-expand-at-point
++		emacspeak-bookshare-action
+A		emacspeak-bookshare-action
+B		emacspeak-bookshare-download-brf-at-point
+D		emacspeak-bookshare-download-daisy-at-point
+I		emacspeak-bookshare-action
+U		emacspeak-bookshare-unpack-at-point
+V		emacspeak-bookshare-view-at-point
+[		backward-page
+]		forward-page
+a		emacspeak-bookshare-action
+b		emacspeak-bookshare-browse
+d		emacspeak-bookshare-action
+f		emacspeak-bookshare-flush-lines
+i		emacspeak-bookshare-action
+l .. m		emacspeak-bookshare-action
+p		emacspeak-bookshare-action
+q		bury-buffer
+s .. t		emacspeak-bookshare-action
+v		emacspeak-bookshare-view
+
+M-n		emacspeak-bookshare-next-result
+M-p		emacspeak-bookshare-previous-result
+
+
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-bookshare-mode-hook', as the final step
+during initialization. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-next-result Move to next result. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-periodical-list Return list of periodicals. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-previous-result Move to previous result. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-sign-out Sign out, clearing password. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-since-search Perform a Bookshare date  search.
+Optional interactive prefix arg filters by category. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-title-search Perform a Bookshare title search.
+Interactive prefix arg filters search by category. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-title/author-search Perform a Bookshare title/author  search. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-unpack-at-point Unpack downloaded content if necessary. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-version-handler Do nothing and return nil.
+This function accepts any number of arguments, but ignores them. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-view View book in specified directory. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-view-at-point View book at point.
+Make sure it's downloaded and unpacked first. 
 
 ------------------------------------------------------------
 
@@ -578,6 +759,13 @@ To use, configure variable gweb-my-address via M-x customize-variable.
 
 ------------------------------------------------------------
 
+** emacspeak-daisy-html Apply xslt transform specified by 
+Uses keymap "emacspeak-daisy-xsl", which is not currently defined.
+
+to convert and view Daisy Books as a Web page. 
+
+------------------------------------------------------------
+
 ** emacspeak-daisy-mark-position-in-content-under-point Mark current position in displayed content.
 No-op if content under point is not currently displayed. 
 
@@ -612,6 +800,7 @@ SPC		emacspeak-daisy-play-audio-under-point
 ?		describe-mode
 P		emacspeak-daisy-play-page-range
 S		emacspeak-daisy-save-bookmarks
+h		emacspeak-daisy-html
 m		emacspeak-daisy-mark-position-in-content-under-point
 n		emacspeak-daisy-next-line
 o		emacspeak-daisy-define-outline-pattern
@@ -1043,10 +1232,6 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
-
-------------------------------------------------------------
-
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
  Copy over text in region to special filtertext buffer in
@@ -1216,6 +1401,10 @@ Assumes that point is at the front of a field value.
 ------------------------------------------------------------
 
 ** emacspeak-google-toolbelt-change-reviews Change  reviews in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-social Change  social in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
@@ -2221,6 +2410,12 @@ Default is to read the previous line.
 
 ** emacspeak-read-previous-word Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word.  
+
+------------------------------------------------------------
+
+** emacspeak-search	Key Sequence: <search> 
+
+ Call search defined in <search>. 
 
 ------------------------------------------------------------
 
@@ -5176,6 +5371,12 @@ take effect.
 ** emacspeak-moz-visit-previous-and-browse Asks visitor to go  backward and browses the result.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-org-bookmark Bookmark from org.
+
+(fn &optional GOTO) 
 
 ------------------------------------------------------------
 

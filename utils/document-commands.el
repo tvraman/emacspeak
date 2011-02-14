@@ -85,6 +85,7 @@
     ("emacspeak-compile" . nil )
     ("emacspeak-cperl"  . nil )
     ("emacspeak-daisy" . nil)
+    ("emacspeak-bookshare" . nil)
     ("emacspeak-custom"  . ("custom" "cus-edit"))
     ("emacspeak-dictation"  . nil )
     ("emacspeak-dictionary"  . nil )
