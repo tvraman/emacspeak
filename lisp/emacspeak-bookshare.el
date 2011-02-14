@@ -989,9 +989,12 @@ Make sure it's downloaded and unpacked first."
   "View book in specified directory."
   (interactive
    (list
-    (expand-file-name
-    (read-directory-name "Book Directory: "
-                         emacspeak-bookshare-directory))))
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t))
+      (read-directory-name "Book: "
+                      (when (eq major-mode 'dired-mode) (dired-get-filename))
+                      emacspeak-bookshare-directory))))
   (declare (special emacspeak-bookshare-directory))
   (let* ((xsl (emacspeak-bookshare-xslt directory)))
     (emacspeak-xslt-view-file
