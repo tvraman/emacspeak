@@ -504,7 +504,7 @@ b Browse
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
     (setq header-line-format "Bookshare Library")
-    ))
+    (cd-absolute emacspeak-bookshare-directory)))
 
 (declaim (special emacspeak-bookshare-mode-map))
 
