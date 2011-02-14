@@ -471,7 +471,7 @@ alsa_init()
 {
   int             err;
   const char           *device = getenv ("ALSA_DEFAULT");
-  if (device == null) {
+  if (device == NULL) {
     device = "default";
   }
   size_t          chunk_bytes = 0;
