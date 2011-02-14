@@ -118,7 +118,8 @@ grep path:")))
   "Device to use for alsaplayer"
   :type '(choice
           (const  :tag "Ignore" nil)
-          (const  :tag "Card 1" "hw:1,0"))
+          (const  :tag "Card 1" "hw:1,0")
+          (string :tag "Custom"))
   :group  'emacspeak-alsaplayer)
 
 ;;;###autoload
