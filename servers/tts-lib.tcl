@@ -319,7 +319,7 @@ proc tts_setserial {} {
 # {{{tts initialize  
 
 proc tts_initialize {} {
-    global tts backup  queue
+    global tts backup  queue env
     #split caps flag: 
     set tts(split_caps) 1
     # Capitalize flag
