@@ -183,7 +183,7 @@ proc queue_restore {} {
 #play a sound over the server
 proc p {sound} {
     global tts
-    catch "exec $tts(play) -q $sound &" errcode
+    catch "exec $tts(play) -q $tts(play_dev) $sound &" errcode
     speech_task
 }
 
@@ -340,6 +340,12 @@ proc tts_initialize {} {
         set tts(play)  $env(EMACSPEAK_PLAY_PROGRAM)
     } else {
         set tts(play) "/usr/bin/aplay"
+    }
+# aplay device options:
+    if {[info exists env(ALSA_DEFAULT)] } {
+        set tts(play_dev)  "-D $env(ALSA_DEFAULT)"
+    } else {
+        set tts(play_dev) ""
     }
     
     #optional debuggin output
