@@ -99,7 +99,7 @@ display."
   :group 'emacspeak-aumix
   :type 'boolean)
 
-(defcustom emacspeak-aumix-full-duplex-p nil
+(defcustom emacspeak-aumix-full-duplex-p t
   "*Set to T if the sound card is truly full duplex."
   :group 'emacspeak-aumix
   :type 'boolean)
