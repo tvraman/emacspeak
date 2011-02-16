@@ -1573,10 +1573,13 @@ This is setup on a per engine basis.")
 
 ;;; forward declaration.
 ;;;###autoload
-(defun dtk-select-server (program )
+(defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
-When called  interactively, The selected server is started immediately. "
+When called  interactively, The selected server is started
+immediately.
+ Optional  arg device sets up environment variable ALSA_DEFAULT
+to specified device before starting the server."
   (interactive
    (list
     (completing-read
@@ -1584,9 +1587,13 @@ When called  interactively, The selected server is started immediately. "
      (or dtk-servers-alist
          (tts-setup-servers-alist))
      nil
-     t  )))
+     t  )
+    (read-from-minibuffer "ALSA_DEFAULT: ")))
   (declare (special   dtk-program dtk-servers-alist
-                      emacspeak-servers-directory emacspeak-ssh-tts-server))
+                      emacspeak-servers-directory
+                      emacspeak-ssh-tts-server))
+  (when device
+    (setenv "ALSA_DEFAULT" device))
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
     (tts-configure-synthesis-setup dtk-program)
