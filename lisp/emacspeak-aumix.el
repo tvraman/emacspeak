@@ -94,7 +94,7 @@
 display."
   :group 'emacspeak)
 
-(defcustom emacspeak-aumix-multichannel-capable-p nil
+(defcustom emacspeak-aumix-multichannel-capable-p t
   "*Set to T if the sound card is capable of mixing multiple channels of audio."
   :group 'emacspeak-aumix
   :type 'boolean)
