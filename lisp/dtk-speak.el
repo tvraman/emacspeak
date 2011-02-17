@@ -1571,7 +1571,7 @@ This is setup on a per engine basis.")
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
-(defvar dtk-device "default"
+(defvar tts-device "default"
   "Name of current sound device in use.")
 
 ;;;###autoload
@@ -1591,11 +1591,11 @@ ALSA_DEFAULT to specified device before starting the server."
      t  )
     current-prefix-arg))
   (declare (special   dtk-program dtk-servers-alist
-                      dtk-device emacspeak-servers-directory
+                      tts-device emacspeak-servers-directory
                       emacspeak-ssh-tts-server))
   (when (and (interactive-p) device)
-    (setq dtk-device (read-from-minibuffer "ALSA_DEFAULT: ")))
-  (setenv "ALSA_DEFAULT" dtk-device)
+    (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: ")))
+  (setenv "ALSA_DEFAULT" tts-device)
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
     (tts-configure-synthesis-setup dtk-program)
@@ -1604,6 +1604,32 @@ ALSA_DEFAULT to specified device before starting the server."
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (interactive-p)
       (dtk-initialize))))
+
+;;;###autoload
+(defcustom tts-device-list (list "default")
+  "List of ALSA sound devices  we can use."
+  :type '(repeat
+          (const :tag "Default Device: " "default")
+          (string :tag "Device: "))
+  :group 'dtk)
+
+;;;###autoload
+(defun tts-cycle-device (&optional restart)
+  "Cycle through available ALSA devices.
+Optional interactive prefix arg restarts current TTS server."
+  (interactive "P")
+  (declare (special tts-device tts-device-list))
+  (let ((pos (position tts-device tts-device-list :test
+                       #'string=))
+        (len (length tts-device-list)))
+    (cond
+     ((= len 1) (message "Only  one ALSA device."))
+     (t                                 ; Cycle
+      (setq tts-device
+            (nth
+             (% (+ 1 pos) len)
+             tts-device-list))
+      (when current-prefix-arg (tts-restart))))))
 
 (defvar dtk-async-server-process nil
   "Process handle to async server.")
@@ -1624,8 +1650,7 @@ Argument PROGRAM specifies the speech server program."
      nil
      t  )))
   (declare (special    dtk-servers-alist
-                       dtk-async-server-process
-                       emacspeak-servers-directory ))
+                       dtk-async-server-process emacspeak-servers-directory ))
   (when (and
          dtk-async-server-process
              (eq 'run (process-status dtk-async-server-process)))
