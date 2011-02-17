@@ -1588,10 +1588,12 @@ to specified device before starting the server."
          (tts-setup-servers-alist))
      nil
      t  )
-    (read-from-minibuffer "ALSA_DEFAULT: ")))
+    current-prefix-arg))
   (declare (special   dtk-program dtk-servers-alist
                       emacspeak-servers-directory
                       emacspeak-ssh-tts-server))
+  (when (and (interactive-p) device)
+    (setq device (read-from-minibuffer "ALSA_DEFAULT: ")))
   (when device
     (setenv "ALSA_DEFAULT" device))
   (let ((ssh-server (format "ssh-%s" dtk-program)))
