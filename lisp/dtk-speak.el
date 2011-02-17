@@ -1571,15 +1571,16 @@ This is setup on a per engine basis.")
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
-;;; forward declaration.
+(defvar dtk-device "default"
+  "Name of current sound device in use.")
+
 ;;;###autoload
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
-Argument PROGRAM specifies the speech server program.
-When called  interactively, The selected server is started
-immediately.
- Optional  arg device sets up environment variable ALSA_DEFAULT
-to specified device before starting the server."
+Argument PROGRAM specifies the speech server program. When called
+interactively, The selected server is started
+immediately. Optional arg device sets up environment variable
+ALSA_DEFAULT to specified device before starting the server."
   (interactive
    (list
     (completing-read
@@ -1590,12 +1591,11 @@ to specified device before starting the server."
      t  )
     current-prefix-arg))
   (declare (special   dtk-program dtk-servers-alist
-                      emacspeak-servers-directory
+                      dtk-device emacspeak-servers-directory
                       emacspeak-ssh-tts-server))
   (when (and (interactive-p) device)
-    (setq device (read-from-minibuffer "ALSA_DEFAULT: ")))
-  (when device
-    (setenv "ALSA_DEFAULT" device))
+    (setq dtk-device (read-from-minibuffer "ALSA_DEFAULT: ")))
+  (setenv "ALSA_DEFAULT" dtk-device)
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
     (tts-configure-synthesis-setup dtk-program)
