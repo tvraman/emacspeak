@@ -80,11 +80,9 @@
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 \\[emacspeak-toggle-word-echo].
-Toggle variable dtk-stop-immediately-while-typing if you want to have
-speech flush as you type."
+Speech flushes as you type."
   (interactive "p")
-  (declare (special last-command-event dtk-stop-immediately-while-typing
-                    buffer-undo-list  buffer-read-only
+  (declare (special last-command-event buffer-undo-list  buffer-read-only
                     emacspeak-character-echo emacspeak-word-echo))
   (or arg (setq arg 1))
   (when buffer-read-only
@@ -94,6 +92,7 @@ speech flush as you type."
        (pop buffer-undo-list ))
   (self-insert-command  arg )
   (when (interactive-p)
+    (dtk-stop)
     (cond
      ((and emacspeak-word-echo
            (= (char-syntax last-command-event )32 ))
@@ -103,7 +102,6 @@ speech flush as you type."
           (error nil))
         (emacspeak-speak-word)))
      (emacspeak-character-echo
-      (when dtk-stop-immediately-while-typing (dtk-stop))
       (emacspeak-speak-this-char (preceding-char) ))))
   (and auto-fill-function
        (= (char-syntax  last-command-event) 32)
