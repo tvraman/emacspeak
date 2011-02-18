@@ -149,7 +149,7 @@
   :group 'emacspeak-m-player)
 
 (defvar emacspeak-m-player-default-options
-  (list "-slave"  "-nortc""-softvol" "-quiet" )
+  (list "-slave"  "-nortc""-softvol" "-quiet")
   "Default options for MPlayer.")
 (defcustom emacspeak-m-player-options 
   (copy-sequence emacspeak-m-player-default-options)
@@ -287,6 +287,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
          (or play-list
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options)))
+    (setq options
+          (nconc options
+                 (list "-ao"
+                       (format "alsa:device=%s"
+                               (getenv "ALSA_DEFAULT")))))
     (setq options
           (cond
            (playlist-p
