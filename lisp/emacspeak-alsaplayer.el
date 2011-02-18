@@ -114,11 +114,12 @@ grep path:")))
   :group 'emacspeak-alsaplayer)
 (defvar emacspeak-alsaplayer-buffer "*alsaplayer*"
   "Buffer for alsaplayer interaction.")
-(defcustom emacspeak-alsaplayer-device nil
+(defcustom emacspeak-alsaplayer-device "$ALSA_DEFAULT"
   "Device to use for alsaplayer"
   :type '(choice
           (const  :tag "Ignore" nil)
           (const  :tag "Card 1" "hw:1,0")
+          (const :tag "ALSA_DEFAULT"  "$ALSA_DEFAULT")
           (string :tag "Custom"))
   :group  'emacspeak-alsaplayer)
 
