@@ -359,7 +359,7 @@
   "speak char that was inserted."
   (when (and emacspeak-character-echo
              (interactive-p ))
-    (when dtk-stop-immediately-while-typing (dtk-stop))
+    (dtk-stop)
     (emacspeak-speak-this-char last-input-event )))
 
 (defadvice org-delete-char (around emacspeak pre act)

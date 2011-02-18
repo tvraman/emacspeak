@@ -91,14 +91,6 @@ Particularly useful for web browsing."
   :group  'tts)
 (make-variable-buffer-local 'tts-strip-octals)
 ;;;###autoload
-(defcustom dtk-stop-immediately-while-typing t
-  "*Set it to nil if you dont want speech to flush as you
-type.  You can use command
-`dtk-toggle-stop-immediately-while-typing' bound to
-\\[dtk-toggle-stop-immediately-while-typing] to toggle this setting."
-  :group 'tts
-  :type 'boolean)
-(make-variable-buffer-local 'dtk-stop-immediately-while-typing)
 ;;;###autoload
 (defcustom dtk-speech-rate-base 50
   "*Value of lowest tolerable speech rate."
@@ -892,12 +884,7 @@ current local  value to the result."
 Turning on this switch silences speech.
 Optional interactive prefix arg causes this setting to become global.")
 
-(ems-generate-switcher 'dtk-toggle-stop-immediately-while-typing
-                       'dtk-stop-immediately-while-typing
-                       "Toggle state of variable `dtk-stop-immediately-while-typing'.
-As the name implies, if T then speech flushes immediately as you
-type.  Optional argument PREFIX specifies if the setting applies
-to all buffers.")
+
 
 (ems-generate-switcher 'dtk-toggle-split-caps
                        'dtk-split-caps

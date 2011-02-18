@@ -425,7 +425,6 @@ field in the customization buffer.  You can use the notation
       '(
         (" " dtk-toggle-splitting-on-white-space)
         ("C" dtk-toggle-allcaps-beep)
-        ("I" dtk-toggle-stop-immediately-while-typing )
         ("R" dtk-reset-state)
         ("V" tts-speak-version)
         ("\C-m" dtk-set-chunk-separator-syntax)
