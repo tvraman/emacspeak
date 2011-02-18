@@ -103,7 +103,7 @@
           (backward-word 1)
           (emacspeak-speak-region orig (point)))))
      (emacspeak-character-echo
-      (when dtk-stop-immediately-while-typing (dtk-stop))
+      (dtk-stop)
       (emacspeak-speak-this-char last-input-event )))))
 
 (defadvice *table--cell-quoted-insert  (after emacspeak pre act )
