@@ -1596,9 +1596,10 @@ ALSA_DEFAULT to specified device before starting the server."
 (defcustom tts-device-list (list "default")
   "List of ALSA sound devices  we can use."
   :type '(repeat
-          (const :tag "Default Device: " "default")
-          (const :tag "ALSA_DEFAULT"  "$ALSA_DEFAULT")
-          (string :tag "Device: "))
+          (choice :tag "Device"
+          (const   "default")
+          (const   "$ALSA_DEFAULT")
+          (string )))
   :group 'dtk)
 
 ;;;###autoload
