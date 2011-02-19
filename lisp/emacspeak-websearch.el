@@ -62,7 +62,6 @@
 (defvar emacspeak-xslt-directory)
 (defvar emacspeak-wizards-personal-portfolio)
 
-
 (declare-function gweb-google-autocomplete (&optional prompt))
 (declare-function gtube-video-by-tag(tag &optional page count))
 (declare-function calendar-astro-date-string (&optional date))
@@ -289,9 +288,9 @@ When using supported browsers,  this interface attempts to speak the most releva
    (list
     (emacspeak-websearch-read-query "Search CS Bibliographies  for: ")))
   (declare (special emacspeak-websearch-biblio-uri))
-    (browse-url
-     (concat emacspeak-websearch-biblio-uri
-             (emacspeak-url-encode query)))
+  (browse-url
+   (concat emacspeak-websearch-biblio-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -749,9 +748,9 @@ Optional second arg as-html processes the results as HTML rather than data."
    (list
     (emacspeak-websearch-read-query "Lookup word in Webster:")))
   (declare (special emacspeak-websearch-dictionary-hypertext-webster-uri))
-    (browse-url
-     (concat emacspeak-websearch-dictionary-hypertext-webster-uri
-             (emacspeak-url-encode query)))
+  (browse-url
+   (concat emacspeak-websearch-dictionary-hypertext-webster-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process query 'emacspeak-speak-line))
 
 ;;}}}
@@ -793,8 +792,8 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query "Search Freshmeat  for: ")))
   (declare (special emacspeak-websearch-freshmeat-search-uri))
   (browse-url
-     (concat emacspeak-websearch-freshmeat-search-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-freshmeat-search-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    "search results"
    'emacspeak-speak-line))
@@ -812,8 +811,8 @@ Optional second arg as-html processes the results as HTML rather than data."
      "Lookup Comprehensive TEX Archive for: ")))
   (declare (special emacspeak-websearch-ctan-search-uri))
   (browse-url
-     (concat emacspeak-websearch-ctan-search-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-ctan-search-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -831,8 +830,8 @@ Optional second arg as-html processes the results as HTML rather than data."
      "Locate PERL Module: ")))
   (declare (special emacspeak-websearch-cpan-search-uri))
   (browse-url
-     (concat emacspeak-websearch-cpan-search-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-cpan-search-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -900,8 +899,8 @@ Optional second arg as-html processes the results as HTML rather than data."
      "Search Encyclopedia Britannica  for: ")))
   (declare (special emacspeak-websearch-britannica-uri))
   (browse-url
-     (concat emacspeak-websearch-britannica-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-britannica-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -926,11 +925,11 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query "Gutenberg query: ")))
   (declare (special emacspeak-websearch-gutenberg-uri))
   (browse-url
-     (concat emacspeak-websearch-gutenberg-uri
-             (ecase type
-               (?a "author=")
-               (?t "title="))
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-gutenberg-uri
+           (ecase type
+             (?a "author=")
+             (?t "title="))
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -1552,8 +1551,8 @@ Optional prefix arg no-rss scrapes information from HTML."
      "Search Open Directory for: ")))
   (declare (special emacspeak-websearch-open-directory-uri))
   (browse-url
-     (concat emacspeak-websearch-open-directory-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-open-directory-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    "Search results"
    'emacspeak-speak-line))
@@ -1578,8 +1577,8 @@ Optional prefix arg no-rss scrapes information from HTML."
     (emacspeak-websearch-read-query "Find RPM: ")))
   (declare (special emacspeak-websearch-rpm-find-uri))
   (browse-url
-     (concat emacspeak-websearch-rpm-find-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-rpm-find-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query
    'emacspeak-speak-line))
@@ -1623,8 +1622,8 @@ Optional prefix arg no-rss scrapes information from HTML."
     (emacspeak-websearch-read-query "Lookup word in Webster:")))
   (declare (special emacspeak-websearch-merriam-webster-uri))
   (browse-url
-     (concat emacspeak-websearch-merriam-webster-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-merriam-webster-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    "Main Entry"
    'emacspeak-speak-line))
@@ -1670,9 +1669,9 @@ Optional prefix arg no-rss scrapes information from HTML."
    (list (emacspeak-websearch-read-query "Search W3C site: ")))
   (declare (special emacspeak-websearch-w3c-search-uri))
   (browse-url
-     (concat emacspeak-websearch-w3c-search-uri
-             "&q="
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-w3c-search-uri
+           "&q="
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    "match"
    'emacspeak-speak-line))
@@ -1761,8 +1760,8 @@ Optional prefix arg no-rss scrapes information from HTML."
    (list (emacspeak-websearch-read-query "Yahoo Query: ")))
   (declare (special emacspeak-websearch-yahoo-uri))
   (browse-url
-     (concat emacspeak-websearch-yahoo-uri
-             (emacspeak-url-encode query)))
+   (concat emacspeak-websearch-yahoo-uri
+           (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    "
 Results"

@@ -47,7 +47,6 @@
 ;;; This module implements an Emacspeak Bookshare client.
 ;;; For now, users will need to get their own API key
 
-
 ;;; Code: 
 ;;}}}
 ;;{{{  Required modules
@@ -154,16 +153,15 @@ Optional argument `no-auth' says no user auth needed."
      (page
       (setq page (split-string root "/page/"))Already paged once
       (format "%s/page/%s/for/%s?api_key=%s"
-               (first page)
-               (1+ (read (second page)))
-               emacspeak-bookshare-user-id
-               emacspeak-bookshare-api-key))
-      (t
-       (format "%s/page/2/for/%s?api_key=%s"
-               root
-               emacspeak-bookshare-user-id
-               emacspeak-bookshare-api-key)))))
-    
+              (first page)
+              (1+ (read (second page)))
+              emacspeak-bookshare-user-id
+              emacspeak-bookshare-api-key))
+     (t
+      (format "%s/page/2/for/%s?api_key=%s"
+              root
+              emacspeak-bookshare-user-id
+              emacspeak-bookshare-api-key)))))
 
 (defsubst emacspeak-bookshare-destruct-rest-url (url)
   "Return operator and operand used to construct this REST end-point."
@@ -213,8 +211,6 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
 
-
-
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
 Optional argument 'no-auth says we dont need a user auth."
@@ -242,7 +238,6 @@ Optional argument 'no-auth says we dont need a user auth."
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
 
-
 (defsubst emacspeak-bookshare-generate-target (author title)
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
@@ -263,10 +258,9 @@ Optional argument 'no-auth says we dont need a user auth."
 
 (defsubst emacspeak-bookshare-destruct-target (target)
   "Destruct  a  filename target into components."
-   (split-string 
-    (substring target  0 -4)
-"-" 'no-null))
-
+  (split-string 
+   (substring target  0 -4)
+   "-" 'no-null))
 
 ;;}}}
 ;;{{{ Book Actions:
@@ -314,7 +308,6 @@ Optional argument 'no-auth says we dont need a user auth."
   (emacspeak-bookshare-api-call
    "user" "preferences/list"))
 
-
 (defun emacspeak-bookshare-set-preference (preference-id value)
   "Set preference preference-id to value."
   (interactive "sPreference Id:\nsValue: ")
@@ -322,7 +315,6 @@ Optional argument 'no-auth says we dont need a user auth."
    "user"
    (format "preference/%s/set/%s"
            preference-id value)))
-
 
 ;;; Following Actions return book-list structures within a bookshare envelope.
 
@@ -558,7 +550,7 @@ b Browse
     "book"
     "user"
     "string" "downloads-remaining"
-"id" "name" "value" "editable"
+    "id" "name" "value" "editable"
     
     "id" "name" "value" "editable"
     "periodical"
@@ -638,7 +630,6 @@ b Browse
   "Handle num-pages element."
   (insert (format "Num-Pages: %s\n" (second num-pages))))
 
-
 (defun emacspeak-bookshare-display-setting (result)
   "Display user setting result."
   (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children
@@ -717,12 +708,10 @@ b Browse
        `(defun
           ,(intern (format "emacspeak-bookshare-%s-handler" e))
           (element)
-  ,(format "Handle leaf-level element  %s. " e)
-  (insert (format "%s:\t" ,e))
-  (mapc #'insert (xml-tag-children  element))
-  (insert "\n"))))
-  
-
+          ,(format "Handle leaf-level element  %s. " e)
+          (insert (format "%s:\t" ,e))
+          (mapc #'insert (xml-tag-children  element))
+          (insert "\n"))))
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
@@ -965,7 +954,7 @@ Target location is generated from author and title."
   (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (cond
      ((file-exists-p xsl) xsl)
-   (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
+     (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
 
 (defun emacspeak-bookshare-view-at-point ()
   "View book at point.
@@ -994,8 +983,8 @@ Make sure it's downloaded and unpacked first."
           (emacspeak-speak-messages nil)
           (read-file-name-completion-ignore-case t))
       (read-directory-name "Book: "
-                      (when (eq major-mode 'dired-mode) (dired-get-filename))
-                      emacspeak-bookshare-directory))))
+                           (when (eq major-mode 'dired-mode) (dired-get-filename))
+                           emacspeak-bookshare-directory))))
   (declare (special emacspeak-bookshare-directory))
   (let* ((xsl (emacspeak-bookshare-xslt directory)))
     (emacspeak-xslt-view-file
@@ -1039,7 +1028,6 @@ Make sure it's downloaded and unpacked first."
   (save-excursion
     (let ((inhibit-read-only t))
       (flush-lines regexp (point-min) (point-max)))))
-
 
 ;;}}}
 (provide 'emacspeak-bookshare)

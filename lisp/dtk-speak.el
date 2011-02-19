@@ -884,8 +884,6 @@ current local  value to the result."
 Turning on this switch silences speech.
 Optional interactive prefix arg causes this setting to become global.")
 
-
-
 (ems-generate-switcher 'dtk-toggle-split-caps
                        'dtk-split-caps
                        "Toggle split caps mode.
@@ -1592,14 +1590,13 @@ ALSA_DEFAULT to specified device before starting the server."
     (when (interactive-p)
       (dtk-initialize))))
 
-
 (defcustom tts-device-list (list "default")
   "List of ALSA sound devices  we can use."
   :type '(repeat
           (choice :tag "Device"
-          (const   "default")
-          (const   "$ALSA_DEFAULT")
-          (string )))
+                  (const   "default")
+                  (const   "$ALSA_DEFAULT")
+                  (string )))
   :group 'dtk)
 
 ;;;###autoload
@@ -1624,7 +1621,6 @@ Optional interactive prefix arg restarts current TTS server."
 (defvar dtk-async-server-process nil
   "Process handle to async server.")
 
-
 ;;;###autoload
 (defun dtk-async-server (program)
   "Select and start an async  speech server interactively.
@@ -1643,7 +1639,7 @@ Argument PROGRAM specifies the speech server program."
                        dtk-async-server-process emacspeak-servers-directory ))
   (when (and
          dtk-async-server-process
-             (eq 'run (process-status dtk-async-server-process)))
+         (eq 'run (process-status dtk-async-server-process)))
     (kill-process dtk-async-server-process))
   (setq dtk-async-server-process
         (start-process

@@ -786,7 +786,6 @@ Produce an auditory icon if possible."
                (or emacspeak-last-message "")))
       ad-return-value)))
 
-
 (defadvice  next-completion (after emacspeak  pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
