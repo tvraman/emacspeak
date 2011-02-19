@@ -46,8 +46,9 @@
 ;;; It provides a simple Web  API http://developer.bookshare.org
 ;;; This module implements an Emacspeak Bookshare client.
 ;;; For now, users will need to get their own API key
-;;; This might change once I get approval from Bookshare to embed the Emacspeak API  key in the Source code.
 
+
+;;; Code: 
 ;;}}}
 ;;{{{  Required modules
 
