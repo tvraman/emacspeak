@@ -1616,6 +1616,7 @@ Optional interactive prefix arg restarts current TTS server."
              (% (+ 1 pos) len)
              tts-device-list))
       (setenv "ALSA_DEFAULT" tts-device)
+      (message "ALSA_DEFAULT: %s" tts-device)
       (when current-prefix-arg (tts-restart))))))
 
 (defvar dtk-async-server-process nil
