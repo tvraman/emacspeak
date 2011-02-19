@@ -294,8 +294,6 @@ dont-url-encode if true then url arguments are not url-encoded "
                           (first date)
                           (third date)))))        )
 
-
-
 ;;}}}
 ;;{{{ shoutcast
 (defvar emacspeak-url-template-shoutcast-history nil

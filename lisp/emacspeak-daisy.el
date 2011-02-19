@@ -128,7 +128,6 @@
      #'(lambda (tag)
          (not (string-equal name (xml-tag-name tag))))
      children)))
-    
 
 ;;}}}
 ;;{{{  play audio clip
@@ -412,7 +411,6 @@ Return buffer that holds the result of playing the content."
   (mapc #'emacspeak-daisy-apply-handler
         (xml-tag-children element )))
 
-
 (defun emacspeak-daisy-navPoint-handler (element)
   "Handle navPoint element."
   (let ((label (xml-tag-child element "navLabel"))
@@ -446,7 +444,7 @@ Return buffer that holds the result of playing the content."
 
 ;;; Ignore navList for now
 (emacspeak-daisy-set-handler "navList" 'ignore)
-; ignore pageList
+                                        ; ignore pageList
 (emacspeak-daisy-set-handler "pageList" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
@@ -785,76 +783,76 @@ Also puts the displayed buffer in outline-minor-mode and gives it
 
 ;;}}}
 ;;{{{ w3 support update:
- eed to handle text/xml and application/xml
+eed to handle text/xml and application/xml
 (defun w3-fetch-callback (url)
   (w3-nasty-disgusting-http-equiv-handling (current-buffer) url)
   ;; Process any cookie and refresh headers.
   (let (headers)
     (ignore-errors
       (save-restriction
-	(mail-narrow-to-head)
-	(goto-char (point-min))
-	(unless (save-excursion
-		  (search-forward ":" (line-end-position) t))
-	  (forward-line))
-	(setq headers (mail-header-extract))
-	(let (refreshed)
-	  (dolist (header headers)
-	    ;; Act on multiple cookies if necessary, but only on a
-	    ;; single refresh request in case there's more than one.
-	    (case (car header)
-	      (refresh (unless refreshed
-			 (w3-handle-refresh-header (cdr header))
-			 (setq refreshed t))))))))
+        (mail-narrow-to-head)
+        (goto-char (point-min))
+        (unless (save-excursion
+                  (search-forward ":" (line-end-position) t))
+          (forward-line))
+        (setq headers (mail-header-extract))
+        (let (refreshed)
+          (dolist (header headers)
+            ;; Act on multiple cookies if necessary, but only on a
+            ;; single refresh request in case there's more than one.
+            (case (car header)
+              (refresh (unless refreshed
+                         (w3-handle-refresh-header (cdr header))
+                         (setq refreshed t))))))))
     (let ((handle (mm-dissect-buffer t))
-	  (w3-explicit-coding-system
-	   (or w3-explicit-coding-system
-	       (w3-recall-explicit-coding-system url)))
-	  (buff nil))
+          (w3-explicit-coding-system
+           (or w3-explicit-coding-system
+               (w3-recall-explicit-coding-system url)))
+          (buff nil))
       (message "Downloading of `%s' complete." url)
       (url-mark-buffer-as-dead (current-buffer))
       (unless headers
-	(setq headers (list (cons 'content-type
-				  (mm-handle-media-type handle)))))
+        (setq headers (list (cons 'content-type
+                                  (mm-handle-media-type handle)))))
       ;; Fixme: can handle be null?
       (cond
        ((or (equal (mm-handle-media-type handle) "text/html")
-	    ;; Ultimately this should be handled by an XML parser, but
-	    ;; this will mostly work for now:
-	    (equal (mm-handle-media-type handle) "application/xhtml+xml")
-        (equal (mm-handle-media-type handle) "text/xml")
-        (equal (mm-handle-media-type handle) "application/xml"))
-	;; Special case text/html if it comes through w3-fetch
-	(set-buffer (generate-new-buffer " *w3-html*"))
-	(mm-insert-part handle)
-	(w3-decode-charset handle)
-	(setq url-current-object (url-generic-parse-url url))
-	(w3-prepare-buffer)
-	(setq url-current-mime-headers headers)
-	(w3-notify-when-ready (current-buffer))
-	(mm-destroy-parts handle))
+            ;; Ultimately this should be handled by an XML parser, but
+            ;; this will mostly work for now:
+            (equal (mm-handle-media-type handle) "application/xhtml+xml")
+            (equal (mm-handle-media-type handle) "text/xml")
+            (equal (mm-handle-media-type handle) "application/xml"))
+        ;; Special case text/html if it comes through w3-fetch
+        (set-buffer (generate-new-buffer " *w3-html*"))
+        (mm-insert-part handle)
+        (w3-decode-charset handle)
+        (setq url-current-object (url-generic-parse-url url))
+        (w3-prepare-buffer)
+        (setq url-current-mime-headers headers)
+        (w3-notify-when-ready (current-buffer))
+        (mm-destroy-parts handle))
        ((equal (car-safe (mm-handle-type handle))
-	       "application/x-elisp-parsed-html")
-	;; Also need to special-case pre-parsed representations of HTML.
-	;; Fixme: will this need decoding?
-	(w3-prepare-tree (read (set-marker (make-marker) 1
-					   (mm-handle-buffer handle)))))
+               "application/x-elisp-parsed-html")
+        ;; Also need to special-case pre-parsed representations of HTML.
+        ;; Fixme: will this need decoding?
+        (w3-prepare-tree (read (set-marker (make-marker) 1
+                                           (mm-handle-buffer handle)))))
        ((mm-inlinable-p handle)
-	;; We can view it inline!
-	(set-buffer (generate-new-buffer url))
-	(require 'mm-view)	       ; make sure methods are defined
-	(mm-display-part handle)
-	(set-buffer-modified-p nil)
-	(w3-mode)
-	(if (equal "image" (mm-handle-media-supertype handle))
-	    (setq cursor-type nil))
-	(setq url-current-mime-headers headers)
-	(w3-notify-when-ready (current-buffer)))
+        ;; We can view it inline!
+        (set-buffer (generate-new-buffer url))
+        (require 'mm-view)             ; make sure methods are defined
+        (mm-display-part handle)
+        (set-buffer-modified-p nil)
+        (w3-mode)
+        (if (equal "image" (mm-handle-media-supertype handle))
+            (setq cursor-type nil))
+        (setq url-current-mime-headers headers)
+        (w3-notify-when-ready (current-buffer)))
        (t
-	;; Must be an external viewer
-	(mm-display-part handle)
-	;;(mm-destroy-parts handle)
-	)))))
+        ;; Must be an external viewer
+        (mm-display-part handle)
+        ;;(mm-destroy-parts handle)
+        )))))
 
 ;;}}}
 (provide 'emacspeak-daisy)

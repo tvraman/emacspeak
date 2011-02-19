@@ -81,8 +81,6 @@
 (defvar voice-punctuations-some)
 (defvar voice-smoothen)
 
-
-
 (declare-function operate-on-rectangle(start end coerse-tabs))
 
 ;;}}}
@@ -3126,7 +3124,6 @@ char, or dont move. "
     (emacspeak-auditory-icon 'help)))
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
-
 
 (declaim (special completion-list-mode-map))  
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)

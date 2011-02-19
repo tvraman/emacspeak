@@ -327,7 +327,7 @@
           ([(meta shift left)] org-shiftmetaleft)
           ([(meta shift right)] org-shiftmetaright)
           ([(meta shift return)] org-insert-todo-heading)
-	  ("\C-e" emacspeak-prefix-command)
+          ("\C-e" emacspeak-prefix-command)
           ("\C-j" org-insert-heading)
           ("\M-n" org-next-item)
           ("\M-p" org-previous-item)
@@ -457,12 +457,12 @@
 
 (defadvice org-capture-goto-target (after emacspeak pre act comp)
   "Provide auditory feedback."
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
 
 (defadvice org-capture-finalize (after emacspeak pre act comp)
   "Provide auditory feedback."
-    (emacspeak-auditory-icon 'save-object))
+  (emacspeak-auditory-icon 'save-object))
 
 (defadvice org-capture-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
