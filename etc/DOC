@@ -83,8 +83,10 @@ and option `dtk-resume-should-toggle' is set,
 ** dtk-select-server	Key Sequence: control e d d 
 
  Select a speech server interactively.
-Argument PROGRAM specifies the speech server program.
-When called  interactively, The selected server is started immediately.  
+Argument PROGRAM specifies the speech server program. When called
+interactively, The selected server is started
+immediately. Optional arg device sets up environment variable
+ALSA_DEFAULT to specified device before starting the server. 
 
 ------------------------------------------------------------
 
@@ -164,7 +166,7 @@ current local  value to the result.
 
 ------------------------------------------------------------
 
-** dtk-stop	Key Sequence: <pause>   control e s 
+** dtk-stop	Key Sequence: control e s 
 
  Stop speech now. 
 
@@ -249,15 +251,6 @@ unresponsive when asked to stop talking.  Splitting on white
 space makes emacspeak's stop command responsive.  However,
 when splitting on white space, the speech sounds choppy
 since the synthesizer is getting a word at a time. 
-
-------------------------------------------------------------
-
-** dtk-toggle-stop-immediately-while-typing	Key Sequence: control e d  cap I  
-
- Toggle state of variable `dtk-stop-immediately-while-typing'.
-As the name implies, if T then speech flushes immediately as you
-type.  Optional argument PREFIX specifies if the setting applies
-to all buffers. 
 
 ------------------------------------------------------------
 
@@ -596,6 +589,10 @@ Once retrieved, memoize to avoid multiple retrievals.
 
 ------------------------------------------------------------
 
+** emacspeak-bookshare-list-preferences Return preference list. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare-mode A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
@@ -630,6 +627,8 @@ A		emacspeak-bookshare-action
 B		emacspeak-bookshare-download-brf-at-point
 D		emacspeak-bookshare-download-daisy-at-point
 I		emacspeak-bookshare-action
+P		emacspeak-bookshare-action
+S		emacspeak-bookshare-action
 U		emacspeak-bookshare-unpack-at-point
 V		emacspeak-bookshare-view-at-point
 [		backward-page
@@ -665,6 +664,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-bookshare-previous-result Move to previous result. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-set-preference Set preference preference-id to value. 
 
 ------------------------------------------------------------
 
@@ -1018,7 +1021,12 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1054,7 +1062,12 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -2215,8 +2228,7 @@ Prompts for start and end times as well as file  to save the clippi
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 C-e d w.
-Toggle variable dtk-stop-immediately-while-typing if you want to have
-speech flush as you type. 
+Speech flushes as you type. 
 
 ------------------------------------------------------------
 
@@ -3433,41 +3445,6 @@ resources.
 ------------------------------------------------------------
 
 ** emacspeak-view-line-to-top Moves current line to top of window 
-
-------------------------------------------------------------
-
-** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
-Useful when you're reading a message
-that has been forwarded multiple times. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-mode-line VM mode line information.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-next-button Move point to N buttons forward.
-If N is negative, move backward instead. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-labels Speak a message's labels 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-message Move point to the message body. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-yank-header Yank specified header into kill ring. 
 
 ------------------------------------------------------------
 
@@ -5194,15 +5171,7 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-blue-pages Search IBM Blue Pages 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM My News 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-news Search IBM My News 
+** emacspeak-websearch-ibm-internal Search IBM using trevi 
 
 ------------------------------------------------------------
 
