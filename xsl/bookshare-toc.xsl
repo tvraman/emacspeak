@@ -16,26 +16,28 @@ AKA   avoid the bloatware that is Daisy.
     <html>
       <head>
         <xsl:element name="base">
-          <title>
-            <xsl:value-of select="./dtb:book/dtb:frontmatter/dtb:doctitle"/>
-          </title>
-        </head>
-        <body>
-          <h1>TOC:
-          <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
-          </h1>
-          <ol>
-            <xsl:for-each select="//dtb:level2">
-              <li>
-                <a>
-                  <xsl:attribute name="href">
-                  <xsl:value-of select="@id"/></xsl:attribute>
-                  <xsl:value-of select="dtb:h2"/>
-                </a>
-              </li>
-            </xsl:for-each>
-          </ol>
-        </body>
-      </html>
-    </xsl:template>
-  </xsl:stylesheet>
+          <xsl:value-of select="$base"/>
+        </xsl:element>
+        <title>
+          <xsl:value-of select="./dtb:book/dtb:frontmatter/dtb:doctitle"/>
+        </title>
+      </head>
+      <body>
+        <h1>TOC:
+        <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
+        </h1>
+        <ol>
+          <xsl:for-each select="//dtb:level2">
+            <li>
+              <a>
+                <xsl:attribute name="href">
+                <xsl:value-of select="@id"/></xsl:attribute>
+                <xsl:value-of select="dtb:h2"/>
+              </a>
+            </li>
+          </xsl:for-each>
+        </ol>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
