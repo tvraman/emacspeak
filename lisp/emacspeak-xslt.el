@@ -312,7 +312,6 @@ part of the libxslt package."
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
   (interactive "FStyle:\nFFile:")
-  (declare (special emacspeak-xslt-options))
   (with-temp-buffer
     (let ((coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)
