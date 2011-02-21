@@ -23,7 +23,7 @@ AKA   avoid the bloatware that is Daisy.
         </title>
       </head>
       <body>
-        <h1>TOC:
+        <h1>
         <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
         <ol>
