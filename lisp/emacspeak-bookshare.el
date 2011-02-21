@@ -782,6 +782,7 @@ b Browse
           (" " emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
           ("V" emacspeak-bookshare-view-at-point)
+          ("C" emacspeak-bookshare-toc-at-point)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
           )
@@ -954,7 +955,19 @@ Target location is generated from author and title."
   (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (cond
      ((file-exists-p xsl) xsl)
-     (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
+     (t (expand-file-name emacspeak-bookshare-xslt
+                          emacspeak-xslt-directory)))))
+
+(defvar emacspeak-bookshare-toc-xslt
+  "bookshare-toc.xsl" 
+  "Name of bookshare supplied XSL transform.")
+
+(defsubst emacspeak-bookshare-toc-xslt ()
+  "Return suitable XSL  transform for TOC."
+  (declare (special emacspeak-bookshare-toc-xslt))
+    
+     
+  (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
 
 (defun emacspeak-bookshare-view-at-point ()
   "View book at point.
@@ -964,6 +977,26 @@ Make sure it's downloaded and unpacked first."
          (directory (emacspeak-bookshare-get-directory))
          (title (emacspeak-bookshare-get-title))
          (xsl (emacspeak-bookshare-xslt  directory)))
+    (unless (file-exists-p target)
+      (error "First download this content."))
+    (unless (file-exists-p directory)
+      (error "First unpack this content."))
+    (emacspeak-xslt-view-file
+     xsl
+     (first
+      (directory-files directory
+                       'full
+                       ".xml")))))
+
+
+(defun emacspeak-bookshare-toc-at-point ()
+  "View TOC for book at point.
+Make sure it's downloaded and unpacked first."
+  (interactive)
+  (let* ((target (emacspeak-bookshare-get-target))
+         (directory (emacspeak-bookshare-get-directory))
+         (title (emacspeak-bookshare-get-title))
+         (xsl (emacspeak-bookshare-toc-xslt)))
     (unless (file-exists-p target)
       (error "First download this content."))
     (unless (file-exists-p directory)
