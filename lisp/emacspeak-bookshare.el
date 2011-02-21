@@ -993,7 +993,7 @@ Make sure it's downloaded and unpacked first."
   "View TOC for book at point.
 Make sure it's downloaded and unpacked first."
   (interactive)
-  (let* ((target (emacspeak-bookshare-get-target))
+  (let ((target (emacspeak-bookshare-get-target))
          (directory (emacspeak-bookshare-get-directory))
          (title (emacspeak-bookshare-get-title))
          (xsl (emacspeak-bookshare-toc-xslt)))
