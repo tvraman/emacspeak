@@ -16,7 +16,9 @@ AKA   avoid the bloatware that is Daisy.
     <html>
       <head>
         <xsl:element name="base">
-          <xsl:value-of select="$base"/>
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
         </xsl:element>
         <title>
           <xsl:value-of select="./dtb:book/dtb:frontmatter/dtb:doctitle"/>
@@ -31,7 +33,7 @@ AKA   avoid the bloatware that is Daisy.
             <li>
               <a>
                 <xsl:attribute name="href">
-                <xsl:value-of select="@id"/></xsl:attribute>
+                <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
                 <xsl:value-of select="dtb:h2"/>
               </a>
             </li>
