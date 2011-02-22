@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Extract light-weight table of contents for Bookshare Books:
 AKA   avoid the bloatware that is Daisy.
+This stylesheet also handles legacy Bookshare materials.
 -->
 
 <xsl:stylesheet
@@ -28,6 +29,7 @@ AKA   avoid the bloatware that is Daisy.
         <h1>
         <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
+<p>Use <code>ee</code>on a link to jump to contents.</p>
         <ol>
           <xsl:for-each select="//dtb:level2">
             <li>
@@ -35,6 +37,39 @@ AKA   avoid the bloatware that is Daisy.
                 <xsl:attribute name="href">
                 <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
                 <xsl:value-of select="dtb:h2"/>
+              </a>
+            </li>
+          </xsl:for-each>
+        </ol>
+      </body>
+    </html>
+  </xsl:template>
+
+<!-- legacy: -->
+<xsl:template match="dtbook3">
+    <html>
+      <head>
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
+        <title>
+          <xsl:value-of select="./book/frontmatter/doctitle"/>
+        </title>
+      </head>
+      <body>
+        <h1>
+        <xsl:value-of select="book/frontmatter/doctitle"/>
+        </h1>
+<p>Use <code>ee</code>on a link to jump to contents.</p>
+        <ol>
+          <xsl:for-each select="//level2">
+            <li>
+              <a>
+                <xsl:attribute name="href">
+                <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
+                <xsl:value-of select=".//h2"/>
               </a>
             </li>
           </xsl:for-each>
