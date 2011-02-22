@@ -1053,6 +1053,11 @@ Make sure it's downloaded and unpacked first."
                            emacspeak-bookshare-directory))))
   (declare (special emacspeak-bookshare-directory))
   (let* ((xsl (emacspeak-bookshare-toc-xslt)))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda ()
+         (declare (special emacspeak-we-url-executor))
+         (setq emacspeak-we-url-executor 'emacspeak-bookshare-extract-and-view)))
     (emacspeak-xslt-view-file
      xsl
      (first
