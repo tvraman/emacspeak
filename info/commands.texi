@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 916 commands.
+This chapter documents a total of 929 commands.
 
 @menu
 * cd-tool::                     
@@ -70,6 +70,7 @@ This chapter documents a total of 916 commands.
 * emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
+* emacspeak-vm::                
 * emacspeak-w3::                
 * emacspeak-w3m::               
 * emacspeak-we::                
@@ -882,6 +883,12 @@ Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-bookshare-extract-and-view nil
+@kbd{Not bound to any key.}
+
+Extract content refered to by link under point, and render via the browser.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines nil
 @kbd{Not bound to any key.}
 
@@ -953,6 +960,7 @@ SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 A		emacspeak-bookshare-action
 B		emacspeak-bookshare-download-brf-at-point
+C		emacspeak-bookshare-toc-at-point
 D		emacspeak-bookshare-download-daisy-at-point
 I		emacspeak-bookshare-action
 P		emacspeak-bookshare-action
@@ -963,6 +971,7 @@ V		emacspeak-bookshare-view-at-point
 ]		forward-page
 a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
+c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
@@ -1028,6 +1037,19 @@ Interactive prefix arg filters search by category.
 @kbd{Not bound to any key.}
 
 Perform a Bookshare title/author  search.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-bookshare-toc nil
+@kbd{Not bound to any key.}
+
+View TOC for book in specified directory.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-bookshare-toc-at-point nil
+@kbd{Not bound to any key.}
+
+View TOC for book at point.
+Make sure it's downloaded and unpacked first.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-unpack-at-point nil
@@ -1655,11 +1677,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1708,11 +1725,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -2454,7 +2466,7 @@ Prompt using completion
         ("\C-b" emacspeak-google-toolbelt-change-books-viewability)
         ("l" emacspeak-google-toolbelt-change-non-commercial)
         ("s"
-      emacspeak-google-toolbelt-change-structured-snippets)
+         emacspeak-google-toolbelt-change-structured-snippets)
         ("S" emacspeak-google-toolbelt-change-social)
         ("a" emacspeak-websearch-google)
         ("A" emacspeak-websearch-accessible-google)
@@ -5434,6 +5446,65 @@ for commands defined in module  emacspeak-view.
 Moves current line to top of window
 @end deffn
 
+@node emacspeak-vm
+@section emacspeak-vm
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-vm.
+
+@deffn {Interactive Command} emacspeak-vm-browse-message nil
+@kbd{Not bound to any key.}
+
+Browse an email message --read it paragraph at a time. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-catch-up-all-messages nil
+@kbd{Not bound to any key.}
+
+Mark all messages in folder to be deleted. Use with caution.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-locate-subject-line nil
+@kbd{Not bound to any key.}
+
+Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-mode-line nil
+@kbd{Not bound to any key.}
+
+VM mode line information. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-next-button nil
+@kbd{Not bound to any key.}
+
+Move point to N buttons forward.
+If N is negative, move backward instead.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-labels nil
+@kbd{Not bound to any key.}
+
+Speak a message's labels
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-message nil
+@kbd{Not bound to any key.}
+
+Move point to the message body.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-yank-header nil
+@kbd{Not bound to any key.}
+
+Yank specified header into kill ring.
+@end deffn
+
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -7866,29 +7937,98 @@ Site-specific websearch enhancements
 (emacspeak-websearch-set-key ?I'ibm-internal)
 
 (defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
+  "http://w3search.torolab.ibm.com/search.mod"
+  "*URI for IBM My News  search")
 
 (defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
+  "Search IBM My News"
   (interactive
    (list
     (emacspeak-websearch-read-query "IBM Internal  Search ")))
   (declare (special emacspeak-websearch-ibm-internal-uri))
+  (let ((url-be-asynchronous nil))
     (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
+     (concat emacspeak-websearch-ibm-internal-uri
+"?q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line)
   )
+
+(emacspeak-websearch-set-searcher 'ibm-my-news
+                                  'emacspeak-websearch-ibm-my-news)
+bind it to tab 
+(emacspeak-websearch-set-key 9 'ibm-my-news)
+
+(defvar emacspeak-websearch-ibm-my-news-uri
+  "http://w3search.torolab.ibm.com/search.mod?do=w3-1.ibm.com%2Fnews%2F&mh=100&ei=1&mo=fl"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-my-news (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "My News Search ")))
+  (declare (special emacspeak-websearch-ibm-my-news-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-my-news-uri
+"&q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line))
+
+(emacspeak-websearch-set-searcher 'blue-pages
+                                  'emacspeak-websearch-blue-pages)
+
+(emacspeak-websearch-set-key ?B 'blue-pages)
+
+(defvar emacspeak-websearch-blue-pages-uri
+  "http://bluepages.ibm.com/cgi-bin/bluepages.pl?"
+  "*URI for BluePages search")
+
+(defun emacspeak-websearch-blue-pages (query &optional prefix)
+  "Search IBM Blue Pages"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Look in Blue Pages for:
+")
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-blue-pages-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-blue-pages-uri
+             (format "directory=%s&"
+                     (if prefix
+                         (read-from-minibuffer "Location: ")
+                       "almaden"))
+"&Selection=Name&selectOn="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   "Tie Line"
+   'emacspeak-speak-line))
 
 (provide 'emacspeak-w3search)
 
 Automatically generated documentation
 for commands defined in module  emacspeak-w3search.
 
+@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
+@kbd{Not bound to any key.}
+
+Search IBM Blue Pages
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
 @kbd{Not bound to any key.}
 
-Search IBM using trevi
+Search IBM My News
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
 @end deffn
 
 @node emacspeak-firevox

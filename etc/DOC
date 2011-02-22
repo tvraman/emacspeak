@@ -569,6 +569,10 @@ Once retrieved, memoize to avoid multiple retrievals.
 
 ------------------------------------------------------------
 
+** emacspeak-bookshare-extract-and-view Extract content refered to by link under point, and render via the browser. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare-flush-lines Flush lines matching regexp in Bookshare buffer. 
 
 ------------------------------------------------------------
@@ -625,6 +629,7 @@ SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 A		emacspeak-bookshare-action
 B		emacspeak-bookshare-download-brf-at-point
+C		emacspeak-bookshare-toc-at-point
 D		emacspeak-bookshare-download-daisy-at-point
 I		emacspeak-bookshare-action
 P		emacspeak-bookshare-action
@@ -635,6 +640,7 @@ V		emacspeak-bookshare-view-at-point
 ]		forward-page
 a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
+c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
@@ -686,6 +692,15 @@ Interactive prefix arg filters search by category.
 ------------------------------------------------------------
 
 ** emacspeak-bookshare-title/author-search Perform a Bookshare title/author  search. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-toc View TOC for book in specified directory. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-toc-at-point View TOC for book at point.
+Make sure it's downloaded and unpacked first. 
 
 ------------------------------------------------------------
 
@@ -1021,12 +1036,7 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -1062,12 +1072,7 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -3448,6 +3453,41 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-mode-line VM mode line information.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-next-button Move point to N buttons forward.
+If N is negative, move backward instead. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-labels Speak a message's labels 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-message Move point to the message body. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-yank-header Yank specified header into kill ring. 
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio	Key Sequence: control e : 
 
  Start or control streaming audio including MP3 and
@@ -5171,7 +5211,15 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-ibm-internal Search IBM using trevi 
+** emacspeak-websearch-blue-pages Search IBM Blue Pages 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internal Search IBM My News 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-my-news Search IBM My News 
 
 ------------------------------------------------------------
 
