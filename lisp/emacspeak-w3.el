@@ -806,12 +806,16 @@ HTML."
 ;;{{{ handle xml as HTML:
 ;;; fix mm-inline-types
 (declaim (special  mm-inline-media-tests))
+(loop for media-type in
+      '("application/xml"
+        "application/xml+xhtml"
+        "text/xml")
+      do
 (pushnew
- '("application/xml" mm-inline-text-html-render-with-w3)
-      mm-inline-media-tests)
-        (lambda (&rest args) (or mm-text-html-renderer
-                                 mm-text-html-renderer))) 
-
+(list media-type
+  'mm-inline-text-html-render-with-w3
+  #'(lambda (&rest args) mm-text-html-renderer))
+mm-inline-media-tests))
 
 ;;}}}
 ;;{{{  emacs local variables
