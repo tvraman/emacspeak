@@ -1001,12 +1001,26 @@ Make sure it's downloaded and unpacked first."
       (error "First download this content."))
     (unless (file-exists-p directory)
       (error "First unpack this content."))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda ()
+         (declare (special emacspeak-we-url-executor))
+         (setq emacspeak-we-url-executor 'emacspeak-bookshare-extract-and-view)))
     (emacspeak-xslt-view-file
-     xsl
-     (first
-      (directory-files directory
-                       'full
-                       ".xml")))))
+      xsl
+      (first
+       (directory-files directory 'full ".xml")))))
+
+(defun emacspeak-bookshare-extract-and-view (url)
+  "Extract content refered to by link under point, and render via the browser."
+  (interactive "sURL: ")
+  (let ((fields (split-string url "#")))
+    (unless (= (length fields) 2)
+      (error "No fragment identifier in this link."))
+    (emacspeak-we-extract-by-id (second fields) (first fields) 'speak)))
+         
+      
+
 
 (defun emacspeak-bookshare-view (directory)
   "View book in specified directory."
