@@ -774,6 +774,7 @@ b Browse
           ("q" bury-buffer)
           ("f" emacspeak-bookshare-flush-lines)
           ("v" emacspeak-bookshare-view)
+          ("c" emacspeak-bookshare-toc)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
@@ -1034,6 +1035,24 @@ Make sure it's downloaded and unpacked first."
                            emacspeak-bookshare-directory))))
   (declare (special emacspeak-bookshare-directory))
   (let* ((xsl (emacspeak-bookshare-xslt directory)))
+    (emacspeak-xslt-view-file
+     xsl
+     (first
+      (directory-files directory 'full ".xml")))))
+
+
+(defun emacspeak-bookshare-toc (directory)
+  "View TOC for book in specified directory."
+  (interactive
+   (list
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t))
+      (read-directory-name "Book: "
+                           (when (eq major-mode 'dired-mode) (dired-get-filename))
+                           emacspeak-bookshare-directory))))
+  (declare (special emacspeak-bookshare-directory))
+  (let* ((xsl (emacspeak-bookshare-toc-xslt)))
     (emacspeak-xslt-view-file
      xsl
      (first
