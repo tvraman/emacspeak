@@ -806,13 +806,13 @@ HTML."
 ;;{{{ handle xml as HTML:
 ;;; fix mm-inline-types
 (declaim (special  mm-inline-media-tests))
-(loop for media-type in
+(loop for mm in
       '("application/xml"
         "application/xml+xhtml"
         "text/xml")
       do
 (pushnew
-(list media-type
+(list mm
   'mm-inline-text-html-render-with-w3
   #'(lambda (&rest args) mm-text-html-renderer))
 mm-inline-media-tests))
