@@ -803,6 +803,17 @@ HTML."
     (error nil)))
 
 ;;}}}
+;;{{{ handle xml as HTML:
+;;; fix mm-inline-types
+(declaim (special  mm-inline-media-tests))
+(pushnew
+ '("application/xml" mm-inline-text-html-render-with-w3)
+      mm-inline-media-tests)
+        (lambda (&rest args) (or mm-text-html-renderer
+                                 mm-text-html-renderer))) 
+
+
+;;}}}
 ;;{{{  emacs local variables
 
 ;;; local variables:
