@@ -267,8 +267,7 @@ from Web page -- default is the current page being viewed."
      emacspeak-we-xsl-filter
      params
      emacspeak-xslt-options             ;options
-     (browse-url url)
-     (or speak (interactive-p)))))
+     (browse-url url))))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
