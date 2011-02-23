@@ -30,6 +30,13 @@ This stylesheet also handles legacy Bookshare materials.
         <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
 <p>Use <code>ee</code>on a link to jump to contents.</p>
+<p>
+<a>
+<xsl:attribute name="href">
+  <xsl:value-of select="concat($base,'?')"/>
+</xsl:attribute>
+Extract Page Range</a>
+</p>
         <ol>
           <xsl:for-each select="//dtb:level2">
             <li>

@@ -989,6 +989,17 @@ Make sure it's downloaded and unpacked first."
                        'full
                        ".xml")))))
 
+(defun emacspeak-bookshare-url-executor (url)
+  "Custom URL executor for use in Bookshare TOC."
+  (interactive "sURL: ")
+  (cond
+   ((string-match "#" url)
+    (emacspeak-bookshare-extract-and-view url))
+   ((char-equal ??  (substring url -2 -1))
+    (emacspeak-bookshare-view-page-range (substring url 0 -1)))
+   (t (error "Doesn't look like a bookshare-specific URL."))))
+
+
 
 (defun emacspeak-bookshare-toc-at-point ()
   "View TOC for book at point.
@@ -1006,7 +1017,7 @@ Make sure it's downloaded and unpacked first."
      'emacspeak-web-post-process-hook
      #'(lambda ()
          (declare (special emacspeak-we-url-executor))
-         (setq emacspeak-we-url-executor 'emacspeak-bookshare-extract-and-view)))
+         (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
       xsl
       (first
@@ -1024,17 +1035,16 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
   (interactive "sURL:")
-  (let* ((url (substring url  0 -1))
-         (start (read-from-minibuffer "Start Page: "))
+  (let* ((start (read-from-minibuffer "Start Page: "))
          (end (read-from-minibuffer "End Page: "))
          (result
   (emacspeak-xslt-xml-url
            (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
-           content
+           url
            (list
             (cons "start" (format "'%s'" start ))
             (cons "end" (format "'%s'" end ))
-            (cons "base" (format "'%s'" content))))))
+            (cons "base" url)))))
     (save-excursion
       (set-buffer result)
       (browse-url-of-buffer))
