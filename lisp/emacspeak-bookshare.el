@@ -995,7 +995,7 @@ Make sure it's downloaded and unpacked first."
   (cond
    ((string-match "#" url)
     (emacspeak-bookshare-extract-and-view url))
-   ((char-equal ??  (substring url -2 -1))
+   ((char-equal ??  (aref url (1- (length url))))
     (emacspeak-bookshare-view-page-range (substring url 0 -1)))
    (t (error "Doesn't look like a bookshare-specific URL."))))
 
@@ -1086,7 +1086,7 @@ Make sure it's downloaded and unpacked first."
      'emacspeak-web-post-process-hook
      #'(lambda ()
          (declare (special emacspeak-we-url-executor))
-         (setq emacspeak-we-url-executor 'emacspeak-bookshare-extract-and-view)))
+         (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
      (first
