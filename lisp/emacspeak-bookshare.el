@@ -1040,7 +1040,7 @@ Make sure it's downloaded and unpacked first."
          (result
   (emacspeak-xslt-xml-url
            (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
-           (substring  url  7)
+           (substring url 7)
            (list
             (cons "start" (format "'%s'" start ))
             (cons "end" (format "'%s'" end ))))))
@@ -1088,8 +1088,7 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (first
-      (directory-files directory 'full ".xml")))))
+     (first (directory-files directory 'full ".xml")))))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
