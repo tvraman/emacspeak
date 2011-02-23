@@ -722,7 +722,7 @@ Interactive use provides list of id values as completion."
     (emacspeak-webutils-read-url)
     current-prefix-arg))
   (emacspeak-we-xslt-filter
-   (format "id(\"%s\")"
+   (format "//*[@id=\"%s\"]"
            id)
    url
    (or (interactive-p) speak)))
