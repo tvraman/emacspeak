@@ -1018,8 +1018,27 @@ Make sure it's downloaded and unpacked first."
   (let ((fields (split-string url "#")))
     (unless (= (length fields) 2)
       (error "No fragment identifier in this link."))
-    (emacspeak-we-extract-by-id (second fields) (first fields) 'speak)))
-         
+    (emacspeak-we-extract-by-id (second fields) (first fields)
+                                'speak)))
+
+(defun emacspeak-bookshare-view-page-range (url )
+  "Play pages in specified page range from URL."
+  (interactive "sURL:")
+  (let* ((url (substring url  0 -1))
+         (start (read-from-minibuffer "Start Page: "))
+         (end (read-from-minibuffer "End Page: "))
+         (result
+  (emacspeak-xslt-xml-url
+           (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
+           content
+           (list
+            (cons "start" (format "'%s'" start ))
+            (cons "end" (format "'%s'" end ))
+            (cons "base" (format "'%s'" content))))))
+    (save-excursion
+      (set-buffer result)
+      (browse-url-of-buffer))
+    (kill-buffer result)))
       
 
 
