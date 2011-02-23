@@ -3,7 +3,7 @@
 
 
 Description: Extract nodes in a specified page range from a
-Daisy3 XML file.  Page range is specified via params start and
+Daisy  XML file.  Page range is specified via params start and
 end.  All nodes appearing between <pagenum>start</pagenum> and
 <pagenum>end+1</pagenum> are extracted. All other nodes are
 ignored. 
@@ -21,6 +21,7 @@ and the final intersection is computed using set:intersection.
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/"
   xmlns:set="http://exslt.org/sets"
   version="1.0">
   <xsl:param name="start" select="1"/>
@@ -28,7 +29,7 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="base" />
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
-  <xsl:key name="pageKey" match="pagenum" use="number(text())"/>
+  <xsl:key name="pageKey" match="pagenum|dtb:pagenum" use="number(text())"/>
   <xsl:template match="/">
     <html>
       <head>
@@ -38,28 +39,29 @@ and the final intersection is computed using set:intersection.
             <xsl:value-of select="$css"/>
           </xsl:attribute>
         </link>
+        <title>
+          Pages
+          <xsl:value-of select="$start"/>
+          --<xsl:value-of select="$end"/>
+          from
+          <xsl:value-of select="/dtbook3/head/title|dtb:dtbook/dtb:book/dtb:frontmatter/dtb:doctitle"/>
+        </title>
         <xsl:element name="base">
           <xsl:attribute name="href">
             <xsl:value-of select="$base"/>
           </xsl:attribute>
         </xsl:element>
-        <title>
-          Pages
-          <xsl:value-of select="$start"/>
-          --<xsl:value-of select="$end"/>
-          from  <xsl:value-of select="/dtbook3/head/title"/>
-        </title>
       </head>
       <body>
-        <xsl:variable name="pages" select="//pagenum"/>
+        <xsl:variable name="pages" select="//pagenum|//dtb:pagenum"/>
         <xsl:choose>
           <xsl:when test="count($pages)  &gt; 0">
             <xsl:variable name="first"
             select="key('pageKey', $start)"/>
             <xsl:variable name="last" select="key('pageKey',
             number($end+1))"/>
-            <xsl:variable  name="after" select="$first[1]/following::p"/>
-            <xsl:variable name="before" select="$last[1]/preceding::p"/>
+            <xsl:variable  name="after" select="$first[1]/following::*"/>
+            <xsl:variable name="before" select="$last[1]/preceding::*"/>
             <xsl:for-each select="set:intersection($before, $after)">
               <xsl:copy-of select="."/>
             </xsl:for-each>
