@@ -1040,11 +1040,10 @@ Make sure it's downloaded and unpacked first."
          (result
   (emacspeak-xslt-xml-url
            (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
-           url
+           (substring  url  7)
            (list
             (cons "start" (format "'%s'" start ))
-            (cons "end" (format "'%s'" end ))
-            (cons "base" url)))))
+            (cons "end" (format "'%s'" end ))))))
     (save-excursion
       (set-buffer result)
       (browse-url-of-buffer))

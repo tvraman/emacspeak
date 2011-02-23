@@ -70,6 +70,13 @@ Extract Page Range</a>
         <xsl:value-of select="book/frontmatter/doctitle"/>
         </h1>
 <p>Use <code>ee</code>on a link to jump to contents.</p>
+<p>
+<a>
+<xsl:attribute name="href">
+  <xsl:value-of select="concat($base,'?')"/>
+</xsl:attribute>
+Extract Page Range</a>
+</p>
         <ol>
           <xsl:for-each select="//level2">
             <li>
