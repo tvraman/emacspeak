@@ -340,7 +340,7 @@ field in the customization buffer.  You can use the notation
         ("[" emacspeak-speak-page)
         ("\"" emacspeak-speak-sexp-interactively)
         ("\C-@" emacspeak-speak-current-mark )
-        ("\C-b" emacspeak-daisy-open-book)
+        ("\C-b" emacspeak-bookshare)
         ("\C-c" emacspeak-clipboard-copy)
         ("\C-d" emacspeak-toggle-show-point)
         ("\C-i" emacspeak-table-display-table-in-region)
