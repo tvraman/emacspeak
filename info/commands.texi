@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 929 commands.
+This chapter documents a total of 903 commands.
 
 @menu
 * cd-tool::                     
@@ -61,13 +61,11 @@ This chapter documents a total of 929 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
-* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
 * emacspeak-tar::               
 * emacspeak-tetris::            
-* emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
 * emacspeak-vm::                
@@ -85,7 +83,6 @@ This chapter documents a total of 929 commands.
 * emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
-* emacspeak-w3search::          
 * emacspeak-firevox::           
 * emacspeak-jawbreaker::        
 * emacspeak-moz::               
@@ -807,7 +804,7 @@ Automatically generated documentation
 for commands defined in module  emacspeak-bookshare.
 
 @deffn {Interactive Command} emacspeak-bookshare nil
-@kbd{Not bound to any key.}
+@kbd{ control e control b }
 
 Bookshare  Interaction.
 @end deffn
@@ -931,7 +928,7 @@ Return preference list.
 A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
-emacspeak-bookshare bound to M-x emacspeak-bookshare
+emacspeak-bookshare bound to C-e C-b
 
 This command switches to a special buffer that has Bookshare
 commands bounds to single keystrokes-- see the ke-binding list at
@@ -942,7 +939,6 @@ emacspeak-bookshare-mode provides the necessary functionality to
 Search and download Bookshare material,
 Manage a local library of downloaded Bookshare content,
 And commands to easily read newer Daisy books from Bookshare.
-For legacy Bookshare material, see command C-e C-b.
 
 Here is a list of all emacspeak Bookshare commands along with their key-bindings:
 a Author Search
@@ -1058,6 +1054,12 @@ Make sure it's downloaded and unpacked first.
 Unpack downloaded content if necessary.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-bookshare-url-executor nil
+@kbd{Not bound to any key.}
+
+Custom URL executor for use in Bookshare TOC.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-bookshare-version-handler nil
 @kbd{Not bound to any key.}
 
@@ -1076,6 +1078,12 @@ View book in specified directory.
 
 View book at point.
 Make sure it's downloaded and unpacked first.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-bookshare-view-page-range nil
+@kbd{Not bound to any key.}
+
+Play pages in specified page range from URL.
 @end deffn
 
 @node emacspeak-bs
@@ -1248,7 +1256,7 @@ Pre-requisites:
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
 The Emacspeak DAISY front-end is launched by command
-emacspeak-daisy-open-book  bound to C-e C-b.
+emacspeak-daisy-open-book  bound to M-x emacspeak-daisy-open-book.
 
 This command switches to a special buffer that has DAISY
 commands bounds to single keystrokes-- see the ke-binding
@@ -1288,7 +1296,7 @@ Move to next line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-daisy-open-book nil
-@kbd{ control e control b }
+@kbd{Not bound to any key.}
 
 Open Digital Talking Book specified by navigation file filename.
 
@@ -4828,168 +4836,6 @@ Does the equivalent of the mouse click from the keyboard
 Switch to the speedbar
 @end deffn
 
-@node emacspeak-sudoku
-@section emacspeak-sudoku
-
-Commentary:
-Playing SuDoku using speech output.
-Written to discover what type of feedback one needs for  this
-task.
-See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-
-Automatically generated documentation
-for commands defined in module  emacspeak-sudoku.
-
-@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize columns --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize nil
-@kbd{Not bound to any key.}
-
-Shows distribution of filled numbers.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize rows --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize nil
-@kbd{Not bound to any key.}
-
-Summarize sub-squares --- speaks number of remaining cells.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-board-summarizer nil
-@kbd{Not bound to any key.}
-
-Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
-
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-down-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of  sub-square below current one.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-column nil
-@kbd{Not bound to any key.}
-
-Erase current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-row nil
-@kbd{Not bound to any key.}
-
-Erase current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square nil
-@kbd{Not bound to any key.}
-
-Erase current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-hint nil
-@kbd{Not bound to any key.}
-
-Provide hint for current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-pop nil
-@kbd{Not bound to any key.}
-
-Pop saved state off stack and redraw board.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-history-push nil
-@kbd{Not bound to any key.}
-
-Push current state on to history stack.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining nil
-@kbd{Not bound to any key.}
-
-Speak number of remaining squares to fill.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-next-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of next sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of previous sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates nil
-@kbd{Not bound to any key.}
-
-speak current cell coordinates.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value nil
-@kbd{Not bound to any key.}
-
-Speak value in current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-column nil
-@kbd{Not bound to any key.}
-
-Speak current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-row nil
-@kbd{Not bound to any key.}
-
-Speak current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square nil
-@kbd{Not bound to any key.}
-
-Speak current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square nil
-@kbd{Not bound to any key.}
-
-Speaks number of remaining cells in current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-up-sub-square nil
-@kbd{Not bound to any key.}
-
-Move to top-left corner of  sub-square above current one.
-@end deffn
-
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -5369,22 +5215,6 @@ Speak the score
 @kbd{Not bound to any key.}
 
 Speak current position
-@end deffn
-
-@node emacspeak-tnt
-@section emacspeak-tnt
-
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-tnt.
-
-@deffn {Interactive Command} emacspeak-tnt-toggle-autospeak nil
-@kbd{Not bound to any key.}
-
-Toggle TNT autospeak for this chat session.
 @end deffn
 
 @node emacspeak-url-template
@@ -7923,112 +7753,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect.
-@end deffn
-
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://w3search.torolab.ibm.com/search.mod"
-  "*URI for IBM My News  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM My News"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-ibm-internal-uri
-"?q="
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process "Your query "
-                                    'emacspeak-speak-line)
-  )
-
-(emacspeak-websearch-set-searcher 'ibm-my-news
-                                  'emacspeak-websearch-ibm-my-news)
-bind it to tab 
-(emacspeak-websearch-set-key 9 'ibm-my-news)
-
-(defvar emacspeak-websearch-ibm-my-news-uri
-  "http://w3search.torolab.ibm.com/search.mod?do=w3-1.ibm.com%2Fnews%2F&mh=100&ei=1&mo=fl"
-  "*URI for IBM My News  search")
-
-(defun emacspeak-websearch-ibm-my-news (query )
-  "Search IBM My News"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "My News Search ")))
-  (declare (special emacspeak-websearch-ibm-my-news-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-ibm-my-news-uri
-"&q="
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process "Your query "
-                                    'emacspeak-speak-line))
-
-(emacspeak-websearch-set-searcher 'blue-pages
-                                  'emacspeak-websearch-blue-pages)
-
-(emacspeak-websearch-set-key ?B 'blue-pages)
-
-(defvar emacspeak-websearch-blue-pages-uri
-  "http://bluepages.ibm.com/cgi-bin/bluepages.pl?"
-  "*URI for BluePages search")
-
-(defun emacspeak-websearch-blue-pages (query &optional prefix)
-  "Search IBM Blue Pages"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Look in Blue Pages for:
-")
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-blue-pages-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-blue-pages-uri
-             (format "directory=%s&"
-                     (if prefix
-                         (read-from-minibuffer "Location: ")
-                       "almaden"))
-"&Selection=Name&selectOn="
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "Tie Line"
-   'emacspeak-speak-line))
-
-(provide 'emacspeak-w3search)
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
-@kbd{Not bound to any key.}
-
-Search IBM Blue Pages
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
-@kbd{Not bound to any key.}
-
-Search IBM My News
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
-@kbd{Not bound to any key.}
-
-Search IBM My News
 @end deffn
 
 @node emacspeak-firevox
