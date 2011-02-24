@@ -47,7 +47,7 @@
 ;;; This module implements an Emacspeak Bookshare client.
 ;;; For now, users will need to get their own API key
 
-;;; Code: 
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
@@ -258,7 +258,7 @@ Optional argument 'no-auth says we dont need a user auth."
 
 (defsubst emacspeak-bookshare-destruct-target (target)
   "Destruct  a  filename target into components."
-  (split-string 
+  (split-string
    (substring target  0 -4)
    "-" 'no-null))
 
@@ -482,7 +482,6 @@ emacspeak-bookshare-mode provides the necessary functionality to
 Search and download Bookshare material,
 Manage a local library of downloaded Bookshare content,
 And commands to easily read newer Daisy books from Bookshare.
-For legacy Bookshare material, see command \\[emacspeak-daisy-open-book].
 
 Here is a list of all emacspeak Bookshare commands along with their key-bindings:
 a Author Search
@@ -493,11 +492,14 @@ d Date Search
 b Browse
 
 \\{emacspeak-bookshare-mode-map}"
-  (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t)
+        (start (point)))
     (goto-char (point-min))
     (insert "Browse And Read Bookshare Materials\n\n")
+    (put-text-property start (point)
+                       'face font-lock-doc-face)
     (setq header-line-format "Bookshare Library")
-    (cd-absolute emacspeak-bookshare-directory)))
+    (cd-absolute emacspeak-bookshare-directory))))
 
 (declaim (special emacspeak-bookshare-mode-map))
 
@@ -551,7 +553,7 @@ b Browse
     "user"
     "string" "downloads-remaining"
     "id" "name" "value" "editable"
-    
+
     "id" "name" "value" "editable"
     "periodical"
     "list"
@@ -948,7 +950,7 @@ Target location is generated from author and title."
                 'auditory-icon 'item))
     (message "Unpacked content.")))
 (defvar emacspeak-bookshare-xslt
-  "daisyTransform.xsl" 
+  "daisyTransform.xsl"
   "Name of bookshare supplied XSL transform.")
 
 (defsubst emacspeak-bookshare-xslt (directory)
@@ -960,14 +962,14 @@ Target location is generated from author and title."
                           emacspeak-xslt-directory)))))
 
 (defvar emacspeak-bookshare-toc-xslt
-  "bookshare-toc.xsl" 
+  "bookshare-toc.xsl"
   "Name of bookshare supplied XSL transform.")
 
 (defsubst emacspeak-bookshare-toc-xslt ()
   "Return suitable XSL  transform for TOC."
   (declare (special emacspeak-bookshare-toc-xslt))
-    
-     
+
+
   (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
 
 (defun emacspeak-bookshare-view-at-point ()
@@ -999,16 +1001,14 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-bookshare-view-page-range (substring url 0 -1)))
    (t (error "Doesn't look like a bookshare-specific URL."))))
 
-
-
 (defun emacspeak-bookshare-toc-at-point ()
   "View TOC for book at point.
 Make sure it's downloaded and unpacked first."
   (interactive)
   (let ((target (emacspeak-bookshare-get-target))
-         (directory (emacspeak-bookshare-get-directory))
-         (title (emacspeak-bookshare-get-title))
-         (xsl (emacspeak-bookshare-toc-xslt)))
+        (directory (emacspeak-bookshare-get-directory))
+        (title (emacspeak-bookshare-get-title))
+        (xsl (emacspeak-bookshare-toc-xslt)))
     (unless (file-exists-p target)
       (error "First download this content."))
     (unless (file-exists-p directory)
@@ -1019,9 +1019,9 @@ Make sure it's downloaded and unpacked first."
          (declare (special emacspeak-we-url-executor))
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
-      xsl
-      (first
-       (directory-files directory 'full ".xml")))))
+     xsl
+     (first
+      (directory-files directory 'full ".xml")))))
 
 (defun emacspeak-bookshare-extract-and-view (url)
   "Extract content refered to by link under point, and render via the browser."
@@ -1038,7 +1038,7 @@ Make sure it's downloaded and unpacked first."
   (let* ((start (read-from-minibuffer "Start Page: "))
          (end (read-from-minibuffer "End Page: "))
          (result
-  (emacspeak-xslt-xml-url
+          (emacspeak-xslt-xml-url
            (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
            (substring url 7)
            (list
@@ -1048,7 +1048,6 @@ Make sure it's downloaded and unpacked first."
       (set-buffer result)
       (browse-url-of-buffer))
     (kill-buffer result)))
-      
 
 
 (defun emacspeak-bookshare-view (directory)
@@ -1067,7 +1066,6 @@ Make sure it's downloaded and unpacked first."
      xsl
      (first
       (directory-files directory 'full ".xml")))))
-
 
 (defun emacspeak-bookshare-toc (directory)
   "View TOC for book in specified directory."
@@ -1125,7 +1123,8 @@ Make sure it's downloaded and unpacked first."
   (interactive "sRegexp: ")
   (save-excursion
     (let ((inhibit-read-only t))
-      (flush-lines regexp (point-min) (point-max)))))
+      (goto-char (next-single-property-change (point-min) 'face))
+      (flush-lines regexp (point) (point-max)))))
 
 ;;}}}
 (provide 'emacspeak-bookshare)
