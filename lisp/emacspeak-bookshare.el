@@ -499,7 +499,7 @@ b Browse
     (put-text-property start (point)
                        'face font-lock-doc-face)
     (setq header-line-format "Bookshare Library")
-    (cd-absolute emacspeak-bookshare-directory))))
+    (cd-absolute emacspeak-bookshare-directory)))
 
 (declaim (special emacspeak-bookshare-mode-map))
 
