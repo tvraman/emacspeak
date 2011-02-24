@@ -1046,6 +1046,7 @@ Make sure it's downloaded and unpacked first."
             (cons "end" (format "'%s'" end ))))))
     (save-excursion
       (set-buffer result)
+      (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))
     (kill-buffer result)))
 
