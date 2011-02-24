@@ -516,7 +516,9 @@ after saving the settings to have them take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-bookshare Bookshare  Interaction. 
+** emacspeak-bookshare	Key Sequence: control e control b 
+
+ Bookshare  Interaction. 
 
 ------------------------------------------------------------
 
@@ -600,7 +602,7 @@ Once retrieved, memoize to avoid multiple retrievals.
 ** emacspeak-bookshare-mode A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
-emacspeak-bookshare bound to M-x emacspeak-bookshare
+emacspeak-bookshare bound to C-e C-b
 
 This command switches to a special buffer that has Bookshare
 commands bounds to single keystrokes-- see the ke-binding list at
@@ -611,7 +613,6 @@ emacspeak-bookshare-mode provides the necessary functionality to
 Search and download Bookshare material,
 Manage a local library of downloaded Bookshare content,
 And commands to easily read newer Daisy books from Bookshare.
-For legacy Bookshare material, see command C-e C-b.
 
 Here is a list of all emacspeak Bookshare commands along with their key-bindings:
 a Author Search
@@ -708,6 +709,10 @@ Make sure it's downloaded and unpacked first.
 
 ------------------------------------------------------------
 
+** emacspeak-bookshare-url-executor Custom URL executor for use in Bookshare TOC. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare-version-handler Do nothing and return nil.
 This function accepts any number of arguments, but ignores them. 
 
@@ -719,6 +724,10 @@ This function accepts any number of arguments, but ignores them.
 
 ** emacspeak-bookshare-view-at-point View book at point.
 Make sure it's downloaded and unpacked first. 
+
+------------------------------------------------------------
+
+** emacspeak-bookshare-view-page-range Play pages in specified page range from URL. 
 
 ------------------------------------------------------------
 
@@ -798,7 +807,7 @@ Pre-requisites:
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
 The Emacspeak DAISY front-end is launched by command
-emacspeak-daisy-open-book  bound to C-e C-b.
+emacspeak-daisy-open-book  bound to M-x emacspeak-daisy-open-book.
 
 This command switches to a special buffer that has DAISY
 commands bounds to single keystrokes-- see the ke-binding
@@ -838,9 +847,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-daisy-open-book	Key Sequence: control e control b 
-
- Open Digital Talking Book specified by navigation file filename.
+** emacspeak-daisy-open-book Open Digital Talking Book specified by navigation file filename.
 
 This is the main entry point to the  Emacspeak Daisy reader.
 Opening a Daisy navigation file (.ncx file) results in a
@@ -3070,108 +3077,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
-** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
-
-d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
- 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-column Erase current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-row Erase current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-hint Provide hint for current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-history-push Push current state on to history stack. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-column Speak current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-row Speak current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
-
-------------------------------------------------------------
-
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -3418,10 +3323,6 @@ but quickly switch to a window by name.
 ------------------------------------------------------------
 
 ** emacspeak-tetris-speak-x-coordinate Speak current position 
-
-------------------------------------------------------------
-
-** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
 
 ------------------------------------------------------------
 
@@ -5208,18 +5109,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-blue-pages Search IBM Blue Pages 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM My News 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-news Search IBM My News 
 
 ------------------------------------------------------------
 
