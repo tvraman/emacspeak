@@ -788,6 +788,8 @@ b Browse
           ("C" emacspeak-bookshare-toc-at-point)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
+          ("j" next-line)
+          ("k" previous-line)
           )
         do
         (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
