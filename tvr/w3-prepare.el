@@ -2,7 +2,7 @@
 
 (augment-load-path "w3/lisp" "w3")
 (load-library "url")
-(setq url-mime-encoding-string nil)
+;(setq url-mime-encoding-string nil)
 (load-library "w3")
 (defvar font-running-xemacs nil)
 ;;{{{  keybindings
@@ -23,7 +23,7 @@
 ;;                               "-verify" (int-to-string ssl-certificate-verification-policy)
 ;;                               "-CApath" ssl-certificate-directory))
  ;;}}}
-(emacspeak-w3-toggle-table-borders)
+
 (emacspeak-w3-toggle-table-borders)
 (defun w3-add-toolbar-to-buffer (&rest ignore) nil)
 (provide 'w3-prepare)
