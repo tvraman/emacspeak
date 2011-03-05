@@ -181,9 +181,7 @@ afilt 	reson 	asig, 1000, 100
 
 aout 	balance 	afilt, asig
 
-		outs 	aout, aout
- 
-
+		outs 	2*aout, 2*aout
 		endin
  
 
