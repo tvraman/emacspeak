@@ -157,7 +157,7 @@ kstep 	= 		frac((kstep + 1)/8)*8
 cont1:
  
 
-		outs 	aout*kleft, aout*kright
+		outs 	5*aout*kleft, 5*aout*kright
  
 
 		endin
