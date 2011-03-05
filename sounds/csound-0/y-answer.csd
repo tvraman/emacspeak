@@ -202,7 +202,8 @@ afilt 	reson 	asig, kfreqenv, kfreqenv/8
 
 aout 	balance 	afilt, asig
 
-		outs		aout, aout
+		outs		10*aout, 10*(1-aout)
+
  
 
 		endin
@@ -319,7 +320,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;	Dur Drum PanL PanR
 
-i3 0 .33 8000 21 22 23 24
+i3 0 .33 8000 21 22 27 27
 
  ;i2 0 0.25 8000 25 26 27 28
 
