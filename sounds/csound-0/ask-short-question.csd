@@ -157,7 +157,7 @@ kstep 	= 		frac((kstep + 1)/8)*8
 cont1:
  
 
-		outs 	aout*kleft, aout*kright
+		outs 	(1-kstep)*aout*kleft, kstep*aout*kright
  
 
 		endin
@@ -319,7 +319,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;	Dur Drum PanL PanR
 
-i1 0 .33 8000 23 24 25 26
+i1 0 .33 8000 23 24 26 26
 
  ;i2 0 0.25 8000 25 26 27 28
 
