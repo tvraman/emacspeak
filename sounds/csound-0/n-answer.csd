@@ -221,7 +221,7 @@ asig 	pluck 	p4, kptchenv, 50, 2, 4, .8, 3
 
 aout 	=		kampenv4*asig
 
-		outs 	aout, aout
+		outs 	10*aout, 10*(1-aout)
  
 
 		endin
