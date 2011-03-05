@@ -67,7 +67,7 @@ kenv      linen     1,.04,1/p5,1/p5*.5
 pluckatulip: 
 a2        oscili    ampdb(p4)*kenv*kdclick,cpspch(iipitch+p7),1 ;p7 = OCTAVE TRANSPOSITION     
 ga1       =         a2+ga1
-          outs      a2,a2
+          outs      5*a2,5*a2
           endin
  
           instr     50                     
