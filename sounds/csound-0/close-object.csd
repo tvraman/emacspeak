@@ -4,7 +4,7 @@
 
 sr    = 44100
 kr    = 441
-
+nchnls=2
 instr 1
   iamp     = p4
   
@@ -27,7 +27,7 @@ instr 1
   abp3 resonz adel3,  800,  1100
   abp4 resonz adel4,  1100, 1100
   
-  out iamp*2*(abp1+abp2+abp3+abp4)
+  out iamp*2*(abp1+abp2), iamp*2*(abp3+abp4)
 endin
 </CsInstruments>
 <CsScore>
