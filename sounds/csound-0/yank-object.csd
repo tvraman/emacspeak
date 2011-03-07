@@ -4,7 +4,7 @@ sr		=		44100
 kr		=		441
 ksmps	=		100
 nchnls	=		2
-; button: extracted from Electric Drum Kit.
+
 ; DRUM MACHINE
 
 		instr 1
@@ -181,7 +181,7 @@ afilt 	reson 	asig, 1000, 100
 
 aout 	balance 	afilt, asig
 
-		outs 	5*aout, 5*aout
+		outs 	(1-afilt)*5*aout, afilt*5*aout
 		endin
  
 
