@@ -4,7 +4,7 @@ sr		=		44100
 kr		=		441
 ksmps	=		100
 nchnls	=		2
-; ask-short-question: Extracted from Electric Drum Kit 
+; scroll.csd: Extracted from Electric Drum Kit
 ; DRUM MACHINE
 
 		instr 1
@@ -157,7 +157,7 @@ kstep 	= 		frac((kstep + 1)/8)*8
 cont1:
  
 
-		outs 	(1-kstep)*aout*kleft, kstep*aout*kright
+		outs 	kleft*10*aout, 10*kright*aout
  
 
 		endin
@@ -319,8 +319,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;	Dur Drum PanL PanR
 
-i1 0 .33 8000 23 24 26 26
-
+i1 0 .25 8000 21 21    23 24
  ;i2 0 0.25 8000 25 26 27 28
 
 ; i1 0 6 8000 29 30 31 32
