@@ -574,19 +574,24 @@ Returns a string with appropriate personality."
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
     (cond
-     (widget                            ; First record some state:
+     (widget                           ; First record some state:
       (let ((pos (ad-get-arg 0))
             (old-position (point)))
-        (when (eq major-mode 'w3-mode)
-          (emacspeak-auditory-icon 'button))
-        ad-do-it
         (cond
-         ((= old-position (point ))     ;did not move
+         ((and (eq major-mode 'w3-mode)
+               emacspeak-we-url-executor
+               (boundp 'emacspeak-we-url-executor)
+               (fboundp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
-          (emacspeak-widget-summarize (widget-at pos)))
-         (t  (emacspeak-auditory-icon 'large-movement)
-             (or (emacspeak-widget-summarize (widget-at (point)))
-                 (emacspeak-speak-line))))))
+          (call-interactively 'emacspeak-we-url-expand-and-execute))
+         (t ad-do-it
+            (cond
+             ((= old-position (point )) ;did not move
+              (emacspeak-auditory-icon 'button)
+              (emacspeak-widget-summarize (widget-at pos)))
+             (t  (emacspeak-auditory-icon 'large-movement)
+                 (or (emacspeak-widget-summarize (widget-at (point)))
+                     (emacspeak-speak-line))))))))
      (t ad-do-it))
     ad-return-value))
 
