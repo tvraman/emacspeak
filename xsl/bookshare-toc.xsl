@@ -29,7 +29,6 @@ This stylesheet also handles legacy Bookshare materials.
         <h1>
         <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
-<p>Use <code>ee</code>on a link to jump to contents.</p>
 <p>
 <a>
 <xsl:attribute name="href">

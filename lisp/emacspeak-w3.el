@@ -613,7 +613,7 @@ element. "
 ;;; this will go away
 (defalias 'make-dtk-speech-style 'make-acss)
 (defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
-(provide 'dtk-css-speech)
+
 
 ;;}}}
 ;;{{{ define pronunciation for document's base URI
@@ -805,6 +805,7 @@ HTML."
 ;;}}}
 ;;{{{ handle xml as HTML:
 ;;; fix mm-inline-types
+(require 'mm-decode)
 (declaim (special  mm-inline-media-tests))
 (loop for mm in
       '("application/xml"

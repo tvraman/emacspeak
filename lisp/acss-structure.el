@@ -151,6 +151,7 @@ Finally return the symbol"
 
 ;;}}}
 (provide  'acss-structure)
+(provide 'dtk-css-speech) ; for legacy: W3
 ;;{{{  emacs local variables
 
 ;;; local variables:
