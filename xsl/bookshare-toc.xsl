@@ -29,6 +29,9 @@ This stylesheet also handles legacy Bookshare materials.
         <h1>
         <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
+<p>By: <author><xsl:value-of
+select="./dtb:book/dtb:frontmatter/dtb:docauthor"/>
+</author></p>
 <p>
 <a>
 <xsl:attribute name="href">
