@@ -533,7 +533,6 @@ user."
 (defun greader-unsubscribe-feed (feed-url )
   "UnSubscribe from specified feed."
   (interactive "sURL:")
-
   (greader-update-subscription feed-url 'unsubscribe))
 ;;;###autoload
 (defun greader-title-feed (feed-url )
