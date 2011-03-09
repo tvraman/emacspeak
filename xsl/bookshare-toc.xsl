@@ -38,14 +38,16 @@ Extract Page Range</a>
 </p>
         <ol>
           <xsl:for-each select="//dtb:level2">
-            <li>
+            <xsl:if test="dtb:h2">
+              <li>
               <a>
                 <xsl:attribute name="href">
                 <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
                 <xsl:value-of select="dtb:h2"/>
               </a>
             </li>
-          </xsl:for-each>
+          
+</xsl:if></xsl:for-each>
         </ol>
       </body>
     </html>
