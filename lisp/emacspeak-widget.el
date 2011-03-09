@@ -578,10 +578,13 @@ Returns a string with appropriate personality."
       (let ((pos (ad-get-arg 0))
             (old-position (point)))
         (cond
-         ((and (eq major-mode 'w3-mode)
-               emacspeak-we-url-executor
-               (boundp 'emacspeak-we-url-executor)
-               (fboundp emacspeak-we-url-executor))
+         ((and
+           (or (eq major-mode 'w3-mode) (eq major-mode 'w3m-mode))
+           emacspeak-webutils-url-at-point
+           (funcall emacspeak-webutils-url-at-point)
+           emacspeak-we-url-executor
+           (boundp 'emacspeak-we-url-executor)
+           (fboundp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
           (call-interactively 'emacspeak-we-url-expand-and-execute))
          (t ad-do-it
