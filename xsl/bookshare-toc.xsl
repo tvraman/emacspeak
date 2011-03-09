@@ -37,7 +37,21 @@ This stylesheet also handles legacy Bookshare materials.
 Extract Page Range</a>
 </p>
         <ol>
-          <xsl:for-each select="//dtb:level2">
+          <xsl:for-each select="//dtb:bodymatter//dtb:level2">
+            <xsl:if test="dtb:h2">
+              <li>
+              <a>
+                <xsl:attribute name="href">
+                <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
+                <xsl:value-of select="dtb:h2"/>
+              </a>
+            </li>
+          
+</xsl:if></xsl:for-each>
+</ol>
+<h1>Copyright Notice And Legalese</h1>
+<ol>
+<xsl:for-each select="//dtb:frontmatter//dtb:level2">
             <xsl:if test="dtb:h2">
               <li>
               <a>
