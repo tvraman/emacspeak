@@ -149,8 +149,9 @@
 
 (defsubst g-auth-expired-p (auth-handle)
   "Check if  token for specified service has expired."
-  (or (null (g-auth-token auth-handle))
-       (null (g-auth-cookie-alist auth-handle))
+  (or
+   (and (null (g-auth-token auth-handle))
+        (null (g-auth-cookie-alist auth-handle)))
    (time-less-p (g-auth-lifetime auth-handle)
                 (time-since (g-auth-timestamp auth-handle)))))
 
