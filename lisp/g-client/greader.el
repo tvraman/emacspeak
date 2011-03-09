@@ -203,7 +203,7 @@ from the server.")
   "URL  for  finding feeds.")
 
 (defvar greader-edit-url-pattern
-  "'http://www.google.com/reader/api/0/%s/edit'"
+  "'http://www.google.com/reader/api/0/%s/edit?client=emacs-g-client'"
   "URL  pattern for  edit URLs.")
 
 (defvar greader-edit-alist
@@ -568,7 +568,7 @@ user."
   (g-using-scratch
    (let ((cl  nil))
      (insert
-      (format "T=%s&ac=%s&s=feed%%2F%s&%s%s"
+      (format "token=%s&ac=%s&s=feed%%2F%s&%s%s"
               (g-auth-token greader-auth-handle)
               (ecase action
                 ('title "edit")
