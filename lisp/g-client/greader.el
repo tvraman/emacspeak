@@ -95,7 +95,7 @@
   (string-equal service greader-service-name))
 
 (defvar greader-base-url
-  "http://www.google.com/reader/"
+  "https://www.google.com/reader/"
   "Base URL for Google Reader  API.")
 
 ;;}}}
@@ -568,7 +568,7 @@ user."
   (g-using-scratch
    (let ((cl  nil))
      (insert
-      (format "token=%s&ac=%s&s=feed%%2F%s&%s%s"
+      (format "T=%s&ac=%s&s=feed%%2F%s&%s%s"
               (g-auth-token greader-auth-handle)
               (ecase action
                 ('title "edit")
