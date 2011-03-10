@@ -569,7 +569,7 @@ user."
    (let ((cl  nil))
      (insert
       (format "T=%s&ac=%s&s=feed%%2F%s&%s%s"
-              (g-auth-token greader-auth-handle)
+                (cdr (assoc "Auth" (g-auth-cookie-alist greader-auth-handle)))
               (ecase action
                 ('title "edit")
                 ('subscribe "subscribe")
