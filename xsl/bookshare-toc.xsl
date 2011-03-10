@@ -87,7 +87,6 @@ Extract Page Range</a>
         <h1>
         <xsl:value-of select="book/frontmatter/doctitle"/>
         </h1>
-<p>Use <code>ee</code>on a link to jump to contents.</p>
 <p>
 <a>
 <xsl:attribute name="href">
