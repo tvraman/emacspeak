@@ -591,7 +591,7 @@ user."
   (g-using-scratch
    (let ((cl  nil))
      (insert
-      (format "T=%s&ac=%s&s=feed%%2F%s&%s%s"
+      (format "T=%s&ac=%s&s=feed%%2F%s%s%s"
                 (g-auth-token greader-auth-handle)
               (ecase action
                 ('title "edit")
@@ -601,11 +601,11 @@ user."
                 ('remove-tags "edit"))
               (g-url-encode feed-url)
               (ecase action
-                ('title "t=")
+                ('title "&t=")
                 ('subscribe "")
                 ('unsubscribe "")
-                ('add-tags "a=user/0/label/")
-                ('remove-tags "r=user/0/label/"))
+                ('add-tags "&a=user/0/label/")
+                ('remove-tags "&r=user/0/label/"))
               (if (memq action '(add-tags remove-tags title))
                   (read-from-minibuffer
                    (ecase action
