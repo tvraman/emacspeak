@@ -128,14 +128,12 @@ from the server.")
                     g-curl-program g-curl-common-options
                     greader-default-state g-atom-view-xsl))
 (setf (g-auth-token greader-auth-handle)
-      (substring 
   (g-get-result
     (format
     "%s %s %s %s 2>/dev/null"
     g-curl-program g-curl-common-options
     (g-authorization greader-auth-handle)
-    greader-edit-token-endpoint))
-  2)))
+    greader-edit-token-endpoint))))
 
 (defun greader-authenticate ()
   "Authenticate into Google Reader."
