@@ -15,6 +15,16 @@
            (or (getenv "EMACSPEAK_DIR")
                "/usr/share/emacs/site-lisp/emacspeak")))
       (add-to-list 'load-path (expand-file-name "lisp"emacspeak-location))
-      (load-library "emacspeak-setup"))))
+      (load-library "emacspeak-setup"))
+
+
+;;; This ensures that any speech rate settings take effect on startup:
+    (add-hook
+     'after-init-hook
+     #'(lambda ()
+         (when (file-exists-p custom-file) (load-file custom-file))
+         (emacspeak-tts-startup-hook)
+         (message "Successfully initialized Emacs")))
+    ))
 
 
