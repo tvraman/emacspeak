@@ -114,11 +114,34 @@
   "Greader auth handle.
 Holds user's email address, password, and the auth token received
 from the server.")
+;;; All edit actions need an additional token obtained from:
+;;; http://www.google.com/reader/api/0/token
+
+ 
+
+(defvar greader-edit-token-endpoint
+  "http://www.google.com/reader/api/0/token"
+  "End point where we get an edit token.")
+(defun greader-get-edit-token ()
+  "Get edit token and save it in our handle."
+  (declare (special greader-auth-handle greader-edit-token-endpoint
+                    g-curl-program g-curl-common-options
+                    greader-default-state g-atom-view-xsl))
+(setf (g-auth-token greader-auth-handle)
+      (substring 
+  (g-get-result
+    (format
+    "%s %s %s %s 2>/dev/null"
+    g-curl-program g-curl-common-options
+    (g-authorization greader-auth-handle)
+    greader-edit-token-endpoint))
+  2)))
 
 (defun greader-authenticate ()
   "Authenticate into Google Reader."
   (declare (special greader-auth-handle))
-  (g-authenticate greader-auth-handle))
+  (g-authenticate greader-auth-handle)
+  (greader-get-edit-token))
 
 ;;}}}
 ;;{{{ Generators:
@@ -569,7 +592,7 @@ user."
    (let ((cl  nil))
      (insert
       (format "T=%s&ac=%s&s=feed%%2F%s&%s%s"
-                (cdr (assoc "Auth" (g-auth-cookie-alist greader-auth-handle)))
+                (g-auth-token greader-auth-handle)
               (ecase action
                 ('title "edit")
                 ('subscribe "subscribe")
