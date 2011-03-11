@@ -581,46 +581,46 @@ user."
                           (funcall g-url-under-point))))
   (greader-update-subscription feed-url 'remove-tags))
 
+(defun greader-build-edit-command (feed-url action)
+  "Build up edit command."
+  (format
+                    "%s %s %s  -X POST -d '%s' %s "
+                    g-curl-program g-curl-common-options
+                    (g-authorization greader-auth-handle)
+                    (format "T=%s&ac=%s&s=feed%%2F%s%s%s"
+                            (g-auth-token greader-auth-handle)
+                            (ecase action
+                              ('title "edit")
+                              ('subscribe "subscribe")
+                              ('unsubscribe "unsubscribe")
+                              ('add-tags "edit")
+                              ('remove-tags "edit"))
+                            (g-url-encode feed-url)
+                            (ecase action
+                              ('title "&t=")
+                              ('subscribe "")
+                              ('unsubscribe "")
+                              ('add-tags "&a=user/0/label/")
+                              ('remove-tags "&r=user/0/label/"))
+                            (if (memq action '(add-tags remove-tags title))
+                                (read-from-minibuffer
+                                 (ecase action
+                                   ('title "Title:")
+                                   ('add-tags "Add Tag:")
+                                   ('remove-tags "Remove Tag:")))
+                              ""))
+                    (greader-edit-url "subscription")))
+
+;;;###autoload
 (defun greader-update-subscription (feed-url action )
   "Perform specified subscribe, unsubscribe, or edit action."
   (declare (special g-curl-program g-curl-common-options
                     greader-auth-handle))
   (g-auth-ensure-token greader-auth-handle)
   (g-using-scratch
-   (let ((cl  nil))
-     (insert
-      (format "T=%s&ac=%s&s=feed%%2F%s%s%s"
-                (g-auth-token greader-auth-handle)
-              (ecase action
-                ('title "edit")
-                ('subscribe "subscribe")
-                ('unsubscribe "unsubscribe")
-                ('add-tags "edit")
-                ('remove-tags "edit"))
-              (g-url-encode feed-url)
-              (ecase action
-                ('title "&t=")
-                ('subscribe "")
-                ('unsubscribe "")
-                ('add-tags "&a=user/0/label/")
-                ('remove-tags "&r=user/0/label/"))
-              (if (memq action '(add-tags remove-tags title))
-                  (read-from-minibuffer
-                   (ecase action
-                     ('title "Title:")
-                     ('add-tags "Add Tag:")
-                     ('remove-tags "Remove Tag:")))
-                "")))
-     (setq cl (format "'-H Content-Length: %s'" (g-buffer-bytes)))
-     (shell-command-on-region
-      (point-min) (point-max)
-      (format
-       "%s %s %s %s -X POST --data-binary @- %s 2>/dev/null"
-       g-curl-program g-curl-common-options
-       (g-authorization greader-auth-handle)
-       cl                               ; content-length header
-       (greader-edit-url "subscription"))
-      (current-buffer) 'replace))
+     (shell-command
+      (greader-build-edit-command feed-url action)
+      (current-buffer))
    (goto-char (point-min))
    (cond
     ((looking-at "OK")
