@@ -135,12 +135,6 @@ from the server.")
     (g-authorization greader-auth-handle)
     greader-edit-token-endpoint))))
 
-(defun greader-authenticate ()
-  "Authenticate into Google Reader."
-  (declare (special greader-auth-handle))
-  (g-authenticate greader-auth-handle)
-  (greader-get-edit-token))
-
 ;;}}}
 ;;{{{ Generators:
 
@@ -803,7 +797,8 @@ session."))))
   (setq greader-user-email
         (read-from-minibuffer "User Email:"))
   (setq greader-auth-handle (make-greader-auth))
-  (g-authenticate greader-auth-handle))
+  (g-authenticate greader-auth-handle)
+  (greader-get-edit-token))
 
 ;;;###autoload
 (defun greader-re-authenticate()
