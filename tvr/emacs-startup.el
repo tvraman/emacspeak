@@ -169,12 +169,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
+     (when (file-exists-p custom-file) (load-file custom-file))
      (bbdb-insinuate-vm)
      (server-start)
      (emacspeak-tts-startup-hook)
      (shell)
      (calendar)
-     (when (file-exists-p custom-file) (load-file custom-file))
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))

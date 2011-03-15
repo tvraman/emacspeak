@@ -808,6 +808,7 @@ session."))))
   (cond
    (greader-auth-handle
   (g-authenticate greader-auth-handle)
+  (greader-get-edit-token)
   (message "Re-authenticated %s"
            (g-auth-email greader-auth-handle)))
    (t (error "You've not signed in yet."))))
