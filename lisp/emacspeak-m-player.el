@@ -149,7 +149,7 @@
   :group 'emacspeak-m-player)
 
 (defvar emacspeak-m-player-default-options
-  (list "-slave"  "-nortc""-softvol" "-quiet")
+  (list "-slave"  "-nortc""-softvol" "-softvol-max" "200" -quiet")
   "Default options for MPlayer.")
 (defcustom emacspeak-m-player-options 
   (copy-sequence emacspeak-m-player-default-options)
