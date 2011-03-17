@@ -2087,14 +2087,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 ;;}}}
 ;;{{{  flight arrival
-(emacspeak-url-template-define
- "Flight Tracker"
- "http://tracker.flightview.com/fvAirwise/fvCPL.exe?qtype=htm&AL=%s&acid=%s&FIND1=Find+flight"
- (list "Airline: " "Flight number: ")
- #'(lambda nil
-     (search-forward "Airline: " nil t)
-     (emacspeak-speak-line))
- "Display flight arrival and departure information.")
+
 
 ;;}}}
 ;;{{{ weather underground
