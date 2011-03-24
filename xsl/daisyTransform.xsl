@@ -279,18 +279,14 @@ xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/">
   </xsl:template>
   
   <!-- code maps directly
-       If has class preserve-whitespace then surround with a pre tag -->
+       If has class preserve-whitespace then surround with a pre
+       tag -->
+<!-- TVR: bookshare books dont appear to use preserve-space where
+they should -->
    <xsl:template match="dtb:code">
     <xsl:element name="{local-name(.)}">
       <xsl:call-template name="base-attributes"/>
-      <xsl:choose>
-        <xsl:when test="@class='preserve-whitespace'">
           <xsl:element name="pre"><xsl:apply-templates/></xsl:element>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates/>
-        </xsl:otherwise>
-      </xsl:choose>
     </xsl:element>
   </xsl:template>
 
