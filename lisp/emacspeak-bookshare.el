@@ -1031,8 +1031,23 @@ Make sure it's downloaded and unpacked first."
   (let ((fields (split-string url "#")))
     (unless (= (length fields) 2)
       (error "No fragment identifier in this link."))
-    (emacspeak-we-extract-by-id (second fields) (first fields)
-                                'speak)))
+    (emacspeak-we-extract-by-id (second fields) (first fields) 'speak)))
+
+(defun emacspeak-bookshare-extract-xml (url)
+  "Extract content refered to by link under point, and return an XML buffer."
+  (interactive "sURL: ")
+  (let ((fields (split-string url "#"))
+        (id nil)
+        (url nil))
+    (unless (= (length fields) 2)
+      (error "No fragment identifier in this link."))
+    (setq url (first fields)
+          id (second fields))
+    (emacspeak-xslt-xml-url
+     emacspeak-we-xsl-filter
+     url
+     (emacspeak-xslt-params-from-xpath
+      (format "//*[@id=\"%s\"]" id) url))))
 
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
