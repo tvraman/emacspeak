@@ -725,7 +725,7 @@ Interactive use provides list of id values as completion."
    (format "//*[@id=\"%s\"]"
            id)
    url
-   (or (interactive-p) speak)))
+   speak))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-id-list(ids   url &optional speak)
