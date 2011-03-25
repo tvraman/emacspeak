@@ -491,7 +491,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display financial market summary."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id-list
+     (emacspeak-we-extract-id-list-text
       (list "mktsumm" "sfe-mktsumm" )
       url 'speak)))
 
