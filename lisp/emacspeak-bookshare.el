@@ -1025,14 +1025,6 @@ Make sure it's downloaded and unpacked first."
      (first
       (directory-files directory 'full ".xml")))))
 
-(defun emacspeak-bookshare-extract-and-view (url)
-  "Extract content refered to by link under point, and render via the browser."
-  (interactive "sURL: ")
-  (let ((fields (split-string url "#")))
-    (unless (= (length fields) 2)
-      (error "No fragment identifier in this link."))
-    (emacspeak-we-extract-by-id (second fields) (first fields) 'speak)))
-
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content refered to by link under point, and return an XML buffer."
   (interactive "sURL: ")
@@ -1043,11 +1035,24 @@ Make sure it's downloaded and unpacked first."
       (error "No fragment identifier in this link."))
     (setq url (first fields)
           id (second fields))
-    (emacspeak-xslt-xml-url
+    (emacspeak-xslt-url
      emacspeak-we-xsl-filter
      url
      (emacspeak-xslt-params-from-xpath
       (format "//*[@id=\"%s\"]" id) url))))
+
+(defun emacspeak-bookshare-extract-and-view (url)
+  "Extract content refered to by link under point, and render via the browser."
+  (interactive "sURL: ")
+  (let ((result (emacspeak-bookshare-extract-xml url)))
+    (save-excursion
+      (set-buffer result)
+      (emacspeak-webutils-autospeak)
+      (emacspeak-webutils-with-xsl-environment
+     (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)
+     nil
+     emacspeak-xslt-options             ;options
+     (browse-url-of-buffer )))))
 
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."

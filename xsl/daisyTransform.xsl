@@ -283,7 +283,7 @@ xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/">
        tag -->
 <!-- TVR: bookshare books dont appear to use preserve-space where
 they should -->
-   <xsl:template match="dtb:code">
+   <xsl:template match="dtb:code|code">
     <xsl:element name="{local-name(.)}">
       <xsl:call-template name="base-attributes"/>
           <xsl:element name="pre"><xsl:apply-templates/></xsl:element>
