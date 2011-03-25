@@ -750,6 +750,48 @@ separate buffer. Interactive use provides list of id values as completion. "
          speak))))
 
 ;;;###autoload
+(defun emacspeak-we-extract-id-text (id   url &optional speak)
+  "Extract text nodes from elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer.
+Interactive use provides list of id values as completion."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+      (completing-read "Id: "
+                       emacspeak-we-buffer-id-cache))
+    (emacspeak-webutils-read-url)
+    current-prefix-arg))
+  (emacspeak-we-xslt-filter
+   (format "//*[@id=\"%s\"]//text()"
+           id)
+   url
+   speak))
+
+;;;###autoload
+(defun emacspeak-we-extract-id-list-text(ids   url &optional speak)
+  "Extract text nodes from elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Interactive use provides list of id values as completion. "
+  (interactive
+   (list
+    (emacspeak-we-get-id-list)
+    (emacspeak-webutils-read-url)
+    current-prefix-arg))
+  (let ((filter
+         (mapconcat
+          #'(lambda  (c)
+              (format "(@id=\"%s\")" c))
+          ids
+          " or ")))
+    (emacspeak-we-xslt-filter
+     (format "//*[%s]//text()" filter)
+     url
+     (or (interactive-p)
+         speak))))
+
+
+;;;###autoload
 
 (defvar emacspeak-we-url-rewrite-rule nil
   "URL rewrite rule to use in current buffer.")
