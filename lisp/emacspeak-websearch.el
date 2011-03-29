@@ -936,6 +936,10 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;}}}
 ;;{{{ google
+(defcustom emacspeak-websearch-google-use-https t
+  "Specify whether we use secure connections for Google search."
+  :type 'boolean
+  :group 'emacspeak-websearch)
 
 (emacspeak-websearch-set-searcher 'realtime-google
                                   'emacspeak-google-realtime-search)
@@ -952,9 +956,19 @@ Optional second arg as-html processes the results as HTML rather than data."
   :type 'number
   :group 'emacspeak-websearch)
 
-(defvar emacspeak-websearch-google-uri
-  "https://www.google.com/search?q="
+(defvar emacspeak-websearch-google-uri-template
+  "www.google.com/search?q="
   "*URI for Google search")
+
+(defsubst emacspeak-websearch-google-uri ()
+  "Return URI end-point for Google search."
+  (declare (special emacspeak-websearch-google-use-https
+                    emacspeak-websearch-google-uri-template))
+  (concat
+   (if emacspeak-websearch-google-use-https
+       "https://"
+     "http://")
+   emacspeak-websearch-google-uri-template))
 
 (defcustom emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy..."
@@ -977,8 +991,7 @@ I'm Feeling Lucky button on Google."
    (list
     (gweb-google-autocomplete)
     current-prefix-arg))
-  (declare (special emacspeak-websearch-google-uri
-                    emacspeak-google-query emacspeak-google-toolbelt
+  (declare (special emacspeak-google-query emacspeak-google-toolbelt
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (let ((toolbelt (emacspeak-google-toolbelt)))
@@ -994,7 +1007,7 @@ I'm Feeling Lucky button on Google."
        (expand-file-name "default.xsl" emacspeak-xslt-directory)
        nil emacspeak-xslt-options
        (browse-url
-        (concat emacspeak-websearch-google-uri query
+        (concat (emacspeak-websearch-google-uri) query
                 (format "&num=%s%s"
                         emacspeak-websearch-google-number-of-results
                         (or emacspeak-websearch-google-options ""))
@@ -1012,8 +1025,8 @@ I'm Feeling Lucky button on Google."
 (emacspeak-websearch-set-key ?a 'agoogle)
 ;;}}}
 
-(defvar emacspeak-websearch-accessible-google-url
-  "http://google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
+(defvar emacspeak-websearch-accessible-google-url-template
+  "google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
 ;;;###autoload
@@ -1022,11 +1035,11 @@ I'm Feeling Lucky button on Google."
   (interactive
    (list
     (gweb-google-autocomplete "AGoogle: ")))
-  (declare (special emacspeak-websearch-accessible-google-url
-                    emacspeak-websearch-google-uri))
+  (declare (special emacspeak-websearch-accessible-google-url-template
+                    (emacspeak-websearch-google-uri)))
   (let ((emacspeak-w3-tidy-html nil)
-        (emacspeak-websearch-google-uri
-         emacspeak-websearch-accessible-google-url))
+        (emacspeak-websearch-google-uri-template
+         emacspeak-websearch-accessible-google-url-template))
     (emacspeak-websearch-google query)))
 
 (emacspeak-websearch-set-searcher 'google-lucky
@@ -1058,8 +1071,8 @@ https://www.google.com/options/specialsearches.html "
      "Specialize google Search On: ")
     (emacspeak-websearch-read-query
      "Google for:")))
-  (let ((emacspeak-websearch-google-uri
-         (format "https://www.google.com/%s?q="
+  (let ((emacspeak-websearch-google-uri-template
+         (format "www.google.com/%s?q="
                  specialize)))
     (emacspeak-websearch-google query )))
 
@@ -1154,7 +1167,7 @@ Optional interactive  prefix arg local-flag prompts for local
 
 (defvar emacspeak-websearch-google-launch-uris
   (list
-   (cons 'web emacspeak-websearch-google-uri)
+   (cons 'web (emacspeak-websearch-google-uri))
    (cons 'images  emacspeak-websearch-google-images)
    (cons 'news emacspeak-websearch-google-news-uri)
    (cons 'froogle emacspeak-websearch-froogle-uri)

@@ -317,9 +317,9 @@ This variable is buffer-local.")
 (defun emacspeak-google-realtime-search (&optional prefix)
   "Retrieve realtime searches for  current query."
   (interactive "P")
-  (declare (special emacspeak-websearch-google-uri emacspeak-google-query))
+  (declare (special  emacspeak-google-query))
   (let ((uri
-         (concat emacspeak-websearch-google-uri
+         (concat (emacspeak-websearch-google-uri)
                  (if prefix
                      (gweb-google-autocomplete)
                    (or emacspeak-google-query (gweb-google-autocomplete))   )
