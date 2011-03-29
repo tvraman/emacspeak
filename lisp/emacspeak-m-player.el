@@ -287,11 +287,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
          (or play-list
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options)))
+    (when (getenv "ALSA_DEFAULT")
     (setq options
           (nconc options
                  (list "-ao"
                        (format "alsa:device=%s"
-                               (getenv "ALSA_DEFAULT")))))
+                               (getenv "ALSA_DEFAULT"))))))
     (setq options
           (cond
            (playlist-p
