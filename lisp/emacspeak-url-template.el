@@ -1075,7 +1075,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "1Box Google"
- "https://www.google.com/search?q=%s"
+ "http://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)
  nil
  "Show 1box result from Google."
