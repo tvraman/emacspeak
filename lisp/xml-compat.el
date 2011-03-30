@@ -15,9 +15,6 @@
   "Return first child matching name."
   (first (xml-get-children node name)))
 
-(defalias  'xml-tag-children 'xml-node-children)
-
-
 ;;}}}
 
 (provide 'xml-compat)
