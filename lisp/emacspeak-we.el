@@ -447,8 +447,7 @@ Default is to extract from current page."
    (format "/descendant::table[%s]"
            position)
    url
-   (or (interactive-p)
-       speak)))
+       speak))
 
 ;;;###autoload
 (defun emacspeak-we-extract-tables-by-position-list (positions url &optional speak)
