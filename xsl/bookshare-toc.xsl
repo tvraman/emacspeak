@@ -11,7 +11,7 @@ This stylesheet also handles legacy Bookshare materials.
 
   <xsl:output method="html" indent="no"/>
   <xsl:param name="base" />
-  
+  <!-- Define separate templates for dtb:book and legacy dtbook3-->
   
   <xsl:template match="dtb:dtbook">
     <html>
@@ -84,19 +84,25 @@ Extract Page Range</a>
           </xsl:attribute>
         </xsl:element>
         <title>
-          <xsl:value-of select="./book/frontmatter/doctitle"/>
+          <xsl:value-of select="./head/title"/>
         </title>
       </head>
       <body>
         <h1>
-        <xsl:value-of select="book/frontmatter/doctitle"/>
+        <xsl:value-of select="./head/title"/>
         </h1>
+<p>By: <author><xsl:value-of
+select="./head/author"/>
+</author></p>
 <p>
+First Page: <xsl:value-of select="//pagenum[1]"/><br/>
 <a>
 <xsl:attribute name="href">
   <xsl:value-of select="concat($base,'?')"/>
 </xsl:attribute>
-Extract Page Range</a>
+Page Count: <xsl:value-of select="count(//pagenum)"/> Extract
+Page Range</a>
+
 </p>
         <ol>
           <xsl:for-each select="//level2">
