@@ -45,22 +45,35 @@
 ;;; This module is Dectalk specific.
 
 ;;}}}
-;;{{{ Forward declarations:
-;;; From dtkk-speak.el:
-
-(defvar tts-default-speech-rate )
-(defvar dectalk-default-speech-rate )
-(defvar dtk-speech-rate-step )
-(defvar dtk-speech-rate-base )
-
-;;}}}
-
 ;;{{{ required modules
 
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
+
+;;}}}
+;;{{{  Top-level TTS  switcher
+;;;### autoload
+(defun dectalk ()
+  "Select Dectalk TTS server."
+  (interactive)
+  (dtk-select-server "dtk-exp")
+  (dtk-initialize))
+
+;;;### autoload
+(defalias 'dtk-exp 'dectalk)
+
+;;}}}
+;;{{{ Forward declarations:
+
+;;; From dtk-speak.el:
+
+(defvar tts-default-speech-rate )
+(defvar dectalk-default-speech-rate )
+(defvar dtk-speech-rate-step )
+(defvar dtk-speech-rate-base )
+
 ;;}}}
 ;;{{{  voice table
 

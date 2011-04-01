@@ -64,6 +64,23 @@
 (defvar dtk-speech-rate-base )
 (defvar outloud-default-speech-rate)
 ;;}}}
+;;{{{ Top level TTS  switcher
+
+;;;### autoload
+(defun outloud ()
+  "Select Outloud server."
+  (interactive)
+  (dtk-select-server "outloud")
+  (dtk-initialize))
+
+(defun outloud-32()
+  "Select 32-Outloud server."
+  (interactive)
+  (dtk-select-server "32-outloud")
+  (dtk-initialize))
+
+
+;;}}}
 ;;{{{  voice table
 
 (defvar outloud-default-voice-string "`v1"
