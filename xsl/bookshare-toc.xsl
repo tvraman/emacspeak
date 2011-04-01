@@ -95,14 +95,13 @@ Extract Page Range</a>
   By: <author><xsl:value-of select="./head/author"/>
 </author></p>
 <p>
-First Page: <xsl:value-of select="//pagenum[1]"/><br/>
-Page Count: <xsl:value-of select="count(//pagenum)"/> <br/>
 <a>
-<xsl:attribute name="href">
+  <xsl:attribute name="href">
   <xsl:value-of select="concat($base,'?')"/>
 </xsl:attribute>
-Extract
-Page Range</a>
+ Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
+ <xsl:value-of select="(//pagenum)[count(//pagenum)]"/>
+</a>
 
 </p>
         <ol>
