@@ -450,6 +450,7 @@ field in the customization buffer.  You can use the notation
         ("w" emacspeak-toggle-word-echo)
         ("z" emacspeak-zap-tts)
         ("\C-d" dectalk)
+        ("\C-e" espeak)
         ("\C-o" outloud)
 ("\C-v" outloud-32)
         )
