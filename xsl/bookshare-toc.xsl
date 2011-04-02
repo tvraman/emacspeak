@@ -37,11 +37,9 @@ select="./dtb:book/dtb:frontmatter/dtb:docauthor"/>
 <xsl:attribute name="href">
   <xsl:value-of select="concat($base,'?')"/>
 </xsl:attribute>
-Extract Page Range</a>
-[<xsl:value-of
-    select="//pagenum[1]|//dtb:pagenum[1]"/> --
-<xsl:value-of
-    select="//pagenum[last()]|//dtb:pagenum[last()]"/>]
+Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
+ <xsl:value-of select="(//pagenum)[count(//pagenum)]"/></a>
+
 </p>
         <ol>
           <xsl:for-each select="//dtb:bodymatter//dtb:level2">
