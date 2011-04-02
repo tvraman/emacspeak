@@ -449,6 +449,9 @@ field in the customization buffer.  You can use the notation
         ("v" voice-lock-mode)
         ("w" emacspeak-toggle-word-echo)
         ("z" emacspeak-zap-tts)
+        ("\C-d" 'dectalk)
+        ("\C-o" outloud)
+("\C-v" outloud-32)
         )
       do
       (emacspeak-keymap-update emacspeak-dtk-submap binding))
