@@ -255,12 +255,18 @@ Optional second arg watch-pattern specifies line of output to
     (when  emacspeak-alsaplayer-auditory-feedback
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
+(defvar emacspeak-alsaplayer-paused nil
+  "Record if player is paused.")
 
 (defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
   (interactive)
+  (declare (special emacspeak-alsaplayer-paused))
   (emacspeak-alsaplayer-send-command "--pause"
                                      "position:")
+  (when emacspeak-alsaplayer-paused 
+    (emacspeak-alsaplayer-send-command "--speed 1.0"))
+  (setq emacspeak-alsaplayer-paused (not emacspeak-alsaplayer-paused))
   (when (and emacspeak-alsaplayer-auditory-feedback
              (interactive-p))
     (emacspeak-speak-line)
