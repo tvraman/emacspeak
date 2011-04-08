@@ -1025,8 +1025,8 @@ I'm Feeling Lucky button on Google."
 (emacspeak-websearch-set-key ?a 'agoogle)
 ;;}}}
 
-(defvar emacspeak-websearch-accessible-google-url-template
-  "google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
+(defvar emacspeak-websearch-accessible-google-url
+  "http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
 ;;;###autoload
@@ -1035,12 +1035,13 @@ I'm Feeling Lucky button on Google."
   (interactive
    (list
     (gweb-google-autocomplete "AGoogle: ")))
-  (declare (special emacspeak-websearch-accessible-google-url-template
-                    (emacspeak-websearch-google-uri)))
-  (let ((emacspeak-w3-tidy-html nil)
-        (emacspeak-websearch-google-uri-template
-         emacspeak-websearch-accessible-google-url-template))
-    (emacspeak-websearch-google query)))
+  (declare (special emacspeak-websearch-accessible-google-url))
+  (let ((emacspeak-w3-tidy-html nil))
+    (browse-url
+     (concat emacspeak-websearch-accessible-google-url query))))
+
+
+
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
