@@ -27,53 +27,59 @@ This stylesheet also handles legacy Bookshare materials.
       </head>
       <body>
         <h1>
-        <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
+          <xsl:value-of select="dtb:book/dtb:frontmatter/dtb:doctitle"/>
         </h1>
-<p>By: <author><xsl:value-of
-select="./dtb:book/dtb:frontmatter/dtb:docauthor"/>
-</author></p>
-<p>
-<a>
-<xsl:attribute name="href">
-  <xsl:value-of select="concat($base,'?')"/>
-</xsl:attribute>
-Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
- <xsl:value-of select="(//pagenum)[count(//pagenum)]"/></a>
+        <p>By: <author><xsl:value-of
+        select="./dtb:book/dtb:frontmatter/dtb:docauthor"/>
+        </author></p>
 
-</p>
+        <p>
+<xsl:if test="count(//dtb:pagenum) &gt; 1">
+          <a>
+            <xsl:attribute name="href">
+              <xsl:value-of select="concat($base,'?')"/>
+            </xsl:attribute>
+          Extract Page Range
+            [<xsl:value-of
+            select="(//dtb:pagenum)[1]"/> --
+            <xsl:value-of
+                select="(//dtb:pagenum)[last()]"/>]
+</a>
+</xsl:if>
+        </p>
         <ol>
-          <xsl:for-each select="//dtb:bodymatter//dtb:level2">
+          <xsl:for-each select="//dtb:bodymatter//dtb:level1|//dtb:bodymatter//dtb:level2">
+            <xsl:if test="dtb:h2|dtb:h1">
+              <li>
+                <a>
+                  <xsl:attribute name="href">
+                  <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
+                  <xsl:value-of select="dtb:h1|dtb:h2"/>
+                </a>
+              </li>
+              
+          </xsl:if></xsl:for-each>
+        </ol>
+        <h1>Copyright Notice And Legalese</h1>
+        <ol>
+          <xsl:for-each select="//dtb:frontmatter//dtb:level2">
             <xsl:if test="dtb:h2">
               <li>
-              <a>
-                <xsl:attribute name="href">
-                <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
-                <xsl:value-of select="dtb:h2"/>
-              </a>
-            </li>
-          
-</xsl:if></xsl:for-each>
-</ol>
-<h1>Copyright Notice And Legalese</h1>
-<ol>
-<xsl:for-each select="//dtb:frontmatter//dtb:level2">
-            <xsl:if test="dtb:h2">
-              <li>
-              <a>
-                <xsl:attribute name="href">
-                <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
-                <xsl:value-of select="dtb:h2"/>
-              </a>
-            </li>
-          
-</xsl:if></xsl:for-each>
+                <a>
+                  <xsl:attribute name="href">
+                  <xsl:value-of select="concat($base,'#',@id)"/></xsl:attribute>
+                  <xsl:value-of select="dtb:h2"/>
+                </a>
+              </li>
+              
+          </xsl:if></xsl:for-each>
         </ol>
       </body>
     </html>
   </xsl:template>
 
-<!-- legacy: -->
-<xsl:template match="dtbook3">
+  <!-- legacy: -->
+  <xsl:template match="dtbook3">
     <html>
       <head>
         <xsl:element name="base">
@@ -87,21 +93,21 @@ Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
       </head>
       <body>
         <h1>
-        <xsl:value-of select="./head/title"/>
+          <xsl:value-of select="./head/title"/>
         </h1>
-<p>
-  By: <author><xsl:value-of select="./head/author"/>
-</author></p>
-<p>
-<a>
-  <xsl:attribute name="href">
-  <xsl:value-of select="concat($base,'?')"/>
-</xsl:attribute>
- Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
- <xsl:value-of select="(//pagenum)[count(//pagenum)]"/>
-</a>
+        <p>
+          By: <author><xsl:value-of select="./head/author"/>
+        </author></p>
+        <p>
+          <a>
+            <xsl:attribute name="href">
+              <xsl:value-of select="concat($base,'?')"/>
+            </xsl:attribute>
+            Extract Pages: [<xsl:value-of select="(//pagenum)[1]"/> --
+            <xsl:value-of select="(//pagenum)[count(//pagenum)]"/>
+          </a>
 
-</p>
+        </p>
         <ol>
           <xsl:for-each select="//level2">
             <li>
