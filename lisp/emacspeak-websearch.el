@@ -1037,8 +1037,13 @@ I'm Feeling Lucky button on Google."
     (gweb-google-autocomplete "AGoogle: ")))
   (declare (special emacspeak-websearch-accessible-google-url))
   (let ((emacspeak-w3-tidy-html nil))
-    (browse-url
-     (concat emacspeak-websearch-accessible-google-url query))))
+    (emacspeak-webutils-cache-google-query query)
+    (emacspeak-webutils-post-process "results" 'emacspeak-speak-line)
+    (emacspeak-webutils-with-xsl-environment
+       (expand-file-name "default.xsl" emacspeak-xslt-directory)
+       nil emacspeak-xslt-options
+       (browse-url
+     (concat emacspeak-websearch-accessible-google-url query)))))
 
 
 
