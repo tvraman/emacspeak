@@ -56,7 +56,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
-(when (file-exists-p custom-file) (load-file custom-file))
+
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -89,12 +89,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	  '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
-	    ([f5] kmacro-start-macro-or-insert-counter)
-            ([f6] kmacro-end-or-call-macro)
             ("\M-s" save-buffer)
             ("\M--" advertised-undo)
 	    ([delete]dtk-toggle-punctuation-mode)
-            ([(deletechar)] dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
 	    ([f12]vm)
@@ -132,6 +129,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
+    (add-to-list
+                                                    'package-archives
+                                                    '("marmalade"
+                                                    . "http://marmalade-repo.org/packages/"))
     (mapc
      #'load-library-if-available
      '(
@@ -139,16 +140,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "advice-setup" "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
-"gm-prepare"
-       "smtpmail" "sigbegone"
-       ;"mailcrypt-prepare" 
+       "gm-prepare"
+       "smtpmail" "mailcrypt-prepare" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" "wget-prepare"
        "auctex-prepare" "nxml-prepare"
        "folding-prepare"
        "calc-prepare" "ess-prepare"
        "tcl-prepare" "python-mode-prepare" "moz-prepare"
-       "view-ps-prepare"
 					; jde and ecb will pull in cedet.
 					;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
@@ -160,16 +159,16 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "browse-kill-ring"
        "dictionary-prepare"
        "tramp-prepare"
-       "color-theme" "crontab-mode"
+       "color-theme-prepare" "crontab-mode"
        "fff-prepare" "fap-prepare"
        "local"))
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
 (add-hook
- 'after-init-hook
+ #'after-init-hook
  #'(lambda ()
-     (when (file-exists-p custom-file) (load-file custom-file))
+     
      (bbdb-insinuate-vm)
      (server-start)
      (emacspeak-tts-startup-hook)
@@ -180,6 +179,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (message "Successfully initialized Emacs")))
 
 (start-up-my-emacs)
+(when (file-exists-p custom-file) (load-file custom-file))
+(setq warning-suppress-types nil)
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
@@ -187,5 +188,3 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;;folded-file: t
 ;;;end:
 ;;}}}
-
-(put 'set-goal-column 'disabled nil)
