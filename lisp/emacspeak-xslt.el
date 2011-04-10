@@ -153,7 +153,7 @@ part of the libxslt package."
     (unless no-comment
       (goto-char (point-max))
       (insert
-       (format "<![CDATA[\n %s \n]]>\n"
+       (format "<!--\n %s \n-->\n"
                command)))
     (setq modification-flag nil)
     (set-buffer-multibyte t)
@@ -240,7 +240,7 @@ part of the libxslt package."
       (goto-char (point-max))
       (unless no-comment
         (insert
-         (format "<![CDATA[\n %s \n]]>\n"
+         (format "<!--\n %s \n-->\n"
                  command)))
       (setq modification-flag nil)
       (set-buffer-multibyte t)
