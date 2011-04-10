@@ -129,10 +129,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-    (add-to-list
-                                                    'package-archives
-                                                    '("marmalade"
-                                                    . "http://marmalade-repo.org/packages/"))
+                                                    
     (mapc
      #'load-library-if-available
      '(
