@@ -2822,6 +2822,12 @@ Variable mark-even-if-inactive is set true ."
              (or current-input-method "none")))))
 
 ;;}}}
+;;{{{ silence midnight cleanup:
+(defadvice clean-buffer-list(around emacspeak pre act comp)
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
