@@ -67,6 +67,10 @@ grep title:"))
         (path (shell-command-to-string "alsaplayer --status |
 grep path:")))
     (cond
+     ((or (null (get-buffer-process (current-buffer)))
+          (not (eq 'run (process-status (get-buffer-process
+                                         (current-buffer))))))
+      "        No Active Session")
      ((>  (length title) 0)
       (substring title 6 -1))
      ((>  (length path) 0)
@@ -130,8 +134,7 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-program emacspeak-alsaplayer-buffer
-                    emacspeak-alsaplayer-device
-                    emacspeak-alsaplayer-height))
+                    emacspeak-alsaplayer-device emacspeak-alsaplayer-height))
   (let ((buffer (get-buffer-create emacspeak-alsaplayer-buffer)))
     (save-current-buffer
       (set-buffer buffer)
