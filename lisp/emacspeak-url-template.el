@@ -969,10 +969,10 @@ Here are some examples:
 
 (emacspeak-url-template-define
  "Google Image Search"
- "http://images.google.com/images?hl=en&tab=wi&ie=UTF-8&q=%s"
+"http://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
  (list "Google Image Search: ")
  #'(lambda ()
-     (search-forward "Showing" nil t)
+     (search-forward "results" nil t)
      (emacspeak-speak-line))
  "Google Image Search"
  #'(lambda (url)
