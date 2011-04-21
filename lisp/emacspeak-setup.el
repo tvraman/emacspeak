@@ -135,6 +135,12 @@ pronunciation dictionaries are stored. ")
   :type 'integer)
 
 ;;;###autoload
+(defcustom mac-default-speech-rate 225
+  "Default speech rate for mac."
+  :group 'tts
+  :type 'integer)
+
+;;;###autoload
 (defcustom multispeech-default-speech-rate 225
   "Default speech rate for multispeech."
   :group 'tts
