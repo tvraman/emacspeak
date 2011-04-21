@@ -60,6 +60,7 @@
 (require 'dectalk-voices)
 (require 'outloud-voices)
 (require 'multispeech-voices)
+(require 'mac-voices)
 (require 'espeak-voices)
 (require 'flite-voices)
 
@@ -67,7 +68,7 @@
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
-
+ 
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server )
 (defvar emacspeak-auditory-icon-function )
@@ -1542,6 +1543,8 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "multispeech" tts-name)
     (multispeech-configure-tts))
+   ((string-match "mac" tts-name)
+    (mac-configure-tts))
    ((string-match "espeak" tts-name)
     (espeak-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks

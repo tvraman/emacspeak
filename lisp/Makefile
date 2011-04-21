@@ -60,7 +60,7 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-outloud-voices.elc multispeech-voices.elc \
+outloud-voices.elc multispeech-voices.elc mac-voices.elc\
 espeak-voices.elc dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
@@ -255,7 +255,6 @@ all: $(OBJECTS)
 force:
 
 config: emacspeak-loaddefs.el emacspeak-cus-load.el emacspeak-finder-inf.el
-
 lint:
 	echo "." |\
 emacs -batch -q \
@@ -294,6 +293,7 @@ acss-structure.elc: acss-structure.el
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc
 outloud-voices.elc: outloud-voices.el voice-setup.elc
 multispeech-voices.elc: multispeech-voices.el voice-setup.elc
+mac-voices.elc: mac-voices.el voice-setup.elc
 espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
