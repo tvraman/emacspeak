@@ -31,6 +31,8 @@ debugLevel = 0
 debugToSTDOUT = 0
 
 # A debug file to place sample tts text sent by emacspeak.
+#tvr: Security Warning -- Please use http://docs.python.org/library/tempfile.html
+
 if debugLevel > 0:
   DEBUGFILE = open("/tmp/speech.log","w")
 
@@ -117,7 +119,7 @@ speechSynthesizer.setDelegate_(delegate_)
 """
   An object which observes stdin.
   This class largely contains basic i/o for reading from stdin using
-  NSNotificationCenter..
+  NSNotificationCenter.
 """
 class FileObserver(NSObject):
   def initWithFileDescriptor_readCallback_errorCallback_(self,
@@ -193,6 +195,8 @@ def writeDebugLog(level, output):
 
 
 # Object that implements the Emacspeak TTS protocol.
+#TVR: Make constructor a singleton to handle the FIXME comment earlier
+
 class ProtocolHandler:
   def __init__(self):
     # Maps a protocol id to a handler function.
