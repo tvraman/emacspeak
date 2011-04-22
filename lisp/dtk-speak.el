@@ -854,7 +854,7 @@ speech rate:")))
         (when (interactive-p)
           (message "Set speech rate to level %s %s"
                    level
-                   (if prefix " globaly " " locally ")))))))
+                   (if prefix " globally " " locally ")))))))
 
 ;;;###autoload
 (defun dtk-set-character-scale (factor &optional prefix)
