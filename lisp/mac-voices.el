@@ -39,16 +39,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module defines the various voices used in voice-lock mode.
 ;;; This module is Apple Mac specific.
+;;; Code:
 
 ;;}}}
 ;;{{{ Required modules
 
-;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
@@ -84,7 +84,7 @@ COMMAND-STRING to the TTS engine."
   (declare (special dtk-speech-rate))
   (concat 
    (mac-get-voice-command-internal name)))
-;   (format " [[rate %s]] " dtk-speech-rate )))
+
 
 (defsubst mac-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
@@ -110,6 +110,7 @@ COMMAND-STRING to the TTS engine."
 ;;}}}
 ;;{{{  the inaudible voice
 
+;;; TVR: Achieve this by setting volume to 0?
 (mac-define-voice 'inaudible " ")
 
 ;;}}}
@@ -187,7 +188,6 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry average pitch
 
 (let ((table (make-vector 10 "")))
-
   (mapcar
    (function
     (lambda (setting)
