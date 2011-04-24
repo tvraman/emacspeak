@@ -1541,10 +1541,10 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
-   ((string-match "multispeech" tts-name)
-    (multispeech-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
+   ((string-match "multispeech" tts-name)
+    (multispeech-configure-tts))
    ((string-match "mac" tts-name)
     (mac-configure-tts))
    ((string-match "espeak" tts-name)
