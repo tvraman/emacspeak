@@ -1543,12 +1543,12 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "multispeech" tts-name)
     (multispeech-configure-tts))
+   ((string-match "dtk-" tts-name)      ;all dectalks
+    (dectalk-configure-tts))
    ((string-match "mac" tts-name)
     (mac-configure-tts))
    ((string-match "espeak" tts-name)
     (espeak-configure-tts))
-   ((string-match "dtk-" tts-name)      ;all dectalks
-    (dectalk-configure-tts))
    ((string-match "eflite" tts-name)
     (flite-configure-tts))
    (t (dectalk-configure-tts)           ; will become
