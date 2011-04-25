@@ -1539,21 +1539,18 @@ This is setup on a per engine basis.")
                     tts-voice-reset-code))
   (unless tts-name (setq tts-name dtk-program))
   (cond
-   ((string-match "outloud" tts-name)
-    (outloud-configure-tts))
-   ((string-match "dtk-" tts-name)      ;all dectalks
-    (dectalk-configure-tts))
-   ((string-match "multispeech" tts-name)
-    (multispeech-configure-tts))
-   ((string-match "mac" tts-name)
-    (mac-configure-tts))
-   ((string-match "espeak" tts-name)
-    (espeak-configure-tts))
-   ((string-match "eflite" tts-name)
-    (flite-configure-tts))
-   (t (dectalk-configure-tts)           ; will become
-                                        ; generic-configure)))
-      ))
+                                        ;viavoice outloud family 
+   ((string-match "outloud" tts-name) (outloud-configure-tts))
+                                        ;all dectalks
+   ((string-match "dtk-" tts-name) (dectalk-configure-tts))
+   ((string-match "^multispeech$" tts-name) (multispeech-configure-tts))
+                                        ;exact match
+   ((string-match "^mac$" tts-name) (mac-configure-tts))
+                                        ; exact match
+   ((string-match "^espeak$" tts-name) (espeak-configure-tts))
+   ((string-match "^eflite$" tts-name) (flite-configure-tts))
+                                        ;will become generic configure
+   (t (dectalk-configure-tts)))
   (when (string-match "^ssh" tts-name)  ;remote server
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
