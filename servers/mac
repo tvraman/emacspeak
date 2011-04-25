@@ -9,6 +9,7 @@ import math
 import os
 import re
 import sys
+import tempfile
 import threading
 
 from Foundation import *
@@ -31,10 +32,10 @@ debugLevel = 0
 debugToSTDOUT = 0
 
 # A debug file to place sample tts text sent by emacspeak.
-#tvr: Security Warning -- Please use http://docs.python.org/library/tempfile.html
-
 if debugLevel > 0:
-  DEBUGFILE = open("/tmp/speech.log","w")
+  DEBUGFILE = tempfile.NamedTemporaryFile(dir='/tmp',
+                                          mode='w',
+                                          prefix='emacspeak.servers.mac_log')
 
 # global speech rate
 ttsState['speechRate'] = 500
@@ -68,12 +69,13 @@ punctuationNamesMap= {'$':'dollar',
                  '`':'backquote',
                  '!':'exclamation',
                  '@':'at',
+                 '_':'underline',
                  '.':'dot',
                  ',':'comma'}
 
 punctuationMap = {'none': ('$'),
                   'some': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '~', '`', '!'),
-                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '.', ',')}
+                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '.', ',')}
 
 # map voice short names to apple class names.
 voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
@@ -91,6 +93,7 @@ speechQueue = []
 # Lock access to specific speech synthesis paths.
 speechLock = threading.Lock()
 
+
 """
   Helper for consuming callbacks from NSSpeechSynthesizer.
 """
@@ -106,11 +109,10 @@ class SpeechSynthesizerDelegate(NSObject):
   def speechSynthesizer_didEncounterSyncMessage_(self, synthesizer, message):
     #writeDebugLog(2, "sync " + int(message) + "\n")
     writeDebugLog(2, "sync\n")
-    # FIXME this must surely be wrong, how can we have this not enstanciate a new protocolhandler each time?
     p = ProtocolHandler()
     p.handleTone("500 30")
 
-
+# Static.
 speechSynthesizer = NSSpeechSynthesizer.alloc().init()
 delegate_ = SpeechSynthesizerDelegate.alloc().init();
 speechSynthesizer.setRate_(ttsState['speechRate'])
@@ -195,9 +197,11 @@ def writeDebugLog(level, output):
 
 
 # Object that implements the Emacspeak TTS protocol.
-#TVR: Make constructor a singleton to handle the FIXME comment earlier
+class _ProtocolHandler:
+  # Enables singleton behavior.
+  def __call__(self):
+    return self
 
-class ProtocolHandler:
   def __init__(self):
     # Maps a protocol id to a handler function.
     self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
@@ -398,6 +402,9 @@ class ProtocolHandler:
         #silence for ms.
         #tts__reset:
 #tts_allcaps_beep flag (beep)
+
+# Static.
+ProtocolHandler = _ProtocolHandler()
 
 
 # This takes a string with imbedded voice changes and splits it up and queues individual text events with voice changes inbetween.

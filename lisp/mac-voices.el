@@ -169,19 +169,18 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format " [[pbas %s]] "
-                    (second setting)
-                    (third setting)))))
+                    (second setting)))))
    '(
-     (0 44 52)
-     (1 50 58 )
-     (2 56 56)
-     (3 58 54)
-     (4 62 52  )
-     (5 65 50)
-     (6 69 48)
-     (7 73 46 )
-     (8 77 44)
-     (9 82 40)))
+     (0 44)
+     (1 50)
+     (2 56)
+     (3 58)
+     (4 62)
+     (5 65)
+     (6 69)
+     (7 73 )
+     (8 77)
+     (9 82)))
   (mac-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}
@@ -194,19 +193,18 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format " pitch %s"
-                    (second setting)
-                    (third setting)))))
+                    (second setting)))))
    '(
-     (0 0 90)
-     (1 10 85 )
-     (2 20 80)
-     (3 30 70)
-     (4 40 60)
-     (5 50 60)
-     (6 60 50)
-     (7 70 40 )
-     (8 80 30)
-     (9 90 20)))
+     (0 0)
+     (1 10 )
+     (2 20)
+     (3 30)
+     (4 40)
+     (5 50)
+     (6 60)
+     (7 70 )
+     (8 80)
+     (9 90)))
   (mac-css-set-code-table 'harry 'average-pitch table ))
 
 ;;}}}
@@ -221,19 +219,18 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format " [[pbas %s]] "
-                    (second setting)
-                    (third setting)))))
+                    (second setting)))))
    '(
-     (0 5 70)
-     (1 17 66)
-     (2 33 62)
-     (3 49 58)
-     (4 65 54 )
-     (5 81  50)
-     (6 85 55)
-     (7 89  60)
-     (8 93 65)
-     (9 97 69)))
+     (0 5)
+     (1 17)
+     (2 33)
+     (3 49)
+     (4 65 )
+     (5 81 )
+     (6 85)
+     (7 89 )
+     (8 93)
+     (9 97)))
   (mac-css-set-code-table 'betty 'average-pitch table ))
 
 ;;}}}
@@ -276,53 +273,9 @@ and TABLE gives the values along that dimension."
      (8  60)
      (9  67)))
   (mac-css-set-code-table 'paul 'pitch-range table ))
-
-;;}}}
-;;{{{  harry pitch range
-
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (first setting)
-            (format " `vf%s  "
-                    (second setting)))))
-   '(
-     (0 0 )
-     (1 5 )
-     (2  15)
-     (3  20)
-     (4  25 )
-     (5  30 )
-     (6  47)
-     (7  64)
-     (8  81)
-     (9  100)))
   (mac-css-set-code-table 'harry 'pitch-range table ))
-
-;;}}}
-;;{{{  betty pitch range
-
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (first setting)
-            (format " `vf%s  "
-                    (second setting)))))
-   '(
-     (0 0 )
-     (1 5 )
-     (2  15)
-     (3  20)
-     (4  25 )
-     (5  30 )
-     (6  47)
-     (7  64)
-     (8  81)
-     (9  100)))
   (mac-css-set-code-table 'betty 'pitch-range table ))
 
 ;;}}}
@@ -337,28 +290,10 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
-;;; On the mac we map stress to roughness
-;;; we also use stress markers `00 .. `4 
+
 ;;{{{  paul stress TODO
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   #'(lambda (setting)
-       (aset table (first setting)
-             (format " "
-                     (second setting))))
-;;; stress markers not used for now.
-   '(
-     (0 0 "`00")
-     (1 5 "`00")
-     (2  10 "`0")
-     (3  15 "`0")
-     (4  20 "`1" )
-     (5  25 "`1" )
-     (6  30 "`v2")
-     (7  35 "`v2")
-     (8  40 "`v3")
-     (9  45 "`v4")))
   (mac-css-set-code-table 'paul 'stress table)
   (mac-css-set-code-table 'harry 'stress table)
   (mac-css-set-code-table 'betty  'stress table))
@@ -377,25 +312,6 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul richness TODO
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (first setting)
-            (format "  "
-                    (second setting)
-                    (third setting)))))
-   '(
-     (0 0 60)
-     (1 4 78)
-     (2 8 80)
-     (3 12 84)
-     (4 16 88)
-     (5 20 92)
-     (6 24 93)
-     (7 28 95)
-     (8 32 97 )
-     (9 36 100)))
   (mac-css-set-code-table 'paul 'richness table)
   (mac-css-set-code-table 'harry 'richness table)
   (mac-css-set-code-table 'betty 'richness table))
