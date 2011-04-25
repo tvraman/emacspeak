@@ -1678,15 +1678,12 @@ Default is to use pipes.")
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
-        (process-connection-type  dtk-speak-process-connection-type)
-        (dtk-program (expand-file-name dtk-program
-                                       emacspeak-servers-directory)))
+        (process-connection-type  dtk-speak-process-connection-type))
     (setq new-process
           (start-process
            "speaker"
            (and dtk-debug tts-debug-buffer)
-           (expand-file-name dtk-program
-                             emacspeak-servers-directory)))
+           (expand-file-name dtk-program emacspeak-servers-directory)))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
