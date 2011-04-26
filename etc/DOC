@@ -27,6 +27,10 @@ cap C   Save clip to disk
 
 ------------------------------------------------------------
 
+** dtk-exp Select Dectalk TTS server. 
+
+------------------------------------------------------------
+
 ** dtk-add-cleanup-pattern	Key Sequence: control e d a 
 
  Add this pattern to the list of repeating patterns that
@@ -575,6 +579,10 @@ Once retrieved, memoize to avoid multiple retrievals.
 
 ------------------------------------------------------------
 
+** emacspeak-bookshare-extract-xml Extract content refered to by link under point, and return an XML buffer. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare-flush-lines Flush lines matching regexp in Bookshare buffer. 
 
 ------------------------------------------------------------
@@ -645,6 +653,8 @@ c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
+j		next-line
+k		previous-line
 l .. m		emacspeak-bookshare-action
 p		emacspeak-bookshare-action
 q		bury-buffer
@@ -3559,6 +3569,19 @@ and provide a completion list of applicable  property values. Filter document by
 
 ------------------------------------------------------------
 
+** emacspeak-we-extract-id-list-text Extract text nodes from elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Interactive use provides list of id values as completion.  
+
+------------------------------------------------------------
+
+** emacspeak-we-extract-id-text Extract text nodes from elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer.
+Interactive use provides list of id values as completion. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-extract-matching-urls Extracts links whose URL matches pattern. 
 
 ------------------------------------------------------------
@@ -3694,22 +3717,6 @@ from Web page -- default is the current page being viewed.
 ------------------------------------------------------------
 
 ** emacspeak-we-xslt-select Select XSL transformation applied to Web pages before they are displayed . 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-add Add WebMark. 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-history Search search history. 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-list List WebMarks. 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-search Search WebMarks. 
 
 ------------------------------------------------------------
 
@@ -5331,6 +5338,30 @@ take effect.
 ** emacspeak-piglets-tts-stop Kill TTS  process.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-add Add WebMark.
+
+(fn URL TITLE LABELS NOTES) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-history Search search history.
+
+(fn QUERY) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-list List WebMarks.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-webmarks-search Search WebMarks.
+
+(fn QUERY) 
 
   
 
