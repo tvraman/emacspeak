@@ -5,10 +5,11 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 903 commands.
+This chapter documents a total of 907 commands.
 
 @menu
 * cd-tool::                     
+* dectalk-voices::              
 * dtk-speak::                   
 * dtk-unicode::                 
 * emacspeak-alsaplayer::        
@@ -72,7 +73,6 @@ This chapter documents a total of 903 commands.
 * emacspeak-w3::                
 * emacspeak-w3m::               
 * emacspeak-we::                
-* emacspeak-webmarks::          
 * emacspeak-websearch::         
 * emacspeak-webspace::          
 * emacspeak-webutils::          
@@ -88,6 +88,7 @@ This chapter documents a total of 903 commands.
 * emacspeak-moz::               
 * emacspeak-org::               
 * emacspeak-piglets::           
+* emacspeak-webmarks::          
 * URL Templates ::              
 @end menu
 
@@ -130,6 +131,22 @@ t       track
 c       clip
 cap C   Save clip to disk
 
+@end deffn
+
+@node dectalk-voices
+@section dectalk-voices
+
+Commentary:
+This module defines the various voices used in voice-lock mode.
+This module is Dectalk specific.
+
+Automatically generated documentation
+for commands defined in module  dectalk-voices.
+
+@deffn {Interactive Command} dtk-exp nil
+@kbd{Not bound to any key.}
+
+Select Dectalk TTS server.
 @end deffn
 
 @node dtk-speak
@@ -886,6 +903,12 @@ Once retrieved, memoize to avoid multiple retrievals.
 Extract content refered to by link under point, and render via the browser.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-bookshare-extract-xml nil
+@kbd{Not bound to any key.}
+
+Extract content refered to by link under point, and return an XML buffer.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines nil
 @kbd{Not bound to any key.}
 
@@ -971,6 +994,8 @@ c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
+j		next-line
+k		previous-line
 l .. m		emacspeak-bookshare-action
 p		emacspeak-bookshare-action
 q		bury-buffer
@@ -2431,9 +2456,9 @@ Prompt using completion
 (defun emacspeak-google-realtime-search (&optional prefix)
   "Retrieve realtime searches for  current query."
   (interactive "P")
-  (declare (special emacspeak-websearch-google-uri emacspeak-google-query))
+  (declare (special  emacspeak-google-query))
   (let ((uri
-         (concat emacspeak-websearch-google-uri
+         (concat (emacspeak-websearch-google-uri)
                  (if prefix
                      (gweb-google-autocomplete)
                    (or emacspeak-google-query (gweb-google-autocomplete))   )
@@ -5600,6 +5625,23 @@ Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-we-extract-id-list-text nil
+@kbd{Not bound to any key.}
+
+Extract text nodes from elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Interactive use provides list of id values as completion. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-we-extract-id-text nil
+@kbd{Not bound to any key.}
+
+Extract text nodes from elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer.
+Interactive use provides list of id values as completion.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-we-extract-matching-urls nil
 @kbd{Not bound to any key.}
 
@@ -5784,47 +5826,6 @@ Junk elements matching specified locator.
 @kbd{Not bound to any key.}
 
 Select XSL transformation applied to Web pages before they are displayed .
-@end deffn
-
-@node emacspeak-webmarks
-@section emacspeak-webmarks
-
-Commentary:
-http://www.google.com/bookmarks provides a simple bookmark
-facility
-emacspeak-webmarks provides direct minibuffer-level access to
-these in the spirit of the Emacspeak Web Command Line.
-For now, the emacspeak-webmarks-key needs to be set by hand
- after doing the following:
-0) sign in to google using xml-forms/glogin.xml
-1) search for a bookmark using xml-forms/bookmark-find.xml
-will work around this eventually.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-webmarks.
-
-@deffn {Interactive Command} emacspeak-webmarks-add nil
-@kbd{Not bound to any key.}
-
-Add WebMark.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-history nil
-@kbd{Not bound to any key.}
-
-Search search history.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-list nil
-@kbd{Not bound to any key.}
-
-List WebMarks.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-search nil
-@kbd{Not bound to any key.}
-
-Search WebMarks.
 @end deffn
 
 @node emacspeak-websearch
@@ -8131,13 +8132,62 @@ Kill TTS  process.
 (fn)
 @end deffn
 
+@node emacspeak-webmarks
+@section emacspeak-webmarks
+
+Commentary:
+http://www.google.com/bookmarks provides a simple bookmark
+facility
+emacspeak-webmarks provides direct minibuffer-level access to
+these in the spirit of the Emacspeak Web Command Line.
+For now, the emacspeak-webmarks-key needs to be set by hand
+ after doing the following:
+0) sign in to google using xml-forms/glogin.xml
+1) search for a bookmark using xml-forms/bookmark-find.xml
+will work around this eventually.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-webmarks.
+
+@deffn {Interactive Command} emacspeak-webmarks-add nil
+@kbd{Not bound to any key.}
+
+Add WebMark.
+
+(fn URL TITLE LABELS NOTES)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-history nil
+@kbd{Not bound to any key.}
+
+Search search history.
+
+(fn QUERY)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-list nil
+@kbd{Not bound to any key.}
+
+List WebMarks.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webmarks-search nil
+@kbd{Not bound to any key.}
+
+Search WebMarks.
+
+(fn QUERY)
+@end deffn
+
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 148 URL Templates.
+This section documents a total of 147 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8324,10 +8374,6 @@ Display content from Google Finance.
 @kbd{Finance Google news}
 
 Display content from Google Finance.
-
-@kbd{Flight Tracker}
-
-Display flight arrival and departure information.
 
 @kbd{GCalendar Mobile}
 

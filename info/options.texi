@@ -63,7 +63,6 @@ This chapter documents a total of 623 user customizable
 * emacspeak-w3 Options::        
 * emacspeak-w3m Options::       
 * emacspeak-we Options::        
-* emacspeak-webmarks Options::  
 * emacspeak-websearch Options::  
 * emacspeak-webspace Options::  
 * emacspeak-webutils Options::  
@@ -1991,29 +1990,6 @@ Specifies transform to use before displaying a page.
 Nil means no transform is used. 
 @end defvar
 
-@node emacspeak-webmarks Options
-@section emacspeak-webmarks Options
-
-Commentary:
-http://www.google.com/bookmarks provides a simple bookmark
-facility
-emacspeak-webmarks provides direct minibuffer-level access to
-these in the spirit of the Emacspeak Web Command Line.
-For now, the emacspeak-webmarks-key needs to be set by hand
- after doing the following:
-0) sign in to google using xml-forms/glogin.xml
-1) search for a bookmark using xml-forms/bookmark-find.xml
-will work around this eventually.
-
-Automatically generated documentation
-for options defined in module  emacspeak-webmarks.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-webmarks-key
-Magic cookie key to send for bookmark operations.
-This gets set the first time we sign in using a browser.
-@end defvar
-
 @node emacspeak-websearch Options
 @section emacspeak-websearch Options
 
@@ -2034,6 +2010,10 @@ Number of results to return from google search.
 
 @defvar {User Option} emacspeak-websearch-google-options
 Additional options to pass to Google e.g. &xx=yy...
+@end defvar
+
+@defvar {User Option} emacspeak-websearch-google-use-https
+Specify whether we use secure connections for Google search.
 @end defvar
 
 @node emacspeak-webspace Options
