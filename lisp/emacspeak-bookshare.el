@@ -107,7 +107,7 @@
 ;;}}}
 ;;{{{ Helpers:
 (defsubst emacspeak-bookshare-assert ()
-  "Error out if not in bookshre mode."
+  "Error out if not in Bookshare mode."
   (unless (eq major-mode 'emacspeak-bookshare-mode)
     (error "Not in Bookshare Interaction.")))
 (defvar emacspeak-bookshare-md5-cached-token nil
