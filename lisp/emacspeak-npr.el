@@ -93,7 +93,7 @@
   "Common Curl options for Npr. ")
 
 (defvar emacspeak-npr-api-base
-  "http://www.npr.org"
+  "http://api.npr.org"
   "Base end-point for Npr API  access.")
 
 ;;}}}
@@ -106,11 +106,11 @@
 
 (defsubst emacspeak-npr-rest-endpoint (operation operand )
   "Return  URL  end point for specified operation."
+;;; beware: when using curl, npr.org wants apiKey first (WHY?)
   (declare (special emacspeak-npr-api-base ))
-  (format "%s/%s/%s/%s?api_key=%s"
+  (format "%s/%s?apiKey=%s&%s"
           emacspeak-npr-api-base
-          operation operand
-          emacspeak-npr-api-key))
+          operation emacspeak-npr-api-key operand))
 
 (defsubst emacspeak-npr-destruct-rest-url (url)
   "Return operator and operand used to construct this REST end-point."
@@ -120,8 +120,6 @@
     (nthcdr 2
             (split-string
              (substring url start end) "/" 'no-null))))
-
-
 
 (defvar emacspeak-npr-scratch-buffer " *Npr Scratch* "
   "Scratch buffer for Npr operations.")
@@ -156,7 +154,7 @@
   "Make a Npr API  call and get the result."
   (declare (special emacspeak-npr-last-action-uri))
   (setq emacspeak-npr-last-action-uri
-        (emacspeak-npr-rest-endpoint operation operand no-auth))
+        (emacspeak-npr-rest-endpoint operation operand))
   (emacspeak-npr-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
