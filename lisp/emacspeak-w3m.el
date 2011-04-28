@@ -132,7 +132,7 @@ instead of the modeline."
                        newstring)
     newstring))
 
-(defsubst emacspeak-w3m-url-at-point ()
+(defun emacspeak-w3m-url-at-point ()
   "Return the url at point in w3m."
   (or (w3m-anchor (point)) (w3m-image (point))))
 
