@@ -43,6 +43,7 @@
 (eval-when-compile
   (condition-case nil
       (require 'w3m)
+    (require 'w3m-util)
     (error nil)))
 (eval-when (load)
   (require 'w3m-util)
