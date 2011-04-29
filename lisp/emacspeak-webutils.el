@@ -405,12 +405,13 @@ instances."
       (error "Title not found in body."))))
 
 ;;;###autoload
-(defun emacspeak-webutils-play-media-at-point ()
-  "Play media url under point "
-  (interactive )
+(defun emacspeak-webutils-play-media-at-point (&optional  playlist-p)
+  "Play media url under point.
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist. "
+  (interactive "P" )
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (message "Playing media  URL under point")
-    (funcall emacspeak-media-player  url)))
+    (funcall  emacspeak-media-player  url  playlist-p)))
 
 ;;;###autoload
 (defun emacspeak-webutils-view-feed-via-google-reader ()
