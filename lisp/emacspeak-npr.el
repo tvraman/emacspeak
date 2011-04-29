@@ -173,6 +173,7 @@
 
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
+  (interactive "sOperation:\nsOperands")
   (declare (special emacspeak-npr-last-action-uri))
   (let* ((emacspeak-npr-last-action-uri
           (emacspeak-npr-rest-endpoint
@@ -184,6 +185,7 @@
            emacspeak-npr-last-action-uri)))
     (save-excursion
       (set-buffer result)
+      (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))
   
    
