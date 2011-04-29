@@ -89,7 +89,7 @@
   "Curl executable.")
 
 (defvar emacspeak-npr-curl-common-options
-  " --insecure "
+  " --silent "
   "Common Curl options for Npr. ")
 
 (defvar emacspeak-npr-api-base
@@ -136,9 +136,17 @@
        (kill-all-local-variables)
        (erase-buffer)
        (progn ,@body))))
+(defsubst emacspeak-npr-get-xml (command)
+  "Run command and return its output."
+  (declare (special shell-file-name shell-command-switch))
+  (emacspeak-npr-using-scratch
+   (call-process shell-file-name nil t
+                 nil shell-command-switch
+                 command)
+   (buffer-string)))
 
 (defsubst emacspeak-npr-get-result (command)
-  "Run command and return its output."
+  "Run command and return its parsed XML output."
   (declare (special shell-file-name shell-command-switch))
   (emacspeak-npr-using-scratch
    (call-process shell-file-name nil t
@@ -157,12 +165,32 @@
         (emacspeak-npr-rest-endpoint operation operand))
   (emacspeak-npr-get-result
    (format
-    "%s %s %s  %s 2>/dev/null"
+    "%s %s '%s'  2>/dev/null"
     emacspeak-npr-curl-program
     emacspeak-npr-curl-common-options
-    ""
     emacspeak-npr-last-action-uri)))
 
+
+(defun emacspeak-npr-view (operation operand)
+  "View results as Atom."
+  (declare (special emacspeak-npr-last-action-uri))
+  (setq emacspeak-npr-last-action-uri
+        (emacspeak-npr-rest-endpoint operation operand))
+  (emacspeak-npr-using-scratch
+   (insert
+    (emacspeak-npr-get-xml
+   (format
+    "%s %s '%s'  2>/dev/null"
+    emacspeak-npr-curl-program
+    emacspeak-npr-curl-common-options
+    emacspeak-npr-last-action-uri)))
+   (emacspeak-webutils-with-xsl-environment
+    (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+    nil nil
+    (browse-url-of-buffer))))
+    
+  
+   
 ;;}}}
 ;;{{{ Npr Mode:
 (define-derived-mode emacspeak-npr-mode text-mode
