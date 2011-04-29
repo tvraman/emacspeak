@@ -344,11 +344,9 @@ proc service {} {
             set talking 0
             break
         } else {
-            flush stdout
             set talking [speakingP]
         }
     }
-    flush stdout
     return $talking
 }
 
