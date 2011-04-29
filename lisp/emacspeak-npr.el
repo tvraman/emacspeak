@@ -174,20 +174,14 @@
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
   (declare (special emacspeak-npr-last-action-uri))
+  (let ((result nil))
   (setq emacspeak-npr-last-action-uri
-        (emacspeak-npr-rest-endpoint operation operand))
-  (emacspeak-npr-using-scratch
-   (insert
-    (emacspeak-npr-get-xml
-   (format
-    "%s %s '%s'  2>/dev/null"
-    emacspeak-npr-curl-program
-    emacspeak-npr-curl-common-options
-    emacspeak-npr-last-action-uri)))
-   (emacspeak-webutils-with-xsl-environment
-    (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
-    nil nil
-    (browse-url-of-buffer))))
+        (emacspeak-npr-rest-endpoint
+         operation
+         (format "%s&output=atom" operand)))
+  (emacspeak-xslt-url
+   (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+   emacspeak-npr-last-action-uri)))
     
   
    
