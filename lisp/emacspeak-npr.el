@@ -190,9 +190,7 @@
 ;;;###autoload
 (defun  emacspeak-npr-display-listing ()
   "Display specified listing after prompting."
-  (let* ((key  (emacspeak-npr-get-listing-key))
-         (result (emacspeak-npr-api-call "list" key)))
-    result))
+  )
 
   
    
@@ -216,12 +214,23 @@
   "Association table of listing keys.
 Generated from http://www.npr.org/api/inputReference.php")
     
-(defun emacspeak-npr-get-listing-key ()
-  "Return listing key after prompting."
+(defun emacspeak-npr-get-listing ()
+  "Return listing  after prompting."
   (declare (special emacspeak-npr-listing-table))
   (let ((label (completing-read "Listing: "
                                  emacspeak-npr-listing-table)))
-    (cdr (assoc label emacspeak-npr-listing-table))))
+    (emacspeak-npr-api-call "list"
+                            (format "id=%s"
+    (cdr (assoc label emacspeak-npr-listing-table))))))
+
+;;;###autoload
+
+(defun emacspeak-npr-display-listing ()
+  "Display listing after prompting."
+  (let ((listing (emacspeak-npr-get-listing)))
+    ))
+
+
 
 ;;}}}
 ;;{{{ Npr Mode:
