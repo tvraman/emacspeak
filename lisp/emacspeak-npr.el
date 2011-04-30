@@ -174,15 +174,14 @@
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
   (interactive "sOperation:\nsOperands")
-  (declare (special emacspeak-npr-last-action-uri))
-  (let* ((emacspeak-npr-last-action-uri
+  (let* ((url
           (emacspeak-npr-rest-endpoint
            operation
            (format "%s&output=atom" operand)))
          (result 
           (emacspeak-xslt-xml-url
            (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
-           emacspeak-npr-last-action-uri)))
+           url)))
     (save-excursion
       (set-buffer result)
       (emacspeak-webutils-autospeak)
