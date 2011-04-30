@@ -187,10 +187,45 @@
       (set-buffer result)
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))
+;;;###autoload
+(defun  emacspeak-npr-display-listing ()
+  "Display specified listing after prompting."
+  (let* ((key  (emacspeak-npr-get-listing-key))
+         (result (emacspeak-npr-api-call "list" key)))
+    result))
+
   
    
 ;;}}}
+;;{{{ program index
+
+;;; Found using documentation at 
+;;; http://www.npr.org/api/inputReference.php
+;;; All Programs : http://api.npr.org/list?id=3004
+
+(defvar emacspeak-npr-listing-table
+  '(("All Programs"   . 3004)
+    ("All Topics" . 3002)
+    ("All Topics And Music Genres" .  3218)
+    ("All Music Genres" . 3018)
+    ("All Music Artists" .  3008)
+    ("All Columns" . 3003)
+    ("All Series" . 3006)
+    ("All Blogs" . 3013)
+    ("All Bios"   . 3007))
+  "Association table of listing keys.
+Generated from http://www.npr.org/api/inputReference.php")
+    
+(defun emacspeak-npr-get-listing-key ()
+  "Return listing key after prompting."
+  (declare (special emacspeak-npr-listing-table))
+  (let ((label (completing-read "Listing: "
+                                 emacspeak-npr-listing-table)))
+    (cdr (assoc label emacspeak-npr-listing-table))))
+
+;;}}}
 ;;{{{ Npr Mode:
+
 (define-derived-mode emacspeak-npr-mode text-mode
   "Npr: National Public Radio"
   "A Npr front-end for the Emacspeak desktop.
@@ -224,8 +259,8 @@ Here is a list of all emacspeak Npr commands along with their key-bindings:
         nil
         do
         (emacspeak-keymap-update  emacspeak-npr-mode-map k)))
-
 (emacspeak-npr-define-keys)
+
 
 (defvar emacspeak-npr-interaction-buffer "*Npr*"
   "Buffer for Npr interaction.")
@@ -244,13 +279,11 @@ Here is a list of all emacspeak Npr commands along with their key-bindings:
         (erase-buffer)
         (setq buffer-undo-list t)
         (setq buffer-read-only t)
-        (emacspeak-npr-mode))
+        (emacspeak-npr-mode)
+        )
       (switch-to-buffer emacspeak-npr-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-;;}}}
-;;{{{ Navigation in  Npr Interaction
 
 ;;}}}
 (provide 'emacspeak-npr)
