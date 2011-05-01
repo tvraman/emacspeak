@@ -221,17 +221,13 @@ Generated from http://www.npr.org/api/inputReference.php")
 (defun emacspeak-npr-listing-url-executor (url)
   "Special executor for use in NPR  listings."
   (interactive "sURL: ")
-  (emacspeak-xslt-view
-   (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  (emacspeak-webutils-atom-display
    (emacspeak-npr-rest-endpoint "query"
                                 (format "id=%s&output=atom" url))))
-  
-
-
 
 ;;;###autoload    
 (defun emacspeak-npr-listing ()
-  "Return listing  after prompting."
+  "Display specified listing."
   (interactive)
   (let ((key (emacspeak-npr-get-listing-key)))
     (add-hook
@@ -239,8 +235,7 @@ Generated from http://www.npr.org/api/inputReference.php")
      #'(lambda ()
          (declare (special emacspeak-we-url-executor))
          (setq emacspeak-we-url-executor 'emacspeak-npr-listing-url-executor)))
-    (emacspeak-xslt-url
-     (expand-file-name "atom-view.xsl" emacspeak-xslt-directory )
+    (emacspeak-webutils-atom-display
      (emacspeak-npr-rest-endpoint "list"
                                   (format "id=%s&output=atom" key)))))
 
