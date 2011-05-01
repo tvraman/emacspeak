@@ -341,7 +341,7 @@ part of the libxslt package."
    style
    nil
    emacspeak-xslt-options
-   url))
+   (browse-url url)))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
@@ -359,8 +359,7 @@ part of the libxslt package."
            (cons "base"
                  (format "\"'%s'\""
                          url))))))
-    (when (interactive-p)
-      (emacspeak-webutils-autospeak))
+    (when (interactive-p) (emacspeak-webutils-autospeak))
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
