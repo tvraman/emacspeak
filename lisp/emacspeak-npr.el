@@ -223,7 +223,8 @@ Generated from http://www.npr.org/api/inputReference.php")
   (interactive "sURL: ")
   (emacspeak-webutils-atom-display
    (emacspeak-npr-rest-endpoint "query"
-                                (format "id=%s&output=atom" url))))
+                                (format "id=%s&output=atom"
+                                        (file-name-nondirectory url)))))
 
 ;;;###autoload    
 (defun emacspeak-npr-listing ()
@@ -235,18 +236,12 @@ Generated from http://www.npr.org/api/inputReference.php")
      #'(lambda ()
          (declare (special emacspeak-we-url-executor))
          (setq emacspeak-we-url-executor 'emacspeak-npr-listing-url-executor)))
-    (emacspeak-webutils-atom-display
+    (emacspeak-xslt-view-xml
+     (expand-file-name "npr-list.xsl" emacspeak-xslt-directory)
      (emacspeak-npr-rest-endpoint "list"
                                   (format "id=%s&output=atom" key)))))
 
 ;;;###autoload
-
-(defun emacspeak-npr-display-listing ()
-  "Display listing after prompting."
-  (let ((listing (emacspeak-npr-get-listing)))
-    ))
-
-
 
 ;;}}}
 ;;{{{ Npr Mode:
