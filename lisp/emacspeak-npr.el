@@ -212,15 +212,37 @@
     ("All Bios"   . 3007))
   "Association table of listing keys.
 Generated from http://www.npr.org/api/inputReference.php")
-    
-(defun emacspeak-npr-get-listing ()
+
+(defsubst emacspeak-npr-get-listing-key ()
+  "Prompt for and return listing key."
+  (let ((label(completing-read "Listing: "
+                               emacspeak-npr-listing-table)))
+    (cdr (assoc label emacspeak-npr-listing-table))))
+(defun emacspeak-npr-listing-url-executor (url)
+  "Special executor for use in NPR  listings."
+  (interactive "sURL: ")
+  (emacspeak-xslt-view
+   (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+   (emacspeak-npr-rest-endpoint "query"
+                                (format "id=%s&output=atom" url))))
+  
+
+
+
+;;;###autoload    
+(defun emacspeak-npr-listing ()
   "Return listing  after prompting."
-  (declare (special emacspeak-npr-listing-table))
-  (let ((label (completing-read "Listing: "
-                                 emacspeak-npr-listing-table)))
-    (emacspeak-npr-api-call "list"
-                            (format "id=%s"
-    (cdr (assoc label emacspeak-npr-listing-table))))))
+  (interactive)
+  (let ((key (emacspeak-npr-get-listing-key)))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda ()
+         (declare (special emacspeak-we-url-executor))
+         (setq emacspeak-we-url-executor 'emacspeak-npr-listing-url-executor)))
+    (emacspeak-xslt-url
+     (expand-file-name "atom-view.xsl" emacspeak-xslt-directory )
+     (emacspeak-npr-rest-endpoint "list"
+                                  (format "id=%s&output=atom" key)))))
 
 ;;;###autoload
 
