@@ -45,6 +45,7 @@
 ;;; NPR == http://wwwnpr.org National Public Radio in the US
 ;;; It provides a simple Web  API http://www.npr.org/api/
 ;;; This module implements an Emacspeak Npr client.
+
 ;;; For now, users will need to get their own API key
 
 ;;; Code:
@@ -58,7 +59,6 @@
 (require 'emacspeak-webutils)
 (require 'xml-parse)
 (require 'xml)
-(require 'derived)
 
 ;;}}}
 ;;{{{ Customizations
@@ -94,32 +94,18 @@
 
 (defvar emacspeak-npr-api-base
   "http://api.npr.org"
-  "Base end-point for Npr API  access.")
+  "Base REST end-point for Npr API  access.")
 
 ;;}}}
 ;;{{{ Helpers:
 
-(defsubst emacspeak-npr-assert ()
-  "Error out if not in NPR mode."
-  (unless (eq major-mode 'emacspeak-npr-mode)
-    (error "Not in Npr Interaction.")))
-
+;;; beware: when using curl, npr.org wants apiKey first (WHY?)
 (defsubst emacspeak-npr-rest-endpoint (operation operand )
   "Return  URL  end point for specified operation."
-;;; beware: when using curl, npr.org wants apiKey first (WHY?)
-  (declare (special emacspeak-npr-api-base ))
+  (declare (special emacspeak-npr-api-base
+                    emacspeak-npr-api-key))
   (format "%s/%s?apiKey=%s&%s"
-          emacspeak-npr-api-base
-          operation emacspeak-npr-api-key operand))
-
-(defsubst emacspeak-npr-destruct-rest-url (url)
-  "Return operator and operand used to construct this REST end-point."
-  (declare (special emacspeak-npr-api-base))
-  (let* ((start (length emacspeak-npr-api-base))
-         (end (string-match "for/" url)))
-    (nthcdr 2
-            (split-string
-             (substring url start end) "/" 'no-null))))
+          emacspeak-npr-api-base operation emacspeak-npr-api-key operand))
 
 (defvar emacspeak-npr-scratch-buffer " *Npr Scratch* "
   "Scratch buffer for Npr operations.")
@@ -136,6 +122,7 @@
        (kill-all-local-variables)
        (erase-buffer)
        (progn ,@body))))
+
 (defsubst emacspeak-npr-get-xml (command)
   "Run command and return its output."
   (declare (special shell-file-name shell-command-switch))
@@ -169,30 +156,17 @@
     emacspeak-npr-curl-program
     emacspeak-npr-curl-common-options
     emacspeak-npr-last-action-uri)))
-
-
+;;;###autoload
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
   (interactive "sOperation:\nsOperands")
   (let* ((url
           (emacspeak-npr-rest-endpoint
            operation
-           (format "%s&output=atom" operand)))
-         (result 
-          (emacspeak-xslt-xml-url
-           (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
-           url)))
-    (save-excursion
-      (set-buffer result)
-      (emacspeak-webutils-autospeak)
-      (browse-url-of-buffer))))
-;;;###autoload
-(defun  emacspeak-npr-display-listing ()
-  "Display specified listing after prompting."
-  )
+           (format "%s&output=atom" operand))))
+    (emacspeak-webutils-autospeak)
+    (emacspeak-webutils-atom-display url)))
 
-  
-   
 ;;}}}
 ;;{{{ program index
 
@@ -215,9 +189,10 @@ Generated from http://www.npr.org/api/inputReference.php")
 
 (defsubst emacspeak-npr-get-listing-key ()
   "Prompt for and return listing key."
-  (let ((label(completing-read "Listing: "
-                               emacspeak-npr-listing-table)))
+  (let* ((completion-ignore-case t)
+         (label(completing-read "Listing: " emacspeak-npr-listing-table)))
     (cdr (assoc label emacspeak-npr-listing-table))))
+
 (defun emacspeak-npr-listing-url-executor (url)
   "Special executor for use in NPR  listings."
   (interactive "sURL: ")
@@ -240,70 +215,6 @@ Generated from http://www.npr.org/api/inputReference.php")
      (expand-file-name "npr-list.xsl" emacspeak-xslt-directory)
      (emacspeak-npr-rest-endpoint "list"
                                   (format "id=%s&output=atom" key)))))
-
-;;;###autoload
-
-;;}}}
-;;{{{ Npr Mode:
-
-(define-derived-mode emacspeak-npr-mode text-mode
-  "Npr: National Public Radio"
-  "A Npr front-end for the Emacspeak desktop.
-
-The Emacspeak Npr front-end is launched by command
-emacspeak-npr bound to \\[emacspeak-npr]
-
-This command switches to a special buffer that has Npr
-commands bounds to single keystrokes-- see the ke-binding list at
-the end of this description. Use Emacs online help facility to
-look up help on these commands.
-
-emacspeak-npr-mode provides the necessary functionality to
-Search, browse and listen to Npr material.
-
-Here is a list of all emacspeak Npr commands along with their key-bindings:
-
-\\{emacspeak-npr-mode-map}"
-  (let ((inhibit-read-only t)
-        (start (point)))
-    (goto-char (point-min))
-    (insert "Browse And Listen To Npr\n\n")
-    (put-text-property start (point)
-                       'face font-lock-doc-face)
-    (setq header-line-format "Npr: National Public Radio")))
-
-(defun emacspeak-npr-define-keys ()
-  "Define keys for  Npr Interaction."
-  (declare (special emacspeak-npr-mode-map))
-  (loop for k in
-        nil
-        do
-        (emacspeak-keymap-update  emacspeak-npr-mode-map k)))
-(emacspeak-npr-define-keys)
-
-
-(defvar emacspeak-npr-interaction-buffer "*Npr*"
-  "Buffer for Npr interaction.")
-
-;;;###autoload
-(defun emacspeak-npr ()
-  "Npr  Interaction."
-  (interactive)
-  (declare (special emacspeak-npr-interaction-buffer))
-  (let ((buffer (get-buffer emacspeak-npr-interaction-buffer)))
-    (cond
-     ((buffer-live-p buffer)
-      (switch-to-buffer buffer))
-     (t
-      (with-current-buffer (get-buffer-create emacspeak-npr-interaction-buffer)
-        (erase-buffer)
-        (setq buffer-undo-list t)
-        (setq buffer-read-only t)
-        (emacspeak-npr-mode)
-        )
-      (switch-to-buffer emacspeak-npr-interaction-buffer)))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-npr)
