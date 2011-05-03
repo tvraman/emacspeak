@@ -175,15 +175,15 @@
 ;;; All Programs : http://api.npr.org/list?id=3004
 
 (defvar emacspeak-npr-listing-table
-  '(("All Programs"   . 3004)
-    ("All Topics" . 3002)
-    ("All Topics And Music Genres" .  3218)
-    ("All Music Genres" . 3018)
-    ("All Music Artists" .  3008)
-    ("All Columns" . 3003)
-    ("All Series" . 3006)
-    ("All Blogs" . 3013)
-    ("All Bios"   . 3007))
+  '(("Programs"   . 3004)
+    ("Topics" . 3002)
+    ("Topics And Music Genres" .  3218)
+    ("Music Genres" . 3018)
+    ("Music Artists" .  3008)
+    ("Columns" . 3003)
+    ("Series" . 3006)
+    ("Blogs" . 3013)
+    ("Bios"   . 3007))
   "Association table of listing keys.
 Generated from http://www.npr.org/api/inputReference.php")
 
