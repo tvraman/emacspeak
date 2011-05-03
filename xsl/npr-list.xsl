@@ -18,26 +18,29 @@
       </head>
       <body>
         <ol>
-          <xsl:apply-templates select="//item"/>
-        </ol>
-      </body>
-    </html>
-  </xsl:template>
-
-  <xsl:template  match="item">
-    <li>
+          <xsl:for-each select="//item">
+<xsl:sort select="@storycounttoday" data-type="number" order="decending"/>
+<li>
       <a>
         <xsl:attribute name="href">
           <xsl:value-of select="@id"/>
         </xsl:attribute>
         <xsl:value-of select="title"/>
       </a>
-      <xsl:value-of select="additionalInfo"/>
+      <xsl:value-of select="additionalInfo"/><br/>
       <strong>Story Counts:</strong>
       Today: <xsl:value-of select="@storycounttoday"/>
       Month: <xsl:value-of select="@storycountmonth"/>
       Total: <xsl:value-of select="@storycountall"/>
     </li>
+          </xsl:for-each>
+
+        </ol>
+      </body>
+    </html>
+  </xsl:template>
+
+  <xsl:template  match="item">
   </xsl:template>
   
 </xsl:stylesheet>
