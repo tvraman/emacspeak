@@ -1896,6 +1896,18 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-npr-listing Display specified listing. 
+
+------------------------------------------------------------
+
+** emacspeak-npr-listing-url-executor Special executor for use in NPR  listings. 
+
+------------------------------------------------------------
+
+** emacspeak-npr-view View results as Atom. 
+
+------------------------------------------------------------
+
 ** emacspeak-ocr	Key Sequence: control e control o 
 
  An OCR front-end for the Emacspeak desktop.  
@@ -3087,6 +3099,108 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 ------------------------------------------------------------
 
+** emacspeak-sudoku-board-columns-summarize Summarize columns --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-distribution-summarize Shows distribution of filled numbers. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-rows-summarize Summarize rows --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-sub-squares-summarize Summarize sub-squares --- speaks number of remaining cells. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-summarizer Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+ 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-down-sub-square Move to top-left corner of  sub-square below current one. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-column Erase current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-row Erase current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-sub-square Erase current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-hint Provide hint for current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-push Push current state on to history stack. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-next-sub-square Move to top-left corner of next sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-previous-sub-square Move to top-left corner of previous sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-coordinates speak current cell coordinates. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-value Speak value in current cell. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-column Speak current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-row Speak current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-sub-square Speak current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-column Speaks number of remaining cells in current column. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-row Speaks number of remaining cells in current row. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-sub-square Speaks number of remaining cells in current sub-square. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-up-sub-square Move to top-left corner of  sub-square above current one. 
+
+------------------------------------------------------------
+
 ** emacspeak-table-copy-current-element-to-kill-ring Copy current table element to kill ring. 
 
 ------------------------------------------------------------
@@ -3333,6 +3447,10 @@ but quickly switch to a window by name.
 ------------------------------------------------------------
 
 ** emacspeak-tetris-speak-x-coordinate Speak current position 
+
+------------------------------------------------------------
+
+** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
 
 ------------------------------------------------------------
 
@@ -4162,7 +4280,8 @@ instances.
 
 ------------------------------------------------------------
 
-** emacspeak-webutils-play-media-at-point Play media url under point  
+** emacspeak-webutils-play-media-at-point Play media url under point.
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.  
 
 ------------------------------------------------------------
 
@@ -5116,6 +5235,18 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-blue-pages Search IBM Blue Pages 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internal Search IBM My News 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-my-news Search IBM My News 
 
 ------------------------------------------------------------
 

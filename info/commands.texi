@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 907 commands.
+This chapter documents a total of 938 commands.
 
 @menu
 * cd-tool::                     
@@ -51,6 +51,7 @@ This chapter documents a total of 907 commands.
 * emacspeak-m-player::          
 * emacspeak-madplay::           
 * emacspeak-man::               
+* emacspeak-npr::               
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
@@ -62,11 +63,13 @@ This chapter documents a total of 907 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
+* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
 * emacspeak-tar::               
 * emacspeak-tetris::            
+* emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
 * emacspeak-vm::                
@@ -83,6 +86,7 @@ This chapter documents a total of 907 commands.
 * emacspeak-zinf::              
 * emacspeak::                   
 * voice-setup::                 
+* emacspeak-w3search::          
 * emacspeak-firevox::           
 * emacspeak-jawbreaker::        
 * emacspeak-moz::               
@@ -3335,6 +3339,37 @@ Browse the man page --read it a paragraph at a time
 Speak current section
 @end deffn
 
+@node emacspeak-npr
+@section emacspeak-npr
+
+Commentary:
+NPR == http://wwwnpr.org National Public Radio in the US
+It provides a simple Web  API http://www.npr.org/api/
+This module implements an Emacspeak Npr client.
+
+For now, users will need to get their own API key
+
+Automatically generated documentation
+for commands defined in module  emacspeak-npr.
+
+@deffn {Interactive Command} emacspeak-npr-listing nil
+@kbd{Not bound to any key.}
+
+Display specified listing.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-npr-listing-url-executor nil
+@kbd{Not bound to any key.}
+
+Special executor for use in NPR  listings.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-npr-view nil
+@kbd{Not bound to any key.}
+
+View results as Atom.
+@end deffn
+
 @node emacspeak-ocr
 @section emacspeak-ocr
 
@@ -4861,6 +4896,168 @@ Does the equivalent of the mouse click from the keyboard
 Switch to the speedbar
 @end deffn
 
+@node emacspeak-sudoku
+@section emacspeak-sudoku
+
+Commentary:
+Playing SuDoku using speech output.
+Written to discover what type of feedback one needs for  this
+task.
+See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sudoku.
+
+@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize nil
+@kbd{Not bound to any key.}
+
+Summarize columns --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize nil
+@kbd{Not bound to any key.}
+
+Shows distribution of filled numbers.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize nil
+@kbd{Not bound to any key.}
+
+Summarize rows --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize nil
+@kbd{Not bound to any key.}
+
+Summarize sub-squares --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-summarizer nil
+@kbd{Not bound to any key.}
+
+Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-down-sub-square nil
+@kbd{Not bound to any key.}
+
+Move to top-left corner of  sub-square below current one.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-column nil
+@kbd{Not bound to any key.}
+
+Erase current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-row nil
+@kbd{Not bound to any key.}
+
+Erase current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square nil
+@kbd{Not bound to any key.}
+
+Erase current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-hint nil
+@kbd{Not bound to any key.}
+
+Provide hint for current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-history-pop nil
+@kbd{Not bound to any key.}
+
+Pop saved state off stack and redraw board.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-history-push nil
+@kbd{Not bound to any key.}
+
+Push current state on to history stack.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining nil
+@kbd{Not bound to any key.}
+
+Speak number of remaining squares to fill.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-next-sub-square nil
+@kbd{Not bound to any key.}
+
+Move to top-left corner of next sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square nil
+@kbd{Not bound to any key.}
+
+Move to top-left corner of previous sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates nil
+@kbd{Not bound to any key.}
+
+speak current cell coordinates.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value nil
+@kbd{Not bound to any key.}
+
+Speak value in current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-column nil
+@kbd{Not bound to any key.}
+
+Speak current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-row nil
+@kbd{Not bound to any key.}
+
+Speak current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square nil
+@kbd{Not bound to any key.}
+
+Speak current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column nil
+@kbd{Not bound to any key.}
+
+Speaks number of remaining cells in current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row nil
+@kbd{Not bound to any key.}
+
+Speaks number of remaining cells in current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square nil
+@kbd{Not bound to any key.}
+
+Speaks number of remaining cells in current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-up-sub-square nil
+@kbd{Not bound to any key.}
+
+Move to top-left corner of  sub-square above current one.
+@end deffn
+
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -5240,6 +5437,22 @@ Speak the score
 @kbd{Not bound to any key.}
 
 Speak current position
+@end deffn
+
+@node emacspeak-tnt
+@section emacspeak-tnt
+
+Commentary:
+Speech-enables TNT -- the Emacs AOL Instant Messenger
+client 
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tnt.
+
+@deffn {Interactive Command} emacspeak-tnt-toggle-autospeak nil
+@kbd{Not bound to any key.}
+
+Toggle TNT autospeak for this chat session.
 @end deffn
 
 @node emacspeak-url-template
@@ -6471,7 +6684,8 @@ Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds
 @deffn {Interactive Command} emacspeak-webutils-play-media-at-point nil
 @kbd{Not bound to any key.}
 
-Play media url under point 
+Play media url under point.
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-rss-display nil
@@ -7754,6 +7968,112 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect.
+@end deffn
+
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://w3search.torolab.ibm.com/search.mod"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-internal-uri
+"?q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line)
+  )
+
+(emacspeak-websearch-set-searcher 'ibm-my-news
+                                  'emacspeak-websearch-ibm-my-news)
+bind it to tab 
+(emacspeak-websearch-set-key 9 'ibm-my-news)
+
+(defvar emacspeak-websearch-ibm-my-news-uri
+  "http://w3search.torolab.ibm.com/search.mod?do=w3-1.ibm.com%2Fnews%2F&mh=100&ei=1&mo=fl"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-my-news (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "My News Search ")))
+  (declare (special emacspeak-websearch-ibm-my-news-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-my-news-uri
+"&q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line))
+
+(emacspeak-websearch-set-searcher 'blue-pages
+                                  'emacspeak-websearch-blue-pages)
+
+(emacspeak-websearch-set-key ?B 'blue-pages)
+
+(defvar emacspeak-websearch-blue-pages-uri
+  "http://bluepages.ibm.com/cgi-bin/bluepages.pl?"
+  "*URI for BluePages search")
+
+(defun emacspeak-websearch-blue-pages (query &optional prefix)
+  "Search IBM Blue Pages"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Look in Blue Pages for:
+")
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-blue-pages-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-blue-pages-uri
+             (format "directory=%s&"
+                     (if prefix
+                         (read-from-minibuffer "Location: ")
+                       "almaden"))
+"&Selection=Name&selectOn="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   "Tie Line"
+   'emacspeak-speak-line))
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
+@kbd{Not bound to any key.}
+
+Search IBM Blue Pages
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
 @end deffn
 
 @node emacspeak-firevox
