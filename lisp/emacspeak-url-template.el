@@ -1607,143 +1607,6 @@ name of the list.")
       "//p" url 'speak)))
 
 ;;}}}
-;;{{{  NPR programs
-
-(emacspeak-url-template-define
- "American Life On Demand."
-                                        ;"http://www.wbez.org/ta/%s.rm"
- "http://www.thislife.org/ra/%s.ram"
- (list "Episode: ")
- nil
- "Play This American Life  shows on demand."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Wait Wait, Dont Tell Me (NPR)"
- "http://www.npr.org/dmg/dmg.php?mediaURL=/waitwait/%s_waitwait&mediaType=RM"
- (list
-  #'(lambda ()
-      (emacspeak-url-template-collect-date "Date: (Saturdays)"
-                                           "%Y%m%d")))
- nil
- "Play Wait, Wait Dont Tell Me from NPR."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "NPR On Demand"
- "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
- (list
-  #'(lambda ()
-      (upcase (read-from-minibuffer "Program code:")))
-  #'(lambda ()
-      (emacspeak-url-template-collect-date "Date:"
-                                           "%d-%b-%Y"))
-  "Segment:")
- nil
- "Play NPR shows on demand.
-Program is specified as a program code:
-
-ME              Morning Edition
-ATC             All Things Considered
-day             Day To Day
-newsnotes       News And Notes
-totn            Talk Of The Nation
-fa              Fresh Air
-wesat           Weekend Edition Saturday
-wesun           Weekend Edition Sunday
-fool            The Motley Fool
-
-Segment is specified as a two digit number --specifying a blank value
-plays entire program."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)
-     (emacspeak-xslt-view
-      (expand-file-name "smil-anchors.xsl"
-                        emacspeak-xslt-directory)
-      url)))
-
-(emacspeak-url-template-define
- "All Things Considered Stream from NPR"
-
- "http://www.npr.org/dmg/dmg.php?prgCode=ATC&showDate=%s&segNum=&mediaPref=RM"
- (list
-  #'(lambda ()
-      (emacspeak-url-template-collect-date "Date:"
-                                           "%d-%b-%Y")))
- nil
- "Play NPR All Things Considered stream."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Talk Of The Nation  Stream from NPR"
- "http://www.npr.org/ramfiles/totn/%s.totn.ram"
- (list 'emacspeak-url-template-date-YearMonthDate)
- nil
- "Play NPR Talk Of The Nation  stream."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Morning Edition Stream from NPR"
- "http://www.npr.org/dmg/dmg.php?prgCode=ME&showDate=%s&segNum=&mediaPref=RM"
- (list
-  #'(lambda ()
-      (emacspeak-url-template-collect-date "Date:"
-                                           "%d-%b-%Y")))
- nil
- "Play NPR Morning Edition  stream."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Motley Fool Radio from NPR"
- "http://www.npr.org/dmg/dmg.php?prgCode=FOOL&showDate=%s&segNum=&mediaPref=RM"
- (list
-  #'(lambda ()
-      (emacspeak-url-template-collect-date "Date:"
-                                           "%d-%b-%Y")))
- nil
- "Play NPR Motley Fool   stream."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Talk Of The Nation from NPR"
- "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
- (list
-  'emacspeak-url-template-date-YearMonthDate
-  "Segment: ")
- nil
- "Play NPR Talk Of The Nation segment."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "All Things Considered from NPR"
- "rtsp://audio.npr.org/atc/%s_atc_%s.rm"
- (list
-  'emacspeak-url-template-date-YearMonthDate
-  "Segment: ")
- nil
- "Play All Things Considered segment."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Morning Edition from NPR"
- "rtsp://audio.npr.org/me/%s_me_%s.rm"
- (list
-  'emacspeak-url-template-date-YearMonthDate
-  "Segment:")
- nil
- "Play Morning Edition segment."
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-;;}}}
 ;;{{{  The Linux Show
 (emacspeak-url-template-define
  "Geek Linux Daily"
@@ -2341,9 +2204,9 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates that enable access to NPR media
-streams prompt for a program id and date, and automatically
-launch the realmedia player after fetching the resource.\n\n"
+As an example, the URL templates that enable access to map directions
+prompt for address and automatically
+speak the relevant results.\n\n"
     (mapconcat #'key-description
                (where-is-internal
                 'emacspeak-url-template-fetch)
