@@ -210,7 +210,9 @@ Generated from http://www.npr.org/api/inputReference.php")
      'emacspeak-web-post-process-hook
      #'(lambda ()
          (declare (special emacspeak-we-url-executor))
-         (setq emacspeak-we-url-executor 'emacspeak-npr-listing-url-executor)))
+         (setq emacspeak-we-url-executor
+               'emacspeak-npr-listing-url-executor)
+         (emacspeak-speak-buffer)))
     (emacspeak-xslt-view-xml
      (expand-file-name "npr-list.xsl" emacspeak-xslt-directory)
      (emacspeak-npr-rest-endpoint "list"
