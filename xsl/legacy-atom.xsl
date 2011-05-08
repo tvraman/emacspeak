@@ -143,6 +143,7 @@ only support the current Atom namespace.
       <xsl:choose>
         <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
         <xsl:when test="@rel='edit'">[Edit]</xsl:when>
+        <xsl:when test="@rel='replies'">[Comments]</xsl:when>
         <xsl:when
             test="@rel='edit-media'">[Edit-Media]</xsl:when>
         <xsl:when test="@rel='media-edit'">[MediaEdit]</xsl:when>

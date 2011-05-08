@@ -8507,7 +8507,7 @@ Search WebMarks.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 147 URL Templates.
+This section documents a total of 137 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8522,9 +8522,9 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates that enable access to NPR media
-streams prompt for a program id and date, and automatically
-launch the realmedia player after fetching the resource.
+As an example, the URL templates that enable access to map directions
+prompt for address and automatically
+speak the relevant results.
 
 @kbd{1Box Google}
 
@@ -8538,21 +8538,9 @@ Find live streams for Air Traffic Control.
 
 Display airport conditions from the FAA.
 
-@kbd{All Things Considered Stream from NPR}
-
-Play NPR All Things Considered stream.
-
-@kbd{All Things Considered from NPR}
-
-Play All Things Considered segment.
-
 @kbd{Amazon Product Details By ASIN}
 
 Retrieve product details from Amazon by either ISBN or ASIN.
-
-@kbd{American Life On Demand.}
-
-Play This American Life  shows on demand.
 
 @kbd{Anonymize Google Search}
 
@@ -8865,18 +8853,6 @@ Display content from Google Finance.
 
 CNN Content
 
-@kbd{Morning Edition Stream from NPR}
-
-Play NPR Morning Edition  stream.
-
-@kbd{Morning Edition from NPR}
-
-Play Morning Edition segment.
-
-@kbd{Motley Fool Radio from NPR}
-
-Play NPR Motley Fool   stream.
-
 @kbd{Mozilla Developers Corner}
 
 Pull specified resource from MDC.
@@ -8891,24 +8867,6 @@ from English to German
 @kbd{Music Search}
 
 Music search on Google.
-
-@kbd{NPR On Demand}
-
-Play NPR shows on demand.
-Program is specified as a program code:
-
-ME              Morning Edition
-ATC             All Things Considered
-day             Day To Day
-newsnotes       News And Notes
-totn            Talk Of The Nation
-fa              Fresh Air
-wesat           Weekend Edition Saturday
-wesun           Weekend Edition Sunday
-fool            The Motley Fool
-
-Segment is specified as a two digit number --specifying a blank value
-plays entire program.
 
 @kbd{NY Times RSS Feeds}
 
@@ -8990,14 +8948,6 @@ Seeking Alpha search.
 
 Locate and display Shoutcast streams.
 
-@kbd{Talk Of The Nation  Stream from NPR}
-
-Play NPR Talk Of The Nation  stream.
-
-@kbd{Talk Of The Nation from NPR}
-
-Play NPR Talk Of The Nation segment.
-
 @kbd{Tech News From CNet}
 
 Display tech news from CNET
@@ -9024,10 +8974,6 @@ Twitter search and display results feed.
 @kbd{UPS Packages}
 
 Display package tracking information from UPS.
-
-@kbd{Wait Wait, Dont Tell Me (NPR)}
-
-Play Wait, Wait Dont Tell Me from NPR.
 
 @kbd{Walking Directions From Google}
 
