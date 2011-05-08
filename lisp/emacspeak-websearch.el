@@ -1000,7 +1000,7 @@ I'm Feeling Lucky button on Google."
     (if lucky
         (emacspeak-webutils-autospeak)
       (emacspeak-webutils-post-process
-       "results"
+       "Search Results"
        'emacspeak-speak-line))
     (let ((emacspeak-w3-tidy-html t))
       (emacspeak-webutils-with-xsl-environment

@@ -133,6 +133,7 @@ View an Atom feed as clean HTML
       <xsl:choose>
 	<xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
 	<xsl:when test="@rel='edit'">[Edit]</xsl:when>
+    <xsl:when test="@rel='replies'">[Comments]</xsl:when>
 	<xsl:when
 	    test="@rel='edit-media'">[Edit-Media]</xsl:when>
 	<xsl:when test="@rel='media-edit'">[Media-Edit]</xsl:when>
