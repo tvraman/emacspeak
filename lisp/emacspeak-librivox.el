@@ -173,33 +173,22 @@ Generated from http://www.librivox.org/api/inputReference.php")
   (declare (special emacspeak-librivox-buffer-name
                     emacspeak-librivox-catalog-location))
   (let ((inhibit-read-only t))
-  (unless (file-exists-p emacspeak-librivox-catalog-location)
-    (message "Retrieving Librivox catalog, might take a minute.")
-    (emacspeak-librivox-fetch-catalog))
-  (unless (file-exists-p emacspeak-librivox-catalog-location)
-    (error "Cannot find Librivox Catalog."))
-  (cond
-   ((null (get-buffer emacspeak-librivox-buffer-name))
-    (emacspeak-table-find-csv-file
-     emacspeak-librivox-catalog-location)
-    (rename-buffer emacspeak-librivox-buffer-name)
-    (emacspeak-librivox-mode))
-   (t (switch-to-buffer emacspeak-librivox-buffer-name)))
-  (emacspeak-auditory-icon 'open-object)
-  (message "Librivox Interaction")))
-      
-      
-      
-      
-      
-  
+    (unless (file-exists-p emacspeak-librivox-catalog-location)
+      (message "Retrieving Librivox catalog, might take a minute.")
+      (emacspeak-librivox-fetch-catalog))
+    (unless (file-exists-p emacspeak-librivox-catalog-location)
+      (error "Cannot find Librivox Catalog."))
+    (cond
+     ((null (get-buffer emacspeak-librivox-buffer-name))
+      (emacspeak-table-find-csv-file
+       emacspeak-librivox-catalog-location)
+      (rename-buffer emacspeak-librivox-buffer-name)
+      (emacspeak-librivox-mode))
+     (t (switch-to-buffer emacspeak-librivox-buffer-name)))
+    (emacspeak-auditory-icon 'open-object)
+    (message "Librivox Interaction")))
   
     
-    
-    (put-text-property start (point)
-                       'face font-lock-doc-face)
-    (setq header-line-format "Bookshare Library")
-    (cd-absolute emacspeak-bookshare-directory)))
 
 ;;}}}
 ;;{{{ end of file
