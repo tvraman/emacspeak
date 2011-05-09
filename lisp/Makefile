@@ -166,6 +166,7 @@ emacspeak-jde.elc \
 emacspeak-jawbreaker.elc \
 emacspeak-js2.elc \
 emacspeak-kmacro.elc  \
+emacspeak-librivox.elc \
 emacspeak-madplay.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
@@ -383,6 +384,7 @@ emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-jawbreaker.elc: emacspeak-jawbreaker.el emacspeak-piglets.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
+emacspeak-librivox.elc: emacspeak-librivox.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-madplay.elc: emacspeak-madplay.el dtk-speak.elc voice-setup.elc
