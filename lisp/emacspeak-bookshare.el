@@ -757,8 +757,7 @@ b Browse
 ;;}}}
 ;;{{{  Property Accessors:
 
-(loop
- for p in
+(loop for p in
  '(author title id metadata target directory)
  do
  (eval

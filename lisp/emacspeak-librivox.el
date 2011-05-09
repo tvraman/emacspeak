@@ -1,7 +1,7 @@
 ;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable LIBRIVOX An Emacs Interface to Free Audio Books 
+;;; Description:  Speech-enable LIBRIVOX An Emacs Interface to Free Audio Books
 ;;; Keywords: Emacspeak,  Audio Desktop librivox
 ;;{{{  LCD Archive entry:
 
@@ -54,7 +54,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-table)
+(require 'emacspeak-table-ui)
 (require 'derived)
 
 ;;}}}
@@ -64,12 +64,9 @@
   "Librivox Access on the Complete Audio Desktop."
   :group 'emacspeak)
 
-
-
-
 (defcustom emacspeak-librivox-catalog-location
   (expand-file-name "librivox/catalog.csv"
-  emacspeak-resource-directory)
+                    emacspeak-resource-directory)
   "Location where we cache the librivox catalog.")
 
 ;;}}}
@@ -105,57 +102,8 @@
            emacspeak-librivox-curl-common-options
            (format "%s%s"
                    emacspeak-librivox-api-base
-           "csv.php")
+                   "csv.php")
            emacspeak-librivox-catalog-location)))
-
-;;}}}
-;;{{{ program index
-
-;;; Found using documentation at 
-;;; http://www.librivox.org/api/inputReference.php
-;;; All Programs : http://api.librivox.org/list?id=3004
-
-(defvar emacspeak-librivox-listing-table
-  '(("Programs"   . 3004)
-    ("Topics" . 3002)
-    ("Topics And Music Genres" .  3218)
-    ("Music Genres" . 3018)
-    ("Music Artists" .  3008)
-    ("Columns" . 3003)
-    ("Series" . 3006)
-    ("Blogs" . 3013)
-    ("Bios"   . 3007))
-  "Association table of listing keys.
-Generated from http://www.librivox.org/api/inputReference.php")
-
-(defsubst emacspeak-librivox-get-listing-key ()
-  "Prompt for and return listing key."
-  (let* ((completion-ignore-case t)
-         (label(completing-read "Listing: " emacspeak-librivox-listing-table)))
-    (cdr (assoc label emacspeak-librivox-listing-table))))
-
-(defun emacspeak-librivox-listing-url-executor (url)
-  "Special executor for use in LIBRIVOX  listings."
-  (interactive "sURL: ")
-  (emacspeak-webutils-atom-display
-   (emacspeak-librivox-rest-endpoint "query"
-                                (format "id=%s&output=atom"
-                                        (file-name-nondirectory url)))))
-
-;;;###autoload    
-(defun emacspeak-librivox-listing ()
-  "Display specified listing."
-  (interactive)
-  (let ((key (emacspeak-librivox-get-listing-key)))
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda ()
-         (declare (special emacspeak-we-url-executor))
-         (setq emacspeak-we-url-executor 'emacspeak-librivox-listing-url-executor)))
-    (emacspeak-xslt-view-xml
-     (expand-file-name "librivox-list.xsl" emacspeak-xslt-directory)
-     (emacspeak-librivox-rest-endpoint "list"
-                                  (format "id=%s&output=atom" key)))))
 
 ;;}}}
 (provide 'emacspeak-librivox)
@@ -164,8 +112,32 @@ Generated from http://www.librivox.org/api/inputReference.php")
 (define-derived-mode emacspeak-librivox-mode emacspeak-table-mode
   "Librivox Library Of Free Audio Books"
   "A Librivox front-end for the Emacspeak Audio Desktop."
-  )
-  
+  (progn
+    (declare (special emacspeak-table-speak-row-filter))
+    (setq tab-width 12)
+    (setq emacspeak-table-speak-row-filter
+          '(0 " by " 5))))
+(define-prefix-command 'emacspeak-librivox-searcher)
+
+(defun emacspeak-librivox-setup-keys ()
+  "Set up Librivox keys."
+  (declare (special emacspeak-librivox-mode-map))
+  (loop for binding in
+        '(
+          ("\C-m" emacspeak-librivox-open-rss)
+          ("S" emacspeak-librivox-searcher)
+          )
+        do
+        (emacspeak-keymap-update emacspeak-librivox-mode-map  binding))
+  (loop for key in
+        '(
+          ("a" emacspeak-librivox-search-author)
+          ("t" emacspeak-librivox-search-title)
+          ("g" emacspeak-librivox-search-genre))
+        do
+        (emacspeak-keymap-update emacspeak-librivox-searcher key)))
+
+(emacspeak-librivox-setup-keys)
 ;;;###autoload
 (defun emacspeak-librivox ()
   "Librivox Library Of Free Audio Books."
@@ -187,8 +159,82 @@ Generated from http://www.librivox.org/api/inputReference.php")
      (t (switch-to-buffer emacspeak-librivox-buffer-name)))
     (emacspeak-auditory-icon 'open-object)
     (message "Librivox Interaction")))
-  
-    
+
+;;}}}
+;;{{{ User Actions:
+(defvar  emacspeak-librivox-fields
+  '(
+    ("ProjectName" . 0)
+    ("LibrivoxURL" . 1)
+    ("RssURL" . 2)
+    ("Category" . 3)
+    ("Genre" . 4)
+    ("Author1" . 5)
+    ("Author2" . 6)
+    ("Author3" . 7)
+    ("Author4" . 8)
+    ("Translator" . 9)
+    ("Language" . 10)
+    ("Type" . 11))
+  "Association list of Librivox Catalog fields.")
+
+(defsubst emacspeak-librivox-field-position (name)
+  "Return column for specified field."
+  (declare (special emacspeak-librivox-fields))
+  (cdr (assoc name  emacspeak-librivox-fields)))
+
+;;;###autoload
+(defun emacspeak-librivox-open-rss ()
+  "Open RSS  link for current Librivox book."
+  (interactive)
+  (declare (special emacspeak-table))
+  (unless
+      (and (eq major-mode 'emacspeak-librivox-mode)
+           (boundp 'emacspeak-table)
+           emacspeak-table)
+    (error "Not in a valid Emacspeak table."))
+  (let ((rss (emacspeak-table-this-element
+              emacspeak-table
+              (emacspeak-table-current-row emacspeak-table)
+              (emacspeak-librivox-field-position "RssURL"))))
+    (emacspeak-webutils-rss-display rss)))
+
+;;;###autoload
+
+(defun emacspeak-librivox-search-author (pattern)
+  "Search in catalog for Author 1."
+  (interactive "sAuthor 1")
+  (declare (special emacspeak-table))
+  (let*((column (emacspeak-librivox-field-position "Author1"))
+        (row
+         (emacspeak-table-find-match-in-column
+          emacspeak-table column pattern 'string-match)))
+    (emacspeak-table-goto row column)
+    (call-interactively  emacspeak-table-speak-element)))
+;;;###autoload
+(defun emacspeak-librivox-search-title (pattern)
+  "Search in catalog for title."
+  (interactive "sTitle")
+  (declare (special emacspeak-table))
+  (let*((column (emacspeak-librivox-field-position "ProjectName"))
+        (row
+         (emacspeak-table-find-match-in-column
+          emacspeak-table column pattern 'string-match)))
+    (emacspeak-table-goto row column)
+    (call-interactively  emacspeak-table-speak-element)))
+
+;;;###autoload
+(defun emacspeak-librivox-search-genre (pattern)
+  "Search in catalog for genre."
+  (interactive "sGenre")
+  (declare (special emacspeak-table))
+  (let*((column (emacspeak-librivox-field-position "ProjectName"))
+        (row
+         (emacspeak-table-find-match-in-column
+          emacspeak-table column pattern 'string-match)))
+    (emacspeak-table-goto row column)
+    (call-interactively  emacspeak-table-speak-element)))
+
 
 ;;}}}
 ;;{{{ end of file
