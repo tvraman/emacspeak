@@ -13,6 +13,14 @@ Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
 announces the immediate world-wide availability of Emacspeak
 34.0 (Bubbles) --a powerful audio desktop for leveraging today's evolving
 data, social and service-oriented  Web cloud.
+** Code Name Note
+
+After 11+ years of loyal service, Hubbell Labrador retired from
+active duty as a guide-dog on April 4,2011; she stayed on as
+Emacspeak's press contact for another week before finally leaving
+us on April 11, 2011
+— [[http://emacspeak.sf.net/raman/hubbell-labrador/epitaph.html][Epitaph]]. This release is code named Bubbles  in honour of her
+unflagging service over these last 11 years.
 
 ** Investors Note:
 
@@ -37,14 +45,15 @@ task-oriented tools provides efficient speech-enabled access to
 the evolving service-oriented social Web cloud.
 
 ** Major Enhancements:
-
-
     
     1. Updated URL Templates for rapid Web access. ♁
     2. Support for twittering-mode—including logins using OAuth.    ●
     3. API  Client for NPR programming. 🔘
     4. Librivox API  client. 📚
     5. Emacs 24 support ♺
+    6. Speech server support for Mac OS.
+
+
 
 Plus many more changes too numerous to fit in this margin ... ∞
 
@@ -111,7 +120,7 @@ Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
 to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
 mail to the list request address emacspeak-request@cs.vassar.edu.
 The StarDog release is at 
-[[http://emacspeak.googlecode.com/files/emacspeak-33.0.tar.bz2]].
+[[http://emacspeak.googlecode.com/files/emacspeak-34.0.tar.bz2]].
 The latest development snapshot of Emacspeak is available via
 Subversion from Google Code Hosting at 
 http://emacspeak.googlecode.com/svn/trunk/
@@ -221,7 +230,7 @@ CopyWrite )C( Aster and Hubbell Labrador. All Writes Reserved.
 LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster and Hubbell Labrador.  All other dogs belong to
 their respective owners.
-#+TITLE:     Emacspeak 33.0—StarDog—Unleashed!
+#+TITLE:     Emacspeak 34.0—Bubbles—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
