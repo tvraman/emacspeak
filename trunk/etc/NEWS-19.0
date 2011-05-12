@@ -1,0 +1,105 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+
+* Emacspeak 19.0 Additions And Changes:
+
+Emacspeak 19.0 provides the following user level enhancements:
+
+* New Emacspeak Features:
+
+** emacspeak-newsticker.el:
+
+Speech-enables package newsticker, a native Emacs RSS  agent.
+
+
+** emacspeak-nxml.el:
+
+Speech-enables James Clark's nxml-mode --- a powerful  XML editing mode.
+
+
+** emacspeak-ocr.el:
+
+etc/ocr-client.pl implements the Emacspeak OCR interface 
+for OCRXTR from Vividata.
+
+** emacspeak-eperiodic.el
+
+Extended to speech-enable new functionality in eperiodic.
+
+
+** emacspeak-wizards.el:
+
+New productivity wizards.
+
+** emacspeak-websearch.el:
+
+Updated websearch templates.
+
+** emacspeak-url-template.el:
+
+Additional smart URL templates.
+
+** emacspeak-daisy.el:
+
+Updated to handle the bookshare variant of Daisy3 files.
+
+** flite-voices.el:
+
+Place-holder for eventual FLite support.
+
+** emacspeak-kmacro.el:
+
+Speech-enables kmacro --- a new keyboard macro package.
+
+** world clock:
+Command  emacspeak-speak-time implements a world clock when
+called                                 with an interactive
+prefix                                 arg (C-u).
+When called with two prefix args i.e. C-u twice, it sets the
+timezone                                 as well --- useful for
+international                                 travel.
+
+** Browsing buffers:
+Command emacspeak-speak-browse-buffer now browses by personality
+chunks rather than by paragraphs.
+The older functionality of browsing by paragraphs is still
+accessible through emacspeak-speak-continuously 
+
+**emacspeak-sigbegone.el
+
+Speech-enables sigbegone --- a package for  recognizing email
+signatures.
+
+
+** emacspeak-ediary.el:
+
+Speech-enables ediary --- a special mode for working with the
+.diary file.
+
+
+** emacspeak-damlite.el:
+Speech-enables damlite-mode --- a special mode for creating and
+maintaining  DAML ontologies using RDF.
+
+** emacspeak-pronounce:
+
+User defined pronunciations have been augmented.
+Pronunciations can now be specified either as a string,
+or in more complex situations as a cons (matcher . pronouncer).
+For examples of use, see emacspeak-vm.el
+which uses this feature to define an appropriate pronunciation
+rule for ISO DateTime values.
+
+** TTS Support:
+
+TTS specific code is now restricted in modules of the form
+<synth-name>-voices.el.
+Support for additional  TTS engines 
+should be modeled on the code in dectalk-voices.el and outloud-voices.el
+
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:

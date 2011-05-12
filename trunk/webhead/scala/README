@@ -1,0 +1,8 @@
+Scala scripts that use htmlunit to implement a headless
+WebClient.
+Should be less code than writing Java.
+
+To build:
+
+Create symlinks in lib to the jars used by htmlunit
+

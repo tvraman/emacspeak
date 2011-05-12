@@ -1,0 +1,496 @@
+#!/usr/bin/python2.6
+# E-Mac-Speak
+# Emacspeak on Mac.
+# author: David Tseng
+# author: Bart Bunting
+
+import aifc
+import math
+import os
+import re
+import sys
+import tempfile
+import threading
+
+from Foundation import *
+from PyObjCTools import AppHelper
+from AppKit import NSObject
+from AppKit import NSSound
+from AppKit import NSSpeechSynthesizer
+
+# Globals.
+ttsState = {}
+
+# amount to increase pitch of capital letters.  This may need tweaking. 
+capsPitchIncrease = 8
+
+# Debug level
+# 0 means no debug output is written 10 is maximum output
+debugLevel = 0
+
+# Should debug output also be written to STDOUT?
+debugToSTDOUT = 0
+
+# A debug file to place sample tts text sent by emacspeak.
+if debugLevel > 0:
+  DEBUGFILE = tempfile.NamedTemporaryFile(dir='/tmp',
+                                          mode='w',
+                                          prefix='emacspeak.servers.mac_log')
+
+# global speech rate
+ttsState['speechRate'] = 500
+ttsState['charFactor'] = 1.8
+ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
+# set capitalize to off initialy
+ttsState['capitalize'] = 0
+
+# Possible levels of punctuation (none, some, all).
+ttsState['punctuationLevel'] = 'none'
+
+# used to pronounce punctuation chars
+punctuationNamesMap= {'$':'dollar',
+                 '#':'pound', 
+                 '-':'dash',
+                 '"':'quote',
+	         '(':'leftParen',
+                 ')':'rightParen',
+                 '*':'star',
+                 ';':'semi',
+                 ':':'colon',
+                 '<':'less than',
+                 '>':'greater than',
+                 '\n':'new line',
+                 '\\':'backslash',
+                 '/':'slash',
+                 '+':'plus',
+                 '=':'equals',
+                 '\'':'apostrophe',
+                 '~':'tilda',
+                 '`':'backquote',
+                 '!':'exclamation',
+                 '@':'at',
+                 '_':'underline',
+                 '.':'dot',
+                 ',':'comma'}
+
+punctuationMap = {'none': ('$'),
+                  'some': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '~', '`', '!'),
+                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '.', ',')}
+
+# map voice short names to apple class names.
+voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
+           'victoria':'com.apple.speech.synthesis.voice.Victoria',
+           'vicki':'com.apple.speech.synthesis.voice.Vicki',
+           'ralf':'com.apple.speech.synthesis.voice.Ralph',
+           'kathy':'com.apple.speech.synthesis.voice.Kathy',
+           'junior':'com.apple.speech.synthesis.voice.Junior',
+           'fred':'com.apple.speech.synthesis.voice.Fred',
+           'bruce':'com.apple.speech.synthesis.voice.Bruce'}
+
+# A queue of either text or audio filenames waiting to be dispatched to NSSpeechSynthesizer.
+speechQueue = []
+
+# Lock access to specific speech synthesis paths.
+speechLock = threading.Lock()
+
+
+"""
+  Helper for consuming callbacks from NSSpeechSynthesizer.
+"""
+class SpeechSynthesizerDelegate(NSObject):
+
+  def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
+    processSpeechQueue()
+
+  def speechSynthesizer_didEncounterErrorAtIndex_ofString_message_(self, synthesizer, index, text, message):
+    #writeDebugLog(2, "error encountered in synth: " + message + " at index " + str(index) + " of string '" + text + "'\n")
+    writeDebugLog(2, "error encountered in synth: index " + str(index) + " of string '" + text + "'\n")
+
+  def speechSynthesizer_didEncounterSyncMessage_(self, synthesizer, message):
+    #writeDebugLog(2, "sync " + int(message) + "\n")
+    writeDebugLog(2, "sync\n")
+    p = ProtocolHandler()
+    p.handleTone("500 30")
+
+# Static.
+speechSynthesizer = NSSpeechSynthesizer.alloc().init()
+delegate_ = SpeechSynthesizerDelegate.alloc().init();
+speechSynthesizer.setRate_(ttsState['speechRate'])
+speechSynthesizer.setDelegate_(delegate_)
+
+"""
+  An object which observes stdin.
+  This class largely contains basic i/o for reading from stdin using
+  NSNotificationCenter.
+"""
+class FileObserver(NSObject):
+  def initWithFileDescriptor_readCallback_errorCallback_(self,
+      fileDescriptor, readCallback, errorCallback):
+    self = self.init()
+    self.readCallback = readCallback
+    self.errorCallback = errorCallback
+    self.fileHandle = NSFileHandle.alloc().initWithFileDescriptor_(
+      fileDescriptor)
+    self.nc = NSNotificationCenter.defaultCenter()
+    self.protocolHandler = ProtocolHandler()
+    self.nc.addObserver_selector_name_object_(
+      self,
+      'fileHandleReadCompleted:',
+      NSFileHandleReadCompletionNotification,
+      self.fileHandle)
+    self.fileHandle.readInBackgroundAndNotify()
+    return self
+
+  def fileHandleReadCompleted_(self, aNotification):
+    ui = aNotification.userInfo()
+    newData = ui.objectForKey_(NSFileHandleNotificationDataItem)
+    if newData is None:
+      if self.errorCallback is not None:
+        self.errorCallback(self, ui.objectForKey_(NSFileHandleError))
+      self.close()
+    else:
+      self.fileHandle.readInBackgroundAndNotify()
+      if self.readCallback is not None:
+        self.readCallback(self, str(newData))
+
+  def close(self):
+    self.nc.removeObserver_(self)
+    if self.fileHandle is not None:
+      self.fileHandle.closeFile()
+      self.fileHandle = None
+    # break cycles in case these functions are closed over
+    # an instance of us
+    self.readCallback = None
+    self.errorCallback = None
+
+  def __del__(self):
+    # Without this, if a notification fires after we are GC'ed
+    # then the app will crash because NSNotificationCenter
+    # doesn't retain observers.  In this example, it doesn't
+    # matter, but it's worth pointing out.
+    self.close()
+
+# This is conceptually the main entry point of the server.
+def gotLine(observer, aLine):
+  if aLine:
+    writeDebugLog(2, "gotline: " + aLine.rstrip() +  "\nend\n")
+    observer.protocolHandler.dispatchRawTtsMessage(aLine.rstrip())
+  else:
+    AppHelper.stopEventLoop()
+
+def gotError(observer, err):
+  print "error:", err
+  AppHelper.stopEventLoop()
+
+def writeDebugLog(level, output):
+  # do nothing if debug is off
+  if debugLevel == 0:
+    return
+
+  if level <= debugLevel:
+    if output:
+      DEBUGFILE.write(output)
+      # Write debug messages to STDOUT if requested as well
+      if debugToSTDOUT:
+        print output + "\n"
+    DEBUGFILE.flush()
+
+
+# Object that implements the Emacspeak TTS protocol.
+class _ProtocolHandler:
+  # Enables singleton behavior.
+  def __call__(self):
+    return self
+
+  def __init__(self):
+    # Maps a protocol id to a handler function.
+    self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
+                                    'a':self.handleAuditoryIcon,
+                                    'l':self.handleLetter,
+                                    'q':self.handleQueue,
+                                    's':self.handleStopSpeaking,
+                                    't':self.handleTone,
+                                    'tts_say':self.handleTtsSay,
+                                    'tts_sync_state':self.handleTtsSyncState,
+                                    'tts_set_punctuations':self.handleTtsSetPunctuations,
+                                    'tts_set_speech_rate':self.handleTtsSetSpeechRate,
+                                    'tts_set_character_scale':self.handleTtsSetCharacterScale }
+
+    # Used to extract protocol id and args from a raw message.
+    self.protocolRePattern = (
+      r"((?P<blockId>[a-z\-]*) {(?P<blockArg>[\s\S]*))|((?P<spaceId>[a-z_]*) (?P<spaceArg>[\s\S]*))|(?P<id>[a-z_]*)")
+    # Used to detect multiple dispatches during processing of one chunk set.
+    self.isProcessing = False
+    # Hack to get multiline q's working.
+    self.queueContinuationValue = ""
+    self.isQueueContinuation = False
+
+  # Protocol Handlers.
+  def handleDispatch(self, args):
+    # sometimes we receive multiple dispatches within the same chunks set.
+    if not self.isProcessing:
+      processSpeechQueue()
+      self.isProcessing = True
+
+
+  # Play an auditory icon.
+  # There may be a better way of doing this
+  # Currently we play the icon as soon as we receive it which produces the best results.
+  def handleAuditoryIcon(self, args):
+    writeDebugLog(6, "Auditory icon " + args + "\n")
+    if args:
+      NSSound.alloc().initWithContentsOfFile_byReference_(args, True).play()
+
+  def handleLetter(self, args):
+    output = args.strip(" }")
+
+    prefix = "[[rate " + str(ttsState['sayRate']) + "]]"
+    suffix = "[[rate " + str(ttsState['speechRate']) + "]]"
+
+    writeDebugLog(4, "Letter: " + output + "\n")
+    self.handleStopSpeaking(None)
+
+    # punctuation processing, we want to speak all punctuation if it is a single letter so just match against the punctuationNamesMap
+    if output in punctuationNamesMap:
+      output = punctuationNamesMap[output]
+      writeDebugLog(8, "punctuationNamesMap match, output now: " + output + "\n")  
+
+    # Check if this is a capital
+    if re.match(r"^[A-Z]+$", output):
+      prefix = prefix + " [[pbas +" + str(capsPitchIncrease) + "]]"
+      suffix = "[[pbas -" + str(capsPitchIncrease) + "]] " + suffix
+
+    # add prefix and suffix to output 
+    output = prefix + " " + output + " " + suffix
+    writeDebugLog(4, "about to speak letter: " + output + "\n")
+    # Send directly to TTS to avoid any line processing.
+    speechSynthesizer.startSpeakingString_(output)
+
+  def handleQueue(self, args):
+    if re.search(r"^(.*)(\[\[voice [a-z]*\]\])(.*)$", args):
+      queueTextWithVoiceCommands(args)
+    else:
+      self.queueContinuationValue = self.queueContinuationValue + args
+      if args.endswith('}'):
+        speechQueue.append(("text", self.queueContinuationValue))
+        self.queueContinuationValue = ""
+        self.isQueueContinuation = False
+      else:
+        self.isQueueContinuation = True
+
+  def handleStopSpeaking(self, args):
+    speechSynthesizer.stopSpeaking()
+    del(speechQueue[:])
+
+  def handleTone(self, args):
+    frequency, length = args.split(' ')
+    frequency = int(frequency)
+    length = int(length)
+    if not frequency or not length:
+      writeDebugLog(4, 'Invalid tone args %i, %i' % (frequency, length))
+      return
+
+    frameRate = 44100
+    nframes = frameRate * length / 1000.
+    frequencyWave = 2 * math.pi * frequency / frameRate
+    # frequencyWave is measured in radians per sample
+
+    e = aifc.open('/tmp/e.aiff', 'w')
+    e.setnchannels(1)
+    e.setsampwidth(2)
+    e.setframerate(44100)
+    e.setnframes(int(nframes))
+    e.writeframesraw(self.buildSineWave(frequencyWave, int(nframes)))
+    e.close()
+
+    icon = NSSound.alloc().initWithContentsOfFile_byReference_('/tmp/e.aiff', True)
+    icon.play()
+
+  def handleTtsSay(self, args):
+    speechSynthesizer.startSpeakingString_('[[rate %i]] %s' % (ttsState['sayRate'], args))
+
+  def handleTtsSetPunctuations(self, args):
+    global ttsState
+    ttsState['punctuationLevel'] = args.strip()
+    writeDebugLog(4, "Setting punctuation level: " +  ttsState['punctuationLevel'])
+  def handleTtsSetSpeechRate(self, args):
+    global ttsState
+    ttsState['speechRate'] = int(args.strip())
+    ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
+    writeDebugLog(4, "Setting speech rate: " +  str(ttsState['speechRate']) + " char factor: " + str(ttsState['charFactor']) + " say rate: " + str(ttsState['sayRate']) + "\n")
+
+  def handleTtsSetCharacterScale(self, args):
+    global ttsState
+    ttsState['charFactor'] = float(args.strip())
+    ttsState['sayRate'] = round(ttsState['speechRate'] * ttsState['charFactor'])
+    writeDebugLog(4, "Setting character scale: " + str(ttsState['charFactor']) + " say rate: " + str(ttsState['sayRate']) + "\n")
+
+
+  def handleTtsSyncState(self, args):
+    params = args.split()
+    global ttsState
+    ttsState['punctuationLevel'] = params[0]
+    ttsState['capitalize'] = int(params[1])
+    ttsState['allCaps'] = int(params[2])
+    ttsState['splitCaps'] = int(params[3])
+    ttsState['speechRate'] = int(params[4])
+    writeDebugLog(6, "tts_sync: set punctuation level to: " + ttsState['punctuationLevel'] + " capitalize to " + str(ttsState['capitalize']) + " allcaps " + str(ttsState['allCaps']) + " splitCaps " + str(ttsState['splitCaps']) + " rate to: " + str(ttsState['speechRate']) + "\n")
+
+  def dispatchRawTtsMessage(self, message):
+    self.isProcessing = False
+    writeDebugLog(4, "dispatchRawTtsMessage")
+    chunks = message.split('\n')
+    for chunk in chunks:
+      writeDebugLog(4, "\nchunk: " + chunk + "\nend\n")                      
+      if not chunk:
+        continue
+
+      if self.isQueueContinuation:
+        self.handleQueue(chunk)
+        continue
+
+      # Extract protocol id and protocol args.
+      matcher = re.match(self.protocolRePattern, chunk)
+
+      # Message validation.
+      if not matcher or ( 
+        len(matcher.groups()) != 7):
+        writeDebugLog(4, "Unable to parse pattern " + chunk)
+        continue
+
+      # Note the presence of three types of protocol messages:
+      # 1. containing only id.
+      # 2. containing id and {...} block.
+      # 3. containing id and space delimited args.
+      id = matcher.group('id')
+      blockId = matcher.group('blockId')
+      blockArg = matcher.group('blockArg')
+      spaceId = matcher.group('spaceId')
+      spaceArg = matcher.group('spaceArg')
+
+      # Send off to the handler.
+      if id and self.protocolIdToHandlerMap.has_key(id):
+        self.protocolIdToHandlerMap[id](None)
+      elif (
+        blockId and
+        self.protocolIdToHandlerMap.has_key(blockId)):
+        self.protocolIdToHandlerMap[blockId](blockArg)
+      elif (
+        spaceId and
+        spaceArg and self.protocolIdToHandlerMap.has_key(spaceId)):
+        self.protocolIdToHandlerMap[spaceId](spaceArg)
+      else:
+        print "unable to parse"
+        writeDebugLog(
+          4, "Error! unsupported message id:%s, blockId:%s, blockArg:%s, spaceId:%s, spaceArg:%s" % (
+          id, blockId, blockArg, spaceId, spaceArg))
+
+  def buildSineWave(self, frequency, length):
+    sinewave = bytearray()
+    for i in range(length):
+      val = int(math.sin(i * frequency) * 20000)
+      sinewave.extend([(val >> 8) & 255, val & 255])
+    return bytes(sinewave)
+
+        #TODO:  support protocol commands.
+        #version":
+        #speak tts version
+
+        #tts_pause:
+        #if tts_resume:
+        #sh:
+        #silence for ms.
+        #tts__reset:
+#tts_allcaps_beep flag (beep)
+
+# Static.
+ProtocolHandler = _ProtocolHandler()
+
+
+# This takes a string with imbedded voice changes and splits it up and queues individual text events with voice changes inbetween.
+def queueTextWithVoiceCommands(text):
+  writeDebugLog(4, "process text with voice commands")
+  while text:
+    # try cleaning out the extra spaces
+    text = text.strip("{} ")
+    matcher = re.match(r"^(?P<first>.*?)\[\[voice (?P<voice>[a-z]*)\]\](?P<rest>.*)$", text)
+    if not matcher:
+      writeDebugLog(8, "no match in string " + text + "\n")
+      break
+    first = matcher.group('first')
+    voice = matcher.group('voice')
+    rest = matcher.group('rest')
+    if first:
+      speechQueue.append(("text", first))
+    speechQueue.append(("voice", voice))
+    writeDebugLog(8, "first: " + first + "\nvoice " + voice + "\nrest " + rest)
+    text = rest
+  if text:
+    writeDebugLog(8, "queueing final chunk " + text)
+    speechQueue.append(("text", text))
+
+
+# Processes speech objects.
+#  format is:
+#  { type, value }
+def processSpeechQueue():
+  # hacky way to work around buggy NSSpeechSynthesizerDelegate
+  speechLock.acquire()
+  if speechSynthesizer.isSpeaking():
+    speechLock.release()
+    return
+  speechLock.release()
+
+  if (len(speechQueue) > 0):
+    item = speechQueue.pop(0)
+    #Text
+    if item[0] == "text":
+      #Basic processing.  TODO: refactor.
+      output = item[1].strip(" {}")
+      if output:
+        output = ProcessSpecialCharacters(output)
+        speechSynthesizer.setRate_(ttsState['speechRate'])
+        speechSynthesizer.startSpeakingString_(output)
+        writeDebugLog(2, "\nsay: " + item[1] + "\nend\n")
+      else:
+        processSpeechQueue()
+    elif item[0] == "voice":
+      writeDebugLog(4, "Voice change")
+      voice = item[1]
+      if voice in voiceMap:
+        speechSynthesizer.setVoice_(voiceMap[voice])
+        writeDebugLog(6, "set voice to " + voiceMap[voice])  
+        processSpeechQueue()
+
+
+def ProcessSpecialCharacters(wordList):
+  punctList = punctuationMap[ttsState['punctuationLevel']]
+
+  expansion = ""
+  for i in range(len(wordList)):
+    if wordList[i] in punctList:
+      expansion += ' ' + (punctuationNamesMap[wordList[i]]) + ' '
+    else:
+      # if we have a cap letter
+      if ttsState['capitalize'] and re.match(r"^[A-Z]+$", wordList[i]):
+        expansion += "[[sync 3]]"
+      expansion += (wordList[i])
+  return expansion
+
+def main():
+  speechSynthesizer.startSpeakingString_("E Mac Speak server")
+  observer = FileObserver.alloc().initWithFileDescriptor_readCallback_errorCallback_(
+        sys.stdin.fileno(), gotLine, gotError)
+  try:
+    AppHelper.runConsoleEventLoop()
+  except KeyboardInterrupt:
+    writeDebugLog(2, "\nKeyboard interrupt")
+  except Exception, err:
+    writeDebugLog(2, "Server crashed:%s" % err)
+
+if __name__ == '__main__':
+  main()
+
+# local variables:
+# mode: python
+# end:

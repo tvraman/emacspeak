@@ -1,0 +1,12 @@
+Source: emacspeak
+Section: unknown
+Priority: optional
+Maintainer: raman <raman@comcast.net>
+Build-Depends: debhelper (>= 4.0.0), autotools-dev
+Standards-Version: 3.6.2
+
+Package: emacspeak
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

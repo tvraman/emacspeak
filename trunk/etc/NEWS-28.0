@@ -1,0 +1,47 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 5575 2008-05-16 01:28:11Z tv.raman.tv $
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 28.0 Additions And Changes:
+
+Emacspeak 28.0 provides the following user level enhancements:
+** emacspeak-webspace:
+
+Module to automatically retrieve and speak useful information
+from the Web at appropriate points in user interaction, e.g.,
+when context-switching.
+
+** amixer.el
+
+Emacs binding to amixer, updated to work with ALSA 1.0.15 and
+newer audio hardware.
+
+** URL Tempaltes:
+
+Updated url templates.
+
+** emacspeak-webutils:
+
+Additional Web utilties.
+
+** emacspeak-wizards:
+
+Updated collection of wizards.
+
+** Unicode:
+
+Minor improvements for working better with multibyte  charsets.
+
+** GMail Wizards:
+
+Search wizards for GMail
+
+** G-Client Updates:
+
+G-Client has  been updated to work better with Calendar.
+
+
+
+Local variables:
+ mode: org
+end:

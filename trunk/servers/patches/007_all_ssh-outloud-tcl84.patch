@@ -1,0 +1,17 @@
+--- servers/ssh-outloud	2008-10-02 19:43:51.000000000 -0500
++++ servers/ssh-outloud	2009-05-19 11:24:45.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/tcl
++#!/usr/bin/tclsh
+ #$Id: ssh-outloud 5700 2008-07-20 17:46:53Z tv.raman.tv $
+ #Description: Launch a TTS server on a remote host.
+ #Copyright (C) 1995 -- 2007, T. V. Raman 
+@@ -42,7 +42,7 @@
+ }
+     
+ 
+-set tcl /usr/bin/tcl 
++set tcl /usr/bin/tcl sh
+ regsub {/ssh-}  $argv0 {/} tts
+ puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
+ exec     ssh -o StrictHostKeyChecking=no $host \

@@ -1,0 +1,126 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+
+* Emacspeak 13.0 Additions And Changes:
+
+Emacspeak 13.0 provides the following user level enhancements:
+
+* Graphical Desktop Environments:
+
+
+** Sawfish:
+Added subdirectory `sawfish' containing a tts.jl module for
+interfacing sawfish to the Emacspeak speech servers.
+Directory sawfish also contains my personal sawfishrc file
+as an example of how to load and use this package.
+When set up, this speech-enables the sawfish window manager.
+
+
+** emacspeak-Sawfish:
+Speech-enables interaction with the sawfish window manager.
+
+* Emacspeak Logo:
+
+Emacspeak now has a visual and auditory logo.
+
+** Visual: A 
+
+picture of Hubbell --Yellow Labrador-- with a bubble coming
+out of her mouth saying "Complete Audio Desktop" and the
+caption "EMACSPEAK" under her picture; thanks to Hans
+Zoebelein for the visual design.  This logo is used on the
+Emacspeak WWW site, and is available as an XPM file in the
+emacspeak/etc directory for use on graphical desktops.
+
+** Auditory Logo:
+
+Emacspeak.mp3 is a 4 second   MP3 file containing the first
+few bars of Bach's Toccata And fugue.
+The auditory logo is played as Emacspeak starts up.
+
+* New Emacspeak Features:
+
+** Sound Themes:
+ In addition to the default 8k  auditory icons, you can now
+ install alternative sound themes. Sound themes will be
+ distributed separate  from the main emacspeak distribution.
+
+** Streaming Media:
+Added support for navigating media streams using TRPlayer.
+TRPlayer navigation commands can now be used with
+Emacspeak's default 'C-e ;' keybinding.
+
+**freeamp:
+emacspeak-freeamp provides a simple interface to the Freeamp
+MP3 player.
+
+** MP3 Playlists:
+Added command  emacspeak-mp3-play-playlist  to play MP3 playlists.
+
+** Setting auditory display: 
+Added single keystroke commands  to adjust global output
+volume of the auditory display.
+
+** Browsing XML:
+Module emacspeak-psgml defines a simple enhancement  to 
+xml-mode to allow single keystroke browsing of XML
+documents.
+
+
+**  Desktop Calculator:
+Speech-enabled calculator.el --a simple desktop calculator
+that will be bundled with Emacs 21.0.
+
+** Enhanced table browsing:
+Added support for sorting tables etc.
+
+** Dictation:
+Speech-enables  dictation.el  --an Emacs interface to
+ViaVoice for allowing voice dictation within Emacs.
+
+** Buffer Navigation:
+Speech-enables package BS --an alternative to buff-menu bundled
+with  Emacs 21.
+
+** Generic Modes:
+Speech-enables package Generic so that modes defined using
+generic.el are automatically speech-enabled.
+This provides voice locking support for several new major
+modes including javascript-generic-mode, apache-generic-mode and friends.
+
+** Shell Scripts:
+Speech-enables module sh-script to provide 
+voice lock support for editting shell scripts.
+
+** JDE and JDEBug:
+Fully speech-enables all JDEBug  features.
+
+** CVS Access:
+Speech-enables CVS access.
+
+** XML And SGML:
+Enhanced to cover all aspects of  SGML and XML document
+authoring.
+
+** DTD Creation:
+Speech-enables package tdtd to enable creation and
+maintainance of XML and SGML DTDs.
+
+** XSL IDE:
+Speech-enables package xslide to provide  a powerful XSL
+authoring environment.
+** ibuffer:
+Speech-enables ibuffer --an alternative to buffer-menu.
+
+
+** WebSearch:
+Added support for additional search engines.
+
+
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:
+

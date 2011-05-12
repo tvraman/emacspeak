@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- here to teach how to build a CSE from a feed-->
+
+
+<form action="http://www.google.com/cse">
+  <input type="hidden" name="loading" value="1" />
+  <label for="q">Search: </label><input name="q" /><br/>
+  <input
+      type="hidden" name="cref"
+      value=
+      "http://www.google.com/cse/tools/makecse?url=http://www.google.com/reader/public/subscriptions/user/10949413115399023739/label/officialgoogleblogs-all"
+      />
+<input type="submit" value="Search"/>
+</form>

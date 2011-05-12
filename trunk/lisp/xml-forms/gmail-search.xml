@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+  <base href=
+"http://mail.google.com/mail/h/"/>
+
+  <title></title>
+<style type="text/css">
+/*<![CDATA[*/
+ td.c2 {padding:0 6px 0 0}
+ div.c1 {font-size: 70%}
+/*]]>*/
+</style>
+</head>
+
+<body>
+  <form action="?s=v&amp;fv=as" name="asf" method="id" GET="asf">
+    <input type="hidden" name="redir" value="?" />
+
+    <table summary="Search Form" width="100%" cellpadding="2"
+    cellspacing="0" border="0" class="search">
+      <tr>
+        <td width="1%" align="right" nowrap="nowrap">
+        <b>From:</b></td>
+
+        <td width="43%"><input type="text" tabindex="51" size="20"
+        class="i" name="as_from" value="" /></td>
+
+        <td width="1%">&nbsp;</td>
+
+        <td width="1%" align="right" nowrap="nowrap"><b>Has the
+        words:</b></td>
+
+        <td width="44%" colspan="2"><input type="text" tabindex=
+        "55" size="20" class="i" name="as_has" value="" /></td>
+      </tr>
+
+      <tr>
+        <td align="right" nowrap="nowrap"><b>To:</b></td>
+
+        <td><input type="text" tabindex="52" size="20" class="i"
+        name="as_to" value="" /></td>
+
+        <td>&nbsp;</td>
+
+        <td align="right" nowrap="nowrap"><b>Doesn't have:</b></td>
+
+        <td colspan="2"><input type="text" tabindex="56" size="20"
+        class="i" name="as_hasnot" value="" /></td>
+      </tr>
+
+      <tr>
+        <td align="right" nowrap="nowrap"><b>Subject:</b></td>
+
+        <td><input type="text" tabindex="53" size="20" class="i"
+        name="as_subj" value="" /></td>
+
+        <td>&nbsp;</td>
+
+        <td>&nbsp;</td>
+
+        <td colspan="2"><input type="checkbox" tabindex="57" id=
+        "as_attach" name="as_attach" value=
+        "1" />&nbsp;&nbsp;<label for="as_attach"><b>Has
+        attachment</b></label></td>
+      </tr>
+
+      <tr>
+        <td align="right" nowrap="nowrap"><b>Search:</b></td>
+
+        <td><select name="as_subset" tabindex="54">
+          <option value="all">
+            All Mail
+          </option>
+
+          <option value="inbox">
+            Inbox
+          </option>
+
+          <option value="starred">
+            Starred
+          </option>
+
+          <option value="sent">
+            Sent Mail
+          </option>
+
+          <option value="drafts">
+            Drafts
+          </option>
+
+          <option value="spam">
+            Spam
+          </option>
+
+          <option value="trash">
+            Trash
+          </option>
+
+          <option disabled="disabled">
+            --------
+          </option>
+
+          <option value="ast">
+            Mail &amp; Spam &amp; Trash
+          </option>
+
+          <option disabled="disabled">
+            --------
+          </option>
+
+          <option value="read">
+            Read Mail
+          </option>
+
+          <option value="unread">
+            Unread Mail
+          </option>
+
+          <option disabled="disabled">
+            --------
+          </option>
+
+          <option value="cat_emacspeak">
+            emacspeak
+          </option>
+
+          <option value="cat_g-accessible">
+            g-accessible
+          </option>
+
+          <option value="cat_personal">
+            personal
+          </option>
+        </select></td>
+
+        <td>&nbsp;</td>
+
+        <td align="right" nowrap="nowrap"><b>Date within:</b></td>
+
+        <td width="1%" nowrap="nowrap"><select name="as_within"
+        tabindex="58">
+          <option value="1d">
+            1 day
+          </option>
+
+          <option value="3d">
+            3 days
+          </option>
+
+          <option value="1w">
+            1 week
+          </option>
+
+          <option value="2w">
+            2 weeks
+          </option>
+
+          <option value="1m">
+            1 month
+          </option>
+
+          <option value="2m">
+            2 months
+          </option>
+
+          <option value="6m">
+            6 months
+          </option>
+
+          <option value="1y">
+            1 year
+          </option>
+        </select>&nbsp;<b>of</b>&nbsp;</td>
+
+        <td><input type="text" tabindex="59" size="20" class="i"
+        name="as_date" value="" /></td>
+      </tr>
+
+      <tr>
+        <td colspan="5"></td>
+
+        <td align="right" class="c2">
+          <div class="c1">
+            e.g. today, Friday, Mar 26, 3/26/2004
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <table summary="actions" width="100%" cellpadding="2"
+    cellspacing="0" border="0" class="h">
+      <tr>
+        <td align="center"><input type="submit" tabindex="60" name=
+        "nvp_bu_sm" value="Search Mail" /> <input type="submit"
+        tabindex="61" name="nvp_bu_canc" value=
+        "Cancel" />&nbsp;</td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

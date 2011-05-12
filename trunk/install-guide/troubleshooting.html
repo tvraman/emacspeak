@@ -1,0 +1,939 @@
+<HTML
+><HEAD
+><TITLE
+>Frequently Asked Questions (FAQs)</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Installing Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Installing Emacspeak"
+HREF="installing-emacspeak.html"><LINK
+REL="NEXT"
+TITLE="Additional resources"
+HREF="additional-resources.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Installing Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installing-emacspeak.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="additional-resources.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TROUBLESHOOTING"
+>6. Frequently Asked Questions (FAQs)</A
+></H1
+><P
+>	This sections covers some of the more common problems
+	encountered when installing Emacspeak. If there is a topic
+	that is not covered here, you should review the Emacspeak
+	mailing list archives at <A
+HREF="http://www.cs.vassar.edu/~priestdo/emacspeak/"
+TARGET="_top"
+>http://www.cs.vassar.edu/~priestdo/emacspeak/</A
+>.
+	You can find the answers to many additional questions there.
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>The volume on my system is very low -
+			how can I increase it?</B
+></DT
+><DD
+><P
+>					The easiest way to turn up
+					system volume is with a set of
+					speakers. However, sometimes
+					speakers aren't feasible (for
+					example, with a laptop), or
+					even with speakers, the
+					volume is still not loud
+					enough. In this case, you can
+					use the application
+					<SPAN
+CLASS="APPLICATION"
+>aumix</SPAN
+>
+					to increase your system's volume. 
+					</P
+><P
+>					<SPAN
+CLASS="APPLICATION"
+>Aumix</SPAN
+>
+					comes with many distributions
+					of Linux, but if your distro
+					doesn't have
+					<SPAN
+CLASS="APPLICATION"
+>aumix</SPAN
+>,
+					you can download it from
+					<A
+HREF="http://prdownloads.sourceforge.net/aumix/aumix-2.7.tar.gz"
+TARGET="_top"
+>http://prdownloads.sourceforge.net/aumix/aumix-2.7.tar.gz</A
+>.
+					The latest version is 2.7.
+					</P
+><P
+>					To use
+					<SPAN
+CLASS="APPLICATION"
+>aumix</SPAN
+>
+					to increase your system's
+					volume, type the command
+					<B
+CLASS="COMMAND"
+>aumix -v
+					+100</B
+> or
+					<B
+CLASS="COMMAND"
+>aumix -w +100</B
+>.  The numerical
+					value is the percentage
+					volume, so in this case 100
+					means 100%.  You may want to
+					try different settings to find
+					the most comfortable one for
+					you. 
+					</P
+><P
+>					For more information on using
+					<SPAN
+CLASS="APPLICATION"
+>aumix</SPAN
+>, type <B
+CLASS="COMMAND"
+>aumix
+					-h</B
+> at the command prompt.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>sndconfig doesn't recognize my
+			soundcard.  What should I do?</B
+></DT
+><DD
+><P
+>					If sndconfig doesn't recognize
+					your soundcard, you should see
+					if you can
+					download a driver for your
+					card.  The Advanced Linux
+					Sound Architecture (ALSA) web
+					site, located at <A
+HREF="http://www.alsa-project.org"
+TARGET="_top"
+>http://www.alsa-project.org</A
+>,
+					lists many sound
+					cards, along with their
+					drivers (if
+					available).  Another alternative is
+					the Open Sound System (OSS)
+					for Linux. OSS is a
+					commercial implementation of
+					the Linux kernel drivers, and
+					a list of supported cards can
+					be found at <A
+HREF="http://www.4front-tech.com/osshw.html"
+TARGET="_top"
+>http://www.4front-tech.com/osshw.html</A
+>.
+					There used to be a free
+					version, but apparently it is
+					no longer available (if anyone
+					knows differently, please let
+					me know).
+					</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>						Some users have
+						reported
+						compatibility problems with
+						ViaVoice and ALSA
+						drivers. I have been
+						unable to determine
+						the exact problem or
+						solution from various
+						mailing archives, so
+						if anyone can provide
+						more information on
+						this issue,
+						please let me know. 
+						</P
+></BLOCKQUOTE
+></DIV
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>When I try to install the ViaVoice RTK
+			rpm file, I get
+			the error "libXm.so.1 is missing."  What's wrong?</B
+></DT
+><DD
+><P
+>					The file
+					<TT
+CLASS="FILENAME"
+>libXm.so.1</TT
+>
+					is part of the
+					<TT
+CLASS="FILENAME"
+>lesstif</TT
+>
+					distribution, and it is also a
+					shared library. This error
+					message indicates that either
+					<TT
+CLASS="FILENAME"
+>lesstif</TT
+>
+					is not installed, or that the
+					system is unable to locate the
+					file. Often shared libraries
+					are referenced by a
+					symbolic link to the real
+					shared library file, which may
+					be named something like
+					<TT
+CLASS="FILENAME"
+>libXm.so.1.0.17</TT
+>.
+					When the name of the symbolic
+					link to the shared library and the
+					name of the real shared
+					library file differ,
+					the system may not be able to
+					find the shared library, even
+					if it exists. If another
+					program depends on a shared
+					library that cannot be found,
+					an error message like the one
+					above results. In the case of
+					<TT
+CLASS="FILENAME"
+>libXm.so.1</TT
+>,
+					lesstif is only needed for
+					graphical demonstration
+					programs.  Thus, if you do not
+					plan to use the graphical
+					mode, it is safe to install the
+					ViaVoice RTK rpm using the option
+					<B
+CLASS="COMMAND"
+>--nodeps</B
+>,
+					which tells ViaVoice to ignore any
+					missing dependencies. 
+					</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>					Note that this is only a
+					workaround, not a "fix," and
+					that it only works for 
+					ViaVoice Text-to-speech (TTS). 
+					This solution may not work
+					if you use any of the
+					ViaVoice voice recognition
+					software.
+					</P
+></BLOCKQUOTE
+></DIV
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>When I compile the ViaVoice TTS server for Emacspeak, I get an
+			error "tcleci.cpp:43:17: eci.h: No such file
+			or directory."  Where is <TT
+CLASS="FILENAME"
+>eci.h?</TT
+></B
+></DT
+><DD
+><P
+>					This error message appears
+					when you install the ViaVoice
+					RTK and SDK in the wrong
+					order, or if the SDK is not installed.
+					</P
+><P
+>					The file
+					<TT
+CLASS="FILENAME"
+>eci.h</TT
+>
+					should be in the
+					<TT
+CLASS="FILENAME"
+>/usr/include</TT
+> directory.  If it is not
+					there, re-install ViaVoice TTS
+					RTK, then install ViaVoice TTS
+					SDK. Check to make sure
+					<TT
+CLASS="FILENAME"
+>eci.h</TT
+> is
+					in the <TT
+CLASS="FILENAME"
+>/usr/include</TT
+> directory,
+					then change directories to
+					<TT
+CLASS="FILENAME"
+>/usr/share/emacs/site-lisp/emacspeak/servers/linux-outloud</TT
+>,
+					and type
+					<B
+CLASS="COMMAND"
+>make</B
+> at the
+					command prompt. The ViaVoice TTS
+					should now make successfully.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>When I start Emacspeak, I keep getting
+			the error "process speaker not running."
+			What's wrong?</B
+></DT
+><DD
+><P
+>					If you are getting this error
+					message, there are several
+					possible causes. This section
+					steps though finding and
+					correcting this problem.
+					</P
+><P
+>					The first step is to
+					make sure that you have tcl
+					correctly installed, as
+					explained in the following instructions.
+					</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>							First, make
+							sure you are
+							in the
+							<TT
+CLASS="FILENAME"
+>/usr/share/emacs/site-lisp/emacspeak/servers</TT
+>
+							directory.
+							</P
+></LI
+><LI
+><P
+>							At the command
+							prompt, type
+							<B
+CLASS="COMMAND"
+>tcl
+							<TT
+CLASS="REPLACEABLE"
+><I
+>name
+							of speech server</I
+></TT
+></B
+>,
+						 	The
+							most common
+							speech servers are
+							<B
+CLASS="COMMAND"
+>dtk-exp</B
+>
+							and
+							<B
+CLASS="COMMAND"
+>outloud</B
+>.
+							</P
+></LI
+></OL
+><P
+>					If you get an error such as
+					<B
+CLASS="COMMAND"
+>bash: tcl:: command
+					not found</B
+>, it means
+					that 
+					tcl/tclx is not
+					correctly installed on your
+					system. You must get the
+					latest version of either tcl
+					or tclx and install it before
+					Emacspeak will work.
+					</P
+><P
+>					If everything is installed
+					correctly, you should hear a
+					voice saying "IBM
+					ViaVoice. This is Emacspeak"
+					or something similar. A
+					<B
+CLASS="COMMAND"
+>%</B
+> command
+					prompt should also appear.
+					At the prompt, type <B
+CLASS="COMMAND"
+>q "this is
+					a test."</B
+> Then press
+					<B
+CLASS="COMMAND"
+>Return</B
+> and
+					type
+					<B
+CLASS="COMMAND"
+>d</B
+>. This command
+					runs the speech, so you should
+					hear "this is a test"
+					spoken. If you hear this,
+					the server
+					script is running
+					properly. You can type
+					<B
+CLASS="COMMAND"
+>exit</B
+> to
+					quit tcl.
+					</P
+><P
+>					You may also get an error like
+					<B
+CLASS="COMMAND"
+>stdiosynth executable
+					not found</B
+> when you
+					type <B
+CLASS="COMMAND"
+>tcl
+					<TT
+CLASS="REPLACEABLE"
+><I
+>name of speech server</I
+></TT
+></B
+>, and then get a
+					command prompt. Testing has
+					shown that this error can
+					appear even when
+					<SPAN
+CLASS="APPLICATION"
+>stdiosynth</SPAN
+>
+					is correctly installed and
+					Emacspeak is working. Even if
+					you get this error message,
+					you should still get the
+					<B
+CLASS="COMMAND"
+>%</B
+> command prompt,
+					so you should be able to test
+					the script.
+					</P
+><P
+>					If the script test was unsuccessful,
+					(if tcl was found and
+					you got a <TT
+CLASS="PROMPT"
+>%</TT
+>
+					prompt but you did not hear any
+					speech), the next step is to
+					make sure that you have the
+					correct lines in your
+					<TT
+CLASS="FILENAME"
+>profile</TT
+>
+					file to let Emacspeak know
+					where to find the
+					speech server. To check this,
+					follow these steps:
+					</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>							Go to your
+							<TT
+CLASS="FILENAME"
+>/etc</TT
+>
+							directory,
+							then use you
+							favorite text
+							editor to open the
+							file named
+							<TT
+CLASS="FILENAME"
+>profile</TT
+>.
+							</P
+></LI
+><LI
+><P
+>							Make sure the
+							following
+							lines are in
+							the file:
+							</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>							export DTK_PROGRAM
+							DTK_PROGRAM=<TT
+CLASS="REPLACEABLE"
+><I
+>name
+							of speech server</I
+></TT
+>
+							</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>							The most
+							common speech
+							servers, are
+							<B
+CLASS="COMMAND"
+>outloud</B
+>
+							and
+							<B
+CLASS="COMMAND"
+>dtk-exp</B
+>.
+							</P
+></LI
+></OL
+><P
+>					If these lines are not in your
+					<TT
+CLASS="FILENAME"
+>profile</TT
+>
+					file, add them and then
+					re-test tcl. If you are using
+					ViaVoice TTS as your
+					synthesizer, Emacspeak should
+					work correctly at this
+					point. If you are using a
+					hardware synthesizer and you
+					still do not get any sound,
+					check to make
+					sure that the environment
+					variable <TT
+CLASS="VARNAME"
+>DTK_PORT</TT
+> is set
+					correctly in your
+					<TT
+CLASS="FILENAME"
+>/etc/profile</TT
+> file.
+					</P
+><P
+>					The variable <TT
+CLASS="VARNAME"
+>DTK_PORT</TT
+>
+					specifies which port your hardware
+					sythesizer is plugged into on
+					your computer. Under Linux, if
+					your synthesizer is plugged
+					into com1, you must set
+					<TT
+CLASS="VARNAME"
+>DTK_PORT</TT
+> to
+					<TT
+CLASS="FILENAME"
+>/dev/ttyS0</TT
+>,
+					and if it is in com2, then
+					<TT
+CLASS="VARNAME"
+>DTK_PORT</TT
+> should be set to
+					<TT
+CLASS="FILENAME"
+>/dev/ttyS1</TT
+>.
+					To set this variable, follow
+					these steps:
+					</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>							Open your
+							<TT
+CLASS="FILENAME"
+>profile</TT
+>
+							file located
+							in the
+							<TT
+CLASS="FILENAME"
+>/etc</TT
+>
+							directory.
+							</P
+></LI
+><LI
+><P
+>							Look for the
+							variable
+							<TT
+CLASS="VARNAME"
+>DTK_PORT</TT
+>.  If
+							this variable does not
+							exist, scroll
+							to the bottom
+							of the
+							<TT
+CLASS="FILENAME"
+>profile</TT
+>
+							file and add
+							the following
+							line:
+							</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>		export DTK_PORT=/dev/ttySX
+		</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>							In this line,
+							the "X" should
+							be replaced by
+							the correct
+							port number,
+							as described
+							above.
+							</P
+></LI
+><LI
+><P
+>							When you are
+							finished, save
+							and close the
+							<TT
+CLASS="FILENAME"
+>profile</TT
+>
+							file.
+							</P
+></LI
+></OL
+><P
+>					Finally, retest tcl, and if
+					it works, restart Emacspeak.
+					Emacspeak should work correctly.
+					</P
+><P
+>					If you have a hardware
+					synthesizer and are still not
+					getting any speech, you probably do
+					not have the necessary
+					permissions to use the serial
+					port for your
+					synthesizer. There are a
+					number of solutions to this
+					problem, and the best solution
+					depends on your operating
+					environment. For example, if you
+					are in a multi-user
+					environment, controlling the
+					access permissions to the
+					serial device may be a
+					concern. The options are as follows: 
+					</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Change the
+							ownership of
+							the serail
+							device to the
+							user running
+							Emacspeak. To
+							do this, type
+							<B
+CLASS="COMMAND"
+>chown
+							<TT
+CLASS="REPLACEABLE"
+><I
+>username</I
+></TT
+>
+							/dev/ttyS0</B
+>
+							at the command
+							prompt,
+							then type
+							<B
+CLASS="COMMAND"
+>chmode
+							u+rw
+							/dev/ttyS0</B
+>.
+							</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Add the user
+							to the group
+							associated
+							with the
+							serial
+							device. On Red
+							Hat systems
+							this is
+							usually the
+							group
+							<B
+CLASS="COMMAND"
+>tty</B
+>.
+							To do this,
+							edit the
+							<TT
+CLASS="FILENAME"
+>/etc/group</TT
+>
+							file and find
+							the line
+							starting with
+							<B
+CLASS="COMMAND"
+>tty:</B
+>.
+							At the end of
+							that line, add
+							",<TT
+CLASS="REPLACEABLE"
+><I
+>username</I
+></TT
+>"
+							where username
+							is your
+							username.
+							</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Give
+							read/write
+							access to the
+							serial device
+							for all
+							users. This is
+							the least
+							secure
+							solution, but
+							if you are the
+							only user on
+							the system, it
+							will not
+							matter. To
+							give
+							read/write
+							access, make
+							sure you are
+							the root user
+							and at the
+							command prompt
+							type
+							<B
+CLASS="COMMAND"
+>chmod
+							o+rw
+							/dev/ttyS0</B
+>.
+							</P
+></LI
+></UL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installing-emacspeak.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="additional-resources.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Installing Emacspeak</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Additional resources</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

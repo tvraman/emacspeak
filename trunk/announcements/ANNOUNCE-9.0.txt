@@ -1,0 +1,128 @@
+                       Announcing Emacspeak-9.0 (BlackLab)
+                       -----------------------
+
+For Immediate Release:
+
+San Jose, Calif.,  (October 24, 1998)
+    Emacspeak99: Preparing For The Next Millenium
+    --Interactive Accessibility enhances Speech-Enabled Desktop
+
+About Emacspeak:
+---------------
+
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit
+operating environments.  By seamlessly blending all aspects of
+the Internet such as Web-surfing and electronic messaging
+into the audio desktop, Emacspeak enables speech access to
+local and remote information with a consistent and
+well-integrated user interface.
+
+Major Enhancements:
+-------------------
+
+0) Support for nested HTML tables to further enhance Emacspeak's
+already efficient navigation and browsing of structured and
+multicolumn WWW pages.
+
+1)Fluent spoken access to  database applications.
+
+2) Speech-enabled support for creating and maintaining XML documents..
+
+3) Speech-enabling extensions for the following:
+
+    A)Speech-enabled SQL: emacspeak-sql.el
+    B)Network utilities: emacspeak-net-utils.el
+    C) Enhanced Perl Mode:CPerl: emacspeak-cperl.el
+    D) Speech-enabled on-the-fly spell checking.
+    E) Speech-enabled hyperlink navigation in online help buffers.
+    F)Locating Emacs source code: emacspeak-find-func.el
+
+4) Additional user-visible enhancements:
+
+Emacspeak 9.0 speech-enables all  new features introduced in
+Emacs 20.3.
+
+See the release notes for additional details.  The Emacspeak
+source distribution now includes a structured FAQ list
+designed to introduce new and old users to the Emacspeak
+environment.
+
+Preparing For The Next Millenium:
+---------------------------------
+
+Emacspeak is now bundled with all major Linux distributions;
+however, users can rest assured that this present version
+was not released prematurely to defeat anti-trust concerns.
+
+At the same time, Emacspeak 99 continues to innovate in the
+area of speech interaction and carries forward the
+well-established Emacs tradition of introducing user
+interface features that eventually show up in commercial
+user environments.  On this theme, when recently challenged
+by a proponent of a crash-prone but well-marketed windowing
+system with the assertion "Emacs is a system from the 70's",
+the creator of Emacspeak expressed surprize at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proof interfaces until the year 2070 to catch up to
+where the Emacspeak audio desktop is today.
+
+Industry experts welcomed this refreshing breath of Courage
+Certainty and Clarity (CCC) at a time when users are reeling
+from the Fear Uncertainty and Doubt (FUD) unleashed by
+complex software systems backed by even more convoluted
+press releases.
+
+Independent Test Results:
+-------------------------
+
+Independent test results have proven that unlike some modern
+software, Emacspeak-11.0 can be easily uninstalled without
+adversely affecting the continued performance of the
+computer.  These same tests also revealed that once
+uninstalled, the user stopped functioning altogether.
+
+History:
+--------
+
+Emacspeak-9.0 --(AKA Emacspeak 99) code named BlackLab--
+continues to innovate in the areas of speech interaction and
+interactive accessibility.  Emacspeak-8.0 --(AKA
+Emacspeak-98++) code named BlackDog-- is a major upgrade to
+the speech output extension to Emacs.  Emacspeak-95 (code
+named Illinois) was released on the Internet in May 1995 as
+the first complete speech interface to UNIX workstations.
+The subsequent release, Emacspeak-96 (code named Egypt) made
+available in May 1996 provided significant enhancements to
+the interface. Emacspeak-97 (Tennessee) went further in
+providing a true audio desktop.  Emacspeak-98 integrated
+Internetworking into all aspects of the audio desktop to
+provide the first fully interactive speech-enabled WebTop.
+
+Obtaining Emacspeak:
+--------------------
+
+Visit Emacspeak at http://cs.cornell.edu/home/raman
+--You can also pick up emacspeak via anonymous ftp from
+ftp://ftp.cs.cornell.edu/pub/raman/emacspeak/.
+You can subscribe to the emacspeak mailing list
+<emacspeak@cs.vassar.edu> by sending mail to the list
+owner greg e. priest-dorman <priestdo@cs.vassar.edu>.
+
+About Emacspeak:
+---------------
+        
+Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
+--home to Auditory User Interfaces (AUI) on the WWW--
+Emacspeak is mirrored world-wide by an international netwrok
+of software archives and bundled with all major Linux
+distributions on CDROM.  The Emacspeak mailing list is
+archived at <http://www.cs.vassar.edu/~priestdo/emacspeak/>
+--thanks to Greg Priest-Dorman.
+
+Press/Analyst Contact:  Aster Labrador
+              http://cs.cornell.edu/home/raman/aster/aster.gif
+
+    CopyWrite  )C( Aster Labrador. All Writes Reserved.
+BlackDog (DM) and Labrador (DM) are Registered Dogmarks of Aster Labrador.
+     All other dogs belong to their respective owners.

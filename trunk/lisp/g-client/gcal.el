@@ -1,0 +1,883 @@
+;;; gcal.el --- Google Calendar
+;;;$Id$
+;;; $Author: raman $
+;;; Description:  Google Calendar
+;;; Keywords: Google   Atom API
+;;{{{  LCD Archive entry:
+
+;;; LCD Archive Entry:
+;;; gcal| T. V. Raman |raman@cs.cornell.edu
+;;; An emacs interface to Reader|
+;;; $Date: 2006/09/28 17:47:44 $ |
+;;;  $Revision: 1.30 $ |
+;;; Location undetermined
+;;; License: GPL
+;;;
+
+;;}}}
+;;{{{ Copyright:
+
+;;; Copyright (c) 2006 and later, Google Inc.
+;;; All rights reserved.
+
+;;; Redistribution and use in source and binary forms, with or without modification,
+;;; are permitted provided that the following conditions are met:
+
+;;;     * Redistributions of source code must retain the above copyright notice,
+;;;       this list of conditions and the following disclaimer.
+;;;     * Redistributions in binary form must reproduce the above copyright notice,
+;;;       this list of conditions and the following disclaimer in the documentation
+;;;       and/or other materials provided with the distribution.
+;;;     * The name of the author may not be used to endorse or promote products
+;;;       derived from this software without specific prior written permission.
+
+;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+;;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+;;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+;;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+;;; SUCH DAMAGE.
+
+;;}}}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Commentary:
+;;{{{  introduction
+
+;;; Google Calendar
+;;; Create, Browse, Find ...  integrate Emacs Calendar with
+;;; Google Calendar.
+;;; http://code.google.com/apis/calendar/overview.html
+
+;;}}}
+;;{{{  Required modules
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(eval-when-compile
+  (require 'calendar))
+(require 'g-utils)
+(require 'g-auth)
+(require 'g-app)
+(require 'browse-url)
+
+;;}}}
+;;{{{ Customizations
+
+(defgroup gcal nil
+  "Google Calendar"
+  :group 'g)
+
+;;;###autoload
+(defcustom gcal-default-user-email nil
+  "Default user id for Calendar."
+  :type '(choice
+          (const :tag "none" nil)
+          (string :tag "username@gmail.com" ""))
+  :group 'gcal)
+
+  
+
+;;;###autoload
+(defcustom gcal-user-email nil
+  "Mail address that identifies calendar user."
+  :type '(choice
+          (const :tag "none" nil)
+          (string :tag "username@gmail.com" ""))
+  :group 'gcal)
+
+(defcustom gcal-user-password nil
+  "Password for authenticating to calendar account."
+  :type '(radio (const :tag "Prompt for password" nil)
+                (string :tag "Save password in .emacs"))
+  :group 'gcal)
+
+;;}}}
+;;{{{ Constants
+
+(defconst gcal-service-name "cl"
+  "Service name for accessing Google Calendar.")
+
+(defsubst gcal-p (service)
+  "Check if this is Calendar."
+  (declare (special gcal-service-name))
+  (string-equal service gcal-service-name))
+
+;;}}}
+;;{{{ Calendar Authenticate
+
+(defsubst make-gcal-auth ()
+  "Make a new gcal auth handle."
+  (declare (special gcal-service-name
+                    gcal-user-email gcal-user-password))
+  (make-g-auth :service gcal-service-name
+               :email gcal-user-email
+               :password gcal-user-password))
+
+(defvar gcal-auth-handle (make-gcal-auth)
+  "G auth handle used for signing into calendar.")
+
+(defun gcal-authenticate ()
+  "Authenticate into Google Calendar."
+  (declare (special gcal-auth-handle))
+  (g-authenticate gcal-auth-handle))
+
+;;}}}
+;;{{{ Event Template:
+
+(defvar gcal-quickadd-template
+  "<atom:entry xmlns:atom='http://www.w3.org/2005/Atom'>
+  <atom:category scheme='http://schemas.google.com/g/2005#kind'
+term='http://schemas.google.com/g/2005#event'></atom:category>
+  <atom:content type='text'>%s</atom:content>
+  <gCal:quickadd xmlns:gCal='http://schemas.google.com/gCal/2005'value='true'></gCal:quickadd>
+</atom:entry>"
+  "Template for quickadd events.")
+
+;;; template for calendar event.
+;;; Format string takes following:
+;; (title content
+;;        author-name author-email
+;;        transparency status
+;;        where
+;;        when-start when-end)
+
+(defvar gcal-event-template
+  "<entry xmlns='http://www.w3.org/2005/Atom' \
+xmlns:gd='http://schemas.google.com/g/2005' \
+xmlns:gCal='http://schemas.google.com/gCal/2005'>
+<category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'>
+</category>
+<title type='text'>%s </title>
+<content type='text'>%s </content>
+<author>
+<name>%s </name>
+<email>%s </email>
+</author>
+<gd:transparency value='%s'></gd:transparency>
+<gCal:sendEventNotifications value='true'/>
+<gd:eventStatus value='%s'></gd:eventStatus>
+<gd:where valueString='%s'></gd:where>
+<gd:when startTime='%s' endTime='%s'>
+<gd:reminder minutes='10'/>
+</gd:when>
+%s
+</entry> "
+  "XML template for  calendar events.")
+
+(defvar gcal-attendee-template
+  "<gd:who rel='%s'
+    valueString='%s'
+    email='%s'>
+    <gd:attendeeStatus value='%s'/>
+    <gd:attendeeType value='%s'/>
+</gd:who>
+"
+  "XML template  for attendees.")
+
+;;}}}
+;;{{{ Event, attendee Structure
+
+(defstruct gcal-event
+  title content
+  (author-name (user-login-name))
+  author-email
+  transparency status
+  where
+  when-start when-end
+  who)
+
+(defun gcal-attendee-list-as-xml (attendees)
+  "Return XML representation of list of attendees."
+  (declare (special gcal-attendee-template))
+  (mapconcat
+   #'(lambda (w)
+       (format gcal-attendee-template
+               (or (gcal-attendee-role w)  "")
+               (or (gcal-attendee-cn w) "")
+               (or (gcal-attendee-email w) "")
+               (or (gcal-attendee-resource-type w) "")
+               (or (gcal-attendee-status w) "")
+               ))
+   attendees
+   "\n"))
+
+(defun gcal-event-as-xml (e)
+  "Return XML representation of event."
+  (declare (special gcal-event-template))
+  (format gcal-event-template
+          (gcal-event-title e) (gcal-event-content e)
+          (gcal-event-author-name e) (gcal-event-author-email e)
+          (gcal-event-transparency e) (gcal-event-status e)
+          (gcal-event-where e)
+          (gcal-event-when-start e) (gcal-event-when-end e)
+          (gcal-attendee-list-as-xml
+           (gcal-event-who e))))
+
+(defstruct gcal-attendee
+  email
+  cn                              ;firstname lastname
+  status                          ; needs-action, confirmed
+  role                            ; required participant, optional etc
+  resource-type                   ; individual, room
+  )
+
+;;}}}
+;;{{{  Reading events
+
+(defvar gcal-event-transparency-alist
+  '((opaque . "http://schemas.google.com/g/2005#event.opaque"))
+  "Alist of event transparency types.")
+
+(defsubst gcal-event-transparency-value (type)
+  "Return identifier for specified event transparency type."
+  (declare (special gcal-event-transparency-alist))
+  (let ((pair (assoc type gcal-event-transparency-alist)))
+    (when pair (cdr pair))))
+
+(defvar gcal-event-status-alist
+  '((confirmed
+     . "http://schemas.google.com/g/2005#event.confirmed"))
+  "Alist of event status types.")
+
+(defsubst gcal-event-status-value (type)
+  "Return identifier for specified event status type."
+  (declare (special gcal-event-status-alist))
+  (let ((pair (assoc type gcal-event-status-alist)))
+    (when pair (cdr pair))))
+
+(defsubst gcal-read-transparency ()
+  "Get transparency for event."
+  (declare (special gcal-event-transparency-alist))
+  (gcal-event-transparency-value 'opaque))
+
+(defsubst gcal-read-status ()
+  "Get status for event."
+  (declare (special gcal-event-status-alist))
+  (gcal-event-status-value 'confirmed))
+
+(defcustom gcal-calendar-view
+  (expand-file-name "gcal-view.xsl" g-directory)
+  "XSL transform used to view event feeds."
+  :group 'gcal)
+
+(defcustom gcal-event-view
+  (expand-file-name "gevent-view.xsl" g-directory)
+  "XSL transform used to view event feeds."
+  :group 'gcal)
+
+(defcustom gcal-event-time-format "%Y-%m-%dT%H:%M:%S.000"
+  "Time format used for events."
+  :type 'string
+  :group 'gcal)
+
+(defsubst gcal-format-time-string (&optional time-spec)
+  "Like format-time-string, except we produce a zone offset per
+  Google Calendar spec. `time-spec' defaults to current time."
+  (declare (special gcal-event-time-format))
+  (or time-spec
+      (setq time-spec (current-time)))
+  (let* ((z (format-time-string "%z"))
+         (zone (format "%s:%s" (substring z  0 -2) (substring z -2))))
+    (format "%s%s"
+            (format-time-string gcal-event-time-format time-spec)
+            zone)))
+
+(defsubst gcal-read-time (prompt)
+  "Read time and return it suitably formatted."
+  (read-from-minibuffer prompt
+                        (gcal-format-time-string)))
+
+(defun gcal-read-calendar-date (prompt )
+  "Smart date collector.
+Prompts with `prompt'.
+This function is sensitive to calendar mode when prompting."
+  (let ((default (format-time-string "%m/%d/%Y"))
+        (result nil))                   ; today is default
+    (when (eq major-mode 'calendar-mode)
+      (let ((date (calendar-cursor-to-nearest-date)))
+        (setq default
+              (format "%s/%s/%s"
+                      (first date)
+                      (second date)
+                      (third date)))))
+    (setq result
+          (read-from-minibuffer prompt
+                                default
+                                nil nil nil
+                                default))
+    (setq result
+          (mapcar 'read
+                  (split-string result "/")))
+    (gcal-format-time-string
+     (apply 'encode-time
+            0 0 0
+            (second result)
+            (first result)
+            (list (third result ))))))
+
+(defun gcal-read-calendar-time (prompt)
+  "Smart time collector.
+Prompts with `prompt'.
+Default date is assumed to be today, or  the date selected when
+  in the calendar."
+  (let ((date nil)
+        (now nil)
+        (result nil))                   ; today is default
+    (cond
+     ((eq major-mode 'calendar-mode)
+      (setq date (calendar-cursor-to-nearest-date))
+      (setq date (list (second date)
+                       (first date)
+                       (third date))))
+     (t  (setq now (decode-time))
+         (setq date
+               (list (nth 3 now)
+                     (nth 4 now)
+                     (nth 5 now)))))
+    (setq result
+          (read-from-minibuffer prompt
+                                (format-time-string "%H:%M")
+                                nil nil nil
+                                (format-time-string "%H:%M")))
+    (setq result
+          (mapcar 'read
+                  (split-string result ":")))
+    (gcal-format-time-string
+     (apply 'encode-time
+            0 (second result) (first result)
+            date))))
+
+(defsubst gcal-read-who (prompt)
+  "Read list of participants."
+  (let ((who nil)
+        (participant nil)
+        (email nil))
+    (while
+        (>
+         (length
+          (setq email (read-from-minibuffer
+                       (format "%s email: Blank to quit" prompt) )))
+         0)
+      (setq participant
+            (make-gcal-attendee
+             :email email
+             :cn email
+             :role "http://schemas.google.com/g/2005#event.attendee"))
+      (push participant who))
+    who))
+
+
+(defun gcal-read-event (title content
+                              where
+                              start end
+                              who
+                              transparency status)
+  "Prompt user for event params and return an event structure."
+  (interactive
+   (list
+    (read-from-minibuffer "Title: ")
+    (read-from-minibuffer "Content: ")
+    (read-from-minibuffer "Where: ")
+    (gcal-read-calendar-time "Start Time: ")
+    (gcal-read-calendar-time "End Time: ")
+    (gcal-read-who "Participant: ")
+    (gcal-read-transparency)
+    (gcal-read-status)))
+  (declare (special gcal-auth-handle))
+  (let ((event (make-gcal-event
+                :author-email (g-auth-email gcal-auth-handle))))
+    (setf (gcal-event-title  event) title
+          (gcal-event-content event) content
+          (gcal-event-where event) where
+          (gcal-event-when-start event) start
+          (gcal-event-when-end event) end
+          (gcal-event-who event) who
+          (gcal-event-transparency  event) transparency
+          (gcal-event-status event) status)
+    event))
+
+;;}}}
+;;{{{ Events:
+
+(defvar gcal-default-feed-url
+  "https://www.google.com/calendar/feeds/default/private/full"
+  "URL for default calendar feed for currently authenticated
+user.")
+
+(defvar gcal-default-my-calendars-url
+  "https://www.google.com/calendar/feeds/default/owncalendars/full"
+  "URL for default calendar feed for currently authenticated
+user.")
+
+
+(defvar gcal-feed-url-template
+  "https://www.google.com/calendar/feeds/%s/%s/%s/?orderby=starttime"
+  "URL for  calendar feed using authentication.
+Parameterized by calendar name, private/public, and projecttion")
+
+(defvar gcal-private-feed-url
+  "'https://www.google.com/calendar/feeds/%s/private/full'"
+  "URL for private calendar feed using authentication.")
+
+(defsubst gcal-private-feed-url ()
+  "Return private feed for authenticated user."
+  (declare (special gcal-private-feed-url
+                    gcal-auth-handle))
+  (format gcal-private-feed-url
+          (g-url-encode (g-auth-email gcal-auth-handle))))
+
+(defsubst gcal-feed-url (resource privacy projection)
+  "Return  feed for specified resource..
+`privacy' specifies public/private.
+`projection' specifies desired projection, e.g. full vs free-busy."
+  (declare (special gcal-feed-url-template))
+  (format gcal-feed-url-template
+          (g-url-encode resource)
+          privacy projection))
+
+(defsubst gcal-post-event (event location)
+  "Post event via HTTPS to location and return resulting HTTP headers."
+  (declare (special  gcal-auth-handle
+                     g-app-auth-handle g-app-this-url))
+  (g-using-scratch
+   (g-app-mode)
+   (insert (gcal-event-as-xml event))
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url location)
+   (g-app-post-entry)))
+
+(defsubst gcal-post-quickadd (event-desc location)
+  "Post quick event  via HTTPS to location and return resulting HTTP headers."
+  (declare (special  gcal-auth-handle
+                     g-app-auth-handle g-app-this-url gcal-quickadd-template))
+  (g-using-scratch
+   (g-app-mode)
+   (insert
+    (format gcal-quickadd-template event-desc))
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url location)
+   (g-app-post-entry)))
+
+(defun gcal-event-as-diary-entry (event)
+  "Return an event string suitable for Emacs calendar's diary
+file."
+  (let ((start (gcal-event-when-start event))
+        (end (gcal-event-when-end event ))
+        (date nil)
+        (time-start nil)
+        (time-end nil))
+    (setq date (split-string (substring start 0 10) "-")
+          time-start  (substring start 11 16))
+    (format "%s %s, %s %s %s"
+            (calendar-month-name ( read (second date)) 'abbrev)
+            (third date)
+            (first date)
+            time-start
+            (gcal-event-title event))))
+
+;;;###autoload
+(defun gcal-add-event ()
+  "Add a calendar event."
+  (interactive)
+  (declare (special gcal-auth-handle
+                    diary-file
+                    gcal-autoinsert-into-emacs-calendar))
+  (g-auth-ensure-token gcal-auth-handle)
+  (let ((event (call-interactively 'gcal-read-event))
+        (status nil)
+        (headers nil)
+        (body nil)
+        (response nil)
+        (location (format gcal-private-feed-url
+                          (g-auth-email gcal-auth-handle))))
+    (while (or  (null  status)
+                (string= "302" status))
+      (message "posting.")
+      (setq response
+            (gcal-post-event event 
+                             (or location gcal-private-feed-url)))
+      (setq headers (first response)
+            body (second response))
+      (setq status (g-http-header "Status" headers)
+            location (g-http-header "Location" headers))
+      (message "Status: %s Location: %s"
+               status location)
+      (when (and status
+                 (string= "302" status))
+        (unless location
+          (error "Could not find redirect."))
+        (message "Following redirect to %s" location)))
+    (cond
+     ((string-equal "201" (g-http-header "Status" headers))
+      (and (> (length body)0)
+           (g-display-xml-string body
+                                 gcal-calendar-view))
+      (message "Event added as %s" (g-http-header "Location"
+                                                  headers))
+      (when gcal-autoinsert-into-emacs-calendar
+        (diary-make-entry
+         (gcal-event-as-diary-entry event))
+        (save-excursion
+          (set-buffer (find-file-noselect diary-file))
+          (save-buffer))))
+     (t (error "Got %s"
+               (g-http-header "Status" headers))))))
+
+;;;###autoload
+(defun gcal-quickadd-event (event-desc)
+  "Add a calendar event.
+Specify the event in plain English."
+  (interactive "sQuickAdd Event:")
+  (declare (special gcal-auth-handle))
+  (g-auth-ensure-token gcal-auth-handle)
+  (let ((status nil)
+        (headers nil)
+        (body nil)
+        (response nil)
+        (location nil))
+    (setq response
+          (gcal-post-quickadd event-desc (gcal-private-feed-url)))
+    (setq headers (first response)
+          body (second response))
+    (setq status (g-http-header "Status" headers))
+    (when (string= "302" status)
+      (setq location (g-http-header "Location" headers))
+      (unless location
+        (error "Could not find redirect."))
+      (setq response  (gcal-post-quickadd event-desc location)))
+    (setq headers (first response)
+          body (second response))
+    (when  (string-equal "201" (g-http-header "Status" headers))
+      (and (> 0(length body))
+           (g-display-xml-string body
+                                 gcal-calendar-view))
+      (message "Event added as %s"
+               (g-http-header "Location" headers)))))
+
+;;;###autoload
+(defun gcal-delete-event (event-uri)
+  "Delete a calendar event."
+  (interactive
+   (list
+    (read-from-minibuffer "Event URL: "
+                          (browse-url-url-at-point))))
+  (declare (special gcal-auth-handle))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-app-delete-entry gcal-auth-handle event-uri))
+
+(defcustom gcal-event-accept
+  (expand-file-name "gevent-accept.xsl" g-directory)
+  "XSL transform used to accept events."
+  :group 'gcal)
+
+(defun gcal-accept-event (event-uri)
+  "Accept (RSVP)  a calendar event."
+  (interactive
+   (list
+    (read-from-minibuffer "Event URL: "
+                          (browse-url-url-at-point))))
+  (declare (special gcal-auth-handle g-cookie-options
+                    g-curl-program g-curl-common-options g-curl-atom-header
+                    gcal-event-accept))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-using-scratch
+   (shell-command
+    (format
+     "%s %s %s %s %s  -X GET %s 2>/dev/null"
+     g-curl-program g-curl-common-options g-curl-atom-header
+     (g-authorization gcal-auth-handle)
+     g-cookie-options
+     event-uri)
+    (current-buffer) 'replace)
+   (shell-command-on-region
+    (point-min) (point-max)
+    (format
+     "%s --param 'email' \"'%s'\" %s - 2>/dev/null"
+     g-xslt-program
+     (g-auth-email gcal-auth-handle)
+     gcal-event-accept )
+    (current-buffer) 'replace)
+   (g-app-mode)
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url event-uri)
+   (g-app-put-entry)))
+(defcustom gcal-event-reject
+  (expand-file-name "gevent-reject.xsl" g-directory)
+  "XSL transform used to reject events."
+  :group 'gcal)
+
+;;;###autoload
+(defun gcal-reject-event (event-uri)
+  "Reject (RSVP)  a calendar event."
+  (interactive
+   (list
+    (read-from-minibuffer "Event URL: "
+                          (browse-url-url-at-point))))
+  (declare (special gcal-auth-handle g-cookie-options
+                    g-curl-program g-curl-common-options g-curl-atom-header
+                    gcal-event-reject))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-using-scratch
+   (shell-command
+    (format
+     "%s %s %s %s %s  -X GET %s 2>/dev/null"
+     g-curl-program g-curl-common-options g-curl-atom-header
+     (g-authorization gcal-auth-handle)
+     g-cookie-options
+     event-uri)
+    (current-buffer) 'replace)
+   (shell-command-on-region
+    (point-min) (point-max)
+    (format
+     "%s --param 'email' \"'%s'\" %s - 2>/dev/null"
+     g-xslt-program
+     (g-auth-email gcal-auth-handle)
+     gcal-event-reject )
+    (current-buffer) 'replace)
+   (g-app-mode)
+   (setq g-app-auth-handle gcal-auth-handle
+         g-app-this-url event-uri)
+   (g-app-put-entry)))
+
+
+;;;###autoload
+
+(defcustom gcal-calendar-agenda-days 5
+  "Number of days for which we show an agenda by default."
+  :type 'integer
+  :group 'gcal)
+
+(defcustom gcal-autoinsert-into-emacs-calendar t
+  "If set, gcal adds events to the Emacs calendar as well."
+  :type 'boolean
+  :group 'gcal)
+
+(defun gcal-calendar-get-date (&optional date )
+  "Get GCal date from a calendar date spec.
+Default is to use calendar date under point."
+  (setq date (or date (calendar-current-date)))
+  (gcal-format-time-string
+   (apply 'encode-time
+          0 0 0
+          (second date)
+          (first date)
+          (list (third date)))))
+
+(defconst gcal-privacy-choices
+  '("public" "private" )
+  "Choices for public or private.")
+
+(defconst gcal-projection-choices
+  '("free-busy" "full" "owner")
+  "Choices for project types.")
+
+(defun gcal-calendar-agenda  (&optional resource privacy projection)
+  "Show agenda for currently authenticated user.
+With interactive prefix arg, prompts for calendar to show. This
+command is best invoked from within the emacs calendar. It uses
+point and mark in the calendar to determine the days for which we
+show the agenda. If no mark is set in the calendar, the agenda is
+shown for the next `gcal-calendar-agenda-days' days following the
+date under point."
+  (interactive
+   (cond
+    (current-prefix-arg
+     (list
+      (read-from-minibuffer "Calendar For: "
+                            (g-auth-email gcal-auth-handle))
+      (completing-read  "Privacy: "
+                        gcal-privacy-choices)
+      (completing-read "Projection: "
+                       gcal-projection-choices)))
+    (t (list
+        (if gcal-user-email gcal-user-email g-user-email)
+        "private" "full"))))
+  (declare (special gcal-auth-handle
+                    gcal-user-email g-user-email
+                    gcal-privacy-choices gcal-projection-choices
+                    gcal-calendar-view
+                    calendar-mark-ring))
+  (let* ((calendar
+          (gcal-feed-url resource  privacy projection))
+         (start-min
+          (g-url-encode
+           (gcal-calendar-get-date
+            (when (eq major-mode 'calendar-mode)
+              (calendar-cursor-to-nearest-date)))))
+         (start-max
+          (g-url-encode
+           (cond
+            ((and (eq major-mode 'calendar-mode)
+                  (car calendar-mark-ring))
+             (gcal-calendar-get-date (car calendar-mark-ring)))
+            ((eq major-mode 'calendar-mode)
+             (gcal-calendar-get-date
+              (calendar-gregorian-from-absolute
+               (+ (calendar-absolute-from-gregorian (calendar-cursor-to-nearest-date))
+                  gcal-calendar-agenda-days))))
+            (t
+             (gcal-calendar-get-date
+              (calendar-gregorian-from-absolute
+               (+ (calendar-absolute-from-gregorian (calendar-current-date))
+                  gcal-calendar-agenda-days))))))))
+    (g-auth-ensure-token gcal-auth-handle)
+    (g-display-result
+     (format
+      "%s %s %s %s '%s%s' 2>/dev/null"
+      g-curl-program g-curl-common-options
+      (g-authorization gcal-auth-handle)
+      g-cookie-options
+      calendar
+      (cond
+       ((and (null start-min)
+             (null start-max))
+        "")
+       (t
+        (format "&start-min=%s&start-max=%s"
+                (or start-min "")
+                (or start-max "")))))
+     gcal-calendar-view     )))
+
+;;;###autoload
+
+(defun gcal-view (resource)
+  "Retrieve and display resource after authenticating."
+  (interactive "sResource: ")
+  (declare (special gcal-auth-handle gcal-calendar-view
+                    g-cookie-options
+                    g-curl-program g-curl-common-options))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' %s"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
+    resource
+    (g-curl-debug))
+   gcal-calendar-view))
+
+;;;###autoload
+(defun gcal-show-event (url)
+  "Show event at URL."
+  (interactive "sURL:")
+  (declare (special gcal-auth-handle
+                    gcal-event-view))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s   %s 2>/dev/null"
+    g-curl-program g-curl-common-options
+    (g-authorization gcal-auth-handle)
+    g-cookie-options
+    url)
+   gcal-event-view))
+
+;;}}}
+;;{{{ Feed of feeds:
+(defvar gcal-feeds-template-url
+  "'https://www.google.com/calendar/feeds/%s'"
+  "URL template for feed of feeds from calendar.")
+(defsubst gcal-feeds-url (userid)
+  "Return url for feed of feeds."
+  (declare (special gcal-feeds-template-url))
+  (format gcal-feeds-template-url userid))
+
+(defun gcal-calendars ()
+  "Retrieve and display feed of feeds for specified user  after authenticating."
+  (interactive)
+  (declare (special gcal-auth-handle g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
+    (gcal-feeds-url "default"))
+   g-atom-view-xsl))
+
+(defun gcal-my-calendars ()
+  "Retrieve and display feed of `owned' calendars after authenticating."
+  (interactive)
+  (declare (special gcal-auth-handle
+                    g-atom-view-xsl
+                    g-curl-program g-curl-common-options
+                    g-cookie-options))
+  (g-auth-ensure-token gcal-auth-handle)
+  (g-display-result
+   (format
+    "%s %s %s %s '%s' 2>/dev/null"
+    g-curl-program g-curl-common-options
+    g-cookie-options
+    (g-authorization gcal-auth-handle)
+    (concat
+     (gcal-feeds-url "default")
+     "/owncalendars/full"))
+   g-atom-view-xsl))
+
+
+
+;;}}}
+;;{{{ Interfacing with Emacs Calendar:
+;;;###autoload
+(define-prefix-command  'gcal-calendar-prefix-map)
+
+;;;###autoload
+(defun gcal-emacs-calendar-setup ()
+  "Setup GCal keybindings in Emacs calendar."
+  (declare (special calendar-mode-map
+                    gcal-calendar-prefix-map))
+  (define-key calendar-mode-map "c" 'gcal-calendar-prefix-map)
+  (loop for binding  in
+        '(
+          ("a" gcal-add-event)
+          ("c" gcal-calendar-agenda)
+          )
+        do
+        (define-key gcal-calendar-prefix-map (first binding)
+          (second binding))))
+
+;;}}}
+;;{{{ Sign out:
+;;;###autoload
+(defun gcal-sign-out()
+  "Resets client so you can start with a different userid."
+  (interactive)
+  (declare (special gcal-auth-handle
+                    gcal-user-email gcal-user-password))
+  (message "Signing out %s from Calendar"
+           (g-auth-email gcal-auth-handle))
+  (setq gcal-user-email nil
+        gcal-user-password nil)
+  (setq gcal-auth-handle (make-gcal-auth)))
+
+;;;###autoload
+(defun gcal-sign-in()
+  "Sign in, useful when changing to a different user profile."
+  (interactive)
+  (declare (special gcal-auth-handle gcal-user-email
+                    gcal-default-user-email))
+  (setq gcal-user-email
+        (read-from-minibuffer "Calendar User: "
+                              gcal-default-user-email))
+  (setq gcal-auth-handle (make-gcal-auth))
+  (gcal-authenticate))
+
+;;}}}
+(provide 'gcal)
+;;{{{ end of file
+
+;;; local variables:
+;;; folded-file: t
+;;; byte-compile-dynamic: t
+;;; end:
+
+;;}}}

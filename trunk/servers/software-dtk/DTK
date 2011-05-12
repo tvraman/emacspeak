@@ -1,0 +1,83 @@
+$Id$
+Notes On Using Software Dectalk   (Software TTS) with Emacspeak:
+
+Fonix Software Dectalk TTS (Text To Speech) is a software version of
+the Dectalk TTS engine.  This is a text to speech synthesis engine
+that allows you to produce synthetic speech from text using a sound
+card. Note that Software Dectalk for Linux needs to be purchased from
+http://www.fonix.com/products/dectalk/rt_linux/.
+
+* Pre-requisites:
+
+You need to obtain  and install the Fonix Software Dectalk
+--the Dectalk TTS engine is a commercial product and 
+is not distributed with this package.
+
+ * Installation:
+
+** Is Software Dectalk   Working?
+
+Once you have successfully obtained and install Fonix Software Dectalk 
+ for Linux verify that the TTS engine works by running the "say"
+ program bundled with the Dectalk TTS engine.
+
+**  Have You Installed Emacspeak?
+
+Before attempting to build and install Software Dectalk 
+support for Emacspeak you should first install Emacspeak the
+normal way.  See the Emacspeak Makefile for instructions.
+
+** Downloading  Software Dectalk  Support For Emacspeak:
+
+Download and install software-dtk package from the Emacspeak site.
+This provides the compiled Emacspeak software dtk server --file servers/software-dtk/tcldtk.so
+
+* Testing:
+
+Next, test that your installation of the Emacspeak Software Dectalk 
+support works.  The Dectalk  Outloud speech server is called
+dtk-soft  and is installed in the emacspeak/servers  directory along
+with other speech servers.
+
+To test this server, do: 
+tcl /usr/share/emacs/site-lisp/emacspeak/servers/dtk-soft
+
+ This should speak a welcome message and display a tcl> prompt if all
+   is well.
+   
+* Using Software Dectalk  With Emacspeak:
+
+Proceed to this step *only*
+after successfully completing all of the previous steps.
+You can either make the Software Dectalk  engine your default
+synthesizer by setting environment variable 
+DTK_PROGRAM as follows befoer launching Emacs:
+export DTK_PROGRAM=dtk-soft
+
+Alternatively,  you can switch to the dtk-soft while
+emacspeak is running by 
+invoking command dtk-select-server --type
+C-e d d ret dtk-soft ret 
+
+
+Alternatively start emacspeak with the "-d" option.
+
+
+* Using dtk-soft as the default synthesizer:
+
+Once you've confirmed that everything is working with the
+Outloud engine and Emacspeak, you can make dtk-soft your
+default synthesizer by:
+** If you have emacspeak launched from inside your .emacs:
+
+set variable dtk-program to "dtk-soft" 
+before you load emacspeak-setup.el
+
+
+* Known Problems:
+
+
+Local variables: 
+mode: outline 
+paragraph-separate: "[ ]*$"
+end:

@@ -1,0 +1,4332 @@
+boolean = "true" | "false" | "on" | "off" | "yes" | "no"
+tasks =
+  fail
+  | tar
+  | defaultexcludes
+  | uptodate
+  | dependset
+  | java
+  | echo
+  | execon
+  | length
+  | chmod
+  | manifest
+  | javadoc2
+  | deltree
+  | cvs
+  | cvschangelog
+  | tstamp
+  | pathconvert
+  | unjar
+  | import
+  | patch
+  | mail
+  | buildnumber
+  | gzip
+  | loadfile
+  | copy
+  | filter
+  | tempfile
+  | jar
+  | waitfor
+  | xmlproperty
+  | unzip
+  | rename
+  | xslt
+  | checksum
+  | copyfile
+  | macrodef
+  | gunzip
+  | bunzip2
+  | antcall
+  | taskdef
+  | mkdir
+  | sql
+  | replace
+  | ear
+  | ant
+  | style
+  | genkey
+  | fixcrlf
+  | sequential
+  | zip
+  | condition
+  | presetdef
+  | cvstagdiff
+  | antstructure
+  | javac
+  | cvsversion
+  | typedef
+  | available
+  | cvspass
+  | gjdoc
+  | move
+  | dirname
+  | signjar
+  | whichresource
+  | property
+  | unwar
+  | touch
+  | get
+  | javadoc
+  | record
+  | sync
+  | untar
+  | delete
+  | basename
+  | copydir
+  | loadproperties
+  | war
+  | concat
+  | parallel
+  | subant
+  | exec
+  | apply
+  | input
+  | nice
+  | bzip2
+  | rmic
+  | sleep
+types =
+  patternset
+  | assertions
+  | propertyset
+  | filtermapper
+  | filterset
+  | isfileselected
+  | mergemapper
+  | identitymapper
+  | filterreader
+  | unpackagemapper
+  | concatfilter
+  | fileset
+  | dirset
+  | globmapper
+  | filelist
+  | filterchain
+  | path
+  | compositemapper
+  | regexpmapper
+  | selector
+  | xmlcatalog
+  | flattenmapper
+  | description
+  | chainedmapper
+  | packagemapper
+  | mapper
+  | zipfileset
+  | substitution
+  | redirector
+  | regexp
+project = element project { attlist.project, (target | tasks | types)* }
+attlist.project &=
+  attribute name { text }?,
+  attribute default { text }?,
+  attribute basedir { text }?
+target = element target { attlist.target, (tasks | types)* }
+attlist.target &=
+  attribute id { xsd:ID }?,
+  attribute name { text },
+  attribute if { text }?,
+  attribute unless { text }?,
+  attribute depends { text }?,
+  attribute description { text }?
+patternset =
+  element patternset {
+    attlist.patternset,
+    (\include | patternset | exclude | excludesfile | includesfile)*
+  }
+attlist.patternset &=
+  attribute id { xsd:ID }?,
+  attribute includes { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?
+\include = element include { attlist.include, empty }
+attlist.include &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+exclude = element exclude { attlist.exclude, empty }
+attlist.exclude &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+excludesfile = element excludesfile { attlist.excludesfile, empty }
+attlist.excludesfile &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+includesfile = element includesfile { attlist.includesfile, empty }
+attlist.includesfile &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+assertions =
+  element assertions { attlist.assertions, (disable | enable)* }
+attlist.assertions &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute enablesystemassertions { boolean }?
+disable = element disable { attlist.disable, empty }
+attlist.disable &=
+  attribute id { xsd:ID }?,
+  attribute package { text }?,
+  attribute class { text }?
+enable = element enable { attlist.enable, empty }
+attlist.enable &=
+  attribute id { xsd:ID }?,
+  attribute package { text }?,
+  attribute class { text }?
+propertyset =
+  element propertyset {
+    attlist.propertyset, (propertyref | propertyset | mapper)*
+  }
+attlist.propertyset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute negate { boolean }?,
+  attribute dynamic { boolean }?
+propertyref = element propertyref { attlist.propertyref, empty }
+attlist.propertyref &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute builtin { "all" | "system" | "commandline" }?,
+  attribute regex { text }?,
+  attribute prefix { text }?
+mapper = element mapper { attlist.mapper, (classpath | mapper)* }
+attlist.mapper &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute type {
+    "identity"
+    | "flatten"
+    | "glob"
+    | "merge"
+    | "regexp"
+    | "package"
+    | "unpackage"
+  }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?,
+  attribute to { text }?,
+  attribute from { text }?
+classpath =
+  element classpath {
+    attlist.classpath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.classpath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+fileset =
+  element fileset {
+    attlist.fileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.fileset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+custom = element custom { attlist.custom, (classpath | param)* }
+attlist.custom &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute error { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?
+param = element param { attlist.param, empty }
+attlist.param &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute type { text }?,
+  attribute value { text }?
+none =
+  element none {
+    attlist.none,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.none &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+present = element present { attlist.present, mapper* }
+attlist.present &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute targetdir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute present { "srconly" | "both" }?
+not =
+  element not {
+    attlist.not,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.not &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+type = element type { attlist.type, empty }
+attlist.type &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute type { "file" | "dir" }?,
+  attribute description { text }?
+modified = element modified { attlist.modified, param* }
+attlist.modified &=
+  attribute id { xsd:ID }?,
+  attribute comparator { "equal" | "rule" }?,
+  attribute seldirs { boolean }?,
+  attribute cache { "propertyfile" }?,
+  attribute algorithm { "hashvalue" | "digest" }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute update { boolean }?
+or =
+  element or {
+    attlist.or,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.or &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+contains = element contains { attlist.contains, empty }
+attlist.contains &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute casesensitive { boolean }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute text { text }?,
+  attribute ignorewhitespace { boolean }?
+depend = element depend { attlist.depend, mapper* }
+attlist.depend &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute targetdir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute granularity { text }?
+different = element different { attlist.different, mapper* }
+attlist.different &=
+  attribute id { xsd:ID }?,
+  attribute ignorecontents { boolean }?,
+  attribute error { text }?,
+  attribute targetdir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute ignorefiletimes { boolean }?,
+  attribute granularity { text }?
+size = element size { attlist.size, empty }
+attlist.size &=
+  attribute id { xsd:ID }?,
+  attribute when { "less" | "more" | "equal" }?,
+  attribute units {
+    "K"
+    | "k"
+    | "kilo"
+    | "KILO"
+    | "Ki"
+    | "KI"
+    | "ki"
+    | "kibi"
+    | "KIBI"
+    | "M"
+    | "m"
+    | "mega"
+    | "MEGA"
+    | "Mi"
+    | "MI"
+    | "mi"
+    | "mebi"
+    | "MEBI"
+    | "G"
+    | "g"
+    | "giga"
+    | "GIGA"
+    | "Gi"
+    | "GI"
+    | "gi"
+    | "gibi"
+    | "GIBI"
+    | "T"
+    | "t"
+    | "tera"
+    | "TERA"
+    | "Ti"
+    | "TI"
+    | "ti"
+    | "tebi"
+    | "TEBI"
+  }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute value { text }?
+majority =
+  element majority {
+    attlist.majority,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.majority &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute allowtie { boolean }?,
+  attribute description { text }?
+containsregexp =
+  element containsregexp { attlist.containsregexp, empty }
+attlist.containsregexp &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute expression { text }?
+filename = element filename { attlist.filename, empty }
+attlist.filename &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute name { text }?,
+  attribute casesensitive { boolean }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute negate { boolean }?
+selector =
+  element selector {
+    attlist.selector,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.selector &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+date = element date { attlist.date, empty }
+attlist.date &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute millis { text }?,
+  attribute checkdirs { boolean }?,
+  attribute datetime { text }?,
+  attribute granularity { text }?,
+  attribute pattern { text }?,
+  attribute when { "before" | "after" | "equal" }?,
+  attribute error { text }?,
+  attribute description { text }?
+and =
+  element and {
+    attlist.and,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.and &=
+  attribute id { xsd:ID }?,
+  attribute error { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+depth = element depth { attlist.depth, empty }
+attlist.depth &=
+  attribute id { xsd:ID }?,
+  attribute max { text }?,
+  attribute error { text }?,
+  attribute min { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+dirset =
+  element dirset {
+    attlist.dirset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.dirset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+extdirs =
+  element extdirs {
+    attlist.extdirs,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.extdirs &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+filelist = element filelist { attlist.filelist, file* }
+attlist.filelist &=
+  attribute id { xsd:ID }?,
+  attribute dir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute files { text }?
+file = element file { attlist.file, empty }
+attlist.file &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?
+existing =
+  element existing {
+    attlist.existing,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.existing &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+pathelement = element pathelement { attlist.pathelement, empty }
+attlist.pathelement &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute path { text }?
+path =
+  element path {
+    attlist.path,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.path &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+filtermapper =
+  element filtermapper {
+    attlist.filtermapper,
+    (headfilter
+     | classconstants
+     | linecontains
+     | filterreader
+     | replaceregex
+     | replacetokens
+     | escapeunicode
+     | ignoreblank
+     | tailfilter
+     | tabstospaces
+     | prefixlines
+     | trim
+     | expandproperties
+     | striplinebreaks
+     | replacestring
+     | striplinecomments
+     | tokenfilter
+     | stripjavacomments
+     | containsregex
+     | deletecharacters
+     | linecontainsregexp)*
+  }
+attlist.filtermapper &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute to { text }?,
+  attribute from { text }?
+headfilter = element headfilter { attlist.headfilter, empty }
+attlist.headfilter &=
+  attribute id { xsd:ID }?,
+  attribute lines { text }?,
+  attribute skip { text }?
+classconstants =
+  element classconstants { attlist.classconstants, empty }
+attlist.classconstants &= attribute id { xsd:ID }?
+linecontains = element linecontains { attlist.linecontains, contains* }
+attlist.linecontains &= attribute id { xsd:ID }?
+filterreader =
+  element filterreader { attlist.filterreader, (classpath | param)* }
+attlist.filterreader &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?
+replaceregex = element replaceregex { attlist.replaceregex, empty }
+attlist.replaceregex &=
+  attribute id { xsd:ID }?,
+  attribute flags { text }?,
+  attribute byline { boolean }?,
+  attribute replace { text }?,
+  attribute pattern { text }?
+replacetokens = element replacetokens { attlist.replacetokens, \token* }
+attlist.replacetokens &=
+  attribute id { xsd:ID }?,
+  attribute begintoken { text }?,
+  attribute endtoken { text }?
+\token = element token { attlist.token, empty }
+attlist.token &=
+  attribute id { xsd:ID }?,
+  attribute key { text }?,
+  attribute value { text }?
+escapeunicode = element escapeunicode { attlist.escapeunicode, empty }
+attlist.escapeunicode &= attribute id { xsd:ID }?
+ignoreblank = element ignoreblank { attlist.ignoreblank, empty }
+attlist.ignoreblank &=
+  attribute id { xsd:ID }?,
+  attribute byline { boolean }?
+tailfilter = element tailfilter { attlist.tailfilter, empty }
+attlist.tailfilter &=
+  attribute id { xsd:ID }?,
+  attribute lines { text }?,
+  attribute skip { text }?
+tabstospaces = element tabstospaces { attlist.tabstospaces, empty }
+attlist.tabstospaces &=
+  attribute id { xsd:ID }?,
+  attribute tablength { text }?
+prefixlines = element prefixlines { attlist.prefixlines, empty }
+attlist.prefixlines &=
+  attribute id { xsd:ID }?,
+  attribute prefix { text }?
+trim = element trim { attlist.trim, empty }
+attlist.trim &=
+  attribute id { xsd:ID }?,
+  attribute byline { boolean }?
+expandproperties =
+  element expandproperties { attlist.expandproperties, empty }
+attlist.expandproperties &= attribute id { xsd:ID }?
+striplinebreaks =
+  element striplinebreaks { attlist.striplinebreaks, empty }
+attlist.striplinebreaks &=
+  attribute id { xsd:ID }?,
+  attribute linebreaks { text }?
+replacestring = element replacestring { attlist.replacestring, empty }
+attlist.replacestring &=
+  attribute id { xsd:ID }?,
+  attribute byline { boolean }?,
+  attribute to { text }?,
+  attribute from { text }?
+striplinecomments =
+  element striplinecomments { attlist.striplinecomments, comment* }
+attlist.striplinecomments &= attribute id { xsd:ID }?
+comment = element comment { attlist.comment, empty }
+attlist.comment &=
+  attribute id { xsd:ID }?,
+  attribute value { text }?
+tokenfilter =
+  element tokenfilter {
+    attlist.tokenfilter,
+    (containsstring
+     | linetokenizer
+     | trim
+     | stringtokenizer
+     | replaceregex
+     | replacestring
+     | ignoreblank
+     | deletecharacters
+     | containsregex
+     | filetokenizer)*
+  }
+attlist.tokenfilter &=
+  attribute id { xsd:ID }?,
+  attribute delimoutput { text }?
+containsstring =
+  element containsstring { attlist.containsstring, empty }
+attlist.containsstring &=
+  attribute id { xsd:ID }?,
+  attribute contains { text }?
+linetokenizer = element linetokenizer { attlist.linetokenizer, empty }
+attlist.linetokenizer &=
+  attribute id { xsd:ID }?,
+  attribute includedelims { boolean }?
+stringtokenizer =
+  element stringtokenizer { attlist.stringtokenizer, empty }
+attlist.stringtokenizer &=
+  attribute id { xsd:ID }?,
+  attribute suppressdelims { boolean }?,
+  attribute includedelims { boolean }?,
+  attribute delimsaretokens { boolean }?,
+  attribute delims { text }?
+deletecharacters =
+  element deletecharacters { attlist.deletecharacters, empty }
+attlist.deletecharacters &=
+  attribute id { xsd:ID }?,
+  attribute chars { text }?
+containsregex = element containsregex { attlist.containsregex, empty }
+attlist.containsregex &=
+  attribute id { xsd:ID }?,
+  attribute flags { text }?,
+  attribute byline { boolean }?,
+  attribute replace { text }?,
+  attribute pattern { text }?
+filetokenizer = element filetokenizer { attlist.filetokenizer, empty }
+attlist.filetokenizer &= attribute id { xsd:ID }?
+stripjavacomments =
+  element stripjavacomments { attlist.stripjavacomments, empty }
+attlist.stripjavacomments &= attribute id { xsd:ID }?
+linecontainsregexp =
+  element linecontainsregexp { attlist.linecontainsregexp, regexp* }
+attlist.linecontainsregexp &= attribute id { xsd:ID }?
+regexp = element regexp { attlist.regexp, empty }
+attlist.regexp &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute pattern { text }?
+filterset =
+  element filterset {
+    attlist.filterset, (filterset | filter | filtersfile)*
+  }
+attlist.filterset &=
+  attribute id { xsd:ID }?,
+  attribute begintoken { text }?,
+  attribute endtoken { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute recurse { boolean }?,
+  attribute filtersfile { text }?
+filter = element filter { attlist.filter, empty }
+attlist.filter &=
+  attribute id { xsd:ID }?,
+  attribute token { text }?,
+  attribute value { text }?
+filtersfile = element filtersfile { attlist.filtersfile, empty }
+attlist.filtersfile &=
+  attribute id { xsd:ID }?,
+  attribute file { text }?
+isfileselected =
+  element isfileselected {
+    attlist.isfileselected,
+    (custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | date
+     | and
+     | depth)*
+  }
+attlist.isfileselected &=
+  attribute id { xsd:ID }?,
+  attribute file { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute basedir { text }?
+mergemapper = element mergemapper { attlist.mergemapper, empty }
+attlist.mergemapper &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+identitymapper =
+  element identitymapper { attlist.identitymapper, empty }
+attlist.identitymapper &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+unpackagemapper =
+  element unpackagemapper { attlist.unpackagemapper, empty }
+attlist.unpackagemapper &=
+  attribute id { xsd:ID }?,
+  attribute handledirsep { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute to { text }?,
+  attribute from { text }?
+concatfilter = element concatfilter { attlist.concatfilter, empty }
+attlist.concatfilter &=
+  attribute id { xsd:ID }?,
+  attribute append { text }?,
+  attribute prepend { text }?
+globmapper = element globmapper { attlist.globmapper, empty }
+attlist.globmapper &=
+  attribute id { xsd:ID }?,
+  attribute handledirsep { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute to { text }?,
+  attribute from { text }?
+filterchain =
+  element filterchain {
+    attlist.filterchain,
+    (headfilter
+     | classconstants
+     | linecontains
+     | filterreader
+     | replaceregex
+     | replacetokens
+     | escapeunicode
+     | ignoreblank
+     | tailfilter
+     | tabstospaces
+     | prefixlines
+     | trim
+     | expandproperties
+     | striplinebreaks
+     | replacestring
+     | striplinecomments
+     | tokenfilter
+     | stripjavacomments
+     | containsregex
+     | deletecharacters
+     | linecontainsregexp)*
+  }
+attlist.filterchain &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+compositemapper =
+  element compositemapper { attlist.compositemapper, mapper* }
+attlist.compositemapper &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+regexpmapper = element regexpmapper { attlist.regexpmapper, empty }
+attlist.regexpmapper &=
+  attribute id { xsd:ID }?,
+  attribute handledirsep { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute to { text }?,
+  attribute from { text }?
+xmlcatalog =
+  element xmlcatalog {
+    attlist.xmlcatalog,
+    (entity | classpath | catalogpath | dtd | xmlcatalog)*
+  }
+attlist.xmlcatalog &=
+  attribute id { xsd:ID }?,
+  attribute catalogpathref { xsd:IDREF }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+entity = element entity { attlist.entity, empty }
+attlist.entity &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute publicid { text }?,
+  attribute base { text }?
+catalogpath =
+  element catalogpath {
+    attlist.catalogpath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.catalogpath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+dtd = element dtd { attlist.dtd, empty }
+attlist.dtd &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute publicid { text }?,
+  attribute base { text }?
+flattenmapper = element flattenmapper { attlist.flattenmapper, empty }
+attlist.flattenmapper &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+description = element description { attlist.description, text }
+attlist.description &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+chainedmapper = element chainedmapper { attlist.chainedmapper, mapper* }
+attlist.chainedmapper &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+packagemapper = element packagemapper { attlist.packagemapper, empty }
+attlist.packagemapper &=
+  attribute id { xsd:ID }?,
+  attribute handledirsep { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute to { text }?,
+  attribute from { text }?
+zipfileset =
+  element zipfileset {
+    attlist.zipfileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.zipfileset &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+substitution = element substitution { attlist.substitution, empty }
+attlist.substitution &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute expression { text }?
+redirector =
+  element redirector {
+    attlist.redirector,
+    (errorfilterchain
+     | outputfilterchain
+     | errormapper
+     | inputfilterchain
+     | outputmapper
+     | inputmapper)*
+  }
+attlist.redirector &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute inputencoding { text }?,
+  attribute append { boolean }?,
+  attribute output { text }?,
+  attribute createemptyfiles { boolean }?,
+  attribute outputproperty { text }?,
+  attribute error { text }?,
+  attribute errorproperty { text }?,
+  attribute outputencoding { text }?,
+  attribute inputstring { text }?,
+  attribute alwayslog { boolean }?,
+  attribute input { text }?,
+  attribute description { text }?,
+  attribute logerror { boolean }?,
+  attribute errorencoding { text }?
+errorfilterchain =
+  element errorfilterchain {
+    attlist.errorfilterchain,
+    (headfilter
+     | classconstants
+     | linecontains
+     | filterreader
+     | replaceregex
+     | replacetokens
+     | escapeunicode
+     | ignoreblank
+     | tailfilter
+     | tabstospaces
+     | prefixlines
+     | trim
+     | expandproperties
+     | striplinebreaks
+     | replacestring
+     | striplinecomments
+     | tokenfilter
+     | stripjavacomments
+     | containsregex
+     | deletecharacters
+     | linecontainsregexp)*
+  }
+attlist.errorfilterchain &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+outputfilterchain =
+  element outputfilterchain {
+    attlist.outputfilterchain,
+    (headfilter
+     | classconstants
+     | linecontains
+     | filterreader
+     | replaceregex
+     | replacetokens
+     | escapeunicode
+     | ignoreblank
+     | tailfilter
+     | tabstospaces
+     | prefixlines
+     | trim
+     | expandproperties
+     | striplinebreaks
+     | replacestring
+     | striplinecomments
+     | tokenfilter
+     | stripjavacomments
+     | containsregex
+     | deletecharacters
+     | linecontainsregexp)*
+  }
+attlist.outputfilterchain &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+errormapper =
+  element errormapper { attlist.errormapper, (classpath | mapper)* }
+attlist.errormapper &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute type {
+    "identity"
+    | "flatten"
+    | "glob"
+    | "merge"
+    | "regexp"
+    | "package"
+    | "unpackage"
+  }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?,
+  attribute to { text }?,
+  attribute from { text }?
+inputfilterchain =
+  element inputfilterchain {
+    attlist.inputfilterchain,
+    (headfilter
+     | classconstants
+     | linecontains
+     | filterreader
+     | replaceregex
+     | replacetokens
+     | escapeunicode
+     | ignoreblank
+     | tailfilter
+     | tabstospaces
+     | prefixlines
+     | trim
+     | expandproperties
+     | striplinebreaks
+     | replacestring
+     | striplinecomments
+     | tokenfilter
+     | stripjavacomments
+     | containsregex
+     | deletecharacters
+     | linecontainsregexp)*
+  }
+attlist.inputfilterchain &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?
+outputmapper =
+  element outputmapper { attlist.outputmapper, (classpath | mapper)* }
+attlist.outputmapper &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute type {
+    "identity"
+    | "flatten"
+    | "glob"
+    | "merge"
+    | "regexp"
+    | "package"
+    | "unpackage"
+  }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?,
+  attribute to { text }?,
+  attribute from { text }?
+inputmapper =
+  element inputmapper { attlist.inputmapper, (classpath | mapper)* }
+attlist.inputmapper &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute type {
+    "identity"
+    | "flatten"
+    | "glob"
+    | "merge"
+    | "regexp"
+    | "package"
+    | "unpackage"
+  }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute classname { text }?,
+  attribute to { text }?,
+  attribute from { text }?
+fail = element fail { attlist.fail, (text | condition)* }
+attlist.fail &=
+  attribute id { xsd:ID }?,
+  attribute status { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute message { text }?,
+  attribute unless { text }?,
+  attribute if { text }?
+condition =
+  element condition {
+    attlist.condition,
+    (isfalse
+     | isreference
+     | equals
+     | available
+     | not
+     | contains
+     | os
+     | or
+     | and
+     | filesmatch
+     | checksum
+     | istrue
+     | isset
+     | socket
+     | http
+     | uptodate)*
+  }
+attlist.condition &=
+  attribute id { xsd:ID }?,
+  attribute property { text }?,
+  attribute value { text }?,
+  attribute else { text }?
+isfalse = element isfalse { attlist.isfalse, empty }
+attlist.isfalse &=
+  attribute id { xsd:ID }?,
+  attribute value { boolean }?
+isreference = element isreference { attlist.isreference, empty }
+attlist.isreference &=
+  attribute id { xsd:ID }?,
+  attribute type { text }?,
+  attribute refid { xsd:IDREF }?
+equals = element equals { attlist.equals, empty }
+attlist.equals &=
+  attribute id { xsd:ID }?,
+  attribute trim { boolean }?,
+  attribute arg2 { text }?,
+  attribute arg1 { text }?,
+  attribute casesensitive { boolean }?
+available =
+  element available { attlist.available, (classpath | filepath)* }
+attlist.available &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute file { text }?,
+  attribute classname { text }?,
+  attribute resource { text }?,
+  attribute ignoresystemclasses { boolean }?,
+  attribute type { "file" | "dir" }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute taskname { text }?,
+  attribute value { text }?,
+  attribute description { text }?,
+  attribute property { text }?,
+  attribute filepath { text }?
+filepath =
+  element filepath {
+    attlist.filepath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.filepath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+os = element os { attlist.os, empty }
+attlist.os &=
+  attribute id { xsd:ID }?,
+  attribute version { text }?,
+  attribute name { text }?,
+  attribute family { text }?,
+  attribute arch { text }?
+filesmatch = element filesmatch { attlist.filesmatch, empty }
+attlist.filesmatch &=
+  attribute id { xsd:ID }?,
+  attribute file2 { text }?,
+  attribute file1 { text }?
+checksum =
+  element checksum {
+    attlist.checksum,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.checksum &=
+  attribute id { xsd:ID }?,
+  attribute excludes { text }?,
+  attribute fileext { text }?,
+  attribute totalproperty { text }?,
+  attribute property { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute readbuffersize { text }?,
+  attribute verifyproperty { text }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute todir { text }?,
+  attribute algorithm { text }?,
+  attribute includesfile { text }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?,
+  attribute provider { text }?,
+  attribute forceoverwrite { boolean }?
+istrue = element istrue { attlist.istrue, empty }
+attlist.istrue &=
+  attribute id { xsd:ID }?,
+  attribute value { boolean }?
+isset = element isset { attlist.isset, empty }
+attlist.isset &=
+  attribute id { xsd:ID }?,
+  attribute property { text }?
+socket = element socket { attlist.socket, empty }
+attlist.socket &=
+  attribute id { xsd:ID }?,
+  attribute port { text }?,
+  attribute server { text }?
+http = element http { attlist.http, empty }
+attlist.http &=
+  attribute id { xsd:ID }?,
+  attribute url { text }?,
+  attribute errorsbeginat { text }?
+uptodate = element uptodate { attlist.uptodate, (srcfiles | mapper)* }
+attlist.uptodate &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute value { text }?,
+  attribute property { text }?,
+  attribute srcfile { text }?,
+  attribute targetfile { text }?
+srcfiles =
+  element srcfiles {
+    attlist.srcfiles,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.srcfiles &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+tar =
+  element tar {
+    attlist.tar,
+    (patternset
+     | exclude
+     | \include
+     | tarfileset
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.tar &=
+  attribute id { xsd:ID }?,
+  attribute tarfile { text }?,
+  attribute destfile { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute basedir { text }?,
+  attribute taskname { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute compression { "none" | "gzip" | "bzip2" }?,
+  attribute longfile { "warn" | "fail" | "truncate" | "gnu" | "omit" }?,
+  attribute includes { text }?
+tarfileset =
+  element tarfileset {
+    attlist.tarfileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.tarfileset &=
+  attribute id { xsd:ID }?,
+  attribute excludes { text }?,
+  attribute preserveleadingslashes { boolean }?,
+  attribute username { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute uid { text }?,
+  attribute fullpath { text }?,
+  attribute group { text }?,
+  attribute followsymlinks { boolean }?,
+  attribute refid { xsd:IDREF }?,
+  attribute casesensitive { boolean }?,
+  attribute mode { text }?,
+  attribute gid { text }?,
+  attribute dir { text }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute prefix { text }?,
+  attribute dirmode { text }?,
+  attribute includesfile { text }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?
+defaultexcludes =
+  element defaultexcludes { attlist.defaultexcludes, empty }
+attlist.defaultexcludes &=
+  attribute id { xsd:ID }?,
+  attribute remove { text }?,
+  attribute echo { boolean }?,
+  attribute taskname { text }?,
+  attribute default { boolean }?,
+  attribute description { text }?,
+  attribute add { text }?
+dependset =
+  element dependset {
+    attlist.dependset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | targetfileset
+     | srcfileset
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | srcfilelist
+     | date
+     | excludesfile
+     | and
+     | depth
+     | targetfilelist)*
+  }
+attlist.dependset &=
+  attribute id { xsd:ID }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+targetfileset =
+  element targetfileset {
+    attlist.targetfileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.targetfileset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+srcfileset =
+  element srcfileset {
+    attlist.srcfileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.srcfileset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+srcfilelist = element srcfilelist { attlist.srcfilelist, file* }
+attlist.srcfilelist &=
+  attribute id { xsd:ID }?,
+  attribute dir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute files { text }?
+targetfilelist =
+  element targetfilelist { attlist.targetfilelist, file* }
+attlist.targetfilelist &=
+  attribute id { xsd:ID }?,
+  attribute dir { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute files { text }?
+java =
+  element java {
+    attlist.java,
+    (classpath
+     | sysproperty
+     | bootclasspath
+     | redirector
+     | syspropertyset
+     | env
+     | permissions
+     | jvmarg
+     | arg
+     | assertions)*
+  }
+attlist.java &=
+  attribute id { xsd:ID }?,
+  attribute resultproperty { text }?,
+  attribute jvmargs { text }?,
+  attribute fork { boolean }?,
+  attribute args { text }?,
+  attribute maxmemory { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute jar { text }?,
+  attribute errorproperty { text }?,
+  attribute output { text }?,
+  attribute timeout { text }?,
+  attribute spawn { boolean }?,
+  attribute input { text }?,
+  attribute jvm { text }?,
+  attribute inputstring { text }?,
+  attribute classpath { text }?,
+  attribute logerror { boolean }?,
+  attribute dir { text }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute jvmversion { text }?,
+  attribute outputproperty { text }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute newenvironment { boolean }?,
+  attribute classname { text }?
+sysproperty = element sysproperty { attlist.sysproperty, empty }
+attlist.sysproperty &=
+  attribute id { xsd:ID }?,
+  attribute key { text }?,
+  attribute file { text }?,
+  attribute value { text }?,
+  attribute path { text }?
+bootclasspath =
+  element bootclasspath {
+    attlist.bootclasspath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.bootclasspath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+syspropertyset =
+  element syspropertyset {
+    attlist.syspropertyset, (propertyref | propertyset | mapper)*
+  }
+attlist.syspropertyset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute negate { boolean }?,
+  attribute dynamic { boolean }?
+env = element env { attlist.env, empty }
+attlist.env &=
+  attribute id { xsd:ID }?,
+  attribute key { text }?,
+  attribute file { text }?,
+  attribute value { text }?,
+  attribute path { text }?
+permissions =
+  element permissions { attlist.permissions, (grant | revoke)* }
+attlist.permissions &= attribute id { xsd:ID }?
+grant = element grant { attlist.grant, empty }
+attlist.grant &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute class { text }?,
+  attribute actions { text }?
+revoke = element revoke { attlist.revoke, empty }
+attlist.revoke &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute class { text }?,
+  attribute actions { text }?
+jvmarg = element jvmarg { attlist.jvmarg, empty }
+attlist.jvmarg &=
+  attribute id { xsd:ID }?,
+  attribute line { text }?,
+  attribute file { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute value { text }?,
+  attribute path { text }?
+arg = element arg { attlist.arg, empty }
+attlist.arg &=
+  attribute id { xsd:ID }?,
+  attribute line { text }?,
+  attribute file { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute value { text }?,
+  attribute path { text }?
+echo = element echo { attlist.echo, text }
+attlist.echo &=
+  attribute id { xsd:ID }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute description { text }?,
+  attribute message { text }?,
+  attribute level {
+    "error" | "warning" | "info" | "verbose" | "debug"
+  }?
+execon =
+  element execon {
+    attlist.execon,
+    (mapper
+     | srcfile
+     | targetfile
+     | redirector
+     | filelist
+     | env
+     | fileset
+     | dirset
+     | arg)*
+  }
+attlist.execon &=
+  attribute id { xsd:ID }?,
+  attribute resultproperty { text }?,
+  attribute skipemptyfilesets { boolean }?,
+  attribute force { boolean }?,
+  attribute command { text }?,
+  attribute failifexecutionfails { boolean }?,
+  attribute type { "file" | "dir" | "both" }?,
+  attribute maxparallel { text }?,
+  attribute executable { text }?,
+  attribute errorproperty { text }?,
+  attribute os { text }?,
+  attribute output { text }?,
+  attribute timeout { text }?,
+  attribute dest { text }?,
+  attribute spawn { boolean }?,
+  attribute input { text }?,
+  attribute inputstring { text }?,
+  attribute addsourcefile { boolean }?,
+  attribute verbose { boolean }?,
+  attribute searchpath { boolean }?,
+  attribute logerror { boolean }?,
+  attribute dir { text }?,
+  attribute forwardslash { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute outputproperty { text }?,
+  attribute resolveexecutable { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute ignoremissing { boolean }?,
+  attribute vmlauncher { boolean }?,
+  attribute newenvironment { boolean }?,
+  attribute relative { boolean }?,
+  attribute parallel { boolean }?
+srcfile = element srcfile { attlist.srcfile, empty }
+attlist.srcfile &= attribute id { xsd:ID }?
+targetfile = element targetfile { attlist.targetfile, empty }
+attlist.targetfile &= attribute id { xsd:ID }?
+length = element length { attlist.length, empty }
+attlist.length &=
+  attribute id { xsd:ID }?,
+  attribute length { text }?,
+  attribute file { text }?,
+  attribute trim { boolean }?,
+  attribute mode { "each" | "all" }?,
+  attribute string { text }?,
+  attribute when { "equal" | "greater" | "less" }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute property { text }?
+chmod =
+  element chmod {
+    attlist.chmod,
+    (mapper
+     | \include
+     | srcfile
+     | exclude
+     | targetfile
+     | patternset
+     | redirector
+     | env
+     | filelist
+     | fileset
+     | dirset
+     | arg)*
+  }
+attlist.chmod &=
+  attribute id { xsd:ID }?,
+  attribute addsourcefile { boolean }?,
+  attribute excludes { text }?,
+  attribute verbose { boolean }?,
+  attribute parallel { boolean }?,
+  attribute input { text }?,
+  attribute executable { text }?,
+  attribute force { boolean }?,
+  attribute inputstring { text }?,
+  attribute searchpath { boolean }?,
+  attribute relative { boolean }?,
+  attribute skipemptyfilesets { boolean }?,
+  attribute command { text }?,
+  attribute forwardslash { boolean }?,
+  attribute spawn { boolean }?,
+  attribute description { text }?,
+  attribute includes { text }?,
+  attribute vmlauncher { boolean }?,
+  attribute file { text }?,
+  attribute logerror { boolean }?,
+  attribute errorproperty { text }?,
+  attribute failonerror { boolean }?,
+  attribute output { text }?,
+  attribute error { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute os { text }?,
+  attribute dest { text }?,
+  attribute resolveexecutable { boolean }?,
+  attribute taskname { text }?,
+  attribute resultproperty { text }?,
+  attribute ignoremissing { boolean }?,
+  attribute failifexecutionfails { boolean }?,
+  attribute append { boolean }?,
+  attribute timeout { text }?,
+  attribute maxparallel { text }?,
+  attribute outputproperty { text }?,
+  attribute perm { text }?,
+  attribute dir { text }?,
+  attribute newenvironment { boolean }?,
+  attribute type { "file" | "dir" | "both" }?
+manifest =
+  element manifest { attlist.manifest, (\attribute | section)* }
+attlist.manifest &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute mode { "update" | "replace" }?
+\attribute = element attribute { attlist.attribute, empty }
+attlist.attribute &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute value { text }?
+section = element section { attlist.section, \attribute* }
+attlist.section &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?
+javadoc2 =
+  element javadoc2 {
+    attlist.javadoc2,
+    (taglet
+     | doclet
+     | package
+     | arg
+     | link
+     | doctitle
+     | bottom
+     | group
+     | packageset
+     | fileset
+     | classpath
+     | sourcepath
+     | footer
+     | source
+     | bootclasspath
+     | header
+     | excludepackage
+     | tag)*
+  }
+attlist.javadoc2 &=
+  attribute id { xsd:ID }?,
+  attribute bottom { text }?,
+  attribute verbose { boolean }?,
+  attribute bootclasspathref { xsd:IDREF }?,
+  attribute executable { text }?,
+  attribute header { text }?,
+  attribute link { text }?,
+  attribute noindex { boolean }?,
+  attribute access { "protected" | "public" | "package" | "private" }?,
+  attribute doclet { text }?,
+  attribute noqualifier { text }?,
+  attribute public { boolean }?,
+  attribute author { boolean }?,
+  attribute footer { text }?,
+  attribute docletpath { text }?,
+  attribute package { boolean }?,
+  attribute useexternalfile { boolean }?,
+  attribute description { text }?,
+  attribute sourcepathref { xsd:IDREF }?,
+  attribute protected { boolean }?,
+  attribute breakiterator { boolean }?,
+  attribute nonavbar { boolean }?,
+  attribute maxmemory { text }?,
+  attribute group { text }?,
+  attribute source { text }?,
+  attribute linkoffline { text }?,
+  attribute additionalparam { text }?,
+  attribute locale { text }?,
+  attribute linksource { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute destdir { text }?,
+  attribute classpath { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute includenosourcepackages { boolean }?,
+  attribute bootclasspath { text }?,
+  attribute private { boolean }?,
+  attribute taskname { text }?,
+  attribute charset { text }?,
+  attribute nodeprecatedlist { boolean }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute stylesheetfile { text }?,
+  attribute docencoding { text }?,
+  attribute excludepackagenames { text }?,
+  attribute docletpathref { xsd:IDREF }?,
+  attribute packagenames { text }?,
+  attribute windowtitle { text }?,
+  attribute notree { boolean }?,
+  attribute splitindex { boolean }?,
+  attribute encoding { text }?,
+  attribute packagelist { text }?,
+  attribute doctitle { text }?,
+  attribute serialwarn { boolean }?,
+  attribute old { boolean }?,
+  attribute use { boolean }?,
+  attribute sourcepath { text }?,
+  attribute helpfile { text }?,
+  attribute version { boolean }?,
+  attribute sourcefiles { text }?,
+  attribute extdirs { text }?,
+  attribute nohelp { boolean }?,
+  attribute nodeprecated { boolean }?,
+  attribute overview { text }?
+taglet = element taglet { attlist.taglet, path* }
+attlist.taglet &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute path { text }?
+doclet = element doclet { attlist.doclet, (path | param)* }
+attlist.doclet &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute path { text }?
+package = element package { attlist.package, empty }
+attlist.package &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?
+link = element link { attlist.link, empty }
+attlist.link &=
+  attribute id { xsd:ID }?,
+  attribute href { text }?,
+  attribute offline { boolean }?,
+  attribute packagelistloc { text }?,
+  attribute resolvelink { boolean }?
+doctitle = element doctitle { attlist.doctitle, text }
+attlist.doctitle &= attribute id { xsd:ID }?
+bottom = element bottom { attlist.bottom, text }
+attlist.bottom &= attribute id { xsd:ID }?
+group = element group { attlist.group, (package | title)* }
+attlist.group &=
+  attribute id { xsd:ID }?,
+  attribute packages { text }?,
+  attribute title { text }?
+title = element title { attlist.title, text }
+attlist.title &= attribute id { xsd:ID }?
+packageset =
+  element packageset {
+    attlist.packageset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.packageset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+sourcepath =
+  element sourcepath {
+    attlist.sourcepath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.sourcepath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+footer = element footer { attlist.footer, text }
+attlist.footer &= attribute id { xsd:ID }?
+source = element source { attlist.source, empty }
+attlist.source &=
+  attribute id { xsd:ID }?,
+  attribute file { text }?
+header = element header { attlist.header, text }
+attlist.header &= attribute id { xsd:ID }?
+excludepackage =
+  element excludepackage { attlist.excludepackage, empty }
+attlist.excludepackage &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?
+tag =
+  element tag {
+    attlist.tag,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.tag &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute name { text }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute enabled { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute scope { text }?,
+  attribute includes { text }?
+deltree = element deltree { attlist.deltree, empty }
+attlist.deltree &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute dir { text }?,
+  attribute description { text }?
+cvs = element cvs { attlist.cvs, commandline* }
+attlist.cvs &=
+  attribute id { xsd:ID }?,
+  attribute cvsrsh { text }?,
+  attribute quiet { boolean }?,
+  attribute passfile { text }?,
+  attribute command { text }?,
+  attribute package { text }?,
+  attribute cvsroot { text }?,
+  attribute reallyquiet { boolean }?,
+  attribute output { text }?,
+  attribute port { text }?,
+  attribute dest { text }?,
+  attribute compressionlevel { text }?,
+  attribute noexec { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute date { text }?,
+  attribute compression { boolean }?,
+  attribute tag { text }?
+commandline =
+  element commandline { attlist.commandline, (marker | argument)* }
+attlist.commandline &=
+  attribute id { xsd:ID }?,
+  attribute executable { text }?
+marker = element marker { attlist.marker, empty }
+attlist.marker &= attribute id { xsd:ID }?
+argument = element argument { attlist.argument, empty }
+attlist.argument &=
+  attribute id { xsd:ID }?,
+  attribute line { text }?,
+  attribute file { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute value { text }?,
+  attribute path { text }?
+cvschangelog =
+  element cvschangelog {
+    attlist.cvschangelog, (fileset | user | commandline)*
+  }
+attlist.cvschangelog &=
+  attribute id { xsd:ID }?,
+  attribute cvsrsh { text }?,
+  attribute quiet { boolean }?,
+  attribute passfile { text }?,
+  attribute command { text }?,
+  attribute end { text }?,
+  attribute package { text }?,
+  attribute start { text }?,
+  attribute cvsroot { text }?,
+  attribute reallyquiet { boolean }?,
+  attribute output { text }?,
+  attribute port { text }?,
+  attribute compressionlevel { text }?,
+  attribute dest { text }?,
+  attribute destfile { text }?,
+  attribute usersfile { text }?,
+  attribute dir { text }?,
+  attribute noexec { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute daysinpast { text }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute date { text }?,
+  attribute compression { boolean }?,
+  attribute tag { text }?
+user = element user { attlist.user, empty }
+attlist.user &=
+  attribute id { xsd:ID }?,
+  attribute userid { text }?,
+  attribute displayname { text }?
+tstamp = element tstamp { attlist.tstamp, format* }
+attlist.tstamp &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute prefix { text }?
+format = element format { attlist.format, empty }
+attlist.format &=
+  attribute id { xsd:ID }?,
+  attribute locale { text }?,
+  attribute unit {
+    "millisecond"
+    | "second"
+    | "minute"
+    | "hour"
+    | "day"
+    | "week"
+    | "month"
+    | "year"
+  }?,
+  attribute timezone { text }?,
+  attribute pattern { text }?,
+  attribute property { text }?,
+  attribute offset { text }?
+pathconvert =
+  element pathconvert { attlist.pathconvert, (map | path | mapper)* }
+attlist.pathconvert &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute pathsep { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute dirsep { text }?,
+  attribute setonempty { boolean }?,
+  attribute property { text }?,
+  attribute targetos { text }?
+map = element map { attlist.map, empty }
+attlist.map &=
+  attribute id { xsd:ID }?,
+  attribute to { text }?,
+  attribute from { text }?
+unjar = element unjar { attlist.unjar, (fileset | patternset)* }
+attlist.unjar &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute overwrite { boolean }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute src { text }?
+import = element import { attlist.import, empty }
+attlist.import &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute optional { boolean }?,
+  attribute file { text }?,
+  attribute description { text }?
+patch = element patch { attlist.patch, empty }
+attlist.patch &=
+  attribute id { xsd:ID }?,
+  attribute strip { text }?,
+  attribute dir { text }?,
+  attribute destfile { text }?,
+  attribute quiet { boolean }?,
+  attribute originalfile { text }?,
+  attribute patchfile { text }?,
+  attribute reverse { boolean }?,
+  attribute taskname { text }?,
+  attribute backups { boolean }?,
+  attribute ignorewhitespace { boolean }?,
+  attribute description { text }?
+mail =
+  element mail {
+    attlist.mail, (fileset | bcc | message | replyto | cc | to | from)*
+  }
+attlist.mail &=
+  attribute id { xsd:ID }?,
+  attribute cclist { text }?,
+  attribute messagefile { text }?,
+  attribute password { text }?,
+  attribute encoding { "auto" | "mime" | "uu" | "plain" }?,
+  attribute charset { text }?,
+  attribute files { text }?,
+  attribute subject { text }?,
+  attribute message { text }?,
+  attribute ssl { boolean }?,
+  attribute tolist { text }?,
+  attribute mailport { text }?,
+  attribute messagemimetype { text }?,
+  attribute from { text }?,
+  attribute bcclist { text }?,
+  attribute description { text }?,
+  attribute replyto { text }?,
+  attribute mailhost { text }?,
+  attribute failonerror { boolean }?,
+  attribute taskname { text }?,
+  attribute includefilenames { boolean }?,
+  attribute user { text }?
+bcc = element bcc { attlist.bcc, empty }
+attlist.bcc &=
+  attribute id { xsd:ID }?,
+  attribute address { text }?,
+  attribute name { text }?
+message = element message { attlist.message, text }
+attlist.message &=
+  attribute id { xsd:ID }?,
+  attribute mimetype { text }?,
+  attribute src { text }?,
+  attribute charset { text }?
+replyto = element replyto { attlist.replyto, empty }
+attlist.replyto &=
+  attribute id { xsd:ID }?,
+  attribute address { text }?,
+  attribute name { text }?
+cc = element cc { attlist.cc, empty }
+attlist.cc &=
+  attribute id { xsd:ID }?,
+  attribute address { text }?,
+  attribute name { text }?
+to = element to { attlist.to, empty }
+attlist.to &=
+  attribute id { xsd:ID }?,
+  attribute address { text }?,
+  attribute name { text }?
+from = element from { attlist.from, empty }
+attlist.from &=
+  attribute id { xsd:ID }?,
+  attribute address { text }?,
+  attribute name { text }?
+buildnumber = element buildnumber { attlist.buildnumber, empty }
+attlist.buildnumber &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute description { text }?
+gzip = element gzip { attlist.gzip, empty }
+attlist.gzip &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute zipfile { text }?,
+  attribute description { text }?,
+  attribute src { text }?,
+  attribute destfile { text }?
+loadfile = element loadfile { attlist.loadfile, filterchain* }
+attlist.loadfile &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute property { text }?,
+  attribute srcfile { text }?,
+  attribute failonerror { boolean }?
+copy =
+  element copy {
+    attlist.copy, (filterchain | fileset | filterset | mapper)*
+  }
+attlist.copy &=
+  attribute id { xsd:ID }?,
+  attribute flatten { boolean }?,
+  attribute encoding { text }?,
+  attribute tofile { text }?,
+  attribute todir { text }?,
+  attribute file { text }?,
+  attribute verbose { boolean }?,
+  attribute includeemptydirs { boolean }?,
+  attribute overwrite { boolean }?,
+  attribute enablemultiplemappings { boolean }?,
+  attribute granularity { text }?,
+  attribute outputencoding { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute preservelastmodified { boolean }?,
+  attribute filtering { boolean }?
+tempfile = element tempfile { attlist.tempfile, empty }
+attlist.tempfile &=
+  attribute id { xsd:ID }?,
+  attribute destdir { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute prefix { text }?,
+  attribute property { text }?,
+  attribute suffix { text }?
+jar =
+  element jar {
+    attlist.jar,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | manifest
+     | type
+     | metainf
+     | modified
+     | or
+     | contains
+     | depend
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | indexjars
+     | filename
+     | selector
+     | includesfile
+     | zipgroupfileset
+     | zipfileset
+     | date
+     | excludesfile
+     | depth
+     | and)*
+  }
+attlist.jar &=
+  attribute id { xsd:ID }?,
+  attribute whenempty { "fail" | "skip" | "create" }?,
+  attribute keepcompression { boolean }?,
+  attribute duplicate { "add" | "preserve" | "fail" }?,
+  attribute comment { text }?,
+  attribute roundup { boolean }?,
+  attribute excludes { text }?,
+  attribute encoding { text }?,
+  attribute basedir { text }?,
+  attribute manifest { text }?,
+  attribute jarfile { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute index { boolean }?,
+  attribute update { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute destfile { text }?,
+  attribute casesensitive { boolean }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute includesfile { text }?,
+  attribute compress { boolean }?,
+  attribute taskname { text }?,
+  attribute manifestencoding { text }?,
+  attribute filesonly { boolean }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?,
+  attribute filesetmanifest { "skip" | "merge" | "mergewithoutmain" }?,
+  attribute zipfile { text }?
+metainf =
+  element metainf {
+    attlist.metainf,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.metainf &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+indexjars =
+  element indexjars {
+    attlist.indexjars,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.indexjars &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+zipgroupfileset =
+  element zipgroupfileset {
+    attlist.zipgroupfileset,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.zipgroupfileset &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute excludesfile { text }?,
+  attribute includes { text }?
+waitfor =
+  element waitfor {
+    attlist.waitfor,
+    (isfalse
+     | isreference
+     | equals
+     | available
+     | not
+     | contains
+     | os
+     | or
+     | and
+     | filesmatch
+     | checksum
+     | istrue
+     | isset
+     | socket
+     | http
+     | uptodate)*
+  }
+attlist.waitfor &=
+  attribute id { xsd:ID }?,
+  attribute checkeveryunit {
+    "millisecond" | "second" | "minute" | "hour" | "day" | "week"
+  }?,
+  attribute checkevery { text }?,
+  attribute maxwaitunit {
+    "millisecond" | "second" | "minute" | "hour" | "day" | "week"
+  }?,
+  attribute maxwait { text }?,
+  attribute timeoutproperty { text }?
+xmlproperty = element xmlproperty { attlist.xmlproperty, xmlcatalog* }
+attlist.xmlproperty &=
+  attribute id { xsd:ID }?,
+  attribute file { text }?,
+  attribute semanticattributes { boolean }?,
+  attribute keeproot { boolean }?,
+  attribute prefix { text }?,
+  attribute collapseattributes { boolean }?,
+  attribute validate { boolean }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute rootdirectory { text }?,
+  attribute includesemanticattribute { boolean }?
+unzip = element unzip { attlist.unzip, (fileset | patternset)* }
+attlist.unzip &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute overwrite { boolean }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute src { text }?
+rename = element rename { attlist.rename, empty }
+attlist.rename &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute dest { text }?,
+  attribute replace { text }?,
+  attribute description { text }?,
+  attribute src { text }?
+xslt =
+  element xslt {
+    attlist.xslt,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | factory
+     | modified
+     | param
+     | or
+     | contains
+     | depend
+     | classpath
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | xmlcatalog
+     | selector
+     | includesfile
+     | outputproperty
+     | mapper
+     | date
+     | excludesfile
+     | depth
+     | and)*
+  }
+attlist.xslt &=
+  attribute id { xsd:ID }?,
+  attribute force { boolean }?,
+  attribute excludes { text }?,
+  attribute processor { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute basedir { text }?,
+  attribute destdir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute scanincludeddirectories { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute extension { text }?,
+  attribute in { text }?,
+  attribute classpath { text }?,
+  attribute casesensitive { boolean }?,
+  attribute reloadstylesheet { boolean }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute out { text }?,
+  attribute includesfile { text }?,
+  attribute style { text }?,
+  attribute taskname { text }?,
+  attribute excludesfile { text }?
+factory = element factory { attlist.factory, \attribute* }
+attlist.factory &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?
+outputproperty =
+  element outputproperty { attlist.outputproperty, empty }
+attlist.outputproperty &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute value { text }?
+copyfile = element copyfile { attlist.copyfile, empty }
+attlist.copyfile &=
+  attribute id { xsd:ID }?,
+  attribute forceoverwrite { boolean }?,
+  attribute taskname { text }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute filtering { text }?,
+  attribute src { text }?
+macrodef =
+  element macrodef {
+    attlist.macrodef, (sequential | \element | \attribute | \text)*
+  }
+attlist.macrodef &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute name { text }?,
+  attribute description { text }?,
+  attribute uri { text }?
+sequential = element sequential { attlist.sequential, tasks* }
+attlist.sequential &= attribute id { xsd:ID }?
+\element = element element { attlist.element, empty }
+attlist.element &=
+  attribute id { xsd:ID }?,
+  attribute implicit { boolean }?,
+  attribute name { text }?,
+  attribute optional { boolean }?,
+  attribute description { text }?
+\text = element text { attlist.text, empty }
+attlist.text &=
+  attribute id { xsd:ID }?,
+  attribute trim { boolean }?,
+  attribute name { text }?,
+  attribute optional { boolean }?,
+  attribute description { text }?
+gunzip = element gunzip { attlist.gunzip, empty }
+attlist.gunzip &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute src { text }?
+bunzip2 = element bunzip2 { attlist.bunzip2, empty }
+attlist.bunzip2 &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute src { text }?
+antcall =
+  element antcall {
+    attlist.antcall, (reference | propertyset | target | param)*
+  }
+attlist.antcall &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute inheritall { boolean }?,
+  attribute inheritrefs { boolean }?,
+  attribute description { text }?,
+  attribute target { text }?
+reference = element reference { attlist.reference, empty }
+attlist.reference &=
+  attribute id { xsd:ID }?,
+  attribute torefid { text }?,
+  attribute refid { text }?
+taskdef = element taskdef { attlist.taskdef, classpath* }
+attlist.taskdef &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute uri { text }?,
+  attribute classpath { text }?,
+  attribute file { text }?,
+  attribute classname { text }?,
+  attribute resource { text }?,
+  attribute adaptto { text }?,
+  attribute onerror { "fail" | "report" | "ignore" }?,
+  attribute loaderref { xsd:IDREF }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute taskname { text }?,
+  attribute adapter { text }?,
+  attribute format { "properties" | "xml" }?,
+  attribute description { text }?,
+  attribute reverseloader { boolean }?
+mkdir = element mkdir { attlist.mkdir, empty }
+attlist.mkdir &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute dir { text }?,
+  attribute description { text }?
+sql =
+  element sql {
+    attlist.sql, (text | fileset | classpath | transaction)*
+  }
+attlist.sql &=
+  attribute id { xsd:ID }?,
+  attribute onerror { "continue" | "stop" | "abort" }?,
+  attribute userid { text }?,
+  attribute password { text }?,
+  attribute autocommit { boolean }?,
+  attribute rdbms { text }?,
+  attribute print { boolean }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute encoding { text }?,
+  attribute version { text }?,
+  attribute url { text }?,
+  attribute src { text }?,
+  attribute output { text }?,
+  attribute driver { text }?,
+  attribute showheaders { boolean }?,
+  attribute classpath { text }?,
+  attribute delimitertype { "normal" | "row" }?,
+  attribute escapeprocessing { boolean }?,
+  attribute description { text }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute caching { boolean }?,
+  attribute keepformat { boolean }?,
+  attribute delimiter { text }?
+transaction = element transaction { attlist.transaction, text }
+attlist.transaction &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?
+replace =
+  element replace {
+    attlist.replace,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | replacefilter
+     | or
+     | contains
+     | depend
+     | replacetoken
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | replacevalue
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.replace &=
+  attribute id { xsd:ID }?,
+  attribute encoding { text }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute token { text }?,
+  attribute propertyfile { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute summary { boolean }?,
+  attribute taskname { text }?,
+  attribute casesensitive { boolean }?,
+  attribute value { text }?,
+  attribute description { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute replacefilterfile { text }?,
+  attribute includes { text }?
+replacefilter = element replacefilter { attlist.replacefilter, empty }
+attlist.replacefilter &=
+  attribute id { xsd:ID }?,
+  attribute token { text }?,
+  attribute value { text }?,
+  attribute property { text }?
+replacetoken = element replacetoken { attlist.replacetoken, text }
+attlist.replacetoken &= attribute id { xsd:ID }?
+replacevalue = element replacevalue { attlist.replacevalue, text }
+attlist.replacevalue &= attribute id { xsd:ID }?
+ear =
+  element ear {
+    attlist.ear,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | present
+     | none
+     | not
+     | manifest
+     | type
+     | metainf
+     | modified
+     | or
+     | contains
+     | depend
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | archives
+     | indexjars
+     | filename
+     | selector
+     | includesfile
+     | zipgroupfileset
+     | zipfileset
+     | date
+     | excludesfile
+     | depth
+     | and)*
+  }
+attlist.ear &=
+  attribute id { xsd:ID }?,
+  attribute comment { text }?,
+  attribute whenempty { "fail" | "skip" | "create" }?,
+  attribute keepcompression { boolean }?,
+  attribute duplicate { "add" | "preserve" | "fail" }?,
+  attribute roundup { boolean }?,
+  attribute excludes { text }?,
+  attribute encoding { text }?,
+  attribute basedir { text }?,
+  attribute manifest { text }?,
+  attribute jarfile { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute index { boolean }?,
+  attribute update { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute destfile { text }?,
+  attribute casesensitive { boolean }?,
+  attribute earfile { text }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute includesfile { text }?,
+  attribute appxml { text }?,
+  attribute compress { boolean }?,
+  attribute taskname { text }?,
+  attribute manifestencoding { text }?,
+  attribute filesonly { boolean }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?,
+  attribute filesetmanifest { "skip" | "merge" | "mergewithoutmain" }?,
+  attribute zipfile { text }?
+archives =
+  element archives {
+    attlist.archives,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.archives &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+ant =
+  element ant {
+    attlist.ant, (reference | propertyset | property | target)*
+  }
+attlist.ant &=
+  attribute id { xsd:ID }?,
+  attribute output { text }?,
+  attribute taskname { text }?,
+  attribute inheritall { boolean }?,
+  attribute dir { text }?,
+  attribute inheritrefs { boolean }?,
+  attribute description { text }?,
+  attribute target { text }?,
+  attribute antfile { text }?
+property = element property { attlist.property, classpath* }
+attlist.property &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?,
+  attribute name { text }?,
+  attribute url { text }?,
+  attribute classpath { text }?,
+  attribute userproperty { boolean }?,
+  attribute file { text }?,
+  attribute resource { text }?,
+  attribute environment { text }?,
+  attribute prefix { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute taskname { text }?,
+  attribute location { text }?,
+  attribute value { text }?,
+  attribute description { text }?
+style =
+  element style {
+    attlist.style,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | factory
+     | modified
+     | param
+     | or
+     | contains
+     | depend
+     | classpath
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | xmlcatalog
+     | selector
+     | includesfile
+     | outputproperty
+     | mapper
+     | date
+     | excludesfile
+     | depth
+     | and)*
+  }
+attlist.style &=
+  attribute id { xsd:ID }?,
+  attribute force { boolean }?,
+  attribute excludes { text }?,
+  attribute processor { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute basedir { text }?,
+  attribute destdir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute scanincludeddirectories { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute extension { text }?,
+  attribute in { text }?,
+  attribute classpath { text }?,
+  attribute casesensitive { boolean }?,
+  attribute reloadstylesheet { boolean }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute out { text }?,
+  attribute includesfile { text }?,
+  attribute style { text }?,
+  attribute taskname { text }?,
+  attribute excludesfile { text }?
+genkey = element genkey { attlist.genkey, dname* }
+attlist.genkey &=
+  attribute id { xsd:ID }?,
+  attribute storepass { text }?,
+  attribute sigalg { text }?,
+  attribute verbose { boolean }?,
+  attribute keypass { text }?,
+  attribute dname { text }?,
+  attribute keysize { text }?,
+  attribute alias { text }?,
+  attribute keyalg { text }?,
+  attribute validity { text }?,
+  attribute keystore { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute storetype { text }?
+dname = element dname { attlist.dname, param* }
+attlist.dname &= attribute id { xsd:ID }?
+fixcrlf =
+  element fixcrlf {
+    attlist.fixcrlf,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.fixcrlf &=
+  attribute id { xsd:ID }?,
+  attribute tab { "add" | "asis" | "remove" }?,
+  attribute excludes { text }?,
+  attribute encoding { text }?,
+  attribute cr { "add" | "asis" | "remove" }?,
+  attribute destdir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute eol {
+    "asis" | "cr" | "lf" | "crlf" | "mac" | "unix" | "dos"
+  }?,
+  attribute followsymlinks { boolean }?,
+  attribute javafiles { boolean }?,
+  attribute eof { "add" | "asis" | "remove" }?,
+  attribute casesensitive { boolean }?,
+  attribute tablength { text }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute fixlast { boolean }?,
+  attribute includesfile { text }?,
+  attribute taskname { text }?,
+  attribute srcdir { text }?,
+  attribute excludesfile { text }?
+zip =
+  element zip {
+    attlist.zip,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | zipgroupfileset
+     | zipfileset
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.zip &=
+  attribute id { xsd:ID }?,
+  attribute whenempty { "fail" | "skip" | "create" }?,
+  attribute keepcompression { boolean }?,
+  attribute duplicate { "add" | "preserve" | "fail" }?,
+  attribute comment { text }?,
+  attribute roundup { boolean }?,
+  attribute excludes { text }?,
+  attribute basedir { text }?,
+  attribute encoding { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute update { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute destfile { text }?,
+  attribute casesensitive { boolean }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute includesfile { text }?,
+  attribute compress { boolean }?,
+  attribute taskname { text }?,
+  attribute filesonly { boolean }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?,
+  attribute zipfile { text }?
+presetdef = element presetdef { attlist.presetdef, tasks* }
+attlist.presetdef &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute name { text }?,
+  attribute description { text }?,
+  attribute uri { text }?
+cvstagdiff = element cvstagdiff { attlist.cvstagdiff, commandline* }
+attlist.cvstagdiff &=
+  attribute id { xsd:ID }?,
+  attribute cvsrsh { text }?,
+  attribute endtag { text }?,
+  attribute quiet { boolean }?,
+  attribute passfile { text }?,
+  attribute command { text }?,
+  attribute package { text }?,
+  attribute cvsroot { text }?,
+  attribute reallyquiet { boolean }?,
+  attribute output { text }?,
+  attribute starttag { text }?,
+  attribute port { text }?,
+  attribute dest { text }?,
+  attribute compressionlevel { text }?,
+  attribute destfile { text }?,
+  attribute enddate { text }?,
+  attribute noexec { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute date { text }?,
+  attribute startdate { text }?,
+  attribute compression { boolean }?,
+  attribute tag { text }?
+antstructure = element antstructure { attlist.antstructure, empty }
+attlist.antstructure &=
+  attribute id { xsd:ID }?,
+  attribute output { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?
+javac =
+  element javac {
+    attlist.javac,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | extdirs
+     | not
+     | type
+     | modified
+     | src
+     | or
+     | contains
+     | depend
+     | classpath
+     | sourcepath
+     | different
+     | size
+     | majority
+     | containsregexp
+     | bootclasspath
+     | filename
+     | selector
+     | includesfile
+     | compilerarg
+     | date
+     | excludesfile
+     | depth
+     | and)*
+  }
+attlist.javac &=
+  attribute id { xsd:ID }?,
+  attribute target { text }?,
+  attribute excludes { text }?,
+  attribute verbose { boolean }?,
+  attribute bootclasspathref { xsd:IDREF }?,
+  attribute compiler { text }?,
+  attribute executable { text }?,
+  attribute debuglevel { text }?,
+  attribute memoryInitialSize { text }?,
+  attribute deprecation { boolean }?,
+  attribute includeantruntime { boolean }?,
+  attribute description { text }?,
+  attribute sourcepathref { xsd:IDREF }?,
+  attribute depend { boolean }?,
+  attribute includes { text }?,
+  attribute source { text }?,
+  attribute includejavaruntime { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute destdir { text }?,
+  attribute debug { boolean }?,
+  attribute tempdir { text }?,
+  attribute classpath { text }?,
+  attribute followsymlinks { boolean }?,
+  attribute casesensitive { boolean }?,
+  attribute defaultexcludes { boolean }?,
+  attribute bootclasspath { text }?,
+  attribute includesfile { text }?,
+  attribute nowarn { boolean }?,
+  attribute proceed { boolean }?,
+  attribute taskname { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute fork { boolean }?,
+  attribute srcdir { text }?,
+  attribute memoryMaximumSize { text }?,
+  attribute optimize { boolean }?,
+  attribute encoding { text }?,
+  attribute excludesfile { text }?,
+  attribute sourcepath { text }?,
+  attribute listfiles { boolean }?,
+  attribute extdirs { text }?
+src =
+  element src {
+    attlist.src,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.src &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+compilerarg = element compilerarg { attlist.compilerarg, empty }
+attlist.compilerarg &=
+  attribute id { xsd:ID }?,
+  attribute line { text }?,
+  attribute implementation { text }?,
+  attribute file { text }?,
+  attribute compiler { text }?,
+  attribute pathref { xsd:IDREF }?,
+  attribute value { text }?,
+  attribute path { text }?
+cvsversion = element cvsversion { attlist.cvsversion, commandline* }
+attlist.cvsversion &=
+  attribute id { xsd:ID }?,
+  attribute cvsrsh { text }?,
+  attribute quiet { boolean }?,
+  attribute passfile { text }?,
+  attribute command { text }?,
+  attribute package { text }?,
+  attribute cvsroot { text }?,
+  attribute reallyquiet { boolean }?,
+  attribute output { text }?,
+  attribute port { text }?,
+  attribute serverversionproperty { text }?,
+  attribute dest { text }?,
+  attribute compressionlevel { text }?,
+  attribute clientversionproperty { text }?,
+  attribute noexec { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute date { text }?,
+  attribute compression { boolean }?,
+  attribute tag { text }?
+typedef = element typedef { attlist.typedef, classpath* }
+attlist.typedef &=
+  attribute id { xsd:ID }?,
+  attribute name { text }?,
+  attribute uri { text }?,
+  attribute classpath { text }?,
+  attribute file { text }?,
+  attribute classname { text }?,
+  attribute resource { text }?,
+  attribute adaptto { text }?,
+  attribute onerror { "fail" | "report" | "ignore" }?,
+  attribute loaderref { xsd:IDREF }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute taskname { text }?,
+  attribute adapter { text }?,
+  attribute format { "properties" | "xml" }?,
+  attribute description { text }?,
+  attribute reverseloader { boolean }?
+cvspass = element cvspass { attlist.cvspass, empty }
+attlist.cvspass &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute password { text }?,
+  attribute description { text }?,
+  attribute cvsroot { text }?,
+  attribute passfile { text }?
+gjdoc =
+  element gjdoc {
+    attlist.gjdoc,
+    (taglet
+     | doclet
+     | package
+     | arg
+     | link
+     | doctitle
+     | bottom
+     | group
+     | packageset
+     | fileset
+     | classpath
+     | sourcepath
+     | footer
+     | source
+     | bootclasspath
+     | header
+     | excludepackage
+     | tag)*
+  }
+attlist.gjdoc &=
+  attribute id { xsd:ID }?,
+  attribute bottom { text }?,
+  attribute verbose { boolean }?,
+  attribute bootclasspathref { xsd:IDREF }?,
+  attribute executable { text }?,
+  attribute header { text }?,
+  attribute link { text }?,
+  attribute noindex { boolean }?,
+  attribute access { "protected" | "public" | "package" | "private" }?,
+  attribute doclet { text }?,
+  attribute noqualifier { text }?,
+  attribute public { boolean }?,
+  attribute author { boolean }?,
+  attribute footer { text }?,
+  attribute docletpath { text }?,
+  attribute package { boolean }?,
+  attribute useexternalfile { boolean }?,
+  attribute description { text }?,
+  attribute sourcepathref { xsd:IDREF }?,
+  attribute protected { boolean }?,
+  attribute breakiterator { boolean }?,
+  attribute nonavbar { boolean }?,
+  attribute maxmemory { text }?,
+  attribute group { text }?,
+  attribute source { text }?,
+  attribute linkoffline { text }?,
+  attribute additionalparam { text }?,
+  attribute locale { text }?,
+  attribute linksource { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute destdir { text }?,
+  attribute classpath { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute includenosourcepackages { boolean }?,
+  attribute bootclasspath { text }?,
+  attribute private { boolean }?,
+  attribute taskname { text }?,
+  attribute charset { text }?,
+  attribute nodeprecatedlist { boolean }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute stylesheetfile { text }?,
+  attribute docencoding { text }?,
+  attribute excludepackagenames { text }?,
+  attribute docletpathref { xsd:IDREF }?,
+  attribute packagenames { text }?,
+  attribute windowtitle { text }?,
+  attribute notree { boolean }?,
+  attribute splitindex { boolean }?,
+  attribute encoding { text }?,
+  attribute packagelist { text }?,
+  attribute doctitle { text }?,
+  attribute serialwarn { boolean }?,
+  attribute old { boolean }?,
+  attribute use { boolean }?,
+  attribute sourcepath { text }?,
+  attribute helpfile { text }?,
+  attribute version { boolean }?,
+  attribute sourcefiles { text }?,
+  attribute extdirs { text }?,
+  attribute nohelp { boolean }?,
+  attribute nodeprecated { boolean }?,
+  attribute overview { text }?
+move =
+  element move {
+    attlist.move, (filterchain | fileset | filterset | mapper)*
+  }
+attlist.move &=
+  attribute id { xsd:ID }?,
+  attribute flatten { boolean }?,
+  attribute encoding { text }?,
+  attribute tofile { text }?,
+  attribute todir { text }?,
+  attribute file { text }?,
+  attribute verbose { boolean }?,
+  attribute includeemptydirs { boolean }?,
+  attribute overwrite { boolean }?,
+  attribute enablemultiplemappings { boolean }?,
+  attribute granularity { text }?,
+  attribute outputencoding { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute preservelastmodified { boolean }?,
+  attribute filtering { boolean }?
+dirname = element dirname { attlist.dirname, empty }
+attlist.dirname &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute description { text }?,
+  attribute property { text }?
+signjar = element signjar { attlist.signjar, fileset* }
+attlist.signjar &=
+  attribute id { xsd:ID }?,
+  attribute storepass { text }?,
+  attribute lazy { boolean }?,
+  attribute jar { text }?,
+  attribute verbose { boolean }?,
+  attribute keypass { text }?,
+  attribute maxmemory { text }?,
+  attribute alias { text }?,
+  attribute sectionsonly { boolean }?,
+  attribute keystore { text }?,
+  attribute taskname { text }?,
+  attribute sigfile { text }?,
+  attribute description { text }?,
+  attribute internalsf { boolean }?,
+  attribute storetype { text }?,
+  attribute signedjar { text }?
+whichresource =
+  element whichresource { attlist.whichresource, classpath* }
+attlist.whichresource &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute property { text }?,
+  attribute resource { text }?,
+  attribute class { text }?
+unwar = element unwar { attlist.unwar, (fileset | patternset)* }
+attlist.unwar &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute overwrite { boolean }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute src { text }?
+touch = element touch { attlist.touch, (fileset | filelist | mapper)* }
+attlist.touch &=
+  attribute id { xsd:ID }?,
+  attribute verbose { boolean }?,
+  attribute taskname { text }?,
+  attribute millis { text }?,
+  attribute mkdirs { boolean }?,
+  attribute file { text }?,
+  attribute description { text }?,
+  attribute pattern { text }?,
+  attribute datetime { text }?
+get = element get { attlist.get, empty }
+attlist.get &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute verbose { boolean }?,
+  attribute ignoreerrors { boolean }?,
+  attribute username { text }?,
+  attribute usetimestamp { boolean }?,
+  attribute taskname { text }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute password { text }?
+javadoc =
+  element javadoc {
+    attlist.javadoc,
+    (taglet
+     | doclet
+     | package
+     | arg
+     | link
+     | doctitle
+     | bottom
+     | group
+     | packageset
+     | fileset
+     | classpath
+     | sourcepath
+     | footer
+     | source
+     | bootclasspath
+     | header
+     | excludepackage
+     | tag)*
+  }
+attlist.javadoc &=
+  attribute id { xsd:ID }?,
+  attribute bottom { text }?,
+  attribute verbose { boolean }?,
+  attribute bootclasspathref { xsd:IDREF }?,
+  attribute executable { text }?,
+  attribute header { text }?,
+  attribute link { text }?,
+  attribute noindex { boolean }?,
+  attribute access { "protected" | "public" | "package" | "private" }?,
+  attribute doclet { text }?,
+  attribute noqualifier { text }?,
+  attribute public { boolean }?,
+  attribute author { boolean }?,
+  attribute footer { text }?,
+  attribute docletpath { text }?,
+  attribute package { boolean }?,
+  attribute useexternalfile { boolean }?,
+  attribute description { text }?,
+  attribute sourcepathref { xsd:IDREF }?,
+  attribute protected { boolean }?,
+  attribute breakiterator { boolean }?,
+  attribute nonavbar { boolean }?,
+  attribute maxmemory { text }?,
+  attribute group { text }?,
+  attribute source { text }?,
+  attribute linkoffline { text }?,
+  attribute additionalparam { text }?,
+  attribute locale { text }?,
+  attribute linksource { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute destdir { text }?,
+  attribute classpath { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute includenosourcepackages { boolean }?,
+  attribute bootclasspath { text }?,
+  attribute private { boolean }?,
+  attribute taskname { text }?,
+  attribute charset { text }?,
+  attribute nodeprecatedlist { boolean }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute stylesheetfile { text }?,
+  attribute docencoding { text }?,
+  attribute excludepackagenames { text }?,
+  attribute docletpathref { xsd:IDREF }?,
+  attribute packagenames { text }?,
+  attribute windowtitle { text }?,
+  attribute notree { boolean }?,
+  attribute splitindex { boolean }?,
+  attribute encoding { text }?,
+  attribute packagelist { text }?,
+  attribute doctitle { text }?,
+  attribute serialwarn { boolean }?,
+  attribute old { boolean }?,
+  attribute use { boolean }?,
+  attribute sourcepath { text }?,
+  attribute helpfile { text }?,
+  attribute version { boolean }?,
+  attribute sourcefiles { text }?,
+  attribute extdirs { text }?,
+  attribute nohelp { boolean }?,
+  attribute nodeprecated { boolean }?,
+  attribute overview { text }?
+record = element record { attlist.record, empty }
+attlist.record &=
+  attribute id { xsd:ID }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute name { text }?,
+  attribute loglevel {
+    "error" | "warn" | "info" | "verbose" | "debug"
+  }?,
+  attribute description { text }?,
+  attribute emacsmode { boolean }?,
+  attribute action { "start" | "stop" }?
+sync = element sync { attlist.sync, fileset* }
+attlist.sync &=
+  attribute id { xsd:ID }?,
+  attribute verbose { boolean }?,
+  attribute taskname { text }?,
+  attribute todir { text }?,
+  attribute overwrite { boolean }?,
+  attribute includeemptydirs { boolean }?,
+  attribute description { text }?,
+  attribute granularity { text }?,
+  attribute failonerror { boolean }?
+untar = element untar { attlist.untar, (fileset | patternset)* }
+attlist.untar &=
+  attribute id { xsd:ID }?,
+  attribute compression { "none" | "gzip" | "bzip2" }?,
+  attribute taskname { text }?,
+  attribute overwrite { boolean }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute src { text }?
+delete =
+  element delete {
+    attlist.delete,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.delete &=
+  attribute id { xsd:ID }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute quiet { boolean }?,
+  attribute verbose { boolean }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute includeemptydirs { boolean }?,
+  attribute taskname { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?,
+  attribute deleteonexit { boolean }?,
+  attribute excludesfile { text }?,
+  attribute excludes { text }?,
+  attribute includesfile { text }?,
+  attribute includes { text }?
+basename = element basename { attlist.basename, empty }
+attlist.basename &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute file { text }?,
+  attribute description { text }?,
+  attribute property { text }?,
+  attribute suffix { text }?
+copydir =
+  element copydir {
+    attlist.copydir,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.copydir &=
+  attribute id { xsd:ID }?,
+  attribute flatten { boolean }?,
+  attribute src { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute taskname { text }?,
+  attribute casesensitive { boolean }?,
+  attribute dest { text }?,
+  attribute description { text }?,
+  attribute forceoverwrite { boolean }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute filtering { boolean }?,
+  attribute includes { text }?
+loadproperties =
+  element loadproperties {
+    attlist.loadproperties, (filterchain | classpath)*
+  }
+attlist.loadproperties &=
+  attribute id { xsd:ID }?,
+  attribute classpath { text }?,
+  attribute taskname { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute encoding { text }?,
+  attribute resource { text }?,
+  attribute srcfile { text }?
+war =
+  element war {
+    attlist.war,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | present
+     | none
+     | not
+     | manifest
+     | type
+     | metainf
+     | modified
+     | or
+     | contains
+     | depend
+     | lib
+     | fileset
+     | different
+     | size
+     | majority
+     | containsregexp
+     | indexjars
+     | filename
+     | selector
+     | includesfile
+     | zipgroupfileset
+     | zipfileset
+     | classes
+     | date
+     | excludesfile
+     | webinf
+     | depth
+     | and)*
+  }
+attlist.war &=
+  attribute id { xsd:ID }?,
+  attribute comment { text }?,
+  attribute whenempty { "fail" | "skip" | "create" }?,
+  attribute keepcompression { boolean }?,
+  attribute duplicate { "add" | "preserve" | "fail" }?,
+  attribute roundup { boolean }?,
+  attribute excludes { text }?,
+  attribute encoding { text }?,
+  attribute basedir { text }?,
+  attribute manifest { text }?,
+  attribute jarfile { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute index { boolean }?,
+  attribute update { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute destfile { text }?,
+  attribute casesensitive { boolean }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute webxml { text }?,
+  attribute includesfile { text }?,
+  attribute compress { boolean }?,
+  attribute taskname { text }?,
+  attribute manifestencoding { text }?,
+  attribute filesonly { boolean }?,
+  attribute warfile { text }?,
+  attribute file { text }?,
+  attribute excludesfile { text }?,
+  attribute filesetmanifest { "skip" | "merge" | "mergewithoutmain" }?,
+  attribute zipfile { text }?
+lib =
+  element lib {
+    attlist.lib,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.lib &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+classes =
+  element classes {
+    attlist.classes,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.classes &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+webinf =
+  element webinf {
+    attlist.webinf,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.webinf &=
+  attribute id { xsd:ID }?,
+  attribute src { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute file { text }?,
+  attribute dir { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute filemode { text }?,
+  attribute prefix { text }?,
+  attribute casesensitive { boolean }?,
+  attribute description { text }?,
+  attribute fullpath { text }?,
+  attribute excludesfile { text }?,
+  attribute includesfile { text }?,
+  attribute excludes { text }?,
+  attribute includes { text }?,
+  attribute dirmode { text }?
+concat =
+  element concat {
+    attlist.concat,
+    (text | filterchain | fileset | filelist | path | footer | header)*
+  }
+attlist.concat &=
+  attribute id { xsd:ID }?,
+  attribute force { boolean }?,
+  attribute encoding { text }?,
+  attribute append { boolean }?,
+  attribute destfile { text }?,
+  attribute binary { boolean }?,
+  attribute eol {
+    "asis" | "cr" | "lf" | "crlf" | "mac" | "unix" | "dos"
+  }?,
+  attribute outputencoding { text }?,
+  attribute taskname { text }?,
+  attribute fixlastline { boolean }?,
+  attribute description { text }?
+parallel = element parallel { attlist.parallel, (tasks | daemons)* }
+attlist.parallel &=
+  attribute id { xsd:ID }?,
+  attribute pollinterval { text }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute threadsperprocessor { text }?,
+  attribute timeout { text }?,
+  attribute threadcount { text }?,
+  attribute failonany { boolean }?
+daemons = element daemons { attlist.daemons, tasks* }
+attlist.daemons &= attribute id { xsd:ID }?
+subant =
+  element subant {
+    attlist.subant,
+    (reference
+     | fileset
+     | buildpathelement
+     | dirset
+     | buildpath
+     | propertyset
+     | filelist
+     | property)*
+  }
+attlist.subant &=
+  attribute id { xsd:ID }?,
+  attribute genericantfile { text }?,
+  attribute output { text }?,
+  attribute inheritall { boolean }?,
+  attribute verbose { boolean }?,
+  attribute inheritrefs { boolean }?,
+  attribute antfile { text }?,
+  attribute target { text }?,
+  attribute buildpathref { xsd:IDREF }?,
+  attribute taskname { text }?,
+  attribute buildpath { text }?,
+  attribute description { text }?,
+  attribute failonerror { boolean }?
+buildpathelement =
+  element buildpathelement { attlist.buildpathelement, empty }
+attlist.buildpathelement &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute path { text }?
+buildpath =
+  element buildpath {
+    attlist.buildpath,
+    (fileset
+     | dirset
+     | extdirs
+     | filelist
+     | existing
+     | pathelement
+     | path)*
+  }
+attlist.buildpath &=
+  attribute id { xsd:ID }?,
+  attribute location { text }?,
+  attribute refid { xsd:IDREF }?,
+  attribute description { text }?,
+  attribute path { text }?
+exec = element exec { attlist.exec, (arg | redirector | env)* }
+attlist.exec &=
+  attribute id { xsd:ID }?,
+  attribute resultproperty { text }?,
+  attribute command { text }?,
+  attribute failifexecutionfails { boolean }?,
+  attribute executable { text }?,
+  attribute errorproperty { text }?,
+  attribute os { text }?,
+  attribute output { text }?,
+  attribute timeout { text }?,
+  attribute spawn { boolean }?,
+  attribute input { text }?,
+  attribute inputstring { text }?,
+  attribute searchpath { boolean }?,
+  attribute logerror { boolean }?,
+  attribute dir { text }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute outputproperty { text }?,
+  attribute failonerror { boolean }?,
+  attribute resolveexecutable { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute newenvironment { boolean }?,
+  attribute vmlauncher { boolean }?
+apply =
+  element apply {
+    attlist.apply,
+    (mapper
+     | srcfile
+     | targetfile
+     | redirector
+     | filelist
+     | env
+     | fileset
+     | dirset
+     | arg)*
+  }
+attlist.apply &=
+  attribute id { xsd:ID }?,
+  attribute resultproperty { text }?,
+  attribute skipemptyfilesets { boolean }?,
+  attribute force { boolean }?,
+  attribute command { text }?,
+  attribute failifexecutionfails { boolean }?,
+  attribute type { "file" | "dir" | "both" }?,
+  attribute maxparallel { text }?,
+  attribute executable { text }?,
+  attribute errorproperty { text }?,
+  attribute os { text }?,
+  attribute output { text }?,
+  attribute timeout { text }?,
+  attribute dest { text }?,
+  attribute spawn { boolean }?,
+  attribute input { text }?,
+  attribute inputstring { text }?,
+  attribute addsourcefile { boolean }?,
+  attribute verbose { boolean }?,
+  attribute searchpath { boolean }?,
+  attribute logerror { boolean }?,
+  attribute dir { text }?,
+  attribute forwardslash { boolean }?,
+  attribute error { text }?,
+  attribute description { text }?,
+  attribute outputproperty { text }?,
+  attribute resolveexecutable { boolean }?,
+  attribute failonerror { boolean }?,
+  attribute append { boolean }?,
+  attribute taskname { text }?,
+  attribute ignoremissing { boolean }?,
+  attribute vmlauncher { boolean }?,
+  attribute newenvironment { boolean }?,
+  attribute relative { boolean }?,
+  attribute parallel { boolean }?
+input = element input { attlist.input, text }
+attlist.input &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute addproperty { text }?,
+  attribute description { text }?,
+  attribute defaultvalue { text }?,
+  attribute validargs { text }?,
+  attribute message { text }?
+nice = element nice { attlist.nice, empty }
+attlist.nice &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute description { text }?,
+  attribute newpriority { text }?,
+  attribute currentpriority { text }?
+bzip2 = element bzip2 { attlist.bzip2, empty }
+attlist.bzip2 &=
+  attribute id { xsd:ID }?,
+  attribute taskname { text }?,
+  attribute zipfile { text }?,
+  attribute description { text }?,
+  attribute src { text }?,
+  attribute destfile { text }?
+rmic =
+  element rmic {
+    attlist.rmic,
+    (patternset
+     | exclude
+     | \include
+     | custom
+     | none
+     | present
+     | extdirs
+     | not
+     | type
+     | modified
+     | or
+     | contains
+     | depend
+     | classpath
+     | different
+     | size
+     | majority
+     | containsregexp
+     | filename
+     | selector
+     | includesfile
+     | compilerarg
+     | date
+     | excludesfile
+     | and
+     | depth)*
+  }
+attlist.rmic &=
+  attribute id { xsd:ID }?,
+  attribute verify { boolean }?,
+  attribute excludes { text }?,
+  attribute iiop { boolean }?,
+  attribute idlopts { text }?,
+  attribute extdirs { text }?,
+  attribute sourcebase { text }?,
+  attribute classpathref { xsd:IDREF }?,
+  attribute base { text }?,
+  attribute defaultexcludes { boolean }?,
+  attribute followsymlinks { boolean }?,
+  attribute includeantruntime { boolean }?,
+  attribute includejavaruntime { boolean }?,
+  attribute classpath { text }?,
+  attribute casesensitive { boolean }?,
+  attribute debug { boolean }?,
+  attribute compiler { text }?,
+  attribute includes { text }?,
+  attribute description { text }?,
+  attribute includesfile { text }?,
+  attribute taskname { text }?,
+  attribute idl { boolean }?,
+  attribute iiopopts { text }?,
+  attribute classname { text }?,
+  attribute excludesfile { text }?,
+  attribute filtering { boolean }?,
+  attribute stubversion { text }?
+sleep = element sleep { attlist.sleep, empty }
+attlist.sleep &=
+  attribute id { xsd:ID }?,
+  attribute hours { text }?,
+  attribute taskname { text }?,
+  attribute milliseconds { text }?,
+  attribute minutes { text }?,
+  attribute description { text }?,
+  attribute seconds { text }?,
+  attribute failonerror { boolean }?
+start = project

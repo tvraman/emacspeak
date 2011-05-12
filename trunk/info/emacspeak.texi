@@ -1,0 +1,60 @@
+\input texinfo
+@raggedright
+@c$Id$
+@setfilename./emacspeak.info 
+@settitle Emacspeak User's Manual --2nd Edition.
+@dircategory Accessibility
+@direntry
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+@end direntry
+@dircategory Emacs
+@direntry
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+@end direntry
+
+@titlepage
+
+     @title Emacspeak --The Complete Audio Desktop
+@subtitle User Manual
+@author T. V. Raman 
+     
+     @page
+     @vskip 0pt plus 1filll
+     Copyright @copyright{} 1994--2008 T. V. Raman. All Rights Reserved.
+
+
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+
+@summarycontents
+@contents
+@end titlepage
+
+@include preamble.texi
+@include copyright.texi
+@include announce.texi     
+@include introduction.texi
+@include install.texi
+@include using.texi
+@include audio-desktop.texi
+@include voices.texi
+@include online-help.texi
+@include packages.texi
+@include eterm.texi
+@include commands.texi
+@include options.texi
+@include tts-server.texi
+@include acknowledge.texi
+@c trailer
+     
+@node Concept Index
+@chapter Concept Index
+@printindex cp
+
+@node Key Index
+@chapter Key Index
+@printindex ky
+     
+     @bye

@@ -1,0 +1,71 @@
+This README file describes the emacs lisp package hm--view-process-2.4.
+
+The package provides the `view-process-mode'. With that mode it is
+possible to view processes on a UNIX system in an emacs buffer. One
+can send signals to the processes or filter and sort the buffer to
+find a special group of processes. The filtering and sorting can be
+done on a region or on the whole output.  The filter and sorter can
+use the whole line or single fields (like the command field or the
+size field).
+
+A signal can be send to all processes in a region or only to one
+process.
+
+The mode provides also some help functions to display explanations
+over the output fields and their values.
+
+It is also possible to view and kill processes on a remote machine via
+rsh.
+
+The mode commands can be called with special keybindings or with menu
+items.  Each function, which can be run on regions and on the whole
+output, has a generic interface, which determines the state of the
+region and calls then the appropriate command.
+
+Faces are used to highlight the header line and processes which should be
+killed.
+
+The mode is tested on Suns under SunOS 4.1.x and 5.x, on SGI's, HP's
+and on Linux PC's.
+
+Thanks to Giacomo Boffi, Andrew Hall and Richard Stallman, who had
+tested the package and special thanks to Giacomo Boffi, who has
+written special code for HP-UX and who has written some of the code
+to emulate XEmacs functions in the Emacs 19.
+
+And last but not least thanks to all the people who have worked on the
+XEmacs and the Emacs 19.
+
+
+The package consists of the following files:
+
+ANNOUNCEMENT			: text of the announcement of this package;
+INSTALL				: installation description 
+LSM				: entry for the Linux Software Map;
+Makefile			: Type 'make help' to get information
+				  about the Makefile targets
+README				: this file;
+view-process-adapt.el		: provides functions to adapt XEmacs functions
+				  for this package with the Emacs 19;
+				  not needed for the XEmacs;
+view-process-emacs-19.el	: special Emacs 19 functions, like the menu
+				  definitions;
+				  not needed for the XEmacs;
+view-process-mode.el		: the main file for the view-process-mode;
+view-process-system-specific.el : additional system specific code; it is not 
+				  necessary, that your system is listed in
+				  this file;
+view-process-xemacs.el		: special XEmacs functions, like the menu
+				  definitions;
+				  not needed for the Emacs 19;
+
+
+Please send any bug reports, fixes or comments to 
+		muenkel@daedalus.tnt.uni-hannover.de
+
+There is a bug report item in the pulldown menu for this purpose.
+
+I hope these files will be useful,
+
+
+Heiko

@@ -1,0 +1,192 @@
+               Emacspeak-20.0 (LeapDog) Unleashed!
+               ----------------------------------
+
+For Immediate Release:
+
+San Jose, Calif., (May 1, 2004)
+    Emacspeak-2004: Empowering Experienced Users
+    --Zero cost of ownership makes priceless software affordable!
+
+Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
+announces the immediate world-wide availability of Emacspeak 20.0
+--a powerful audio desktop for leveraging today's evolving
+service-oriented semantic WWW.
+
+Investors Note:
+---------------
+
+With several prominent analysts initiating coverage, NASDOG: ESPK
+is now trading over the net at levels close to that once
+attained by  DogCom high-fliers.
+
+What Is It?
+-----------
+
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit operating
+environments. By seamlessly blending all aspects of the Internet
+such as Web-surfing and electronic messaging into the audio
+desktop, Emacspeak enables speech access to local and remote
+information with a consistent and well-integrated user interface.
+A rich suite of task-oriented tools provides efficient
+speech-enabled access to the evolving semantic WWW.
+
+Major Enhancements:
+-------------------
+
+0)      Adds outline and bookmark support for Daisy Digital Books.
+1)      Speech-enables package ido.el.
+2)      Speech-enables package iswitchb.
+3)      Speech-enables new visual GDB interface (Emacs 21.3.50
+CVS).
+4)      Speech-enables package re-builder.el.
+5)      Enhances XSLT support within Emacs/W3.
+6)      New productivity wizards.
+7)      New URL templates for productive Web access.
+8)      Updated WebSearch tools.
+9)      Updated JDE support.
+10)     Updated ECB support. 
+
+
+See the NEWS file for additional details. 
+
+Establishing Freedom:
+---------------------
+
+  Never a toy system, Emacspeak is now voluntarily bundled with
+all major Linux distributions. Though designed to be modular,
+distributors have freely chosen to bundle the fully integrated
+system without any undue pressure --- a documented success for
+the integrated innovation embodied by the system. The integrity
+of the Emacspeak codebase is ensured by the reliable and secure
+Linux platform used to develop the software.
+
+Extensive studies have shown that thanks to these features, users
+consider Emacspeak to be absolutely priceless. Thanks to this
+wide-spread user demand, the present version is being made
+available at the same zero-cost as earlier releases.
+
+At the same time, Emacspeak-2003 continues to innovate in the
+area of speech and multimodal interaction and carries forward the
+well-established Open Source tradition of introducing user
+interface features that eventually show up in luser environments.
+On this theme, when once challenged by a proponent of a
+crash-prone but well-marketed windowing system with the assertion
+"Emacs is a system from the 70's", the creator of Emacspeak
+evinced surprise at the unusual candor manifest in the
+assertion that it would take popular idiot-proven interfaces
+until the year 2070 to catch up to where the Emacspeak audio
+desktop is today. Industry experts welcomed this refreshing
+breath of Courage Certainty and Clarity (CCC) at a time when
+users are reeling from the Fear Uncertainty and Doubt (FUD)
+unleashed by complex software systems backed by even more
+convoluted press releases.
+
+Independent Test Results:
+-------------------------
+
+Independent test results have proven that unlike some modern (and
+not so modern) software, Emacspeak can be safely uninstalled
+without adversely affecting the continued performance of the
+computer. These same tests also revealed that once uninstalled,
+the user stopped functioning altogether. Speaking with Aster
+Labrador, the creator of Emacspeak once pointed out that these
+results re-emphasize the user-centric design of Emacspeak; "It is
+the user --and not the computer-- that stops functioning when
+Emacspeak is uninstalled!".
+
+Note from Aster and Bubbles:
+----------------------------
+
+UnDoctored Videos Inc. is currently looking for volunteers to
+star in a video demonstrating such complete user failure.
+
+Obtaining Emacspeak:
+--------------------
+
+Emacspeak can be downloaded from sourceforge --see
+http://prdownloads.sourceforge.net/emacspeak/ You can visit
+Emacspeak on the WWW at http://emacspeak.sf.net.  You can
+subscribe to the emacspeak mailing list emacspeak@cs.vassar.edu
+by sending mail to the list request address
+emacspeak-request@cs.vassar.edu.  The latest development snapshot
+of Emacspeak is available via anonymous CVS from sourceforge.
+
+History:
+--------
+
+ Emacspeak-20.0 -- AKA LeapDog -- continues the long established
+GNU/Emacs tradition of integrated innovation to create a
+pleasurable computing environment for eyes-free interaction.
+emacspeak-19.0 --AKA WorkDog-- is designed to enhance user
+productivity at work and leisure.  Emacspeak-18.0 --code named
+GoodDog-- continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of ownership.
+Emacspeak-17.0 --code named HappyDog-- enhances user productivity
+by exploiting today's evolving WWW standards. Emacspeak-16.0
+--code named CleverDog-- the follow-up to SmartDog-- continued
+the tradition of working better, faster, smarter. Emacspeak-15.0
+--code named SmartDog--followed up on TopDog as the next in a
+continuing a series of award-winning audio desktop releases from
+Emacspeak Inc.  Emacspeak-14.0 --code named TopDog--was the first
+release of this millennium. Emacspeak-13.0 --codenamed
+YellowLab-- was the closing release of the
+20th. century. Emacspeak-12.0 --code named GoldenDog-- began
+leveraging the evolving semantic WWW to provide task-oriented
+speech access to Webformation. Emacspeak-11.0 --code named
+Aster-- went the final step in making Linux a zero-cost Internet
+access solution for blind and visually impaired
+users. Emacspeak-10.0 --(AKA Emacspeak-2000) code named
+WonderDog-- continued the tradition of award-winning software
+releases designed to make eyes-free computing a productive and
+pleasurable experience. Emacspeak-9.0 --(AKA Emacspeak 99) code
+named BlackLab-- continued to innovate in the areas of speech
+interaction and interactive accessibility. Emacspeak-8.0 --(AKA
+Emacspeak-98++) code named BlackDog-- was a major upgrade to the
+speech output extension to Emacs.
+
+Emacspeak-95 (code named Illinois) was released as OpenSource on
+the Internet in May 1995 as the first complete speech interface
+to UNIX workstations. The subsequent release, Emacspeak-96 (code
+named Egypt) made available in May 1996 provided significant
+enhancements to the interface. Emacspeak-97 (Tennessee) went
+further in providing a true audio desktop. Emacspeak-98
+integrated Internetworking into all aspects of the audio desktop
+to provide the first fully interactive speech-enabled WebTop.
+
+About Emacspeak:
+----------------
+
+Originally based at Cornell (NY)
+http://www.cs.cornell.edu/home/raman --home to Auditory User
+Interfaces (AUI) on the WWW-- Emacspeak is now maintained on
+SourceForge --http://emacspeak.sf.net-- and  is mirrored
+world-wide by an international network of software archives and
+bundled voluntarily with all major Linux distributions. On
+Monday, April 12, 1999, Emacspeak became part of the
+Smithsonian's Permanent Research Collection on Information
+Technology at the Smithsonian's National Museum of American
+History.
+
+The Emacspeak mailing list is archived at Vassar --the home of the
+Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
+valuable knowledge base for new users.
+
+Press/Analyst Contact: Hubbell Labrador
+
+Going forward, BubbleDog acknowledges her monopoly on setting the
+direction of the Emacspeak Audio Desktop, and promises to exercise
+this freedom to innovate and her resulting power responsibly (as
+before) in the interest of all dogs.
+
+About This Release:
+------------------
+
+Windows-Free (WF) is a favorite battle-cry of The League Against
+Forced Fenestration (LAFF).  --see
+http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm for details on
+the ill-effects of Forced Fenestration.
+
+CopyWrite )C( Aster and Hubbell Labrador. All Writes Reserved.
+GoldenDog (DM),  BlackDog (DM) etc., are Registered Dogmarks of Aster and Hubbell Labrador.
+All other dogs belong to their respective owners.

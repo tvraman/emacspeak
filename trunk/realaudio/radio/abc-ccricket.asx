@@ -1,0 +1,9 @@
+<ASX version = "3.0" BannerBar = "FIXED">
+    
+   <Entry>
+ <Ref href = "mms://media3.abc.net.au/www2" />
+ <Ref href = "http://media3.abc.net.au/www2" />
+ <Ref href = "http://www.abc.net.au/streaming/cricket_apol/generic_apol.wma" />   
+   </Entry>
+</ASX>
+

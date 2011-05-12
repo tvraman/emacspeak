@@ -1,0 +1,125 @@
+diff --git a/servers/linux-outloud/Makefile b/servers/linux-outloud/Makefile
+index d567b72..538f12f 100644
+--- a/servers/linux-outloud/Makefile
++++ b/servers/linux-outloud/Makefile
+@@ -5,7 +5,7 @@ PREFIX = /usr
+ libparentdir = ${PREFIX}/share/emacs/site-lisp
+ libdir =$(libparentdir)/emacspeak/servers/linux-outloud
+ #for tcl8.4, remove -pedantic to help the compile to finish
+-CFLAGS= -g    -O2 -fPIC  -DPIC  -ansi -Wall  -I/usr/include/tcl8.4
++CFLAGS= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I/usr/include/tcl8.4
+ LIBS= -ltcl8.4 -ltclx8.4 -ldl    
+ 
+ ATTS=atcleci.cpp  ALSA asoundrc
+diff --git a/servers/linux-outloud/atcleci.cpp b/servers/linux-outloud/atcleci.cpp
+index 0108f77..10757d9 100644
+--- a/servers/linux-outloud/atcleci.cpp
++++ b/servers/linux-outloud/atcleci.cpp
+@@ -472,7 +472,7 @@ int
+ alsa_init()
+ {
+   int             err;
+-  char           *device = "default";
++  const char           *device = "default";
+   size_t          chunk_bytes = 0;
+   if ((err =
+        snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+@@ -882,7 +882,7 @@ Say(ClientData eciHandle, Tcl_Interp * interp,
+         rc = _eciAddText(eciHandle, dest);
+         free(dest);
+         if (!rc) {
+-          Tcl_SetResult(interp, "Internal tts error", TCL_STATIC);
++          Tcl_SetResult(interp, const_cast<char*>("Internal tts error"), TCL_STATIC);
+           return TCL_ERROR;
+         }
+       }
+@@ -891,7 +891,7 @@ Say(ClientData eciHandle, Tcl_Interp * interp,
+   if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0], NULL), "synth")) {
+     rc = _eciSynthesize(eciHandle);
+     if (!rc) {
+-      Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
++      Tcl_SetResult(interp, const_cast<char*>("Internal tts synth error"), TCL_STATIC);
+       return TCL_ERROR;
+     }
+   }
+@@ -909,7 +909,7 @@ Synchronize(ClientData eciHandle,
+ {
+   int             rc = _eciSynchronize(eciHandle);
+   if (!rc) {
+-    Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
++    Tcl_SetResult(interp, const_cast<char*>("Internal tts synth error"), TCL_STATIC);
+     return TCL_ERROR;
+   }
+   return TCL_OK;
+@@ -924,7 +924,7 @@ Stop(ClientData eciHandle,
+     usleep(10);
+     return TCL_OK;
+   }
+-  Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
++  Tcl_SetResult(interp, const_cast<char*>("Could not stop synthesis"), TCL_STATIC);
+   return TCL_ERROR;
+ }
+ 
+@@ -948,7 +948,7 @@ Pause(ClientData eciHandle, Tcl_Interp * interp, int objc,
+ {
+   if (_eciPause(eciHandle, 1))
+     return TCL_OK;
+-  Tcl_SetResult(interp, "Could not pause synthesis", TCL_STATIC);
++  Tcl_SetResult(interp, const_cast<char*>("Could not pause synthesis"), TCL_STATIC);
+   return TCL_ERROR;
+ }
+ 
+@@ -958,7 +958,7 @@ Resume(ClientData eciHandle, Tcl_Interp * interp, int objc,
+ {
+   if (_eciPause(eciHandle, 0))
+     return TCL_OK;
+-  Tcl_SetResult(interp, "Could not resume synthesis", TCL_STATIC);
++  Tcl_SetResult(interp, const_cast<char*>("Could not resume synthesis"), TCL_STATIC);
+   return TCL_ERROR;
+ }
+ 
+diff --git a/servers/linux-outloud/langswitch.cpp b/servers/linux-outloud/langswitch.cpp
+index 62509e8..f6d13a4 100644
+--- a/servers/linux-outloud/langswitch.cpp
++++ b/servers/linux-outloud/langswitch.cpp
+@@ -69,11 +69,11 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
+   int j = 0;
+   enum ECILanguageDialect aCurrentLanguage, aEnglishLanguage, aFirstLanguage;
+   aCurrentLanguage = aEnglishLanguage = aFirstLanguage = NODEFINEDCODESET;
+-  char* aDefaultLang = (char*)getenv("LANGUAGE");
++  const char* aDefaultLang = getenv("LANGUAGE");
+ 
+   if (aDefaultLang == NULL)
+     {
+-      aDefaultLang = (char*)getenv("LANG");
++      aDefaultLang = getenv("LANG");
+       if (aDefaultLang == NULL)
+ 	{
+ 	  aDefaultLang = "en";
+@@ -90,7 +90,7 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
+     {
+       char buffer_i[3];
+       snprintf(buffer_i, 3, "%d", i); 
+-      Tcl_SetVar2(interp, "langalias", (char*)(TheLanguages[i].code), buffer_i, 0);
++      Tcl_SetVar2(interp, "langalias", const_cast<char*>(TheLanguages[i].code), buffer_i, 0);
+     }
+ 
+   int aCurrentLangIndex=0;
+@@ -136,7 +136,7 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
+ 	      aFirstLangIndex = aLang; 
+ 	    }
+ 	}
+-      Tcl_SetVar2(interp, "langlabel", buffer_j, (char*)(TheLanguages[aLang].label), 0);
++      Tcl_SetVar2(interp, "langlabel", buffer_j, const_cast<char*>(TheLanguages[aLang].label), 0);
+       Tcl_SetVar2(interp, "langsynth", "top", buffer_j, 0);
+     }
+ 
+@@ -169,7 +169,7 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
+ const char* getAnnotation (Tcl_Interp *interp, int* theIndex) 
+ {
+   const char* code = NULL;
+-  char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
++  const char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
+ 
+   if (aInfo)
+     {

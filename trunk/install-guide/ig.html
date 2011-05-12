@@ -1,0 +1,346 @@
+<HTML
+><HEAD
+><TITLE
+>Installing Emacspeak HOWTO</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="NEXT"
+TITLE="Legal Notice"
+HREF="legal-notice.html"></HEAD
+><BODY
+CLASS="ARTICLE"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="ARTICLE"
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Installing Emacspeak HOWTO</A
+></H1
+><DIV
+CLASS="AUTHORGROUP"
+><A
+NAME="AEN4"
+></A
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN5"
+>Jennifer Jobst</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>jobst@us.ibm.com</P
+></DIV
+></DIV
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN11"
+>James Van Zandt</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+>jrv@vanzandt.mv.com</P
+></DIV
+></DIV
+></DIV
+><P
+CLASS="PUBDATE"
+>December 4, 2001<BR></P
+><DIV
+CLASS="REVHISTORY"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+COLSPAN="3"
+><B
+>Revision History</B
+></TH
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 1.0</TD
+><TD
+ALIGN="LEFT"
+>December 4, 2001</TD
+><TD
+ALIGN="LEFT"
+>Revised by: JEJ</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>First release</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 1.0 DRAFT</TD
+><TD
+ALIGN="LEFT"
+>November 9, 2001</TD
+><TD
+ALIGN="LEFT"
+>Revised by: JEJ</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>DRAFT</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision Emacspeak HOWTO</TD
+><TD
+ALIGN="LEFT"
+>1996-2001</TD
+><TD
+ALIGN="LEFT"
+>Revised by: JVZ</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Previously, this document was
+				known as the Emacspeak HOWTO, and was
+				written and maintained by Mr. James
+				Van Zandt.</TD
+></TR
+></TABLE
+></DIV
+><DIV
+><DIV
+CLASS="ABSTRACT"
+><A
+NAME="AEN17"
+></A
+><P
+></P
+><P
+>			This document contains the installation
+			instructions for the Emacspeak audio desktop
+			application for Linux.
+			</P
+><P
+></P
+></DIV
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="legal-notice.html"
+>Legal Notice</A
+></DT
+><DT
+>2. <A
+HREF="introduction.html"
+>Introduction</A
+></DT
+><DT
+>3. <A
+HREF="documentation-conventions.html"
+>Documentation Conventions</A
+></DT
+><DT
+>4. <A
+HREF="requirements.html"
+>Requirements</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="requirements.html#LINUX-DISTROS"
+>Linux Distributions</A
+></DT
+><DT
+>4.2. <A
+HREF="requirements.html#EMACS"
+>Emacs</A
+></DT
+><DT
+>4.3. <A
+HREF="requirements.html#APPLICATIONS"
+>Background applications</A
+></DT
+><DT
+>4.4. <A
+HREF="requirements.html#SPEECH-SYNTHESIZERS"
+>Speech Synthesizers</A
+></DT
+><DD
+><DL
+><DT
+>4.4.1. <A
+HREF="requirements.html#HARDWARE-SYNTHS"
+>Hardware synthesizers</A
+></DT
+><DT
+>4.4.2. <A
+HREF="requirements.html#SOFTWARE-SYNTHS"
+>Software synthesizers</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>5. <A
+HREF="installing-emacspeak.html"
+>Installing Emacspeak</A
+></DT
+><DT
+>6. <A
+HREF="troubleshooting.html"
+>Frequently Asked Questions (FAQs)</A
+></DT
+><DT
+>7. <A
+HREF="additional-resources.html"
+>Additional resources</A
+></DT
+><DT
+>8. <A
+HREF="appendixa.html"
+>Appendix A: Installing Linux from a DOS machine</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="appendixa.html#APPENDIX-A-REQUIREMENTS"
+>Requirments</A
+></DT
+><DT
+>8.2. <A
+HREF="appendixa.html#SETUP"
+>Connecting the computers</A
+></DT
+><DT
+>8.3. <A
+HREF="appendixa.html#INSTALLING"
+>Installation</A
+></DT
+></DL
+></DD
+><DT
+>9. <A
+HREF="appendixb.html"
+>Appendix B: Installing ViaVoice TTS</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="appendixb.html#DOWNLOADING-VIAVOICE"
+>Downloading ViaVoice</A
+></DT
+><DT
+>9.2. <A
+HREF="appendixb.html#INSTALLING-RTK"
+>Installing ViaVoice RTK</A
+></DT
+><DT
+>9.3. <A
+HREF="appendixb.html#INSTALLING-SDK"
+>Installing ViaVoice SDK</A
+></DT
+><DT
+>9.4. <A
+HREF="appendixb.html#TESTING-INSTALL"
+>Testing the installation</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="acknowledgments.html"
+>Acknowledgments</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="legal-notice.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Legal Notice</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,4 @@
+htmlunit-2.7/lib
+
+Checked in here so we can build with just an svn checkout.
+Nuked from here, scala world will contain 2.7 or later.

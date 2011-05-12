@@ -1,0 +1,8 @@
+#!/bin/sh
+#Description: Emacspeak tool  to  realplay streams using ALSA
+#trplayer uses OSS by default.
+#This script wrappers it to use ALSA
+
+
+export ALSA_OSS_PCM_DEVICE=default 
+aoss trplayer "$@"

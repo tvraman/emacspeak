@@ -1,0 +1,49 @@
+#!/usr/bin/tclsh
+#$Id: ssh-outloud 6477 2010-04-23 17:22:59Z tv.raman.tv $
+#Description: Launch a TTS server on a remote host.
+#Copyright (C) 1995 -- 2011, T. V. Raman 
+# {{{  documentation
+
+# Running TTS server remotely.
+#Note that on modern  Linux installations,
+#You will need to:
+#Create  file .ssh/environment 
+# in your home directory on the local machine,
+#set up any env vars you need; e.g. for ViaVoice OUtloud 
+# Set ECIINI in that file like so:
+#ECIINI=<dirname>
+#and finally, update /etc/ssh/sshd_config 
+#to set PermitUserEnvironment to yes
+#In addition, you may need to ssh once by hand to get past the 
+#"do you want to continue connecting" question.
+
+# }}}
+set localhost [exec hostname]
+puts stderr "running on host <$localhost>"
+if [expr $argc == 0] {
+    set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
+} else {
+    set remote [lindex $argv 0]
+}
+set wd [file dirname $argv0]
+lappend auto_path $wd
+# split out port 
+set host_port [split $remote ":"]
+set host [lindex $host_port 0]
+set port [lindex $host_port 1]
+if {$port == ""} {set  port 22}
+# split out user name
+set user_host [split $host "@"]
+set user [lindex $user_host 0]
+set host [lindex $user_host 1]
+if {$host == ""} {
+    set host $user
+    set user [exec whoami]
+}
+    
+
+set tcl "/usr/bin/tclsh8.4_ia32"
+regsub {/ssh-}  $argv0 {/} tts
+puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
+exec     ssh -o StrictHostKeyChecking=no $host \
+    -l $user -p $port  $tcl $tts

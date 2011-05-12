@@ -1,0 +1,6 @@
+(require 'epa)
+(load-library "twittering-mode")
+(setq twittering-use-master-password t)
+(setq epa-protocol 'OpenPGP)
+(setq twittering-timer-interval 300)
+(setq twittering-timer-interval-for-redisplaying 300)

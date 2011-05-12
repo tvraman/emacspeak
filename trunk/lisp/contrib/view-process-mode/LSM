@@ -1,0 +1,16 @@
+Begin3
+Title:          hm--view-process
+Version:        2.4
+Entered-date:   17AUG96
+Description:    An Elisp Package For Viewing Processes With The XEmacs/Emacs19.
+		The output of ps is inserted in an emacs buffer. One can easy
+		send signals to one or more processes and sort and filter the
+		output. A description of the output is also provided.
+Keywords:       xemacs, emacs 19, ps, view processes, kill
+Author:         muenkel@tnt.uni-hannover.de (Heiko Muenkel)
+Primary-site:   ftp.tnt.uni-hannover.de /data/ftp/pub/editors/xemacs/contrib
+                38kB hm--view-process-2.4.tar.gz
+Alternate-site: sunsite.unc.edu /pub/Linux/apps/editors/emacs           
+Platforms:      xemacs 19.14 or higher or the emacs 19.31 or higher
+Copying-policy: GPL
+End

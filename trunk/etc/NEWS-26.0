@@ -1,0 +1,27 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 4262 2006-11-10 03:08:22Z tv.raman.tv $
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 26.0 Additions And Changes:
+
+Emacspeak 26.0 provides the following user level enhancements:
+
+  1. Added support for ESpeak -- a freely available TTS engine.
+  2. Added support for Ocropus -- a freely available OCR engine.
+  3. Updated Websearch tools.
+  4. Updated URL templates to enhance the Web Command Line.
+  5. Support for Google Services like Blogger via package G-Client.
+  6. Updated productivity tools in the wizards package.
+  7. Fully tested against the upcoming Emacs 22.
+  8. Better integration between W3 and W3M.
+
+
+This release contains many user contributed patches including:
+
+  - ESpeak patches from the Oralux project.
+  - W3M support patches from RDC
+  
+
+Local variables:
+ mode: org
+end:

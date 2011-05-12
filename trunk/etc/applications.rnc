@@ -1,0 +1,36 @@
+applications =
+  element applications {
+    attlist.applications, preamble, introduction, category+, postamble
+  }
+# caption    Descriptive caption
+attlist.applications &= attribute caption { text }
+# Contains applications of a specific named
+# category
+category = element category { attlist.category, application+ }
+# name       Name of this category. Pick a descriptive
+# name with multiple words, with the first word
+# capitalized.
+attlist.category &= attribute name { text }
+# Contains information about an application.
+application = element application { attlist.application, text }
+# name       Name of this application. Pick a short single
+# word hyphenated if necessary, all lower
+# case.
+attlist.application &= attribute name { text }
+# holds doc preamble info
+preamble = element preamble { attlist.preamble, empty }
+# title      Title
+attlist.preamble &= attribute title { text }
+# Contains introductory prose
+introduction = element introduction { attlist.introduction, any }
+attlist.introduction &= empty
+# Contains concluding text
+postamble = element postamble { attlist.postamble, any }
+attlist.postamble &= empty
+start = applications
+any =
+  (element * {
+     attribute * { text }*,
+     any
+   }
+   | text)*

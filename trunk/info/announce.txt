@@ -1,0 +1,14 @@
+Announcing Emacspeak User Manual 2nd Edition:
+---------------------------------------------
+
+--Open Source Project To  Collaboratively Author User
+  Documentation
+
+This is to announce a new open source initiative to
+collaboriatively author user documentation for Emacspeak
+--an Emacs speech extension that 
+creates a complete audio desktop.
+
+The manual will be posted as a compressed tar.gz archive to
+the Emacspeak mailing list at vassar and will be made
+available for download from http://cs.cornell.edu/home/raman/emacspeak/

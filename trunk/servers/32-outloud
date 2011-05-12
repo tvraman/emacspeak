@@ -1,0 +1,60 @@
+#!/usr/bin/tclsh8.4_ia32
+# Keywords: Emacspeak, ViaVoice Outloud , TCL
+# {{{ LCD Entry: 
+
+# LCD Archive Entry:
+# emacspeak| T. V. Raman |raman@cs.cornell.edu
+# A speech interface to Emacs |
+# $Date: 2010-02-01 15:40:43 -0800 (Mon, 01 Feb 2010) $ |
+#  $Revision: 6435 $ | 
+# Location undetermined
+#
+
+# }}}
+# {{{ Copyright:  
+#Copyright (C) 1995 -- 2001, T. V. Raman 
+#All Rights Reserved
+#
+# This file is not part of GNU Emacs, but the same permissions apply.
+#
+# GNU Emacs is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# GNU Emacs is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs; see the file COPYING.  If not, write to
+# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+# }}}
+# {{{source common code 
+# install getlibs, then do 
+# sudo getlibs -l libtclx8.4.so.0
+# libtclx8.4.so.0: tclx8.4
+# The following i386 packages will be installed:
+# tclx8.4
+# Also run sudo getlibs -l libtcl8.4.so
+# to install tcl8.4-dev libs if you want to rebuild the server
+# This resolves the dependency below.
+
+load /usr/lib32/libtclx8.4.so.0
+package require Tclx32
+set wd [file dirname $argv0]
+lappend auto_path $wd
+source $wd/outloud
+
+# }}}
+# {{{ Emacs local variables  
+
+### Local variables:
+### major-mode: tcl-mode 
+### voice-lock-mode: t
+### folded-file: t
+### End:
+
+# }}}

@@ -1,0 +1,7 @@
+#!/bin/sh
+#$Id$
+#Description: Wrapper for playing audio/wav attachments from vm
+#Provides hook for setting volume during playback.
+aumix -w 100
+play $1
+aumix -L  -f $HOME/.emacspeak/.aumixrc

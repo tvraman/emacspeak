@@ -1,0 +1,9 @@
+﻿<ASX version = "3.0">
+<TITLE>ESPN Broadband</TITLE>
+<AUTHOR>ESPN</AUTHOR>
+<COPYRIGHT>(c)2006 ESPN</COPYRIGHT>
+		<ENTRY>
+			<REF HREF = "mms://live.espnevent.espn.com.edgestreams.net/reflector:58589"/>
+<REF HREF = "mms://live.espnevent.espn.com.edgestreams.net/reflector:59916"/>
+    		</ENTRY>
+</ASX>

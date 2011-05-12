@@ -1,0 +1,77 @@
+
+Notes On Using Multilingual Speech Server with Emacspeak:
+
+Multispeech is a multilingual speech server. Now it supports English
+and Russian. Natively it uses Mbrola and Freephone for English and
+Ru_tts for Russian speech synthesis, but can be tuned for using other
+TTS engines.
+
+* Pre-requisites:
+
+You need to obtain  and install the Multispeech itself and
+accompanying TTS engines. All this stuff is not distributed with this
+package and can be downloaded freely from
+http://www.mr-blind.hopto.org/blinux/ or
+ftp://ftp.rakurs.spb.ru/pub/Goga/.
+
+ * Installation:
+
+**  Have You Installed Emacspeak?
+
+Before attempting to build and install Multispeech
+support for Emacspeak you should first install Emacspeak the
+normal way.  See the Emacspeak Makefile for instructions.
+
+** Multispeech installation notes:
+
+At first, note that Multispeech is a stand-alone application and it
+doesn't need TCL. To use this server with Emacspeak you should make
+symlink named "multispeech" pointing to it's executable in the
+directory where Emacspeak's speech servers normally live.
+
+You need not to use elisp stuff shipped with the Multispeech. Now it
+is incorporated in this package.
+
+* Testing:
+
+To test multispeech, start it from shell and type:
+
+tts_say { some text from your choice }
+
+If the text in braces is spoken then all is ok.
+
+* Using Multispeech  With Emacspeak:
+
+Proceed to this step *only*
+after successfully completing all of the previous steps.
+You can either make the Multispeech your default
+speech server by setting environment variable 
+DTK_PROGRAM as follows before launching Emacs:
+export DTK_PROGRAM=multispeech
+
+Alternatively,  you can switch to the multispeech while
+emacspeak is running by 
+invoking command dtk-select-server --type
+C-e d d ret multispeech ret 
+
+
+Alternatively start emacspeak with the "-m" option.
+
+
+* Using multispeech as the default synthesizer:
+
+Once you've confirmed that everything is working with the
+Multispeech and Emacspeak, you can make multispeech your
+default synthesizer by:
+** If you have emacspeak launched from inside your .emacs:
+
+set variable dtk-program to "multispeech" 
+before you load emacspeak-setup.el
+
+
+
+
+Local variables: 
+mode: outline 
+paragraph-separate: "[ ]*$"
+end:

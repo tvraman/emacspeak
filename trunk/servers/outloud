@@ -1,0 +1,500 @@
+#!/usr/bin/tclsh
+# Keywords: Emacspeak, ViaVoice Outloud , TCL
+# {{{ LCD Entry: 
+
+# LCD Archive Entry:
+# emacspeak| T. V. Raman |raman@cs.cornell.edu
+# A speech interface to Emacs |
+# $Date$ |
+#  $Revision$ | 
+# Location undetermined
+#
+
+# }}}
+# {{{ Copyright:  
+#Copyright (C) 1995 -- 2001, T. V. Raman 
+#All Rights Reserved
+#
+# This file is not part of GNU Emacs, but the same permissions apply.
+#
+# GNU Emacs is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# GNU Emacs is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs; see the file COPYING.  If not, write to
+# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+# }}}
+# {{{source common code 
+
+package require Tclx
+set wd [file dirname $argv0]
+lappend auto_path $wd
+#source tts-lib.tcl
+source $wd/tts-lib.tcl
+
+# }}}
+# {{{ procedures  
+
+proc version {} {
+    q " ViaVoice [ttsVersion]"
+    d
+}
+
+proc tts_set_punctuations {mode} {
+    global tts
+    set tts(punctuations) $mode
+    service
+    return ""
+}
+
+proc tts_set_speech_rate {rate} {
+    global tts
+    set factor $tts(char_factor) 
+    set tts(speech_rate) $rate
+    say "`vs$rate "
+    service
+    return ""
+}
+
+proc tts_set_character_scale {factor} {
+    global tts
+    set tts(say_rate) [round \
+                           [expr $tts(speech_rate) * $factor ]]
+    set tts(char_factor) $factor
+    service
+    return ""
+}
+
+proc tts_say {text} {
+    global    tts
+    service 
+    set r $tts(speech_rate)
+    set prefix "`v1 `vs$r "
+    regsub -all {\[\*\]} $text { `p1 } text 
+    synth " $prefix $text"
+    service
+    return ""
+}
+
+#formerly called tts_letter
+
+proc l {text} {
+    global tts
+    set r $tts(speech_rate)
+    set prefix "`v1 `vs$r "
+    if {[regexp  {[A-Z]} $text]} {
+        set prefix "$prefix `vb80"
+    }
+    set tts(not_stopped) 1
+    synth "$prefix  `ts2 $text `ts0"
+    service
+    return ""
+}
+
+#formerly called tts_speak
+proc d {} {
+    service
+    speech_task
+}
+
+proc tts_resume  {} {
+    resume
+    return ""
+}
+proc tts_pause {} {
+    pause
+    return ""
+}
+
+#formerly called tts_stop 
+
+proc s {} {
+    global tts
+    if {$tts(not_stopped) == 1} {
+        set tts(not_stopped) 0
+        stop
+        queue_clear
+    } else {
+        puts stderr StopNoOp
+    }
+}
+
+#formerly called tts_tone
+
+proc t  {{pitch 440} {duration 50}} {
+    global tts queue
+    if {$tts(beep)} {
+        b $pitch $duration
+        return ""
+    }
+    service
+}
+
+proc sh  {{duration 50}} {
+    global tts queue 
+    set silence "`p$duration "
+    set queue($tts(q_tail)) [list t $silence]
+    incr tts(q_tail)
+    service
+    return ""
+}
+
+
+proc tts_split_caps {flag} {
+    global tts 
+    set tts(split_caps) $flag
+    service
+    return ""
+}
+
+proc tts_capitalize {flag} {
+    global tts 
+    set tts(capitalize) $flag
+    service
+    return ""
+}
+
+proc tts_allcaps_beep {flag} {
+    global tts 
+    set tts(allcaps_beep) $flag
+    service
+    return ""
+}
+
+proc tts_reset {} {
+    global tts 
+    queue_clear
+    synth "Resetting engine to factory defaults."
+    service
+}
+
+proc r {rate} {
+    global queue  tts
+    set queue($tts(q_tail)) [list s  "`vs $rate "]
+    incr tts(q_tail)
+    return ""
+}
+
+# Language switching
+#
+# langsynth: available languages of the voice synthesis
+# This variable is set by atcleci
+# For example: langsynth(0)=3
+# 3 is the atcleci code for the finnish language 
+
+# langsynth(current): current synthesis language, 
+# Gives the code of the current synth language.
+# This variable is set by the application
+# For example: langsynth(current)=3
+# means finnish is the current language
+
+# langsynth(top): max available index.
+# For example, if there are three available languages: 
+# langsynth(top)=2
+# langlabel: what will be announced
+# e.g. langlabel(0)="Finnish"
+# This variable is set by tcldtk? doesn't work
+
+#set langlabel(0) "American"
+
+# langalias converts a code language ("en", "en_GB",...) to its index in the langsynth array.
+# e.g. langalias(fi)=3 could mean "fi_FI" will be used if "fi" is required. 
+
+set langsynth(0) "en_US"
+set langsynth(current) 0
+set langsynth(top) 0
+set langlabel(0) "American"
+
+# select the next synth language
+proc set_next_lang {say_it} {
+    global langsynth
+    global langalias
+    global langlabel
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $langsynthkey >= $langsynth(top) } {
+	set langsynthkey 0
+    } else {
+	incr langsynthkey
+    }
+
+    set langsynth(current) $langsynth($langsynthkey)
+
+    setLanguage $langsynth(current)
+    if { [info exists say_it]} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# select the previous synth language
+proc set_previous_lang {say_it} {
+    global langsynth
+    global langalias
+    global langlabel
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $langsynthkey <= 0 } {
+	set langsynthkey $langsynth(top)
+    } else {
+	incr langsynthkey -1
+    }
+
+    set langsynth(current) $langsynth($langsynthkey)
+    setLanguage $langsynth(current)
+    if { [info exists say_it]} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# select a new synth language
+# set_lang "en"
+proc set_lang {{name "en"} {say_it "nil"}} {
+    global langsynth
+    global langalias
+
+     if { ![info exists langalias($name)]} {
+	return
+     }
+
+     if { $langalias($name) == $langsynth(current) } {
+	return
+     }
+    
+    set langsynth(current) $langalias($name)
+    setLanguage $langsynth(current)
+
+    set langsynthkey 0
+    set index 0
+    while { $index <= $langsynth(top) } {
+	if { $langsynth($index) == $langsynth(current) } {
+	    set langsynthkey $index
+	    break
+	}
+	incr index
+    }
+
+    if { $say_it == "t"} {
+	tts_say "$langlabel($langsynthkey) "
+    }
+}
+
+# set_preferred_lang "en" "en_GB"
+proc set_preferred_lang {alias lang} {
+    global langsynth
+    global langalias
+
+    if { ![info exists langalias($lang)]} {
+	return
+    }
+    set langalias($alias) $langalias($lang)
+}
+
+#debug
+proc list_lang {} {
+    global langsynth
+    echo [ array get langsynth ]
+}
+
+proc list_langalias {} {
+    global langalias
+    echo [ array get langalias ]
+}
+
+# }}}
+# {{{ speech task 
+
+proc trackIndex {index} {
+    global tts
+    set tts(last_index) $index
+}
+
+proc service {} {
+    global tts
+    set talking [speakingP]
+    while {$talking == 1} {
+        set status   [lsearch [select [list  stdin]  {} {} 0.02] stdin]
+        if { $status >= 0} {
+            set tts(talking?) 0
+            set talking 0
+            break
+        } else {
+            set talking [speakingP]
+        }
+    }
+    return $talking
+}
+
+proc speech_task {} {
+    global queue tts
+    global langsynth
+    set tts(talking?) 1
+    set tts(not_stopped) 1
+    set r $tts(speech_rate)
+    set length [queue_length]
+    set prefix "`v1 `vs$r "
+    loop index 0 $length {
+        set event   [queue_remove]
+        set event_type [lindex $event 0]
+        switch  -exact -- $event_type {
+            s {
+                set text [clean [lindex $event 1]]
+                synth "$prefix $text"
+                set retval [service]
+            }
+            a {
+                set sound [lindex $event 1]
+                catch "exec $tts(play) $sound > /dev/null &" errCode
+            }
+            b {
+                if {$tts(beep)} {
+                    lvarpop event 
+                    eval beep $event
+                }
+            }
+        }
+        if {$tts(talking?) == 0} {break;} 
+    }
+    set tts(talking?) 0
+    service
+    return ""
+}
+
+# }}}
+# {{{clean 
+
+#preprocess element before sending it out:
+
+proc clean {element} {
+    global queue tts 
+    if {[string match all $tts(punctuations)] } {
+        regsub -all --  {\*} $element \
+            { `00 star } element
+        regsub -all --  {-} $element \
+            { `00 dash } element
+        regsub -all --  {;} $element \
+            { `00 semicolen } element
+        regsub -all --  {\(} $element \
+            { `00 left `00 paren } element
+        regsub -all --  {\)} $element \
+            { `00 right `00 paren } element
+        regsub -all --  {@} $element \
+            { `00 at } element
+        regsub -all  {[.,!?;:+=/'\"@$%&_*()]} $element  \
+            { `00 \0 `p10 }   element
+    } else {
+        regsub -all  {[*&()\"]} $element  {}   element
+        regsub -all { \-([0-9]+\.[0-9]+)} $element \
+            {minus `p3 \1 } element
+        regsub -all {([a-zA-Z])([@!;/:()=\#,.\"])+([0-9a-zA-Z])} $element \
+            {\1 `p5 \3} element
+        regsub -all {``} $element { `ar } element
+        regsub -all {''} $element { `p3 } element
+        regsub -all {' }  $element { `p1  } element
+        regsub -all --  {--} $element { `p10  } element
+        regsub -all -- {-}  $element {dash    } element 
+    }
+    regsub -all {\240} $element " " element
+    if {$tts(capitalize) } {
+        regsub -all {[A-Z]} $element { `ar `p10   & } element
+    }
+    if {$tts(split_caps) } {
+        if  {$tts(allcaps_beep)} {
+            set tone ""
+            set abbrev_tone ""
+        } else {
+            set tone ""
+            set abbrev_tone ""
+        }
+        set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        while {$allcaps } {
+            if {[string length $match] <=3} {
+                set abbrev " $abbrev_tone$match"
+                regsub -all {[A-Z]} $abbrev {& `p1 } abbrev
+                regsub -all A $abbrev {[ey]} abbrev 
+                regsub $match $element  $abbrev element
+            } else {
+                regsub $match $element "$tone[string tolower $match]"  element
+            }
+            set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
+        }
+        regsub -all {[A-Z]} $element { `p1 &} element
+        regsub -all {([^ -_A-Z])([A-Z][a-zA-Z]* )} $element\
+            {\1 `p1 \2 } element
+        regsub -all {([^ -_A-Z])([A-Z])} $element\
+            {\1 `p1 \2} element
+    }
+    return $element
+}
+
+# }}}
+# {{{ Initialize and set state.
+
+#do not die if you see a control-c
+signal ignore {sigint}
+
+# Set input encoding to utf-8
+fconfigure stdin -encoding utf-8
+
+#initialize outloud 
+tts_initialize
+set tts(speech_rate)  75
+beep_initialize
+set tts(input) stdin
+if {[info exists server_p]} {
+    set tts(input) sock0
+}
+set servers [file dirname $argv0]
+set tclTTS $servers/linux-outloud
+#set ECIINI unless already set
+if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
+    set env(ECIINI) $tclTTS/eci.ini
+}
+load $tclTTS/atcleci.so
+set tts(play) /usr/bin/aplay
+synth {`v1 Via Voice using Alsa.}
+
+
+service
+alsaState
+
+#Start the main command loop:
+
+commandloop 
+
+
+# }}}
+# {{{ Emacs local variables  
+
+### Local variables:
+### major-mode: tcl-mode 
+### voice-lock-mode: t
+### folded-file: t
+### End:
+
+# }}}

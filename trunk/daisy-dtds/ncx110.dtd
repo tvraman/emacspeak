@@ -1,0 +1,168 @@
+<!-- NCX 1.1.0 DTD  2002-02-27 
+file: ncx110.dtd                                 
+
+  Authors: Mark Hakkinen, George Kerscher, Tom McLaughlin, James Pritchett, and Michael Moodie
+  Change list:
+  2002-02-12 M. Moodie. Changed content model of navLabel element to eliminate ambiguity.
+  2002-02-27 M. Moodie. Grammatical changes suggested by editor.
+           
+  Description:
+                                                  
+  NCX (Navigation Control for XML applications) is a generalized navigation definition DTD for application
+to Digital Talking Books, eBooks, and general web content models.                                                
+This DTD is an XML application that layers navigation functionality on top of SMIL 2.0  content.                                       
+  
+  The NCX defines a navigation path/model that may be applied upon existing publications,
+without modification of the existing publication source, so long as the navigation targets within
+the source publication can be directly referenced via a URI.                      
+         		
+-->
+   
+<!-- The following identifiers apply to this DTD:
+	"-//NISO//DTD ncx v1.1.0//EN"
+	"http://www.loc.gov/nls/z3986/v100/ncx110.dtd"
+-->
+
+<!-- Basic Entities -->
+
+<!ENTITY % i18n 
+  "lang		NMTOKEN		#IMPLIED
+  dir		(ltr|rtl)	#IMPLIED" >
+
+<!ENTITY % SMILtimeVal	"CDATA" >
+<!ENTITY % uri		"CDATA" >
+<!ENTITY % script	"CDATA" >
+
+<!-- ELEMENTS -->
+
+<!-- Top Level NCX Container. -->
+<!ELEMENT ncx (head, docTitle, docAuthor*, navMap, navList*)>
+<!ATTLIST ncx 
+  version     CDATA     #FIXED "1.1.0"
+  %i18n;
+>
+
+<!-- Document Head - Contains all NCX metadata.  
+-->
+
+<!ELEMENT head (smilCustomTest | meta)+>
+
+<!-- smilCustomTest - Duplicates customTest data found in SMIL files.  Each unique customTest element that appears in one or more SMIL files must have its attributes duplicated in a smilCustomTest element in the NCX.  The NCX thus gathers in one place all customTest elements used in the SMIL files, for presentation to the user.
+-->
+<!ELEMENT smilCustomTest EMPTY>
+<!ATTLIST smilCustomTest
+id		ID		#REQUIRED
+defaultState	(true|false) 	'false'
+override	(visible|hidden) 'hidden'>  
+
+<!-- Meta Element - metadata about this NCX -->
+<!ELEMENT meta EMPTY>
+<!ATTLIST meta
+  name		CDATA		#REQUIRED
+  content	CDATA		#REQUIRED
+  scheme	CDATA		#IMPLIED
+>
+
+<!-- DocTitle - the title of the document, required and must immediately follow head. 
+-->
+
+<!ELEMENT docTitle (text, audio?)>
+<!ATTLIST docTitle
+  id		ID		#IMPLIED
+  %i18n;
+>
+
+<!-- DocAuthor - the author of the document, immediately follows docTitle.
+-->
+
+<!ELEMENT docAuthor (text, audio?)>
+<!ATTLIST docAuthor
+  id		ID		#IMPLIED
+  %i18n;
+>
+
+<!-- Navigation Structure - container for all of the NCX objects that are part of the hierarchical structure of the document.
+-->
+
+<!ELEMENT navMap (navLabel*, navPoint+)>
+<!ATTLIST navMap
+  id		ID		#IMPLIED
+>
+
+<!-- Navigation Point - contains description(s) of target, as well as a pointer to entire content of target.
+Hierarchy is represented by nesting navPoints.  "class" attribute describes the kind of structural unit this object represents (e.g., "chapter", "section").  "value" attribute is a numerical representation of the text content of the
+label if this is a purely numerical (integer only) label (e.g., a page number).  "pageRef" is the id of the page navTarget on which this structure target begins.
+-->
+<!ELEMENT navPoint (navLabel+, content, navPoint*)>
+<!ATTLIST navPoint
+  id		ID			#REQUIRED
+  onFocus	%script;	#IMPLIED
+  onBlur	%script;	#IMPLIED
+  class		CDATA		#IMPLIED
+  value		CDATA		#IMPLIED
+  pageRef	IDREF		#IMPLIED
+>
+
+<!-- Navigation List - container for distinct, flat sets of navigable elements, e.g.  page numbers, 
+notes, figures, tables, etc.  Essentially a flat version of navMap.  The "class" attribute describes the type of object contained in this navList, using dtbook element names, e.g., pagenum, note.
+-->
+
+<!ELEMENT navList   (navLabel+, navTarget+) >
+<!ATTLIST navList
+  id		ID		#IMPLIED
+  class		CDATA		#IMPLIED
+>
+
+<!-- Navigation Target - contains description(s) of target, as well as a pointer to entire content of target.
+navTargets are the equivalent of navPoints for use in navLists. "mapRef" is the id of another navPoint within this NCX that contains this navTarget.  "class" attribute describes the kind of structure this target represents, using its dtbook element name, e.g., pagenum, note.
+-->
+
+<!ELEMENT navTarget  (navLabel+, content) >
+<!ATTLIST navTarget
+  id		ID		#REQUIRED
+  onFocus	%script;	#IMPLIED
+  onBlur	%script;	#IMPLIED 
+  class		CDATA		#IMPLIED
+  value		CDATA		#IMPLIED
+  mapRef	IDREF		#REQUIRED
+>
+
+ 
+<!-- Navigation Label - Contains a description of a given <navMap>, <navPoint>, <navList>, or <navTarget> in various media for presentation to the user. Can be repeated so descriptions can be provided in multiple languages. -->
+<!ELEMENT navLabel (((text, audio?) | audio), img?)>
+<!ATTLIST navLabel
+	%i18n; 
+>
+
+
+<!-- Content Element - pointer into SMIL to beginning of navPoint. -->
+<!ELEMENT content EMPTY>
+<!ATTLIST content
+  id		ID		#IMPLIED
+  src		%uri;		#REQUIRED
+>
+
+<!-- Text Element - Contains text of docTitle, navPoint heading, navTarget (e.g., page number), or label for navMap or navList. -->
+<!ELEMENT text (#PCDATA)>
+<!ATTLIST text
+  id		ID				#IMPLIED
+  class	CDATA			#IMPLIED
+>
+
+<!-- Audio Element - audio clip of navPoint heading. -->
+<!ELEMENT audio EMPTY>
+<!ATTLIST audio
+  id		ID				#IMPLIED
+  class	CDATA			#IMPLIED
+  src		%uri;			#REQUIRED
+  clipBegin	%SMILtimeVal;	#IMPLIED
+  clipEnd	%SMILtimeVal;	#IMPLIED
+>
+
+<!-- Image Element - image that may accompany heading. -->
+<!ELEMENT img EMPTY>
+<!ATTLIST img
+  id		ID			#IMPLIED
+  class	CDATA		#IMPLIED
+  src		%uri;		#REQUIRED
+>

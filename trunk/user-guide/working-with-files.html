@@ -1,0 +1,718 @@
+<HTML
+><HEAD
+><TITLE
+>Working with files</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Emacspeak User's Guide"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="System Administration"
+HREF="system-administration.html"><LINK
+REL="NEXT"
+TITLE="Working online"
+HREF="working-online.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Emacspeak User's Guide</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="system-administration.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="working-online.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="WORKING-WITH-FILES"
+>5. Working with files</A
+></H1
+><P
+>	In addition to performing common file manipulation tasks, such
+	as moving, copying, and deleting, you'll also want to download
+	files from the Internet, search for files in your directories,
+	and FTP files. Some of these functions are built into Emacs,
+	while some of these tasks require additional applications that
+	can be downloaded.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DOWNLOADING-FILES"
+>5.1. Downloading files</A
+></H2
+><P
+>	Once you know the URL of the file to download, you can use the
+	<B
+CLASS="COMMAND"
+>wget</B
+> command from within the Emacs shell to
+	retrieve the file.  If you do not know the URL of the file to
+	download, use the <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> application to browse the web and find the URL of the file (refer
+	to <A
+HREF="working-online.html#BROWSING-THE-INTERNET"
+>Section 6.1</A
+> for
+	information on using the <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> application). Then
+	use the command <B
+CLASS="COMMAND"
+>wget</B
+> to download it. For more
+	information on the <B
+CLASS="COMMAND"
+>wget</B
+> command, refer to the
+	<B
+CLASS="COMMAND"
+>wget</B
+> man page.
+	</P
+><P
+>	To download a file:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			From inside Emacs, type <B
+CLASS="COMMAND"
+>M-x
+			shell</B
+> to start the shell.
+			</P
+></LI
+><LI
+><P
+>			Since the <B
+CLASS="COMMAND"
+>wget</B
+>
+			command places
+			the downloaded file into your current
+			directory, change directories to the desired
+			directory.
+			</P
+></LI
+><LI
+><P
+>			When you are in the appropriate directory,
+			type <B
+CLASS="COMMAND"
+>wget [url]</B
+>, then press
+			<SPAN
+CLASS="KEYSYM"
+>Enter</SPAN
+>.  Remember that you can
+			copy and paste the URL of the file to download
+			from the <SPAN
+CLASS="APPLICATION"
+>W3</SPAN
+> web
+			browser application.
+			</P
+></LI
+></OL
+><P
+>	As the file is being downloaded, one dot appears on the screen
+	for each kilobyte of data
+	received. The <B
+CLASS="COMMAND"
+>wget</B
+> command lets you know when
+	the download is complete. 
+	</P
+><P
+>	Another option for downloading (or uploading) a file is via
+	FTP. Refer to <A
+HREF="working-with-files.html#FTPING-A-FILE"
+>Section 5.3</A
+> on FTPing a file for more information.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FIND-A-FILE"
+>5.2. Finding a file</A
+></H2
+><P
+>	There are several ways you can find a file. This section discusses two options.
+	</P
+><P
+>	If you know the name of the file, or at least remember part of
+	it, you can use the <B
+CLASS="COMMAND"
+>find-file</B
+> command:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			In Emacs, type <B
+CLASS="COMMAND"
+>M-x find-file</B
+>.
+			</P
+><P
+>			Result: You will be prompted for the name of
+			the file in the default working directory.
+			</P
+></LI
+><LI
+><P
+>			Type the name of the file (or use wildcards) you wish to find.
+			</P
+></LI
+></OL
+><P
+>	Alternatively, you may want to browse your directories to look
+	for a file.  You can do this using the Emacs directory editor,
+	<SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+>.  To
+	start <SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+>: 
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			In Emacs, type <B
+CLASS="COMMAND"
+>C-x d</B
+> or
+			<B
+CLASS="COMMAND"
+>M-x dired</B
+>. You will be prompted for the name of
+			the file.  You can type the name (or part of
+			the name) of the file to find, using the Tab
+			key to complete the file
+			name. <SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+> will
+			list any files that match the name you
+			entered.  Alternatively, you can view a full
+			listing of the directory by providing a
+			directory name (or pressing Return to view the
+			current directory) when prompted.
+			</P
+></LI
+></OL
+><P
+>	For more information on using the directory editor, refer to
+	<A
+HREF="working-with-files.html#USING-THE-DIRECTORY-EDITOR"
+>Section 5.4.2</A
+>.  For a complete listing of
+	<SPAN
+CLASS="APPLICATION"
+>dired's</SPAN
+> features and capabilities,
+	refer to <A
+HREF="http://www.delorie.com/gnu/docs/emacs/emacs_360.html"
+TARGET="_top"
+>http://www.delorie.com/gnu/docs/emacs/emacs_360.html</A
+>.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FTPING-A-FILE"
+>5.3. FTPing a file</A
+></H2
+><P
+>	Emacs contains a built-in file transfer protocol, or FTP,
+	application. The FTP application can be used to upload and download files to
+	and from other machines. In order to use FTP,
+	you will need to know the hostname of the machine to contact.
+	</P
+><P
+>	To invoke the FTP application:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Within Emacs, type <B
+CLASS="COMMAND"
+>M-x ftp</B
+>.
+			</P
+><P
+>			Result: You will be prompted for an ftp hostname.
+			</P
+></LI
+></OL
+><P
+>	Alternatively, you can start an Emacs shell using <B
+CLASS="COMMAND"
+>M-x
+	shell</B
+> and use FTP from the command line.  There is a
+	short tutorial on using the command line FTP at <A
+HREF="http://unix.about.com/library/weekly/aa121800a.htm?once=true&"
+TARGET="_top"
+>http://unix.about.com/library/weekly/aa121800a.htm?once=true&#38;</A
+>.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FILE-MANIPULATION"
+>5.4. Manipulating files</A
+></H2
+><P
+>	This section contains information on moving, copying,
+	and deleting files from within Emacs. In general, there are
+	two ways you can go about these tasks.  One option is to use the
+	command line from an Emacs shell, and the other is to use
+	<SPAN
+CLASS="APPLICATION"
+> dired</SPAN
+>. Both methods are discussed in this section.
+	</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="USING-THE-COMMAND-LINE"
+>5.4.1. Using the command line</A
+></H3
+><P
+>	If you are familiar with Unix command-line arguments, you may
+	prefer to use the command line to manipulate files. To use the
+	command line, open an Emacs command shell using
+	<B
+CLASS="COMMAND"
+>M-x shell</B
+>. The following list shows some
+	basic file manipulation commands and what they do:
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>cp <TT
+CLASS="FILENAME"
+>file1
+					file2</TT
+></B
+></DT
+><DD
+><P
+>					Copies file1 to a new file
+					named file2.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>mv <TT
+CLASS="FILENAME"
+>source
+					target</TT
+></B
+></DT
+><DD
+><P
+>					Moves a file from the source
+					directory to the target directory.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>rm
+					<TT
+CLASS="FILENAME"
+>file</TT
+></B
+></DT
+><DD
+><P
+>					Deletes a file.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>mkdir
+			<TT
+CLASS="FILENAME"
+>directoryname</TT
+></B
+></DT
+><DD
+><P
+>					Creates a directory with the
+					name
+					<TT
+CLASS="FILENAME"
+>directoryname</TT
+>.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>rmdir
+					<TT
+CLASS="FILENAME"
+>directoryname</TT
+></B
+></DT
+><DD
+><P
+>					Deletes the directory
+					<TT
+CLASS="FILENAME"
+>directoryname</TT
+>
+					if it is empty.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>ls</B
+></DT
+><DD
+><P
+>					Lists all the files in the
+					current directory.
+					</P
+></DD
+></DL
+></DIV
+><P
+>	You can find more
+	information on any of these commands (most can be run with
+	various options that allow for more user control) by looking
+	them up in the online man pages. Since the list presented here
+	covers only the most basic commands, you may want to consult the
+	Linux user's guide, available at <A
+HREF="http://www.ibiblio.org/pub/Linux/docs/linux-doc-project/users-guide/"
+TARGET="_top"
+>http://www.ibiblio.org/pub/Linux/docs/linux-doc-project/users-guide/</A
+>,
+	for more information.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="USING-THE-DIRECTORY-EDITOR"
+>5.4.2. Using the directory editor</A
+></H3
+><P
+>	Although many Linux users use the command line to manipulate
+	files, Emacs provides a powerful alternative, called
+	<SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+>.  <SPAN
+CLASS="APPLICATION"
+>Dired</SPAN
+> is the Emacs
+	directory editor, and is great for manipulating files if you'd
+	rather not use the command line or aren't familiar with it. To
+	start <SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+>:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			In Emacs, type <B
+CLASS="COMMAND"
+>M-x
+			dired</B
+>. You will be prompted for the
+			directory to open.
+			</P
+></LI
+><LI
+><P
+>			Type in the directory to display, or press
+			<SPAN
+CLASS="KEYSYM"
+>Return</SPAN
+> to open the default
+			directory.
+			</P
+></LI
+></OL
+><P
+>	Once you've started <SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+>, you can move around in the Emacs
+	buffer to have the file names, permissions, owners, sizes, and
+	dates created/edited read aloud.
+	</P
+><P
+>	In dired, some commands mark files for manipulation (for
+	example, you can mark several files, then delete them all),
+	and some commands (such as the copy command) are executed
+	immediately. Note that, in dired, case does make a difference
+	for many commands. Some of the more common
+	<SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+> commands and what they do are
+	listed below:
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>press the <B
+CLASS="COMMAND"
+>Return</B
+>key</DT
+><DD
+><P
+>					Pressing
+					<B
+CLASS="COMMAND"
+>Return</B
+> when
+					the focus is on a particular
+					file opens that file in the
+					appropriate major mode.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>d</B
+></DT
+><DD
+><P
+>					Marks a single file for
+					deletion, but doesn't actually
+					delete the file. You can mark
+					multiple files for deletion,
+					then delete them all simultaneously.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>u</B
+></DT
+><DD
+><P
+>					If a file is
+					marked for deletion, this
+					option unmarks it.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>x</B
+></DT
+><DD
+><P
+>					Deletes all files marked for
+					deletion. You will be prompted to make
+					sure you want to delete the
+					files in question; type
+					<B
+CLASS="COMMAND"
+>yes</B
+> or
+					<B
+CLASS="COMMAND"
+>no</B
+> as
+					appropriate.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C</B
+></DT
+><DD
+><P
+>					Copies a file.  You will be
+					asked for the name of the new
+					file to create when you copy the old file.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>R</B
+></DT
+><DD
+><P
+>					Renames a file.  You will be
+					prompted for the name of the new
+					file to create when you rename
+					the file.
+					</P
+></DD
+></DL
+></DIV
+><P
+>	Because <SPAN
+CLASS="APPLICATION"
+>dired</SPAN
+> is so extensive,
+	including the full documentation for it here is not feasible.
+	However, complete instructions can be found in the GNU Emacs
+	Manual at <A
+HREF="http://www.delorie.com/gnu/docs/emacs/emacs_360.html"
+TARGET="_top"
+>http://www.delorie.com/gnu/docs/emacs/emacs_360.html</A
+>.
+	</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="system-administration.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="working-online.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System Administration</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Working online</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,5 @@
+#!/bin/sh
+#$Id$
+#Run out of this directory.
+#
+emacs -q -l ./lisp/emacspeak-setup.el -l $HOME/.emacs

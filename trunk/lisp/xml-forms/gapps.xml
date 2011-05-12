@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+
+  <title></title>
+<style type="text/css">
+/*<![CDATA[*/
+ td.c3 {text-align:center}
+ td.c2 {color: #444444; font-size: 75%; overflow: hidden;}
+ div.c1 {text-align: right}
+/*]]>*/
+</style>
+</head>
+
+<body>
+  <form id="gaia_loginform" action=
+  "https://www.google.com/a/google.com/LoginAction2?service=CPanel"
+  method="post" name="gaia_loginform">
+    <div id="gaia_loginbox">
+      <table class="form-noindent" cellspacing="3" cellpadding="5"
+      width="100%" border="0">
+        <tr>
+          <td valign="top" class="c3" nowrap="nowrap" bgcolor=
+          "#DDF8CC">
+            <div class="loginBox">
+              <table id="gaia_table" align="center" border="0"
+              cellpadding="1" cellspacing="0">
+                <tr>
+                  <td class="smallfont" colspan="2" align="center">
+                    Sign in to manage
+
+                    <h2>Google.com</h2>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td nowrap="nowrap">
+                    <div class="c1">
+                      <span class="gaia le lbl">Username:</span>
+                    </div>
+                  </td>
+
+                  <td><input type="hidden" name="continue" id=
+                  "continue" value=
+                  "https://www.google.com:443/a/cpanel/google.com/Dashboard" />
+                  <input type="hidden" name="service" id="service"
+                  value="CPanel" /> <input type="hidden" name=
+                  "GALX" value="MetQVTFO3IA" /> <input type="text"
+                  name="Email" id="Email" size="18" value="" class=
+                  'gaia le val' /></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+
+                  <td align="right" class="c2" dir="ltr">
+                  @google.com</td>
+
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+
+                  <td align="left"></td>
+                </tr>
+
+                <tr>
+                  <td align="right"><span class=
+                  "gaia le lbl">Password:</span></td>
+
+                  <td><input type="password" name="Passwd" id=
+                  "Passwd" size="18" class="gaia le val" /></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+
+                  <td align="left"></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+
+                  <td align="left"><input type="submit" class=
+                  "gaia le button" name="signIn" value=
+                  "Sign in" /></td>
+                </tr>
+
+                <tr id="ga-fprow">
+                  <td colspan="2" height="33.0" class=
+                  "gaia le fpwd" align="center" valign="bottom">
+                  <a href="DomainContact" target="_top">I cannot
+                  access my account</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+<p>Tip: You can edit this form for your own domain.</p>
+</body>
+</html>

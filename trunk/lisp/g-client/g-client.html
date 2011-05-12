@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>An Emacs Client For Google Services</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2007/03/02 10:36:07"/>
+<meta name="author" content="T.V Raman"/>
+<style type="text/css">
+  html {
+	font-family: Times, serif;
+	font-size: 12pt;
+  }
+  .title { text-align: center; }
+  .todo  { color: red; }
+  .done { color: green; }
+  .timestamp { color: grey }
+  .timestamp-kwd { color: CadetBlue }
+  .tag { background-color:lightblue; font-weight:normal }
+  .target { background-color: lavender; }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+  }
+  table { border-collapse: collapse; }
+  td, th {
+	vertical-align: top;
+	border: 1pt solid #ADB9CC;
+  }
+</style>
+</head><body>
+<h1 class="title">An Emacs Client For Google Services</h1>
+
+<h2>1 An Emacs Interface To Google Services</h2>
+
+
+<p>
+Google offers a number of services using a Google account. Many
+of these services also expose a Web API. this package provides a
+set of Emacs modules for accessing these services from inside
+Emacs. These modules are designed with an Emacs-centric, rather
+than a Web-browser centered view of the world. Where necessary
+Emacs package <code>browse-url</code> is used to invoke the Web browser of
+choice. 
+</p>
+<p>
+The current distribution can be downloaded from <a href="http://emacspeak.googlecode.com/files/g-client.tar.bz2">Google Code Hosting</a> and the source code is available via <a href="http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/">Subversion</a>. Note
+that this is still work in progress. I'm releasing it as part of
+the Emacspeak project since I believe the package already has
+sufficiently useful functionality for users who spend a large
+amount of their time inside Emacs. There is no dependency on
+Emacspeak, and all clients provided here can be used without
+Emacspeak loaded.
+</p>
+
+<h3>1.1 Installation</h3>
+
+
+<p>
+These are needed only if installing package <code>g-client</code>
+stand-alone, i.e. outside of Emacspeak.
+</p>
+<ul>
+<li>
+Unpack the tar archive and place the resulting <code>g-client</code>
+directory on your emacs <code>load-path</code>.
+</li>
+<li>
+Type <code>make</code> to compile the code.
+</li>
+<li>
+In your .emacs, add <code>(load-library "g")</code> to set it up.
+
+</li>
+</ul>
+<h3>1.2 How It Works</h3>
+
+
+<p>
+Clients are implemented using Google APIs based on Atom
+Publishing Protocol <a href="http://bitworking.org/projects/atom/draft-ietf-atompub-protocol-09.html">APP</a> and Google Data APIs (<a href="http://code.google.com/apis/gdata/index.html">GData</a>). We use <code>curl</code>
+to retrieve content via <i>HTTPS</i> and <code>xsltproc</code> to transform the
+retrieved content to browsable HTML.
+</p>
+<p>
+Clients sign you in the first time you invoke commands that require
+authentication. Once signed in, the session cookie is cached for future
+use. Session cookies presently expire in 30 minutes, and clients check for
+expired cookies when authentication is needed. If the cookie has expired,
+clients retrieve a fresh cookie using the authentication credentials provided
+earlier. Note that authorization tokens etc are specific to a
+given service.
+</p>
+
+<h3>1.3 Top-level Customizations</h3>
+
+
+<p>
+All clients in this package use Emacs' <code>customize</code> interface to
+set user preferences.
+The most commonly used  ones are enumerated below.
+</p>
+<ul>
+<li>
+<code>g-user-email</code> Default email-id to use. Individual clients
+typically override this via user option
+<code>&lt;clientname&gt;-user-email</code>.
+</li>
+<li>
+<code>g-html-handler</code> Name of function that handles HTML content.
+
+</li>
+</ul>
+<h3>1.4 Google Blogger <i>gblogger</i></h3>
+
+
+<p>
+This client implements posting, editting and deleting of blog
+entries using the new Blogger API --- it replaces the now
+obsolete <a href="http://emacsgeek.blogspot.com/2006/01/announcing-atom-blogger.html">atom-blogger</a> that implemented similar functionality
+using the old Blogger API. It uses value of customization option
+<code>g-user-email</code> by default; this can be overridden via option
+<code>gblogger-user-email</code>. See <a href="http://code.google.com/apis/blogger/overview.html">Blogger GData API</a> for the underlying
+APIs used. For editing posts, I recommend installing <a href="http://www.thaiopensource.com/nxml-mode/">nxml-mode</a>.
+</p>
+<ul>
+<li>
+<i>Browse</i> Command <code>gblogger-blog</code> brings up the list of blogs
+owned by the currently authenticated user.
+</li>
+<li>
+<i>Posting</i> Command <code>gblogger-new-entry</code> takes a <b>post URL</b> and sets
+up a special buffer where you can compose your
+article. the <b>post url</b> is obtained from the feed of blogs
+above, use the <b>post</b> link for the blog to which you wish to
+post.
+</li>
+<li>
+<i>Browsing</i>      Command <code>gblogger-atom-display</code> displays the
+atom feed for a specified blog as a browsable HTML page. In
+addition to reading your blog, this helps you find the <b>edit     url</b> for individual posts.
+</li>
+<li>
+<i>Editting</i> Command <code>gblogger-edit-entry</code> takes the <b>edit url</b>
+of a previously posted entry. It retrieves the entry, and
+sets up a special composition buffer where you can edit the entry.
+</li>
+<li>
+<i>Submitting</i> The special composition buffer created by
+commands <code>gblogger-new-entry</code> and <code>gblogger-edit-entry</code>
+provide a special command <code>gblogger-publish</code> (bound to <code>C-c     C-c</code>) that submits the entry to blogger.
+</li>
+<li>
+<i>Deleting</i> Command <code>gblogger-delete-entry</code> deletes an entry
+specified by its <b>edit url</b>.
+
+</li>
+</ul>
+<h3>1.5 Google Calendar <i>gcal</i></h3>
+
+
+<p>
+This client can be used to view, add or delete events from the
+Google Calendar for the authenticated user. It uses value of
+customization option <code>g-user-email</code> by default; this can be
+overridden via option <code>gcal-user-email</code>. Commands that display
+calendar items optionally accept the feed url of the calendar to
+view; this can be used to view calendars to which the
+authenticated user has read access. See <a href="http://code.google.com/apis/calendar/overview.html">GData Calendar API</a> for
+the underlying APIs used.
+</p>
+<ul>
+<li>
+<i>View</i> Command <code>gcal-calendar-agenda</code> displays the default
+calendar for the authenticated user. A prefix arg prompts for
+the calendar to display. This command is best used from
+inside the Emacs calendar; in this case, it uses the date
+under point when showing the agenda.
+</li>
+<li>
+<i>Add</i> Command <code>gcal-add-event</code> prompts for event details and
+adds it to the calendar.
+</li>
+<li>
+<i>Accept</i> Command <code>gcal-accept-event</code> accepts an event. Event
+is specified using the <b>edit url</b> of the event.
+</li>
+<li>
+<i>Delete</i> Command <code>gcal-delete-event</code> deletes an event. Event
+is specified using the <b>edit url</b> of the event.
+
+</li>
+</ul>
+<h3>1.6 Google Reader <i>greader</i></h3>
+
+
+<p>
+This client allows the authenticated user to read, browse and
+subscribe/unsubscribe to feeds.
+It uses value of customization option <code>g-user-email</code> by
+default; this can be overridden via option <code>g-user-email</code>.
+</p>
+<ul>
+<li>
+<i>Reading</i> Command <code>greader-reading-list</code> displays the
+reading list (river of news).
+</li>
+<li>
+<i>Browsing</i> Command <code>greader-feed-list</code> displays a
+browsable Web page with pointers to  subscribed feeds.
+</li>
+<li>
+<i>Finding</i> Command <code>greader-find-feeds</code> searches for matching
+feeds to subscribe.
+</li>
+<li>
+<i>Subscribing</i> Commands <code>greader-subscribe-feed</code> and
+<code>greader-unsubscribe-feed</code> are used to subscribe and
+unsubscribe.
+</li>
+<li>
+<i>Labeling</i> Command <code>greader-star</code> and <code>greader-add-label</code> are
+used to label articles.
+</li>
+<li>
+<i>Reading</i> Starred  articles can be read by
+providing a prefix argument to command
+<code>greader-reading-list</code>. Thus, C-u M-x greader-reading-list
+will prompt for the specific set of articles to retrieve.
+
+</li>
+</ul>
+<p class="author"> Author: T.V Raman
+<a href="mailto:raman@cs.cornell.edu>">&lt;raman@cs.cornell.edu>&gt;</a>
+</p>
+<p class="date"> Date: 2007/03/02 10:36:07</p>
+</body>
+</html>
