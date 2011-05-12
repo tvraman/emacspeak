@@ -2,31 +2,37 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
-* Emacspeak 30 -- Emacspeak 32 User Visible Changes 
+* Emacspeak 34 -- Emacspeak 34 User Visible Changes 
 
-** BBC iPlayer 
+** Emacspeak-npr.el: NPR  API Client
+One-click access to NPR  programming.
 
-Adds support to BBC  iPlayer
+** emacspeak-url-templates:
 
-** emacspeka-url-templates:
+Many new and updated URL  templates
 
-Many new URL  templates
-
-** emacspeak-google.el:
-
-Adds support for Google power-search tools
+** emacspeak-librivox.el: API  Client For Free Audio Books 
 
 
-** Emacspeak-ebooks.el:
+Search, locate and listen to free audio books from the comfort of
+the audio desktop.
 
-Adds epub support
+** emacspeak-bookshare.el: Bookshare API  Client
+
+Bookshare subscribers now have one click access to all of
+Bookshares Daisy EBooks.
+
+** servers/mac: Support For Mac TTS
+
+Preliminary support for the Mac OS  platform --- thanks to Bart
+Bunting and David Tseng.
 
 ** Emacs 24 Support:
 
 Adds support for Emacs 24
 
-** Twitter:
-
-Supports Twittering via tiwt.el
 
 
+# local variables:
+# mode: org
+# end:
