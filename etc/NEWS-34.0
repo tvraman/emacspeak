@@ -1,0 +1,38 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 6485 2010-05-11 00:26:49Z tv.raman.tv $
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 34 -- Emacspeak 34 User Visible Changes 
+
+** Emacspeak-npr.el: NPR  API Client
+One-click access to NPR  programming.
+
+** emacspeak-url-templates:
+
+Many new and updated URL  templates
+
+** emacspeak-librivox.el: API  Client For Free Audio Books 
+
+
+Search, locate and listen to free audio books from the comfort of
+the audio desktop.
+
+** emacspeak-bookshare.el: Bookshare API  Client
+
+Bookshare subscribers now have one click access to all of
+Bookshares Daisy EBooks.
+
+** servers/mac: Support For Mac TTS
+
+Preliminary support for the Mac OS  platform --- thanks to Bart
+Bunting and David Tseng.
+
+** Emacs 24 Support:
+
+Adds support for Emacs 24
+
+
+
+# local variables:
+# mode: org
+# end:

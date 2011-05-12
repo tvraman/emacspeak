@@ -117,6 +117,7 @@
     (setq tab-width 12)
     (setq emacspeak-table-speak-row-filter
           '(0 " by " 5))))
+
 (define-prefix-command 'emacspeak-librivox-searcher)
 
 (defun emacspeak-librivox-setup-keys ()
