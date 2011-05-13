@@ -1,7 +1,7 @@
 #    -*- mode: org -*-
 
 *  Emacspeak Codenames 
-
+Note that special releases are marked with an '*'.
 
 |------+-----------------+----------------|
 |  3.0 | May 1995        | Illinois       |
@@ -13,7 +13,7 @@
 |  8.0 | May 1998        | BlackDog       |
 |  9.0 | November 1998   | BlackLab       |
 | 10.0 | May 1999        | WonderDog      |
-| 11.0 | November 1999   | Aster          |
+| 11.0 | November 1999   | * Aster         |
 | 12.0 | May 2000        | GoldenDog      |
 | 13.0 | November 2000   | YellowLab      |
 | 14.0 | May 2001        | TopDog         |
@@ -35,7 +35,8 @@
 | 30.0 | May 2009        | SocialDog      |
 | 31.0 | November 2009   | TweetDog       |
 | 32.0 | May 2010        | LuckyDog       |
-| 33.0 | November 2010   |                StarDog|
+| 33.0 | November 2010   | StarDog        |
+| 34.0 | May 2011        |                * Bubbles|
 |------+-----------------+----------------|
 
 #+TITLE:     code-names.txt
