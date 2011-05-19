@@ -127,6 +127,7 @@
         '(
           ("\C-m" emacspeak-librivox-open-rss)
           ("S" emacspeak-librivox-searcher)
+          ([C-return] emacspeak-librivox-play)
           )
         do
         (emacspeak-keymap-update emacspeak-librivox-mode-map  binding))
@@ -201,6 +202,32 @@
     (emacspeak-webutils-rss-display rss)))
 
 ;;;###autoload
+(defun emacspeak-librivox-play ()
+  "Play current book as a playlist."
+  (interactive)
+  (declare (special emacspeak-table))
+  (unless
+      (and (eq major-mode 'emacspeak-librivox-mode)
+           (boundp 'emacspeak-table)
+           emacspeak-table)
+    (error "Not in a valid Emacspeak table."))
+  (let ((temp-file (make-temp-file  "ab" nil ".m3u"))
+        (rss (emacspeak-table-this-element
+              emacspeak-table
+              (emacspeak-table-current-row emacspeak-table)
+              (emacspeak-librivox-field-position "RssURL"))))
+    (message "Retrieving playlist.")
+    (shell-command
+     (format
+      "%s %s %s > %s"
+      emacspeak-xslt-program
+      (expand-file-name "rss2m3u.xsl" emacspeak-xslt-directory)
+      rss
+      temp-file))
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-m-player temp-file 'playlist)))
+
+;;;###autoload
 
 (defun emacspeak-librivox-search-author (pattern)
   "Search in catalog for Author 1."
@@ -235,7 +262,6 @@
           emacspeak-table column pattern 'string-match)))
     (emacspeak-table-goto row column)
     (call-interactively  emacspeak-table-speak-element)))
-
 
 ;;}}}
 ;;{{{ end of file
