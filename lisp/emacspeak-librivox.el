@@ -64,11 +64,15 @@
   "Librivox Access on the Complete Audio Desktop."
   :group 'emacspeak)
 
-(defcustom emacspeak-librivox-catalog-location
-  (expand-file-name "librivox/catalog.csv"
+(defcustom emacspeak-librivox-directory
+  (expand-file-name "librivox"
                     emacspeak-resource-directory)
-  "Location where we cache the librivox catalog.")
+  "Location where we cache  librivox data.")
 
+
+(defvar emacspeak-librivox-catalog-location
+  (expand-file-name "catalog.csv" emacspeak-librivox-directory)
+  "Location where we cache the Librivox catalog.")
 ;;}}}
 ;;{{{ Variables:
 
@@ -91,6 +95,7 @@
 
 (defun emacspeak-librivox-fetch-catalog ()
   "Fetch catalog to our cache location."
+  (interactive)
   (declare (special emacspeak-librivox-api-base
                     emacspeak-librivox-catalog-location))
   (let ((dir  (file-name-directory emacspeak-librivox-catalog-location)))
@@ -103,7 +108,8 @@
            (format "%s%s"
                    emacspeak-librivox-api-base
                    "csv.php")
-           emacspeak-librivox-catalog-location)))
+           emacspeak-librivox-catalog-location))
+  (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
 (provide 'emacspeak-librivox)
@@ -128,6 +134,8 @@
           ("\C-m" emacspeak-librivox-open-rss)
           ("S" emacspeak-librivox-searcher)
           ([C-return] emacspeak-librivox-play)
+          ("P" emacspeak-librivox-play)
+          ("F" emacspeak-librivox-fetch-catalog)
           )
         do
         (emacspeak-keymap-update emacspeak-librivox-mode-map  binding))
@@ -201,31 +209,41 @@
               (emacspeak-librivox-field-position "RssURL"))))
     (emacspeak-webutils-rss-display rss)))
 
+(defsubst emacspeak-librivox-m3u-filename (rss)
+  "Construct M3U  filename given the RSS URL."
+  (expand-file-name
+   (format  "%s.m3u"
+            (substring
+             (file-name-nondirectory rss)
+             0 -4))
+   emacspeak-librivox-directory))
+
 ;;;###autoload
 (defun emacspeak-librivox-play ()
   "Play current book as a playlist."
   (interactive)
-  (declare (special emacspeak-table))
-  (unless
-      (and (eq major-mode 'emacspeak-librivox-mode)
-           (boundp 'emacspeak-table)
-           emacspeak-table)
+  (declare (special emacspeak-table
+                    emacspeak-librivox-directory))
+  (unless (and (eq major-mode 'emacspeak-librivox-mode)
+               (boundp 'emacspeak-table)
+               emacspeak-table)
     (error "Not in a valid Emacspeak table."))
-  (let ((temp-file (make-temp-file  "ab" nil ".m3u"))
-        (rss (emacspeak-table-this-element
-              emacspeak-table
-              (emacspeak-table-current-row emacspeak-table)
-              (emacspeak-librivox-field-position "RssURL"))))
-    (message "Retrieving playlist.")
-    (shell-command
-     (format
-      "%s %s %s > %s"
-      emacspeak-xslt-program
-      (expand-file-name "rss2m3u.xsl" emacspeak-xslt-directory)
-      rss
-      temp-file))
-    (emacspeak-auditory-icon 'task-done)
-    (emacspeak-m-player temp-file 'playlist)))
+  (let* ((rss (emacspeak-table-this-element
+               emacspeak-table
+               (emacspeak-table-current-row emacspeak-table)
+               (emacspeak-librivox-field-position "RssURL")))
+         (m3u-file (emacspeak-librivox-m3u-filename rss)))
+    (unless (file-exists-p m3u-file)
+      (message "Retrieving playlist.")
+      (shell-command
+       (format
+        "%s %s %s > %s"
+        emacspeak-xslt-program
+        (expand-file-name "rss2m3u.xsl" emacspeak-xslt-directory)
+        rss
+        m3u-file))
+      (emacspeak-auditory-icon 'task-done))
+    (emacspeak-m-player m3u-file 'playlist)))
 
 ;;;###autoload
 
