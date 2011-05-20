@@ -243,6 +243,8 @@
         rss
         m3u-file))
       (emacspeak-auditory-icon 'task-done))
+    (message "Playing book.")
+    (emacspeak-auditory-icon 'progress)
     (emacspeak-m-player m3u-file 'playlist)))
 
 ;;;###autoload
