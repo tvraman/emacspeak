@@ -135,6 +135,7 @@
           ("S" emacspeak-librivox-searcher)
           ([C-return] emacspeak-librivox-play)
           ("P" emacspeak-librivox-play)
+          ("u" emacspeak-librivox-open-url)
           ("F" emacspeak-librivox-fetch-catalog)
           )
         do
@@ -208,6 +209,23 @@
               (emacspeak-table-current-row emacspeak-table)
               (emacspeak-librivox-field-position "RssURL"))))
     (emacspeak-webutils-rss-display rss)))
+
+;;;###autoload
+(defun emacspeak-librivox-open-url ()
+  "Open Librivox URL  for current Librivox book."
+  (interactive)
+  (declare (special emacspeak-table))
+  (unless
+      (and (eq major-mode 'emacspeak-librivox-mode)
+           (boundp 'emacspeak-table)
+           emacspeak-table)
+    (error "Not in a valid Emacspeak table."))
+  (let ((url (emacspeak-table-this-element
+              emacspeak-table
+              (emacspeak-table-current-row emacspeak-table)
+              (emacspeak-librivox-field-position "LibrivoxURL"))))
+    (browse-url url)))
+
 
 (defsubst emacspeak-librivox-m3u-filename (rss)
   "Construct M3U  filename given the RSS URL."
