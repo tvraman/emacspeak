@@ -758,12 +758,12 @@ b Browse
 ;;{{{  Property Accessors:
 
 (loop for p in
- '(author title id metadata target directory)
- do
- (eval
-  `(defsubst ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
-     ,(format "Get %s at point. " p)
-     (get-text-property (point) ',p))))
+      '(author title id metadata target directory)
+      do
+      (eval
+       `(defsubst ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
+          ,(format "Get %s at point. " p)
+          (get-text-property (point) ',p))))
 
 ;;}}}
 ;;{{{ Bookshare Mode:
@@ -951,9 +951,15 @@ Target location is generated from author and title."
      (list'face 'highlight
                 'auditory-icon 'item))
     (message "Unpacked content.")))
-(defvar emacspeak-bookshare-xslt
-  "daisyTransform.xsl"
-  "Name of bookshare supplied XSL transform.")
+
+;;;###autoload
+(defcustom emacspeak-bookshare-xslt
+  "DaisyTransform.xsl"
+  "Name of bookshare  XSL transform."
+  :type '(choice :tag "Key: "
+                 (const :tag "Daisy transform from Bookshare"  "daisyTransform.xsl")
+                 (const :tag "Default HTML View" "default.xsl"))
+  :group 'emacspeak-bookshare)
 
 (defsubst emacspeak-bookshare-xslt (directory)
   "Return suitable XSL  transform."
@@ -1050,9 +1056,9 @@ Make sure it's downloaded and unpacked first."
       (set-buffer result)
       (emacspeak-webutils-autospeak)
       (emacspeak-webutils-with-xsl-environment
-     (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)
-     nil emacspeak-xslt-options             ;options
-     (browse-url-of-buffer )))))
+       (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)
+       nil emacspeak-xslt-options             ;options
+       (browse-url-of-buffer )))))
 
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
