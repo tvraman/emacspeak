@@ -1028,8 +1028,9 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (first
-      (directory-files directory 'full ".xml")))))
+     (shell-quote-argument
+      (first
+      (directory-files directory 'full ".xml"))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content refered to by link under point, and return an XML buffer."
@@ -1115,7 +1116,8 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (first (directory-files directory 'full ".xml")))))
+     (shell-quote-argument
+     (first (directory-files directory 'full ".xml"))))))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
