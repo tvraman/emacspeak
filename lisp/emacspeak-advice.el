@@ -705,10 +705,7 @@ Produce an auditory icon if possible."
         (chars (ad-get-arg 1)))
     (tts-with-punctuations
      'all
-     (dtk-speak
-      (format "%s %s"
-              prompt chars)))))
-
+     (dtk-speak (format "%s" prompt))))) 
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
