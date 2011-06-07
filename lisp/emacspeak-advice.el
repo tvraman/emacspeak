@@ -699,6 +699,17 @@ Produce an auditory icon if possible."
      (dtk-speak
       (ad-get-arg 0)))))
 
+(defadvice read-char-choice (before emacspeak pre act comp)
+  "Speak the prompt"
+  (let ((prommmmpt (ad-get-arg 0))
+        (chars (ad-get-arg 1)))
+    (tts-with-punctuations
+     'all
+     (dtk-speak
+      (format "%s %s"
+              prompt chars)))))
+
+
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
   (when (ad-get-arg 0)
