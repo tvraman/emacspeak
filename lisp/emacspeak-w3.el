@@ -596,6 +596,13 @@ element. "
     ad-do-it
     ad-return-value))
 
+(defadvice url-cookie-write-file
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
+
 (defadvice url-lazy-message
   (around emacspeak pre act comp)
   "silence spoken messages."
