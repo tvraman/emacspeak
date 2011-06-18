@@ -60,13 +60,6 @@
 (require 'g-utils)
 
 ;;}}}
-;;{{{ Emacs patch (pending)
-
-;;; Allow caller to control if completions are sorted:
-(defvar minibuffer-completion-sort 'string-lessp 
-  "Function used to sort minibuffer completions. Nil means dont sort.")
-
-;;}}}
 ;;{{{ Customizations
 
 (defgroup gweb nil
@@ -162,7 +155,6 @@
     (defsubst gweb-google-autocomplete (&optional prompt)
       "Read user input using Google Suggest for auto-completion."
       (let* ((minibuffer-completing-file-name t) ;; accept spaces
-             (minibuffer-completion-sort nil)
              (completion-ignore-case t)
              (word (thing-at-point 'word))
              (query nil))
