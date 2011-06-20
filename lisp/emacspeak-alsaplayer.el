@@ -84,7 +84,8 @@ grep path:")))
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
 \\{emacspeak-alsaplayer-mode-map}"
-  (setq header-line-format '((:eval (emacspeak-alsaplayer-header-line)))))
+  (setq header-line-format '((:eval
+                              (emacspeak-alsaplayer-header-line)))))
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
@@ -97,11 +98,6 @@ grep path:")))
 (defcustom emacspeak-alsaplayer-auditory-feedback t
   "Turn this on if you want spoken feedback and auditory icons from alsaplayer."
   :type 'boolean
-  :group 'emacspeak-alsaplayer)
-
-(defcustom emacspeak-alsaplayer-height 1
-  "Height of alsaplayer window."
-  :type 'number
   :group 'emacspeak-alsaplayer)
 
 ;;;###autoload
@@ -141,8 +137,7 @@ Alsaplayer session."
       (cond
        ((and (get-buffer-process buffer)
              (eq 'run (process-status (get-buffer-process buffer))))
-        (pop-to-buffer buffer 'other-window)
-        (set-window-text-height nil emacspeak-alsaplayer-height))
+        (pop-to-buffer buffer 'other-window))
        (t
         (setq buffer-undo-list t)
         (shell-command
@@ -153,7 +148,6 @@ Alsaplayer session."
                    ""))
          (current-buffer))
         (pop-to-buffer buffer 'other-window)
-        (set-window-text-height nil emacspeak-alsaplayer-height)
         (emacspeak-alsaplayer-mode)))
       (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
         (emacspeak-auditory-icon 'open-object)
