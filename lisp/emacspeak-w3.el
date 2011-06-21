@@ -721,7 +721,7 @@ If a rewrite rule is defined in the current buffer, we change
   "Options to pass to tidy program"
   :type '(repeat string)
   :group 'emacspeak-w3)
-
+;;;###autoload
 (defcustom emacspeak-w3-tidy-html t
   "Tidy HTML before rendering."
   :type 'boolean

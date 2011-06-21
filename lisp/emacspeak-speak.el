@@ -737,7 +737,7 @@ text."
      "sEnterregular expression to match horizontal rule: ")
 
 (defcustom emacspeak-decoration-rule
-  "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
+  "^[ \t!@#$%^&*()<>|_=+/\\,.;:-━╍]+$"
   "*Regular expressions to match lines that are purely
 decorative ascii."
   :group 'emacspeak-speak
