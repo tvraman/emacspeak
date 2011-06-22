@@ -135,7 +135,7 @@
      (t
       (complete-with-action action 
                             (gweb-suggest string)
-                            string predicate))))))))
+                            string predicate)))))
 
 (defun gweb-news-suggest-completer (string predicate action)
   "Generate completions using Google News Suggest. "
