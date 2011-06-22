@@ -113,6 +113,14 @@
    ;; The  JSON array is now a vector. So  read it
                                         ; and turn it into a list
    (append (aref (read (current-buffer)) 1) nil)))
+(defvar gweb-google-suggest-metadata
+  '(metadata .
+             (
+              ; Google suggest returns suggestions already sorted 
+              (display-sort-function . #'identity)
+              ; add annots function here
+              ))
+  "Metadata returned by google-suggest completer.")
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
@@ -120,15 +128,14 @@
     (set-buffer 
      (let ((window (minibuffer-selected-window))) 
        (if (window-live-p window) 
-	   (window-buffer window) 
-	 (current-buffer))))
+           (window-buffer window) 
+         (current-buffer))))
     (cond
-     ((eq action 'metadata)
-      '(metadata . (display-sort-function #'identity)))
+     ((eq action 'metadata) gweb-google-suggest-metadata)
      (t
-    (complete-with-action action 
-			  (gweb-suggest string)
-              string predicate))))))))
+      (complete-with-action action 
+                            (gweb-suggest string)
+                            string predicate))))))))
 
 (defun gweb-news-suggest-completer (string predicate action)
   "Generate completions using Google News Suggest. "
@@ -147,13 +154,6 @@
 
 (put 'gweb-history 'history-length 100)
 
-(defun gweb-lazy-suggest (input)
-  "Used to generate completions lazily."
-  (lexical-let ((input input)
-                table)
-    (setq table (lazy-completion-table
-                 table (lambda () (gweb-suggest input))))
-    table))
 
 ;;; Emacs 23 and beyond:
 ;;; i.e. if complete-with-action is defined
