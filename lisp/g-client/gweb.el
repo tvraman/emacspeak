@@ -114,19 +114,23 @@
                                         ; and turn it into a list
    (append (aref (read (current-buffer)) 1) nil)))
 
-(defun gweb-suggest-completer (string predicate mode)
+(defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
   (save-current-buffer 
     (set-buffer 
      (let ((window (minibuffer-selected-window))) 
        (if (window-live-p window) 
 	   (window-buffer window) 
-	 (current-buffer)))) 
-    (complete-with-action mode 
+	 (current-buffer))))
+    (cond
+     ((eq action 'metadata)
+      '(metadata . (display-sort-function #'identity)))
+     (t
+    (complete-with-action action 
 			  (gweb-suggest string)
-			  string predicate)))
+              string predicate))))))))
 
-(defun gweb-news-suggest-completer (string predicate mode)
+(defun gweb-news-suggest-completer (string predicate action)
   "Generate completions using Google News Suggest. "
   (save-current-buffer 
     (set-buffer 
@@ -134,7 +138,7 @@
        (if (window-live-p window) 
 	   (window-buffer window) 
 	 (current-buffer)))) 
-    (complete-with-action mode 
+    (complete-with-action action 
 			  (gweb-suggest string "ds=n")
 			  string predicate)))  
 
