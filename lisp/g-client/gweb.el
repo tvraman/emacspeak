@@ -113,6 +113,7 @@
    ;; The  JSON array is now a vector. So  read it
                                         ; and turn it into a list
    (append (aref (read (current-buffer)) 1) nil)))
+
 (defvar gweb-google-suggest-metadata
   '(metadata .
              (
