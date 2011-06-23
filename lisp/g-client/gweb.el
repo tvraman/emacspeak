@@ -144,11 +144,14 @@
     (set-buffer 
      (let ((window (minibuffer-selected-window))) 
        (if (window-live-p window) 
-	   (window-buffer window) 
-	 (current-buffer)))) 
-    (complete-with-action action 
-			  (gweb-suggest string "ds=n")
-			  string predicate)))  
+           (window-buffer window) 
+         (current-buffer))))
+    (cond
+     ((eq action 'metadata) gweb-google-suggest-metadata)
+     (t
+      (complete-with-action action 
+                            (gweb-suggest string "ds=n")
+                            string predicate)))  ))
 
 (defvar gweb-history nil
   "History of Google Search queries.")
