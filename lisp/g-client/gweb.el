@@ -118,7 +118,7 @@
   '(metadata .
              (
               ; Google suggest returns suggestions already sorted 
-              (display-sort-function . #'identity)
+              (display-sort-function . identity)
               ; add annots function here
               ))
   "Metadata returned by google-suggest completer.")
