@@ -185,18 +185,13 @@
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
          (word (thing-at-point 'word))
-         (suggestions
-          (when (and word (> (length word) 0))
-            (set-text-properties 0 (length word) nil word)
-            (cons  word (gweb-suggest  word "ds=n"))))
          (query nil))
     (setq query
           (completing-read
            (or prompt "Google News: ")
            'gweb-news-suggest-completer
            nil nil
-           word 'gweb-history
-           suggestions))
+           word 'gweb-history))
     (pushnew  query gweb-history)
     (g-url-encode query)))
   
