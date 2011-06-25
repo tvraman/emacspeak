@@ -27,7 +27,7 @@ __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "LGPL"
 __all__=['Speaker']
 
-import os, sys
+import os, sys, subprocess
 
 class Speaker:
     
@@ -86,7 +86,8 @@ class Speaker:
                                          "ssh-%s" %
                                          self._engine)
         cmd = '{ ' + self._server + '; } 2>&1'
-        (self._w, self._r, self._e) = os.popen3(cmd, "w", 1)
+        server_process = subprocess.Popen(cmd, 1, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, close_fds=True)
+        (self._w, self._r, self._e) = server_process.stdin, server_process.stdout, server_process.stderr
         self._settings ={}
         if initial is not None:
             self._settings.update(initial)

@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/python
 
 """HTTP wrapper around Emacspeak speech server.
 
@@ -23,6 +23,7 @@ __license__ = "LGPL"
 from speaker import Speaker
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import sys
+import os
 import urllib
 
 class HTTPSpeaker (HTTPServer):
@@ -97,7 +98,7 @@ def start():
     if sys.argv[1:]:
         engine = sys.argv[1]
     else:
-        engine='outloud'
+        engine=os.getenv('DTK_PROGRAM','outloud')
     if sys.argv[2:]:
         port = int(sys.argv[2])
     else:
