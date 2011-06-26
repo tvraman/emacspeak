@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 938 commands.
+This chapter documents a total of 945 commands.
 
 @menu
 * cd-tool::                     
@@ -74,7 +74,6 @@ This chapter documents a total of 938 commands.
 * emacspeak-view::              
 * emacspeak-vm::                
 * emacspeak-w3::                
-* emacspeak-w3m::               
 * emacspeak-we::                
 * emacspeak-websearch::         
 * emacspeak-webspace::          
@@ -89,9 +88,11 @@ This chapter documents a total of 938 commands.
 * emacspeak-w3search::          
 * emacspeak-firevox::           
 * emacspeak-jawbreaker::        
+* emacspeak-librivox::          
 * emacspeak-moz::               
 * emacspeak-org::               
 * emacspeak-piglets::           
+* emacspeak-w3m::               
 * emacspeak-webmarks::          
 * URL Templates ::              
 @end menu
@@ -2929,6 +2930,15 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
+@deffn {Interactive Command} emacspeak-m-player nil
+@kbd{Not bound to any key.}
+
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer nil
 @kbd{Not bound to any key.}
 
@@ -5719,31 +5729,6 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-m-player nil
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
-@kbd{Not bound to any key.}
-
-Preview this buffer in w3m.
-@end deffn
-
 @node emacspeak-we
 @section emacspeak-we
 
@@ -8160,6 +8145,73 @@ Opens JawBreaker game in Firefox.
 (fn)
 @end deffn
 
+@node emacspeak-librivox
+@section emacspeak-librivox
+
+Commentary:
+LIBRIVOX == http://wwwlibrivox.org Free Audio Books
+It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
+This module implements an Emacspeak Librivox client.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-librivox.
+
+@deffn {Interactive Command} emacspeak-librivox nil
+@kbd{Not bound to any key.}
+
+Librivox Library Of Free Audio Books.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-open-rss nil
+@kbd{Not bound to any key.}
+
+Open RSS  link for current Librivox book.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-open-url nil
+@kbd{Not bound to any key.}
+
+Open Librivox URL  for current Librivox book.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-play nil
+@kbd{Not bound to any key.}
+
+Play current book as a playlist.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-author nil
+@kbd{Not bound to any key.}
+
+Search in catalog for Author 1.
+
+(fn PATTERN)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-genre nil
+@kbd{Not bound to any key.}
+
+Search in catalog for genre.
+
+(fn PATTERN)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-title nil
+@kbd{Not bound to any key.}
+
+Search in catalog for title.
+
+(fn PATTERN)
+@end deffn
+
 @node emacspeak-moz
 @section emacspeak-moz
 
@@ -8448,6 +8500,24 @@ Start TTS  engine for Piglets.
 @kbd{Not bound to any key.}
 
 Kill TTS  process.
+
+(fn)
+@end deffn
+
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@kbd{Not bound to any key.}
+
+Preview this buffer in w3m.
 
 (fn)
 @end deffn

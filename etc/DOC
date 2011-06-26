@@ -1599,6 +1599,13 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -3619,17 +3626,6 @@ element.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
-
-------------------------------------------------------------
-
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -5286,6 +5282,48 @@ take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-librivox Librivox Library Of Free Audio Books.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-open-rss Open RSS  link for current Librivox book.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-open-url Open Librivox URL  for current Librivox book.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-play Play current book as a playlist.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-author Search in catalog for Author 1.
+
+(fn PATTERN) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-genre Search in catalog for genre.
+
+(fn PATTERN) 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-title Search in catalog for title.
+
+(fn PATTERN) 
+
+------------------------------------------------------------
+
 ** emacspeak-moz-browse-current Browse current node.
 
 (fn) 
@@ -5467,6 +5505,12 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-piglets-tts-stop Kill TTS  process.
+
+(fn) 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
