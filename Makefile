@@ -142,6 +142,7 @@ CP=cp
 
 # source files to distribute
 ID = README
+SAWFISH=sawfish/*.jl sawfish/sawfishrc
 UGUIDE=user-guide/*.html user-guide/*.sgml
 IGUIDE=install-guide/*.html install-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
@@ -193,7 +194,7 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP} ${JS} ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
-${OUTLOUD} ${DTKTTS} ${ESPEAK} \
+${SAWFISH} ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
 ${PYLIB} \
 ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
@@ -268,6 +269,7 @@ install:
 	$(INSTALL) -d $(DESTDIR)$(libdir)/lisp/g-client
 	$(INSTALL) -d $(DESTDIR)$(libdir)/lisp/g-client/python
 	$(INSTALL) -d $(DESTDIR)$(libdir)/etc
+	$(INSTALL) -d $(DESTDIR)$(libdir)/sawfish
 	$(INSTALL) -d $(DESTDIR)$(libdir)/xsl
 	$(INSTALL) -d $(DESTDIR)$(libdir)/user-guide
 	$(INSTALL) -d $(DESTDIR)$(libdir)/install-guide
@@ -277,6 +279,7 @@ install:
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(DESTDIR)$(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(DESTDIR)$(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/python/*.py    $(DESTDIR)$(libdir)/lisp/g-client/python
+	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(DESTDIR)$(libdir)/sawfish
 	$(INSTALL) -m 0644  xsl/*.xsl    $(DESTDIR)$(libdir)/xsl
 	$(INSTALL) -m 0644  ${UGUIDE}   $(DESTDIR)$(libdir)/user-guide
 	$(INSTALL) -m 0644  ${IGUIDE}   $(DESTDIR)$(libdir)/install-guide
