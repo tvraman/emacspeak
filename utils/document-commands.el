@@ -165,6 +165,7 @@
     ("emacspeak-solitaire"  . nil )
     ("emacspeak-sql"  . nil )
     ("emacspeak-speedbar"  . ("speedbar-prepare"))
+    ("emacspeak-sawfish" .  ("sawfish-prepare"))
     ("emacspeak-ruby" . nil)
     ("emacspeak-supercite"  . ("supercite"))
     ("emacspeak-table-ui"  . nil )
