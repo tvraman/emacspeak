@@ -160,6 +160,13 @@
       (unless (in-hook-p 'focus-in-hook tts-say-window)
         (add-hook 'focus-in-hook tts-say-window))
     (remove-hook 'focus-in-hook tts-say-window)))
+(defun tts-describe-key ()
+  "Speak the output of `describe-key'."
+  (interactive)
+  (tts-say
+   (let ((standard-output (make-string-output-stream)))
+     (describe-key)
+     (get-output-stream-string standard-output))))
 
 (provide 'tts)
 (message "Loaded tts.jl")
