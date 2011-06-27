@@ -70,29 +70,31 @@
 
 (defcustom dtk-unicode-character-replacement-alist
   '(
-    (? . "-")                       ; START OF GUARDED AREA
-    (?° . " degrees ")                  ; degree sign
-    (?℃ . "Degree C") ; celsius
-    (?℉ . "Degree F ") ; Fahrenheit
-    (?“ . "\"")                         ;LEFT DOUBLE QUOTATION MARK
-    (?” . "\"")                         ; RIGHT DOUBLE QUOTATION MARK
-    (?⋆ . "*")                          ; STAR OPERATOR
-    (?‘ . " backquote  ")               ; LEFT SINGLE QUOTATION MARK
-    (?’ . "'")                          ; right SINGLE QUOTATION MARK
-    (?‐ . "-")                          ; hyphen
-    (?– . "--")                         ; n-dash
-    (?— . "---")                        ; m-dash
-    (?― . "----")                       ; horizontal bar 
-    (?‖ . "||")                         ; vertical bar
-    (?… . "...")                        ; ellipses
-    (?• . " bullet ")                   ; bullet
-    (? . " ... ")                   ; message-waiting
-    (?™ . "TM")                         ; trademark
-    (?ﬀ . "ff")                         ; latin small ligature ff
-    (?ﬁ . "fi")                         ; latin small ligature fi
-    (?ﬂ . "fl")                         ; latin small ligature fl
-    (?ﬃ . "ffi")                        ; latin small ligature ffi
-    (?ﬄ . "Ffl")                        ; latin small ligature ffl
+    (? . "-")                   ; START OF GUARDED AREA
+    (?━ .  "-")                     ; horiz bars
+    (?┃ . "|")                      ; vertical block
+    (?° . " degrees ")              ; degree sign
+    (?℃ . "Degree C")               ; celsius
+    (?℉ . "Degree F ")              ; Fahrenheit
+    (?“ . "\"")                     ;LEFT DOUBLE QUOTATION MARK
+    (?” . "\"")                     ; RIGHT DOUBLE QUOTATION MARK
+    (?⋆ . "*")                      ; STAR OPERATOR
+    (?‘ . " backquote  ")           ; LEFT SINGLE QUOTATION MARK
+    (?’ . "'")                      ; right SINGLE QUOTATION MARK
+    (?‐ . "-")                      ; hyphen
+    (?– . "--")                     ; n-dash
+    (?— . "---")                    ; m-dash
+    (?― . "----")                   ; horizontal bar 
+    (?‖ . "||")                     ; vertical bar
+    (?… . "...")                    ; ellipses
+    (?• . " bullet ")               ; bullet
+    (? . " ... ")               ; message-waiting
+    (?™ . "TM")                     ; trademark
+    (?ﬀ . "ff")                     ; latin small ligature ff
+    (?ﬁ . "fi")                     ; latin small ligature fi
+    (?ﬂ . "fl")                     ; latin small ligature fl
+    (?ﬃ . "ffi")                    ; latin small ligature ffi
+    (?ﬄ . "Ffl")                    ; latin small ligature ffl
     )
   "Explicit replacements for some characters."
   :group 'dtk-unicode

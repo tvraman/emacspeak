@@ -77,22 +77,19 @@
     (start-process tts-process tts-client tts-host
                    tts-port))
 
-(defvar tts-tcl "/usr/bin/tcl"
-"TCL interpreter")
-
 (defvar tts-dtk
   (expand-file-name "servers/dtk-exp" emacspeak)
 "DTK tcl server")
 
 (defvar tts-outloud
   (expand-file-name "servers/outloud" emacspeak)
-  "DTK tcl server")
+  "Outloud tcl server")
 
 (defun tts-open ()
   "Open a TTS session."
   (interactive)
   (setq tts-process (make-process))
-  (start-process tts-process tts-tcl tts-dtk))
+  (start-process tts-process  tts-dtk))
 
 (defun tts-close ()
   "Close a TTS session."
