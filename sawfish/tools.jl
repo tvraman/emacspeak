@@ -46,12 +46,8 @@
 (require 'tts)
 ;;; Set this to the executable you wish to run  via command `emacs'
 (defcustom emacs-program
- "emacs -i &"
+ "emacsclient  -c &"
   "Emacs executable to run.")
-(defcustom xemacs-program
- "/usr/bin/xemacs -i &"
-  "Emacs executable to run.")
-
 
 ;;; Interactive command to start emacs or switch to an
 ;;; existing session.
@@ -69,19 +65,6 @@
       (system emacs-program))
     (and (tts-running-p) (tts-say-current-window))))
 
-
-(defun xemacs  ()
-  "Switch to a running xemacs or start one if necessary."
-  (interactive)
-  (let ((w (car
-            (delete-if-not
-             (lambda (x)
-               (string= (window-class x) "xEmacs"))
-             (managed-windows)))))
-    (if w
-	(display-window w)
-      (system xemacs-program))
-    (and (tts-running-p) (tts-say-current-window))))
 (defun switch-to-emacs  ()
   "Switch to a running emacs "
   (interactive)
