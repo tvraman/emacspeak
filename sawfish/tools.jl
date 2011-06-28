@@ -91,8 +91,9 @@
                (string= (window-class x) program))
              (managed-windows)))))
     (if w
-	(display-window w)
-      (system program))
+        (display-window w)
+      (system
+       (format "%s &" program)))
     (and (tts-running-p) (tts-say-current-window))))
 
 (message "Loaded tools.jl")
