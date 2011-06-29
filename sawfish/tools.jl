@@ -65,17 +65,15 @@
       (system emacs-program))
     (and (tts-running-p) (tts-say-current-window))))
 
-(defun switch-to-emacs  ()
-  "Switch to a running emacs "
+(defcustom lock-program
+  "xlock -mode goop -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'")
+  "How we lock the screen.")
+
+(defun lock-screen  ()
+  "Lock screen."
   (interactive)
-  (let ((w (car
-            (delete-if-not
-             (lambda (x)
-               (string= (window-class x) "Emacs"))
-             (managed-windows)))))
-    (if w
-	(display-window w))
-    (and (tts-running-p) (tts-say-current-window))))
+    (system   lock-program)
+    (tts-say "Locked screen."))
 
 (defun delete-this-window-safely ()
   "Delete current window safely."
