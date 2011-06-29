@@ -8,7 +8,7 @@
 (bind-keys global-keymap
            "M-e" 'emacs
 "M-l" 'lock-screen
-"M-l" 'launch
+"M-." 'launch
            "M-t" 'tts-say-current-window
 "M-F4" 'delete-this-window-safeley
 "M-F12" 'quit
