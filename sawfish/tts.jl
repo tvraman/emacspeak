@@ -42,27 +42,9 @@
 ;;; Interface REP/Sawfish to Emacspeak TTS servers
 
 ;;}}}
-;; Customise options.
+;; Customization  options.
 
 (defgroup tts "Speech synthesis")
-
-(defcustom tts-client "telnet"
-  "TTS cleint "
-  :group     tts
-  :type      string
-  :allow-nil nil)
-
-(defcustom tts-host "localhost"
-  "Host running TTS  "
-  :group     tts
-  :type      string
-  :allow-nil nil)
-
-(defcustom tts-port "2222"
-  "TTS port on server "
-  :group     tts
-  :type      string
-  :allow-nil nil)
 
 (defvar emacspeak "/home/raman/emacs/lisp/emacspeak"
 "Root of Emacspeak installation.")
@@ -70,12 +52,9 @@
 (defvar tts-process nil
 "Handle to tts server connection.")
 
-(defun tts-open-connection ()
-  "Open a TTS session."
-  (interactive)
-    (setq tts-process (make-process))
-    (start-process tts-process tts-client tts-host
-                   tts-port))
+
+
+;;; Servers
 
 (defvar tts-dtk
   (expand-file-name "servers/dtk-exp" emacspeak)
@@ -85,11 +64,17 @@
   (expand-file-name "servers/outloud" emacspeak)
   "Outloud tcl server")
 
+(defvar tts-32-outloud
+  (expand-file-name "servers/32-outloud" emacspeak)
+  "Outloud tcl server")
+(defvar tts-engine tts-dtk
+"Default TTS  engine. User settable.")
+
 (defun tts-open ()
   "Open a TTS session."
   (interactive)
   (setq tts-process (make-process))
-  (start-process tts-process  tts-dtk))
+  (start-process tts-process  tts-engine))
 
 (defun tts-close ()
   "Close a TTS session."
