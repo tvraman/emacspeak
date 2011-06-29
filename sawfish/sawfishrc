@@ -7,10 +7,11 @@
 (load "tools")
 (bind-keys global-keymap
            "M-e" 'emacs
-"M-l" 'lock-screen
 "M-L" 'launch
            "M-t" 'tts-say-current-window
 "M-F4" 'delete-this-window-safeley
+"M-F5" 'lock
+"M-F10" 'launch
 "M-F12" 'quit
 )
 
