@@ -22,3 +22,5 @@
 (tts-open)
 (tts-say-window-on-focus t)
 (tts-say-workspace-on-change t)
+
+(tts-say "Loaded SawfishRC")
