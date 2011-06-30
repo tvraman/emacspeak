@@ -66,7 +66,7 @@
     (and (tts-running-p) (tts-say-current-window))))
 
 (defcustom lock-program
-  "xlock -mode goop -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'")
+  "xlock -mode goop -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'"
   "How we lock the screen.")
 
 (defun lock-screen  ()
@@ -90,8 +90,7 @@
              (managed-windows)))))
     (if w
         (display-window w)
-      (system
-       (format "%s &" program)))
+      (system program))
     (and (tts-running-p) (tts-say-current-window))))
 
 (message "Loaded tools.jl")
