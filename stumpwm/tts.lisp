@@ -51,18 +51,20 @@
 (defvar tts-process nil
 "Handle to tts server connection.")
 
-
 (defvar tts-dtk
-  (expand-file-name "servers/dtk-exp" emacspeak)
+  (format nil "~s~s"  emacspeak "servers/dtk-exp")
 "DTK tcl server")
 
+
+
 (defvar tts-outloud
-  (expand-file-name "servers/outloud" emacspeak)
+  (format nil "~s~s"  emacspeak "servers/outloud")
   "Outloud tcl server")
 
 (defvar tts-32-outloud
-  (expand-file-name "servers/32-outloud" emacspeak)
+  (format nil "~s~s"  emacspeak "servers/32-outloud")
   "Outloud tcl server")
+
 (defvar tts-engine tts-dtk
 "Default TTS  engine. User settable.")
 
@@ -72,7 +74,9 @@
 (defun tts-open ()
   "Open a TTS session."
   (interactive)
-  (setq tts-process (make-process))
+  (setq tts-process (sb-ext:run-program tts-engine '() :wait nil
+                                      :output :stream :input :stream))
+  
   (start-process tts-process  tts-engine))
 
 (defun tts-close ()
@@ -89,6 +93,8 @@
                                tts-process)))
 
 
+(defvar tts-stop-immediately t
+  "Stop speech immediately.")
 
 (defun tts-say (text)
   "Say some text."
