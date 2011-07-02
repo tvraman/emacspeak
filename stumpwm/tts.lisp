@@ -73,15 +73,13 @@
 
 (defun tts-open ()
   "Open a TTS session."
-  (interactive)
-  (setq tts-process (sb-ext:run-program tts-engine '() :wait nil
-                                      :output :stream :input :stream))
+  (setq tts-process
+        (sb-ext:run-program tts-engine '() :wait nil :output :stream :input :stream)))
   
   (start-process tts-process  tts-engine))
 
 (defun tts-close ()
   "Close a TTS session."
-  (interactive)
   (when(and  (processp tts-process)
              (process-running-p tts-process))
     (kill-process tts-process))
