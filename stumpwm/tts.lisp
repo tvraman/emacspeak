@@ -52,17 +52,17 @@
 "Handle to tts server connection.")
 
 (defvar tts-dtk
-  (format nil "~s~s"  emacspeak "servers/dtk-exp")
+  (concatenate 'string   emacspeak "servers/dtk-exp")
 "DTK tcl server")
 
 
 
 (defvar tts-outloud
-  (format nil "~s~s"  emacspeak "servers/outloud")
+  (concatenate 'string   emacspeak "servers/outloud")
   "Outloud tcl server")
 
 (defvar tts-32-outloud
-  (format nil "~s~s"  emacspeak "servers/32-outloud")
+  (concatenate 'string   emacspeak "servers/32-outloud")
   "Outloud tcl server")
 
 (defvar tts-engine tts-dtk
@@ -102,7 +102,7 @@
  (process-running-p tts-process))
       (tts-open))
   (when tts-stop-immediately
-    (format tts-process "s\n"))
+    (format tts-process  "s\n"))
   (format tts-process "q {%s}; d\n" text))
 
 ;;; }
