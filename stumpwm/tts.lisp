@@ -46,25 +46,25 @@
 
 ;;; { Settings
 
-(defvar emacspeak "/home/raman/emacs/lisp/emacspeak"
+(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak"
   "Root of Emacspeak installation.")
 
-(defvar tts-process nil
+(defvar *tts-process* nil
   "Handle to tts server connection.")
 
-(defvar tts-dtk
-  (concatenate 'string   emacspeak "servers/dtk-exp")
+(defvar *tts-dtk*
+  (concatenate 'string   *emacspeak* "servers/dtk-exp")
   "DTK tcl server")
 
-(defvar tts-outloud
-  (concatenate 'string   emacspeak "servers/outloud")
+(defvar *tts-outloud*
+  (concatenate 'string   *emacspeak* "servers/outloud")
   "Outloud tcl server")
 
-(defvar tts-32-outloud
-  (concatenate 'string   emacspeak "servers/32-outloud")
+(defvar *tts-32-outloud*
+  (concatenate 'string   *emacspeak* "servers/32-outloud")
   "Outloud tcl server")
 
-(defvar tts-engine tts-dtk
+(defvar *tts-engine* *tts-dtk*
   "Default TTS  engine. User settable.")
 
 ;;; }
@@ -72,32 +72,32 @@
 
 (defun tts-open ()
   "Open a TTS session."
-  (setq tts-process
+  (setq *tts-process*
         (sb-ext:run-program
-         tts-engine nil :wait nil  :input :stream)))
+         *tts-engine* nil :wait nil  :input :stream)))
 
 (defun tts-close ()
   "Close a TTS session."
-  (when(and  (process-p tts-process)
-             (process-alive-p tts-process))
-    (process-close tts-process))
-  (setq tts-process nil))
+  (when(and  (process-p *tts-process*)
+             (process-alive-p *tts-process*))
+    (process-close *tts-process*))
+  (setq *tts-process* nil))
 
 (defun tts-running-p ()
   "Is there a tts process up and running?"
-  (and tts-process
-       (process-p tts-process)
-       (process-alive-p tts-process)))
+  (and *tts-process*
+       (process-p *tts-process*)
+       (process-alive-p *tts-process*)))
 
-(defvar tts-stop-immediately t
+(defvar *tts-stop-immediately* t
   "Stop speech immediately.")
 (defun tts-say (text)
   "Say some text."
-  (unless (and  tts-process
-                (process-alive-p tts-process))
+  (unless (and  *tts-process*
+                (process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input tts-process)))
-    (when tts-stop-immediately
+  (let ((i (process-input *tts-process*)))
+    (when *tts-stop-immediately*
       (write-line "s"  i)
       (force-output i))
     (write-line (format nil "tts_say  ~s" text) i)
@@ -105,29 +105,29 @@
 
 (defun tts-queue (text)
   "Queue text to speak."
-  (unless (and  tts-process
-                (process-alive-p tts-process))
+  (unless (and  *tts-process*
+                (process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input tts-process)))
+  (let ((i (process-input *tts-process*)))
     (write-line (format nil "q {~s}" text) i)
     (force-output i)))
 
 (defun tts-letter (text)
   "Speak letter."
-  (unless (and  tts-process
-                (process-alive-p tts-process))
+  (unless (and  *tts-process*
+                (process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input tts-process)))
+  (let ((i (process-input *tts-process*)))
     (write-line (format nil "l ~s" text) i)
     (force-output i)))
 
 (defun tts-speak (text)
   "Say some text."
-  (unless (and  tts-process
-                (process-alive-p tts-process))
+  (unless (and  *tts-process*
+                (process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input tts-process)))
-    (when tts-stop-immediately
+  (let ((i (process-input *tts-process*)))
+    (when *tts-stop-immediately*
       (write-line "s"  i)
       (force-output i))
     (write-line (format nil "q ~s\;d" text) i)
