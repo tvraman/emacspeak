@@ -1,3 +1,4 @@
+
 ;;; tts.lisp -- Common Lisp interface  to Emacspeak speech servers
 ;;; $Id: tts.lisp 7078 2011-06-29 22:07:46Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
@@ -73,7 +74,7 @@
   "Open a TTS session."
   (setq tts-process
         (sb-ext:run-program
-         tts-engine nil :wait nil  :input :stream))))
+         tts-engine nil :wait nil  :input :stream)))
 
 (defun tts-close ()
   "Close a TTS session."
