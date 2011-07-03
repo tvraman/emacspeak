@@ -1,4 +1,4 @@
-;;; tts.lisp -- Common Lisp interface  to Emacspeak speech servers 
+;;; tts.lisp -- Common Lisp interface  to Emacspeak speech servers
 ;;; $Id: tts.lisp 7078 2011-06-29 22:07:46Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Interface REP/Sawfish to Emacspeak TTS servers
@@ -46,16 +46,14 @@
 ;;; { Settings
 
 (defvar emacspeak "/home/raman/emacs/lisp/emacspeak"
-"Root of Emacspeak installation.")
+  "Root of Emacspeak installation.")
 
 (defvar tts-process nil
-"Handle to tts server connection.")
+  "Handle to tts server connection.")
 
 (defvar tts-dtk
   (concatenate 'string   emacspeak "servers/dtk-exp")
-"DTK tcl server")
-
-
+  "DTK tcl server")
 
 (defvar tts-outloud
   (concatenate 'string   emacspeak "servers/outloud")
@@ -66,7 +64,7 @@
   "Outloud tcl server")
 
 (defvar tts-engine tts-dtk
-"Default TTS  engine. User settable.")
+  "Default TTS  engine. User settable.")
 
 ;;; }
 ;;; {Commands
@@ -74,22 +72,21 @@
 (defun tts-open ()
   "Open a TTS session."
   (setq tts-process
-        (sb-ext:run-program tts-engine '() :wait nil :output :stream :input :stream)))
-  
-  (start-process tts-process  tts-engine))
+        (sb-ext:run-program
+         tts-engine nil :wait nil  :input :stream))))
 
 (defun tts-close ()
   "Close a TTS session."
-  (when(and  (processp tts-process)
-             (process-running-p tts-process))
-    (kill-process tts-process))
+  (when(and  (process-p tts-process)
+             (process-alive-p tts-process))
+    (process-close tts-process))
   (setq tts-process nil))
 
 (defun tts-running-p ()
   "Is there a tts process up and running?"
-  (and (processp tts-process) (process-running-p
-                               tts-process)))
-
+  (and tts-process
+       (process-p tts-process)
+       (process-alive-p tts-process)))
 
 (defvar tts-stop-immediately t
   "Stop speech immediately.")
@@ -97,16 +94,17 @@
 (defun tts-say (text)
   "Say some text."
   (unless (and  tts-process
- (process-running-p tts-process))
-      (tts-open))
-  (when tts-stop-immediately
-    (format tts-process  "s\n"))
-  (format tts-process "q {%s}; d\n" text))
+                (process-alive-p tts-process))
+    (tts-open))
+  (let ((i (process-input tts-process)))
+    (when tts-stop-immediately
+      (write-line "s"  i)
+      (force-output i))
+    (write-line (format nil "q ~s\;d" text) i)))
 
 ;;; }
 
 (provide 'tts)
-
 
 ;;; { end of file
 
