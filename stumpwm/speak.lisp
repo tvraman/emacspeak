@@ -45,6 +45,11 @@
 (require 'tts)
 ;;; {Speak Actions:
 
+(defun speak-window (window)
+  "Speak current window  information."
+  (tts-speak 
+   (format nil "~a" (format-expand *window-formatters* fmt (current-window)))))
+
 ;;; }
 ;;; {Attach Handlers:
 
