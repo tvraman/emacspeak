@@ -118,7 +118,7 @@
                 (process-alive-p tts-process))
     (tts-open))
   (let ((i (process-input tts-process)))
-    (write-line (format nil "l !~s" text) i)
+    (write-line (format nil "l ~s" text) i)
     (force-output i)))
 
 (defun tts-speak (text)
