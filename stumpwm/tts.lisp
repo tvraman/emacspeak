@@ -91,8 +91,37 @@
 
 (defvar tts-stop-immediately t
   "Stop speech immediately.")
-
 (defun tts-say (text)
+  "Say some text."
+  (unless (and  tts-process
+                (process-alive-p tts-process))
+    (tts-open))
+  (let ((i (process-input tts-process)))
+    (when tts-stop-immediately
+      (write-line "s"  i)
+      (force-output i))
+    (write-line (format nil "tts_say  ~s" text) i)
+    (force-output i)))
+
+(defun tts-queue (text)
+  "Queue text to speak."
+  (unless (and  tts-process
+                (process-alive-p tts-process))
+    (tts-open))
+  (let ((i (process-input tts-process)))
+    (write-line (format nil "q {~s}" text) i)
+    (force-output i)))
+
+(defun tts-letter (text)
+  "Speak letter."
+  (unless (and  tts-process
+                (process-alive-p tts-process))
+    (tts-open))
+  (let ((i (process-input tts-process)))
+    (write-line (format nil "l !~s" text) i)
+    (force-output i)))
+
+(defun tts-speak (text)
   "Say some text."
   (unless (and  tts-process
                 (process-alive-p tts-process))
