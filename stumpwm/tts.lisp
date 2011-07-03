@@ -46,7 +46,7 @@
 
 ;;; { Settings
 
-(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak"
+(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
   "Root of Emacspeak installation.")
 
 (defvar *tts-process* nil
