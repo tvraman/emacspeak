@@ -2,7 +2,7 @@
 ;;; tts.lisp -- Common Lisp interface  to Emacspeak speech servers
 ;;; $Id: tts.lisp 7078 2011-06-29 22:07:46Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:   Interface REP/Sawfish to Emacspeak TTS servers
+;;; Description:   Interface Common Lisp (SBCL)  to Emacspeak TTS servers
 ;;; Keywords: Sawfish, Emacspeak, Audio Desktop
 ;;; {  LCD Archive entry:
 
