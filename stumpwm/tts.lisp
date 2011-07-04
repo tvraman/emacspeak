@@ -1,4 +1,3 @@
-
 ;;; tts.lisp -- Common Lisp interface  to Emacspeak speech servers
 ;;; $Id: tts.lisp 7078 2011-06-29 22:07:46Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
@@ -111,6 +110,16 @@
   (let ((i (process-input *tts-process*)))
     (write-line (format nil "q {~s}" text) i)
     (force-output i)))
+(defun tts-force ()
+  "Speak all queued text."
+  (let ((i (process-input *tts-process*)))
+    (write-line "d" i)
+    (force-output i)))
+
+(defun tts-speak-list (&rest lines)
+  "Speak an arbitrary number of lines."
+  (mapc 'tts-queue lines)
+  (tts-force))
 
 (defun tts-letter (text)
   "Speak letter."
