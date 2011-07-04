@@ -1,5 +1,5 @@
-;;; speak.lisp -- Attach Speech actions to StumpWM hooks
-;;; $Id: speak.lisp 7078 2011-06-29 22:07:46Z tv.raman.tv $
+;;; stumpwmrc -- Attach Speech actions to StumpWM hooks
+;;; $Id: stumpwmrc 7078 2011-06-29 22:07:46Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Interface Attach TTS  actions to Window hooks
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
