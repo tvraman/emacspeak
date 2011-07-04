@@ -48,11 +48,11 @@
 
 (defun speak-window (window)
   "Speak  window  information."
-  (tts-speak (window-name window)))
+  (tts-speak (stumpwm:window-name window)))
 
 (defun speak-current-window ()
   "Speak current window  information."
-  (tts-speak (window-name (current-window))))
+  (tts-speak (stumpwm:window-name (stumpwm:current-window))))
 (defun speak-messages (&rest messages)
   "Speak messages, a list of lines."
   (tts-speak-list  messages))
@@ -60,9 +60,9 @@
 ;;; }
 ;;; {Attach Handlers:
 
-(stumpwm:add-hook 'stumpwm:*new-window-hook* 'speak-current-window)
+;(stumpwm:add-hook 'stumpwm:*new-window-hook* 'speak-current-window)
 ;*destroy-window-hook*
-(stumpwm:add-hook 'stumpwm:*focus-window-hook* 'speak-current-window)
+;(stumpwm:add-hook 'stumpwm:*focus-window-hook* 'speak-current-window)
 ;*focus-frame-hook*
 ;*new-frame-hook*
 ;*message-hook*
