@@ -2,7 +2,9 @@
 * Emacspeak support for StumpWM
 
   - tts.lisp :: Interface to Emacspeak TTS  servers.
-  - speak.lisp :: Attach speak actions to StumpWM hooks.
+  - stumpwmrc :: Code to insert into personal .stumpwmrc
+
+  
 # local variables:
 # mode:org
 # end:
