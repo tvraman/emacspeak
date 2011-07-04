@@ -43,19 +43,26 @@
 
 ;;; }
 (require 'tts)
+(use-package :stumpwm)
 ;;; {Speak Actions:
 
 (defun speak-window (window)
+  "Speak  window  information."
+  (tts-speak (window-name window)))
+
+(defun speak-current-window ()
   "Speak current window  information."
-  (tts-speak 
-   (format nil "~a" (format-expand *window-formatters* fmt (current-window)))))
+  (tts-speak (window-name (current-window))))
+(defun speak-messages (&rest messages)
+  "Speak messages, a list of lines."
+  (tts-speak-list  messages))
 
 ;;; }
 ;;; {Attach Handlers:
 
-;*new-window-hook*
+(stumpwm:add-hook 'stumpwm:*new-window-hook* 'speak-current-window)
 ;*destroy-window-hook*
-;*focus-window-hook*
+(stumpwm:add-hook 'stumpwm:*focus-window-hook* 'speak-current-window)
 ;*focus-frame-hook*
 ;*new-frame-hook*
 ;*message-hook*
