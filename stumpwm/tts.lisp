@@ -116,7 +116,7 @@
     (write-line "d" i)
     (force-output i)))
 
-(defun tts-speak-list (&rest lines)
+(defun tts-speak-list (lines)
   "Speak an arbitrary number of lines."
   (mapc 'tts-queue lines)
   (tts-force))

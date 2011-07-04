@@ -60,9 +60,9 @@
 ;;; }
 ;;; {Attach Handlers:
 
-;(stumpwm:add-hook 'stumpwm:*new-window-hook* 'speak-current-window)
+(stumpwm:add-hook 'stumpwm:*new-window-hook* 'speak-current-window)
 ;*destroy-window-hook*
-;(stumpwm:add-hook 'stumpwm:*focus-window-hook* 'speak-current-window)
+(stumpwm:add-hook 'stumpwm:*focus-window-hook* 'speak-current-window)
 ;*focus-frame-hook*
 ;*new-frame-hook*
 ;*message-hook*
@@ -71,9 +71,6 @@
 ;*urgent-window-hook*
 
 ;;; }
-
-
-(provide 'speak)
 
 ;;; { end of file
 
