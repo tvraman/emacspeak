@@ -77,16 +77,16 @@
 
 (defun tts-close ()
   "Close a TTS session."
-  (when(and  (process-p *tts-process*)
-             (process-alive-p *tts-process*))
-    (process-close *tts-process*))
+  (when(and  (sb-ext:process-p *tts-process*)
+             (sb-ext:process-alive-p *tts-process*))
+    (sb-ext:process-close *tts-process*))
   (setq *tts-process* nil))
 
 (defun tts-running-p ()
   "Is there a tts process up and running?"
   (and *tts-process*
-       (process-p *tts-process*)
-       (process-alive-p *tts-process*)))
+       (sb-ext:process-p *tts-process*)
+       (sb-ext:process-alive-p *tts-process*)))
 
 (defvar *tts-stop-immediately* t
   "Stop speech immediately.")
@@ -143,8 +143,6 @@
     (force-output i)))
 
 ;;; }
-
-cd
 (provide 'tts)
 
 ;;; { end of file
