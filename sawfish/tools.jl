@@ -72,8 +72,8 @@
 (defun lock-screen  ()
   "Lock screen."
   (interactive)
-    (system   lock-program)
-    (tts-say "Locked screen."))
+    (tts-say "Locking  screen.")
+    (system   lock-program))
 
 (defun delete-this-window-safely ()
   "Delete current window safely."
