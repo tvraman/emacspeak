@@ -145,7 +145,6 @@
 ;;; }
 
 cd
-(tts-say "TTS: Loaded speech output library.")
 (provide 'tts)
 
 ;;; { end of file
