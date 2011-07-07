@@ -42,7 +42,7 @@
 ;;; Interface Common  Lisp  to Emacspeak TTS servers
 
 ;;; }
-
+(in-package :cl-user)
 ;;; { Settings
 
 (defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"

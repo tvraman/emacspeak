@@ -1,3 +1,4 @@
+;;; -*- mode: lisp -*-
 ;;; StumpWmRC: Setup Swank and Slime
 ;;; $Author: tv.raman.tv $
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
@@ -6,7 +7,6 @@
 
 
 ;; Load swank.
-;; *prefix-key* ; swank will kick this off
 (load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
 (swank-loader:init)
 (defcommand swank () ()
