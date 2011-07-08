@@ -4,7 +4,7 @@
 ;;; Description:   Interface Attach TTS  actions to Window hooks
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 ;;; {TTS
-(in-package :cl-user)
+(in-package :stumpwm)
 (load "/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
 (setq *tts-engine* *tts-32-outloud*)
 (tts-say "TTS: Ready to talk! ")

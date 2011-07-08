@@ -2,14 +2,15 @@
 ;;; StumpWmRC: Setup Swank and Slime
 ;;; $Author: tv.raman.tv $
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
-(use-package :stumpwm)
+(in-package :stumpwm)
 ;;; {swank and stumpwm
 
 
 ;; Load swank.
 (load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
 (swank-loader:init)
-(defcommand swank () ()
+(defcommand swank ()()
+    "Start Swank"
   (setf stumpwm:*top-level-error-action* :break)
   (swank:create-server :port 4005
                        :style swank:*communication-style*
@@ -25,13 +26,18 @@
 ;;; {Lock screen C-t C-l
 
 (defparameter *my-lock-command*
-  "exec xlock -mode goop \
--startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
--endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'")
+  "exec ~/bin/xlock")
 
 (define-key *root-map* (kbd "C-l") *my-lock-command*)
 
- ;;; }
+;;; }
+;;; {TTS
+(in-package :stumpwm)
+(load "/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
+(setq *tts-engine* *tts-32-outloud*)
+(tts-say "TTS: Ready to talk! ")
+
+;;; }
 ;;; {Emacs local variables
 
 ;;; local variables:
