@@ -22,3 +22,21 @@
 
 
 ;;; }
+;;; {Lock screen C-t C-l
+
+(defparameter *my-lock-command*
+  "exec xlock -mode goop \
+-startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
+-endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'")
+
+(define-key *root-map* (kbd "C-l") *my-lock-command*)
+
+ ;;; }
+;;; {Emacs local variables
+
+;;; local variables:
+;;; mode: folding
+;;; folded-file: t
+;;; end:
+
+;;; }
