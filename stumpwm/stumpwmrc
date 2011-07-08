@@ -32,11 +32,32 @@
 
 ;;; }
 ;;; {TTS
-(in-package :stumpwm)
+
 (load "/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
 (setq *tts-engine* *tts-32-outloud*)
 (tts-say "TTS: Ready to talk! ")
 
+;;; }
+;;; {Speak Actions:
+
+(defun speak-window-change (new old)
+  "Speak current window  information."
+  (when new 
+    (tts-speak (stumpwm::window-name new))))
+
+(defun speak-current-window ()
+   "Speak current window  information."
+   (tts-speak (stumpwm::window-name (stumpwm::current-window))))
+
+(defun speak-messages (&rest messages)
+   "Speak messages, a list of lines."
+   (tts-speak-list  messages))
+
+;;; }
+;;; {Attach Handlers:
+
+(setq  *new-window-hook* (list 'speak-window-change))
+(setq  *focus-window-hook* (list 'speak-window-change))
 ;;; }
 ;;; {Emacs local variables
 
