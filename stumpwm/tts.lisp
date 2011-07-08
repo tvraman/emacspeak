@@ -42,7 +42,7 @@
 ;;; Interface Common  Lisp  to Emacspeak TTS servers
 
 ;;; }
-(in-package :cl-user)
+(in-package :stumpwm)
 ;;; { Settings
 
 (defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
@@ -63,7 +63,7 @@
   (concatenate 'string   *emacspeak* "servers/32-outloud")
   "Outloud tcl server")
 
-(defvar *tts-engine* *tts-dtk*
+(defparameter *tts-engine* *tts-dtk*
   "Default TTS  engine. User settable.")
 
 ;;; }
@@ -93,9 +93,9 @@
 (defun tts-say (text)
   "Say some text."
   (unless (and  *tts-process*
-                (process-alive-p *tts-process*))
+                (sb-ext:process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input *tts-process*)))
+  (let ((i (sb-ext:process-input *tts-process*)))
     (when *tts-stop-immediately*
       (write-line "s"  i)
       (force-output i))
@@ -105,14 +105,14 @@
 (defun tts-queue (text)
   "Queue text to speak."
   (unless (and  *tts-process*
-                (process-alive-p *tts-process*))
+                (sb-ext:process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input *tts-process*)))
+  (let ((i (sb-ext:process-input *tts-process*)))
     (write-line (format nil "q {~s}" text) i)
     (force-output i)))
 (defun tts-force ()
   "Speak all queued text."
-  (let ((i (process-input *tts-process*)))
+  (let ((i (sb-ext:process-input *tts-process*)))
     (write-line "d" i)
     (force-output i)))
 
@@ -124,18 +124,18 @@
 (defun tts-letter (text)
   "Speak letter."
   (unless (and  *tts-process*
-                (process-alive-p *tts-process*))
+                (sb-ext:process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input *tts-process*)))
+  (let ((i (sb-ext:process-input *tts-process*)))
     (write-line (format nil "l ~s" text) i)
     (force-output i)))
 
 (defun tts-speak (text)
   "Say some text."
   (unless (and  *tts-process*
-                (process-alive-p *tts-process*))
+                (sb-ext:process-alive-p *tts-process*))
     (tts-open))
-  (let ((i (process-input *tts-process*)))
+  (let ((i (sb-ext:process-input *tts-process*)))
     (when *tts-stop-immediately*
       (write-line "s"  i)
       (force-output i))
