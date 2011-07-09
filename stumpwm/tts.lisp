@@ -71,7 +71,7 @@
   "Default TTS  engine. User settable.")
 
 ;;; }
-;;; {Commands
+;;; {Internal  Functions
 
 (defun tts-open ()
   "Open a TTS session."
@@ -94,6 +94,36 @@
 
 (defvar *tts-stop-immediately* t
   "Stop speech immediately.")
+(defun tts-queue (text)
+  "Queue text to speak."
+  (unless (and  *tts-process*
+                (sb-ext:process-alive-p *tts-process*))
+    (tts-open))
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (write-line (format nil "q {~s}" text) i)
+    (force-output i)))
+
+(defun tts-force ()
+  "Speak all queued text."
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (write-line "d" i)
+    (force-output i)))
+
+;;; }
+;;; {Exported Functions
+
+(defun tts-speak (text)
+  "Say some text."
+  (unless (and  *tts-process*
+                (sb-ext:process-alive-p *tts-process*))
+    (tts-open))
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (when *tts-stop-immediately*
+      (write-line "s"  i)
+      (force-output i))
+    (write-line (format nil "q ~s\;d" text) i)
+    (force-output i)))
+
 (defun tts-say (text)
   "Say some text."
   (unless (and  *tts-process*
@@ -104,20 +134,6 @@
       (write-line "s"  i)
       (force-output i))
     (write-line (format nil "tts_say  ~s" text) i)
-    (force-output i)))
-
-(defun tts-queue (text)
-  "Queue text to speak."
-  (unless (and  *tts-process*
-                (sb-ext:process-alive-p *tts-process*))
-    (tts-open))
-  (let ((i (sb-ext:process-input *tts-process*)))
-    (write-line (format nil "q {~s}" text) i)
-    (force-output i)))
-(defun tts-force ()
-  "Speak all queued text."
-  (let ((i (sb-ext:process-input *tts-process*)))
-    (write-line "d" i)
     (force-output i)))
 
 (defun tts-speak-list (lines)
@@ -132,18 +148,6 @@
     (tts-open))
   (let ((i (sb-ext:process-input *tts-process*)))
     (write-line (format nil "l ~s" text) i)
-    (force-output i)))
-
-(defun tts-speak (text)
-  "Say some text."
-  (unless (and  *tts-process*
-                (sb-ext:process-alive-p *tts-process*))
-    (tts-open))
-  (let ((i (sb-ext:process-input *tts-process*)))
-    (when *tts-stop-immediately*
-      (write-line "s"  i)
-      (force-output i))
-    (write-line (format nil "q ~s\;d" text) i)
     (force-output i)))
 
 ;;; }
