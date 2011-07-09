@@ -43,9 +43,13 @@
 
 ;;; }
 (in-package :stumpwm)
+(export '(tts-say tts-speak tts-letter tts-speak-list
+          *tts-engine* *tts-dtk-exp*
+          *tts-outloud* *tts-32-outloud*
+          *emacspeak*))
 ;;; { Settings
 
-(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
+(defparameter *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
   "Root of Emacspeak installation.")
 
 (defvar *tts-process* nil
