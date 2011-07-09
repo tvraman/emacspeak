@@ -49,7 +49,7 @@
           *emacspeak*))
 ;;; { Settings
 
-(defparameter *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
+(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
   "Root of Emacspeak installation.")
 
 (defvar *tts-process* nil
@@ -67,7 +67,7 @@
   (concatenate 'string   *emacspeak* "servers/32-outloud")
   "Outloud tcl server")
 
-(defparameter *tts-engine* *tts-dtk*
+(defvar *tts-engine* *tts-dtk*
   "Default TTS  engine. User settable.")
 
 ;;; }
