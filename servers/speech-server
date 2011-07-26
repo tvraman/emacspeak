@@ -1,8 +1,8 @@
-#!/usr/bin/tcl
+#!/usr/bin/tclsh
 # $Id$
 # Description:  Speech server
 #Usage: tcl speech-server port device-specific-script
-#Example: tcl speech-server 2222 dtk-exp
+#Example: tclsh speech-server 2222 dtk-exp
 # Keywords: Emacspeak, Speech, TCL
 # {{{ LCD Entry: 
 
