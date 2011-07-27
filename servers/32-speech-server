@@ -38,7 +38,7 @@
 
 # }}}
 # {{{Initialize and get ready
-package require Tclx
+package require Tclx32
 set port [lindex $argv 0]
 #start up the server
 set server [server_create -myport  $port -reuseaddr]
