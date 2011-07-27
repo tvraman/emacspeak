@@ -223,16 +223,14 @@ and listening on port port.  Host is the hostname of the remote
 server, typically the desktop machine.  Port is the tcp port that that
 host is listening on for speech requests."
   (interactive
-   (progn (tts-restart)
-          (list
-           (completing-read "Remote host: "
-                            emacspeak-eterm-remote-hosts-table ;completion table
-                            nil         ;predicate
-                            nil         ;must-match
-                            (emacspeak-remote-get-current-remote-hostname) ;initial input
-                            ))
-          (read-minibuffer "Remote port: "
-                           emacspeak-remote-default-port-to-connect)))
+   (list
+    (completing-read "Remote host: "
+                     emacspeak-eterm-remote-hosts-table ;completion table
+                     nil                ;predicate
+                     nil                ;must-match
+                     (emacspeak-remote-get-current-remote-hostname) ;initial input
+                     )
+    (read-from-minibuffer "Remote port:" emacspeak-remote-default-port-to-connect)))
   (declare (special dtk-speaker-process
                     emacspeak-remote-use-telnet-to-connect
                     emacspeak-remote-default-port-to-connect
@@ -244,8 +242,7 @@ host is listening on for speech requests."
               (start-process  "remote-speaker" nil
                               "telnet"
                               host port)
-            (open-network-stream "remote-speaker" nil
-                                 host port))))
+            (open-network-stream "remote-speaker" nil host port))))
     (unless (intern-soft host emacspeak-eterm-remote-hosts-table)
       (emacspeak-eterm-cache-remote-host host))
     (cond
