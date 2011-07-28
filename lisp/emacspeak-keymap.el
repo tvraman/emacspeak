@@ -430,6 +430,7 @@ field in the customization buffer.  You can use the notation
         ("\C-m" dtk-set-chunk-separator-syntax)
         ("\M-\C-b" tts-show-debug-buffer)
         ("A" dtk-async-server)
+        ("L" dtk-local-server)
         ("a" dtk-add-cleanup-pattern)
         ("b" dtk-toggle-debug)
         ("," dtk-toggle-punctuation-mode)
