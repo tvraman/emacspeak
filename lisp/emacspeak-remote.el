@@ -133,11 +133,6 @@ the host we just logged in from."
   "2222"
   "Default used when prompting for a port to connect to.")
 
-(defvar emacspeak-remote-use-telnet-to-connect nil
-  "*If set to t, then use a telnet subprocess
-to connect to the remote host that is running the speech
-server. Default is to use Emacs' built-in open-network-stream.")
-
 ;;;###autoload
 (defcustom emacspeak-remote-use-ssh nil
   "Set to T to use SSH remote servers."
@@ -238,11 +233,7 @@ host is listening on for speech requests."
   (let* ((process-connection-type nil)  ;dont waste a pty
          (old-process dtk-speaker-process)
          (new-process
-          (if emacspeak-remote-use-telnet-to-connect
-              (start-process  "remote-speaker" nil
-                              "telnet"
-                              host port)
-            (open-network-stream "remote-speaker" nil host port))))
+          (open-network-stream "remote-speaker" nil host port)))
     (unless (intern-soft host emacspeak-eterm-remote-hosts-table)
       (emacspeak-eterm-cache-remote-host host))
     (cond
