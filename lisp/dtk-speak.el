@@ -1649,6 +1649,46 @@ Argument PROGRAM specifies the speech server program."
          (expand-file-name "python/HTTPSpeaker.py" emacspeak-servers-directory)
          program)))
 
+;;;###autoload
+(defvar dtk-local-server-process nil
+  "Local server process.")
+
+
+(defcustom dtk-speech-server-program "speech-server"
+  "Local speech server script."
+  :type '(choice :tag "Local Server: "
+                 (const :tag "32 Bit" "32-speech-server")
+                 (const :tag "Default" "speech-server"))
+  :group 'dtk)
+
+(defun dtk-local-server (program)
+  "Select and start an local  speech server interactively.
+Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
+Argument PROGRAM specifies the speech server program.
+Port  defaults to  emacspeak-remote-default-port-to-connect."
+  (interactive
+   (list
+    (completing-read
+     "Select speech server:"
+     (or dtk-servers-alist
+         (tts-setup-servers-alist))
+     nil
+     t  )))
+  (declare (special    dtk-servers-alist emacspeak-remote-default-port-to-connect
+                       dtk-local-server-process emacspeak-servers-directory ))
+  (when (and
+         dtk-local-server-process
+         (eq 'run (process-status dtk-local-server-process)))
+    (kill-process dtk-async-server-process))
+  (setq dtk-local-server-process
+        (start-process
+         "LocalTTS"
+         "*localTTS*"
+         (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
+         emacspeak-remote-default-port-to-connect
+         (expand-file-name program  emacspeak-servers-directory))))
+
+
 ;;}}}
 ;;{{{  initialize the speech process
 
