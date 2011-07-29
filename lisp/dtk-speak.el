@@ -1660,12 +1660,14 @@ Argument PROGRAM specifies the speech server program."
                  (const :tag "32 Bit" "32-speech-server")
                  (const :tag "Default" "speech-server"))
   :group 'dtk)
+(defvar dtk-local-server-port "2222"
+  "Port where we run our local server.")
 
 (defun dtk-local-server (program)
   "Select and start an local  speech server interactively.
 Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
 Argument PROGRAM specifies the speech server program.
-Port  defaults to  emacspeak-remote-default-port-to-connect."
+Port  defaults to  dtk-local-server-port"
   (interactive
    (list
     (completing-read
@@ -1674,7 +1676,7 @@ Port  defaults to  emacspeak-remote-default-port-to-connect."
          (tts-setup-servers-alist))
      nil
      t  )))
-  (declare (special    dtk-servers-alist emacspeak-remote-default-port-to-connect
+  (declare (special    dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory ))
   (when (and
          dtk-local-server-process
@@ -1685,9 +1687,8 @@ Port  defaults to  emacspeak-remote-default-port-to-connect."
          "LocalTTS"
          "*localTTS*"
          (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
-         emacspeak-remote-default-port-to-connect
+         dtk-local-server-port
          (expand-file-name program  emacspeak-servers-directory))))
-
 
 ;;}}}
 ;;{{{  initialize the speech process
