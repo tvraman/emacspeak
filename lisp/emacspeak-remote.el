@@ -217,10 +217,11 @@ host is listening on for speech requests."
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
                      )
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
-  (declare (special dtk-speaker-process
+  (declare (special dtk-speaker-process dtk-program 
                     dtk-local-server-port
                     emacspeak-eterm-remote-hosts-table))
-  (let* ((process-connection-type nil)  ;dont waste a pty
+  (let* ((dtk-program dtk-local-engine)
+         (process-connection-type nil)  ;dont waste a pty
          (old-process dtk-speaker-process)
          (new-process
           (open-network-stream "remote-speaker" nil host port)))
@@ -236,8 +237,10 @@ host is listening on for speech requests."
       (run-hooks 'emacspeak-remote-hooks)
       (sit-for 5)
       (message "Connecting to server on host %s  port %s" host port )
-      (sit-for 5))
-     (t (error "Failed to connect to speech server on host %s port %s" host port )))))
+      )
+     (emacspeak-tts-startup-hook)
+     (sit-for 5))
+    (t (error "Failed to connect to speech server on host %s port %s" host port )))))
 
 ;;}}}
 (provide 'emacspeak-remote )

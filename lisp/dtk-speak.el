@@ -1653,7 +1653,7 @@ Argument PROGRAM specifies the speech server program."
 (defvar dtk-local-server-process nil
   "Local server process.")
 
-
+;;;###autoload
 (defcustom dtk-speech-server-program "speech-server"
   "Local speech server script."
   :type '(choice :tag "Local Server: "
@@ -1662,7 +1662,14 @@ Argument PROGRAM specifies the speech server program."
   :group 'dtk)
 (defvar dtk-local-server-port "2222"
   "Port where we run our local server.")
-
+(defcustom dtk-local-engine "outloud"
+  "Engine we use  for our local TTS  server."
+  :type '(choice
+          (const :tag "Dectalk Express" "dtk-exp")
+          (const :tag "Viavoice Outloud" "outloud")
+          (const :tag "32Bit ViaVoice on 64Bit Linux" "32-outloud"))
+  :group 'dtk)
+                 
 (defun dtk-local-server (program)
   "Select and start an local  speech server interactively.
 Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
@@ -1705,7 +1712,7 @@ Port  defaults to  dtk-local-server-port"
 Has the same semantics as the builtin `process-connection-type'.
 Default is to use pipes.")
 
-(defvar tts-debug-buffer " *speaker*"
+s(defvar tts-debug-buffer " *speaker*"
   "Buffer holding speech server debug output.")
 
 (defun  dtk-initialize ()
