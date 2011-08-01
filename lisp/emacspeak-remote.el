@@ -240,7 +240,7 @@ host is listening on for speech requests."
       )
      (emacspeak-tts-startup-hook)
      (sit-for 5))
-    (t (error "Failed to connect to speech server on host %s port %s" host port )))))
+    (t (error "Failed to connect to speech server on host %s port %s" host port ))))
 
 ;;}}}
 (provide 'emacspeak-remote )

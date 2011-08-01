@@ -3248,7 +3248,13 @@ Default is to add autoload cookies to current file."
   (message "Brailled %s" s))
 
 ;;}}}
+;;{{{ Insert ~n:
+(defun emacspeak-wizards-insert-tilden ()
+  "Insert Tilden character."
+  (interactive)
+(insert "ñ"))
 
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
