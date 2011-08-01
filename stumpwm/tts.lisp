@@ -42,11 +42,7 @@
 ;;; Interface Common  Lisp  to Emacspeak TTS servers
 
 ;;; }
-(in-package :cl-user)
-(export '(tts-say tts-speak tts-letter tts-speak-list
-          *tts-engine* *tts-dtk-exp*
-          *tts-outloud* *tts-32-outloud*
-          *emacspeak*))
+(in-package :stumpwm)
 ;;; { Settings
 
 (defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
