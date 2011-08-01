@@ -105,9 +105,7 @@
    (format "%s %s %s > %s 2>/dev/null"
            emacspeak-librivox-curl-program
            emacspeak-librivox-curl-common-options
-           (format "%s%s"
-                   emacspeak-librivox-api-base
-                   "csv.php")
+           "https://catalog.librivox.org/csv.php"
            emacspeak-librivox-catalog-location))
   (emacspeak-auditory-icon 'task-done))
 

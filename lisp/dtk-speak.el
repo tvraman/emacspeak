@@ -1662,6 +1662,7 @@ Argument PROGRAM specifies the speech server program."
   :group 'dtk)
 (defvar dtk-local-server-port "2222"
   "Port where we run our local server.")
+
 (defcustom dtk-local-engine "outloud"
   "Engine we use  for our local TTS  server."
   :type '(choice
@@ -1712,7 +1713,7 @@ Port  defaults to  dtk-local-server-port"
 Has the same semantics as the builtin `process-connection-type'.
 Default is to use pipes.")
 
-s(defvar tts-debug-buffer " *speaker*"
+(defvar tts-debug-buffer " *speaker*"
   "Buffer holding speech server debug output.")
 
 (defun  dtk-initialize ()
