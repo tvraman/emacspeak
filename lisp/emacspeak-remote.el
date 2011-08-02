@@ -136,9 +136,9 @@ the host we just logged in from."
 ;;;###autoload
 (defun emacspeak-remote-quick-connect-to-server()
   "Connect to remote server.
-Does not prompt for host or port, but quietly uses the
-guesses that appear as defaults when prompting.
-Use this once you are sure the guesses are usually correct."
+Does not prompt for host or port, but quietly uses the guesses
+that appear as defaults when prompting. Use this once you are
+sure the guesses are usually correct."
   (interactive)
   (emacspeak-remote-connect-to-server
        (emacspeak-remote-get-current-remote-hostname)
@@ -204,10 +204,10 @@ Server is specified via custom option `emacspeak-remote-default-ssh-server'."
 
 ;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)
-  "Connect to and start using remote speech server running on host host
-and listening on port port.  Host is the hostname of the remote
-server, typically the desktop machine.  Port is the tcp port that that
-host is listening on for speech requests."
+  "Connect to and start using remote speech server running on
+host host and listening on port port. Host is the hostname of the
+remote server, typically the desktop machine. Port is the tcp
+port that that host is listening on for speech requests."
   (interactive
    (list
     (completing-read "Remote host: "
@@ -231,8 +231,7 @@ host is listening on for speech requests."
      ((or (eq 'run (process-status new-process))
           (eq 'open (process-status new-process)))
       (setq dtk-speaker-process new-process)
-      (setq emacspeak-remote-default-port-to-connect
-            (format "%s" port ))
+      (setq emacspeak-remote-default-port-to-connect (format "%s" port ))
       (delete-process old-process)
       (run-hooks 'emacspeak-remote-hooks)
       (sit-for 5)

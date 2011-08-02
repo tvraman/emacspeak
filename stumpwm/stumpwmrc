@@ -3,32 +3,17 @@
 ;;; $Author: tv.raman.tv $
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
-;;; {swank and stumpwm
-
-;; Load swank.
-(load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
-(swank-loader:init)
-(defcommand swank ()
-  ()
-  "Start Swank"
-  (setf stumpwm:*top-level-error-action* :break)
-  (swank:create-server
-   :port 4005
-   :style swank:*communication-style*
-   :dont-close t)
-  (echo-string
-   (current-screen)
-   "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
-
-(swank)
-
-;;; }
 ;;; {Lock screen C-t C-l
 
-(defvar *my-lock-command*
+(defparameter *my-lock-command*
   "exec ~/bin/xlock")
 
-(define-key *root-map* (kbd "C-l") *my-lock-command*)
+
+(defcommand lock-screen () ()
+  "Lock my screen."
+  (eval-command *my-lock-command*))
+
+(define-key *root-map* (kbd "C-l") "lock-screen")
 
 ;;; }
 ;;; {TTS
@@ -42,18 +27,44 @@
 
 (defun speak-window-change (new old)
   "Speak current window  information."
-  (when new
+  (when new 
     (tts-speak (stumpwm::window-name new))))
 
+(defun speak-current-window ()
+   "Speak current window  information."
+   (tts-speak (stumpwm::window-name (stumpwm::current-window))))
+
 (defun speak-messages (&rest messages)
-  "Speak messages, a list of lines."
-  (tts-speak-list  messages))
+   "Speak messages, a list of lines."
+   (tts-speak-list  messages))
 
 ;;; }
 ;;; {Attach Handlers:
 
-(setq  *new-window-hook* (list 'speak-window-change))
+
 (setq  *focus-window-hook* (list 'speak-window-change))
+(setq *message-hook* (list 'speak-messages))
+
+;;; }
+;;; {swank and stumpwm
+
+;;; Load this at the end so our earlier setting sgo into the main thread:
+
+;; Load swank.
+(load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
+(swank-loader:init)
+(defcommand swank ()()
+    "Start Swank"
+  (setf stumpwm:*top-level-error-action* :break)
+  (swank:create-server :port 4005
+                       :style swank:*communication-style*
+                       :dont-close t)
+  (echo-string (current-screen) 
+               "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
+
+
+(swank)
+
 ;;; }
 ;;; {Emacs local variables
 
