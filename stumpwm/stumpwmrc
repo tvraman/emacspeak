@@ -30,6 +30,10 @@
   (when new 
     (tts-speak (stumpwm::window-name new))))
 
+(defun speak-this-window (window)
+   "Speak this window  information."
+   (tts-speak (window-name window)))
+
 (defun speak-current-window ()
    "Speak current window  information."
    (tts-speak (stumpwm::window-name (stumpwm::current-window))))
@@ -43,6 +47,7 @@
 
 
 (setq  *focus-window-hook* (list 'speak-window-change))
+(setq *new-window-hook* (list 'speak-this-window))
 (setq *message-hook* (list 'speak-messages))
 
 ;;; }
