@@ -107,6 +107,11 @@
 
 ;;; }
 ;;; {Exported Functions
+(defun tts-stop ()
+  "Stop speech."
+  (let ((i (sb-ext:process-input *tts-process*)))
+      (write-line "s"  i)
+      (force-output i)))
 
 (defun tts-speak (text)
   "Say some text."
