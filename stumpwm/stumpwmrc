@@ -28,7 +28,7 @@
 (defun speak-window-change (new old)
   "Speak current window  information."
   (when new 
-    (tts-speak (stumpwm::window-name new))))
+    (tts-speak (window-name new))))
 
 (defun speak-this-window (window)
    "Speak this window  information."
@@ -36,7 +36,7 @@
 
 (defun speak-current-window ()
    "Speak current window  information."
-   (tts-speak (stumpwm::window-name (stumpwm::current-window))))
+   (tts-speak (window-name (current-window))))
 
 (defun speak-messages (&rest messages)
    "Speak messages, a list of lines."
