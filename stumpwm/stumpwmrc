@@ -4,13 +4,17 @@
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
 ;;; {Prefix key matches my screen setup:
+
 (set-prefix-key (kbd "C-\\"))
 
 ;;; }
 ;;; {Lock screen C-t C-l
+;;; ~/bin/xlock runs this:
+; "exec xlock -mode goop \
+; -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
+; -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'"
+(defparameter *my-lock-command* "exec ~/bin/xlock")
 
-(defparameter *my-lock-command*
-  "exec ~/bin/xlock")
 
 
 (defcommand lock-screen () ()
