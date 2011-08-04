@@ -3,6 +3,10 @@
 ;;; $Author: tv.raman.tv $
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
+;;; {Prefix key matches my screen setup:
+(set-prefix-key (kbd "C-\\"))
+
+;;; }
 ;;; {Lock screen C-t C-l
 
 (defparameter *my-lock-command*
