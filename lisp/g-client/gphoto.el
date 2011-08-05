@@ -187,7 +187,8 @@ Interactive prefix arg prompts for userid whose albums we request."
 (defun gphoto-tags()
   "View feed of tags."
   (interactive)
-  (gphoto-feeds "tags"))
+  (gphoto-feeds "tags"
+                (g-auth-email gphoto-auth-handle)))
 
 ;;;###autoload
 (defun gphoto-view (resource)
