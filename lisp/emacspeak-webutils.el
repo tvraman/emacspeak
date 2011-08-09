@@ -205,11 +205,13 @@ ARGS specifies additional arguments to SPEAKER if any."
       `(function
         (lambda nil
           (let ((inhibit-read-only t))
-            (cond
-             ((search-forward ,locator nil t)
-              (recenter 0)
-              (apply(quote ,speaker) ,args))
-             (t (message "Your search appears to have failed.")))))))
+            (condition-case nil
+                (cond
+                 ((search-forward ,locator nil t)
+                  (recenter 0)
+                  (apply(quote ,speaker) ,args))
+                 (t (message "Your search appears to have failed.")))
+              (error nil))))))
      'at-end)))
 
 ;;}}}
