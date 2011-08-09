@@ -531,7 +531,8 @@ element. "
 
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
-  (emacspeak-webutils-run-post-process-hook))
+  (let ((inhibit-read-only t))
+  (emacspeak-webutils-run-post-process-hook)))
 
 ;;}}}
 ;;{{{ advice focus on cell
