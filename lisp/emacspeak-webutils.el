@@ -84,7 +84,7 @@ Note that the Web browser should reset this hook after using it.")
     (condition-case nil
         (let ((inhibit-read-only t))
         (run-hooks  'emacspeak-web-post-process-hook))
-      (error 
+      (error  (message "Caught error  in post-process hook.")
        (setq emacspeak-web-post-process-hook nil)))
     (setq emacspeak-web-post-process-hook nil)))
 
@@ -127,9 +127,10 @@ Note that the Web browser should reset this hook after using it.")
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
                 (declare (special emacspeak-we-xpath-filter))
+                (let ((inhibit-read-only t))
                 (setq emacspeak-we-xpath-filter
                       "//p")
-                (emacspeak-speak-buffer))
+                (emacspeak-speak-buffer)))
             'at-end))
 
 (defsubst emacspeak-webutils-cache-google-query(query)
@@ -198,16 +199,18 @@ SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
   (declare (special emacspeak-web-post-process-hook))
   (when (emacspeak-webutils-supported-p)
-    (add-hook  'emacspeak-web-post-process-hook
-               (eval
-                `(function
-                  (lambda nil
-                    (cond
-                     ((search-forward ,locator nil t)
-                      (recenter 0)
-                      (apply(quote ,speaker) ,args))
-                     (t (message "Your search appears to have failed."))))))
-               'at-end)))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     (eval
+      `(function
+        (lambda nil
+          (let ((inhibit-read-only t))
+            (cond
+             ((search-forward ,locator nil t)
+              (recenter 0)
+              (apply(quote ,speaker) ,args))
+             (t (message "Your search appears to have failed.")))))))
+     'at-end)))
 
 ;;}}}
 ;;{{{ helper macros:
