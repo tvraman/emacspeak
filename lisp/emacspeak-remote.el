@@ -53,7 +53,7 @@
 (defgroup emacspeak-remote nil
   "Emacspeak remote group."
   :group 'emacspeak-remote)
-
+;;;###autoload
 (defcustom emacspeak-remote-hooks nil
   "List of hook functions that are run after
 emacspeak is set to run as a remote application.
