@@ -1,14 +1,14 @@
 * Impact And Significance Of Emacspeak
 
 Emacspeak was originally developed in late 1994 and released as
-Open Source in May 1995.
-Since then, the system has been regularly updated every six
-months to provide an up-to-date /Audio Desktop/. Here is a brief
-overview of some of the significant aspects of  the system, and
-the lessons learnt from  its development and use. The work on
-Emacspeak was presented at CHI96 and the co-located Assets96
-conference in Vancouver, BC. This overview is being written
-nearly 15 years later to trace  the impact of the work.
+Open Source in May 1995.  Since then, the system has been
+regularly updated every six months to provide an up-to-date
+/Audio Desktop/. Here is a brief overview of some of the
+significant aspects of the system, and the lessons learnt from
+its development and use. The work on Emacspeak was presented at
+CHI96 and the co-located Assets96 conference in Vancouver,
+BC. This overview is being written nearly 15 years later to trace
+the impact of the work.
 
 ** Speech-Enabling Applicationss
 
