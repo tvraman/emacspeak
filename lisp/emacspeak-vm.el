@@ -381,8 +381,7 @@ Then speak the screenful. "
   "Provide an auditory icon if requested"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (message "%s"
-             (emacspeak-speak-mode-line))))
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ catching up on folders
