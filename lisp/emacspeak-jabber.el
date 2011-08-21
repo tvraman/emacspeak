@@ -153,6 +153,17 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Set extended  away.")))
+(defadvice jabber-go-to-next-jid (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice jabber-go-to-previous-jid (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
 
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
