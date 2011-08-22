@@ -4,24 +4,19 @@
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
 ;;; {Prefix key matches my screen setup:
-
 (set-prefix-key (kbd "C-\\"))
 
 ;;; }
-;;; {Lock screen C-t C-l
-;;; ~/bin/xlock runs this:
-; "exec xlock -mode goop \
-; -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
-; -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'"
-(defparameter *my-lock-command* "exec ~/bin/xlock")
+;;; {Lock screen C-t D
 
-
+(defparameter *my-lock-command*
+  "exec ~/bin/xlock")
 
 (defcommand lock-screen () ()
   "Lock my screen."
   (eval-command *my-lock-command*))
 
-(define-key *root-map* (kbd "C-l") "lock-screen")
+(define-key *root-map* (kbd "D") "lock-screen")
 
 ;;; }
 ;;; {TTS
@@ -35,28 +30,33 @@
 
 (defun speak-window-change (new old)
   "Speak current window  information."
-  (when new 
+  (when new
     (tts-speak (window-name new))))
 
 (defun speak-this-window (window)
-   "Speak this window  information."
-   (tts-speak (window-name window)))
+  "Speak this window  information."
+  (tts-speak (window-name window)))
 
 (defun speak-current-window ()
-   "Speak current window  information."
-   (tts-speak (window-name (current-window))))
+  "Speak current window  information."
+  (tts-speak (window-name (current-window))))
 
 (defun speak-messages (&rest messages)
-   "Speak messages, a list of lines."
-   (tts-speak-list  messages))
+  "Speak messages, a list of lines."
+  (tts-speak-list  messages))
 
 ;;; }
 ;;; {Attach Handlers:
 
-
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
 (setq *message-hook* (list 'speak-messages))
+
+;;; }
+;;; {emacs  is emacsclient 
+(defcommand emacs () ()
+  "Start emacs unless it is already running, in which case focus it."
+  (run-or-raise "emacsclient -c" '(:class "Emacs")))
 
 ;;; }
 ;;; {swank and stumpwm
@@ -67,14 +67,13 @@
 (load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
 (swank-loader:init)
 (defcommand swank ()()
-    "Start Swank"
+  "Start Swank"
   (setf stumpwm:*top-level-error-action* :break)
   (swank:create-server :port 4005
                        :style swank:*communication-style*
                        :dont-close t)
-  (echo-string (current-screen) 
+  (echo-string (current-screen)
                "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
-
 
 (swank)
 
