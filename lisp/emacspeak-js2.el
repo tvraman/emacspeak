@@ -83,6 +83,18 @@
    ))
 
 ;;}}}
+;;{{{ js2-mode hook
+
+(defun emacspeak-js2-hook ()
+  "Hook to setup emacspeak."
+  (declare (special js2-mode-map))
+  (define-key js2-mode-map "\C-e" 'emacspeak-prefix-command)
+  (define-key js2-mode-map "\C-ee" 'js2-end-of-line)
+  (emacspeak-setup-programming-mode))
+
+(add-hook 'js2-mode-hook 'emacspeak-js2-hook)
+
+;;}}}
 
 (provide 'emacspeak-js2)
 ;;{{{ end of file
