@@ -1080,8 +1080,8 @@ from English to German.")
  nil
  "Show 1box result from Google."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class-list
-      (list "rbt" "e" "std" "med")
+     (emacspeak-we-extract-by-id
+      "res"
       url 'speak)))
 
 (emacspeak-url-template-define
