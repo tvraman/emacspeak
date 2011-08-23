@@ -1288,6 +1288,18 @@ from English to German.")
                                           url 'speak)))
 
 ;;}}}
+;;{{{ bing rss
+
+(emacspeak-url-template-define
+ "Bing RSS"
+ "http://www.bing.com/search?go=&qs=ns&form=QBLH&format=rss&q=%s"
+ (list "Bing For: ")
+ nil
+ "RSS Feed of Bing Results."
+ #'(lambda (url)
+     (emacspeak-webutils-rss-display url)))
+
+;;}}}
 ;;{{{ yahoo daily news
 (emacspeak-url-template-define
  "Yahoo RSS Feeds"
