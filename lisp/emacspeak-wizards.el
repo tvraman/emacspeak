@@ -2091,8 +2091,9 @@ visiting the xls file."
           (string :tag "Options" "-layout"))
   :group 'emacspeak-wizards)
 ;;;###autoload
-(defun emacspeak-wizards-pdf-open (filename)
-  "Open pdf file as text."
+(defun emacspeak-wizards-pdf-open (filename &optional ask-pwd)
+  "Open pdf file as text.
+Optional interactive prefix arg ask-pwd prompts for password."
   (interactive
    (list
     (let ((completion-ignored-extensions nil))
@@ -2101,18 +2102,24 @@ visiting the xls file."
                        nil default-directory
                        t nil
                        #'(lambda (name)
-                           (string-match ".pdf$" name)))))))
+                           (string-match ".pdf$" name)))))
+    current-prefix-arg))
   (declare (special emacspeak-wizards-pdf-to-text-options
                     emacspeak-wizards-pdf-to-text-program))
-  (let ((output-buffer (format "%s"
+  (let ((passwd (when ask-pwd (read-passwd "User Password:")))
+        (output-buffer (format "%s"
                                (file-name-sans-extension
                                 (file-name-nondirectory filename)))))
     (shell-command
-     (format "%s %s  %s - | cat -s "
-             emacspeak-wizards-pdf-to-text-program
-             emacspeak-wizards-pdf-to-text-options
-             (shell-quote-argument
-              (expand-file-name filename)))
+     (format
+      "%s %s %s  %s - | cat -s "
+      emacspeak-wizards-pdf-to-text-program
+      emacspeak-wizards-pdf-to-text-options
+      (if passwd
+          (format "-upw %s" passwd)
+        "")
+      (shell-quote-argument
+       (expand-file-name filename)))
      output-buffer)
     (switch-to-buffer output-buffer)
     (set-buffer-modified-p nil)

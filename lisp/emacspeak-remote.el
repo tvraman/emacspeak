@@ -227,6 +227,7 @@ port that that host is listening on for speech requests."
           (open-network-stream "remote-speaker" nil host port)))
     (unless (intern-soft host emacspeak-eterm-remote-hosts-table)
       (emacspeak-eterm-cache-remote-host host))
+    (accept-process-output)
     (cond
      ((or (eq 'run (process-status new-process))
           (eq 'open (process-status new-process)))
@@ -234,12 +235,9 @@ port that that host is listening on for speech requests."
       (setq emacspeak-remote-default-port-to-connect (format "%s" port ))
       (delete-process old-process)
       (run-hooks 'emacspeak-remote-hooks)
-      (sit-for 5)
-      (message "Connecting to server on host %s  port %s" host port )
-      )
-     (emacspeak-tts-startup-hook)
-     (sit-for 5))
-    (t (error "Failed to connect to speech server on host %s port %s" host port ))))
+      (emacspeak-tts-startup-hook)
+      (message "Connecting to server on host %s  port %s" host port ))
+     (t (error "Failed to connect to speech server on host %s port %s" host port )))))
 
 ;;}}}
 (provide 'emacspeak-remote )
