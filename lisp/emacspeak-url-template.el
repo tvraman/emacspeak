@@ -2165,7 +2165,6 @@ Optional interactive prefix arg displays documentation for specified resource."
                            emacspeak-url-template-table
                            nil
                            'must-match))
-    (pop minibuffer-history)
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t
