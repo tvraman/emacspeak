@@ -3255,6 +3255,23 @@ Default is to add autoload cookies to current file."
   (message "Brailled %s" s))
 
 ;;}}}
+;;{{{ Start or switch to term:
+;;;###autoload
+(defun emacspeak-wizards-term (prefix)
+  "Like M-x shell for ansi-term.
+Starts a terminal, or switches to an existing one."
+  (interactive "P")
+  (let ((term (get-buffer "*ansi-term*")))
+  (cond
+   ((and term
+         (process-live-p (get-buffer-process term)))
+    (switch-to-buffer term)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line))
+   (t (call-interactively 'ansi-term)))))
+   
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
