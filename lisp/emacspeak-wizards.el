@@ -1226,7 +1226,7 @@ These options are customizable via Emacs' Custom interface.\n\n"
 
 ;;}}}
 ;;{{{ labelled frames
-;;;###autoload
+
 (defsubst emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
   (interactive)
