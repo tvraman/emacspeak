@@ -56,12 +56,12 @@
 
 ;;{{{  electric editing
 
-(defadvice py-electric-colon (after emacspeak pre act comp)
+(defadvice python-electric-colon (after emacspeak pre act comp)
   "Speak what you inserted"
   (when (interactive-p)
     (dtk-say " colon ")))
 
-(defadvice py-electric-backspace (around emacspeak pre act)
+(defadvice python-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
    ((interactive-p )
@@ -71,7 +71,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice py-electric-delete (around emacspeak pre act)
+(defadvice python-electric-delete (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
    ((interactive-p )
@@ -84,40 +84,40 @@
 ;;}}}
 ;;{{{ interactive programming
 
-(defadvice py-shell (after emacspeak pre act comp)
+(defadvice python-shell (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice py-clear-queue (after emacspeak pre act comp)
+(defadvice python-clear-queue (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
-(defadvice py-execute-region (after emacspeak pre act comp)
+(defadvice python-execute-region (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
-(defadvice py-execute-buffer (after emacspeak pre act comp)
+(defadvice python-execute-buffer (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
-(defadvice py-goto-exception(after emacspeak pre act comp)
+(defadvice python-goto-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice py-down-exception(after emacspeak pre act comp)
+(defadvice python-down-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice py-up-exception(after emacspeak pre act comp)
+(defadvice python-up-exception(after emacspeak pre act comp)
   "Speak line you moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -126,9 +126,9 @@
 ;;}}}
 ;;{{{  whitespace management and indentation
 (loop for f in
-      (list 'py-fill-paragraph
-            'py-fill-comment
-            'py-fill-string)
+      (list 'python-fill-paragraph
+            'python-fill-comment
+            'python-fill-string)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -136,7 +136,7 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'fill-object)))))
 
-(defadvice py-newline-and-indent(after emacspeak pre act comp)
+(defadvice python-newline-and-indent(after emacspeak pre act comp)
   "Speak line so we know current indentation"
   (when (interactive-p)
     (dtk-speak-using-voice voice-annotate
@@ -145,7 +145,7 @@
                             (current-column)))
     (dtk-force)))
 
-(defadvice py-shift-region-left (after emacspeak pre act comp)
+(defadvice python-shift-region-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -154,14 +154,14 @@
              (count-lines  (region-beginning)
                            (region-end))))))
 
-(defadvice py-shift-region-right (after emacspeak pre act comp)
+(defadvice python-shift-region-right (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (dtk-speak
      (format "Right shifted block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
-(defadvice py-indent-region (after emacspeak pre act comp)
+(defadvice python-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -170,7 +170,7 @@
              (count-lines  (region-beginning)
                            (region-end))))))
 
-(defadvice py-comment-region (after emacspeak pre act comp)
+(defadvice python-comment-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (dtk-speak
@@ -180,24 +180,24 @@
 
 ;;}}}
 ;;{{{  buffer navigation
-(defadvice py-previous-statement (after emacspeak pre act comp)
+(defadvice python-previous-statement (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
-(defadvice py-next-statement (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-
-(defadvice py-goto-block-up (after emacspeak pre act comp)
+(defadvice python-next-statement (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice py-beginning-of-def-or-class (after emacspeak pre act comp)
+(defadvice python-goto-block-up (after emacspeak pre act comp)
+  "Speak current statement after moving"
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
+
+(defadvice python-beginning-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
     (emacspeak-speak-line)
@@ -215,13 +215,13 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice py-end-of-def-or-class (after emacspeak pre act comp)
+(defadvice python-end-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice py-mark-block (after emacspeak pre act comp)
+(defadvice python-mark-block (after emacspeak pre act comp)
   "Speak number of lines marked"
   (when (interactive-p)
     (dtk-speak
@@ -229,7 +229,7 @@
              (count-lines (region-beginning)
                           (region-end))))
     (emacspeak-auditory-icon 'mark-object)))
-(defadvice py-narrow-to-defun (after emacspeak pre act comp)
+(defadvice python-narrow-to-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (message "%s %s lines"
@@ -240,7 +240,7 @@
              (count-lines (point-min)
                           (point-max)))))
 
-(defadvice py-mark-def-or-class (after emacspeak pre act comp)
+(defadvice python-mark-def-or-class (after emacspeak pre act comp)
   "Speak number of lines marked"
   (when (interactive-p)
     (dtk-speak
@@ -249,12 +249,12 @@
                           (region-end))))
     (emacspeak-auditory-icon 'mark-object)))
 
-(defadvice py-forward-into-nomenclature(after emacspeak pre act comp)
+(defadvice python-forward-into-nomenclature(after emacspeak pre act comp)
   "Speak rest of current word"
   (when (interactive-p)
     (emacspeak-speak-word 1)))
 
-(defadvice py-backward-into-nomenclature(after emacspeak pre act comp)
+(defadvice python-backward-into-nomenclature(after emacspeak pre act comp)
   "Speak rest of current word"
   (when (interactive-p)
     (emacspeak-speak-word 1)))
@@ -262,7 +262,7 @@
 ;;}}}
 ;;{{{ the process buffer
 
-(defadvice py-process-filter (around emacspeak pre act)
+(defadvice python-process-filter (around emacspeak pre act)
   "Make comint in Python speak its output. "
   (declare (special emacspeak-comint-autospeak))
   (let ((prior (point ))
@@ -281,7 +281,7 @@
 
 ;;}}}
 ;;{{{ Additional navigation
-(defun emacspeak-py-previous-block()
+(defun emacspeak-python-previous-block()
   "Move backward to the beginning of the current block.
 If already at the beginning then move to previous block."
   (interactive)
@@ -292,7 +292,7 @@ If already at the beginning then move to previous block."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
 
-(defun emacspeak-py-next-block()
+(defun emacspeak-python-next-block()
   "Move forward to the beginning of the next block."
   (interactive)
   (end-of-python-def-or-class)
@@ -306,14 +306,14 @@ If already at the beginning then move to previous block."
 ;;{{{ keybindings
 
 (progn
-  (declaim (special  py-mode-map))
-  (define-key py-mode-map "\M-a" 'beginning-of-python-def-or-class)
-  (define-key py-mode-map "\M-e" 'end-of-python-def-or-class)
-  (define-key py-mode-map "\M-n" 'py-next-statement)
-  (define-key py-mode-map "\M-p" 'py-previous-statement)
-  (define-key py-mode-map "\C-\M-u" 'py-goto-block-up)
-  (define-key py-mode-map "\C-\M-n" 'emacspeak-py-next-block)
-  (define-key py-mode-map "\C-\M-p" 'emacspeak-py-previous-block)
+  (declaim (special  python-mode-map))
+  (define-key python-mode-map "\M-a" 'beginning-of-python-def-or-class)
+  (define-key python-mode-map "\M-e" 'end-of-python-def-or-class)
+  (define-key python-mode-map "\M-n" 'python-next-statement)
+  (define-key python-mode-map "\M-p" 'python-previous-statement)
+  (define-key python-mode-map "\C-\M-u" 'python-goto-block-up)
+  (define-key python-mode-map "\C-\M-n" 'emacspeak-python-next-block)
+  (define-key python-mode-map "\C-\M-p" 'emacspeak-python-previous-block)
   )
 (add-hook 'python-mode-hook
           'emacspeak-setup-programming-mode)
