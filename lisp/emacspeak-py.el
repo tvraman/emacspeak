@@ -318,7 +318,7 @@ If already at the beginning then move to previous block."
 (add-hook 'python-mode-hook
           'emacspeak-setup-programming-mode)
 ;;}}}
-(provide 'emacspeak-python )
+(provide 'emacspeak-py )
 ;;{{{ end of file 
 
 ;;; local variables:
