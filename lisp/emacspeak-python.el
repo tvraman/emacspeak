@@ -84,51 +84,22 @@
 ;;}}}
 ;;{{{ interactive programming
 
-(defadvice python-shell (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
-
-(defadvice python-clear-queue (after emacspeak pre act comp)
+(defadvice python-send-region (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
-(defadvice python-execute-region (after emacspeak pre act comp)
+(defadvice python-send-buffer (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-
-(defadvice python-execute-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
-
-(defadvice python-goto-exception(after emacspeak pre act comp)
-  "Speak line you moved to"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-(defadvice python-down-exception(after emacspeak pre act comp)
-  "Speak line you moved to"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-(defadvice python-up-exception(after emacspeak pre act comp)
-  "Speak line you moved to"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{  whitespace management and indentation
 (loop for f in
       (list 'python-fill-paragraph
-            'python-fill-comment
-            'python-fill-string)
+            
+            )
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -136,16 +107,7 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'fill-object)))))
 
-(defadvice python-newline-and-indent(after emacspeak pre act comp)
-  "Speak line so we know current indentation"
-  (when (interactive-p)
-    (dtk-speak-using-voice voice-annotate
-                           (format
-                            "indent %s"
-                            (current-column)))
-    (dtk-force)))
-
-(defadvice python-shift-region-left (after emacspeak pre act comp)
+(defadvice python-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -153,8 +115,7 @@
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
-
-(defadvice python-shift-region-right (after emacspeak pre act comp)
+(defadvice python-shift-right (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (interactive-p)
     (dtk-speak
@@ -167,14 +128,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak
      (format "Indented region   containing %s lines"
-             (count-lines  (region-beginning)
-                           (region-end))))))
-
-(defadvice python-comment-region (after emacspeak pre act comp)
-  "Speak number of lines that were shifted"
-  (when (interactive-p)
-    (dtk-speak
-     (format "Commented  block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
 
@@ -191,30 +144,13 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice python-goto-block-up (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
+
 
 (defadvice python-beginning-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
-
-(defadvice beginning-of-python-def-or-class (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-
-(defadvice end-of-python-def-or-class (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-
 (defadvice python-end-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)
