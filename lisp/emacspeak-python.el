@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 
-;;; This speech-enables python-mode available on sourceforge
+;;; This speech-enables python-mode bundled with Emacs
 
 ;;; Code:
 
