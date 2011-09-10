@@ -3273,6 +3273,37 @@ Starts a terminal, or switches to an existing one."
 
 ;;}}}
 ;;{{{ Espeak: MultiLingual Wizard
+
+(defvar emacspeak-wizards-espeak-voices-alist nil
+  "Association list of ESpeak voices to voice codes.")
+
+(defun emacspeak-wizards-espeak-build-voice-table ()
+  "Build up alist of espeak voices."
+  (declare (special emacspeak-wizards-espeak-voices-alist))
+  (with-temp-buffer
+    (shell-command "espeak --voices" (current-buffer))
+    (goto-char (point-min))
+    (forward-line 1)
+    (while (not (eobp))
+      (let ((fields
+             (split-string
+                     (buffer-substring (line-beginning-position) (line-end-position)))))
+        (push (cons (fourth fields) (second fields))
+              emacspeak-wizards-espeak-voices-alist))
+      (forward-line 1))))
+
+(defsubst emacspeak-wizards-espeak-get-voice-code ()
+  "Read and return ESpeak voice code with completion."
+  (declare (special emacspeak-wizards-espeak-voices-alist))
+  (or emacspeak-wizards-espeak-voices-alist
+      (emacspeak-wizards-espeak-build-voice-table))
+  (let ((completion-ignore-case t))
+    (cdr
+     (assoc
+      (completing-read "Lang:"
+                       emacspeak-wizards-espeak-voices-alist)
+      emacspeak-wizards-espeak-voices-alist))))
+
 ;;;###autoload
 (defun emacspeak-wizards-espeak (lang string)
   "Speak string in lang via ESpeak."
