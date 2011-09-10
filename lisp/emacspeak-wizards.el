@@ -3307,7 +3307,10 @@ Starts a terminal, or switches to an existing one."
 ;;;###autoload
 (defun emacspeak-wizards-espeak (lang string)
   "Speak string in lang via ESpeak."
-  (interactive "sLang:\nsString:")
+  (interactive
+   (list
+    (emacspeak-wizards-espeak-get-voice-code)
+    (read-from-minibuffer "STring:")))
   (shell-command
    (format "espeak -v %s '%s'"
            lang string)))
