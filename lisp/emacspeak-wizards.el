@@ -3305,7 +3305,7 @@ Starts a terminal, or switches to an existing one."
       emacspeak-wizards-espeak-voices-alist))))
 
 ;;;###autoload
-(defun emacspeak-wizards-espeak (string)
+(defun emacspeak-wizards-espeak-string (string)
   "Speak string in lang via ESpeak.
 Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive "sString: ")
@@ -3315,6 +3315,13 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
             (get-text-property  0 'lang string)
             (emacspeak-wizards-espeak-get-voice-code))
            string)))
+
+
+;;;###autoload
+(defun emacspeak-wizards-espeak-region (start end)
+  "Speak region using ESpeak polyglot wizard."
+  (interactive "r")
+  (emacspeak-wizards-espeak-string (buffer-substring start end)))
    
 
 ;;}}}
