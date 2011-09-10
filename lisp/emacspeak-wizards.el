@@ -3272,6 +3272,17 @@ Starts a terminal, or switches to an existing one."
    
 
 ;;}}}
+;;{{{ Espeak: MultiLingual Wizard
+;;;###autoload
+(defun emacspeak-wizards-espeak (lang string)
+  "Speak string in lang via ESpeak."
+  (interactive "sLang:\nsString:")
+  (shell-command
+   (format "espeak -v %s '%s'"
+           lang string)))
+   
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
