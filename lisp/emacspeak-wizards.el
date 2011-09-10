@@ -3309,28 +3309,30 @@ Starts a terminal, or switches to an existing one."
   "Speak string in lang via ESpeak.
 Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive "sString: ")
-  (shell-command
-   (format "espeak -v %s '%s'"
-           (or
-            (get-text-property  0 'lang string)
-            (emacspeak-wizards-espeak-get-voice-code))
-           string)))
+  (let ((lang  (get-text-property  0 'lang string)))
+    (unless lang
+      (setq lang
+      (cond
+       ((interactive-p) (emacspeak-wizards-espeak-get-voice-code))
+       (t "en"))))
+      (shell-command
+       (format "espeak -v %s '%s'" lang string))))
 
 
 ;;;###autoload
 (defun emacspeak-wizards-espeak-region (start end)
   "Speak region using ESpeak polyglot wizard."
   (interactive "r")
-    (let ((beg start))
       (save-excursion
         (goto-char start)
         (while (< start end)
-          (setq start
+          (goto-char
                 (next-single-property-change
                  start 'lang
                  (current-buffer) end))
-  (emacspeak-wizards-espeak-string (buffer-substring beg start ))
-  (setq beg start)))))
+          (emacspeak-wizards-espeak-string (buffer-substring start (point)))
+          (skip-syntax-forward " ")
+          (setq start (point)))))
    
 
 ;;}}}
