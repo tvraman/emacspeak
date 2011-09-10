@@ -3321,7 +3321,16 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-espeak-region (start end)
   "Speak region using ESpeak polyglot wizard."
   (interactive "r")
-  (emacspeak-wizards-espeak-string (buffer-substring start end)))
+    (let ((beg start))
+      (save-excursion
+        (goto-char start)
+        (while (< start end)
+          (setq start
+                (next-single-property-change
+                 start 'lang
+                 (current-buffer) end))
+  (emacspeak-wizards-espeak-string (buffer-substring beg start ))
+  (setq beg start)))))
    
 
 ;;}}}
