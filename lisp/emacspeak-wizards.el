@@ -3305,15 +3305,16 @@ Starts a terminal, or switches to an existing one."
       emacspeak-wizards-espeak-voices-alist))))
 
 ;;;###autoload
-(defun emacspeak-wizards-espeak (lang string)
-  "Speak string in lang via ESpeak."
-  (interactive
-   (list
-    (emacspeak-wizards-espeak-get-voice-code)
-    (read-from-minibuffer "STring:")))
+(defun emacspeak-wizards-espeak (string)
+  "Speak string in lang via ESpeak.
+Lang is obtained from property `lang' on string, or  via an interactive prompt."
+  (interactive "sString: ")
   (shell-command
    (format "espeak -v %s '%s'"
-           lang string)))
+           (or
+            (get-text-property  0 'lang string)
+            (emacspeak-wizards-espeak-get-voice-code))
+           string)))
    
 
 ;;}}}
