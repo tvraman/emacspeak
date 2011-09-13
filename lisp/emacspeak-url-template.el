@@ -2096,7 +2096,21 @@ Meerkat realy needs an xml-rpc method for getting this.")
                                'speak)))
 
 ;;}}}
+;;{{{  Radio station streams 
 
+(emacspeak-url-template-define
+ "StreamWorld Radio"
+ "http://provisioning.streamtheworld.com/pls/%s%s.pls"
+ (list
+  "Station ID: "
+  "AM/FM")
+ nil
+ "Play radio stream."
+ #'(lambda (url)
+     (emacspeak-m-player url 'playlist)))
+
+ 
+;;}}}
 ;;}}}
 ;;{{{ Interactive commands
 
