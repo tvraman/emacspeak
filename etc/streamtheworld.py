@@ -103,6 +103,6 @@ if __name__ == '__main__':
 	urls = create_stream_urls(result)
 	if len(urls) > 0:
 		u = choice(urls)
+                print u
 		sys.exit(start_mplayer(u))
 	sys.exit(1)
-
