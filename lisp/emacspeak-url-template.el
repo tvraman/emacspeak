@@ -2100,12 +2100,12 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 (emacspeak-url-template-define
  "StreamWorld Radio"
- "http://provisioning.streamtheworld.com/pls/%s%s.pls"
+ "http://provisioning.streamtheworld.com/pls/%s.pls"
  (list
-  #'(lambda () (upcase (read-from-minibuffer "Station ID: ")))
-  #'(lambda nil (upcase (read-from-minibuffer "AM/FM"))))
+  #'(lambda () (upcase (read-from-minibuffer "Station ID: "))))
  nil
- "Play radio stream."
+ "Play radio stream.
+See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations that use StreamTheWorld."
  #'(lambda (url)
      (emacspeak-m-player url 'playlist)))
 
