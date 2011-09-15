@@ -2102,8 +2102,8 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "StreamWorld Radio"
  "http://provisioning.streamtheworld.com/pls/%s%s.pls"
  (list
-  "Station ID: "
-  "AM/FM")
+  #'(lambda () (upcase (read-from-minibuffer "Station ID: ")))
+  #'(lambda nil (upcase (read-from-minibuffer "AM/FM"))))
  nil
  "Play radio stream."
  #'(lambda (url)
