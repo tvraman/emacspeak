@@ -489,7 +489,13 @@ previous window configuration."
 
 (defvar emacspeak-speak-network-interfaces-list
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
-  "Used whne prompting for an interface to query.")
+  "Used when prompting for an interface to query.")
+
+
+(defsubst emacspeak-wizards-get-ip-address  (&optional dev)
+  "get the IP-address for device DEV (default: eth0)"
+    (format-network-address
+     (car (network-interface-info (or  dev "eth0"))) t))
 ;;;###autoload
 (defun emacspeak-speak-show-active-network-interfaces (&optional address)
   "Shows all active network interfaces in the echo area.
