@@ -510,17 +510,16 @@ also copied to the kill ring for convenient yanking."
   (declare (special emacspeak-speak-network-interfaces
                     emacspeak-speak-message-again-should-copy-to-kill-ring
                     emacspeak-last-message))
-  (let ((result nil))
-    (cond
-     (address
-      (message (emacspeak-wizards-get-ip-address)))
-     (t
-      (message
-       (mapconcat #'car
-                  (network-interface-list)
-                  " "))))
-    (when  address
-      (kill-new emacspeak-last-message))))
+  (cond
+   (address
+    (message (emacspeak-wizards-get-ip-address)))
+   (t
+    (message
+     (mapconcat #'car
+                (network-interface-list)
+                " "))))
+  (when  address
+    (kill-new emacspeak-last-message)))
 
 ;;}}}
 ;;{{{  simple phone book
