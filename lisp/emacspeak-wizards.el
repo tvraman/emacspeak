@@ -493,9 +493,13 @@ previous window configuration."
 
 
 (defsubst emacspeak-wizards-get-ip-address  (&optional dev)
-  "get the IP-address for device DEV (default: eth0)"
-    (format-network-address
-     (car (network-interface-info (or  dev "eth0"))) t))
+  "get the IP-address for device DEV "
+  (format-network-address
+   (car
+    (network-interface-info
+     (or  dev (read-from-minibuffer "Device: "))))
+   t))
+
 ;;;###autoload
 (defun emacspeak-speak-show-active-network-interfaces (&optional address)
   "Shows all active network interfaces in the echo area.
@@ -505,21 +509,16 @@ also copied to the kill ring for convenient yanking."
   (interactive "P")
   (declare (special emacspeak-speak-network-interfaces
                     emacspeak-speak-message-again-should-copy-to-kill-ring
-                    emacspeak-last-message
-                    emacspeak-speak-show-active-network-interfaces-command
-                    emacspeak-speak-show-active-network-interfaces-addresses))
-  (let ((command nil))
+                    emacspeak-last-message))
+  (let ((result nil))
     (cond
-     (address  (setq command
-                     (format
-                      emacspeak-speak-show-active-network-interfaces-addresses
-                      (read-from-minibuffer
-                       "Specify interface: "
-                       nil nil nil
-                       'emacspeak-speak-network-interfaces-list  ))))
-     (t (setq command
-              emacspeak-speak-show-active-network-interfaces-command)))
-    (emacspeak-shell-command command )
+     (address
+      (message (emacspeak-wizards-get-ip-address)))
+     (t
+      (message
+       (mapconcat #'car
+                  (network-interface-list)
+                  " "))))
     (when  address
       (kill-new emacspeak-last-message))))
 
