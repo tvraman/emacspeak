@@ -46,6 +46,7 @@ relevant tables bubble to the top.
   <xsl:include href="auto-rss-discover.xsl"/>
   <!--<xsl:include href="auto-atom-discover.xsl"/>-->
   <!-- { html body  -->
+<xsl:template match="script|meta|link|//div[@style='display:none']"/>
 <xsl:template match="iframe">
   <a>
 <xsl:attribute name="href">

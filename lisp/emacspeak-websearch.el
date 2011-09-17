@@ -1857,32 +1857,6 @@ Results"
       (rename-buffer "Currency Rates"))))
 
 ;;}}}
-;;{{{ my rss
-
-(emacspeak-websearch-set-searcher 'my-rss-search
-                                  'emacspeak-websearch-my-rss-search)
-
-(emacspeak-websearch-set-key 13 'my-rss-search)
-
-(defvar emacspeak-websearch-my-rss-search-uri
-  "http://myrss.com/cgi-bin/search.cgi?__mod=search&__act=&search=Search+Channels&s="
-  "URI for My RSS search.")
-
-;;;###autoload
-(defun emacspeak-websearch-my-rss-search (query)
-  "My RSS search."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "My RSS: ")))
-  (declare (special emacspeak-websearch-my-rss-search-uri))
-  (browse-url
-   (format "%s%s"
-           emacspeak-websearch-my-rss-search-uri
-           query))
-  (emacspeak-webutils-post-process query
-                                   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ Shopping at Amazon
 
 (emacspeak-websearch-set-searcher 'amazon-search
@@ -1920,26 +1894,6 @@ Results"
   (interactive)
   (declare (special emacspeak-websearch-ebay-search-form))
   (emacspeak-websearch-display-form emacspeak-websearch-ebay-search-form))
-
-;;}}}
-;;{{{ Shoutcast
-
-(emacspeak-websearch-set-searcher 'shoutcast-search
-                                  'emacspeak-websearch-shoutcast-search)
-
-(emacspeak-websearch-set-key ?S 'shoutcast-search)
-
-(defvar emacspeak-websearch-shoutcast-search-form
-  (expand-file-name "xml-forms/shoutcast-search.xml"
-                    emacspeak-lisp-directory)
-  "Form for Shoutcast  search.")
-
-;;;###autoload
-(defun emacspeak-websearch-shoutcast-search ()
-  "Shoutcast search."
-  (interactive)
-  (declare (special emacspeak-websearch-shoutcast-search-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-shoutcast-search-form))
 
 ;;}}}
 ;;{{{  site-specific search tools
