@@ -13,7 +13,7 @@ Identity transform used in all style sheets.
   <!-- {identity default  -->   
   <!-- nuke these -->  
   <xsl:template
-      match="//script|//meta|//nolayer|//ilayer|//layer|//spacer"/>
+      match="//script|//meta|//nolayer|//ilayer|//layer|//spacer|//*[@style='display:none']"/>
   <xsl:include href="display-none.xsl"/>
   <xsl:template match="*|@*" >
     <xsl:copy>
