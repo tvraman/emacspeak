@@ -311,7 +311,11 @@ part of the libxslt package."
 ;;;###autoload
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
-  (interactive "FStyle:\nFFile:")
+  (interactive
+   (list
+    (read-file-name "Style File: "
+                    emacspeak-xslt-directory)
+    (read-file-name "File:" default-directory)))
   (with-temp-buffer
     (let ((coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)

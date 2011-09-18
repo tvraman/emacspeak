@@ -507,19 +507,11 @@ With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking."
   (interactive "P")
-  (declare (special emacspeak-speak-network-interfaces
-                    emacspeak-speak-message-again-should-copy-to-kill-ring
-                    emacspeak-last-message))
-  (cond
-   (address
-    (message (emacspeak-wizards-get-ip-address)))
-   (t
-    (message
-     (mapconcat #'car
-                (network-interface-list)
-                " "))))
-  (when  address
-    (kill-new emacspeak-last-message)))
+  (kill-new
+   (message
+    (if address
+        (emacspeak-wizards-get-ip-address)
+      (mapconcat #'car (network-interface-list) " ")))))
 
 ;;}}}
 ;;{{{  simple phone book
