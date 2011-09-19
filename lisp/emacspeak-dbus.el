@@ -55,13 +55,30 @@
 ;;{{{ Customize:
 
 (defgroup emacspeak-dbus nil
-  "DBus  bindings and hooks for Emacspeak desktop.")
+  "DBus  bindings and hooks for Emacspeak desktop."
+  :group 'emacspeak)
 
 ;;}}}
+;;{{{ NM Handlers
+
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection."
-  (message
-   (network-interface-list)))
+  (declare (special emacspeak-speak-network-interfaces-list))
+  (setq emacspeak-speak-network-interfaces-list (ems-get-active-network-interfaces))
+  (message emacspeak-speak-network-interfaces-list))
+
+(defun emacspeak-dbus-nm-disconnected ()
+  "Announce  network manager disconnection."
+  (declare (special emacspeak-speak-network-interfaces-list))
+  (setq emacspeak-speak-network-interfaces-list (ems-get-active-network-interfaces))
+        (message emacspeak-speak-network-interfaces-list))
+  
+
+(add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
+(add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
+
+;;}}}
+
 (provide 'emacspeak-dbus)
 ;;{{{ end of file
 

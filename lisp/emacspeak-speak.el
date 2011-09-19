@@ -3324,7 +3324,8 @@ which media players get silenced or paused/resumed."
      (or  dev
           (completing-read "Device: "
                            emacspeak-speak-network-interfaces-list))))))
-   t))
+    
+   
 
 (defsubst ems-get-active-network-interfaces  ()
   "Return  names of active network interfaces."
