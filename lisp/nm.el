@@ -16,11 +16,16 @@
 
 (require 'dbus)
 
-(defvar nm-connected-hook nil
-  "A hook variable which runs when network is connected.")
+(defcustom  nm-connected-hook nil
+  "A hook variable which runs when network is connected."
+  :type 'hook
+  :group 'emacspeak-dbus)
+  
 
-(defvar nm-disconnected-hook nil
-  "A hook variable which runs when network is disconnected.")
+(defcustom nm-disconnected-hook nil
+  "A hook variable which runs when network is disconnected."
+  :type 'hook
+  :group 'emacspeak-dbus)
 
 (defun nm-is-connected()
   "Returns t if NetworkManager is connected, nil otherwise."

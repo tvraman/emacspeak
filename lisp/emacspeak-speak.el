@@ -99,6 +99,51 @@
     (< current (line-end-position))))
 
 ;;}}}
+;;{{{ Network interface utils:
+
+(defsubst ems-get-ip-address  (&optional dev)
+  "get the IP-address for device DEV "
+  (format-network-address
+   (car
+    (network-interface-info
+     (or  dev (read-from-minibuffer "Device: "))))
+   t))
+
+(defsubst ems-get-active-network-interfaces  ()
+  "Return  names of active network interfaces."
+  (mapconcat #'car (network-interface-list) " "))
+  
+
+
+
+;;}}}
+;;{{{ Show active network interfaces
+;;;###autoload
+(defun emacspeak-speak-hostname ()
+  "Speak host name."
+  (interactive)
+  (message (system-name)))
+                                        
+(defvar emacspeak-speak-network-interfaces-list
+  (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
+  "Used when prompting for an interface to query.")
+
+
+
+;;;###autoload
+(defun emacspeak-speak-show-active-network-interfaces (&optional address)
+  "Shows all active network interfaces in the echo area.
+With interactive prefix argument ADDRESS it prompts for a
+specific interface and shows its address. The address is
+also copied to the kill ring for convenient yanking."
+  (interactive "P")
+  (kill-new
+   (message
+    (if address
+        (ems-get-ip-address)
+      (ems-get-active-network-interfaces)))))
+
+;;}}}
 ;;{{{ Shell Command Helper:
 
 ;;; Emacspeak silences messages from shell-command when called non-interactively.
