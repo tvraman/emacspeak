@@ -52,6 +52,16 @@
 (require 'dbus)
 
 ;;}}}
+;;{{{ Customize:
+
+(defgroup emacspeak-dbus nil
+  "DBus  bindings and hooks for Emacspeak desktop.")
+
+;;}}}
+(defun emacspeak-dbus-nm-connected ()
+  "Announce  network manager connection."
+  (message
+   (network-interface-list)))
 (provide 'emacspeak-dbus)
 ;;{{{ end of file
 

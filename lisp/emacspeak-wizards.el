@@ -465,55 +465,7 @@ previous window configuration."
   (forward-word 1))
 
 ;;}}}
-;;{{{ Show active network interfaces
-;;;###autoload
-(defun emacspeak-speak-hostname ()
-  "Speak host name."
-  (interactive)
-  (message (system-name)))
 
-(defcustom emacspeak-speak-show-active-network-interfaces-command
-  "echo `/sbin/ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
-  "Command that displays names of active network interfaces."
-  :type 'string
-  :group 'emacspeak-wizards)
-                                        ;"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed
-                                        ;'s/addr://'`"
-
-(defcustom emacspeak-speak-show-active-network-interfaces-addresses
-  "ifconfig %s |grep inet |cut -d : -f 2 |cut -d \\  -f 1"
-  "Command that displays address of  a specific interface."
-  :type 'string
-  :group 'emacspeak-wizards
-  )
-
-(defvar emacspeak-speak-network-interfaces-list
-  (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
-  "Used when prompting for an interface to query.")
-
-
-(defsubst emacspeak-wizards-get-ip-address  (&optional dev)
-  "get the IP-address for device DEV "
-  (format-network-address
-   (car
-    (network-interface-info
-     (or  dev (read-from-minibuffer "Device: "))))
-   t))
-
-;;;###autoload
-(defun emacspeak-speak-show-active-network-interfaces (&optional address)
-  "Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking."
-  (interactive "P")
-  (kill-new
-   (message
-    (if address
-        (emacspeak-wizards-get-ip-address)
-      (mapconcat #'car (network-interface-list) " ")))))
-
-;;}}}
 ;;{{{  simple phone book
 (defcustom emacspeak-speak-telephone-directory
   (expand-file-name "tel-dir" emacspeak-resource-directory)
