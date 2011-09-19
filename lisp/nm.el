@@ -29,32 +29,37 @@
             "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
             "org.freedesktop.NetworkManager" "State")))
 
-(setq nm-dbus-registration nil)
+(defvar  nm-dbus-registration nil
+  "Records if nm-dbus is initialized.")
+;;;###autoload
 (defun nm-enable()
   "Enable integration with NetworkManager. Does nothing if already enabled."
   (interactive)
-  (when (not nm-dbus-registration)
-    (setq nm-dbus-registration (dbus-register-signal
-                                :system
-                                "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
-                                "org.freedesktop.NetworkManager" "StateChanged"
-                                'nm-state-dbus-signal-handler))
+  (declare (special nm-dbus-registration))
+  (unless nm-dbus-registration
+    (setq nm-dbus-registration
+          (dbus-register-signal
+           :system
+           "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
+           "org.freedesktop.NetworkManager" "StateChanged"
+           'nm-state-dbus-signal-handler))
     (message "Enabled integration with NetworkManager.")))
-
+;;;###autoload
 (defun nm-disable()
   "Disable integration with NetworkManager. Does nothing if already disabled."
   (interactive)
+  (declare (special nm-dbus-registration))
   (when nm-dbus-registration
     (dbus-unregister-object nm-dbus-registration)
     (setq nm-dbus-registration nil)
     (message "Disabled integration with NetworkManager.")))
 
-(defun nm-state-dbus-signal-handler (nmstate)
+(defun nm-state-dbus-signal-handler (nm-state)
   "Handles NetworkManager signals and runs appropriate hooks."
   (cond
-   ((or (= 4 nmstate) (= 1 nmstate))
+   ((or (= 4 nm-state) (= 1 nm-state))
     (run-hooks 'nm-disconnected-hook))
-   ((= 3 nmstate)
+   ((= 3 nm-state)
     (run-hooks 'nm-connected-hook))))
 
 (provide 'nm)

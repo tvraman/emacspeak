@@ -86,6 +86,7 @@ emacspeak-re-builder.elc \
 
 AUX_OBJECTS =  cd-tool.elc \
 amixer.elc \
+nm.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
 emacspeak-amark.elc \
@@ -304,6 +305,7 @@ voice-setup.elc: voice-setup.el acss-structure.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
+nm.elc: nm.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
@@ -338,7 +340,7 @@ emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
 emacspeak-daisy.elc: emacspeak-daisy.el dtk-speak.elc voice-setup.elc
 emacspeak-ebook.elc: emacspeak-ebook.el dtk-speak.elc voice-setup.elc
 emacspeak-damlite.elc: emacspeak-damlite.el dtk-speak.elc voice-setup.elc
-emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc
+emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc
 emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc voice-setup.elc
 emacspeak-dictation.elc: emacspeak-dictation.el dtk-speak.elc voice-setup.elc
 emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc voice-setup.elc
