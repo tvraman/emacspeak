@@ -118,6 +118,7 @@ emacspeak-cperl.elc \
 emacspeak-custom.elc \
 emacspeak-daisy.elc \
 emacspeak-damlite.elc \
+emacspeak-dbus.elc \
 emacspeak-dictation.elc \
 emacspeak-dictionary.elc \
 emacspeak-desktop.elc \
@@ -337,6 +338,7 @@ emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
 emacspeak-daisy.elc: emacspeak-daisy.el dtk-speak.elc voice-setup.elc
 emacspeak-ebook.elc: emacspeak-ebook.el dtk-speak.elc voice-setup.elc
 emacspeak-damlite.elc: emacspeak-damlite.el dtk-speak.elc voice-setup.elc
+emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc
 emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc voice-setup.elc
 emacspeak-dictation.elc: emacspeak-dictation.el dtk-speak.elc voice-setup.elc
 emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc voice-setup.elc
