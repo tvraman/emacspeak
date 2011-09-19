@@ -19,7 +19,7 @@ def validate_callsign(cs):
 	if not cs.endswith('AAC'):
 		cs = cs + 'AAC'
 	band = cs[-5:-3]
-	if band != 'AM' and band != 'FM':
+	if band != 'AM' and band != 'FM' and band != 'D1' and band != 'D2':
 		raise ValueError('callsign \'%s\' is missing \'FM\' or \'AM\'.' % cs)
 	return cs
 
