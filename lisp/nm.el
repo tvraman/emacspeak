@@ -36,6 +36,7 @@
 
 (defvar  nm-dbus-registration nil
   "Records if nm-dbus is initialized.")
+
 ;;;###autoload
 (defun nm-enable()
   "Enable integration with NetworkManager. Does nothing if already enabled."
@@ -49,6 +50,7 @@
            "org.freedesktop.NetworkManager" "StateChanged"
            'nm-state-dbus-signal-handler))
     (message "Enabled integration with NetworkManager.")))
+
 ;;;###autoload
 (defun nm-disable()
   "Disable integration with NetworkManager. Does nothing if already disabled."
