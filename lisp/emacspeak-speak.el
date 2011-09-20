@@ -3323,7 +3323,7 @@ which media players get silenced or paused/resumed."
     (network-interface-info
      (or  dev
           (completing-read "Device: "
-                           emacspeak-speak-network-interfaces-list))))))
+                           emacspeak-speak-network-interfaces-list)))) t))
     
    
 
