@@ -27,12 +27,24 @@
   :type 'hook
   :group 'emacspeak-dbus)
 
+
+
+(defvar nm-service "org.freedesktop.NetworkManager"
+"Name of NetworkManager service.")
+
+(defvar nm-path "/org/freedesktop/NetworkManager"
+  "NetworkManager Path in DBus.")
+
+(defvar nm-interface "org.freedesktop.NetworkManager"
+  "NMetworkManager interface in DBus.")
+
 (defun nm-is-connected()
   "Returns t if NetworkManager is connected, nil otherwise."
-  (equal 3 (dbus-get-property
-            :system
-            "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
-            "org.freedesktop.NetworkManager" "State")))
+  (declare (special nm-service nm-path nm-interface))
+  (equal 3
+         (dbus-get-property :system
+                            nm-service nm-path nm-interface
+                            "State")))
 
 (defvar  nm-dbus-registration nil
   "Records if nm-dbus is initialized.")
@@ -41,13 +53,14 @@
 (defun nm-enable()
   "Enable integration with NetworkManager. Does nothing if already enabled."
   (interactive)
+  (declare (special nm-service nm-path nm-interface))
   (declare (special nm-dbus-registration))
   (unless nm-dbus-registration
     (setq nm-dbus-registration
           (dbus-register-signal
            :system
-           "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
-           "org.freedesktop.NetworkManager" "StateChanged"
+           nm-service nm-path nm-interface
+           "StateChanged"
            'nm-state-dbus-signal-handler))
     (message "Enabled integration with NetworkManager.")))
 
