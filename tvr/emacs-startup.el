@@ -159,7 +159,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "tramp-prepare"
        "color-theme-prepare" "crontab-mode"
        "fff-prepare" "fap-prepare"
-       "local"))
+       "local"
+       "emacspeak-dbus"))
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
@@ -172,6 +173,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (emacspeak-tts-startup-hook)
      (shell)
      (calendar)
+     (nm-enable)
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
