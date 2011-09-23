@@ -1,5 +1,5 @@
-;;; emacspeak-ebook.el --- epubs Front-end for emacspeak desktop
-;;; $Id: emacspeak-ebook.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
+;;; emacspeak-epub.el --- epubs Front-end for emacspeak desktop
+;;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for EPUBS Talking Books
 ;;; Keywords: Emacspeak, epubs Digital Talking Books
@@ -59,92 +59,92 @@
 ;;}}}
 ;;{{{  Customization variables
 
-(defgroup emacspeak-ebook nil
+(defgroup emacspeak-epub nil
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
 
-(defcustom emacspeak-ebook-library-root
-  (expand-file-name "~/ebooks/")
-  "Directory under which we store EBooks."
+(defcustom emacspeak-epub-library-root
+  (expand-file-name "~/epubs/")
+  "Directory under which we store Epubs."
   :type 'directory
-  :group 'emacspeak-ebook)
+  :group 'emacspeak-epub)
 
-(defcustom emacspeak-ebook-toc-path
+(defcustom emacspeak-epub-toc-path
   "toc.ncx"
-  "Path component  to table of contents in an EBook."
+  "Path component  to table of contents in an Epub."
   :type 'string
-  :group 'emacspeak-ebook)
+  :group 'emacspeak-epub)
 
-(defvar emacspeak-ebook-toc-transform
+(defvar emacspeak-epub-toc-transform
   (expand-file-name "epub-toc.xsl"
                     emacspeak-xslt-directory)
   "Transformation that takes epub table of contents to XHTML.")
 
 ;;}}}
-;;{{{ Define EBook Minor Mode
+;;{{{ Define Epub Minor Mode
 ;;;###autoload
-(define-minor-mode emacspeak-ebook-mode
-  "EBooks minor mode."
-  :keymap  emacspeak-ebook-keymap
-  :lighter " EBooks")
+(define-minor-mode emacspeak-epub-mode
+  "Epubs minor mode."
+  :keymap  emacspeak-epub-keymap
+  :lighter " Epubs")
 
 ;;}}}
 ;;{{{ Interactive Commands:
 ;;;###autoload
-(defvar emacspeak-ebook-keymap nil
-  "Keymap used for EBooks.")
+(defvar emacspeak-epub-keymap nil
+  "Keymap used for Epubs.")
 
 ;;;###autoload
-(define-prefix-command  'emacspeak-ebook-command
-  'emacspeak-ebook-keymap) 
+(define-prefix-command  'emacspeak-epub-command
+  'emacspeak-epub-keymap) 
 
 (loop for k in
       '(
-        ("o" emacspeak-ebook-open)
-        ("g" emacspeak-ebook-google)
+        ("o" emacspeak-epub-open)
+        ("g" emacspeak-epub-google)
         )
       do
-      (emacspeak-keymap-update emacspeak-ebook-keymap k))
+      (emacspeak-keymap-update emacspeak-epub-keymap k))
 
-(defsubst emacspeak-ebook-get-toc-path ()
+(defsubst emacspeak-epub-get-toc-path ()
   "Read book location and return path to table of contents."
-  (declare (special emacspeak-ebook-toc-path
-                    emacspeak-ebook-library-root))
+  (declare (special emacspeak-epub-toc-path
+                    emacspeak-epub-library-root))
   (expand-file-name
    (concat 
     (read-directory-name
-     "EBook:"
-     emacspeak-ebook-library-root)
-    emacspeak-ebook-toc-path))
+     "Epub:"
+     emacspeak-epub-library-root)
+    emacspeak-epub-toc-path))
   )
 
 ;;;###autoload
-(defun emacspeak-ebook-open (toc)
-  "Open specified EBook.
+(defun emacspeak-epub-open (toc)
+  "Open specified Epub.
 `toc' is the pathname to an EPubs table of contents."
   (interactive
    (list
-    (emacspeak-ebook-get-toc-path)))
-  (declare (special emacspeak-ebook-toc-transform))
+    (emacspeak-epub-get-toc-path)))
+  (declare (special emacspeak-epub-toc-transform))
   (emacspeak-webutils-autospeak)
-  (emacspeak-xslt-view-file emacspeak-ebook-toc-transform toc))
+  (emacspeak-xslt-view-file emacspeak-epub-toc-transform toc))
 
-(defvar emacspeak-ebook-google-search-template
-  "http://books.google.com/books/feeds/volumes?min-viewability=full&ebook=epub&q=%s"
-  "REST  end-point for performing Google Books Search to find EBooks  having full viewability.")
+(defvar emacspeak-epub-google-search-template
+  "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
+  "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
 
 ;;;###autoload
-(defun emacspeak-ebook-google (query)
-  "Search for EBooks from Gooble Books."
+(defun emacspeak-epub-google (query)
+  "Search for Epubs from Gooble Books."
   (interactive "sGoogle Books Query: ")
-  (declare (special emacspeak-ebook-google-search-template))
+  (declare (special emacspeak-epub-google-search-template))
   (emacspeak-webutils-atom-display
-   (format emacspeak-ebook-google-search-template
+   (format emacspeak-epub-google-search-template
            (emacspeak-url-encode query))))
 
 ;;}}}
 
-(provide 'emacspeak-ebook)
+(provide 'emacspeak-epub)
 ;;{{{ end of file
 
 ;;; local variables:
