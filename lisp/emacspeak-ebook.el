@@ -70,7 +70,7 @@
   :group 'emacspeak-ebook)
 
 (defcustom emacspeak-ebook-toc-path
-  "OEBPS/toc.ncx"
+  "toc.ncx"
   "Path component  to table of contents in an EBook."
   :type 'string
   :group 'emacspeak-ebook)
