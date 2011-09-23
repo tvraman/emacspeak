@@ -66,14 +66,15 @@
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-up)
-  (message emacspeak-speak-network-interfaces-list))
+  (message
+   (mapconcat #'car emacspeak-speak-network-interfaces-list "")))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection."
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
-        (message emacspeak-speak-network-interfaces-list))
+        (message (mapconcat #'car emacspeak-speak-network-interfaces-list "")))
   
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
