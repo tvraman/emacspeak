@@ -81,17 +81,9 @@
   "Transformation that takes epub table of contents to XHTML.")
 
 ;;}}}
-;;{{{ Define Epub Minor Mode
-;;;###autoload
-(define-minor-mode emacspeak-epub-mode
-  "Epubs minor mode."
-  :keymap  emacspeak-epub-keymap
-  :lighter " Epubs")
-
-;;}}}
 ;;{{{ Interactive Commands:
 ;;;###autoload
-(defvar emacspeak-epub-keymap nil
+(defvar emacspeak-epub-keymap (make-sparse-keymap)
   "Keymap used for Epubs.")
 
 ;;;###autoload
