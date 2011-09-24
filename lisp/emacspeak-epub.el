@@ -138,6 +138,9 @@
      emacspeak-epub-library-directory)
     emacspeak-epub-toc-path))
   )
+(defvar emacspeak-epub-toc-transform
+  (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+"XSLT  Transform that maps epub-toc to HTML.")
 
 ;;;###autoload
 (defun emacspeak-epub-open (toc)
