@@ -55,7 +55,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-(require 'easy-mmode)
+(require 'derived)
 ;;}}}
 ;;{{{  Customization variables
 
@@ -63,7 +63,7 @@
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
 
-(defcustom emacspeak-epub-library-root
+(defcustom emacspeak-epub-library-directory
   (expand-file-name "~/epubs/")
   "Directory under which we store Epubs."
   :type 'directory
@@ -75,21 +75,56 @@
   :type 'string
   :group 'emacspeak-epub)
 
-(defvar emacspeak-epub-toc-transform
-  (expand-file-name "epub-toc.xsl"
-                    emacspeak-xslt-directory)
-  "Transformation that takes epub table of contents to XHTML.")
+
+
+;;}}}
+;;{{{ Epub Mode:
+
+(define-derived-mode emacspeak-epub-mode text-mode
+  "EPub Interaction On The Emacspeak Audio Desktop"
+  "An EPub Front-end."
+  (let ((inhibit-read-only t)
+        (start (point)))
+    (goto-char (point-min))
+    (insert "Browse And Read EPub Materials\n\n")
+    (put-text-property start (point)
+                       'face font-lock-doc-face)
+    (setq header-line-format "EPub Library")
+    (cd-absolute emacspeak-epub-library-directory)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
+
+(defvar emacspeak-epub-interaction-buffer "*EPub*"
+  "Buffer for EPub interaction.")
+
 ;;;###autoload
-(defvar emacspeak-epub-keymap (make-sparse-keymap)
+(defun emacspeak-epub ()
+  "EPub  Interaction."
+  (interactive)
+  (declare (special emacspeak-epub-interaction-buffer))
+  (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
+    (cond
+     ((buffer-live-p buffer)
+      (switch-to-buffer buffer))
+     (t
+      (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer)
+        (erase-buffer)
+        (setq buffer-undo-list t)
+        (setq buffer-read-only t)
+        (emacspeak-epub-mode))
+      (switch-to-buffer emacspeak-epub-interaction-buffer)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+;;;###autoload
+(defvar emacspeak-epub-mode-map (make-sparse-keymap)
   "Keymap used for Epubs.")
 
 ;;;###autoload
 (define-prefix-command  'emacspeak-epub-command
-  'emacspeak-epub-keymap) 
-
+  'emacspeak-epub-mode-map) 
+(declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
         ("o" emacspeak-epub-open)
@@ -101,12 +136,12 @@
 (defsubst emacspeak-epub-get-toc-path ()
   "Read book location and return path to table of contents."
   (declare (special emacspeak-epub-toc-path
-                    emacspeak-epub-library-root))
+                    emacspeak-epub-library-directory))
   (expand-file-name
    (concat 
     (read-directory-name
      "Epub:"
-     emacspeak-epub-library-root)
+     emacspeak-epub-library-directory)
     emacspeak-epub-toc-path))
   )
 
