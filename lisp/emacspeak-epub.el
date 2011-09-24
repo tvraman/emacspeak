@@ -53,6 +53,8 @@
 
 ;;; Code:
 
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 (require 'derived)
@@ -121,7 +123,6 @@
 
 ;;;###autoload
  
-(declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
         ("o" emacspeak-epub-open)
