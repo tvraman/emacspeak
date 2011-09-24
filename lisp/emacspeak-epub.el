@@ -118,11 +118,7 @@
       (switch-to-buffer emacspeak-epub-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-;;;###autoload
-
-;;;###autoload
- 
+(declaim (special emacspeak-epub-mode-map
 (loop for k in
       '(
         ("o" emacspeak-epub-open)
