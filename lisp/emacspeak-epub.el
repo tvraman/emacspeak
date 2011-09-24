@@ -118,12 +118,9 @@
     (emacspeak-speak-mode-line)))
 
 ;;;###autoload
-(defvar emacspeak-epub-mode-map (make-sparse-keymap)
-  "Keymap used for Epubs.")
 
 ;;;###autoload
-(define-prefix-command  'emacspeak-epub-command
-  'emacspeak-epub-mode-map) 
+ 
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
