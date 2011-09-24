@@ -128,7 +128,7 @@
         ("g" emacspeak-epub-google)
         )
       do
-      (emacspeak-keymap-update emacspeak-epub-keymap k))
+      (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 (defsubst emacspeak-epub-get-toc-path ()
   "Read book location and return path to table of contents."
