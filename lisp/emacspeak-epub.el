@@ -71,9 +71,9 @@
   :type 'directory
   :group 'emacspeak-epub)
 
-(defcustom emacspeak-epub-toc-path
-  "toc.ncx"
-  "Path component  to table of contents in an Epub."
+(defcustom emacspeak-epub-toc-path-pattern
+  ".ncx$"
+  "Pattern match for path component  to table of contents in an Epub."
   :type 'string
   :group 'emacspeak-epub)
 
@@ -129,14 +129,13 @@
 
 (defsubst emacspeak-epub-get-toc-path ()
   "Read book location and return path to table of contents."
-  (declare (special emacspeak-epub-toc-path
+  (declare (special emacspeak-epub-toc-path-pattern
                     emacspeak-epub-library-directory))
-  (expand-file-name
-   (concat 
-    (read-directory-name
-     "Epub:"
-     emacspeak-epub-library-directory)
-    emacspeak-epub-toc-path))
+  (first
+   (directory-files
+    (read-directory-name "Epub:" emacspeak-epub-library-directory)
+              'full
+              emacspeak-epub-toc-path-pattern))
   )
 (defvar emacspeak-epub-toc-transform
   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
