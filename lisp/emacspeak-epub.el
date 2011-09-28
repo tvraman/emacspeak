@@ -58,6 +58,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 (require 'derived)
+(require 'find-lisp)
 ;;}}}
 ;;{{{  Customization variables
 
@@ -132,11 +133,9 @@
   (declare (special emacspeak-epub-toc-path-pattern
                     emacspeak-epub-library-directory))
   (first
-   (directory-files
+   (find-lisp-find-files 
     (read-directory-name "Epub:" emacspeak-epub-library-directory)
-              'full
               emacspeak-epub-toc-path-pattern))
-  )
 (defvar emacspeak-epub-toc-transform
   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
 "XSLT  Transform that maps epub-toc to HTML.")
