@@ -532,7 +532,7 @@ element. "
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
   (let ((inhibit-read-only t))
-  (emacspeak-webutils-run-post-process-hook)))
+    (emacspeak-webutils-run-post-process-hook)))
 
 ;;}}}
 ;;{{{ advice focus on cell
@@ -621,7 +621,6 @@ element. "
 ;;; this will go away
 (defalias 'make-dtk-speech-style 'make-acss)
 (defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
-
 
 ;;}}}
 ;;{{{ define pronunciation for document's base URI
@@ -820,11 +819,11 @@ HTML."
         "application/xml+xhtml"
         "text/xml")
       do
-(pushnew
-(list mm
-  'mm-inline-text-html-render-with-w3
-  #'(lambda (&rest args) mm-text-html-renderer))
-mm-inline-media-tests))
+      (pushnew
+       (list mm
+             'mm-inline-text-html-render-with-w3
+             #'(lambda (&rest args) mm-text-html-renderer))
+       mm-inline-media-tests))
 
 ;;}}}
 ;;{{{ fix error in insert-char call for emacs 24

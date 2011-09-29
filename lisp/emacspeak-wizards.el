@@ -3210,14 +3210,13 @@ Default is to add autoload cookies to current file."
 Starts a terminal, or switches to an existing one."
   (interactive "P")
   (let ((term (get-buffer "*ansi-term*")))
-  (cond
-   ((and term
-         (process-live-p (get-buffer-process term)))
-    (switch-to-buffer term)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))
-   (t (call-interactively 'ansi-term)))))
-   
+    (cond
+     ((and term
+           (process-live-p (get-buffer-process term)))
+      (switch-to-buffer term)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-mode-line))
+     (t (call-interactively 'ansi-term)))))
 
 ;;}}}
 ;;{{{ Espeak: MultiLingual Wizard
@@ -3235,7 +3234,7 @@ Starts a terminal, or switches to an existing one."
     (while (not (eobp))
       (let ((fields
              (split-string
-                     (buffer-substring (line-beginning-position) (line-end-position)))))
+              (buffer-substring (line-beginning-position) (line-end-position)))))
         (push (cons (fourth fields) (second fields))
               emacspeak-wizards-espeak-voices-alist))
       (forward-line 1))))
@@ -3260,28 +3259,26 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((lang  (get-text-property  0 'lang string)))
     (unless lang
       (setq lang
-      (cond
-       ((interactive-p) (emacspeak-wizards-espeak-get-voice-code))
-       (t "en"))))
-      (shell-command
-       (format "espeak -v %s '%s'" lang string))))
-
+            (cond
+             ((interactive-p) (emacspeak-wizards-espeak-get-voice-code))
+             (t "en"))))
+    (shell-command
+     (format "espeak -v %s '%s'" lang string))))
 
 ;;;###autoload
 (defun emacspeak-wizards-espeak-region (start end)
   "Speak region using ESpeak polyglot wizard."
   (interactive "r")
-      (save-excursion
-        (goto-char start)
-        (while (< start end)
-          (goto-char
-                (next-single-property-change
-                 start 'lang
-                 (current-buffer) end))
-          (emacspeak-wizards-espeak-string (buffer-substring start (point)))
-          (skip-syntax-forward " ")
-          (setq start (point)))))
-   
+  (save-excursion
+    (goto-char start)
+    (while (< start end)
+      (goto-char
+       (next-single-property-change
+        start 'lang
+        (current-buffer) end))
+      (emacspeak-wizards-espeak-string (buffer-substring start (point)))
+      (skip-syntax-forward " ")
+      (setq start (point)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)

@@ -969,7 +969,7 @@ Here are some examples:
 
 (emacspeak-url-template-define
  "Google Image Search"
-"http://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
+ "http://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
  (list "Google Image Search: ")
  #'(lambda ()
      (search-forward "results" nil t)
@@ -1963,7 +1963,6 @@ Meerkat realy needs an xml-rpc method for getting this.")
 ;;}}}
 ;;{{{  flight arrival
 
-
 ;;}}}
 ;;{{{ weather underground
 ;;;###autoload
@@ -2109,7 +2108,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  #'(lambda (url)
      (emacspeak-m-player url 'playlist)))
 
- 
 ;;}}}
 ;;}}}
 ;;{{{ Interactive commands

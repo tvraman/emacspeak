@@ -79,7 +79,6 @@
   (dtk-select-server "32-outloud")
   (dtk-initialize))
 
-
 ;;}}}
 ;;{{{  voice table
 

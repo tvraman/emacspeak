@@ -20,17 +20,14 @@
   "A hook variable which runs when network is connected."
   :type 'hook
   :group 'emacspeak-dbus)
-  
 
 (defcustom nm-disconnected-hook nil
   "A hook variable which runs when network is disconnected."
   :type 'hook
   :group 'emacspeak-dbus)
 
-
-
 (defvar nm-service "org.freedesktop.NetworkManager"
-"Name of NetworkManager service.")
+  "Name of NetworkManager service.")
 
 (defvar nm-path "/org/freedesktop/NetworkManager"
   "NetworkManager Path in DBus.")

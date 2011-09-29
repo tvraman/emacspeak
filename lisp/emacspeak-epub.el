@@ -78,8 +78,6 @@
   :type 'string
   :group 'emacspeak-epub)
 
-
-
 ;;}}}
 ;;{{{ Epub Mode:
 
@@ -135,11 +133,11 @@
   (first
    (find-lisp-find-files 
     (read-directory-name "Epub:" emacspeak-epub-library-directory)
-              emacspeak-epub-toc-path-pattern)))
+    emacspeak-epub-toc-path-pattern)))
 
 (defvar emacspeak-epub-toc-transform
   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
-"XSLT  Transform that maps epub-toc to HTML.")
+  "XSLT  Transform that maps epub-toc to HTML.")
 
 ;;;###autoload
 (defun emacspeak-epub-open (toc)

@@ -68,7 +68,7 @@
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
- 
+
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server )
 (defvar emacspeak-auditory-icon-function )
@@ -1670,7 +1670,7 @@ Argument PROGRAM specifies the speech server program."
           (const :tag "Viavoice Outloud" "outloud")
           (const :tag "32Bit ViaVoice on 64Bit Linux" "32-outloud"))
   :group 'dtk)
-                 
+
 (defun dtk-local-server (program)
   "Select and start an local  speech server interactively.
 Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
