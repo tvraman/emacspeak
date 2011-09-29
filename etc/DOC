@@ -55,6 +55,15 @@ Argument PROGRAM specifies the speech server program.
 
 ------------------------------------------------------------
 
+** dtk-local-server	Key Sequence: control e d  cap L  
+
+ Select and start an local  speech server interactively.
+Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
+Argument PROGRAM specifies the speech server program.
+Port  defaults to  dtk-local-server-port 
+
+------------------------------------------------------------
+
 ** dtk-pause	Key Sequence: control e p 
 
  Pause ongoing speech.
@@ -395,7 +404,6 @@ M-l		emacspeak-amark-load
 M-s		emacspeak-amark-save
 
 
-
 This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization. 
 
@@ -665,7 +673,6 @@ M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
 
-
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-bookshare-mode-hook', as the final step
 during initialization. 
@@ -846,7 +853,6 @@ q		bury-buffer
 s		emacspeak-daisy-stop-audio
 
 
-
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
 during initialization. 
@@ -926,20 +932,68 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
-** emacspeak-ebook-google	Key Sequence: control e g g 
-
- Search for EBooks from Gooble Books. 
-
-------------------------------------------------------------
-
-** emacspeak-ebook-mode EBooks minor mode. 
+** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
+ (the previous column by default)and summarize it. 
 
 ------------------------------------------------------------
 
-** emacspeak-ebook-open	Key Sequence: control e g o 
+** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
+ (the previous row by default)and summarize it. 
 
- Open specified EBook.
-`toc' is the pathname to an EPubs table of contents. 
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expression Display the expression in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-value Display the cell value in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
+The `column header' is the entry in row 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
+The `row header' is the entry in column 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
+ (the next column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
+ (the next row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list 
 
 ------------------------------------------------------------
 
@@ -1053,7 +1107,12 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1089,7 +1148,12 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1283,7 +1347,6 @@ key             binding
 =		keep-lines
 ^		flush-lines
 r		emacspeak-filtertext-revert
-
 
 
 In addition to any hooks its parent mode `text-mode' might have run,
@@ -1599,13 +1662,6 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
 ** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -1767,7 +1823,6 @@ C-e m		emacspeak-m-player-speak-mode-line
 M-l		emacspeak-m-player-load-playlist
 
 
-
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization. 
@@ -1887,7 +1942,6 @@ p .. q		emacspeak-madplay-madplay-call-command
 s .. t		emacspeak-madplay-madplay-call-command
 <left>		emacspeak-aumix-wave-decrease
 <right>		emacspeak-aumix-wave-increase
-
 
 
 This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
@@ -2025,7 +2079,6 @@ p		emacspeak-ocr-page
 q		bury-buffer
 s		emacspeak-ocr-save-current-page
 w		emacspeak-ocr-write-document
-
 .
 
 
@@ -2208,7 +2261,6 @@ key             binding
 ---             -------
 
 
-
 This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
 during initialization. 
 
@@ -2275,10 +2327,10 @@ Speech flushes as you type.
 
 ** emacspeak-remote-connect-to-server	Key Sequence: control e meta r 
 
- Connect to and start using remote speech server running on host host
-and listening on port port.  Host is the hostname of the remote
-server, typically the desktop machine.  Port is the tcp port that that
-host is listening on for speech requests. 
+ Connect to and start using remote speech server running on
+host host and listening on port port. Host is the hostname of the
+remote server, typically the desktop machine. Port is the tcp
+port that that host is listening on for speech requests. 
 
 ------------------------------------------------------------
 
@@ -2293,9 +2345,9 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'.
 ------------------------------------------------------------
 
 ** emacspeak-remote-quick-connect-to-server Connect to remote server.
-Does not prompt for host or port, but quietly uses the
-guesses that appear as defaults when prompting.
-Use this once you are sure the guesses are usually correct. 
+Does not prompt for host or port, but quietly uses the guesses
+that appear as defaults when prompting. Use this once you are
+sure the guesses are usually correct. 
 
 ------------------------------------------------------------
 
@@ -2642,6 +2694,12 @@ any other key to speak entire help.
 
 ------------------------------------------------------------
 
+** emacspeak-speak-hostname	Key Sequence: control e meta h 
+
+ Speak host name. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-line	Key Sequence: control e l 
 
  Speaks current line.  With prefix ARG, speaks the rest of the line
@@ -2886,6 +2944,15 @@ If option  `voice-lock-mode' is on, then uses the personality.
 's' to speak the start.
 'r' to speak the rest.
 any other key to speak entire sexp. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-show-active-network-interfaces	Key Sequence: control e  cap I  
+
+ Shows all active network interfaces in the echo area.
+With interactive prefix argument ADDRESS it prompts for a
+specific interface and shows its address. The address is
+also copied to the kill ring for convenient yanking. 
 
 ------------------------------------------------------------
 
@@ -3626,6 +3693,17 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -4003,10 +4081,6 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-my-rss-search My RSS search. 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-news-yahoo Perform an Yahoo News search.
 Optional prefix arg no-rss scrapes information from HTML. 
 
@@ -4044,10 +4118,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-rpm-find Search RPM  catalog  site. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-shoutcast-search Shoutcast search. 
 
 ------------------------------------------------------------
 
@@ -4163,7 +4233,6 @@ q		bury-buffer
 t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
-
 
 
 In addition to any hooks its parent mode `special-mode' might have run,
@@ -4561,12 +4630,6 @@ We cleanup underlining, and set up outline mode correctly.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-hostname	Key Sequence: control e meta h 
-
- Speak host name. 
-
-------------------------------------------------------------
-
 ** emacspeak-speak-popup-messages	Key Sequence: control h  cap M    <f1>  cap M    <help>  cap M  
 
  Pop up messages buffer.
@@ -4585,15 +4648,6 @@ produce tabulated output that works with Emacspeak's table recognizer.
 Verify this first by running the command in a shell and executing
 command `emacspeak-table-display-table-in-region' normally bound to
 C-e TAB. 
-
-------------------------------------------------------------
-
-** emacspeak-speak-show-active-network-interfaces	Key Sequence: control e  cap I  
-
- Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking. 
 
 ------------------------------------------------------------
 
@@ -4730,7 +4784,6 @@ during initialization.
 
 key             binding
 ---             -------
-
  
 
 ------------------------------------------------------------
@@ -4741,6 +4794,15 @@ See /etc/sudoers for how to set up sudo.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-end-of-word move to end of word 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-espeak-region Speak region using ESpeak polyglot wizard. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-espeak-string Speak string in lang via ESpeak.
+Lang is obtained from property `lang' on string, or  via an interactive prompt. 
 
 ------------------------------------------------------------
 
@@ -4782,7 +4844,6 @@ during initialization.
 
 key             binding
 ---             -------
-
  
 
 ------------------------------------------------------------
@@ -4884,7 +4945,8 @@ prompts for and sets value of the file local pattern.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-pdf-open Open pdf file as text. 
+** emacspeak-wizards-pdf-open Open pdf file as text.
+Optional interactive prefix arg ask-pwd prompts for password. 
 
 ------------------------------------------------------------
 
@@ -4919,7 +4981,6 @@ during initialization.
 
 key             binding
 ---             -------
-
  
 
 ------------------------------------------------------------
@@ -4989,6 +5050,11 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-term Like M-x shell for ansi-term.
+Starts a terminal, or switches to an existing one. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-terminal Launch terminal and rename buffer appropriately. 
 
 ------------------------------------------------------------
@@ -5043,7 +5109,6 @@ key             binding
 C-l		emacspeak-wizards-vc-viewer-refresh
 
 
-
 This mode runs the hook `emacspeak-wizards-vc-viewer-mode-hook', as the final step
 during initialization. 
 
@@ -5087,7 +5152,6 @@ during initialization.
 
 key             binding
 ---             -------
-
  
 
 ------------------------------------------------------------
@@ -5135,7 +5199,6 @@ C-c		Prefix Command
 
 C-c C-v		emacspeak-xml-shell-browse-result
 C-c v		emacspeak-xml-shell-browse-current
-
 
 
 In addition to any hooks its parent mode `comint-mode' might have run,
@@ -5189,7 +5252,6 @@ z		emacspeak-zinf
 <right>		emacspeak-aumix-wave-increase
 
 
-
 This mode runs the hook `emacspeak-zinf-mode-hook', as the final step
 during initialization. 
 
@@ -5234,15 +5296,22 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-blue-pages Search IBM Blue Pages 
+** emacspeak-epub EPub  Interaction.
+
+(fn) 
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-ibm-internal Search IBM My News 
+** emacspeak-epub-google Search for Epubs from Gooble Books.
+
+(fn QUERY) 
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-ibm-my-news Search IBM My News 
+** emacspeak-epub-open Open specified Epub.
+`toc' is the pathname to an EPubs table of contents.
+
+(fn TOC) 
 
 ------------------------------------------------------------
 
@@ -5505,12 +5574,6 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-piglets-tts-stop Kill TTS  process.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
