@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 958 commands.
+This chapter documents a total of 961 commands.
 
 @menu
 * cd-tool::
@@ -32,6 +32,7 @@ This chapter documents a total of 958 commands.
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
+* emacspeak-epub::
 * emacspeak-erc::
 * emacspeak-eterm::
 * emacspeak-filtertext::
@@ -47,6 +48,7 @@ This chapter documents a total of 958 commands.
 * emacspeak-info::
 * emacspeak-jabber::
 * emacspeak-keymap::
+* emacspeak-librivox::
 * emacspeak-loaddefs::
 * emacspeak-m-player::
 * emacspeak-madplay::
@@ -86,10 +88,8 @@ This chapter documents a total of 958 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
-* emacspeak-epub::
 * emacspeak-firevox::
 * emacspeak-jawbreaker::
-* emacspeak-librivox::
 * emacspeak-moz::
 * emacspeak-org::
 * emacspeak-piglets::
@@ -1710,6 +1710,59 @@ Move to next row and speak element.
 Speak element at point.
 @end deffn
 
+@node emacspeak-epub
+@section emacspeak-epub
+
+Commentary:
+In celebration of a million books and more to read from
+Google Books
+The EPubs format is slightly simpler than full Daisy ---
+emacspeak-daisy.el
+Since it only needs one level of indirection (no audio,
+therefore no smil). This module is consequently simpler than
+emacspeak-daisy.el.
+This module will also implement the Google Books GData API
+--- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
+
+Automatically generated documentation
+for commands defined in module  emacspeak-epub.
+
+@deffn {Interactive Command} emacspeak-epub nil
+@kbd{Not bound to any key.}
+
+EPub  Interaction.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-google nil
+@kbd{Not bound to any key.}
+
+Search for Epubs from Gooble Books.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-mode nil
+@kbd{Not bound to any key.}
+
+An EPub Front-end.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-epub-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+g		emacspeak-epub-google
+o		emacspeak-epub-open
+
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-open nil
+@kbd{Not bound to any key.}
+
+Open specified Epub.
+`toc' is the pathname to an EPubs table of contents.
+@end deffn
+
 @node emacspeak-erc
 @section emacspeak-erc
 
@@ -2961,6 +3014,90 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
+@end deffn
+
+@node emacspeak-librivox
+@section emacspeak-librivox
+
+Commentary:
+LIBRIVOX == http://wwwlibrivox.org Free Audio Books
+It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
+This module implements an Emacspeak Librivox client.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-librivox.
+
+@deffn {Interactive Command} emacspeak-librivox nil
+@kbd{Not bound to any key.}
+
+Librivox Library Of Free Audio Books.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-fetch-catalog nil
+@kbd{Not bound to any key.}
+
+Fetch catalog to our cache location.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-mode nil
+@kbd{Not bound to any key.}
+
+A Librivox front-end for the Emacspeak Audio Desktop.
+
+In addition to any hooks its parent mode `emacspeak-table-mode' might have run,
+this mode runs the hook `emacspeak-librivox-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+RET		emacspeak-librivox-open-rss
+F		emacspeak-librivox-fetch-catalog
+P		emacspeak-librivox-play
+S		emacspeak-librivox-searcher
+u		emacspeak-librivox-open-url
+<C-return>	emacspeak-librivox-play
+
+S a		emacspeak-librivox-search-author
+S g		emacspeak-librivox-search-genre
+S t		emacspeak-librivox-search-title
+
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-open-rss nil
+@kbd{Not bound to any key.}
+
+Open RSS  link for current Librivox book.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-open-url nil
+@kbd{Not bound to any key.}
+
+Open Librivox URL  for current Librivox book.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-play nil
+@kbd{Not bound to any key.}
+
+Play current book as a playlist.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-author nil
+@kbd{Not bound to any key.}
+
+Search in catalog for Author 1.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-genre nil
+@kbd{Not bound to any key.}
+
+Search in catalog for genre.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-librivox-search-title nil
+@kbd{Not bound to any key.}
+
+Search in catalog for title.
 @end deffn
 
 @node emacspeak-loaddefs
@@ -8063,48 +8200,6 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node emacspeak-epub
-@section emacspeak-epub
-
-Commentary:
-In celebration of a million books and more to read from
-Google Books
-The EPubs format is slightly simpler than full Daisy ---
-emacspeak-daisy.el
-Since it only needs one level of indirection (no audio,
-therefore no smil). This module is consequently simpler than
-emacspeak-daisy.el.
-This module will also implement the Google Books GData API
---- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
-
-Automatically generated documentation
-for commands defined in module  emacspeak-epub.
-
-@deffn {Interactive Command} emacspeak-epub nil
-@kbd{Not bound to any key.}
-
-EPub  Interaction.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-epub-google nil
-@kbd{Not bound to any key.}
-
-Search for Epubs from Gooble Books.
-
-(fn QUERY)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-epub-open nil
-@kbd{Not bound to any key.}
-
-Open specified Epub.
-`toc' is the pathname to an EPubs table of contents.
-
-(fn TOC)
-@end deffn
-
 @node emacspeak-firevox
 @section emacspeak-firevox
 
@@ -8187,73 +8282,6 @@ for commands defined in module  emacspeak-jawbreaker.
 Opens JawBreaker game in Firefox.
 
 (fn)
-@end deffn
-
-@node emacspeak-librivox
-@section emacspeak-librivox
-
-Commentary:
-LIBRIVOX == http://wwwlibrivox.org Free Audio Books
-It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
-This module implements an Emacspeak Librivox client.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-librivox.
-
-@deffn {Interactive Command} emacspeak-librivox nil
-@kbd{Not bound to any key.}
-
-Librivox Library Of Free Audio Books.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-open-rss nil
-@kbd{Not bound to any key.}
-
-Open RSS  link for current Librivox book.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-open-url nil
-@kbd{Not bound to any key.}
-
-Open Librivox URL  for current Librivox book.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-play nil
-@kbd{Not bound to any key.}
-
-Play current book as a playlist.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-search-author nil
-@kbd{Not bound to any key.}
-
-Search in catalog for Author 1.
-
-(fn PATTERN)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-search-genre nil
-@kbd{Not bound to any key.}
-
-Search in catalog for genre.
-
-(fn PATTERN)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-librivox-search-title nil
-@kbd{Not bound to any key.}
-
-Search in catalog for title.
-
-(fn PATTERN)
 @end deffn
 
 @node emacspeak-moz
