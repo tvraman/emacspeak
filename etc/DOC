@@ -1070,6 +1070,34 @@ Useful in voicifying rich text.
 
 ------------------------------------------------------------
 
+** emacspeak-epub EPub  Interaction. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-google Search for Epubs from Gooble Books. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-mode An EPub Front-end.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-epub-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+g		emacspeak-epub-google
+o		emacspeak-epub-open
+ 
+
+------------------------------------------------------------
+
+** emacspeak-epub-open Open specified Epub.
+`toc' is the pathname to an EPubs table of contents. 
+
+------------------------------------------------------------
+
 ** emacspeak-erc-add-name-to-monitor Add people to moniter in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name. 
@@ -1637,6 +1665,61 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox Librivox Library Of Free Audio Books. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-fetch-catalog Fetch catalog to our cache location. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-mode A Librivox front-end for the Emacspeak Audio Desktop.
+
+In addition to any hooks its parent mode `emacspeak-table-mode' might have run,
+this mode runs the hook `emacspeak-librivox-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+RET		emacspeak-librivox-open-rss
+F		emacspeak-librivox-fetch-catalog
+P		emacspeak-librivox-play
+S		emacspeak-librivox-searcher
+u		emacspeak-librivox-open-url
+<C-return>	emacspeak-librivox-play
+
+S a		emacspeak-librivox-search-author
+S g		emacspeak-librivox-search-genre
+S t		emacspeak-librivox-search-title
+ 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-open-rss Open RSS  link for current Librivox book. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-open-url Open Librivox URL  for current Librivox book. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-play Play current book as a playlist. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-author Search in catalog for Author 1. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-genre Search in catalog for genre. 
+
+------------------------------------------------------------
+
+** emacspeak-librivox-search-title Search in catalog for title. 
 
 ------------------------------------------------------------
 
@@ -5296,25 +5379,6 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-epub EPub  Interaction.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-epub-google Search for Epubs from Gooble Books.
-
-(fn QUERY) 
-
-------------------------------------------------------------
-
-** emacspeak-epub-open Open specified Epub.
-`toc' is the pathname to an EPubs table of contents.
-
-(fn TOC) 
-
-------------------------------------------------------------
-
 ** emacspeak-firevox Creates FireVox interaction.
 
 (fn) 
@@ -5348,48 +5412,6 @@ take effect.
 ** emacspeak-jawbreaker Opens JawBreaker game in Firefox.
 
 (fn) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox Librivox Library Of Free Audio Books.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-open-rss Open RSS  link for current Librivox book.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-open-url Open Librivox URL  for current Librivox book.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-play Play current book as a playlist.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-search-author Search in catalog for Author 1.
-
-(fn PATTERN) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-search-genre Search in catalog for genre.
-
-(fn PATTERN) 
-
-------------------------------------------------------------
-
-** emacspeak-librivox-search-title Search in catalog for title.
-
-(fn PATTERN) 
 
 ------------------------------------------------------------
 
