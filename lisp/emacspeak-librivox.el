@@ -69,7 +69,6 @@
                     emacspeak-resource-directory)
   "Location where we cache  librivox data.")
 
-
 (defvar emacspeak-librivox-catalog-location
   (expand-file-name "catalog.csv" emacspeak-librivox-directory)
   "Location where we cache the Librivox catalog.")
@@ -223,7 +222,6 @@
               (emacspeak-table-current-row emacspeak-table)
               (emacspeak-librivox-field-position "LibrivoxURL"))))
     (browse-url url)))
-
 
 (defsubst emacspeak-librivox-m3u-filename (rss)
   "Construct M3U  filename given the RSS URL."

@@ -74,8 +74,7 @@
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
-        (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
-  
+  (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)

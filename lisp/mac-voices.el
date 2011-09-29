@@ -85,7 +85,6 @@ COMMAND-STRING to the TTS engine."
   (concat 
    (mac-get-voice-command-internal name)))
 
-
 (defsubst mac-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special mac-voice-table ))
@@ -289,7 +288,6 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{  stress
-
 
 ;;{{{  paul stress TODO
 

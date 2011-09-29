@@ -144,8 +144,6 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
-
-
 (defadvice python-beginning-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (interactive-p)

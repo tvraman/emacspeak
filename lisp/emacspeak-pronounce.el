@@ -226,7 +226,6 @@ modes."
 ;;;xsl inherits from xml
 (emacspeak-pronounce-add-super 'xml-mode 'xsl-mode)
 
-
 ;;; VM, w3m, w3
 (emacspeak-pronounce-add-super 'text-mode 'w3m-mode)
 (emacspeak-pronounce-add-super 'text-mode 'w3-mode)

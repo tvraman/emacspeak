@@ -58,7 +58,6 @@
   "Return first child matching name."
   (first (xml-get-children node name)))
 
-
 ;;;###autoload 
 (cond
  ((fboundp 'libxml-parse-xml-region)

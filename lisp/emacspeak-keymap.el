@@ -453,7 +453,7 @@ field in the customization buffer.  You can use the notation
         ("\C-d" dectalk)
         ("\C-e" espeak)
         ("\C-o" outloud)
-("\C-v" outloud-32)
+        ("\C-v" outloud-32)
         )
       do
       (emacspeak-keymap-update emacspeak-dtk-submap binding))

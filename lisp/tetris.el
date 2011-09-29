@@ -81,19 +81,19 @@ If the return value is a number, it is used as the timer period."
 Element 0 is ignored."
   :group 'tetris
   :type (let ((names `("Shape 1" "Shape 2" "Shape 3"
-		       "Shape 4" "Shape 5" "Shape 6" "Shape 7"))
-	      (result `(vector (const nil))))
-	  (while names
-	    (add-to-list 'result
-			 (cons 'choice
-			       (cons :tag
-				     (cons (car names)
-					   (mapcar (lambda (color)
-						     (list 'const color))
-						   (defined-colors)))))
-			 t)
-	    (setq names (cdr names)))
-	  result))
+                       "Shape 4" "Shape 5" "Shape 6" "Shape 7"))
+              (result `(vector (const nil))))
+          (while names
+            (add-to-list 'result
+                         (cons 'choice
+                               (cons :tag
+                                     (cons (car names)
+                                           (mapcar (lambda (color)
+                                                     (list 'const color))
+                                                   (defined-colors)))))
+                         t)
+            (setq names (cdr names)))
+          result))
 
 (defcustom tetris-x-colors
   [nil [0 0 1] [0.7 0 1] [1 1 0] [1 0 1] [0 1 1] [0 1 0] [1 0 0]]
@@ -153,8 +153,8 @@ Element 0 is ignored."
 ;; Someone could make a symlink in /tmp
 ;; pointing to a file you don't want to clobber.
 (defvar tetris-score-file "tetris-scores"
-;; anybody with a well-connected server want to host this?
-;(defvar tetris-score-file "/anonymous@ftp.pgt.com:/pub/cgw/tetris-scores"
+  ;; anybody with a well-connected server want to host this?
+                                        ;(defvar tetris-score-file "/anonymous@ftp.pgt.com:/pub/cgw/tetris-scores"
   "File for holding high scores.")
 
 ;; ;;;;;;;;;;;;; display options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -276,76 +276,76 @@ Element 0 is ignored."
 (defvar tetris-mode-map
   (make-sparse-keymap 'tetris-mode-map))
 
-(define-key tetris-mode-map "n"		'tetris-start-game)
-(define-key tetris-mode-map "q"		'tetris-end-game)
-(define-key tetris-mode-map "p"		'tetris-pause-game)
+(define-key tetris-mode-map "n"         'tetris-start-game)
+(define-key tetris-mode-map "q"         'tetris-end-game)
+(define-key tetris-mode-map "p"         'tetris-pause-game)
 
-(define-key tetris-mode-map " "		'tetris-move-bottom)
-(define-key tetris-mode-map [left]	'tetris-move-left)
-(define-key tetris-mode-map [right]	'tetris-move-right)
-(define-key tetris-mode-map [up]	'tetris-rotate-prev)
-(define-key tetris-mode-map [down]	'tetris-rotate-next)
+(define-key tetris-mode-map " "         'tetris-move-bottom)
+(define-key tetris-mode-map [left]      'tetris-move-left)
+(define-key tetris-mode-map [right]     'tetris-move-right)
+(define-key tetris-mode-map [up]        'tetris-rotate-prev)
+(define-key tetris-mode-map [down]      'tetris-rotate-next)
 
 (defvar tetris-null-map
   (make-sparse-keymap 'tetris-null-map))
 
-(define-key tetris-null-map "n"		'tetris-start-game)
+(define-key tetris-null-map "n"         'tetris-start-game)
 
 ;; ;;;;;;;;;;;;;;;; game functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun tetris-display-options ()
   (let ((options (make-vector 256 nil)))
     (loop for c from 0 to 255 do
-      (aset options c
-	    (cond ((= c tetris-blank)
-		    tetris-blank-options)
-                  ((and (>= c 1) (<= c 7))
-		   (append
-		    tetris-cell-options
-		    `((((glyph color-x) ,(aref tetris-x-colors c))
-		       (color-tty ,(aref tetris-tty-colors c))
-		       (t nil)))))
-		   ((= c tetris-border)
-		    tetris-border-options)
-		   ((= c tetris-space)
-		    tetris-space-options)
-                  (t
-                   '(nil nil nil)))))
+          (aset options c
+                (cond ((= c tetris-blank)
+                       tetris-blank-options)
+                      ((and (>= c 1) (<= c 7))
+                       (append
+                        tetris-cell-options
+                        `((((glyph color-x) ,(aref tetris-x-colors c))
+                           (color-tty ,(aref tetris-tty-colors c))
+                           (t nil)))))
+                      ((= c tetris-border)
+                       tetris-border-options)
+                      ((= c tetris-space)
+                       tetris-space-options)
+                      (t
+                       '(nil nil nil)))))
     options))
 
 (defun tetris-get-tick-period ()
   (if (boundp 'tetris-update-speed-function)
       (let ((period (apply tetris-update-speed-function
-			   tetris-n-shapes
-			   tetris-n-rows nil)))
-	(and (numberp period) period))))
+                           tetris-n-shapes
+                           tetris-n-rows nil)))
+        (and (numberp period) period))))
 
 (defun tetris-get-shape-cell (x y)
   (aref (aref (aref (aref tetris-shapes
-			  tetris-shape)
-		    y)
-	      tetris-rot)
-	x))
+                          tetris-shape)
+                    y)
+              tetris-rot)
+        x))
 
 (defun tetris-shape-width ()
   (aref (aref tetris-shape-dimensions tetris-shape)
-	(% tetris-rot 2)))
+        (% tetris-rot 2)))
 
 (defun tetris-shape-height ()
   (aref (aref tetris-shape-dimensions tetris-shape)
-	(- 1 (% tetris-rot 2))))
+        (- 1 (% tetris-rot 2))))
 
 (defun tetris-draw-score ()
   (let ((strings (vector (format "Shapes: %05d" tetris-n-shapes)
-			 (format "Rows:   %05d" tetris-n-rows)
-			 (format "Score:  %05d" tetris-score))))
+                         (format "Rows:   %05d" tetris-n-rows)
+                         (format "Score:  %05d" tetris-score))))
     (loop for y from 0 to 2 do
-	  (let* ((string (aref strings y))
-		 (len (length string)))
-	    (loop for x from 0 to (1- len) do
-		  (gamegrid-set-cell (+ tetris-score-x x)
-				     (+ tetris-score-y y)
-				     (aref string x)))))))
+          (let* ((string (aref strings y))
+                 (len (length string)))
+            (loop for x from 0 to (1- len) do
+                  (gamegrid-set-cell (+ tetris-score-x x)
+                                     (+ tetris-score-y y)
+                                     (aref string x)))))))
 
 (defun tetris-update-score ()
   (tetris-draw-score)
@@ -366,81 +366,81 @@ Element 0 is ignored."
 
 (defun tetris-draw-next-shape ()
   (loop for y from 0 to 3 do
-	(loop for x from 0 to 3 do
-	      (gamegrid-set-cell (+ tetris-next-x x)
-				 (+ tetris-next-y y)
-				 (let ((tetris-shape tetris-next-shape)
-				       (tetris-rot 0))
-				   (tetris-get-shape-cell x y))))))
+        (loop for x from 0 to 3 do
+              (gamegrid-set-cell (+ tetris-next-x x)
+                                 (+ tetris-next-y y)
+                                 (let ((tetris-shape tetris-next-shape)
+                                       (tetris-rot 0))
+                                   (tetris-get-shape-cell x y))))))
 
 (defun tetris-draw-shape ()
   (loop for y from 0 to (1- (tetris-shape-height)) do
-	(loop for x from 0 to (1- (tetris-shape-width)) do
-	      (let ((c (tetris-get-shape-cell x y)))
-		(if (/= c tetris-blank)
-		    (gamegrid-set-cell (+ tetris-top-left-x
-					  tetris-pos-x
-					  x)
-				       (+ tetris-top-left-y
-					  tetris-pos-y
-					  y)
-				       c))))))
+        (loop for x from 0 to (1- (tetris-shape-width)) do
+              (let ((c (tetris-get-shape-cell x y)))
+                (if (/= c tetris-blank)
+                    (gamegrid-set-cell (+ tetris-top-left-x
+                                          tetris-pos-x
+                                          x)
+                                       (+ tetris-top-left-y
+                                          tetris-pos-y
+                                          y)
+                                       c))))))
 
 (defun tetris-erase-shape ()
   (loop for y from 0 to (1- (tetris-shape-height)) do
-	(loop for x from 0 to (1- (tetris-shape-width)) do
-	      (let ((c (tetris-get-shape-cell x y))
-		    (px (+ tetris-top-left-x tetris-pos-x x))
-		    (py (+ tetris-top-left-y tetris-pos-y y)))
-		(if (/= c tetris-blank)
-		    (gamegrid-set-cell px py tetris-blank))))))
+        (loop for x from 0 to (1- (tetris-shape-width)) do
+              (let ((c (tetris-get-shape-cell x y))
+                    (px (+ tetris-top-left-x tetris-pos-x x))
+                    (py (+ tetris-top-left-y tetris-pos-y y)))
+                (if (/= c tetris-blank)
+                    (gamegrid-set-cell px py tetris-blank))))))
 
 (defun tetris-test-shape ()
   (let ((hit nil))
     (loop for y from 0 to (1- (tetris-shape-height)) do
-	  (loop for x from 0 to (1- (tetris-shape-width)) do
-		(unless hit
-		  (setq hit
-			(let* ((c (tetris-get-shape-cell x y))
-			      (xx (+ tetris-pos-x x))
-			      (yy (+ tetris-pos-y y))
-			      (px (+ tetris-top-left-x xx))
-			      (py (+ tetris-top-left-y yy)))
-			  (and (/= c tetris-blank)
-			       (or (>= xx tetris-width)
-				   (>= yy tetris-height)
-				   (/= (gamegrid-get-cell px py)
-				       tetris-blank))))))))
+          (loop for x from 0 to (1- (tetris-shape-width)) do
+                (unless hit
+                  (setq hit
+                        (let* ((c (tetris-get-shape-cell x y))
+                               (xx (+ tetris-pos-x x))
+                               (yy (+ tetris-pos-y y))
+                               (px (+ tetris-top-left-x xx))
+                               (py (+ tetris-top-left-y yy)))
+                          (and (/= c tetris-blank)
+                               (or (>= xx tetris-width)
+                                   (>= yy tetris-height)
+                                   (/= (gamegrid-get-cell px py)
+                                       tetris-blank))))))))
     hit))
 
 (defun tetris-full-row (y)
   (let ((full t))
     (loop for x from 0 to (1- tetris-width) do
-	  (if (= (gamegrid-get-cell (+ tetris-top-left-x x)
-				    (+ tetris-top-left-y y))
-		 tetris-blank)
-	      (setq full nil)))
+          (if (= (gamegrid-get-cell (+ tetris-top-left-x x)
+                                    (+ tetris-top-left-y y))
+                 tetris-blank)
+              (setq full nil)))
     full))
 
 (defun tetris-shift-row (y)
   (if (= y 0)
       (loop for x from 0 to (1- tetris-width) do
-	(gamegrid-set-cell (+ tetris-top-left-x x)
-			   (+ tetris-top-left-y y)
-			   tetris-blank))
-  (loop for x from 0 to (1- tetris-width) do
-	(let ((c (gamegrid-get-cell (+ tetris-top-left-x x)
-				    (+ tetris-top-left-y y -1))))
-	  (gamegrid-set-cell (+ tetris-top-left-x x)
-			     (+ tetris-top-left-y y)
-			   c)))))
+            (gamegrid-set-cell (+ tetris-top-left-x x)
+                               (+ tetris-top-left-y y)
+                               tetris-blank))
+    (loop for x from 0 to (1- tetris-width) do
+          (let ((c (gamegrid-get-cell (+ tetris-top-left-x x)
+                                      (+ tetris-top-left-y y -1))))
+            (gamegrid-set-cell (+ tetris-top-left-x x)
+                               (+ tetris-top-left-y y)
+                               c)))))
 
 (defun tetris-shift-down ()
   (loop for y0 from 0 to (1- tetris-height) do
-	(if (tetris-full-row y0)
-	    (progn (setq tetris-n-rows (1+ tetris-n-rows))
-		   (loop for y from y0 downto 0 do
-			 (tetris-shift-row y))))))
+        (if (tetris-full-row y0)
+            (progn (setq tetris-n-rows (1+ tetris-n-rows))
+                   (loop for y from y0 downto 0 do
+                         (tetris-shift-row y))))))
 
 (defun tetris-draw-border-p ()
   (or (not (eq gamegrid-display-mode 'glyph))
@@ -448,47 +448,47 @@ Element 0 is ignored."
 
 (defun tetris-init-buffer ()
   (gamegrid-init-buffer tetris-buffer-width
-			tetris-buffer-height
-			tetris-space)
+                        tetris-buffer-height
+                        tetris-space)
   (let ((buffer-read-only nil))
     (if (tetris-draw-border-p)
-	(loop for y from -1 to tetris-height do
-	      (loop for x from -1 to tetris-width do
-		    (gamegrid-set-cell (+ tetris-top-left-x x)
-				       (+ tetris-top-left-y y)
-				       tetris-border))))
+        (loop for y from -1 to tetris-height do
+              (loop for x from -1 to tetris-width do
+                    (gamegrid-set-cell (+ tetris-top-left-x x)
+                                       (+ tetris-top-left-y y)
+                                       tetris-border))))
     (loop for y from 0 to (1- tetris-height) do
-	  (loop for x from 0 to (1- tetris-width) do
-		(gamegrid-set-cell (+ tetris-top-left-x x)
-				   (+ tetris-top-left-y y)
-				   tetris-blank)))
+          (loop for x from 0 to (1- tetris-width) do
+                (gamegrid-set-cell (+ tetris-top-left-x x)
+                                   (+ tetris-top-left-y y)
+                                   tetris-blank)))
     (if (tetris-draw-border-p)
-	(loop for y from -1 to 4 do
-	      (loop for x from -1 to 4 do
-		    (gamegrid-set-cell (+ tetris-next-x x)
-				       (+ tetris-next-y y)
-				       tetris-border))))))
+        (loop for y from -1 to 4 do
+              (loop for x from -1 to 4 do
+                    (gamegrid-set-cell (+ tetris-next-x x)
+                                       (+ tetris-next-y y)
+                                       tetris-border))))))
 
 (defun tetris-reset-game ()
   (gamegrid-kill-timer)
   (tetris-init-buffer)
   (setq tetris-next-shape (random 7))
-  (setq tetris-shape	0
-	tetris-rot	0
-	tetris-pos-x	0
-	tetris-pos-y	0
-	tetris-n-shapes	0
-	tetris-n-rows	0
-	tetris-score	0
-	tetris-paused	nil)
+  (setq tetris-shape    0
+        tetris-rot      0
+        tetris-pos-x    0
+        tetris-pos-y    0
+        tetris-n-shapes 0
+        tetris-n-rows   0
+        tetris-score    0
+        tetris-paused   nil)
   (tetris-new-shape))
 
 (defun tetris-shape-done ()
   (tetris-shift-down)
   (setq tetris-n-shapes (1+ tetris-n-shapes))
   (setq tetris-score
-	(+ tetris-score
-	   (aref (aref tetris-shape-scores tetris-shape) tetris-rot)))
+        (+ tetris-score
+           (aref (aref tetris-shape-scores tetris-shape) tetris-rot)))
   (tetris-update-score)
   (tetris-new-shape))
 
@@ -496,16 +496,16 @@ Element 0 is ignored."
   "Called on each clock tick.
 Drops the shape one square, testing for collision."
   (if (and (not tetris-paused)
-	   (eq (current-buffer) tetris-buffer))
+           (eq (current-buffer) tetris-buffer))
       (let (hit)
-	(tetris-erase-shape)
-	(setq tetris-pos-y (1+ tetris-pos-y))
-	(setq hit (tetris-test-shape))
-	(if hit
-	    (setq tetris-pos-y (1- tetris-pos-y)))
-	(tetris-draw-shape)
-	(if hit
-	    (tetris-shape-done)))))
+        (tetris-erase-shape)
+        (setq tetris-pos-y (1+ tetris-pos-y))
+        (setq hit (tetris-test-shape))
+        (if hit
+            (setq tetris-pos-y (1- tetris-pos-y)))
+        (tetris-draw-shape)
+        (if hit
+            (tetris-shape-done)))))
 
 (defun tetris-move-bottom ()
   "Drops the shape to the bottom of the playing area"
@@ -528,7 +528,7 @@ Drops the shape one square, testing for collision."
     (tetris-erase-shape)
     (setq tetris-pos-x (1- tetris-pos-x))
     (if (tetris-test-shape)
-	(setq tetris-pos-x (1+ tetris-pos-x)))
+        (setq tetris-pos-x (1+ tetris-pos-x)))
     (tetris-draw-shape)))
 
 (defun tetris-move-right ()
@@ -540,7 +540,7 @@ Drops the shape one square, testing for collision."
     (tetris-erase-shape)
     (setq tetris-pos-x (1+ tetris-pos-x))
     (if (tetris-test-shape)
-	(setq tetris-pos-x (1- tetris-pos-x)))
+        (setq tetris-pos-x (1- tetris-pos-x)))
     (tetris-draw-shape)))
 
 (defun tetris-rotate-prev ()
@@ -577,7 +577,7 @@ Drops the shape one square, testing for collision."
   (tetris-reset-game)
   (use-local-map tetris-mode-map)
   (let ((period (or (tetris-get-tick-period)
-		    tetris-default-tick-period)))
+                    tetris-default-tick-period)))
     (gamegrid-start-timer period 'tetris-update-game)))
 
 (defun tetris-pause-game ()
@@ -608,14 +608,14 @@ tetris-mode keybindings:
 
   (unless (featurep 'emacs)
     (setq mode-popup-menu
-	  '("Tetris Commands"
-	    ["Start new game"	tetris-start-game]
-	    ["End game"		tetris-end-game
-	     (tetris-active-p)]
-	    ["Pause"		tetris-pause-game
-	     (and (tetris-active-p) (not tetris-paused))]
-	    ["Resume"		tetris-pause-game
-	     (and (tetris-active-p) tetris-paused)])))
+          '("Tetris Commands"
+            ["Start new game"   tetris-start-game]
+            ["End game"         tetris-end-game
+             (tetris-active-p)]
+            ["Pause"            tetris-pause-game
+             (and (tetris-active-p) (not tetris-paused))]
+            ["Resume"           tetris-pause-game
+             (and (tetris-active-p) tetris-paused)])))
 
   (setq gamegrid-use-glyphs tetris-use-glyphs)
   (setq gamegrid-use-color tetris-use-color)
@@ -633,14 +633,14 @@ as to form complete rows.
 
 tetris-mode keybindings:
    \\<tetris-mode-map>
-\\[tetris-start-game]	Starts a new game of Tetris
-\\[tetris-end-game]	Terminates the current game
-\\[tetris-pause-game]	Pauses (or resumes) the current game
-\\[tetris-move-left]	Moves the shape one square to the left
-\\[tetris-move-right]	Moves the shape one square to the right
-\\[tetris-rotate-prev]	Rotates the shape clockwise
-\\[tetris-rotate-next]	Rotates the shape anticlockwise
-\\[tetris-move-bottom]	Drops the shape to the bottom of the playing area
+\\[tetris-start-game]   Starts a new game of Tetris
+\\[tetris-end-game]     Terminates the current game
+\\[tetris-pause-game]   Pauses (or resumes) the current game
+\\[tetris-move-left]    Moves the shape one square to the left
+\\[tetris-move-right]   Moves the shape one square to the right
+\\[tetris-rotate-prev]  Rotates the shape clockwise
+\\[tetris-rotate-next]  Rotates the shape anticlockwise
+\\[tetris-move-bottom]  Drops the shape to the bottom of the playing area
 
 "
   (interactive)

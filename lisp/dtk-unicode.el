@@ -230,7 +230,6 @@ nil if CHAR is not in Unicode."
    (or (cadar (describe-char-unicode-data char))
        (car (rassoc char (ucs-names)))
        "")))
-   
 
 (defsubst dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."

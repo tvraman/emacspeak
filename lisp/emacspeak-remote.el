@@ -141,8 +141,8 @@ that appear as defaults when prompting. Use this once you are
 sure the guesses are usually correct."
   (interactive)
   (emacspeak-remote-connect-to-server
-       (emacspeak-remote-get-current-remote-hostname)
-       (string-to-number  emacspeak-remote-default-port-to-connect)))
+   (emacspeak-remote-get-current-remote-hostname)
+   (string-to-number  emacspeak-remote-default-port-to-connect)))
 
 ;;;###autoload
 (defun emacspeak-remote-home()

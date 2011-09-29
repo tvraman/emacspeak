@@ -977,7 +977,6 @@ Target location is generated from author and title."
   "Return suitable XSL  transform for TOC."
   (declare (special emacspeak-bookshare-toc-xslt))
 
-
   (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
 
 (defun emacspeak-bookshare-view-at-point ()
@@ -1030,7 +1029,7 @@ Make sure it's downloaded and unpacked first."
      xsl
      (shell-quote-argument
       (first
-      (directory-files directory 'full ".xml"))))))
+       (directory-files directory 'full ".xml"))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content refered to by link under point, and return an XML buffer."
@@ -1079,7 +1078,6 @@ Make sure it's downloaded and unpacked first."
       (browse-url-of-buffer))
     (kill-buffer result)))
 
-
 (defun emacspeak-bookshare-view (directory)
   "View book in specified directory."
   (interactive
@@ -1117,7 +1115,7 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-xslt-view-file
      xsl
      (shell-quote-argument
-     (first (directory-files directory 'full ".xml"))))))
+      (first (directory-files directory 'full ".xml"))))))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."

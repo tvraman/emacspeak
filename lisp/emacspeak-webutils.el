@@ -83,9 +83,9 @@ Note that the Web browser should reset this hook after using it.")
   (when     emacspeak-web-post-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
-        (run-hooks  'emacspeak-web-post-process-hook))
+          (run-hooks  'emacspeak-web-post-process-hook))
       (error  (message "Caught error  in post-process hook.")
-       (setq emacspeak-web-post-process-hook nil)))
+              (setq emacspeak-web-post-process-hook nil)))
     (setq emacspeak-web-post-process-hook nil)))
 
 ;;}}}
@@ -128,9 +128,9 @@ Note that the Web browser should reset this hook after using it.")
             #'(lambda nil
                 (declare (special emacspeak-we-xpath-filter))
                 (let ((inhibit-read-only t))
-                (setq emacspeak-we-xpath-filter
-                      "//p")
-                (emacspeak-speak-buffer)))
+                  (setq emacspeak-we-xpath-filter
+                        "//p")
+                  (emacspeak-speak-buffer)))
             'at-end))
 
 (defsubst emacspeak-webutils-cache-google-query(query)
