@@ -87,6 +87,7 @@
 
 (loop for f in
       '(org-mark-ring-goto
+        org-forward-same-level org-backward-same-level
         org-next-link org-previous-link org-open-at-point
         org-goto  org-goto-ret
         org-goto-left org-goto-right
@@ -102,6 +103,7 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'large-movement)))))
+
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (interactive-p)
