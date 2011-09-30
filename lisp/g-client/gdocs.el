@@ -143,7 +143,7 @@
 ;;{{{ Feed of feeds:
 
 (defvar gdocs-feeds-template-url
-  "http://docs.google.com/feeds/documents/private/full"
+  "https://docs.google.com/feeds/documents/private/full"
   "URL template for DocList feed.")
 
 (defsubst gdocs-feeds-url ()
@@ -227,7 +227,7 @@ Interactive prefix arg prompts for a query string."
 ;;{{{ Retrieving plain text:
 
 (defvar gdocs-download-template-url
-  "http://docs.google.com/feeds/download/documents/Export"
+  "https://docs.google.com/feeds/download/documents/Export"
   "URL template for downloading document.")
 
 (defsubst gdocs-download-url ()
@@ -277,7 +277,7 @@ interactively prompts for it."
 ;;{{{ Update document:
 
 (defvar gdocs-update-template-url
-  "http://docs.google.com/feeds/media/private/full/document%3A"
+  "https://docs.google.com/feeds/media/private/full/document%3A"
   "URL template for updating document.")
 
 (defsubst gdocs-update-url ()
