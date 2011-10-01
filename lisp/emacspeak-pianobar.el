@@ -102,7 +102,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-"
+
 
 ;;}}}
 (provide 'emacspeak-pianobar)
