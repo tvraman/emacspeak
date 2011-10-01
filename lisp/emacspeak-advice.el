@@ -594,7 +594,7 @@ before the message is spoken."
   (let ((inhibit-read-only t))
     (voice-lock-mode t)
     ad-do-it
-    (setq emacspeak-last-message ad-return-value )
+    (setq emacspeak-last-message (ansi-color-apply ad-return-value ))
     (when (and
            emacspeak-speak-messages     ; speaking messages
            ad-return-value              ;we really do have a message
