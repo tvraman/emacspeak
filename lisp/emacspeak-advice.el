@@ -592,6 +592,7 @@ before the message is spoken."
                     emacspeak-speak-messages-pause
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t))
+    (voice-lock-mode t)
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (when (and
@@ -601,7 +602,7 @@ before the message is spoken."
                (setq emacspeak-lazy-message-time (nth 1  (current-time)))))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-speak ad-return-value)))
+                             (dtk-speak (ansi-color-apply ad-return-value))))
     ad-return-value))
 
 (defvar emacspeak-ange-ftp-last-percent nil
