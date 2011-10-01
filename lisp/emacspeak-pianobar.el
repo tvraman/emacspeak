@@ -85,6 +85,24 @@ pianobar-select-quickmix-stations pianobar-next-song)
           "Play auditory icon."
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
+(defadvice pianobar-window-toggle (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (let ((state (get-buffer-window pianobar-buffer)))
+      (cond
+       (state
+        (emacspeak-auditory-icon'open-object)
+        (dtk-speak "Displayed pianobar"))
+       (t
+        (emacspeak-auditory-icon'close-object)
+        (dtk-speak "Hid Pianobar "))))))
+
+
+(defadvice pianobar-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+"
 
 ;;}}}
 (provide 'emacspeak-pianobar)
