@@ -74,7 +74,7 @@
 (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-
+(require 'ansi-color)
 ;;}}}
 ;;{{{ Forward Declarations:
 (defvar emacspeak-prefix)
