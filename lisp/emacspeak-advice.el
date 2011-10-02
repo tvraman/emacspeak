@@ -594,15 +594,15 @@ before the message is spoken."
   (let ((inhibit-read-only t))
     (voice-lock-mode t)
     ad-do-it
-    (setq emacspeak-last-message  ad-return-value )
     (when (and
+           (current-message)
            emacspeak-speak-messages  ; speaking messages
-           ad-return-value           ;we really do have a message
            (/= emacspeak-lazy-message-time ;; previous message not recent
                (setq emacspeak-lazy-message-time (nth 1  (current-time)))))
+      (setq emacspeak-last-message  (ansi-color-apply (current-message)))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-speak (ansi-color-apply ad-return-value))))
+                             (dtk-speak emacspeak-last-message)))
     ad-return-value))
 
 (defvar emacspeak-ange-ftp-last-percent nil
