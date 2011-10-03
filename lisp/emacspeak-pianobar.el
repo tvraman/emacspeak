@@ -186,13 +186,15 @@ pianobar-select-quickmix-stations pianobar-next-song)
   (when (and emacspeak-pianobar-process
              (eq 'run (process-status emacspeak-pianobar-process))
              (y-or-n-p "Stop currently playing music? "))
-    (emacspeak-pianobar-quit)
+    (kill-process emacspeak-pianobar-process)
     (setq emacspeak-pianobar-process nil))
   (let ((process-connection-type nil))
     (with-current-buffer (get-buffer-create emacspeak-pianobar-buffer)
-      (setq emacspeak-pianobar-process
-            (start-process "PianoBar" emacspeak-pianobar-buffer emacspeak-pianobar-program))
-      (emacspeak-pianobar-mode))))
+      (setq emacspeak-pianobar-buffer
+            (make-comint "PianoBar" emacspeak-pianobar-program))
+      (setq emacspeak-pianobar-process (get-buffer-process emacspeak-pianobar-buffer))
+      (emacspeak-pianobar-mode)))
+  (switch-to-buffer emacspeak-pianobar-buffer))
 
 ;;;###autoload
 (defun emacspeak-pianobar-command ()
