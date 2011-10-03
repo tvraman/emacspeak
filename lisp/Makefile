@@ -197,7 +197,6 @@ emacspeak-psgml.elc \
 emacspeak-py.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
-emacspeak-realaudio.elc \
 emacspeak-reftex.elc \
 emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
@@ -424,7 +423,6 @@ emacspeak-psgml.elc: emacspeak-psgml.el dtk-speak.elc voice-setup.elc
 emacspeak-py.elc: emacspeak-py.el dtk-speak.elc voice-setup.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
-emacspeak-realaudio.elc: emacspeak-realaudio.el dtk-speak.elc voice-setup.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
 emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
