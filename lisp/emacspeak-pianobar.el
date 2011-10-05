@@ -146,6 +146,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
           (eq 'run (process-status (get-buffer-process pianobar-buffer))))
     (call-interactively 'emacspeak-pianobar-command))
    (t (pianobar))))
+
 (defun emacspeak-pianobar-command (key)
   "Invoke Pianobar  commands."
   (interactive (list (read-key-sequence "Pianobar Key: ")))
@@ -153,7 +154,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
   (cond
    ((and (stringp key)
          (string= ":" key))
-    (call-interactively 'pianobar))
+    (call-interactively 'pianobar-window-toggle))
    ((lookup-key pianobar-key-map key)
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-key  key))))
