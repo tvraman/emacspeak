@@ -62,7 +62,9 @@
 (defsubst emacspeak-pianobar-current-song  ()
   "Return current song."
   (declare (special pianobar-current-song))
-   (ansi-color-apply (substring pianobar-current-song 4)))
+   (ansi-color-apply
+    (substring pianobar-current-song
+               (+ 2 (string-match "|>" pianobar-current-song)))))
 
 
 (defadvice pianobar-currently-playing (around emacspeak pre act comp)
