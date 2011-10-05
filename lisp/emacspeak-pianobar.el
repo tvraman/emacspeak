@@ -173,6 +173,23 @@ pianobar-select-quickmix-stations pianobar-next-song)
    (t (pianobar-send-string  key))))
 
 
+;;; Station Presets
+(defun emacspeak-pianobar-station-preset ()
+  "Switch to one of the first 10 presets."
+  (interactive)
+  (declare (special last-input-event))
+  (let ((preset
+         (condition-case nil
+             (read (format "%c" last-input-event ))
+           (error nil ))))
+    (unless preset
+      (setq preset (read-number "Preset: ")))
+    (pianobar-send-string
+     (format "s%d\n" preset))))
+
+(dotimes (i 10)
+  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-station-preset ))
+
 
 ;;}}}
 
