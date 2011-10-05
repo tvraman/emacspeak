@@ -56,6 +56,20 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Pianobar Fixups:
+
+(defsubst emacspeak-pianobar-current-song  ()
+  "Return current song."
+  (declare (special pianobar-current-song))
+   (ansi-color-apply (substring pianobar-current-song 4)))
+
+
+(defadvice pianobar-currently-playing (around emacspeak pre act comp)
+  "Override with our own notifier."
+  (when (interactive-p)
+    (message  (emacspeak-pianobar-current-song))))
+
+;;}}}
 ;;{{{ Advice Interactive Commands:
 
 (defadvice pianobar (after emacspeak pre act comp)
