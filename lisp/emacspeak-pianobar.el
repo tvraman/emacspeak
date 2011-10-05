@@ -68,6 +68,7 @@
 (defadvice pianobar-currently-playing (around emacspeak pre act comp)
   "Override with our own notifier."
   (when (interactive-p)
+    (dtk-speak (emacspeak-pianobar-current-song))
     (message  (emacspeak-pianobar-current-song))))
 
 ;;}}}
