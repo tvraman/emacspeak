@@ -157,7 +157,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
     (call-interactively 'pianobar-window-toggle))
    ((lookup-key pianobar-key-map key)
     (call-interactively (lookup-key pianobar-key-map key)))
-   (t (pianobar-send-key  key))))
+   (t (pianobar-send-string  key))))
 
 
 
