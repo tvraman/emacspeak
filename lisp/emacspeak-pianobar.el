@@ -54,6 +54,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'ansi-color)
 
 ;;}}}
 ;;{{{ Pianobar Fixups:
@@ -123,80 +124,40 @@ pianobar-select-quickmix-stations pianobar-next-song)
 
 ;;{{{ Customizations And Variables
 
-(defgroup emacspeak-pianobar nil
-  "Control Pandora CLI client Pianobar from Emacs.")
 
-(defcustom emacspeak-pianobar-program
-  (executable-find "pianobar")
-  "Pianobar --- Command Line Pandora player."
-  :group 'emacspeak-pianobar)
 
-(defvar emacspeak-pianobar-buffer "*PianoBar*")
 
-;;}}}
-;;{{{ define a derived mode for m-player interaction 
-(define-derived-mode emacspeak-pianobar-mode comint-mode 
-  "Pianobar Interaction"
-  "Major mode for pianobar interaction. \n\n
-\\{emacspeak-pianobar-mode-map}"
-  (progn
-    (setq buffer-undo-list t)
-    (ansi-color-for-comint-mode-on)))
 
-(defvar emacspeak-pianobar-process nil
-  "Process handle to pianobar." )
+
+
+
 
 ;;}}}
 ;;{{{ emacspeak-pianobar
-(defsubst emacspeak-pianobar-dispatch (command)
-  "Dispatch command to pianobar."
-  (declare (special emacspeak-pianobar-process))
-  (with-current-buffer emacspeak-pianobar-buffer
-    (erase-buffer)
-    (process-send-string
-     emacspeak-pianobar-process
-     (format "%s\n" command))
-    (accept-process-output emacspeak-pianobar-process 0.1)
-    (unless (zerop (buffer-size))
-      (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
 ;;;###autoload
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
   (interactive )
-  (declare (special emacspeak-pianobar-process))
+  (declare (special pianobar-buffer))
   (cond
-   ((and emacspeak-pianobar-process
-         (eq 'run (process-status emacspeak-pianobar-process)))
+   ((and  (buffer-live-p (get-buffer pianobar-buffer))
+          (eq 'run (process-status (get-buffer-process pianobar-buffer))))
     (call-interactively 'emacspeak-pianobar-command))
-   (t  (call-interactively 'emacspeak-pianobar-start))))
-
-(defun emacspeak-pianobar-command (string)
+   (t (pianobar))))
+(defun emacspeak-pianobar-command (key)
   "Invoke Pianobar  commands."
-  (interactive "sPianobar Command: ")
-  (declare (special emacspeak-pianobar-process))
+  (interactive (list (read-key-sequence "Pianobar Key: ")))
+  (declare (special pianobar-key-map))
   (cond
-   ((and (stringp string) (string= ":" string))
-    (pop-to-buffer (process-buffer emacspeak-pianobar-process))
-    (emacspeak-speak-mode-line))
-   (t (emacspeak-pianobar-dispatch string))))
+   ((and (stringp key)
+         (string= ":" key))
+    (call-interactively 'pianobar))
+   ((lookup-key pianobar-key-map key)
+    (call-interactively (lookup-key pianobar-key-map key)))
+   (t (pianobar-send-key  key))))
 
-(defun emacspeak-pianobar-start ()
-  "Start up PianoBar process."
-  (interactive)
-  (declare (special emacspeak-pianobar-process emacspeak-pianobar-program ))
-  
-   (unless
-       (and emacspeak-pianobar-process
-         (eq 'run (process-status emacspeak-pianobar-process)))
-     (let ((process-connection-type nil))
-       (setq emacspeak-pianobar-buffer (make-comint "PianoBar" emacspeak-pianobar-program))
-       (setq emacspeak-pianobar-process (get-buffer-process emacspeak-pianobar-buffer))
-    (with-current-buffer emacspeak-pianobar-buffer
-      (emacspeak-pianobar-mode))))
-  (switch-to-buffer emacspeak-pianobar-buffer)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+
 
 ;;}}}
 
