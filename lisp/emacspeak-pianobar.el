@@ -167,7 +167,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
   (declare (special pianobar-key-map))
   (cond
    ((and (stringp key)
-         (string= ":" key))
+         (string= "'" key))
     (emacspeak-pianobar-hide-or-show)
     (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
