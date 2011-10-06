@@ -176,7 +176,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
 
 
 ;;; Station Presets
-(defun emacspeak-pianobar-station-preset ()
+(defun emacspeak-pianobar-switch-to-preset ()
   "Switch to one of the first 10 presets."
   (interactive)
   (declare (special last-input-event))
@@ -190,7 +190,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
      (format "s%d\n" preset))))
 
 (dotimes (i 10)
-  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-station-preset ))
+  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
 
 
 ;;}}}
