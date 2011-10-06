@@ -59,7 +59,7 @@
 ;;}}}
 ;;{{{ Pianobar Fixups:
 
-(defsubst emacspeak-pianobar-current-song  ()
+(defun emacspeak-pianobar-current-song  ()
   "Return current song."
   (declare (special pianobar-current-song))
    (ansi-color-apply
@@ -143,10 +143,12 @@ pianobar-select-quickmix-stations pianobar-next-song)
   (declare (special pianobar-buffer))
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
-          (eq 'run (process-status (get-buffer-process pianobar-buffer))))
+          (processp (get-buffer-process pianobar-buffer))
+          (eq 'run (process-status (get-buffer-process  pianobar-buffer))))
     (call-interactively 'emacspeak-pianobar-command))
    (t (pianobar))))
-(defsubst emacspeak-pianobar-hide-or-show ()
+
+(defun emacspeak-pianobar-hide-or-show ()
   "Hide or show pianobar."
   (cond
    ((eq (current-buffer) (get-buffer pianobar-buffer))
