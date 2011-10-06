@@ -76,9 +76,8 @@
 
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-auditory-icon 'open-object))
 
 ;;; Advice all actions to play a pre-auditory icon
 
