@@ -76,6 +76,8 @@
 
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (dotimes (i 10)
+  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object))
 
@@ -188,8 +190,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
     (pianobar-send-string
      (format "s%d\n" preset))))
 
-(dotimes (i 10)
-  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
+
 
 
 ;;}}}
