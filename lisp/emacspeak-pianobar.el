@@ -77,9 +77,13 @@
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (dotimes (i 10)
-  (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object))
+    (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
+  (dotimes (i 25)
+    (define-key pianobar-key-map
+      (format "%c" (+ i 65))
+      'emacspeak-pianobar-switch-to-preset ))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;; Advice all actions to play a pre-auditory icon
 
@@ -178,7 +182,7 @@ pianobar-select-quickmix-stations pianobar-next-song)
 
 ;;; Station Presets
 (defun emacspeak-pianobar-switch-to-preset ()
-  "Switch to one of the first 10 presets."
+  "Switch to one of the  presets."
   (interactive)
   (declare (special last-input-event))
   (let ((preset
@@ -186,7 +190,9 @@ pianobar-select-quickmix-stations pianobar-next-song)
              (read (format "%c" last-input-event ))
            (error nil ))))
     (unless preset
-      (setq preset (read-number "Preset: ")))
+      (setq preset (read-string "Preset: ")))
+    (when (>= 65 preset)
+      (setq preset (- preset 55)))
     (pianobar-send-string
      (format "s%d\n" preset))))
 
