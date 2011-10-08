@@ -185,20 +185,18 @@ pianobar-select-quickmix-stations pianobar-next-song)
   "Switch to one of the  presets."
   (interactive)
   (declare (special last-input-event))
-  (let ((preset
-         (condition-case nil
-             (read (format "%c" last-input-event ))
-           (error nil ))))
-    (unless preset
-      (setq preset (read-string "Preset: ")))
-    (when (>= 65 preset)
-      (setq preset (- preset 55)))
-    (pianobar-send-string
-     (format "s%d\n" preset))))
-
-
-
-
+  (let ((preset last-input-event))
+    (setq preset 
+         (cond
+          ((and (<= 48 preset)
+                (<= preset 57))
+           (- preset 48))
+          ((and (<= 65 preset)
+                (<= preset 90))
+           (- preset 55))               ;A == 10
+          (t
+           (setq preset (read-string "Preset: ")))))
+    (pianobar-send-string (format "s%s\n" preset))))
 ;;}}}
 
 
