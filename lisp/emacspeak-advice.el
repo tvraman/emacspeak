@@ -640,6 +640,7 @@ before the message is spoken."
   "Specifies if error messages are cued."
   :type 'boolean
   :group 'emacspeak-spek)
+
 (defadvice error (before emacspeak pre act)
   "Speak the error message.
 Also produces an auditory icon if possible."
@@ -2144,20 +2145,16 @@ Also produce an auditory icon if possible."
 
 (defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
-  (declare (special emacspeak-speak-messages
-                    emacspeak-speak-cue-errors))
+  (declare (special emacspeak-speak-messages))
   (emacspeak-auditory-icon 'open-object)
-  (setq emacspeak-speak-messages nil
-        emacspeak-speak-cue-errors nil)
+  (setq emacspeak-speak-messages nil)
   (dtk-speak "I-Search: "))
 
 (defsubst emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."
-  (declare (special emacspeak-speak-messages
-                    emacspeak-speak-cue-errors))
+  (declare (special emacspeak-speak-messages))
   (emacspeak-auditory-icon 'close-object)
-  (setq emacspeak-speak-messages t
-        emacspeak-speak-cue-errors t))
+  (setq emacspeak-speak-messages t))
 
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
 (add-hook 'isearch-mode-end-hook 'emacspeak-isearch-teardown)
