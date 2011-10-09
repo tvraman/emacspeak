@@ -76,6 +76,7 @@
 
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (define-key pianobar-key-map "e" 'emacspeak-pianobar-electric-mode-toggle)
   (dotimes (i 10)
     (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
   (dotimes (i 25)
@@ -140,7 +141,30 @@ pianobar-select-quickmix-stations pianobar-next-song)
 
 ;;}}}
 ;;{{{ emacspeak-pianobar
+(defvar emacspeak-pianobar-electric-mode nil
+  "Records if electric mode is on.")
 
+;;;###autoload
+(defun emacspeak-pianobar-electric-mode-toggle ()
+  "Toggle electric mode in pianobar buffer.
+If electric mode is on, keystrokes invoke pianobar commands directly."
+  (declare (special emacspeak-pianobar-electric-mode
+                    pianobar-buffer))
+  (interactive)
+  (with-temp-buffer
+    pianobar-buffer
+    (cond
+     (emacspeak-pianobar-electric-mode
+      (use-local-map pianobar-key-map)
+      (setq emacspeak-pianobar-electric-mode t)
+      (emacspeak-auditory-icon 'on))
+     (t
+      (setq emacspeak-pianobar-electric-mode nil)
+      (use-local-map nil)
+      (emacspeak-auditory-icon 'off)))))
+
+    
+                     
 ;;;###autoload
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
