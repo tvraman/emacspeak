@@ -149,19 +149,22 @@ pianobar-select-quickmix-stations pianobar-next-song)
   "Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly."
   (declare (special emacspeak-pianobar-electric-mode
-                    pianobar-buffer))
+                    pianobar-key-map pianobar-buffer))
   (interactive)
-  (with-temp-buffer
+  (save-excursion
+    (set-buffer pianobar-buffer)
     pianobar-buffer
     (cond
-     (emacspeak-pianobar-electric-mode
+     (emacspeak-pianobar-electric-mode  ; turn it off
+      (use-local-map nil)
+      (setq emacspeak-pianobar-electric-mode nil)
+      (emacspeak-auditory-icon 'off))
+     (t                                 ;turn it on
       (use-local-map pianobar-key-map)
       (setq emacspeak-pianobar-electric-mode t)
-      (emacspeak-auditory-icon 'on))
-     (t
-      (setq emacspeak-pianobar-electric-mode nil)
-      (use-local-map nil)
-      (emacspeak-auditory-icon 'off)))))
+      (emacspeak-auditory-icon 'on)))
+    (message "Turned %s pianobar electric mode."
+(if emacspeak-pianobar-electric-mode 'on 'off))))
 
     
                      
