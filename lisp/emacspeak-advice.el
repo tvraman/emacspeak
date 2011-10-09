@@ -636,7 +636,7 @@ before the message is spoken."
 
 ;;}}}
 ;;;###autoload
-(defcustom emacspeak-speak-cue-errors t
+(defcustom emacspeak-speak-cue-errors nil
   "Specifies if error messages are cued."
   :type 'boolean
   :group 'emacspeak-spek)
