@@ -39,14 +39,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
+
+;;; Commentary:
+
+;;; PIANOBAR ==  Pandora Client for Emacs
+
+
 ;;; pianobar git://github.com/PromyLOPh/pianobar.git
 ;;; Is a stand-alone client for Pandora Radio.
 ;;; pianobar.el available on the Emacs Wiki at
 ;;; http://www.emacswiki.org/emacs/pianobar.el
 ;;; Provides access to Pandora Radio via pianobar from the comfort of Emacs.
 ;;; This module speech-enables Pianobar and enhances it for the Complete Audio Desktop.
-;;; Commentary:
-;;; PIANOBAR == 
+
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
