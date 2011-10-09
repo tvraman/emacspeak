@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 961 commands.
+This chapter documents a total of 942 commands.
 
 @menu
 * cd-tool::
@@ -25,7 +25,6 @@ This chapter documents a total of 961 commands.
 * emacspeak-custom::
 * emacspeak-daisy::
 * emacspeak-dired::
-* emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
 * emacspeak-emms::
@@ -56,8 +55,8 @@ This chapter documents a total of 961 commands.
 * emacspeak-npr::
 * emacspeak-ocr::
 * emacspeak-outline::
+* emacspeak-pianobar::
 * emacspeak-pronounce::
-* emacspeak-realaudio::
 * emacspeak-redefine::
 * emacspeak-remote::
 * emacspeak-rmail::
@@ -76,7 +75,6 @@ This chapter documents a total of 961 commands.
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
-* emacspeak-w3m::
 * emacspeak-we::
 * emacspeak-websearch::
 * emacspeak-webspace::
@@ -88,11 +86,13 @@ This chapter documents a total of 961 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
+* emacspeak-w3search::
 * emacspeak-firevox::
 * emacspeak-jawbreaker::
 * emacspeak-moz::
 * emacspeak-org::
 * emacspeak-piglets::
+* emacspeak-w3m::
 * emacspeak-webmarks::
 * URL Templates ::
 @end menu
@@ -1445,107 +1445,6 @@ Speak the header line of the dired buffer.
 Speaks the target of the symlink on the current line.
 @end deffn
 
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-@deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-col-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-expression nil
-@kbd{Not bound to any key.}
-
-Display the expression in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-value nil
-@kbd{Not bound to any key.}
-
-Display the cell value in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header nil
-@kbd{Not bound to any key.}
-
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header nil
-@kbd{Not bound to any key.}
-
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-row-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset col summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset row summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset sheet summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-sheet-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -1842,11 +1741,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1895,11 +1789,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -3151,6 +3040,15 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
+@deffn {Interactive Command} emacspeak-m-player nil
+@kbd{Not bound to any key.}
+
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer nil
 @kbd{Not bound to any key.}
 
@@ -3867,6 +3765,201 @@ except that the outline section is optionally spoken
 Speak current outline section starting from point
 @end deffn
 
+@node emacspeak-pianobar
+@section emacspeak-pianobar
+
+Commentary:
+PIANOBAR == 
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+(require 'ansi-color)
+
+(defun emacspeak-pianobar-current-song  ()
+  "Return current song."
+  (declare (special pianobar-current-song))
+   (ansi-color-apply
+    (substring pianobar-current-song
+               (+ 2 (string-match "|>" pianobar-current-song)))))
+
+(defadvice pianobar-currently-playing (around emacspeak pre act comp)
+  "Override with our own notifier."
+    (message  (emacspeak-pianobar-current-song)))
+
+(defadvice pianobar (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (define-key pianobar-key-map "e" 'emacspeak-pianobar-electric-mode-toggle)
+  (dotimes (i 10)
+    (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
+  (dotimes (i 25)
+    (define-key pianobar-key-map
+      (format "%c" (+ i 65))
+      'emacspeak-pianobar-switch-to-preset ))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
+
+Advice all actions to play a pre-auditory icon
+
+(loop for  f in
+      '(pianobar-pause-song pianobar-love-current-song
+pianobar-ban-current-song pianobar-bookmark-song
+pianobar-create-station pianobar-delete-current-station
+pianobar-explain-song
+pianobar-add-shared-station pianobar-song-history
+pianobar-currently-playing pianobar-add-shared-station
+pianobar-move-song-different-station pianobar-next-song
+ pianobar-rename-current-station
+pianobar-change-station
+pianobar-tired-of-song
+pianobar-upcoming-songs
+pianobar-select-quickmix-stations pianobar-next-song)
+      do
+      (eval
+       `(defadvice ,f (before emacspeak pre act comp)
+          "Play auditory icon."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)))))
+(defadvice pianobar-window-toggle (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (let ((state (get-buffer-window pianobar-buffer)))
+      (cond
+       (state
+        (emacspeak-auditory-icon'open-object)
+        (dtk-speak "Displayed pianobar"))
+       (t
+        (emacspeak-auditory-icon'close-object)
+        (dtk-speak "Hid Pianobar "))))))
+
+(defadvice pianobar-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+
+Simplified Pianobar Interaction
+
+(defvar emacspeak-pianobar-electric-mode nil
+  "Records if electric mode is on.")
+
+###autoload
+(defun emacspeak-pianobar-electric-mode-toggle ()
+  "Toggle electric mode in pianobar buffer.
+If electric mode is on, keystrokes invoke pianobar commands directly."
+  (declare (special emacspeak-pianobar-electric-mode
+                    pianobar-key-map pianobar-buffer))
+  (interactive)
+  (save-excursion
+    (set-buffer pianobar-buffer)
+    pianobar-buffer
+    (cond
+     (emacspeak-pianobar-electric-mode  ; turn it off
+      (use-local-map nil)
+      (setq emacspeak-pianobar-electric-mode nil)
+      (emacspeak-auditory-icon 'off))
+     (t                                 ;turn it on
+      (use-local-map pianobar-key-map)
+      (setq emacspeak-pianobar-electric-mode t)
+      (emacspeak-auditory-icon 'on)))
+    (message "Turned %s pianobar electric mode."
+(if emacspeak-pianobar-electric-mode 'on 'off))))
+
+    
+                     
+###autoload
+(defun emacspeak-pianobar  ()
+  "Start or control Emacspeak Pianobar player."
+  (interactive )
+  (declare (special pianobar-buffer))
+  (condition-case nil
+      (unless (featurep 'pianobar)
+        (require 'pianobar))
+    (error "Pianobar not installed."))
+  (cond
+   ((and  (buffer-live-p (get-buffer pianobar-buffer))
+          (processp (get-buffer-process pianobar-buffer))
+          (eq 'run (process-status (get-buffer-process  pianobar-buffer))))
+    (call-interactively 'emacspeak-pianobar-command))
+   (t (pianobar))))
+
+(defun emacspeak-pianobar-hide-or-show ()
+  "Hide or show pianobar."
+  (cond
+   ((eq (current-buffer) (get-buffer pianobar-buffer))
+    (bury-buffer)
+    (emacspeak-auditory-icon 'close-object))
+   ((get-buffer-window pianobar-buffer)
+    (bury-buffer pianobar-buffer)
+    (delete-windows-on pianobar-buffer)
+    (emacspeak-auditory-icon 'close-object))
+   (t (switch-to-buffer pianobar-buffer)
+      (emacspeak-auditory-icon 'open-object))))
+
+(defun emacspeak-pianobar-command (key)
+  "Invoke Pianobar  commands."
+  (interactive (list (read-key-sequence "Pianobar Key: ")))
+  (declare (special pianobar-key-map))
+  (cond
+   ((and (stringp key)
+         (string= "'" key))
+    (emacspeak-pianobar-hide-or-show)
+    (emacspeak-speak-mode-line))
+   ((lookup-key pianobar-key-map key)
+    (call-interactively (lookup-key pianobar-key-map key)))
+   (t (pianobar-send-string  key))))
+
+Station Presets
+(defun emacspeak-pianobar-switch-to-preset ()
+  "Switch to one of the  presets."
+  (interactive)
+  (declare (special last-input-event))
+  (let ((preset last-input-event))
+    (setq preset 
+         (cond
+          ((and (<= 48 preset)
+                (<= preset 57))
+           (- preset 48))
+          ((and (<= 65 preset)
+                (<= preset 90))
+           (- preset 55))               ;A == 10
+          (t
+           (setq preset (read-string "Preset: ")))))
+    (pianobar-send-string (format "s%s\n" preset))))
+
+(provide 'emacspeak-pianobar)
+
+local variables:
+folded-file: t
+byte-compile-dynamic: t
+
+Automatically generated documentation
+for commands defined in module  emacspeak-pianobar.
+
+@deffn {Interactive Command} emacspeak-pianobar nil
+@kbd{ control e ' }
+
+Start or control Emacspeak Pianobar player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-pianobar-command nil
+@kbd{Not bound to any key.}
+
+Invoke Pianobar  commands.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-pianobar-electric-mode-toggle nil
+@kbd{Not bound to any key.}
+
+Toggle electric mode in pianobar buffer.
+If electric mode is on, keystrokes invoke pianobar commands directly.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-pianobar-switch-to-preset nil
+@kbd{Not bound to any key.}
+
+Switch to one of the  presets.
+@end deffn
+
 @node emacspeak-pronounce
 @section emacspeak-pronounce
 
@@ -3971,98 +4064,6 @@ explicitly turn pronunciations on or off.
 @kbd{Not bound to any key.}
 
 Yank word at point into minibuffer.
-@end deffn
-
-@node emacspeak-realaudio
-@section emacspeak-realaudio
-
-Commentary:
-Assuming you have a correctly configured RealAudio
-player, this package provides single click access to
-starting and stopping a RealAudio stream from anywhere
-on the Emacspeak desktop.  Before using this package,
-make sure that your realaudio player works outside
-Emacs. Then set variable Emacspeak-realaudio-player to
-point to the program you use to play RealAudio streams.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-realaudio.
-
-@deffn {Interactive Command} emacspeak-realaudio-browse nil
-@kbd{Not bound to any key.}
-
-Browse RAM file before playing the selected component.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-get-current-time-in-seconds nil
-@kbd{Not bound to any key.}
-
-Return current time in seconds.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-mode nil
-@kbd{Not bound to any key.}
-
-Major mode for streaming audio. 
-
-key             binding
----             -------
-
-This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
-during initialization.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-play nil
-@kbd{Not bound to any key.}
-
-Play a realaudio stream.  Uses files from your Realaudio
-shortcuts directory for completion.  See documentation for
-user configurable variable emacspeak-realaudio-shortcuts-directory. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-select-realaudio-buffer nil
-@kbd{Not bound to any key.}
-
-Switch to realaudio buffer.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-set-end-mark nil
-@kbd{Not bound to any key.}
-
-Set end mark. Default is to set marker to current play time.
-Mark is specified in seconds.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-set-start-mark nil
-@kbd{Not bound to any key.}
-
-Set start mark. Default is to set marker to current play time.
-Mark is specified in seconds.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-stop nil
-@kbd{Not bound to any key.}
-
-Stop playing realaudio
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-trplayer-call-command nil
-@kbd{Not bound to any key.}
-
-Call appropriate TRPlayer command.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-trplayer-command nil
-@kbd{Not bound to any key.}
-
-Execute TRPlayer command.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-realaudio-write-mp3-clip nil
-@kbd{Not bound to any key.}
-
-Writes specified clip from current mp3 stream.
-Prompts for start and end times as well as file  to save the clippi
 @end deffn
 
 @node emacspeak-redefine
@@ -4839,7 +4840,7 @@ setting to be global.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-sexp nil
-@kbd{ control e ' }
+@kbd{Not bound to any key.}
 
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
@@ -5821,34 +5822,6 @@ Emacspeak and ACSS
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
-@deffn {Interactive Command} emacspeak-realaudio nil
-@kbd{ control e : }
-
-Start or control streaming audio including MP3 and
-realaudio.  If using `TRPlayer' as the player, accepts
-trplayer control commands if a stream is already playing.
-Otherwise, the playing stream is simply stopped.  If no
-stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a
-Realaudio URL, the location of a local Realaudio file, or as
-the name of a local Realaudio metafile. Realaudio resources
-you have played in this session are available in the
-minibuffer history.  The default is to play the resource you
-played most recently. Emacspeak uses the contents of the
-directory specified by variable
-emacspeak-realaudio-shortcuts-directory to offer a set of
-completions. Hit space to use this completion list.
-
-If using TRPlayer, you can either give one-shot commands
-using command emacspeak-realaudio available from anywhere on
-the audio desktop as `C-e :'.
-Alternatively, switch to buffer *realaudio* using
-`C-e :;' if you wish to issue many
-navigation commands.  Note that buffer *realaudio* uses a
-special major mode that provides the various navigation
-commands via single keystrokes.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-w3-curl-url-under-point nil
 @kbd{Not bound to any key.}
 
@@ -5953,31 +5926,6 @@ Speak document element under point.
 @kbd{Not bound to any key.}
 
 Toggle drawing of W3 table borders
-@end deffn
-
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-m-player nil
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
-@kbd{Not bound to any key.}
-
-Preview this buffer in w3m.
 @end deffn
 
 @node emacspeak-we
@@ -8200,6 +8148,112 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://w3search.torolab.ibm.com/search.mod"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-internal-uri
+"?q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line)
+  )
+
+(emacspeak-websearch-set-searcher 'ibm-my-news
+                                  'emacspeak-websearch-ibm-my-news)
+bind it to tab 
+(emacspeak-websearch-set-key 9 'ibm-my-news)
+
+(defvar emacspeak-websearch-ibm-my-news-uri
+  "http://w3search.torolab.ibm.com/search.mod?do=w3-1.ibm.com%2Fnews%2F&mh=100&ei=1&mo=fl"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-my-news (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "My News Search ")))
+  (declare (special emacspeak-websearch-ibm-my-news-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-my-news-uri
+"&q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line))
+
+(emacspeak-websearch-set-searcher 'blue-pages
+                                  'emacspeak-websearch-blue-pages)
+
+(emacspeak-websearch-set-key ?B 'blue-pages)
+
+(defvar emacspeak-websearch-blue-pages-uri
+  "http://bluepages.ibm.com/cgi-bin/bluepages.pl?"
+  "*URI for BluePages search")
+
+(defun emacspeak-websearch-blue-pages (query &optional prefix)
+  "Search IBM Blue Pages"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Look in Blue Pages for:
+")
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-blue-pages-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-blue-pages-uri
+             (format "directory=%s&"
+                     (if prefix
+                         (read-from-minibuffer "Location: ")
+                       "almaden"))
+"&Selection=Name&selectOn="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   "Tie Line"
+   'emacspeak-speak-line))
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
+@kbd{Not bound to any key.}
+
+Search IBM Blue Pages
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
 @node emacspeak-firevox
 @section emacspeak-firevox
 
@@ -8572,6 +8626,24 @@ Start TTS  engine for Piglets.
 @kbd{Not bound to any key.}
 
 Kill TTS  process.
+
+(fn)
+@end deffn
+
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@kbd{Not bound to any key.}
+
+Preview this buffer in w3m.
 
 (fn)
 @end deffn
