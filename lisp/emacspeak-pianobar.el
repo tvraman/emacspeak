@@ -146,6 +146,10 @@ pianobar-select-quickmix-stations pianobar-next-song)
   "Start or control Emacspeak Pianobar player."
   (interactive )
   (declare (special pianobar-buffer))
+  (condition-case nil
+      (unless (featurep 'pianobar)
+        (require 'pianobar))
+    (error "Pianobar not installed."))
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
           (processp (get-buffer-process pianobar-buffer))
