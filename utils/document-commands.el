@@ -148,6 +148,7 @@
     ("emacspeak-oo-browser"  . nil )
     ("emacspeak-outline"  . nil )
     ("emacspeak-pcl-cvs"  . nil )
+    ("emacspeak-pianobar" . nil)
     ("emacspeak-perl"  . nil )
     ("emacspeak-pronounce"  . nil )
     ("emacspeak-psgml"  . ("psgml-prepare"))
