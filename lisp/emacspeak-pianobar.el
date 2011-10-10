@@ -90,11 +90,11 @@
       (format "%c" (+ i 65))
       'emacspeak-pianobar-switch-to-preset ))
   (define-key pianobar-key-map "(" #'(lambda () (pianobar-send-string "(\n")))
-  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string "(\n")))
-  (emacspeak-speak-mode-line)
+  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string ")\n")))  
+  (emacspeak-speak-mode-line)  
   (emacspeak-auditory-icon 'open-object))
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+  
+  
 
 ;;; Advice all actions to play a pre-auditory icon
 
@@ -158,9 +158,10 @@ pianobar-select-quickmix-stations pianobar-next-song)
 (defun emacspeak-pianobar-electric-mode-toggle ()
   "Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly."
+  (interactive)
   (declare (special emacspeak-pianobar-electric-mode
                     pianobar-key-map pianobar-buffer))
-  (interactive)
+  
   (save-excursion
     (set-buffer pianobar-buffer)
     pianobar-buffer
@@ -174,7 +175,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
       (setq emacspeak-pianobar-electric-mode t)
       (emacspeak-auditory-icon 'on)))
     (message "Turned %s pianobar electric mode."
-(if emacspeak-pianobar-electric-mode 'on 'off))))
+             (if emacspeak-pianobar-electric-mode 'on 'off))))
 
     
                      
