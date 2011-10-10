@@ -89,6 +89,10 @@
     (define-key pianobar-key-map
       (format "%c" (+ i 65))
       'emacspeak-pianobar-switch-to-preset ))
+  (define-key pianobar-key-map "(" #'(lambda () (pianobar-send-string "(\n")))
+  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string "(\n")))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
