@@ -82,7 +82,7 @@
 
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
+  (define-key pianobar-key-map "T" 'emacspeak-pianobar-electric-mode-toggle)
   (dotimes (i 10)
     (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
   (dotimes (i 25)
