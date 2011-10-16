@@ -3,6 +3,21 @@ $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
 * Emacspeak 34 -- Emacspeak 34 User Visible Changes 
+** emacspeak-woman.el:
+
+Add emacspeak support to WoMan -- man pages in Emacs Lisp.
+
+** emacspeak-dbus.el:
+
+Add DBus support for Emacspeak.
+When loaded, Emacspeak watches DBus signals for network
+connect/disconnet.
+
+** emacspeak-pianobar.el:
+
+One-click access to Pandora Radio using pianobar.
+
+
 
 ** Emacspeak-npr.el: NPR  API Client
 One-click access to NPR  programming.
