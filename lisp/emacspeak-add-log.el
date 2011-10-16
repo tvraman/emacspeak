@@ -40,9 +40,7 @@
 
 ;;{{{  introduction
 ;;; Commentary:
-
 ;;; speech-enables change-log-mode
-
 ;;;Code:
 
 ;;}}}
