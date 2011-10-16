@@ -625,14 +625,18 @@ before the message is spoken."
 ;;{{{ advising signal
 
 (defadvice signal (before emacspeak pre act compile)
-  "Speak the error message as well."
+  "Speak the error message as well.
+Handle end-of-buffer and beginning-of-buffer specially."
   (declare (special emacspeak-speak-cue-errors))
-  (when emacspeak-speak-cue-errors
+  (let ((error-symbol  (ad-get-arg 0)))
+    (when (or emacspeak-speak-cue-errors
+              (eq error-symbol 'beginning-of-buffer)
+              (eq error-symbol 'end-of-buffer)))
     (let ((dtk-stop-immediately t)
           (message (and (not (eq 'error (ad-get-arg 0)))
                         (get (ad-get-arg 0) 'error-message))))
       (when  message
-        (dtk-speak message)))))
+        (dtk-speak message))))))
 
 ;;}}}
 ;;;###autoload
