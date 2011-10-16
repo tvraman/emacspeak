@@ -196,35 +196,7 @@ Alist of character name transformation rules.
 @section emacspeak-add-log Options
 
 Commentary:
-speech-enables change-log-mode
-Code:
-
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'emacspeak-preamble)
-
-(defgroup emacspeak-add-log nil
-  "Customize Emacspeak for change-log-mode and friends."
-  :group 'emacspeak)
-
-(voice-setup-add-map
- '(
-   (change-log-acknowledgement voice-smoothen)
-   (change-log-conditionals voice-animate)
-   (change-log-email voice-womanize-1)
-   (change-log-function voice-bolden-extra)
-   (change-log-file voice-bolden)
-   (change-log-email voice-womanize-1)
-   (change-log-list voice-lighten)
-   (change-log-name voice-lighten-extra)
-   ))
-
-(provide 'emacspeak-add-log)
-
-local variables:
-folded-file: t
-byte-compile-dynamic: t
+Speech-enable Changelog mode
 
 Automatically generated documentation
 for options defined in module  emacspeak-add-log.
