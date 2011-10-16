@@ -40,8 +40,9 @@
 
 ;;{{{  introduction
 ;;; Commentary:
-;;; speech-enables change-log-mode
-;;;Code:
+;;; Speech-enable Changelog mode
+
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
