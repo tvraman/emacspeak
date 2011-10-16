@@ -3012,18 +3012,18 @@ RIVO is implemented by rivo.pl ---
     (read-from-minibuffer "At Time: hh:mm Month Day")
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
-          (minibuffer-history emacspeak-realaudio-history))
+          (minibuffer-history emacspeak-media-history))
       (emacspeak-pronounce-define-local-pronunciation
-       emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
+       emacspeak-media-shortcuts-directory " shortcuts/ ")
       (read-file-name "RealAudio resource: "
-                      emacspeak-realaudio-shortcuts-directory
+                      emacspeak-media-shortcuts-directory
                       (if (eq major-mode 'dired-mode)
                           (dired-get-filename)
-                        emacspeak-realaudio-last-url)))
+                        emacspeak-media-last-url)))
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
-  (declare (special emacspeak-realaudio-last-url))
+  (declare (special emacspeak-media-last-url))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program

@@ -46,6 +46,7 @@
 ;;; show up as the Google tool-belt.
 ;;; This module implements a minor mode for use in Google result
 ;;; pages that enables these tools via single keyboard commands.
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
