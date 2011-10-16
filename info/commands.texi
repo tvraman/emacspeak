@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 965 commands.
+This chapter documents a total of 953 commands.
 
 @menu
 * cd-tool::
@@ -58,6 +58,7 @@ This chapter documents a total of 965 commands.
 * emacspeak-outline::
 * emacspeak-pianobar::
 * emacspeak-pronounce::
+* emacspeak-redefine::
 * emacspeak-remote::
 * emacspeak-rmail::
 * emacspeak-solitaire::
@@ -3694,7 +3695,7 @@ explicitly turn pronunciations on or off.
 Yank word at point into minibuffer.
 @end deffn
 
-Caught emacspeak-realaudio-browseCaught emacspeak-realaudio-get-current-time-in-secondsCaught emacspeak-realaudio-modeCaught emacspeak-realaudio-playCaught emacspeak-realaudio-select-realaudio-bufferCaught emacspeak-realaudio-set-end-markCaught emacspeak-realaudio-set-start-markCaught emacspeak-realaudio-stopCaught emacspeak-realaudio-trplayer-call-commandCaught emacspeak-realaudio-trplayer-commandCaught emacspeak-realaudio-write-mp3-clip@node emacspeak-redefine
+@node emacspeak-redefine
 @section emacspeak-redefine
 
 No Commentary
@@ -5449,34 +5450,6 @@ Emacspeak and ACSS
 
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
-
-@deffn {Interactive Command} emacspeak-realaudio nil
-@kbd{Not bound to any key.}
-
-Start or control streaming audio including MP3 and
-realaudio.  If using `TRPlayer' as the player, accepts
-trplayer control commands if a stream is already playing.
-Otherwise, the playing stream is simply stopped.  If no
-stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a
-Realaudio URL, the location of a local Realaudio file, or as
-the name of a local Realaudio metafile. Realaudio resources
-you have played in this session are available in the
-minibuffer history.  The default is to play the resource you
-played most recently. Emacspeak uses the contents of the
-directory specified by variable
-emacspeak-realaudio-shortcuts-directory to offer a set of
-completions. Hit space to use this completion list.
-
-If using TRPlayer, you can either give one-shot commands
-using command emacspeak-realaudio available from anywhere on
-the audio desktop as `M-x emacspeak-realaudio'.
-Alternatively, switch to buffer *realaudio* using
-`M-x emacspeak-realaudio;' if you wish to issue many
-navigation commands.  Note that buffer *realaudio* uses a
-special major mode that provides the various navigation
-commands via single keystrokes.
-@end deffn
 
 @deffn {Interactive Command} emacspeak-w3-curl-url-under-point nil
 @kbd{Not bound to any key.}

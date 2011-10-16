@@ -2348,63 +2348,6 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio-browse Browse RAM file before playing the selected component. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-get-current-time-in-seconds Return current time in seconds. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-mode Major mode for streaming audio. 
-
-
-key             binding
----             -------
-
-
-This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
-during initialization. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-play Play a realaudio stream.  Uses files from your Realaudio
-shortcuts directory for completion.  See documentation for
-user configurable variable emacspeak-realaudio-shortcuts-directory.  
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-select-realaudio-buffer Switch to realaudio buffer. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-set-end-mark Set end mark. Default is to set marker to current play time.
-Mark is specified in seconds. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-set-start-mark Set start mark. Default is to set marker to current play time.
-Mark is specified in seconds. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-stop Stop playing realaudio 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-trplayer-call-command Call appropriate TRPlayer command. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-trplayer-command Execute TRPlayer command. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio-write-mp3-clip Writes specified clip from current mp3 stream.
-Prompts for start and end times as well as file  to save the clippi 
-
-------------------------------------------------------------
-
 ** emacspeak-backward-char	Key Sequence: control b   <left> 
 
  Backward-char redefined to speak char moved to.  
@@ -3688,32 +3631,6 @@ If N is negative, move backward instead.
 ------------------------------------------------------------
 
 ** emacspeak-vm-yank-header Yank specified header into kill ring. 
-
-------------------------------------------------------------
-
-** emacspeak-realaudio Start or control streaming audio including MP3 and
-realaudio.  If using `TRPlayer' as the player, accepts
-trplayer control commands if a stream is already playing.
-Otherwise, the playing stream is simply stopped.  If no
-stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a
-Realaudio URL, the location of a local Realaudio file, or as
-the name of a local Realaudio metafile. Realaudio resources
-you have played in this session are available in the
-minibuffer history.  The default is to play the resource you
-played most recently. Emacspeak uses the contents of the
-directory specified by variable
-emacspeak-realaudio-shortcuts-directory to offer a set of
-completions. Hit space to use this completion list.
-
-If using TRPlayer, you can either give one-shot commands
-using command emacspeak-realaudio available from anywhere on
-the audio desktop as `M-x emacspeak-realaudio'.
-Alternatively, switch to buffer *realaudio* using
-`M-x emacspeak-realaudio;' if you wish to issue many
-navigation commands.  Note that buffer *realaudio* uses a
-special major mode that provides the various navigation
-commands via single keystrokes. 
 
 ------------------------------------------------------------
 
