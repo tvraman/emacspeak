@@ -1,9 +1,8 @@
-;;; xml-compat.el --- Compatibility  for xml.el and libxml
-;;; $Id: xml-compat>.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; emacspeak-woman.el --- Speech-enable WOMAN
+;;; $Id: emacspeak-woman.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Compatibility  layer for cutting over to xml.el
-;;; and libxml 
-;;; Keywords: Emacspeak,  Audio Desktop xml
+;;; Description:  Speech-enable WOMAN An Emacs Interface to Man pages
+;;; Keywords: Emacspeak,  Audio Desktop woman, Man Pages
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -29,7 +28,7 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITN<SKELETON> FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNWOMAN FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -42,33 +41,45 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Defines needed compatibility layer so we can move from
-;;;xml-parse.el to xml.el with libxml  if available 
+;;; WOMAN ==  Man pages implemented in Emacs Lisp
+
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+(require 'woman)
 
 ;;}}}
-;;{{{  Compatibility Functions 
+;;{{{ Map faces to voices
 
-(defsubst xml-tag-child (node name)
-  "Return first child matching name."
-  (first (xml-get-children node name)))
+(voice-setup-add-map
+ '(
+   (woman-unknown  voice-monotone)
+   (woman-edition voice-bolden-medium)
+   (woman-bold voice-bolden)
+   (woman-italic voice-animate)))
 
-;;;###autoload 
-(cond
- ((fboundp 'libxml-parse-xml-region)
-  (defalias 'xml-parse-xml-region 'libxml-parse-xml-region))
- (t
-  (defun xml-parse-xml-region (start end)
-    "Parse region using xml-parse."
-    (car (xml-parse-region start end)))))
 ;;}}}
+;;{{{ Advice interactive functions
 
-(provide 'xml-compat)
+(defadvice WoMan-next-manpage(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice WoMan-previous-manpage(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
+(provide 'emacspeak-woman)
 ;;{{{ end of file
 
 ;;; local variables:

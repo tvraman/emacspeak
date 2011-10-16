@@ -240,6 +240,7 @@ emacspeak-websearch.elc \
 emacspeak-widget.elc \
 emacspeak-windmove.elc \
 emacspeak-winring.elc \
+emacspeak-woman.elc \
 emacspeak-wizards.elc  \
 emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
@@ -472,6 +473,7 @@ emacspeak-websearch.elc: emacspeak-websearch.el emacspeak-we.elc
 emacspeak-webmarks.elc: emacspeak-webmarks.el emacspeak-we.elc
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc voice-setup.elc
 emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc voice-setup.elc
+emacspeak-woman.elc: emacspeak-woman.el dtk-speak.elc
 emacspeak-windmove.elc: emacspeak-windmove.el dtk-speak.elc voice-setup.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
 emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc voice-setup.elc

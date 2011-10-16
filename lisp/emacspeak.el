@@ -277,6 +277,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "widget" 'emacspeak-widget)
 (emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
+(emacspeak-do-package-setup "woman" 'emacspeak-woman)
 
 ;;}}}
 ;;{{{  Submit bugs
