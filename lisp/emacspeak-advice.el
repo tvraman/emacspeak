@@ -635,8 +635,7 @@ Handle end-of-buffer and beginning-of-buffer specially."
     (let ((dtk-stop-immediately t)
           (message (and (not (eq 'error (ad-get-arg 0)))
                         (get (ad-get-arg 0) 'error-message))))
-      (when  message
-        (dtk-speak message))))))
+      (when  message (dtk-speak message)))))
 
 ;;}}}
 ;;;###autoload
