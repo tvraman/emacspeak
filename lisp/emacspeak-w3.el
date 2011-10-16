@@ -497,11 +497,6 @@ element. "
                         (widget-get (widget-at (point)) :class ) " "))))
 
 ;;}}}
-;;{{{ load realaudio if available
-(when (locate-library "emacspeak-realaudio")
-  (require 'emacspeak-realaudio))
-
-;;}}}
 ;;{{{ url rewrite
 
 ;;}}}
