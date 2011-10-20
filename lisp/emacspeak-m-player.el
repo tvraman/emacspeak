@@ -316,6 +316,68 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       )))
 
 ;;;###autoload
+(defun emacspeak-m-player-shuffle (resource &optional play-list)
+  "Play specified resource using m-player and shuffle turned on..
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode."
+  (interactive
+   (list
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t))
+      (read-file-name
+       "MP3 Resource: "
+       (emacspeak-m-player-guess-directory)
+       (when (eq major-mode 'dired-mode) (dired-get-filename))))
+    current-prefix-arg))
+  (declare (special emacspeak-media-extensions
+                    emacspeak-media-shortcuts-directory emacspeak-m-player-process
+                    emacspeak-m-player-program emacspeak-m-player-options))
+  (unless (string-match "^[a-z]+:"  resource)
+    (setq resource (expand-file-name resource)))
+  (when (and emacspeak-m-player-process
+             (eq 'run (process-status emacspeak-m-player-process))
+             (y-or-n-p "Stop currently playing music? "))
+    (emacspeak-m-player-quit)
+    (setq emacspeak-m-player-process nil))
+  (let ((buffer "*M-Player*")
+        (process-connection-type nil)
+        (playlist-p
+         (or play-list
+             (emacspeak-m-player-playlist-p resource)))
+        (options (copy-sequence emacspeak-m-player-options)))
+    (when (getenv "ALSA_DEFAULT")
+      (setq options
+            (nconc options
+                   (list "-ao"
+                         (format "alsa:device=%s"
+                                 (getenv "ALSA_DEFAULT"))))))
+    (setq options
+          (nconc options (list "-shuffle")))
+    (setq options
+          (cond
+           (playlist-p
+            (nconc options (list "-playlist" resource)))
+           ((file-directory-p resource)
+            (nconc
+             options
+             (directory-files
+              (expand-file-name resource)
+              'full
+              emacspeak-media-extensions)))
+           (t
+            (nconc options (list resource)))))
+    (save-excursion
+      (setq emacspeak-m-player-process
+            (apply 'start-process "M PLayer" buffer
+                   emacspeak-m-player-program options))
+      (set-buffer buffer)
+      (emacspeak-m-player-mode)
+                                        ;(setq mode-line-format '((:eval  (emacspeak-m-player-mode-line))))
+      )))
+
+;;;###autoload
 
 (defun emacspeak-m-player-load (resource  &optional append)
   "Load specified resource into a running  m-player.
