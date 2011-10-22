@@ -237,10 +237,9 @@ on a specific directory."
   (eval
    `(global-set-key
      key
-     (function
-      (lambda nil
-        (interactive)
-        (emacspeak-m-player-accelerator ,directory))))))
+     #'(lambda nil
+         (interactive)
+         (emacspeak-m-player-accelerator ,directory)))))
 
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
