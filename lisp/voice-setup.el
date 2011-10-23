@@ -481,16 +481,17 @@ font-lock.  Voicification is effective only if font lock is on."
     (set (make-local-variable 'voice-lock-mode) on-p)
     ;; Turn on Voice Lock mode.
     (when on-p
-      )
-    ;; Turn off Voice Lock mode.
-    (force-mode-line-update))
-  (when (interactive-p)
-    (message
-     (format "Turned %s voice lock mode"
-             (if voice-lock-mode "on" "off")))
-    (emacspeak-auditory-icon
-     (if voice-lock-mode
-         'on 'off ))))
+      ;; Turn off Voice Lock mode.
+      (setq voice-lock-mode nil)
+      (force-mode-line-update))
+    (when (interactive-p)
+      (message
+       (format "Turned %s voice lock mode"
+               (if voice-lock-mode "on" "off")))
+      (emacspeak-auditory-icon
+       (if voice-lock-mode
+           'on 'off )))))
+
 ;;;###autoload
 (defun turn-on-voice-lock ()
   "Turn on Voice Lock mode ."
