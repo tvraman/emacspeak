@@ -1350,6 +1350,38 @@ Produce an auditory icon if possible."
     (message "Checked   in  version %s "
              (emacspeak-vc-get-version-id))))
 
+(loop for f in
+      '(vc-dir-next-line vc-dir-previous-line
+                         vc-dir-next-directory vc-dir-previous-directory
+                         )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak-pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'select-object)))))
+
+      
+      
+(defadvice vc-dir-mark-file (after emacspeak-pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice vc-dir-mark (after emacspeak-pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice vc-dir (after emacspeak pre act comp)
+  "Produce auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{  composing mail
 
