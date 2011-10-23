@@ -473,24 +473,18 @@ font-lock.  Voicification is effective only if font lock is on."
   (interactive "P")
   ;; Don't turn on Voice Lock mode if we don't have a display (we're running a
   ;; batch job) or if the buffer is invisible (the name starts with a space).
-  (let ((on-p (and (not noninteractive)
-                   (not (eq (aref (buffer-name) 0) ?\ ))
-                   (if arg
-                       (> (prefix-numeric-value arg) 0)
-                     (not voice-lock-mode)))))
-    (set (make-local-variable 'voice-lock-mode) on-p)
-    ;; Turn on Voice Lock mode.
-    (when on-p
-      ;; Turn off Voice Lock mode.
-      (setq voice-lock-mode nil)
-      (force-mode-line-update))
+  (let ((off-p (or noninteractive (eq (aref (buffer-name) 0) ?\)))))
+        (set (make-local-variable 'voice-lock-mode) off-p)
+    (cond
+     (off-p (setq voice-lock-mode nil))
+     
+     (t (setq voice-lock-mode (not voice-lock-mode))))
     (when (interactive-p)
       (message
        (format "Turned %s voice lock mode"
                (if voice-lock-mode "on" "off")))
       (emacspeak-auditory-icon
-       (if voice-lock-mode
-           'on 'off )))))
+       (if voice-lock-mode 'on 'off )))))
 
 ;;;###autoload
 (defun turn-on-voice-lock ()
