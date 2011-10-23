@@ -1382,6 +1382,19 @@ Produce an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
+(defadvice vc-dir-hide-up-to-date (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
+
+(defadvice vc-dir-kill-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+
 ;;}}}
 ;;{{{  composing mail
 
