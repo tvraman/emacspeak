@@ -235,9 +235,12 @@ on a specific directory."
     (read-directory-name"Media Directory: ")
     (read-key-sequence "Key: ")))
   (let ((command
-         #'(lambda ()
+         (eval 
+          `(defun 
+             ,(intern (format "emacspeak-m-player-accelerator-%s" (gensym)))
+             ()
              (interactive)
-             (emacspeak-m-player-accelerator directory))))
+             (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)))
 
 ;;;###autoload
