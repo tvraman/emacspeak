@@ -479,14 +479,13 @@ punctuations.")
 (defun voice-lock-toggle ()
   "Interactively toggle voice lock."
   (interactive)
-  (declare (special voice-lock-mode))
   (if voice-lock-mode
       (turn-off-voice-lock)
     (turn-on-voice-lock))
   (when (interactive-p)
     (let ((state (if voice-lock-mode 'on 'off)))
       (when (interactive-p)
-        (message "Turned %s voice lock." state)
+        ;(message "Turned %s voice lock." state)
         (emacspeak-auditory-icon state)))))
 
 ;; Install ourselves:
