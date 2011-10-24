@@ -462,7 +462,7 @@ punctuations.")
 voicified."
   :type 'boolean
   :group 'emacspeak)
-
+(make-variable-buffer-local 'voice-lock-mode)
 ;;;###autoload
 (defun voice-lock-mode (&optional arg)
   "Toggle Voice Lock mode.
