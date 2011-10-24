@@ -82,15 +82,16 @@
 ;;; style specifications see special form defvoice Voices defined
 ;;; via defvoice can be customized via custom see the
 ;;; documentation for defvoice.
-
-;;}}}
-;;{{{ Required modules
-
 ;;; Code:
+;;}}}
+
+
+;;{{{ Required modules
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'backquote)
+(require 'easy-mmode)
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'multispeech-voices)
