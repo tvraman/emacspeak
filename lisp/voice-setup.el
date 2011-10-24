@@ -83,21 +83,22 @@
 ;;; via defvoice can be customized via custom see the
 ;;; documentation for defvoice.
 ;;; Code:
+
 ;;}}}
-
-
 ;;{{{ Required modules
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'backquote)
-(require 'easy-mmode)
+(eval-when-compile (require 'easy-mmode))
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'multispeech-voices)
 (require 'mac-voices)
 (require 'espeak-voices)
 (require 'dectalk-voices)
+
 ;;}}}
 ;;{{{ customization group
 
@@ -319,9 +320,9 @@ command \\[customize-variable] on <personality>-settings.. "
             (set-default sym val))))))
 
 ;;}}}                                   ; ; ; ;
-;;{{{ voices defined using ACSS         ; ; ; ;
+;;{{{ voices defined using ACSS         
 
-;;; these voices are device independent ; ; ; ;
+;;; these voices are device independent 
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
@@ -422,6 +423,7 @@ punctuations.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
+
 (voice-setup-add-map
  '(
    (bold voice-bolden)
@@ -519,6 +521,7 @@ Sample text to use comes from variable
 
 ;;}}}
 ;;{{{ interactively silence personalities 
+
 (defvar voice-setup-buffer-face-voice-table (make-hash-table)
   "Hash table used to store buffer local face->personality mappings.")
 ;;;###autoload
