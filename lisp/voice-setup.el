@@ -457,21 +457,12 @@ punctuations.")
 ;;}}}
 ;;{{{ new light-weight voice lock
 
-(defcustom voice-lock-mode t
-  "Determines  if property personality results in text being
-voicified."
-  :type 'boolean
-  :group 'emacspeak)
 ;;;###autoload
-(defun voice-lock-mode (&optional ignore-arg)
-  "Toggle Voice Lock mode.
-This light-weight voice lock engine leverages work already done by
-font-lock.  Voicification is effective only if font lock is on."
-  (interactive "P")
-  (setq voice-lock-mode (not voice-lock-mode))
+(define-minor-mode voice-lock-mode
+  "Toggle voice lock mode."
+  t nil nil
   (let ((state (if voice-lock-mode 'on 'off)))
     (when (interactive-p)
-      (message "Turned %s voice lock mode." state)
       (emacspeak-auditory-icon state))))
 
 ;;;###autoload
