@@ -464,27 +464,16 @@ voicified."
   :group 'emacspeak)
 (make-variable-buffer-local 'voice-lock-mode)
 ;;;###autoload
-(defun voice-lock-mode (&optional arg)
+(defun voice-lock-mode (&optional ignore-arg)
   "Toggle Voice Lock mode.
-With arg, turn Voice Lock mode on if and only if arg is positive.
-
 This light-weight voice lock engine leverages work already done by
 font-lock.  Voicification is effective only if font lock is on."
   (interactive "P")
-  ;; Don't turn on Voice Lock mode if we don't have a display (we're running a
-  ;; batch job) or if the buffer is invisible (the name starts with a space).
-  (let ((off-p (or noninteractive (eq (aref (buffer-name) 0) ?\)))))
-        (set (make-local-variable 'voice-lock-mode) off-p)
-    (cond
-     (off-p (setq voice-lock-mode nil))
-     
-     (t (setq voice-lock-mode (not voice-lock-mode))))
+  (setq voice-lock-mode (not voice-lock-mode))
+  (let ((state (if voice-lock-mode 'on 'off)))
     (when (interactive-p)
-      (message
-       (format "Turned %s voice lock mode"
-               (if voice-lock-mode "on" "off")))
-      (emacspeak-auditory-icon
-       (if voice-lock-mode 'on 'off )))))
+      (message "Turned %s voice lock mode." state)
+      (emacspeak-auditory-icon state))))
 
 ;;;###autoload
 (defun turn-on-voice-lock ()
