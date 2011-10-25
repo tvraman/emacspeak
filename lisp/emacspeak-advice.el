@@ -592,7 +592,6 @@ before the message is spoken."
                     emacspeak-speak-messages-pause
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t))
-    (voice-lock-mode t)
     ad-do-it
     (when (and
            (current-message)
@@ -990,8 +989,7 @@ Produce an auditory icon if possible."
                                                    pre act com)
   "Speak the line showing where point is."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -1000,8 +998,7 @@ Produce an auditory icon if possible."
                                                        pre act com)
   "Speak the line showing where point is."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -1009,8 +1006,7 @@ Produce an auditory icon if possible."
                                         comp)
   "Speak the line showing where point is."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -1018,8 +1014,7 @@ Produce an auditory icon if possible."
                                          comp)
   "Speak the line showing where point is."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -1028,7 +1023,7 @@ Produce an auditory icon if possible."
   "Speak the line showing where point is."
   (when (interactive-p)
     (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+          )
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 
@@ -1037,7 +1032,7 @@ Produce an auditory icon if possible."
   "Speak the line showing where point is."
   (when (interactive-p)
     (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+          )
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -1046,7 +1041,7 @@ Produce an auditory icon if possible."
   "Speak the line showing where point is."
   (when (interactive-p)
     (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+          )
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
@@ -2477,26 +2472,6 @@ Produce auditory icons if possible."
 
 (defvar emacspeak-minibuffer-enter-auditory-icon t
   "Produce auditory icon when entering the minibuffer.")
-
-;; (defun emacspeak-minibuffer-setup-hook ()
-;;   "Actions  taken when entering the minibuffer with emacspeak. "
-;;   (declare (special emacspeak-minibuffer-enter-auditory-icon
-;;                  minibuffer-default))
-;;   (let ((default
-;;           (cond
-;;            ((and minibuffer-default (listp minibuffer-default))
-;;             (format "Default: %s " (first minibuffer-default)))
-;;            (minibuffer-default
-;;             (format "Default: %s" minibuffer-default))
-;;            (t ""))))
-;;     (when emacspeak-minibuffer-enter-auditory-icon
-;;       (emacspeak-auditory-icon 'open-object))
-;;     (tts-with-punctuations
-;;      'all
-;;      (dtk-speak 
-;;       (format "%s %s"
-;;               (buffer-string)
-;;               default)))))
 
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with
