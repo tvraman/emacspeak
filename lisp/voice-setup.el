@@ -497,7 +497,7 @@ punctuations.")
 
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode turn-on-voice-lock
-  :initialize 'custom-initialize-delay
+  ;:initialize 'custom-initialize-delay
   :init-value (not (or noninteractive emacs-basic-display))
   :group 'voice-lock
   :version "22.1")
