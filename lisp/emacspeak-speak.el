@@ -1658,7 +1658,7 @@ running under.")
   "Return buffer coding system info if releant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
-  (declare (special buffer-file-coding-system voice-annotate
+  (declare (special buffer-file-coding-system voice-lighten
                     emacspeak-speak-default-os-coding-system))
   (cond
    ((and (boundp 'buffer-file-coding-system)
@@ -1668,13 +1668,13 @@ current coding system, then we return an empty string."
     (let ((value (format "%s" buffer-file-coding-system)))
       (put-text-property 0  (length value)
                          'personality
-                         voice-annotate
+                         voice-lighten
                          value)
       value))
    (t "")))
 
 (defvar emacspeak-minor-mode-prefix
-  "Active minor modes "
+  "minor modes " 
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
 
 (put-text-property 0 (length emacspeak-minor-mode-prefix)
