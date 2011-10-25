@@ -493,14 +493,8 @@ punctuations.")
       (when (interactive-p)
         (emacspeak-auditory-icon state)))))
 
-
-;;; Since we latch on to font-lock,
-;;; we intentionally use turn-on-font-lock-if-desired in the code below.
-(defvar global-voice-lock-mode t
-  "Turn on voice lock globally.")
-
 (define-globalized-minor-mode global-voice-lock-mode
-  voice-lock-mode turn-on-font-lock-if-desired
+  voice-lock-mode turn-on-voice-lock
   :initialize 'custom-initialize-delay
   :init-value (not (or noninteractive emacs-basic-display))
   :group 'voice-lock
