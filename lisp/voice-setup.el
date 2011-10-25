@@ -495,16 +495,17 @@ punctuations.")
         (emacspeak-auditory-icon state)))))
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
-;;; For Emacs 23
 
+(when (string-match "24" emacs-version)
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode turn-on-voice-lock
+  :initialize 'custom-initialize-delay
   :init-value (not (or noninteractive emacs-basic-display))
   :group 'voice-lock
-  :extra-args (dummy)
-  :initialize 'custom-initialize-safe-default
-  :init-value (not (or noninteractive emacs-basic-display))
-  :version "22.1")
+  :version "22.1"))
+
+
+
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
