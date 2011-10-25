@@ -493,6 +493,17 @@ punctuations.")
       (when (interactive-p)
         (emacspeak-auditory-icon state)))))
 
+
+;;; Since we latch on to font-lock,
+;;; we intentionally use turn-on-font-lock-if-desired in the code below.
+
+(define-globalized-minor-mode global-voice-lock-mode
+  voice-lock-mode turn-on-font-lock-if-desired
+  :initialize 'custom-initialize-delay
+  :init-value (not (or noninteractive emacs-basic-display))
+  :group 'voice-lock
+  :version "22.1")
+
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
 (unless (assq 'personality text-property-default-nonsticky)
@@ -500,6 +511,7 @@ punctuations.")
 
 (unless (assq 'voice-lock-mode minor-mode-alist)
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
+
 
 ;;}}}
 ;;{{{ list-voices-display
