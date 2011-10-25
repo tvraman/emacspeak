@@ -1649,7 +1649,7 @@ Interactive prefix arg speaks buffer info."
 ;;;Helper --return string describing coding system info
 
 (defvar emacspeak-speak-default-os-coding-system
-  'raw-text-unix
+  (default-value 'buffer-file-coding-system)
   "Default coding system used for text files.
 This should eventually be initialized based on the OS we are
 running under.")
