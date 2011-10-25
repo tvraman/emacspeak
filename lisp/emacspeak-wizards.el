@@ -86,9 +86,7 @@
                                          emacspeak-etc-directory))
   (emacspeak-auditory-icon 'news)
   (view-mode t)
-  (voice-lock-mode t)
-  (let
-      ((p (where-is-internal
+  (let ((p (where-is-internal
            'outline-previous-visible-heading nil 'ascii))
        (n (where-is-internal
            'outline-next-visible-heading nil 'ascii))
@@ -135,7 +133,6 @@ navigate this document."
                                          emacspeak-etc-directory))
   (emacspeak-auditory-icon 'help)
   (view-mode t)
-  (voice-lock-mode t)
   (let
       ((p (where-is-internal
            'outline-previous-visible-heading nil 'ascii))
@@ -1596,7 +1593,6 @@ Signals end of buffer."
   (let ((save-syntax (char-syntax 10))
         (start (point))
         (newlines nil)
-        (voice-lock-mode t)
         (skipped nil)
         (skip 0))
     (unwind-protect
@@ -1630,7 +1626,6 @@ The line under point is   then spoken.
 Signals beginning  of buffer."
   (interactive)
   (let ((save-syntax (char-syntax 10))
-        (voice-lock-mode t)
         (newlines nil)
         (start (point))
         (skipped nil)
@@ -2321,7 +2316,6 @@ emacspeak-wizards-personal-portfolio."
     (setq buffer (get-buffer-create buffer-name))
     (save-excursion
       (set-buffer  buffer)
-      (voice-lock-mode t)
       (widget-insert "\n")
       (widget-insert "Emacspeak Finder\n\n")
       (widget-create 'repeat
