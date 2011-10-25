@@ -216,7 +216,8 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
    ((and (stringp key)
          (string= "'" key))
     (emacspeak-pianobar-hide-or-show)
-    (emacspeak-speak-mode-line))
+   
+ (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-string  key))))

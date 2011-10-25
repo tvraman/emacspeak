@@ -463,7 +463,11 @@ punctuations.")
 ;;;###autoload
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
-  t nil nil)
+  t nil nil
+  (when (interactive-p)
+    (let ((state (if voice-lock-mode 'on 'off)))
+      (when (interactive-p)
+        (emacspeak-auditory-icon state)))))
 
 ;;;###autoload
 (defun turn-on-voice-lock ()
@@ -487,7 +491,6 @@ punctuations.")
   (when (interactive-p)
     (let ((state (if voice-lock-mode 'on 'off)))
       (when (interactive-p)
-        ;(message "Turned %s voice lock." state)
         (emacspeak-auditory-icon state)))))
 
 ;; Install ourselves:

@@ -167,9 +167,7 @@ Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   `(progn
-     (declare (special voice-lock-mode ))
-     (let ((save-voice-lock voice-lock-mode)
-           (saved-personality (get-text-property
+     (let ((saved-personality (get-text-property
                                ,start 'personality))
            (save-read-only buffer-read-only)
            (buffer-read-only nil )
@@ -180,7 +178,6 @@ Argument BODY specifies forms to execute."
            (modification-flag (buffer-modified-p)))
        (unwind-protect
            (progn
-             (setq voice-lock-mode t )
              (put-text-property
               (max (point-min) ,start)
               (min (point-max) ,end)
@@ -191,8 +188,7 @@ Argument BODY specifies forms to execute."
           (min (point-max)  ,end) 'personality saved-personality)
          (setq buffer-read-only save-read-only
                inhibit-read-only save-inhibit-read-only
-               inhibit-point-motion-hooks save-inhibit-point-motion-hooks
-               voice-lock-mode save-voice-lock )
+               inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
          (set-buffer-modified-p modification-flag )))))
 
 (defmacro ems-with-errors-silenced  (&rest body)
@@ -710,11 +706,9 @@ the sense of the filter. "
 Argument START  and END specify region to speak."
   (interactive "r" )
   (declare (special emacspeak-speak-voice-annotated-paragraphs
-                    inhibit-point-motion-hooks
-                    voice-lock-mode))
+                    inhibit-point-motion-hooks))
   (let ((inhibit-point-motion-hooks t))
-    (when (and voice-lock-mode
-               (not emacspeak-speak-voice-annotated-paragraphs))
+    (when (not emacspeak-speak-voice-annotated-paragraphs)
       (save-restriction
         (narrow-to-region start end )
         (emacspeak-speak-voice-annotate-paragraphs)))
@@ -827,7 +821,7 @@ start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
-  (declare (special voice-lock-mode voice-animate
+  (declare (special  voice-animate
                     voice-indent dtk-stop-immediately
                     inhibit-field-text-motion
                     emacspeak-speak-line-invert-filter
@@ -926,8 +920,7 @@ rather than speak it.")
 (make-variable-buffer-local 'emacspeak-speak-last-spoken-word-position)
 (defsubst emacspeak-speak-spell-word (word)
   "Spell WORD."
-  (declare (special voice-lock-mode
-                    voice-animate))
+  (declare (special voice-animate))
   (let ((result "")
         (char-string ""))
     (loop for char across word
@@ -935,11 +928,10 @@ rather than speak it.")
           (setq char-string (format "%c " char))
           (when (and (<= ?A char)
                      (<= char ?Z))
-            (if voice-lock-mode
-                (put-text-property 0 1
+            (put-text-property 0 1
                                    'personality voice-animate
                                    char-string)
-              (setq char-string (format "cap %s " char-string))))
+              (setq char-string (format "cap %s " char-string)))
           (setq result
                 (concat result
                         char-string)))
@@ -959,8 +951,7 @@ Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
 spelt instead of being spoken."
   (interactive "P")
-  (declare (special voice-lock-mode
-                    emacspeak-speak-last-spoken-word-position))
+  (declare (special emacspeak-speak-last-spoken-word-position))
   (when (listp arg) (setq arg (car arg )))
   (emacspeak-handle-action-at-point)
   (save-excursion
@@ -1261,11 +1252,9 @@ Negative prefix arg speaks from start of buffer to point.
 voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'."
   (interactive "P" )
   (declare (special emacspeak-speak-voice-annotated-paragraphs
-                    inhibit-point-motion-hooks
-                    voice-lock-mode))
+                    inhibit-point-motion-hooks))
   (let ((inhibit-point-motion-hooks t))
-    (when (and voice-lock-mode
-               (not emacspeak-speak-voice-annotated-paragraphs))
+    (when (not emacspeak-speak-voice-annotated-paragraphs)
       (emacspeak-speak-voice-annotate-paragraphs))
     (when (listp arg) (setq arg (car arg )))
     (let ((start nil )
@@ -1312,8 +1301,7 @@ Useful to listen to a buffer without switching  contexts."
 With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point."
   (interactive "P")
-  (declare (special voice-lock-mode
-                    help-buffer-list))
+  (declare (special help-buffer-list))
   (let ((help-buffer
          (if (boundp 'help-buffer-list)
              (car help-buffer-list)
@@ -1322,7 +1310,6 @@ Negative prefix arg speaks from start of buffer to point."
      (help-buffer
       (save-excursion
         (set-buffer help-buffer)
-        (voice-lock-mode 1)
         (emacspeak-speak-buffer arg )))
      (t (dtk-speak "First ask for help" )))))
 
@@ -1338,9 +1325,9 @@ Negative prefix arg speaks from start of buffer to point."
     (save-excursion
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
-;;;###autoload
-;; end emacs pre-19.30 specials
 
+
+;;;###autoload
 (defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
   (let (beg end)
@@ -1698,10 +1685,9 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist emacspeak-minor-mode-prefix
-                    voice-lock-mode vc-mode))
+                     vc-mode))
   (force-mode-line-update)
-  (let ((voice-lock-mode t)
-        (info nil))
+  (let ((info nil))
     (setq info
           (mapconcat
            #'(lambda(item)
@@ -1933,7 +1919,7 @@ be spoken.
  The kill number that is spoken says what numeric prefix arg to give
 to command yank."
   (interactive "p")
-  (let ((voice-lock-mode t)
+  (let (
         (context
          (format "kill %s "
                  (if current-prefix-arg (+ 1 count)  1 ))))
@@ -2021,7 +2007,7 @@ achieved by a change in voice personality."
   (when (and current-prefix-arg
              (> count (length mark-ring)))
     (error "Not that many marks in this buffer"))
-  (let ((voice-lock-mode t)
+  (let (
         (line nil)
         (position nil)
         (context
@@ -2803,10 +2789,8 @@ When calling from a program,arguments are
 START END personality
 Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
-  (declare (special voice-lock-mode))
   (require 'rect)
   (require 'emacspeak-personality )
-  (or voice-lock-mode (setq voice-lock-mode t ))
   (let ((personality-table (emacspeak-possible-voices )))
     (when (interactive-p)
       (setq personality
@@ -2826,9 +2810,7 @@ When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
-  (declare (special voice-lock-mode))
   (require 'emacspeak-personality )
-  (or voice-lock-mode (setq voice-lock-mode t ))
   (let ((personality-table (emacspeak-possible-voices )))
     (when (interactive-p)
       (setq personality
@@ -3038,13 +3020,11 @@ Argument O specifies overlay."
 
 (defun voice-lock-voiceify-faces ()
   "Map faces to personalities."
-  (declare (special voice-lock-mode))
   (save-excursion
     (goto-char (point-min))
     (let ((inhibit-read-only t )
           (face nil )
           (start (point)))
-      (setq voice-lock-mode t)
       (unwind-protect
           (while (not (eobp))
             (setq face (get-text-property (point) 'face ))
