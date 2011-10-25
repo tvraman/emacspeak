@@ -1622,7 +1622,7 @@ Interactive prefix arg speaks buffer info."
             (dtk-tone 950 100))
           (when buffer-read-only (dtk-tone 250 100)))
         (put-text-property 0 (length global-info)
-                           'personality voice-smoothen global-info)
+                           'personality voice-bolden-medium global-info)
         (tts-with-punctuations
          'all
          (dtk-speak
