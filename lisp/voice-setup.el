@@ -92,6 +92,7 @@
 (require 'custom)
 (require 'backquote)
 (eval-when-compile (require 'easy-mmode))
+(require 'custom)
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'multispeech-voices)
@@ -495,31 +496,14 @@ punctuations.")
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
 ;;; For Emacs 23
-(unless (fboundp 'custom-initialize-delay)
-  (defun custom-initialize-delay (symbol _value)
-  "Delay initialization of SYMBOL to the next Emacs start.
-This is used in files that are preloaded (or for autoloaded
-variables), so that the initialization is done in the run-time
-context rather than the build-time context.  This also has the
-side-effect that the (delayed) initialization is performed with
-the :set function.
 
-For variables in preloaded files, you can simply use this
-function for the :initialize property.  For autoloaded variables,
-you will also need to add an autoload stanza calling this
-function, and another one setting the standard-value property."
-  ;; No longer true:
-  ;; "See `send-mail-function' in sendmail.el for an example."
-
-  ;; Until the var is actually initialized, it is kept unbound.
-  ;; This seemed to be at least as good as setting it to an arbitrary
-  ;; value like nil (evaluating `value' is not an option because it
-  ;; may have undesirable side-effects).
-  (push symbol custom-delayed-init-variables)))
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode turn-on-voice-lock
   :init-value (not (or noninteractive emacs-basic-display))
   :group 'voice-lock
+  :extra-args (dummy)
+  :initialize 'custom-initialize-safe-default
+  :init-value (not (or noninteractive emacs-basic-display))
   :version "22.1")
 
 ;; Install ourselves:
