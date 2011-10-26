@@ -131,8 +131,7 @@
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
-    (let ((voice-lock-mode t)
-          (emacspeak-speak-messages nil))
+    (let ((emacspeak-speak-messages nil))
       (cond
        ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
         (save-excursion
