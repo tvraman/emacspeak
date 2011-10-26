@@ -1588,7 +1588,7 @@ Interactive prefix arg speaks buffer info."
           (dir-info (when (or
                            (eq major-mode 'shell-mode)
                            (eq major-mode 'comint-mode))
-                      default-directory)))
+                      (abbreviate-file-name default-directory))))
       (when (and  emacspeak-which-function-mode
                   (fboundp 'which-function)
                   (which-function))
