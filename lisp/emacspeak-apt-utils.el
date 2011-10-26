@@ -73,7 +73,6 @@
 
 (defadvice apt-utils-mode (after emacspeak pre act comp)
   "Setup Emacspeak extensions"
-  (voice-lock-mode 1)
   (dtk-set-punctuations 'all)
   (define-key apt-utils-mode-map "y" 'emacspeak-apt-utils-grab-package-at-point))
 
