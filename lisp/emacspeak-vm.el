@@ -72,8 +72,7 @@ Note that some badly formed mime messages  cause trouble."
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep))
   (emacspeak-dtk-sync)
-  (when emacspeak-vm-voice-lock-messages
-    (voice-lock-mode 1)))
+  (when emacspeak-vm-voice-lock-messages))
 
 ;;}}}
 ;;{{{ inline helpers

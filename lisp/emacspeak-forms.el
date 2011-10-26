@@ -93,8 +93,7 @@ speak the first field")
   "Speak current form field name and value.
 Assumes that point is at the front of a field value."
   (interactive)
-  (let ((voice-lock-mode t)
-        (name nil)
+  (let ((name nil)
         (value nil)
         (n-start nil))
     (save-excursion

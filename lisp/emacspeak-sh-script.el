@@ -55,7 +55,6 @@
 
 (defadvice sh-mode (after emacspeak pre act comp)
   "Speech-enable sh-script editting."
-  (voice-lock-mode 1)
   (dtk-set-punctuations 'all)
   (unless emacspeak-audio-indentation
     (emacspeak-toggle-audio-indentation))
@@ -63,7 +62,7 @@
 
 (defun emacspeak-sh-script-voice-lock-setup()
   "Setup voice locking."
-  (voice-lock-mode 1))
+  )
 
 (defadvice sh-indent-line (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."

@@ -1029,7 +1029,6 @@ available with the prefix emacspeak-eterm-prefix and are listed below:
   (emacspeak-eterm-setup-raw-keys)
   (make-local-variable 'eterm-current-personality)
   (setq eterm-current-personality emacspeak-eterm-default-personality)
-  (voice-lock-mode 1)
   (modify-syntax-entry 10 ">")
   (make-local-variable 'emacspeak-eterm-pointer)
   (setq emacspeak-eterm-pointer  (copy-marker (point)))

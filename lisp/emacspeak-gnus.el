@@ -159,7 +159,6 @@ reading news."
     (set-buffer  gnus-article-buffer)
     (goto-char (point-min))
     (setq dtk-punctuation-mode 'some)
-    (voice-lock-mode 1)
     (emacspeak-dtk-sync)
     (cond
      ((< (count-lines (point-min) (point-max))

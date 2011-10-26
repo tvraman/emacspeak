@@ -170,8 +170,7 @@
  'twittering-mode-hook
  #'(lambda ()
      (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-mode-line)
-     (voice-lock-mode 1)))
+     (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ Silence chatter
