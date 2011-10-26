@@ -110,7 +110,6 @@
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (voice-lock-mode 1)
     (emacspeak-custom-goto-group)
     (emacspeak-speak-line)))
 
@@ -119,14 +118,12 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-custom-goto-group)
-    (voice-lock-mode 1)
     (emacspeak-speak-line)))
 
 (defadvice customize-browse (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (voice-lock-mode 1)
     (emacspeak-speak-mode-line)))
 
 (defadvice customize-option (after emacspeak pre act comp)
@@ -136,7 +133,6 @@
       (emacspeak-auditory-icon 'open-object)
       (search-forward (custom-unlispify-tag-name symbol))
       (beginning-of-line)
-      (voice-lock-mode 1)
       (emacspeak-speak-line))))
 
 (defadvice customize-apropos (after emacspeak pre act comp)
@@ -144,7 +140,6 @@
   (when (interactive-p)
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
-      (voice-lock-mode 1)
       (beginning-of-line)
       (emacspeak-speak-line))))
 
@@ -153,7 +148,6 @@
   (when (interactive-p)
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
-      (voice-lock-mode 1)
       (search-forward (custom-unlispify-tag-name symbol))
       (beginning-of-line)
       (emacspeak-speak-line))))
@@ -162,7 +156,6 @@
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (voice-lock-mode 1)
     (emacspeak-speak-line)))
 
 (defadvice Custom-newline (after emacspeak pre act comp)
@@ -176,7 +169,6 @@
 (add-hook 'custom-mode-hook
           (function
            (lambda nil
-             (voice-lock-mode 1)
              (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}

@@ -137,7 +137,6 @@ pronunciations only once.")
   "Produce an auditory icon."
   (when (interactive-p)
     (let ((emacspeak-speak-messages nil))
-      (voice-lock-mode 1)
       (emacspeak-dired-label-fields)
       (emacspeak-auditory-icon 'open-object )
       (emacspeak-speak-mode-line))))
@@ -158,7 +157,6 @@ pronunciations only once.")
     (let ((directory-p (file-directory-p (dired-get-filename t t ))))
       ad-do-it
       (when directory-p
-        (voice-lock-mode 1)
         (emacspeak-dired-label-fields))
       (emacspeak-auditory-icon 'open-object )))
    (t ad-do-it))

@@ -59,7 +59,6 @@
 
 (defadvice apt-sources-mode (after emacspeak pre act comp)
   "Setup Emacspeak extensions"
-  (voice-lock-mode 1)
   (dtk-set-punctuations 'all))
 
 (defadvice apt-sources-previous-source-line (after emacspeak pre act comp)

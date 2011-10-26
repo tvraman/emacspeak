@@ -188,8 +188,7 @@ emacspeak-dismal-row-summarizer-list"
     (setq emacspeak-dismal-row-summarizer-list
           (read-minibuffer "Specify summarizer as a vector:
 " "[")))
-  (let ((voice-lock-mode t)
-        (summary nil))
+  (let ((summary nil))
     (setq summary 
           (mapconcat
            (function
@@ -235,8 +234,7 @@ emacspeak-dismal-col-summarizer-list"
     (setq emacspeak-dismal-col-summarizer-list
           (read-minibuffer "Specify summarizer as a vector:
 " "[")))
-  (let ((voice-lock-mode t)
-        (summary nil))
+  (let ((summary nil))
     (setq summary 
           (mapconcat
            (function
