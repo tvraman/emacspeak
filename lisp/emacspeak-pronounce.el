@@ -628,7 +628,6 @@ pronunciation dictionary for the specified key."
     (setq buffer (get-buffer-create buffer-name))
     (save-excursion
       (set-buffer  buffer)
-      (voice-lock-mode t)
       (widget-insert "\n")
       (widget-insert
        (format "Editting pronunciation dictionary for %s\n\n" key))

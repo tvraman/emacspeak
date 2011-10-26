@@ -163,8 +163,7 @@ and then cue the next selected buffer."
   (interactive)
   (declare (special Info-use-header-line
                     Info-header-line))
-  (let ((voice-lock-mode t))
-    (cond
+  (let (cond
      ((and (boundp 'Info-use-header-line)
            (boundp 'Info-header-line)
            Info-header-line)

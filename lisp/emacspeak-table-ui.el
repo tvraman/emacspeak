@@ -358,7 +358,6 @@ Optional prefix arg prompts for a new filter."
     (emacspeak-table-ui-filter-set
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
-  (let ((voice-lock-mode t))
     (message
      (mapconcat
       #'(lambda (token)
@@ -405,7 +404,7 @@ Optional prefix arg prompts for a new filter."
               value)
              (t  (format "%s" token)))))
       emacspeak-table-speak-row-filter
-      " "))))
+      " ")))
 
 (defvar emacspeak-table-speak-column-filter nil
   "Template specifying how a column is filtered before it is spoken.")

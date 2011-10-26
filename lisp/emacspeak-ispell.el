@@ -139,7 +139,6 @@ many available corrections."
   (cond
    ((interactive-p)
     (let ((dtk-stop-immediately t )
-          (voice-lock-mode t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -158,7 +157,6 @@ many available corrections."
   (cond
    ((interactive-p)
     (let ((dtk-stop-immediately t )
-          (voice-lock-mode t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -170,7 +168,6 @@ many available corrections."
   (cond
    ((interactive-p)
     (let ((dtk-stop-immediately t )
-          (voice-lock-mode t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -183,7 +180,6 @@ many available corrections."
   (cond
    ((interactive-p)
     (let ((dtk-stop-immediately t )
-          (voice-lock-mode t)
           (emacspeak-speak-messages nil))
       (setq emacspeak-last-message nil)
       ad-do-it

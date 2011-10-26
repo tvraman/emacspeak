@@ -238,8 +238,7 @@
   (when (interactive-p)
     (let ((line-number
            (format "line %s"
-                   (ad-get-arg 0 )))
-          (voice-lock-mode t))
+                   (ad-get-arg 0 ))))
       (put-text-property 0 (length line-number)
                          'personality voice-annotate line-number)
       (emacspeak-auditory-icon 'large-movement)

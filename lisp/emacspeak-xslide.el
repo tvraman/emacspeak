@@ -104,7 +104,6 @@
 (defadvice xsl-mode (after emacspeak pre act comp)
   "set up for voice locking."
   (emacspeak-xsl-voice-lock-setup)
-  (voice-lock-mode 1)
   (dtk-set-punctuations 'all))
 
 (defun emacspeak-xsl-voice-lock-setup()

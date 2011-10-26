@@ -2877,7 +2877,6 @@ for the current voice family."
                               (end-of-line)
                               (insert "\n"))))))
     (switch-to-buffer  buffer)
-    (voice-lock-mode 1)
     (goto-char (point-min))))
 
 ;;}}}

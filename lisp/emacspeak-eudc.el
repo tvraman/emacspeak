@@ -142,10 +142,6 @@ Summarize the form to welcome the user. "
 ;;}}}
 ;;{{{ voiceify values in results 
 
-(defadvice eudc-mode (before emacspeak pre act comp)
-  "Setup for voiceification"
-  (voice-lock-mode 1))
-
 (defgroup emacspeak-eudc nil
   "Emacspeak add-on to the Emacs Universal Directory Client."
   :group 'emacspeak

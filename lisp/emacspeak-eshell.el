@@ -231,15 +231,13 @@ personalities."
 (defadvice eshell-show-output (after emacspeak pre act comp)
   "Speak output."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 (defadvice eshell-mark-output (after emacspeak pre act comp)
   "Speak output."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'mark-object)
       (emacspeak-speak-line))))
 (defadvice eshell-kill-output (after emacspeak pre act comp)
