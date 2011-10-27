@@ -156,9 +156,6 @@ pronunciation dictionaries are stored. ")
   :group 'tts
   :type 'integer)
 
-(defvar tts-default-speech-rate dectalk-default-speech-rate
-  "Setup on a per engine basis.")
-
 ;;}}}
 ;;{{{ Hooks
 

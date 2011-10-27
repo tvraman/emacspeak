@@ -76,7 +76,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
       (emacspeak-sounds-select-theme "chimes-stereo/")
-      (run-hooks 'emacspeak-tts-startup-hook))
+      (emacspeak-tts-startup-hook))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -139,6 +139,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
        "gm-prepare"
+"recentf"
        "smtpmail" "sigbegone"
        ;"mailcrypt-prepare"
 ;;; Web Browsers:
@@ -168,6 +169,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  #'after-init-hook
  #'(lambda ()
+     (emacspeak-tts-startup-hook)
      (bbdb-insinuate-vm)
      (server-start)
      (shell)
