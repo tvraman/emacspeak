@@ -1585,7 +1585,6 @@ ALSA_DEFAULT to specified device before starting the server."
     (when (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
-    (tts-configure-synthesis-setup dtk-program)
     (when (interactive-p)
       (dtk-initialize))))
 
@@ -1742,7 +1741,8 @@ Default is to use pipes.")
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
       (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
-      (run-hooks 'dtk-startup-hook ))
+      (run-hooks 'dtk-startup-hook )
+      (tts-configure-synthesis-setup dtk-program))
      (t
       (when (interactive-p)
         (message "The speech server is not running."))))))
