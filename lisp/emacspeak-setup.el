@@ -170,11 +170,11 @@ pronunciation dictionaries are stored. ")
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
+  (declare (special dtk-program))
+  (tts-configure-synthesis-setup dtk-program)
   (dtk-set-rate tts-default-speech-rate t)
-  (dtk-interp-sync))
-
-(add-hook 'dtk-startup-hook
-          'emacspeak-tts-startup-hook)
+  (dtk-interp-sync)
+  (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook))
 
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()

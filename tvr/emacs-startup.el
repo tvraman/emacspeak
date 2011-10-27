@@ -75,7 +75,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (emacspeak-sounds-select-theme "chimes-stereo/"))
+      (emacspeak-sounds-select-theme "chimes-stereo/")
+      (run-hooks 'emacspeak-tts-startup-hook))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -167,10 +168,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  #'after-init-hook
  #'(lambda ()
-     
      (bbdb-insinuate-vm)
      (server-start)
-     (emacspeak-tts-startup-hook)
      (shell)
      (calendar)
      (nm-enable)
