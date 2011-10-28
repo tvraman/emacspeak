@@ -209,6 +209,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "jde" 'emacspeak-jde)
 (emacspeak-do-package-setup "js2" 'emacspeak-js2)
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
+(emacspeak-do-package-setup "magit" 'emacspeak-magit)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
 (emacspeak-do-package-setup "man" 'emacspeak-man)
 (emacspeak-do-package-setup "moz" 'emacspeak-moz)

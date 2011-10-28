@@ -170,6 +170,7 @@ emacspeak-js2.elc \
 emacspeak-kmacro.elc  \
 emacspeak-librivox.elc \
 emacspeak-madplay.elc \
+emacspeak-magit.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
@@ -395,6 +396,7 @@ emacspeak-librivox.elc: emacspeak-librivox.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-madplay.elc: emacspeak-madplay.el dtk-speak.elc voice-setup.elc
+emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc voice-setup.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
