@@ -152,6 +152,20 @@
                    
 
 ;;}}}
+;;{{{ Additional commands to advice:
+(defadvice magit-refresh (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
+
+(defadvice magit-refresh-all (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
