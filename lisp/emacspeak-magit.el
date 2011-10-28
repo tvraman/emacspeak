@@ -138,24 +138,7 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'open-object)))))
 
-(loop for f in
-      '(magit-hide magit-hide-branches
-                   magit-hide-branches-mode
-                   magit-hide-item-or-scroll-down magit-hide-item-or-scroll-up
-                   magit-hide-level
-                   magit-hide-level-1 magit-hide-level-1-all
-                   magit-hide-level-2 magit-hide-level-2-all
-                   magit-hide-level-3 magit-hide-level-3-all
-                   magit-hide-level-4 magit-hide-level-4-all
-                   magit-hide-only-files magit-hide-only-files-all
-                   magit-hide-section magit-hide-stash)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'close-object)))))
+
                    
 
 ;;}}}
