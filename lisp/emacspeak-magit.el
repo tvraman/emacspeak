@@ -129,6 +129,7 @@
                    magit-show-level-3 magit-show-level-3-all
                    magit-show-level-4 magit-show-level-4-all
                    magit-show-only-files magit-show-only-files-all
+                   magit-expand-section magit-expand-collapse-section
                    magit-show-section magit-show-stash)
       do
       (eval
@@ -138,6 +139,15 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'open-object)))))
 
+(loop for f in
+      '(magit-hide-section magit-collapse-section)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'close-object)))))
 
                    
 
