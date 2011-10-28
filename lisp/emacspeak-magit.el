@@ -42,7 +42,8 @@
 
 ;;; Commentary:
 ;;; MAGIT ==  Git interface in Emacs
-;;; git clone http://github.com/magit/magit
+;;; git clone git://github.com/magit/magit.git
+
 
 ;;}}}
 ;;{{{  Required modules
