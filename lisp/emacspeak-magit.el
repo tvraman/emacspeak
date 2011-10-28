@@ -82,6 +82,40 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
+;;; Advice navigators:
+
+(loop for f in
+      '(
+        magit-ignore-file magit-ignore-item
+                          magit-ignore-item-locally
+        magit-goto-next-section magit-goto-previous-section
+        magit-goto-parent-section magit-goto-line
+        magit-goto-section magit-goto-section-at-path)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback"
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
+
+;;}}}
+;;{{{ Advice generator to advice generated  commands:
+
+(defadvice  magit-key-mode-generate (after emacspeak pre act comp)
+  "Advice  the key-group menu for GROUP"
+  (let ((group (ad-get-arg 0))))
+  (eval
+   `(defadvice ,(intern (concat "magit-key-mode-popup-" (symbol-name group))) 
+      (after emacspeak  pre act comp)
+      ,(concat "Speech-enabled Key menu for " (symbol-name group))
+        (dtk-speak
+         (save-excursion
+           (set-buffer magit-key-mode-buf-name)
+           (buffer-string))))))
+;;; load the magit-key-mode file so the above advice gets applied:
+
+(load-library "magit-key-mode")
 ;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
