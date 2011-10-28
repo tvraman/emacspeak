@@ -80,7 +80,7 @@
    ( magit-menu-selected-option voice-animate)))
 
 ;;}}}
-;;{{{ Advice interactive commands:
+;;{{{ Advice navigation commands:
 
 ;;; Advice navigators:
 
@@ -116,6 +116,29 @@
 ;;; load the magit-key-mode file so the above advice gets applied:
 
 (load-library "magit-key-mode")
+
+;;}}}
+;;{{{ Advice hide/show commands:
+(loop for f in
+      '(magit-show magit-show-branches
+                   magit-show-branches-mode
+                   magit-show-item-or-scroll-down magit-show-item-or-scroll-up
+                   magit-show-level
+                   magit-show-level-1 magit-show-level-1-all
+                   magit-show-level-2 magit-show-level-2-all
+                   magit-show-level-3 magit-show-level-3-all
+                   magit-show-level-4 magit-show-level-4-all
+                   magit-show-only-files magit-show-only-files-all
+                   magit-show-section magit-show-stash)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'open-object)))))
+                   
+
 ;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
