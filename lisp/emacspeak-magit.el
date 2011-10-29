@@ -175,6 +175,19 @@
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
+(defadvice magit-status (after emacspeak pre act  comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+(defadvice magit-quit-window (after emacspeak pre act  comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
