@@ -140,6 +140,7 @@
     ("emacspeak-muse" . nil)
     ("emacspeak-mpg123"  . ("mpg123"))
     ("emacspeak-madplay" . nil)
+    ("emacspeak-magit" . "magit-prepare")
     ("emacspeak-alsaplayer" . nil)
     ("emacspeak-mspools"  . ("mspools") )
     ("emacspeak-net-utils"  . nil )
