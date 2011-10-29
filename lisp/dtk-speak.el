@@ -1531,7 +1531,7 @@ This is setup on a per engine basis.")
 
 ;;; will be reset on a per TTS engine basis.
 (defalias 'tts-get-voice-command 'dectalk-get-voice-command)
-
+;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
   (declare (special dtk-program emacspeak-auditory-icon-function
