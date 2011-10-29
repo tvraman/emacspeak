@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 942 commands.
+This chapter documents a total of 943 commands.
 
 @menu
 * cd-tool::
@@ -3009,6 +3009,12 @@ Seek  to absolute specified position.
 @kbd{Not bound to any key.}
 
 Seek  by offset into stream from current position.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-shuffle nil
+@kbd{ control e : }
+
+Launch M-Player with shuffle turned on.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-slave-command nil

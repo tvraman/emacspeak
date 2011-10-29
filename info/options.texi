@@ -855,15 +855,13 @@ personalities."
 (defadvice eshell-show-output (after emacspeak pre act comp)
   "Speak output."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 (defadvice eshell-mark-output (after emacspeak pre act comp)
   "Speak output."
   (when (interactive-p)
-    (let ((emacspeak-show-point t)
-          (voice-lock-mode t))
+    (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'mark-object)
       (emacspeak-speak-line))))
 (defadvice eshell-kill-output (after emacspeak pre act comp)
@@ -2651,6 +2649,14 @@ Automatically generated documentation
 for options defined in module  voice-setup.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} global-voice-lock-mode
+Non-nil if Global-Voice-Lock mode is enabled.
+See the command `global-voice-lock-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-voice-lock-mode'.
+@end defvar
+
 @defvar {User Option} voice-animate-extra-settings
 Adds extra animation  current voice.
 @end defvar
@@ -2709,11 +2715,6 @@ Add medium lighten current voice.
 
 @defvar {User Option} voice-lighten-settings
 Lighten current voice.
-@end defvar
-
-@defvar {User Option} voice-lock-mode
-Determines  if property personality results in text being
-voicified.
 @end defvar
 
 @defvar {User Option} voice-lock-overlay-0-settings

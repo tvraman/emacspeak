@@ -1888,6 +1888,12 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-shuffle	Key Sequence: control e : 
+
+ Launch M-Player with shuffle turned on. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-slave-command Dispatch slave command read from minibuffer. 
 
 ------------------------------------------------------------
