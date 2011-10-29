@@ -181,16 +181,15 @@ pronunciation dictionaries are stored. ")
   (when emacspeak-use-header-line
     (setq header-line-format
           emacspeak-header-line-format)))
+
 (defun emacspeak-tvr-startup-hook ()
   "Emacspeak startup hook that I use."
   (load-library "emacspeak-alsaplayer")
-  (load-library "emacspeak-webspace"))
+  (load-library "emacspeak-webspace")
+  (load-library "emacspeak-dbus"))
 
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
 (add-hook 'emacspeak-startup-hook 'emacspeak-tvr-startup-hook)
-
-;;; Use (add-hook 'emacspeak-startup-hook ...)
-;;; to add your personal settings.
 
 ;;}}}
 (emacspeak)
