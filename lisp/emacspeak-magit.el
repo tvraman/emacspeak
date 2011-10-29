@@ -84,6 +84,21 @@
 ;;{{{ Advice navigation commands:
 
 ;;; Advice navigators:
+(defadvice magit-mark-item (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-speak-line)))
+
+(defadvice magit-toggle-section (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+  (let ((state (magit-section-hidden (magit-current-section))))
+    (cond
+     (state (emacspeak-auditory-icon 'close-object))
+     (t (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-speak-line))))
+
 
 (loop for f in
       '(
