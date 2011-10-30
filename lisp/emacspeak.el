@@ -445,9 +445,11 @@ functions for details.   "
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
   (when (and  emacspeak-play-emacspeak-startup-icon
-              (file-exists-p "/usr/bin/mpg123"))
-    (start-process "mp3" nil "mpg123"
-                   "-q"
+              (or (executable-find "mplayer")
+                  (executable-find "mpg321")))
+    (start-process "mp3" nil
+                   (or (executable-find "mplayer")
+                       (executable-find "mpg321"))
                    (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (when emacspeak-pronounce-load-pronunciations-on-startup

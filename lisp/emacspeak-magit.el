@@ -217,6 +217,21 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ Setting Command Options:
+
+(defadvice magit-key-mode-add-option (after emacspeak pre act comp) 
+  "Provide auditory feedback."
+  (let ((for-group (ad-get-arg 0))
+        (option-name (ad-get-arg 1)))
+  (cond
+   ((not (member option-name magit-key-mode-current-options))
+      (message "Removed %s for %s" option-name for-group)
+      (emacspeak-auditory-icon 'delete-object))
+    (t (message "Added %s for %s" option-name for-group)
+       (emacspeak-auditory-icon 'select-object)))))
+  
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
