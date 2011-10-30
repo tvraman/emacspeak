@@ -169,6 +169,14 @@
 
 ;;}}}
 ;;{{{ Additional commands to advice:
+
+(defadvice magit-display-process (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "Displayed process buffer in other window.")))
+
+
 (defadvice magit-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -241,16 +249,29 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
+(defsubst emacspeak-magit-key-mode-header-line ()
+  "header line format reflecting currently set options."
+  (declare (special magit-key-mode-current-options magit-key-mode-current-args))
+  (let ((options
+         '(mapconcat
+                  #'identity
+                  magit-key-mode-current-options
+                  " "))
+        (args
+         '(mapconcat
+          #'identity
+          (loop for k being the hash-keys of magit-key-mode-current-args
+               and  v being the hash-values of magit-key-mode-current-args
+               collect (format "%s %s" k v))
+          " ")))
+    `(:eval (format "%s %s" ,options ,args)))))
+    
+  )
 
 (defadvice magit-key-mode(after emacspeak pre act comp)
   "Provide auditory icon."
+  (setq header-line-format (emacspeak-magit-key-mode-header-line))
   (emacspeak-auditory-icon 'open-object))
-
-(defadvice magit-display-process (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (message "Displayed process buffer in other window.")))
 
 ;;}}}
 (provide 'emacspeak-magit)
