@@ -230,6 +230,21 @@
     (t (message "Added %s for %s" option-name for-group)
        (emacspeak-auditory-icon 'select-object)))))
   
+(defadvice magit-key-mode-exec-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)))
+
+(defadvice magit-key-mode-kill-buffer (after emacspeak pre act
+                                             comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice magit-key-mode(after emacspeak pre act comp)
+  "Provide auditory icon."
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-magit)
