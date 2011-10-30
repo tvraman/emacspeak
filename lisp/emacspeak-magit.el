@@ -250,7 +250,7 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (message "Displayed process buffer in other window.")))"Displayed process status 
+    (message "Displayed process buffer in other window.")))
 
 ;;}}}
 (provide 'emacspeak-magit)
