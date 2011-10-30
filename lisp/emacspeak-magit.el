@@ -250,27 +250,40 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defsubst emacspeak-magit-key-mode-header-line ()
-  "header line format reflecting currently set options."
+  "Currently set options and args for use in header-line."
   (declare (special magit-key-mode-current-options magit-key-mode-current-args))
   (let ((options
-         '(mapconcat
-                  #'identity
-                  magit-key-mode-current-options
-                  " "))
+         (mapconcat
+          #'identity
+          magit-key-mode-current-options
+          " "))
         (args
-         '(mapconcat
+         (mapconcat
           #'identity
           (loop for k being the hash-keys of magit-key-mode-current-args
-               and  v being the hash-values of magit-key-mode-current-args
-               collect (format "%s %s" k v))
+                collect
+                (format "%s %s"
+                        k (gethash k magit-key-mode-current-args)))
           " ")))
-    `(:eval (format "%s %s" ,options ,args)))))
-    
-  )
+    (format "%s %s" options args)))    
+  
+(defadvice magit-key-mode-add-argument (after emacspeak pre act comp)
+  "Speak header line where we accumulate and reflect current state."
+  (emacspeak-speak-header-line))
+(defadvice magit-key-mode-command (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'button)
+  (emacspeak-speak-line))
+(defadvice magit-visit-item (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice magit-key-mode(after emacspeak pre act comp)
   "Provide auditory icon."
-  (setq header-line-format (emacspeak-magit-key-mode-header-line))
+  (setq header-line-format
+        '(:eval (emacspeak-magit-key-mode-header-line)))
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
