@@ -195,6 +195,28 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ Branches:
+
+(defadvice magit-remove-branch (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+(defadvice magit-remove-branch-in-remote-repo (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+(defadvice magit-change-what-branch-tracks (after emacspeak pre
+                                                  act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
