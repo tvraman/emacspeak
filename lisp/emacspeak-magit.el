@@ -246,6 +246,12 @@
   "Provide auditory icon."
   (emacspeak-auditory-icon 'open-object))
 
+(defadvice magit-display-process (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "Displayed process buffer in other window.")))"Displayed process status 
+
 ;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
