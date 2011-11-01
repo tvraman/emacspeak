@@ -3274,6 +3274,19 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
       (setq start (point)))))
 
 ;;}}}
+;;{{{ Helper: Enumerate commands whose names  match  a pattern
+
+(defun emacspeak-wizards-enumerate-matching-commands (pattern)
+  "Prompt for a string pattern and return list of commands whose names match pattern."
+  (interactive "sPattern: ")
+  (let ((result nil))
+(mapatoms 
+#'(lambda (s)
+(when (and (commandp s)
+(string-match pattern  (symbol-name s)))
+(push s result))))
+result))
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
