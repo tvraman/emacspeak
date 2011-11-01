@@ -3294,14 +3294,17 @@ result))
         (matches (emacspeak-wizards-enumerate-matching-commands pattern)))
     (mapc 
      #'(lambda (s)
-         (when 
-             (and
-              (not (string-match "^ad-Orig" (symbol-name s)))
-              (not (member
-                    (intern (format "ad-Orig-%s" (symbol-name s))) mg)))
+         (unless
+             (or
+              (string-match "^ad-Orig" (symbol-name s))
+              (ad-get-advice-info s))
            (push s result)))
      matches)
-    result))
+    (sort result
+          #'(lambda (a b)
+              (string-lessp (symbol-name a)
+                            (symbol-name b))))))
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
