@@ -3286,6 +3286,21 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (string-match pattern  (symbol-name s)))
 (push s result))))
 result))
+
+(defun emacspeak-wizards-enumerate-unadvised-commands (pattern)
+  "Enumerate unadvised commands matching pattern."
+  (interactive "sPattern:")
+  (let ((result nil)
+        (matches (emacspeak-wizards-enumerate-matching-commands pattern)))
+    (mapc 
+     #'(lambda (s)
+         (when 
+             (and
+              (not (string-match "^ad-Orig" (symbol-name s)))
+              (not (member
+                    (intern (format "ad-Orig-%s" (symbol-name s))) mg)))
+           (push s result))) mg)
+    result))
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
