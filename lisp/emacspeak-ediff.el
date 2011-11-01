@@ -38,28 +38,25 @@
 ;;}}}
 
 ;;{{{  Introduction:
+;;; Commentary:
 
-;;; Commentary: 
-
-;;;Ediff provides a nice visual interface to diff. Comparing and
-;;; patching files is easy with ediff when you can see the
-;;; screen. This module provides Emacspeak extensions to work
-;;; fluently with ediff. Try it out, it's an excellent example of
-;;; why Emacspeak is better than a traditional screenreader. This
-;;; module was originally written to interface to the old
-;;; ediff.el bundled with GNU Emacs 19.28 and earlier. It has
-;;; been updated to work with the newer and much larger ediff
-;;; system found in Emacs 19.29 and later.
-
+;;;Ediff provides a nice visual interface to diff.  ;;;Comparing and
+;;; patching files is easy with ediff when you can see the screen.
+;;; ;;;This module provides Emacspeak extensions to work fluently
+;;; ;;;with ediff. Try it out, it's an excellent example of why
+;;; Emacspeak is better than a traditional screenreader.  This module
+;;; was originally written to interface to the old ediff.el bundled
+;;; with GNU Emacs 19.28 and earlier.  It has been updated to work
+;;; with the newer and much larger ediff system found in Emacs 19.29
+;;; and later.
 ;;; Code:
 
 ;;}}}
-;;{{{  required Modules: 
+;;{{{  required
 
 (require 'emacspeak-preamble)
-
 ;;}}}
-;;{{{  Customizations 
+;;{{{  macros
 
 (defgroup emacspeak-ediff nil
   "Emacspeak support for EDiff."
@@ -70,12 +67,29 @@
 
 ;;}}}
 ;;{{{  Mapping faces to personalities:
-(voice-setup-add-map
- '(
-   (emacspeak-ediff-A-personality voice-smoothen)
-   (emacspeak-ediff-B-personality voice-monotone)
-   (emacspeak-ediff-fine-A-personality voice-bolden)
-   (emacspeak-ediff-fine-B-personality voice-lighten)))
+
+(defcustom emacspeak-ediff-A-personality voice-smoothen
+  "Personality used to voiceify difference chunk A"
+  :type 'symbol
+  :group 'emacspeak-ediff)
+
+(defcustom emacspeak-ediff-B-personality
+  voice-monotone
+  "Personality used to voiceify difference chunk B"
+  :type 'symbol
+  :group 'emacspeak-ediff)
+
+(defcustom emacspeak-ediff-fine-A-personality voice-bolden
+  "Personality used to voiceify difference chunk A"
+  :type 'symbol
+  :group 'emacspeak-ediff)
+
+(defcustom emacspeak-ediff-fine-B-personality
+  voice-bolden
+  "Personality used to voiceify difference chunk B"
+  :type 'symbol
+  :group 'emacspeak-ediff)
+
 ;;}}}
 ;;{{{ Helper functions:
 
@@ -84,17 +98,14 @@
 ;;;Please tell me what control buffer you're using--
 
 (defadvice ediff-setup-control-buffer (after emacspeak pre act )
-  "Record  control buffer."
+  (declare (special emacspeak-ediff-control-buffer))
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
 
 (defsubst emacspeak-ediff-control-panel ()
-  "Return current control buffer."
   (declare (special emacspeak-ediff-control-buffer ))
   emacspeak-ediff-control-buffer)
-  
 
 (defsubst emacspeak-ediff-difference-a-overlay (n)
-  "Return ediff overlay  for difference A."
   (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -103,7 +114,6 @@
   (aref (aref ediff-difference-vector-A n) 0))
 
 (defsubst emacspeak-ediff-difference-b-overlay (n)
-  "Return ediff overlay for difference B."
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -112,7 +122,6 @@
   (aref (aref ediff-difference-vector-B n) 0))
 
 (defsubst emacspeak-ediff-difference-c-overlay (n)
-  "Return ediff overlay for difference C."
   (declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
@@ -122,7 +131,6 @@
   (aref (aref ediff-difference-vector-C n) 0))
 
 (defsubst emacspeak-ediff-fine-difference-a-overlays (n)
-  "Return ediff overlay for fine differences."
   (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -131,7 +139,6 @@
   (aref (aref ediff-difference-vector-A n) 1))
 
 (defsubst emacspeak-ediff-fine-difference-b-overlays (n)
-  "Return ediff overlay for fine differences."
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -140,7 +147,6 @@
   (aref (aref ediff-difference-vector-B n) 1))
 
 (defsubst emacspeak-ediff-fine-difference-c-overlays (n)
-  "Return ediff overlay for fine differences."
   (declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
@@ -150,7 +156,6 @@
   (aref (aref ediff-difference-vector-C n) 1))
 
 (defsubst emacspeak-ediff-difference-fine-diff   (difference)
-  "Return fine diff."
   (aref difference 2))
 
 ;;}}}
@@ -291,12 +296,14 @@
         (message "Voicified fine differences ")))))
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
-(defsubst emacspeak-ediff-setup-keys ()
-  "Set up Emacspeak  keys in ediff mode."
-  (declare (special ediff-mode-map))
-  (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference))                                        
+
 (add-hook 'ediff-startup-hook
-          'emacspeak-ediff-setup-keys)
+          (function (lambda ()
+                      (declare (special ediff-mode-map
+                                        voice-lock-mode))
+                      (setq voice-lock-mode t)
+                      (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)
+                      (emacspeak-ediff-voicify-differences))))
 
 ;;}}}
 ;;{{{  Speak an ediff difference:
@@ -367,8 +374,7 @@ Set this to nil if things get too slow."
   (let ((counter(or
                  (ad-get-arg 0)
                  ediff-current-difference)))
-    ;(emacspeak-ediff-voiceify-fine-diff counter)
-    ))
+    (emacspeak-ediff-voiceify-fine-diff counter)))
 
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
