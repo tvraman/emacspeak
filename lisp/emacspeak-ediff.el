@@ -37,24 +37,29 @@
 
 ;;}}}
 
-;;{{{  required
-
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{  Introduction:
 
-;;;Ediff provides a nice visual interface to diff.  ;;;Comparing and
-;;; patching files is easy with ediff when you can see the screen.
-;;; ;;;This module provides Emacspeak extensions to work fluently
-;;; ;;;with ediff. Try it out, it's an excellent example of why
-;;; Emacspeak is better than a traditional screenreader.  This module
-;;; was originally written to interface to the old ediff.el bundled
-;;; with GNU Emacs 19.28 and earlier.  It has been updated to work
-;;; with the newer and much larger ediff system found in Emacs 19.29
-;;; and later.
+;;; Commentary: 
+
+;;;Ediff provides a nice visual interface to diff. Comparing and
+;;; patching files is easy with ediff when you can see the
+;;; screen. This module provides Emacspeak extensions to work
+;;; fluently with ediff. Try it out, it's an excellent example of
+;;; why Emacspeak is better than a traditional screenreader. This
+;;; module was originally written to interface to the old
+;;; ediff.el bundled with GNU Emacs 19.28 and earlier. It has
+;;; been updated to work with the newer and much larger ediff
+;;; system found in Emacs 19.29 and later.
+
+;;; Code:
 
 ;;}}}
-;;{{{  macros
+;;{{{  required Modules: 
+
+(require 'emacspeak-preamble)
+
+;;}}}
+;;{{{  Customizations 
 
 (defgroup emacspeak-ediff nil
   "Emacspeak support for EDiff."
@@ -65,29 +70,12 @@
 
 ;;}}}
 ;;{{{  Mapping faces to personalities:
-
-(defcustom emacspeak-ediff-A-personality voice-smoothen
-  "Personality used to voiceify difference chunk A"
-  :type 'symbol
-  :group 'emacspeak-ediff)
-
-(defcustom emacspeak-ediff-B-personality
-  voice-monotone
-  "Personality used to voiceify difference chunk B"
-  :type 'symbol
-  :group 'emacspeak-ediff)
-
-(defcustom emacspeak-ediff-fine-A-personality voice-bolden
-  "Personality used to voiceify difference chunk A"
-  :type 'symbol
-  :group 'emacspeak-ediff)
-
-(defcustom emacspeak-ediff-fine-B-personality
-  voice-bolden
-  "Personality used to voiceify difference chunk B"
-  :type 'symbol
-  :group 'emacspeak-ediff)
-
+(voice-setup-add-map
+ '(
+   (emacspeak-ediff-A-personality voice-smoothen)
+   (emacspeak-ediff-B-personality voice-monotone)
+   (emacspeak-ediff-fine-A-personality voice-bolden)
+   (emacspeak-ediff-fine-B-personality voice-lighten)))
 ;;}}}
 ;;{{{ Helper functions:
 
