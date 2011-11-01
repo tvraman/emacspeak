@@ -294,9 +294,7 @@
 (defsubst emacspeak-ediff-setup-keys ()
   "Set up Emacspeak  keys in ediff mode."
   (declare (special ediff-mode-map))
-  (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference))
-                                        
-                      ))
+  (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference))                                        
 (add-hook 'ediff-startup-hook
           'emacspeak-ediff-setup-keys)
 
