@@ -291,14 +291,14 @@
         (message "Voicified fine differences ")))))
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
-
+(defsubst emacspeak-ediff-setup-keys ()
+  "Set up Emacspeak  keys in ediff mode."
+  (declare (special ediff-mode-map))
+  (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference))
+                                        
+                      ))
 (add-hook 'ediff-startup-hook
-          (function (lambda ()
-                      (declare (special ediff-mode-map
-                                        voice-lock-mode))
-                      (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)
-                      ;(emacspeak-ediff-voicify-differences)
-                      )))
+          'emacspeak-ediff-setup-keys)
 
 ;;}}}
 ;;{{{  Speak an ediff difference:
