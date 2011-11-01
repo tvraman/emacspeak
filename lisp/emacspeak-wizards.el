@@ -3299,7 +3299,8 @@ result))
               (not (string-match "^ad-Orig" (symbol-name s)))
               (not (member
                     (intern (format "ad-Orig-%s" (symbol-name s))) mg)))
-           (push s result))) mg)
+           (push s result)))
+     matches)
     result))
 ;;}}}
 (provide 'emacspeak-wizards)
