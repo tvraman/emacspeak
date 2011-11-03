@@ -91,6 +91,25 @@
   :group 'emacspeak-ediff)
 
 ;;}}}
+(voice-setup-add-map
+ '(
+   (ediff-current-diff-A voice-smoothen)
+(ediff-current-diff-B voice-brighten)
+(ediff-current-diff-C boice-lighten)
+(ediff-current-diff-Ancestor voice-lighten-extra)
+(ediff-fine-diff-A voice-smoothen )
+(ediff-fine-diff-B voice-brighten)
+(ediff-fine-diff-C voice-monotone)
+(ediff-fine-diff-Ancestor voice-lighten-extra)
+(ediff-even-diff-A voice-brighten)
+(ediff-even-diff-B voice-smoothen)
+(ediff-even-diff-C voice-monotone)
+(ediff-even-diff-Ancestor voice-monotone)
+(ediff-odd-diff-A voice-smoothen)
+(ediff-odd-diff-B voice-brighten)
+(ediff-odd-diff-C voice-monotone)
+(ediff-odd-diff-Ancestor voice-lighten)
+))
 ;;{{{ Helper functions:
 
 (defvar emacspeak-ediff-control-buffer nil
