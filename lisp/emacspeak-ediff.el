@@ -52,12 +52,16 @@
 ;;; Code:
 
 ;;}}}
-;;{{{  required
+;;{{{  required:
 
 (require 'emacspeak-preamble)
 (require 'voice-setup)
+
 ;;}}}
-;;{{{  macros
+;;{{{  Map faces to voices.
+
+;;; These defcustoms are legacy and will go away.
+
 
 (defgroup emacspeak-ediff nil
   "Emacspeak support for EDiff."
@@ -65,9 +69,6 @@
                             ediff)
   :group 'emacspeak
   :prefix "emacspeak-ediff-")
-
-;;}}}
-;;{{{  Mapping faces to personalities:
 
 (defcustom emacspeak-ediff-A-personality voice-smoothen
   "Personality used to voiceify difference chunk A"
@@ -91,7 +92,7 @@
   :type 'symbol
   :group 'emacspeak-ediff)
 
-;;}}}
+
 (voice-setup-add-map
  '(
    (ediff-current-diff-A voice-smoothen)
@@ -111,6 +112,7 @@
 (ediff-odd-diff-C voice-monotone)
 (ediff-odd-diff-Ancestor voice-lighten)
 ))
+;;}}}
 ;;{{{ Helper functions:
 
 (defvar emacspeak-ediff-control-buffer nil
