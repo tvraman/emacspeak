@@ -103,6 +103,7 @@ personality settings."
 (defun emacspeak-personality-append  (start end personality &optional object )
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (condition-case nil
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
              (not (= start end)))
@@ -132,13 +133,15 @@ Existing personality properties on the text range are preserved."
            (ad-Orig-put-text-property start extent
                                       'personality new object))
          (when (< extent end)
-           (emacspeak-personality-append extent end v object))))))))
+           (emacspeak-personality-append extent end v object)))))))
+  (error nil)))
 
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end
                                              personality &optional object)
   "Prepend specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (condition-case nil
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
              (not (= start end)))
@@ -168,14 +171,15 @@ Existing personality properties on the text range are preserved."
            (ad-Orig-put-text-property start extent
                                       'personality new object))
          (when (< extent end)
-           (emacspeak-personality-prepend extent end v object))))))))
-
+           (emacspeak-personality-prepend extent end v object)))))))
+  (error nil)))
 (defun emacspeak-personality-remove  (start end
                                             personality
                                             &optional object)
   "Remove specified personality from text bounded by start and end.
 Other existing personality properties on the text range are
 preserved."
+  (condition-case nil
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
              (not (= start end)))
@@ -204,7 +208,8 @@ preserved."
                                            object))
          (when (< extent end)
            (emacspeak-personality-remove extent end
-                                         personality))))))))
+                                         personality)))))))
+  (error nil)))
 
 ;;}}}
 ;;{{{ helper: face-p

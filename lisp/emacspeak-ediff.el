@@ -55,6 +55,7 @@
 ;;{{{  required
 
 (require 'emacspeak-preamble)
+(require 'voice-setup)
 ;;}}}
 ;;{{{  macros
 
@@ -95,7 +96,7 @@
  '(
    (ediff-current-diff-A voice-smoothen)
 (ediff-current-diff-B voice-brighten)
-(ediff-current-diff-C boice-lighten)
+(ediff-current-diff-C voice-lighten)
 (ediff-current-diff-Ancestor voice-lighten-extra)
 (ediff-fine-diff-A voice-smoothen )
 (ediff-fine-diff-B voice-brighten)
