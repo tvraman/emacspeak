@@ -93,12 +93,14 @@ Particularly useful for web browsing."
 (make-variable-buffer-local 'tts-strip-octals)
 ;;;###autoload
 ;;;###autoload
-(defcustom dtk-speech-rate-base 50
+(defcustom dtk-speech-rate-base
+  (if (string-match "dtk" dtk-program) 180 50)
   "*Value of lowest tolerable speech rate."
   :type 'integer
   :group 'tts)
 ;;;###autoload
-(defcustom dtk-speech-rate-step 50
+(defcustom dtk-speech-rate-step
+  (if (string-match "dtk" dtk-program) 50 8)
   "*Value of speech rate increment.
 This determines step size used when setting speech rate via command
 `dtk-set-predefined-speech-rate'.  Formula used is
@@ -179,7 +181,9 @@ split caps Do not set this variable by hand, use command
 (defvar dtk-last-output nil
   "Variable holding last output.")
 
-(defvar dtk-speech-rate 225
+(defvar dtk-speech-rate
+  (if (string-match "dtk" dtk-program)
+      225 100)
   "Rate at which tts talks.
 Do not modify this variable directly; use command  `dtk-set-rate'
  bound to \\[dtk-set-rate].")
