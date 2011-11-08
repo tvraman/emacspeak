@@ -485,8 +485,10 @@ and TABLE gives the values along that dimension."
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate outloud-default-speech-rate)
   (setq dtk-speech-rate-step 8
-        dtk-speech-rate-base 50)
+        dtk-speech-rate-base 50
+        dtk-speech-rate outloud-default-speech-rate)
   (setq-default dtk-speech-rate-step 8
+                dtk-speech-rate outloud-default-speech-rate
                 dtk-speech-rate-base 50)
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
