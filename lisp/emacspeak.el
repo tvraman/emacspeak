@@ -449,6 +449,7 @@ functions for details.   "
   (emacspeak-export-environment)
   (require 'emacspeak-personality)
   (dtk-initialize)
+  (tts-configure-synthesis-setup)
   (require 'emacspeak-redefine)
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
