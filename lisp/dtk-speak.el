@@ -68,6 +68,17 @@
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
+;;;###autoload 
+(defvar dtk-program
+  (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
+  "The program to use to talk to the speech engine.
+Possible choices at present:
+dtk-exp     For the Dectalk Express.
+dtk-mv      for the Multivoice and older Dectalks.
+outloud     For IBM ViaVoice Outloud
+multispeech For Multilingual speech server
+espeak      For eSpeak
+The default is dtk-exp.")
 
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server )
@@ -91,6 +102,7 @@ Particularly useful for web browsing."
   :group  'dtk
   :group  'tts)
 (make-variable-buffer-local 'tts-strip-octals)
+
 ;;;###autoload
 ;;;###autoload
 (defcustom dtk-speech-rate-base
@@ -115,16 +127,6 @@ hook."
   :type 'hook
   :group 'tts)
 
-(defvar dtk-program
-  (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
-  "The program to use to talk to the speech engine.
-Possible choices at present:
-dtk-exp     For the Dectalk Express.
-dtk-mv      for the Multivoice and older Dectalks.
-outloud     For IBM ViaVoice Outloud
-multispeech For Multilingual speech server
-espeak      For eSpeak
-The default is dtk-exp.")
 
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
