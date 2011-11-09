@@ -2857,6 +2857,25 @@ Variable mark-even-if-inactive is set true ."
     ad-do-it))
 
 ;;}}}
+;;{{{ Splash Screen:
+
+(loop for f in
+      '(about-emacs display-about-screen)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))))
+
+(defadvice exit-splash-screen (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
