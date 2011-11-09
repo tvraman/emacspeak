@@ -103,6 +103,7 @@
 (loop for f in
       '(
         magit-ignore-file magit-ignore-item
+                          magit-stage-item magit-stash
                           magit-ignore-item-locally
         magit-goto-next-section magit-goto-previous-section
         magit-goto-parent-section magit-goto-line
