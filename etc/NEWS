@@ -2,7 +2,9 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
-* Emacspeak 34 -- Emacspeak 34 User Visible Changes 
+* Emacspeak 35 -- Emacspeak 34 User Visible Changes 
+** emacspeak-epub.el: 
+Preliminary epub support.
 ** emacspeak-woman.el:
 
 Add emacspeak support to WoMan -- man pages in Emacs Lisp.
@@ -14,9 +16,7 @@ When loaded, Emacspeak watches DBus signals for network
 connect/disconnet.
 
 ** emacspeak-pianobar.el:
-
 One-click access to Pandora Radio using pianobar.
-
 
 
 ** Emacspeak-npr.el: NPR  API Client
