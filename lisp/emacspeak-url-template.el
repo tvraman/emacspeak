@@ -984,14 +984,14 @@ Here are some examples:
 
 (emacspeak-url-template-define
  "BlogSearch Google"
- "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&ie=utf-8&num=25&output=atom"
+"http://www.google.com/search?q=%s&hl=en&tbm=blg&output=atom"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
  'emacspeak-webutils-atom-display)
 (emacspeak-url-template-define
  "Recent BlogSearch Google"
- "http://blogsearch.google.com/blogsearch_feeds?hl=en&q=%s&ie=utf-8&num=25&scoring=d&output=atom"
+"http://www.google.com/search?q=%s&hl=en&tbm=blg&scoring=d&output=atom"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
