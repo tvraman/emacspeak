@@ -3280,26 +3280,26 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Prompt for a string pattern and return list of commands whose names match pattern."
   (interactive "sPattern: ")
   (let ((result nil))
-(mapatoms 
-#'(lambda (s)
-(when (and (commandp s)
-(string-match pattern  (symbol-name s)))
-(push s result))))
-result))
+    (mapatoms 
+     #'(lambda (s)
+         (when (and (commandp s)
+                    (string-match pattern  (symbol-name s)))
+           (push s result))))
+    result))
 
 (defun emacspeak-wizards-enumerate-unadvised-commands (pattern)
   "Enumerate unadvised commands matching pattern."
   (interactive "sPattern:")
-  (let ((result nil)
-        (matches (emacspeak-wizards-enumerate-matching-commands pattern)))
-    (mapc 
+  (let ((result nil))
+    (mapatoms
      #'(lambda (s)
-         (unless
-             (or
-              (string-match "^ad-Orig" (symbol-name s))
-              (ad-get-advice-info s))
-           (push s result)))
-     matches)
+         (when
+             (and
+              (commandp s)
+             (not (string-match "^ad-Orig" (symbol-name s)))
+              (not (ad-get-advice-info s))
+              (string-match pattern  (symbol-name s)))
+             (push s result))))
     (sort result
           #'(lambda (a b)
               (string-lessp (symbol-name a)
