@@ -91,6 +91,29 @@
   :group 'emacspeak-bookshare)
 
 ;;}}}
+;;{{{ XML Compatibility:
+(unless (fboundp 'xml-substitute-numeric-entities)
+  ;;; cloned from xml.el in emacs 24
+  (defun xml-substitute-numeric-entities (string)
+  "Substitute SGML numeric entities by their respective utf characters.
+This function replaces numeric entities in the input STRING and
+returns the modified string.  For example \"&#42;\" gets replaced
+by \"*\"."
+  (if (and string (stringp string))
+      (let ((start 0))
+        (while (string-match "&#\\([0-9]+\\);" string start)
+          (condition-case nil
+              (setq string (replace-match
+                            (string (read (substring string
+                                                     (match-beginning 1)
+                                                     (match-end 1))))
+                            nil nil string))
+            (error nil))
+          (setq start (1+ (match-beginning 0))))
+        string)
+    nil)))
+
+;;}}}
 ;;{{{ Variables:
 
 (defvar emacspeak-bookshare-curl-program (executable-find "curl")
