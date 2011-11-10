@@ -3287,7 +3287,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
            (push s result))))
     result))
 
-(defun emacspeak-wizards-enumerate-unadvised-commands (pattern)
+(defun emacspeak-wizards-enumerate-uncovered-commands (pattern)
   "Enumerate unadvised commands matching pattern."
   (interactive "sPattern:")
   (let ((result nil))
@@ -3296,10 +3296,11 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
          (when
              (and
               (commandp s)
-             (not (string-match "^ad-Orig" (symbol-name s)))
-              (not (ad-get-advice-info s))
+              (emacspeak-should-i-fix-interactive-p s)
+              (not (string-match "^ad-Orig" (symbol-name s)))
+              (not (ad-find-some-advice s 'any  "emacspeak"))
               (string-match pattern  (symbol-name s)))
-             (push s result))))
+           (push s result))))
     (sort result
           #'(lambda (a b)
               (string-lessp (symbol-name a)
