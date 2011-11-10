@@ -1,6 +1,6 @@
 ;;; xml-parse --- code to efficiently read/write XML data with Elisp
 
-;; Copyright (C) 2001 John Wiegley.
+;; Copyright (C) 2001, 2011 John Wiegley.
 
 ;; Author: John Wiegley <johnw@gnu.org>
 ;; Version: 1.5

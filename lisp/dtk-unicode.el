@@ -1,7 +1,7 @@
 ;;; dtk-unicode.el --- Pronounce more characters correctly
 ;;{{{ Header: Lukas
 
-;; Copyright 2007 Lukas Loehrer
+;; Copyright 2007, 2011 Lukas Loehrer
 ;;; TVR: Integrated into Emacspeak July 6, 2008
 ;;; Using patch from Lukas.
 ;;

@@ -1,7 +1,7 @@
 ;;;; $Id$
 ;;;; This file implements a simple LIFO stack.
 
-;; Copyright (C) 1991-1995 Free Software Foundation
+;; Copyright (C) 1991-1995, 2011 Free Software Foundation
 
 ;; Author: Inge Wallin <inge@lysator.liu.se>
 ;; Maintainer: elib-maintainers@lysator.liu.se
