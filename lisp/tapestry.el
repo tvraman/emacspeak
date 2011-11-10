@@ -1,5 +1,5 @@
 ;;;  Tools to configure your GNU Emacs windows
-;;; Copyright (C) 1991, 1993, 1994, 1995, 1997 Kyle E. Jones 
+;;; Copyright (C) 1991, 1993, 1994, 1995, 1997, 2011 Kyle E. Jones 
 ;;;
 
 ;;;$Id$

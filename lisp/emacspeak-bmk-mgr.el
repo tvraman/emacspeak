@@ -6,7 +6,7 @@
 
 ;;; This file is not part of Emacs, but the same terms and
 ;;; conditions apply.
-;; Copyright (C) 2001,2002  Dimitri V. Paduchih
+;; Copyright (C) 2001,2002,2011  Dimitri V. Paduchih
 
 ;; Initial version: Author: Dimitri Paduchih <paduch@imm.uran.ru>
 ;;;author: T. V. Raman (integration with Emacspeak, and sections marked TVR)
