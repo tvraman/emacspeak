@@ -477,7 +477,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
 ;;{{{ Lunar Phases
 
 (loop for f in
-      '(calendar-lunar-phases lunar-phases)
+      '(calendar-lunar-phases lunar-phases phases-of-the-moon)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
