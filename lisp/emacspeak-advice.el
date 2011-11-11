@@ -720,13 +720,16 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{  advice completion functions to speak:
-
-(defadvice dabbrev-expand (after emacspeak pre act)
+(loop for f in
+      '(dabbrev-expand dabbrev-completion)
+      do
+(eval
+ `(defadvice,f (after emacspeak pre act)
   "Say what you completed."
   (when (interactive-p)
     (tts-with-punctuations 'all
                            (dtk-speak
-                            dabbrev--last-expansion))))
+                            dabbrev--last-expansion)))))))
 
 (loop for f in
       '(minibuffer-complete-word  minibuffer-complete)
