@@ -723,13 +723,13 @@ Produce an auditory icon if possible."
 (loop for f in
       '(dabbrev-expand dabbrev-completion)
       do
-(eval
+      (eval
  `(defadvice,f (after emacspeak pre act)
   "Say what you completed."
   (when (interactive-p)
     (tts-with-punctuations 'all
                            (dtk-speak
-                            dabbrev--last-expansion)))))))
+                            dabbrev--last-expansion))))))
 
 (loop for f in
       '(minibuffer-complete-word  minibuffer-complete)
