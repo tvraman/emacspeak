@@ -1026,7 +1026,7 @@ I'm Feeling Lucky button on Google."
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-  "http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&cof=FORID%3A9&ie=UTF-8&sa=Search&q="
+"http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&nojs=1&ie=UTF-8&sa=Search&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
 ;;;###autoload
