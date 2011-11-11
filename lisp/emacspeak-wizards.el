@@ -3296,6 +3296,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
          (when
              (and
               (commandp s)
+              (not (string-match "^emacspeak" (symbol-name s)))
               (emacspeak-should-i-fix-interactive-p s)
               (not (string-match "^ad-Orig" (symbol-name s)))
               (not (ad-find-some-advice s 'any  "emacspeak"))
