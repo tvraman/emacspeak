@@ -2876,6 +2876,25 @@ Variable mark-even-if-inactive is set true ."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ copyright commands:
+
+(loop for f in
+      '(copyright copyright-update)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'task-done)
+            (emacspeak-speak-line)))))
+
+(defadvice copyright-update-directory (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
