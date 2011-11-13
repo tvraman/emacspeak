@@ -3,6 +3,15 @@ $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
 * Emacspeak 35 -- Emacspeak 34 User Visible Changes 
+** emacspeak-websearch.el:
+
+More options for controlling Google search, including better
+toolbelt integration.
+New customize option emacspeak-websearch-google-results-only  ---
+set to T by default ---
+displays only results and the nav bar for Google search
+results. You can easily repeat the search with additional search
+toolbelt options via the commands available on C-t.
 ** emacspeak-epub.el: 
 Preliminary epub support.
 ** emacspeak-woman.el:
