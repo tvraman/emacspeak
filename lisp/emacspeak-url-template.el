@@ -1074,6 +1074,19 @@ from English to German.")
  "Google Glossary lookup.")
 
 (emacspeak-url-template-define
+ "Google Results"
+ "http://www.google.com/search?q=%s&num=25"
+ (list 'gweb-google-autocomplete)
+ nil
+ "Show just results and nav bar."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id-list
+      (list "res" "nav")
+      url 'speak)))
+
+
+
+(emacspeak-url-template-define
  "1Box Google"
  "http://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)

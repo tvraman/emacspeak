@@ -955,6 +955,10 @@ Optional second arg as-html processes the results as HTML rather than data."
   "Number of results to return from google search."
   :type 'number
   :group 'emacspeak-websearch)
+(defcustom emacspeak-websearch-google-results-only t
+  "Specify if we show just results or the complete Google page."
+  :type  'boolean
+  :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri-template
   "www.google.com/search?q="
@@ -986,12 +990,14 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the
-I'm Feeling Lucky button on Google."
+I'm Feeling Lucky button on Google.
+Uses  customizable option `emacspeak-websearch-google-results-only' to determine if we show just results."
   (interactive
    (list
     (gweb-google-autocomplete)
     current-prefix-arg))
   (declare (special emacspeak-google-query emacspeak-google-toolbelt
+                    emacspeak-websearch-google-results-only
                     emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (let ((toolbelt (emacspeak-google-toolbelt)))
@@ -999,24 +1005,28 @@ I'm Feeling Lucky button on Google."
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky
         (emacspeak-webutils-autospeak)
-      (emacspeak-webutils-post-process
-       "Results"
-       'emacspeak-speak-line))
-    (let ((emacspeak-w3-tidy-html t))
-      (emacspeak-webutils-with-xsl-environment
-       (expand-file-name "default.xsl" emacspeak-xslt-directory)
-       nil emacspeak-xslt-options
-       (browse-url
-        (concat (emacspeak-websearch-google-uri) query
-                (format "&num=%s%s"
-                        emacspeak-websearch-google-number-of-results
-                        (or emacspeak-websearch-google-options ""))
-                (when lucky
+      (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
+    (let ((emacspeak-w3-tidy-html t)
+          (search-url
+           (concat
+            (emacspeak-websearch-google-uri)
+            query
+            (format "&num=%s%s"         ; acumulate options
+                    emacspeak-websearch-google-number-of-results
+                    (or emacspeak-websearch-google-options ""))
+            (when lucky
                   (concat
                    "&btnI="
-                   (emacspeak-url-encode
-                    "I'm Feeling Lucky")))))))))
-
+                   (emacspeak-url-encode "I'm Feeling Lucky"))))))
+      (cond
+       (emacspeak-websearch-google-results-only
+         (emacspeak-we-extract-by-id-list
+          (list "res" "nav")
+          search-url 'speak))
+       (t (emacspeak-webutils-with-xsl-environment
+            (expand-file-name "default.xsl" emacspeak-xslt-directory)
+            nil emacspeak-xslt-options
+            (browse-url search-url)))))))
 ;;{{{ IMFA
 
 (emacspeak-websearch-set-searcher 'agoogle
