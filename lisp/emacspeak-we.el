@@ -88,7 +88,8 @@ a rewrite rule even if one is already defined."
     (setq redirect
           (replace-regexp-in-string
            (first emacspeak-we-url-rewrite-rule)
-           (second emacspeak-we-url-rewrite-rule)))
+           (second emacspeak-we-url-rewrite-rule)
+           url))
     (emacspeak-auditory-icon 'select-object)
     (browse-url (or redirect url))))
 
