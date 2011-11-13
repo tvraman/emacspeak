@@ -104,12 +104,14 @@ node -- speak the entire node."
      ((eq emacspeak-info-select-node-speak-chunk 'node)
       (emacspeak-speak-buffer ))
      (t (emacspeak-speak-line)))))
-
-(defadvice Info-select-node (after emacspeak pre act)
-  "Voiceify the Info node if requested.
-Speak the selected node based on setting of
+(loop for f in
+      '(info-display-manual Info-select-node)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act)
+  " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
-  (emacspeak-info-visit-node))
+  (emacspeak-info-visit-node))))
 
 (defadvice info (after emacspeak pre act)
   "Cue user that info is up."
