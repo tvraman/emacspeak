@@ -88,12 +88,11 @@ This variable is buffer-local.")
                     ((equal (emacspeak-google-tool-value tool)
                             (emacspeak-google-tool-default tool))
                      nil)
-                    (t (format "%s:%s"
-                               (emacspeak-google-tool-param tool)
-                               (emacspeak-google-tool-value tool)))))
+                    (t (format "%s"
+                               (emacspeak-google-tool-param tool)))))
                belt))))
     (when settings 
-      (concat "&tbs="
+      (concat "&tbm="
               (mapconcat #'identity settings ",")))))
 
 (defun emacspeak-google-toolbelt-to-tbs (belt)
@@ -329,7 +328,7 @@ This variable is buffer-local.")
              (t (error "Unexpected type!")))
             (let
                 ((emacspeak-websearch-google-options
-                  (emacspeak-google-toolbelt-to-tbs belt)))
+                  (emacspeak-google-toolbelt-to-tbm belt)))
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
