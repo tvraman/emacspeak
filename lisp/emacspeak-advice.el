@@ -2898,6 +2898,19 @@ Variable mark-even-if-inactive is set true ."
 
 
 ;;}}}
+;;{{{ New buffer switching commands:
+
+(loop for f in
+      '(switch-to-prev-buffer switch-to-next-buffer)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-mode-line)
+            (emacspeak-auditory-icon 'select-object)))))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
