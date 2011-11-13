@@ -256,6 +256,14 @@ on a specific directory."
   (if (string-match "\\(mp3\\)\\|\\(audio\\)"  default-directory)
       default-directory
     emacspeak-media-shortcuts-directory))
+;;;###autoload 
+(defun emacspeak-m-player-url (url)
+  "Call emacspeak-m-player with specified URL."
+  (interactive "sURL: ")
+  (emacspeak-m-player url))
+
+
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
