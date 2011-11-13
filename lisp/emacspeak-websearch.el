@@ -1021,7 +1021,7 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
       (cond
        (emacspeak-websearch-google-results-only
          (emacspeak-we-extract-by-id-list
-          (list "res" "nav")
+          (list "subform_ctrl" "res" "nav")
           search-url 'speak))
        (t (emacspeak-webutils-with-xsl-environment
             (expand-file-name "default.xsl" emacspeak-xslt-directory)
