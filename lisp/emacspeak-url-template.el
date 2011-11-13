@@ -1081,10 +1081,8 @@ from English to German.")
  "Show just results and nav bar."
  #'(lambda (url)
      (emacspeak-we-extract-by-id-list
-      (list "res" "nav")
+      (list "subform_ctrl" "res" "nav")
       url 'speak)))
-
-
 
 (emacspeak-url-template-define
  "1Box Google"
@@ -1095,17 +1093,6 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-we-extract-by-id
       "res"
-      url 'speak)))
-
-(emacspeak-url-template-define
- "Answers from Google Squared"
- "https://www.google.com/search?q=%s"
- (list 'gweb-google-autocomplete)
- nil
- "Answers from Google Squared snippets."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "ires"
       url 'speak)))
 
 (emacspeak-url-template-define
