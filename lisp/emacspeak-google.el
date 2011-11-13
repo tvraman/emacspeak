@@ -46,6 +46,8 @@
 ;;; show up as the Google tool-belt.
 ;;; This module implements a minor mode for use in Google result
 ;;; pages that enables these tools via single keyboard commands.
+;;; Originally all options were available as tbs=p:v
+;;; Now, some specialized searches, e.g. blog search are tbm=
 ;;; Code:
 
 ;;}}}
@@ -66,6 +68,7 @@
   range ; range of possible values
   default
   value ; current setting
+  type
   )
 (defvar emacspeak-google-query nil
   "Current Google Query.
