@@ -77,6 +77,25 @@ This variable is buffer-local.")
 
 (make-variable-buffer-local 'emacspeak-google-toolbelt)
 
+(defun emacspeak-google-toolbelt-to-tbm (belt)
+  "Return value for use in tbm parameter in search queries."
+  (let
+      ((settings
+        (delq nil
+              (mapcar 
+               #'(lambda (tool)
+                   (cond
+                    ((equal (emacspeak-google-tool-value tool)
+                            (emacspeak-google-tool-default tool))
+                     nil)
+                    (t (format "%s:%s"
+                               (emacspeak-google-tool-param tool)
+                               (emacspeak-google-tool-value tool)))))
+               belt))))
+    (when settings 
+      (concat "&tbs="
+              (mapconcat #'identity settings ",")))))
+
 (defun emacspeak-google-toolbelt-to-tbs (belt)
   "Return value for use in tbs parameter in search queries."
   (let
