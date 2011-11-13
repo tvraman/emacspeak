@@ -1078,7 +1078,7 @@ from English to German.")
  "http://www.google.com/search?q=%s"
  (list 'gweb-google-autocomplete)
  nil
- "Show 1box result from Google."
+ "Show 1box result from Google. Actually now shows just the results."
  #'(lambda (url)
      (emacspeak-we-extract-by-id
       "res"
