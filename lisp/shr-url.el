@@ -65,7 +65,8 @@
       (erase-buffer)
     (shr-insert-document dom)
     (set-buffer-modified-p nil)
-    (setq buffer-read-only t))
+    (setq buffer-read-only t)
+    (org-mode)))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
 
