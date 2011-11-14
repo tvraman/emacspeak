@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 638 user customizable
+This chapter documents a total of 655 user customizable
   options.
 
 @menu
@@ -578,6 +578,17 @@ Options passed to Unix builtin `file' command.
 @node emacspeak-ediff Options
 @section emacspeak-ediff Options
 
+Commentary:
+Ediff provides a nice visual interface to diff.  ;;;Comparing and
+patching files is easy with ediff when you can see the screen.
+This module provides Emacspeak extensions to work fluently
+with ediff. Try it out, it's an excellent example of why
+Emacspeak is better than a traditional screenreader.  This module
+was originally written to interface to the old ediff.el bundled
+with GNU Emacs 19.28 and earlier.  It has been updated to work
+with the newer and much larger ediff system found in Emacs 19.29
+and later.
+
 Automatically generated documentation
 for options defined in module  emacspeak-ediff.
 These options are customizable via Emacs' Custom interface.
@@ -595,12 +606,92 @@ Says if emacspeak should try computing fine differences each time.
 Set this to nil if things get too slow.
 @end defvar
 
+@defvar {User Option} emacspeak-ediff-current-diff-A-voice
+Personality used for ediff-current-diff-A
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-current-diff-Ancestor-voice
+Personality used for ediff-current-diff-Ancestor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-current-diff-B-voice
+Personality used for ediff-current-diff-B
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-current-diff-C-voice
+Personality used for ediff-current-diff-C
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-even-diff-A-voice
+Personality used for ediff-even-diff-A
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-even-diff-Ancestor-voice
+Personality used for ediff-even-diff-Ancestor
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-even-diff-B-voice
+Personality used for ediff-even-diff-B
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-even-diff-C-voice
+Personality used for ediff-even-diff-C
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-ediff-fine-A-personality
 Personality used to voiceify difference chunk A
 @end defvar
 
 @defvar {User Option} emacspeak-ediff-fine-B-personality
 Personality used to voiceify difference chunk B
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-fine-diff-A-voice
+Personality used for ediff-fine-diff-A
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-fine-diff-Ancestor-voice
+Personality used for ediff-fine-diff-Ancestor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-fine-diff-B-voice
+Personality used for ediff-fine-diff-B
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-fine-diff-C-voice
+Personality used for ediff-fine-diff-C
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-odd-diff-A-voice
+Personality used for ediff-odd-diff-A
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-odd-diff-Ancestor-voice
+Personality used for ediff-odd-diff-Ancestor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-odd-diff-B-voice
+Personality used for ediff-odd-diff-B
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ediff-odd-diff-C-voice
+Personality used for ediff-odd-diff-C
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
 @node emacspeak-entertain Options
@@ -2334,6 +2425,10 @@ Number of results to return from google search.
 
 @defvar {User Option} emacspeak-websearch-google-options
 Additional options to pass to Google e.g. &xx=yy...
+@end defvar
+
+@defvar {User Option} emacspeak-websearch-google-results-only
+Specify if we show just results or the complete Google page.
 @end defvar
 
 @defvar {User Option} emacspeak-websearch-google-use-https

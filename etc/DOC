@@ -1391,11 +1391,11 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
-** emacspeak-google-realtime-search Retrieve realtime searches for  current query. 
+** emacspeak-google-show-toolbelt Reload search page with toolbelt showing. 
 
 ------------------------------------------------------------
 
-** emacspeak-google-show-toolbelt Reload search page with toolbelt showing. 
+** emacspeak-google-toolbelt-change-Shopping Change  Shopping in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
@@ -1907,6 +1907,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-speak-mode-line Speak mode line 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-url Call emacspeak-m-player with specified URL. 
 
 ------------------------------------------------------------
 
@@ -3964,7 +3968,8 @@ Optional interactive  prefix arg local-flag prompts for local
 
 ** emacspeak-websearch-google Perform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the
-I'm Feeling Lucky button on Google. 
+I'm Feeling Lucky button on Google.
+Uses  customizable option `emacspeak-websearch-google-results-only' to determine if we show just results. 
 
 ------------------------------------------------------------
 
@@ -4736,6 +4741,14 @@ See /etc/sudoers for how to set up sudo.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-end-of-word move to end of word 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-enumerate-matching-commands Prompt for a string pattern and return list of commands whose names match pattern. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-enumerate-uncovered-commands Enumerate unadvised commands matching pattern. 
 
 ------------------------------------------------------------
 

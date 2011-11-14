@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 943 commands.
+This chapter documents a total of 946 commands.
 
 @menu
 * cd-tool::
@@ -1504,7 +1504,16 @@ Do shift return in ECB tree browser.
 @node emacspeak-ediff
 @section emacspeak-ediff
 
-No Commentary
+Commentary:
+Ediff provides a nice visual interface to diff.  ;;;Comparing and
+patching files is easy with ediff when you can see the screen.
+This module provides Emacspeak extensions to work fluently
+with ediff. Try it out, it's an excellent example of why
+Emacspeak is better than a traditional screenreader.  This module
+was originally written to interface to the old ediff.el bundled
+with GNU Emacs 19.28 and earlier.  It has been updated to work
+with the newer and much larger ediff system found in Emacs 19.29
+and later.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ediff.
@@ -2225,20 +2234,22 @@ the Google search page --- in a JS-powered browser, these
 show up as the Google tool-belt.
 This module implements a minor mode for use in Google result
 pages that enables these tools via single keyboard commands.
+Originally all options were available as tbs=p:v
+Now, some specialized searches, e.g. blog search are tbm=
 
 Automatically generated documentation
 for commands defined in module  emacspeak-google.
-
-@deffn {Interactive Command} emacspeak-google-realtime-search nil
-@kbd{Not bound to any key.}
-
-Retrieve realtime searches for  current query.
-@end deffn
 
 @deffn {Interactive Command} emacspeak-google-show-toolbelt nil
 @kbd{Not bound to any key.}
 
 Reload search page with toolbelt showing.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-google-toolbelt-change-Shopping nil
+@kbd{Not bound to any key.}
+
+Change  Shopping in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-blog nil
@@ -3039,6 +3050,12 @@ Speak cached  info about currently playing file.
 @kbd{Not bound to any key.}
 
 Speak mode line
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-url nil
+@kbd{Not bound to any key.}
+
+Call emacspeak-m-player with specified URL.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-volume-change nil
@@ -5927,6 +5944,7 @@ Optional interactive  prefix arg local-flag prompts for local
 Perform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google.
+Uses  customizable option `emacspeak-websearch-google-results-only' to determine if we show just results.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-advanced nil
@@ -6936,6 +6954,18 @@ See /etc/sudoers for how to set up sudo.
 @kbd{Not bound to any key.}
 
 move to end of word
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-enumerate-matching-commands nil
+@kbd{Not bound to any key.}
+
+Prompt for a string pattern and return list of commands whose names match pattern.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-enumerate-uncovered-commands nil
+@kbd{Not bound to any key.}
+
+Enumerate unadvised commands matching pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-espeak-region nil
@@ -8257,7 +8287,7 @@ speak the relevant results.
 
 @kbd{1Box Google}
 
-Show 1box result from Google.
+Show 1box result from Google. Actually now shows just the results.
 
 @kbd{Air Traffic Control}
 
@@ -8274,10 +8304,6 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 @kbd{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
-
-@kbd{Answers from Google Squared}
-
-Answers from Google Squared snippets.
 
 @kbd{Answers.com}
 
@@ -8505,6 +8531,10 @@ Perform Google Realtime Search
 @kbd{Google Recent News Search}
 
 Search Google news.
+
+@kbd{Google Results}
+
+Show just results and nav bar.
 
 @kbd{Google Scholar}
 
