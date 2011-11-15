@@ -2,7 +2,10 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@users.sf.net>
 
-* Emacspeak 35 -- Emacspeak 34 User Visible Changes 
+* Emacspeak 35 -- Emacspeak 35 User Visible Changes 
+** emacspeak-magit.el:
+
+Speech-enable magit -- a powerful mode for git interaction from Emacs.
 ** emacspeak-websearch.el:
 
 More options for controlling Google search, including better
