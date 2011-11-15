@@ -51,6 +51,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'shr)
+(require 'org)
 
 ;;}}}
 ;;{{{ Enhanced shr:
@@ -58,15 +59,16 @@
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
   (goto-char (point-min))
-  (let* ((start (re-search-forward "^$"))
+  (let* ((inhibit-read-only t)
+         (start (re-search-forward "^$"))
          (dom (libxml-parse-html-region start(point-max)))
          (buffer (get-buffer-create (shr-get-title-from-dom dom))))
     (with-current-buffer buffer
       (erase-buffer)
     (shr-insert-document dom)
+    (org-mode)
     (set-buffer-modified-p nil)
-    (setq buffer-read-only t)
-    (org-mode)))
+    (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
 
