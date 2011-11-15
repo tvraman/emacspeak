@@ -66,7 +66,7 @@
     (with-current-buffer buffer
       (erase-buffer)
     (shr-insert-document dom)
-    (org-mode)
+    (goto-char (point-min))
     (set-buffer-modified-p nil)
     (setq buffer-read-only t))
     (switch-to-buffer buffer)
