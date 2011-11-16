@@ -286,7 +286,7 @@ This variable is buffer-local.")
         :type 'tbs
         :value 0)
        ;;; shopping
-(make-emacspeak-google-tool
+       (make-emacspeak-google-tool
         :name "Shopping"
         :param "shop"
         :range '(0 1)
@@ -369,8 +369,6 @@ This variable is buffer-local.")
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
-
-
 
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."

@@ -109,9 +109,9 @@ node -- speak the entire node."
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
-  " Speak the selected node based on setting of
+          " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
-  (emacspeak-info-visit-node))))
+          (emacspeak-info-visit-node))))
 
 (defadvice info (after emacspeak pre act)
   "Cue user that info is up."
@@ -166,13 +166,13 @@ and then cue the next selected buffer."
   (declare (special Info-use-header-line
                     Info-header-line))
   (let (cond
-     ((and (boundp 'Info-use-header-line)
-           (boundp 'Info-header-line)
-           Info-header-line)
-      (dtk-speak Info-header-line))
-     (t (save-excursion
-          (goto-char (point-min))
-          (emacspeak-speak-line))))))
+        ((and (boundp 'Info-use-header-line)
+              (boundp 'Info-header-line)
+              Info-header-line)
+         (dtk-speak Info-header-line))
+        (t (save-excursion
+             (goto-char (point-min))
+             (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{  Emacs 21

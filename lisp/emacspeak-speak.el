@@ -822,15 +822,15 @@ lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special  voice-animate
-                    voice-indent dtk-stop-immediately
-                    inhibit-field-text-motion
-                    emacspeak-speak-line-invert-filter
-                    dtk-punctuation-mode
-                    emacspeak-speak-space-regexp
-                    emacspeak-speak-maximum-line-length
-                    emacspeak-show-point
-                    emacspeak-decoration-rule emacspeak-horizontal-rule
-                    emacspeak-unspeakable-rule emacspeak-audio-indentation))
+                     voice-indent dtk-stop-immediately
+                     inhibit-field-text-motion
+                     emacspeak-speak-line-invert-filter
+                     dtk-punctuation-mode
+                     emacspeak-speak-space-regexp
+                     emacspeak-speak-maximum-line-length
+                     emacspeak-show-point
+                     emacspeak-decoration-rule emacspeak-horizontal-rule
+                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
     (let ((inhibit-field-text-motion t)
@@ -929,9 +929,9 @@ rather than speak it.")
           (when (and (<= ?A char)
                      (<= char ?Z))
             (put-text-property 0 1
-                                   'personality voice-animate
-                                   char-string)
-              (setq char-string (format "cap %s " char-string)))
+                               'personality voice-animate
+                               char-string)
+            (setq char-string (format "cap %s " char-string)))
           (setq result
                 (concat result
                         char-string)))
@@ -1326,7 +1326,6 @@ Negative prefix arg speaks from start of buffer to point."
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
 
-
 ;;;###autoload
 (defun emacspeak-get-current-completion  ()
   "Return the completion string under point in the *Completions* buffer."
@@ -1685,7 +1684,7 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist emacspeak-minor-mode-prefix
-                     vc-mode))
+                    vc-mode))
   (force-mode-line-update)
   (let ((info nil))
     (setq info

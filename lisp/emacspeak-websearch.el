@@ -1015,18 +1015,18 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
                     emacspeak-websearch-google-number-of-results
                     (or emacspeak-websearch-google-options ""))
             (when lucky
-                  (concat
-                   "&btnI="
-                   (emacspeak-url-encode "I'm Feeling Lucky"))))))
+              (concat
+               "&btnI="
+               (emacspeak-url-encode "I'm Feeling Lucky"))))))
       (cond
        (emacspeak-websearch-google-results-only
-         (emacspeak-we-extract-by-id-list
-          (list "subform_ctrl" "res" "nav")
-          search-url 'speak))
+        (emacspeak-we-extract-by-id-list
+         (list "subform_ctrl" "res" "nav")
+         search-url 'speak))
        (t (emacspeak-webutils-with-xsl-environment
-            (expand-file-name "default.xsl" emacspeak-xslt-directory)
-            nil emacspeak-xslt-options
-            (browse-url search-url)))))))
+           (expand-file-name "default.xsl" emacspeak-xslt-directory)
+           nil emacspeak-xslt-options
+           (browse-url search-url)))))))
 ;;{{{ IMFA
 
 (emacspeak-websearch-set-searcher 'agoogle
@@ -1036,7 +1036,7 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-"http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&nojs=1&ie=UTF-8&sa=Search&q="
+  "http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&nojs=1&ie=UTF-8&sa=Search&q="
   "Google Accessible Search -- see http://labs.google.com/accessible")
 
 ;;;###autoload

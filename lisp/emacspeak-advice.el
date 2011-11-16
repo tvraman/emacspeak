@@ -724,12 +724,12 @@ Produce an auditory icon if possible."
       '(dabbrev-expand dabbrev-completion)
       do
       (eval
- `(defadvice,f (after emacspeak pre act)
-  "Say what you completed."
-  (when (interactive-p)
-    (tts-with-punctuations 'all
-                           (dtk-speak
-                            dabbrev--last-expansion))))))
+       `(defadvice,f (after emacspeak pre act)
+          "Say what you completed."
+          (when (interactive-p)
+            (tts-with-punctuations 'all
+                                   (dtk-speak
+                                    dabbrev--last-expansion))))))
 
 (loop for f in
       '(minibuffer-complete-word  minibuffer-complete)
@@ -1360,8 +1360,6 @@ Produce an auditory icon if possible."
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object)))))
 
-      
-      
 (defadvice vc-dir-mark-file (after emacspeak-pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -1391,7 +1389,6 @@ Produce an auditory icon if possible."
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
-
 
 ;;}}}
 ;;{{{  composing mail
@@ -2867,10 +2864,10 @@ Variable mark-even-if-inactive is set true ."
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-buffer)))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-speak-buffer)))))
 
 (defadvice exit-splash-screen (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -2895,7 +2892,6 @@ Variable mark-even-if-inactive is set true ."
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-
 
 ;;}}}
 ;;{{{ New buffer switching commands:

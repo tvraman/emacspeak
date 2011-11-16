@@ -358,53 +358,53 @@ Optional prefix arg prompts for a new filter."
     (emacspeak-table-ui-filter-set
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
-    (message
-     (mapconcat
-      #'(lambda (token)
-          (let ((value nil))
-            (cond
-             ((stringp token) token)
-             ((numberp token)
-              (setq value
-                    (emacspeak-table-get-entry-with-headers
-                     (emacspeak-table-current-row emacspeak-table)
-                     token))
-              (put-text-property 0 (length value)
-                                 'face 'bold  value)
-              value)
-             ((and (listp token)
-                   (numberp (first token))
-                   (numberp (second token )))
-              (setq value
-                    (emacspeak-table-get-entry-with-headers
-                     (first token)
-                     (second token)))
-              (put-text-property 0 (length value)
-                                 'face 'bold value)
-              value)
-             ((and
-               (symbolp (first token))
-               (fboundp  (first token)))
-              (setq value
-                    (funcall
-                     (first token)
-                     (cond
-                      ((and (= 2 (length token))
-                            (numberp (second token)))
-                       (emacspeak-table-get-entry-with-headers
-                        (emacspeak-table-current-row emacspeak-table)
-                        (second token)))
-                      ((and (= 3 (length token))
-                            (numberp (second token))
-                            (numberp (third token)))
-                       (emacspeak-table-get-entry-with-headers
-                        (second token) (third token))))))
-              (put-text-property 0 (length value)
-                                 'face 'bold  value)
-              value)
-             (t  (format "%s" token)))))
-      emacspeak-table-speak-row-filter
-      " ")))
+  (message
+   (mapconcat
+    #'(lambda (token)
+        (let ((value nil))
+          (cond
+           ((stringp token) token)
+           ((numberp token)
+            (setq value
+                  (emacspeak-table-get-entry-with-headers
+                   (emacspeak-table-current-row emacspeak-table)
+                   token))
+            (put-text-property 0 (length value)
+                               'face 'bold  value)
+            value)
+           ((and (listp token)
+                 (numberp (first token))
+                 (numberp (second token )))
+            (setq value
+                  (emacspeak-table-get-entry-with-headers
+                   (first token)
+                   (second token)))
+            (put-text-property 0 (length value)
+                               'face 'bold value)
+            value)
+           ((and
+             (symbolp (first token))
+             (fboundp  (first token)))
+            (setq value
+                  (funcall
+                   (first token)
+                   (cond
+                    ((and (= 2 (length token))
+                          (numberp (second token)))
+                     (emacspeak-table-get-entry-with-headers
+                      (emacspeak-table-current-row emacspeak-table)
+                      (second token)))
+                    ((and (= 3 (length token))
+                          (numberp (second token))
+                          (numberp (third token)))
+                     (emacspeak-table-get-entry-with-headers
+                      (second token) (third token))))))
+            (put-text-property 0 (length value)
+                               'face 'bold  value)
+            value)
+           (t  (format "%s" token)))))
+    emacspeak-table-speak-row-filter
+    " ")))
 
 (defvar emacspeak-table-speak-column-filter nil
   "Template specifying how a column is filtered before it is spoken.")

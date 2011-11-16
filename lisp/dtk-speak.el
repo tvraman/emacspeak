@@ -127,7 +127,6 @@ hook."
   :type 'hook
   :group 'tts)
 
-
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
 Do not set this variable by hand.

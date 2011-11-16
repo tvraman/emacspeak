@@ -44,7 +44,6 @@
 
 ;;; PIANOBAR ==  Pandora Client for Emacs
 
-
 ;;; pianobar git://github.com/PromyLOPh/pianobar.git
 ;;; Is a stand-alone client for Pandora Radio.
 ;;; pianobar.el available on the Emacs Wiki at
@@ -68,14 +67,13 @@
 (defun emacspeak-pianobar-current-song  ()
   "Return current song."
   (declare (special pianobar-current-song))
-   (ansi-color-apply
-    (substring pianobar-current-song
-               (+ 2 (string-match "|>" pianobar-current-song)))))
-
+  (ansi-color-apply
+   (substring pianobar-current-song
+              (+ 2 (string-match "|>" pianobar-current-song)))))
 
 (defadvice pianobar-currently-playing (around emacspeak pre act comp)
   "Override with our own notifier."
-    (message  (emacspeak-pianobar-current-song)))
+  (message  (emacspeak-pianobar-current-song)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
@@ -93,24 +91,22 @@
   (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string ")\n")))  
   (emacspeak-speak-mode-line)  
   (emacspeak-auditory-icon 'open-object))
-  
-  
 
 ;;; Advice all actions to play a pre-auditory icon
 
 (loop for  f in
       '(pianobar-pause-song pianobar-love-current-song
-pianobar-ban-current-song pianobar-bookmark-song
-pianobar-create-station pianobar-delete-current-station
-pianobar-explain-song
-pianobar-add-shared-station pianobar-song-history
-pianobar-currently-playing pianobar-add-shared-station
-pianobar-move-song-different-station pianobar-next-song
- pianobar-rename-current-station
-pianobar-change-station
-pianobar-tired-of-song
-pianobar-upcoming-songs
-pianobar-select-quickmix-stations pianobar-next-song)
+                            pianobar-ban-current-song pianobar-bookmark-song
+                            pianobar-create-station pianobar-delete-current-station
+                            pianobar-explain-song
+                            pianobar-add-shared-station pianobar-song-history
+                            pianobar-currently-playing pianobar-add-shared-station
+                            pianobar-move-song-different-station pianobar-next-song
+                            pianobar-rename-current-station
+                            pianobar-change-station
+                            pianobar-tired-of-song
+                            pianobar-upcoming-songs
+                            pianobar-select-quickmix-stations pianobar-next-song)
       do
       (eval
        `(defadvice ,f (before emacspeak pre act comp)
@@ -129,25 +125,15 @@ pianobar-select-quickmix-stations pianobar-next-song)
         (emacspeak-auditory-icon'close-object)
         (dtk-speak "Hid Pianobar "))))))
 
-
 (defadvice pianobar-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-
 ;;}}}
 ;;; Simplified Pianobar Interaction
 
 ;;{{{ Customizations And Variables
-
-
-
-
-
-
-
-
 
 ;;}}}
 ;;{{{ emacspeak-pianobar
@@ -177,8 +163,6 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (message "Turned %s pianobar electric mode."
              (if emacspeak-pianobar-electric-mode 'on 'off))))
 
-    
-                     
 ;;;###autoload
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
@@ -216,12 +200,11 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
    ((and (stringp key)
          (string= "'" key))
     (emacspeak-pianobar-hide-or-show)
-   
- (emacspeak-speak-mode-line))
+    
+    (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-string  key))))
-
 
 ;;; Station Presets
 (defun emacspeak-pianobar-switch-to-preset ()
@@ -230,18 +213,17 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (declare (special last-input-event))
   (let ((preset last-input-event))
     (setq preset 
-         (cond
-          ((and (<= 48 preset)
-                (<= preset 57))
-           (- preset 48))
-          ((and (<= 65 preset)
-                (<= preset 90))
-           (- preset 55))               ;A == 10
-          (t
-           (setq preset (read-string "Preset: ")))))
+          (cond
+           ((and (<= 48 preset)
+                 (<= preset 57))
+            (- preset 48))
+           ((and (<= 65 preset)
+                 (<= preset 90))
+            (- preset 55))               ;A == 10
+           (t
+            (setq preset (read-string "Preset: ")))))
     (pianobar-send-string (format "s%s\n" preset))))
 ;;}}}
-
 
 (provide 'emacspeak-pianobar)
 ;;{{{ end of file

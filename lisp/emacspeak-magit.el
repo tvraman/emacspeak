@@ -44,7 +44,6 @@
 ;;; MAGIT ==  Git interface in Emacs
 ;;; git clone git://github.com/magit/magit.git
 
-
 ;;}}}
 ;;{{{  Required modules
 
@@ -93,21 +92,20 @@
 (defadvice magit-toggle-section (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-  (let ((state (magit-section-hidden (magit-current-section))))
-    (cond
-     (state (emacspeak-auditory-icon 'close-object))
-     (t (emacspeak-auditory-icon 'open-object)))
-    (emacspeak-speak-line))))
-
+    (let ((state (magit-section-hidden (magit-current-section))))
+      (cond
+       (state (emacspeak-auditory-icon 'close-object))
+       (t (emacspeak-auditory-icon 'open-object)))
+      (emacspeak-speak-line))))
 
 (loop for f in
       '(
         magit-ignore-file magit-ignore-item
                           magit-stage-item magit-stash
                           magit-ignore-item-locally
-        magit-goto-next-section magit-goto-previous-section
-        magit-goto-parent-section magit-goto-line
-        magit-goto-section magit-goto-section-at-path)
+                          magit-goto-next-section magit-goto-previous-section
+                          magit-goto-parent-section magit-goto-line
+                          magit-goto-section magit-goto-section-at-path)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -126,10 +124,10 @@
    `(defadvice ,(intern (concat "magit-key-mode-popup-" (symbol-name group))) 
       (after emacspeak  pre act comp)
       ,(concat "Speech-enabled Key menu for " (symbol-name group))
-        (dtk-speak
-         (save-excursion
-           (set-buffer magit-key-mode-buf-name)
-           (buffer-string))))))
+      (dtk-speak
+       (save-excursion
+         (set-buffer magit-key-mode-buf-name)
+         (buffer-string))))))
 ;;; load the magit-key-mode file so the above advice gets applied:
 
 (load-library "magit-key-mode")
@@ -166,8 +164,6 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'close-object)))))
 
-                   
-
 ;;}}}
 ;;{{{ Additional commands to advice:
 
@@ -176,7 +172,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed process buffer in other window.")))
-
 
 (defadvice magit-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -195,7 +190,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
-
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -232,13 +226,13 @@
   "Provide auditory feedback."
   (let ((for-group (ad-get-arg 0))
         (option-name (ad-get-arg 1)))
-  (cond
-   ((not (member option-name magit-key-mode-current-options))
+    (cond
+     ((not (member option-name magit-key-mode-current-options))
       (message "Removed %s for %s" option-name for-group)
       (emacspeak-auditory-icon 'delete-object))
-    (t (message "Added %s for %s" option-name for-group)
-       (emacspeak-auditory-icon 'select-object)))))
-  
+     (t (message "Added %s for %s" option-name for-group)
+        (emacspeak-auditory-icon 'select-object)))))
+
 (defadvice magit-key-mode-exec-at-point (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -267,7 +261,7 @@
                         k (gethash k magit-key-mode-current-args)))
           " ")))
     (format "%s %s" options args)))    
-  
+
 (defadvice magit-key-mode-add-argument (after emacspeak pre act comp)
   "Speak header line where we accumulate and reflect current state."
   (emacspeak-speak-header-line))

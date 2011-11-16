@@ -262,8 +262,6 @@ on a specific directory."
   (interactive "sURL: ")
   (emacspeak-m-player url))
 
-
-
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.

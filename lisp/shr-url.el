@@ -65,10 +65,10 @@
          (buffer (get-buffer-create (shr-get-title-from-dom dom))))
     (with-current-buffer buffer
       (erase-buffer)
-    (shr-insert-document dom)
-    (goto-char (point-min))
-    (set-buffer-modified-p nil)
-    (setq buffer-read-only t))
+      (shr-insert-document dom)
+      (goto-char (point-min))
+      (set-buffer-modified-p nil)
+      (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
 
