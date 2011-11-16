@@ -87,10 +87,10 @@
   (emacspeak-auditory-icon 'news)
   (view-mode t)
   (let ((p (where-is-internal
-           'outline-previous-visible-heading nil 'ascii))
-       (n (where-is-internal
-           'outline-next-visible-heading nil 'ascii))
-       (keys nil))
+            'outline-previous-visible-heading nil 'ascii))
+        (n (where-is-internal
+            'outline-next-visible-heading nil 'ascii))
+        (keys nil))
     (when   (and n p)
       (setq keys
             (format "%s and %s"

@@ -497,15 +497,12 @@ punctuations.")
   "Global value of voice-lock-mode.")
 
 (when (string-match "24" emacs-version)
-(define-globalized-minor-mode global-voice-lock-mode
-  voice-lock-mode turn-on-voice-lock
-  :initialize 'custom-initialize-delay
-  :init-value (not (or noninteractive emacs-basic-display))
-  :group 'voice-lock
-  :version "22.1"))
-
-
-
+  (define-globalized-minor-mode global-voice-lock-mode
+    voice-lock-mode turn-on-voice-lock
+    :initialize 'custom-initialize-delay
+    :init-value (not (or noninteractive emacs-basic-display))
+    :group 'voice-lock
+    :version "22.1"))
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
@@ -514,7 +511,6 @@ punctuations.")
 
 (unless (assq 'voice-lock-mode minor-mode-alist)
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
-
 
 ;;}}}
 ;;{{{ list-voices-display

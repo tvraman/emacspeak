@@ -370,7 +370,6 @@ See
 ;;}}}
 ;;{{{ implement history stack:
 
-
 (make-variable-buffer-local 'emacspeak-sudoku-history-stack)
 
 (defun emacspeak-sudoku-history-push ()
