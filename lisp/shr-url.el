@@ -68,6 +68,7 @@
       (shr-insert-document dom)
       (goto-char (point-min))
       (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
