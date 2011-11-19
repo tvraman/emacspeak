@@ -55,6 +55,9 @@
 
 ;;}}}
 ;;{{{ Enhanced shr:
+(defvar shr-url-dom nil
+  "Buffer local value of DOM.")
+(make-variable-buffer-local 'shr-url-dom)
 
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
@@ -62,10 +65,15 @@
   (let* ((inhibit-read-only t)
          (start (re-search-forward "^$"))
          (dom (libxml-parse-html-region start(point-max)))
-         (buffer (get-buffer-create (shr-get-title-from-dom dom))))
+         (buffer
+          (get-buffer-create
+           (or 
+           (shr-get-title-from-dom dom)
+           "Untitled"))))
     (with-current-buffer buffer
       (erase-buffer)
       (shr-insert-document dom)
+      (setq shr-url-dom dom)
       (goto-char (point-min))
       (set-buffer-modified-p nil)
       (flush-lines "^ *$")
