@@ -86,6 +86,7 @@
   (third
    (find-if #'(lambda (e) (and (listp e)(eq 'title (car e))))
             (third dom))))
+
 ;;;###autoload
 (defun shr-url (url)
   "Display web page."
