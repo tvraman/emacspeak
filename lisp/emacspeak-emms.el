@@ -95,6 +95,16 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
+(loop for f in
+      '(emms-browser emms-browser-next-filter
+                     emms-browser-previous-filter)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))))
 
 ;;}}}
 ;;{{{ Module emms-streaming:
