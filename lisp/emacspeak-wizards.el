@@ -1422,12 +1422,13 @@ the emacspeak table clipboard instead."
       (read-from-minibuffer "Eval: "
                             nil read-expression-map t
                             'read-expression-history))))
-  (let ((buffer (get-buffer-create "*emacspeak:Eval*" )))
+  (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
+        (result (eval form)))
     (save-current-buffer
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (cl-prettyprint (eval form))
+      (cl-prettyprint result)
       (set-buffer-modified-p nil))
     (pop-to-buffer buffer)
     (emacs-lisp-mode)
