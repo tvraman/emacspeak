@@ -83,9 +83,13 @@
 
 (defsubst shr-get-title-from-dom (dom)
   "Return Title."
+  (let ((content dom))
+  
+    (when  (eq 'top (car   content))
+    (setq content (third content)))
   (third
    (find-if #'(lambda (e) (and (listp e)(eq 'title (car e))))
-            (third dom))))
+            (third content)))))
 
 ;;;###autoload
 (defun shr-url (url)
