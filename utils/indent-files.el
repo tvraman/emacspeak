@@ -11,9 +11,9 @@
     (loop for f in file-list
           do
           (let ((indent-tabs-mode nil)
-                (buffer-file-coding-system emacspeak-speak-default-os-coding-system))
+                (buffer-file-coding-system 'utf-8-unix))
             (find-file f)
-            (setq buffer-file-coding-system emacspeak-speak-default-os-coding-system)
+            (setq buffer-file-coding-system 'utf-8-unix)
             (emacs-lisp-mode)
             (indent-region (point-min) (point-max))
             (shell-command-on-region (point-min) (point-max)
