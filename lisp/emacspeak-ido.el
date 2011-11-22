@@ -210,6 +210,12 @@ The default value of 12 is too high for using ido effectively with speech. "
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+(defadvice ido-fallback-command (before emacspeak pre act comp)
+  "Provide auditory cue to indicate we are closing out the IDO   minibuffer."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-auditory-icon 'open-object)))
+
 ;;}}}
 ;;{{{ define personalities 
 
