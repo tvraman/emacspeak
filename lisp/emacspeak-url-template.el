@@ -705,7 +705,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "http://www.google.com/patents?ie=ISO-8859-1&q=%s"
  (list "Google For Patents: ")
  #'(lambda nil
-     (search-forward " Patent Search" nil t)
+     (search-forward "Â Patent Search" nil t)
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
  "Perform patent search via Google")
@@ -1146,7 +1146,7 @@ from English to German.")
  "http://print.google.com/print?oi=print&q=%s"
  (list "Google Print Search:")
  #'(lambda nil
-     (search-forward "Print  Books" nil t)
+     (search-forward "PrintÂ  Books" nil t)
      (emacspeak-speak-rest-of-buffer))
  "Google Print Search")
 

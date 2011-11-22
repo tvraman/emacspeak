@@ -1368,7 +1368,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     (add-hook  'emacspeak-web-post-process-hook
                #'(lambda nil
                    (emacspeak-pronounce-add-buffer-local-dictionary-entry
-                    " mi"
+                    "Â mi"
                     " miles ")))
     (browse-url-of-buffer
      (emacspeak-xslt-xml-url

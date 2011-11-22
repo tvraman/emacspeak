@@ -68,8 +68,8 @@
          (buffer
           (get-buffer-create
            (or 
-           (shr-get-title-from-dom dom)
-           "Untitled"))))
+            (shr-get-title-from-dom dom)
+            "Untitled"))))
     (with-current-buffer buffer
       (erase-buffer)
       (shr-insert-document dom)
