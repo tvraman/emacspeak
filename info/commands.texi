@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 946 commands.
+This chapter documents a total of 947 commands.
 
 @menu
 * cd-tool::
@@ -7306,6 +7306,12 @@ for `word' and displays hits in a compilation buffer.
 @kbd{Not bound to any key.}
 
 Squeeze multiple blank lines in current buffer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-sunrise-sunset nil
+@kbd{Not bound to any key.}
+
+Display sunrise/sunset for specified address.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-term nil
