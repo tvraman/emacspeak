@@ -10,8 +10,10 @@
                                     "\\.el\\'")))
     (loop for f in file-list
           do
-          (let ((indent-tabs-mode nil))
+          (let ((indent-tabs-mode nil)
+                (buffer-file-coding-system emacspeak-speak-default-os-coding-system))
             (find-file f)
+            (setq buffer-file-coding-system emacspeak-speak-default-os-coding-system)
             (emacs-lisp-mode)
             (indent-region (point-min) (point-max))
             (shell-command-on-region (point-min) (point-max)
