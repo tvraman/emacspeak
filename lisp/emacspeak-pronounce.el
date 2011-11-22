@@ -214,7 +214,8 @@ modes."
 
 ;;; c++ mode inherits from C mode
 (emacspeak-pronounce-add-super  'c-mode 'c++-mode)
-
+;;; shell inherits from comint:
+(emacspeak-pronounce-add-super 'comint-mode 'shell-mode)
 ;;; latex-mode and latex2e-mode inherit from plain-tex-mode
 
 (emacspeak-pronounce-add-super  'plain-tex-mode 'latex-mode)
