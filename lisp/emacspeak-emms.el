@@ -101,10 +101,10 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-mode-line)
+            (emacspeak-auditory-icon 'open-object)))))
 
 ;;}}}
 ;;{{{ Module emms-streaming:
