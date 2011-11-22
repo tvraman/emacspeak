@@ -771,6 +771,17 @@ specified pronunciation dictionary key."
      (format "%s %s, %s. "
              area-code prefix-code suffix-code)
      'personality voice-punctuations-some)))
+(defvar emacspeak-pronounce-sha-checksum-pattern 
+  "[0-9a-f]\\{40\\}"
+  "Regexp pattern that matches 40-digit SHA  check-sum.")
+
+(defun emacspeak-pronounce-sha-checksum (sha)
+  "Return pronunciation for 40 digit SHA hash. Useful for working with Git among other things."
+  (when
+      (and
+       (= 40 (length sha))
+       (string-match "[0-9a-f]+" sha))
+  (format "sha: %s " (substring sha 0 5))))
 
 ;;}}}
 

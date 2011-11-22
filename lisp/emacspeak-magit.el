@@ -80,6 +80,16 @@
    ( magit-menu-selected-option voice-animate)))
 
 ;;}}}
+;;{{{ Pronunciations in Magit:
+(emacspeak-pronounce-add-dictionary-entry 'magit-mode
+                                              emacspeak-pronounce-sha-checksum-pattern
+                                              (cons 're-search-forward
+                                                    'emacspeak-pronounce-sha-checksum))
+(add-hook
+ 'magit-mode-hook
+ 'emacspeak-pronounce-refresh-pronunciations)
+
+;;}}}
 ;;{{{ Advice navigation commands:
 
 ;;; Advice navigators:
