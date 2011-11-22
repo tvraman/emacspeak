@@ -3309,6 +3309,32 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                             (symbol-name b))))))
 
 ;;}}}
+;;{{{ Global sunrise/sunset wizard:
+
+;;;###autoload
+(defun emacspeak-wizards-sunrise-sunset (address &optional arg)
+  "Display sunrise/sunset for specified address."
+  (interactive
+   (list
+    (read-from-minibuffer "Address: ")
+    current-prefix-arg))
+  (let* ((geo (gweb-maps-geocode address))
+         (calendar-latitude (g-json-get 'lat geo))
+         (calendar-longitude (g-json-get 'lng geo))
+         (calendar-time-zone
+            (solar-get-number
+             "Enter difference from Coordinated Universal Time (in minutes): "))
+         (calendar-standard-time-zone-name
+            (cond ((zerop calendar-time-zone) "UTC")
+                  ((< calendar-time-zone 0)
+                   (format "UTC%dmin" calendar-time-zone))
+                  (t  (format "UTC+%dmin" calendar-time-zone))))
+         (date (if arg (calendar-read-date) (calendar-current-date)))
+         (date-string (calendar-date-string date t))
+         (time-string (solar-sunrise-sunset-string date)))
+    (message "%s: %s at %s" date-string time-string address)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
