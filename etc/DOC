@@ -5005,6 +5005,10 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-sunrise-sunset Display sunrise/sunset for specified address. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-term Like M-x shell for ansi-term.
 Starts a terminal, or switches to an existing one. 
 
