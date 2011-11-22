@@ -13,7 +13,7 @@ Note that special releases are marked with an '*'.
 |  8.0 | May 1998        | BlackDog       |
 |  9.0 | November 1998   | BlackLab       |
 | 10.0 | May 1999        | WonderDog      |
-| 11.0 | November 1999   | * Aster         |
+| 11.0 | November 1999   | * Aster        |
 | 12.0 | May 2000        | GoldenDog      |
 | 13.0 | November 2000   | YellowLab      |
 | 14.0 | May 2001        | TopDog         |
@@ -36,7 +36,8 @@ Note that special releases are marked with an '*'.
 | 31.0 | November 2009   | TweetDog       |
 | 32.0 | May 2010        | LuckyDog       |
 | 33.0 | November 2010   | StarDog        |
-| 34.0 | May 2011        |                * Bubbles|
+| 34.0 | May 2011        | * Bubbles      |
+| 35.0 | November 2011   |                HeadDog |
 |------+-----------------+----------------|
 
 #+TITLE:     code-names.txt
