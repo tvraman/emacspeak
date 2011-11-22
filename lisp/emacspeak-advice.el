@@ -938,6 +938,11 @@ Produce an auditory icon if possible."
  '(
    (comint-highlight-prompt voice-monotone-medium)
    (comint-highlight-input voice-bolden-medium)))
+(emacspeak-pronounce-add-dictionary-entry
+ 'comint-mode
+ emacspeak-pronounce-sha-checksum-pattern
+ (cons 're-search-forward
+       'emacspeak-pronounce-sha-checksum))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
