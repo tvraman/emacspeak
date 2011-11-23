@@ -53,8 +53,12 @@ Bookshares Daisy EBooks.
 
 Preliminary support for the Mac OS  platform --- thanks to Bart
 Bunting and David Tseng.
+** Mode-line Cleanups:
 
+Emacspeak rendering  of the modeline has been cleaned up to be
+more succint.
 ** Emacs 24 Support:
+
 
 Adds support for Emacs 24
 
