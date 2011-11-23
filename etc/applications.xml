@@ -37,7 +37,11 @@ type="text/xsl"?>
       UNIX online manual browser with full aural highlighting and
     structured browsing.</application>
     <application name="howto">
-    Emacspeak wizard for browsing Linux HOWTO documents.</application>
+    Emacspeak wizard for browsing Linux HOWTO
+    documents.</application>
+<application name="woman">
+Support for <em>WoMan</em>, the UNIX Man page reader implemented
+ as a native Emacs application.</application>
   </category>
   <category name="desktop">
     <application name="ido">
@@ -69,6 +73,8 @@ type="text/xsl"?>
     <application name="sawfish">
       Speech-enables the Sawfish window-manager.
     </application>
+    <application name="DBus">
+Support for DBus integration.</application>
   </category>
   <category name="finders">
     <application name="dired">
@@ -108,8 +114,10 @@ type="text/xsl"?>
 
     <application name="apt-get">
     Emacs interface to Debian <code>apt-get</code></application>
+<application name="elpa">
+Support for the Emacs Lisp Package Archive.</application>
   </category>
-  <category name="web">
+  <category name="Web">
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
     support.</application>
@@ -165,6 +173,9 @@ type="text/xsl"?>
       <application name="mozrepl">
         Connect to Firefox.
       </application>
+<application name="google">
+Support for Google search --- including the Google tool-belt for
+refining searches.</application>
   </category>
   <category name="Google Client">
     <application name="gblogger">
@@ -197,11 +208,6 @@ type="text/xsl"?>
     Google.</application>
   </category>
   <category name="Messaging">
-    <application name="atom-blogger">
-      Speech-enables <code>atom-blogger</code>, a light-weight
-      blogging tool that I use to publish/edit
-      <code>blogger.com</code> blogs.
-    </application>
     <application name="vm">
       Mail reader featuring full mime support.
     </application>
@@ -315,17 +321,8 @@ type="text/xsl"?>
     </application>
     <application name="cd-tool">
     Control CD player from anywhere on the audio desktop.</application>
-    <application name="freeamp">
-      Ubiquitous access to Freeamp mp3  with a single
-      keystroke.
-    </application>
     <application name="mpg123">
       Play mp3 files, with keyboard access to  all   functions.
-    </application>
-    <application name="realaudio">
-      Play RealAudio, RealMedia and mp3  streams. Includes
-      presets  for single click access to
-      favorite streams.
     </application>
     <application name="alsaplayer">
     Play MP3 and OGG streams using ALSA.</application>
@@ -338,15 +335,21 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="pianobar">
+      Play Pandora radio using the Open Source <em>Pianobar</em>
+      command-line client.
+    </application>
+<application name="npr">
+      API  client for listening to NPR programs.
+    </application>
+<application name="librivox">
+API  client for listening to free Librivox audio books.</application>
     <application name="emms">
       Emacs equivalent  of XMMS --- a versatile multimedia tool.
       Provides a consistent user interface to a variety of media players.
     </application>
     <application name="midge">
     Compose and play MIDI files.</application>
-    <application name="emms">
-      Emacs Multimedia Front-End
-    </application>
   </category>
   <category name="Authoring">
     <application name="nxml">
