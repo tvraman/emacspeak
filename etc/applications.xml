@@ -405,7 +405,14 @@ type="text/xsl"?>
     <application name="emacspeak-daisy">
       Implements a digital talking book reader for DAISY3  talking
     books.</application>
-    <application name="view">
+<application name="emacspeak-bookshare">
+      Implements a client for Bookshare, including a light-weight
+      Daisy reader.
+    </application>    
+<application name="emacspeak-epub">
+      Implements a simple EPub reader.
+    </application>
+<application name="view">
       File browser for reading etexts.
     </application>
     <application name="bookmark">
