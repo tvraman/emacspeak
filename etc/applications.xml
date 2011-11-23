@@ -521,8 +521,10 @@ type="text/xsl"?>
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
     </application>
+<application name="magit">
+    Emacs front-end to GIT</application>
     <application name="vc">
-    Front-end to version control systems like CVS and RCS.</application>
+    Front-end to version control systems like SVN, GIT, HG, CVS and RCS.</application>
     <application name="pcl-cvs">
       Front-end for working with CVS repositories.
     </application>
