@@ -5,7 +5,7 @@
 
 **  For Immediate Release:
 
-San Jose, Calif., (November 24, 2011)
+San Jose, Calif., (November 23, 2011)
     Emacspeak:  Redefining Accessibility In The Era Of Cloud Computing
     --Zero cost of upgrades/downgrades makes priceless software affordable!
 
@@ -118,8 +118,8 @@ http://code.google.com/p/emacspeak/ You can visit
 Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
 to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
 mail to the list request address emacspeak-request@cs.vassar.edu.
-The StarDog release is at 
-[[http://emacspeak.googlecode.com/files/emacspeak-34.0.tar.bz2]].
+The HeadDog release is at 
+[[http://emacspeak.googlecode.com/files/emacspeak-35.0.tar.bz2]].
 The latest development snapshot of Emacspeak is available via
 Subversion from Google Code Hosting at 
 http://emacspeak.googlecode.com/svn/trunk/
@@ -233,7 +233,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 35.0—Tilden—Unleashed!
+#+TITLE:     Emacspeak 35.0—HeadDog—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
