@@ -959,10 +959,10 @@ Here are some examples:
  "Google Scholar"
  "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s"
  (list "Google Scholar Search: ")
- #'(lambda nil
-     (search-forward "Results" nil t)
-     (emacspeak-speak-line))
- "Google Scholar Search")
+ nil
+ "Google Scholar Search"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "gs_r" url 'speak)))
 
 ;;}}}
 ;;{{{ google images
