@@ -92,13 +92,12 @@
 
 (defadvice pcomplete (around emacspeak pre act)
   "Say what you completed."
-  (let ((emacspeak-speak-messages nil)
-        (orig (point))
-        (emacspeak-last-message nil))
+  (let ((orig (point)))
     ad-do-it
     (when  (interactive-p)
-      (emacspeak-speak-region orig (point))
-      ad-return-value)))
+      (emacspeak-auditory-icon 'progress)
+      (emacspeak-speak-region orig (point)))
+    ad-return-value)))
 
 ;;}}}
 ;;{{{  Advice top-level EShell
