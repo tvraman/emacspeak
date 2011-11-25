@@ -97,7 +97,7 @@
     (when  (interactive-p)
       (emacspeak-auditory-icon 'progress)
       (emacspeak-speak-region orig (point)))
-    ad-return-value)))
+    ad-return-value))
 
 ;;}}}
 ;;{{{  Advice top-level EShell
