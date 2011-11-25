@@ -677,6 +677,17 @@ Produce an auditory icon if possible."
   ad-return-value )
 
 ;;}}}
+;;{{{ Advice completion-at-point:
+(defadvice completion-at-point (around emacspeak pre act)
+  "Say what you completed."
+  (let ((orig (point)))
+    ad-do-it
+    (when  (interactive-p)
+      (emacspeak-auditory-icon 'progress)
+      (emacspeak-speak-region orig (point)))
+    ad-return-value))
+
+;;}}}
 ;;{{{  advice various input functions to speak:
 
 (defadvice read-key-sequence(around emacspeak pre act )
