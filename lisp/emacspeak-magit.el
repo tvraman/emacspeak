@@ -85,6 +85,8 @@
                                               emacspeak-pronounce-sha-checksum-pattern
                                               (cons 're-search-forward
                                                     'emacspeak-pronounce-sha-checksum))
+(emacspeak-pronounce-add-super 'magit-mode 'magit-commit-mode)
+
 (add-hook
  'magit-mode-hook
  'emacspeak-pronounce-refresh-pronunciations)
