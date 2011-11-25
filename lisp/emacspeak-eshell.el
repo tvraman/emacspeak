@@ -69,13 +69,13 @@
 
 ;;; Speak command output
 
-(defun emacspeak-eshell-speak-output  nil
+(defun emacspeak-eshell-speak-output  ()
   "Speak eshell output."
   (declare (special eshell-last-input-end eshell-last-output-end eshell-last-output-start))
   (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
   
 
-(add-hook
+(add-hook 
  'eshell-post-command-hook
  'emacspeak-eshell-speak-output)
 
