@@ -62,20 +62,22 @@
   (declare (special eshell-last-command-status))
   (cond
    ((= 0 eshell-last-command-status)
-    (emacspeak-serve-auditory-icon 'item))
+    (emacspeak-auditory-icon 'item))
    (t (emacspeak-auditory-icon 'warn-user))))
 
 (add-hook 'eshell-after-prompt-hook 'emacspeak-eshell-prompt-function)
 
 ;;; Speak command output
+
+(defun emacspeak-eshell-speak-output  nil
+  "Speak eshell output."
+  (declare (special eshell-last-input-end eshell-last-output-end eshell-last-output-start))
+  (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
+  
+
 (add-hook
  'eshell-post-command-hook
- #'(lambda nil
-     (declare (special eshell-last-input-end
-                       eshell-last-output-end
-                       eshell-last-output-start))
-     (emacspeak-speak-region eshell-last-input-end eshell-last-output-end)
-     t))
+ 'emacspeak-eshell-speak-output)
 
 ;;}}}
 ;;{{{  Advice PComplete --may be factored out later:
