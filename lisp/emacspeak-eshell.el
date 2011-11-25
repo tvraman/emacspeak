@@ -38,11 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-
-(require 'emacspeak-preamble)
-(require 'esh-arg)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -50,6 +45,13 @@
 ;;; It is part of emacs 21 --and can also be used under
 ;;; Emacs 20.
 ;;; This module speech-enables EShell
+;;; Code:
+
+;;}}}
+;;{{{ required modules
+
+(require 'emacspeak-preamble)
+(require 'esh-arg)
 
 ;;}}}
 ;;{{{  setup various EShell hooks
@@ -63,19 +65,17 @@
     (emacspeak-serve-auditory-icon 'item))
    (t (emacspeak-auditory-icon 'warn-user))))
 
-(add-hook 'eshell-after-prompt-hook
-          'emacspeak-eshell-prompt-function)
+(add-hook 'eshell-after-prompt-hook 'emacspeak-eshell-prompt-function)
 
 ;;; Speak command output
-(add-hook 'eshell-post-command-hook
-          (function
-           (lambda nil
-             (declare (special eshell-last-input-end
-                               eshell-last-output-end
-                               eshell-last-output-start))
-             (emacspeak-speak-region eshell-last-input-end
-                                     eshell-last-output-end)))
-          t)
+(add-hook
+ 'eshell-post-command-hook
+ #'(lambda nil
+     (declare (special eshell-last-input-end
+                       eshell-last-output-end
+                       eshell-last-output-start))
+     (emacspeak-speak-region eshell-last-input-end eshell-last-output-end)
+     t))
 
 ;;}}}
 ;;{{{  Advice PComplete --may be factored out later:
@@ -106,11 +106,10 @@ Provide an auditory icon if possible."
 ;;{{{ advice em-hist
 
 (loop for f in
-      '(eshell-next-input eshell-previous-input
-                          eshell-next-matching-input
-                          eshell-previous-matching-input
-                          eshell-next-matching-input-from-input
-                          eshell-previous-matching-input-from-input)
+      '(
+        eshell-next-input eshell-previous-input
+        eshell-next-matching-input eshell-previous-matching-input
+        eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
       do
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)
@@ -170,9 +169,11 @@ personalities."
 
 ;;}}}
 ;;{{{ Advice em-prompt
+
 (loop for f in
-      '(eshell-next-prompt eshell-previous-prompt
-                           eshell-forward-matching-input  eshell-backward-matching-input)
+      '(
+        eshell-next-prompt eshell-previous-prompt
+        eshell-forward-matching-input  eshell-backward-matching-input)
       do
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)
@@ -186,7 +187,8 @@ personalities."
 ;;{{{  advice esh-arg
 
 (loop for f in
-      '(eshell-insert-buffer-name
+      '(
+        eshell-insert-buffer-name
         eshell-insert-process
         eshell-insert-envvar)
       do
@@ -203,8 +205,10 @@ personalities."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ advice esh-mode
+
 (defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
