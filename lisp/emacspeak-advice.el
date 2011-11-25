@@ -1706,7 +1706,9 @@ Indicate change of selection with
 
 (defadvice describe-function (after emacspeak pre act)
   "Speak the help."
-  (when (interactive-p) (emacspeak-speak-help )))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (emacspeak-speak-help )))
 
 (defadvice describe-variable (after emacspeak pre act)
   "Speak the help."
@@ -1715,6 +1717,7 @@ Indicate change of selection with
 (defadvice describe-key (after emacspeak pre act)
   "Speak the help."
   (when (interactive-p)
+    (emacspeak-auditory-icon 'help)
     (emacspeak-speak-help )))
 
 (defadvice help-with-tutorial (after emacspeak pre act comp)
