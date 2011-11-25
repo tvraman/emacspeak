@@ -97,7 +97,7 @@
   (let ((orig (point)))
     ad-do-it
     (when  (interactive-p)
-      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-auditory-icon 'complete)
       (emacspeak-speak-region orig (point)))
     ad-return-value))
 
