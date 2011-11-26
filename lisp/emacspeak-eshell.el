@@ -97,8 +97,8 @@
   (let ((orig (point)))
     ad-do-it
     (when  (interactive-p)
-      (emacspeak-auditory-icon 'complete)
-      (emacspeak-speak-region orig (point)))
+      (emacspeak-speak-region orig (point))
+      (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
 ;;}}}
