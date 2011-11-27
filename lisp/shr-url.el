@@ -98,13 +98,36 @@
     (when title (third title))))
 
 ;;;###autoload
-(defun shr-url (url)
+(defun shr-url (url &optional display)
   "Display web page."
   (interactive
    (list
     (read-from-minibuffer "URL: "
-                          (get-text-property (point) 'shr-url))))
+                          (get-text-property (point) 'shr-url))
+    current-prefix-arg))
   (url-retrieve url 'shr-url-callback))
+
+;;;###autoload 
+(defun shr-region (start end)
+  "Display region as web page."
+  (interactive "r")
+  (let* ((inhibit-read-only t)
+         (dom (libxml-parse-html-region start end))
+         (buffer
+          (get-buffer-create
+           (or 
+            (shr-get-title-from-dom dom)
+            "Untitled"))))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (shr-insert-document dom)
+      (setq shr-url-dom dom)
+      (goto-char (point-min))
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (setq buffer-read-only t))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)))  
 
 ;;}}}
 ;;{{{ Speech-enable:
