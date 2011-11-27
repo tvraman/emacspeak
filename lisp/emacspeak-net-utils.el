@@ -57,6 +57,7 @@
     ifconfig
     ping
     netstat
+    dns-lookup-host
     nslookup-host)
   "Commands to speech enable")
 
