@@ -1137,8 +1137,8 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (shell-quote-argument
-      (first (directory-files directory 'full ".xml"))))))
+      (first (directory-files directory 'full ".xml")))))
+
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
