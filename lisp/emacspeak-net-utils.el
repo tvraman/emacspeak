@@ -55,6 +55,7 @@
     route
     traceroute
     ifconfig
+iwconfig
     ping
     netstat
     dns-lookup-host
