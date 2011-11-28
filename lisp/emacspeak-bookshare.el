@@ -1078,10 +1078,7 @@ Make sure it's downloaded and unpacked first."
     (save-excursion
       (set-buffer result)
       (emacspeak-webutils-autospeak)
-      (emacspeak-webutils-with-xsl-environment
-       (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)
-       nil emacspeak-xslt-options             ;options
-       (browse-url-of-buffer )))))
+       (browse-url-of-buffer ))))
 
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
