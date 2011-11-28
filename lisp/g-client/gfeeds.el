@@ -83,8 +83,11 @@
   (format gfeeds-base-url "find")
   "Rest end-point for finding feeds.")
 
-(defvar gfeeds-referer "http://emacspeak.sf.net"
-  "Referer URL to send to the API.")
+(defcustom gfeeds-referer nil
+  "Referer URL to send to the API.
+Customize this to point to your Web location."
+  :type 'string
+  :group 'gfeeds)
 
 ;;}}}
 ;;{{{ gfeed Helpers
