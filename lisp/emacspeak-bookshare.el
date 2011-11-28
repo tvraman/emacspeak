@@ -1073,12 +1073,11 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-extract-and-view (url)
   "Extract content refered to by link under point, and render via the browser."
   (interactive "sURL: ")
-  (declare (special emacspeak-bookshare-xslt))
   (let ((result (emacspeak-bookshare-extract-xml url)))
     (save-excursion
       (set-buffer result)
       (emacspeak-webutils-autospeak)
-       (browse-url-of-buffer ))))
+      (browse-url-of-buffer ))))
 
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
