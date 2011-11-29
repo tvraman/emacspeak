@@ -490,7 +490,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (or (gethash action emacspeak-bookshare-action-table)
       (error "No handler defined for action %s" action)))
 
-(define-derived-mode emacspeak-bookshare-mode text-mode
+(define-derived-mode emacspeak-bookshare-mode special-mode
   "Bookshare Library Of Accessible Books And Periodicals"
   "A Bookshare front-end for the Emacspeak desktop.
 
