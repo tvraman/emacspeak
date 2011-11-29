@@ -72,6 +72,7 @@
             "Untitled"))))
     (with-current-buffer buffer
       (erase-buffer)
+      (special-mode)
       (shr-insert-document dom)
       (setq shr-url-dom dom)
       (goto-char (point-min))
