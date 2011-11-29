@@ -56,6 +56,11 @@
 
 ;;{{{  electric editing
 
+(defadvice py-electric-comment (after emacspeak pre act comp)
+  "Speak what you inserted"
+  (when (interactive-p)
+    (dtk-say " pound ")))
+
 (defadvice py-electric-colon (after emacspeak pre act comp)
   "Speak what you inserted"
   (when (interactive-p)
