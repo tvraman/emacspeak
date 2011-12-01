@@ -1,0 +1,11 @@
+<asx version="3.0">
+	<entry>
+		<title>ABC Grandstand</title>
+		<ref href="mms://wms-cricket.abc.net.au.edgestreams.net/reflector:53614" />
+	</entry>
+	<entry>
+		<title>ABC Grandstand</title>
+		<ref href="mms://wms-cricket.abc.net.au.edgestreams.net/reflector:56477" />
+	</entry>
+</asx>
+
