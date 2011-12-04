@@ -75,12 +75,13 @@
                     eshell-last-output-start))
   (save-excursion
     (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
-  (goto-char (point-max)))
+  (eshell-postoutput-scroll-to-bottom))
   
 
 (add-hook 
  'eshell-post-command-hook
- 'emacspeak-eshell-speak-output)
+ 'emacspeak-eshell-speak-output
+ 'at-end)
 
 ;;}}}
 ;;{{{  Advice PComplete --may be factored out later:
