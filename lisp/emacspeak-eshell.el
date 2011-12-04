@@ -71,8 +71,11 @@
 
 (defun emacspeak-eshell-speak-output  ()
   "Speak eshell output."
-  (declare (special eshell-last-input-end eshell-last-output-end eshell-last-output-start))
-  (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
+  (declare (special eshell-last-input-end eshell-last-output-end
+                    eshell-last-output-start))
+  (save-excursion
+    (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
+  (goto-char (point-max)))
   
 
 (add-hook 
