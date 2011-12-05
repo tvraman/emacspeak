@@ -73,15 +73,14 @@
   "Speak eshell output."
   (declare (special eshell-last-input-end eshell-last-output-end
                     eshell-last-output-start))
-  (save-excursion
-    (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
-  (eshell-postoutput-scroll-to-bottom))
+  (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
   
 
 (add-hook 
- 'eshell-post-command-hook
+ 'eshell-output-filter-functions
  'emacspeak-eshell-speak-output
  'at-end)
+
 
 ;;}}}
 ;;{{{  Advice PComplete --may be factored out later:
