@@ -83,28 +83,6 @@
 
 
 ;;}}}
-;;{{{  Advice PComplete --may be factored out later:
-
-(defadvice pcomplete-list (after emacspeak pre act )
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'help)
-    (emacspeak-auditory-icon 'help)))
-
-(defadvice pcomplete-show-completions (around emacspeak pre act comp)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-(defadvice pcomplete (around emacspeak pre act)
-  "Say what you completed."
-  (let ((orig (point)))
-    ad-do-it
-    (when  (interactive-p)
-      (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'complete))
-    ad-return-value))
-
-;;}}}
 ;;{{{  Advice top-level EShell
 
 (defadvice eshell (after emacspeak pre act )
