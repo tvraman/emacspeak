@@ -262,7 +262,7 @@ from Web page -- default is the current page being viewed."
     current-prefix-arg))
   (declare (special emacspeak-we-xsl-filter ))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
+    ;(emacspeak-webutils-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
      emacspeak-we-xsl-filter
