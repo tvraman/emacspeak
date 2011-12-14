@@ -1138,8 +1138,10 @@ Produce an auditory icon if possible."
           (emacspeak-speak-messages nil))
       ad-do-it
       (if (> (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-substring prior (point ))))
+          (tts-with-punctuations
+           'all
+           (emacspeak-auditory-icon 'complete)
+           (dtk-speak (buffer-substring prior (point ))))
         (emacspeak-speak-completions-if-available))))
    (t ad-do-it))
   ad-return-value)
