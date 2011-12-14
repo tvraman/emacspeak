@@ -250,6 +250,10 @@ Nil means no transform is used. "
     (message "Turned %s xslt keep results."
              (if emacspeak-we-xsl-keep-result
                  'on 'off))))
+(defcustom emacspeak-we-filters-rename-buffer nil
+  "Set to T  if you want the buffer name to contain the applied filter."
+  :type  'boolean
+  :group 'emacspeak-we)
 
 ;;;###autoload
 (defun emacspeak-we-xslt-filter (path    url  &optional speak)
@@ -260,9 +264,10 @@ from Web page -- default is the current page being viewed."
     (read-from-minibuffer "XPath: ")
     (emacspeak-webutils-read-url)
     current-prefix-arg))
-  (declare (special emacspeak-we-xsl-filter ))
+  (declare (special emacspeak-we-xsl-filter
+                    emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    ;(emacspeak-webutils-rename-buffer (format "Filtered %s" path))
+    (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
     (when speak (emacspeak-webutils-autospeak))
     (emacspeak-webutils-with-xsl-environment
      emacspeak-we-xsl-filter
