@@ -555,6 +555,7 @@ default-directory after switching."
 
 ;;;###autoload
 (defun emacspeak-sudo-edit (&optional arg)
+  "Edit file as Root."
   (interactive "p")
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
