@@ -907,7 +907,7 @@ urls.")
 Can be customized to set up initial default."
   :type 'string
   :group 'emacspeak-we)
-
+;;;###autoload
 (defcustom emacspeak-we-paragraphs-xpath-filter
   "//p"
   "Filter paragraphs."
