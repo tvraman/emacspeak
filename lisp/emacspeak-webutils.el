@@ -129,7 +129,7 @@ Note that the Web browser should reset this hook after using it.")
                 (declare (special emacspeak-we-xpath-filter))
                 (let ((inhibit-read-only t))
                   (setq emacspeak-we-xpath-filter
-                        "//p")
+                        emacspeak-we-recent-xpath-filter)
                   (emacspeak-speak-buffer)))
             'at-end))
 

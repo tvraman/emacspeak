@@ -152,7 +152,7 @@
   (let ((link (get-text-property (point) 'link)))
     (if link
         (emacspeak-we-xslt-filter
-         "//p"
+         emacspeak-we-recent-xpath-filter
          link 'speak)
       (message "No link under point."))))
 ;;;###autoload

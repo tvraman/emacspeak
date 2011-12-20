@@ -1616,7 +1616,7 @@ name of the list.")
  "Read pulpit from PBS. Published on the Thursday of the week."
  #'(lambda (url)
      (emacspeak-we-xslt-filter
-      "//p" url 'speak)))
+      emacspeak-we-recent-xpath-filter url 'speak)))
 
 ;;}}}
 ;;{{{  The Linux Show

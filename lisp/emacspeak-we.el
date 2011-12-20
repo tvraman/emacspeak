@@ -888,7 +888,7 @@ specifies the page to extract contents  from."
 
 (defvar emacspeak-we-xpath-filter-history 
   (list
-   "//p"
+   emacspeak-we-recent-xpath-filter
    "//p|//div"
    "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote")
   "History list recording XPath filters we've used.")
