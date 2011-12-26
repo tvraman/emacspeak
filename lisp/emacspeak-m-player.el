@@ -278,10 +278,10 @@ Only works for local media sources, not Internet streams."
     (emacspeak-m-player
      (expand-file-name (car emacspeak-m-player-info-cache)
                        emacspeak-m-player-current-directory))
-    ;Seek to the right percentage
-    )
+    (sit-for 5)
+    (emacspeak-m-player-seek-absolute (second emacspeak-m-player-info-cache)))
    (t ( message "Cannot resume previously stopped track."))))
-    
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
@@ -340,8 +340,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (apply 'start-process "M PLayer" buffer
                    emacspeak-m-player-program options))
       (set-buffer buffer)
-      (emacspeak-m-player-mode)
-      )))
+      (emacspeak-m-player-mode))))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
