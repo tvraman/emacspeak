@@ -673,7 +673,7 @@ M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
 
-In addition to any hooks its parent mode `text-mode' might have run,
+In addition to any hooks its parent mode `special-mode' might have run,
 this mode runs the hook `emacspeak-bookshare-mode-hook', as the final step
 during initialization. 
 
@@ -932,6 +932,71 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
+** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
+ (the previous column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
+ (the previous row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expression Display the expression in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-value Display the cell value in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
+The `column header' is the entry in row 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
+The `row header' is the entry in column 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
+ (the next column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
+ (the next row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list 
+
+------------------------------------------------------------
+
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -1070,7 +1135,12 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1106,7 +1176,12 @@ in a non eterm buffer if executed via C-e C-e
 
 ** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1284,6 +1359,10 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
+** emacspeak-eudc-send-mail Send email to the address given by the current record.  
+
+------------------------------------------------------------
+
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
  Copy over text in region to special filtertext buffer in
@@ -1407,6 +1486,10 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
+** emacspeak-google-toolbelt-change-books-format Change  books-format in the currently active toolbelt. 
+
+------------------------------------------------------------
+
 ** emacspeak-google-toolbelt-change-books-type Change  books-type in the currently active toolbelt. 
 
 ------------------------------------------------------------
@@ -1436,6 +1519,10 @@ Assumes that point is at the front of a field value.
 ------------------------------------------------------------
 
 ** emacspeak-google-toolbelt-change-images Change  images in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-literal Change  literal in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
@@ -1670,13 +1757,6 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
 ** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -1873,6 +1953,11 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-reset-speed Reset playing speed to normal. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-resume Resume M-Player where it was stopped if possible.
+Only works for local media sources, not Internet streams. 
 
 ------------------------------------------------------------
 
@@ -3650,6 +3735,17 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -4647,7 +4743,7 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-sudo-edit   
+** emacspeak-sudo-edit Edit file as Root. 
 
 ------------------------------------------------------------
 
@@ -5255,18 +5351,6 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-blue-pages Search IBM Blue Pages 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM My News 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-news Search IBM My News 
-
-------------------------------------------------------------
-
 ** emacspeak-firevox Creates FireVox interaction.
 
 (fn) 
@@ -5484,12 +5568,6 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-piglets-tts-stop Kill TTS  process.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
