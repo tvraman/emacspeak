@@ -84,6 +84,10 @@
     (accept-process-output emacspeak-m-player-process 0.1)
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
+(defvar emacspeak-m-player-current-directory nil
+  "Records current directory of media being played.
+This is set to nil when playing Internet  streams.")
+
 
 (defvar emacspeak-m-player-info-cache nil
   "Cache currently playing info.")
@@ -95,7 +99,8 @@
         (pos (emacspeak-m-player-dispatch "get_percent_pos\n")))
     (when (and file pos)
       (setq
-       file (second (split-string file "="))
+       file
+       (substring (second (split-string file "=")) 1 -1)
        pos (second (split-string pos "="))))
     (setq emacspeak-m-player-info-cache (list file pos))))
 
@@ -261,7 +266,22 @@ on a specific directory."
   "Call emacspeak-m-player with specified URL."
   (interactive "sURL: ")
   (emacspeak-m-player url))
-
+;;;###autoload
+(defun emacspeak-m-player-resume ()
+  "Resume M-Player where it was stopped if possible.
+Only works for local media sources, not Internet streams."
+  (interactive)
+  (cond
+   ((and emacspeak-m-player-info-cache
+         emacspeak-m-player-current-directory
+         (not (eq 'run (process-status emacspeak-m-player-process))))
+    (emacspeak-m-player
+     (expand-file-name (car emacspeak-m-player-info-cache)
+                       emacspeak-m-player-current-directory))
+    ;Seek to the right percentage
+    )
+   (t ( message "Cannot resume previously stopped track."))))
+    
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
@@ -279,10 +299,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions
+                    emacspeak-m-player-current-directory
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
-    (setq resource (expand-file-name resource)))
+    (setq resource (expand-file-name resource))
+    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
