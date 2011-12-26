@@ -278,7 +278,7 @@ Only works for local media sources, not Internet streams."
     (emacspeak-m-player
      (expand-file-name (car emacspeak-m-player-info-cache)
                        emacspeak-m-player-current-directory))
-    (sit-for 5)
+    (sit-for 0.5)
     (emacspeak-m-player-seek-absolute (second emacspeak-m-player-info-cache)))
    (t ( message "Cannot resume previously stopped track."))))
 
