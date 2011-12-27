@@ -219,8 +219,6 @@ Argument BODY specifies forms to execute."
 ;;}}}
 ;;{{{  Apply audio annotations
 
-;;; prompt for auditory icon with completion
-
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
   (interactive )
