@@ -228,7 +228,7 @@ Argument BODY specifies forms to execute."
      (let ((sound-cue 'paragraph))
        (while (not (bobp))
          (backward-paragraph)
-         (put-text-property  (1+ (point))
+         (put-text-property  (point)
                              (+ 2    (point ))
                              'auditory-icon sound-cue ))))))
 

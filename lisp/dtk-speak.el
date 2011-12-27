@@ -641,15 +641,6 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; causes the sound
 ;;; to be queued.
 
-(defsubst tts-get-overlay-personality (position)
-  "Return personality at the front of the overlay list at position."
-  (car
-   (delete nil
-           (mapcar
-            #'(lambda (o)
-                (overlay-get o 'personality))
-            (overlays-at position)))))
-
 (defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
   (car
@@ -657,6 +648,15 @@ Argument COMPLEMENT  is the complement of separator."
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))
+            (overlays-at position)))))
+
+(defsubst tts-get-overlay-personality (position)
+  "Return personality at the front of the overlay list at position."
+  (car
+   (delete nil
+           (mapcar
+            #'(lambda (o)
+                (overlay-get o 'personality))
             (overlays-at position)))))
 
 (defsubst next-true-single-property-change (start  prop object  limit)
