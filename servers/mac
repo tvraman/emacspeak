@@ -1,4 +1,4 @@
-#!/usr/bin/python2.6
+#!/usr/bin/python
 # E-Mac-Speak
 # Emacspeak on Mac.
 # author: David Tseng
@@ -6,8 +6,11 @@
 
 import aifc
 import math
+import mmap
 import os
+import pysox
 import re
+import StringIO
 import sys
 import tempfile
 import threading
@@ -17,6 +20,8 @@ from PyObjCTools import AppHelper
 from AppKit import NSObject
 from AppKit import NSSound
 from AppKit import NSSpeechSynthesizer
+from AppKit import NSURL
+
 
 # Globals.
 ttsState = {}
@@ -26,16 +31,19 @@ capsPitchIncrease = 8
 
 # Debug level
 # 0 means no debug output is written 10 is maximum output
-debugLevel = 0
+debugLevel = 10
 
 # Should debug output also be written to STDOUT?
-debugToSTDOUT = 0
+debugToSTDOUT = 1
 
 # A debug file to place sample tts text sent by emacspeak.
 if debugLevel > 0:
   DEBUGFILE = tempfile.NamedTemporaryFile(dir='/tmp',
                                           mode='w',
                                           prefix='emacspeak.servers.mac_log')
+
+  # Insecure version; used for easier debugging.
+  DEBUGFILE = open('/tmp/speech.log', 'w')
 
 # global speech rate
 ttsState['speechRate'] = 500
@@ -65,17 +73,19 @@ punctuationNamesMap= {'$':'dollar',
                  '+':'plus',
                  '=':'equals',
                  '\'':'apostrophe',
+                      '*':'star',
                  '~':'tilda',
                  '`':'backquote',
                  '!':'exclamation',
                  '@':'at',
                  '_':'underline',
+                 '\'':'apostrophe',
                  '.':'dot',
                  ',':'comma'}
 
 punctuationMap = {'none': ('$'),
                   'some': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '~', '`', '!'),
-                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '.', ',')}
+                  'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '\'', '*', '.', ',')}
 
 # map voice short names to apple class names.
 voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
@@ -95,10 +105,15 @@ speechLock = threading.Lock()
 
 
 """
-  Helper for consuming callbacks from NSSpeechSynthesizer.
+  Helper for consuming callbacks from NSSound and NSSpeechSynthesizer.
+Implements NSSoundDelegate and NSSpeechSynthesizerDelegate protocol's.
 """
-class SpeechSynthesizerDelegate(NSObject):
+class ServerDelegate(NSObject):
+  # NSSoundDelegate implementation.
+  def sound_didFinishPlaying_(self, textClipPlayer, success):
+    processSpeechQueue()
 
+  # NSSpeechSynthesizerDelegate implementation.
   def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
     processSpeechQueue()
 
@@ -114,9 +129,18 @@ class SpeechSynthesizerDelegate(NSObject):
 
 # Static.
 speechSynthesizer = NSSpeechSynthesizer.alloc().init()
-delegate_ = SpeechSynthesizerDelegate.alloc().init();
+speechDelegate = ServerDelegate.alloc().init()
 speechSynthesizer.setRate_(ttsState['speechRate'])
-speechSynthesizer.setDelegate_(delegate_)
+speechSynthesizer.setDelegate_(speechDelegate)
+textClipPlayer = NSSound.alloc()
+textClipPlayerDelegate = ServerDelegate.alloc().init()
+textClipPlayer.setDelegate_(textClipPlayerDelegate)
+open("/tmp/speechOut.aiff", "w").write("0")
+open("/tmp/soxSpeechOut.aiff", "w").write("0")
+speechOutPathString = '/tmp/speechOut.aiff'
+speechOutUrl = NSURL.alloc().initWithString_(speechOutPathString)
+speechOutMapFile = mmap.mmap(os.open(speechOutPathString, os.O_RDWR), 0)
+soxSpeechOutMapFile = mmap.mmap(os.open('/tmp/soxSpeechOut.aiff', os.O_RDWR), 0)
 
 """
   An object which observes stdin.
@@ -189,7 +213,7 @@ def writeDebugLog(level, output):
 
   if level <= debugLevel:
     if output:
-      DEBUGFILE.write(output)
+      DEBUGFILE.write("\n" + output)
       # Write debug messages to STDOUT if requested as well
       if debugToSTDOUT:
         print output + "\n"
@@ -267,19 +291,17 @@ class _ProtocolHandler:
     speechSynthesizer.startSpeakingString_(output)
 
   def handleQueue(self, args):
-    if re.search(r"^(.*)(\[\[voice [a-z]*\]\])(.*)$", args):
-      queueTextWithVoiceCommands(args)
+    self.queueContinuationValue = self.queueContinuationValue + args
+    if args.endswith('}'):
+      preprocessCustomEmbeds(self.queueContinuationValue)
+      self.queueContinuationValue = ""
+      self.isQueueContinuation = False
     else:
-      self.queueContinuationValue = self.queueContinuationValue + args
-      if args.endswith('}'):
-        speechQueue.append(("text", self.queueContinuationValue))
-        self.queueContinuationValue = ""
-        self.isQueueContinuation = False
-      else:
-        self.isQueueContinuation = True
+      self.isQueueContinuation = True
 
   def handleStopSpeaking(self, args):
     speechSynthesizer.stopSpeaking()
+    textClipPlayer.stop()
     del(speechQueue[:])
 
   def handleTone(self, args):
@@ -295,16 +317,19 @@ class _ProtocolHandler:
     frequencyWave = 2 * math.pi * frequency / frameRate
     # frequencyWave is measured in radians per sample
 
-    e = aifc.open('/tmp/e.aiff', 'w')
+    f = StringIO.StringIO()
+    e = aifc.open(f, 'w')
     e.setnchannels(1)
     e.setsampwidth(2)
     e.setframerate(44100)
     e.setnframes(int(nframes))
     e.writeframesraw(self.buildSineWave(frequencyWave, int(nframes)))
-    e.close()
 
-    icon = NSSound.alloc().initWithContentsOfFile_byReference_('/tmp/e.aiff', True)
+    soundData = NSData.alloc().initWithBytes_length_(f.getvalue(),
+                                                           len(f.getvalue()))
+    icon = NSSound.alloc().initWithData_(soundData)
     icon.play()
+    e.close()
 
   def handleTtsSay(self, args):
     speechSynthesizer.startSpeakingString_('[[rate %i]] %s' % (ttsState['sayRate'], args))
@@ -407,27 +432,54 @@ class _ProtocolHandler:
 ProtocolHandler = _ProtocolHandler()
 
 
-# This takes a string with imbedded voice changes and splits it up and queues individual text events with voice changes inbetween.
-def queueTextWithVoiceCommands(text):
-  writeDebugLog(4, "process text with voice commands")
+# This takes a string with embedded voice changes and
+# splits it up and queues individual text events with voice changes inbetween.
+def preprocessCustomEmbeds(text):
+  writeDebugLog(4, "preprocess custom embeds.")
+  effects = []
+  text = text.strip(' {}')
+
+  # The following uses a car/cdr pattern.
+  # Since we don't know if the car is a text or embedded command, we try both.
   while text:
-    # try cleaning out the extra spaces
-    text = text.strip("{} ")
-    matcher = re.match(r"^(?P<first>.*?)\[\[voice (?P<voice>[a-z]*)\]\](?P<rest>.*)$", text)
+    matcher = re.match(r"(?P<first>(^.*?))\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\](?P<rest>.*?)$", text)
     if not matcher:
       writeDebugLog(8, "no match in string " + text + "\n")
       break
+
     first = matcher.group('first')
-    voice = matcher.group('voice')
+    embed = matcher.group('customembed')
     rest = matcher.group('rest')
-    if first:
-      speechQueue.append(("text", first))
-    speechQueue.append(("voice", voice))
-    writeDebugLog(8, "first: " + first + "\nvoice " + voice + "\nrest " + rest)
-    text = rest
+
+    if first and len(effects) > 0:
+      speechQueue.append(("textclip", (effects, first)))
+    elif first:
+      speechQueue.append(('text', first))
+    writeDebugLog(
+        8, "first: " + str(first) + "\neffects " + str(effects) + "\nrest " + str(rest))
+
+    if embed:
+      embedArgs = embed.split(' ')
+      # Special case voice changes.
+      if embedArgs[0] == 'voice':
+        writeDebugLog(4, 'queueing voice change: ' + str(embedArgs))
+        speechQueue.append(('voice', embedArgs[1]))
+      else:
+        effects.append(embedArgs)
+
+    if rest:
+      text = rest
+    else:
+      text = ""
+
   if text:
     writeDebugLog(8, "queueing final chunk " + text)
-    speechQueue.append(("text", text))
+    if len(effects) > 0:
+      writeDebugLog(8, "Appending textclip" + str(effects))
+      speechQueue.append(("textclip", (effects, text)))
+    else:
+      writeDebugLog(8, "Appending text")
+      speechQueue.append(("text", text))
 
 
 # Processes speech objects.
@@ -436,13 +488,14 @@ def queueTextWithVoiceCommands(text):
 def processSpeechQueue():
   # hacky way to work around buggy NSSpeechSynthesizerDelegate
   speechLock.acquire()
-  if speechSynthesizer.isSpeaking():
+  if speechSynthesizer.isSpeaking() or textClipPlayer.isPlaying():
     speechLock.release()
     return
   speechLock.release()
 
   if (len(speechQueue) > 0):
     item = speechQueue.pop(0)
+
     #Text
     if item[0] == "text":
       #Basic processing.  TODO: refactor.
@@ -454,6 +507,8 @@ def processSpeechQueue():
         writeDebugLog(2, "\nsay: " + item[1] + "\nend\n")
       else:
         processSpeechQueue()
+
+    # Voice changes
     elif item[0] == "voice":
       writeDebugLog(4, "Voice change")
       voice = item[1]
@@ -462,19 +517,69 @@ def processSpeechQueue():
         writeDebugLog(6, "set voice to " + voiceMap[voice])  
         processSpeechQueue()
 
+    # Custom embeds.
+    elif item[0] == 'textclip':
+      # This is totally repetitive with above.
+      output = (item[1])[1]
+      output = ProcessSpecialCharacters(output)
+      output = output.strip(' ')
+      if not output:
+        processSpeechQueue()
+        return
+      writeDebugLog(4, "rendering text clip" + str(output))
+      speechSynthesizer.setRate_(ttsState['speechRate'])
+      if speechSynthesizer.startSpeakingString_toURL_(
+output, speechOutUrl):
+        speechQueue.insert(0, (('playclip', (item[1])[0])))
+
+    # Plays text clip (with possibly sox processing).
+    elif item[0] == 'playclip':
+      effectArgs = (item[1]).pop(0)
+      writeDebugLog(4, "about to play clip with effects: " + str(effectArgs))
+      inStream = pysox.CSoxStream(speechOutPathString)
+      outStream = pysox.CSoxStream(
+'/tmp/soxSpeechOut.aiff', 'w', inStream.get_signal(), fileType='wav')
+      chain = pysox.CEffectsChain(inStream, outStream)
+      effectName = effectArgs.pop(0)
+      chain.add_effect(pysox.CEffect(effectName, effectArgs))
+      chain.flow_effects()
+      inStream.close()
+      outStream.close()
+      textClipPlayer.initWithContentsOfFile_byReference_(
+'/tmp/soxSpeechOut.aiff', False).play()
+
 
 def ProcessSpecialCharacters(wordList):
   punctList = punctuationMap[ttsState['punctuationLevel']]
+  # used to track if we are currently inside an embedded command.
+  inEmbeddedCommand = 0
 
   expansion = ""
   for i in range(len(wordList)):
+    # Check if we are entering an embedded command
+    if wordList[i] == '[' and wordList[i - 1] == '[':
+      inEmbeddedCommand = 1
+    # Check if we are leaving an embedded command
+    if wordList[i] == ']' and wordList[i - 1] == ']':
+      inEmbeddedCommand = 0
+
+    # if we are in an embedded command then just send the char straight through with out processing
+    if inEmbeddedCommand:
+      expansion += (wordList[i])
+      continue
+
+    # Check if we have an expansion for this char
     if wordList[i] in punctList:
       expansion += ' ' + (punctuationNamesMap[wordList[i]]) + ' '
-    else:
-      # if we have a cap letter
-      if ttsState['capitalize'] and re.match(r"^[A-Z]+$", wordList[i]):
-        expansion += "[[sync 3]]"
-      expansion += (wordList[i])
+      continue
+    elif wordList[i] in punctuationMap['all']:
+      continue
+
+    # if we have a cap letter
+    if ttsState['capitalize'] and re.match(r"^[A-Z]+$", wordList[i]):
+      expansion += "[[sync 3]]"
+    expansion += (wordList[i])
+
   return expansion
 
 def main():
