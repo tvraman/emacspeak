@@ -298,13 +298,14 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (emacspeak-m-player-guess-directory)
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
-  (declare (special emacspeak-media-extensions
+  (declare (special emacspeak-media-extensions default-directory
                     emacspeak-m-player-current-directory
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource))
-    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
+    (setq emacspeak-m-player-current-directory (file-name-directory resource))
+    (setq default-directory emacspeak-m-player-current-directory))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))

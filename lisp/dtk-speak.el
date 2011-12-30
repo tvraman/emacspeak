@@ -1815,11 +1815,9 @@ No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
-                    tts-strip-octals
-                    inhibit-point-motion-hooks
+                    tts-strip-octals inhibit-point-motion-hooks
                     dtk-speak-server-initialized emacspeak-use-auditory-icons
-                    dtk-speech-rate
-                    dtk-speak-nonprinting-chars
+                    dtk-speech-rate dtk-speak-nonprinting-chars
                     dtk-speak-treat-embedded-punctuations-specially
                     dtk-quiet  dtk-chunk-separator-syntax
                     voice-lock-mode   dtk-punctuation-mode

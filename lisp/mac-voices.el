@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{  voice table
 
-(defvar mac-default-voice-string "[[voice alex]]"
+(defvar mac-default-voice-string "[{voice alex}]"
   "Default Mac tag for  default voice.")
 
 (defvar mac-voice-table (make-hash-table)
@@ -85,6 +85,7 @@ COMMAND-STRING to the TTS engine."
   (concat 
    (mac-get-voice-command-internal name)))
 
+
 (defsubst mac-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special mac-voice-table ))
@@ -94,23 +95,23 @@ COMMAND-STRING to the TTS engine."
 ;;{{{ voice definitions
 
 ;;; the nine predefined voices: TODO: figure out if embedding is possible (and update voice names).
-(mac-define-voice 'paul  " [[voice alex]] ")
-(mac-define-voice 'harry " [[voice ralf]] ")
-(mac-define-voice 'dennis " [[voice bruce]] ")
-(mac-define-voice 'frank " [[voice fred]] ")
-(mac-define-voice 'betty " [[voice victoria]] ")
-(mac-define-voice 'ursula " [[voice kathy]] ")
-(mac-define-voice 'rita " [[voice vicki]] ")
-(mac-define-voice 'wendy " [[voice kathy]] ")
-(mac-define-voice 'kit " [[voice junior]] ")
+(mac-define-voice 'paul  " [{voice alex}] ")
+(mac-define-voice 'harry " [{voice ralf}] ")
+(mac-define-voice 'dennis " [{voice bruce}] ")
+(mac-define-voice 'frank " [{voice fred}] ")
+(mac-define-voice 'betty " [{voice victoria}] ")
+(mac-define-voice 'ursula " [{voice kathy}] ")
+(mac-define-voice 'rita " [{voice vicki}] ")
+(mac-define-voice 'wendy " [{voice kathy}] ")
+(mac-define-voice 'kit " [{voice junior}] ")
 
 ;;; Modified voices:
 
 ;;}}}
 ;;{{{  the inaudible voice
 
-;;; TVR: Achieve this by setting volume to 0?
-(mac-define-voice 'inaudible " ")
+;;; Achieve this by setting volume to 0?
+(mac-define-voice 'inaudible " [[volm 0.1]] ")
 
 ;;}}}
 ;;{{{  Mapping css parameters to tts codes
@@ -148,7 +149,7 @@ and TABLE gives the values along that dimension."
 
 (defvar mac-gain-table (make-vector  10 "")
   "Maps CSS volume settings to actual synthesizer codes.")
-
+;; TODO
 ;;}}}
 ;;{{{  average pitch
 
@@ -170,16 +171,16 @@ and TABLE gives the values along that dimension."
             (format " [[pbas %s]] "
                     (second setting)))))
    '(
-     (0 44)
-     (1 50)
-     (2 56)
-     (3 58)
-     (4 62)
-     (5 65)
-     (6 69)
-     (7 73 )
-     (8 77)
-     (9 82)))
+     (0 1)
+     (1 10)
+     (2 20)
+     (3 35)
+     (4 40)
+     (5 45)
+     (6 50)
+     (7 55 )
+     (8 58)
+     (9 62)))
   (mac-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}
@@ -191,7 +192,7 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-            (format " pitch %s"
+            (format " [[pbas %s]]"
                     (second setting)))))
    '(
      (0 0)
@@ -258,19 +259,19 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-            (format " [[pbas %s]] "
+            (format " [[pmod %s]] "
                     (second setting)))))
    '(
      (0 0 )
-     (1 10 )
-     (2  18)
-     (3  25)
-     (4  35 )
-     (5  44 )
-     (6  48)
-     (7  54)
-     (8  60)
-     (9  67)))
+     (1 14.1)
+     (2  28.2)
+     (3  42.3)
+     (4  56.4)
+     (5  70.5)
+     (6  84.6)
+     (7 98.7)
+     (8  112.8)
+     (9  127)))
   (mac-css-set-code-table 'paul 'pitch-range table ))
 (let ((table (make-vector 10 "")))
   (mac-css-set-code-table 'harry 'pitch-range table ))
@@ -289,12 +290,38 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
+
 ;;{{{  paul stress TODO
 
 (let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'paul 'stress table)
-  (mac-css-set-code-table 'harry 'stress table)
-  (mac-css-set-code-table 'betty  'stress table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+            (first setting)
+            (format " [{echo %s %s %s %s}] "
+                    (second setting)
+		    (third setting)
+		    (fourth setting)
+		    (fifth setting)
+))))
+   '(
+     (0 1 1 0.1 0.1)
+     (1 1 1 10 .1)
+     (2  1 1 20 .2)
+     (3  1 1 30 .2)
+     (4  1 1 40 .3)
+     (5  1 1 50 .3)
+     (6  1 1 60 .3)
+     (7  1 1 70 .3)
+     (8  1 1 80 .3)
+     (9  1 1 90 .3)))
+  (mac-css-set-code-table 'paul 'stress table ))
+
+(let ((table (make-vector 10 "")))
+  (mac-css-set-code-table 'harry 'stress table )
+  (mac-css-set-code-table 'betty 'stress table ))
+
 
 ;;}}}
 (defsubst mac-get-stress-code (value family)
