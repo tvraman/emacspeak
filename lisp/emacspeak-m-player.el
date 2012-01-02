@@ -88,6 +88,8 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
+(defvar emacspeak-m-player-info-ring (make-ring 20)
+  "Stores info cache entries each time we quit m-player.")
 
 (defvar emacspeak-m-player-info-cache nil
   "Cache currently playing info.")
@@ -542,10 +544,14 @@ necessary."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
+  (declare (special emacspeak-m-player-info-ring
+                    emacspeak-m-player-info-cache))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
-        (emacspeak-m-player-current-info) ; cache for future 
+        (emacspeak-m-player-current-info)
+                                        (when emacspeak-m-player-info-cache
+          (ring-insert emacspeak-m-player-info-ring emacspeak-m-player-info-cache))
         (emacspeak-m-player-dispatch "quit")
         (emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
