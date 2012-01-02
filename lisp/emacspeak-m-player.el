@@ -95,7 +95,7 @@ This is set to nil when playing Internet  streams.")
   "Cache currently playing info.")
 
 (defun emacspeak-m-player-current-info ()
-  "Return filename and position of current track as a list."
+  "Return filename ,  position and directory of current track as a list."
   (declare (special emacspeak-m-player-info-cache))
   (let ((file (emacspeak-m-player-dispatch "get_file_name\n"))
         (pos (emacspeak-m-player-dispatch "get_percent_pos\n")))
@@ -104,7 +104,8 @@ This is set to nil when playing Internet  streams.")
        file
        (substring (second (split-string file "=")) 1 -1)
        pos (second (split-string pos "="))))
-    (setq emacspeak-m-player-info-cache (list file pos))))
+    (setq emacspeak-m-player-info-cache
+          (list file pos emacspeak-m-player-current-directory))))
 
 (defun emacspeak-m-player-speak-current-info ()
   "Speak cached  info about currently playing file."
