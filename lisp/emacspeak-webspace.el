@@ -80,13 +80,15 @@
         ("b" emacspeak-webspace-previous-link)
         ("y" emacspeak-webspace-yank-link)
         ("A"emacspeak-webspace-atom-view)
+        ("r" greader-reading-list)
         ("R" emacspeak-webspace-rss-view)
         ("F" emacspeak-webspace-feed-view)
         ("t" emacspeak-webspace-transcode)
         ("\C-m" emacspeak-webspace-open)
         ("." emacspeak-webspace-filter)
         ("n" next-line)
-        ("p" previous-line))
+        ("p" previous-line)
+        ("g" emacspeak-webspace-reader-refresh))
       do
       (emacspeak-keymap-update  emacspeak-webspace-mode-map k))
 
@@ -220,6 +222,7 @@ Generates auditory and visual display."
       '(
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
+        ("r" greader-reading-list)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
@@ -418,15 +421,24 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
     buffer))
 
 ;;;###autoload 
-(defun emacspeak-webspace-reader ()
-  "Display Google Reader Feed list in a WebSpace buffer."
-  (interactive)
+(defun emacspeak-webspace-reader (&optional refresh)
+  "Display Google Reader Feed list in a WebSpace buffer.
+Optional interactive prefix arg forces a refresh."
+  (interactive "P")
   (declare (special emacspeak-webspace-reader-buffer))
-  (unless (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))
+  (when (or refresh
+            (not (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))))
     (emacspeak-webspace-reader-create))
   (switch-to-buffer emacspeak-webspace-reader-buffer)
   (goto-char (point-min))
   (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
+
+;;;###autoload
+(defun emacspeak-webspace-reader-refresh ()
+  "Refresh Reader."
+  (interactive )
+  (emacspeak-webspace-reader 'refresh)  (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
