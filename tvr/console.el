@@ -49,6 +49,13 @@
 (define-key function-key-map "\eOw" [kp-7])
 (define-key function-key-map "\eOx" [kp-8])
 (define-key function-key-map "\eOy" [kp-9])
+
+;;; Vanila console arrows (needed now in emacs 24:
+
+(define-key function-key-map  "\eOA" [( up)])
+(define-key function-key-map "\eOB" [( down)])
+(define-key function-key-map "\eOC" [( right)])
+(define-key function-key-map "\eOD" [( left)])
 ;;; shift arrows
 
 (define-key function-key-map  "\e[E" [(shift up)])
