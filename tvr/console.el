@@ -51,7 +51,7 @@
 (define-key function-key-map "\eOy" [kp-9])
 
 ;;; Vanila console arrows (needed now in emacs 24:
-
+;;; This is because facemenu.el grabs \M-O for its keymap.
 (define-key function-key-map  "\eOA" [( up)])
 (define-key function-key-map "\eOB" [( down)])
 (define-key function-key-map "\eOC" [( right)])
