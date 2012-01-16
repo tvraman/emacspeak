@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 962 commands.
+This chapter documents a total of 951 commands.
 
 @menu
 * cd-tool::
@@ -25,7 +25,6 @@ This chapter documents a total of 962 commands.
 * emacspeak-custom::
 * emacspeak-daisy::
 * emacspeak-dired::
-* emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
 * emacspeak-emms::
@@ -35,7 +34,6 @@ This chapter documents a total of 962 commands.
 * emacspeak-epub::
 * emacspeak-erc::
 * emacspeak-eterm::
-* emacspeak-eudc::
 * emacspeak-filtertext::
 * emacspeak-fix-interactive::
 * emacspeak-forms::
@@ -77,7 +75,6 @@ This chapter documents a total of 962 commands.
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
-* emacspeak-w3m::
 * emacspeak-we::
 * emacspeak-websearch::
 * emacspeak-webspace::
@@ -89,11 +86,13 @@ This chapter documents a total of 962 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
+* emacspeak-w3search::
 * emacspeak-firevox::
 * emacspeak-jawbreaker::
 * emacspeak-moz::
 * emacspeak-org::
 * emacspeak-piglets::
+* emacspeak-w3m::
 * emacspeak-webmarks::
 * URL Templates ::
 @end menu
@@ -1446,107 +1445,6 @@ Speak the header line of the dired buffer.
 Speaks the target of the symlink on the current line.
 @end deffn
 
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-@deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-col-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-expression nil
-@kbd{Not bound to any key.}
-
-Display the expression in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-value nil
-@kbd{Not bound to any key.}
-
-Display the cell value in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header nil
-@kbd{Not bound to any key.}
-
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header nil
-@kbd{Not bound to any key.}
-
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-row-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset col summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset row summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset sheet summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-sheet-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -1852,11 +1750,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1905,11 +1798,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -2148,24 +2036,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail nil
-@kbd{Not bound to any key.}
-
-Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -2873,6 +2743,15 @@ http://www.mplayerhq.hu/DOCS/
 
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
+
+@deffn {Interactive Command} emacspeak-m-player nil
+@kbd{Not bound to any key.}
+
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer nil
 @kbd{Not bound to any key.}
@@ -5618,31 +5497,6 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-m-player nil
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
-@kbd{Not bound to any key.}
-
-Preview this buffer in w3m.
-@end deffn
-
 @node emacspeak-we
 @section emacspeak-we
 
@@ -6400,9 +6254,11 @@ F		emacspeak-webspace-feed-view
 R		emacspeak-webspace-rss-view
 b		emacspeak-webspace-previous-link
 f		emacspeak-webspace-next-link
+g		emacspeak-webspace-reader-refresh
 n		next-line
 p		previous-line
 q		bury-buffer
+r		greader-reading-list
 t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
@@ -6434,6 +6290,13 @@ Move to previous link.
 @kbd{Not bound to any key.}
 
 Display Google Reader Feed list in a WebSpace buffer.
+Optional interactive prefix arg forces a refresh.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-webspace-reader-refresh nil
+@kbd{Not bound to any key.}
+
+Refresh Reader.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reader-unsubscribe nil
@@ -7882,6 +7745,112 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://w3search.torolab.ibm.com/search.mod"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-internal-uri
+"?q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line)
+  )
+
+(emacspeak-websearch-set-searcher 'ibm-my-news
+                                  'emacspeak-websearch-ibm-my-news)
+bind it to tab 
+(emacspeak-websearch-set-key 9 'ibm-my-news)
+
+(defvar emacspeak-websearch-ibm-my-news-uri
+  "http://w3search.torolab.ibm.com/search.mod?do=w3-1.ibm.com%2Fnews%2F&mh=100&ei=1&mo=fl"
+  "*URI for IBM My News  search")
+
+(defun emacspeak-websearch-ibm-my-news (query )
+  "Search IBM My News"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "My News Search ")))
+  (declare (special emacspeak-websearch-ibm-my-news-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-ibm-my-news-uri
+"&q="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process "Your query "
+                                    'emacspeak-speak-line))
+
+(emacspeak-websearch-set-searcher 'blue-pages
+                                  'emacspeak-websearch-blue-pages)
+
+(emacspeak-websearch-set-key ?B 'blue-pages)
+
+(defvar emacspeak-websearch-blue-pages-uri
+  "http://bluepages.ibm.com/cgi-bin/bluepages.pl?"
+  "*URI for BluePages search")
+
+(defun emacspeak-websearch-blue-pages (query &optional prefix)
+  "Search IBM Blue Pages"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Look in Blue Pages for:
+")
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-blue-pages-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-blue-pages-uri
+             (format "directory=%s&"
+                     (if prefix
+                         (read-from-minibuffer "Location: ")
+                       "almaden"))
+"&Selection=Name&selectOn="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   "Tie Line"
+   'emacspeak-speak-line))
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
+@kbd{Not bound to any key.}
+
+Search IBM Blue Pages
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
 @node emacspeak-firevox
 @section emacspeak-firevox
 
@@ -8254,6 +8223,24 @@ Start TTS  engine for Piglets.
 @kbd{Not bound to any key.}
 
 Kill TTS  process.
+
+(fn)
+@end deffn
+
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@kbd{Not bound to any key.}
+
+Preview this buffer in w3m.
 
 (fn)
 @end deffn
