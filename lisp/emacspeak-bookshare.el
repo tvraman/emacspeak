@@ -919,7 +919,11 @@ Target location is generated from author and title."
                     'auditory-icon 'select-object))
         (emacspeak-auditory-icon 'task-done)
         (message "Downloaded content to %s" target))
-       (t (error "Error downloading content.")))))))
+       (t
+        (let ((new-target (read-from-minibuffer "Retry with new target:" target)))
+          (if (zerop (emacspeak-bookshare-download-daisy id new-target))
+              (message "Downloaded to %s" new-target)
+            (error "Error downloading to %s" new-target)))))))))
 
 (defun emacspeak-bookshare-download-brf-at-point ()
   "Download Braille version of book under point.
