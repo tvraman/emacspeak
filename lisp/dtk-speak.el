@@ -396,8 +396,9 @@ will set \"en_GB\".
 ;;;  [] marks dtk commands; {} is special to tcl
 ;;; Optionally post-process the text with cleanup function if one is specified.
 (defconst dtk-bracket-regexp
-  "[][{}<>\\|`#]"
+  "[][{}<>\\|`#\n]"
   "Brackets and other chars  that are special to dtk and tcl.
+Newlines  become spaces so each server request is a single line.
 {} is special to tcl.
 [] is special to both dtk and tcl.
 <> and | are fixed to improve pronunciation.
@@ -412,7 +413,7 @@ will set \"en_GB\".
 
 (defsubst  dtk-fix-brackets (mode)
   "Quote any delimiters that need special treatment.
-Argument MODE  specifies the current pronunciation mode."
+Argument MODE  specifies the current pronunciation mode --- See \\[dtk-bracket-regexp]"
   (declare  (special dtk-bracket-regexp ))
   (let ((inhibit-read-only t))
     (goto-char (point-min))
@@ -426,6 +427,8 @@ Argument MODE  specifies the current pronunciation mode."
                 (get-text-property
                  start 'personality))
           (cond
+           ((= 10  (char-after (match-beginning 0 ))) ; newline
+            (replace-match " "))
            ((= ?| (char-after (match-beginning 0 )))
             (replace-match " pipe "))
            ((= ?< (char-after (match-beginning 0 )))
@@ -452,6 +455,7 @@ Argument MODE  specifies the current pronunciation mode."
      (t
       (while (re-search-forward dtk-bracket-regexp   nil t )
         (replace-match " " nil t ))))))
+
 ;;;###autoload
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
