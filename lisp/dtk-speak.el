@@ -1555,6 +1555,7 @@ This is setup on a per engine basis.")
                                         ; exact match
    ((string-match "^espeak$" tts-name) (espeak-configure-tts))
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
+   ((string-match "^plain" tts-name) (plain-configure-tts))
                                         ;will become generic configure
    (t (dectalk-configure-tts)))
   (when (string-match "^ssh" tts-name)  ;remote server
