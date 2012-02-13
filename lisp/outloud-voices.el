@@ -470,7 +470,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ Configurater 
-
+;;;###autoload
 (defun outloud-configure-tts ()
   "Configure TTS environment to use ViaVoice  family of synthesizers."
   (declare (special tts-default-speech-rate

@@ -598,7 +598,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ configurater
-
+;;;###autoload
 (defun plain-configure-tts ()
   "Configures TTS environment to use Plain family of synthesizers."
   (declare (special  plain-default-speech-rate
