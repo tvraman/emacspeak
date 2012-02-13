@@ -453,7 +453,7 @@ and TABLE gives the values along that dimension."
 
 (defvar russian-spelling-data-loaded-p nil
   "Indicates whether Russian spelling data have already been loaded.")
-
+;;;###autoload
 (defun multispeech-configure-tts ()
   "Configure TTS environment to use multilingual speech server."
   (declare (special tts-default-speech-rate

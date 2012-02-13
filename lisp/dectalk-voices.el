@@ -618,7 +618,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ configurater
-
+;;;###autoload
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (declare (special  dectalk-default-speech-rate
