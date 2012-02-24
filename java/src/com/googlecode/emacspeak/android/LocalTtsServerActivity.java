@@ -19,7 +19,7 @@ package com.googlecode.emacspeak.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.googlecode.eyesfree.localttsserver.R;
+
 
 /**
  * Dummy activity used to start the LocalTtsServerService.
