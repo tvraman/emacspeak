@@ -981,7 +981,7 @@ Target location is generated from author and title."
 
 ;;;###autoload
 (defcustom emacspeak-bookshare-xslt
-  "DaisyTransform.xsl"
+  "daisyTransform.xsl"
   "Name of bookshare  XSL transform."
   :type '(choice :tag "Key: "
                  (const :tag "Daisy transform from Bookshare"  "daisyTransform.xsl")
