@@ -44,8 +44,9 @@ import java.util.ArrayList;
 public class LocalTtsServerService extends Service {
   private class Utterance {
     public static final int TYPE_SPEECH = 0;
-    public static final int TYPE_FILE = 1;
+    public static final int TYPE_SOUND = 1;
     public static final int TYPE_SILENCE = 2;
+    public static final int TYPE_TONE = 3;
     public int utteranceType;
     public String payload;
 
@@ -79,6 +80,7 @@ public class LocalTtsServerService extends Service {
     super.onStart(intent, startId);
     // Raise the TTS priority level so that it is less likely to randomly get
     // bumped by the system.
+    // tvr:shouldn't need this any more?
     this.startForeground(0, null);
     mQueue = new ArrayList<Utterance>();
     mTts = new TextToSpeech(this, new OnInitListener() {
@@ -116,15 +118,12 @@ public class LocalTtsServerService extends Service {
       if (command.startsWith("version")) {
         PackageInfo pinfo = getPackageManager().getPackageInfo(getPackageName(), 0);
         mTts.speak(pinfo.versionName, 2, null);
-        // mQueue = new ArrayList<Utterance>();
       } else if (command.startsWith("tts_say ")) {
         command = command.replaceFirst("tts_say ", "");
         mTts.speak(command, 2, null);
-        // mQueue = new ArrayList<Utterance>();
       } else if (command.startsWith("l ")) {
         command = command.replaceFirst("l ", "");
         mTts.speak(command, 2, null);
-        // mQueue = new ArrayList<Utterance>();
       } else if (command.startsWith("s")) {
         mTts.speak("", 2, null);
         mQueue = new ArrayList<Utterance>();
@@ -133,6 +132,8 @@ public class LocalTtsServerService extends Service {
         mQueue.add(new Utterance(Utterance.TYPE_SPEECH, command));
       } else if (command.startsWith("d")) {
         // TODO: Account for queued audio and silences
+          // tvr:We should  queue to the TTSlayer, not
+          // concatenate which will GC
         String message = "";
         while (mQueue.size() > 0) {
           message = message + mQueue.remove(0).payload + "\n";
