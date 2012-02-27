@@ -157,9 +157,7 @@ Also provide an auditory icon"
   (emacspeak-execute-repeatedly 'forward-paragraph))
 (autoload 'emacspeak-view-line-to-top 
   "emacspeak-view" "Move current line to top of window"  t)
-(declaim (special Man-mode-map))
-(eval-when (load)
-  )
+
 (declaim (special  Man-mode-map))
 (define-key Man-mode-map ";"
   'emacspeak-speak-current-window)
@@ -168,6 +166,8 @@ Also provide an auditory icon"
 (define-key Man-mode-map "." 'emacspeak-man-browse-man-page)
 (define-key Man-mode-map "t" 'emacspeak-view-line-to-top)
 (define-key Man-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+(define-key Man-mode-map "N" 'emacspeak-speak-next-personality-chunk)
+(define-key Man-mode-map "P" 'emacspeak-speak-previous-personality-chunk)
 (define-key Man-mode-map "[" 'backward-paragraph)
 (define-key Man-mode-map "]" 'forward-paragraph)
 
