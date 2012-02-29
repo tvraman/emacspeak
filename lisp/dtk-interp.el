@@ -291,7 +291,7 @@
 (defsubst dtk-interp-resume ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                       "tts_resume\n"))
+                       "\n"))
 
 ;;}}}
 
