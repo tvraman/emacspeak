@@ -1020,31 +1020,19 @@ Typically used after the Dectalk has been power   cycled."
   "Records if speech has been paused.")
 
 ;;;###autoload
-(defun dtk-pause (&optional prefix)
-  "Pause ongoing speech.
-The speech can be resumed with command `dtk-resume'
-normally bound to \\[dtk-resume].  Pausing speech is useful when one needs to
-perform a few actions before continuing to read a large document.  Emacspeak
-gives you speech feedback as usual once speech has been paused.  `dtk-resume'
-continues the interrupted speech irrespective of the buffer
-in which it is executed.
-Optional PREFIX arg flushes any previously paused speech."
-  (interactive "P")
+(defun dtk-pause ()
+  "Temporarily pause / rsume speech."
+  (interactive)
   (declare (special dtk-paused))
   (cond
    ((not dtk-paused)
     (dtk-interp-pause)
     (setq dtk-paused t)
     (emacspeak-auditory-icon 'button))
-   ((and (interactive-p)
-         prefix
-         dtk-paused)
-    (dtk-interp-pause)
-    (dtk-speak "Flushed previously paused speech ")
-    (setq dtk-paused t))
-   ((and dtk-paused
-         (interactive-p))
-    (emacspeak-auditory-icon 'warn-user))))
+   (t
+    (setq dtk-paused nil)
+    (dtk-interp-resume))))
+
 ;;;###autoload
 (defcustom dtk-resume-should-toggle t
   "*T means `dtk-resume' acts as a toggle."
