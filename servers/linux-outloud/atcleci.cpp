@@ -299,7 +299,7 @@ alsa_configure(void)
   size_t          n;
   snd_pcm_uframes_t xfer_align;
   snd_pcm_uframes_t start_threshold,
-                  stop_threshold;
+      stop_threshold;
   int             start_delay = 5;
   int             stop_delay = 0;
   snd_pcm_sw_params_t *swParams;
@@ -372,29 +372,29 @@ alsa_configure(void)
 
 static void do_test_position(void)
 {
-	static long counter = 0;
-	static float availsum, delaysum, samples;
-	static snd_pcm_sframes_t maxavail, maxdelay;
-	static snd_pcm_sframes_t minavail, mindelay;
-	static snd_pcm_sframes_t badavail = 0, baddelay = 0;
-	snd_pcm_sframes_t outofrange;
-	snd_pcm_sframes_t avail, delay;
-	int err;
+  static long counter = 0;
+  static float availsum, delaysum, samples;
+  static snd_pcm_sframes_t maxavail, maxdelay;
+  static snd_pcm_sframes_t minavail, mindelay;
+  static snd_pcm_sframes_t badavail = 0, baddelay = 0;
+  snd_pcm_sframes_t outofrange;
+  snd_pcm_sframes_t avail, delay;
+  int err;
 
-	err = snd_pcm_avail_delay(AHandle, &avail, &delay);
-	if (err < 0)
-		return;
-	outofrange = (test_coef * (snd_pcm_sframes_t)buffer_frames) / 2;
-	if (avail > outofrange || avail < -outofrange ||
-	    delay > outofrange || delay < -outofrange) {
-	  badavail = avail; baddelay = delay;
-	  availsum = delaysum = samples = 0;
-	  maxavail = maxdelay = 0;
-	  minavail = mindelay = buffer_frames * 16;
-	  fprintf(stderr, "Suspicious buffer position (%li total): "
-	  	"avail = %li, delay = %li, buffer = %li\n",
-	  	++counter, (long)avail, (long)delay, (long)buffer_frames);
-	} 
+  err = snd_pcm_avail_delay(AHandle, &avail, &delay);
+  if (err < 0)
+    return;
+  outofrange = (test_coef * (snd_pcm_sframes_t)buffer_frames) / 2;
+  if (avail > outofrange || avail < -outofrange ||
+                                    delay > outofrange || delay < -outofrange) {
+    badavail = avail; baddelay = delay;
+    availsum = delaysum = samples = 0;
+    maxavail = maxdelay = 0;
+    minavail = mindelay = buffer_frames * 16;
+    fprintf(stderr, "Suspicious buffer position (%li total): "
+            "avail = %li, delay = %li, buffer = %li\n",
+            ++counter, (long)avail, (long)delay, (long)buffer_frames);
+  } 
 }
 
 
@@ -402,37 +402,37 @@ static void do_test_position(void)
 
 static void xrun(void)
 {
-	snd_pcm_status_t *status;
-	int res;
+  snd_pcm_status_t *status;
+  int res;
 	
-	snd_pcm_status_alloca(&status);
-	if ((res = snd_pcm_status(AHandle, status))<0) {
-          fprintf(stderr, "status error: %s", snd_strerror(res));
-	}
-	if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
-		if ((res = snd_pcm_prepare(AHandle))<0) {
-                  fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
-		}
-		return;		/* ok, data should be accepted again */
-	}
-	fprintf(stderr, "read/write error, state = %s", snd_pcm_state_name(snd_pcm_status_get_state(status)));
+  snd_pcm_status_alloca(&status);
+  if ((res = snd_pcm_status(AHandle, status))<0) {
+    fprintf(stderr, "status error: %s", snd_strerror(res));
+  }
+  if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
+    if ((res = snd_pcm_prepare(AHandle))<0) {
+      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
+    }
+    return;		/* ok, data should be accepted again */
+  }
+  fprintf(stderr, "read/write error, state = %s", snd_pcm_state_name(snd_pcm_status_get_state(status)));
 }
 
 
 static void suspend(void)
 {
-	int res;
+  int res;
 
-		fprintf(stderr, "Suspended. Trying resume. "); fflush(stderr);
-	while ((res = snd_pcm_resume(AHandle)) == -EAGAIN)
-		sleep(1);	/* wait until suspend flag is released */
-	if (res < 0) {
-			fprintf(stderr, "Failed. Restarting stream. "); fflush(stderr);
-		if ((res = snd_pcm_prepare(AHandle)) < 0) {
-                  fprintf(stderr, "suspend: prepare error: %s", snd_strerror(res));
-		}
-	}
-		fprintf(stderr, "Done.\n");
+  fprintf(stderr, "Suspended. Trying resume. "); fflush(stderr);
+  while ((res = snd_pcm_resume(AHandle)) == -EAGAIN)
+    sleep(1);	/* wait until suspend flag is released */
+  if (res < 0) {
+    fprintf(stderr, "Failed. Restarting stream. "); fflush(stderr);
+    if ((res = snd_pcm_prepare(AHandle)) < 0) {
+      fprintf(stderr, "suspend: prepare error: %s", snd_strerror(res));
+    }
+  }
+  fprintf(stderr, "Done.\n");
 }
 
 
@@ -555,7 +555,7 @@ Atcleci_Init(Tcl_Interp * interp)
       (int (*)(enum ECILanguageDialect *, int *)) (unsigned long)
       dlsym(eciLib, "eciGetAvailableLanguages");
   _eciNewEx = (void *(*)(enum ECILanguageDialect)) (unsigned long)
-      dlsym(eciLib, "eciNewEx");
+              dlsym(eciLib, "eciNewEx");
   _eciDelete =
       (void (*)(void *)) (unsigned long) dlsym(eciLib, "eciDelete");
   _eciReset = (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciReset");
@@ -580,16 +580,16 @@ Atcleci_Init(Tcl_Interp * interp)
       (int (*)(void *, int, int)) (unsigned long) dlsym(eciLib,
                                                         "eciSetParam");
   _eciGetVoiceParam = (int (*)(void *, int, int))
-      (unsigned long) dlsym(eciLib, "eciGetVoiceParam");
+                      (unsigned long) dlsym(eciLib, "eciGetVoiceParam");
   _eciSetVoiceParam = (int (*)(void *, int, int, int))
-      (unsigned long) dlsym(eciLib, "eciSetVoiceParam");
+                      (unsigned long) dlsym(eciLib, "eciSetVoiceParam");
   _eciRegisterCallback = (void
                           (*)(void *,
                               int (*)(void *, int, long,
                                       void *), void *)) (unsigned long)
-      dlsym(eciLib, "eciRegisterCallback");
+                         dlsym(eciLib, "eciRegisterCallback");
   _eciSetOutputBuffer = (int (*)(void *, int, short *)) (unsigned long)
-      dlsym(eciLib, "eciSetOutputBuffer");
+                        dlsym(eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
       (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
                                                    "eciSetOutputDevice");
@@ -813,8 +813,8 @@ GetRate(ClientData eciHandle, Tcl_Interp * interp,
         int objc, Tcl_Obj * CONST objv[])
 {
   int             rc,
-                  rate,
-                  voice;
+      rate,
+      voice;
   if (objc != 2) {
     Tcl_AppendResult(interp, "Usage: getRate voiceCode  ", TCL_STATIC);
     return TCL_ERROR;
@@ -832,8 +832,8 @@ SetRate(ClientData eciHandle, Tcl_Interp * interp,
         int objc, Tcl_Obj * CONST objv[])
 {
   int             rc,
-                  rate,
-                  voice;
+      rate,
+      voice;
   if (objc != 3) {
     Tcl_AppendResult(interp,
                      "Usage: setRate voiceCode speechRate ", TCL_STATIC);
@@ -866,9 +866,9 @@ Say(ClientData eciHandle, Tcl_Interp * interp,
     int objc, Tcl_Obj * CONST objv[])
 {
   int             i,
-                  rc,
-                  index,
-                  length;
+      rc,
+      index,
+      length;
   for (i = 1; i < objc; i++) {
     // if string begins with -, assume it is an index value
     char           *txt = Tcl_GetStringFromObj(objv[i], &length);
