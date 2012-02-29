@@ -408,6 +408,7 @@ static void xrun(void)
   snd_pcm_status_alloca(&status);
   if ((res = snd_pcm_status(AHandle, status))<0) {
     fprintf(stderr, "status error: %s", snd_strerror(res));
+    return;
   }
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
     if ((res = snd_pcm_prepare(AHandle))<0) {
