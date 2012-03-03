@@ -4,6 +4,7 @@ This is useful for use on a 64 bit system where you dont have a 32-bit build cha
 For getting 32-bit versions of the needed tcl libraries installed, see utility 
 getlibs available here:
 http://ubuntuforums.org/showthread.php?t=474790
-
+or just install package getlibs on ubuntu
 Execute:
+sudo aptitude install getlibs 
 sudo getlibs -p tcl8.4 tcl8.4-dev tclx8.4 tclx8.4-dev

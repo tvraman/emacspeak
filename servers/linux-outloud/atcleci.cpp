@@ -89,6 +89,11 @@ static snd_pcm_uframes_t buffer_frames = 0;
 static int test_position = 0;
 static int test_coef = 8;
 short          *waveBuffer = NULL;
+static snd_pcm_uframes_t chunk_size = 0;
+static snd_pcm_uframes_t buffer_size = 0;
+static size_t          chunk_bytes = 0;
+static size_t bits_per_sample = 0;
+static size_t bits_per_frame = 0;
 
 //>
 //<decls and function prototypes
@@ -104,11 +109,7 @@ typedef enum {
   eciDataNotProcessed, eciDataProcessed
 } ECICallbackReturn;
 
-static snd_pcm_uframes_t chunk_size = 0;
-static snd_pcm_uframes_t buffer_size = 0;
-static size_t          chunk_bytes = 0;
-static size_t bits_per_sample = 0;
-static size_t bits_per_frame = 0;
+
 typedef enum {
   eciWaveformBuffer,
   eciPhonemeBuffer,
@@ -356,19 +357,6 @@ alsa_configure(void)
 
 //>
 //<do_test_position, xrun and suspend
-
-#ifndef timersub
-
-#define timersub(a, b, result)                          \
-  do {                                                  \
-    (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;       \
-    (result)->tv_usec = (a)->tv_usec - (b)->tv_usec;    \
-    if ((result)->tv_usec < 0) {                        \
-      --(result)->tv_sec;                               \
-      (result)->tv_usec += 1000000;                     \
-    }                                                   \
-  } while (0)
-#endif
 
 static void do_test_position(void)
 {
