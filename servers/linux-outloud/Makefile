@@ -17,8 +17,8 @@ all:   atcleci.so
 atcleci.so: langswitch.o atcleci.o
 	$(CXX) $(LDFLAGS) -m32 -shared -o $@ langswitch.o atcleci.o $(LIBS)
 
-alsaparams: alsaparams.o
-	$(CC) $(LDFLAGS) -o $@ alsaparams.o -lasound
+alsaparams: alsaparams.c
+	gcc -o alsaparams alsaparams.c -lasound
 
 clean:
 	rm -f *.so *.o 
