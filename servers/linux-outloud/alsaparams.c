@@ -27,7 +27,11 @@ int main() {
   unsigned int rate = 44100;
   unsigned int val, val2;
   int dir = 0;
-  result = snd_pcm_open(&handle, "default", SND_PCM_STREAM_PLAYBACK, 0);
+const char           *device = getenv ("ALSA_DEFAULT");
+  if (device == NULL) {
+    device = "default";
+  }
+  result = snd_pcm_open(&handle, device, SND_PCM_STREAM_PLAYBACK, 0);
   if (result < 0) 
     showErrorAndExit(result, "Error: Unable to open PCM device: %s\n");
   result = snd_pcm_hw_params_malloc(&params);
