@@ -227,9 +227,10 @@ alsa_configure(void)
     fprintf(stderr, "Access type not available");
     exit(EXIT_FAILURE);
   }
+  
   //>
   //< Set things explicitly if DEBUG
-#ifdef DEBUG
+   // #ifdef DEBUG
 
   //<Compute buffer_time:
   unsigned int    period_time = 0;
@@ -238,7 +239,6 @@ alsa_configure(void)
   // affected by defined buffer_size (e.g. via asoundrc)
   if (buffer_time == 0 && buffer_frames == 0) {
     err = snd_pcm_hw_params_get_buffer_time(params, &buffer_time, 0);
-    assert(err >= 0);
     if (buffer_time > 500000)   // usecs
       buffer_time = 500000;
   }
@@ -272,7 +272,7 @@ alsa_configure(void)
   assert(err >= 0);
 
   //>
-#endif
+  // #endif
 
   //>
   //<Commit hw params:
@@ -295,12 +295,12 @@ alsa_configure(void)
   //>
   //< If DEBUG: SW Params Configure transfer:
 
-#ifdef DEBUG
+  // #ifdef DEBUG
   size_t          n;
   snd_pcm_uframes_t xfer_align;
   snd_pcm_uframes_t start_threshold,
     stop_threshold;
-  int             start_delay = 5;
+  int             start_delay = 0;
   int             stop_delay = 0;
   snd_pcm_sw_params_t *swParams;
   snd_pcm_sw_params_alloca(&swParams);
@@ -345,7 +345,7 @@ alsa_configure(void)
     fprintf(stderr, "unable to install sw params:");
     exit(EXIT_FAILURE);
   }
-#endif
+  // #endif
 
   //>
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
