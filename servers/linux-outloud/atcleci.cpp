@@ -919,7 +919,6 @@ Stop(ClientData eciHandle,
   if (_eciStop(eciHandle)) {
     snd_pcm_drop(AHandle);
     snd_pcm_prepare(AHandle);
-    // usleep(1);
     return TCL_OK;
   }
   Tcl_SetResult(interp, const_cast<char*>("Could not stop synthesis"), TCL_STATIC);
