@@ -11,6 +11,7 @@ import os
 import pysox
 import re
 import StringIO
+import subprocess
 import sys
 import tempfile
 import threading
@@ -67,7 +68,7 @@ punctuationNamesMap= {'$':'dollar',
                  ':':'colon',
                  '<':'less than',
                  '>':'greater than',
-                 '\n':'new line',
+                 '\n':'',
                  '\\':'backslash',
                  '/':'slash',
                  '+':'plus',
@@ -86,6 +87,12 @@ punctuationNamesMap= {'$':'dollar',
 punctuationMap = {'none': ('$'),
                   'some': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '~', '`', '!'),
                   'all': ('$', '#', '-', '"', '(', ')', '*', ';', ':', '<', '>', '\n', '\\', '/', '+', '=', '\'', '~', '`', '!', '@', '_', '\'', '*', '.', ',')}
+
+# Blacklist these characters for audio clip rendering as they cause crashes.
+renderingBlacklist = ['*', '(', ')', '\n', '/']
+
+# Do not filter on some or none punctuation.
+literalPunctuation = ["'", ","]
 
 # map voice short names to apple class names.
 voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
@@ -132,7 +139,7 @@ speechSynthesizer = NSSpeechSynthesizer.alloc().init()
 speechDelegate = ServerDelegate.alloc().init()
 speechSynthesizer.setRate_(ttsState['speechRate'])
 speechSynthesizer.setDelegate_(speechDelegate)
-textClipPlayer = NSSound.alloc()
+textClipPlayer = NSSound.alloc().retain()
 textClipPlayerDelegate = ServerDelegate.alloc().init()
 textClipPlayer.setDelegate_(textClipPlayerDelegate)
 open("/tmp/speechOut.aiff", "w").write("0")
@@ -235,6 +242,7 @@ class _ProtocolHandler:
                                     's':self.handleStopSpeaking,
                                     't':self.handleTone,
                                     'tts_say':self.handleTtsSay,
+                                    'tts_selftest':self.handleTtsSelftest,
                                     'tts_sync_state':self.handleTtsSyncState,
                                     'tts_set_punctuations':self.handleTtsSetPunctuations,
                                     'tts_set_speech_rate':self.handleTtsSetSpeechRate,
@@ -268,16 +276,11 @@ class _ProtocolHandler:
   def handleLetter(self, args):
     output = args.strip(" }")
 
-    prefix = "[[rate " + str(ttsState['sayRate']) + "]]"
-    suffix = "[[rate " + str(ttsState['speechRate']) + "]]"
+    prefix = "[[rate " + str(ttsState['sayRate']) + "]] [[char ltrl]] "
+    suffix = "[[rate " + str(ttsState['speechRate']) + "]] [[char norm]]"
 
     writeDebugLog(4, "Letter: " + output + "\n")
     self.handleStopSpeaking(None)
-
-    # punctuation processing, we want to speak all punctuation if it is a single letter so just match against the punctuationNamesMap
-    if output in punctuationNamesMap:
-      output = punctuationNamesMap[output]
-      writeDebugLog(8, "punctuationNamesMap match, output now: " + output + "\n")  
 
     # Check if this is a capital
     if re.match(r"^[A-Z]+$", output):
@@ -334,6 +337,30 @@ class _ProtocolHandler:
   def handleTtsSay(self, args):
     speechSynthesizer.startSpeakingString_('[[rate %i]] %s' % (ttsState['sayRate'], args))
 
+  def handleTtsSelftest(self, args):
+    samples = ["phaser 0.8 0.74 3.0 0.4 0.5 -t",
+               "phaser 0.6 0.66 3.0 0.6 2.0 -t",
+               "phaser 0.6 0.66 3.0 0.6 2.0 -t",
+               "echos 0.8 0.7 700.0 0.25 900.0 0.3",
+               "echo 0.8 0.9 1000.0 0.3 1800.0 0.25",
+               "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
+               "chorus 0.6 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 1.3 -s",
+               "pan -1",
+               "pan -.5",
+               "pan .5",
+               "pan 1",
+               "tremolo 10 90",
+               "tremolo 1000 60",
+               "reverb 100 50 5 0",
+               "reverb 100 100 100 0",
+               "reverb 50 30 50 0",
+               "chorus 0.5 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 2.3 -t"]
+    i = len(samples) - 1
+    while i >= 0:
+      self.handleQueue("[{" + samples[i] + "}]" + "[[rate 200]] This is a test at index " + str(i) + "}")
+      i -= 1
+      self.handleDispatch(args)
+
   def handleTtsSetPunctuations(self, args):
     global ttsState
     ttsState['punctuationLevel'] = args.strip()
@@ -371,7 +398,7 @@ class _ProtocolHandler:
         continue
 
       if self.isQueueContinuation:
-        self.handleQueue(chunk)
+        self.handleQueue("\n" + chunk)
         continue
 
       # Extract protocol id and protocol args.
@@ -442,7 +469,7 @@ def preprocessCustomEmbeds(text):
   # The following uses a car/cdr pattern.
   # Since we don't know if the car is a text or embedded command, we try both.
   while text:
-    matcher = re.match(r"(?P<first>(^.*?))\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\](?P<rest>.*?)$", text)
+    matcher = re.match(r"(?P<first>(^(.|\n)*?))\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\](?P<rest>(.|\n)*?)$", text)
     if not matcher:
       writeDebugLog(8, "no match in string " + text + "\n")
       break
@@ -454,6 +481,9 @@ def preprocessCustomEmbeds(text):
     if first and len(effects) > 0:
       speechQueue.append(("textclip", (effects, first)))
     elif first:
+      while len(first) > 1024:
+        speechQueue.append(('text', first[:1024]))
+        first = first[1024:]
       speechQueue.append(('text', first))
     writeDebugLog(
         8, "first: " + str(first) + "\neffects " + str(effects) + "\nrest " + str(rest))
@@ -479,6 +509,9 @@ def preprocessCustomEmbeds(text):
       speechQueue.append(("textclip", (effects, text)))
     else:
       writeDebugLog(8, "Appending text")
+      while len(text) > 1024:
+        speechQueue.append(("text", text[:1024]))
+        text = text[1024:]
       speechQueue.append(("text", text))
 
 
@@ -501,7 +534,7 @@ def processSpeechQueue():
       #Basic processing.  TODO: refactor.
       output = item[1].strip(" {}")
       if output:
-        output = ProcessSpecialCharacters(output)
+        output = Clean(output)
         speechSynthesizer.setRate_(ttsState['speechRate'])
         speechSynthesizer.startSpeakingString_(output)
         writeDebugLog(2, "\nsay: " + item[1] + "\nend\n")
@@ -529,14 +562,16 @@ def processSpeechQueue():
       writeDebugLog(4, "rendering text clip" + str(output))
       speechSynthesizer.setRate_(ttsState['speechRate'])
       if speechSynthesizer.startSpeakingString_toURL_(
-output, speechOutUrl):
+output, speechOutUrl) and output not in renderingBlacklist:
         speechQueue.insert(0, (('playclip', (item[1])[0])))
 
     # Plays text clip (with possibly sox processing).
     elif item[0] == 'playclip':
       effectArgs = (item[1]).pop(0)
       writeDebugLog(4, "about to play clip with effects: " + str(effectArgs))
-      inStream = pysox.CSoxStream(speechOutPathString)
+      # Hack to get us proper stereo clips.
+      subprocess.call(['sox', '/tmp/speechOut.aiff', '/tmp/speechOut.wav', 'channels', '2'])
+      inStream = pysox.CSoxStream('/tmp/speechOut.wav')
       outStream = pysox.CSoxStream(
 '/tmp/soxSpeechOut.aiff', 'w', inStream.get_signal(), fileType='wav')
       chain = pysox.CEffectsChain(inStream, outStream)
@@ -548,6 +583,11 @@ output, speechOutUrl):
       textClipPlayer.initWithContentsOfFile_byReference_(
 '/tmp/soxSpeechOut.aiff', False).play()
 
+
+def Clean(text):
+  text = ProcessSpecialCharacters(text)
+  text = ExpandNumbers(text)
+  return text
 
 def ProcessSpecialCharacters(wordList):
   punctList = punctuationMap[ttsState['punctuationLevel']]
@@ -572,7 +612,8 @@ def ProcessSpecialCharacters(wordList):
     if wordList[i] in punctList:
       expansion += ' ' + (punctuationNamesMap[wordList[i]]) + ' '
       continue
-    elif wordList[i] in punctuationMap['all']:
+    elif wordList[i] in punctuationMap['all'] and not wordList[i] in literalPunctuation:
+      expansion += wordList[i] + ' '
       continue
 
     # if we have a cap letter
@@ -581,6 +622,54 @@ def ProcessSpecialCharacters(wordList):
     expansion += (wordList[i])
 
   return expansion
+
+
+
+#* Numbers to words
+def ExpandNumbers(text):
+  writeDebugLog(4, "Expand numbers")
+  expanded_text = ""
+
+  while text:
+    writeDebugLog(4, "expandNumbers: while loop: text " + text + " expanded " + expanded_text)
+    matcher = re.match(r"^(?P<first>.*?)(?P<number>[0-9]+)(?P<rest>.*)$", text)
+    if not matcher:
+      writeDebugLog(8, "no match in string " + text + "\n")
+      break
+    first = matcher.group('first')
+    number = matcher.group('number')
+    rest = matcher.group('rest')
+    if first.endswith(',') or rest.startswith(','):
+      break
+    expanded_text += first + " " + num2eng(number) + " "
+
+    writeDebugLog(8, "first: " + first + "\nnumber " + number + "\nrest " + rest)
+    text = rest
+  if text:
+    writeDebugLog(8, "appending final chunk " + text)
+    expanded_text += text
+
+  writeDebugLog(4, "ExpandNumbers:  returning " + expanded_text)
+  return expanded_text
+
+def num2eng(num):
+    '''English representation of a number'''
+    # No preprocessing necessary.
+    if len(num) <= 6 or "," in num:
+      return num
+    else:
+      processed = ""
+      i = len(num)
+      while (i >= 0):
+        if i > 3:
+          processed = "," + num[i - 3:i] + processed
+        else:
+          processed = num[0:i] + processed
+          return processed
+        i -= 3
+
+
+#* Main
 
 def main():
   speechSynthesizer.startSpeakingString_("E Mac Speak server")
