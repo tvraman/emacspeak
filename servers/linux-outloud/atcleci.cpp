@@ -230,7 +230,7 @@ alsa_configure(void)
   
   //>
   //< Set things explicitly if DEBUG
-   // #ifdef DEBUG
+#ifdef DEBUG
 
   //<Compute buffer_time:
   unsigned int    period_time = 0;
@@ -272,7 +272,7 @@ alsa_configure(void)
   assert(err >= 0);
 
   //>
-  // #endif
+#endif
 
   //>
   //<Commit hw params:
@@ -295,7 +295,7 @@ alsa_configure(void)
   //>
   //< If DEBUG: SW Params Configure transfer:
 
-  // #ifdef DEBUG
+#ifdef DEBUG
   size_t          n;
   snd_pcm_uframes_t xfer_align;
   snd_pcm_uframes_t start_threshold,
@@ -345,7 +345,7 @@ alsa_configure(void)
     fprintf(stderr, "unable to install sw params:");
     exit(EXIT_FAILURE);
   }
-  // #endif
+#endif
 
   //>
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
@@ -919,7 +919,7 @@ Stop(ClientData eciHandle,
   if (_eciStop(eciHandle)) {
     snd_pcm_drop(AHandle);
     snd_pcm_prepare(AHandle);
-    usleep(1);
+    usleep(5);
     return TCL_OK;
   }
   Tcl_SetResult(interp, const_cast<char*>("Could not stop synthesis"), TCL_STATIC);
