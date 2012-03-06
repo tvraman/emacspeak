@@ -180,6 +180,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (message "Successfully initialized Emacs")))
 
 (start-up-my-emacs)
+(load-library "gm-smtp")
 (when (file-exists-p custom-file) (load-file custom-file))
 (setq warning-suppress-types nil)
 ;;}}}

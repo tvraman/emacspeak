@@ -8,3 +8,6 @@ or just install package getlibs on ubuntu
 Execute:
 sudo aptitude install getlibs 
 sudo getlibs -p tcl8.4 tcl8.4-dev tclx8.4 tclx8.4-dev
+
+To build  atcleci.so on some ubuntu systems, you may need 
+sudo aptitude install g++-multilib
