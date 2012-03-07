@@ -77,10 +77,8 @@
 
 #define DEFAULT_FORMAT          SND_PCM_FORMAT_S16
 #define DEFAULT_SPEED           11025
+#define CHANNELS 1
 
-/*
- * globals
- */
 // Globals used to configure ALSA devices:
 
 static int avail_min = -1;
@@ -90,15 +88,13 @@ static int start_delay = 0;
 static int stop_delay = 0;
 static int test_coef = 8;
 static int test_position = 0;
-static short          *waveBuffer = NULL;
+static size_t          *waveBuffer = NULL;
 static size_t          chunk_bytes = 0;
 static size_t bits_per_frame = 0;
 static size_t bits_per_sample = 0;
 static snd_output_t *Log = NULL;
-static snd_pcm_hw_params_t *params;
 static snd_pcm_t *AHandle = NULL;
 static snd_pcm_uframes_t buffer_frames = 0;
-static snd_pcm_uframes_t buffer_size = 0;
 static snd_pcm_uframes_t chunk_size = 0;
 static snd_pcm_uframes_t period_frames = 0;
 static unsigned buffer_time = 0;
@@ -163,14 +159,12 @@ static int      (*_eciInsertIndex) (void *, int);
 static int      (*_eciSetParam) (void *, int, int);
 static int      (*_eciGetVoiceParam) (void *, int, int);
 static int      (*_eciSetVoiceParam) (void *, int, int, int);
-static int      (*_eciSetOutputBuffer) (void *, int, short *);
+static int      (*_eciSetOutputBuffer) (void *, int, size_t *);
 static int      (*_eciSetOutputDevice) (void *, int);
 static void     (*_eciRegisterCallback) (void *,
                                          int (*)(void *, int,
                                                  long, void *), void *);
 static int      alsa_init();
-static size_t   alsa_configure(void);
-
 extern          "C" int Atcleci_Init(Tcl_Interp * interp);
 
 int             SetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -392,7 +386,7 @@ static void suspend(void)
 //>
 //<alsa: pcm_write
 
-static ssize_t pcm_write(short *data, size_t count)
+static ssize_t pcm_write(size_t *data, size_t count)
 {
   ssize_t r;
   ssize_t result = 0;
@@ -529,7 +523,7 @@ Atcleci_Init(Tcl_Interp * interp)
                               int (*)(void *, int, long,
                                       void *), void *)) (unsigned long)
                          dlsym(eciLib, "eciRegisterCallback");
-  _eciSetOutputBuffer = (int (*)(void *, int, short *)) (unsigned long)
+  _eciSetOutputBuffer = (int (*)(void *, int, size_t *)) (unsigned long)
                         dlsym(eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
       (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
@@ -646,7 +640,7 @@ Atcleci_Init(Tcl_Interp * interp)
   //<Finally, allocate waveBuffer
 
   fprintf(stderr, "allocating %d samples\n", (int)chunk_bytes);
-  waveBuffer = (short *) malloc(chunk_bytes * sizeof(short));
+  waveBuffer = (size_t *) malloc(chunk_bytes * sizeof(size_t));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
     exit(EXIT_FAILURE);
