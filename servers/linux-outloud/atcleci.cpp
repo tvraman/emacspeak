@@ -225,52 +225,6 @@ alsa_configure(void)
   }
   // >
   // < Set things explicitly if DEBUG
-#ifdef DEBUG
-
-  // <Compute buffer_time:
-  unsigned int    period_time = 0;
-  unsigned int    buffer_time = 0;
-  snd_pcm_uframes_t period_frames = 0;
-  snd_pcm_uframes_t buffer_frames = 0;
-  // affected by defined buffer_size (e.g. via asoundrc)
-  if (buffer_time == 0 && buffer_frames == 0) {
-    err = snd_pcm_hw_params_get_buffer_time(params, &buffer_time, 0);
-    assert(err >= 0);
-    if (buffer_time > 500000)   // usecs
-      buffer_time = 500000;
-  }
-  // >
-  // <Compute period_time:
-
-  if (period_time == 0 && period_frames == 0) {
-    if (buffer_time > 0)
-      period_time = buffer_time / 4;
-    else
-      period_frames = buffer_frames / 4;
-  }
-  if (period_time > 0)
-    err =
-        snd_pcm_hw_params_set_period_time_near(AHandle,
-                                               params, &period_time, 0);
-  else
-    err =
-        snd_pcm_hw_params_set_period_size_near(AHandle,
-                                               params, &period_frames, 0);
-  assert(err >= 0);
-  if (buffer_time > 0) {
-    err =
-        snd_pcm_hw_params_set_buffer_time_near(AHandle,
-                                               params, &buffer_time, 0);
-  } else {
-    err =
-        snd_pcm_hw_params_set_buffer_size_near(AHandle,
-                                               params, &buffer_frames);
-  }
-  assert(err >= 0);
-
-  // >
-#endif
-
   // >
   // <Commit hw params:
   err = snd_pcm_hw_params(AHandle, params);
@@ -291,59 +245,6 @@ alsa_configure(void)
   }
   // >
   // < If DEBUG: SW Params Configure transfer:
-
-#ifdef DEBUG
-  size_t          n;
-  snd_pcm_uframes_t xfer_align;
-  snd_pcm_uframes_t start_threshold,
-                  stop_threshold;
-  int             start_delay = 5;
-  int             stop_delay = 0;
-  snd_pcm_sw_params_t *swParams;
-  snd_pcm_sw_params_alloca(&swParams);
-  snd_pcm_sw_params_current(AHandle, swParams);
-  err = snd_pcm_sw_params_get_xfer_align(swParams, &xfer_align);
-  if (err < 0) {
-    fprintf(stderr, "Unable to obtain xfer align\n");
-    exit(EXIT_FAILURE);
-  }
-  // round up to closest transfer boundary
-  n = (buffer_size / xfer_align) * xfer_align;
-  if (start_delay <= 0) {
-    start_threshold =
-        (snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
-  } else
-    start_threshold =
-        (snd_pcm_uframes_t) ((double) rate * start_delay / 1000000);
-  if (start_threshold < 1)
-    start_threshold = 1;
-  if (start_threshold > n)
-    start_threshold = n;
-  err =
-      snd_pcm_sw_params_set_start_threshold(AHandle, swParams,
-                                            start_threshold);
-  assert(err >= 0);
-  if (stop_delay <= 0)
-    stop_threshold =
-        (snd_pcm_uframes_t) (buffer_size +
-                             (double) rate * stop_delay / 1000000);
-  else
-    stop_threshold =
-        (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
-  err =
-      snd_pcm_sw_params_set_stop_threshold(AHandle, swParams,
-                                           stop_threshold);
-  assert(err >= 0);
-
-  err = snd_pcm_sw_params_set_xfer_align(AHandle, swParams, xfer_align);
-  assert(err >= 0);
-
-  if (snd_pcm_sw_params(AHandle, swParams) < 0) {
-    fprintf(stderr, "unable to install sw params:");
-    exit(EXIT_FAILURE);
-  }
-#endif
-
   // >
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1; // mono
