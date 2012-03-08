@@ -215,7 +215,7 @@ set_params(void)
     fprintf(stderr, "Sample format non available");
     exit(1);
   }
-  err = snd_pcm_hw_params_set_channels(AHandle, params, 1);
+  err = snd_pcm_hw_params_set_channels(AHandle, params, CHANNELS);
   if (err < 0) {
     fprintf(stderr, "Channels count non available");
     exit(1);
@@ -223,7 +223,7 @@ set_params(void)
   rate = DEFAULT_SPEED;
   hwparams.rate=DEFAULT_SPEED;
   hwparams.format=DEFAULT_FORMAT;
-  hwparams.channels=1;
+  hwparams.channels=CHANNELS;
   err = snd_pcm_hw_params_set_rate_near(AHandle, params, &hwparams.rate, 0);
   assert(err >= 0);
   rate = hwparams.rate;
@@ -386,7 +386,7 @@ static ssize_t pcm_write(size_t *data, size_t count)
   ssize_t result = 0;
 
   if (count < chunk_size) {
-    snd_pcm_format_set_silence(DEFAULT_FORMAT, data + count * bits_per_frame / 8, (chunk_size - count) * 1);
+    snd_pcm_format_set_silence(DEFAULT_FORMAT, data + count * bits_per_frame / 8, (chunk_size - count) * CHANNELS);
     count = chunk_size;
   }
   while (count > 0) {
