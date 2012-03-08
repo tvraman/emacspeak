@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: atcleci.cpp 7557 2012-03-08 02:02:41Z tv.raman.tv $
  */
 //<copyright info
 
@@ -77,24 +77,33 @@
 
 #define DEFAULT_FORMAT          SND_PCM_FORMAT_S16
 #define DEFAULT_SPEED           11025
+#define CHANNELS 1
 
-/*
- * globals
- */
+// Globals used to configure ALSA devices:
 
-static snd_pcm_t *AHandle = NULL;
-static snd_output_t *Log = NULL;
-static snd_pcm_hw_params_t *params;
-static snd_pcm_uframes_t buffer_frames = 0;
-static int test_position = 0;
-static int test_coef = 8;
-short          *waveBuffer = NULL;
-static snd_pcm_uframes_t chunk_size = 0;
-static snd_pcm_uframes_t buffer_size = 0;
+static int avail_min = -1;
+static int can_pause = 0;
+static int monotonic = 0;
+static int start_delay = 0;
+static int stop_delay = 0;
+static size_t          *waveBuffer = NULL;
 static size_t          chunk_bytes = 0;
-static size_t bits_per_sample = 0;
 static size_t bits_per_frame = 0;
+static size_t bits_per_sample = 0;
+static snd_output_t *Log = NULL;
+static snd_pcm_t *AHandle = NULL;
+static snd_pcm_uframes_t buffer_frames = 0;
+static snd_pcm_uframes_t chunk_size = 0;
+static snd_pcm_uframes_t period_frames = 0;
+static unsigned buffer_time = 0;
+static unsigned period_time = 0;
 
+
+static struct {
+  snd_pcm_format_t format;
+  unsigned int channels ;
+  unsigned int rate ;
+} hwparams;
 //>
 //<decls and function prototypes
 
@@ -148,14 +157,12 @@ static int      (*_eciInsertIndex) (void *, int);
 static int      (*_eciSetParam) (void *, int, int);
 static int      (*_eciGetVoiceParam) (void *, int, int);
 static int      (*_eciSetVoiceParam) (void *, int, int, int);
-static int      (*_eciSetOutputBuffer) (void *, int, short *);
+static int      (*_eciSetOutputBuffer) (void *, int, size_t *);
 static int      (*_eciSetOutputDevice) (void *, int);
 static void     (*_eciRegisterCallback) (void *,
                                          int (*)(void *, int,
                                                  long, void *), void *);
 static int      alsa_init();
-static size_t   alsa_configure(void);
-
 extern          "C" int Atcleci_Init(Tcl_Interp * interp);
 
 int             SetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -180,71 +187,53 @@ int             eciCallback(void *, int, long, void *);
 //>
 //<alsa: set hw and sw params
 
-static          size_t
-alsa_configure(void)
+static size_t
+set_params(void)
 {
-  //<init:
-  
-  unsigned int    rate = DEFAULT_SPEED;
-  int             err;
+  snd_pcm_hw_params_t *params;
+  snd_pcm_sw_params_t *swparams;
+  snd_pcm_uframes_t buffer_size;
+  int err;
+  size_t n;
+  unsigned int rate;
+  snd_pcm_uframes_t start_threshold, stop_threshold;
   snd_pcm_hw_params_alloca(&params);
-  //>
-  //<defaults:
-
+  snd_pcm_sw_params_alloca(&swparams);
   err = snd_pcm_hw_params_any(AHandle, params);
   if (err < 0) {
-    fprintf(stderr,
-            "PCM: Broken configuration: no configurations available");
-    exit(EXIT_FAILURE);
+    fprintf(stderr, "Broken configuration for this PCM: no configurations available");
+    exit (1);
   }
-  //>
-  //<Format:
-
-  err = snd_pcm_hw_params_set_format(AHandle, params, DEFAULT_FORMAT);
-  if (err < 0) {
-    fprintf(stderr, "Sample format non available");
-    exit(EXIT_FAILURE);
-  }
-  //>
-  //<Channels:
-
-  err = snd_pcm_hw_params_set_channels(AHandle, params, 1);
-  if (err < 0) {
-    fprintf(stderr, "Channels count non available");
-    exit(EXIT_FAILURE);
-  }
-  //>
-  //<Rate:
-
-  err = snd_pcm_hw_params_set_rate_near(AHandle, params, &rate, 0);
-  assert(err >= 0);
-
-  //>
-  //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
                                      SND_PCM_ACCESS_RW_INTERLEAVED);
   if (err < 0) {
     fprintf(stderr, "Access type not available");
-    exit(EXIT_FAILURE);
+    exit(1);
   }
-  
-  //>
-  //< Set things explicitly if DEBUG
-#ifdef DEBUG
-
-  //<Compute buffer_time:
-  unsigned int    period_time = 0;
-  unsigned int    buffer_time = 0;
-  snd_pcm_uframes_t period_frames = 0;
-  // affected by defined buffer_size (e.g. via asoundrc)
+  err = snd_pcm_hw_params_set_format(AHandle, params, DEFAULT_FORMAT);
+  if (err < 0) {
+    fprintf(stderr, "Sample format non available");
+    exit(1);
+  }
+  err = snd_pcm_hw_params_set_channels(AHandle, params, CHANNELS);
+  if (err < 0) {
+    fprintf(stderr, "Channels count non available");
+    exit(1);
+  }
+  rate = DEFAULT_SPEED;
+  hwparams.rate=DEFAULT_SPEED;
+  hwparams.format=DEFAULT_FORMAT;
+  hwparams.channels=CHANNELS;
+  err = snd_pcm_hw_params_set_rate_near(AHandle, params, &hwparams.rate, 0);
+  assert(err >= 0);
+  rate = hwparams.rate;
   if (buffer_time == 0 && buffer_frames == 0) {
-    err = snd_pcm_hw_params_get_buffer_time(params, &buffer_time, 0);
-    if (buffer_time > 500000)   // usecs
+    err = snd_pcm_hw_params_get_buffer_time_max(params,
+                                                &buffer_time, 0);
+    assert(err >= 0);
+    if (buffer_time > 500000)
       buffer_time = 500000;
   }
-  //>
-  //<Compute period_time:
-
   if (period_time == 0 && period_frames == 0) {
     if (buffer_time > 0)
       period_time = buffer_time / 4;
@@ -252,137 +241,78 @@ alsa_configure(void)
       period_frames = buffer_frames / 4;
   }
   if (period_time > 0)
-    err =
-      snd_pcm_hw_params_set_period_time_near(AHandle,
-                                             params, &period_time, 0);
+    err = snd_pcm_hw_params_set_period_time_near(AHandle, params,
+                                                 &period_time, 0);
   else
-    err =
-      snd_pcm_hw_params_set_period_size_near(AHandle,
-                                             params, &period_frames, 0);
+    err = snd_pcm_hw_params_set_period_size_near(AHandle, params,
+                                                 &period_frames, 0);
   assert(err >= 0);
   if (buffer_time > 0) {
-    err =
-      snd_pcm_hw_params_set_buffer_time_near(AHandle,
-                                             params, &buffer_time, 0);
+    err = snd_pcm_hw_params_set_buffer_time_near(AHandle, params,
+                                                 &buffer_time, 0);
   } else {
-    err =
-      snd_pcm_hw_params_set_buffer_size_near(AHandle,
-                                             params, &buffer_frames);
+    err = snd_pcm_hw_params_set_buffer_size_near(AHandle, params,
+                                                 &buffer_frames);
   }
   assert(err >= 0);
-
-  //>
-#endif
-
-  //>
-  //<Commit hw params:
+  monotonic = snd_pcm_hw_params_is_monotonic(params);
+  can_pause = snd_pcm_hw_params_can_pause(params);
   err = snd_pcm_hw_params(AHandle, params);
   if (err < 0) {
     fprintf(stderr, "Unable to install hw params:");
-    exit(EXIT_FAILURE);
+    snd_pcm_hw_params_dump(params, Log);
+    exit(1);
   }
-  //>
-  //<finalize chunk_size and buffer_size:
-
   snd_pcm_hw_params_get_period_size(params, &chunk_size, 0);
   snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
   if (chunk_size == buffer_size) {
-    fprintf(stderr,
-            "Can't use period equal to buffer size (%lu == %lu)",
+    fprintf(stderr, "Can't use period equal to buffer size (%lu == %lu)",
             chunk_size, buffer_size);
-    exit(EXIT_FAILURE);
+    exit(1);
   }
-  //>
-  //< If DEBUG: SW Params Configure transfer:
+  snd_pcm_sw_params_current(AHandle, swparams);
+  if (avail_min < 0)
+    n = chunk_size;
+  else
+    n = (double) rate * avail_min / 1000000;
+  err = snd_pcm_sw_params_set_avail_min(AHandle, swparams, n);
 
-#ifdef DEBUG
-  size_t          n;
-  snd_pcm_uframes_t xfer_align;
-  snd_pcm_uframes_t start_threshold,
-    stop_threshold;
-  int             start_delay = 0;
-  int             stop_delay = 0;
-  snd_pcm_sw_params_t *swParams;
-  snd_pcm_sw_params_alloca(&swParams);
-  snd_pcm_sw_params_current(AHandle, swParams);
-  err = snd_pcm_sw_params_get_xfer_align(swParams, &xfer_align);
-  if (err < 0) {
-    fprintf(stderr, "Unable to obtain xfer align\n");
-    exit(EXIT_FAILURE);
-  }
-  // round up to closest transfer boundary
-  n = (buffer_size / xfer_align) * xfer_align;
+  /* round up to closest transfer boundary */
+  n = buffer_size;
   if (start_delay <= 0) {
-    start_threshold =
-      (snd_pcm_uframes_t) (n + (double) rate * start_delay / 1000000);
+    start_threshold = n + (double) rate * start_delay / 1000000;
   } else
-    start_threshold =
-      (snd_pcm_uframes_t) ((double) rate * start_delay / 1000000);
+    start_threshold = (double) rate * start_delay / 1000000;
   if (start_threshold < 1)
     start_threshold = 1;
   if (start_threshold > n)
     start_threshold = n;
-  err =
-    snd_pcm_sw_params_set_start_threshold(AHandle, swParams,
-                                          start_threshold);
+  err = snd_pcm_sw_params_set_start_threshold(AHandle, swparams, start_threshold);
   assert(err >= 0);
-  if (stop_delay <= 0)
-    stop_threshold =
-      (snd_pcm_uframes_t) (buffer_size +
-                           (double) rate * stop_delay / 1000000);
+  if (stop_delay <= 0) 
+    stop_threshold = buffer_size + (double) rate * stop_delay / 1000000;
   else
-    stop_threshold =
-      (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
-  err =
-    snd_pcm_sw_params_set_stop_threshold(AHandle, swParams,
-                                         stop_threshold);
+    stop_threshold = (double) rate * stop_delay / 1000000;
+  err = snd_pcm_sw_params_set_stop_threshold(AHandle, swparams, stop_threshold);
   assert(err >= 0);
 
-  err = snd_pcm_sw_params_set_xfer_align(AHandle, swParams, xfer_align);
-  assert(err >= 0);
-
-  if (snd_pcm_sw_params(AHandle, swParams) < 0) {
+  if (snd_pcm_sw_params(AHandle, swparams) < 0) {
     fprintf(stderr, "unable to install sw params:");
-    exit(EXIT_FAILURE);
+    snd_pcm_sw_params_dump(swparams, Log);
+    exit(1);
   }
-#endif
 
-  //>
+  snd_pcm_dump(AHandle, Log);
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
-  bits_per_frame = bits_per_sample * 1; // mono
+  bits_per_frame = bits_per_sample * hwparams.channels;
   chunk_bytes = chunk_size * bits_per_frame / 8;
+  buffer_frames = buffer_size;	/* for position test */
   return chunk_bytes;
 }
 
 //>
-//<do_test_position, xrun and suspend
+//<, xrun and suspend
 
-static void do_test_position(void)
-{
-  static long counter = 0;
-  static float availsum, delaysum, samples;
-  static snd_pcm_sframes_t maxavail, maxdelay;
-  static snd_pcm_sframes_t minavail, mindelay;
-  static snd_pcm_sframes_t badavail = 0, baddelay = 0;
-  snd_pcm_sframes_t outofrange;
-  snd_pcm_sframes_t avail, delay;
-  int err;
-
-  err = snd_pcm_avail_delay(AHandle, &avail, &delay);
-  if (err < 0)
-    return;
-  outofrange = (test_coef * (snd_pcm_sframes_t)buffer_frames) / 2;
-  if (avail > outofrange || avail < -outofrange ||
-      delay > outofrange || delay < -outofrange) {
-    badavail = avail; baddelay = delay;
-    availsum = delaysum = samples = 0;
-    maxavail = maxdelay = 0;
-    minavail = mindelay = buffer_frames * 16;
-    fprintf(stderr, "Suspicious buffer position (%li total): "
-            "avail = %li, delay = %li, buffer = %li\n",
-            ++counter, (long)avail, (long)delay, (long)buffer_frames);
-  } 
-}
 
 
 
@@ -398,8 +328,30 @@ static void xrun(void)
     return;
   }
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
+    if (monotonic) {
+#ifdef HAVE_CLOCK_GETTIME
+      struct timespec now, diff, tstamp;
+      clock_gettime(CLOCK_MONOTONIC, &now);
+      snd_pcm_status_get_trigger_htstamp(status, &tstamp);
+      timermsub(&now, &tstamp, &diff);
+      fprintf(stderr, _("%s!!! (at least %.3f ms long)\n"),
+              stream == SND_PCM_STREAM_PLAYBACK ? _("underrun") : _("overrun"),
+              diff.tv_sec * 1000 + diff.tv_nsec / 10000000.0);
+#else
+      fprintf(stderr, "%s !!!\n", "underrun");
+#endif
+    } else {
+      struct timeval now, diff, tstamp;
+      gettimeofday(&now, 0);
+      snd_pcm_status_get_trigger_tstamp(status, &tstamp);
+      timersub(&now, &tstamp, &diff);
+      fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
+              "Underrun",
+              diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+    }
     if ((res = snd_pcm_prepare(AHandle))<0) {
-      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
+      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res)); /* we should probably die here */
+      return;
     }
     return;		/* ok, data should be accepted again */
   }
@@ -428,22 +380,19 @@ static void suspend(void)
 //>
 //<alsa: pcm_write
 
-static ssize_t pcm_write(short *data, size_t count)
+static ssize_t pcm_write(size_t *data, size_t count)
 {
   ssize_t r;
   ssize_t result = 0;
 
   if (count < chunk_size) {
-    snd_pcm_format_set_silence(DEFAULT_FORMAT, data + count * bits_per_frame / 8, (chunk_size - count) * 1);
+    snd_pcm_format_set_silence(DEFAULT_FORMAT, data + count * bits_per_frame / 8, (chunk_size - count) * CHANNELS);
     count = chunk_size;
   }
   while (count > 0) {
-    if (test_position)
-      do_test_position();
     r = snd_pcm_writei(AHandle, data, count);
-    if (test_position)
-      do_test_position();
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
+      ;
     } else if (r == -EPIPE) {
       xrun();
     } else if (r == -ESTRPIPE) {
@@ -478,7 +427,7 @@ alsa_init()
   }
   err = snd_output_stdio_attach(&Log, stderr, 0);
   assert(err >= 0);
-  chunk_bytes = alsa_configure();
+  chunk_bytes = set_params();
   return chunk_bytes;
 }
 
@@ -565,7 +514,7 @@ Atcleci_Init(Tcl_Interp * interp)
                               int (*)(void *, int, long,
                                       void *), void *)) (unsigned long)
     dlsym(eciLib, "eciRegisterCallback");
-  _eciSetOutputBuffer = (int (*)(void *, int, short *)) (unsigned long)
+  _eciSetOutputBuffer = (int (*)(void *, int, size_t *)) (unsigned long)
     dlsym(eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
     (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
@@ -682,7 +631,7 @@ Atcleci_Init(Tcl_Interp * interp)
   //<Finally, allocate waveBuffer
 
   fprintf(stderr, "allocating %d samples\n", (int)chunk_bytes);
-  waveBuffer = (short *) malloc(chunk_bytes * sizeof(short));
+  waveBuffer = (size_t *) malloc(chunk_bytes * sizeof(size_t));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
     exit(EXIT_FAILURE);
@@ -919,7 +868,7 @@ Stop(ClientData eciHandle,
   if (_eciStop(eciHandle)) {
     snd_pcm_drop(AHandle);
     snd_pcm_prepare(AHandle);
-    usleep(5);
+    usleep(10);
     return TCL_OK;
   }
   Tcl_SetResult(interp, const_cast<char*>("Could not stop synthesis"), TCL_STATIC);
