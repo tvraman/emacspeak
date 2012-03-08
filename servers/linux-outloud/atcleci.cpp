@@ -356,6 +356,27 @@ static void xrun(void)
     return;
   }
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
+    if (monotonic) {
+#ifdef HAVE_CLOCK_GETTIME
+			struct timespec now, diff, tstamp;
+			clock_gettime(CLOCK_MONOTONIC, &now);
+			snd_pcm_status_get_trigger_htstamp(status, &tstamp);
+			timermsub(&now, &tstamp, &diff);
+			fprintf(stderr, _("%s!!! (at least %.3f ms long)\n"),
+				stream == SND_PCM_STREAM_PLAYBACK ? _("underrun") : _("overrun"),
+				diff.tv_sec * 1000 + diff.tv_nsec / 10000000.0);
+#else
+			fprintf(stderr, "%s !!!\n", "underrun");
+#endif
+		} else {
+			struct timeval now, diff, tstamp;
+			gettimeofday(&now, 0);
+			snd_pcm_status_get_trigger_tstamp(status, &tstamp);
+			timersub(&now, &tstamp, &diff);
+			fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
+                    "Underrun",
+				diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+		}
     if ((res = snd_pcm_prepare(AHandle))<0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
     }
