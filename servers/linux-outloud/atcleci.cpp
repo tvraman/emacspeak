@@ -330,25 +330,25 @@ static void xrun(void)
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
     if (monotonic) {
 #ifdef HAVE_CLOCK_GETTIME
-			struct timespec now, diff, tstamp;
-			clock_gettime(CLOCK_MONOTONIC, &now);
-			snd_pcm_status_get_trigger_htstamp(status, &tstamp);
-			timermsub(&now, &tstamp, &diff);
-			fprintf(stderr, _("%s!!! (at least %.3f ms long)\n"),
-				stream == SND_PCM_STREAM_PLAYBACK ? _("underrun") : _("overrun"),
-				diff.tv_sec * 1000 + diff.tv_nsec / 10000000.0);
+      struct timespec now, diff, tstamp;
+      clock_gettime(CLOCK_MONOTONIC, &now);
+      snd_pcm_status_get_trigger_htstamp(status, &tstamp);
+      timermsub(&now, &tstamp, &diff);
+      fprintf(stderr, _("%s!!! (at least %.3f ms long)\n"),
+              stream == SND_PCM_STREAM_PLAYBACK ? _("underrun") : _("overrun"),
+              diff.tv_sec * 1000 + diff.tv_nsec / 10000000.0);
 #else
-			fprintf(stderr, "%s !!!\n", "underrun");
+      fprintf(stderr, "%s !!!\n", "underrun");
 #endif
-		} else {
-			struct timeval now, diff, tstamp;
-			gettimeofday(&now, 0);
-			snd_pcm_status_get_trigger_tstamp(status, &tstamp);
-			timersub(&now, &tstamp, &diff);
-			fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
-                    "Underrun",
-				diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
-		}
+    } else {
+      struct timeval now, diff, tstamp;
+      gettimeofday(&now, 0);
+      snd_pcm_status_get_trigger_tstamp(status, &tstamp);
+      timersub(&now, &tstamp, &diff);
+      fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
+              "Underrun",
+              diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+    }
     if ((res = snd_pcm_prepare(AHandle))<0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res)); /* we should probably die here */
       return;
@@ -476,49 +476,49 @@ Atcleci_Init(Tcl_Interp * interp)
   }
 
   _eciVersion =
-      (void (*)(char *)) (unsigned long) dlsym(eciLib, "eciVersion");
+    (void (*)(char *)) (unsigned long) dlsym(eciLib, "eciVersion");
   _eciGetAvailableLanguages =
-      (int (*)(enum ECILanguageDialect *, int *)) (unsigned long)
-      dlsym(eciLib, "eciGetAvailableLanguages");
+    (int (*)(enum ECILanguageDialect *, int *)) (unsigned long)
+    dlsym(eciLib, "eciGetAvailableLanguages");
   _eciNewEx = (void *(*)(enum ECILanguageDialect)) (unsigned long)
-              dlsym(eciLib, "eciNewEx");
+    dlsym(eciLib, "eciNewEx");
   _eciDelete =
-      (void (*)(void *)) (unsigned long) dlsym(eciLib, "eciDelete");
+    (void (*)(void *)) (unsigned long) dlsym(eciLib, "eciDelete");
   _eciReset = (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciReset");
   _eciStop = (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciStop");
   _eciClearInput =
-      (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciClearInput");
+    (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciClearInput");
   _eciPause =
-      (int (*)(void *, int)) (unsigned long) dlsym(eciLib, "eciPause");
+    (int (*)(void *, int)) (unsigned long) dlsym(eciLib, "eciPause");
   _eciSynthesize =
-      (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSynthesize");
+    (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSynthesize");
   _eciSynchronize =
-      (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSynchronize");
+    (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSynchronize");
   _eciSpeaking =
-      (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSpeaking");
+    (int (*)(void *)) (unsigned long) dlsym(eciLib, "eciSpeaking");
   _eciInsertIndex =
-      (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
-                                                   "eciInsertIndex");
+    (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
+                                                 "eciInsertIndex");
   _eciAddText =
-      (int (*)(void *, char *)) (unsigned long) dlsym(eciLib,
-                                                      "eciAddText");
+    (int (*)(void *, char *)) (unsigned long) dlsym(eciLib,
+                                                    "eciAddText");
   _eciSetParam =
-      (int (*)(void *, int, int)) (unsigned long) dlsym(eciLib,
-                                                        "eciSetParam");
+    (int (*)(void *, int, int)) (unsigned long) dlsym(eciLib,
+                                                      "eciSetParam");
   _eciGetVoiceParam = (int (*)(void *, int, int))
-                      (unsigned long) dlsym(eciLib, "eciGetVoiceParam");
+    (unsigned long) dlsym(eciLib, "eciGetVoiceParam");
   _eciSetVoiceParam = (int (*)(void *, int, int, int))
-                      (unsigned long) dlsym(eciLib, "eciSetVoiceParam");
+    (unsigned long) dlsym(eciLib, "eciSetVoiceParam");
   _eciRegisterCallback = (void
                           (*)(void *,
                               int (*)(void *, int, long,
                                       void *), void *)) (unsigned long)
-                         dlsym(eciLib, "eciRegisterCallback");
+    dlsym(eciLib, "eciRegisterCallback");
   _eciSetOutputBuffer = (int (*)(void *, int, size_t *)) (unsigned long)
-                        dlsym(eciLib, "eciSetOutputBuffer");
+    dlsym(eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
-      (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
-                                                   "eciSetOutputDevice");
+    (int (*)(void *, int)) (unsigned long) dlsym(eciLib,
+                                                 "eciSetOutputDevice");
 
   //>
   //< check for needed symbols
@@ -614,7 +614,7 @@ Atcleci_Init(Tcl_Interp * interp)
   _eciGetAvailableLanguages(aLanguages, &nLanguages);
 
   enum ECILanguageDialect aDefaultLanguage =
-      initLanguage(interp, aLanguages, nLanguages);
+    initLanguage(interp, aLanguages, nLanguages);
   if (aDefaultLanguage == NODEFINEDCODESET) {
     Tcl_AppendResult(interp, "No language found", PACKAGENAME, NULL);
     return TCL_ERROR;
@@ -739,8 +739,8 @@ GetRate(ClientData eciHandle, Tcl_Interp * interp,
         int objc, Tcl_Obj * CONST objv[])
 {
   int             rc,
-      rate,
-      voice;
+    rate,
+    voice;
   if (objc != 2) {
     Tcl_AppendResult(interp, "Usage: getRate voiceCode  ", TCL_STATIC);
     return TCL_ERROR;
@@ -758,8 +758,8 @@ SetRate(ClientData eciHandle, Tcl_Interp * interp,
         int objc, Tcl_Obj * CONST objv[])
 {
   int             rc,
-      rate,
-      voice;
+    rate,
+    voice;
   if (objc != 3) {
     Tcl_AppendResult(interp,
                      "Usage: setRate voiceCode speechRate ", TCL_STATIC);
@@ -792,9 +792,9 @@ Say(ClientData eciHandle, Tcl_Interp * interp,
     int objc, Tcl_Obj * CONST objv[])
 {
   int             i,
-      rc,
-      index,
-      length;
+    rc,
+    index,
+    length;
   for (i = 1; i < objc; i++) {
     // if string begins with -, assume it is an index value
     char           *txt = Tcl_GetStringFromObj(objv[i], &length);
