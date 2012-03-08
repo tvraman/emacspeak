@@ -590,6 +590,7 @@ Atcleci_Init(Tcl_Interp * interp)
   waveBuffer = (short *) malloc(chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
+    alsa_close();
     exit(EXIT_FAILURE);
   }
   // >
