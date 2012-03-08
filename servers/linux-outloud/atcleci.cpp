@@ -86,8 +86,6 @@ static int can_pause = 0;
 static int monotonic = 0;
 static int start_delay = 0;
 static int stop_delay = 0;
-static int test_coef = 8;
-static int test_position = 0;
 static size_t          *waveBuffer = NULL;
 static size_t          chunk_bytes = 0;
 static size_t bits_per_frame = 0;
@@ -313,34 +311,8 @@ set_params(void)
 }
 
 //>
-//<do_test_position, xrun and suspend
+//<, xrun and suspend
 
-static void do_test_position(void)
-{
-  static long counter = 0;
-  static float availsum, delaysum, samples;
-  static snd_pcm_sframes_t maxavail, maxdelay;
-  static snd_pcm_sframes_t minavail, mindelay;
-  static snd_pcm_sframes_t badavail = 0, baddelay = 0;
-  snd_pcm_sframes_t outofrange;
-  snd_pcm_sframes_t avail, delay;
-  int err;
-
-  err = snd_pcm_avail_delay(AHandle, &avail, &delay);
-  if (err < 0)
-    return;
-  outofrange = (test_coef * (snd_pcm_sframes_t)buffer_frames) / 2;
-  if (avail > outofrange || avail < -outofrange ||
-                                    delay > outofrange || delay < -outofrange) {
-    badavail = avail; baddelay = delay;
-    availsum = delaysum = samples = 0;
-    maxavail = maxdelay = 0;
-    minavail = mindelay = buffer_frames * 16;
-    fprintf(stderr, "Suspicious buffer position (%li total): "
-            "avail = %li, delay = %li, buffer = %li\n",
-            ++counter, (long)avail, (long)delay, (long)buffer_frames);
-  } 
-}
 
 
 
@@ -378,7 +350,8 @@ static void xrun(void)
 				diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
 		}
     if ((res = snd_pcm_prepare(AHandle))<0) {
-      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
+      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res)); /* we should probably die here */
+      return;
     }
     return;		/* ok, data should be accepted again */
   }
@@ -417,11 +390,7 @@ static ssize_t pcm_write(size_t *data, size_t count)
     count = chunk_size;
   }
   while (count > 0) {
-    if (test_position)
-      do_test_position();
     r = snd_pcm_writei(AHandle, data, count);
-    if (test_position)
-      do_test_position();
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
       ;
     } else if (r == -EPIPE) {
