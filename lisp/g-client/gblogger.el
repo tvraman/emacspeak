@@ -70,7 +70,7 @@
 (require 'g-utils)
 (require 'g-auth)
 (require 'g-app)
-
+(require 'browse-url)
 ;;}}}
 ;;{{{ customizations
 

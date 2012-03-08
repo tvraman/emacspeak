@@ -165,7 +165,7 @@ Customize this to live on your local disk."
 
 (defsubst g-url-encode (str)
   "URL encode  string."
-  (mapconcat '(lambda (c)
+  (mapconcat #'(lambda (c)
                 (cond ((= c 32) "+")
                       ((or (and (>= c ?a) (<= c ?z))
                            (and (>= c ?A) (<= c ?Z))
