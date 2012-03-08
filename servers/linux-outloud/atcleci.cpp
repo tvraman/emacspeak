@@ -402,6 +402,7 @@ static ssize_t pcm_write(size_t *data, size_t count)
     if (test_position)
       do_test_position();
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
+      ;
     } else if (r == -EPIPE) {
       xrun();
     } else if (r == -ESTRPIPE) {
