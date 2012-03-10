@@ -156,7 +156,7 @@
      ((eq action 'metadata) gweb-google-suggest-metadata)
      (t
       (complete-with-action action 
-                            (gweb-suggest string "ds=n")
+                            (gweb-suggest string "news")
                             string predicate)))  ))
 
 (defvar gweb-history nil
