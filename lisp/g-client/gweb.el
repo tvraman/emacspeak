@@ -108,8 +108,6 @@
    (let ((url
           (format gweb-suggest-url (or corpus "psy")
                   (g-url-encode input))))
-     (when corpus
-       (setq url (format "%s&%s" url corpus)))
      (call-process
       g-curl-program
       nil t nil
