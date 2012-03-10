@@ -143,7 +143,7 @@
       (complete-with-action action 
                             (gweb-suggest string)
                             string predicate)))))
-
+;;;###autoload
 (defun gweb-news-suggest-completer (string predicate action)
   "Generate completions using Google News Suggest. "
   (save-current-buffer 
@@ -157,6 +157,21 @@
      (t
       (complete-with-action action 
                             (gweb-suggest string "news")
+                            string predicate)))  ))
+;;;###autoload
+(defun gweb-books-suggest-completer (string predicate action)
+  "Generate completions using Google Books Suggest. "
+  (save-current-buffer 
+    (set-buffer 
+     (let ((window (minibuffer-selected-window))) 
+       (if (window-live-p window) 
+           (window-buffer window) 
+         (current-buffer))))
+    (cond
+     ((eq action 'metadata) gweb-google-suggest-metadata)
+     (t
+      (complete-with-action action 
+                            (gweb-suggest string "books")
                             string predicate)))  ))
 
 (defvar gweb-history nil
