@@ -88,9 +88,15 @@
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
-
+;;; Service Names: (corpus)
+;; youtube : 'youtube',
+;; 			books : 'books',
+;; 			products : 'products',
+;; 			news : 'news',
+;; 			images : 'img',
+;; 			web : 'psy'
 (defvar gweb-suggest-url
-  "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&q=%s"
+  "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
   "URL  that gets suggestions from Google as JSON.")
 ;;; corpus is ds=n for News
 
@@ -99,7 +105,9 @@
   (declare (special gweb-suggest-url))
   (unless (> (length input) 0) (setq input minibuffer-default))
   (g-using-scratch
-   (let ((url (format gweb-suggest-url (g-url-encode input))))
+   (let ((url
+          (format gweb-suggest-url (or corpus "psy")
+                  (g-url-encode input))))
      (when corpus
        (setq url (format "%s&%s" url corpus)))
      (call-process
