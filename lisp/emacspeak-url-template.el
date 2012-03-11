@@ -751,7 +751,9 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 (emacspeak-url-template-define
  "YouTube Results"
  "http://gdata.youtube.com/feeds/api/videos?vq=%s"
- (list "YouTube:")
+ (list
+  #'(lambda ()
+      (gweb-google-autocomplete-with-corpus "youtube")))
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor

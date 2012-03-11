@@ -199,7 +199,30 @@
            'gweb-history))
     (pushnew  query gweb-history)
     (g-url-encode query)))
-  
+
+
+;;;###autoload
+
+(defsubst gweb-google-autocomplete-with-corpus (corpus)
+  "Read user input using Google Suggest for auto-completion.
+Uses specified corpus for prompting and suggest selection."
+  (let* (
+         (completer (intern (format "gweb-%s-suggest-completer"  corpus)))
+         (minibuffer-completing-file-name t) ;; accept spaces
+         (completion-ignore-case t)
+         (word (thing-at-point 'word))
+         (query nil))
+    (unless (fboundp completer)
+      (error "No  suggest handler for corpus %s" corpus))
+    (setq query
+          (completing-read
+           corpus
+           completer                   ; collection
+           nil nil                     ; predicate required-match
+           word                        ; initial input
+           'gweb-history))
+    (pushnew  query gweb-history)
+    (g-url-encode query)))
 ;;; For news:
 
 (defsubst gweb-news-autocomplete (&optional prompt)
