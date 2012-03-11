@@ -143,36 +143,37 @@
       (complete-with-action action 
                             (gweb-suggest string)
                             string predicate)))))
-;;;###autoload
-(defun gweb-news-suggest-completer (string predicate action)
-  "Generate completions using Google News Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer))))
-    (cond
-     ((eq action 'metadata) gweb-google-suggest-metadata)
-     (t
-      (complete-with-action action 
-                            (gweb-suggest string "news")
-                            string predicate)))  ))
-;;;###autoload
-(defun gweb-books-suggest-completer (string predicate action)
-  "Generate completions using Google Books Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
-         (current-buffer))))
-    (cond
-     ((eq action 'metadata) gweb-google-suggest-metadata)
-     (t
-      (complete-with-action action 
-                            (gweb-suggest string "books")
-                            string predicate)))  ))
+
+
+;;{{{  Generate suggest handlers for Google properties
+(loop for c in
+      '("news" "products" "youtube" "books")
+      do
+      (eval
+       `(defun
+          , (intern
+             (format  "gweb-%s-suggest-completer" c))
+          (string predicate action)
+          ,(format
+            "Generate completions using Google %s Suggest. " c)
+          (save-current-buffer 
+            (set-buffer 
+             (let ((window (minibuffer-selected-window))) 
+               (if (window-live-p window) 
+                   (window-buffer window) 
+                 (current-buffer))))
+            (cond
+             ((eq action 'metadata) gweb-google-suggest-metadata)
+             (t
+              (complete-with-action action 
+                                    (gweb-suggest string ,c)
+                                    string predicate)))))))
+
+;;}}}
+
+
+
+
 
 (defvar gweb-history nil
   "History of Google Search queries.")
