@@ -169,8 +169,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive )
   (declare (special pianobar-buffer))
   (condition-case nil
-      (unless (featurep 'pianobar)
-        (require 'pianobar))
+      (unless (featurep 'pianobar) (require 'pianobar))
     (error "Pianobar not installed."))
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))

@@ -93,7 +93,8 @@ personality settings."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
              (not (= start end)))
-    (let ((v (if (listp personality)
+    (let ((inhibit-read-only t)
+          (v (if (listp personality)
                  (delete-duplicates personality :test #'eq)
                personality)))
       (ems-modify-buffer-safely
@@ -108,7 +109,8 @@ Existing personality properties on the text range are preserved."
                  (integer-or-marker-p end )
                  (not (= start end)))
         (ems-modify-buffer-safely
-         (let ((v (if (listp personality)
+         (let ((inhibit-read-only t)
+               (v (if (listp personality)
                       (delete-duplicates personality :test #'eq)
                     personality))
                (orig (get-text-property start 'personality object))
