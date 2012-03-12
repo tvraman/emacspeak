@@ -457,9 +457,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
      ((null buffer)
       (message "Nothing to display."))
      (t
-      (emacspeak-webutils-without-xsl
-       (save-excursion
-         (set-buffer buffer)
+      (with-current-buffer buffer
+        (emacspeak-webutils-without-xsl
          (goto-char (point-min))
          (search-forward "\n\n")
          (delete-region (point-min) (point))

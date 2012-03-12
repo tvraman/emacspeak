@@ -108,17 +108,16 @@
 (defun emacspeak-webspace-atom-view ()
   "View Atom feed."
   (interactive)
-  (emacspeak-webspace-act-on-link 'emacspeak-webutils-atom-display))
+  (emacspeak-webspace-act-on-link 'emacspeak-webutils-atom-display 'speak))
 
 (defun emacspeak-webspace-rss-view ()
   "View RSS feed."
   (interactive)
-  (emacspeak-webspace-act-on-link 'emacspeak-webutils-rss-display))
+  (emacspeak-webspace-act-on-link 'emacspeak-webutils-rss-display 'speak))
 
 (defun emacspeak-webspace-feed-view ()
   "View  feed using gfeeds."
   (interactive)
-  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'gfeeds-view))
 
 ;;;###autoload
@@ -144,7 +143,6 @@
 (defun emacspeak-webspace-open ()
   "Open headline at point by following its link property."
   (interactive)
-  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'browse-url))
 
 ;;;###autoload
