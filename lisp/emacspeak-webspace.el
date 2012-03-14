@@ -108,11 +108,13 @@
 (defun emacspeak-webspace-atom-view ()
   "View Atom feed."
   (interactive)
+  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'emacspeak-webutils-atom-display 'speak))
 
 (defun emacspeak-webspace-rss-view ()
   "View RSS feed."
   (interactive)
+  (emacspeak-webutils-autospeak)
   (emacspeak-webspace-act-on-link 'emacspeak-webutils-rss-display 'speak))
 
 (defun emacspeak-webspace-feed-view ()
