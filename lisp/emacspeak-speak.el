@@ -3050,14 +3050,15 @@ Argument O specifies overlay."
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
   (unless (string-match "^ *$" string)
-    (save-excursion
-      (goto-char (point-min))
-      (save-match-data
-        (ems-modify-buffer-safely
-         (while (search-forward string nil t)
-           (put-text-property (match-beginning 0)
-                              (match-end 0)
-                              'personality 'inaudible)))))))
+    (ems-modify-buffer-safely
+     (save-excursion
+       (goto-char (point-min))
+       (save-match-data
+         (ems-modify-buffer-safely
+          (while (search-forward string nil t)
+            (put-text-property (match-beginning 0)
+                               (match-end 0)
+                               'personality 'inaudible))))))))
 
 ;;;###autoload
 (defun emacspeak-switch-to-reference-buffer ()
