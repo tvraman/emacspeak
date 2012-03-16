@@ -359,6 +359,15 @@ user."
    (insert "</ol></body></html>\n")
    (browse-url-of-region (point-min) (point-max))))
 
+;;;###autoload
+(defun greader-subscription-list ()
+  "Return list of subscribed urls."
+   (loop for s across (greader-subscriptions)
+         collect
+          (greader-id-to-url(g-json-get 'id s))))
+   
+
+
 (defun greader-view-json-results (query results)
   "View Greader results list."
   (declare (special greader-atom-base))
@@ -446,7 +455,7 @@ user."
 
 ;;;###autoload
 (defun greader-subscriptions ()
-  "Return vector  of subscribed feed objectss."
+  "Return list of subscribed feeds."
   (declare (special greader-auth-handle
                     g-curl-program g-curl-common-options
                     greader-subscribed-feed-list-url))
@@ -459,18 +468,6 @@ user."
                        (g-authorization greader-auth-handle)
                        greader-subscribed-feed-list-url)))))
     subscriptions))
-
-;;;###autoloads
-(defun greader-subscription-list ()
-  "Return list of urls for subscribed feeds."
-  (let ((subscriptions (greader-subscriptions)))
-   (loop for s across subscriptions
-         collect 
-          (greader-id-to-url (g-json-get 'id s)))))
-           
-   (insert "</ol></body></html>\n")
-   (browse-url-of-region (point-min) (point-max))))
-
 
 ;;;###autoload
 (defun greader-feed-list ()
