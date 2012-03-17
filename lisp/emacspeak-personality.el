@@ -88,8 +88,7 @@
 
 ;;;###autoload
 (defsubst emacspeak-personality-put (start end personality object)
-  "Apply personality to specified region, over-writing any current
-personality settings."
+  "Apply personality to specified region, over-writing any current personality settings."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
              (not (= start end)))
