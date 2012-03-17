@@ -590,17 +590,18 @@ current local  value to the result.")
         (pair nil)
         (personality (if invert-filter nil
                        'inaudible)))
-    (when invert-filter
-      (put-text-property  0   l
-                          'personality 'inaudible line))
-    (while filter
-      (setq pair (pop filter))
-      (when (and (<= (first pair) l)
-                 (<= (second pair) l))
-        (put-text-property (first pair)
-                           (second pair)
-                           'personality personality
-                           line)))
+    (ems-modify-buffer-safely
+     (when invert-filter
+       (put-text-property  0   l
+                           'personality 'inaudible line))
+     (while filter
+       (setq pair (pop filter))
+       (when (and (<= (first pair) l)
+                  (<= (second pair) l))
+         (put-text-property (first pair)
+                            (second pair)
+                            'personality personality
+                            line))))
     line))
 
 (defsubst emacspeak-speak-persist-filter-entry (k v)
