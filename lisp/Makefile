@@ -237,7 +237,6 @@ emacspeak-wdired.elc \
 emacspeak-we.elc \
 emacspeak-webspace.elc \
 emacspeak-webutils.elc \
-emacspeak-webmarks.elc \
 emacspeak-websearch.elc \
 emacspeak-widget.elc \
 emacspeak-windmove.elc \
