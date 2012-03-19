@@ -3050,6 +3050,44 @@ This is for use in conjunction with bash to allow multiple emacs
         (define-key shell-mode-map (first b) (second b))))
 
 ;;}}}
+;;{{{ Next/Previous shell:
+(defsubst emacspeak-wizards-get-shells ()
+  "Return list of shell buffers."
+  (remove-if-not 
+          #'(lambda (buffer)
+              (with-current-buffer   buffer (eq major-mode 'shell-mode)))
+          (buffer-list 'all-frames)))
+
+(defun emacspeak-wizards-switch-shell (direction)
+  "Switch to next/previous shell buffer.
+Direction specifies previous/next."
+  (interactive "d")
+  (let* ((shells (emacspeak-wizards-get-shells))
+         (target nil))
+    (cond
+     ((> (length shells) 1)
+      (setq target
+            (if  (> direction 0)
+                (second shells)
+              (nth (1- (length shells)) shells)))
+      (switch-to-buffer target))
+     ((= 1 (length shells)) (shell "1-shell"))
+     (t (shell)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+;;;###autoload
+(defun emacspeak-wizards-next-shell ()
+  "Switch to next shell."
+  (interactive)
+  (emacspeak-wizards-switch-shell 1))
+
+;;;###autoload
+(defun emacspeak-wizards-previous-shell ()
+  "Switch to previous shell."
+  (interactive)
+  (emacspeak-wizards-switch-shell -1))
+
+;;}}}
 ;;{{{ show commentary:
 
 ;;;###autoload
