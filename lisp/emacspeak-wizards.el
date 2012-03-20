@@ -3056,7 +3056,7 @@ This is for use in conjunction with bash to allow multiple emacs
   (remove-if-not 
           #'(lambda (buffer)
               (with-current-buffer   buffer (eq major-mode 'shell-mode)))
-          (buffer-list 'all-frames)))
+          (buffer-list)))
 
 (defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
