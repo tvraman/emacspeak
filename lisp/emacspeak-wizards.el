@@ -3070,7 +3070,7 @@ Direction specifies previous/next."
       (setq target
             (if  (> direction 0)
                 (second shells)
-              (nth (1- (length shells)) shells)))
+              (nth (- (length shells) 2) shells)))
       (switch-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
      (t (shell)))
