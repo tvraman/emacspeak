@@ -3066,11 +3066,11 @@ Direction specifies previous/next."
          (target nil))
     (cond
      ((> (length shells) 1)
-      (bury-buffer)
+      (when  (> direction 0) (bury-buffer))
       (setq target
             (if  (> direction 0)
                 (second shells)
-              (nth (- (length shells) 2) shells)))
+              (nth (1- (length shells)) shells)))
       (switch-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
      (t (shell)))
