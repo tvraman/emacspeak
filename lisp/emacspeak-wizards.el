@@ -3087,6 +3087,17 @@ Direction specifies previous/next."
   (interactive)
   (emacspeak-wizards-switch-shell -1))
 
+
+;;;###autoload
+(defun emacspeak-wizards-shell (&optional prefix)
+  "Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument. 
+When called from a shell buffer, switches to `next' shell buffer."
+  (interactive "P")
+  (cond
+   ((or  prefix
+         (not (eq major-mode 'shell-mode)))
+    (call-interactively 'shell))
+   (t (call-interactively 'emacspeak-wizards-next-shell))))
 ;;}}}
 ;;{{{ show commentary:
 
