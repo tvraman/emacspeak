@@ -3066,6 +3066,7 @@ Direction specifies previous/next."
          (target nil))
     (cond
      ((> (length shells) 1)
+      (bury-buffer)
       (setq target
             (if  (> direction 0)
                 (second shells)
