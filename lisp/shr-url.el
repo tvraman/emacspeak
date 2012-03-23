@@ -55,6 +55,22 @@
 
 ;;}}}
 ;;{{{ Enhanced shr:
+
+(defsubst shr-get-title-from-dom (dom)
+  "Return Title."
+  (let ((content dom)
+        (title nil))
+    (while
+        (and content
+             (listp content)
+             (not
+              (setq title
+                    (find-if
+                     #'(lambda (e) (and (listp e)(eq 'title (car
+                                                             e))))
+                     (third content)))))
+      (setq content (third content)))
+    (when title (third title))))
 (defvar shr-url-dom nil
   "Buffer local value of DOM.")
 (make-variable-buffer-local 'shr-url-dom)
@@ -82,21 +98,7 @@
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
 
-(defsubst shr-get-title-from-dom (dom)
-  "Return Title."
-  (let ((content dom)
-        (title nil))
-    (while
-        (and content
-             (listp content)
-             (not
-              (setq title
-                    (find-if
-                     #'(lambda (e) (and (listp e)(eq 'title (car
-                                                             e))))
-                     (third content)))))
-      (setq content (third content)))
-    (when title (third title))))
+
 
 ;;;###autoload
 (defun shr-url (url &optional display)
