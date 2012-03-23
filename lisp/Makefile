@@ -83,10 +83,10 @@ emacspeak-re-builder.elc \
 	emacspeak-replace.elc \
         emacspeak-table.elc \
         emacspeak-table-ui.elc \
-	emacspeak-tabulate.elc
-
-AUX_OBJECTS =  cd-tool.elc \
+	emacspeak-tabulate.elc \
+cd-tool.elc \
 amixer.elc \
+shr-url.elc \
 nm.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
@@ -251,9 +251,7 @@ emacspeak-zinf.elc
 
 ADDON_OBJECTS= tapestry.elc   stack-f.elc  xml-parse.elc toy-braille.elc
 
-OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
-	$(AUX_OBJECTS) $(ADDON_OBJECTS)
-
+OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS) $(ADDON_OBJECTS)
 # }}}
 # {{{  User level targets all
 
@@ -310,6 +308,7 @@ ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 nm.elc: nm.el
 amixer.elc: amixer.el
+shr-url.elc: shr-url.el
 emacspeak-actions.elc: emacspeak-actions.el
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
