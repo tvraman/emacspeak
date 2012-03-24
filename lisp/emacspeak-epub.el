@@ -44,14 +44,17 @@
 ;;; In celebration of a million books and more to read from
 ;;; Google Books
 ;;; The EPubs format is slightly simpler than full Daisy ---
-;;; emacspeak-daisy.el
+;;; (see) emacspeak-daisy.el
 ;;; Since it only needs one level of indirection (no audio,
 ;;; therefore no smil). This module is consequently simpler than
 ;;; emacspeak-daisy.el.
-;;; This module will also implement the Google Books GData API
+;;; This module will eventually  implement the Google Books GData API
 ;;; --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
-
+;;; As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 ;;; Code:
+
+;;}}}
+;;{{{ Required Modules:
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -59,6 +62,7 @@
 (require 'emacspeak-xslt)
 (require 'derived)
 (require 'find-lisp)
+
 ;;}}}
 ;;{{{  Customization variables
 
@@ -77,11 +81,24 @@
   "Pattern match for path component  to table of contents in an Epub."
   :type 'string
   :group 'emacspeak-epub)
+(defcustom emacspeak-epub-zip-extract
+  (cond ((executable-find "unzip")   '("unzip" "-qq" "-c"))
+	((executable-find "7z")      '("7z" "x" "-so"))
+	((executable-find "pkunzip") '("pkunzip" "-e" "-o-"))
+	(t                           '("unzip" "-qq" "-c")))
+  "Program and its options to run in order to extract a zip file member.
+Extraction should happen to standard output.  Archive and member name will
+be added."
+  :type '(list (string :tag "Program")
+	       (repeat :tag "Options"
+		       :inline t
+		       (string :format "%v")))
+  :group 'emacspeak-epub)
 
 ;;}}}
 ;;{{{ Epub Mode:
 
-(define-derived-mode emacspeak-epub-mode text-mode
+(define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end."
   (let ((inhibit-read-only t)
@@ -106,17 +123,17 @@
   (declare (special emacspeak-epub-interaction-buffer))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (cond
-     ((buffer-live-p buffer)
-      (switch-to-buffer buffer))
+     ((buffer-live-p buffer) (switch-to-buffer buffer))
      (t
       (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer)
         (erase-buffer)
         (setq buffer-undo-list t)
-        (setq buffer-read-only t)
-        (emacspeak-epub-mode))
+        (emacspeak-epub-mode)
+        (setq buffer-read-only t))
       (switch-to-buffer emacspeak-epub-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
