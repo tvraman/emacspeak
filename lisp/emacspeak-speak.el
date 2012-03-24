@@ -2356,7 +2356,7 @@ set the current local value to the result.")
           '((:eval
              (format "%s  %s"
                      (abbreviate-file-name default-directory)
-                     (propertize (buffer-name) 'personality 'voice-annotate))))))
+                     (propertize (buffer-name) 'personality voice-annotate))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
