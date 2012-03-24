@@ -2353,9 +2353,10 @@ set the current local value to the result.")
                     emacspeak-use-header-line))
   (when emacspeak-use-header-line
     (setq header-line-format
-          '((:eval (format "%s  %s"
-                           (abbreviate-file-name default-directory)
-                           (buffer-name))))))
+          '((:eval
+             (format "%s  %s"
+                     (abbreviate-file-name default-directory)
+                     (propertize (buffer-name) 'personality 'voice-annotate))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
