@@ -78,17 +78,10 @@
 
 
 (defcustom emacspeak-epub-zip-extract
-  (cond ((executable-find "unzip")   '("unzip" "-qq" "-c"))
-	((executable-find "7z")      '("7z" "x" "-so"))
-	((executable-find "pkunzip") '("pkunzip" "-e" "-o-"))
-	(t                           '("unzip" "-qq" "-c")))
-  "Program and its options to run in order to extract a zip file member.
-Extraction should happen to standard output.  Archive and member name will
-be added."
-  :type '(list (string :tag "Program")
-	       (repeat :tag "Options"
-		       :inline t
-		       (string :format "%v")))
+  (cond ((executable-find "unzip") "unzip")
+        (t (error "unzip not found.")))
+  "Program to extract a zip file member."
+  :type 'string
   :group 'emacspeak-epub)
 
 ;;}}}
@@ -141,10 +134,42 @@ be added."
   "Construct an epub object given an epub filename."
   (let ((epub
          (make-emacspeak-epub
-          :path epub-file
+          :path (expand-file-name epub-file)
           :toc (emacspeak-epub-get-toc epub-file)
           :ls (emacspeak-epub-get-ls epub-file))))
     epub))
+
+(defun emacspeak-epub-get-contents (epub element)
+  "Return buffer containing contents of element from epub."
+  (unless (or (not (emacspeak-epub-p epub))
+              (member element (emacspeak-epub-ls epub)))
+    (error "Invalid epub/element"))
+  (let ((buffer
+         (get-buffer-create
+          (format " *epub-%s-%s*" (emacspeak-epub-path epub) element))))
+    (with-current-buffer buffer
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (call-process emacspeak-epub-zip-extract
+                    nil t nil
+                    "-c"
+                    "-qq"
+                    (emacspeak-epub-path epub)
+element))
+    buffer))
+
+(defun emacspeak-epub-browse-toc (epub)
+  "Browse table of contents from an EPub."
+  (unless   (emacspeak-epub-p epub)
+    (error "Invalid epub/element"))
+  (let ((toc (emacspeak-epub-get-contents epub (emacspeak-epub-toc epub))))
+    (with-current-buffer toc
+      (emacspeak-webutils-with-xsl-environment
+       (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+       nil nil
+       (browse-url-of-buffer)))))       
+  
+      
 
 ;;}}}
 ;;{{{ Interactive Commands:
