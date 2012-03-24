@@ -76,11 +76,7 @@
   :type 'directory
   :group 'emacspeak-epub)
 
-(defcustom emacspeak-epub-toc-path-pattern
-  ".ncx$"
-  "Pattern match for path component  to table of contents in an Epub."
-  :type 'string
-  :group 'emacspeak-epub)
+
 (defcustom emacspeak-epub-zip-extract
   (cond ((executable-find "unzip")   '("unzip" "-qq" "-c"))
 	((executable-find "7z")      '("7z" "x" "-so"))
@@ -109,6 +105,46 @@ be added."
                        'face font-lock-doc-face)
     (setq header-line-format "EPub Library")
     (cd-absolute emacspeak-epub-library-directory)))
+
+;;}}}
+;;{{{ EPub Implementation:
+(defvar emacspeak-epub-toc-path-pattern
+  ".ncx$"
+  "Pattern match for path component  to table of contents in an Epub.")
+
+(defvar emacspeak-epub-toc-command
+  (format "zipinfo -1 %%s | grep %s" emacspeak-epub-toc-path-pattern)
+  "Command that returns location of .ncx file in an epub archive.")
+
+(defsubst emacspeak-epub-get-toc (file)
+  "Return location of .ncx file within epub archive."
+  (declare (special emacspeak-epub-toc-command))
+  (substring 
+         (shell-command-to-string (format emacspeak-epub-toc-command file )) 0 -1)))
+(defvar emacspeak-epub-ls-command
+  (format "zipinfo -1 %%s ")
+  "Shell command that returns list of files in an epub archive.")
+
+(defsubst emacspeak-epub-get-ls (file)
+  "Return list of files in an epub archive."
+  (declare (special emacspeak-epub-ls-command))
+  (split-string
+   (shell-command-to-string (format emacspeak-epub-ls-command file ))))
+
+(defstruct emacspeak-epub
+  path ; path to .epub file
+  toc ; path to .ncx file in archive
+  ls ; list of files in archive
+)
+
+(defun emacspeak-epub-make-epub  (epub-file)
+  "Construct an epub object given an epub filename."
+  (let ((epub
+         (make-emacspeak-epub
+          :path epub-file
+          :toc (emacspeak-epub-get-toc epub-file)
+          :ls (emacspeak-epub-get-ls epub-file))))
+    epub))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -143,14 +179,7 @@ be added."
       do
       (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
-(defsubst emacspeak-epub-get-toc-path ()
-  "Read book location and return path to table of contents."
-  (declare (special emacspeak-epub-toc-path-pattern
-                    emacspeak-epub-library-directory))
-  (first
-   (find-lisp-find-files 
-    (read-directory-name "Epub:" emacspeak-epub-library-directory)
-    emacspeak-epub-toc-path-pattern)))
+
 
 (defvar emacspeak-epub-toc-transform
   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
