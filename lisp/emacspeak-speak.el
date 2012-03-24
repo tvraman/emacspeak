@@ -2353,7 +2353,7 @@ set the current local value to the result.")
                     emacspeak-use-header-line))
   (when emacspeak-use-header-line
     (setq header-line-format
-          '((:eval (format "%s:  %s"
+          '((:eval (format "%s  %s"
                            (abbreviate-file-name default-directory)
                            (buffer-name))))))
   (dtk-set-punctuations 'all)
