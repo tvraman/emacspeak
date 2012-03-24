@@ -113,7 +113,10 @@
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
   (substring 
-         (shell-command-to-string (format emacspeak-epub-toc-command file )) 0 -1)))
+   (shell-command-to-string (format
+                             emacspeak-epub-toc-command
+                             file )) 0 -1))
+
 (defvar emacspeak-epub-ls-command
   (format "zipinfo -1 %%s ")
   "Shell command that returns list of files in an epub archive.")
@@ -216,7 +219,7 @@ element))
 `toc' is the pathname to an EPubs table of contents."
   (interactive
    (list
-    (emacspeak-epub-get-toc-path)))
+    (emacspeak-epub-get-toc)))
   (declare (special emacspeak-epub-toc-transform))
   (emacspeak-webutils-autospeak)
   (emacspeak-xslt-view-file emacspeak-epub-toc-transform toc))
