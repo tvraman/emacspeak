@@ -384,7 +384,7 @@ field in the customization buffer.  You can use the notation
         ("b" emacspeak-speak-buffer)
         ("c" emacspeak-speak-char)
         ("f" emacspeak-speak-buffer-filename )
-        ("g" emacspeak-ebook-command)
+        ("g" emacspeak-epub)
         ("h" emacspeak-speak-help)
         ("i" emacspeak-tabulate-region)
         ("j" emacspeak-hide-or-expose-block)
