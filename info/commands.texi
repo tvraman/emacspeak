@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 951 commands.
+This chapter documents a total of 952 commands.
 
 @menu
 * cd-tool::
@@ -93,7 +93,6 @@ This chapter documents a total of 951 commands.
 * emacspeak-org::
 * emacspeak-piglets::
 * emacspeak-w3m::
-* emacspeak-webmarks::
 * URL Templates ::
 @end menu
 
@@ -199,14 +198,7 @@ Port  defaults to  dtk-local-server-port
 @deffn {Interactive Command} dtk-pause nil
 @kbd{ control e p }
 
-Pause ongoing speech.
-The speech can be resumed with command `dtk-resume'
-normally bound to M-x dtk-resume.  Pausing speech is useful when one needs to
-perform a few actions before continuing to read a large document.  Emacspeak
-gives you speech feedback as usual once speech has been paused.  `dtk-resume'
-continues the interrupted speech irrespective of the buffer
-in which it is executed.
-Optional PREFIX arg flushes any previously paused speech.
+Temporarily pause / rsume speech.
 @end deffn
 
 @deffn {Interactive Command} dtk-reset-state nil
@@ -1006,6 +998,7 @@ a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
 c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
+e		emacspeak-epub
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
 j		next-line
@@ -1625,12 +1618,13 @@ Commentary:
 In celebration of a million books and more to read from
 Google Books
 The EPubs format is slightly simpler than full Daisy ---
-emacspeak-daisy.el
+(see) emacspeak-daisy.el
 Since it only needs one level of indirection (no audio,
 therefore no smil). This module is consequently simpler than
 emacspeak-daisy.el.
-This module will also implement the Google Books GData API
+This module will eventually  implement the Google Books GData API
 --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
+As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-epub.
@@ -1652,7 +1646,7 @@ Search for Epubs from Gooble Books.
 
 An EPub Front-end.
 
-In addition to any hooks its parent mode `text-mode' might have run,
+In addition to any hooks its parent mode `special-mode' might have run,
 this mode runs the hook `emacspeak-epub-mode-hook', as the final step
 during initialization.
 
@@ -1668,7 +1662,12 @@ o		emacspeak-epub-open
 @kbd{Not bound to any key.}
 
 Open specified Epub.
-`toc' is the pathname to an EPubs table of contents.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-url-executor nil
+@kbd{Not bound to any key.}
+
+Custom URL executor for use in EPub Mode.
 @end deffn
 
 @node emacspeak-erc
@@ -3656,7 +3655,7 @@ Forward-char redefined to speak char moved to.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-self-insert-command nil
-@kbd{ SPACE   € }
+@kbd{ SPACE..~   €..ÿ }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -7188,6 +7187,12 @@ Navigate to and speak next `bullet'.
 Move point to the next interactive defun
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-next-shell nil
+@kbd{Not bound to any key.}
+
+Switch to next shell.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-occur-header-lines nil
 @kbd{Not bound to any key.}
 
@@ -7255,6 +7260,12 @@ key             binding
 Navigate to and speak previous `bullet'.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-previous-shell nil
+@kbd{Not bound to any key.}
+
+Switch to previous shell.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-refresh-shell-history nil
 @kbd{Not bound to any key.}
 
@@ -7278,6 +7289,13 @@ RIVO is implemented by rivo.pl ---
 @kbd{Not bound to any key.}
 
 Run rpm -qi on current dired entry.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-shell nil
+@kbd{Not bound to any key.}
+
+Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument. 
+When called from a shell buffer, switches to `next' shell buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-shell-toggle nil
@@ -7340,6 +7358,13 @@ Squeeze multiple blank lines in current buffer.
 @kbd{Not bound to any key.}
 
 Display sunrise/sunset for specified address.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-switch-shell nil
+@kbd{Not bound to any key.}
+
+Switch to next/previous shell buffer.
+Direction specifies previous/next.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-term nil
@@ -8243,55 +8268,6 @@ for commands defined in module  emacspeak-w3m.
 Preview this buffer in w3m.
 
 (fn)
-@end deffn
-
-@node emacspeak-webmarks
-@section emacspeak-webmarks
-
-Commentary:
-http://www.google.com/bookmarks provides a simple bookmark
-facility
-emacspeak-webmarks provides direct minibuffer-level access to
-these in the spirit of the Emacspeak Web Command Line.
-For now, the emacspeak-webmarks-key needs to be set by hand
- after doing the following:
-0) sign in to google using xml-forms/glogin.xml
-1) search for a bookmark using xml-forms/bookmark-find.xml
-will work around this eventually.
-
-Automatically generated documentation
-for commands defined in module  emacspeak-webmarks.
-
-@deffn {Interactive Command} emacspeak-webmarks-add nil
-@kbd{Not bound to any key.}
-
-Add WebMark.
-
-(fn URL TITLE LABELS NOTES)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-history nil
-@kbd{Not bound to any key.}
-
-Search search history.
-
-(fn QUERY)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-list nil
-@kbd{Not bound to any key.}
-
-List WebMarks.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webmarks-search nil
-@kbd{Not bound to any key.}
-
-Search WebMarks.
-
-(fn QUERY)
 @end deffn
 
 @node URL Templates 

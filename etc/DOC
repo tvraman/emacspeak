@@ -66,14 +66,7 @@ Port  defaults to  dtk-local-server-port
 
 ** dtk-pause	Key Sequence: control e p 
 
- Pause ongoing speech.
-The speech can be resumed with command `dtk-resume'
-normally bound to M-x dtk-resume.  Pausing speech is useful when one needs to
-perform a few actions before continuing to read a large document.  Emacspeak
-gives you speech feedback as usual once speech has been paused.  `dtk-resume'
-continues the interrupted speech irrespective of the buffer
-in which it is executed.
-Optional PREFIX arg flushes any previously paused speech. 
+ Temporarily pause / rsume speech. 
 
 ------------------------------------------------------------
 
@@ -659,6 +652,7 @@ a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
 c		emacspeak-bookshare-toc
 d		emacspeak-bookshare-action
+e		emacspeak-epub
 f		emacspeak-bookshare-flush-lines
 i		emacspeak-bookshare-action
 j		next-line
@@ -1015,7 +1009,7 @@ Useful in voicifying rich text.
 
 ** emacspeak-epub-mode An EPub Front-end.
 
-In addition to any hooks its parent mode `text-mode' might have run,
+In addition to any hooks its parent mode `special-mode' might have run,
 this mode runs the hook `emacspeak-epub-mode-hook', as the final step
 during initialization.
 
@@ -1028,8 +1022,11 @@ o		emacspeak-epub-open
 
 ------------------------------------------------------------
 
-** emacspeak-epub-open Open specified Epub.
-`toc' is the pathname to an EPubs table of contents. 
+** emacspeak-epub-open Open specified Epub. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-url-executor Custom URL executor for use in EPub Mode. 
 
 ------------------------------------------------------------
 
@@ -2315,7 +2312,7 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: SPACE   € 
+** emacspeak-self-insert-command	Key Sequence: SPACE..~   €..ÿ 
 
  Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -4912,6 +4909,10 @@ command.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-next-shell Switch to next shell. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-occur-header-lines If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
 matches header lines, you can use this command to conveniently
@@ -4964,6 +4965,10 @@ key             binding
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-previous-shell Switch to previous shell. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-refresh-shell-history Refresh shell history from disk.
 This is for use in conjunction with bash to allow multiple emacs
   shell buffers to   share history information. 
@@ -4980,6 +4985,11 @@ RIVO is implemented by rivo.pl ---
 ------------------------------------------------------------
 
 ** emacspeak-wizards-rpm-query-in-dired Run rpm -qi on current dired entry. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-shell Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument. 
+When called from a shell buffer, switches to `next' shell buffer. 
 
 ------------------------------------------------------------
 
@@ -5026,6 +5036,11 @@ for `word' and displays hits in a compilation buffer.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-sunrise-sunset Display sunrise/sunset for specified address. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-switch-shell Switch to next/previous shell buffer.
+Direction specifies previous/next. 
 
 ------------------------------------------------------------
 
@@ -5512,30 +5527,6 @@ take effect.
 ** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-add Add WebMark.
-
-(fn URL TITLE LABELS NOTES) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-history Search search history.
-
-(fn QUERY) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-list List WebMarks.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-webmarks-search Search WebMarks.
-
-(fn QUERY) 
 
   
 
