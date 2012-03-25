@@ -161,16 +161,26 @@
                     (emacspeak-epub-path epub)
                     element))
     buffer))
+(defvar emacspeak-epub-this-epub nil
+  "EPub associated with current buffer.")
+(make-variable-buffer-local 'emacspeak-epub-this-epub)
 
-(defun emacspeak-epub-browse-content (epub element)
+(defun emacspeak-epub-browse-content (epub element &optional style )
   "Browse content in specified element of EPub."
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((content (emacspeak-epub-get-contents epub element))
         (base
          (format "\"'file:///%s'\"" (file-name-directory (emacspeak-epub-toc epub)))))
     (with-current-buffer content
+      (add-hook 'emacspeak-web-post-process-hook
+            #'(lambda nil
+                (declare (special emacspeak-we-url-executor
+                                  emacspeak-epub-this-epub))
+                (setq emacspeak-epub-this-epub epub
+                      emacspeak-we-url-executor 'emacspeak-epub-url-executor))
+            'at-end)
       (emacspeak-webutils-with-xsl-environment
-       (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+       style
        (list
         (cons "base"  base))            ;params
        nil                              ; options
@@ -181,8 +191,19 @@
   (unless   (emacspeak-epub-p epub)
     (error "Invalid epub"))
   (let ((toc (emacspeak-epub-toc epub)))
-    (emacspeak-epub-browse-content epub toc)))
+    (emacspeak-epub-browse-content epub toc
+                                   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory))))
 
+(defun emacspeak-epub-url-executor (url)
+  "Custom URL executor for use in EPub Mode."
+  (interactive "sURL: ")
+  (declare (special emacspeak-epub-this-epub))
+  (unless emacspeak-epub-this-epub
+    (error "No EPub associated with this buffer."))
+  (cond
+   ((string-match "^file:" url)
+    (emacspeak-epub-browse-content emacspeak-epub-this-epub (substring url  6)))
+   (t (browse-url url))))
 ;;}}}
 ;;{{{ Interactive Commands:
 
