@@ -129,6 +129,7 @@
 (defstruct emacspeak-epub
   path ; path to .epub file
   toc ; path to .ncx file in archive
+  base ; directory that holds content
   ls ; list of files in archive
   )
 
@@ -141,6 +142,7 @@
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
      :toc toc
+     :base (file-name-directory toc)
      :ls ls)))
 
 (defun emacspeak-epub-get-contents (epub element)
@@ -161,16 +163,21 @@
                     (emacspeak-epub-path epub)
                     element))
     buffer))
+
 (defvar emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
+
 (make-variable-buffer-local 'emacspeak-epub-this-epub)
 
 (defun emacspeak-epub-browse-content (epub element &optional style )
   "Browse content in specified element of EPub."
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
-  (let ((content (emacspeak-epub-get-contents epub element))
-        (base
-         (format "\"'file:///%s'\"" (file-name-directory (emacspeak-epub-toc epub)))))
+  (let ((base (emacspeak-epub-base epub))
+        (content nil))
+    (unless (string-match
+           (format "^%s" base) element)
+    (setq element (concat base element)))
+    (setq content (emacspeak-epub-get-contents epub element))
     (with-current-buffer content
       (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
@@ -183,18 +190,17 @@
       
       (emacspeak-webutils-with-xsl-environment
        style
-       (list
-        (cons "base"  base))            ;params
+                    nil;params
        nil                              ; options
        (browse-url-of-buffer)))))
 
 (defun emacspeak-epub-browse-toc (epub)
   "Browse table of contents from an EPub."
-  (unless   (emacspeak-epub-p epub)
-    (error "Invalid epub"))
+  (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((toc (emacspeak-epub-toc epub)))
-    (emacspeak-epub-browse-content epub toc
-                                   (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory))))
+    (emacspeak-epub-browse-content
+     epub toc
+     (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory))))
 
 
 ;;; Note: Does not handle fragment identifiers for now.
@@ -206,9 +212,9 @@
   (unless emacspeak-epub-this-epub
     (error "No EPub associated with this buffer."))
   (cond
-   ((string-match "^file:" url)
-    (let* ((locator (substring url  6))
-          (match (string-match "#" locator)))
+   ((not (string-match "^http://" url)) ; relative url
+    (let* ((locator (substring url 10))
+           (match (string-match "#" locator)))
       (when match (setq locator (substring locator 0  match)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator)))
    (t (browse-url url))))
