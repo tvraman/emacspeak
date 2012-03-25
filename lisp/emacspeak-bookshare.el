@@ -796,6 +796,7 @@ b Browse
   (declare (special emacspeak-bookshare-mode-map))
   (loop for k in
         '(
+          ("e" emacspeak-epub)
           ("q" bury-buffer)
           ("f" emacspeak-bookshare-flush-lines)
           ("v" emacspeak-bookshare-view)
