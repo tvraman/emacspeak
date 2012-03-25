@@ -207,7 +207,7 @@
     (error "No EPub associated with this buffer."))
   (cond
    ((string-match "^file:" url)
-    (let ((locator (substring url  6))
+    (let* ((locator (substring url  6))
           (match (string-match "#" locator)))
       (when match (setq locator (substring locator 0  match)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator)))
@@ -258,7 +258,7 @@
     (read-file-name "EPub: ")))
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
-  )
+  
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
