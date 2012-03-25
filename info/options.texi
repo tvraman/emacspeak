@@ -737,12 +737,13 @@ Commentary:
 In celebration of a million books and more to read from
 Google Books
 The EPubs format is slightly simpler than full Daisy ---
-emacspeak-daisy.el
+(see) emacspeak-daisy.el
 Since it only needs one level of indirection (no audio,
 therefore no smil). This module is consequently simpler than
 emacspeak-daisy.el.
-This module will also implement the Google Books GData API
+This module will eventually  implement the Google Books GData API
 --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
+As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 
 Automatically generated documentation
 for options defined in module  emacspeak-epub.
@@ -752,8 +753,8 @@ These options are customizable via Emacs' Custom interface.
 Directory under which we store Epubs.
 @end defvar
 
-@defvar {User Option} emacspeak-epub-toc-path-pattern
-Pattern match for path component  to table of contents in an Epub.
+@defvar {User Option} emacspeak-epub-zip-extract
+Program to extract a zip file member.
 @end defvar
 
 @node emacspeak-erc Options
