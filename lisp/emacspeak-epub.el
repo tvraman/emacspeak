@@ -48,7 +48,7 @@
 ;;; Since it only needs one level of indirection (no audio,
 ;;; therefore no smil). This module is consequently simpler than
 ;;; emacspeak-daisy.el.
-;;; This module will eventually  implement the Google Books GData API
+;;; This module will eventually  implement the Google Books  API
 ;;; --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
 ;;; As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 ;;; Code:
@@ -59,12 +59,11 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-xslt)
+(require 'emacspeak-webutils)
 (require 'derived)
-(require 'find-lisp)
 
 ;;}}}
-;;{{{  Customization variables
+;;{{{  Customizations, Variables:
 
 (defgroup emacspeak-epub nil
   "Epubs Digital  Books  for the Emacspeak desktop."
@@ -76,12 +75,15 @@
   :type 'directory
   :group 'emacspeak-epub)
 
-(defcustom emacspeak-epub-zip-extract
+(defvar emacspeak-epub-zip-extract
   (cond ((executable-find "unzip") "unzip")
         (t (error "unzip not found.")))
-  "Program to extract a zip file member."
-  :type 'string
-  :group 'emacspeak-epub)
+  "Program to extract a zip file member.")
+
+(defvar emacspeak-epub-zip-info
+  (cond ((executable-find "zipinfo") "zipinfo")
+        (t (error "zipinfo not found.")))
+  "Program to examine a zip file.")
 
 ;;}}}
 ;;{{{ Epub Mode:
@@ -100,27 +102,29 @@
 
 ;;}}}
 ;;{{{ EPub Implementation:
+
 (defvar emacspeak-epub-toc-path-pattern
   ".ncx$"
   "Pattern match for path component  to table of contents in an Epub.")
 
 (defvar emacspeak-epub-toc-command
-  (format "zipinfo -1 %%s | grep %s" emacspeak-epub-toc-path-pattern)
+  (format "%s -1 %%s | grep %s"
+          emacspeak-epub-zip-info
+          emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
 
-(defsubst emacspeak-epub-get-toc (file)
+(defsubst emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
   (substring
-   (shell-command-to-string (format
-                             emacspeak-epub-toc-command
-                             file )) 0 -1))
+   (shell-command-to-string (format emacspeak-epub-toc-command file ))
+   0 -1))
 
 (defvar emacspeak-epub-ls-command
-  (format "zipinfo -1 %%s ")
+  (format "%s -1 %%s " emacspeak-epub-zip-info)
   "Shell command that returns list of files in an epub archive.")
 
-(defsubst emacspeak-epub-get-ls (file)
+(defsubst emacspeak-epub-do-ls (file)
   "Return list of files in an epub archive."
   (declare (special emacspeak-epub-ls-command))
   (split-string
@@ -129,16 +133,15 @@
 (defstruct emacspeak-epub
   path ; path to .epub file
   toc ; path to .ncx file in archive
-  base ; directory that holds content
+  base ; directory in archive that holds toc.ncx
   ls ; list of files in archive
   )
 
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
-  (let ((ls (emacspeak-epub-get-ls epub-file))
-        (toc (emacspeak-epub-get-toc epub-file)))
-    (unless (> (length toc) 0)
-      (error "No TOC --- Not a valid EPub?"))
+  (let ((ls (emacspeak-epub-do-ls epub-file))
+        (toc (emacspeak-epub-do-toc epub-file)))
+    (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
      :toc toc
@@ -147,20 +150,16 @@
 
 (defun emacspeak-epub-get-contents (epub element)
   "Return buffer containing contents of element from epub."
-  (unless (or  (emacspeak-epub-p epub)
-               (member element (emacspeak-epub-ls epub)))
-    (error "Invalid epub/element"))
-  (let ((buffer
-         (get-buffer-create " *epub-scratch*")))
+  (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
+  (unless (member element (emacspeak-epub-ls epub)) (error "Element not found in EPub. "))
+  (let ((buffer (get-buffer-create " *epub-scratch*")))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
       (call-process emacspeak-epub-zip-extract
                     nil t nil
-                    "-c"
-                    "-qq"
-                    (emacspeak-epub-path epub)
-                    element))
+                    "-c" "-qq"
+                    (emacspeak-epub-path epub) element))
     buffer))
 
 (defvar emacspeak-epub-this-epub nil
@@ -173,34 +172,30 @@
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((base (emacspeak-epub-base epub))
         (content nil))
-    (unless (string-match
-           (format "^%s" base) element)
-    (setq element (concat base element)))
+    (unless (string-match (format "^%s" base) element)
+      (setq element (concat base element)))
     (setq content (emacspeak-epub-get-contents epub element))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda nil
+         (declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
+         (setq emacspeak-epub-this-epub epub
+               emacspeak-we-url-executor 'emacspeak-epub-url-executor)
+         (emacspeak-speak-buffer))
+     'at-end)
     (with-current-buffer content
-      (add-hook 'emacspeak-web-post-process-hook
-            #'(lambda nil
-                (declare (special emacspeak-we-url-executor
-                                  emacspeak-epub-this-epub))
-                (setq emacspeak-epub-this-epub epub
-                      emacspeak-we-url-executor 'emacspeak-epub-url-executor)
-                (emacspeak-speak-buffer))
-            'at-end)
-      
       (emacspeak-webutils-with-xsl-environment
-       style
-                    nil;params
-       nil                              ; options
+       style nil nil                              
        (browse-url-of-buffer)))))
+(defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+  "XSL to process .ncx file.")
 
 (defun emacspeak-epub-browse-toc (epub)
   "Browse table of contents from an EPub."
+  (declare (special epub-toc-xsl))
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((toc (emacspeak-epub-toc epub)))
-    (emacspeak-epub-browse-content
-     epub toc
-     (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory))))
-
+    (emacspeak-epub-browse-content epub toc epub-toc-xsl)))
 
 ;;; Note: Does not handle fragment identifiers for now.
 
@@ -208,11 +203,10 @@
   "Custom URL executor for use in EPub Mode."
   (interactive "sURL: ")
   (declare (special emacspeak-epub-this-epub))
-  (unless emacspeak-epub-this-epub
-    (error "No EPub associated with this buffer."))
+  (unless emacspeak-epub-this-epub (error "Not an EPub document."))
   (cond
    ((not (string-match "^http://" url)) ; relative url
-    (let* ((locator (substring url 10))
+    (let* ((locator (second (split-string url  "/tmp/")))
            (match (string-match "#" locator)))
       (when match (setq locator (substring locator 0  match)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator)))
@@ -251,10 +245,6 @@
       do
       (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
-(defvar emacspeak-epub-toc-transform
-  (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
-  "XSLT  Transform that maps epub-toc to HTML.")
-
 ;;;###autoload
 (defun emacspeak-epub-open (epub-file)
   "Open specified Epub."
@@ -263,7 +253,7 @@
     (read-file-name "EPub: ")))
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
-  
+
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
