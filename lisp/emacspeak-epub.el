@@ -177,8 +177,10 @@
                 (declare (special emacspeak-we-url-executor
                                   emacspeak-epub-this-epub))
                 (setq emacspeak-epub-this-epub epub
-                      emacspeak-we-url-executor 'emacspeak-epub-url-executor))
+                      emacspeak-we-url-executor 'emacspeak-epub-url-executor)
+                (emacspeak-speak-buffer))
             'at-end)
+      
       (emacspeak-webutils-with-xsl-environment
        style
        (list
@@ -194,6 +196,9 @@
     (emacspeak-epub-browse-content epub toc
                                    (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory))))
 
+
+;;; Note: Does not handle fragment identifiers for now.
+
 (defun emacspeak-epub-url-executor (url)
   "Custom URL executor for use in EPub Mode."
   (interactive "sURL: ")
@@ -202,8 +207,12 @@
     (error "No EPub associated with this buffer."))
   (cond
    ((string-match "^file:" url)
-    (emacspeak-epub-browse-content emacspeak-epub-this-epub (substring url  6)))
+    (let ((locator (substring url  6))
+          (match (string-match "#" locator)))
+      (when match (setq locator (substring locator 0  match)))
+      (emacspeak-epub-browse-content emacspeak-epub-this-epub locator)))
    (t (browse-url url))))
+
 ;;}}}
 ;;{{{ Interactive Commands:
 
@@ -242,15 +251,14 @@
   "XSLT  Transform that maps epub-toc to HTML.")
 
 ;;;###autoload
-(defun emacspeak-epub-open (toc)
-  "Open specified Epub.
-`toc' is the pathname to an EPubs table of contents."
+(defun emacspeak-epub-open (epub-file)
+  "Open specified Epub."
   (interactive
    (list
-    (emacspeak-epub-get-toc)))
-  (declare (special emacspeak-epub-toc-transform))
-  (emacspeak-webutils-autospeak)
-  (emacspeak-xslt-view-file emacspeak-epub-toc-transform toc))
+    (read-file-name "EPub: ")))
+  (let ((e (emacspeak-epub-make-epub epub-file)))
+    (emacspeak-epub-browse-toc e)))
+  )
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
