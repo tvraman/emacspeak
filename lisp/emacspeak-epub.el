@@ -151,8 +151,7 @@
                (member element (emacspeak-epub-ls epub)))
     (error "Invalid epub/element"))
   (let ((buffer
-         (get-buffer-create
-          (format " *epub-%s-%s*" (emacspeak-epub-path epub) element))))
+         (get-buffer-create " *epub-scratch*")))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
