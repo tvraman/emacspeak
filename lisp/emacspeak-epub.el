@@ -269,7 +269,15 @@
            (emacspeak-url-encode query))))
 
 ;;}}}
+;;{{{ Gutenberg Hookup:
+;;; Offline Catalog:
+;;; http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs
+;;; Goal:
+;;; Snapshot catalog, enable local searches, and pull desired book to local cache
+;;; using appropriate recipe.
+;;; http://www.gutenberg.org/ebooks/<bookid>.epub.?noimages?
 
+;;}}}
 (provide 'emacspeak-epub)
 ;;{{{ end of file
 
