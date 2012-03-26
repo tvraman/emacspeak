@@ -1,0 +1,12 @@
+Dear Raman,
+
+I finally cleaned up the code and wrote the documentation for the
+emacspeak real-time feature plugin. I call it emacspeak-queue for the
+time being. Please read the readme file and test it once you have
+time. It works very well with my Voxin( viavoice outloud) tts server.
+I think it will also work with other servers. Please test it with your
+voxin laptop first. Thank you! Please let me know if you have any
+questions or suggestions for this plugin.
+
+Sincerely,
+Qianli Liao

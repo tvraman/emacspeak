@@ -1,0 +1,105 @@
+
+Author: Qianli Liao
+
+Brief Introduction and Tips:
+
+ The best way to use the emacspeak queue feature in the shell is
+ to play MUD game (I found discworld the best game to play with
+ emacspeak-queue ) The MUD game will output message in real time and
+ they can be spoken by emacspeak-queue functionality promptly. If you
+ feel the queued message is much and overwhelming, you simply flush
+ the queue by emacspeak-queue-clear-queue function. I use TinyFugue
+ version 4.0 stable 1 as my MUD game client, it works perfectly in the
+ shell. You can install it from software center if you are using
+ ubuntu.
+
+And the emacspeak-queue feature also make the on-line chatting easier.
+I modified the output of the emacs-jabber so that all the incoming
+message can be spoken automatically. You do not need to move your cursor around.
+
+1.the advice  comint-output-filter will be overwritten with a new one defined in the emacspeak-queue.el,
+ which enables queue style speaking in the shell in emacs 
+
+2.If you try using shell by typing M-x shell in emacspeak after the emacspeak-queue.el is loaded.
+ You will find the queue style speaking. That is, all the outputs of the shell is pushed into a queue, which will be spoken one by one. 
+ You will be allowed to pause or resume  the speech by binding the function  emacspeak-queue-pause-or-resume to a convenient key
+ and clear the queue by  emacspeak-queue-clear-queue function.
+ Usually what I do is bind the emacspeak-queue-clear-queue to ESC key
+ I combined a lot of functions to ESC key to be a function called generic-quit
+ (e.g.          (emacspeak-queue-clear-queue)     (w3m-form-input-select-exit)     (View-quit)     (keyboard-quit)  ,etc.)
+ If I want to flush the current queue, I simply press ESC key.
+
+ And I bind the emacspeak-queue-pause-or-resume to <pause> key , which
+ allows me to pause and resume with only one key conveniently. I also
+ modified emacs-jabber output so that the incoming message can be
+ queued/buffered and spoken automatically. When you receive a message, go to
+ that chatting buffer and execute emacspeak-queue-pause-or-resume. You
+ will hear the buffered message.
+
+3. If you want to disable or enable the emacspeak-queue feature in the
+ commint/shell, you can simply execute function:
+ emacspeak-queue-comint-output-toggle. If you disable it, you will get
+ the default comint output as before. you may want to bind this
+ function to some key for your convenience.
+
+4. sometimes the emacspeak-queue feature doesn't work properly (mostly
+happens in the shell mode). All you need to do is to execute C-e C-s
+or M-x tts-restart so that the speech server can be reset and
+emacspeak-queue feature can be fixed.
+
+
+Installation:
+
+first add several lines of code and re-compile the emacspeak/servers/linux-outloud/atcleci.cpp file as follows :
+
+   //add a function declaration
+   int          pcm_avail(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+
+   //add a function definition
+   int pcm_avail(ClientData eciHandle, Tcl_Interp * interp,
+   int objc, Tcl_Obj * CONST objv[])
+   {    
+   return (int)(snd_pcm_avail(AHandle)) ;
+   }
+
+   // add one line of code in the Atcleci_Init function 
+   Tcl_CreateObjCommand(interp, "pcm_avail", pcm_avail, (ClientData) eciHandle, NULL);
+
+and then re-compile the atcleci.cpp to make the changes effective 
+
+second , add a function into emacspeak/servers/outloud file 
+
+//add a function 
+
+   proc pa {} {
+   pcm_avail
+   }
+
+third, test the outloud server as follows:
+$./outloud
+type command pa
+If everything works well, you will get a bad return code, for example:
+Bad return code (2097151): 
+this is fine, because I do not know how to make it a good return code. however,
+ it still carries information, i.e. the number in the parentheses indicates whether the emacspeak speech server is speaking through alsa pcm
+I'm not very sure the return code is platform dependent or not . I only tested it in Ubuntu 11.04 and 11.10 in different computers.
+ and one of the lenovo G450 returns (-32) when the alsa pcm is idle. I will list the code for idle status as follows: 
+ (-32)    :idle
+(2097151) :idle 
+(2097152) :idle 
+(otherwise): the pcm is busy speaking
+
+Fourth, load the emacspeak-queue.el 
+
+(load-file "~/the-path-to-your-emacspeak-queue.el")
+
+Fifth, go to the shell by M-x shell . By default, the emacspeak-queue
+feature is enabled. You may want to press C-e C-s to reset tts if the
+output is not working properly. And if you want to disable
+emacspeak-queue feature , execute emacspeak-queue-comint-output-toggle
+command.
+
+That is all.
+
+Enjoy, 
+Qianli Liao
