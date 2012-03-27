@@ -155,7 +155,7 @@
   (declare (special emacspeak-epub-scratch))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (unless (member element (emacspeak-epub-ls epub)) (error "Element not found in EPub. "))
-  (let ((buffer (get-buffer-create epub-scratch)))
+  (let ((buffer (get-buffer-create emacspeak-epub-scratch)))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -171,6 +171,7 @@
 
 (defsubst emacspeak-epub-get-metadata (epub)
   "Return string containing title/author information."
+  (declare (special emacspeak-epub-zip-extract emacspeak-xslt-program))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (shell-command-to-string
    (format "%s -c -qq %s  %s |  %s --nonet --novalid %s -"
