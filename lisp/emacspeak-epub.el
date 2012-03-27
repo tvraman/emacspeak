@@ -268,6 +268,7 @@
         ("m" emacspeak-epub-metadata)
         ("G" emacspeak-epub-gutenberg-download)
         ("C" emacspeak-epub-gutenberg-catalog)
+        ("B" emacspeak-epub-bookshelf)
         ("g" emacspeak-epub-google)
         )
       do
@@ -303,7 +304,23 @@
   (emacspeak-webutils-atom-display
    (format emacspeak-epub-google-search-template
            (emacspeak-url-encode query))))
-
+(defun emacspeak-epub-bookshelf ()
+  "List Title/Author of Books in EPub buffer."
+  (interactive)
+  (declare (special emacspeak-epub-interaction-buffer))
+  (unless (eq major-mode 'emacspeak-epub-mode) (error "Switch to EPub first."))
+  (with-current-buffer emacspeak-epub-interaction-buffer
+    (let ((inhibit-read-only t))
+    (goto-char (point-max))
+    (insert (format "\n\n"))
+    (loop for f in
+          (directory-files  emacspeak-epub-library-directory nil "epub")
+          do
+          (insert (format "%s\t%s\n"
+                          f
+                          (emacspeak-epub-metadata f)))))))
+  
+  (with-current-buffer
 ;;}}}
 ;;{{{ Gutenberg Hookup:
 ;;; Offline Catalog:
