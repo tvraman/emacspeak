@@ -259,6 +259,7 @@
       '(
         ("o" emacspeak-epub-open)
         ("m" emacspeak-epub-metadata)
+        ("G" emacspeak-epub-gutenberg-download)
         ("g" emacspeak-epub-google)
         )
       do
@@ -303,6 +304,42 @@
 ;;; Snapshot catalog, enable local searches, and pull desired book to local cache
 ;;; using appropriate recipe.
 ;;; http://www.gutenberg.org/ebooks/<bookid>.epub.?noimages?
+(defcustom emacspeak-epub-gutenberg-mirror
+  "http://www.gutenberg.org/ebooks/"
+  "Base URL  for Gutenberg mirror."
+  :type 'string
+  :group 'emacspeak-epub)
+
+(defcustom emacspeak-epub-gutenberg-suffix ".epub.noimages"
+  "Suffix of book type we retrieve."
+  :type 'string
+  :group 'emacspeak-epub)
+
+(defsubst emacspeak-epub-gutenberg-download-uri (book-id)
+  "Return URL  for downloading Gutenberg EBook."
+  (declare (special emacspeak-epub-gutenberg-suffix
+                    emacspeak-epub-gutenberg-mirror))
+  (format "%s%s%s"
+          emacspeak-epub-gutenberg-mirror
+          book-id
+          emacspeak-epub-gutenberg-suffix))
+
+;;;###autoload
+(defun emacspeak-epub-gutenberg-download (book-id)
+  "Download specified EBook to local cache"
+  (interactive "sBook-Id: ")
+  (let ((file
+         (expand-file-name
+               (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
+               emacspeak-epub-library-directory))
+        (url (emacspeak-epub-gutenberg-download-uri book-id)))
+    (unless (file-exists-p file)
+      (call-process
+       "wget"
+       nil nil nil
+       "-O"
+       file url))
+    (message "Book is in %s" file)))
 
 ;;}}}
 (provide 'emacspeak-epub)
