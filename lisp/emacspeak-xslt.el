@@ -160,9 +160,12 @@ part of the libxslt package."
     (current-buffer)))
 
 ;;;###autoload
-(defsubst emacspeak-xslt-run (xsl start end)
-  "Run xslt on region, and return output filtered by sort -u"
+(defsubst emacspeak-xslt-run (xsl &optional start end)
+  "Run xslt on region, and return output filtered by sort -u.
+Region defaults to entire buffer."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options))
+  (or start (setq start (point-min)))
+  (or end (setq end (point-max)))
   (let ((coding-system-for-read 'utf-8)
         (coding-system-for-write 'utf-8)
         (buffer-file-coding-system 'utf-8))
