@@ -361,7 +361,10 @@
        nil nil nil
        "-O"
        file url))
-    (message "Book is in %s" file)))
+    (when (y-or-n-p
+           (format "Open %s?"file))
+      (emacspeak-epub-open file))))
+
 (defvar emacspeak-epub-gutenberg-catalog-url
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
   "URL to Gutenberg index.")
