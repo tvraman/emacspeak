@@ -147,12 +147,15 @@
      :toc toc
      :base (file-name-directory toc)
      :ls ls)))
+(defvar epub-scratch " *epub-scratch*"
+  "Scratch buffer used to process epub.")
 
 (defun emacspeak-epub-get-contents (epub element)
   "Return buffer containing contents of element from epub."
+  (declare (special epub-scratch))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (unless (member element (emacspeak-epub-ls epub)) (error "Element not found in EPub. "))
-  (let ((buffer (get-buffer-create " *epub-scratch*")))
+  (let ((buffer (get-buffer-create epub-scratch)))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
