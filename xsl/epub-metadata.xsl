@@ -5,6 +5,11 @@
 
   <xsl:output method="text" indent="yes" encoding="UTF-8"/>
   
-  <xsl:template match="/"> Title:<xsl:value-of select="/ns:ncx/ns:docTitle/ns:text"/> Author:<xsl:value-of select="/ns:ncx/ns:docAuthor/ns:text"/> </xsl:template>
+  <xsl:template match="/">
+  <xsl:if test="/ns:ncx/ns:docTitle">Title: <xsl:value-of
+  select="/ns:ncx/ns:docTitle/ns:text"/></xsl:if>
+ <xsl:if test="/ns:ncx/ns:docAuthor">Author: <xsl:value-of
+ select="/ns:ncx/ns:docAuthor/ns:text"/> </xsl:if>
+</xsl:template>
   
 </xsl:stylesheet>

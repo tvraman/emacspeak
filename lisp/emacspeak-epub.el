@@ -99,13 +99,24 @@
   "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end."
   (let ((inhibit-read-only t)
-        (start (point)))
+        (start (point-min)))
+    (erase-buffer)
+    (setq buffer-undo-list t)
     (goto-char (point-min))
     (insert "Browse And Read EPub Materials\n\n")
-    (put-text-property start (point)
-                       'face font-lock-doc-face)
+    (put-text-property start (point) 'face font-lock-doc-face)
     (setq header-line-format "EPub Library")
-    (cd-absolute emacspeak-epub-library-directory)))
+    (cd-absolute emacspeak-epub-library-directory)
+    (loop for f in
+          (directory-files  emacspeak-epub-library-directory nil "epub")
+          do
+          (setq start (point))
+          (insert (format "%s" (emacspeak-epub-metadata f)))
+          (put-text-property start (point)
+                             'epub f)
+          (insert "\n"))
+    (goto-char (point-min))
+    (forward-line 2)))
 
 ;;}}}
 ;;{{{ EPub Implementation:
@@ -249,15 +260,9 @@
   (interactive)
   (declare (special emacspeak-epub-interaction-buffer))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
-    (cond
-     ((buffer-live-p buffer) (switch-to-buffer buffer))
-     (t
-      (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer)
-        (erase-buffer)
-        (setq buffer-undo-list t)
-        (emacspeak-epub-mode)
-        (setq buffer-read-only t))
-      (switch-to-buffer emacspeak-epub-interaction-buffer)))
+    (unless (buffer-live-p buffer)
+      (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer) (emacspeak-epub-mode)))
+    (switch-to-buffer emacspeak-epub-interaction-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -265,10 +270,11 @@
 (loop for k in
       '(
         ("o" emacspeak-epub-open)
+        ([return] emacspeak-epub-open)
+        ("\C-m" emacspeak-epub-open)
         ("m" emacspeak-epub-metadata)
         ("G" emacspeak-epub-gutenberg-download)
         ("C" emacspeak-epub-gutenberg-catalog)
-        ("B" emacspeak-epub-bookshelf)
         ("g" emacspeak-epub-google)
         )
       do
@@ -279,7 +285,11 @@
   "Open specified Epub."
   (interactive
    (list
-    (read-file-name "EPub: ")))
+    (read-file-name "EPub: "
+                    emacspeak-epub-library-directory
+                    (get-text-property (point) 'epub)
+                    'must-match
+                    (get-text-property (point) 'epub))))
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
@@ -304,21 +314,8 @@
   (emacspeak-webutils-atom-display
    (format emacspeak-epub-google-search-template
            (emacspeak-url-encode query))))
-(defun emacspeak-epub-bookshelf ()
-  "List Title/Author of Books in EPub buffer."
-  (interactive)
-  (declare (special emacspeak-epub-interaction-buffer))
-  (unless (eq major-mode 'emacspeak-epub-mode) (error "Switch to EPub first."))
-  (with-current-buffer emacspeak-epub-interaction-buffer
-    (let ((inhibit-read-only t))
-    (goto-char (point-max))
-    (insert (format "\n\n"))
-    (loop for f in
-          (directory-files  emacspeak-epub-library-directory nil "epub")
-          do
-          (insert (format "%s\t%s\n"
-                          f
-                          (emacspeak-epub-metadata f)))))))
+
+
   
 
 ;;}}}
