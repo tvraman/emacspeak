@@ -320,7 +320,7 @@
                           f
                           (emacspeak-epub-metadata f)))))))
   
-  (with-current-buffer
+
 ;;}}}
 ;;{{{ Gutenberg Hookup:
 ;;; Offline Catalog:
