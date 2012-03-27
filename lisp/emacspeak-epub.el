@@ -80,6 +80,13 @@
         (t (error "unzip not found.")))
   "Program to extract a zip file member.")
 
+
+(defvar emacspeak-epub-wget
+   (executable-find "wget")
+   "WGet program.")
+
+   
+   
 (defvar emacspeak-epub-zip-info
   (cond ((executable-find "zipinfo") "zipinfo")
         (t (error "zipinfo not found.")))
@@ -260,6 +267,7 @@
         ("o" emacspeak-epub-open)
         ("m" emacspeak-epub-metadata)
         ("G" emacspeak-epub-gutenberg-download)
+        ("C" emacspeak-epub-gutenberg-catalog)
         ("g" emacspeak-epub-google)
         )
       do
@@ -335,11 +343,35 @@
         (url (emacspeak-epub-gutenberg-download-uri book-id)))
     (unless (file-exists-p file)
       (call-process
-       "wget"
+       emacspeak-epub-wget
        nil nil nil
        "-O"
        file url))
     (message "Book is in %s" file)))
+(defvar emacspeak-epub-gutenberg-catalog-url
+  "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
+  "URL to Gutenberg index.")
+
+(defvar emacspeak-epub-gutenberg-catalog-file
+  (expand-file-name "catalog/GUTINDEX.ALL" emacspeak-epub-library-directory)
+  "Local filename of catalog.")
+
+(defun emacspeak-epub-gutenberg-catalog (&optional refresh)
+  "Open Gutenberg catalog.
+Fetch if needed, or if refresh is T."
+  (interactive "P")
+  (declare (special emacspeak-epub-gutenberg-catalog-url
+                    emacspeak-epub-gutenberg-catalog-file))
+  (when (or refresh
+            (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
+    (call-process
+     emacspeak-epub-wget
+     nil nil nil
+     "-O"
+     emacspeak-epub-gutenberg-catalog-file
+     emacspeak-epub-gutenberg-catalog-url))
+  (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
+  (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
 (provide 'emacspeak-epub)
