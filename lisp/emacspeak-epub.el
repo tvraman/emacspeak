@@ -147,12 +147,12 @@
      :toc toc
      :base (file-name-directory toc)
      :ls ls)))
-(defvar epub-scratch " *epub-scratch*"
+(defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
 
 (defun emacspeak-epub-get-contents (epub element)
   "Return buffer containing contents of element from epub."
-  (declare (special epub-scratch))
+  (declare (special emacspeak-epub-scratch))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (unless (member element (emacspeak-epub-ls epub)) (error "Element not found in EPub. "))
   (let ((buffer (get-buffer-create epub-scratch)))
@@ -164,6 +164,27 @@
                     "-c" "-qq"
                     (emacspeak-epub-path epub) element))
     buffer))
+
+(defvar emacspeak-epub-metadata-xsl
+  (expand-file-name "epub-metadata.xsl" emacspeak-xslt-directory)
+"XSL to extract Author/Title information.")
+
+(defun emacspeak-epub-get-metadata (epub)
+  "Return string containing title/author information."
+  (declare (special emacspeak-epub-scratch
+                    emacspeak-epub-metadata-xsl))
+  (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
+  (let ((buffer (get-buffer-create epub-scratch))
+        (emacspeak-xslt-options "--nonet --novalid"))
+    (with-current-buffer buffer
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (call-process emacspeak-epub-zip-extract
+                    nil t nil
+                    "-c" "-qq"
+                    (emacspeak-epub-path epub) (emacspeak-epub-toc epub))
+      (emacspeak-xslt-run emacspeak-epub-metadata-xsl (point-min) (point-max))
+    (buffer-substring-no-properties (point-min) (1- (point-max))))))
 
 (defvar emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
