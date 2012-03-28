@@ -285,11 +285,9 @@
   "Open specified Epub."
   (interactive
    (list
-    (read-file-name "EPub: "
-                    emacspeak-epub-library-directory
-                    (get-text-property (point) 'epub)
-                    'must-match
-                    (get-text-property (point) 'epub))))
+    (or
+     (get-text-property (point) 'epub)
+     (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
