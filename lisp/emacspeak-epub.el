@@ -202,7 +202,7 @@
 
 (make-variable-buffer-local 'emacspeak-epub-this-epub)
 
-(defun emacspeak-epub-browse-content (epub element &optional style )
+(defun emacspeak-epub-browse-content (epub element fragment &optional style )
   "Browse content in specified element of EPub."
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((base (emacspeak-epub-base epub))
@@ -216,6 +216,7 @@
          (declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
          (setq emacspeak-epub-this-epub epub
                emacspeak-we-url-executor 'emacspeak-epub-url-executor)
+         (when fragment (w3-fetch fragment))
          (emacspeak-speak-buffer))
      'at-end)
     (with-current-buffer content
@@ -231,9 +232,9 @@
   (declare (special epub-toc-xsl))
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((toc (emacspeak-epub-toc epub)))
-    (emacspeak-epub-browse-content epub toc epub-toc-xsl)))
+    (emacspeak-epub-browse-content epub toc nil epub-toc-xsl)))
 
-;;; Note: Does not handle fragment identifiers for now.
+;;; Fragment identifiers handled only in W3
 
 (defun emacspeak-epub-url-executor (url)
   "Custom URL executor for use in EPub Mode."
@@ -243,9 +244,12 @@
   (cond
    ((not (string-match "^http://" url)) ; relative url
     (let* ((locator (second (split-string url  "/tmp/")))
-           (match (string-match "#" locator)))
-      (when match (setq locator (substring locator 0  match)))
-      (emacspeak-epub-browse-content emacspeak-epub-this-epub locator)))
+           (match (string-match "#" locator))
+           (fragment nil))
+      (when match
+        (setq locator (substring locator 0  match)
+        fragment (substring url match)))
+      (emacspeak-epub-browse-content emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
 
 ;;}}}
