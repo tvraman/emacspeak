@@ -217,7 +217,7 @@
          (setq emacspeak-epub-this-epub epub
                emacspeak-we-url-executor 'emacspeak-epub-url-executor)
          (when fragment (w3-fetch fragment))
-         (emacspeak-speak-buffer))
+         (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
       (emacspeak-webutils-with-xsl-environment
@@ -243,12 +243,12 @@
   (unless emacspeak-epub-this-epub (error "Not an EPub document."))
   (cond
    ((not (string-match "^http://" url)) ; relative url
-    (let* ((locator (second (split-string url  "/tmp/")))
-           (match (string-match "#" locator))
-           (fragment nil))
-      (when match
-        (setq locator (substring locator 0  match)
-        fragment (substring url match)))
+    (when (string-match "^cid:" url) (setq url (substring url 4)))
+    (when (string-match "^file:" url) (setq url  (second (split-string url  "/tmp/"))))
+    (let* ((fields (split-string url "#"))
+           (locator (first fields))
+           (fragment (second fields)))
+      (when fragment (setq fragment (format "#%s" fragment)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
 
@@ -383,12 +383,15 @@ Fetch if needed, or if refresh is T."
                     emacspeak-epub-gutenberg-catalog-file))
   (when (or refresh
             (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
-    (call-process
-     emacspeak-epub-wget
-     nil nil nil
-     "-O"
-     emacspeak-epub-gutenberg-catalog-file
-     emacspeak-epub-gutenberg-catalog-url))
+    (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
+      (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+    'parents)
+  (call-process
+   emacspeak-epub-wget
+   nil nil nil
+   "-O"
+   emacspeak-epub-gutenberg-catalog-file
+   emacspeak-epub-gutenberg-catalog-url))
   (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
   (emacspeak-auditory-icon 'task-done))
 
