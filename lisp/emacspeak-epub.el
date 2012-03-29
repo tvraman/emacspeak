@@ -267,7 +267,7 @@
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (unless (buffer-live-p buffer)
       (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer) (emacspeak-epub-mode)))
-    (switch-to-buffer emacspeak-epub-interaction-buffer)
+    (pop-to-buffer emacspeak-epub-interaction-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
