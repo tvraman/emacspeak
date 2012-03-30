@@ -82,11 +82,11 @@
 
 
 (defvar emacspeak-epub-wget
-   (executable-find "wget")
-   "WGet program.")
+  (executable-find "wget")
+  "WGet program.")
 
-   
-   
+
+
 (defvar emacspeak-epub-zip-info
   (cond ((executable-find "zipinfo") "zipinfo")
         (t (error "zipinfo not found.")))
@@ -159,7 +159,7 @@
 
 (defvar emacspeak-epub-metadata-xsl
   (expand-file-name "epub-metadata.xsl" emacspeak-xslt-directory)
-"XSL to extract Author/Title information.")
+  "XSL to extract Author/Title information.")
 
 (defsubst emacspeak-epub-get-metadata (epub)
   "Return list containing title/author metadata."
@@ -167,10 +167,10 @@
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (split-string
    (shell-command-to-string
-   (format "%s -c -qq %s  %s |  %s --nonet --novalid %s -"
-           emacspeak-epub-zip-extract
-           (emacspeak-epub-path epub) (emacspeak-epub-toc epub)
-           emacspeak-xslt-program emacspeak-epub-metadata-xsl))
+    (format "%s -c -qq %s  %s |  %s --nonet --novalid %s -"
+            emacspeak-epub-zip-extract
+            (emacspeak-epub-path epub) (emacspeak-epub-toc epub)
+            emacspeak-xslt-program emacspeak-epub-metadata-xsl))
    "\n"))
 
 (defvar emacspeak-epub-this-epub nil
@@ -261,6 +261,9 @@
                     (make-emacspeak-epub-metadata
                      :title (first fields)
                      :author (second fields))))))
+    (loop for f being the hash-keys of emacspeak-epub-db
+          do
+          (unless (file-exists-p f) (remhashf emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
 ;;;###autoload          
@@ -286,9 +289,9 @@
   (declare (special emacspeak-epub-db
                     emacspeak-epub-db-file))
   (when (file-exists-p emacspeak-epub-db-file)
-  (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
-  (setq emacspeak-epub-db (read buffer))
-  (kill-buffer buffer))))
+    (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
+      (setq emacspeak-epub-db (read buffer))
+      (kill-buffer buffer))))
 
 
 
@@ -341,7 +344,7 @@
            (emacspeak-url-encode query))))
 
 
-  
+
 
 ;;}}}
 ;;{{{ Epub Mode:
@@ -351,16 +354,18 @@
   (interactive)
   (emacspeak-epub-bookshelf-load)
   (emacspeak-epub-bookshelf-update)
-  (let ((inhibit-read-only t))
-  (loop for f being the hash-keys  of  emacspeak-epub-db
-        do
-        (let ((start (point)))
-          (insert
-           (format "%s\t%s"
-                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
-                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
-          (put-text-property start (point) 'epub f)
-          (insert "\n"))))
+  (with-current-buffer emacspeak-epub-interaction-buffer
+    (let ((inhibit-read-only t))
+      (erase-buffer)
+      (loop for f being the hash-keys  of  emacspeak-epub-db
+            do
+            (let ((start (point)))
+              (insert
+               (format "%s\t%s"
+                       (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
+                       (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+              (put-text-property start (point) 'epub f)
+              (insert "\n")))))
   (emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
 
@@ -440,8 +445,8 @@
   (interactive "sBook-Id: ")
   (let ((file
          (expand-file-name
-               (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
-               emacspeak-epub-library-directory))
+          (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
+          emacspeak-epub-library-directory))
         (url (emacspeak-epub-gutenberg-download-uri book-id)))
     (unless (file-exists-p file)
       (call-process
