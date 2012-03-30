@@ -201,7 +201,7 @@
        "--nonet --novalid"; options
        (browse-url-of-buffer)))))
 
-(defvar epub-toc-xsl (expand-file-n<ame "epub-toc.xsl" emacspeak-xslt-directory)
+(defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
   "XSL to process .ncx file.")
 
 (defun emacspeak-epub-browse-toc (epub)
