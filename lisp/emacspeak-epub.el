@@ -473,9 +473,10 @@ Fetch if needed, or if refresh is T."
   (interactive "P")
   (declare (special emacspeak-epub-gutenberg-catalog-url
                     emacspeak-epub-gutenberg-catalog-file))
-  (when (or refresh (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
-    (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
-      (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+  (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
+    (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+  (when (or refresh
+            (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
     (call-process
      emacspeak-epub-wget
      nil nil nil
