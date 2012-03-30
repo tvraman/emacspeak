@@ -201,7 +201,7 @@
        "--nonet --novalid"; options
        (browse-url-of-buffer)))))
 
-(defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+(defvar epub-toc-xsl (expand-file-n<ame "epub-toc.xsl" emacspeak-xslt-directory)
   "XSL to process .ncx file.")
 
 (defun emacspeak-epub-browse-toc (epub)
@@ -247,18 +247,18 @@
   "Update bookshelf metadata."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
   (let ((updated nil))
-  (loop for f in
-        (directory-files  emacspeak-epub-library-directory 'full "epub")
-        do
-        (unless (gethash f emacspeak-epub-db)
-          (setq updated t)
-          (let ((fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub f))))
-            (setf (gethash f emacspeak-epub-db)
-                  (make-emacspeak-epub-metadata
-                   :title (first fields)
-                   :author (second fields))))))
-  (when updated (emacspeak-epub-bookshelf-save)))
-          
+    (loop for f in
+          (directory-files  emacspeak-epub-library-directory 'full "epub")
+          do
+          (unless (gethash f emacspeak-epub-db)
+            (setq updated t)
+            (let ((fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub f))))
+              (setf (gethash f emacspeak-epub-db)
+                    (make-emacspeak-epub-metadata
+                     :title (first fields)
+                     :author (second fields))))))
+    (when updated (emacspeak-epub-bookshelf-save))))
+
 ;;;###autoload          
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
@@ -343,16 +343,17 @@
   "Refresh and redraw bookshelf."
   (interactive)
   (emacspeak-epub-bookshelf-load)
-    (emacspeak-epub-bookshelf-update)
-    (loop for f being the hash-keys  of  emacspeak-epub-db
-          do
-          (setq start (point))
-          (insert
-           (format "%s\t%s"
-                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
-                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
-          (put-text-property start (point) 'epub f)
-          (insert "\n"))
+  (emacspeak-epub-bookshelf-update)
+  (loop for f being the hash-keys  of  emacspeak-epub-db
+        do
+        (setq start (point))
+        (insert
+         (format "%s\t%s"
+                 (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
+                 (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+        (put-text-property start (point) 'epub f)
+        (insert "\n"))
+  (emacspeak-epub-bookshelf-save))
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
