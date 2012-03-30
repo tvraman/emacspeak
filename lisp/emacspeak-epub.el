@@ -243,19 +243,49 @@
 (defvar emacspeak-epub-db (make-hash-table :test  #'equal)
   "In memory cache of epub bookshelf.")
 
-(defun emacspeak-epub-update-bookshelf ()
+(defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
+  (let ((updated nil))
   (loop for f in
         (directory-files  emacspeak-epub-library-directory 'full "epub")
         do
-        (let ((fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub f))))
-          (setf (gethash f emacspeak-epub-db)
-                (make-emacspeak-epub-metadata
-                 :title (first fields)
-                 :author (second fields))))))
+        (unless (gethash f emacspeak-epub-db)
+          (setq updated t)
+          (let ((fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub f))))
+            (setf (gethash f emacspeak-epub-db)
+                  (make-emacspeak-epub-metadata
+                   :title (first fields)
+                   :author (second fields))))))
+  (when updated (emacspeak-epub-bookshelf-save)))
           
-          
+;;;###autoload          
+(defun emacspeak-epub-bookshelf-save ()
+  "Save bookshelf metadata."
+  (interactive)
+  (declare (special emacspeak-epub-db-file))
+  (let ((buff (find-file-noselect emacspeak-epub-db-file)))
+    (save-excursion
+      (set-buffer buff)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (print  emacspeak-epub-db  buff) 
+      (save-buffer buff)
+      (kill-buffer buff)
+      (when (interactive-p)
+        (message "Saved EPub bookshelf.")
+        (emacspeak-auditory-icon 'save-object)))))
+
+(defun emacspeak-epub-bookshelf-load ()
+  "Load bookshelf metadata from disk."
+  (interactive)
+  (declare (special emacspeak-epub-db
+                    emacspeak-epub-db-file))
+  (setq emacspeak-epub-db (read emacspeak-epub-db-file)))
+
+
+
+
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -305,6 +335,63 @@
 
 
   
+
+;;}}}
+;;{{{ Epub Mode:
+;;;###autoload
+(defun emacspeak-epub-bookshelf-refresh ()
+  "Refresh and redraw bookshelf."
+  (interactive)
+  (emacspeak-epub-bookshelf-load)
+    (emacspeak-epub-bookshelf-update)
+    (loop for f being the hash-keys  of  emacspeak-epub-db
+          do
+          (setq start (point))
+          (insert
+           (format "%s\t%s"
+                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
+                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+          (put-text-property start (point) 'epub f)
+          (insert "\n"))
+
+(define-derived-mode emacspeak-epub-mode special-mode
+  "EPub Interaction On The Emacspeak Audio Desktop"
+  "An EPub Front-end."
+  (let ((inhibit-read-only t)
+        (start (point-min)))
+    (erase-buffer)
+    (setq buffer-undo-list t)
+    (goto-char (point-min))
+    (insert "Browse And Read EPub Materials\n\n")
+    (put-text-property start (point) 'face font-lock-doc-face)
+    (setq header-line-format "EPub Library")
+    (cd-absolute emacspeak-epub-library-directory)
+    (emacspeak-epub-bookshelf-load)
+    (emacspeak-epub-bookshelf-update)
+    (loop for f being the hash-keys  of  emacspeak-epub-db
+          do
+          (setq start (point))
+          (insert
+           (format "%s\t%s"
+                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
+                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+          (put-text-property start (point) 'epub f)
+          (insert "\n"))
+    (goto-char (point-min))
+    (forward-line 2)))
+
+(declaim (special emacspeak-epub-mode-map))
+(loop for k in
+      '(
+        ("o" emacspeak-epub-open)
+        ([return] emacspeak-epub-open)
+        ("\C-m" emacspeak-epub-open)
+        ("G" emacspeak-epub-gutenberg-download)
+        ("C" emacspeak-epub-gutenberg-catalog)
+        ("g" emacspeak-epub-google)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 ;;}}}
 ;;{{{ Gutenberg Hookup:
@@ -378,47 +465,6 @@ Fetch if needed, or if refresh is T."
      emacspeak-epub-gutenberg-catalog-url))
   (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
   (emacspeak-auditory-icon 'task-done))
-
-;;}}}
-;;{{{ Epub Mode:
-
-(define-derived-mode emacspeak-epub-mode special-mode
-  "EPub Interaction On The Emacspeak Audio Desktop"
-  "An EPub Front-end."
-  (let ((inhibit-read-only t)
-        (start (point-min)))
-    (erase-buffer)
-    (setq buffer-undo-list t)
-    (goto-char (point-min))
-    (insert "Browse And Read EPub Materials\n\n")
-    (put-text-property start (point) 'face font-lock-doc-face)
-    (setq header-line-format "EPub Library")
-    (cd-absolute emacspeak-epub-library-directory)
-    (emacspeak-epub-update-bookshelf)
-    (loop for f across emacspeak-epub-db
-          do
-          (setq start (point))
-          (insert
-           (format "%s\t%s"
-                   (or (first (gethash f emacspeak-epub-db)) "")
-                   (or (second (gethash f emacspeak-epub-db)) "")))
-          (put-text-property start (point) 'epub f)
-          (insert "\n"))
-    (goto-char (point-min))
-    (forward-line 2)))
-
-(declaim (special emacspeak-epub-mode-map))
-(loop for k in
-      '(
-        ("o" emacspeak-epub-open)
-        ([return] emacspeak-epub-open)
-        ("\C-m" emacspeak-epub-open)
-        ("G" emacspeak-epub-gutenberg-download)
-        ("C" emacspeak-epub-gutenberg-catalog)
-        ("g" emacspeak-epub-google)
-        )
-      do
-      (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 ;;}}}
 (provide 'emacspeak-epub)
