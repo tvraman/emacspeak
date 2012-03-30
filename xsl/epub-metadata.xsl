@@ -8,7 +8,9 @@
   <xsl:template match="/">
   <xsl:if test="/ns:ncx/ns:docTitle"><xsl:value-of
   select="/ns:ncx/ns:docTitle/ns:text"/></xsl:if>
- <xsl:if test="/ns:ncx/ns:docAuthor">Author: <xsl:value-of
+<xsl:text>
+</xsl:text>
+ <xsl:if test="/ns:ncx/ns:docAuthor"> <xsl:value-of
  select="/ns:ncx/ns:docAuthor/ns:text"/> </xsl:if>
 </xsl:template>
   
