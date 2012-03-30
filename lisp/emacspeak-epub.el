@@ -233,7 +233,7 @@
 ;;{{{ Bookshelf Implementation:
 
 (defvar emacspeak-epub-db-file
-  (expand-file-name ".epubs-db" emacspeak-epub-library-directory)
+  (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
   "Cache of bookshelf metadata.")
 
 (defvar emacspeak-epub-db (make-hash-table :test  #'equal)
