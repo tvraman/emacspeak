@@ -275,18 +275,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(declaim (special emacspeak-epub-mode-map))
-(loop for k in
-      '(
-        ("o" emacspeak-epub-open)
-        ([return] emacspeak-epub-open)
-        ("\C-m" emacspeak-epub-open)
-        ("G" emacspeak-epub-gutenberg-download)
-        ("C" emacspeak-epub-gutenberg-catalog)
-        ("g" emacspeak-epub-google)
-        )
-      do
-      (emacspeak-keymap-update emacspeak-epub-mode-map k))
+
 
 ;;;###autoload
 (defun emacspeak-epub-open (epub-file)
@@ -417,6 +406,19 @@ Fetch if needed, or if refresh is T."
           (insert "\n"))
     (goto-char (point-min))
     (forward-line 2)))
+
+(declaim (special emacspeak-epub-mode-map))
+(loop for k in
+      '(
+        ("o" emacspeak-epub-open)
+        ([return] emacspeak-epub-open)
+        ("\C-m" emacspeak-epub-open)
+        ("G" emacspeak-epub-gutenberg-download)
+        ("C" emacspeak-epub-gutenberg-catalog)
+        ("g" emacspeak-epub-google)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 ;;}}}
 (provide 'emacspeak-epub)
