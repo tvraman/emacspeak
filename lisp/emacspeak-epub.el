@@ -285,7 +285,10 @@
   (interactive)
   (declare (special emacspeak-epub-db
                     emacspeak-epub-db-file))
-  (setq emacspeak-epub-db (read emacspeak-epub-db-file)))
+  (when (file-exists-p emacspeak-epub-db-file)
+  (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
+  (setq emacspeak-epub-db (read buffer))
+  (kill-buffer buffer))))
 
 
 
