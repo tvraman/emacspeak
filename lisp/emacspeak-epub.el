@@ -263,7 +263,7 @@
                      :author (second fields))))))
     (loop for f being the hash-keys of emacspeak-epub-db
           do
-          (unless (file-exists-p f) (remhashf emacspeak-epub-db)))
+          (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
 ;;;###autoload          
