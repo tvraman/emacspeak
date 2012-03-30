@@ -351,6 +351,7 @@
   (interactive)
   (emacspeak-epub-bookshelf-load)
   (emacspeak-epub-bookshelf-update)
+  (let ((inhibit-read-only t))
   (loop for f being the hash-keys  of  emacspeak-epub-db
         do
         (let ((start (point)))
@@ -359,8 +360,9 @@
                    (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
                    (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
           (put-text-property start (point) 'epub f)
-          (insert "\n")))
-  (emacspeak-epub-bookshelf-save))
+          (insert "\n"))))
+  (emacspeak-epub-bookshelf-save)
+  (emacspeak-auditory-icon 'task-done))
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
@@ -391,6 +393,9 @@
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
+        ("\M-s" emacspeak-epub-bookshelf-save)
+        ("\C-x\C-s" emacspeak-epub-bookshelf-save)
+        ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
         ("o" emacspeak-epub-open)
         ([return] emacspeak-epub-open)
         ("\C-m" emacspeak-epub-open)
