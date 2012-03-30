@@ -444,6 +444,7 @@
        nil nil nil
        "-O"
        file url))
+    (emacspeak-epub-bookshelf-refresh)
     (when (y-or-n-p
            (format "Open %s?"file))
       (emacspeak-epub-open file))))
