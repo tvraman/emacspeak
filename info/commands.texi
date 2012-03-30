@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 952 commands.
+This chapter documents a total of 957 commands.
 
 @menu
 * cd-tool::
@@ -1622,7 +1622,7 @@ The EPubs format is slightly simpler than full Daisy ---
 Since it only needs one level of indirection (no audio,
 therefore no smil). This module is consequently simpler than
 emacspeak-daisy.el.
-This module will eventually  implement the Google Books GData API
+This module will eventually  implement the Google Books  API
 --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
 As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 
@@ -1630,15 +1630,46 @@ Automatically generated documentation
 for commands defined in module  emacspeak-epub.
 
 @deffn {Interactive Command} emacspeak-epub nil
-@kbd{Not bound to any key.}
+@kbd{ control e g }
 
 EPub  Interaction.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-load nil
+@kbd{Not bound to any key.}
+
+Load bookshelf metadata from disk.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-refresh nil
+@kbd{Not bound to any key.}
+
+Refresh and redraw bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-save nil
+@kbd{Not bound to any key.}
+
+Save bookshelf metadata.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-google nil
 @kbd{Not bound to any key.}
 
 Search for Epubs from Gooble Books.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-gutenberg-catalog nil
+@kbd{Not bound to any key.}
+
+Open Gutenberg catalog.
+Fetch if needed, or if refresh is T.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-gutenberg-download nil
+@kbd{Not bound to any key.}
+
+Download specified EBook to local cache
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-mode nil
@@ -1653,8 +1684,12 @@ during initialization.
 key             binding
 ---             -------
 
+RET		emacspeak-epub-open
+C		emacspeak-epub-gutenberg-catalog
+G		emacspeak-epub-gutenberg-download
 g		emacspeak-epub-google
 o		emacspeak-epub-open
+<return>	emacspeak-epub-open
 
 @end deffn
 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 657 user customizable
+This chapter documents a total of 658 user customizable
   options.
 
 @menu
@@ -741,7 +741,7 @@ The EPubs format is slightly simpler than full Daisy ---
 Since it only needs one level of indirection (no audio,
 therefore no smil). This module is consequently simpler than
 emacspeak-daisy.el.
-This module will eventually  implement the Google Books GData API
+This module will eventually  implement the Google Books  API
 --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
 As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
 
@@ -749,12 +749,16 @@ Automatically generated documentation
 for options defined in module  emacspeak-epub.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-epub-library-directory
-Directory under which we store Epubs.
+@defvar {User Option} emacspeak-epub-gutenberg-mirror
+Base URL  for Gutenberg mirror.
 @end defvar
 
-@defvar {User Option} emacspeak-epub-zip-extract
-Program to extract a zip file member.
+@defvar {User Option} emacspeak-epub-gutenberg-suffix
+Suffix of book type we retrieve.
+@end defvar
+
+@defvar {User Option} emacspeak-epub-library-directory
+Directory under which we store Epubs.
 @end defvar
 
 @node emacspeak-erc Options

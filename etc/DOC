@@ -999,11 +999,34 @@ Useful in voicifying rich text.
 
 ------------------------------------------------------------
 
-** emacspeak-epub EPub  Interaction. 
+** emacspeak-epub	Key Sequence: control e g 
+
+ EPub  Interaction. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-load Load bookshelf metadata from disk. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-refresh Refresh and redraw bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-save Save bookshelf metadata. 
 
 ------------------------------------------------------------
 
 ** emacspeak-epub-google Search for Epubs from Gooble Books. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-gutenberg-catalog Open Gutenberg catalog.
+Fetch if needed, or if refresh is T. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-gutenberg-download Download specified EBook to local cache 
 
 ------------------------------------------------------------
 
@@ -1016,8 +1039,12 @@ during initialization.
 key             binding
 ---             -------
 
+RET		emacspeak-epub-open
+C		emacspeak-epub-gutenberg-catalog
+G		emacspeak-epub-gutenberg-download
 g		emacspeak-epub-google
 o		emacspeak-epub-open
+<return>	emacspeak-epub-open
  
 
 ------------------------------------------------------------
