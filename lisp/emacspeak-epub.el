@@ -240,7 +240,7 @@
   title
   author)
 
-(defvar emacspeak-epub-db (make-hash-table :test  #'string-equal)
+(defvar emacspeak-epub-db (make-hash-table :test  #'equal)
   "In memory cache of epub bookshelf.")
 
 (defun emacspeak-epub-update-bookshelf ()
