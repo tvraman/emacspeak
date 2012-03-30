@@ -236,12 +236,16 @@
   (expand-file-name ".epubs-db" emacspeak-epub-library-directory)
   "Cache of bookshelf metadata.")
 
+(defvar emacspeak-epub-db (make-hash-table :test  #'equal)
+  "In memory cache of epub bookshelf.")
+
+
 (defstruct emacspeak-epub-metadata
   title
   author)
 
-(defvar emacspeak-epub-db (make-hash-table :test  #'equal)
-  "In memory cache of epub bookshelf.")
+
+
 
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
@@ -346,13 +350,13 @@
   (emacspeak-epub-bookshelf-update)
   (loop for f being the hash-keys  of  emacspeak-epub-db
         do
-        (setq start (point))
-        (insert
-         (format "%s\t%s"
-                 (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
-                 (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
-        (put-text-property start (point) 'epub f)
-        (insert "\n"))
+        (let ((start (point)))
+          (insert
+           (format "%s\t%s"
+                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
+                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+          (put-text-property start (point) 'epub f)
+          (insert "\n")))
   (emacspeak-epub-bookshelf-save))
 
 (define-derived-mode emacspeak-epub-mode special-mode
