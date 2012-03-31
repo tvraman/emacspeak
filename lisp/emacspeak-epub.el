@@ -201,6 +201,17 @@
        "--nonet --novalid"; options
        (browse-url-of-buffer)))))
 
+(defun emacspeak-epub-browse-files (epub)
+  "Browse list of HTML files in an EPub.
+Useful if table of contents in toc.ncx is empty."
+  (interactive
+   (list
+    (or epub
+        (emacspeak-epub-make-epub (read-file-name "EPub File:
+  ")))))
+  )
+
+
 (defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
   "XSL to process .ncx file.")
 
