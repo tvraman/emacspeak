@@ -290,7 +290,9 @@
                     emacspeak-epub-db-file))
   (when (file-exists-p emacspeak-epub-db-file)
     (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
-      (setq emacspeak-epub-db (read buffer))
+      (with-current-buffer buffer
+        (goto-char (point-min))
+      (setq emacspeak-epub-db (read buffer)))
       (kill-buffer buffer))))
 
 
@@ -363,6 +365,17 @@
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'select-obect))
 
+(defun emacspeak-epub-delete ()
+  "Delete EPub under point."
+  (interactive)
+  (let ((file (get-text-property (point) 'epub)))
+    (cond
+     ((null file) (error "No EPub under point."))
+     (t (when (y-or-n-p
+               (format "Delete %s" file))
+          (delete-file file)
+          (emacspeak-auditory-icon 'delete-object))))))
+
 ;;}}}
 ;;{{{ Epub Mode:
 ;;;###autoload
@@ -418,6 +431,7 @@
         ("\M-s" emacspeak-epub-bookshelf-save)
         ("\C-x\C-s" emacspeak-epub-bookshelf-save)
         ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
+        ("d" emacspeak-epub-delete)
         ("o" emacspeak-epub-open)
         ("n" emacspeak-epub-next)
         ("p" emacspeak-epub-previous)
