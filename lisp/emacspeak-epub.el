@@ -212,14 +212,15 @@ Useful if table of contents in toc.ncx is empty."
     (emacspeak-epub-make-epub
      (or
       (get-text-property (point) 'epub)
-      (read-file-name "EPub File: ")))))  (declare (special emacspeak-epub-scratch
+      (read-file-name "EPub File: ")))))
+  (declare (special emacspeak-epub-scratch
     emacspeak-epub-files-command))
   (let ((files
          (split-string
           (shell-command-to-string
            (format  emacspeak-epub-files-command (emacspeak-epub-path epub)))
           "\n")))
-    (with-current-buffer emacspeak-epub-scratch
+    (with-current-buffer (get-buffer-create emacspeak-epub-scratch)
       (erase-buffer)
       (insert  "<ol>\n")
       (loop for f in files
