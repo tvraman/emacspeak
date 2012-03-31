@@ -200,15 +200,43 @@
        style nil
        "--nonet --novalid"; options
        (browse-url-of-buffer)))))
+(defvar emacspeak-epub-files-command
+  (format "%s -1 %%s | grep html$ | sort" emacspeak-epub-zip-info)
+  "Command to list out HTML files.")
 
 (defun emacspeak-epub-browse-files (epub)
   "Browse list of HTML files in an EPub.
 Useful if table of contents in toc.ncx is empty."
   (interactive
    (list
-    (or epub
-        (emacspeak-epub-make-epub (read-file-name "EPub File:
-  ")))))
+    (emacspeak-epub-make-epub
+     (or
+      (get-text-property (point) 'epub)
+      (read-file-name "EPub File: ")))))  (declare (special emacspeak-epub-scratch
+    emacspeak-epub-files-command))
+  (let ((files
+         (split-string
+          (shell-command-to-string
+           (format  emacspeak-epub-files-command (emacspeak-epub-path epub)))
+          "\n")))
+    (with-current-buffer emacspeak-epub-scratch
+      (erase-buffer)
+      (insert  "<ol>\n")
+      (loop for f in files
+            do
+            (insert
+             (format "<li><a href=\"%s\">%s</a></li>\n" f f)))
+      (insert "</ol>\n")
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
+           (setq emacspeak-epub-this-epub epub
+                 emacspeak-we-url-executor 'emacspeak-epub-url-executor)
+           (emacspeak-speak-buffer))
+       'at-end)      
+      (browse-url-of-buffer))))
+    
   )
 
 
@@ -443,6 +471,7 @@ Useful if table of contents in toc.ncx is empty."
         ("\C-x\C-s" emacspeak-epub-bookshelf-save)
         ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
         ("d" emacspeak-epub-delete)
+        ("f" emacspeak-epub-browse-files)
         ("o" emacspeak-epub-open)
         ("n" emacspeak-epub-next)
         ("p" emacspeak-epub-previous)
