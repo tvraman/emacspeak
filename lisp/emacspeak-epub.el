@@ -345,6 +345,23 @@
 
 
 
+(defun emacspeak-epub-next ()
+  "Move to next book."
+  (interactive)
+  (end-of-line)
+  (goto-char (next-single-property-change (point) 'epub))
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-obect))
+
+(defun emacspeak-epub-previous ()
+  "Move to previous book."
+  (interactive)
+  (beginning-of-line)
+  (goto-char (previous-single-property-change (point) 'epub))
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-obect))
 
 ;;}}}
 ;;{{{ Epub Mode:
@@ -402,6 +419,8 @@
         ("\C-x\C-s" emacspeak-epub-bookshelf-save)
         ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
         ("o" emacspeak-epub-open)
+        ("n" emacspeak-epub-next)
+        ("p" emacspeak-epub-previous)
         ([return] emacspeak-epub-open)
         ("\C-m" emacspeak-epub-open)
         ("G" emacspeak-epub-gutenberg-download)
