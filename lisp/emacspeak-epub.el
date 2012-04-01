@@ -61,6 +61,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'derived)
+(require 'tabulated-list)
 
 ;;}}}
 ;;{{{  Customizations, Variables:
@@ -320,11 +321,16 @@ Useful if table of contents in toc.ncx is empty."
           do
           (unless (gethash f emacspeak-epub-db)
             (setq updated t)
-            (let ((fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub f))))
+            (let* ((fields (emacspeak-epub-get-metadata
+                            (emacspeak-epub-make-epub f)))
+                   (title (first fields))
+                   (author  (second fields)))
+              (when (zerop (length title)) (setq title "Untitled"))
+              (when (zerop (length author)) (setq author "Unknown"))
               (setf (gethash f emacspeak-epub-db)
                     (make-emacspeak-epub-metadata
-                     :title (first fields)
-                     :author (second fields))))))
+                     :title title
+                     :author author))))) 
     (loop for f being the hash-keys of emacspeak-epub-db
           do
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
@@ -456,29 +462,45 @@ Useful if table of contents in toc.ncx is empty."
             (let ((start (point)))
               (insert
                (format "%s\t%s"
-                       (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
-                       (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
+                       (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "Untitled")
+                       (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "Unknown")))
               (put-text-property start (point) 'epub f)
               (insert "\n")))))
   (emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
+(defun emacspeak-epub-list-entries ()
+  "Return list of entries suitable for tabulated-list-mode."
+  (declare (special emacspeak-epub-db))
+  (loop for f being the hash-keys of emacspeak-epub-db
+        collect
+        (let* ((entry  (gethash  f emacspeak-epub-db))
+               (title (emacspeak-epub-metadata-title entry))
+               (author (emacspeak-epub-metadata-author entry)))
+          (list title author))))
+
+(defsubst emacspeak-epub--sort-predicate (a b)
+  "Sort by author."
+  (string<  (second a) (second b)))
 
 (define-derived-mode emacspeak-epub-mode tabulated-list-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
-  "An EPub Front-end."
+  "An EPub Front-end.
+Letters do not insert themselves; instead, they are commands.
+\\<emacspeak-epub-mode-map>
+\\{emacspeak-epub-mode-map}"
   (let ((inhibit-read-only t)
         (start (point-min)))
     (erase-buffer)
     (setq buffer-undo-list t)
     (goto-char (point-min))
-    
+
+    (setq tabulated-list-entries (emacspeak-epub-list-entries))
     (setq tabulated-list-format
-          [("Title" 48 string<)
-			       ("Author" 36 string<)])
-  (setq tabulated-list-padding 2)
-  (setq tabulated-list-sort-key (cons "Title" nil))
-  (tabulated-list-init-header)
-    (setq header-line-format "EPub Library")
+          [("Title" 48 emacspeak-epub--sort-predicate)
+           ("Author" 36 emacspeak-epub--sort-predicate)])
+    (setq tabulated-list-padding 2)
+    (setq tabulated-list-sort-key (cons "Author" nil))
+    (tabulated-list-init-header)
     (cd-absolute emacspeak-epub-library-directory)
     (emacspeak-epub-bookshelf-load)
     (emacspeak-epub-bookshelf-update)
@@ -491,8 +513,7 @@ Useful if table of contents in toc.ncx is empty."
                    (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
           (put-text-property start (point) 'epub f)
           (insert "\n"))
-    (goto-char (point-min))
-    (forward-line 2)))
+    (goto-char (point-min))))
 
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
