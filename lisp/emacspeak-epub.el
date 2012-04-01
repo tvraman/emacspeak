@@ -502,7 +502,7 @@ Useful if table of contents in toc.ncx is empty."
             (setq name (format "%s. %s"
                                result
                                (nth (1- count) fields))))))))
-    (propertize name 'face 'italics 'personality 'voice-lighten)))
+    (propertize name 'face 'italic)))
 
 
 
