@@ -11,7 +11,6 @@
 <xsl:text>
 </xsl:text>
  <xsl:if test="/ns:ncx/ns:docAuthor"> <xsl:value-of
- select="/ns:ncx/ns:docAuthor/ns:text"/> </xsl:if>
-</xsl:template>
+ select="/ns:ncx/ns:docAuthor/ns:text"/> </xsl:if> </xsl:template>
   
 </xsl:stylesheet>
