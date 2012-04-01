@@ -470,6 +470,7 @@ Useful if table of contents in toc.ncx is empty."
         (start (point-min)))
     (erase-buffer)
     (setq buffer-undo-list t)
+    (setq tab-stop-list '(48 56 64))
     (goto-char (point-min))
     (insert "Browse And Read EPub Materials\n\n")
     (put-text-property start (point) 'face font-lock-doc-face)
