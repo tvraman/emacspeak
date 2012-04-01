@@ -61,7 +61,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'derived)
-(require 'tabulated-list)
+
 
 ;;}}}
 ;;{{{  Customizations, Variables:
@@ -468,21 +468,37 @@ Useful if table of contents in toc.ncx is empty."
               (insert "\n")))))
   (emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
-(defun emacspeak-epub-list-entries ()
-  "Return list of entries suitable for tabulated-list-mode."
-  (declare (special emacspeak-epub-db))
-  (loop for f being the hash-keys of emacspeak-epub-db
-        collect
-        (let* ((entry  (gethash  f emacspeak-epub-db))
-               (title (emacspeak-epub-metadata-title entry))
-               (author (emacspeak-epub-metadata-author entry)))
-          (list title author))))
 
 (defsubst emacspeak-epub--sort-predicate (a b)
   "Sort by author."
   (string<  (second a) (second b)))
 
-(define-derived-mode emacspeak-epub-mode tabulated-list-mode
+(defsubst emacspeak-epub-format-author (name)
+  "Format author name, abbreviating if needed."
+  (let ((len (length name))
+        (fields nil))
+    (cond
+     ((< len 16))
+     (t (setq  fields (split-string name))
+        (let ((count (length fields))
+              (result nil))
+          (cond
+           ((= 1 count))
+           (t
+            (setq result 
+            (loop for i from 0 to(- count 2)
+                  collect
+                  (upcase (aref  (nth i fields) 0))))
+            (setq result
+                  (mapconcat
+                   #'(lambda (c) (format "%c" c))
+                   result ". "))
+            (setq name (format "%s. %s"
+                               result
+                               (nth (1- count) fields))))))))
+    (propertize name 'font 'bold)))
+
+(define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
@@ -492,15 +508,8 @@ Letters do not insert themselves; instead, they are commands.
         (start (point-min)))
     (erase-buffer)
     (setq buffer-undo-list t)
+    (setq header-line-format "EPub Bookshelf")
     (goto-char (point-min))
-
-    (setq tabulated-list-entries (emacspeak-epub-list-entries))
-    (setq tabulated-list-format
-          [("Title" 48 emacspeak-epub--sort-predicate)
-           ("Author" 36 emacspeak-epub--sort-predicate)])
-    (setq tabulated-list-padding 2)
-    (setq tabulated-list-sort-key (cons "Author" nil))
-    (tabulated-list-init-header)
     (cd-absolute emacspeak-epub-library-directory)
     (emacspeak-epub-bookshelf-load)
     (emacspeak-epub-bookshelf-update)
@@ -509,10 +518,11 @@ Letters do not insert themselves; instead, they are commands.
           (setq start (point))
           (insert
            (format "%s\t%s"
-                   (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "")
-                   (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "")))
-          (put-text-property start (point) 'epub f)
+                   (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))
+                   (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db))))
+          (add-text-properties start (point) (list 'epub f))
           (insert "\n"))
+    (sort-lines nil (point-min) (point-max))
     (goto-char (point-min))))
 
 (declaim (special emacspeak-epub-mode-map))
