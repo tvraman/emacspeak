@@ -104,13 +104,31 @@
           emacspeak-epub-zip-info
           emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
-
 (defsubst emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
   (substring
    (shell-command-to-string (format emacspeak-epub-toc-command file ))
    0 -1))
+
+(defvar emacspeak-epub-opf-path-pattern
+  ".opf$"
+  "Pattern match for path component  to table of contents in an Epub.")
+
+(defvar emacspeak-epub-opf-command
+  (format "%s -1 %%s | grep %s"
+          emacspeak-epub-zip-info
+          emacspeak-epub-opf-path-pattern)
+  "Command that returns location of .ncx file in an epub archive.")
+
+(defsubst emacspeak-epub-do-opf (file)
+  "Return location of .opf file within epub archive."
+  (declare (special emacspeak-epub-opf-command))
+  (substring
+   (shell-command-to-string (format emacspeak-epub-opf-command file ))
+   0 -1))
+
+
 
 (defvar emacspeak-epub-ls-command
   (format "%s -1 %%s " emacspeak-epub-zip-info)
@@ -126,18 +144,22 @@
   path ; path to .epub file
   toc ; path to .ncx file in archive
   base ; directory in archive that holds toc.ncx
+  opf ; path to content.opf
   ls ; list of files in archive
   )
 
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
   (let ((ls (emacspeak-epub-do-ls epub-file))
-        (toc (emacspeak-epub-do-toc epub-file)))
+        (toc (emacspeak-epub-do-toc epub-file))
+        (opf (emacspeak-epub-do-opf epub-file)))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
+    (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
      :toc toc
      :base (file-name-directory toc)
+     :opf opf
      :ls ls)))
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
@@ -161,16 +183,21 @@
   (expand-file-name "epub-metadata.xsl" emacspeak-xslt-directory)
   "XSL to extract Author/Title information.")
 
+(defvar emacspeak-epub-opf-xsl
+  (expand-file-name "epub-opf.xsl" emacspeak-xslt-directory)
+  "XSL to extract Author/Title information from content.opf.")
+
 (defsubst emacspeak-epub-get-metadata (epub)
   "Return list containing title/author metadata."
-  (declare (special emacspeak-epub-zip-extract emacspeak-xslt-program))
+  (declare (special emacspeak-epub-zip-extract emacspeak-xslt-program
+                    emacspeak-epub-opf-xsl))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (split-string
    (shell-command-to-string
     (format "%s -c -qq %s  %s |  %s --nonet --novalid %s -"
             emacspeak-epub-zip-extract
-            (emacspeak-epub-path epub) (emacspeak-epub-toc epub)
-            emacspeak-xslt-program emacspeak-epub-metadata-xsl))
+            (emacspeak-epub-path epub) (emacspeak-epub-opf epub)
+            emacspeak-xslt-program emacspeak-epub-opf-xsl))
    "\n"))
 
 (defvar emacspeak-epub-this-epub nil
