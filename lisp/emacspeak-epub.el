@@ -448,30 +448,36 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Epub Mode:
-;;;###autoload
-(defun emacspeak-epub-bookshelf-refresh ()
-  "Refresh and redraw bookshelf."
-  (interactive)
-  (emacspeak-epub-bookshelf-load)
-  (emacspeak-epub-bookshelf-update)
-  (with-current-buffer emacspeak-epub-interaction-buffer
-    (let ((inhibit-read-only t))
+
+(defsubst emacspeak-epub-bookshelf-redraw ()
+  "Redraw Bookshelf."
+  (declare (special  emacspeak-epub-db))
+  (let ((inhibit-read-only t))
       (erase-buffer)
       (loop for f being the hash-keys  of  emacspeak-epub-db
             do
             (let ((start (point)))
               (insert
-               (format "%s\t%s"
-                       (or (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db)) "Untitled")
-                       (or (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) "Unknown")))
+               (format "%-16s\t%s"
+                       (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
+                       (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db))))
               (put-text-property start (point) 'epub f)
-              (insert "\n")))))
-  (emacspeak-epub-bookshelf-save)
-  (emacspeak-auditory-icon 'task-done))
+              (insert "\n")))
+      (sort-lines nil (point-min) (point-max))
+      (goto-char (point-min))))
+              
 
-(defsubst emacspeak-epub--sort-predicate (a b)
-  "Sort by author."
-  (string<  (second a) (second b)))
+;;;###autoload
+(defun emacspeak-epub-bookshelf-refresh ()
+  "Refresh and redraw bookshelf."
+  (interactive)
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in the EPub Bookshelf."))
+  (emacspeak-epub-bookshelf-load)
+  (emacspeak-epub-bookshelf-update)
+  (emacspeak-epub-bookshelf-redraw)
+  ( emacspeak-epub-bookshelf-save)
+  (emacspeak-auditory-icon 'task-done))
 
 (defsubst emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
@@ -496,7 +502,9 @@ Useful if table of contents in toc.ncx is empty."
             (setq name (format "%s. %s"
                                result
                                (nth (1- count) fields))))))))
-    (propertize name 'font 'bold)))
+    (propertize name 'face 'italics 'personality 'voice-lighten)))
+
+
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
@@ -504,26 +512,11 @@ Useful if table of contents in toc.ncx is empty."
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-epub-mode-map>
 \\{emacspeak-epub-mode-map}"
-  (let ((inhibit-read-only t)
-        (start (point-min)))
-    (erase-buffer)
     (setq buffer-undo-list t)
     (setq header-line-format "EPub Bookshelf")
     (goto-char (point-min))
     (cd-absolute emacspeak-epub-library-directory)
-    (emacspeak-epub-bookshelf-load)
-    (emacspeak-epub-bookshelf-update)
-    (loop for f being the hash-keys  of  emacspeak-epub-db
-          do
-          (setq start (point))
-          (insert
-           (format "%s\t%s"
-                   (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))
-                   (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db))))
-          (add-text-properties start (point) (list 'epub f))
-          (insert "\n"))
-    (sort-lines nil (point-min) (point-max))
-    (goto-char (point-min))))
+    (emacspeak-epub-bookshelf-refresh))
 
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
