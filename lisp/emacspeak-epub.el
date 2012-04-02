@@ -458,7 +458,7 @@ Useful if table of contents in toc.ncx is empty."
             do
             (let ((start (point)))
               (insert
-               (format "%-16s\t%s"
+               (format "%-20s\t%s"
                        (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
                        (propertize
                         (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
@@ -504,7 +504,7 @@ Useful if table of contents in toc.ncx is empty."
             (setq name (format "%s. %s"
                                result
                                (nth (1- count) fields))))))))
-    (propertize name 'face 'font-lock-keyword-face)))
+    (propertize name 'face 'font-lock-type-face)))
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
@@ -513,7 +513,8 @@ Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-epub-mode-map>
 \\{emacspeak-epub-mode-map}"
     (setq buffer-undo-list t)
-    (setq header-line-format "EPub Bookshelf")
+    (setq header-line-format
+          (propertize "EPub Bookshelf" 'face 'bold))
     (goto-char (point-min))
     (cd-absolute emacspeak-epub-library-directory)
     (emacspeak-epub-bookshelf-refresh))
