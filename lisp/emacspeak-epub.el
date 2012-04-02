@@ -460,7 +460,9 @@ Useful if table of contents in toc.ncx is empty."
               (insert
                (format "%-16s\t%s"
                        (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
-                       (emacspeak-epub-metadata-title  (gethash f emacspeak-epub-db))))
+                       (propertize
+                        (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
+                        'face 'font-lock-string-face)))
               (put-text-property start (point) 'epub f)
               (insert "\n")))
       (sort-lines nil (point-min) (point-max))
@@ -502,9 +504,7 @@ Useful if table of contents in toc.ncx is empty."
             (setq name (format "%s. %s"
                                result
                                (nth (1- count) fields))))))))
-    (propertize name 'face 'italic)))
-
-
+    (propertize name 'face 'font-lock-keyword-face)))
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
