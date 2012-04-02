@@ -444,6 +444,7 @@ Useful if table of contents in toc.ncx is empty."
      (t (when (y-or-n-p
                (format "Delete %s" file))
           (delete-file file)
+          (emacspeak-epub-bookshelf-refresh)
           (emacspeak-auditory-icon 'delete-object))))))
 
 ;;}}}
