@@ -377,7 +377,8 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;;###autoload
 (defun emacspeak-epub ()
-  "EPub  Interaction."
+  "EPub  Interaction.
+For detailed documentation, see \\[emacspeak-epub-mode]"
   (interactive)
   (declare (special emacspeak-epub-interaction-buffer))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
