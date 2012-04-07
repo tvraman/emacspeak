@@ -994,8 +994,7 @@ Target location is generated from author and title."
   (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (cond
      ((file-exists-p xsl) xsl)
-     (t (expand-file-name emacspeak-bookshare-xslt
-                          emacspeak-xslt-directory)))))
+     (t (expand-file-name emacspeak-bookshare-xslt emacspeak-xslt-directory)))))
 
 (defvar emacspeak-bookshare-toc-xslt
   "bookshare-toc.xsl"
