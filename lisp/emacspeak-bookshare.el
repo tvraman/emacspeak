@@ -800,8 +800,7 @@ b Browse
           ("q" bury-buffer)
           ("f" emacspeak-bookshare-flush-lines)
           ("v" emacspeak-bookshare-view)
-          ("c" emacspeak-bookshare-toc)
-          ("G" emacspeak-bookshare-fulltext)
+          ("c" emacspeak-bookshare-toc-at-point)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
@@ -810,7 +809,7 @@ b Browse
           (" " emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
           ("V" emacspeak-bookshare-view-at-point)
-          ("C" emacspeak-bookshare-toc-at-point)
+          ("C" emacspeak-bookshare-fulltext)
           ("D" emacspeak-bookshare-download-daisy-at-point)
           ("B" emacspeak-bookshare-download-brf-at-point)
           ("j" next-line)
@@ -1044,7 +1043,10 @@ Make sure it's downloaded and unpacked first."
         (directory (emacspeak-bookshare-get-directory))
         (title (emacspeak-bookshare-get-title))
         (xsl (emacspeak-bookshare-toc-xslt)))
-    (unless (file-exists-p target)
+    (cond
+     ((null target) (call-interactively 'emacspeak-bookshare-toc))
+    (t
+     (unless (file-exists-p target)
       (error "First download this content."))
     (unless (file-exists-p directory)
       (error "First unpack this content."))
@@ -1057,7 +1059,7 @@ Make sure it's downloaded and unpacked first."
      xsl
      (shell-quote-argument
       (first
-       (directory-files directory 'full ".xml"))))))
+       (directory-files directory 'full ".xml"))))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content refered to by link under point, and return an XML buffer."
@@ -1145,12 +1147,13 @@ Make sure it's downloaded and unpacked first."
 Useful for fulltext search in a book."
   (interactive
    (list
+     (or (emacspeak-bookshare-get-directory)
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
           (read-file-name-completion-ignore-case t))
       (read-directory-name "Book: "
                            (when (eq major-mode 'dired-mode) (dired-get-filename))
-                           emacspeak-bookshare-directory))))
+                           emacspeak-bookshare-directory)))))
   (declare (special emacspeak-bookshare-directory))
   (let ((xsl (emacspeak-bookshare-xslt directory))
         (buffer (get-buffer-create "Full Text"))
@@ -1158,9 +1161,11 @@ Useful for fulltext search in a book."
         (inhibit-read-only t))
     (with-current-buffer buffer
       (setq command
-            (format "%s  --nonet --novalid %s %s | lynx -dump -stdin"
-                    emacspeak-xslt-program xsl
-                    (first (directory-files directory 'full ".xml"))))
+            (format
+             "%s  --nonet --novalid %s %s | lynx -dump -stdin"
+             emacspeak-xslt-program xsl
+             (shell-quote-argument
+              (first (directory-files directory 'full ".xml")))))
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
