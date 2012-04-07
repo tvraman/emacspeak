@@ -801,7 +801,7 @@ b Browse
           ("f" emacspeak-bookshare-flush-lines)
           ("v" emacspeak-bookshare-view)
           ("c" emacspeak-bookshare-toc)
-          ("g" emacspeak-bookshare-fulltext)
+          ("G" emacspeak-bookshare-fulltext)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
