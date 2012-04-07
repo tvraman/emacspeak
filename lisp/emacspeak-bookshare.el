@@ -801,6 +801,7 @@ b Browse
           ("f" emacspeak-bookshare-flush-lines)
           ("v" emacspeak-bookshare-view)
           ("c" emacspeak-bookshare-toc)
+          ("g" emacspeak-bookshare-fulltext)
           ("\M-n" emacspeak-bookshare-next-result)
           ("\M-p" emacspeak-bookshare-previous-result)
           ("["  backward-page)
@@ -1139,6 +1140,33 @@ Make sure it's downloaded and unpacked first."
      xsl
       (first (directory-files directory 'full ".xml")))))
 
+(defun emacspeak-bookshare-fulltext (directory)
+  "Display fulltext contents of  book in specified directory.
+Useful for fulltext search in a book."
+  (interactive
+   (list
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (read-file-name-completion-ignore-case t))
+      (read-directory-name "Book: "
+                           (when (eq major-mode 'dired-mode) (dired-get-filename))
+                           emacspeak-bookshare-directory))))
+  (declare (special emacspeak-bookshare-directory))
+  (let ((xsl (emacspeak-bookshare-xslt directory))
+        (buffer (get-buffer-create "Full Text"))
+        (command nil)
+        (inhibit-read-only t))
+    (with-current-buffer buffer
+      (setq command
+            (format "%s  --nonet --novalid %s %s | lynx -dump -stdin"
+                    emacspeak-xslt-program xsl
+                    (first (directory-files directory 'full ".xml"))))
+  (erase-buffer)
+  (setq buffer-undo-list t)
+  (shell-command command (current-buffer) nil)
+  (setq buffer-read-only t)
+  (goto-char (point-min)))
+    (switch-to-buffer buffer)))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
