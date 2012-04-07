@@ -1161,12 +1161,14 @@ Useful for fulltext search in a book."
             (format "%s  --nonet --novalid %s %s | lynx -dump -stdin"
                     emacspeak-xslt-program xsl
                     (first (directory-files directory 'full ".xml"))))
-  (erase-buffer)
-  (setq buffer-undo-list t)
-  (shell-command command (current-buffer) nil)
-  (setq buffer-read-only t)
-  (goto-char (point-min)))
-    (switch-to-buffer buffer)))
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command command (current-buffer) nil)
+      (setq buffer-read-only t)
+      (goto-char (point-min)))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
