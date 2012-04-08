@@ -418,6 +418,7 @@ Suitable for text searches."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
+  (declare (special emacspeak-epub-files-command))
   (let ((buffer (get-buffer-create "FullText EPub"))
         (inhibit-read-only t)
         (command nil))
