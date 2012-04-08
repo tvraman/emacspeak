@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 957 commands.
+This chapter documents a total of 963 commands.
 
 @menu
 * cd-tool::
@@ -921,6 +921,13 @@ Extract content refered to by link under point, and return an XML buffer.
 Flush lines matching regexp in Bookshare buffer.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-bookshare-fulltext nil
+@kbd{Not bound to any key.}
+
+Display fulltext contents of  book in specified directory.
+Useful for fulltext search in a book.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-bookshare-fulltext-search nil
 @kbd{Not bound to any key.}
 
@@ -985,7 +992,7 @@ SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 A		emacspeak-bookshare-action
 B		emacspeak-bookshare-download-brf-at-point
-C		emacspeak-bookshare-toc-at-point
+C		emacspeak-bookshare-fulltext
 D		emacspeak-bookshare-download-daisy-at-point
 I		emacspeak-bookshare-action
 P		emacspeak-bookshare-action
@@ -996,7 +1003,7 @@ V		emacspeak-bookshare-view-at-point
 ]		forward-page
 a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
-c		emacspeak-bookshare-toc
+c		emacspeak-bookshare-toc-at-point
 d		emacspeak-bookshare-action
 e		emacspeak-epub
 f		emacspeak-bookshare-flush-lines
@@ -1633,6 +1640,7 @@ for commands defined in module  emacspeak-epub.
 @kbd{ control e g }
 
 EPub  Interaction.
+For detailed documentation, see M-x emacspeak-epub-mode
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-load nil
@@ -1651,6 +1659,26 @@ Refresh and redraw bookshelf.
 @kbd{Not bound to any key.}
 
 Save bookshelf metadata.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-browse-files nil
+@kbd{Not bound to any key.}
+
+Browse list of HTML files in an EPub.
+Useful if table of contents in toc.ncx is empty.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-delete nil
+@kbd{Not bound to any key.}
+
+Delete EPub under point.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-fulltext nil
+@kbd{Not bound to any key.}
+
+Display fulltext from EPub in a buffer.
+Suitable for text searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-google nil
@@ -1676,27 +1704,51 @@ Download specified EBook to local cache
 @kbd{Not bound to any key.}
 
 An EPub Front-end.
-
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-epub-mode-hook', as the final step
-during initialization.
+Letters do not insert themselves; instead, they are commands.
 
 key             binding
 ---             -------
 
 RET		emacspeak-epub-open
+C-x		Prefix Command
+ESC		Prefix Command
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-gutenberg-download
+d		emacspeak-epub-delete
+f		emacspeak-epub-browse-files
 g		emacspeak-epub-google
+n		next-line
 o		emacspeak-epub-open
+p		previous-line
+t		emacspeak-epub-fulltext
 <return>	emacspeak-epub-open
 
+C-x C-q		emacspeak-epub-bookshelf-refresh
+C-x C-s		emacspeak-epub-bookshelf-save
+
+M-s		emacspeak-epub-bookshelf-save
+
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-epub-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-next nil
+@kbd{Not bound to any key.}
+
+Move to next book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-open nil
 @kbd{Not bound to any key.}
 
 Open specified Epub.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-previous nil
+@kbd{Not bound to any key.}
+
+Move to previous book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-url-executor nil
