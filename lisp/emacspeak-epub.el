@@ -420,16 +420,23 @@ Suitable for text searches."
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (declare (special emacspeak-epub-files-command))
   (let ((buffer (get-buffer-create "FullText EPub"))
+        (files
+         (split-string
+          (shell-command-to-string
+           (format  emacspeak-epub-files-command epub-file)) "\n"))
         (inhibit-read-only t)
         (command nil))
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
+      (loop for f in files
+            do
       (setq command
-            (format "unzip -c -qq  %s `zipinfo -1 %s | grep .html$ | sort` | %s"
-                    epub-file epub-file
+            (format "unzip -c -qq  %s %s | %s"
+                    epub-file f
                     emacspeak-epub-html-to-text-command))
       (shell-command command buffer nil)
+      (goto-char (point-max)))
       (setq buffer-read-only t)
       (goto-char (point-min)))
     (switch-to-buffer buffer)
