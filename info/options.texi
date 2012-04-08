@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 658 user customizable
+This chapter documents a total of 660 user customizable
   options.
 
 @menu
@@ -463,6 +463,10 @@ Customize this to the root of where books are organized.
 Customize this to the root of where books are organized.
 @end defvar
 
+@defvar {User Option} emacspeak-bookshare-html-to-text-command
+Command to convert html to text on stdin.
+@end defvar
+
 @defvar {User Option} emacspeak-bookshare-user-id
 Bookshare user Id.
 @end defvar
@@ -755,6 +759,10 @@ Base URL  for Gutenberg mirror.
 
 @defvar {User Option} emacspeak-epub-gutenberg-suffix
 Suffix of book type we retrieve.
+@end defvar
+
+@defvar {User Option} emacspeak-epub-html-to-text-command
+Command to convert html to text on stdin.
 @end defvar
 
 @defvar {User Option} emacspeak-epub-library-directory
