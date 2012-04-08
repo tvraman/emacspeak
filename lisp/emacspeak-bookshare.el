@@ -1141,8 +1141,15 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-xslt-view-file
      xsl
       (first (directory-files directory 'full ".xml")))))
-
-(defun emacspeak-bookshare-fulltext (directory)
+;;;###autoload
+(defcustom emacspeak-bookshare-html-to-text-command
+  "lynx -dump -stdin"
+  "Command to convert html to text on stdin."
+  
+  :type '(choice
+    (const :tag "lynx"  "lynx -dump -stdin")
+    (const "html2text" "html2text"))
+  :group 'emacspeak-bookshare)(defun emacspeak-bookshare-fulltext (directory)
   "Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book."
   (interactive
@@ -1154,7 +1161,8 @@ Useful for fulltext search in a book."
       (read-directory-name "Book: "
                            (when (eq major-mode 'dired-mode) (dired-get-filename))
                            emacspeak-bookshare-directory)))))
-  (declare (special emacspeak-bookshare-directory))
+  (declare (special emacspeak-bookshare-html-to-text-command
+            emacspeak-bookshare-directory))
   (let ((xsl (emacspeak-bookshare-xslt directory))
         (buffer (get-buffer-create "Full Text"))
         (command nil)
@@ -1162,10 +1170,11 @@ Useful for fulltext search in a book."
     (with-current-buffer buffer
       (setq command
             (format
-             "%s  --nonet --novalid %s %s | lynx -dump -stdin"
+             "%s  --nonet --novalid %s %s | %s"
              emacspeak-xslt-program xsl
              (shell-quote-argument
-              (first (directory-files directory 'full ".xml")))))
+              (first (directory-files directory 'full ".xml")))
+             emacspeak-bookshare-html-to-text-command))
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
