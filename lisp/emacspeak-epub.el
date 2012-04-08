@@ -208,7 +208,7 @@
             emacspeak-epub-zip-extract
             (emacspeak-epub-path epub) (emacspeak-epub-opf epub)
             emacspeak-xslt-program emacspeak-epub-opf-xsl))
-   "\n"))
+   "\n" 'omit-nulls))
 
 (defvar emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
@@ -256,7 +256,7 @@ Useful if table of contents in toc.ncx is empty."
          (split-string
           (shell-command-to-string
            (format  emacspeak-epub-files-command (emacspeak-epub-path epub)))
-          "\n")))
+          "\n" 'omit-nulls)))
     (with-current-buffer (get-buffer-create emacspeak-epub-scratch)
       (erase-buffer)
       (insert  "<ol>\n")
@@ -423,7 +423,8 @@ Suitable for text searches."
         (files
          (split-string
           (shell-command-to-string
-           (format  emacspeak-epub-files-command epub-file)) "\n"))
+           (format  emacspeak-epub-files-command epub-file))
+          "\n" 'omit-nulls))
         (inhibit-read-only t)
         (command nil))
     (with-current-buffer buffer
@@ -434,8 +435,8 @@ Suitable for text searches."
       (setq command
             (format "unzip -c -qq  %s %s | %s"
                     epub-file f
-                    emacspeak-epub-html-to-text-command))
-      (shell-command command buffer nil)
+  emacspeak-epub-html-to-text-command))
+      (insert (shell-command-to-string command ))
       (goto-char (point-max)))
       (setq buffer-read-only t)
       (goto-char (point-min)))
