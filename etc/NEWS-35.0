@@ -1,0 +1,69 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 7432 2011-11-23 03:51:49Z tv.raman.tv $
+Author: T. V. Raman <raman@users.sf.net>
+
+* Emacspeak 35 -- Emacspeak 35 User Visible Changes 
+** emacspeak-magit.el:
+
+Speech-enable magit -- a powerful mode for git interaction from Emacs.
+** emacspeak-websearch.el:
+
+More options for controlling Google search, including better
+toolbelt integration.
+New customize option emacspeak-websearch-google-results-only  ---
+set to T by default ---
+displays only results and the nav bar for Google search
+results. You can easily repeat the search with additional search
+toolbelt options via the commands available on C-t.
+** emacspeak-epub.el: 
+Preliminary epub support.
+** emacspeak-woman.el:
+
+Add emacspeak support to WoMan -- man pages in Emacs Lisp.
+
+** emacspeak-dbus.el:
+
+Add DBus support for Emacspeak.
+When loaded, Emacspeak watches DBus signals for network
+connect/disconnet.
+
+** emacspeak-pianobar.el:
+One-click access to Pandora Radio using pianobar.
+
+
+** Emacspeak-npr.el: NPR  API Client
+One-click access to NPR  programming.
+
+** emacspeak-url-templates:
+
+Many new and updated URL  templates
+
+** emacspeak-librivox.el: API  Client For Free Audio Books 
+
+
+Search, locate and listen to free audio books from the comfort of
+the audio desktop.
+
+** emacspeak-bookshare.el: Bookshare API  Client
+
+Bookshare subscribers now have one click access to all of
+Bookshares Daisy EBooks.
+
+** servers/mac: Support For Mac TTS
+
+Preliminary support for the Mac OS  platform --- thanks to Bart
+Bunting and David Tseng.
+** Mode-line Cleanups:
+
+Emacspeak rendering  of the modeline has been cleaned up to be
+more succint.
+** Emacs 24 Support:
+
+
+Adds support for Emacs 24
+
+
+
+# local variables:
+# mode: org
+# end:
