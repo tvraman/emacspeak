@@ -425,7 +425,7 @@ Suitable for text searches."
       (erase-buffer)
       (setq buffer-undo-list t)
       (setq command
-            (format "unzip -c -qq  %s `zipinfo -1 %s | grep .html$` | %s"
+            (format "unzip -c -qq  %s `zipinfo -1 %s | grep .html$ | sort` | %s"
                     epub-file epub-file
                     emacspeak-epub-html-to-text-command))
       (shell-command command buffer nil)
