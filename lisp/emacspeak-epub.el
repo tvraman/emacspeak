@@ -75,6 +75,15 @@
   "Directory under which we store Epubs."
   :type 'directory
   :group 'emacspeak-epub)
+;;;###autoload
+(defcustom emacspeak-epub-html-to-text-command
+  "lynx -dump -stdin"
+  "Command to convert html to text on stdin."
+  
+  :type '(choice
+    (const :tag "lynx"  "lynx -dump -stdin")
+    (const "html2text" "html2text"))
+  :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-zip-extract
   (cond ((executable-find "unzip") "unzip")
@@ -401,6 +410,33 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
+(defun emacspeak-epub-fulltext (epub-file)
+  "Display fulltext from EPub in a buffer.
+Suitable for text searches."
+  (interactive
+   (list
+    (or
+     (get-text-property (point) 'epub)
+     (read-file-name "EPub: " emacspeak-epub-library-directory))))
+  (let ((buffer (get-buffer-create "FullText EPub"))
+        (inhibit-read-only t)
+        (command nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (setq command
+            (format "unzip -c -qq  %s `zipinfo -1 %s | grep .html$` | %s"
+                    epub-file epub-file
+                    emacspeak-epub-html-to-text-command))
+      (shell-command command buffer nil)
+      (setq buffer-read-only t)
+      (goto-char (point-min)))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+      
+
+
 
 
 (defvar emacspeak-epub-google-search-template
@@ -530,6 +566,7 @@ Letters do not insert themselves; instead, they are commands.
         ("d" emacspeak-epub-delete)
         ("f" emacspeak-epub-browse-files)
         ("o" emacspeak-epub-open)
+        ("t" emacspeak-epub-fulltext)
         ("n" next-line)
         ("p" previous-line)
         ([return] emacspeak-epub-open)
