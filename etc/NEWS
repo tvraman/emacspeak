@@ -12,10 +12,19 @@ unpacking.
 ** emacspeak-websearch.el:
 Updated websearch support for new search innovations on the Web.
 
+** emacspeak-magit.el:
+Speech-enables magit for fluent git interaction.
+
 ** emacspeak-url-templates.el
 Updated url templates for faster Web access.
 
 
+
+
+** plain-voices.el
+
+Implements a default  interface for use with  unsupported  TTS
+engines.
 
 
 # local variables:
