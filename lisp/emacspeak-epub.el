@@ -60,6 +60,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'emacspeak-xslt)
 (require 'derived)
 
 
@@ -495,6 +496,30 @@ Suitable for text searches."
 
 ;;}}}
 ;;{{{ Epub Mode:
+(defsubst emacspeak-epub-format-author (name)
+  "Format author name, abbreviating if needed."
+  (let ((len (length name))
+        (fields nil))
+    (cond
+     ((< len 16))
+     (t (setq  fields (split-string name))
+        (let ((count (length fields))
+              (result nil))
+          (cond
+           ((= 1 count))
+           (t
+            (setq result 
+            (loop for i from 0 to(- count 2)
+                  collect
+                  (upcase (aref  (nth i fields) 0))))
+            (setq result
+                  (mapconcat
+                   #'(lambda (c) (format "%c" c))
+                   result ". "))
+            (setq name (format "%s. %s"
+                               result
+                               (nth (1- count) fields))))))))
+    (propertize name 'face 'font-lock-type-face)))
 
 (defsubst emacspeak-epub-bookshelf-redraw ()
   "Redraw Bookshelf."
@@ -528,30 +553,7 @@ Suitable for text searches."
   ( emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
 
-(defsubst emacspeak-epub-format-author (name)
-  "Format author name, abbreviating if needed."
-  (let ((len (length name))
-        (fields nil))
-    (cond
-     ((< len 16))
-     (t (setq  fields (split-string name))
-        (let ((count (length fields))
-              (result nil))
-          (cond
-           ((= 1 count))
-           (t
-            (setq result 
-            (loop for i from 0 to(- count 2)
-                  collect
-                  (upcase (aref  (nth i fields) 0))))
-            (setq result
-                  (mapconcat
-                   #'(lambda (c) (format "%c" c))
-                   result ". "))
-            (setq name (format "%s. %s"
-                               result
-                               (nth (1- count) fields))))))))
-    (propertize name 'face 'font-lock-type-face)))
+
 
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
