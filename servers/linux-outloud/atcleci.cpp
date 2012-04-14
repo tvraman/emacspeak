@@ -63,6 +63,7 @@
 
 #include <sys/time.h>
 #include <dlfcn.h>
+#include <alloca.h>
 
 #include <alsa/asoundlib.h>
 #include <tcl.h>
@@ -674,12 +675,11 @@ playTTS(int count)
 int
 eciCallback(void *eciHandle, int msg, long lparam, void *data)
 {
-  int             rc;
   Tcl_Interp     *interp = (Tcl_Interp *) data;
   if (msg == eciIndexReply) {
     char            buffer[128];
     snprintf(buffer, 128, "index %ld", lparam);
-    rc = Tcl_Eval(interp, buffer);
+    int rc = Tcl_Eval(interp, buffer);
     if (rc != TCL_OK)
       Tcl_BackgroundError(interp);
   } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
@@ -872,11 +872,11 @@ int
 getTTSVersion(ClientData eciHandle, Tcl_Interp * interp,
               int objc, Tcl_Obj * CONST objv[])
 {
-  char           *version = (char *) malloc(16);
   if (objc != 1) {
     Tcl_AppendResult(interp, "Usage: ttsVersion   ", TCL_STATIC);
     return TCL_ERROR;
   }
+  char           *version = (char *) alloca(16);
   _eciVersion(version);
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
