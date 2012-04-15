@@ -342,10 +342,8 @@ Optional argument FORCE  flushes the command to the speech server."
   (interactive "sEnter new language: \n")
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
-  ;;  (unless dtk-quiet
-  (when dtk-speak-server-initialized
-    (dtk-interp-language lang (interactive-p))))
-;;)
+  (when dtk-speak-server-initialized (dtk-interp-language lang (interactive-p))))
+
 
 (defun dtk-set-next-language ()
   "Switch to the next available language"
