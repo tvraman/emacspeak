@@ -576,7 +576,7 @@ Atcleci_Init(Tcl_Interp * interp)
     Tcl_AppendResult(interp, "No language found", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
-
+  fprintf(stderr, "Found %d languages.\n", nLanguages);
   eciHandle = _eciNewEx(aDefaultLanguage);
   if (eciHandle == 0) {
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
