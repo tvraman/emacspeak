@@ -906,7 +906,6 @@ SetLanguage(ClientData eciHandle, Tcl_Interp * interp,
 {
   int             aIndex;
   const char     *code = getAnnotation(interp, &aIndex);
-  fprintf(stderr, "Index is %d, Code is %s\n", aIndex, code);
   if (code) {
     int             rc;
     char            buffer[ANNOTATION_MAX_SIZE];
