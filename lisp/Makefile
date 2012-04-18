@@ -144,6 +144,7 @@ emacspeak-eudc.elc \
 emacspeak-facemenu.elc \
 emacspeak-filtertext.elc \
 emacspeak-find-dired.elc \
+emacspeak-ftf.elc \
 emacspeak-find-func.elc \
 emacspeak-finder.elc \
 emacspeak-flyspell.elc \
@@ -365,6 +366,7 @@ emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc voice-setup.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
 emacspeak-find-dired.elc: emacspeak-find-dired.el dtk-speak.elc voice-setup.elc
+emacspeak-ftf.elc: emacspeak-ftf.el dtk-speak.elc
 emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc voice-setup.elc
 emacspeak-finder.elc: emacspeak-finder.el
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc

@@ -15,6 +15,10 @@ Updated websearch support for new search innovations on the Web.
 ** emacspeak-magit.el:
 Speech-enables magit for fluent git interaction.
 
+** emacspeak-ftf.el:
+Speech-enable package find-things-fast.
+
+
 ** emacspeak-url-templates.el
 Updated url templates for faster Web access.
 
