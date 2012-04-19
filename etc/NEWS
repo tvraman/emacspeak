@@ -18,6 +18,12 @@ Speech-enables magit for fluent git interaction.
 ** emacspeak-ftf.el:
 Speech-enable package find-things-fast.
 
+** TTS:
+
+Fixed bug in language switching and bound language switching
+commands in dtk-keymap.
+
+
 
 ** emacspeak-url-templates.el
 Updated url templates for faster Web access.
