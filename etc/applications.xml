@@ -531,6 +531,8 @@ API  client for listening to free Librivox audio books.</application>
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
     </application>
+<application name="find-things-fast">
+Finds files within a project using cached list of files.</application>
 <application name="magit">
     Emacs front-end to GIT</application>
     <application name="vc">
