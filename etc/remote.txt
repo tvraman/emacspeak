@@ -1,6 +1,6 @@
 *Running Speech Server  remotely
 
-For  using ssh port forwarding, see remote-tts-setup.def.
+For  using ssh port forwarding, see remote-tts-setup.
 
 ** Using SSH 
 
