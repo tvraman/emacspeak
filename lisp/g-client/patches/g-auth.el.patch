@@ -1,0 +1,61 @@
+diff --git a/lisp/g-client/g-auth.el b/lisp/g-client/g-auth.el
+index 383016f..6578cf7 100644
+--- a/lisp/g-client/g-auth.el
++++ b/lisp/g-client/g-auth.el
+@@ -158,6 +158,24 @@
+ ;;}}}
+ ;;{{{ G Authenticate
+ 
++(defun g-get-user-credentials (service)
++  (let* ((auth-source-creation-prompts 
++          '((user . "Google E-Mail: ")
++            (secret . "Google Password: ")))
++         (found (nth 0 (auth-source-search :max 1
++                                           :host "www.google.com"
++                                           :port service
++                                           :require '(:user :secret)
++                                           :create t))))
++    (if found
++        (list (plist-get found :user)
++              (let ((secret (plist-get found :secret)))
++                (if (functionp secret)
++                    (funcall secret)
++                  secret))
++              (plist-get found :save-function))
++      nil)))
++
+ (defun g-authenticate (auth-handle)
+   "Authenticate    using credentials in auth-handle.
+ Populate auth-handle with the returned cookies and token."
+@@ -165,14 +183,15 @@ Populate auth-handle with the returned cookies and token."
+                     g-curl-common-options
+                     g-user-email))
+   (let* ((post-auth-action (g-auth-post-auth-action auth-handle))
++         (user-credentials (g-get-user-credentials (g-auth-service auth-handle)))
+          (email (or (g-auth-email auth-handle)
+-                    g-user-email
++                    (nth 0 user-credentials)
+                     (read-from-minibuffer "User Address: ")))
+-         (password
+-          (or (g-auth-password auth-handle)
+-              (read-passwd
+-               (format "Password for %s:"
+-                       email))))
++         (password (or (g-auth-password auth-handle)
++                       (nth 1 user-credentials)
++                       (read-passwd
++                        (format "Password for %s:"
++                                email))))
+          (buff (get-buffer-create g-auth-scratch-buffer))
+          (fields nil))
+     (setf (g-auth-email auth-handle) email
+@@ -207,6 +226,9 @@ Populate auth-handle with the returned cookies and token."
+                  (fboundp post-auth-action))
+         (funcall post-auth-action auth-handle))
+       (setf (g-auth-timestamp auth-handle) (current-time))
++      (when (and (functionp (nth 2 user-credentials))
++                 (not (g-auth-expired-p auth-handle)))
++        (funcall (nth 2 user-credentials)))
+       auth-handle)))
+ 
+ (defun g-auth-ensure-token (auth-handle)
