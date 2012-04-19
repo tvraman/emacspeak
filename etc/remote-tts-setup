@@ -6,7 +6,7 @@
 # remote-tts-setup speech-server outloud host.example.com
 # remote-tts-setup 32-speech-server 32-outloud host.example.com
 
-SDIR=$HOME/emacs/lisp/emacspeak/servers
+SDIR=<emacspeak_dir>
 $SDIR/$1 2222 $SDIR/$2 &
 beep -f 800 -l 50
 ssh -R 2222:localhost:2222 $3

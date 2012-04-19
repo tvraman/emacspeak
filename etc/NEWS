@@ -30,6 +30,10 @@ Updated url templates for faster Web access.
 
 
 
+** SSH Port Forwarding And Remote TTS:
+
+Added remote-tts sample for configuring remote TTS via ssh port
+forwarding.
 
 ** plain-voices.el
 
