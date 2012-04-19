@@ -1,6 +1,6 @@
 Emacspeak News --History Of User-Visible Changes
 $Id$
-Author: T. V. Raman <raman@users.sf.net>
+Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 36 -- Emacspeak 36 User Visible Changes 
 
@@ -32,7 +32,7 @@ Updated url templates for faster Web access.
 
 ** SSH Port Forwarding And Remote TTS:
 
-Added remote-tts sample for configuring remote TTS via ssh port
+etc/remote-tts-setup: Added remote-tts sample for configuring remote TTS via ssh port
 forwarding.
 
 ** plain-voices.el
