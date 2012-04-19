@@ -443,6 +443,7 @@ field in the customization buffer.  You can use the notation
         ("l" emacspeak-toggle-line-echo)
         ("n" dtk-toggle-speak-nonprinting-chars)
         ("N" dtk-set-next-language)
+        ("S" dtk-set-language)
         ("o" dtk-toggle-strip-octals)
         ("p" dtk-set-punctuations)
         ("P" dtk-set-previous-language)
