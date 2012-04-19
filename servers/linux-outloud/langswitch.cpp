@@ -88,12 +88,14 @@ initLanguage (Tcl_Interp * interp, enum ECILanguageDialect* aLanguages, int nLan
 
   for (i = 0; i < LANG_INFO_MAX; i++)
     {
-      char buffer_i[3];
-      snprintf(buffer_i, 3, "%d", i);
-      char command[40];
-      sprintf(command, "set langalias('%s')  %s\n",
-              const_cast<char*>(TheLanguages[i].code), buffer_i);
+      if ((TheLanguages[i].code)!= NULL){
+        char buffer_i[3];
+        snprintf(buffer_i, 3, "%d", i);
+        char command[40];
+        sprintf(command, "set langalias(%s)  %s\n",
+                const_cast<char*>(TheLanguages[i].code), buffer_i);
       int rc = Tcl_Eval(interp, command);
+      }
     }
 
   int aCurrentLangIndex=0;
