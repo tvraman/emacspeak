@@ -146,7 +146,7 @@ proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
-
+global langlabel 
      if { ![info exists langalias($name)]} {
 	return
      }

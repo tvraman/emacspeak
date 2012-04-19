@@ -277,12 +277,14 @@ proc set_previous_lang {say_it} {
 proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
-
+global langlabel
      if { ![info exists langalias($name)]} {
+         puts stderr "Language $name not found."
 	return
      }
 
      if { $langalias($name) == $langsynth(current) } {
+         puts stderr "$name is already the current language."
 	return
      }
     
@@ -300,7 +302,7 @@ proc set_lang {{name "en"} {say_it "nil"}} {
     }
 
     if { $say_it == "t"} {
-	tts_say "$langlabel($langsynthkey) "
+        tts_say "$langlabel($langsynthkey) "
     }
 }
 
