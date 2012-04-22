@@ -95,7 +95,7 @@ Speech flushes as you type."
     (let ((display (get-char-property (1- (point)) 'display)))
       (dtk-stop)
       (cond
-       (display (dtk-speak display))
+       (display (dtk-letter display))
        ((and emacspeak-word-echo
              (= (char-syntax last-command-event )32 ))
         (save-excursion
