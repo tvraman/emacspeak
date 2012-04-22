@@ -518,18 +518,24 @@ the words that were capitalized."
   "Speak what was completed."
   (declare (special emacspeak-word-echo))
   (when (and emacspeak-word-echo  (interactive-p ))
-    (condition-case nil
+    (let ((display (get-char-property (1- (point)) 'display)))
+      (if display
+          (dtk-speak display)
+        (condition-case nil
         (save-excursion
           (skip-syntax-backward " ")
           (backward-char 1)
           (emacspeak-speak-word))
-      (error nil ))))
+      (error nil ))))))
 
 (defadvice completion-separator-self-insert-command (after emacspeak act comp)
   "Speak char after inserting it."
   (declare (special emacspeak-character-echo))
   (when (and emacspeak-character-echo  (interactive-p))
-    (emacspeak-speak-this-char (preceding-char ))))
+    (let ((display (get-char-property (1- (point)) 'display)))
+      (if display
+          (dtk-speak display)
+        (emacspeak-speak-this-char (preceding-char ))))))
 
 (defadvice quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
