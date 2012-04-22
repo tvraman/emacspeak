@@ -2114,6 +2114,18 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line )))
 
+(defvar emacspeak--help-char-helpbuf " *Char Help*"
+  "This is hard-coded in subr.el")
+
+(defadvice help-form-show (after emacspeak pre act comp)
+  "Speak displayed help form."
+  (declare (special emacspeak--help-char-helpbuf))
+  (when (buffer-live-p (get-buffer emacspeak--help-char-helpbuf))
+    (with-current-buffer emacspeak--help-char-helpbuf
+      (goto-char (point-min))
+      (emacspeak-speak-buffer))))
+  
+  
 ;;}}}
 ;;{{{  Emacs server
 
