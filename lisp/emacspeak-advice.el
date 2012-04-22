@@ -2124,8 +2124,25 @@ Provide an auditory icon if possible."
     (with-current-buffer emacspeak--help-char-helpbuf
       (goto-char (point-min))
       (emacspeak-speak-buffer))))
-  
-  
+
+
+(defadvice tooltip-show-help(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (let ((msg (ad-get-arg 0)))
+    (if msg
+        (dtk-speak msg)
+      (emacspeak-auditory-icon 'close-object))))
+
+(loop for f in
+      '(tooltip-show-help-non-mode tooltip-sho)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Speak the tooltip."
+          (let ((help (ad-get-arg 0)))
+            (dtk-speak help)
+            (emacspeak-auditory-icon 'help)))))
+
 ;;}}}
 ;;{{{  Emacs server
 
