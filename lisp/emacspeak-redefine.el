@@ -102,7 +102,7 @@ Speech flushes as you type."
           (error nil))
         (emacspeak-speak-word)))
      (emacspeak-character-echo
-      (emacspeak-speak-this-char (preceding-char) ))))
+      (emacspeak-speak-this-char (preceding-char)))))
   (and auto-fill-function
        (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
