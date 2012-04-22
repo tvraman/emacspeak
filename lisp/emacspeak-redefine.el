@@ -92,17 +92,19 @@ Speech flushes as you type."
        (pop buffer-undo-list ))
   (self-insert-command  arg )
   (when (interactive-p)
-    (dtk-stop)
-    (cond
-     ((and emacspeak-word-echo
-           (= (char-syntax last-command-event )32 ))
-      (save-excursion
-        (condition-case nil
-            (forward-word -1)
-          (error nil))
-        (emacspeak-speak-word)))
-     (emacspeak-character-echo
-      (emacspeak-speak-this-char (preceding-char)))))
+    (let ((display (get-char-property (1- (point)) 'display)))
+      (dtk-stop)
+      (cond
+       (display (dtk-speak display))
+       ((and emacspeak-word-echo
+             (= (char-syntax last-command-event )32 ))
+        (save-excursion
+          (condition-case nil
+              (forward-word -1)
+            (error nil))
+          (emacspeak-speak-word)))
+       (emacspeak-character-echo
+        (emacspeak-speak-this-char (preceding-char))))))
   (and auto-fill-function
        (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
