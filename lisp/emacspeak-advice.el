@@ -755,7 +755,13 @@ Do not echo the passwd chars as they are typed."
         (chars (ad-get-arg 1)))
     (tts-with-punctuations
      'all
-     (dtk-speak (format "%s" prompt))))) 
+     (dtk-speak
+      (format "%s: %s"
+              prompt
+              (mapconcat
+               #'(lambda (c) (format "%c" c))
+               chars
+               ", "))))))
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
   "Speak the prompt"
