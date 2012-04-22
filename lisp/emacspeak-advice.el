@@ -520,7 +520,7 @@ the words that were capitalized."
   (when (and emacspeak-word-echo  (interactive-p ))
     (let ((display (get-char-property (1- (point)) 'display)))
       (if display
-          (dtk-speak display)
+          (dtk-letter display)
         (condition-case nil
         (save-excursion
           (skip-syntax-backward " ")
@@ -534,7 +534,7 @@ the words that were capitalized."
   (when (and emacspeak-character-echo  (interactive-p))
     (let ((display (get-char-property (1- (point)) 'display)))
       (if display
-          (dtk-speak display)
+          (dtk-letter display)
         (emacspeak-speak-this-char (preceding-char ))))))
 
 (defadvice quoted-insert  (after emacspeak pre act )
