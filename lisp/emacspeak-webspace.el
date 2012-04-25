@@ -132,7 +132,7 @@
       (kill-new link)
       (emacspeak-auditory-icon 'yank-object)
       (message link))
-     (t (error "No link under point")))))k
+     (t (error "No link under point")))))
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
   "Automatically speak display."
