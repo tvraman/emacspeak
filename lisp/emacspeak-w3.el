@@ -852,8 +852,8 @@ Tue Apr 24 17:33:27 PDT 2012
 (defadvice url-retrieve-internal (before fix-bug pre act comp)
   "Fix bug in handling of google result urls."
   (let ((u (ad-get-arg 0)))
-    (when (string-prefix-p (emacspeak-google-result-url-prefix) u)
-      (ad-set-arg 0 (emacspeak-canonicalize-google-result-url u)))))
+    (when (string-prefix-p (emacspeak-w3-google-result-url-prefix) u)
+      (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))))
 
 (defun foo (x y)
   "show x"
