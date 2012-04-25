@@ -838,6 +838,7 @@ Tue Apr 24 17:33:27 PDT 2012
 ;;; Suffix: &sa=...
 
 (defsubst emacspeak-w3-canonicalize-google-result-url (url)
+  "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
     (substring url
                (if emacspeak-websearch-google-use-https 29 28)
