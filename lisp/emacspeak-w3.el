@@ -838,9 +838,10 @@ Tue Apr 24 17:33:27 PDT 2012
 ;;; Suffix: &sa=...
 
 (defsubst emacspeak-w3-canonicalize-google-result-url (url)
-  (let ((prefix-length (if emacspeak-websearch-google-use-https 29 28))
-        (suffix-start (string-match "&sa=" url)))
-    (substring url prefix-length suffix-start)))
+  (declare (special emacspeak-websearch-google-use-https))
+    (substring url
+               (if emacspeak-websearch-google-use-https 29 28)
+               (string-match "&sa=" url)))
 
 (defsubst emacspeak-w3-google-result-url-prefix ()
   "Return prefix of result urls."
