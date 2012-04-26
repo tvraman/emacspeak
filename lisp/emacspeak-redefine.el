@@ -93,6 +93,7 @@ Speech flushes as you type."
   (self-insert-command  arg )
   (when (interactive-p)
     (let ((display (get-char-property (1- (point)) 'display)))
+      (dtk-stop)
       (cond
        (display (dtk-say display))
        ((and emacspeak-word-echo
@@ -103,7 +104,6 @@ Speech flushes as you type."
             (error nil))
           (emacspeak-speak-word)))
        (emacspeak-character-echo
-        (dtk-stop)
         (emacspeak-speak-this-char (preceding-char))))))
   (and auto-fill-function
        (= (char-syntax  last-command-event) 32)
