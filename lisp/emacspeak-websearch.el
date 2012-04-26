@@ -936,7 +936,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;}}}
 ;;{{{ google
-;;;###authoad
+;;;###autoload
 (defcustom emacspeak-websearch-google-use-https t
   "Specify whether we use secure connections for Google search."
   :type 'boolean
