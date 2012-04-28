@@ -1077,6 +1077,13 @@ Do not set this by hand.
 Use command emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
 
+(defsubst emacspeak-eterm-activity-in-window (window)
+  "T if terminal activity within bounds of window."
+  (emacspeak-eterm-coordinate-within-window-p
+   (cons (term-current-column) (term-current-row))
+   window))
+   
+
 (defadvice  term-emulate-terminal (around emacspeak pre act compile )
   "Record position, emulate, then speak what happened.
 Also keep track of terminal highlighting etc.  Feedback is
@@ -1096,7 +1103,8 @@ emacspeak-toggle-eterm-autospeak bound to
                     emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
                     emacspeak-eterm-autospeak 
                     term-current-row term-current-column))
-  (let ((emacspeak-eterm-row (term-current-row ))
+  (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
+        (emacspeak-eterm-row (term-current-row ))
         (emacspeak-eterm-column (term-current-column ))
         (end (point-max))
         (current-char (preceding-char ))
@@ -1109,22 +1117,12 @@ emacspeak-toggle-eterm-autospeak bound to
     (setq new-row (term-current-row )
           new-column (term-current-column )
           new-end (point-max))
-    (when (and  emacspeak-eterm-autospeak
-                (window-live-p
-                 (get-buffer-window (process-buffer (ad-get-arg 0))))
-                (or  (not emacspeak-eterm-focus-window )
-                     (and (emacspeak-eterm-coordinate-within-window-p
-                           (cons new-column new-row )
-                           emacspeak-eterm-focus-window )
-                          (emacspeak-eterm-coordinate-within-window-p
-                           (cons (term-current-column) (term-current-row))
-                           emacspeak-eterm-focus-window ))
-                     (and (emacspeak-eterm-coordinate-within-window-p
-                           (cons new-column new-row )
-                           emacspeak-eterm-filter-window )
-                          (emacspeak-eterm-coordinate-within-window-p
-                           (cons (term-current-column) (term-current-row))
-                           emacspeak-eterm-filter-window ))))
+    (when                        ; do something if in active area
+        (and  emacspeak-eterm-autospeak
+              (window-live-p emacspeak-eterm-window)
+              (or  (not emacspeak-eterm-focus-window )
+                   (emacspeak-eterm-activity-in-window  emacspeak-eterm-focus-window)
+                   (emacspeak-eterm-activity-in-window  emacspeak-eterm-filter-window)))
       (cond
        ((and eterm-char-mode
              emacspeak-eterm-filter-window
@@ -1169,8 +1167,7 @@ emacspeak-toggle-eterm-autospeak bound to
                             (emacspeak-speak-word))        
           (emacspeak-speak-word )))
        (t (emacspeak-speak-line nil )))
-      (when (and (not  emacspeak-eterm-pointer-mode )
-                 emacspeak-eterm-pointer)
+      (when (and (not  emacspeak-eterm-pointer-mode ) emacspeak-eterm-pointer)
         (emacspeak-eterm-pointer-to-cursor)))))
 
 (ems-generate-switcher 'emacspeak-eterm-toggle-pointer-mode
