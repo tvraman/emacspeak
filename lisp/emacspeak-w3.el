@@ -861,8 +861,7 @@ Tue Apr 24 17:33:27 PDT 2012
   "show x"
   (message (concat x y)))
 
-(defadvice foo (before try pre act comp)
-  (ad-set-argument 0 (concat (ad-get-arg 0) " world")))
+
 
 ;;}}}
 ;;{{{  emacs local variables
