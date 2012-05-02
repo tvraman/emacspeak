@@ -37,7 +37,8 @@ Note that special releases are marked with an '*'.
 | 32.0 | May 2010        | LuckyDog       |
 | 33.0 | November 2010   | StarDog        |
 | 34.0 | May 2011        | * Bubbles      |
-| 35.0 | November 2011   |                HeadDog |
+| 35.0 | November 2011   | HeadDog        |
+| 36.0 | May 2012        |                EPubDog|
 |------+-----------------+----------------|
 
 #+TITLE:     code-names.txt
