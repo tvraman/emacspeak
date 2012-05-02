@@ -249,13 +249,13 @@ Argument S specifies the syntax class.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-language nil
-@kbd{Not bound to any key.}
+@kbd{ control e d  cap S  }
 
 Set language according to the argument lang.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-next-language nil
-@kbd{Not bound to any key.}
+@kbd{ control e d  cap N  }
 
 Switch to the next available language
 @end deffn
@@ -281,7 +281,7 @@ will set "en_GB".
 @end deffn
 
 @deffn {Interactive Command} dtk-set-previous-language nil
-@kbd{Not bound to any key.}
+@kbd{ control e d  cap P  }
 
 Switch to the previous available language
 @end deffn
