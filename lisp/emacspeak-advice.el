@@ -522,11 +522,11 @@ the words that were capitalized."
       (if display
           (dtk-say display)
         (condition-case nil
-        (save-excursion
-          (skip-syntax-backward " ")
-          (backward-char 1)
-          (emacspeak-speak-word))
-      (error nil ))))))
+            (save-excursion
+              (skip-syntax-backward " ")
+              (backward-char 1)
+              (emacspeak-speak-word))
+          (error nil ))))))
 
 (defadvice completion-separator-self-insert-command (after emacspeak act comp)
   "Speak char after inserting it."
@@ -734,11 +734,11 @@ Do not echo the passwd chars as they are typed."
   (cond
    ((not (interactive-p)) ad-do-it)
    (t
-     (let ((echo-keystrokes 0))
-  (emacspeak-auditory-icon 'open-object)
-  (dtk-stop)
-  (dtk-speak (ad-get-arg 0))
-  ad-do-it)))
+    (let ((echo-keystrokes 0))
+      (emacspeak-auditory-icon 'open-object)
+      (dtk-stop)
+      (dtk-speak (ad-get-arg 0))
+      ad-do-it)))
   ad-return-value)
 
 (defadvice read-char (before emacspeak pre act comp)
@@ -2124,7 +2124,6 @@ Provide an auditory icon if possible."
     (with-current-buffer emacspeak--help-char-helpbuf
       (goto-char (point-min))
       (emacspeak-speak-buffer))))
-
 
 (defadvice tooltip-show-help(after emacspeak pre act comp)
   "Provide auditory feedback."

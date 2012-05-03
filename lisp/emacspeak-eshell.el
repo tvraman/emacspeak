@@ -74,13 +74,11 @@
   (declare (special eshell-last-input-end eshell-last-output-end
                     eshell-last-output-start))
   (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
-  
 
 (add-hook 
  'eshell-output-filter-functions
  'emacspeak-eshell-speak-output
  'at-end)
-
 
 ;;}}}
 ;;{{{  Advice top-level EShell
@@ -100,8 +98,8 @@ Provide an auditory icon if possible."
 (loop for f in
       '(
         eshell-next-input eshell-previous-input
-        eshell-next-matching-input eshell-previous-matching-input
-        eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
+                          eshell-next-matching-input eshell-previous-matching-input
+                          eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
       do
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)
@@ -165,7 +163,7 @@ personalities."
 (loop for f in
       '(
         eshell-next-prompt eshell-previous-prompt
-        eshell-forward-matching-input  eshell-backward-matching-input)
+                           eshell-forward-matching-input  eshell-backward-matching-input)
       do
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)

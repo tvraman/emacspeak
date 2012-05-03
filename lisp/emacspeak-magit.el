@@ -82,9 +82,9 @@
 ;;}}}
 ;;{{{ Pronunciations in Magit:
 (emacspeak-pronounce-add-dictionary-entry 'magit-mode
-                                              emacspeak-pronounce-sha-checksum-pattern
-                                              (cons 're-search-forward
-                                                    'emacspeak-pronounce-sha-checksum))
+                                          emacspeak-pronounce-sha-checksum-pattern
+                                          (cons 're-search-forward
+                                                'emacspeak-pronounce-sha-checksum))
 (emacspeak-pronounce-add-super 'magit-mode 'magit-commit-mode)
 
 (add-hook

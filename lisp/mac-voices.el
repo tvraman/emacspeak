@@ -85,7 +85,6 @@ COMMAND-STRING to the TTS engine."
   (concat 
    (mac-get-voice-command-internal name)))
 
-
 (defsubst mac-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special mac-voice-table ))
@@ -290,7 +289,6 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  stress
 
-
 ;;{{{  paul stress TODO
 
 (let ((table (make-vector 10 "")))
@@ -301,10 +299,10 @@ and TABLE gives the values along that dimension."
             (first setting)
             (format " [{echo %s %s %s %s}] "
                     (second setting)
-		    (third setting)
-		    (fourth setting)
-		    (fifth setting)
-))))
+                    (third setting)
+                    (fourth setting)
+                    (fifth setting)
+                    ))))
    '(
      (0 1 1 0.1 0.1)
      (1 1 1 10 .1)
@@ -321,7 +319,6 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mac-css-set-code-table 'harry 'stress table )
   (mac-css-set-code-table 'betty 'stress table ))
-
 
 ;;}}}
 (defsubst mac-get-stress-code (value family)

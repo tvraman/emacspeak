@@ -301,7 +301,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format ""); no-op --- chagne to taste.
-)))
+            )))
    '(
      (0 0 0)
      (1 20 10)
@@ -326,7 +326,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format ""); no-op --- change to taste
-)))
+            )))
    '(
      (0 0 0)
      (1 16 20)
@@ -351,7 +351,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format ""); no-op --- change to taste
-)))
+            )))
    '(
      (0 0 0)
      (1 50 10)
@@ -396,7 +396,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format "") ; no-op --- edit to taste
-)))
+            )))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -421,7 +421,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format "") ; no-op --- change to taste
-)))
+            )))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2 )
@@ -446,7 +446,7 @@ and TABLE gives the values along that dimension."
       (aset table
             (first setting)
             (format "") ; no-op --- change to taste.
-)))
+            )))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)
@@ -483,7 +483,7 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table (first setting)
             (format "") ; no-op --- change to taste
-)))
+            )))
    '(
      (0 0 100)
      (1 14 80)
@@ -507,7 +507,7 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table (first setting)
             (format "") ; no-op --- change to taste
-)))
+            )))
    '(
      (0 100 0)
      (1 96 3)
@@ -531,7 +531,7 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table (first setting)
             (format "") ; no-op -- change to taste.
-)))
+            )))
    '(
      (0 0 100)
      (1 8 76)
@@ -574,17 +574,17 @@ and TABLE gives the values along that dimension."
   (let* ((family(acss-family style))
          (command
           (concat 
-                  (plain-get-family-code family)
-                  (plain-get-punctuations-code (acss-punctuations style))
-                  (when (or (acss-average-pitch style)
-                            (acss-pitch-range style)
-                            (acss-stress style )
-                            (acss-richness style))
-                    (concat "  "
-                            (plain-get-average-pitch-code (acss-average-pitch style) family)
-                            (plain-get-pitch-range-code (acss-pitch-range style) family)
-                            (plain-get-stress-code (acss-stress style ) family)
-                            (plain-get-richness-code (acss-richness style) family))))))
+           (plain-get-family-code family)
+           (plain-get-punctuations-code (acss-punctuations style))
+           (when (or (acss-average-pitch style)
+                     (acss-pitch-range style)
+                     (acss-stress style )
+                     (acss-richness style))
+             (concat "  "
+                     (plain-get-average-pitch-code (acss-average-pitch style) family)
+                     (plain-get-pitch-range-code (acss-pitch-range style) family)
+                     (plain-get-stress-code (acss-stress style ) family)
+                     (plain-get-richness-code (acss-richness style) family))))))
     (plain-define-voice name command)))
 
 ;;}}}

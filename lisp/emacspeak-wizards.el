@@ -3054,9 +3054,9 @@ This is for use in conjunction with bash to allow multiple emacs
 (defsubst emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
   (remove-if-not 
-          #'(lambda (buffer)
-              (with-current-buffer   buffer (eq major-mode 'shell-mode)))
-          (buffer-list)))
+   #'(lambda (buffer)
+       (with-current-buffer   buffer (eq major-mode 'shell-mode)))
+   (buffer-list)))
 
 (defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
@@ -3087,7 +3087,6 @@ Direction specifies previous/next."
   "Switch to previous shell."
   (interactive)
   (emacspeak-wizards-switch-shell -1))
-
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)

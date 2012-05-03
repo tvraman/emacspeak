@@ -551,7 +551,7 @@ necessary."
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (emacspeak-m-player-current-info)
-                                        (when emacspeak-m-player-info-cache
+        (when emacspeak-m-player-info-cache
           (ring-insert emacspeak-m-player-info-ring emacspeak-m-player-info-cache))
         (emacspeak-m-player-dispatch "quit")
         (emacspeak-auditory-icon 'close-object)

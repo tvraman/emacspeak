@@ -58,10 +58,6 @@
 (require 'dtk-interp)
 (require 'dtk-unicode)
 
-
-
-
-
 (require 'espeak-voices)
 (require 'flite-voices)
 
@@ -343,7 +339,6 @@ Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
   (when dtk-speak-server-initialized (dtk-interp-language lang (interactive-p))))
-
 
 (defun dtk-set-next-language ()
   "Switch to the next available language"
