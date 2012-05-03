@@ -79,7 +79,7 @@
 (defcustom emacspeak-epub-html-to-text-command
   "lynx -dump -stdin"
   "Command to convert html to text on stdin."
-  
+
   :type '(choice
           (const :tag "lynx"  "lynx -dump -stdin")
           (const "html2text" "html2text"))
@@ -87,7 +87,7 @@
 
 (defvar emacspeak-epub-zip-extract
   (cond ((executable-find "unzip") "unzip")
-        (t (error "unzip not found.")))
+        (t (message "unzip not found.")))
   "Program to extract a zip file member.")
 
 (defvar emacspeak-epub-wget
@@ -96,7 +96,7 @@
 
 (defvar emacspeak-epub-zip-info
   (cond ((executable-find "zipinfo") "zipinfo")
-        (t (error "zipinfo not found.")))
+        (t (message "zipinfo not found.")))
   "Program to examine a zip file.")
 
 ;;}}}
@@ -267,7 +267,7 @@ Useful if table of contents in toc.ncx is empty."
            (setq emacspeak-epub-this-epub epub
                  emacspeak-we-url-executor 'emacspeak-epub-url-executor)
            (emacspeak-speak-buffer))
-       'at-end)      
+       'at-end)
       (browse-url-of-buffer))))
 
 (defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
@@ -330,13 +330,13 @@ Useful if table of contents in toc.ncx is empty."
               (setf (gethash f emacspeak-epub-db)
                     (make-emacspeak-epub-metadata
                      :title title
-                     :author author))))) 
+                     :author author)))))
     (loop for f being the hash-keys of emacspeak-epub-db
           do
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
-;;;###autoload          
+;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
   (interactive)
@@ -346,7 +346,7 @@ Useful if table of contents in toc.ncx is empty."
       (set-buffer buff)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (print  emacspeak-epub-db  buff) 
+      (print  emacspeak-epub-db  buff)
       (save-buffer buff)
       (kill-buffer buff)
       (when (interactive-p)
@@ -376,7 +376,13 @@ Useful if table of contents in toc.ncx is empty."
   "EPub  Interaction.
 For detailed documentation, see \\[emacspeak-epub-mode]"
   (interactive)
-  (declare (special emacspeak-epub-interaction-buffer))
+  (declare (special emacspeak-epub-interaction-buffer
+                    emacspeak-epub-zip-info
+                    emacspeak-epub-zip-extract))
+  (unless emacspeak-epub-zip-extract
+    (error "Please install unzip."))
+  (unless emacspeak-epub-zip-info
+    (error "Please install zipinfo. "))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (unless (buffer-live-p buffer)
       (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer) (emacspeak-epub-mode)))
@@ -486,7 +492,7 @@ Suitable for text searches."
           (cond
            ((= 1 count))
            (t
-            (setq result 
+            (setq result
                   (loop for i from 0 to(- count 2)
                         collect
                         (upcase (aref  (nth i fields) 0))))
@@ -625,7 +631,10 @@ Letters do not insert themselves; instead, they are commands.
 Fetch if needed, or if refresh is T."
   (interactive "P")
   (declare (special emacspeak-epub-gutenberg-catalog-url
-                    emacspeak-epub-gutenberg-catalog-file))
+                    emacspeak-epub-gutenberg-catalog-file
+                    emacspeak-epub-wget))
+  (unless emacspeak-epub-wget
+    (error "Please install wget. "))
   (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
     (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
   (when (or refresh
