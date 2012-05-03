@@ -63,7 +63,6 @@
 (require 'emacspeak-xslt)
 (require 'derived)
 
-
 ;;}}}
 ;;{{{  Customizations, Variables:
 
@@ -82,8 +81,8 @@
   "Command to convert html to text on stdin."
   
   :type '(choice
-    (const :tag "lynx"  "lynx -dump -stdin")
-    (const "html2text" "html2text"))
+          (const :tag "lynx"  "lynx -dump -stdin")
+          (const "html2text" "html2text"))
   :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-zip-extract
@@ -91,12 +90,9 @@
         (t (error "unzip not found.")))
   "Program to extract a zip file member.")
 
-
 (defvar emacspeak-epub-wget
   (executable-find "wget")
   "WGet program.")
-
-
 
 (defvar emacspeak-epub-zip-info
   (cond ((executable-find "zipinfo") "zipinfo")
@@ -138,8 +134,6 @@
   (substring
    (shell-command-to-string (format emacspeak-epub-opf-command file ))
    0 -1))
-
-
 
 (defvar emacspeak-epub-ls-command
   (format "%s -1 %%s " emacspeak-epub-zip-info)
@@ -252,7 +246,7 @@ Useful if table of contents in toc.ncx is empty."
       (get-text-property (point) 'epub)
       (read-file-name "EPub File: ")))))
   (declare (special emacspeak-epub-scratch
-    emacspeak-epub-files-command))
+                    emacspeak-epub-files-command))
   (let ((files
          (split-string
           (shell-command-to-string
@@ -275,7 +269,7 @@ Useful if table of contents in toc.ncx is empty."
            (emacspeak-speak-buffer))
        'at-end)      
       (browse-url-of-buffer))))
-    
+
 (defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
   "XSL to process .ncx file.")
 
@@ -314,13 +308,9 @@ Useful if table of contents in toc.ncx is empty."
 (defvar emacspeak-epub-db (make-hash-table :test  #'equal)
   "In memory cache of epub bookshelf.")
 
-
 (defstruct emacspeak-epub-metadata
   title
   author)
-
-
-
 
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
@@ -372,12 +362,8 @@ Useful if table of contents in toc.ncx is empty."
     (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
       (with-current-buffer buffer
         (goto-char (point-min))
-      (setq emacspeak-epub-db (read buffer)))
+        (setq emacspeak-epub-db (read buffer)))
       (kill-buffer buffer))))
-
-
-
-
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -397,8 +383,6 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
     (pop-to-buffer emacspeak-epub-interaction-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-
 
 ;;;###autoload
 (defun emacspeak-epub-open (epub-file)
@@ -433,21 +417,17 @@ Suitable for text searches."
       (setq buffer-undo-list t)
       (loop for f in files
             do
-      (setq command
-            (format "unzip -c -qq '%s' '%s' | %s"
-                    epub-file f
-  emacspeak-epub-html-to-text-command))
-      (insert (shell-command-to-string command ))
-      (goto-char (point-max)))
+            (setq command
+                  (format "unzip -c -qq '%s' '%s' | %s"
+                          epub-file f
+                          emacspeak-epub-html-to-text-command))
+            (insert (shell-command-to-string command ))
+            (goto-char (point-max)))
       (setq buffer-read-only t)
       (goto-char (point-min)))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
-      
-
-
-
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
@@ -461,8 +441,6 @@ Suitable for text searches."
   (emacspeak-webutils-atom-display
    (format emacspeak-epub-google-search-template
            (emacspeak-url-encode query))))
-
-
 
 (defun emacspeak-epub-next ()
   "Move to next book."
@@ -509,9 +487,9 @@ Suitable for text searches."
            ((= 1 count))
            (t
             (setq result 
-            (loop for i from 0 to(- count 2)
-                  collect
-                  (upcase (aref  (nth i fields) 0))))
+                  (loop for i from 0 to(- count 2)
+                        collect
+                        (upcase (aref  (nth i fields) 0))))
             (setq result
                   (mapconcat
                    #'(lambda (c) (format "%c" c))
@@ -525,21 +503,20 @@ Suitable for text searches."
   "Redraw Bookshelf."
   (declare (special  emacspeak-epub-db))
   (let ((inhibit-read-only t))
-      (erase-buffer)
-      (loop for f being the hash-keys  of  emacspeak-epub-db
-            do
-            (let ((start (point)))
-              (insert
-               (format "%-20s\t%s"
-                       (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
-                       (propertize
-                        (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
-                        'face 'font-lock-string-face)))
-              (put-text-property start (point) 'epub f)
-              (insert "\n")))
-      (sort-lines nil (point-min) (point-max))
-      (goto-char (point-min))))
-              
+    (erase-buffer)
+    (loop for f being the hash-keys  of  emacspeak-epub-db
+          do
+          (let ((start (point)))
+            (insert
+             (format "%-20s\t%s"
+                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
+                     (propertize
+                      (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
+                      'face 'font-lock-string-face)))
+            (put-text-property start (point) 'epub f)
+            (insert "\n")))
+    (sort-lines nil (point-min) (point-max))
+    (goto-char (point-min))))
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-refresh ()
@@ -553,20 +530,18 @@ Suitable for text searches."
   ( emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
 
-
-
 (define-derived-mode emacspeak-epub-mode special-mode
   "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-epub-mode-map>
 \\{emacspeak-epub-mode-map}"
-    (setq buffer-undo-list t)
-    (setq header-line-format
-          (propertize "EPub Bookshelf" 'face 'bold))
-    (goto-char (point-min))
-    (cd-absolute emacspeak-epub-library-directory)
-    (emacspeak-epub-bookshelf-refresh))
+  (setq buffer-undo-list t)
+  (setq header-line-format
+        (propertize "EPub Bookshelf" 'face 'bold))
+  (goto-char (point-min))
+  (cd-absolute emacspeak-epub-library-directory)
+  (emacspeak-epub-bookshelf-refresh))
 
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in

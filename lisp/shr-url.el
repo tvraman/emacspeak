@@ -98,8 +98,6 @@
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
 
-
-
 ;;;###autoload
 (defun shr-url (url &optional display)
   "Display web page."

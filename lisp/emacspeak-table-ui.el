@@ -1031,7 +1031,6 @@ table markup.")
                                   (emacspeak-table-markup-get-table
                                    'latex2e-mode))
 
-
 (emacspeak-table-markup-set-table
  'org-mode
  (emacspeak-table-make-markup

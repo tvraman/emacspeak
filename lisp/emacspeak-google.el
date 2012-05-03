@@ -166,7 +166,7 @@ This variable is buffer-local.")
         :type 'tbm
         :value 0)
 ;;; epub 
-(make-emacspeak-google-tool
+       (make-emacspeak-google-tool
         :name "books-format"
         :param "bft"
         :range '("p" "e")
@@ -294,7 +294,7 @@ This variable is buffer-local.")
         :type 'tbs
         :value 0)
 ;;; verbatim/literal search
-(make-emacspeak-google-tool
+       (make-emacspeak-google-tool
         :name "literal"
         :param "li"
         :range '(0 1)

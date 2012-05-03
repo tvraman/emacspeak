@@ -1082,7 +1082,6 @@ Use command emacspeak-eterm-toggle-pointer-mode bound to
   (emacspeak-eterm-coordinate-within-window-p
    (cons (term-current-column) (term-current-row))
    window))
-   
 
 (defadvice  term-emulate-terminal (around emacspeak pre act compile )
   "Record position, emulate, then speak what happened.

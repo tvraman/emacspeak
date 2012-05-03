@@ -840,9 +840,9 @@ Tue Apr 24 17:33:27 PDT 2012
 (defsubst emacspeak-w3-canonicalize-google-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
-    (substring url
-               (if emacspeak-websearch-google-use-https 29 28)
-               (string-match "&sa=" url)))
+  (substring url
+             (if emacspeak-websearch-google-use-https 29 28)
+             (string-match "&sa=" url)))
 
 (defsubst emacspeak-w3-google-result-url-prefix ()
   "Return prefix of result urls."
@@ -850,7 +850,6 @@ Tue Apr 24 17:33:27 PDT 2012
   (format "%s://www.google.com/url?q="
           (if emacspeak-websearch-google-use-https "https" "http")))
 
-             
 (defadvice url-retrieve-internal (before fix-bug pre act comp)
   "Fix bug in handling of google result urls."
   (let ((u (ad-get-arg 0)))
@@ -860,8 +859,6 @@ Tue Apr 24 17:33:27 PDT 2012
 (defun foo (x y)
   "show x"
   (message (concat x y)))
-
-
 
 ;;}}}
 ;;{{{  emacs local variables
