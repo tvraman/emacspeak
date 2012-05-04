@@ -1,6 +1,6 @@
 #    -*- mode: org -*-
 
-*               Emacspeak-35.0 (EPubDog) Unleashed!
+*               Emacspeak-36.0 (EPubDog) Unleashed!
                
 
 **  For Immediate Release:
