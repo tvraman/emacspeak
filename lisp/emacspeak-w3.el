@@ -860,6 +860,13 @@ Tue Apr 24 17:33:27 PDT 2012
   "Fix bug in handling of google result urls."
   (let ((u (ad-get-arg 0)))
     (when (and u(string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
+      (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url
+                     u)))))
+
+(defadvice url-truncate-url-for-viewing (before fix-bug pre act comp)
+  "Fix bug in handling of google result urls."
+  (let ((u (ad-get-arg 0)))
+    (when (and u(string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
       (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))))
 
 
