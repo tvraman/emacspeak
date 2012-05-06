@@ -139,9 +139,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
        "gm-prepare"
-"recentf"
+"recentf" "magit-prepare"
        "smtpmail" "sigbegone"
-       ;"mailcrypt-prepare"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" "wget-prepare"
        "auctex-prepare" "nxml-prepare"
