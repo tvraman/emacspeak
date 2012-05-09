@@ -11,9 +11,9 @@
 (global-set-key "\C-x\C-l" 'w3-open-local)
 (global-set-key  "\C-x\C-h" 'w3-use-hotlist )
 (define-key w3-mode-map "\M-m" 'back-to-indentation)
-(define-key w3-mode-map "\C-d" 'w3-wget)
 (define-key w3-mode-map "*" 'emacspeak-org-bookmark)
-(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "*" 'emacspeak-org-bookmark)(define-key w3-mode-map "8" 'emacspeak-org-bookmark)
+(define-key w3-mode-map "8" 'emacspeak-org-bookmark)
+(define-key w3-mode-map "\C-d" 'w3-wget)
 ;;}}}
 ;;{{{ ssl
 ;;; customized via custom
@@ -26,6 +26,13 @@
 (emacspeak-w3-toggle-table-borders)
 (emacspeak-w3-toggle-table-borders)
 (defun w3-add-toolbar-to-buffer (&rest ignore) nil)
+
+;;; style settings:
+(setq w3-default-stylesheet "~/.w3/default.css"
+w3-honor-stylesheets nil
+w3-user-colors-take-precedence t
+w3-user-fonts-take-precedence t)
+
 (provide 'w3-prepare)
 ;;{{{ end of file
 
@@ -45,7 +52,5 @@
    (x (file-name-nondirectory file))
    (t (file-name-directory file))))
 (setq w3-explicit-coding-system 'utf-8)
-(setq mm-inline-text-html-renderer 'w3-display-node)
-(defadvice w3-http-equiv-headers (around ignore pre act comp)
-  "Turning this into a no-op."
-  t)
+;;; try this for a while:
+(defadvice w3-http-equiv-headers (around skip pre act comp) t)
