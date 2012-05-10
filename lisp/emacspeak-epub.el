@@ -608,11 +608,7 @@ Letters do not insert themselves; instead, they are commands.
           emacspeak-epub-library-directory))
         (url (emacspeak-epub-gutenberg-download-uri book-id)))
     (unless (file-exists-p file)
-      (call-process
-       emacspeak-epub-wget
-       nil nil nil
-       "-O"
-       file url))
+      (w3-download-url url file))
     (emacspeak-epub-bookshelf-refresh)
     (when (y-or-n-p
            (format "Open %s?"file))
