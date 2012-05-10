@@ -607,12 +607,11 @@ Letters do not insert themselves; instead, they are commands.
           (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
           emacspeak-epub-library-directory))
         (url (emacspeak-epub-gutenberg-download-uri book-id)))
-    (unless (file-exists-p file)
-      (w3-download-url url file))
-    (emacspeak-epub-bookshelf-refresh)
-    (when (y-or-n-p
-           (format "Open %s?"file))
-      (emacspeak-epub-open file))))
+    (cond
+     ((file-exists-p file)
+      (message "Book available locally as %s" file))
+      (t (w3-download-url url file)
+         (message "downloading ...")))))
 
 (defvar emacspeak-epub-gutenberg-catalog-url
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
