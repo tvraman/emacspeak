@@ -1,5 +1,5 @@
 ;;; Augment load path:
-(augment-load-path "vm" "vm")
+(augment-load-path "vm/lisp" "vm")
 (defun make-local-hook (hook)
   "Make the hook HOOK local to the current buffer.
 The return value is HOOK.
@@ -31,10 +31,10 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
   hook)
 (load-library "vm-autoloads")
 (load-library "vm-pine")
-(load-library "vm-pgg")
+;(load-library "vm-pgg")
 
 (global-set-key "\M-\C-v" 'vm-visit-folder)
-(defalias 'w3-region 'w3m-region)
+
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
 
 (add-hook 'vm-quit-hook 'vm-expunge-folder)
@@ -61,11 +61,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
  ;;}}}
 ;;{{{ vm multipart reply fixup:
 
-;; (defun vm-mime-text-type-layout-p (layout)
-;;   "Check for text/plain, not text."
-;;   (or (vm-mime-types-match "text/plain" (car (vm-mm-layout-type layout)))
-;;       (vm-mime-types-match "message" (car (vm-mm-layout-type layout)))))
-(define-key vm-mode-map "\M-i" 'icalendar-import-buffer)
 ;;}}}
 (setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
