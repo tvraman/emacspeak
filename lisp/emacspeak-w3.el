@@ -847,7 +847,7 @@ Tue Apr 24 17:33:27 PDT 2012
 (defsubst emacspeak-w3-google-result-url-prefix ()
   "Return prefix of result urls."
   (declare (special emacspeak-websearch-google-use-https))
-  (format "%s://www.google.com/url?q="
+  (format "%s:www.google.com/url?q="
           (if emacspeak-websearch-google-use-https "https" "http")))
 
 (defadvice url-retrieve-internal (before fix-bug pre act comp)
