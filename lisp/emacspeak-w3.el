@@ -841,7 +841,7 @@ Tue Apr 24 17:33:27 PDT 2012
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
   (substring url
-             (if emacspeak-websearch-google-use-https 29 28)
+             (if emacspeak-websearch-google-use-https 27 26)
              (string-match "&sa=" url)))
 
 (defsubst emacspeak-w3-google-result-url-prefix ()
