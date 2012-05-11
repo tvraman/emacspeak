@@ -3,7 +3,7 @@
   :type 'string
   :group 'chromevox)
 
-(defun browse-url-chromium (url &optional new-window)
+(defun browse-url-chromevox (url &optional new-window)
   "Browse using our talking Chromium build."
   (interactive (browse-url-interactive-arg "URL: "))
   (shell-command
