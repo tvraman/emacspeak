@@ -2855,17 +2855,20 @@ Variable mark-even-if-inactive is set true ."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
     (ems-modify-buffer-safely
-     (put-text-property beg end
-                        'personality
-                        voice-bolden))))
+     (add-text-properties
+      beg end
+      (list 'personality voice-bolden
+            'auditory-icon 'button)))))
 
 (defadvice make-button (after emacspeak pre act comp)
   "Adds property personality."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
     (ems-modify-buffer-safely
-     (put-text-property beg end
-                        'personality voice-bolden))))
+     (add-text-properties
+      beg end
+      (list 'personality voice-bolden
+            'auditory-icon 'button)))))
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
