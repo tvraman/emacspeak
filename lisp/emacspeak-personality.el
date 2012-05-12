@@ -450,43 +450,39 @@ Append means place corresponding personality at the end."
 
 (defadvice overlay-put (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
-  (let ((overlay (ad-get-arg 0))
-        (prop (ad-get-arg 1))
-        (value (ad-get-arg 2))
-        (voice nil))
-    (when (and
-           (or (eq prop 'face)
-               (and (eq prop 'category)
-                    (get value 'face)))
-           (integer-or-marker-p (overlay-start overlay))
-           (integer-or-marker-p (overlay-end overlay)))
-      (and (eq prop 'category)
-           (setq value (get value 'face)))
-      (cond
-       ((symbolp value)
-        (setq voice (voice-setup-get-voice-for-face   value)))
-       ((listp value)
-        (setq voice
-              (delq nil
-                    (mapcar
-                     #'voice-setup-get-voice-for-face value))))
-       (t (message "Got %s" value)))
-      (when voice
-        (and emacspeak-personality-voiceify-overlays
-             (funcall emacspeak-personality-voiceify-overlays
-                      (overlay-start overlay)
-                      (overlay-end overlay)
-                      voice))
-        (overlay-put overlay 'personality voice))
-      (when (and emacspeak-personality-show-unmapped-faces
-                 (not voice))
+  (when emacspeak-personality-voiceify-overlays
+    (let ((overlay (ad-get-arg 0))
+          (prop (ad-get-arg 1))
+          (value (ad-get-arg 2))
+          (voice nil))
+      (when (and
+             (or (eq prop 'face)
+                 (and (eq prop 'category) (get value 'face)))
+             (integer-or-marker-p (overlay-start overlay))
+             (integer-or-marker-p (overlay-end overlay)))
+        (and (eq prop 'category) (setq value (get value 'face)))
         (cond
+         ((symbolp value)
+          (setq voice (voice-setup-get-voice-for-face   value)))
          ((listp value)
-          (mapcar #'(lambda (v)
-                      (puthash  v t emacspeak-personality-unmapped-faces))
-                  value))
-         (t (puthash  value t
-                      emacspeak-personality-unmapped-faces)))))))
+          (setq voice
+                (delq nil
+                      (mapcar
+                       #'voice-setup-get-voice-for-face value))))
+         (t (message "Got %s" value)))
+        (when voice
+          (funcall emacspeak-personality-voiceify-overlays
+                   (overlay-start overlay) (overlay-end overlay)
+                   voice))
+        (when (and emacspeak-personality-show-unmapped-faces
+                   (not voice))
+          (cond
+           ((listp value)
+            (mapcar #'(lambda (v)
+                        (puthash  v t emacspeak-personality-unmapped-faces))
+                    value))
+           (t (puthash  value t
+                        emacspeak-personality-unmapped-faces))))))))
 
 (defadvice move-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
