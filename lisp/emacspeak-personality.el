@@ -455,6 +455,11 @@ Append means place corresponding personality at the end."
           (prop (ad-get-arg 1))
           (value (ad-get-arg 2))
           (voice nil))
+      ; special case buttons
+      (when (eq prop 'button)
+        (put-text-property  (overlay-start overlay)
+                            (overlay-end overlay)
+                            'auditory-icon 'button))
       (when (and
              (or (eq prop 'face)
                  (and (eq prop 'category) (get value 'face)))
