@@ -850,18 +850,16 @@ Tue Apr 24 17:33:27 PDT 2012
   (format "%s:www.google.com/url?q="
           (if emacspeak-websearch-google-use-https "https" "http")))
 
-(defadvice url-retrieve-internal (before fix-bug pre act comp)
-  "Fix bug in handling of google result urls."
-  (let ((u (ad-get-arg 0)))
-    (when (string-prefix-p (emacspeak-w3-google-result-url-prefix) u)
-      (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))))
-
-(defadvice w3-fetch (before fix-bug pre act comp)
-  "Fix bug in handling of google result urls."
-  (let ((u (ad-get-arg 0)))
-    (when (and u(string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
-      (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url
-                     u)))))
+(loop
+ for f in
+ '(url-retrieve-internal w3-fetch)
+ do
+ (eval
+  `(defadvice ,f (before fix-bug pre act comp)
+     "Fix bug in handling of google result urls."
+     (let ((u (ad-get-arg 0)))
+     (when (and u(string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
+       (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))))))
 
 (defadvice url-truncate-url-for-viewing (before fix-bug pre act comp)
   "Fix bug in handling of google result urls."
