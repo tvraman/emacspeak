@@ -93,7 +93,7 @@ span {
 }
 
 h1 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -102,7 +102,7 @@ h1 {
 }
 
 h2 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -111,7 +111,7 @@ h2 {
 }
 
 h3 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -120,7 +120,7 @@ h3 {
 }
 
 h4 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -129,7 +129,7 @@ h4 {
 }
 
 h5 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -138,7 +138,7 @@ h5 {
 }
 
 h6 {
-    displayy: block;
+    display: block;
     color: steelblue3;
     font-weight: bold;
     background-color: black;
@@ -484,10 +484,10 @@ s,strike { richness: 0; }
 blockquote { pitch: 6; pitch-range: 6; stress: 6; richness: 5 }
        b { pitch: 2; pitch-range: 4; stress: 5; richness: 9; }
        u { richness: 0; }
-   a:link { voice-family: betty; pitch: 3; richness: 9; }
+   a:link { voice-family: paul; pitch: 3; richness: 9; }
 	    //pitch: 0; 
-a:visited { voice-family: betty; pitch: 7; richness: 9;}
- a:active { voice-family: betty; pitch-range: 8; pitch: 8 }
+a:visited { voice-family: paul; pitch: 7; richness: 9;}
+ a:active { voice-family: paul; pitch-range: 8; pitch: 8 }
       img { pitch: 6; pitch-range: 6; stress: 6; richness: 5; }
 
 } // @media speech
