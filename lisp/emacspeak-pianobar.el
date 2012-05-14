@@ -171,12 +171,13 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (condition-case nil
       (unless (featurep 'pianobar) (require 'pianobar))
     (error "Pianobar not installed."))
+  (with-current-buffer pianobar-buffer
   (cond
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
           (processp (get-buffer-process pianobar-buffer))
           (eq 'run (process-status (get-buffer-process  pianobar-buffer))))
     (call-interactively 'emacspeak-pianobar-command))
-   (t (pianobar))))
+   (t (pianobar)))))
 
 (defun emacspeak-pianobar-hide-or-show ()
   "Hide or show pianobar."
