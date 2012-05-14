@@ -594,16 +594,16 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-slave-command ()
   "Dispatch slave command read from minibuffer."
   (interactive)
-  (let* ((command
-          (completing-read "Slave Command: " (emacspeak-m-player-command-list)))
-         (args
-          (when (cdr (assoc command emacspeak-m-player-command-list))
-            (read-from-minibuffer
-             (mapconcat #'identity
-                        (cdr (assoc command emacspeak-m-player-command-list))
-                        " ")))))
-    (message 
-     (emacspeak-m-player-dispatch (format "%s %s" command args)))))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (let* ((command (completing-read "Slave Command: " (emacspeak-m-player-command-list)))
+           (args
+            (when (cdr (assoc command emacspeak-m-player-command-list))
+              (read-from-minibuffer
+               (mapconcat #'identity
+                          (cdr (assoc command emacspeak-m-player-command-list))
+                          " ")))))
+      (message 
+       (emacspeak-m-player-dispatch (format "%s %s" command args))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
