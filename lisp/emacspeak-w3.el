@@ -863,7 +863,10 @@ Tue Apr 24 17:33:27 PDT 2012
          (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))
         ((string-match "^http:[a-z0-9A-z]" u)
          (ad-set-arg 0
-                     (format "http://%s" (substring u 5)))))))))
+                     (format "http://%s" (substring u 5))))
+        ((string-match "^https:[a-z0-9A-z]" u)
+         (ad-set-arg 0
+                     (format "https://%s" (substring u 6)))))))))
 
 
 
