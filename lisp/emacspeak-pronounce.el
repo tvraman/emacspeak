@@ -548,6 +548,7 @@ Activates pronunciation dictionaries if not already active."
 
 (defcustom emacspeak-pronounce-internet-smileys-pronunciations 
   '((":-)" . " smile ")
+    (";)" . " half-wink ")
     (":)" . " grin ")
     (":-(" . " frown ") 
     (":(" . " sigh ")
