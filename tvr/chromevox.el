@@ -14,7 +14,7 @@ Chromium."
   (setq url (browse-url-encode-url url))
   (let* ((process-environment (browse-url-process-environment)))
     (apply 'start-process
-	   (concat chromevox-chrome  url) nil
+	   (concat browse-url-chromevox-program  url) nil
 	   browse-url-chromevox-program
 	   (append
 	    browse-url-chromium-arguments
