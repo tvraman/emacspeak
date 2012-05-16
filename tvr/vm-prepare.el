@@ -73,3 +73,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
 (define-key vm-mode-map "ls" 'vm-gmail-spam)
 (setq vm-auto-displayed-mime-content-type-exceptions nil)
+(defun vm-mime-display-internal-emacs-shr-text/html (start end layout)
+  "Use shr to inline HTML mails in the VM presentation buffer."
+    (shr-region start (1- end)))
+    
