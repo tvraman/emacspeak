@@ -30,9 +30,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (set hook (list t)))
   hook)
 (load-library "vm-autoloads")
-(load-library "vm-pine")
-;(load-library "vm-pgg")
-
+;(load-library "vm-pine")
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
@@ -40,11 +38,10 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (add-hook 'vm-quit-hook 'vm-expunge-folder)
 (global-set-key "\C-xm" 'vm-mail)
 (add-hook 'vm-mode-hook
-          (function
-           (lambda nil
+          #'(lambda nil
              (and (featurep 'emacspeak)
                   (define-key vm-mode-map '[delete]
-                    'dtk-toggle-punctuation-mode)))))
+                    'dtk-toggle-punctuation-mode))))
 
 ;;{{{ spamassassin
 
@@ -59,19 +56,9 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (define-key vm-mode-map "\C-\M-s" 'vm-spam-assassinate)
 
  ;;}}}
-;;{{{ vm multipart reply fixup:
 
-;;}}}
 (setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
-(defun vm-gmail-spam (&optional count)
-  "Save to IMAP Spam folder."
-  (interactive (list (prefix-numeric-value current-prefix-arg)))
-  (vm-save-message-to-imap-folder "imap-ssl:imap.gmail.com:993:[Gmail]/Spam:login:raman@google.com:*" count)
-  (call-interactively 'vm-next-message))
-
-
-(define-key vm-mode-map "ls" 'vm-gmail-spam)
 (setq vm-auto-displayed-mime-content-type-exceptions nil)
 (defun vm-mime-display-internal-emacs-shr-text/html (start end layout)
   "Use shr to inline HTML mails in the VM presentation buffer."
