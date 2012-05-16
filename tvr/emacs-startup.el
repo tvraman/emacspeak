@@ -135,28 +135,26 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
 ;;; personal functions and advice
-       "advice-setup" "my-functions"
+        "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
        "gm-prepare"
-"recentf" "magit-prepare"
+"recentf" 
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" 
        "auctex-prepare" "nxml-prepare"
        "folding-prepare"
-       "calc-prepare" "ess-prepare"
+       "calc-prepare" 
        "tcl-prepare" 
 					; jde and ecb will pull in cedet.
 					;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
-       "dismal-prepare" "org-prepare"
-       "cperl-mode" "ruby-prepare"
-       "pcl-prepare" "emms-prepare"
+        "org-prepare"
+        
+        "emms-prepare"
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
-       "browse-kill-ring"
-       "dictionary-prepare"
        "tramp-prepare"
        "fff-prepare" "fap-prepare"
        "local"
