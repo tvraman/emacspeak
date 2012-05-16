@@ -3,15 +3,14 @@
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
-;; May 16, 2012: Cleaned up for Emacs 24 with elpa
 ;;}}}
 ;;{{{ personal lib
-(defvar emacs-private-library (expand-file-name "~/.elisp")
+(defvar emacs-private-library
+  (expand-file-name "~/.elisp")
   "Private personalization directory. ")
-
-(defvar emacs-personal-library (expand-file-name "~/emacs/lisp/site-lisp")
+(defvar emacs-personal-library
+  (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep personal libraries")
-
 ;;}}}
 ;;{{{ helper functions:
 (defsubst augment-load-path (path &optional library whence at-end)
@@ -24,7 +23,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      'load-path
      (expand-file-name
       path
-      (or whence (and (boundp 'emacs-personal-library) emacs-personal-library)))
+      (or
+       whence
+       (and (boundp 'emacs-personal-library) emacs-personal-library)))
      at-end))
   (when library (locate-library library)))
 
@@ -46,14 +47,16 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	  t)
 	 (t (message "Could not locate library %s" lib)
 	    nil))
-      (error (message "Error loading %s" lib)))))
-
+      (error (message
+	      "Error loading %s"
+	      lib)))))
 ;;}}}
 ;;{{{ customize custom
 
+
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
-
+(setq message-log-max t)
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -72,7 +75,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (emacspeak-sounds-select-theme "chimes-stereo/"))
+      (emacspeak-sounds-select-theme "chimes-stereo/")
+      (emacspeak-tts-startup-hook))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -88,6 +92,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ([f4] emacspeak-kill-buffer-quietly)
             ("\M-s" save-buffer)
             ("\M--" advertised-undo)
+	    ([delete]dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
 	    ([f12]vm)
@@ -99,7 +104,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 	    ( "\M-\C-c"calendar))
 	  do
 	  (global-set-key (first key) (second key)))
-
+    
     ;;}}}
     ;;{{{  initial stuff
 
@@ -115,53 +120,52 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{  different mode settings
-
 ;;; Mode hooks.
 
     (eval-after-load "shell"
       '(progn
 	 (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-	 (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history)))
+	 (define-key shell-mode-map "\C-ch"
+           'emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-
+                                                    
     (mapc
      #'load-library-if-available
      '(
 ;;; personal functions and advice
-        "my-functions"
-;;; Mail::
+       "advice-setup" "my-functions"
+;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
-"recentf" 
+       "gm-prepare"
+"recentf" "magit-prepare"
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
-       "w3-prepare" "w3m-prepare" "wget-prepare"
-       ;;; authoring:
+       "w3-prepare" "w3m-prepare" 
        "auctex-prepare" "nxml-prepare"
        "folding-prepare"
        "calc-prepare" "ess-prepare"
-       "tcl-prepare" "python-mode-prepare" 
+       "tcl-prepare" 
 					; jde and ecb will pull in cedet.
 					;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
-        "org-prepare"
-        "ruby-prepare"
+       "dismal-prepare" "org-prepare"
+       "cperl-mode" "ruby-prepare"
        "pcl-prepare" "emms-prepare"
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
+       "browse-kill-ring"
        "dictionary-prepare"
        "tramp-prepare"
        "fff-prepare" "fap-prepare"
        "local"
        "emacspeak-dbus"))
-
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
-
 (add-hook
- 'after-init-hook
+ #'after-init-hook
  #'(lambda ()
      (emacspeak-tts-startup-hook)
      (bbdb-insinuate-vm)
@@ -174,10 +178,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (message "Successfully initialized Emacs")))
 
 (start-up-my-emacs)
-
+(load-library "gm-smtp")
 (when (file-exists-p custom-file) (load-file custom-file))
 (setq warning-suppress-types nil)
-
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables

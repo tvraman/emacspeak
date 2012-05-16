@@ -17,7 +17,7 @@
 ;; Configuration for bbdb
 (setq bbdb-ignore-some-messages-alist
       '(
-      		("From" . "delivery system")
+        ("From" . "delivery system")
 	("From" . "delivery")
 	("From" . "listmaster")
 	("From" . "mailer-daemon")
@@ -26,15 +26,15 @@
         ("From" . "postmaster")
         ("From" . "root")
         ("From" . "admin")
-("From" . "online")
-("From" . "alert")
+        ("From" . "online")
+        ("From" . "alert")
         ("From" . "webmaster")
-("From" . "administ")
-("From" . "daemon")))
+        ("From" . "administ")
+        ("From" . "daemon")))
 
 (setq bbdb-ignore-most-messages-alist
       '(	
-	("To"   . "tvraman")		; record mail to me))
+	("To"   . "raman")))
 (setq bbdb-completion-type 'primary-or-name)
 
 
