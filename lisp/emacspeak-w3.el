@@ -851,8 +851,8 @@ Tue Apr 24 17:33:27 PDT 2012
           (if emacspeak-websearch-google-use-https "https" "http")))
 
 (loop
- for f in
- '(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
+ for f in nil
+ ;'(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
  do
  (eval
   `(defadvice ,f (before fix-bug pre act comp)
