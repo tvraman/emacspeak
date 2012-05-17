@@ -3246,7 +3246,7 @@ or an ascendant directory."
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory."
-  (interactive "%DDirectory:")
+  (interactive "DDirectory:")
   (or directory
       (setq directory default-directory))
   (let ((settings (emacspeak-speak-get-directory-settings directory)))

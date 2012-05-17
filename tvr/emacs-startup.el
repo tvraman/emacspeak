@@ -56,7 +56,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
-(setq message-log-max t)
+(setq message-log-max 1024)
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
