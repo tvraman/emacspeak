@@ -1,4 +1,4 @@
-(augment-load-path "emacs-jabber")
+(augment-load-path "jabber")
 (load-library "jabber")
 (load-library "ssl")
 (load-library "nm")
