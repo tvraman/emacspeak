@@ -175,8 +175,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
    ((and  (buffer-live-p (get-buffer pianobar-buffer))
           (processp (get-buffer-process pianobar-buffer))
           (eq 'run (process-status (get-buffer-process  pianobar-buffer))))
-    (with-current-buffer pianobar-buffer
-    (call-interactively 'emacspeak-pianobar-command)))
+    (call-interactively 'emacspeak-pianobar-command))
    (t (pianobar))))
 
 (defun emacspeak-pianobar-hide-or-show ()
