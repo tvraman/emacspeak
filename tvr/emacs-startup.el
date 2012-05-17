@@ -138,6 +138,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
+ 
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" 
