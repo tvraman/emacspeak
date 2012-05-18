@@ -377,20 +377,20 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
 Optional argument `raw-p' returns complete JSON  object."
   (let ((result 
          (g-json-get-result
-          (format "%s %s '%s'"
+          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
                   (gweb-maps-geocoder-url
                    (g-url-encode address))))))
     
-     (unless
-         (string= "OK" (g-json-get 'status result))
-       (error "Error geo-coding location."))
-     (cond
-       (raw-p (g-json-get 'results result))
-       (t
-        (g-json-get 'location 
-                    (g-json-get 'geometry
-                                (aref (g-json-get 'results result) 0)))))))
+    (unless
+        (string= "OK" (g-json-get 'status result))
+      (error "Error geo-coding location."))
+    (cond
+     (raw-p (g-json-get 'results result))
+     (t
+      (g-json-get 'location 
+                  (g-json-get 'geometry
+                              (aref (g-json-get 'results result) 0)))))))
 
 ;;;###autoload
 (defun gweb-maps-reverse-geocode (lat-long &optional raw-p)
@@ -398,7 +398,7 @@ Optional argument `raw-p' returns complete JSON  object."
 Optional argument `raw-p' returns raw JSON  object."
   (let ((result 
          (g-json-get-result
-          (format "%s %s '%s'"
+          (format "%s --max-time 2 --connect-time 1%s '%s'"
                   g-curl-program g-curl-common-options
                   (gweb-maps-reverse-geocoder-url
                    (format "%s,%s"
