@@ -851,23 +851,23 @@ Tue Apr 24 17:33:27 PDT 2012
           (if emacspeak-websearch-google-use-https "https" "http")))
 
 (loop
- for f in nil
- ;'(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
+ for f in 
+ '(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
  do
  (eval
   `(defadvice ,f (before fix-bug pre act comp)
-     "Fix bug in url library under Emacs 24."
+     "Canonicalize Google search URLs."
      (let ((u (ad-get-arg 0)))
        (cond
         ((and u(string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
          (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u)))
-        ((string-match "^http:[a-z0-9A-z]" u)
-         (ad-set-arg 0
-                     (format "http://%s" (substring u 5))))
-        ((string-match "^https:[a-z0-9A-z]" u)
-         (ad-set-arg 0
-                     (format "https://%s" (substring u 6)))))))))
-
+                                        ;((string-match "^http:[a-z0-9A-z]" u)
+                                        ;(ad-set-arg 0
+                                        ;(format "http://%s" (substring u 5))))
+                                        ;((string-match "^https:[a-z0-9A-z]" u)
+                                        ;(ad-set-arg 0
+                                        ;(format "https://%s" (substring u 6)))))
+        )))))
 
 
 
