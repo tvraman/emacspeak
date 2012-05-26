@@ -2098,18 +2098,17 @@ Provide an auditory icon if possible."
   "Provide  auditory feedback."
   (when (interactive-p)
     (message "Aborting recursive edit")))
-
-(defadvice undo  (after emacspeak pre act comp)
+(loop for f in
+      '(undo undo-only)
+      do
+      (eval
+       `(defadvice ,f  (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (ems-set-personality-temporarily
-     (max (point-min) (1- (point)))
-     (min (point-max) (1+ (point)))
-     voice-bolden
-     (emacspeak-speak-line ))
+     (emacspeak-speak-line )
     (if (buffer-modified-p)
         (emacspeak-auditory-icon 'modified-object)
-      (emacspeak-auditory-icon 'unmodified-object ))))
+      (emacspeak-auditory-icon 'unmodified-object ))))))
 
 (defadvice view-emacs-news (after emacspeak pre act comp)
   "Provide auditory cue."
