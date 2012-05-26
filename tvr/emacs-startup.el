@@ -91,7 +91,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
             ("\M-s" save-buffer)
-            ("\M--" advertised-undo)
 	    ([delete]dtk-toggle-punctuation-mode)
 	    ( [f8]emacspeak-remote-quick-connect-to-server)
 	    ([f11]shell)
@@ -138,7 +137,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
- 
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" 
