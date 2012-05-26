@@ -151,9 +151,11 @@ Speech flushes as you type."
        #'(lambda (key)
            (global-set-key key new-fn )))
      keys )))
+;;; self-insert-char is removed since we can use
+;;; post-self-insert-hook
 
 (defvar emacspeak-functions-that-bypass-function-cell
-  (list 'backward-char 'forward-char 'self-insert-command )
+  (list 'backward-char 'forward-char  )
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )

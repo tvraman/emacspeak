@@ -514,33 +514,41 @@ the words that were capitalized."
 ;;}}}
 ;;{{{  advice insertion commands to speak.
 
-(defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
-  "Speak what was completed."
-  (declare (special emacspeak-word-echo))
-  (when (and emacspeak-word-echo  (interactive-p ))
-    (let ((display (get-char-property (1- (point)) 'display)))
-      (if display
-          (dtk-say display)
-        (condition-case nil
-            (save-excursion
-              (skip-syntax-backward " ")
-              (backward-char 1)
-              (emacspeak-speak-word))
-          (error nil ))))))
+;;; Dont advice since we catch this through post-self-insert-hook
 
-(defadvice completion-separator-self-insert-command (after emacspeak act comp)
-  "Speak char after inserting it."
-  (declare (special emacspeak-character-echo))
-  (when (and emacspeak-character-echo  (interactive-p))
-    (let ((display (get-char-property (1- (point)) 'display)))
-      (if display
-          (dtk-say display)
-        (emacspeak-speak-this-char (preceding-char ))))))
+;; (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
+;;   "Speak what was completed."
+;;   (declare (special emacspeak-word-echo))
+;;   (when (and emacspeak-word-echo  (interactive-p ))
+;;     (let ((display (get-char-property (1- (point)) 'display)))
+;;       (if display
+;;           (dtk-say display)
+;;         (condition-case nil
+;;             (save-excursion
+;;               (skip-syntax-backward " ")
+;;               (backward-char 1)
+;;               (emacspeak-speak-word))
+;;           (error nil ))))))
 
-(defadvice quoted-insert  (after emacspeak pre act )
-  "Speak the character that was inserted."
-  (when (interactive-p)
-    (emacspeak-speak-this-char (preceding-char ))))
+; dont advice since we handle this through post-self-insert-hook
+
+
+;; (defadvice completion-separator-self-insert-command (after emacspeak act comp)
+;;   "Speak char after inserting it."
+;;   (declare (special emacspeak-character-echo))
+;;   (when (and emacspeak-character-echo  (interactive-p))
+;;     (let ((display (get-char-property (1- (point)) 'display)))
+;;       (if display
+;;           (dtk-say display)
+;;         (emacspeak-speak-this-char (preceding-char ))))))
+
+;;; Dont advice since handle this through post-self-insert-hook
+
+
+;; (defadvice quoted-insert  (after emacspeak pre act )
+;;   "Speak the character that was inserted."
+;;   (when (interactive-p)
+;;     (emacspeak-speak-this-char (preceding-char ))))
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
