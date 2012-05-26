@@ -1077,7 +1077,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
        (t (emacspeak-speak-this-char char))))))
 ;;;###autoload
 (defun emacspeak-speak-preceding-char ()
-  "Speak character before point.."
+  "Speak character before point."
   (interactive)
   (let ((char  (preceding-char ))
         (display (get-char-property (1- (point)) 'display)))
@@ -1087,7 +1087,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
        ((> char 128) (emacspeak-speak-char-name char))
        (t (emacspeak-speak-this-char char))))))
 
-(add-hook 'post-self-insert-hook 'emacspeak-speak-preceding-char)
+
 ;;;###autoload
 (defun emacspeak-speak-char-name (char)
   "tell me what this is"

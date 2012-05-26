@@ -109,6 +109,33 @@ Speech flushes as you type."
        (= (char-syntax  last-command-event) 32)
        (>= (current-column) fill-column)
        (funcall auto-fill-function)))
+
+(defun emacspeak-post-self-insert-hook ()
+  "Speaks the character if emacspeak-character-echo is true.
+See  command emacspeak-toggle-word-echo bound to
+\\[emacspeak-toggle-word-echo].
+eech flushes as you type."
+  (declare (special last-command-event 
+                    emacspeak-character-echo emacspeak-word-echo))
+  (when (and (eq (preceding-char) last-command-event) ; Sanity check.
+  (not executing-kbd-macro)
+  (not noninteractive))
+  (let ((display (get-char-property (1- (point)) 'display)))
+      (dtk-stop)
+      (cond
+       (display (dtk-say display))
+       ((and emacspeak-word-echo
+             (= (char-syntax last-command-event )32 ))
+        (save-excursion
+          (condition-case nil
+              (forward-word -1)
+            (error nil))
+          (emacspeak-speak-word)))
+       (emacspeak-character-echo
+        (emacspeak-speak-this-char (preceding-char)))))))
+  
+(add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook)
+
 ;;;###autoload
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
