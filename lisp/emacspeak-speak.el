@@ -1075,6 +1075,17 @@ Pronounces character phonetically unless  called with a PREFIX arg."
              (emacspeak-is-alpha-p char))
         (dtk-speak (emacspeak-get-phonetic-string char )))
        (t (emacspeak-speak-this-char char))))))
+;;;###autoload
+(defun emacspeak-speak-preceding-char ()
+  "Speak character before point.."
+  (interactive)
+  (let ((char  (preceding-char ))
+        (display (get-char-property (1- (point)) 'display)))
+    (when char
+      (cond
+       (display (dtk-speak display))
+       ((> char 128) (emacspeak-speak-char-name char))
+       (t (emacspeak-speak-this-char char))))))
 
 ;;;###autoload
 (defun emacspeak-speak-char-name (char)
