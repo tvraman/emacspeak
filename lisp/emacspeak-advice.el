@@ -736,18 +736,6 @@ Produce an auditory icon if possible."
                                         ;(tts-with-punctuations 'all
                                         ;(dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
-(defadvice read-passwd (around emacspeak pre act comp)
-  "Speak the prompt.
-Do not echo the passwd chars as they are typed."
-  (cond
-   ((not (interactive-p)) ad-do-it)
-   (t
-    (let ((echo-keystrokes 0))
-      (emacspeak-auditory-icon 'open-object)
-      (dtk-stop)
-      (dtk-speak (ad-get-arg 0))
-      ad-do-it)))
-  ad-return-value)
 
 (defadvice read-char (before emacspeak pre act comp)
   "Speak the prompt"
