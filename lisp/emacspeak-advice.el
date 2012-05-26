@@ -545,10 +545,10 @@ the words that were capitalized."
 ;;; Dont advice since handle this through post-self-insert-hook
 
 
-;; (defadvice quoted-insert  (after emacspeak pre act )
-;;   "Speak the character that was inserted."
-;;   (when (interactive-p)
-;;     (emacspeak-speak-this-char (preceding-char ))))
+(defadvice quoted-insert  (after emacspeak pre act )
+  "Speak the character that was inserted."
+  (when (interactive-p)
+    (emacspeak-speak-this-char (preceding-char ))))
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
