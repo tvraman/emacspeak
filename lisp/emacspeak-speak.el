@@ -173,6 +173,8 @@ Argument BODY specifies forms to execute."
            (buffer-read-only nil )
            (save-inhibit-read-only inhibit-read-only)
            (inhibit-read-only t)
+           (save-inhibit-modification-hooks inhibit-modification-hooks)
+           (inhibit-modification-hooks nil)
            (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
            (inhibit-point-motion-hooks t)
            (modification-flag (buffer-modified-p)))
@@ -188,6 +190,7 @@ Argument BODY specifies forms to execute."
           (min (point-max)  ,end) 'personality saved-personality)
          (setq buffer-read-only save-read-only
                inhibit-read-only save-inhibit-read-only
+               inhibit-modification-hooks save-inhibit-modification-hooks
                inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
          (set-buffer-modified-p modification-flag )))))
 
