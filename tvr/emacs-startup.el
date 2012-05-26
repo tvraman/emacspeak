@@ -82,27 +82,28 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{  set up terminal codes and global keys
 
     (mapc #'load-library-if-available
-	  '("console" "screen"))
+          '("console" "screen"))
     (when (eq window-system 'x)
       (load-library-if-available "x"))
 
     (loop for  key in
-	  '(
+          '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
             ("\M-s" save-buffer)
-	    ([delete]dtk-toggle-punctuation-mode)
-	    ( [f8]emacspeak-remote-quick-connect-to-server)
-	    ([f11]shell)
-	    ([f12]vm)
-	    ( "\C-xc"compile)
-	    (  "\C-x%"comment-region)
-	    ( "\M-r"replace-string)
-	    ( "\M-e"end-of-word)
-	    ( "\M-\C-j"imenu)
-	    ( "\M-\C-c"calendar))
-	  do
-	  (global-set-key (first key) (second key)))
+            ([delete]dtk-toggle-punctuation-mode)
+            ( [f8]emacspeak-remote-quick-connect-to-server)
+            ([f11]shell)
+            ([f12]vm)
+            ( "\C-xc"compile)
+            (  "\C-x%"comment-region)
+            ( "\M-r"replace-string)
+            ( "\M-e"end-of-word)
+            ( "\M-\C-j"imenu)
+            ("\M--" undo-only)
+            ( "\M-\C-c"calendar))
+          do
+          (global-set-key (first key) (second key)))
     
     ;;}}}
     ;;{{{  initial stuff
@@ -123,8 +124,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (eval-after-load "shell"
       '(progn
-	 (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-	 (define-key shell-mode-map "\C-ch"
+         (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
+         (define-key shell-mode-map "\C-ch"
            'emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
@@ -134,7 +135,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
 ;;; personal functions and advice
-        "my-functions"
+       "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
        "smtpmail" "sigbegone"
@@ -144,12 +145,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "folding-prepare"
        "calc-prepare" 
        "tcl-prepare" 
-					; jde and ecb will pull in cedet.
-					;"jde-prepare" "ecb-prepare"
+                                        ; jde and ecb will pull in cedet.
+                                        ;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
-        "org-prepare"
+       "org-prepare"
         
-        "emms-prepare"
+       "emms-prepare"
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
        "tramp-prepare"
