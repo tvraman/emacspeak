@@ -402,7 +402,7 @@ emacspeak-queue-auditory-icon when using software TTS."
   "Plays all defined icons and speaks their names."
   (interactive)
   (mapcar
-   '(lambda (f)
+   #'(lambda (f)
       (emacspeak-auditory-icon f)
       (dtk-speak (format "%s" f))
       (sleep-for 2))
