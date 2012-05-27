@@ -542,17 +542,14 @@ the words that were capitalized."
 ;;           (dtk-say display)
 ;;         (emacspeak-speak-this-char (preceding-char ))))))
 
-;;; Dont advice since handle this through post-self-insert-hook
 
 
+;;}}}
+;;{{{  advice minibuffer to speak
 (defadvice quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
   (when (interactive-p)
     (emacspeak-speak-this-char (preceding-char ))))
-
-;;}}}
-;;{{{  advice minibuffer to speak
-
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
   (when (ad-get-arg 0)

@@ -117,10 +117,11 @@ See  command emacspeak-toggle-word-echo bound to
 eech flushes as you type."
   (declare (special last-command-event 
                     emacspeak-character-echo emacspeak-word-echo))
-  (when (and (eq (preceding-char) last-command-event) ; Sanity check.
-  (not executing-kbd-macro)
-  (not noninteractive))
-  (let ((display (get-char-property (1- (point)) 'display)))
+  (when
+      (and (eq (preceding-char) last-command-event) ; Sanity check.
+           (not executing-kbd-macro)
+           (not noninteractive))
+    (let ((display (get-char-property (1- (point)) 'display)))
       (dtk-stop)
       (cond
        (display (dtk-say display))
