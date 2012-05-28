@@ -2084,12 +2084,13 @@ Provide an auditory icon if possible."
       do
       (eval
        `(defadvice ,f  (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-     (emacspeak-speak-line )
-    (if (buffer-modified-p)
-        (emacspeak-auditory-icon 'modified-object)
-      (emacspeak-auditory-icon 'unmodified-object ))))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (let ((emacspeak-show-point t))
+              (emacspeak-speak-line ))
+            (if (buffer-modified-p)
+                (emacspeak-auditory-icon 'modified-object)
+              (emacspeak-auditory-icon 'unmodified-object ))))))
 
 (defadvice view-emacs-news (after emacspeak pre act comp)
   "Provide auditory cue."
