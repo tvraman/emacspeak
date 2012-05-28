@@ -134,8 +134,8 @@ eech flushes as you type."
           (emacspeak-speak-word)))
        (emacspeak-character-echo
         (emacspeak-speak-this-char (preceding-char)))))))
-  
-(add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook)
+(when (= 24 emacs-major-version)  
+  (add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook))
 
 ;;;###autoload
 (defun emacspeak-forward-char (&optional arg)
@@ -187,6 +187,9 @@ eech flushes as you type."
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
+
+(unless (= 24 emacs-major-version)
+  (push 'self-insert-command emacspeak-functions-that-bypass-function-cell))
 
 (mapcar
  #'(lambda (f)
