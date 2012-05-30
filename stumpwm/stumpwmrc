@@ -7,16 +7,24 @@
 (set-prefix-key (kbd "C-\\"))
 
 ;;; }
-;;; {Lock screen C-t D
+;;; {Lock screen C-\ D
 
 (defparameter *my-lock-command*
   "exec ~/bin/xlock")
+;;; Lock command is the following  shell script:
+
+;; /usr/bin/xlock -mode goop +sound \
+;; -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
+;; -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'
+
 
 (defcommand lock-screen () ()
   "Lock my screen."
   (eval-command *my-lock-command*))
+;;; Muscle memory: like power detaching your screen:
 
 (define-key *root-map* (kbd "D") "lock-screen")
+(define-key *root-map* (kbd "Q") "quit")
 
 ;;; }
 ;;; {TTS
@@ -64,7 +72,7 @@
 ;;; Load this at the end so our earlier setting sgo into the main thread:
 
 ;; Load swank.
-(load "/home/raman/emacs/lisp/site-lisp/slime/swank-loader.lisp")
+(load "/home/raman/emacs/lisp/slime/swank-loader.lisp")
 (swank-loader:init)
 (defcommand swank ()()
   "Start Swank"
@@ -76,6 +84,7 @@
                "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
 
 (swank)
+(tts-say "Swank: Ready To Repl")
 
 ;;; }
 ;;; {Emacs local variables
