@@ -325,20 +325,10 @@
                          proced-sort-pid)
       do
       (eval
-       `(defadvice ,f (around emacspeak pre act comp)
+       `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedbak."
-          (let ((emacspeak-speak-messages nil))
-            ad-do-it
-            (when (interactive-p)
-              (let ((target (cdr (assoc-string "ARGS" emacspeak-proced-fields))))
-                (emacspeak-auditory-icon 'task-done)
-                (dtk-speak
-                 (format "%d of %d: %s"
-                         (line-number-at-pos)
-                         (count-lines (point-min) (point-max))
-                         (buffer-substring
-                          (+ (point) (car target))
-                          (+ (point) (cdr target)))))))))))
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{ additional commands:
