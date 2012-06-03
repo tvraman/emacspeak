@@ -53,7 +53,7 @@
 ;;   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 ;;; Code:
-
+(declaim (special toy-braille-map))
 (setq toy-braille-map
       '((?  . "⠀") (?. . "⠲") (?, . "⠐")
 
@@ -80,15 +80,17 @@
 (defun get-toy-braille-string (instr)
   (let ((inlst (string-to-list instr)))
     (apply 'concat
-           (mapcar (lambda (c)
-                     (let ((tc (assoc c toy-braille-map)))
-                       (if tc
-                           (cdr tc)
-                         (error
-                          (concat "Character `"
-                                  (string c)
-                                  "' not found in `toy-braille-map'")))))
-                   inlst))))
+           (mapcar
+            #'(lambda (c)
+                (declare (special toy-braille-map))
+                (let ((tc (assoc c toy-braille-map)))
+                  (if tc
+                      (cdr tc)
+                    (error
+                     (concat "Character `"
+                             (string c)
+                             "' not found in `toy-braille-map'")))))
+            inlst))))
 
 ;;;; toy-braille.el ends here.
 
