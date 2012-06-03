@@ -399,7 +399,6 @@
   "Speak the appointment in addition to  displaying it visually."
   (let ((emacspeak-speak-messages-pause nil))
     (emacspeak-auditory-icon 'alarm)
-    (dtk-pause t)
     (message "You have an appointment in %s minutes. %s"
              minutes-left message )
     (appt-disp-window minutes-left new-time  message)))
