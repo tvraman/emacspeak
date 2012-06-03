@@ -979,6 +979,8 @@ Produce an auditory icon if possible."
  '(
    (comint-highlight-prompt voice-monotone-medium)
    (comint-highlight-input voice-bolden-medium)))
+(declaim (special emacspeak-pronounce-sha-checksum-pattern))
+
 (emacspeak-pronounce-add-dictionary-entry
  'comint-mode
  emacspeak-pronounce-sha-checksum-pattern
