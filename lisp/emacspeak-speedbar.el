@@ -105,14 +105,14 @@
 
 (defadvice speedbar-close-frame (after emacspeak pre act comp)
   "Cue buffer that becomes active"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice speedbar-next (around emacspeak pre act comp)
   "Provide reasonable spoken feedback"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-speedbar-speak-line)
@@ -122,7 +122,7 @@
 (defadvice speedbar-prev (around emacspeak pre act comp)
   "Provide reasonable spoken feedback"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-speedbar-speak-line)
@@ -131,7 +131,7 @@
   ad-return-value)
 (defadvice speedbar-edit-line (after emacspeak pre act comp)
   "Speak line you jumped to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice speedbar-tag-find (after emacspeak pre act comp)
@@ -146,13 +146,13 @@
 (defadvice speedbar-expand-line (after emacspeak pre act
                                        comp)
   "Speak the line we just expanded"
-  (when (interactive-p) 
+  (when (ems-interactive-p ) 
     (emacspeak-speedbar-speak-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice speedbar-contract-line (after emacspeak pre act comp)
   "Speak the line we just contracted"
-  (when (interactive-p) 
+  (when (ems-interactive-p ) 
     (emacspeak-speedbar-speak-line)
     (emacspeak-auditory-icon 'close-object)))
 
@@ -160,7 +160,7 @@
   " Auditory icon and speech feedback indicate result of the
 action"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     ad-do-it
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line))
@@ -170,14 +170,14 @@ action"
 (defadvice speedbar-restricted-next (after emacspeak pre act
                                            comp)
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 
 (defadvice speedbar-restricted-prev (after emacspeak pre act
                                            comp)
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speedbar-speak-line)))
 

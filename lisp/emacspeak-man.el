@@ -79,59 +79,59 @@ Also provide an auditory icon"
 
 (defadvice   Man-goto-section  (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice   Man-goto-page  (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 (defadvice   Man-next-manpage  (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 (defadvice   Man-previous-manpage  (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice Man-next-section (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice Man-previous-section (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice Man-goto-see-also-section (after emacspeak pre act )
   "Speak the line"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice Man-quit (after emacspeak pre act )
   "Announce buffer that is current"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
 (defadvice Man-kill (after emacspeak pre act )
   "Announce buffer that is current"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
 (defadvice manual-entry (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line )))
 
 ;;}}}

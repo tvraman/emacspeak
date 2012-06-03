@@ -972,7 +972,7 @@ spelt instead of being spoken."
        ((< arg 0) (setq end orig )))
       ;; select speak or spell
       (cond
-       ((and (interactive-p)
+       ((and (ems-interactive-p )
              (eq emacspeak-speak-last-spoken-word-position orig))
         (setq speaker 'emacspeak-speak-spell-word)
         (setq emacspeak-speak-last-spoken-word-position nil))
@@ -1587,7 +1587,7 @@ Interactive prefix arg speaks buffer info."
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (cond
-   ((and header-line-format (not (interactive-p)))
+   ((and header-line-format (not (ems-interactive-p )))
     (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
    (t
@@ -2488,7 +2488,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
   (cond
    (from-message-cache
     (dtk-speak   emacspeak-last-message)
-    (when (and (interactive-p)
+    (when (and (ems-interactive-p )
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
    (t (save-excursion
@@ -2496,7 +2496,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
         (goto-char (point-max))
         (skip-syntax-backward " ")
         (emacspeak-speak-line)
-        (when (and (interactive-p)
+        (when (and (ems-interactive-p )
                    emacspeak-speak-message-again-should-copy-to-kill-ring)
           (kill-new
            (buffer-substring (line-beginning-position)
@@ -2652,7 +2652,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
   (let* ((window-size-change-functions nil)
          (window
           (cond
-           ((not (interactive-p)) arg)
+           ((not (ems-interactive-p )) arg)
            (t
             (condition-case nil
                 (read (format "%c" last-input-event ))
@@ -2808,7 +2808,7 @@ Prompts for PERSONALITY  with completion when called interactively."
   (require 'rect)
   (require 'emacspeak-personality )
   (let ((personality-table (emacspeak-possible-voices )))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (setq personality
             (read
              (completing-read "Use personality: "
@@ -2828,7 +2828,7 @@ Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
   (require 'emacspeak-personality )
   (let ((personality-table (emacspeak-possible-voices )))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (setq personality
             (read
              (completing-read "Use personality: "
@@ -2988,7 +2988,7 @@ We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk."
   (interactive)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
-  (and (interactive-p)
+  (and (ems-interactive-p )
        (message "Using customized blink-paren function provided by Emacspeak.")))
 
 ;;}}}
@@ -3087,7 +3087,7 @@ Argument O specifies overlay."
   (if completion-reference-buffer
       (switch-to-buffer completion-reference-buffer)
     (error "Reference buffer not found."))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -3164,7 +3164,7 @@ char, or dont move. "
       (set-marker (mark-marker)  (point) (current-buffer))
       (goto-char (marker-position target))
       (move-marker target nil)
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-mark-speak-mark-line)))))
 
 ;;}}}

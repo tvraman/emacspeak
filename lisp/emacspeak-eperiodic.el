@@ -148,34 +148,34 @@
 
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-previous-element (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-next-element (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice eperiodic (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice eperiodic-move (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice eperiodic-show-element-info (after emacspeak pre act comp)
   "Speak displayed info."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((b (get-buffer "*EPeriodic Element*")))
       (unless b
         (error "Cannot find displayed info."))
@@ -185,13 +185,13 @@
 
 (defadvice eperiodic-bury-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice eperiodic-cycle-view (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "View %s"
              eperiodic-colour-element-function)))

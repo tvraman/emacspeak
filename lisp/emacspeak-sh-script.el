@@ -66,18 +66,18 @@
 
 (defadvice sh-indent-line (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-current-column)))
 (defadvice sh-assignment (after emacspeak pre act comp)
   "Speak assignment as it is inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice sh-maybe-here-document(around emacspeak pre act comp)
   "Spoken feedback based on what we insert."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((start (point)))
       ad-do-it
       (if (= (point) (1+ start))
@@ -87,18 +87,18 @@
   ad-return-value)
 (defadvice sh-newline-and-indent (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 (defadvice sh-beginning-of-command(after emacspeak pre act
                                          comp)
   "Speak point moved to."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 (defadvice sh-end-of-command(after emacspeak pre act
                                    comp)
   "Speak point moved to."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
@@ -108,7 +108,7 @@
                                              act comp)
   "Speak what you inserted."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((orig (point)))
       ad-do-it
       (emacspeak-speak-region orig (point))))

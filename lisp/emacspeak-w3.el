@@ -639,7 +639,7 @@ element. "
        emacspeak-w3-base-uri-pronunciation ))))
 (defadvice url-view-url (around emacspeak pre act comp)
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((save-pronunciations emacspeak-pronounce-pronunciation-table))
       (setq emacspeak-pronounce-pronunciation-table nil)
       ad-do-it
@@ -661,7 +661,7 @@ element. "
        (next-single-property-change (point) 'html-stack)))))
   (when (null (emacspeak-w3-html-stack))
     (goto-char (next-single-property-change (point) 'html-stack)))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
@@ -685,7 +685,7 @@ and make the redirect available via the minibuffer history.
 If a rewrite rule is defined in the current buffer, we change
   this command to behave as if it were called with an
   interactive prefix."
-  (when (and (interactive-p)
+  (when (and (ems-interactive-p )
              emacspeak-we-url-rewrite-rule)
     (ad-set-arg 0 t)
     (let ((url (w3-view-this-url t))

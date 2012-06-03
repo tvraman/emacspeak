@@ -81,109 +81,109 @@
 
 (defadvice apt-utils-show-package (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-choose-package-link (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-previous-package (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice apt-utils-search (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice apt-utils-search-names-only (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice apt-utils-search-grep-dctrl (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice apt-utils-search-file-names (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice apt-utils-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice apt-utils-kill-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice apt-utils-rebuild-package-lists (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice apt-utils-toggle-package-info (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice apt-utils-view-copyright (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-readme (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-debian-readme (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-news (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-debian-news (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-changelog (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-view-debian-changelog (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-follow-link (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice apt-utils-previous-package (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice apt-utils-next-package (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}

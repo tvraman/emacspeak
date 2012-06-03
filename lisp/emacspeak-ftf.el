@@ -56,14 +56,14 @@
 
 (defadvice ftf-find-file (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
 
     (emacspeak-speak-mode-line)))
 
 (defadvice ftf-grepsource (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}

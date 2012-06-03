@@ -91,7 +91,7 @@ Speech flushes as you type."
        (null (car buffer-undo-list))
        (pop buffer-undo-list ))
   (self-insert-command  arg )
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((display (get-char-property (1- (point)) 'display)))
       (dtk-stop)
       (cond
@@ -146,7 +146,7 @@ eech flushes as you type."
   (cond
    ((<= (+ arg (point)) (point-max))
     (forward-char arg)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (and dtk-stop-immediately (dtk-stop))
       (emacspeak-speak-char t  )))
    (t(ding)
@@ -160,7 +160,7 @@ eech flushes as you type."
   (cond
    ((>= (- (point) arg) (point-min))
     (backward-char arg)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (and dtk-stop-immediately (dtk-stop))
       (emacspeak-speak-char t )))
    (t (ding)

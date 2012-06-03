@@ -112,7 +112,7 @@
   (interactive "sJSEval: ")
   (comint-send-string (inferior-moz-process) exp)
   (switch-to-buffer (process-buffer (inferior-moz-process)))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
@@ -199,7 +199,7 @@
   (interactive)
   (emacspeak-moz-eval-expression
    "BrowserForward(); repl.updateADom()\n")
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-moz-eval-expression-and-go
      "repl.emacspeak.say(title)\n")))
 
@@ -209,7 +209,7 @@
   (interactive)
   (emacspeak-moz-eval-expression
    "BrowserBack(); repl.updateADom(); ")
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-moz-eval-expression
      "repl.emacspeak.say(title)\n")))
 
@@ -222,7 +222,7 @@
     "getWebNavigation().gotoIndex(%d);repl.print(\"\\n\" +
 title)\n"
     index))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 ;;;###autoload
@@ -231,7 +231,7 @@ title)\n"
   (interactive "sInspect: ")
   (emacspeak-moz-eval-expression-and-go
    (format "repl.inspect(%s)\n" what))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 ;;;###autoload
@@ -240,7 +240,7 @@ title)\n"
   (interactive "sPattern: ")
   (emacspeak-moz-eval-expression-and-go
    (format "repl.search(/%s/i)\n" pattern))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 ;;;###autoload
@@ -332,7 +332,7 @@ title)\n"
 (defadvice inferior-moz-switch-to-mozilla (after emacspeak pre
                                                  act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 

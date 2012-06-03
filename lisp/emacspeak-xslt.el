@@ -366,7 +366,7 @@ part of the libxslt package."
            (cons "base"
                  (format "\"'%s'\""
                          url))))))
-    (when (interactive-p) (emacspeak-webutils-autospeak))
+    (when (ems-interactive-p ) (emacspeak-webutils-autospeak))
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent

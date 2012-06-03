@@ -522,7 +522,7 @@ Returns a string with appropriate personality."
 (defadvice widget-beginning-of-line (after emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((widget (widget-at (point ))))
       ad-do-it
       (emacspeak-auditory-icon 'select-object)
@@ -536,7 +536,7 @@ Returns a string with appropriate personality."
 (defadvice widget-end-of-line (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((widget (widget-at (point ))))
       ad-do-it
       (emacspeak-auditory-icon 'select-object)
@@ -549,19 +549,19 @@ Returns a string with appropriate personality."
 
 (defadvice widget-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-widget-summarize (widget-at  (point )))))
 
 (defadvice widget-backward (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-widget-summarize (widget-at (point)))))
 
 (defadvice widget-kill-line (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-current-kill 0)
     (dtk-tone 500 30)))

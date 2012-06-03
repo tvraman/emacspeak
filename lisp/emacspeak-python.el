@@ -58,13 +58,13 @@
 
 (defadvice python-electric-colon (after emacspeak pre act comp)
   "Speak what you inserted"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-say " colon ")))
 
 (defadvice python-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
@@ -74,7 +74,7 @@
 (defadvice python-electric-delete (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
@@ -86,12 +86,12 @@
 
 (defadvice python-send-region (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)))
 
 (defadvice python-send-buffer (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
@@ -104,12 +104,12 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'fill-object)))))
 
 (defadvice python-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
@@ -117,14 +117,14 @@
                            (region-end))))))
 (defadvice python-shift-right (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak
      (format "Right shifted block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
 (defadvice python-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak
      (format "Indented region   containing %s lines"
@@ -135,29 +135,29 @@
 ;;{{{  buffer navigation
 (defadvice python-previous-statement (after emacspeak pre act comp)
   "Speak current statement after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice python-next-statement (after emacspeak pre act comp)
   "Speak current statement after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice python-beginning-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice python-end-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice python-mark-block (after emacspeak pre act comp)
   "Speak number of lines marked"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak
      (format "Marked block containing %s lines"
              (count-lines (region-beginning)
@@ -165,7 +165,7 @@
     (emacspeak-auditory-icon 'mark-object)))
 (defadvice python-narrow-to-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "%s %s lines"
              (save-excursion
                (goto-char (point-min))
@@ -176,7 +176,7 @@
 
 (defadvice python-mark-def-or-class (after emacspeak pre act comp)
   "Speak number of lines marked"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak
      (format "Marked block containing %s lines"
              (count-lines (region-beginning)
@@ -185,12 +185,12 @@
 
 (defadvice python-forward-into-nomenclature(after emacspeak pre act comp)
   "Speak rest of current word"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-word 1)))
 
 (defadvice python-backward-into-nomenclature(after emacspeak pre act comp)
   "Speak rest of current word"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-word 1)))
 
 ;;}}}

@@ -53,19 +53,19 @@
 
 (defadvice ecb-activate (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ecb-show-help (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-mode-line)))
 
@@ -84,13 +84,13 @@
       (eval 
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -169,7 +169,7 @@ available."
   "Track search and provide appropriate auditory feedback."
   
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((start (point))
           (beg nil)
           (end nil))
@@ -195,14 +195,14 @@ available."
 
 (defadvice tree-buffer-select (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((node (ad-get-arg 0))) ;; note that logic is reversed
       (cond
        ((tree-node-is-expanded node)
@@ -211,7 +211,7 @@ available."
 
 (defadvice tree-buffer-update (after emacspeak pre act comp)
   "Provide context speech feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-nolog-message (after emacspeak pre
@@ -221,19 +221,19 @@ available."
 
 (defadvice tree-buffer-arrow-pressed (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-tab-pressed (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
 (defadvice tree-buffer-return-pressed (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
@@ -241,7 +241,7 @@ available."
                                                   act comp)
   "When on the console, always use TMM."
   (cond
-   ((and (interactive-p)
+   ((and (ems-interactive-p )
          (not window-system))
     (tree-buffer-show-menu-keyboard 'use-tmm)    )
    (t ad-do-it)))

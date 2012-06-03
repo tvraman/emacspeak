@@ -179,7 +179,7 @@ is nil if SYM is not a symbol that names a cell."
 
 (defadvice ses-forward-or-insert (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 

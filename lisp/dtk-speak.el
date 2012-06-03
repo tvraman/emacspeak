@@ -338,14 +338,14 @@ Optional argument FORCE  flushes the command to the speech server."
   (interactive "sEnter new language: \n")
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
-  (when dtk-speak-server-initialized (dtk-interp-language lang (interactive-p))))
+  (when dtk-speak-server-initialized (dtk-interp-language lang (ems-interactive-p ))))
 
 (defun dtk-set-next-language ()
   "Switch to the next available language"
   (interactive)
   (declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
-    (dtk-interp-next-language (interactive-p))))
+    (dtk-interp-next-language (ems-interactive-p ))))
 ;;)
 
 (defun dtk-set-previous-language ()
@@ -355,7 +355,7 @@ Optional argument FORCE  flushes the command to the speech server."
                     dtk-speak-server-initialized))
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
-    (dtk-interp-previous-language (interactive-p))))
+    (dtk-interp-previous-language (ems-interactive-p ))))
 ;;)
 
 (defun dtk-set-preferred-language (alias lang)
@@ -790,7 +790,7 @@ Argument OUTPUT is the newly arrived output."
         (setq ,switch (default-value ',switch )))
        (t  (make-local-variable ',switch)
            (setq ,switch (not ,switch ))))
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon (if ,switch 'on 'off))
         (message "Turned %s %s  %s."
                  (if ,switch "on" "off" )
@@ -820,7 +820,7 @@ current local  value to the result."
       (setq dtk-speech-rate rate))
      (t (setq dtk-speech-rate rate)))
     (dtk-interp-set-rate rate)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Set speech rate to %s %s"
                rate
                (if prefix "" "locally")))))
@@ -852,7 +852,7 @@ speech rate:")))
          (+ dtk-speech-rate-base
             (* dtk-speech-rate-step  level ))
          prefix )
-        (when (interactive-p)
+        (when (ems-interactive-p )
           (message "Set speech rate to level %s"
                    level))))))
 
@@ -874,7 +874,7 @@ current local  value to the result."
      (t (make-local-variable 'dtk-character-scale)
         (setq dtk-character-scale factor)))
     (dtk-interp-set-character-scale dtk-character-scale)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Set character scale factor to %s %s"
                dtk-character-scale
                (if  prefix ""  "locally")))))
@@ -956,7 +956,7 @@ current local  value to the result."
      (t (make-local-variable 'dtk-punctuation-mode)
         (setq dtk-punctuation-mode mode )))
     (dtk-interp-set-punctuations mode)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "set punctuation mode to %s %s"
                mode
                (if prefix "" "locally")))))
@@ -986,7 +986,7 @@ Interactive PREFIX arg makes the new setting global."
     (dtk-set-punctuations-to-some prefix ))
    ((eq 'some  dtk-punctuation-mode )
     (dtk-set-punctuations-to-all prefix )))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "set punctuation mode to %s %s"
              dtk-punctuation-mode
              (if prefix "" "locally"))))
@@ -1566,7 +1566,7 @@ ALSA_DEFAULT to specified device before starting the server."
   (declare (special   dtk-program dtk-servers-alist
                       tts-device emacspeak-servers-directory
                       emacspeak-ssh-tts-server))
-  (when (and (interactive-p) device)
+  (when (and (ems-interactive-p ) device)
     (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: ")))
   (setenv "ALSA_DEFAULT" tts-device)
   (let ((ssh-server (format "ssh-%s" dtk-program)))
@@ -1574,7 +1574,7 @@ ALSA_DEFAULT to specified device before starting the server."
     (when (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (dtk-initialize))))
 
 (defcustom tts-device-list (list "default")
@@ -1732,7 +1732,7 @@ Default is to use pipes.")
       (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
       (run-hooks 'dtk-startup-hook ))
      (t
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (message "The speech server is not running."))))))
 ;;;###autoload
 (defun tts-restart ()
@@ -1770,10 +1770,10 @@ since the synthesizer is getting a word at a time."
   (cond
    ((not (string-match " " dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Text will be split at punctuations and white space when speaking") ))
    (t (dtk-chunk-only-on-punctuations)
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (message "Text split  at clause boundaries")))))
 
 ;;;###autoload
@@ -1788,7 +1788,7 @@ Argument S specifies the syntax class."
     (read-from-minibuffer "Specify separator syntax string: ")))
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax s)
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Set  separator to %s" s)))
 
 ;;}}}

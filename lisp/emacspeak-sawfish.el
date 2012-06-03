@@ -63,37 +63,37 @@
 (defadvice sawfish-eval-region (after emacspeak pre act
                                       comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 (defadvice sawfish-eval-buffer (after emacspeak pre act
                                       comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-defun (after emacspeak pre act
                                      comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-expression (after emacspeak pre act
                                           comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-last-sexp (after emacspeak pre act
                                          comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-message-again)))
 
 (defadvice sawfish-eval-print-last-sexp (after emacspeak pre act
                                                comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
@@ -110,28 +110,28 @@
 (defadvice sawfish-info-function (after emacspeak pre act
                                         comp)
   "Speak the info documentation. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))
 
 (defadvice sawfish-info-variable (after emacspeak pre act
                                         comp)
   "Speak the info documentation. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))    
 
 (defadvice sawfish-info (after emacspeak pre act
                                comp)
   "Speak the info documentation. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))    
 
 (defadvice sawfish-rep-info (after emacspeak pre act
                                    comp)
   "Speak the info documentation. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))    
 
@@ -141,7 +141,7 @@
 (defadvice sawfish-interaction (after emacspeak pre act
                                       comp)
   "Provide auditory feedback. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 

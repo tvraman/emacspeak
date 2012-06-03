@@ -152,7 +152,7 @@
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
   "Provide spoken feedback."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))
@@ -164,7 +164,7 @@
 (defadvice nxml-complete (around emacspeak pre act comp)
   "Provide spoken feedback."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -173,7 +173,7 @@
 (defadvice nxml-insert-xml-declaration (after emacspeak pre act
                                               comp)
   "Provide spoken feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 (loop for f in 
       '(nxml-backward-up-element
@@ -189,7 +189,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
@@ -201,7 +201,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'close-object)
             (dtk-speak
              (format "Closed %s"
@@ -218,7 +218,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory icon."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'close-object)
             (emacspeak-speak-line)))))
 
@@ -232,7 +232,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory icon."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'open-object)
             (emacspeak-speak-line)))))
 

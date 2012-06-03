@@ -55,7 +55,7 @@
 (defadvice xslt-process-toggle-debug-mode (
                                            after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon
      (if xslt-process-debug-mode 'on 'off))
     (message "Turned %s xslt debug mode."
@@ -64,7 +64,7 @@
 (defadvice xslt-process-quit-debug (after emacspeak pre act
                                           comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
@@ -72,7 +72,7 @@
                                                   pre act
                                                   comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
@@ -80,7 +80,7 @@
                                                    pre act
                                                    comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
@@ -88,14 +88,14 @@
                                                  pre act
                                                  comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 (defadvice xslt-process-set-breakpoint (after emacspeak pre
                                               act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (save-excursion
       (beginning-of-line)
       (let ((start (point))
@@ -111,7 +111,7 @@
 (defadvice xslt-process-remove-breakpoint (after emacspeak pre
                                                  act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (save-excursion
       (beginning-of-line)
       (let ((start (point))
@@ -126,44 +126,44 @@
 (defadvice xslt-process-do-run (after emacspeak pre act
                                       comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Debug %s" ad-return-value)))
 (defadvice xslt-process-do-step (after emacspeak pre act
                                        comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice xslt-process-do-next (after emacspeak pre act
                                        comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice xslt-process-do-finish (after emacspeak pre act
                                          comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     
 
     (defadvice xslt-process-do-continue (after emacspeak pre act
                                                comp)
       "Provide auditory feedback."
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon 'select-object)))
 
     (defadvice xslt-process-do-stop (after emacspeak pre act
                                            comp)
       "Provide auditory feedback."
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon 'select-object)))
 
     (defadvice xslt-process-do-quit (after emacspeak pre act
                                            comp)
       "Provide auditory feedback."
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon 'select-object)))
 
     (emacspeak-auditory-icon 'close-object)))
@@ -172,7 +172,7 @@
                                               emacspeak pre
                                               act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 

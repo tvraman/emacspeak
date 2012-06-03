@@ -93,7 +93,7 @@
 
 (defadvice imenu (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (ems-set-personality-temporarily (point) (1+ (point))
                                      voice-animate
                                      (emacspeak-speak-line))))
@@ -101,7 +101,7 @@
 (defadvice imenu-go-find-at-position (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (push-mark)
     ad-do-it
     (emacspeak-auditory-icon 'large-movement)
@@ -113,7 +113,7 @@
 
 (defadvice imenu-go--back (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (ems-set-personality-temporarily (point) (1+ (point))
                                      voice-animate
@@ -153,7 +153,7 @@
             (if (< guess target)
                 (setq target guess))))
     (goto-char target)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
       (if emacspeak-imenu-autospeak
           (emacspeak-imenu-speak-this-section)
@@ -188,7 +188,7 @@
             (if (> guess target)
                 (setq target guess))))
     (goto-char target)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
       (if emacspeak-imenu-autospeak
           (emacspeak-imenu-speak-this-section)

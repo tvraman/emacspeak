@@ -137,7 +137,7 @@ many available corrections."
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
   "Stop chatter by turning off messages"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((dtk-stop-immediately t )
           (emacspeak-speak-messages nil))
       ad-do-it
@@ -155,7 +155,7 @@ many available corrections."
 (defadvice ispell-buffer (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((dtk-stop-immediately t )
           (emacspeak-speak-messages nil))
       ad-do-it
@@ -166,7 +166,7 @@ many available corrections."
 (defadvice ispell-region (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((dtk-stop-immediately t )
           (emacspeak-speak-messages nil))
       ad-do-it
@@ -178,12 +178,12 @@ many available corrections."
   "Produce auditory icons for ispell."
   (declare (special emacspeak-last-message))
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((dtk-stop-immediately t )
           (emacspeak-speak-messages nil))
       (setq emacspeak-last-message nil)
       ad-do-it
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-speak-message-again))
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))

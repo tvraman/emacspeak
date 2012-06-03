@@ -97,13 +97,13 @@
 ;;; Advice navigators:
 (defadvice magit-mark-item (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
 (defadvice magit-toggle-section (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((state (magit-section-hidden (magit-current-section))))
       (cond
        (state (emacspeak-auditory-icon 'close-object))
@@ -122,7 +122,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback"
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
@@ -162,7 +162,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'open-object)))))
 
@@ -172,7 +172,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'close-object)))))
 
@@ -181,31 +181,31 @@
 
 (defadvice magit-display-process (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed process buffer in other window.")))
 
 (defadvice magit-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
 (defadvice magit-status (after emacspeak pre act  comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice magit-quit-window (after emacspeak pre act  comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
@@ -214,20 +214,20 @@
 
 (defadvice magit-remove-branch (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice magit-remove-branch-in-remote-repo (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice magit-change-what-branch-tracks (after emacspeak pre
                                                   act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
@@ -247,13 +247,13 @@
 
 (defadvice magit-key-mode-exec-at-point (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)))
 
 (defadvice magit-key-mode-kill-buffer (after emacspeak pre act
                                              comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defsubst emacspeak-magit-key-mode-header-line ()
@@ -283,7 +283,7 @@
   (emacspeak-speak-line))
 (defadvice magit-visit-item (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'open-object)))
 

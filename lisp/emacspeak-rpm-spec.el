@@ -67,7 +67,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (let ((entry  (format "%s"
                                   (quote ,f))))
               (setq entry
@@ -88,7 +88,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
@@ -110,7 +110,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (let ((target  (format "%s"
                                    (quote ,f))))
               (setq target
@@ -135,7 +135,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (let ((toggle  (format "%s" (quote ,f)))
                   (switch nil))
               (setq switch

@@ -65,17 +65,17 @@
 
 (defadvice tempo-forward-mark (after emacspeak pre act)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
 (defadvice tempo-backward-mark (after emacspeak pre act)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
 (defadvice html-helper-smart-insert-item  (after emacspeak pre act)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
 ;;}}}

@@ -70,7 +70,7 @@
 (defadvice flyspell-auto-correct-word (around emacspeak pre act comp)
   "Speak the correction we inserted"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     ad-do-it
     (dtk-speak (car  (flyspell-get-word nil)))
     (emacspeak-auditory-icon 'select-object))

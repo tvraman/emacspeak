@@ -465,9 +465,9 @@ punctuations.")
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
   t nil nil
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((state (if voice-lock-mode 'on 'off)))
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon state)))))
 
 ;;;###autoload
@@ -489,9 +489,9 @@ punctuations.")
   (if voice-lock-mode
       (turn-off-voice-lock)
     (turn-on-voice-lock))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((state (if voice-lock-mode 'on 'off)))
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (emacspeak-auditory-icon state)))))
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")

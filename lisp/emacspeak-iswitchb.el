@@ -74,7 +74,7 @@
 
 (defadvice iswitchb-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon
      (if iswitchb-case 'on 'off))
     (dtk-speak
@@ -83,7 +83,7 @@
 
 (defadvice iswitchb-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon
      (if iswitchb-regexp 'on 'off))
     (dtk-speak
@@ -92,7 +92,7 @@
 
 (defadvice iswitchb-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon
      (if iswitchb-ignore 'on 'off))
     (dtk-speak
@@ -101,12 +101,12 @@
 
 (defadvice iswitchb-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak (car iswitchb-matches))))
 
 (defadvice  iswitchb-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -117,20 +117,20 @@
 
 (defadvice iswitchb-next-match (after emacspeak pre act comp)
   "Speak match at the front of the list."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (second iswitchb-matches))))
 
 (defadvice iswitchb-prev-match (after emacspeak pre act comp)
   "Speak match at the front of the list."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (car (last iswitchb-matches)))))
 (defadvice iswitchb-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}

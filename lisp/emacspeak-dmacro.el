@@ -53,7 +53,7 @@
 ;;; A simple minded thing to do is to at least speak the line that point is on
 (defadvice insert-dmacro (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 ;;}}}

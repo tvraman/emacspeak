@@ -166,7 +166,7 @@ Keystrokes are sent to a connected Firefox."
   "Send last keypress to Firefox."
   (interactive)
   (declare (special last-input-event))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-piglets-silence))
   (emacspeak-piglets-keypress last-input-event))
 

@@ -55,7 +55,7 @@
 (defadvice checkdoc (around emacspeak pre act comp)
   "Advice read-event temporarily."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (save-match-data
       (ad-enable-advice  'read-event 'before 'emacspeak-checkdoc )
       (ad-activate 'read-event)
