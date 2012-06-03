@@ -55,6 +55,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'emacspeak-xslt)
 (require 'xml-parse)
 (require 'xml)
 (require 'derived)
@@ -1064,6 +1065,7 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-extract-xml (url)
   "Extract content refered to by link under point, and return an XML buffer."
   (interactive "sURL: ")
+  (declare (special  emacspeak-we-xsl-filter))
   (let ((fields (split-string url "#"))
         (id nil)
         (url nil))
@@ -1149,40 +1151,42 @@ Make sure it's downloaded and unpacked first."
   :type '(choice
           (const :tag "lynx"  "lynx -dump -stdin")
           (const "html2text" "html2text"))
-  :group 'emacspeak-bookshare)(defun emacspeak-bookshare-fulltext (directory)
-                                "Display fulltext contents of  book in specified directory.
+  :group 'emacspeak-bookshare)
+(defun emacspeak-bookshare-fulltext (directory)
+  "Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book."
-                                (interactive
-                                 (list
-                                  (or (emacspeak-bookshare-get-directory)
-                                      (let ((completion-ignore-case t)
-                                            (emacspeak-speak-messages nil)
-                                            (read-file-name-completion-ignore-case t))
-                                        (read-directory-name "Book: "
-                                                             (when (eq major-mode 'dired-mode) (dired-get-filename))
-                                                             emacspeak-bookshare-directory)))))
-                                (declare (special emacspeak-bookshare-html-to-text-command
-                                                  emacspeak-bookshare-directory))
-                                (let ((xsl (emacspeak-bookshare-xslt directory))
-                                      (buffer (get-buffer-create "Full Text"))
-                                      (command nil)
-                                      (inhibit-read-only t))
-                                  (with-current-buffer buffer
-                                    (setq command
-                                          (format
-                                           "%s  --nonet --novalid %s %s | %s"
-                                           emacspeak-xslt-program xsl
-                                           (shell-quote-argument
-                                            (first (directory-files directory 'full ".xml")))
-                                           emacspeak-bookshare-html-to-text-command))
-                                    (erase-buffer)
-                                    (setq buffer-undo-list t)
-                                    (shell-command command (current-buffer) nil)
-                                    (setq buffer-read-only t)
-                                    (goto-char (point-min)))
-                                  (switch-to-buffer buffer)
-                                  (emacspeak-auditory-icon 'open-object)
-                                  (emacspeak-speak-mode-line)))
+  (interactive
+   (list
+    (or (emacspeak-bookshare-get-directory)
+        (let ((completion-ignore-case t)
+              (emacspeak-speak-messages nil)
+              (read-file-name-completion-ignore-case t))
+          (read-directory-name "Book: "
+                               (when (eq major-mode 'dired-mode) (dired-get-filename))
+                               emacspeak-bookshare-directory)))))
+  (declare (special emacspeak-xslt-program))
+  (declare (special emacspeak-bookshare-html-to-text-command
+                    emacspeak-bookshare-directory))
+  (let ((xsl (emacspeak-bookshare-xslt directory))
+        (buffer (get-buffer-create "Full Text"))
+        (command nil)
+        (inhibit-read-only t))
+    (with-current-buffer buffer
+      (setq command
+            (format
+             "%s  --nonet --novalid %s %s | %s"
+             emacspeak-xslt-program xsl
+             (shell-quote-argument
+              (first (directory-files directory 'full ".xml")))
+             emacspeak-bookshare-html-to-text-command))
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command command (current-buffer) nil)
+      (setq buffer-read-only t)
+      (goto-char (point-min)))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
