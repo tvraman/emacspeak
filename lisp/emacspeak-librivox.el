@@ -125,7 +125,8 @@
 
 (defun emacspeak-librivox-setup-keys ()
   "Set up Librivox keys."
-  (declare (special emacspeak-librivox-mode-map))
+  (declare (special emacspeak-librivox-mode-map
+                    emacspeak-librivox-searcher))
   (loop for binding in
         '(
           ("\C-m" emacspeak-librivox-open-rss)
@@ -236,7 +237,7 @@
 (defun emacspeak-librivox-play ()
   "Play current book as a playlist."
   (interactive)
-  (declare (special emacspeak-table
+  (declare (special emacspeak-table emacspeak-xslt-program
                     emacspeak-librivox-directory))
   (unless (and (eq major-mode 'emacspeak-librivox-mode)
                (boundp 'emacspeak-table)
