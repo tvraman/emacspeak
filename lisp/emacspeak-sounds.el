@@ -402,9 +402,9 @@ emacspeak-queue-auditory-icon when using software TTS."
   (interactive)
   (mapcar
    #'(lambda (f)
-      (emacspeak-auditory-icon f)
-      (dtk-speak (format "%s" f))
-      (sleep-for 2))
+       (emacspeak-auditory-icon f)
+       (dtk-speak (format "%s" f))
+       (sleep-for 2))
    (emacspeak-sounds-icon-list)))
 
 ;;}}}

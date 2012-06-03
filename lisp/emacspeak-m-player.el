@@ -201,11 +201,11 @@ on a specific directory."
   "Invoke MPlayer commands."
   (interactive (list (read-key-sequence "MPlayer Key: ")))
   (declare (special emacspeak-m-player-process))
-    (cond
-     ((and (stringp key) (string= ";" key))
-      (pop-to-buffer (process-buffer emacspeak-m-player-process))
-      (emacspeak-speak-mode-line))
-     (t (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
+  (cond
+   ((and (stringp key) (string= ";" key))
+    (pop-to-buffer (process-buffer emacspeak-m-player-process))
+    (emacspeak-speak-mode-line))
+   (t (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
