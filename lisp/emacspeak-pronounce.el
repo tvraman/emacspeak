@@ -102,6 +102,8 @@ Values are alists containing string.pronunciation pairs.")
   (when (stringp key)
     (setq key (intern key )))
   (gethash key emacspeak-pronounce-dictionaries))
+
+;;;###autoload
 (defun emacspeak-pronounce-add-dictionary-entry  (key string pronunciation)
   "Add dictionary entry.
 This adds pronunciation pair
