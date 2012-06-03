@@ -3018,7 +3018,8 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
-  (declare (special emacspeak-media-last-url))
+  (declare (special emacspeak-media-last-url
+                    emacspeak-media-shortcuts-directory emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program

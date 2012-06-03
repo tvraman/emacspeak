@@ -72,7 +72,7 @@
    "\\|^face\\|^frame\\|^font"
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
-
+;;;###autoload
 (defsubst emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
