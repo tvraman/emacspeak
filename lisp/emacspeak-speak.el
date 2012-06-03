@@ -1063,6 +1063,16 @@ char is assumed to be one of a--z."
           " ")))
 
 ;;}}}
+;;{{{ Speak Chars:
+
+(defsubst emacspeak-speak-this-char (char)
+  "Speak this CHAR."
+  (when char
+    (cond
+     ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string
+                                               char )))
+     ((> char 128) (emacspeak-speak-char-name char))
+     (t (dtk-dispatch (dtk-char-to-speech char ))))))
 ;;;###autoload
 (defun emacspeak-speak-char (&optional prefix)
   "Speak character under point.
@@ -1078,6 +1088,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
              (emacspeak-is-alpha-p char))
         (dtk-speak (emacspeak-get-phonetic-string char )))
        (t (emacspeak-speak-this-char char))))))
+
 ;;;###autoload
 (defun emacspeak-speak-preceding-char ()
   "Speak character before point."
@@ -1097,14 +1108,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive)
   (dtk-speak (dtk-unicode-name-for-char char)))
 
-(defsubst emacspeak-speak-this-char (char)
-  "Speak this CHAR."
-  (when char
-    (cond
-     ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string
-                                               char )))
-     ((> char 128) (emacspeak-speak-char-name char))
-     (t (dtk-dispatch (dtk-char-to-speech char ))))))
+;;}}}
 
 ;;{{{ emacspeak-speak-display-char
 
