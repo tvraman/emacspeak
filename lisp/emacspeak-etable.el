@@ -74,7 +74,7 @@
 (defadvice *table--cell-delete-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (dtk-tone 500 30 'force)
     (emacspeak-speak-char t)
     ad-do-it)
@@ -84,7 +84,7 @@
 (defadvice *table--cell-delete-backward-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
@@ -93,7 +93,7 @@
 
 (defadvice *table--cell-self-insert-command (after emacspeak pre act comp)
   "Provide spoken output."
-  (when  (interactive-p)
+  (when  (ems-interactive-p )
     (cond
      ((and (= 32 last-input-event)
            emacspeak-word-echo)
@@ -108,7 +108,7 @@
 
 (defadvice *table--cell-quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (table--finish-delayed-tasks)
     (emacspeak-speak-this-char (preceding-char ))))
 
@@ -117,7 +117,7 @@
 See command \\[emacspeak-toggle-line-echo].  Otherwise cue the user to
 the newly created blank line."
   (declare (special emacspeak-line-echo ))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (table--finish-delayed-tasks)
     (cond
      (emacspeak-line-echo (emacspeak-speak-line ))
@@ -130,7 +130,7 @@ See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created."
   (declare (special emacspeak-line-echo ))
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (cond
      (emacspeak-line-echo
       (emacspeak-speak-line )
@@ -146,7 +146,7 @@ Otherwise cue user to the line just created."
 
 (defadvice *table--cell-open-line (after emacspeak pre act )
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (message "Opened %s blank line%s"
@@ -175,7 +175,7 @@ Otherwise cue user to the line just created."
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback by speaking current cell
       contents."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (table--finish-delayed-tasks)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-etable-speak-cell)))))

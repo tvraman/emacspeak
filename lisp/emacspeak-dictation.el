@@ -57,7 +57,7 @@
 ;;{{{  advice interactive commands 
 (defadvice dictation-toggle (after emacspeak pre act comp)
   "Provide an auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)))
 
 (defadvice dictation-filter (around emacspeak pre act comp)

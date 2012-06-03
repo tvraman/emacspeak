@@ -74,19 +74,19 @@
 ;;{{{  speech enable interactive commands 
 (defadvice cvs-mode-add (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 (defadvice cvs-mode-kill-buffers (after emacspeak pre act
                                         comp)
   "Produce an auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Killed all temporary CVS buffers.")))
 
 (defadvice cvs-checkout (after emacspeak pre act comp)
   "Provide an auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -95,18 +95,18 @@
 
 (defadvice cvs-mode-next-line (after emacspeak pre act comp)
   "Provide auditory feedback. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-pcl-cvs-summarize-line)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice cvs-mode-previous-line (after emacspeak pre act comp)
   "Provide auditory feedback. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-pcl-cvs-summarize-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice cvs-mode-mark (after emacspeak  pre act comp)
   "Provide auditory feedback. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-pcl-cvs-summarize-line)
     (emacspeak-auditory-icon 'mark-object)))
 

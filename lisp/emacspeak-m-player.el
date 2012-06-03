@@ -616,7 +616,7 @@ A string of the form `<number> 1' sets volume as an absolute."
   (interactive)
   (emacspeak-m-player-dispatch
    "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n")
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-m-player-load-file(f)

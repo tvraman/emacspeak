@@ -50,7 +50,7 @@
 
 (defadvice electric-perl-terminator  (after emacspeak pre act comp )
   "Speak what you inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char last-input-event)))
 
 ;;}}}
@@ -58,19 +58,19 @@
 
 (defadvice mark-perl-function (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked procedure")))
 
 (defadvice perl-beginning-of-function (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice perl-end-of-function (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}

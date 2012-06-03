@@ -103,18 +103,18 @@ server."
 
 (defadvice erc-select (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice erc-send-current-line (after emacspeak pre act
                                         comp)
   "Provide auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 (defadvice erc-send-paragraph (after emacspeak pre act
                                      comp)
   "Provide auditory icon."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'paragraph)))
 
 ;;}}}

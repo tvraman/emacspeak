@@ -283,7 +283,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
            collect  (list i (second cell)))))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-sudoku-erase-current-column ()
@@ -294,7 +294,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
            collect  (list (first cell) i))))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)))
 
 (defsubst emacspeak-sudoku-sub-square-cells (square)
@@ -315,7 +315,7 @@ s   Sub-square Distribution.
            (sudoku-get-cell-from-point (point))))
          (square-cells (emacspeak-sudoku-sub-square-cells square)))
     (emacspeak-sudoku-erase-these-cells square-cells))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)))
 
 ;;}}}
@@ -335,7 +335,7 @@ s   Sub-square Distribution.
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Produce auditory output."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-sudoku-speak-current-cell-value)
             (if (eq (get-text-property  (point) 'face) 'bold)
                 (emacspeak-auditory-icon 'item)
@@ -349,7 +349,7 @@ s   Sub-square Distribution.
 See
   http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
   for details."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-set-punctuations 'some)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
@@ -363,7 +363,7 @@ See
 
 (defadvice sudoku-restart (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 

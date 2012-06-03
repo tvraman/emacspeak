@@ -136,7 +136,7 @@
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
   "Automatically speak display."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-webutils-autospeak))
   ad-do-it
   ad-return-value)

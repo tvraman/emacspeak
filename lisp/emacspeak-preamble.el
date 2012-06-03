@@ -53,6 +53,7 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
+
 ;;}}}
 ;;{{{ Utilities:
 (defsubst emacspeak-url-encode (str)
@@ -68,12 +69,7 @@
    str
    ""))
 
-(cond
- ((fboundp 'called-interactively-p)
-  (defsubst ems-interactive-p ()
-    "called-interactively-p 'interactive"
-    (called-interactively-p 'interactive)))
- (t (defalias 'ems-interactive-p 'interactive-p)))
+
 
 ;;}}}
 (provide  'emacspeak-preamble)

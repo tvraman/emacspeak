@@ -946,7 +946,7 @@ match, makes the matching row or column current."
   (declare (special emacspeak-table ))
   (when (boundp 'emacspeak-table)
     (kill-new  (emacspeak-table-current-element emacspeak-table))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'delete-object)
       (message "Copied element to kill ring"))))
 
@@ -957,7 +957,7 @@ match, makes the matching row or column current."
   (when  (boundp 'emacspeak-table)
     (set-register register (emacspeak-table-current-element
                             emacspeak-table))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'select-object)
       (message "Copied element to register %c" register))))
 

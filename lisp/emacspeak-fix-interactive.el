@@ -73,7 +73,7 @@
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
 
-(defsubst emacspeak-should-i-fix-interactive-p (sym)
+(defsubst emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
   (and
@@ -152,7 +152,7 @@ use the minibuffer."
 
 (defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
-  (when (emacspeak-should-i-fix-interactive-p command)
+  (when (emacspeak-should-i-fix-interactive-p  command)
     (emacspeak-fix-interactive command)))
 
 ;;}}}
@@ -175,7 +175,7 @@ use the minibuffer."
          (commandp (cdr item))
          (emacspeak-fix-interactive-command-if-necessary (cdr
                                                           item))))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Fixed interactive commands defined in module %s" module)))
 
 (defvar emacspeak-load-history-pointer nil
@@ -197,12 +197,12 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
                   (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
         (emacspeak-fix-commands-loaded-from lh)
-        (when (interactive-p)
+        (when (ems-interactive-p )
           (message "Fixed commands in %s" (first (first lh))))
         (setq lh (rest lh)))
 ;;;memoize for future call
       (setq emacspeak-load-history-pointer load-history))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Fixed recently defined  interactive commands")))
   t)
 

@@ -55,19 +55,19 @@
 
 (defadvice outline-next-heading (after emacspeak pre act comp)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice outline-back-to-heading (after emacspeak pre act comp)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice outline-next-visible-heading (after emacspeak pre act comp)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (and (looking-at "^$")
          (skip-syntax-backward " "))
@@ -75,25 +75,25 @@
 
 (defadvice outline-previous-visible-heading (after emacspeak pre act comp)
   "Speak the line."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice outline-up-heading (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice outline-forward-same-level (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice outline-backward-same-level (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
@@ -102,68 +102,68 @@
 
 (defadvice hide-entry (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid the body directly following this heading")))
 
 (defadvice show-entry (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed body directly following current heading")))
 
 (defadvice hide-body (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid all of the buffer except for header lines")))
 
 (defadvice show-all (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed all text in the buffer")))
 
 (defadvice hide-subtree (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything at deeper levels from current heading")))
 
 (defadvice hide-leaves (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid all of the body at deeper levels")))
 
 (defadvice show-subtree  (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed everything after current heading at deeper levels")))
 
 (defadvice hide-sublevels (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything except the top  %s levels"
              (ad-get-arg 0))))
 
 (defadvice hide-other (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything except current body and parent headings")))
 
 (defadvice show-branches (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed all subheadings while leaving their bodies hidden")))
 
 (defadvice show-children (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed subheadings below current level")))
 
@@ -272,7 +272,7 @@ except that the outline section is  spoken"
      (require 'foldout))
 (defadvice foldout-zoom-subtree (after emacspeak pre act comp)
   "Provide auditory feedback about the child we zoomed into"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Zoomed into outline %s containing %s lines"
              (thing-at-point 'line)
@@ -280,7 +280,7 @@ except that the outline section is  spoken"
 
 (defadvice foldout-exit-fold (after emacspeak pre act comp)
   "Provide auditory feedback when exiting a fold"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 

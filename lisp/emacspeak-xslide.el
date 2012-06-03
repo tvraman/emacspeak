@@ -57,34 +57,34 @@
 
 (defadvice xsl-electric-apos (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice xsl-electric-quote (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 (defadvice xsl-electric-lsqb (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 (defadvice xsl-electric-lpar (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice xsl-electric-lcub (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 (defadvice xsl-electric-less-than (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice xsl-electric-slash (after emacspeak pre act comp)
   "Speak char we inserted."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice xsl-complete (around emacspeak pre act com)

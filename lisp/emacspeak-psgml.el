@@ -67,7 +67,7 @@
 (defadvice sgml-close-angle (around emacspeak pre act comp)
   "Speak what we matched"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (emacspeak-speak-this-char ?>)
     ad-do-it)
    (t ad-do-it))
@@ -76,7 +76,7 @@
 (defadvice sgml-slash (around emacspeak pre act comp)
   "Speak what we inseerted"
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (emacspeak-speak-this-char ?/)
     ad-do-it)
    (t ad-do-it))
@@ -85,7 +85,7 @@
 (defadvice sgml-list-valid-tags (after emacspeak pre act
                                        comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
     (message "Valid tags displayed in TAGS buffer in other
 window")))
@@ -108,40 +108,40 @@ window")))
 (defadvice sgml-insert-end-tag (after emacspeak pre act
                                       comp)
   "Say what you inserted"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
 
     (emacspeak-speak-line)))
 (defadvice sgml-forward-element (after emacspeak pre act comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-backward-element (after emacspeak pre act
                                         comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-down-element (after emacspeak pre act
                                     comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-backward-up-element (after emacspeak pre act comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-beginning-of-element (after emacspeak pre act
                                             comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
@@ -149,13 +149,13 @@ window")))
 (defadvice sgml-end-of-element (after emacspeak pre act
                                       comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
 (defadvice sgml-kill-element (after emacspeak pre act comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'delete-object)
       (emacspeak-speak-line))))
@@ -163,7 +163,7 @@ window")))
 (defadvice sgml-up-element (after emacspeak pre act
                                   comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
@@ -171,7 +171,7 @@ window")))
 (defadvice sgml-next-data-field (after emacspeak pre act
                                        comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
@@ -179,90 +179,90 @@ window")))
 (defadvice sgml-next-trouble-spot (after emacspeak pre act
                                          comp)
   "Speak line we moved to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
 (defadvice sgml-mark-element (after emacspeak pre act comp)
   "Say what we did"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked  element")))
 
 (defadvice sgml-mark-current-element (after emacspeak pre act comp)
   "Say what we did"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked current element")))
 
 (defadvice sgml-fold-element (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-fold-subelement (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-fold-region (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-expand-element (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-unfold-all (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-unfold-element (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-unfold-line (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-split-element (after emacspeak pre act comp)
   "provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "Split current element")))
 
 (defadvice sgml-hide-tags (after emacspeak pre act comp)
   "Announce what you just did."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "Hid all markup tags.")))
 (defadvice sgml-hide-attributes (after emacspeak pre act comp)
   "Announce what you just did."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "Hid all markup attributes.")))
 
 (defadvice sgml-show-tags (after emacspeak pre act comp)
   "Announce what you just did."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "Showing  all markup tags.")))
 
 (defadvice sgml-show-attributes (after emacspeak pre act comp)
   "Announce what you just did."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (message "Showing all markup attributes.")))
 
@@ -272,44 +272,44 @@ window")))
 (defadvice sgml-edit-attributes (after emacspeak pre act
                                        comp)
   "Provide spoken feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 (defadvice sgml-edit-attrib-finish(after emacspeak pre act
                                          comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 (defadvice sgml-edit-attrib-field-start (after emacspeak pre
                                                act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sgml-edit-attrib-field-end (after emacspeak pre
                                              act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 (defadvice sgml-edit-attrib-next (after emacspeak pre
                                         act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-edit-attrib-clear (after emacspeak pre act
                                          comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice sgml-edit-attrib-default  (after emacspeak pre act
                                             comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line)))
 (defadvice sgml-edit-attrib-mode (after emacspeak pre act

@@ -1192,7 +1192,7 @@ With optional PREFIX argument, label current frame."
    (prefix
     (call-interactively 'set-frame-name))
    (t (call-interactively 'select-frame-by-name)))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -2503,7 +2503,7 @@ Obsoleted by `previous-buffer' in Emacs 22"
   "Kill current buffer without asking for confirmation."
   (interactive)
   (kill-buffer nil )
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
@@ -2632,7 +2632,7 @@ Use with caution."
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
     (goto-char (point-min))
-    (when (interactive-p) (emacspeak-speak-line))))
+    (when (ems-interactive-p ) (emacspeak-speak-line))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -2664,7 +2664,7 @@ Use with caution."
     (goto-char orig)
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-speak-line))))
 
 ;;;###autoload
@@ -2734,7 +2734,7 @@ Moves to the longest line when called interactively."
                        (line-beginning-position)))
           (setq where (line-beginning-position)))
         (forward-line 1)))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Longest line is %s columns"
                max)
       (goto-char where))
@@ -2758,7 +2758,7 @@ Moves to the shortest line when called interactively."
                        (line-beginning-position)))
           (setq where (line-beginning-position)))
         (forward-line 1)))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Shortest line is %s columns"
                min)
       (goto-char where))
@@ -2784,7 +2784,7 @@ Moves to the longest paragraph when called interactively."
           (setq max(- (point)  para-start))
           (setq where para-start))
         (setq para-start (point))))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (message "Longest paragraph is %s characters"
                max)
       (goto-char where))
@@ -2833,7 +2833,7 @@ Interactive  arguments specify filename pattern and search pattern."
        (format "Documentation: %s\n"
                (face-documentation face)))
       (setq buffer-read-only t))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (switch-to-buffer output)
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
@@ -3107,10 +3107,10 @@ When called from a shell buffer, switches to `next' shell buffer."
   (interactive "P")
   (let ((filename nil))
     (cond
-     ((and (interactive-p)
+     ((and (ems-interactive-p )
            file)
       (setq filename (read-file-name "File: ")))
-     ((and (interactive-p)
+     ((and (ems-interactive-p )
            (null file))
       (setq filename (buffer-file-name (current-buffer))))
      (t (setq filename file)))
@@ -3304,7 +3304,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (unless lang
       (setq lang
             (cond
-             ((interactive-p) (emacspeak-wizards-espeak-get-voice-code))
+             ((ems-interactive-p ) (emacspeak-wizards-espeak-get-voice-code))
              (t "en"))))
     (shell-command
      (format "espeak -v %s '%s'" lang string))))
@@ -3348,7 +3348,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
              (and
               (commandp s)
               (not (string-match "^emacspeak" (symbol-name s)))
-              (emacspeak-should-i-fix-interactive-p s)
+              (emacspeak-should-i-fix-ems-interactive-p  s)
               (not (string-match "^ad-Orig" (symbol-name s)))
               (not (ad-find-some-advice s 'any  "emacspeak"))
               (string-match pattern  (symbol-name s)))

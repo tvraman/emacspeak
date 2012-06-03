@@ -533,7 +533,7 @@ unescape HTML tags."
   (interactive
    (list
     (car (browse-url-interactive-arg "OPML  URL: "))
-    (or (interactive-p)
+    (or (ems-interactive-p )
         current-prefix-arg)))
   (emacspeak-webutils-feed-display
    opml-url

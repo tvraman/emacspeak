@@ -413,7 +413,7 @@ Pick a short but meaningful name."
         (when emacspeak-ocr-keep-uncompressed-image
           (format "rm -f temp%s"
                   emacspeak-ocr-image-extension))))
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (setq emacspeak-ocr-last-page-number
               (1+ emacspeak-ocr-last-page-number)))
       (message "Acquired  image to file %s"
@@ -450,7 +450,7 @@ The scanned image is converted to JPEG."
                   pnm)
         (format "rm -f temp.pnm"))))
     (when (and metadata
-               (interactive-p))
+               (ems-interactive-p ))
       (setq metadata
             (read-from-minibuffer "Enter picture description: "))
       (let ((tempfile (format "temp%s.jpg" (gensym))))

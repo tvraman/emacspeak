@@ -149,7 +149,7 @@ display."
      (format "%s %s"
              emacspeak-aumix-program
              emacspeak-aumix-reset-options))))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 (eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
@@ -188,7 +188,7 @@ you are done."
        ((and description
              (string-equal "reset" description))
         (emacspeak-aumix-reset)
-        (when (interactive-p)
+        (when (ems-interactive-p )
           (emacspeak-auditory-icon 'close-object))
         (setq done t))
        (description

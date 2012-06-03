@@ -81,40 +81,40 @@
 
 (defadvice bmk-mgr-next-line (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-speak-line))))
 
 (defadvice bmk-mgr-previous-line (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-speak-line))))
 
 (defadvice bmk-mgr-kill-bookmark (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'delete-object)
       (dtk-speak "Killed bookmark."))))
 
 (defadvice bmk-mgr-next-folder (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line))))
 
 (defadvice bmk-mgr-previous-folder (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line))))
 
 (defadvice bmk-mgr-toggle-folder(after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (if (bmk-mgr-node-closed-p (bmk-mgr-get-node-at-point))
         (emacspeak-auditory-icon 'close-object)
       (emacspeak-auditory-icon 'open-object))
@@ -122,44 +122,44 @@
 
 (defadvice bmk-mgr-bookmark-info (before emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'item)))
 
 (defadvice bmk-mgr-yank-bookmark (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'yank-object)
       (dtk-speak "Yanked bookmark."))))
 
 (defadvice bmk-mgr-find-folder (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (bmk-mgr-bookmark-info)))
 
 (defadvice bmk-mgr-move-bookmark-up (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak "Moved bookmark up")
     (emacspeak-auditory-icon 'modified-object)))
 
 (defadvice bmk-mgr-move-bookmark-down (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak "Moved bookmark down")
     (emacspeak-auditory-icon 'modified-object)))
 
 (defadvice bmk-mgr-edit-bookmark (around emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'ask-short-question)
     ad-do-it
     (dtk-speak "Edited bookmark.")))
 
 (defadvice bmk-mgr-add-folder (around emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'ask-short-question)
     ad-do-it
     (dtk-speak "Folder added.")))
@@ -167,7 +167,7 @@
 ;; for some reason the following advice messes up functions that call the function 
 ;; (defadvice bmk-mgr-add-bookmark (around emacspeak pre act comp)
 ;;   "Speech enable bmk-mgr."
-;;   (when (interactive-p)
+;;   (when (ems-interactive-p )
 ;;     (emacspeak-auditory-icon 'ask-short-question)
 ;;     (message "in add-bookmark advice before ad-do-it")
 ;;     ad-do-it
@@ -176,19 +176,19 @@
 
 (defadvice bmk-mgr-add-bookmark (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak "Bookmark added.")))
 
 (defadvice bmk-mgr-refresh (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'modified-object)
       (dtk-speak "Refreshed bookmark list."))))
 
 (defadvice bmk-mgr-browse-url (after emacspeak pre act comp)
   "Speech enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (if (and 
            (bmk-mgr-node-folder-p (bmk-mgr-get-node-at-point))
@@ -204,14 +204,14 @@
 
 (defadvice bmk-mgr-add-current-page (after emacspeak pre act comp)
   "Speach enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'save-object)
       (dtk-speak "Added current page."))))
 
 (defadvice bmk-mgr-add-url-at-point (after emacspeak pre act comp)
   "Speach enable bmk-mgr."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'save-object)
       (dtk-speak "Added url at point."))))

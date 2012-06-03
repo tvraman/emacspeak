@@ -378,14 +378,14 @@ Set this to nil if things get too slow."
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
   (declare (special emacspeak-ediff-always-autorefine-diffs))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-previous-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
   (declare (special emacspeak-ediff-always-autorefine-diffs))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
@@ -398,45 +398,45 @@ Set this to nil if things get too slow."
 
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (save-excursion
       (set-buffer " *ediff-info*")
       (emacspeak-speak-buffer ))))
 
 (defadvice ediff-scroll-up (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled up buffers A and B")))
 
 (defadvice ediff-scroll-down (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled down buffers A and B")))
 
 (defadvice ediff-toggle-split (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (if (eq ediff-split-window-function 'split-window-vertically)
         (message "Split ediff windows vertically")
       (message "Split ediff windows horizontally"))))
 
 (defadvice ediff-recenter (after emacspeak pre act )
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object )
     (message "Refreshed the ediff display")))
 
 (defadvice ediff-jump-to-difference (after emacspeak pre act )
   "Speak the difference you jumped to"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference )))
 
 (defadvice ediff-jump-to-difference-at-point (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
@@ -444,34 +444,34 @@ Set this to nil if things get too slow."
 (defadvice ediff-previous-meta-item (after emacspeak pre act
                                            comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object )))
 (defadvice ediff-next-meta-item (after emacspeak pre act
                                        comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object )))
 
 (defadvice ediff-registry-action (after emacspeak pre act
                                         comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act
                                       comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre
                                                    act comp)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))
 

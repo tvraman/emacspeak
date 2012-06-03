@@ -86,7 +86,7 @@
 (defadvice eshell (after emacspeak pre act )
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object )
     (emacspeak-setup-programming-mode)
     (emacspeak-dtk-sync)
@@ -104,7 +104,7 @@ Provide an auditory icon if possible."
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)
           "Speak selected command."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'select-object)
             (save-excursion
               (beginning-of-line)
@@ -168,7 +168,7 @@ personalities."
       (eval
        `(defadvice ,f (after  emacspeak pre act comp)
           "Speak selected command."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (let ((emacspeak-speak-messages nil))
               (emacspeak-auditory-icon 'select-object)
               (emacspeak-speak-line 1))))))
@@ -185,14 +185,14 @@ personalities."
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Speak output."
-          (when (interactive-p)
+          (when (ems-interactive-p )
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
 
 (defadvice eshell-insert-process (after emacspeak pre
                                         act comp)
   "Speak output."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
@@ -202,7 +202,7 @@ personalities."
 (defadvice eshell-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (cond
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
@@ -215,7 +215,7 @@ personalities."
 (defadvice eshell-delete-backward-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((interactive-p )
+   ((ems-interactive-p  )
     (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
@@ -224,31 +224,31 @@ personalities."
 
 (defadvice eshell-show-output (after emacspeak pre act comp)
   "Speak output."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) (mark)))))
 (defadvice eshell-mark-output (after emacspeak pre act comp)
   "Speak output."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((emacspeak-show-point t))
       (emacspeak-auditory-icon 'mark-object)
       (emacspeak-speak-line))))
 (defadvice eshell-kill-output (after emacspeak pre act comp)
   "Produce auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (message "Flushed output")))
 
 (defadvice eshell-kill-input (before emacspeak pre act )
   "Provide spoken feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object )
     (emacspeak-speak-line)))
 
 (defadvice eshell-toggle (after emacspeak pre act comp)
   "Provide spoken context feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (cond
      ((eq major-mode 'eshell-mode)
       (emacspeak-setup-programming-mode)
@@ -257,7 +257,7 @@ personalities."
     (emacspeak-auditory-icon 'select-object)))
 (defadvice eshell-toggle-cd (after emacspeak pre act comp)
   "Provide spoken context feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (cond
      ((eq major-mode 'eshell-mode)
       (emacspeak-speak-line))

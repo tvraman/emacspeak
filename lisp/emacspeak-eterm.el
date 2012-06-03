@@ -291,7 +291,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive)
   (declare (special emacspeak-eterm-pointer ))
   (set-marker emacspeak-eterm-pointer (point ))
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-eterm-speak-cursor)))
 
@@ -302,7 +302,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (save-excursion
     (goto-char term-home-marker)  
     (set-marker emacspeak-eterm-pointer (point))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line nil ))))
 
@@ -313,7 +313,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (save-excursion
     (goto-char (point-max))
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line nil ))))
 
@@ -360,7 +360,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer )
     (backward-char count)
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (dtk-stop)
       (emacspeak-speak-char t ))))
 
@@ -374,7 +374,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer )
     (forward-char  count )
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (dtk-stop)
       (emacspeak-speak-char t))))
 
@@ -386,7 +386,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer )
     (end-of-line)
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p) 
+    (when (ems-interactive-p ) 
       (dtk-stop)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-char t))))
@@ -399,7 +399,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer )
     (beginning-of-line)
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (dtk-stop)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-char t))))
@@ -417,7 +417,7 @@ Argument COUNT specifies number of words by which to move."
         (forward-word  (- count ))
       (error nil ))
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-speak-word))))
 
 (defun emacspeak-eterm-pointer-forward-word (count)
@@ -434,7 +434,7 @@ Argument COUNT specifies number of words by which to move."
       (error nil ))
     (skip-syntax-forward " ")
     (set-marker emacspeak-eterm-pointer (point ))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-speak-word))))
 
 (defun emacspeak-eterm-goto-line (line)
@@ -589,7 +589,7 @@ to by the emacspeak eterm pointer."
     (setq coordinates
           (emacspeak-eterm-position-to-coordinates
            (marker-position emacspeak-eterm-pointer)))
-    (when (interactive-p)
+    (when (ems-interactive-p )
       (emacspeak-auditory-icon 'mark-object)
       (dtk-stop)
       (message "Set eterm mark at row %s column %s"
@@ -1197,7 +1197,7 @@ there is terminal activity.")
         '("line"))
   (setq eterm-char-mode nil 
         eterm-line-mode t )
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak "Terminal line mode ")))
 
 (defadvice term-char-mode (after emacspeak pre act)
@@ -1207,7 +1207,7 @@ there is terminal activity.")
   (setq eterm-char-mode t
         eterm-line-mode nil )
   (emacspeak-eterm-setup-raw-keys)
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-speak "Terminal character mode ")))
 
 ;;}}}
@@ -1215,32 +1215,32 @@ there is terminal activity.")
 
 (defadvice term-next-input (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 (defadvice term-next-matching-input (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 (defadvice term-previous-input (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 (defadvice term-previous-matching-input (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 (defadvice term-send-input (after emacspeak pre act)
   "Flush any ongoing speech"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (dtk-stop)))
 
 (defadvice term-previous-prompt (after emacspeak pre act )
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (if (eolp)
         (emacspeak-speak-line)
@@ -1248,7 +1248,7 @@ there is terminal activity.")
 
 (defadvice term-next-prompt (after emacspeak pre act )
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (if (eolp)
         (emacspeak-speak-line)
@@ -1259,28 +1259,28 @@ there is terminal activity.")
 
 (defadvice term-kill-output (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (message "Nuked output of last command ")))
 
 (defadvice term-quit-subjob (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Sent quit signal to subjob ")))
 
 (defadvice term-stop-subjob (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Stopped the subjob")))
 
 (defadvice term-interrupt-subjob (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Interrupted  the subjob")))
 
 (defadvice term-kill-input (before emacspeak pre act )
   "Provide spoken feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((pmark (process-mark (get-buffer-process (current-buffer)))))
       (when  (> (point) (marker-position pmark))
         (emacspeak-auditory-icon 'delete-object )
@@ -1288,7 +1288,7 @@ there is terminal activity.")
 
 (defadvice term-dynamic-list-filename-completions (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Switch to the completions window to browse the possible
 completions for filename at point")))
 

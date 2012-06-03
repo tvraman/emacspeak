@@ -264,7 +264,7 @@ that has been forwarded multiple times."
 (defadvice vm-scroll-forward (after emacspeak pre act)
   "Produce auditory feedback.
 Then speak the screenful. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
       (let ((start  (point ))
@@ -275,7 +275,7 @@ Then speak the screenful. "
 (defadvice vm-scroll-backward (after emacspeak pre act)
   "Produce auditory feedback.
 Then speak the screenful. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
       (let ((start  (point ))
@@ -306,18 +306,18 @@ Then speak the screenful. "
 
 (defadvice vm-delete-message (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))
 
 (defadvice vm-undelete-message (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Message recovered.")))
 
 (defadvice vm-kill-subject (after emacspeak pre act)
   "Provide auditory feedback. "
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'delete-object)
     (call-interactively 'vm-next-message)))
 
@@ -326,7 +326,7 @@ Then speak the screenful. "
 
 (defadvice vm-forward-message (around emacspeak pre act)
   "Provide aural feedback."
-  (if (interactive-p)
+  (if (ems-interactive-p )
       (let ((dtk-stop-immediately nil))
         (message "Forwarding message")
         ad-do-it
@@ -336,39 +336,39 @@ Then speak the screenful. "
 
 (defadvice vm-reply (after emacspeak pre act)
   "Provide aural feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-followup (after emacspeak pre act)
   "Provide aural feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Folluwing up")
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-reply-include-text (after emacspeak pre act)
   "Provide aural feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-speak-mode-line )))
 
 (defadvice vm-followup-include-text (after emacspeak pre act)
   "Provide aural feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (message "Following up")
     (emacspeak-speak-mode-line )))
 (defadvice vm-mail-send (after emacspeak pre act comp)
   "Provide auditory context"
-  (when  (interactive-p)
+  (when  (ems-interactive-p )
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice vm-mail-send-and-exit (after emacspeak pre act comp)
   "Provide auditory context"
-  (when  (interactive-p)
+  (when  (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice vm-mail (after emacspeak pre act)
   "Provide aural feedback."
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (let ((dtk-stop-immediately nil))
       (message "Composing a message")
       (emacspeak-speak-line ))))
@@ -378,7 +378,7 @@ Then speak the screenful. "
 
 (defadvice vm-quit (after emacspeak pre act )
   "Provide an auditory icon if requested"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
@@ -414,7 +414,7 @@ Then speak the screenful. "
   "Provide auditory feedback"
   (declare (special vm-message-pointer))
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((orig (point)))
       ad-do-it
       (cond
@@ -429,7 +429,7 @@ Then speak the screenful. "
   "Provide auditory feedback"
   (declare (special vm-message-pointer))
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((orig (point)))
       ad-do-it
       (cond
@@ -455,7 +455,7 @@ Then speak the screenful. "
   "Provide auditory feedback.
 Leave point at front of decoded attachment."
   (cond
-   ((interactive-p)
+   ((ems-interactive-p )
     (let ((orig (point )))
       ad-do-it
       (goto-char orig)
@@ -522,7 +522,7 @@ Leave point at front of decoded attachment."
 ;;{{{ advice button motion
 (defadvice vm-next-button (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-text-range  'w3-hyperlink-info)))
 

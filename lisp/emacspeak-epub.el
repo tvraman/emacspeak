@@ -349,7 +349,7 @@ Useful if table of contents in toc.ncx is empty."
       (print  emacspeak-epub-db  buff)
       (save-buffer buff)
       (kill-buffer buff)
-      (when (interactive-p)
+      (when (ems-interactive-p )
         (message "Saved EPub bookshelf.")
         (emacspeak-auditory-icon 'save-object)))))
 

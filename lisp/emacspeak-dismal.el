@@ -121,7 +121,7 @@ The `column header' is the entry in row 0."
   "Move forward by arg rows
  (the next row by default)and summarize it."
   (interactive "p")
-  (let ((dismal-interactive-p nil))
+  (let ((dismal-ems-interactive-p  nil))
     (dis-forward-row rows)
     (emacspeak-dismal-row-summarize)))
 
@@ -129,7 +129,7 @@ The `column header' is the entry in row 0."
   "Move backward by arg rows
  (the previous row by default)and summarize it."
   (interactive "p")
-  (let ((dismal-interactive-p nil))
+  (let ((dismal-ems-interactive-p  nil))
     (dis-backward-row rows)
     (emacspeak-dismal-row-summarize)))
 
@@ -137,7 +137,7 @@ The `column header' is the entry in row 0."
   "Move forward by arg columns
  (the next column by default)and summarize it."
   (interactive "p")
-  (let ((dismal-interactive-p nil))
+  (let ((dismal-ems-interactive-p  nil))
     (dis-forward-column cols)
     (emacspeak-dismal-col-summarize)))
 
@@ -145,7 +145,7 @@ The `column header' is the entry in row 0."
   "Move backward by arg columns
  (the previous column by default)and summarize it."
   (interactive "p")
-  (let ((dismal-interactive-p nil))
+  (let ((dismal-ems-interactive-p  nil))
     (dis-backward-column cols)
     (emacspeak-dismal-col-summarize)))
 

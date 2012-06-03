@@ -59,7 +59,7 @@
 
 (defadvice facemenu-remove-all (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'button)
     (message "Removed all text properties from region")))
 
