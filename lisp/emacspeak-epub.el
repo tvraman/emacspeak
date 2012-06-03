@@ -69,7 +69,16 @@
 (defgroup emacspeak-epub nil
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
-
+;;;###autoload
+(defcustom emacspeak-epub-library-directories
+  (list (expand-file-name "~/epubs/"))
+  "List of directories where  we store Epubs."
+  :type
+  '(repeat
+    (directory :tag "Directory"))
+  :version  "37.0"
+  :group 'emacspeak-epub)
+  ;;;###autoload
 (defcustom emacspeak-epub-library-directory
   (expand-file-name "~/epubs/")
   "Directory under which we store Epubs."
@@ -300,6 +309,12 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Bookshelf Implementation:
+(defvar emacspeak-epub-db-files
+  (mapcar
+   #'(lambda (d)
+       (expand-file-name ".bookshelf" d))
+   emacspeak-epub-library-directories)
+  "Cache of bookshelf metadata.")
 
 (defvar emacspeak-epub-db-file
   (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
@@ -316,25 +331,28 @@ Useful if table of contents in toc.ncx is empty."
   "Update bookshelf metadata."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
   (let ((updated nil))
-    (loop for f in
-          (directory-files  emacspeak-epub-library-directory 'full "epub")
+    (loop for d in
+          emacspeak-epub-library-directories
           do
-          (unless (gethash f emacspeak-epub-db)
-            (setq updated t)
-            (let* ((fields (emacspeak-epub-get-metadata
-                            (emacspeak-epub-make-epub f)))
-                   (title (first fields))
-                   (author  (second fields)))
-              (when (zerop (length title)) (setq title "Untitled"))
-              (when (zerop (length author)) (setq author "Unknown"))
-              (setf (gethash f emacspeak-epub-db)
-                    (make-emacspeak-epub-metadata
-                     :title title
-                     :author author)))))
-    (loop for f being the hash-keys of emacspeak-epub-db
-          do
-          (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
-    (when updated (emacspeak-epub-bookshelf-save))))
+          (loop for f in
+                (directory-files  d 'full "epub")
+                do
+                (unless (gethash f emacspeak-epub-db)
+                  (setq updated t)
+                  (let* ((fields (emacspeak-epub-get-metadata
+                                  (emacspeak-epub-make-epub f)))
+                         (title (first fields))
+                         (author  (second fields)))
+                    (when (zerop (length title)) (setq title "Untitled"))
+                    (when (zerop (length author)) (setq author "Unknown"))
+                    (setf (gethash f emacspeak-epub-db)
+                          (make-emacspeak-epub-metadata
+                           :title title
+                           :author author))))))
+          (loop for f being the hash-keys of emacspeak-epub-db
+                do
+                (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
+          (when updated (emacspeak-epub-bookshelf-save))))
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
