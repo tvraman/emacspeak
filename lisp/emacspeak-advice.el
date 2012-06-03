@@ -517,28 +517,28 @@ the words that were capitalized."
 ;;; Dont advice if  we catch this through post-self-insert-hook
 (unless (memq 'emacspeak-post-self-insert-hook post-self-insert-hook)
   (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
-   "Speak what was completed."
-   (declare (special emacspeak-word-echo))
-   (when (and emacspeak-word-echo  (ems-interactive-p  ))
-     (let ((display (get-char-property (1- (point)) 'display)))
-       (if display
-           (dtk-say display)
-         (condition-case nil
-             (save-excursion
-               (skip-syntax-backward " ")
-               (backward-char 1)
-               (emacspeak-speak-word))
-           (error nil ))))))
+    "Speak what was completed."
+    (declare (special emacspeak-word-echo))
+    (when (and emacspeak-word-echo  (ems-interactive-p  ))
+      (let ((display (get-char-property (1- (point)) 'display)))
+        (if display
+            (dtk-say display)
+          (condition-case nil
+              (save-excursion
+                (skip-syntax-backward " ")
+                (backward-char 1)
+                (emacspeak-speak-word))
+            (error nil ))))))
 
   (defadvice completion-separator-self-insert-command (after emacspeak act comp)
-   "Speak char after inserting it."
-   (declare (special emacspeak-character-echo))
-   (when (and emacspeak-character-echo  (ems-interactive-p ))
-     (let ((display (get-char-property (1- (point)) 'display)))
-       (if display
-           (dtk-say display)
-         (emacspeak-speak-this-char (preceding-char ))))))
-)
+    "Speak char after inserting it."
+    (declare (special emacspeak-character-echo))
+    (when (and emacspeak-character-echo  (ems-interactive-p ))
+      (let ((display (get-char-property (1- (point)) 'display)))
+        (if display
+            (dtk-say display)
+          (emacspeak-speak-this-char (preceding-char ))))))
+  )
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
@@ -2123,10 +2123,10 @@ Provide an auditory icon if possible."
 (defadvice tooltip-show-help(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when emacspeak-speak-tooltips
-  (let ((msg (ad-get-arg 0)))
-    (if msg
-        (dtk-speak msg)
-      (emacspeak-auditory-icon 'close-object)))))
+    (let ((msg (ad-get-arg 0)))
+      (if msg
+          (dtk-speak msg)
+        (emacspeak-auditory-icon 'close-object)))))
 
 (loop for f in
       '(tooltip-show-help-non-mode tooltip-sho)
@@ -2135,9 +2135,9 @@ Provide an auditory icon if possible."
        `(defadvice ,f (after emacspeak pre act comp)
           "Speak the tooltip."
           (when emacspeak-speak-tooltips
-          (let ((help (ad-get-arg 0)))
-            (dtk-speak help)
-            (emacspeak-auditory-icon 'help))))))
+            (let ((help (ad-get-arg 0)))
+              (dtk-speak help)
+              (emacspeak-auditory-icon 'help))))))
 
 ;;}}}
 ;;{{{  Emacs server

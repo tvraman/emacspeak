@@ -869,8 +869,6 @@ Tue Apr 24 17:33:27 PDT 2012
                                         ;(format "https://%s" (substring u 6)))))
         )))))
 
-
-
 (defun foo (x y)
   "show x"
   (message (concat x y)))

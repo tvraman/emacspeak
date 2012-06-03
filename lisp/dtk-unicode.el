@@ -110,8 +110,6 @@ themselves, e.g., when using an Asian language."
   :type 'boolean
   :group 'dtk-unicode)
 
-  
-
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" .  (lambda (s) (match-string 2 s)))

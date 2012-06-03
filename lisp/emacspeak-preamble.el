@@ -69,8 +69,6 @@
    str
    ""))
 
-
-
 ;;}}}
 (provide  'emacspeak-preamble)
 ;;{{{  emacs local variables 
