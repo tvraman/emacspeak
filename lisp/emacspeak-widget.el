@@ -571,6 +571,8 @@ Returns a string with appropriate personality."
 
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
+  (declare (special emacspeak-webutils-url-at-point
+                    emacspeak-we-url-executor))
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
     (cond
