@@ -731,7 +731,7 @@ browsing table elements"
   "Function to call when automatically speaking table elements.")
 
 (make-variable-buffer-local 'emacspeak-table-speak-element)
-
+;;;###autoload
 (defun emacspeak-table-next-row (&optional count)
   "Move to the next row if possible"
   (interactive "p")
@@ -743,7 +743,7 @@ browsing table elements"
    (t (emacspeak-table-move-down emacspeak-table count )
       (emacspeak-table-synchronize-display)
       (funcall emacspeak-table-speak-element))))
-
+;;;###autoload
 (defun emacspeak-table-previous-row (&optional count)
   "Move to the previous row if possible"
   (interactive "p")
@@ -755,7 +755,7 @@ browsing table elements"
    (t (emacspeak-table-move-up emacspeak-table count )
       (emacspeak-table-synchronize-display)
       (funcall emacspeak-table-speak-element))))
-
+;;;###autoload
 (defun emacspeak-table-next-column (&optional count)
   "Move to the next column if possible"
   (interactive "p")
@@ -767,7 +767,7 @@ browsing table elements"
    (t(emacspeak-table-move-right emacspeak-table count )
      (emacspeak-table-synchronize-display)
      (funcall emacspeak-table-speak-element))))
-
+;;;###autoload
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"
   (interactive "p")
