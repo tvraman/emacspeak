@@ -491,9 +491,9 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display financial market summary."
  #'(lambda (url)
-     (emacspeak-we-extract-id-list-text
-      (list "mktsumm" "sfe-mktsumm" )
-      url 'speak)))
+     (let ((w3-auto-image-alt nil))
+     (emacspeak-we-extract-by-class
+      "id-summary-chart" url 'speak))))
 
 ;;}}}
 ;;{{{ google CSE and Google Reader:
