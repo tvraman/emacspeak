@@ -309,12 +309,7 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Bookshelf Implementation:
-(defvar emacspeak-epub-db-files
-  (mapcar
-   #'(lambda (d)
-       (expand-file-name ".bookshelf" d))
-   emacspeak-epub-library-directories)
-  "Cache of bookshelf metadata.")
+
 
 (defvar emacspeak-epub-db-file
   (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
