@@ -790,7 +790,10 @@ Argument OUTPUT is the newly arrived output."
         (setq ,switch (default-value ',switch )))
        (t  (make-local-variable ',switch)
            (setq ,switch (not ,switch ))))
-      (when (ems-interactive-p )
+      (when
+          (if (fboundp 'called-interactively-p)
+(called-interactively-p 'interactive)
+(interactive-p))
         (emacspeak-auditory-icon (if ,switch 'on 'off))
         (message "Turned %s %s  %s."
                  (if ,switch "on" "off" )
