@@ -490,6 +490,28 @@ the words that were capitalized."
        (t (message "Deleting possible subsequent blank lines"))))))
 
 ;;}}}
+;;{{{ advice tabify:
+
+;;;###autoload
+(defcustom emacspeak-untabify-fixes-non-breaking-space t
+  "Advice untabify to change non-breaking space chars to space."
+  :type 'boolean
+  :group 'emacspeak
+  :version "37.0")
+
+(defadvice untabify (after emacspeak-fix-nbspc pre act comp)
+  "Fix NBCPS chars if asked to --- see option emacspeak-untabify-fixes-non-breaking-space."
+  (when emacspeak-untabify-fixes-non-breaking-space
+    (let ((start (ad-get-arg 0))
+          (end (ad-get-arg 1)))
+      (save-excursion
+        (save-restriction
+          (narrow-to-region start end)
+          (goto-char start)
+          (while (re-search-forward "[ ]+" end 'no-error)
+            (replace-match" ")))))))
+            
+;;}}}
 ;;{{{  Advice PComplete 
 
 (defadvice pcomplete-list (after emacspeak pre act )
