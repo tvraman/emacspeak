@@ -339,9 +339,29 @@ Useful if table of contents in toc.ncx is empty."
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
-(defun emacspeak-epub-bookshelf-add-directory (directory)
-  "Add EPubs found in specified directory to the bookshelf."
-  (interactive "DAdd Directory: ")
+
+(defvar emacspeak-epub-find-program
+  (executable-find "find")
+  "Name of find utility.")
+
+(defun emacspeak-epub-find-epubs-in-directory (directory)
+  "Return a list of all epub files under directory dir."
+  (declare (special emacspeak-epub-find-program))
+  (with-temp-buffer
+    (call-process emacspeak-epub-find-program
+                  nil t nil
+                  (expand-file-name directory)
+                  "-type" "f"
+                  "-iname" "*epub")
+    (delete ""
+            (split-string (buffer-substring (point-min)
+                                            (point-max))
+                          "\n"))))
+
+(defun emacspeak-epub-bookshelf-add-directory (directory &optional recursive)
+  "Add EPubs found in specified directory to the bookshelf.
+Interactive prefix arg searches recursively in directory."
+  (interactive "DAdd Directory: \nP")
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
   (let ((updated nil))
     (loop for f in
@@ -362,7 +382,8 @@ Useful if table of contents in toc.ncx is empty."
     (loop for f being the hash-keys of emacspeak-epub-db
           do
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
-    (when updated (emacspeak-epub-bookshelf-save))))
+    (when updated (emacspeak-epub-bookshelf-save)
+          (emacspeak-epub-bookshelf-redraw))))
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
