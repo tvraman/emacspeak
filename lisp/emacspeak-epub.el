@@ -363,12 +363,14 @@ Useful if table of contents in toc.ncx is empty."
 Interactive prefix arg searches recursively in directory."
   (interactive "DAdd Directory: \nP")
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
-  (let ((updated nil))
+  (let ((updated 0))
     (loop for f in
-          (directory-files directory  'full "epub")
+          (if recursive
+              (emacspeak-epub-find-epubs-in-directory directory)
+            (directory-files directory  'full "epub"))
           do
           (unless (gethash f emacspeak-epub-db)
-            (setq updated t)
+            (incf updated)
             (let* ((fields (emacspeak-epub-get-metadata
                             (emacspeak-epub-make-epub f)))
                    (title (first fields))
@@ -382,8 +384,10 @@ Interactive prefix arg searches recursively in directory."
     (loop for f being the hash-keys of emacspeak-epub-db
           do
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
-    (when updated (emacspeak-epub-bookshelf-save)
-          (emacspeak-epub-bookshelf-redraw))))
+    (unless (zerop updated)
+      (emacspeak-epub-bookshelf-save)
+      (emacspeak-epub-bookshelf-redraw)
+      (message "Added %d books. " updated))))
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
