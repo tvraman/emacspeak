@@ -339,6 +339,31 @@ Useful if table of contents in toc.ncx is empty."
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
+(defun emacspeak-epub-bookshelf-add-directory (directory)
+  "Add EPubs found in specified directory to the bookshelf."
+  (interactive "DAdd Directory: ")
+  (declare (special emacspeak-epub-db-file emacspeak-epub-db))
+  (let ((updated nil))
+    (loop for f in
+          (directory-files directory  'full "epub")
+          do
+          (unless (gethash f emacspeak-epub-db)
+            (setq updated t)
+            (let* ((fields (emacspeak-epub-get-metadata
+                            (emacspeak-epub-make-epub f)))
+                   (title (first fields))
+                   (author  (second fields)))
+              (when (zerop (length title)) (setq title "Untitled"))
+              (when (zerop (length author)) (setq author "Unknown"))
+              (setf (gethash f emacspeak-epub-db)
+                    (make-emacspeak-epub-metadata
+                     :title title
+                     :author author)))))
+    (loop for f being the hash-keys of emacspeak-epub-db
+          do
+          (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
+    (when updated (emacspeak-epub-bookshelf-save))))
+
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
@@ -518,7 +543,7 @@ Suitable for text searches."
           (let ((start (point)))
             (insert
              (format "%-20s\t%s"
-                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)) )
+                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))
                      (propertize
                       (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
                       'face 'font-lock-string-face)))
@@ -562,6 +587,7 @@ Letters do not insert themselves; instead, they are commands.
         ("f" emacspeak-epub-browse-files)
         ("o" emacspeak-epub-open)
         ("t" emacspeak-epub-fulltext)
+        ("a" emacspeak-epub-bookshelf-add-directory)
         ("n" next-line)
         ("p" previous-line)
         ([return] emacspeak-epub-open)
