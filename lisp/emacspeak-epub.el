@@ -413,7 +413,8 @@ Interactive prefix arg searches recursively in directory."
   "Save bookshelf metadata."
   (interactive)
   (declare (special emacspeak-epub-db-file))
-  (let ((buff (find-file-noselect emacspeak-epub-db-file)))
+  (let ((buff (find-file-noselect emacspeak-epub-db-file))
+        (emacspeak-speak-messages nil))
     (save-excursion
       (set-buffer buff)
       (setq buffer-undo-list t)
@@ -421,9 +422,7 @@ Interactive prefix arg searches recursively in directory."
       (print  emacspeak-epub-db  buff)
       (save-buffer buff)
       (kill-buffer buff)
-      (when (ems-interactive-p )
-        (message "Saved EPub bookshelf.")
-        (emacspeak-auditory-icon 'save-object)))))
+      (when (ems-interactive-p ) (emacspeak-auditory-icon 'save-object)))))
 
 (defun emacspeak-epub-bookshelf-load ()
   "Load bookshelf metadata from disk."
@@ -632,9 +631,11 @@ Letters do not insert themselves; instead, they are commands.
         ("o" emacspeak-epub-open)
         ("t" emacspeak-epub-fulltext)
         ("a" emacspeak-epub-bookshelf-add-directory)
+        ("r" emacspeak-epub-bookshelf-remove-directory)
         ("n" next-line)
         ("p" previous-line)
         ([return] emacspeak-epub-open)
+        ("\C-l" emacspeak-epub-bookshelf-redraw)
         ("\C-m" emacspeak-epub-open)
         ("G" emacspeak-epub-gutenberg-download)
         ("C" emacspeak-epub-gutenberg-catalog)
