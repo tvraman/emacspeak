@@ -389,6 +389,25 @@ Interactive prefix arg searches recursively in directory."
       (emacspeak-epub-bookshelf-redraw)
       (message "Added %d books. " updated))))
 
+(defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
+  "Remove EPubs found in specified directory to the bookshelf.
+Interactive prefix arg searches recursively in directory."
+  (interactive "DRemove Directory: \nP")
+  (declare (special emacspeak-epub-db-file emacspeak-epub-db))
+  (let ((updated 0))
+    (loop for f in
+          (if recursive
+              (emacspeak-epub-find-epubs-in-directory directory)
+            (directory-files directory  'full "epub"))
+          do
+          (when (gethash f emacspeak-epub-db)
+            (incf updated)
+            (remhash f emacspeak-epub-db)))    
+    (unless (zerop updated)
+      (emacspeak-epub-bookshelf-save)
+      (emacspeak-epub-bookshelf-redraw)
+      (message "Removed %d books. " updated))))
+
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
