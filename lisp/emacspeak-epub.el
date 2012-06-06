@@ -576,8 +576,9 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
-(defsubst emacspeak-epub-bookshelf-redraw ()
+(defun emacspeak-epub-bookshelf-redraw ()
   "Redraw Bookshelf."
+  (interactive)
   (declare (special  emacspeak-epub-db))
   (let ((inhibit-read-only t))
     (erase-buffer)
@@ -593,7 +594,8 @@ Suitable for text searches."
             (put-text-property start (point) 'epub f)
             (insert "\n")))
     (sort-lines nil (point-min) (point-max))
-    (goto-char (point-min))))
+    (goto-char (point-min)))
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-refresh ()
