@@ -318,22 +318,26 @@ Useful if table of contents in toc.ncx is empty."
   "Update bookshelf metadata."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db
                     emacspeak-epub-library-directory))
-  (let ((updated nil))
-    (loop for f in
-          (directory-files emacspeak-epub-library-directory  'full "epub")
-          do
-          (unless (gethash f emacspeak-epub-db)
-            (setq updated t)
-            (let* ((fields (emacspeak-epub-get-metadata
-                            (emacspeak-epub-make-epub f)))
-                   (title (first fields))
-                   (author  (second fields)))
-              (when (zerop (length title)) (setq title "Untitled"))
-              (when (zerop (length author)) (setq author "Unknown"))
-              (setf (gethash f emacspeak-epub-db)
-                    (make-emacspeak-epub-metadata
-                     :title title
-                     :author author)))))
+  (let ((updated nil)
+        (filename nil))
+    (loop
+     for f in
+     (directory-files emacspeak-epub-library-directory  'full "epub")
+     do
+     (setq filename (shell-quote-argument f))
+     (unless
+         (gethash filename emacspeak-epub-db)
+       (setq updated t)
+       (let* ((fields
+               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
+              (title (first fields))
+              (author  (second fields)))
+         (when (zerop (length title)) (setq title "Untitled"))
+         (when (zerop (length author)) (setq author "Unknown"))
+         (setf (gethash filename emacspeak-epub-db)
+               (make-emacspeak-epub-metadata
+                :title title
+                :author author)))))
     (loop for f being the hash-keys of emacspeak-epub-db
           do
           (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
@@ -361,23 +365,27 @@ Useful if table of contents in toc.ncx is empty."
 (defun emacspeak-epub-bookshelf-add-directory (directory &optional recursive)
   "Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory."
-  (interactive "DAdd Directory: \nP")
+  (interactive "DAdd books from Directory: \nP")
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
-  (let ((updated 0))
-    (loop for f in
-          (if recursive
-              (emacspeak-epub-find-epubs-in-directory directory)
-            (directory-files directory  'full "epub"))
+  (let ((updated 0)
+        (filename nil))
+    (loop
+     for f in
+     (if recursive
+         (emacspeak-epub-find-epubs-in-directory directory)
+       (directory-files directory  'full "epub"))
           do
-          (unless (gethash f emacspeak-epub-db)
+          (setq filename (shell-quote-argument f))
+          (unless
+              (gethash filename emacspeak-epub-db)
             (incf updated)
-            (let* ((fields (emacspeak-epub-get-metadata
-                            (emacspeak-epub-make-epub f)))
+            (let* ((fields
+                    (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
                    (title (first fields))
                    (author  (second fields)))
               (when (zerop (length title)) (setq title "Untitled"))
               (when (zerop (length author)) (setq author "Unknown"))
-              (setf (gethash f emacspeak-epub-db)
+              (setf (gethash filename emacspeak-epub-db)
                     (make-emacspeak-epub-metadata
                      :title title
                      :author author)))))
@@ -390,19 +398,22 @@ Interactive prefix arg searches recursively in directory."
       (message "Added %d books. " updated))))
 
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
-  "Remove EPubs found in specified directory to the bookshelf.
+  "Remove EPubs found in specified directory from the bookshelf.
 Interactive prefix arg searches recursively in directory."
   (interactive "DRemove Directory: \nP")
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
-  (let ((updated 0))
-    (loop for f in
-          (if recursive
-              (emacspeak-epub-find-epubs-in-directory directory)
-            (directory-files directory  'full "epub"))
-          do
-          (when (gethash f emacspeak-epub-db)
-            (incf updated)
-            (remhash f emacspeak-epub-db)))    
+  (let ((updated 0)
+        (filename nil))
+    (loop
+     for f in
+     (if recursive
+         (emacspeak-epub-find-epubs-in-directory directory)
+       (directory-files directory  'full "epub"))
+     do
+     (setq filename (shell-quote-argument f))
+     (when (gethash filename emacspeak-epub-db)
+       (incf updated)
+       (remhash filename emacspeak-epub-db)))    
     (unless (zerop updated)
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
