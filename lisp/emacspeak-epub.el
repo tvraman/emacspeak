@@ -352,7 +352,7 @@ Useful if table of contents in toc.ncx is empty."
                   nil t nil
                   (expand-file-name directory)
                   "-type" "f"
-                  "-iname" "*epub")
+                  "-name" "*.epub")
     (delete ""
             (split-string (buffer-substring (point-min)
                                             (point-max))
