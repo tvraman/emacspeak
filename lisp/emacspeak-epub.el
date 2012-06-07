@@ -200,7 +200,7 @@
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (split-string
    (shell-command-to-string
-    (format "%s -c -qq '%s' '%s' |  %s --nonet --novalid %s -"
+    (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
             emacspeak-epub-zip-extract
             (emacspeak-epub-path epub) (emacspeak-epub-opf epub)
             emacspeak-xslt-program emacspeak-epub-opf-xsl))
@@ -506,7 +506,7 @@ Suitable for text searches."
       (loop for f in files
             do
             (setq command
-                  (format "unzip -c -qq '%s' '%s' | %s"
+                  (format "unzip -c -qq %s '%s' | %s"
                           epub-file f
                           emacspeak-epub-html-to-text-command))
             (insert (shell-command-to-string command ))
