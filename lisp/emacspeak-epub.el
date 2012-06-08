@@ -183,7 +183,8 @@
       (call-process emacspeak-epub-zip-extract
                     nil t nil
                     "-c" "-qq"
-                    (emacspeak-epub-path epub) element))
+                    (emacspeak-epub-shell-unquote (emacspeak-epub-path epub))
+                    element))
     buffer))
 
 (defvar emacspeak-epub-metadata-xsl
@@ -430,7 +431,8 @@ Interactive prefix arg searches recursively in directory."
           (y-or-n-p "Clear bookshelf?"))
     (clrhash emacspeak-epub-db)
     (emacspeak-epub-bookshelf-save)
-    (emacspeak-epub-bookshelf-redraw)))
+    (emacspeak-epub-bookshelf-redraw)
+    (message "Cleared bookshelf.")))
     
 
 ;;;###autoload
