@@ -112,6 +112,7 @@
           emacspeak-epub-zip-info
           emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
+
 (defsubst emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
@@ -340,8 +341,7 @@ Useful if table of contents in toc.ncx is empty."
                 :author author)))))
     (loop for f being the hash-keys of emacspeak-epub-db
           do
-          (setq filename
-                (shell-command-to-string (format "echo -n %s" f)))
+          (setq filename (emacspeak-epub-shell-unquote f))
           (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
@@ -376,24 +376,21 @@ Interactive prefix arg searches recursively in directory."
      (if recursive
          (emacspeak-epub-find-epubs-in-directory directory)
        (directory-files directory  'full "epub"))
-          do
-          (setq filename (shell-quote-argument f))
-          (unless
-              (gethash filename emacspeak-epub-db)
-            (incf updated)
-            (let* ((fields
-                    (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
-                   (title (first fields))
-                   (author  (second fields)))
-              (when (zerop (length title)) (setq title "Untitled"))
-              (when (zerop (length author)) (setq author "Unknown"))
-              (setf (gethash filename emacspeak-epub-db)
-                    (make-emacspeak-epub-metadata
-                     :title title
-                     :author author)))))
-    (loop for f being the hash-keys of emacspeak-epub-db
-          do
-          (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
+     do
+     (setq filename (shell-quote-argument f))
+     (unless
+         (gethash filename emacspeak-epub-db)
+       (incf updated)
+       (let* ((fields
+               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
+              (title (first fields))
+              (author  (second fields)))
+         (when (zerop (length title)) (setq title "Untitled"))
+         (when (zerop (length author)) (setq author "Unknown"))
+         (setf (gethash filename emacspeak-epub-db)
+               (make-emacspeak-epub-metadata
+                :title title
+                :author author)))))
     (unless (zerop updated)
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
@@ -420,6 +417,15 @@ Interactive prefix arg searches recursively in directory."
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
       (message "Removed %d books. " updated))))
+
+(defun emacspeak-epub-bookshelf-clear ()
+  "Clear all books from bookshelf."
+  (interactive)
+  (declare (special emacspeak-epub-db))
+  (when (or (not (ems-interactive-p))
+            (y-or-n-p "Clear bookshelf?"))
+    (clrhash emacspeak-epub-db)))
+    
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
@@ -564,6 +570,10 @@ Suitable for text searches."
 
 ;;}}}
 ;;{{{ Epub Mode:
+
+(defsubst emacspeak-epub-shell-unquote (f)
+  "Reverse effect of shell-quote-argument."
+(shell-command-to-string (format "echo -n %s" f)))
 (defsubst emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
   (let ((len (length name))
@@ -646,6 +656,7 @@ Letters do not insert themselves; instead, they are commands.
         ("o" emacspeak-epub-open)
         ("t" emacspeak-epub-fulltext)
         ("a" emacspeak-epub-bookshelf-add-directory)
+        ("c" emacspeak-epub-bookshelf-clear)
         ("r" emacspeak-epub-bookshelf-remove-directory)
         ("n" next-line)
         ("p" previous-line)
