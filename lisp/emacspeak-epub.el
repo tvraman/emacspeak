@@ -425,9 +425,12 @@ Interactive prefix arg searches recursively in directory."
   "Clear all books from bookshelf."
   (interactive)
   (declare (special emacspeak-epub-db))
-  (when (or (not (ems-interactive-p))
-            (y-or-n-p "Clear bookshelf?"))
-    (clrhash emacspeak-epub-db)))
+  (when
+      (or (not (ems-interactive-p))
+          (y-or-n-p "Clear bookshelf?"))
+    (clrhash emacspeak-epub-db)
+    (emacspeak-epub-bookshelf-save)
+    (emacspeak-epub-bookshelf-redraw)))
     
 
 ;;;###autoload
