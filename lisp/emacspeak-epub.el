@@ -314,6 +314,9 @@ Useful if table of contents in toc.ncx is empty."
 (defstruct emacspeak-epub-metadata
   title
   author)
+(defsubst emacspeak-epub-shell-unquote (f)
+  "Reverse effect of shell-quote-argument."
+(shell-command-to-string (format "echo -n %s" f)))
 
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
@@ -571,9 +574,7 @@ Suitable for text searches."
 ;;}}}
 ;;{{{ Epub Mode:
 
-(defsubst emacspeak-epub-shell-unquote (f)
-  "Reverse effect of shell-quote-argument."
-(shell-command-to-string (format "echo -n %s" f)))
+
 (defsubst emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
   (let ((len (length name))
