@@ -340,7 +340,9 @@ Useful if table of contents in toc.ncx is empty."
                 :author author)))))
     (loop for f being the hash-keys of emacspeak-epub-db
           do
-          (unless (file-exists-p f) (remhash f emacspeak-epub-db)))
+          (setq filename
+                (shell-command-to-string (format "echo -n %s" f)))
+          (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
 
