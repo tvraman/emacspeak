@@ -367,7 +367,16 @@ Useful if table of contents in toc.ncx is empty."
             (split-string (buffer-substring (point-min)
                                             (point-max))
                           "\n"))))
-
+(defun emacspeak-epub-bookshelf-save (name)
+  "Saves current bookshelf to  specified name."
+  (interactive "sBookshelf Name: ")
+  (declare (special emacspeak-epub-library-directory))
+  (copy-file
+   (expand-file-name ".bookshelf"
+                     emacspeak-epub-library-directory)
+   (expand-file-name (format "%s.bsf" name)
+                     emacspeak-epub-library-directory))
+  (message "Copied current bookshelf to %s" name))
 (defun emacspeak-epub-bookshelf-add-directory (directory &optional recursive)
   "Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory."
@@ -664,6 +673,8 @@ Letters do not insert themselves; instead, they are commands.
         ("a" emacspeak-epub-bookshelf-add-directory)
         ("c" emacspeak-epub-bookshelf-clear)
         ("r" emacspeak-epub-bookshelf-remove-directory)
+        ("s" emacspeak-epub-bookshelf-save)
+        ("b" emacspeak-epub-bookshelf-change)
         ("n" next-line)
         ("p" previous-line)
         ([return] emacspeak-epub-open)
