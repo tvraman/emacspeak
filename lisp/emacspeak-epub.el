@@ -698,7 +698,7 @@ Letters do not insert themselves; instead, they are commands.
         ("a" emacspeak-epub-bookshelf-add-directory)
         ("c" emacspeak-epub-bookshelf-clear)
         ("r" emacspeak-epub-bookshelf-remove-directory)
-        ("s" emacspeak-epub-bookshelf-rename)
+        ("e" emacspeak-epub-bookshelf-rename)
         ("b" emacspeak-epub-bookshelf-open)
         ("n" next-line)
         ("p" previous-line)
