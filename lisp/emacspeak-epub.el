@@ -367,7 +367,7 @@ Useful if table of contents in toc.ncx is empty."
             (split-string (buffer-substring (point-min)
                                             (point-max))
                           "\n"))))
-(defun emacspeak-epub-bookshelf-save (name)
+(defun emacspeak-epub-bookshelf-rename (name)
   "Saves current bookshelf to  specified name."
   (interactive "sBookshelf Name: ")
   (declare (special emacspeak-epub-library-directory))
@@ -439,6 +439,8 @@ Interactive prefix arg searches recursively in directory."
       (or (not (ems-interactive-p))
           (y-or-n-p "Clear bookshelf?"))
     (clrhash emacspeak-epub-db)
+    (setq header-line-format
+        (propertize "EPub Bookshelf" 'face 'bold))
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
     (message "Cleared bookshelf.")))
@@ -471,6 +473,29 @@ Interactive prefix arg searches recursively in directory."
         (goto-char (point-min))
         (setq emacspeak-epub-db (read buffer)))
       (kill-buffer buffer))))
+(defun emacspeak-epub-bookshelf-open (bookshelf)
+  "Load bookshelf metadata from specified bookshelf."
+  (interactive
+   (list
+    (read-file-name "BookShelf: "
+                    emacspeak-epub-library-directory
+                    nil t nil
+                    #'(lambda (s) (string-match ".bsf$" s)))))
+  (declare (special emacspeak-epub-db))
+  (let ((buffer (find-file-noselect bookshelf))
+        (bookshelf-name  (substring (file-name-nondirectory bookshelf ) 0 -4)))
+    (with-current-buffer buffer
+      (goto-char (point-min))
+      (setq emacspeak-epub-db (read buffer)))
+    (kill-buffer buffer)
+    (emacspeak-epub-bookshelf-redraw)
+    (setq header-line-format
+        (propertize
+         (format "EPub Bookshelf: %s" bookshelf-name)
+         'face 'bold))
+    (emacspeak-auditory-icon 'open-object)
+    (message "%s" bookshelf-name)))
+
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -673,8 +698,8 @@ Letters do not insert themselves; instead, they are commands.
         ("a" emacspeak-epub-bookshelf-add-directory)
         ("c" emacspeak-epub-bookshelf-clear)
         ("r" emacspeak-epub-bookshelf-remove-directory)
-        ("s" emacspeak-epub-bookshelf-save)
-        ("b" emacspeak-epub-bookshelf-change)
+        ("s" emacspeak-epub-bookshelf-rename)
+        ("b" emacspeak-epub-bookshelf-open)
         ("n" next-line)
         ("p" previous-line)
         ([return] emacspeak-epub-open)
