@@ -665,11 +665,11 @@ Suitable for text searches."
           do
           (let ((start (point)))
             (insert
-             (format "%-20s\t%s"
-                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))
+             (format "%-50s\t%s"
                      (propertize
                       (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
-                      'face 'font-lock-string-face)))
+                      'face 'font-lock-string-face)
+                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))))
             (put-text-property start (point) 'epub f)
             (insert "\n")))
     (sort-lines nil (point-min) (point-max))
