@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 660 user customizable
+This chapter documents a total of 681 user customizable
   options.
 
 @menu
@@ -65,6 +65,7 @@ This chapter documents a total of 660 user customizable
 * emacspeak-url-template Options::
 * emacspeak-vm Options::
 * emacspeak-w3 Options::
+* emacspeak-w3m Options::
 * emacspeak-we Options::
 * emacspeak-websearch Options::
 * emacspeak-webspace Options::
@@ -180,10 +181,6 @@ Automatically generated documentation
 for options defined in module  dtk-unicode.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} dtk-unicode-character-replacement-alist
-Explicit replacements for some characters.
-@end defvar
-
 @defvar {User Option} dtk-unicode-name-transformation-rules-alist
 Alist of character name transformation rules.
 @end defvar
@@ -268,6 +265,14 @@ Specifies if error messages are cued.
 * Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-tooltips
+Enable to get tooltips spoken.
+@end defvar
+
+@defvar {User Option} emacspeak-untabify-fixes-non-breaking-space
+Advice untabify to change non-breaking space chars to space.
 @end defvar
 
 @node emacspeak-alsaplayer Options
@@ -1171,6 +1176,15 @@ field in the customization buffer.  You can use the notation
 Automatically generated documentation
 for options defined in module  emacspeak-loaddefs.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} dtk-unicode-character-replacement-alist
+Explicit replacements for some characters.
+@end defvar
+
+@defvar {User Option} dtk-unicode-process-utf8
+Turn this off when working with TTS  engines that handle UTF8
+themselves, e.g., when using an Asian language.
+@end defvar
 
 @defvar {User Option} emacspeak-atom-feeds
 Table of ATOM feeds.
@@ -2171,6 +2185,23 @@ Options to pass to tidy program
 
 @defvar {User Option} emacspeak-w3-tidy-program
 Name of tidy executable
+@end defvar
+
+@node emacspeak-w3m Options
+@section emacspeak-w3m Options
+
+Commentary:
+
+
+
+Automatically generated documentation
+for options defined in module  emacspeak-w3m.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-w3m-speak-titles-on-switch
+Speak the document title when switching between w3m buffers.
+If non-nil, switching between w3m buffers will speak the title
+instead of the modeline.
 @end defvar
 
 @node emacspeak-we Options
@@ -4103,6 +4134,91 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-voice-lock-warning-personality
 Personality used for font-lock-warning-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-anchor-voice
+Personality used for w3m-anchor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
+Personality used for w3m-arrived-anchor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-bold-voice
+Personality used for w3m-bold
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-voice
+Personality used for w3m-current-anchor
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
+Personality used for w3m-form-button-pressed
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-voice
+Personality used for w3m-form-button
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-voice
+Personality used for w3m-form
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
+Personality used for w3m-header-line-location-content
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
+Personality used for w3m-header-line-location-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-history-current-url-voice
+Personality used for w3m-history-current-url
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-voice
+Personality used for w3m-image
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-voice
+Personality used for w3m-insert
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-voice
+Personality used for w3m-italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-voice
+Personality used for w3m-strike-through
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-voice
+Personality used for w3m-tab-selected
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-voice
+Personality used for w3m-tab-unselected
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-voice
+Personality used for w3m-underline
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-widget-button-pressed-voice
