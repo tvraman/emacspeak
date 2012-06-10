@@ -431,6 +431,22 @@ Interactive prefix arg searches recursively in directory."
       (emacspeak-epub-bookshelf-redraw)
       (message "Removed %d books. " updated))))
 
+(defun emacspeak-epub-bookshelf-remove-this-book ( )
+  "Remove the book on current line from this bookshelf.
+No book files are deleted."
+  (interactive)
+  (declare (special  emacspeak-epub-db))
+  (let ((epub (get-text-property (point) 'epub))
+        (orig (point)))
+    (when epub
+    (remhash epub emacspeak-epub-db      )
+      (emacspeak-epub-bookshelf-save)
+      (emacspeak-epub-bookshelf-redraw)
+      (emacspeak-auditory-icon 'task-done)
+      (goto-char orig)
+      (emacspeak-speak-line))))
+
+
 (defun emacspeak-epub-bookshelf-clear ()
   "Clear all books from bookshelf."
   (interactive)
@@ -695,6 +711,7 @@ Letters do not insert themselves; instead, they are commands.
         ("f" emacspeak-epub-browse-files)
         ("o" emacspeak-epub-open)
         ("t" emacspeak-epub-fulltext)
+        ("\C-d" emacspeak-epub-bookshelf-remove-this-book)
         ("a" emacspeak-epub-bookshelf-add-directory)
         ("c" emacspeak-epub-bookshelf-clear)
         ("r" emacspeak-epub-bookshelf-remove-directory)
