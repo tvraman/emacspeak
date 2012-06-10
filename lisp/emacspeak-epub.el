@@ -73,7 +73,7 @@
 ;;;###autoload
 (defcustom emacspeak-epub-library-directory
   (expand-file-name "~/epubs/")
-  "Directory under which we store Epubs."
+  "irectory under which we store Epubs."
   :type 'directory
   :group 'emacspeak-epub)
 ;;;###autoload
@@ -704,27 +704,27 @@ Letters do not insert themselves; instead, they are commands.
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
-        ("\M-s" emacspeak-epub-bookshelf-save)
-        ("\C-x\C-s" emacspeak-epub-bookshelf-save)
-        ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
-        ("d" emacspeak-epub-delete)
-        ("f" emacspeak-epub-browse-files)
-        ("o" emacspeak-epub-open)
-        ("t" emacspeak-epub-fulltext)
+        ("C" emacspeak-epub-gutenberg-catalog)
+        ("G" emacspeak-epub-gutenberg-download)
         ("\C-d" emacspeak-epub-bookshelf-remove-this-book)
-        ("a" emacspeak-epub-bookshelf-add-directory)
-        ("c" emacspeak-epub-bookshelf-clear)
-        ("r" emacspeak-epub-bookshelf-remove-directory)
-        ("e" emacspeak-epub-bookshelf-rename)
-        ("b" emacspeak-epub-bookshelf-open)
-        ("n" next-line)
-        ("p" previous-line)
-        ([return] emacspeak-epub-open)
+        ("\C-k" emacspeak-epub-delete)
         ("\C-l" emacspeak-epub-bookshelf-redraw)
         ("\C-m" emacspeak-epub-open)
-        ("G" emacspeak-epub-gutenberg-download)
-        ("C" emacspeak-epub-gutenberg-catalog)
+        ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
+        ("\C-x\C-s" emacspeak-epub-bookshelf-save)
+        ("\M-s" emacspeak-epub-bookshelf-save)
+        ("a" emacspeak-epub-bookshelf-add-directory)
+        ("b" emacspeak-epub-bookshelf-open)
+        ("c" emacspeak-epub-bookshelf-clear)
+        ("d" emacspeak-epub-bookshelf-remove-directory)
+        ("e" emacspeak-epub-bookshelf-rename)
+        ("f" emacspeak-epub-browse-files)
         ("g" emacspeak-epub-google)
+        ("n" next-line)
+        ("o" emacspeak-epub-open)
+        ("p" previous-line)
+        ("t" emacspeak-epub-fulltext)
+        ([return] emacspeak-epub-open)
         )
       do
       (emacspeak-keymap-update emacspeak-epub-mode-map k))
