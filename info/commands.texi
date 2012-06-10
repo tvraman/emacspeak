@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 963 commands.
+This chapter documents a total of 969 commands.
 
 @menu
 * cd-tool::
@@ -27,7 +27,6 @@ This chapter documents a total of 963 commands.
 * emacspeak-dired::
 * emacspeak-ecb::
 * emacspeak-ediff::
-* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -75,6 +74,7 @@ This chapter documents a total of 963 commands.
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
+* emacspeak-w3m::
 * emacspeak-we::
 * emacspeak-websearch::
 * emacspeak-webspace::
@@ -92,7 +92,6 @@ This chapter documents a total of 963 commands.
 * emacspeak-moz::
 * emacspeak-org::
 * emacspeak-piglets::
-* emacspeak-w3m::
 * URL Templates ::
 @end menu
 
@@ -1524,26 +1523,6 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track nil
-@kbd{Not bound to any key.}
-
-Speak current track.
-@end deffn
-
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -1643,16 +1622,54 @@ EPub  Interaction.
 For detailed documentation, see M-x emacspeak-epub-mode
 @end deffn
 
+@deffn {Interactive Command} emacspeak-epub-bookshelf-add-directory nil
+@kbd{Not bound to any key.}
+
+Add EPubs found in specified directory to the bookshelf.
+Interactive prefix arg searches recursively in directory.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-clear nil
+@kbd{Not bound to any key.}
+
+Clear all books from bookshelf.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-epub-bookshelf-load nil
 @kbd{Not bound to any key.}
 
 Load bookshelf metadata from disk.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-epub-bookshelf-open nil
+@kbd{Not bound to any key.}
+
+Load bookshelf metadata from specified bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-redraw nil
+@kbd{Not bound to any key.}
+
+Redraw Bookshelf.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-epub-bookshelf-refresh nil
 @kbd{Not bound to any key.}
 
 Refresh and redraw bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-remove-directory nil
+@kbd{Not bound to any key.}
+
+Remove EPubs found in specified directory from the bookshelf.
+Interactive prefix arg searches recursively in directory.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-rename nil
+@kbd{Not bound to any key.}
+
+Saves current bookshelf to  specified name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-save nil
@@ -1709,17 +1726,23 @@ Letters do not insert themselves; instead, they are commands.
 key             binding
 ---             -------
 
+C-l		emacspeak-epub-bookshelf-redraw
 RET		emacspeak-epub-open
 C-x		Prefix Command
 ESC		Prefix Command
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-gutenberg-download
+a		emacspeak-epub-bookshelf-add-directory
+b		emacspeak-epub-bookshelf-open
+c		emacspeak-epub-bookshelf-clear
 d		emacspeak-epub-delete
+e		emacspeak-epub-bookshelf-rename
 f		emacspeak-epub-browse-files
 g		emacspeak-epub-google
 n		next-line
 o		emacspeak-epub-open
 p		previous-line
+r		emacspeak-epub-bookshelf-remove-directory
 t		emacspeak-epub-fulltext
 <return>	emacspeak-epub-open
 
@@ -2830,15 +2853,6 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
-@deffn {Interactive Command} emacspeak-m-player nil
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer nil
 @kbd{Not bound to any key.}
 
@@ -3440,6 +3454,7 @@ p		emacspeak-ocr-page
 q		bury-buffer
 s		emacspeak-ocr-save-current-page
 w		emacspeak-ocr-write-document
+
 .
 
 In addition to any hooks its parent mode `text-mode' might have run,
@@ -3742,7 +3757,7 @@ Forward-char redefined to speak char moved to.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-self-insert-command nil
-@kbd{ SPACE..~   €..ÿ }
+@kbd{Not bound to any key.}
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -4416,6 +4431,12 @@ Speak the start of, rest of, or the entire paragraph.
 's' to speak the start.
 'r' to speak the rest.
 any other key to speak entire paragraph.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-preceding-char nil
+@kbd{Not bound to any key.}
+
+Speak character before point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-predefined-window nil
@@ -5581,6 +5602,31 @@ Speak document element under point.
 @kbd{Not bound to any key.}
 
 Toggle drawing of W3 table borders
+@end deffn
+
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-m-player nil
+@kbd{Not bound to any key.}
+
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
+@kbd{Not bound to any key.}
+
+Preview this buffer in w3m.
 @end deffn
 
 @node emacspeak-we
@@ -8335,24 +8381,6 @@ Start TTS  engine for Piglets.
 @kbd{Not bound to any key.}
 
 Kill TTS  process.
-
-(fn)
-@end deffn
-
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-Commentary:
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3m.
-
-@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer nil
-@kbd{Not bound to any key.}
-
-Preview this buffer in w3m.
 
 (fn)
 @end deffn

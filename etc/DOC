@@ -403,6 +403,7 @@ M-l		emacspeak-amark-load
 M-s		emacspeak-amark-save
 
 
+
 This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization. 
 
@@ -678,6 +679,7 @@ M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
 
+
 In addition to any hooks its parent mode `special-mode' might have run,
 this mode runs the hook `emacspeak-bookshare-mode-hook', as the final step
 during initialization. 
@@ -858,6 +860,7 @@ q		bury-buffer
 s		emacspeak-daisy-stop-audio
 
 
+
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
 during initialization. 
@@ -973,10 +976,6 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1017,11 +1016,37 @@ For detailed documentation, see M-x emacspeak-epub-mode
 
 ------------------------------------------------------------
 
+** emacspeak-epub-bookshelf-add-directory Add EPubs found in specified directory to the bookshelf.
+Interactive prefix arg searches recursively in directory. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-clear Clear all books from bookshelf. 
+
+------------------------------------------------------------
+
 ** emacspeak-epub-bookshelf-load Load bookshelf metadata from disk. 
 
 ------------------------------------------------------------
 
+** emacspeak-epub-bookshelf-open Load bookshelf metadata from specified bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-redraw Redraw Bookshelf. 
+
+------------------------------------------------------------
+
 ** emacspeak-epub-bookshelf-refresh Refresh and redraw bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-remove-directory Remove EPubs found in specified directory from the bookshelf.
+Interactive prefix arg searches recursively in directory. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-rename Saves current bookshelf to  specified name. 
 
 ------------------------------------------------------------
 
@@ -1062,17 +1087,23 @@ Letters do not insert themselves; instead, they are commands.
 key             binding
 ---             -------
 
+C-l		emacspeak-epub-bookshelf-redraw
 RET		emacspeak-epub-open
 C-x		Prefix Command
 ESC		Prefix Command
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-gutenberg-download
+a		emacspeak-epub-bookshelf-add-directory
+b		emacspeak-epub-bookshelf-open
+c		emacspeak-epub-bookshelf-clear
 d		emacspeak-epub-delete
+e		emacspeak-epub-bookshelf-rename
 f		emacspeak-epub-browse-files
 g		emacspeak-epub-google
 n		next-line
 o		emacspeak-epub-open
 p		previous-line
+r		emacspeak-epub-bookshelf-remove-directory
 t		emacspeak-epub-fulltext
 <return>	emacspeak-epub-open
 
@@ -1080,6 +1111,7 @@ C-x C-q		emacspeak-epub-bookshelf-refresh
 C-x C-s		emacspeak-epub-bookshelf-save
 
 M-s		emacspeak-epub-bookshelf-save
+
 
 
 In addition to any hooks its parent mode `special-mode' might have run,
@@ -1371,6 +1403,7 @@ key             binding
 =		keep-lines
 ^		flush-lines
 r		emacspeak-filtertext-revert
+
 
 
 In addition to any hooks its parent mode `text-mode' might have run,
@@ -1699,6 +1732,7 @@ u		emacspeak-librivox-open-url
 S a		emacspeak-librivox-search-author
 S g		emacspeak-librivox-search-genre
 S t		emacspeak-librivox-search-title
+
  
 
 ------------------------------------------------------------
@@ -1746,13 +1780,6 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result. 
-
-------------------------------------------------------------
-
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
@@ -1917,6 +1944,7 @@ C-e m		emacspeak-m-player-speak-mode-line
 M-l		emacspeak-m-player-load-playlist
 
 
+
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization. 
@@ -2051,6 +2079,7 @@ p .. q		emacspeak-madplay-madplay-call-command
 s .. t		emacspeak-madplay-madplay-call-command
 <left>		emacspeak-aumix-wave-decrease
 <right>		emacspeak-aumix-wave-increase
+
 
 
 This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
@@ -2188,6 +2217,7 @@ p		emacspeak-ocr-page
 q		bury-buffer
 s		emacspeak-ocr-save-current-page
 w		emacspeak-ocr-write-document
+
 .
 
 
@@ -2386,9 +2416,7 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: SPACE..~   €..ÿ 
-
- Insert a character.
+** emacspeak-self-insert-command Insert a character.
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 C-e d w.
@@ -2929,6 +2957,10 @@ If voice-lock-mode is on, then it will use any defined personality.
 's' to speak the start.
 'r' to speak the rest.
 any other key to speak entire paragraph. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-preceding-char Speak character before point. 
 
 ------------------------------------------------------------
 
@@ -3734,6 +3766,17 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
+
+------------------------------------------------------------
+
 ** emacspeak-we-class-filter-and-follow Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -4266,6 +4309,7 @@ r		greader-reading-list
 t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
+
 
 
 In addition to any hooks its parent mode `special-mode' might have run,
@@ -4822,6 +4866,7 @@ during initialization.
 
 key             binding
 ---             -------
+
  
 
 ------------------------------------------------------------
@@ -4890,6 +4935,7 @@ during initialization.
 
 key             binding
 ---             -------
+
  
 
 ------------------------------------------------------------
@@ -5031,6 +5077,7 @@ during initialization.
 
 key             binding
 ---             -------
+
  
 
 ------------------------------------------------------------
@@ -5177,6 +5224,7 @@ key             binding
 C-l		emacspeak-wizards-vc-viewer-refresh
 
 
+
 This mode runs the hook `emacspeak-wizards-vc-viewer-mode-hook', as the final step
 during initialization. 
 
@@ -5220,6 +5268,7 @@ during initialization.
 
 key             binding
 ---             -------
+
  
 
 ------------------------------------------------------------
@@ -5267,6 +5316,7 @@ C-c		Prefix Command
 
 C-c C-v		emacspeak-xml-shell-browse-result
 C-c v		emacspeak-xml-shell-browse-current
+
 
 
 In addition to any hooks its parent mode `comint-mode' might have run,
@@ -5318,6 +5368,7 @@ s		emacspeak-zinf-zinf-call-command
 z		emacspeak-zinf
 <left>		emacspeak-aumix-wave-decrease
 <right>		emacspeak-aumix-wave-increase
+
 
 
 This mode runs the hook `emacspeak-zinf-mode-hook', as the final step
@@ -5593,12 +5644,6 @@ take effect.
 ------------------------------------------------------------
 
 ** emacspeak-piglets-tts-stop Kill TTS  process.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m.
 
 (fn) 
 
