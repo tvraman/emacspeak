@@ -8,7 +8,7 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
+;;; $Date: 2008-06-21 10:60:41 -0700 (Sat, 21 Jun 2008) $ |
 ;;;  $Revision: 4541 $ |
 ;;; Location undetermined
 ;;;
