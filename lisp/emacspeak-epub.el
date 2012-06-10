@@ -655,6 +655,19 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
+(defsubst emacspeak-epub-insert-formatted-line (key)
+  "Insert a formatted line of the bookshelf."
+  (declare (special emacspeak-epub-db))
+  (let ((start (point))
+        (epub (gethash key emacspeak-epub-db)))
+    (insert
+     (format "%-60s\t%s"
+             (propertize (emacspeak-epub-metadata-title epub)
+                         'face 'font-lock-string-face)
+             (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
+    (put-text-property start (point) 'epub key)
+    (insert "\n")))
+
 (defun emacspeak-epub-bookshelf-redraw ()
   "Redraw Bookshelf."
   (interactive)
@@ -663,15 +676,7 @@ Suitable for text searches."
     (erase-buffer)
     (loop for f being the hash-keys  of  emacspeak-epub-db
           do
-          (let ((start (point)))
-            (insert
-             (format "%-60s\t%s"
-                     (propertize
-                      (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
-                      'face 'font-lock-string-face)
-                     (emacspeak-epub-format-author (emacspeak-epub-metadata-author (gethash f emacspeak-epub-db)))))
-            (put-text-property start (point) 'epub f)
-            (insert "\n")))
+          (emacspeak-epub-insert-formatted-line f))
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
   (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
