@@ -665,7 +665,7 @@ Suitable for text searches."
           do
           (let ((start (point)))
             (insert
-             (format "%-50s\t%s"
+             (format "%-60s\t%s"
                      (propertize
                       (emacspeak-epub-metadata-title (gethash f emacspeak-epub-db))
                       'face 'font-lock-string-face)
