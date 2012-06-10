@@ -723,6 +723,7 @@ Letters do not insert themselves; instead, they are commands.
         ("n" next-line)
         ("o" emacspeak-epub-open)
         ("p" previous-line)
+        ("r" emacspeak-epub-bookshelf-rename)
         ("t" emacspeak-epub-fulltext)
         ([return] emacspeak-epub-open)
         )
