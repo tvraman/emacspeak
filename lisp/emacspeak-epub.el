@@ -655,28 +655,39 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
-(defsubst emacspeak-epub-insert-formatted-line (key)
-  "Insert a formatted line of the bookshelf."
+(defsubst emacspeak-epub-insert-formatted-line (key &optional author-first)
+  "Insert a formatted line of the bookshelf.
+Optional prefix arg author-first swaps title and author."
   (declare (special emacspeak-epub-db))
   (let ((start (point))
         (epub (gethash key emacspeak-epub-db)))
-    (insert
-     (format "%-60s\t%s"
-             (propertize (emacspeak-epub-metadata-title epub)
-                         'face 'font-lock-string-face)
-             (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
-    (put-text-property start (point) 'epub key)
-    (insert "\n")))
+    (cond
+     (author-first
+      (insert
+       (format "%-60s\t%s"
+               ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
+               (propertize (emacspeak-epub-metadata-title epub)
+                           'face 'font-lock-string-face)))
+      (insert "\n"))
+     (t (insert
+         (format "%-60s\t%s"
+                 (propertize (emacspeak-epub-metadata-title epub)
+                             'face 'font-lock-string-face)
+                 (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
+        (put-text-property start (point) 'epub key)
+        (insert "\n")))))
 
-(defun emacspeak-epub-bookshelf-redraw ()
-  "Redraw Bookshelf."
-  (interactive)
+(defun emacspeak-epub-bookshelf-redraw (&optional author-first)
+  "Redraw Bookshelf.
+Optional interactive prefix arg author-first prints author at the
+  left."
+  (interactive "P")
   (declare (special  emacspeak-epub-db))
   (let ((inhibit-read-only t))
     (erase-buffer)
     (loop for f being the hash-keys  of  emacspeak-epub-db
           do
-          (emacspeak-epub-insert-formatted-line f))
+          (emacspeak-epub-insert-formatted-line f author-first))
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
   (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
