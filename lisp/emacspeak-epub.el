@@ -171,6 +171,10 @@
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
 
+(defsubst emacspeak-epub-shell-unquote (f)
+  "Reverse effect of shell-quote-argument."
+(shell-command-to-string (format "echo -n %s" f)))
+
 (defun emacspeak-epub-get-contents (epub element)
   "Return buffer containing contents of element from epub."
   (declare (special emacspeak-epub-scratch))
@@ -315,9 +319,7 @@ Useful if table of contents in toc.ncx is empty."
 (defstruct emacspeak-epub-metadata
   title
   author)
-(defsubst emacspeak-epub-shell-unquote (f)
-  "Reverse effect of shell-quote-argument."
-(shell-command-to-string (format "echo -n %s" f)))
+
 
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
@@ -655,27 +657,29 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
-(defsubst emacspeak-epub-insert-formatted-line (key &optional author-first)
-  "Insert a formatted line of the bookshelf.
-Optional prefix arg author-first swaps title and author."
+(defsubst emacspeak-epub-insert-title-author (key)
+  "Insert a formatted line of the bookshelf of the form Title --- Author."
   (declare (special emacspeak-epub-db))
   (let ((start (point))
         (epub (gethash key emacspeak-epub-db)))
-    (cond
-     (author-first
-      (insert
-       (format "%-20s%s"
-               ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
-               (propertize (emacspeak-epub-metadata-title epub)
-                           'face 'font-lock-string-face)))
-      (insert "\n"))
-     (t (insert
-         (format "%-60s%s"
-                 (propertize (emacspeak-epub-metadata-title epub)
-                             'face 'font-lock-string-face)
-                 (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
-        (put-text-property start (point) 'epub key)
-        (insert "\n")))))
+    (insert
+     (format "%-60s%s\n"
+             (propertize (emacspeak-epub-metadata-title epub)
+                         'face 'font-lock-string-face)
+             (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
+    (put-text-property start (point) 'epub key)))
+
+(defsubst emacspeak-epub-insert-author-title (key)
+  "Insert a formatted line of the bookshelf of the form Author --- Title ."
+  (declare (special emacspeak-epub-db))
+  (let ((start (point))
+        (epub (gethash key emacspeak-epub-db)))
+    (insert
+     (format "%-20s%s\n"
+             ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
+             (propertize (emacspeak-epub-metadata-title epub)
+                         'face 'font-lock-string-face)))
+    (put-text-property start (point) 'epub key)))
 
 (defun emacspeak-epub-bookshelf-redraw (&optional author-first)
   "Redraw Bookshelf.
@@ -683,11 +687,14 @@ Optional interactive prefix arg author-first prints author at the
   left."
   (interactive "P")
   (declare (special  emacspeak-epub-db))
-  (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t)
+        (formatter (if author-first
+                       'emacspeak-epub-insert-author-title
+                     'emacspeak-epub-insert-title-author)))
     (erase-buffer)
     (loop for f being the hash-keys  of  emacspeak-epub-db
           do
-          (emacspeak-epub-insert-formatted-line f author-first))
+          (funcall formatter  f))
     (sort-lines nil (point-min) (point-max))
     (goto-char (point-min)))
   (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
