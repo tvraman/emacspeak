@@ -664,7 +664,7 @@ Optional prefix arg author-first swaps title and author."
     (cond
      (author-first
       (insert
-       (format "%-60s\t%s"
+       (format "%-20s\t%s"
                ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
                (propertize (emacspeak-epub-metadata-title epub)
                            'face 'font-lock-string-face)))
