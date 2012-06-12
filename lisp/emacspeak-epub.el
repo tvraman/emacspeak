@@ -661,20 +661,20 @@ Suitable for text searches."
   "Insert a formatted line of the bookshelf of the form Title --- Author."
   (let ((start (point)))
     (insert
-     (format "%-60s%s\n"
-             (propertize (emacspeak-epub-metadata-title epub)
-                         'face 'font-lock-string-face)
-             (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
+     (format
+      "%-60s%s\n"
+      (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)
+      (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
     (put-text-property start (point) 'epub key)))
 
 (defsubst emacspeak-epub-insert-author-title (key epub)
   "Insert a formatted line of the bookshelf of the form Author --- Title ."
   (let ((start (point)))
     (insert
-     (format "%-20s%s\n"
-             ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
-             (propertize (emacspeak-epub-metadata-title epub)
-                         'face 'font-lock-string-face)))
+     (format
+      "%-20s%s\n"
+      ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
+      (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)))
     (put-text-property start (point) 'epub key)))
 
 (defun emacspeak-epub-bookshelf-redraw (&optional author-first)
