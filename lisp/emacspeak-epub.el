@@ -657,11 +657,9 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
-(defsubst emacspeak-epub-insert-title-author (key value)
+(defsubst emacspeak-epub-insert-title-author (key epub)
   "Insert a formatted line of the bookshelf of the form Title --- Author."
-  (declare (special emacspeak-epub-db))
-  (let ((start (point))
-        (epub (gethash key emacspeak-epub-db)))
+  (let ((start (point)))
     (insert
      (format "%-60s%s\n"
              (propertize (emacspeak-epub-metadata-title epub)
@@ -669,11 +667,9 @@ Suitable for text searches."
              (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
     (put-text-property start (point) 'epub key)))
 
-(defsubst emacspeak-epub-insert-author-title (key value)
+(defsubst emacspeak-epub-insert-author-title (key epub)
   "Insert a formatted line of the bookshelf of the form Author --- Title ."
-  (declare (special emacspeak-epub-db))
-  (let ((start (point))
-        (epub (gethash key emacspeak-epub-db)))
+  (let ((start (point)))
     (insert
      (format "%-20s%s\n"
              ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
