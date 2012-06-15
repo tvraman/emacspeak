@@ -369,16 +369,18 @@ Useful if table of contents in toc.ncx is empty."
             (split-string (buffer-substring (point-min)
                                             (point-max))
                           "\n"))))
-(defun emacspeak-epub-bookshelf-rename (name)
-  "Saves current bookshelf to  specified name."
-  (interactive "sBookshelf Name: ")
+(defun emacspeak-epub-bookshelf-rename (name &optional overwrite)
+  "Saves current bookshelf to  specified name.
+Interactive prefix arg `overwrite' wil overwrite existing file."
+  (interactive "sBookshelf Name: \nP")
   (declare (special emacspeak-epub-library-directory))
-  (copy-file
-   (expand-file-name ".bookshelf"
-                     emacspeak-epub-library-directory)
-   (expand-file-name (format "%s.bsf" name)
-                     emacspeak-epub-library-directory))
-  (message "Copied current bookshelf to %s" name))
+  (setq name (format "%s.bsf" name))
+  (let ((bookshelf (expand-file-name ".bookshelf" emacspeak-epub-library-directory))
+        (bsf (expand-file-name name emacspeak-epub-library-directory)))
+    (when (and overwrite (file-exists-p bsf)) (delete-file bsf))
+    (copy-file bookshelf bsf)
+    (message "Copied current bookshelf to %s" name)))
+
 (defun emacspeak-epub-bookshelf-add-directory (directory &optional recursive)
   "Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory."
