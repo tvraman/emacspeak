@@ -411,6 +411,29 @@ Interactive prefix arg searches recursively in directory."
       (emacspeak-epub-bookshelf-redraw)
       (message "Added %d books. " updated))))
 
+(defun emacspeak-epub-bookshelf-add-epub (epub-file)
+  "Add epub file to current bookshelf."
+  (interactive "fAdd Book: ")
+  (declare (special  emacspeak-epub-db))
+  (let ((updated 0))
+    (setq filename (shell-quote-argument epub-file))
+    (unless (gethash filename emacspeak-epub-db)
+      (incf updated)
+      (let* ((fields
+              (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
+             (title (first fields))
+             (author  (second fields)))
+        (when (zerop (length title)) (setq title "Untitled"))
+        (when (zerop (length author)) (setq author "Unknown"))
+        (setf (gethash filename emacspeak-epub-db)
+              (make-emacspeak-epub-metadata
+               :title title
+               :author author)))))
+  (unless (zerop updated)
+    (emacspeak-epub-bookshelf-save)
+    (emacspeak-epub-bookshelf-redraw)
+    (message "Added %d books. " updated)))
+
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
   "Remove EPubs found in specified directory from the bookshelf.
 Interactive prefix arg searches recursively in directory."
@@ -723,6 +746,7 @@ Letters do not insert themselves; instead, they are commands.
       '(
         ("C" emacspeak-epub-gutenberg-catalog)
         ("G" emacspeak-epub-gutenberg-download)
+        ("\C-a" emacspeak-epub-bookshelf-add-epub)
         ("\C-d" emacspeak-epub-bookshelf-remove-this-book)
         ("\C-k" emacspeak-epub-delete)
         ("\C-l" emacspeak-epub-bookshelf-redraw)
