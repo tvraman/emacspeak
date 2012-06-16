@@ -417,25 +417,26 @@ Interactive prefix arg searches recursively in directory."
   "Add epub file to current bookshelf."
   (interactive "fAdd Book: ")
   (declare (special  emacspeak-epub-db))
-  (let ((updated 0)
-        (filename (shell-quote-argument epub-file)))
-    (message "%s" filename)
-    (unless (gethash epub-file emacspeak-epub-db)
-      (incf updated)
+  (let ((filename (shell-quote-argument epub-file))
+        (updated 0))
+    (unless (gethash filename emacspeak-epub-db)
       (let* ((fields
               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
              (title (first fields))
              (author  (second fields)))
         (when (zerop (length title)) (setq title "Untitled"))
         (when (zerop (length author)) (setq author "Unknown"))
-        (setf (gethash epub-file emacspeak-epub-db)
+        (setq updated title)
+        (setf (gethash filename emacspeak-epub-db)
               (make-emacspeak-epub-metadata
                :title title
                :author author))))
-    (unless (zerop updated)
+    (when updated
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
-    (message "Added %d books. " updated))))
+    (goto-char (point-min))
+    (search-forward updated)
+    (emacspeak-speak-line))))
 
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
   "Remove EPubs found in specified directory from the bookshelf.
