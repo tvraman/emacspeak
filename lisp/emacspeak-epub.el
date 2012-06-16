@@ -419,7 +419,8 @@ Interactive prefix arg searches recursively in directory."
   (declare (special  emacspeak-epub-db))
   (let ((updated 0)
         (filename (shell-quote-argument epub-file)))
-    (unless (gethash filename emacspeak-epub-db)
+    (message "%s" filename)
+    (unless (gethash epub-file emacspeak-epub-db)
       (incf updated)
       (let* ((fields
               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
@@ -427,7 +428,7 @@ Interactive prefix arg searches recursively in directory."
              (author  (second fields)))
         (when (zerop (length title)) (setq title "Untitled"))
         (when (zerop (length author)) (setq author "Unknown"))
-        (setf (gethash filename emacspeak-epub-db)
+        (setf (gethash epub-file emacspeak-epub-db)
               (make-emacspeak-epub-metadata
                :title title
                :author author))))
