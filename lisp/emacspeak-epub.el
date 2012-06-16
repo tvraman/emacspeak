@@ -417,8 +417,8 @@ Interactive prefix arg searches recursively in directory."
   "Add epub file to current bookshelf."
   (interactive "fAdd Book: ")
   (declare (special  emacspeak-epub-db))
-  (let ((updated 0))
-    (setq filename (shell-quote-argument epub-file))
+  (let ((updated 0)
+        (filename (shell-quote-argument epub-file)))
     (unless (gethash filename emacspeak-epub-db)
       (incf updated)
       (let* ((fields
@@ -430,11 +430,11 @@ Interactive prefix arg searches recursively in directory."
         (setf (gethash filename emacspeak-epub-db)
               (make-emacspeak-epub-metadata
                :title title
-               :author author)))))
-  (unless (zerop updated)
+               :author author))))
+    (unless (zerop updated)
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
-    (message "Added %d books. " updated)))
+    (message "Added %d books. " updated))))
 
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
   "Remove EPubs found in specified directory from the bookshelf.
