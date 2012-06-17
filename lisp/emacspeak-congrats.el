@@ -101,20 +101,54 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 
 (when emacspeak-congrats-test
 
-;;; linear Change
-  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 by 1 collect i))
-  (emacspeak-congrats-data-to-tones
-   (append
-    (loop for i from 200 to 1200 by 1 collect i)
-    (loop for i downfrom 1200 to 200 by 1 collect i)))
-
 ;;; Constant:
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
-(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
-(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
-  
+  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
+  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
-)
+;;; linear Change
+  (emacspeak-congrats-data-to-tones (loop for i from 0 to 1200 by 1 collect i))
+  (emacspeak-congrats-data-to-tones (loop for i downfrom 1200 to 0 by 1 collect i))
+  (emacspeak-congrats-data-to-tones
+   (append
+    (loop for i downfrom 1200 to 0 by 1 collect i)
+    (loop for i from 0 to 1200 by 1 collect i)))
+
+;;; Circle: Radius 100: First Quadrant 
+  (emacspeak-congrats-data-to-tones
+   (loop for i from  0 to 1000
+         collect
+         (floor                         ; tones wants integers 
+          (* 12                         ; scale up freq range
+             (sqrt
+              (- 10000.0                   ; r^2: r=100
+                 (* (/ i 10.0) (/ i 10.0)) ; steps of .1
+                 ))))))
+
+
+
+  (emacspeak-congrats-data-to-tones
+   (append                             ; 2quadrants of the circle
+    (loop for i from  0 to 1000
+          collect
+          (floor                        ; tones wants integers 
+           (* 12                        ; scale up freq range
+              (sqrt
+               (- 10000.0                   ; r^2: r=100
+                  (* (/ i 10.0) (/ i 10.0)) ; steps of .1
+                  )))))
+    (loop for i downfrom 1000 to 0
+          collect
+          (floor                        ; tones wants integers 
+           (* 12                        ; scale up freq range
+              (sqrt
+               (- 10000.0                   ; r^2: r=100
+                  (* (/ i 10.0) (/ i 10.0)) ; steps of .1
+                  )))))))
+
+
+  )
+
 ;;}}}
 (provide 'emacspeak-congrats)
 ;;{{{ end of file
