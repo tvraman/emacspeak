@@ -109,20 +109,21 @@ Argument duration --- default is 2ms --- specifies duration of each step."
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
 ;;; linear Change
+;;; x=1 for x in [-1, 1] stepsize 1/1000 
 
 (emacspeak-congrats-data-to-tones
  (loop for i from  -1000  to 1000 collect (abs (+ 200 i))))
-
--3 -> Bad Tone Specifier: Digit or Note expected
-
-
-
     
 ;;; Contrast with circle:
-;;; x in [-1, 1]
+;;; x in [-1, 1] stepsize 1/1000 
 ;;; y = 1+x    x < 0; y = 1-x x >0
+;;; i.e. y= 1 -abs(x)
   
-  
+  (emacspeak-congrats-data-to-tones
+   (loop for i from -1000 to 1000
+         collect
+         (+ 200 ; translate X axis
+            (- 1000 (abs i)))))
 
 ;;; Circle: Radius 100: First Quadrant 
 ;;; Note: We translate the circle by 200hz which is X=0
