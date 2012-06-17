@@ -84,8 +84,8 @@
 
 (defun emacspeak-congrats-data-to-tones (data &optional duration)
   "Takes  an array or list of numbers and produces a tone. 
-Argument duration --- default is 1ms --- specifies duration of each step."
-  (or duration (setq duration 1))
+Argument duration --- default is 2ms --- specifies duration of each step."
+  (or duration (setq duration 2))
   (setq duration  (number-to-string duration))
   (when (arrayp  data) (setq data (append data nil)))
   (setq data (mapcar #'number-to-string data))
@@ -102,52 +102,47 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 (when emacspeak-congrats-test
 
 ;;; Constant:
+;;; 200hz is X=0
+(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
 ;;; linear Change
-  (emacspeak-congrats-data-to-tones (loop for i from 0 to 1200 by 1 collect i))
-  (emacspeak-congrats-data-to-tones (loop for i downfrom 1200 to 0 by 1 collect i))
-  (emacspeak-congrats-data-to-tones
-   (append
-    (loop for i downfrom 1200 to 0 by 1 collect i)
-    (loop for i from 0 to 1200 by 1 collect i)))
+
+(emacspeak-congrats-data-to-tones
+ (loop for i from  -1000  to 1000 collect (abs (+ 200 i))))
+
+-3 -> Bad Tone Specifier: Digit or Note expected
+
+
+
+    
+;;; Contrast with circle:
+;;; x in [-1, 1]
+;;; y = 1+x    x < 0; y = 1-x x >0
+  
+  
 
 ;;; Circle: Radius 100: First Quadrant 
-  (emacspeak-congrats-data-to-tones
-   (loop for i from  0 to 1000
-         collect
-         (floor                         ; tones wants integers 
-          (* 12                         ; scale up freq range
-             (sqrt
-              (- 10000.0                   ; r^2: r=100
-                 (* (/ i 10.0) (/ i 10.0)) ; steps of .1
-                 ))))))
+;;; Note: We translate the circle by 200hz which is X=0
+;;; Unit Circle: x^2 + y^2 =1  
+;;; Here is y for x  in [-1, 1] stepsize = 1/1000
+
+(emacspeak-congrats-data-to-tones
+ (loop for i from -1000 to 1000
+       collect
+       (+ 200 ; translating X axis
+          (round
+           (* 1000
+             (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))
+  
 
 
 
-  (emacspeak-congrats-data-to-tones
-   (append                             ; 2quadrants of the circle
-    (loop for i from  0 to 1000
-          collect
-          (floor                        ; tones wants integers 
-           (* 12                        ; scale up freq range
-              (sqrt
-               (- 10000.0                   ; r^2: r=100
-                  (* (/ i 10.0) (/ i 10.0)) ; steps of .1
-                  )))))
-    (loop for i downfrom 1000 to 0
-          collect
-          (floor                        ; tones wants integers 
-           (* 12                        ; scale up freq range
-              (sqrt
-               (- 10000.0                   ; r^2: r=100
-                  (* (/ i 10.0) (/ i 10.0)) ; steps of .1
-                  )))))))
+  
 
 
-  )
 
 ;;}}}
 (provide 'emacspeak-congrats)
