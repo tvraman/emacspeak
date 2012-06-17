@@ -173,7 +173,7 @@
 
 (defsubst emacspeak-epub-shell-unquote (f)
   "Reverse effect of shell-quote-argument."
-(shell-command-to-string (format "echo -n %s" f)))
+  (shell-command-to-string (format "echo -n %s" f)))
 
 (defun emacspeak-epub-get-contents (epub element)
   "Return buffer containing contents of element from epub."
@@ -308,7 +308,6 @@ Useful if table of contents in toc.ncx is empty."
 ;;}}}
 ;;{{{ Bookshelf Implementation:
 
-
 (defvar emacspeak-epub-db-file
   (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
   "Cache of bookshelf metadata.")
@@ -319,7 +318,6 @@ Useful if table of contents in toc.ncx is empty."
 (defstruct emacspeak-epub-metadata
   title
   author)
-
 
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
@@ -350,7 +348,6 @@ Useful if table of contents in toc.ncx is empty."
           (setq filename (emacspeak-epub-shell-unquote f))
           (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
-
 
 (defvar emacspeak-epub-find-program
   (executable-find "find")
@@ -417,52 +414,41 @@ Interactive prefix arg searches recursively in directory."
   "Add epub file to current bookshelf."
   (interactive "fAdd Book: ")
   (declare (special  emacspeak-epub-db))
-  (let ((filename (shell-quote-argument epub-file))
-        (updated 0))
-    (unless (gethash filename emacspeak-epub-db)
-      (let* ((fields
-              (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
-             (title (first fields))
-             (author  (second fields)))
-        (when (zerop (length title)) (setq title "Untitled"))
-        (when (zerop (length author)) (setq author "Unknown"))
-        (setq updated title)
-        (setf (gethash filename emacspeak-epub-db)
-              (make-emacspeak-epub-metadata
-               :title title
-               :author author))))
-    (when updated
+  (let* ((filename (shell-quote-argument epub-file))
+         (fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
+         (title (first fields))
+         (author  (second fields)))
+    (when (zerop (length title)) (setq title "Untitled"))
+    (when (zerop (length author)) (setq author "Unknown"))
+    (setf (gethash filename emacspeak-epub-db)
+          (make-emacspeak-epub-metadata
+           :title title
+           :author author))
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
     (goto-char (point-min))
-    (search-forward updated)
-    (emacspeak-speak-line))))
+    (search-forward title)
+    (emacspeak-speak-line)))
 
 (defun emacspeak-epub-bookshelf-open-epub (epub-file)
   "Open epub file and add it to current bookshelf."
   (interactive "fAdd Book: ")
   (declare (special  emacspeak-epub-db))
-  (let ((filename (shell-quote-argument epub-file))
-        (updated 0))
-    (unless (gethash filename emacspeak-epub-db)
-      (let* ((fields
-              (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
-             (title (first fields))
-             (author  (second fields)))
-        (when (zerop (length title)) (setq title "Untitled"))
-        (when (zerop (length author)) (setq author "Unknown"))
-        (setq updated title)
-        (setf (gethash filename emacspeak-epub-db)
-              (make-emacspeak-epub-metadata
-               :title title
-               :author author))))
-    (when updated
+  (let* ((filename (shell-quote-argument epub-file))
+         (fields (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
+         (title (first fields))
+         (author  (second fields)))
+    (when (zerop (length title)) (setq title "Untitled"))
+    (when (zerop (length author)) (setq author "Unknown"))
+    (setf (gethash filename emacspeak-epub-db)
+          (make-emacspeak-epub-metadata
+           :title title
+           :author author))
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
     (goto-char (point-min))
     (search-forward updated)
-    (emacspeak-epub-open))))
-
+    (emacspeak-epub-open)))
 
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
   "Remove EPubs found in specified directory from the bookshelf.
@@ -480,7 +466,7 @@ Interactive prefix arg searches recursively in directory."
      (setq filename (shell-quote-argument f))
      (when (gethash filename emacspeak-epub-db)
        (incf updated)
-       (remhash filename emacspeak-epub-db)))    
+       (remhash filename emacspeak-epub-db)))
     (unless (zerop updated)
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
@@ -494,13 +480,12 @@ No book files are deleted."
   (let ((epub (get-text-property (point) 'epub))
         (orig (point)))
     (when epub
-    (remhash epub emacspeak-epub-db      )
+      (remhash epub emacspeak-epub-db      )
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
       (emacspeak-auditory-icon 'task-done)
       (goto-char orig)
       (emacspeak-speak-line))))
-
 
 (defun emacspeak-epub-bookshelf-clear ()
   "Clear all books from bookshelf."
@@ -511,11 +496,11 @@ No book files are deleted."
           (y-or-n-p "Clear bookshelf?"))
     (clrhash emacspeak-epub-db)
     (setq header-line-format
-        (propertize "EPub Bookshelf" 'face 'bold))
+          (propertize "EPub Bookshelf" 'face 'bold))
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
     (message "Cleared bookshelf.")))
-    
+
 
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
@@ -561,12 +546,11 @@ No book files are deleted."
     (kill-buffer buffer)
     (emacspeak-epub-bookshelf-redraw)
     (setq header-line-format
-        (propertize
-         (format "EPub Bookshelf: %s" bookshelf-name)
-         'face 'bold))
+          (propertize
+           (format "EPub Bookshelf: %s" bookshelf-name)
+           'face 'bold))
     (emacspeak-auditory-icon 'open-object)
     (message "%s" bookshelf-name)))
-
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -683,7 +667,6 @@ Suitable for text searches."
 
 ;;}}}
 ;;{{{ Epub Mode:
-
 
 (defsubst emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
