@@ -447,8 +447,8 @@ Interactive prefix arg searches recursively in directory."
     (emacspeak-epub-bookshelf-save)
     (emacspeak-epub-bookshelf-redraw)
     (goto-char (point-min))
-    (search-forward updated)
-    (emacspeak-epub-open)))
+    (search-forward title)
+    (call-interactively 'emacspeak-epub-open)))
 
 (defun emacspeak-epub-bookshelf-remove-directory (directory &optional recursive)
   "Remove EPubs found in specified directory from the bookshelf.
