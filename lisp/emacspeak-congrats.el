@@ -103,7 +103,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 
 ;;; Constant:
 ;;; 200hz is X=0
-(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
+  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
@@ -111,8 +111,8 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;; linear Change
 ;;; x=1 for x in [-1, 1] stepsize 1/1000 
 
-(emacspeak-congrats-data-to-tones
- (loop for i from  -1000  to 1000 collect (abs (+ 200 i))))
+  (emacspeak-congrats-data-to-tones
+   (loop for i from  -1000  to 1000 collect (+ 200 (abs  i))))
     
 ;;; Contrast with circle:
 ;;; x in [-1, 1] stepsize 1/1000 
@@ -122,7 +122,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
   (emacspeak-congrats-data-to-tones
    (loop for i from -1000 to 1000
          collect
-         (+ 200 ; translate X axis
+         (+ 200                         ; translate X axis
             (- 1000 (abs i)))))
 
 ;;; Circle: Radius 100: First Quadrant 
@@ -130,20 +130,20 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;; Unit Circle: x^2 + y^2 =1  
 ;;; Here is y for x  in [-1, 1] stepsize = 1/1000
 
-(emacspeak-congrats-data-to-tones
- (loop for i from -1000 to 1000
-       collect
-       (+ 200 ; translating X axis
-          (round
-           (* 1000
-             (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))
-  
+  (emacspeak-congrats-data-to-tones
+   (loop for i from -1000 to 1000
+         collect
+         (+ 200                         ; translating X axis
+            (round
+             (* 1000
+                (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))  
 
 
 
   
 
 
+  )
 
 ;;}}}
 (provide 'emacspeak-congrats)
