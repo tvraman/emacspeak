@@ -57,6 +57,65 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Helpers:
+
+;;; Set up AOSS:
+(defvar emacspeak-congrats-libaoss
+  (if (file-exists-p "/proc/asound")
+      "/usr/lib/libaoss.so"
+    nil)
+  "Location of libaoss.so")
+
+(defun emacspeak-congrats-configure-alsa ()
+  "Update LD_PRELOAD to include libaoss.so."
+  (declare (special emacspeak-congrats-libaoss))
+  (unless emacspeak-congrats-libaoss (error "Alsa not available."))
+  (let ((ld (getenv "LD_PRELOAD")))
+    (unless
+        (and emacspeak-congrats-libaoss
+             ld (string-match "/usr/lib/libaoss.so" ld))
+      (setq ld (if ld (format ":%s" ld) ""))
+      (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld)))))
+
+;;}}}
+;;{{{ Sonifiers:
+
+;;; Take a vector of numbers and sonify it:
+
+(defun emacspeak-congrats-data-to-tones (data &optional duration)
+  "Takes  an array or list of numbers and produces a tone. 
+Argument duration --- default is 1ms --- specifies duration of each step."
+  (or duration (setq duration 1))
+  (setq duration  (number-to-string duration))
+  (when (arrayp  data) (setq data (append data nil)))
+  (setq data (mapcar #'number-to-string data))
+  (apply 'call-process
+         "tones"
+         nil t nil
+         duration data))
+
+;;}}}
+;;{{{ Sample Tests:
+(defvar emacspeak-congrats-test nil
+  "Tests evaluated if set to T.")
+
+(when emacspeak-congrats-test
+
+;;; linear Change
+  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 by 1 collect i))
+  (emacspeak-congrats-data-to-tones
+   (append
+    (loop for i from 200 to 1200 by 1 collect i)
+    (loop for i downfrom 1200 to 200 by 1 collect i)))
+
+;;; Constant:
+  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
+(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
+(emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
+  
+
+)
+;;}}}
 (provide 'emacspeak-congrats)
 ;;{{{ end of file
 
