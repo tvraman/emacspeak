@@ -101,14 +101,18 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 
 (when emacspeak-congrats-test
 
-;;; Constant:
+;;{{{ Constant:
+
 ;;; 200hz is X=0
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
-;;; linear Change
+;;}}}
+
+;;{{{  linear Change:
+
 ;;; x=1 for x in [-1, 1] stepsize 1/1000 
 
   (emacspeak-congrats-data-to-tones
@@ -125,6 +129,9 @@ Argument duration --- default is 2ms --- specifies duration of each step."
          (+ 200                         ; translate X axis
             (- 1000 (abs i)))))
 
+;;}}}
+;;{{{ Circle:
+
 ;;; Circle: Radius 100: First Quadrant 
 ;;; Note: We translate the circle by 200hz which is X=0
 ;;; Unit Circle: x^2 + y^2 =1  
@@ -137,6 +144,18 @@ Argument duration --- default is 2ms --- specifies duration of each step."
             (round
              (* 1000
                 (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))  
+
+;;}}}
+;;{{{ Parabola: y=x^2 x in [-1, 1] stepsize 1/1000
+  (emacspeak-congrats-data-to-tones
+   (loop for i from -1000 to 1000
+         collect
+         (+ 200 ; translate X axis
+            (round (* 1000 (* (/ i 1000.0) (/ i 1000.0)))))))
+          
+
+   
+;;}}}
 
 
 
