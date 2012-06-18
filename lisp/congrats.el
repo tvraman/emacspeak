@@ -68,16 +68,21 @@
     nil)
   "Location of libaoss.so")
 
+(defvar congrats-libaoss-configured-p nil
+  "Record that we have configured libaoss.")
+
 (defun congrats-configure-alsa ()
   "Update LD_PRELOAD to include libaoss.so."
-  (declare (special congrats-libaoss))
+  (declare (special congrats-libaoss congrats-libaoss-configured-p))
   (unless congrats-libaoss (error "Alsa not available."))
   (let ((ld (getenv "LD_PRELOAD")))
     (unless
         (and congrats-libaoss
+             (null congrats-libaoss-configured-p)
              ld (string-match "/usr/lib/libaoss.so" ld))
       (setq ld (if ld (format ":%s" ld) ""))
-      (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld)))))
+      (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld))
+      (and ld (setq congrats-libaoss-configured-p t)))))
 
 
 
