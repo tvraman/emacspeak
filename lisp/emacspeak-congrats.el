@@ -56,7 +56,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
+
 
 ;;}}}
 ;;{{{ Helpers:
@@ -79,7 +79,7 @@
       (setq ld (if ld (format ":%s" ld) ""))
       (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld)))))
 
-(eval-when '(load) (emacspeak-congrats-configure-alsa))
+
 
 ;;}}}
 ;;{{{ Sonifiers:
@@ -146,7 +146,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
          (+ 200                         ; translating X axis
             (round
              (* 1000
-                (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))  
+                (sqrt (- 1 (/ (* i i ) 1000000.0))))))))  
 
 ;;}}}
 ;;{{{ Ellipse :
@@ -162,12 +162,13 @@ Argument duration --- default is 2ms --- specifies duration of each step."
          (+ 200                         ; translating X axis
             (round
              (* 1000
-                (/ 3.0 4.0) ; b/a
-                (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))
+                0.75 ; b/a
+                (sqrt (- 1(/ (* i i ) 1000000.0))))))))
+
 ;;}}}
-;;{{{ Parabola: y=x^2 x in [-1, 1] stepsize 1/1000
+;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
   (emacspeak-congrats-data-to-tones
-   (loop for i from -1000 to 1000
+   (loop for i from -2000 to 2000 by 2
          collect
          (+ 200 ; translate X axis
             (round (* 1000 (* (/ i 1000.0) (/ i 1000.0)))))))
