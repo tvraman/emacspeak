@@ -1,5 +1,5 @@
-;;; emacspeak-congrats.el --- Data Sonification, Graphics To Sound for emacspeak
-;;; $Id: emacspeak-congrats.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; congrats.el --- Data Sonification, Graphics To Sound for emacspeak
+;;; $Id: congrats.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Data Sonification, Convert Graphics to Sound
 ;;; Keywords: Emacspeak,  Audio Desktop CONGRATS
@@ -62,19 +62,19 @@
 ;;{{{ Helpers:
 
 ;;; Set up AOSS:
-(defvar emacspeak-congrats-libaoss
+(defvar congrats-libaoss
   (if (file-exists-p "/proc/asound")
       "/usr/lib/libaoss.so"
     nil)
   "Location of libaoss.so")
 
-(defun emacspeak-congrats-configure-alsa ()
+(defun congrats-configure-alsa ()
   "Update LD_PRELOAD to include libaoss.so."
-  (declare (special emacspeak-congrats-libaoss))
-  (unless emacspeak-congrats-libaoss (error "Alsa not available."))
+  (declare (special congrats-libaoss))
+  (unless congrats-libaoss (error "Alsa not available."))
   (let ((ld (getenv "LD_PRELOAD")))
     (unless
-        (and emacspeak-congrats-libaoss
+        (and congrats-libaoss
              ld (string-match "/usr/lib/libaoss.so" ld))
       (setq ld (if ld (format ":%s" ld) ""))
       (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld)))))
@@ -86,7 +86,7 @@
 
 ;;; Take a vector of numbers and sonify it:
 
-(defun emacspeak-congrats-data-to-tones (data &optional duration)
+(defun congrats-data-to-tones (data &optional duration)
   "Takes  an array or list of numbers and produces a tone. 
 Argument duration --- default is 2ms --- specifies duration of each step."
   (or duration (setq duration 2))
@@ -100,25 +100,25 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 
 ;;}}}
 ;;{{{ Sample Tests:
-(defvar emacspeak-congrats-test nil
+(defvar congrats-test nil
   "Tests evaluated if set to T.")
 
-(when emacspeak-congrats-test
+(when congrats-test
 
 ;;{{{ Constant:
 
 ;;; 200hz is X=0
-  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
-  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
-  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
-  (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
+  (congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
+  (congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
+  (congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
+  (congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
 ;;}}}
 ;;{{{  linear Change:
 
 ;;; x=1 for x in [-1, 1] stepsize 1/1000 
 
-  (emacspeak-congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from  -1000  to 1000 collect (+ 200 (abs  i))))
     
 ;;; Contrast with circle:
@@ -126,7 +126,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;; y = 1+x    x < 0; y = 1-x x >0
 ;;; i.e. y= 1 -abs(x)
   
-  (emacspeak-congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from -1000 to 1000
          collect
          (+ 200                         ; translate X axis
@@ -140,7 +140,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;; Unit Circle: x^2 + y^2 =1  
 ;;; Here is y for x  in [-1, 1] stepsize = 1/1000
 
-  (emacspeak-congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
@@ -156,7 +156,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;;  x^2/a^2 +y^2/b^2 =1 a=1, b=3/4
 ;;; Here is y for x  in [-4, 4] stepsize = 1/1000
 
-  (emacspeak-congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
@@ -167,7 +167,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 
 ;;}}}
 ;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
-  (emacspeak-congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from -2000 to 2000 by 2
          collect
          (+ 200 ; translate X axis
@@ -180,7 +180,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
   )
 
 ;;}}}
-(provide 'emacspeak-congrats)
+(provide 'congrats)
 ;;{{{ end of file
 
 ;;; local variables:
