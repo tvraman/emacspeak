@@ -114,7 +114,6 @@ Argument duration --- default is 2ms --- specifies duration of each step."
   (emacspeak-congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
 ;;}}}
-
 ;;{{{  linear Change:
 
 ;;; x=1 for x in [-1, 1] stepsize 1/1000 
@@ -136,7 +135,7 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;}}}
 ;;{{{ Circle:
 
-;;; Circle: Radius 100: First Quadrant 
+;;; Circle: Radius 100: 
 ;;; Note: We translate the circle by 200hz which is X=0
 ;;; Unit Circle: x^2 + y^2 =1  
 ;;; Here is y for x  in [-1, 1] stepsize = 1/1000
@@ -150,6 +149,22 @@ Argument duration --- default is 2ms --- specifies duration of each step."
                 (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))  
 
 ;;}}}
+;;{{{ Ellipse :
+
+
+;;; Note: We translate the ellipse by 200hz which is X=0
+;;;  x^2/a^2 +y^2/b^2 =1 a=1, b=3/4
+;;; Here is y for x  in [-4, 4] stepsize = 1/1000
+
+  (emacspeak-congrats-data-to-tones
+   (loop for i from -1000 to 1000
+         collect
+         (+ 200                         ; translating X axis
+            (round
+             (* 1000
+                (/ 3.0 4.0) ; b/a
+                (sqrt (- 1(* (/ i 1000.0) (/ i 1000.0)))))))))
+;;}}}
 ;;{{{ Parabola: y=x^2 x in [-1, 1] stepsize 1/1000
   (emacspeak-congrats-data-to-tones
    (loop for i from -1000 to 1000
@@ -160,11 +175,6 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 
    
 ;;}}}
-
-
-
-  
-
 
   )
 
