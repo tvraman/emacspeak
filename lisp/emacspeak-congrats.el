@@ -48,6 +48,8 @@
 ;;; Congrats was originally implemented on a BBC Micro with 32K of memory.
 ;;; This module provides data sonification services for the Emacspeak Audio Desktop
 ;;; in the spirit of Congrats --- it uses package siggen --- and specifically, the tones utility from that package for generating the auditory output.
+;;; Note that  the original version of CONGRATS  enabled  multiple types of "scans"
+;;; you could listen to a curve in terms of Cartesian or Polar coordinates.
 
 ;;}}}
 ;;{{{  Required modules
@@ -76,6 +78,8 @@
              ld (string-match "/usr/lib/libaoss.so" ld))
       (setq ld (if ld (format ":%s" ld) ""))
       (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld)))))
+
+(eval-when '(load) (emacspeak-congrats-configure-alsa))
 
 ;;}}}
 ;;{{{ Sonifiers:
