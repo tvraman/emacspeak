@@ -186,7 +186,23 @@ Argument duration --- default is 1ms --- specifies duration of each step."
             (round (* 1000 (/ (* i i) 1000000.0))))))
           
 
-   
+;;{{{ Sine And Cosine 
+;;; Axis is not translated here:
+
+;;; y = sin(x) x in [-Pi, Pi] stepsize 1/1000 
+(congrats-data-to-tones
+  (loop for i from -3141 to 3141
+collect 
+(abs  (round (* 1000 (sin ( / i 1000.0)))))))
+
+;;; Cosine in the same range:
+
+(congrats-data-to-tones
+  (loop for i from -3141 to 3141
+collect 
+(abs  (round (* 1000 (cos ( / i 1000.0)))))))
+
+;;}}}
 ;;}}}
 
   )
