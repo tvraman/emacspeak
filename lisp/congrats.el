@@ -93,15 +93,12 @@
 
 (defun congrats-data-to-tones (data &optional duration)
   "Takes  an array or list of numbers and produces a tone. 
-Argument duration --- default is 2ms --- specifies duration of each step."
-  (or duration (setq duration 2))
+Argument duration --- default is 1ms --- specifies duration of each step."
+  (or duration (setq duration 1))
   (setq duration  (number-to-string duration))
   (when (arrayp  data) (setq data (append data nil)))
   (setq data (mapcar #'number-to-string data))
-  (apply 'call-process
-         "tones"
-         nil t nil
-         duration data))
+  (apply 'call-process "tones" nil t nil duration data))
 
 ;;}}}
 ;;{{{ Sample Tests:
@@ -121,10 +118,10 @@ Argument duration --- default is 2ms --- specifies duration of each step."
 ;;}}}
 ;;{{{  linear Change:
 
-;;; x=1 for x in [-1, 1] stepsize 1/1000 
+;;; x=y for x in [-2, 2] stepsize 1/1000 
 
   (congrats-data-to-tones
-   (loop for i from  -1000  to 1000 collect (+ 200 (abs  i))))
+   (loop for i from  -2000  to 2000 collect (+ 200 (abs  i))))
     
 ;;; Contrast with circle:
 ;;; x in [-1, 1] stepsize 1/1000 
@@ -170,13 +167,23 @@ Argument duration --- default is 2ms --- specifies duration of each step."
                 0.75 ; b/a
                 (sqrt (- 1(/ (* i i ) 1000000.0))))))))
 
+;;; the same ellipse with major and minor axies flipped:
+(congrats-data-to-tones
+   (loop for i from -1000 to 1000
+         collect
+         (+ 200                         ; translating X axis
+            (round
+             (* 1000
+                (/ 4.0 3.0) ; b/a
+                (sqrt (- 1(/ (* i i ) 1000000.0))))))))
+
 ;;}}}
 ;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
   (congrats-data-to-tones
    (loop for i from -2000 to 2000 by 2
          collect
          (+ 200 ; translate X axis
-            (round (* 1000 (* (/ i 1000.0) (/ i 1000.0)))))))
+            (round (* 1000 (/ (* i i) 1000000.0))))))
           
 
    
