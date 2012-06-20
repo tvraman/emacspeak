@@ -1237,6 +1237,14 @@ from English to German.")
      (emacspeak-webutils-without-xsl
       (browse-url url))))
 
+(emacspeak-url-template-define
+ "IToRSS"
+ "http://feedflipper.net/convert.php?feed=%s"
+ (list "ITunes URL: ")
+ nil
+ "Pull RSS  feed corresponding to an ITunes Podcast."
+ 'emacspeak-webutils-rss-display)
+
 ;;}}}
 ;;{{{  cnet news
 
