@@ -537,7 +537,9 @@ the words that were capitalized."
 ;;{{{  advice insertion commands to speak.
 
 ;;; Dont advice if  we catch this through post-self-insert-hook
-(unless (memq 'emacspeak-post-self-insert-hook post-self-insert-hook)
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice completion-separator-self-insert-autofilling (after emacspeak pre act)
     "Speak what was completed."
     (declare (special emacspeak-word-echo))
