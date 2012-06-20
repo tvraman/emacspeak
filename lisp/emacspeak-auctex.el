@@ -134,15 +134,18 @@ Provide auditory feedback after formatting region"
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
   ad-return-value)
-(loop for f in
-      '(TeX-insert-dollar TeX-insert-backslash
-                          LaTeX-babel-insert-hyphen)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Speak what you inserted"
-          (when (ems-interactive-p )
-            (emacspeak-speak-this-char  (preceding-char ))))))
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (loop for f in
+        '(TeX-insert-dollar TeX-insert-backslash
+                            LaTeX-babel-insert-hyphen)
+        do
+        (eval
+         `(defadvice ,f (after emacspeak pre act comp)
+            "Speak what you inserted"
+            (when (ems-interactive-p )
+              (emacspeak-speak-this-char  (preceding-char )))))))
 
 ;;}}}
 ;;{{{  Inserting structures
