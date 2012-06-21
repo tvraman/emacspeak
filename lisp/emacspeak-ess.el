@@ -68,13 +68,16 @@
       (dtk-speak (buffer-substring orig (point)))))
    (t ad-do-it))
   ad-return-value)
-(defadvice ess-electric-brace (after emacspeak pre act comp)
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice ess-electric-brace (after emacspeak pre act comp)
   "Speak what you inserted.
 Cue electric insertion with a tone."
   (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-speak-this-char last-input-event)
-      (dtk-tone 800 50 t))))
+      (dtk-tone 800 50 t)))))
 
 ;;}}}
 ;;{{{ Structure commands 

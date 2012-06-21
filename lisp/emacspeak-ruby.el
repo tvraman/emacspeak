@@ -96,10 +96,12 @@
   (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'fill-object)))
-
-(defadvice ruby-electric-brace (after emacspeak pre act comp)
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice ruby-electric-brace (after emacspeak pre act comp)
   "Speak what you inserted.
-Cue electric insertion with a tone."
+Cue electric insertion with a tone.")
   (when (ems-interactive-p )
     (let ((emacspeak-speak-messages nil))
       (emacspeak-speak-this-char last-input-event)

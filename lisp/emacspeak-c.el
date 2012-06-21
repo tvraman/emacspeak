@@ -82,8 +82,7 @@
 
 (defadvice c-electric-star (after emacspeak pre act )
   "Speak what you typed"
-  (when (ems-interactive-p )
-    (dtk-say "star")))
+  (when (ems-interactive-p ) (dtk-say "star")))
 
 (defadvice c-electric-semi&comma (after emacspeak pre act )
   "Speak the line when a statement is completed."

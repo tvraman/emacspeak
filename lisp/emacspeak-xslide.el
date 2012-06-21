@@ -54,11 +54,13 @@
 
 ;;}}}
 ;;{{{  speech-enable interactive commands
-
-(defadvice xsl-electric-apos (after emacspeak pre act comp)
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice xsl-electric-apos (after emacspeak pre act comp)
   "Speak char we inserted."
   (when (ems-interactive-p )
-    (emacspeak-speak-this-char (preceding-char))))
+    (emacspeak-speak-this-char (preceding-char)))))
 
 (defadvice xsl-electric-quote (after emacspeak pre act comp)
   "Speak char we inserted."
