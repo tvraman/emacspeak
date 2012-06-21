@@ -55,11 +55,13 @@
 ;;{{{ Advice interactive commands:
 
 ;;{{{  electric editing
-
-(defadvice python-electric-colon (after emacspeak pre act comp)
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice python-electric-colon (after emacspeak pre act comp)
   "Speak what you inserted"
   (when (ems-interactive-p )
-    (dtk-say " colon ")))
+    (dtk-say " colon "))))
 
 (defadvice python-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
