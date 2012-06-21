@@ -110,11 +110,10 @@
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice c-electric-colon )(after emacspeak pre act )
+  (defadvice c-electric-colon (after emacspeak pre act )
   "Speak the character you inserted"
   (when (ems-interactive-p )
-    (emacspeak-speak-this-char last-input-event)))
-(unless (and (boundp 'post-self-insert-hook)
+    (emacspeak-speak-this-char last-input-event))))(unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice c-electric-paren (after emacspeak pre act )
