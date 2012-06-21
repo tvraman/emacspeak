@@ -69,10 +69,14 @@
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-current-column)))
-(defadvice sh-assignment (after emacspeak pre act comp)
+
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice sh-assignment (after emacspeak pre act comp)
   "Speak assignment as it is inserted."
   (when (ems-interactive-p )
-    (emacspeak-speak-this-char (preceding-char))))
+    (emacspeak-speak-this-char (preceding-char)))))
 
 (defadvice sh-maybe-here-document(around emacspeak pre act comp)
   "Spoken feedback based on what we insert."
@@ -104,7 +108,10 @@
 
 ;;}}}
 ;;{{{ advice skeleton insertion 
-(defadvice skeleton-pair-insert-maybe(around emacspeak pre
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice skeleton-pair-insert-maybe(around emacspeak pre
                                              act comp)
   "Speak what you inserted."
   (cond
@@ -113,7 +120,7 @@
       ad-do-it
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
-  ad-return-value)
+  ad-return-value))
 
 ;;}}}
 (provide 'emacspeak-sh-script)
