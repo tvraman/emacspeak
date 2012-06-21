@@ -47,11 +47,13 @@
 
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
-
-(defadvice electric-perl-terminator  (after emacspeak pre act comp )
+(unless (and (boundp 'post-self-insert-hook)
+             post-self-insert-hook
+             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+  (defadvice electric-perl-terminator  (after emacspeak pre act comp )
   "Speak what you inserted."
   (when (ems-interactive-p )
-    (emacspeak-speak-this-char last-input-event)))
+    (emacspeak-speak-this-char last-input-event))))
 
 ;;}}}
 ;;{{{  Program structure:

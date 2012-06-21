@@ -364,6 +364,7 @@
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
+
 (defadvice org-force-self-insert (after emacspeak pre act comp)
   "speak char that was inserted."
   (when (and emacspeak-character-echo
