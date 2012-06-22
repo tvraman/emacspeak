@@ -89,8 +89,7 @@ that is being replaced."
             emacspeak-speak-messages t))))
 
 (defadvice query-replace (around emacspeak pre act compile)
-  "Stop message from chattering.
- Turn on voice lock temporarily. "
+  "Stop message from chattering."
   (declare (special voice-lock-mode ))
   (let ((saved-voice-lock voice-lock-mode)
         (emacspeak-speak-messages nil))
@@ -105,7 +104,10 @@ that is being replaced."
       (emacspeak-auditory-icon 'task-done)
       (setq voice-lock-mode saved-voice-lock
             emacspeak-speak-messages t))))
-
+(defadvice perform-replace (around emacspeak pre act  comp)
+  "Silence help message."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 (defadvice replace-highlight (before  emacspeak pre act)
   "Voicify and speak the line containing the replacement. "
   (declare (special emacspeak-replace-highlight-on

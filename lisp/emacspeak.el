@@ -234,6 +234,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "psgml" 'emacspeak-psgml)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-python)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-py)
+(emacspeak-do-package-setup "replace" 'emacspeak-replace)
 (emacspeak-do-package-setup "re-builder" 'emacspeak-re-builder)
 (emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rmail" 'emacspeak-rmail)
