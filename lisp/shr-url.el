@@ -182,6 +182,35 @@
     (setq url (previous-single-property-change (point) 'shr-url)); find next link
     (when url (goto-char url))))
 
+;;}}}
+;;{{{ Filter DOM:
+
+(defun shr-url-filter-dom (dom predicate)
+  "Return DOM dom filtered by predicate.
+  Predicate receives the node to test."
+  (cond
+   ((not (listp dom)) nil)
+   ((funcall predicate dom) dom)
+   (t
+    (let ((filtered (delq nil (mapcar
+                #'(lambda (node)
+                    (shr-url-filter-dom node predicate))
+                (xml-node-children dom)))))
+      (when filtered 
+    (push (xml-node-attributes dom) filtered)
+    (push (xml-node-name dom) filtered))))))
+
+
+(defun shr-url-attribute-tester (attr value)
+  "Return predicate that tests for attr=value for use as  a DOM filter."
+  (eval
+  `(defun ,(gensym "shr-url-predicate") (node)
+     ,(format "Test if attribute %s has value %s" attr value)
+     (when
+         (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
+
+;;{{{ Speech-enable:
+
 (loop for f in
       '(shr-url-next-link shr-url-previous-link)
       do
@@ -192,10 +221,8 @@
             (emacspeak-auditory-icon 'large-movement)
             (and (get-text-property (point) 'shr-url)
                  (message (shr-url-get-link-text)))))))
-     
 
 ;;}}}
-;;{{{ Speech-enable:
 
 ;;}}}
 (provide 'emacspeak-shr)
