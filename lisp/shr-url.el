@@ -71,6 +71,18 @@
                      (third content)))))
       (setq content (third content)))
     (when title (third title))))
+(defsubst shr-get-anchor-text()
+  "Return anchor text at point."
+  (let ((url (get-text-property (point) 'shr-url))
+        (start nil)
+        (end nil))
+    (cond
+     ((null url)  nil)
+     (t
+      (setq start (previous-single-property-change (point) 'shr-url)
+            end (next-single-property-change (point) 'shr-url))
+      (buffer-substring start end)))))
+)
 (defvar shr-url-dom nil
   "Buffer local value of DOM.")
 (make-variable-buffer-local 'shr-url-dom)
@@ -80,8 +92,10 @@
   (loop for k in
         '(
           ("\C-i" shr-next-link)
+          ("o" shr-open-link-at-point)
           ([backtab] shr-previous-link)
           ("\M-\C-i" shr-previous-link)
+          ("q" bury-buffer)
           )
         do
         (emacspeak-keymap-update  shr-map  k)))
@@ -120,7 +134,16 @@
                           (get-text-property (point) 'shr-url))
     current-prefix-arg))
   (url-retrieve url 'shr-url-callback))
+;;;###autoload
 
+(defun shr-open-link-at-point ()
+  "Open link under point using shr."
+  (interactive)
+  (let ((url (get-text-property (point) 'shr-url)))
+    (cond
+     ((null url)
+      (message "Not on a link."))
+     (t (shr-url url)))))
 ;;;###autoload 
 (defun shr-region (start end)
   "Display region as web page."
@@ -142,7 +165,7 @@
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))  
-
+  
 (defun shr-next-link ()
   "Move to next link."
   (interactive)
@@ -167,7 +190,8 @@
           "Provide auditory feedback."
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+            (and (get-text-property (point) 'shr-url)
+                 (message (shr-get-anchor-text)))))))
      
 
 ;;}}}
