@@ -102,16 +102,13 @@
 
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
-  (declare (special shr-map shr-url-dom))
+  (declare (special  shr-map shr-url-dom))
   (goto-char (point-min))
-  (let* ((inhibit-read-only t)
-         (start (re-search-forward "^$"))
-         (dom (libxml-parse-html-region start(point-max)))
-         (buffer
-          (get-buffer-create
-           (or 
-            (shr-url-get-title-from-dom dom)
-            "Untitled"))))
+  (let*
+      ((inhibit-read-only t)
+       (start (re-search-forward "^$"))
+       (dom (libxml-parse-html-region start(point-max)))
+       (buffer (get-buffer-create (or (shr-url-get-title-from-dom dom) "Web"))))
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
@@ -223,6 +220,34 @@
                  (message (shr-url-get-link-text)))))))
 
 ;;}}}
+
+(defun shr-url-view-filtered-dom-by-attribute (attr value)
+  "Display DOM filtered by specified attribute=value test."
+  (interactive "SAttr:\nsValue:")
+  (declare (special shr-url-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
+  (let
+      ((buffer nil)
+       (inhibit-read-only t)
+       (dom
+        (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
+    (when dom
+          (setq buffer (get-buffer-create "SHR Filtered"))
+          (with-current-buffer buffer
+            (erase-buffer)
+  (goto-char (point-min))
+      (special-mode)
+      (shr-insert-document dom)
+      (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
+      (setq shr-url-dom dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (use-local-map shr-map)
+      (setq buffer-read-only t))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line))))
+          
+  
 
 ;;}}}
 (provide 'emacspeak-shr)
