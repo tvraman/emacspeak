@@ -51,8 +51,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'shr)
-(require 'org)
-
+(require 'xml)
 ;;}}}
 ;;{{{ Enhanced shr:
 
@@ -92,6 +91,7 @@
   (loop for k in
         '(
           ("\C-i" shr-url-next-link)
+          ("f" shr-url-view-filtered-dom-by-attribute)
           ("o" shr-url-open-link-at-point)
           ([backtab] shr-url-previous-link)
           ("\M-\C-i" shr-url-previous-link)
