@@ -1,4 +1,4 @@
-;;; emacspeak-shr.el --- Speech-enable SHR
+;;; shr-url.el --- Speech-enable SHR
 ;;; $Id: emacspeak-shr.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SHR An Emacs Interface to shr
@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{ Enhanced shr:
 
-(defsubst shr-get-title-from-dom (dom)
+(defsubst shr-url-get-title-from-dom (dom)
   "Return Title."
   (let ((content dom)
         (title nil))
@@ -71,8 +71,8 @@
                      (third content)))))
       (setq content (third content)))
     (when title (third title))))
-(defsubst shr-get-anchor-text()
-  "Return anchor text at point."
+(defsubst shr-url-get-link-text()
+  "Return link text at point."
   (let ((url (get-text-property (point) 'shr-url))
         (start nil)
         (end nil))
@@ -91,10 +91,10 @@
 (when (and (boundp 'shr-map) shr-map)
   (loop for k in
         '(
-          ("\C-i" shr-next-link)
-          ("o" shr-open-link-at-point)
-          ([backtab] shr-previous-link)
-          ("\M-\C-i" shr-previous-link)
+          ("\C-i" shr-url-next-link)
+          ("o" shr-url-open-link-at-point)
+          ([backtab] shr-url-previous-link)
+          ("\M-\C-i" shr-url-previous-link)
           ("q" bury-buffer)
           )
         do
@@ -110,7 +110,7 @@
          (buffer
           (get-buffer-create
            (or 
-            (shr-get-title-from-dom dom)
+            (shr-url-get-title-from-dom dom)
             "Untitled"))))
     (with-current-buffer buffer
       (erase-buffer)
@@ -136,7 +136,7 @@
   (url-retrieve url 'shr-url-callback))
 ;;;###autoload
 
-(defun shr-open-link-at-point ()
+(defun shr-url-open-link-at-point ()
   "Open link under point using shr."
   (interactive)
   (let ((url (get-text-property (point) 'shr-url)))
@@ -145,7 +145,7 @@
       (message "Not on a link."))
      (t (shr-url url)))))
 ;;;###autoload 
-(defun shr-region (start end)
+(defun shr-url-region (start end)
   "Display region as web page."
   (interactive "r")
   (let* ((inhibit-read-only t)
@@ -153,7 +153,7 @@
          (buffer
           (get-buffer-create
            (or 
-            (shr-get-title-from-dom dom)
+            (shr-url-get-title-from-dom dom)
             "Untitled"))))
     (with-current-buffer buffer
       (erase-buffer)
@@ -166,7 +166,7 @@
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))  
   
-(defun shr-next-link ()
+(defun shr-url-next-link ()
   "Move to next link."
   (interactive)
   (let ((url (get-text-property (point) 'shr-url)))
@@ -174,7 +174,7 @@
     (setq url (next-single-property-change (point) 'shr-url)); find next link
     (when url (goto-char url))))
 
-(defun shr-previous-link ()
+(defun shr-url-previous-link ()
   "Move to previous link."
   (interactive)
   (let ((url (get-text-property (point) 'shr-url)))
@@ -183,7 +183,7 @@
     (when url (goto-char url))))
 
 (loop for f in
-      '(shr-next-link shr-previous-link)
+      '(shr-url-next-link shr-url-previous-link)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -191,7 +191,7 @@
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (and (get-text-property (point) 'shr-url)
-                 (message (shr-get-anchor-text)))))))
+                 (message (shr-url-get-link-text)))))))
      
 
 ;;}}}
