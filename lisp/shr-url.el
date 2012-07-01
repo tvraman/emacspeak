@@ -77,6 +77,7 @@
 
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
+  (declare (special shr-map))
   (goto-char (point-min))
   (let* ((inhibit-read-only t)
          (start (re-search-forward "^$"))
@@ -94,6 +95,7 @@
       (goto-char (point-min))
       (set-buffer-modified-p nil)
       (flush-lines "^ *$")
+      (use-local-map shr-map)
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))    
