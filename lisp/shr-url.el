@@ -82,7 +82,7 @@
       (setq start (previous-single-property-change (point) 'shr-url)
             end (next-single-property-change (point) 'shr-url))
       (buffer-substring start end)))))
-)
+
 (defvar shr-url-dom nil
   "Buffer local value of DOM.")
 (make-variable-buffer-local 'shr-url-dom)
