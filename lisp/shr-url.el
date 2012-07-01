@@ -102,7 +102,7 @@
 
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
-  (declare (special shr-map))
+  (declare (special shr-map shr-url-dom))
   (goto-char (point-min))
   (let* ((inhibit-read-only t)
          (start (re-search-forward "^$"))
