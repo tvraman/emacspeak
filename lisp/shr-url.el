@@ -79,7 +79,9 @@
 (when (and (boundp 'shr-map) shr-map)
   (loop for k in
         '(
-          ("\t" shr-next-link)
+          ("\C-i" shr-next-link)
+          ([backtab] shr-previous-link)
+          ("\M-\C-i" shr-previous-link)
           )
         do
         (emacspeak-keymap-update  shr-map  k)))
@@ -146,8 +148,26 @@
   (interactive)
   (let ((url (get-text-property (point) 'shr-url)))
     (when url (goto-char (next-single-property-change (point) 'shr-url)))
-    (setq url (next-single-property-change (point) 'url)); find next link
+    (setq url (next-single-property-change (point) 'shr-url)); find next link
     (when url (goto-char url))))
+
+(defun shr-previous-link ()
+  "Move to previous link."
+  (interactive)
+  (let ((url (get-text-property (point) 'shr-url)))
+    (when url (goto-char (previous-single-property-change (point) 'shr-url)))
+    (setq url (previous-single-property-change (point) 'shr-url)); find next link
+    (when url (goto-char url))))
+
+(loop for f in
+      '(shr-next-link shr-previous-link)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
      
 
 ;;}}}
