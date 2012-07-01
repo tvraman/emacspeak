@@ -75,6 +75,15 @@
   "Buffer local value of DOM.")
 (make-variable-buffer-local 'shr-url-dom)
 
+(declaim (special shr-map))
+(when (and (boundp 'shr-map) shr-map)
+  (loop for k in
+        '(
+          ("\t" shr-next-link)
+          )
+        do
+        (emacspeak-keymap-update  shr-map  k)))
+
 (defun shr-url-callback (args)
   "Callback for url-retrieve."
   (declare (special shr-map))
@@ -131,6 +140,15 @@
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))  
+
+(defun shr-next-link ()
+  "Move to next link."
+  (interactive)
+  (let ((url (get-text-property (point) 'shr-url)))
+    (when url (goto-char (next-single-property-change (point) 'shr-url)))
+    (setq url (next-single-property-change (point) 'url)); find next link
+    (when url (goto-char url))))
+     
 
 ;;}}}
 ;;{{{ Speech-enable:
