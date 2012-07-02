@@ -120,7 +120,8 @@
       (use-local-map shr-map)
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)))    
+    (emacspeak-auditory-icon 'open0-object)
+    (emacspeak-speak-buffer)))    
 
 ;;;###autoload
 (defun shr-url (url &optional display)
@@ -245,7 +246,8 @@
       (use-local-map shr-map)
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line))))
+    (emacspeak-auditory-icon 'open0-object)
+    (emacspeak-speak-buffer))))
           
   
 
