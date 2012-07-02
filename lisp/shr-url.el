@@ -181,6 +181,28 @@
     (when url (goto-char url))))
 
 ;;}}}
+;;{{{ class and id caches:
+
+(defvar shr-url-id-cache nil
+  "Cache of id values. Is buffer-local.")
+(make-variable-buffer-local 'shr-url-id-cache)
+(defvar shr-url-class-cache nil
+  "Cache of class values. Is buffer-local.")
+(make-variable-buffer-local 'shr-url-class-cache)
+
+(defadvice shr-transform-dom (around emacspeak pre act comp)
+  "Cache id and class values as properties."
+  (let ((dom (ad-get-arg 0)))
+    (cond
+     ((listp dom)                       ; build cache
+      (let ((id (xml-get-attribute-or-nil dom 'id))
+            (class (xml-get-attribute-or-nil dom 'class)))
+        ad-do-it
+        (when id (pushnew  id shr-url-id-cache))
+        (when class (pushnew class shr-url-class-cache))))
+    (t ad-do-it))))
+
+;;}}}
 ;;{{{ Filter DOM:
 
 (defun shr-url-filter-dom (dom predicate)
@@ -248,8 +270,6 @@
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open0-object)
     (emacspeak-speak-buffer))))
-          
-  
 
 ;;}}}
 (provide 'emacspeak-shr)
