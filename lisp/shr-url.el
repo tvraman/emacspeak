@@ -105,7 +105,7 @@
 
 (make-variable-buffer-local 'shr-url-this-url)
 
-(defun shr-url-callback (status args)
+(defun shr-url-callback (status &rest args)
   "Callback for url-retrieve.
 URL  being retrieved is received as part of the callback args."
   (declare (special  shr-map shr-url-dom shr-url-this-url))
