@@ -122,7 +122,7 @@
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open0-object)
-    (emacspeak-speak-buffer)))    
+    (emacspeak-speak-buffer)))
 
 ;;;###autoload
 (defun shr-url (url &optional display)
@@ -143,7 +143,7 @@
      ((null url)
       (message "Not on a link."))
      (t (shr-url url)))))
-;;;###autoload 
+;;;###autoload
 (defun shr-url-region (start end)
   "Display region as web page."
   (interactive "r")
@@ -151,7 +151,7 @@
          (dom (libxml-parse-html-region start end))
          (buffer
           (get-buffer-create
-           (or 
+           (or
             (shr-url-get-title-from-dom dom)
             "Untitled"))))
     (with-current-buffer buffer
@@ -163,8 +163,8 @@
       (flush-lines "^ *$")
       (setq buffer-read-only t))
     (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)))  
-  
+    (emacspeak-speak-mode-line)))
+
 (defun shr-url-next-link ()
   "Move to next link."
   (interactive)
@@ -204,7 +204,7 @@
   "Update element, class and id cache."
   (declare (special shr-url-element-cache shr-url-id-cache
                     shr-url-class-cache shr-url-cache-updated))
-   (when (listp dom)                         ; build cache
+  (when (listp dom)                         ; build cache
     (let ((id (xml-get-attribute-or-nil dom 'id))
           (class (xml-get-attribute-or-nil dom 'class))
           (el (symbol-name (xml-node-name dom)))
@@ -213,8 +213,6 @@
       (when class (pushnew class shr-url-class-cache))
       (when el (pushnew el shr-url-element-cache))
       (when children (mapc #'shr-url-update-cache children)))))
-
-
 
 ;;}}}
 ;;{{{ Filter DOM:
@@ -227,28 +225,27 @@
    ((funcall predicate dom) dom)
    (t
     (let ((filtered (delq nil (mapcar
-                #'(lambda (node)
-                    (shr-url-filter-dom node predicate))
-                (xml-node-children dom)))))
-      (when filtered 
-    (push (xml-node-attributes dom) filtered)
-    (push (xml-node-name dom) filtered))))))
-
+                               #'(lambda (node)
+                                   (shr-url-filter-dom node predicate))
+                               (xml-node-children dom)))))
+      (when filtered
+        (push (xml-node-attributes dom) filtered)
+        (push (xml-node-name dom) filtered))))))
 
 (defun shr-url-attribute-tester (attr value)
   "Return predicate that tests for attr=value for use as  a DOM filter."
   (eval
-  `(defun ,(gensym "shr-url-predicate") (node)
-     ,(format "Test if attribute %s has value %s" attr value)
-     (when
-         (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
+   `(defun ,(gensym "shr-url-predicate") (node)
+      ,(format "Test if attribute %s has value %s" attr value)
+      (when
+          (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
 
 (defun shr-url-elements-tester (element-list)
   "Return predicate that tests for presence of element in element-list for use as  a DOM filter."
   (eval
-  `(defun ,(gensym "shr-url-predicate") (node)
-     ,(format "Test if node  is a member of  %s" element-list)
-     (when (member (xml-node-name node) (quote ,element-list)) node))))
+   `(defun ,(gensym "shr-url-predicate") (node)
+      ,(format "Test if node  is a member of  %s" element-list)
+      (when (member (xml-node-name node) (quote ,element-list)) node))))
 
 ;;{{{ Speech-enable:
 
@@ -313,30 +310,30 @@ to filter!"))
     (setq shr-url-cache-updated t))
   (let ((el-list nil)
         (el  (completing-read "Element: " shr-url-element-cache)))
-     (loop until (zerop (length  el))
-           do
-           (pushnew (read el)  el-list)
-           (setq el  (completing-read "Element: " shr-url-element-cache)))
+    (loop until (zerop (length  el))
+          do
+          (pushnew (read el)  el-list)
+          (setq el  (completing-read "Element: " shr-url-element-cache)))
     (let
         ((buffer nil)
          (inhibit-read-only t)
          (dom (shr-url-filter-dom shr-url-dom (shr-url-elements-tester el-list))))
       (when dom
-           (setq buffer (get-buffer-create "SHR Filtered"))
-           (with-current-buffer buffer
-             (erase-buffer)
-             (goto-char (point-min))
-             (special-mode)
-             (shr-insert-document dom)
-             (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
-             (setq shr-url-dom dom)
-             (set-buffer-modified-p nil)
-             (flush-lines "^ *$")
-             (use-local-map shr-map)
-             (setq buffer-read-only t))
-           (switch-to-buffer buffer)
-           (emacspeak-auditory-icon 'open-object)
-           (emacspeak-speak-buffer)))))
+        (setq buffer (get-buffer-create "SHR Filtered"))
+        (with-current-buffer buffer
+          (erase-buffer)
+          (goto-char (point-min))
+          (special-mode)
+          (shr-insert-document dom)
+          (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
+          (setq shr-url-dom dom)
+          (set-buffer-modified-p nil)
+          (flush-lines "^ *$")
+          (use-local-map shr-map)
+          (setq buffer-read-only t))
+        (switch-to-buffer buffer)
+        (emacspeak-auditory-icon 'open-object)
+        (emacspeak-speak-buffer)))))
 ;;}}}
 (provide 'emacspeak-shr)
 ;;{{{ end of file
