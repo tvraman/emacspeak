@@ -265,6 +265,7 @@
   (declare (special shr-url-id-cache shr-url-class-cache
                     shr-dom shr-map))
   (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
+  (unless (or shr-url-id-cache shr-url-class-cache) (error "No id/class to filter."))
   (let*
     ((attr (read (completing-read "Attribute: " '("id" "class"))))
      (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache))))
