@@ -100,10 +100,15 @@
           )
         do
         (emacspeak-keymap-update  shr-map  k)))
+(defvar shr-url-this-url nil
+  "Buffer local copy of URL of current page.")
 
-(defun shr-url-callback (args)
-  "Callback for url-retrieve."
-  (declare (special  shr-map shr-url-dom))
+(make-variable-buffer-local 'shr-url-this-url)
+
+(defun shr-url-callback (status args)
+  "Callback for url-retrieve.
+URL  being retrieved is received as part of the callback args."
+  (declare (special  shr-map shr-url-dom shr-url-this-url))
   (goto-char (point-min))
   (let*
       ((inhibit-read-only t)
@@ -114,7 +119,8 @@
       (erase-buffer)
       (special-mode)
       (shr-insert-document dom)
-      (setq shr-url-dom dom)
+      (setq shr-url-dom dom
+            shr-url-this-url (first args)))
       (goto-char (point-min))
       (set-buffer-modified-p nil)
       (flush-lines "^ *$")
@@ -132,7 +138,8 @@
     (read-from-minibuffer "URL: "
                           (get-text-property (point) 'shr-url))
     current-prefix-arg))
-  (url-retrieve url 'shr-url-callback))
+  (url-retrieve url 'shr-url-callback (list url)))
+
 ;;;###autoload
 
 (defun shr-url-open-link-at-point ()
@@ -142,6 +149,7 @@
     (cond
      ((null url)
       (message "Not on a link."))
+     (shr-base (shr-url (shr-expand-url url)))
      (t (shr-url url)))))
 ;;;###autoload
 (defun shr-url-region (start end)
