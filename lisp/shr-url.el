@@ -183,6 +183,10 @@
 
 ;;}}}
 ;;{{{ class and id caches:
+(defvar shr-url-cache-updated nil
+  "Records if caches are updated.")
+
+(make-variable-buffer-local 'shr-url-cache-updated)
 
 (defvar shr-url-id-cache nil
   "Cache of id values. Is buffer-local.")
@@ -196,19 +200,21 @@
   "Cache of element names. Is buffer-local.")
 (make-variable-buffer-local 'shr-url-element-cache)
 
-(defadvice shr-transform-dom (around emacspeak pre act comp)
-  "Cache element-names, id and class values as properties."
-  (let ((dom (ad-get-arg 0)))
-    (cond
-     ((listp dom)                       ; build cache
-      (let ((id (xml-get-attribute-or-nil dom 'id))
-            (class (xml-get-attribute-or-nil dom 'class))
-            (el (symbol-name (xml-node-name dom))))
-        ad-do-it
-        (when id (pushnew  id shr-url-id-cache))
-        (when class (pushnew class shr-url-class-cache))
-        (when el (pushnew el shr-url-element-cache))))
-    (t ad-do-it))))
+(defun shr-url-update-cache (dom)
+  "Update element, class and id cache."
+  (declare (special shr-url-element-cache shr-url-id-cache
+                    shr-url-class-cache shr-url-cache-updated))
+   (when (listp dom)                         ; build cache
+    (let ((id (xml-get-attribute-or-nil dom 'id))
+          (class (xml-get-attribute-or-nil dom 'class))
+          (el (symbol-name (xml-node-name dom)))
+          (children (xml-node-children dom)))
+      (when id (pushnew  id shr-url-id-cache))
+      (when class (pushnew class shr-url-class-cache))
+      (when el (pushnew el shr-url-element-cache))
+      (when children (mapc #'shr-url-update-cache children)))))
+
+
 
 ;;}}}
 ;;{{{ Filter DOM:
@@ -263,40 +269,48 @@
   "Display DOM filtered by specified attribute=value test."
   (interactive)
   (declare (special shr-url-id-cache shr-url-class-cache
-                    shr-dom shr-map))
-  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
+                    shr-url-cache-updated shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM
+to filter!"))
+  (unless shr-url-cache-updated
+    (shr-url-update-cache shr-url-dom)
+    (setq shr-url-cache-updated t))
   (unless (or shr-url-id-cache shr-url-class-cache) (error "No id/class to filter."))
   (let*
-    ((attr (read (completing-read "Attribute: " '("id" "class"))))
-     (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache))))
-  (let
-      ((buffer nil)
-       (inhibit-read-only t)
-       (dom
-        (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
-    (when dom
-          (setq buffer (get-buffer-create "SHR Filtered"))
-          (with-current-buffer buffer
-            (erase-buffer)
-  (goto-char (point-min))
-      (special-mode)
-      (shr-insert-document dom)
-      (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
-      (setq shr-url-dom dom)
-      (set-buffer-modified-p nil)
-      (flush-lines "^ *$")
-      (use-local-map shr-map)
-      (setq buffer-read-only t))
-    (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open0-object)
-    (emacspeak-speak-buffer)))))
+      ((attr (read (completing-read "Attribute: " '("id" "class"))))
+       (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache))))
+    (let
+        ((buffer nil)
+         (inhibit-read-only t)
+         (dom
+          (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
+      (when dom
+        (setq buffer (get-buffer-create "SHR Filtered"))
+        (with-current-buffer buffer
+          (erase-buffer)
+          (goto-char (point-min))
+          (special-mode)
+          (shr-insert-document dom)
+          (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
+          (setq shr-url-dom dom)
+          (set-buffer-modified-p nil)
+          (flush-lines "^ *$")
+          (use-local-map shr-map)
+          (setq buffer-read-only t))
+        (switch-to-buffer buffer)
+        (emacspeak-auditory-icon 'open0-object)
+        (emacspeak-speak-buffer)))))
 
 (defun shr-url-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
   (declare (special shr-url-element-cache
-                    shr-dom shr-map))
-  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
+                    shr-url-cache-updated shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM
+to filter!"))
+  (unless shr-url-cache-updated
+    (shr-url-update-cache shr-url-dom)
+    (setq shr-url-cache-updated t))
   (let ((el-list nil)
         (el  (completing-read "Element: " shr-url-element-cache)))
      (loop until (zerop (length  el))
