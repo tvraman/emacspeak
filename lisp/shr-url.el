@@ -91,7 +91,8 @@
   (loop for k in
         '(
           ("\C-i" shr-url-next-link)
-          ("f" shr-url-view-filtered-dom-by-attribute)
+          ("a" shr-url-view-filtered-dom-by-attribute)
+          ("e" shr-url-view-filtered-dom-by-element-list)
           ("o" shr-url-open-link-at-point)
           ([backtab] shr-url-previous-link)
           ("\M-\C-i" shr-url-previous-link)
@@ -186,20 +187,27 @@
 (defvar shr-url-id-cache nil
   "Cache of id values. Is buffer-local.")
 (make-variable-buffer-local 'shr-url-id-cache)
+
 (defvar shr-url-class-cache nil
   "Cache of class values. Is buffer-local.")
 (make-variable-buffer-local 'shr-url-class-cache)
 
+(defvar shr-url-element-cache nil
+  "Cache of element names. Is buffer-local.")
+(make-variable-buffer-local 'shr-url-element-cache)
+
 (defadvice shr-transform-dom (around emacspeak pre act comp)
-  "Cache id and class values as properties."
+  "Cache element-names, id and class values as properties."
   (let ((dom (ad-get-arg 0)))
     (cond
      ((listp dom)                       ; build cache
       (let ((id (xml-get-attribute-or-nil dom 'id))
-            (class (xml-get-attribute-or-nil dom 'class)))
+            (class (xml-get-attribute-or-nil dom 'class))
+            (el (symbol-name (xml-node-name dom))))
         ad-do-it
         (when id (pushnew  id shr-url-id-cache))
-        (when class (pushnew class shr-url-class-cache))))
+        (when class (pushnew class shr-url-class-cache))
+        (when el (pushnew el shr-url-element-cache))))
     (t ad-do-it))))
 
 ;;}}}
@@ -229,6 +237,13 @@
      (when
          (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
 
+(defun shr-url-elements-tester (element-list)
+  "Return predicate that tests for presence of element in element-list for use as  a DOM filter."
+  (eval
+  `(defun ,(gensym "shr-url-predicate") (node)
+     ,(format "Test if node  is a member of  %s" element-list)
+     (when (member (xml-node-name node) (quote ,element-list)) node))))
+
 ;;{{{ Speech-enable:
 
 (loop for f in
@@ -249,10 +264,10 @@
   (interactive)
   (declare (special shr-url-id-cache shr-url-class-cache
                     shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
   (let*
     ((attr (read (completing-read "Attribute: " '("id" "class"))))
      (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache))))
-  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
   (let
       ((buffer nil)
        (inhibit-read-only t)
@@ -275,6 +290,38 @@
     (emacspeak-auditory-icon 'open0-object)
     (emacspeak-speak-buffer)))))
 
+(defun shr-url-view-filtered-dom-by-element-list ()
+  "Display DOM filtered by specified el list."
+  (interactive)
+  (declare (special shr-url-element-cache
+                    shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM  to filter!"))
+  (let ((el-list nil)
+        (el  (completing-read "Element: " shr-url-element-cache)))
+     (loop until (zerop (length  el))
+           do
+           (pushnew (read el)  el-list)
+           (setq el  (completing-read "Element: " shr-url-element-cache)))
+    (let
+        ((buffer nil)
+         (inhibit-read-only t)
+         (dom (shr-url-filter-dom shr-url-dom (shr-url-elements-tester el-list))))
+      (when dom
+           (setq buffer (get-buffer-create "SHR Filtered"))
+           (with-current-buffer buffer
+             (erase-buffer)
+             (goto-char (point-min))
+             (special-mode)
+             (shr-insert-document dom)
+             (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
+             (setq shr-url-dom dom)
+             (set-buffer-modified-p nil)
+             (flush-lines "^ *$")
+             (use-local-map shr-map)
+             (setq buffer-read-only t))
+           (switch-to-buffer buffer)
+           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-speak-buffer)))))
 ;;}}}
 (provide 'emacspeak-shr)
 ;;{{{ end of file
