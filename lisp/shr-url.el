@@ -309,15 +309,14 @@ URL  being retrieved is received as part of the callback args."
           (setq buffer-read-only t))
         (switch-to-buffer buffer)
         (emacspeak-auditory-icon 'open0-object)
-        (emacspeak-speak-buffer)))))
+        (emacspeak-speak-buffer))))
 
 (defun shr-url-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
   (declare (special shr-url-element-cache
-                    shr-url-cache-updated shr-dom shr-map))
-  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM
-to filter!"))
+                    shr-url-this-url shr-url-cache-updated shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM to filter!"))
   (unless shr-url-cache-updated
     (shr-url-update-cache shr-url-dom)
     (setq shr-url-cache-updated t))
@@ -329,6 +328,7 @@ to filter!"))
           (setq el  (completing-read "Element: " shr-url-element-cache)))
     (let
         ((buffer nil)
+         (url (url-generic-parse-url shr-url-this-url))
          (inhibit-read-only t)
          (dom (shr-url-filter-dom shr-url-dom (shr-url-elements-tester el-list))))
       (when dom
@@ -338,6 +338,12 @@ to filter!"))
           (goto-char (point-min))
           (special-mode)
           (shr-insert-document dom)
+          (setq shr-base
+                (concat
+                 (url-type url)
+                 "://"
+                 (url-host url)
+                 (file-name-directory (url-filename url))))
           (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
           (setq shr-url-dom dom)
           (set-buffer-modified-p nil)
@@ -347,6 +353,7 @@ to filter!"))
         (switch-to-buffer buffer)
         (emacspeak-auditory-icon 'open-object)
         (emacspeak-speak-buffer)))))
+
 ;;}}}
 (provide 'emacspeak-shr)
 ;;{{{ end of file
