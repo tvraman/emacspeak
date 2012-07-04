@@ -147,10 +147,10 @@ URL  being retrieved is received as part of the callback args."
   (interactive)
   (let ((url (get-text-property (point) 'shr-url)))
     (cond
-     ((null url)
-      (message "Not on a link."))
+     ((null url) (message "Not on a link."))
      (shr-base (shr-url (shr-expand-url url)))
      (t (shr-url url)))))
+
 ;;;###autoload
 (defun shr-url-region (start end)
   "Display region as web page."
