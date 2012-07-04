@@ -274,28 +274,33 @@ URL  being retrieved is received as part of the callback args."
   "Display DOM filtered by specified attribute=value test."
   (interactive)
   (declare (special shr-url-id-cache shr-url-class-cache
-                    shr-url-cache-updated shr-dom shr-map))
-  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM
-to filter!"))
+                    shr-url-this-url shr-url-cache-updated shr-dom shr-map))
+  (unless (and (boundp 'shr-url-dom) shr-url-dom) (error "No DOM to filter!"))
   (unless shr-url-cache-updated
     (shr-url-update-cache shr-url-dom)
     (setq shr-url-cache-updated t))
   (unless (or shr-url-id-cache shr-url-class-cache) (error "No id/class to filter."))
   (let*
       ((attr (read (completing-read "Attribute: " '("id" "class"))))
-       (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache))))
-    (let
-        ((buffer nil)
+       (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache)))
+        (buffer nil)
          (inhibit-read-only t)
+         (url (url-generic-parse-url shr-url-this-url))
          (dom
           (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
-      (when dom
+    (when dom
         (setq buffer (get-buffer-create "SHR Filtered"))
         (with-current-buffer buffer
           (erase-buffer)
           (goto-char (point-min))
           (special-mode)
           (shr-insert-document dom)
+          (setq shr-base
+                (concat
+                 (url-type url)
+                 "://"
+                 (url-host url)
+                 (file-name-directory (url-filename url))))
           (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
           (setq shr-url-dom dom)
           (set-buffer-modified-p nil)
