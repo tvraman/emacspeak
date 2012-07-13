@@ -303,12 +303,13 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Return next headline to display."
   (declare (special emacspeak-webspace-headlines))
   (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when (ring-empty-p titles)
+    (cond
+     ((ring-empty-p titles)
       (emacspeak-webspace-headlines-refresh)
       "No News Is Good News")
-    (let ((h (ring-remove titles 0)))
-      (ring-insert-at-beginning titles h)
-      h)))
+     (t (let ((h (ring-remove titles 0)))
+          (ring-insert-at-beginning titles h)
+          h)))))
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
