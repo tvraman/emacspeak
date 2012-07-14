@@ -1,0 +1,21 @@
+<ASX version = "3.0">
+<TITLE>1.FM</TITLE>
+<Entry>
+      <TITLE>1.FM</TITLE>
+      <Author>1.FM</Author>
+      <Copyright>2007</Copyright>
+      <MoreInfo href = "http://www.1.FM/"></MoreInfo>
+      <Abstract>1.FM</Abstract>
+      <Ref href = "http://bb.1.fm/bbfm32k" />
+      <PARAM NAME="HTMLView" Value="http://www.1.fm/station/BombayBeats/Listen.aspx"/>
+</Entry>
+<Entry>
+      <TITLE>1.FM</TITLE>
+      <Author>1.FM</Author>
+      <Copyright>2007</Copyright>
+      <MoreInfo href = "http://www.1.FM/"></MoreInfo>
+      <Abstract>1.FM</Abstract>
+      <Ref href = "http://bb.1.fm/bbfm32k" />
+      <PARAM NAME="HTMLView" Value="http://www.1.fm/station/BombayBeats/Listen.aspx"/>
+</Entry>
+</ASX>
