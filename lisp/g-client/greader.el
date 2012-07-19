@@ -263,6 +263,25 @@ e.g., starred."
     (greader-state-url (or state greader-default-state)))
    g-atom-view-xsl))
 
+(defun greader-reading-list-titles()
+  "Ensure cookies are live, and return alist of title/urls  from reading list."
+  (interactive)
+  (declare (special greader-auth-handle
+                    g-curl-program g-curl-common-options
+                    greader-default-state g-atom-titles-xsl))
+  (g-auth-ensure-token greader-auth-handle)
+  (with-temp-buffer " *Reading List Scratch*"
+                    (insert 
+                     (g-get-result
+                      (format
+                       "%s %s %s %s 2>/dev/null"
+                       g-curl-program g-curl-common-options
+                       (g-authorization greader-auth-handle)
+                       (greader-state-url  greader-default-state))))
+                    (g-xsl-transform-region (point-min) (point-max) g-atom-titles-xsl) (goto-char (point-min))
+                    (read (current-buffer))))
+  
+
 (defun greader-read-preference (prompt)
   "Return pref name read from minibuffer."
   (declare (special greader-prefs-alist))

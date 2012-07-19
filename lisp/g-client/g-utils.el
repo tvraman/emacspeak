@@ -80,6 +80,12 @@
   :type 'string
   :group 'g)
 
+(defcustom g-atom-titles-xsl
+  (expand-file-name "atom-titles.xsl" g-directory)
+  "XSLT transform to convert Atom feed to alist of title/url pairs."
+  :type 'string
+  :group 'g)
+
 (defcustom g-atom-edit-filter
   (expand-file-name "blogger-edit-post.xsl" g-directory)
   "XSLT transform used to tidy up an entry before posting.
