@@ -172,12 +172,12 @@ Customize this to live on your local disk."
 (defsubst g-url-encode (str)
   "URL encode  string."
   (mapconcat #'(lambda (c)
-                (cond ((= c 32) "+")
-                      ((or (and (>= c ?a) (<= c ?z))
-                           (and (>= c ?A) (<= c ?Z))
-                           (and (>= c ?0) (<= c ?9)))
-                       (char-to-string c))
-                      (t (upcase (format "%%%02x" c)))))
+                 (cond ((= c 32) "+")
+                       ((or (and (>= c ?a) (<= c ?z))
+                            (and (>= c ?A) (<= c ?Z))
+                            (and (>= c ?0) (<= c ?9)))
+                        (char-to-string c))
+                       (t (upcase (format "%%%02x" c)))))
              str
              ""))
 
@@ -190,7 +190,7 @@ Customize this to live on your local disk."
   (call-process-region
    start end
    g-xslt-program
-   t t nil 
+   t t nil
    xsl
    "-"))
 
@@ -252,7 +252,6 @@ Key  is a string of of the form a.b.c"
      ((null name) v)
      (t nil))))
 
-
 (defalias 'g-json-aref 'aref)
 
 ;;}}}
@@ -276,8 +275,8 @@ Key  is a string of of the form a.b.c"
   (declare (special shell-file-name shell-command-switch))
   (g-using-scratch
    (call-process shell-file-name nil t
-                      nil shell-command-switch 
-                      command)
+                 nil shell-command-switch
+                 command)
    (set-buffer-multibyte nil) ;return raw binary string
    (buffer-string)))
 
@@ -294,8 +293,8 @@ Typically, content is pulled using Curl , converted to HTML using style  and
   (declare (special g-xslt-program g-html-handler))
   (g-using-scratch
    (call-process shell-file-name nil t
-                      nil shell-command-switch 
-                      command)
+                 nil shell-command-switch
+                 command)
    (when style
      (g-xsl-transform-region (point-min) (point-max) style))
    (funcall g-html-handler (current-buffer))))
