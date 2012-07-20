@@ -497,7 +497,7 @@ Optional interactive prefix arg forces a refresh."
   "Returns a title chosen at random."
   (declare (special emacspeak-webspace-reading-list-buffer))
   (with-current-buffer (get-buffer emacspeak-webspace-reading-list-buffer)
-    (let ((choice (random (count-lines-region (point-min) (point-max)))))
+    (let ((choice (random (count-lines (point-min) (point-max)))))
       (save-excursion
         (goto-char (point-min))
         (forward-line (1- choice))
