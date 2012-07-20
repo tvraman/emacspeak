@@ -16,7 +16,18 @@ xmlns:gd='http://schemas.google.com/g/2005'
     xmlns:gr="http://www.google.com/schemas/reader/atom/"
     version="1.0">
   <xsl:output encoding="UTF-8" method="text" indent="yes"/>
-  
+  <xsl:template name="translateDoubleQuotes">
+        <xsl:param name="string" select="''" />
+        <xsl:choose>
+                <xsl:when test="contains($string, '&quot;')">
+                        <xsl:text /><xsl:value-of select="substring-before($string, '&quot;')" />\"<xsl:call-template name="translateDoubleQuotes"><xsl:with-param name="string" select="substring-after($string, '&quot;')" /></xsl:call-template><xsl:text />
+                </xsl:when>
+                <xsl:otherwise>
+                        <xsl:text /><xsl:value-of select="$string" /><xsl:text />
+                </xsl:otherwise>
+        </xsl:choose>
+</xsl:template>
+
   <xsl:template match="atom:feed">
 	<xsl:if test="count(atom:entry) > 1 ">
 	  (
@@ -28,7 +39,7 @@ xmlns:gd='http://schemas.google.com/g/2005'
   
   <xsl:template match="atom:entry">
     (
-      "<xsl:value-of select="atom:link[1]/@href"/>"
+      " <xsl:call-template name="translateDoubleQuotes"><xsl:with-param name="string" select="atom:link[1]/@href" /></xsl:call-template>"
 	  .
 	"<xsl:value-of select="atom:title" disable-output-escaping="yes"/>"
       )
