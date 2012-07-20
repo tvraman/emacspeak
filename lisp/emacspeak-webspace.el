@@ -449,7 +449,7 @@ Optional interactive prefix arg forces a refresh."
         (titles (greader-reading-list-titles))
         (inhibit-read-only t))
     (with-current-buffer buffer
-      (goto-char (point-max))
+      (goto-char (point-min))
       (emacspeak-webspace-mode)
       (loop for title in titles
             do
@@ -460,6 +460,7 @@ Optional interactive prefix arg forces a refresh."
             (insert "\n")))
     (when (ems-interactive-p)
       (switch-to-buffer buffer)
+      (goto-char (point-min))
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'select-object))))
   
