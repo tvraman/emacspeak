@@ -436,6 +436,35 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
+(defvar emacspeak-webspace-reading-list-buffer
+  "Reading List"
+  "Buffer where we accumulate reading list headlines.")
+
+(defun emacspeak-webspace-reading-list ()
+  "Display Google Reader Reading List (river of news) in a Webspace buffer."
+  (interactive)
+  (declare (special emacspeak-webspace-reading-list-buffer))
+  (let ((buffer (get-buffer-create emacspeak-webspace-reading-list-buffer))
+        (start nil)
+        (titles (greader-reading-list-titles))
+        (inhibit-read-only t))
+    (with-current-buffer buffer
+      (goto-char (point-max))
+      (emacspeak-webspace-mode)
+      (loop for title in titles
+            do
+            (setq start (point))
+            (insert (cdr title))
+            (put-text-property  start (point)
+                                'link (car title))
+            (insert "\n")))
+    (when (ems-interactive-p)
+      (switch-to-buffer buffer)
+      (emacspeak-speak-mode-line)
+      (emacspeak-auditory-icon 'select-object))))
+  
+
+;;;###autoload
 (defun emacspeak-webspace-reader-refresh ()
   "Refresh Reader."
   (interactive )
