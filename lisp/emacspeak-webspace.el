@@ -463,6 +463,16 @@ Optional interactive prefix arg forces a refresh."
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'select-object))))
+
+;;;###autoload
+(defun emacspeak-webspace-reading-list-display ()
+  "Switch to reading list view, creating it if needed."
+  (interactive)
+  (unless (buffer-live-p emacspeak-webspace-reading-list-buffer)
+    (emacspeak-webspace-reading-list))
+  (emacspeak-auditory-icon 'select-object)
+  (switch-to-buffer emacspeak-webspace-reading-list-buffer)
+  (emacspeak-speak-mode-line))
   
 
 ;;;###autoload
