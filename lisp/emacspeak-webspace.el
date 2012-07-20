@@ -465,10 +465,11 @@ Optional interactive prefix arg forces a refresh."
       (emacspeak-auditory-icon 'select-object))))
 
 ;;;###autoload
-(defun emacspeak-webspace-reading-list-display ()
+(defun emacspeak-webspace-reading-list-view ()
   "Switch to reading list view, creating it if needed."
   (interactive)
-  (unless (buffer-live-p emacspeak-webspace-reading-list-buffer)
+  (declare (special emacspeak-webspace-reading-list-buffer))
+  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
     (emacspeak-webspace-reading-list))
   (emacspeak-auditory-icon 'select-object)
   (switch-to-buffer emacspeak-webspace-reading-list-buffer)
@@ -491,6 +492,16 @@ Optional interactive prefix arg forces a refresh."
      (link 
       (greader-unsubscribe-feed link))
      (t (call-interactively 'greader-unsubscribe-feed)))))
+
+(defun emacspeak-webspace-reading-list-get-some-title ()
+  "Returns a title chosen at random."
+  (declare (special emacspeak-webspace-reading-list-buffer))
+  (with-current-buffer (get-buffer emacspeak-webspace-reading-list-buffer)
+    (let ((choice (random (count-lines-region (point-min) (point-max)))))
+      (save-excursion
+        (goto-char (point-min))
+        (forward-line (1- choice))
+        (buffer-substring (line-beginning-position) (line-end-position))))))
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
