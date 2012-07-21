@@ -497,12 +497,15 @@ Optional interactive prefix arg forces a refresh."
   "Returns a title chosen at random.
 Leaves point on the title returned in the reading list buffer."
   (declare (special emacspeak-webspace-reading-list-buffer))
+  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
+    (emacspeak-webspace-reading-list-accumulate))
   (with-current-buffer (get-buffer emacspeak-webspace-reading-list-buffer)
     (let ((choice
            (random (min 100 (count-lines (point-min) (point-max))))))
-        (goto-char (point-min))
-        (forward-line (1- choice))
-        (buffer-substring (line-beginning-position) (line-end-position)))))
+      (goto-char (point-min))
+      (forward-line (1- choice))
+      (buffer-substring (line-beginning-position)
+                        (line-end-position)))))
 
 (defvar emacspeak-webspace-reading-list-timer nil
   "Timer used to  regularly update river of news.")
