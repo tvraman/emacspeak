@@ -498,7 +498,8 @@ Optional interactive prefix arg forces a refresh."
 Leaves point on the title returned in the reading list buffer."
   (declare (special emacspeak-webspace-reading-list-buffer))
   (with-current-buffer (get-buffer emacspeak-webspace-reading-list-buffer)
-    (let ((choice (random (count-lines (point-min) (point-max)))))
+    (let ((choice
+           (random (min 100 (count-lines (point-min) (point-max))))))
         (goto-char (point-min))
         (forward-line (1- choice))
         (buffer-substring (line-beginning-position) (line-end-position)))))
