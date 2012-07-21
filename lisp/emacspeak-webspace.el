@@ -180,7 +180,7 @@
 ;;}}}
 ;;{{{ WebSpace Display:
 
-(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
+(global-set-key [C-return] 'emacspeak-webspace-reading-list-view)
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines-view ()
@@ -222,7 +222,7 @@ Generates auditory and visual display."
       '(
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
-        ("r" greader-reading-list)
+        ("r" emacspeak-webspace-reading-list)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
@@ -440,8 +440,8 @@ Optional interactive prefix arg forces a refresh."
   "Reading List"
   "Buffer where we accumulate reading list headlines.")
 
-(defun emacspeak-webspace-reading-list ()
-  "Display Google Reader Reading List (river of news) in a Webspace buffer."
+(defun emacspeak-webspace-reading-list-accumulate ()
+  "Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer."
   (interactive)
   (declare (special emacspeak-webspace-reading-list-buffer))
   (let ((buffer (get-buffer-create emacspeak-webspace-reading-list-buffer))
@@ -470,7 +470,7 @@ Optional interactive prefix arg forces a refresh."
   (interactive)
   (declare (special emacspeak-webspace-reading-list-buffer))
   (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
-    (emacspeak-webspace-reading-list))
+    (emacspeak-webspace-reading-list-accumulate))
   (emacspeak-auditory-icon 'select-object)
   (switch-to-buffer emacspeak-webspace-reading-list-buffer)
   (emacspeak-speak-mode-line))
@@ -502,6 +502,22 @@ Optional interactive prefix arg forces a refresh."
         (goto-char (point-min))
         (forward-line (1- choice))
         (buffer-substring (line-beginning-position) (line-end-position))))))
+
+(defvar emacspeak-webspace-reading-list-timer nil
+  "Timer used to  regularly update river of news.")
+
+;;;###autoload
+(defun emacspeak-webspace-reading-list ()
+  "Set up scroling reading list in header."
+  (interactive)
+  (declare (special emacspeak-webspace-reading-list-buffer
+                    emacspeak-webspace-reading-list-timer))
+  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
+    (emacspeak-webspace-reading-list-accumulate))
+  (unless emacspeak-webspace-reading-list-timer
+    (setq emacspeak-webspace-reading-list-timer
+          (run-with-timer 3600 3600  'emacspeak-webspace-reading-list-accumulate)))
+  (emacspeak-webspace-display '((:eval (emacspeak-webspace-reading-list-get-some-title)))))
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
