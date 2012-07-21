@@ -506,6 +506,8 @@ Leaves point on the title returned in the reading list buffer."
 (defvar emacspeak-webspace-reading-list-timer nil
   "Timer used to  regularly update river of news.")
 
+
+
 ;;;###autoload
 (defun emacspeak-webspace-reading-list ()
   "Set up scroling reading list in header."
