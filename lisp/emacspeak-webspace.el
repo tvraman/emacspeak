@@ -454,7 +454,7 @@ Optional interactive prefix arg forces a refresh."
       (loop for title in titles
             do
             (setq start (point))
-            (insert (cdr title))
+            (insert (first (split-string (cdr title) "\n")))
             (put-text-property  start (point)
                                 'link (car title))
             (insert "\n")))
