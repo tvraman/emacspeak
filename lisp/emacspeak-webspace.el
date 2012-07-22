@@ -294,7 +294,7 @@ Updated headlines found in emacspeak-webspace-headlines."
            60 t 'emacspeak-webspace-headlines-refresh))
     (setq slow-timer 
           (run-with-idle-timer
-           3600 
+           3600
            t 'emacspeak-webspace-headlines-populate))
     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
     (setf (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines) slow-timer)))
@@ -532,7 +532,7 @@ Leaves point on the title returned in the reading list buffer."
     (emacspeak-webspace-reading-list-accumulate))
   (unless emacspeak-webspace-reading-list-timer
     (setq emacspeak-webspace-reading-list-timer
-          (run-with-timer 3600 3600  'emacspeak-webspace-reading-list-accumulate)))
+          (run-with-timer 1800 1800   'emacspeak-webspace-reading-list-accumulate)))
   (emacspeak-webspace-display '((:eval (emacspeak-webspace-reading-list-get-some-title)))))
 
 ;;}}}
