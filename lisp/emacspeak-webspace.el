@@ -440,29 +440,39 @@ Optional interactive prefix arg forces a refresh."
   "Reading List"
   "Buffer where we accumulate reading list headlines.")
 
+(defconst emacspeak-webspace-reading-list-max-size 1800
+  "How many headlines we keep around.")
+
+
 (defun emacspeak-webspace-reading-list-accumulate ()
   "Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer."
   (interactive)
-  (declare (special emacspeak-webspace-reading-list-buffer))
+  (declare (special emacspeak-webspace-reading-list-buffer
+                    emacspeak-webspace-reading-list-max-size))
   (let ((buffer (get-buffer-create emacspeak-webspace-reading-list-buffer))
         (start nil)
         (titles (greader-reading-list-titles))
         (inhibit-read-only t))
     (with-current-buffer buffer
-      (goto-char (point-min))
       (emacspeak-webspace-mode)
+      (goto-char (point-min))
       (loop for title in titles
             do
             (setq start (point))
             (insert (first (split-string (cdr title) "\n")))
             (put-text-property  start (point)
                                 'link (car title))
-            (insert "\n")))
-    (when (ems-interactive-p)
+            (insert "\n"))
+      (goto-char (point-min))
+      (when (> (count-lines (point-min) (point-max))
+        emacspeak-webspace-reading-list-max-size)
+        (forward-line  emacspeak-webspace-reading-list-max-size)
+        (delete-region (point) (point-max)))
+      (when (ems-interactive-p)
       (switch-to-buffer buffer)
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-auditory-icon 'select-object)))))
 
 ;;;###autoload
 (defun emacspeak-webspace-reading-list-view ()
