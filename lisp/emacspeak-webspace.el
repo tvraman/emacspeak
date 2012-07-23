@@ -502,11 +502,10 @@ Optional interactive prefix arg forces a refresh."
      (link 
       (greader-unsubscribe-feed link))
      (t (call-interactively 'greader-unsubscribe-feed)))))
-;;;###autoload
+
 (defun emacspeak-webspace-reading-list-get-some-title ()
   "Returns a title chosen at random.
 Leaves point on the title returned in the reading list buffer."
-  (interactive)
   (declare (special emacspeak-webspace-reading-list-buffer))
   (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
     (emacspeak-webspace-reading-list-accumulate))
