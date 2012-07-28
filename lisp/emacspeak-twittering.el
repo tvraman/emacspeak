@@ -184,6 +184,11 @@
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
+(defadvice twittering-http-post-default-sentinel (around emacspeak pre act comp)
+  "Silence spoken messages while twitter is updating."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
 (defadvice twittering-http-get-default-sentinel (around emacspeak pre act comp)
   "Silence spoken messages while twitter is updating."
   (let ((emacspeak-speak-messages nil))
