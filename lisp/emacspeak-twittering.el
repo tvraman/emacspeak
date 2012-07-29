@@ -179,15 +179,15 @@
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
-(defadvice twittering-http-default-sentinel (around emacspeak pre act comp)
-  "Silence spoken messages while twitter is updating."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-(defadvice twittering-http-post-default-sentinel (around emacspeak pre act comp)
-  "Silence spoken messages while twitter is updating."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+(loop for f in
+      '(twittering-http-default-sentinel
+        twittering-http-post-default-sentinel)
+      do
+      (eval
+       `(defadvice ,f  (around emacspeak pre act comp)
+          "Silence spoken messages while twitter is updating."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it))))
 
 (defadvice twittering-http-get-default-sentinel (around emacspeak pre act comp)
   "Silence spoken messages while twitter is updating."
