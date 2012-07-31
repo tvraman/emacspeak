@@ -51,18 +51,18 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'emacspeak-redefine)
-
 ;;}}}
+
 ;;{{{ SES Accessors:
 
 ;;; these are defined as macros in ses.el 
-;;; and are cloned here as defsubst forms for now.
+;;; and are cloned here as defsubst forms 
 
 (defsubst emacspeak-ses-get-cell (row col)
   "Return the cell structure that stores information about cell
   (ROW,COL)."
-  (declare (special cells))
-  (aref (aref cells row) col))
+  (declare (special ses--cells))
+  (aref (aref ses--cells row) col))
 
 (defsubst emacspeak-ses-cell-symbol (row &optional col)
   "From a CELL or a pair (ROW,COL), get the symbol that names the local-variable holding its value.  (0,0) => A1."
@@ -71,7 +71,6 @@
 (defsubst emacspeak-ses-cell-formula (row &optional col)
   "From a CELL or a pair (ROW,COL), get the function that computes its value."
   (aref  (if col (emacspeak-ses-get-cell  row  col) row) 1))
-
 (defsubst emacspeak-ses-cell-value (row &optional col)
   "From a CELL or a pair (ROW,COL), get the current value for that cell."
   (symbol-value (emacspeak-ses-cell-symbol row col)))
@@ -81,6 +80,25 @@
 is nil if SYM is not a symbol that names a cell."
   (and (symbolp  sym) (get  sym 'ses-cell)))
 
+(defsubst emacspeak-ses-cell-printer (row &optional col)
+  "From a CELL or a pair (ROW,COL), get the function that prints its value."
+  (aref (if col (ses-get-cell row col) row) 2))
+(defsubst emacspeak-ses-cell-property-get (property-name row &optional col)
+   "Get property named PROPERTY-NAME from a CELL or a pair (ROWCOL).
+
+When COL is omitted CELL=ROW is a cell object.  When COL is
+present ROW and COL are the integer coordinates of the cell of
+interest."
+   (declare (debug t))
+   (ses-cell-property-get-fun
+     property-name
+     (if col (ses-get-cell row col) row)))
+
+
+(defsubst emacspeak-ses-col-printer (col)
+  "Return the default printer for column COL."
+  (declare (special ses--col-printers))
+  (aref ses--col-printers col)) ;;}}}
 ;;}}}
 ;;{{{ emacspeak ses accessors 
 
