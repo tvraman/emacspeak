@@ -201,6 +201,13 @@ interest."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
+
+(defadvice ses-jump (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ses-summarize-current-cell)))
+
 ;;}}}
                                         ;(emacspeak-ses-setup)
 (provide 'emacspeak-ses)
