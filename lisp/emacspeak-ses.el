@@ -106,9 +106,8 @@ interest."
 ;;;earlier helpers by Emacspeak.
 (defsubst emacspeak-ses-current-cell-symbol ()
   "Return symbol for current cell."
-  (declare (special curcell))
-  (or (get-text-property (point) 'intangible)
-      curcell))
+  (get-text-property (point) 'intangible))
+      
 
 (defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
@@ -130,7 +129,7 @@ interest."
   (interactive
    (list
     (read-minibuffer "Cell: ")))
-  (message
+  (dtk-speak
    (format "%s: %s"
            cell-name
            (emacspeak-ses-get-cell-value-by-name cell-name))))
@@ -201,6 +200,13 @@ interest."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ses-summarize-current-cell)))
 
+
+
+(defadvice ses-recalculate-cell (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-ses-summarize-current-cell)
+    (emacspeak-auditory-icon 'task-done)))
 
 (defadvice ses-jump (after emacspeak pre act comp)
   "Provide auditory feedback."
