@@ -209,7 +209,7 @@ interest."
     (emacspeak-ses-summarize-current-cell)))
 
 ;;}}}
-                                        ;(emacspeak-ses-setup)
+(emacspeak-ses-setup)
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 
