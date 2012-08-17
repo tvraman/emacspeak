@@ -86,8 +86,9 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
+
 (loop for f in
-      '(js2-mode-forward-sexp js2-mode-backward-sibling)
+      '(js2-mode-forward-sexp js2-mode-backward-sibling js2-next-error)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -96,9 +97,9 @@
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
-                ;js2-mode-match-curly
-                ;js2-mode-show-node
-                ;js2-next-error)
+;js2-mode-match-curly
+;js2-mode-show-node
+                
 
 
 ;;}}}
