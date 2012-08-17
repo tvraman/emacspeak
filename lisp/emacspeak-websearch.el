@@ -631,8 +631,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
                          (?t "/ta")
                          (?e "/ce")
                          (?o "/op")
-                         (?s "/sec")
-                         ))
+                         (?s "/sec")))
                (format "s=%s" ticker)))
       (emacspeak-webutils-post-process
        (format-time-string "%Y")
