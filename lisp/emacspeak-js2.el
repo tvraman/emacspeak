@@ -41,7 +41,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; JS2-mode http://js2-mode.gogolecode.com/svn/trunk
+;;; JS2-mode http://js2-mode.googlecode.com/svn/trunk
 ;;; is a new, powerful Emacs mode for working with JavaScript.
 ;;; This module speech-enables js2.
 
@@ -51,9 +51,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
-;;}}}
-;;{{{ Face To Voice Mappings:
 
 ;;}}}
 ;;{{{  map faces to voices:
@@ -81,6 +78,28 @@
    (js2-jsdoc-html-tag-name-face voice-bolden-medium)
    (js2-jsdoc-html-tag-delimiter-face voice-smoothen)
    ))
+
+;;}}}
+;;{{{ Advice new interactive commands:
+(defadvice js2-mark-defun  (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-speak-line)))
+(loop for f in
+      '(js2-mode-forward-sexp js2-mode-backward-sibling)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
+
+                ;js2-mode-match-curly
+                ;js2-mode-show-node
+                ;js2-next-error)
+
 
 ;;}}}
 ;;{{{ js2-mode hook
