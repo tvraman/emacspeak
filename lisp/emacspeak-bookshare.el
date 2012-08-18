@@ -54,6 +54,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'browse-url)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'xml-parse)
@@ -90,6 +91,44 @@
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-bookshare)
+;;;###autoload
+(defcustom emacspeak-bookshare-browser-function
+  'browse-url-default-browser
+  "Function to display Bookshare Book content in a WWW browser.
+This is used by the various Bookshare view commands to display
+  content from Daisy books."
+  :type '(choice
+	  (function-item :tag "Emacs W3" :value  browse-url-w3)
+	  (function-item :tag "W3 in another Emacs via `gnudoit'"
+			 :value  browse-url-w3-gnudoit)
+	  (function-item :tag "Mozilla" :value  browse-url-mozilla)
+	  (function-item :tag "Firefox" :value browse-url-firefox)
+	  (function-item :tag "Chromium" :value browse-url-chromium)
+	  (function-item :tag "Epiphany" :value  browse-url-epiphany)
+	  (function-item :tag "Netscape" :value  browse-url-netscape)
+	  (function-item :tag "Mosaic" :value  browse-url-mosaic)
+	  (function-item :tag "Mosaic using CCI" :value  browse-url-cci)
+	  (function-item :tag "Text browser in an xterm window"
+			 :value browse-url-text-xterm)
+	  (function-item :tag "Text browser in an Emacs window"
+			 :value browse-url-text-emacs)
+	  (function-item :tag "KDE" :value browse-url-kde)
+	  (function-item :tag "Elinks" :value browse-url-elinks)
+	  (function-item :tag "Specified by `Browse Url Generic Program'"
+			 :value browse-url-generic)
+	  (function-item :tag "Default Windows browser"
+			 :value browse-url-default-windows-browser)
+	  (function-item :tag "Default Mac OS X browser"
+			 :value browse-url-default-macosx-browser)
+	  (function-item :tag "GNOME invoking Mozilla"
+			 :value browse-url-gnome-moz)
+	  (function-item :tag "Default browser"
+			 :value browse-url-default-browser)
+	  (function :tag "Your own function")
+	  (alist :tag "Regexp/function association list"
+		 :key-type regexp :value-type function))
+  :version "24.1"
+  :group 'browse-url)
 
 ;;}}}
 ;;{{{ XML Compatibility:
