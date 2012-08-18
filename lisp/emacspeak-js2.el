@@ -102,6 +102,43 @@
                 
 
 
+;; (js2-backward-sws js2-beginning-of-line
+;;                   js2-down-mouse-3
+;;                   js2-end-of-do-while-loop-p
+;;                   js2-end-of-line
+;;                   js2-enter-key
+;;                   js2-enter-mirror-mode
+;;                   js2-forward-sws
+;;                   js2-indent-bounce-backwards
+;;                   js2-indent-line
+;;                   js2-insert-and-indent
+;;                   js2-leave-mirror-mode
+;;                   js2-mode
+;;                   js2-mode-customize
+;;                   js2-mode-display-warnings-and-errors
+;;                   js2-mode-exit
+;;                   js2-mode-hide-comments
+;;                   js2-mode-hide-element
+;;                   js2-mode-hide-functions
+;;                   js2-mode-hide-warnings-and-errors
+;;                   js2-mode-magic-close-paren
+;;                   js2-mode-match-bracket
+;;                   js2-mode-match-curly
+;;                   js2-mode-match-double-quote
+;;                   js2-mode-match-paren
+;;                   js2-mode-match-single-quote
+;;                   js2-mode-reset
+;;                   js2-mode-show-all
+;;                   js2-mode-show-comments
+;;                   js2-mode-show-element
+;;                   js2-mode-show-functions
+;;                   js2-mode-show-node
+;;                   js2-mode-toggle-element
+;;                   js2-mode-toggle-hide-comments
+;;                   js2-mode-toggle-hide-functions
+;;                   js2-mode-toggle-warnings-and-errors
+;;                   js2-narrow-to-defun
+;;                   js2-next-error)
 ;;}}}
 ;;{{{ js2-mode hook
 
@@ -118,7 +155,6 @@
 (add-hook 'js2-mode-hook 'emacspeak-js2-hook)
 
 ;;}}}
-
 (provide 'emacspeak-js2)
 ;;{{{ end of file
 
