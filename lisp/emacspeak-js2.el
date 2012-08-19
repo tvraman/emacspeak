@@ -58,6 +58,7 @@
 (voice-setup-add-map
  '(
    (js2-warning-face voice-bolden-and-animate)
+   (js2-external-variable-face voice-animate) 
    (js2-error-face voice-bolden-extra)
    (js2-constant-face voice-lighten)
    (js2-comment-face voice-monotone)
