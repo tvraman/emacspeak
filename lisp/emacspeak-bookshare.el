@@ -93,42 +93,22 @@
   :group 'emacspeak-bookshare)
 ;;;###autoload
 (defcustom emacspeak-bookshare-browser-function
-  'browse-url-default-browser
+  'browse-url-w3
   "Function to display Bookshare Book content in a WWW browser.
 This is used by the various Bookshare view commands to display
   content from Daisy books."
   :type '(choice
 	  (function-item :tag "Emacs W3" :value  browse-url-w3)
-	  (function-item :tag "W3 in another Emacs via `gnudoit'"
-			 :value  browse-url-w3-gnudoit)
 	  (function-item :tag "Mozilla" :value  browse-url-mozilla)
 	  (function-item :tag "Firefox" :value browse-url-firefox)
 	  (function-item :tag "Chromium" :value browse-url-chromium)
-	  (function-item :tag "Epiphany" :value  browse-url-epiphany)
-	  (function-item :tag "Netscape" :value  browse-url-netscape)
-	  (function-item :tag "Mosaic" :value  browse-url-mosaic)
-	  (function-item :tag "Mosaic using CCI" :value  browse-url-cci)
-	  (function-item :tag "Text browser in an xterm window"
-			 :value browse-url-text-xterm)
 	  (function-item :tag "Text browser in an Emacs window"
 			 :value browse-url-text-emacs)
-	  (function-item :tag "KDE" :value browse-url-kde)
-	  (function-item :tag "Elinks" :value browse-url-elinks)
-	  (function-item :tag "Specified by `Browse Url Generic Program'"
-			 :value browse-url-generic)
-	  (function-item :tag "Default Windows browser"
-			 :value browse-url-default-windows-browser)
 	  (function-item :tag "Default Mac OS X browser"
 			 :value browse-url-default-macosx-browser)
-	  (function-item :tag "GNOME invoking Mozilla"
-			 :value browse-url-gnome-moz)
-	  (function-item :tag "Default browser"
-			 :value browse-url-default-browser)
-	  (function :tag "Your own function")
-	  (alist :tag "Regexp/function association list"
-		 :key-type regexp :value-type function))
-  :version "24.1"
-  :group 'browse-url)
+	  (function :tag "Your own function"))
+  :version "37"
+  :group 'emacspeak-bookshare)
 
 ;;}}}
 ;;{{{ XML Compatibility:
@@ -1121,7 +1101,9 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-extract-and-view (url)
   "Extract content refered to by link under point, and render via the browser."
   (interactive "sURL: ")
-  (let ((result (emacspeak-bookshare-extract-xml url)))
+  (declare (special emacspeak-bookshare-browser-function))
+  (let ((result (emacspeak-bookshare-extract-xml url))
+        (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-excursion
       (set-buffer result)
       (emacspeak-webutils-autospeak)
@@ -1130,6 +1112,7 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-view-page-range (url )
   "Play pages in specified page range from URL."
   (interactive "sURL:")
+  (declare (special emacspeak-bookshare-browser-function))
   (let* ((start (read-from-minibuffer "Start Page: "))
          (end (read-from-minibuffer "End Page: "))
          (result
@@ -1138,7 +1121,8 @@ Make sure it's downloaded and unpacked first."
            (substring url 7)
            (list
             (cons "start" (format "'%s'" start ))
-            (cons "end" (format "'%s'" end ))))))
+            (cons "end" (format "'%s'" end )))))
+         (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-excursion
       (set-buffer result)
       (emacspeak-webutils-autospeak)
