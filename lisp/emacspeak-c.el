@@ -443,6 +443,7 @@ and their meanings. ")
 
 (voice-setup-add-map
  '(
+   (c-annotation-face voice-annotate)
    (c-nonbreakable-space-face voice-brighten)
    ))
 
