@@ -161,7 +161,9 @@
   (emacspeak-setup-programming-mode)
   (when (locate-library "js2-imenu-extras")
     (require 'js2-imenu-extras)
-    (js2-imenu-extras-setup)))
+    (js2-imenu-extras-setup))
+  ; need to reparse to get voice lock right (why?)
+  (js2-reparse 'force))
 
 (add-hook 'js2-mode-hook 'emacspeak-js2-hook)
 
