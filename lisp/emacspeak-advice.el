@@ -566,6 +566,7 @@ the words that were capitalized."
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
+(voice-setup-map-face 'minibuffer-prompt 'voice-bolden)
 (defadvice quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
   (when (ems-interactive-p )
