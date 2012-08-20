@@ -3365,10 +3365,27 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
           (mapcar
            #'(lambda (s)
                (let ((name (symbol-name s)))
-                 (when (string-match pattern name) name)))
+                 (when
+                     (and
+                        (string-match pattern name)
+                        (null (voice-setup-get-voice-for-face s)))
+                   name)))
            (face-list)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
 
+
+(defun emacspeak-wizards-enumerate-matching-faces (pattern)
+  "Enumerate  faces matching pattern."
+  (interactive "sPattern:")
+  (let ((result 
+         (delq
+          nil 
+          (mapcar
+           #'(lambda (s)
+               (let ((name (symbol-name s)))
+                 (when (string-match pattern name) name)))
+           (face-list)))))
+    (sort result #'(lambda (a b) (string-lessp a b)))))
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
