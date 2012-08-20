@@ -796,6 +796,11 @@ Produce an auditory icon if possible."
                                    (dtk-speak
                                     dabbrev--last-expansion))))))
 
+(voice-setup-add-map
+ '(
+   (completions-annotations voice-annotate)
+   (completions-common-part voice-monotone)
+   (completions-first-difference voice-brighten)))
 (loop for f in
       '(minibuffer-complete-word  minibuffer-complete)
       do
