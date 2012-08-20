@@ -1578,6 +1578,7 @@ semantic to do the work."
            (if (= 1 (point-min))
                ""
              "with narrowing in effect. ")))
+(voice-setup-map-face 'header-line 'voice-bolden)
 
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
