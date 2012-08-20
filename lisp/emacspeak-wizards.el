@@ -3345,19 +3345,29 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((result nil))
     (mapatoms
      #'(lambda (s)
+         (let ((name (symbol-name s)))
          (when
              (and
               (commandp s)
-              (not (string-match "^emacspeak" (symbol-name s)))
-              ;(emacspeak-should-i-fix-interactive-p  s)
-              (not (string-match "^ad-Orig" (symbol-name s)))
+              (not (string-match "^emacspeak" name))
+              (not (string-match "^ad-Orig" name))
               (not (ad-find-some-advice s 'any  "emacspeak"))
-              (string-match pattern  (symbol-name s)))
-           (push s result))))
-    (sort result
-          #'(lambda (a b)
-              (string-lessp (symbol-name a)
-                            (symbol-name b))))))
+              (string-match pattern  name))
+           (push name result)))))
+    (sort result #'(lambda (a b) (string-lessp a b)))))
+
+(defun emacspeak-wizards-enumerate-unmapped-faces (pattern)
+  "Enumerate unmapped faces matching pattern."
+  (interactive "sPattern:")
+  (let ((result 
+         (delq
+          nil 
+          (mapcar
+           #'(lambda (s)
+               (let ((name (symbol-name s)))
+                 (when (string-match pattern name) name)))
+           (face-list)))))
+    (sort result #'(lambda (a b) (string-lessp a b)))))
 
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
