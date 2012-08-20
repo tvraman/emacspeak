@@ -428,6 +428,7 @@ punctuations.")
 (voice-setup-add-map
  '(
    (bold voice-bolden)
+   (variable-pitch voice-animate)
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden)
    (fixed voice-monotone)
