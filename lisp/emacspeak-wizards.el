@@ -3327,7 +3327,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
-
+;;;###autoload
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
   "Prompt for a string pattern and return list of commands whose names match pattern."
   (interactive "sPattern: ")
@@ -3339,6 +3339,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
            (push s result))))
     result))
 
+;;;###autoload
 (defun emacspeak-wizards-enumerate-uncovered-commands (pattern)
   "Enumerate unadvised commands matching pattern."
   (interactive "sPattern:")
@@ -3355,10 +3356,11 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
               (string-match pattern  name))
            (push name result)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
-
-(defun emacspeak-wizards-enumerate-unmapped-faces (pattern)
+;;;###autoload
+(defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
   "Enumerate unmapped faces matching pattern."
   (interactive "sPattern:")
+  (or pattern (setq pattern "."))
   (let ((result 
          (delq
           nil 
@@ -3367,12 +3369,21 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                (let ((name (symbol-name s)))
                  (when
                      (and
-                        (string-match pattern name)
-                        (null (voice-setup-get-voice-for-face s)))
+                      (string-match pattern name)
+                      (null (voice-setup-get-voice-for-face s)))
                    name)))
            (face-list)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
 
+;;;###autoload
+(defun emacspeak-wizards-enumerate-obsolete-faces ()
+  "utility function to enumerate old, obsolete maps that we have still  mapped to voices."
+  (interactive)
+  (delq nil
+        (mapcar
+         #'(lambda (face) (unless (facep face) face))
+         (loop for k being the hash-keys of voice-setup-face-voice-table
+               collect k))))
 
 (defun emacspeak-wizards-enumerate-matching-faces (pattern)
   "Enumerate  faces matching pattern."
