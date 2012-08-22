@@ -511,6 +511,29 @@ punctuations.")
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
 
 ;;}}}
+;;{{{ Faces from  diff-mode.el
+
+(voice-setup-add-map
+ '(
+   (diff-added voice-brighten)
+(diff-changed voice-animate)
+(diff-context voice-monotone)
+(diff-file-header voice-bolden)
+(diff-function voice-smoothen)
+(diff-header voice-bolden-extra)
+(diff-hunk-header voice-bolden-medium)
+(diff-index voice-monotone)
+(diff-indicator-added voice-annotate)
+(diff-indicator-changed voice-annotate)
+(diff-indicator-removed voice-smoothen)
+(diff-nonexistent voice-lighten-extra)
+(diff-refine-added voice-lighten)
+(diff-refine-change voice-brighten-medium)
+(diff-refine-removed voice-smoothen)
+(diff-removed voice-smoothen-extra)
+))
+
+;;}}}
 ;;{{{ list-voices-display
 
 (defcustom voice-setup-sample-text
