@@ -48,7 +48,6 @@
 ;;
 ;; Comments will be spoken in `emacspeak-voice-lock-comment-personality'.
 ;; Strings will be spoken in `emacspeak-voice-lock-string-personality'.
-;; Doc strings will be spoken in `emacspeak-voice-lock-doc-string-personality'.
 ;; Function and variable names (in their defining forms) will be
 ;;  spoken in `emacspeak-voice-lock-function-name-personality'.
 ;; Reserved words will be spoken in `emacspeak-voice-lock-keyword-personality'.
@@ -441,12 +440,10 @@ punctuations.")
    (font-lock-negation-char-face voice-brighten-extra)
    (font-lock-constant-face voice-lighten)
    (font-lock-doc-face voice-monotone-medium)
-   (font-lock-doc-string-face voice-smoothen-extra)
    (font-lock-function-name-face voice-bolden-medium)
    (font-lock-keyword-face voice-animate-extra)
    (font-lock-preprocessor-face voice-monotone-medium)
    (shadow voice-monotone-medium)
-   (font-lock-reference-face voice-animate-medium)
    (font-lock-string-face voice-lighten-extra)
    (font-lock-type-face voice-smoothen)
    (font-lock-variable-name-face voice-bolden)
