@@ -218,11 +218,12 @@
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
+  (when (facep face)
   (let ((doc (format "Personality used for %s" face))
         (personality
          (intern (voice-setup-name-personality (symbol-name face)))))
     (eval
-     `(def-voice-font ,personality ,voice  ',face  ,doc))))
+     `(def-voice-font ,personality ,voice  ',face  ,doc)))))
 
 (defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."
@@ -509,29 +510,6 @@ punctuations.")
 
 (unless (assq 'voice-lock-mode minor-mode-alist)
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
-
-;;}}}
-;;{{{ Faces from  diff-mode.el
-
-(voice-setup-add-map
- '(
-   (diff-added voice-brighten)
-(diff-changed voice-animate)
-(diff-context voice-monotone)
-(diff-file-header voice-bolden)
-(diff-function voice-smoothen)
-(diff-header voice-bolden-extra)
-(diff-hunk-header voice-bolden-medium)
-(diff-index voice-monotone)
-(diff-indicator-added voice-annotate)
-(diff-indicator-changed voice-annotate)
-(diff-indicator-removed voice-smoothen)
-(diff-nonexistent voice-lighten-extra)
-(diff-refine-added voice-lighten)
-(diff-refine-change voice-brighten-medium)
-(diff-refine-removed voice-smoothen)
-(diff-removed voice-smoothen-extra)
-))
 
 ;;}}}
 ;;{{{ list-voices-display
