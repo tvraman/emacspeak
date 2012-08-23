@@ -48,12 +48,7 @@
 ;;}}}
 ;;{{{ personalities 
 
-(voice-setup-add-map
- '(
-   (bbdb-company voice-brighten)
-   (bbdb-field-name voice-smoothen)
-   (bbdb-field-value voice-animate)
-   (bbdb-name voice-bolden)))
+
 ;;{{{  Variable settings:
 
 ;;; Emacspeak will not work if bbdb is in electric mode
