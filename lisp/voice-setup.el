@@ -215,14 +215,12 @@
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
-  (cond
-   ((facep face)
   (let ((doc (format "Personality used for %s" face))
         (personality
          (intern (voice-setup-name-personality (symbol-name face)))))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
-   (t (message "Warning: Face %s appears to be  a rogue face." face))))
+   
 
 (defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."
