@@ -59,7 +59,7 @@
 
 (voice-setup-add-map
  '(
-   (flyspell-incorrect-face voice-bolden)
+   (flyspell-incorrect voice-bolden)
    ))
 
 ;;}}}
