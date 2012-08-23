@@ -157,11 +157,8 @@
 (defun voice-setup-show-rogue-voices ()
   "Return list of voices that map to non-existent faces."
   (declare (special voice-setup-face-voice-table))
-  (loop
-   for v being the hash-keys of
-   voice-setup-face-voice-table
-   unless (facep v)
-   collect v))
+  (loop for f being the hash-keys of voice-setup-face-voice-table
+        unless (facep f) collect f))
 
 ;;}}}
 ;;{{{ special form def-voice-font
