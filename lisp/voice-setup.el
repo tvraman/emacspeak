@@ -222,7 +222,7 @@
          (intern (voice-setup-name-personality (symbol-name face)))))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
-   (message "Warning: Face %s appears to be  a rogue face." face)))
+   (t (message "Warning: Face %s appears to be  a rogue face." face))))
 
 (defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."
