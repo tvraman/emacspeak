@@ -158,12 +158,9 @@
   (declare (special js2-mode-map))
   (define-key js2-mode-map "\C-e" 'emacspeak-prefix-command)
   (define-key js2-mode-map "\C-ee" 'js2-end-of-line)
-  (emacspeak-setup-programming-mode)
   (when (locate-library "js2-imenu-extras")
     (require 'js2-imenu-extras)
-    (js2-imenu-extras-setup))
-  ; need to reparse to get voice lock right (why?)
-  (js2-reparse 'force))
+    (js2-imenu-extras-setup)))
 
 (add-hook 'js2-mode-hook 'emacspeak-js2-hook)
 
