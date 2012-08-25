@@ -98,15 +98,15 @@
 This is used by the various Bookshare view commands to display
   content from Daisy books."
   :type '(choice
-	  (function-item :tag "Emacs W3" :value  browse-url-w3)
-	  (function-item :tag "Mozilla" :value  browse-url-mozilla)
-	  (function-item :tag "Firefox" :value browse-url-firefox)
-	  (function-item :tag "Chromium" :value browse-url-chromium)
-	  (function-item :tag "Text browser in an Emacs window"
-			 :value browse-url-text-emacs)
-	  (function-item :tag "Default Mac OS X browser"
-			 :value browse-url-default-macosx-browser)
-	  (function :tag "Your own function"))
+          (function-item :tag "Emacs W3" :value  browse-url-w3)
+          (function-item :tag "Mozilla" :value  browse-url-mozilla)
+          (function-item :tag "Firefox" :value browse-url-firefox)
+          (function-item :tag "Chromium" :value browse-url-chromium)
+          (function-item :tag "Text browser in an Emacs window"
+                         :value browse-url-text-emacs)
+          (function-item :tag "Default Mac OS X browser"
+                         :value browse-url-default-macosx-browser)
+          (function :tag "Your own function"))
   :version "37"
   :group 'emacspeak-bookshare)
 

@@ -57,7 +57,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 
-
 ;;}}}
 ;;{{{ Helpers:
 
@@ -84,8 +83,6 @@
       (setenv "LD_PRELOAD" (format "%s%s" "/usr/lib/libaoss.so" ld))
       (and ld (setq congrats-libaoss-configured-p t)))))
 
-
-
 ;;}}}
 ;;{{{ Sonifiers:
 
@@ -107,7 +104,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 
 (when congrats-test
 
-;;{{{ Constant:
+  ;;{{{ Constant:
 
 ;;; 200hz is X=0
   (congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
@@ -115,14 +112,14 @@ Argument duration --- default is 1ms --- specifies duration of each step."
   (congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
   (congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
 
-;;}}}
-;;{{{  linear Change:
+  ;;}}}
+  ;;{{{  linear Change:
 
 ;;; x=y for x in [-2, 2] stepsize 1/1000 
 
   (congrats-data-to-tones
    (loop for i from  -2000  to 2000 collect (+ 200 (abs  i))))
-    
+  
 ;;; Contrast with circle:
 ;;; x in [-1, 1] stepsize 1/1000 
 ;;; y = 1+x    x < 0; y = 1-x x >0
@@ -134,8 +131,8 @@ Argument duration --- default is 1ms --- specifies duration of each step."
          (+ 200                         ; translate X axis
             (- 1000 (abs i)))))
 
-;;}}}
-;;{{{ Circle:
+  ;;}}}
+  ;;{{{ Circle:
 
 ;;; Circle: Radius 100: 
 ;;; Note: We translate the circle by 200hz which is X=0
@@ -150,9 +147,8 @@ Argument duration --- default is 1ms --- specifies duration of each step."
              (* 1000
                 (sqrt (- 1 (/ (* i i ) 1000000.0))))))))  
 
-;;}}}
-;;{{{ Ellipse :
-
+  ;;}}}
+  ;;{{{ Ellipse :
 
 ;;; Note: We translate the ellipse by 200hz which is X=0
 ;;;  x^2/a^2 +y^2/b^2 =1 a=1, b=3/4
@@ -168,7 +164,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
                 (sqrt (- 1(/ (* i i ) 1000000.0))))))))
 
 ;;; the same ellipse with major and minor axies flipped:
-(congrats-data-to-tones
+  (congrats-data-to-tones
    (loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
@@ -177,33 +173,33 @@ Argument duration --- default is 1ms --- specifies duration of each step."
                 (/ 4.0 3.0) ; b/a
                 (sqrt (- 1(/ (* i i ) 1000000.0))))))))
 
-;;}}}
-;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
+  ;;}}}
+  ;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
   (congrats-data-to-tones
    (loop for i from -2000 to 2000 by 2
          collect
          (+ 200 ; translate X axis
             (round (* 1000 (/ (* i i) 1000000.0))))))
-          
+  
 
-;;{{{ Sine And Cosine 
+  ;;{{{ Sine And Cosine 
 ;;; Axis is not translated here:
 
 ;;; y = sin(x) x in [-Pi, Pi] stepsize 1/1000 
-(congrats-data-to-tones
-  (loop for i from -3141 to 3141
-collect 
-(abs  (round (* 1000 (sin ( / i 1000.0)))))))
+  (congrats-data-to-tones
+   (loop for i from -3141 to 3141
+         collect 
+         (abs  (round (* 1000 (sin ( / i 1000.0)))))))
 
 ;;; Cosine in the same range:
 
-(congrats-data-to-tones
-  (loop for i from -3141 to 3141
-collect 
-(abs  (round (* 1000 (cos ( / i 1000.0)))))))
+  (congrats-data-to-tones
+   (loop for i from -3141 to 3141
+         collect 
+         (abs  (round (* 1000 (cos ( / i 1000.0)))))))
 
-;;}}}
-;;}}}
+  ;;}}}
+  ;;}}}
 
   )
 

@@ -74,9 +74,9 @@
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice sh-assignment (after emacspeak pre act comp)
-  "Speak assignment as it is inserted."
-  (when (ems-interactive-p )
-    (emacspeak-speak-this-char (preceding-char)))))
+    "Speak assignment as it is inserted."
+    (when (ems-interactive-p )
+      (emacspeak-speak-this-char (preceding-char)))))
 
 (defadvice sh-maybe-here-document(around emacspeak pre act comp)
   "Spoken feedback based on what we insert."
@@ -112,15 +112,15 @@
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice skeleton-pair-insert-maybe(around emacspeak pre
-                                             act comp)
-  "Speak what you inserted."
-  (cond
-   ((ems-interactive-p )
-    (let ((orig (point)))
-      ad-do-it
-      (emacspeak-speak-region orig (point))))
-   (t ad-do-it))
-  ad-return-value))
+                                               act comp)
+    "Speak what you inserted."
+    (cond
+     ((ems-interactive-p )
+      (let ((orig (point)))
+        ad-do-it
+        (emacspeak-speak-region orig (point))))
+     (t ad-do-it))
+    ad-return-value))
 
 ;;}}}
 (provide 'emacspeak-sh-script)

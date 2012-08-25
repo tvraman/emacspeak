@@ -220,7 +220,6 @@
          (intern (voice-setup-name-personality (symbol-name face)))))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
-   
 
 (defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."

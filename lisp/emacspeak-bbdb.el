@@ -48,7 +48,6 @@
 ;;}}}
 ;;{{{ personalities 
 
-
 ;;{{{  Variable settings:
 
 ;;; Emacspeak will not work if bbdb is in electric mode

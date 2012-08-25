@@ -51,9 +51,9 @@
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice electric-perl-terminator  (after emacspeak pre act comp )
-  "Speak what you inserted."
-  (when (ems-interactive-p )
-    (emacspeak-speak-this-char last-input-event))))
+    "Speak what you inserted."
+    (when (ems-interactive-p )
+      (emacspeak-speak-this-char last-input-event))))
 
 ;;}}}
 ;;{{{  Program structure:

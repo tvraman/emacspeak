@@ -792,8 +792,8 @@ Argument OUTPUT is the newly arrived output."
            (setq ,switch (not ,switch ))))
       (when
           (if (fboundp 'called-interactively-p)
-(called-interactively-p 'interactive)
-(interactive-p))
+              (called-interactively-p 'interactive)
+            (interactive-p))
         (emacspeak-auditory-icon (if ,switch 'on 'off))
         (message "Turned %s %s  %s."
                  (if ,switch "on" "off" )

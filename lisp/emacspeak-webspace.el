@@ -443,7 +443,6 @@ Optional interactive prefix arg forces a refresh."
 (defconst emacspeak-webspace-reading-list-max-size 1800
   "How many headlines we keep around.")
 
-
 (defun emacspeak-webspace-reading-list-accumulate ()
   "Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer."
   (interactive)
@@ -465,14 +464,14 @@ Optional interactive prefix arg forces a refresh."
             (insert "\n"))
       (goto-char (point-min))
       (when (> (count-lines (point-min) (point-max))
-        emacspeak-webspace-reading-list-max-size)
+               emacspeak-webspace-reading-list-max-size)
         (forward-line  emacspeak-webspace-reading-list-max-size)
         (delete-region (point) (point-max)))
       (when (ems-interactive-p)
-      (switch-to-buffer buffer)
-      (goto-char (point-min))
-      (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'select-object)))))
+        (switch-to-buffer buffer)
+        (goto-char (point-min))
+        (emacspeak-speak-mode-line)
+        (emacspeak-auditory-icon 'select-object)))))
 
 ;;;###autoload
 (defun emacspeak-webspace-reading-list-view ()
@@ -484,7 +483,6 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'select-object)
   (switch-to-buffer emacspeak-webspace-reading-list-buffer)
   (emacspeak-speak-mode-line))
-  
 
 ;;;###autoload
 (defun emacspeak-webspace-reader-refresh ()
@@ -519,8 +517,6 @@ Leaves point on the title returned in the reading list buffer."
 
 (defvar emacspeak-webspace-reading-list-timer nil
   "Timer used to  regularly update river of news.")
-
-
 
 ;;;###autoload
 (defun emacspeak-webspace-reading-list ()

@@ -3347,14 +3347,14 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (mapatoms
      #'(lambda (s)
          (let ((name (symbol-name s)))
-         (when
-             (and
-              (commandp s)
-              (not (string-match "^emacspeak" name))
-              (not (string-match "^ad-Orig" name))
-              (not (ad-find-some-advice s 'any  "emacspeak"))
-              (string-match pattern  name))
-           (push name result)))))
+           (when
+               (and
+                (commandp s)
+                (not (string-match "^emacspeak" name))
+                (not (string-match "^ad-Orig" name))
+                (not (ad-find-some-advice s 'any  "emacspeak"))
+                (string-match pattern  name))
+             (push name result)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
