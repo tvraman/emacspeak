@@ -68,16 +68,16 @@
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-(loop for e in emacspeak-cperl-electric-insertion-commands-to-advice
-      do
-      (eval
-       `(defadvice ,e (after emacspeak pre act comp)
-          "Speak what you inserted.
+  (loop for e in emacspeak-cperl-electric-insertion-commands-to-advice
+        do
+        (eval
+         `(defadvice ,e (after emacspeak pre act comp)
+            "Speak what you inserted.
 Cue electric insertion with a tone."
-          (when (ems-interactive-p )
-            (let ((emacspeak-speak-messages nil))
-              (emacspeak-speak-this-char last-input-event)
-              (dtk-tone 800 50 t)))))))
+            (when (ems-interactive-p )
+              (let ((emacspeak-speak-messages nil))
+                (emacspeak-speak-this-char last-input-event)
+                (dtk-tone 800 50 t)))))))
 
 (defadvice cperl-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."

@@ -501,7 +501,6 @@ No book files are deleted."
     (emacspeak-epub-bookshelf-redraw)
     (message "Cleared bookshelf.")))
 
-
 ;;;###autoload
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."

@@ -121,14 +121,14 @@ URL  being retrieved is received as part of the callback args."
       (shr-insert-document dom)
       (setq shr-url-dom dom
             shr-url-this-url (first args))
-    (goto-char (point-min))
-    (set-buffer-modified-p nil)
-    (flush-lines "^ *$")
-    (use-local-map shr-map)
-    (setq buffer-read-only t))
-  (switch-to-buffer buffer)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-buffer)))
+      (goto-char (point-min))
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (use-local-map shr-map)
+      (setq buffer-read-only t))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
 
 ;;;###autoload
 (defun shr-url (url &optional display)
@@ -283,33 +283,33 @@ URL  being retrieved is received as part of the callback args."
   (let*
       ((attr (read (completing-read "Attribute: " '("id" "class"))))
        (value (completing-read "Value: " (if (eq attr 'id) shr-url-id-cache shr-url-class-cache)))
-        (buffer nil)
-         (inhibit-read-only t)
-         (url (url-generic-parse-url shr-url-this-url))
-         (dom
-          (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
+       (buffer nil)
+       (inhibit-read-only t)
+       (url (url-generic-parse-url shr-url-this-url))
+       (dom
+        (shr-url-filter-dom shr-url-dom (shr-url-attribute-tester attr value))))
     (when dom
-        (setq buffer (get-buffer-create "SHR Filtered"))
-        (with-current-buffer buffer
-          (erase-buffer)
-          (goto-char (point-min))
-          (special-mode)
-          (shr-insert-document dom)
-          (setq shr-base
-                (concat
-                 (url-type url)
-                 "://"
-                 (url-host url)
-                 (file-name-directory (url-filename url))))
-          (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
-          (setq shr-url-dom dom)
-          (set-buffer-modified-p nil)
-          (flush-lines "^ *$")
-          (use-local-map shr-map)
-          (setq buffer-read-only t))
-        (switch-to-buffer buffer)
-        (emacspeak-auditory-icon 'open0-object)
-        (emacspeak-speak-buffer))))
+      (setq buffer (get-buffer-create "SHR Filtered"))
+      (with-current-buffer buffer
+        (erase-buffer)
+        (goto-char (point-min))
+        (special-mode)
+        (shr-insert-document dom)
+        (setq shr-base
+              (concat
+               (url-type url)
+               "://"
+               (url-host url)
+               (file-name-directory (url-filename url))))
+        (rename-buffer (or (shr-url-get-title-from-dom dom) "Filtered")'unique)
+        (setq shr-url-dom dom)
+        (set-buffer-modified-p nil)
+        (flush-lines "^ *$")
+        (use-local-map shr-map)
+        (setq buffer-read-only t))
+      (switch-to-buffer buffer)
+      (emacspeak-auditory-icon 'open0-object)
+      (emacspeak-speak-buffer))))
 
 (defun shr-url-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."

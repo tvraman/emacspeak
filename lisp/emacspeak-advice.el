@@ -510,7 +510,7 @@ the words that were capitalized."
           (goto-char start)
           (while (re-search-forward "[ ]+" end 'no-error)
             (replace-match" ")))))))
-            
+
 ;;}}}
 ;;{{{  Advice PComplete 
 
