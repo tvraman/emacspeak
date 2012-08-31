@@ -121,8 +121,7 @@
 
 (loop for f in
       '(js2-mode-show-all js2-mode-show-comments
-                          js2-mode-show-element js2-mode-show-functions
-                          js2-mode-show-node)
+                          js2-mode-show-element js2-mode-show-functions)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -146,9 +145,19 @@
             (message "Toggled %s"
                      ,(substring (symbol-name f)
                                  (length "js2-mode-toggle-")))))))
-;;                   js2-narrow-to-defun
-;;                   js2-next-error)
-                                        ;js2-mode-show-node
+(defadvice js2-narrow-to-defun (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Narrowed to current function.")))
+
+(defadvice js2-next-error (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+                                        
 
 ;;}}}
 ;;{{{ js2-mode hook
