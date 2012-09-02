@@ -1602,8 +1602,8 @@ Use an auditory icon if possible."
   (cond
    ((ems-interactive-p )
     (let ((count (count-lines (region-beginning) (region-end))))
-      (emacspeak-auditory-icon 'delete-object )
       ad-do-it
+      (emacspeak-auditory-icon 'delete-object )
       (message "Killed region containing %s lines" count)))
    (t ad-do-it))
   ad-return-value)
@@ -1613,11 +1613,10 @@ Use an auditory icon if possible."
 Use an auditory icon if possible."
   (cond
    ((ems-interactive-p )
-    (let ((count (count-lines (region-beginning)
-                              (region-end))))
+    (let ((count (count-lines (region-beginning) (region-end))))
       ad-do-it
-      (emacspeak-auditory-icon 'delete-object )
-      (message "Killed region containing %s lines" count)))
+      (message "Killed region containing %s lines" count)
+      (emacspeak-auditory-icon 'delete-object )))
    (t ad-do-it))
   ad-return-value)
 
