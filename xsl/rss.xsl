@@ -6,6 +6,7 @@ License: GPL
 View an RSS feed as clean HTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:smh="http://www.google.com/searchhistory"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
