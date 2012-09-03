@@ -33,30 +33,46 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
-	(cons
-	 (cons ext mode)
-	 auto-mode-alist)))
+        (cons
+         (cons ext mode)
+         auto-mode-alist)))
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (let ((emacspeak-speak-messages nil))
     (condition-case nil
-	(cond
-	 ((locate-library lib)
-	  (load-library lib)
-	  (message "Loaded %s" lib)
-	  t)
-	 (t (message "Could not locate library %s" lib)
-	    nil))
+        (cond
+         ((locate-library lib)
+          (load-library lib)
+          (message "Loaded %s" lib)
+          t)
+         (t (message "Could not locate library %s" lib)
+            nil))
       (error (message
-	      "Error loading %s"
-	      lib)))))
+              "Error loading %s"
+              lib)))))
 ;;}}}
 ;;{{{ customize custom
 
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
-(setq message-log-max 1024)
+
+;;}}}
+;;{{{ Configure packages  after load:
+
+(defun emacs-startup-configure-packages ()
+  "Called from after-init-hook to configure packages."
+  (mapc
+   #'load-library-if-available
+   '(
+     "auctex-prepare"
+     "color-theme-prepare"
+     "dictionary-prepare"
+     "emms-prepare"
+     "gm-smtp"
+     "wget-prepare"
+     )))
+
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -75,8 +91,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (emacspeak-sounds-select-theme "chimes-stereo/")
-      (emacspeak-tts-startup-hook))
+      (emacspeak-sounds-select-theme "chimes-stereo/"))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -91,6 +106,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
             ("\M-s" save-buffer)
+            ("\M--" undo-only)
             ([delete]dtk-toggle-punctuation-mode)
             ( [f8]emacspeak-remote-quick-connect-to-server)
             ([f11]shell)
@@ -100,7 +116,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ( "\M-r"replace-string)
             ( "\M-e"end-of-word)
             ( "\M-\C-j"imenu)
-            ("\M--" undo-only)
             ( "\M-\C-c"calendar))
           do
           (global-set-key (first key) (second key)))
@@ -130,45 +145,50 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-                                                    
+    
     (mapc
      #'load-library-if-available
      '(
 ;;; personal functions and advice
-       "my-functions"
+       "advice-setup" "my-functions"
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare"
-       "smtpmail" "sigbegone"
+       "gm-prepare"
+       "gm-smtp"
+       "smtpmail" "mailcrypt-prepare" "sigbegone"
+       "slime-prepare"
+       "magit-prepare"
 ;;; Web Browsers:
        "w3-prepare" "w3m-prepare" 
-       "auctex-prepare" "nxml-prepare"
+       "nxml-prepare"
        "folding-prepare"
-       "calc-prepare" 
-       "tcl-prepare" 
+       "calc-prepare" "ess-prepare"
+       "tcl-prepare" "python-mode-prepare" "moz-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
+                                        ;"dismal-prepare" 
        "org-prepare"
-        
-       "emms-prepare"
+       "cperl-mode" "ruby-prepare"
+                                        ;"pcl-prepare" 
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
+       "browse-kill-ring"
        "tramp-prepare"
-       "fff-prepare" "fap-prepare"
-       "local"
-       "emacspeak-dbus"))
+       "fap-prepare"
+       "local"))
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
+(add-hook #'after-init-hook 'emacs-startup-configure-packages)
 (add-hook
  #'after-init-hook
  #'(lambda ()
-     (emacspeak-tts-startup-hook)
      (bbdb-insinuate-vm)
      (server-start)
+     (emacspeak-tts-startup-hook)
      (shell)
      (calendar)
-     (nm-enable)
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
