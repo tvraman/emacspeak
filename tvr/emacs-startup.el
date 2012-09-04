@@ -167,7 +167,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
        "tramp-prepare"
-       "fff-prepare" "fap-prepare"
+       "fap-prepare"
        "local"
        "emacspeak-dbus"))
     ;;}}}
