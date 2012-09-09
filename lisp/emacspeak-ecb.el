@@ -242,7 +242,7 @@ available."
   "When on the console, always use TMM."
   (cond
    ((and (ems-interactive-p )
-         (not window-system))
+         (not (display-graphic-p)))
     (tree-buffer-show-menu-keyboard 'use-tmm)    )
    (t ad-do-it)))
 
