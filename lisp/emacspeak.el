@@ -298,8 +298,7 @@ speech-enabling extensions."
   (when
       (yes-or-no-p "Are you sure you want to submit a bug report? ")
     (let (
-          (vars '(window-system
-                  window-system-version
+          (vars '(
                   emacs-version
                   system-type
                   emacspeak-version  dtk-program
