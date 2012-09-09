@@ -21,6 +21,8 @@
 (defcommand lock-screen () ()
   "Lock my screen."
   (eval-command *my-lock-command*))
+
+
 ;;; Muscle memory: like power detaching your screen:
 
 (define-key *root-map* (kbd "D") "lock-screen")
