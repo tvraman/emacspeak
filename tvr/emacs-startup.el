@@ -66,12 +66,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
    #'load-library-if-available
    '(
      "auctex-prepare"
-     "color-theme-prepare"
-     "dictionary-prepare"
      "ecb-prepare"
      "emms-prepare"
      "gm-smtp"
-     "wget-prepare"
      )))
 
 ;;}}}
