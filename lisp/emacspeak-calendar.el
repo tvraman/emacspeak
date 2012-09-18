@@ -271,12 +271,15 @@
   (when (ems-interactive-p )
     (emacspeak-calendar-speak-date )
     (emacspeak-auditory-icon 'select-object)))
-
-(defadvice exit-calendar (after emacspeak pre act)
+(loop for f in
+      '(exit-calendar calendar-exit calendar-quit)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act)
   "Speak modeline. "
   (when (ems-interactive-p  )
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line)))))
 
 (defadvice insert-block-diary-entry (before emacspeak pre act)
   "Speak the line. "
