@@ -68,6 +68,40 @@
   :group 'emacspeak)
 
 ;;}}}
+;;{{{ Map Faces:
+(voice-setup-add-map
+ '(
+   ;; kite-console.el:
+   (kite-log-warning  voice-animate)
+   (kite-log-error voice-bolden-and-animate)
+   (kite-log-debug voice-monotone)
+   (kite-log-log voice-monotone)
+   (kite-object voice-bolden)
+   (kite-number voice-smoothen)
+   (kite-boolean voice-monotone)
+   (kite-null voice-smoothen)
+   (kite-undefined voice-animate)
+   (kite-string voice-lighten)
+   (kite-quote voice-lighten)
+   (kite-loading voice-animate-extra)
+   (kite-property-name voice-smoothen-medium)
+   (kite-proto-property-name voice-smoothen-extra)
+   (kite-console-prompt-face voice-brighten)
+   (kite-stack-error-type voice-animate)
+   (kite-stack-error-message voice-bolden)
+   (kite-stack-function-name voice-bolden-medium)
+   (kite-stack-pseudo-file-name voice-lighten)
+   (kite-stack-file-name voice-lighten-medium)
+   (kite-stack-line-number voice-smoothen)
+   (kite-stack-column-number voice-smoothen)
+
+   ;; kite-dom-css.el:
+   ;; kite-dom.el:
+   ;; kite.el:
+   ;; kite-net.el:
+   ;; kite-repl.el:
+   ))
+;;}}}
 (provide 'emacspeak-kite)
 ;;{{{ end of file
 
