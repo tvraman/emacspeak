@@ -50,9 +50,8 @@
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
-(setq byte-compile-warnings
-      '(redefine callargs free-vars
-                 unresolved obsolete))
+(setq byte-compile-warnings t)
+                                        ;'(redefine callargs free-vars unresolved obsolete))
 
 (cond
  ((fboundp 'called-interactively-p)
