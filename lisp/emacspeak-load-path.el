@@ -45,11 +45,7 @@
 
 (unless (member emacspeak-lisp-directory load-path )
   (setq load-path
-        (cons emacspeak-lisp-directory load-path ))
-  (setq load-path
-        (cons
-         (expand-file-name "atom-blogger" emacspeak-lisp-directory )
-         load-path )))
+        (cons emacspeak-lisp-directory load-path )))
 
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
