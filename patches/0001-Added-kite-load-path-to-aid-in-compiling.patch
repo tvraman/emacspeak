@@ -1,4 +1,4 @@
-From 2454dc2d43c62123b3132f0f25ec53d8292df924 Mon Sep 17 00:00:00 2001
+From 8927e9143ec20f048914ffc609b8171ad4bbeb90 Mon Sep 17 00:00:00 2001
 From: raman <raman@google.com>
 Date: Sat, 22 Sep 2012 07:42:06 -0700
 Subject: [PATCH] Added kite-load-path to aid in compiling add
@@ -10,9 +10,9 @@ Subject: [PATCH] Added kite-load-path to aid in compiling add
 
 ---
  .gitignore        |    1 +
- Makefile          |   14 +++++++++++++-
+ Makefile          |   12 +++++++++++-
  kite-load-path.el |   45 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 59 insertions(+), 1 deletions(-)
+ 3 files changed, 57 insertions(+), 1 deletions(-)
  create mode 100644 kite-load-path.el
 
 diff --git a/.gitignore b/.gitignore
@@ -27,7 +27,7 @@ index 3844a74..679a51a 100644
  dir
  TODO.org
 diff --git a/Makefile b/Makefile
-index 1e9250b..11c15f8 100644
+index 1e9250b..1fb5a2d 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,4 +1,4 @@
@@ -36,7 +36,7 @@ index 1e9250b..11c15f8 100644
  #  Makefile -- for Kite, a WebKit inspector front-end
  #
  #  Copyright (C) 2012 Julian Scheid
-@@ -50,3 +50,15 @@ dir: kite.info
+@@ -50,3 +50,13 @@ dir: kite.info
  
  kite.tar.gz: $(ELISP_SOURCES) dir kite.info
  	tar czf $@ $^
@@ -50,8 +50,6 @@ index 1e9250b..11c15f8 100644
 +# How to compile
 +%.elc:  %.el
 +	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
-+
-+clean: rm -f *.elc  
 diff --git a/kite-load-path.el b/kite-load-path.el
 new file mode 100644
 index 0000000..640485e
