@@ -43,7 +43,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
-(require 'emacspeak-forms)
 (require 'emacspeak-sounds)
 ;;}}}
 ;;{{{  Introduction:
@@ -151,7 +150,6 @@ display."
              emacspeak-aumix-reset-options))))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
-(eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 
 Run command \\[emacspeak-aumix-reset]
