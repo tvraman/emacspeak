@@ -67,8 +67,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when (compile)
-  (require 'dtk-speak)
-  (require 'emacspeak-aumix))
+  (require 'dtk-speak))
 
 ;;}}}
 ;;{{{  state of auditory icons
