@@ -1,0 +1,108 @@
+From 2454dc2d43c62123b3132f0f25ec53d8292df924 Mon Sep 17 00:00:00 2001
+From: raman <raman@google.com>
+Date: Sat, 22 Sep 2012 07:42:06 -0700
+Subject: [PATCH] Added kite-load-path to aid in compiling add
+ package-initialize so we find websocket only load websocket
+ from packages set byte-compile-warnings to t
+ kite--directory marked to be a private variable. Makefile:
+ added build rules for elisp cleaned up make rules
+ .gitignore: ignore .elc files
+
+---
+ .gitignore        |    1 +
+ Makefile          |   14 +++++++++++++-
+ kite-load-path.el |   45 +++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 59 insertions(+), 1 deletions(-)
+ create mode 100644 kite-load-path.el
+
+diff --git a/.gitignore b/.gitignore
+index 3844a74..679a51a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -3,5 +3,6 @@ misc/
+ *.texinfo
+ *.html
+ *.tar.gz
++*.elc
+ dir
+ TODO.org
+diff --git a/Makefile b/Makefile
+index 1e9250b..11c15f8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-#
++
+ #  Makefile -- for Kite, a WebKit inspector front-end
+ #
+ #  Copyright (C) 2012 Julian Scheid
+@@ -50,3 +50,15 @@ dir: kite.info
+ 
+ kite.tar.gz: $(ELISP_SOURCES) dir kite.info
+ 	tar czf $@ $^
++
++# make rules used during  development 
++
++EMACS = emacs
++BATCH = -batch -q -no-site-file  
++DEPS=-l ./kite-load-path.el 
++COMPILE =  -f batch-byte-compile
++# How to compile
++%.elc:  %.el
++	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
++
++clean: rm -f *.elc  
+diff --git a/kite-load-path.el b/kite-load-path.el
+new file mode 100644
+index 0000000..640485e
+--- /dev/null
++++ b/kite-load-path.el
+@@ -0,0 +1,45 @@
++;;; kite-load-path.el --- WebKit inspector front-end
++
++;; Copyright (C) 2012 Julian Scheid
++
++;; Author: Julian Scheid <julians37@gmail.com>
++;; Author: T. V. Raman <tv.raman.tv@gmail.com> (cloned from emacspeak-load-path.el)
++;; Keywords: tools
++;; Version: 0.1
++;; Compatibility: GNU Emacs 24
++
++;; This file is not part of GNU Emacs.
++
++;; Kite is free software: you can redistribute it and/or modify it
++;; under the terms of the GNU General Public License as published by
++;; the Free Software Foundation, either version 3 of the License, or
++;; (at your option) any later version.
++
++;; Kite is distributed in the hope that it will be useful, but WITHOUT
++;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
++;; License for more details.
++
++;; You should have received a copy of the GNU General Public License
++;; along with Kite.  If not, see <http://www.gnu.org/licenses/>.
++
++;;; Commentary:
++;;; Set up load-path so we can compile cleanly.
++;;; Code:
++
++
++
++(defvar kite--directory
++  (expand-file-name (file-name-directory load-file-name))
++  "Directory where Kite is installed. ")
++(let ((package-load-list '((websocket t))))
++(package-initialize))
++
++(unless (member kite--directory load-path )
++  (setq load-path (cons kite--directory load-path )))
++
++
++
++(setq byte-compile-warnings t)
++      
++(provide 'kite-load-path)
+-- 
+1.7.7.3
+
