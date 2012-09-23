@@ -1,4 +1,4 @@
-From 8927e9143ec20f048914ffc609b8171ad4bbeb90 Mon Sep 17 00:00:00 2001
+From 2ada3e3a23fc946630daef7f48508f650f95c3a5 Mon Sep 17 00:00:00 2001
 From: raman <raman@google.com>
 Date: Sat, 22 Sep 2012 07:42:06 -0700
 Subject: [PATCH] Added kite-load-path to aid in compiling add
@@ -6,28 +6,29 @@ Subject: [PATCH] Added kite-load-path to aid in compiling add
  from packages set byte-compile-warnings to t
  kite--directory marked to be a private variable. Makefile:
  added build rules for elisp cleaned up make rules
- .gitignore: ignore .elc files
+ .gitignore: ignore .elc files added clean rule to Makefile
 
 ---
- .gitignore        |    1 +
- Makefile          |   12 +++++++++++-
+ .gitignore        |    2 ++
+ Makefile          |   15 ++++++++++++++-
  kite-load-path.el |   45 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 57 insertions(+), 1 deletions(-)
+ 3 files changed, 61 insertions(+), 1 deletions(-)
  create mode 100644 kite-load-path.el
 
 diff --git a/.gitignore b/.gitignore
-index 3844a74..679a51a 100644
+index 3844a74..78721ac 100644
 --- a/.gitignore
 +++ b/.gitignore
-@@ -3,5 +3,6 @@ misc/
+@@ -3,5 +3,7 @@ misc/
  *.texinfo
  *.html
  *.tar.gz
 +*.elc
  dir
  TODO.org
++patches
 diff --git a/Makefile b/Makefile
-index 1e9250b..1fb5a2d 100644
+index 1e9250b..bf273ce 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,4 +1,4 @@
@@ -36,7 +37,7 @@ index 1e9250b..1fb5a2d 100644
  #  Makefile -- for Kite, a WebKit inspector front-end
  #
  #  Copyright (C) 2012 Julian Scheid
-@@ -50,3 +50,13 @@ dir: kite.info
+@@ -50,3 +50,16 @@ dir: kite.info
  
  kite.tar.gz: $(ELISP_SOURCES) dir kite.info
  	tar czf $@ $^
@@ -50,6 +51,9 @@ index 1e9250b..1fb5a2d 100644
 +# How to compile
 +%.elc:  %.el
 +	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
++
++clean:
++	rm -f *.elc
 diff --git a/kite-load-path.el b/kite-load-path.el
 new file mode 100644
 index 0000000..640485e
