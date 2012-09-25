@@ -48,6 +48,7 @@
 ;;{{{  Required modules
 
 (require 'cl)
+(require 'url-parse)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'shr)
