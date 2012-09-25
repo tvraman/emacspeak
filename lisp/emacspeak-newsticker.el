@@ -50,7 +50,6 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
-(require 'backquote)
 ;;}}}
 ;;{{{ define personalities 
 (voice-setup-add-map

@@ -89,7 +89,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'backquote)
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
