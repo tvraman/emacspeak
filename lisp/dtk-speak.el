@@ -53,7 +53,6 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'backquote)
 (require 'custom)
 (require 'dtk-interp)
 (require 'dtk-unicode)

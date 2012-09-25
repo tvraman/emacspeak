@@ -42,7 +42,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-(require 'backquote)
 (require 'custom)
 (require 'widget)
 (require 'wid-edit)
