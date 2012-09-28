@@ -165,6 +165,7 @@ pronunciation dictionaries are stored. ")
 (load-library "emacspeak")
 
 (defvar dtk-startup-hook nil)
+;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
   (declare (special tts-default-speech-rate))

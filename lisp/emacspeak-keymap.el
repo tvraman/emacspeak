@@ -268,8 +268,8 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 ;;{{{ helper: emacspeak-keymap-update
-
-(defsubst emacspeak-keymap-update (keymap binding)
+;;;###autoload
+(defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
   (define-key keymap (first binding) (second binding)))
 
