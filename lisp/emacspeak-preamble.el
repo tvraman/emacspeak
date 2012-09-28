@@ -47,7 +47,7 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
-;(require 'emacspeak-keymap)
+(require 'emacspeak-keymap)
 
 ;;}}}
 ;;{{{ Utilities:
