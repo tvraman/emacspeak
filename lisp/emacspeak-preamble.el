@@ -42,15 +42,12 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-(require 'custom)
-(require 'widget)
-(require 'wid-edit)
 (require 'emacspeak-load-path)
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
-(require 'emacspeak-keymap)
+;(require 'emacspeak-keymap)
 
 ;;}}}
 ;;{{{ Utilities:
