@@ -136,17 +136,16 @@
   (when (ems-interactive-p )
     (message "Showing table of contents.")))
 
-(defadvice org-tree-to-indirect-buffer(after emacspeak pre act
-                                             comp)
+(defadvice org-tree-to-indirect-buffer(after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p )
     (message "Cloned %s"
-             (save-excursion
-               (set-buffer org-last-indirect-buffer)
+             (with-current-buffer org-last-indirect-buffer
                (goto-char (point-min))
                (buffer-substring
                 (line-beginning-position)
                 (line-end-position))))))
+
 ;;}}}
 ;;{{{ Header insertion and relocation
 
@@ -236,6 +235,7 @@
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
   "Speak what is returned."
+  (declare (special org-ans2))
   (dtk-speak org-ans2))
 
 ;;}}}
