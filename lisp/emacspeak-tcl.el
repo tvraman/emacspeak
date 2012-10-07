@@ -170,9 +170,7 @@ is a Tcl expression, and the last argument is Tcl commands.")
   "Speak  the help."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
-    (save-excursion
-      (set-buffer "*Tcl help*")
-      (emacspeak-speak-buffer ))))
+    (with-current-buffer "*Tcl help*"      (emacspeak-speak-buffer ))))
 
 ;;}}}
 ;;{{{  Program structure:
