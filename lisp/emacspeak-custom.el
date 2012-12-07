@@ -41,6 +41,8 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(eval-when-compile (load-library "cus-edit")
+                   (provide 'cus-edit))
 ;;}}}
 ;;{{{  Introduction
 
