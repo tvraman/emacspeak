@@ -40,6 +40,8 @@
 ;;{{{ Required modules 
 
 (require 'cl)
+(when (locate-library "cl-lib")
+  (require 'cl-lib))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'emacspeak-load-path)
