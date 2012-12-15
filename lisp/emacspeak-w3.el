@@ -767,7 +767,7 @@ If a rewrite rule is defined in the current buffer, we change
 
 ;;}}}
 ;;{{{ advice to call xslt
-(defadvice  w3-parse-buffer (before emacspeak pre act comp)
+(defadvice  w3-slow-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
 HTML."
   (when (and emacspeak-we-cleanup-bogus-quotes
