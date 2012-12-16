@@ -2,14 +2,16 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-* Emacspeak 37 -- Emacspeak 36 User Visible Changes 
+* Emacspeak 37 -- Emacspeak 37 User Visible Changes 
 
 
 ** emacspeak-js2.el:
 
 Updated support for JS2 mode.
 
+** Emacs 24.3:
 
+Updated to work with Emacs from tip of tree.
 # local variables:
 # mode: org
 # end:
