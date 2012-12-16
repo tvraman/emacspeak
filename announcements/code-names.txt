@@ -38,8 +38,9 @@ Note that special releases are marked with an '*'.
 | 33.0 | November 2010   | StarDog        |
 | 34.0 | May 2011        | * Bubbles      |
 | 35.0 | November 2011   | HeadDog        |
-| 36.0 | May 2012        |                EPubDog|
+| 36.0 | May 2012        | EPubDog        |
 |------+-----------------+----------------|
+| 37.0 | December 2012   | SolidDog       |
 
 #+TITLE:     code-names.txt
 #+AUTHOR:    raman
