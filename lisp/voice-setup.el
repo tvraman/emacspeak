@@ -486,6 +486,8 @@ punctuations.")
     (let ((state (if voice-lock-mode 'on 'off)))
       (when (ems-interactive-p )
         (emacspeak-auditory-icon state)))))
+
+;;;###autoload
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
 
