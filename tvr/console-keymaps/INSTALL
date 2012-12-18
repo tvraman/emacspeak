@@ -2,6 +2,7 @@
 
 # install emacspeak keymaps
 echo "Installing Emacspeak keymaps for future use."
+sudo apt-get install console-data
 cp emacspeak.enc.gz /usr/share/keymaps/i386/include/emacspeak.enc.gz 
 cp emacspeak.kmap.gz /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz 
 echo "Loading Emacspeak friendly keymaps."
