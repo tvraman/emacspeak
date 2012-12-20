@@ -491,13 +491,13 @@ punctuations.")
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
 
-
-(define-globalized-minor-mode global-voice-lock-mode
+(when (string-match "24" emacs-version)
+  (define-globalized-minor-mode global-voice-lock-mode
     voice-lock-mode turn-on-voice-lock
     :initialize 'custom-initialize-delay
     :init-value (not (or noninteractive emacs-basic-display))
     :group 'voice-lock
-    :version "22.1")
+    :version "24.1"))
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
