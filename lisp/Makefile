@@ -86,7 +86,6 @@ emacspeak-re-builder.elc \
 	emacspeak-tabulate.elc \
 cd-tool.elc \
 amixer.elc \
-shr-url.elc \
 nm.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
