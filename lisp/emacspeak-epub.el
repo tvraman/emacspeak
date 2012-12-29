@@ -533,7 +533,7 @@ No book files are deleted."
   (interactive
    (list
     (read-file-name "BookShelf: "
-                    emacspeak-epub-library-directory
+                    (expand-file-name emacspeak-epub-library-directory)
                     nil t nil
                     #'(lambda (s) (string-match ".bsf$" s)))))
   (declare (special emacspeak-epub-db))

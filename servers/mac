@@ -8,7 +8,6 @@ import aifc
 import math
 import mmap
 import os
-import pysox
 import re
 import StringIO
 import subprocess
@@ -25,6 +24,13 @@ from AppKit import NSURL
 
 
 # Globals.
+enableSox = False
+try:
+  import pysox
+  enableSox &= True
+except:
+  enableSox = False
+
 ttsState = {}
 
 # amount to increase pitch of capital letters.  This may need tweaking. 
@@ -32,7 +38,7 @@ capsPitchIncrease = 8
 
 # Debug level
 # 0 means no debug output is written 10 is maximum output
-debugLevel = 10
+debugLevel = 0
 
 # Should debug output also be written to STDOUT?
 debugToSTDOUT = 1
@@ -102,6 +108,16 @@ voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
            'kathy':'com.apple.speech.synthesis.voice.Kathy',
            'junior':'com.apple.speech.synthesis.voice.Junior',
            'fred':'com.apple.speech.synthesis.voice.Fred',
+           'tracy':'com.acapelagroup.AGix.voice.Tracy22k_HQ',
+           'daniel':'com.apple.speech.synthesis.voice.daniel.premium',
+           'emily':'com.apple.speech.synthesis.voice.emily.premium',
+           'fiona':'com.apple.speech.synthesis.voice.fiona.premium',
+           'karen':'com.apple.speech.synthesis.voice.karen.premium',
+           'lee':'com.apple.speech.synthesis.voice.lee.premium',
+           'moira':'com.apple.speech.synthesis.voice.moira.premium',
+           'sangeeta':'com.apple.speech.synthesis.voice.sangeeta.premium',
+           'tessa':'com.apple.speech.synthesis.voice.tessa.premium',
+           'tom':'com.apple.speech.synthesis.voice.tom.premium',
            'bruce':'com.apple.speech.synthesis.voice.Bruce'}
 
 # A queue of either text or audio filenames waiting to be dispatched to NSSpeechSynthesizer.
@@ -335,6 +351,7 @@ class _ProtocolHandler:
     e.close()
 
   def handleTtsSay(self, args):
+    self.handleStopSpeaking(None)
     speechSynthesizer.startSpeakingString_('[[rate %i]] %s' % (ttsState['sayRate'], args))
 
   def handleTtsSelftest(self, args):
@@ -521,7 +538,7 @@ def preprocessCustomEmbeds(text):
 def processSpeechQueue():
   # hacky way to work around buggy NSSpeechSynthesizerDelegate
   speechLock.acquire()
-  if speechSynthesizer.isSpeaking() or textClipPlayer.isPlaying():
+  if NSSpeechSynthesizer.isAnyApplicationSpeaking() or textClipPlayer.isPlaying():
     speechLock.release()
     return
   speechLock.release()
@@ -561,9 +578,12 @@ def processSpeechQueue():
         return
       writeDebugLog(4, "rendering text clip" + str(output))
       speechSynthesizer.setRate_(ttsState['speechRate'])
-      if speechSynthesizer.startSpeakingString_toURL_(
+      if not enableSox:
+        speechSynthesizer.startSpeakingString_(output)
+      else:
+        if speechSynthesizer.startSpeakingString_toURL_(
 output, speechOutUrl) and output not in renderingBlacklist:
-        speechQueue.insert(0, (('playclip', (item[1])[0])))
+          speechQueue.insert(0, (('playclip', (item[1])[0])))
 
     # Plays text clip (with possibly sox processing).
     elif item[0] == 'playclip':
