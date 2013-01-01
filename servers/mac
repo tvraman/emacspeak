@@ -269,9 +269,6 @@ class _ProtocolHandler:
       r"((?P<blockId>[a-z\-]*) {(?P<blockArg>[\s\S]*))|((?P<spaceId>[a-z_]*) (?P<spaceArg>[\s\S]*))|(?P<id>[a-z_]*)")
     # Used to detect multiple dispatches during processing of one chunk set.
     self.isProcessing = False
-    # Hack to get multiline q's working.
-    self.queueContinuationValue = ""
-    self.isQueueContinuation = False
 
   # Protocol Handlers.
   def handleDispatch(self, args):
@@ -310,13 +307,7 @@ class _ProtocolHandler:
     speechSynthesizer.startSpeakingString_(output)
 
   def handleQueue(self, args):
-    self.queueContinuationValue = self.queueContinuationValue + args
-    if args.endswith('}'):
-      preprocessCustomEmbeds(self.queueContinuationValue)
-      self.queueContinuationValue = ""
-      self.isQueueContinuation = False
-    else:
-      self.isQueueContinuation = True
+    preprocessCustomEmbeds(args)
 
   def handleStopSpeaking(self, args):
     speechSynthesizer.stopSpeaking()
@@ -412,10 +403,6 @@ class _ProtocolHandler:
     for chunk in chunks:
       writeDebugLog(4, "\nchunk: " + chunk + "\nend\n")                      
       if not chunk:
-        continue
-
-      if self.isQueueContinuation:
-        self.handleQueue("\n" + chunk)
         continue
 
       # Extract protocol id and protocol args.
