@@ -78,18 +78,14 @@
        (unwind-protect
            (progn
              (unless (eq ,setting save-punctuation-mode)
-               (process-send-string dtk-speaker-process
-                                    (format "tts_set_punctuations %s  \n "
-                                            ,setting))
+	       (dtk-interp-set-punctuations ,setting)
                (setq dtk-punctuation-mode ,setting))
              ,@body
              (dtk-force))
          (unless (eq  ,setting  save-punctuation-mode)
            (setq dtk-punctuation-mode save-punctuation-mode)
-           (process-send-string dtk-speaker-process
-                                (format "tts_set_punctuations %s  \n "
-                                        dtk-punctuation-mode ))
-           (dtk-force))))))
+	   (dtk-interp-set-punctuations ,setting))
+         (dtk-force)))))
 
 ;;}}}
 ;;{{{ silence
@@ -266,9 +262,9 @@
 
 (defsubst dtk-interp-set-punctuations(mode)
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "tts_set_punctuations %s\n"
-                               mode)))
+  (process-send-string
+   dtk-speaker-process 
+   (format "tts_set_punctuations %s\n" mode)))
 
 ;;}}}
 ;;{{{ reset
