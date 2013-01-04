@@ -208,8 +208,7 @@ specifies the filter"
   "Bring visual display in sync with internal representation"
   (declare (special emacspeak-table positions))
   (let ((row (emacspeak-table-current-row emacspeak-table))
-        (column (emacspeak-table-current-column
-                 emacspeak-table))
+        (column (emacspeak-table-current-column emacspeak-table))
         (width (frame-width)))
     (goto-char
      (or
@@ -246,7 +245,7 @@ specifies the filter"
   (interactive)
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
-       (message (emacspeak-table-current-element emacspeak-table))))
+       (dtk-speak (emacspeak-table-current-element emacspeak-table))))
 
 (defun emacspeak-table-speak-row-header-and-element ()
   "Speak  row header and table element"
@@ -258,7 +257,7 @@ specifies the filter"
                            (emacspeak-table-row-header-element emacspeak-table
                                                                (emacspeak-table-current-row emacspeak-table )))))
          (put-text-property 0 (length head) 'face 'italic head)
-         (message
+         (dtk-speak
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -274,7 +273,7 @@ specifies the filter"
                                                                   (emacspeak-table-current-column emacspeak-table )))))
          (put-text-property 0 (length head)
                             'face 'italic head)
-         (message
+         (dtk-speak
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -299,7 +298,7 @@ specifies the filter"
          (put-text-property 0 (length column-head)
                             'personality
                             emacspeak-table-column-header-personality column-head)
-         (message
+         (dtk-speak
           (concat row-head" "  column-head
                   (format " %s"
                           (emacspeak-table-current-element
@@ -358,7 +357,7 @@ Optional prefix arg prompts for a new filter."
     (emacspeak-table-ui-filter-set
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
-  (message
+  (dtk-speak
    (mapconcat
     #'(lambda (token)
         (let ((value nil))
@@ -422,7 +421,7 @@ Optional prefix arg prompts for a new filter."
                 (not prefix))
     (setq emacspeak-table-speak-column-filter
           (read-minibuffer "Specify column filter as a list: " "(")))
-  (message
+  (dtk-speak
    (mapconcat
     #'(lambda (token)
         (cond
