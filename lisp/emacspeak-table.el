@@ -206,8 +206,9 @@ Calls callback once per column."
     (cond
      ((<= 0 new)
       (setf (emacspeak-table-current-row table) new))
-     (t (error "Cannot move up by %s rows from row %s"
-               count current )))))
+     (t (message "Cannot move up by %s rows from row %s" count
+                 current )
+        (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-down (table &optional count)
   "Move down in the table if possible."
@@ -218,8 +219,9 @@ Calls callback once per column."
     (cond
      ((< new  row-count)
       (setf (emacspeak-table-current-row table) new))
-     (t (error "Cannot move down by %s rows from row %s"
-               count current )))))
+     (t (message "Cannot move down by %s rows from row %s"
+               count current )
+        (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-left (table &optional count)
   "Move left in the table if possible."
@@ -229,8 +231,9 @@ Calls callback once per column."
     (cond
      ((<= 0 new)
       (setf (emacspeak-table-current-column table) new))
-     (t (error "Cannot move left by %s columns from column %s"
-               count current )))))
+     (t (message "Cannot move left by %s columns from column %s"
+               count current )
+        (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-right (table &optional count)
   "Move right in the table if possible."
@@ -241,8 +244,9 @@ Calls callback once per column."
     (cond
      ((< new  column-count)
       (setf (emacspeak-table-current-column table) new))
-     (t (error "Cannot move right by %s columns from column %s"
-               count current )))))
+     (t (message "Cannot move right by %s columns from column %s"
+               count current )
+        (emacspeak-auditory-icon 'warn-user)))))
 
 ;;}}}
 
