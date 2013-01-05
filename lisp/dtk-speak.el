@@ -1900,6 +1900,13 @@ only speak upto the first ctrl-m."
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 
+(defsubst dtk-speak-and-echo (message)
+  "Speak message and echo it to the message area."
+  (let ((emacspeak-speak-messages nil))
+    (dtk-speak message) 
+    (message message)))
+
+
 (defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.
 Argument TEXT  is the list of strings to speak.
