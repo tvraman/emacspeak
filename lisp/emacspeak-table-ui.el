@@ -245,7 +245,7 @@ specifies the filter"
   (interactive)
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
-       (dtk-speak (emacspeak-table-current-element emacspeak-table))))
+       (dtk-speak-and-echo (emacspeak-table-current-element emacspeak-table))))
 
 (defun emacspeak-table-speak-row-header-and-element ()
   "Speak  row header and table element"
@@ -257,7 +257,7 @@ specifies the filter"
                            (emacspeak-table-row-header-element emacspeak-table
                                                                (emacspeak-table-current-row emacspeak-table )))))
          (put-text-property 0 (length head) 'face 'italic head)
-         (dtk-speak
+         (dtk-speak-and-echo
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -273,7 +273,7 @@ specifies the filter"
                                                                   (emacspeak-table-current-column emacspeak-table )))))
          (put-text-property 0 (length head)
                             'face 'italic head)
-         (dtk-speak
+         (dtk-speak-and-echo
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -298,7 +298,7 @@ specifies the filter"
          (put-text-property 0 (length column-head)
                             'personality
                             emacspeak-table-column-header-personality column-head)
-         (dtk-speak
+         (dtk-speak-and-echo
           (concat row-head" "  column-head
                   (format " %s"
                           (emacspeak-table-current-element
@@ -357,7 +357,7 @@ Optional prefix arg prompts for a new filter."
     (emacspeak-table-ui-filter-set
      (emacspeak-table-ui-generate-key)
      emacspeak-table-speak-row-filter))
-  (dtk-speak
+  (dtk-speak-and-echo
    (mapconcat
     #'(lambda (token)
         (let ((value nil))
@@ -421,7 +421,7 @@ Optional prefix arg prompts for a new filter."
                 (not prefix))
     (setq emacspeak-table-speak-column-filter
           (read-minibuffer "Specify column filter as a list: " "(")))
-  (dtk-speak
+  (dtk-speak-and-echo
    (mapconcat
     #'(lambda (token)
         (cond
