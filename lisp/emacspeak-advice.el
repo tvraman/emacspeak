@@ -2526,7 +2526,7 @@ Produce auditory icons if possible."
         (message "Stored current frame configuration")
       (emacspeak-speak-line))))
 
-(defadvice copy-to-register (before emacspeak pre act)
+(defadvice copy-to-register (after emacspeak pre act comp)
   "Acknowledge the copy."
   (when (ems-interactive-p )
     (let ((start (ad-get-arg 1))
