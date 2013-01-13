@@ -205,7 +205,7 @@ charsets returned by operations such as `find-charset-region'."
 (defvar dtk-unicode-cache (make-hash-table)
   "Cache for unicode data lookups.")
 
-(defadvice describe-char-unicode-data (around dtk-unicode pre act)
+(defadvice describe-char-unicode-data (around emacspeak pre act comp)
   "Cache result."
   (let* ((char (ad-get-arg 0))
          (result (gethash char dtk-unicode-cache 'not-found)))
