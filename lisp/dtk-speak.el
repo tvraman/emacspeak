@@ -610,7 +610,7 @@ Argument COMPLEMENT  is the complement of separator."
               (and (listp voice)
                    (member 'inaudible voice)))
     (dtk-interp-queue
-     (format "%s%s %s \n"
+     (format "%s%s %s "
              (cond
               ((symbolp voice)
                (tts-get-voice-command
@@ -1539,6 +1539,7 @@ This is setup on a per engine basis.")
                                         ; exact match
    ((string-match "^espeak$" tts-name) (espeak-configure-tts))
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
+   ((string-match "^log-server$" tts-name) t); use previous configuration
                                         ; generic configure
    (t (plain-configure-tts)))
   (when (string-match "^ssh" tts-name)  ;remote server
