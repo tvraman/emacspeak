@@ -1602,17 +1602,18 @@ Interactive prefix arg speaks buffer info."
           (frame-info nil)
           (recursion-depth (recursion-depth))
           (recursion-info nil)
-          (dir-info (when (or
-                           (eq major-mode 'shell-mode)
-                           (eq major-mode 'comint-mode))
-                      (abbreviate-file-name default-directory))))
+          (dir-info
+           (when
+               (or (eq major-mode 'shell-mode)
+                   (eq major-mode 'comint-mode))
+             (abbreviate-file-name default-directory))))
       (when (and  emacspeak-which-function-mode
                   (fboundp 'which-function)
                   (which-function))
         (emacspeak-speak-which-function))
       (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
       (cond
-       ((stringp mode-line-format) (dtk-speak mode-line-format ))
+       ((stringp mode-line-format) (dtk-speak mode-line-format))
        (t                               ;process modeline
         (when dir-info
           (put-text-property 0 (length dir-info)
@@ -1626,8 +1627,7 @@ Interactive prefix arg speaks buffer info."
          (t (setq frame-info nil)))
         (when (> recursion-depth 0)
           (setq  recursion-info
-                 (format " Recursive Edit %d "
-                         recursion-depth))
+                 (format " Recursive Edit %d " recursion-depth))
           (put-text-property 0 (length recursion-info)
                              'personality voice-smoothen
                              recursion-info))
@@ -1653,7 +1653,7 @@ Interactive prefix arg speaks buffer info."
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info
-           (when frame-info frame-info)
+            frame-info
            recursion-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
