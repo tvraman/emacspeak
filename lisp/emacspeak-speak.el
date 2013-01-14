@@ -1623,7 +1623,7 @@ Interactive prefix arg speaks buffer info."
                 (format " %s " (frame-parameter (selected-frame) 'name)))
           (put-text-property 0 (length frame-info)
                              'personality voice-lighten-extra frame-info))
-         (t (setq frame-info "")))
+         (t (setq frame-info nil)))
         (when (> recursion-depth 0)
           (setq  recursion-info
                  (format " Recursive Edit %d "
@@ -1653,7 +1653,7 @@ Interactive prefix arg speaks buffer info."
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info
-           frame-info
+           (when frame-info frame-info)
            recursion-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
