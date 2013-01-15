@@ -832,6 +832,7 @@ are indicated with auditory icon ellipses."
                      emacspeak-show-point
                      emacspeak-decoration-rule emacspeak-horizontal-rule
                      emacspeak-unspeakable-rule emacspeak-audio-indentation))
+  (when dtk-stop-immediately (dtk-stop))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
     (let ((inhibit-field-text-motion t)
@@ -874,22 +875,18 @@ are indicated with auditory icon ellipses."
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string-equal ""  line)
-        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
-        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 300   120 'force))
        ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-horizontal-rule line))
-        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 t))
        ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-decoration-rule line))
-        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 t))
        ((and (not (eq 'all dtk-punctuation-mode))
-             (string-match  emacspeak-unspeakable-rule line))
-        (when dtk-stop-immediately (dtk-stop))
+     (string-match  emacspeak-unspeakable-rule line))
+        
         (dtk-tone 550   100 t))
        (t
         (let*
