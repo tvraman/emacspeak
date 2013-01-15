@@ -832,7 +832,6 @@ are indicated with auditory icon ellipses."
                      emacspeak-show-point
                      emacspeak-decoration-rule emacspeak-horizontal-rule
                      emacspeak-unspeakable-rule emacspeak-audio-indentation))
-  (when dtk-stop-immediately (dtk-stop))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
     (let ((inhibit-field-text-motion t)
@@ -851,6 +850,7 @@ are indicated with auditory icon ellipses."
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
+      (when dtk-stop-immediately (dtk-stop))
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
@@ -882,11 +882,10 @@ are indicated with auditory icon ellipses."
              (string-match  emacspeak-horizontal-rule line))
         (dtk-tone 350   100 t))
        ((and (not (eq 'all dtk-punctuation-mode))
-             (string-match  emacspeak-decoration-rule line))
+             (string-match  emacspeak-decoration-rule line) )
         (dtk-tone 450   100 t))
        ((and (not (eq 'all dtk-punctuation-mode))
-     (string-match  emacspeak-unspeakable-rule line))
-        
+             (string-match  emacspeak-unspeakable-rule line))
         (dtk-tone 550   100 t))
        (t
         (let*
@@ -1603,18 +1602,17 @@ Interactive prefix arg speaks buffer info."
           (frame-info nil)
           (recursion-depth (recursion-depth))
           (recursion-info nil)
-          (dir-info
-           (when
-               (or (eq major-mode 'shell-mode)
-                   (eq major-mode 'comint-mode))
-             (abbreviate-file-name default-directory))))
+          (dir-info (when (or
+                           (eq major-mode 'shell-mode)
+                           (eq major-mode 'comint-mode))
+                      (abbreviate-file-name default-directory))))
       (when (and  emacspeak-which-function-mode
                   (fboundp 'which-function)
                   (which-function))
         (emacspeak-speak-which-function))
       (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
       (cond
-       ((stringp mode-line-format) (dtk-speak mode-line-format))
+       ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline
         (when dir-info
           (put-text-property 0 (length dir-info)
@@ -1625,10 +1623,11 @@ Interactive prefix arg speaks buffer info."
                 (format " %s " (frame-parameter (selected-frame) 'name)))
           (put-text-property 0 (length frame-info)
                              'personality voice-lighten-extra frame-info))
-         (t (setq frame-info nil)))
+         (t (setq frame-info "")))
         (when (> recursion-depth 0)
           (setq  recursion-info
-                 (format " Recursive Edit %d " recursion-depth))
+                 (format " Recursive Edit %d "
+                         recursion-depth))
           (put-text-property 0 (length recursion-info)
                              'personality voice-smoothen
                              recursion-info))
@@ -1654,7 +1653,7 @@ Interactive prefix arg speaks buffer info."
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info
-            frame-info
+           frame-info
            recursion-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
