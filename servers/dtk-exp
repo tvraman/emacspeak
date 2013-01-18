@@ -262,6 +262,7 @@ proc speech_task {} {
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
+        puts -nonewline  $tts(write) {[:np] }
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
