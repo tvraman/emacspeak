@@ -448,6 +448,11 @@ proc speech_task {} {
                 synth " $prefix $text"
                 set retval [service]
             }
+            c {
+                set text  [lindex $event 1]
+                synth "$text"
+                set retval ""
+            }
             a {
 
                 set sound [lindex $event 1]
