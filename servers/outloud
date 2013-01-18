@@ -359,7 +359,7 @@ proc speech_task {} {
     set tts(not_stopped) 1
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "`v1 `vs$r "
+    set prefix " `vs$r "
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
@@ -368,6 +368,11 @@ proc speech_task {} {
                 set text [clean [lindex $event 1]]
                 synth "$prefix $text"
                 set retval [service]
+            }
+            c {
+                set text  [lindex $event 1]
+                synth " $text"
+                set retval ""
             }
             a {
                 set sound [lindex $event 1]
