@@ -87,6 +87,16 @@ proc q {{element ""}} {
     }
 }
 
+#  Queue  a set of TTS  control codes:
+proc c {{element ""}} {
+    global queue tts env
+    if {[string length element]} {
+        set queue($tts(q_tail)) [list c $element]
+        incr tts(q_tail)
+        return ""
+    }
+}
+
 #queue a note 
 proc n {instrument note length {target 0} {step 5}} {
     global queue tts env
