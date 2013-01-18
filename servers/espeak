@@ -436,7 +436,9 @@ proc speech_task {} {
     set length [queue_length]
     set la $langcode(current)
 
-    set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
+    #set prefix "<voice xml:lang=\"$la\" gender=\"male\"
+    #variant=\"1\">"
+    set prefix ""
     loop index 0 $length {
 
         set event   [queue_remove]
