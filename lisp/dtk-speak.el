@@ -676,7 +676,7 @@ Arguments START and END specify region to speak."
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon
      (get-text-property start 'auditory-icon)))
-  (dtk-interp-queue (format "%s" tts-voice-reset-code))
+  (dtk-interp-queue-code tts-voice-reset-code)
   (cond
    (voice-lock-mode
     (let ((last  nil)
@@ -692,7 +692,7 @@ Arguments START and END specify region to speak."
         (setq start  last
               personality
               (get-text-property last  'personality))) ; end while
-      ))                                               ; end clause
+      ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
