@@ -115,6 +115,12 @@
                        (format "q {%s }\n"
                                text)))
 
+(defsubst dtk-interp-code (queue-code)
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
+                       (format "c {%s }\n" code)))
+
+
 (defsubst dtk-interp-queue-set-rate(rate)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
