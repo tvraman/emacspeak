@@ -609,8 +609,7 @@ Argument COMPLEMENT  is the complement of separator."
   (unless (or (eq 'inaudible voice )
               (and (listp voice)
                    (member 'inaudible voice)))
-    (dtk-interp-queue
-     (format "%s%s %s "
+    (dtk-interp-queue-code
              (cond
               ((symbolp voice)
                (tts-get-voice-command
@@ -625,9 +624,9 @@ Argument COMPLEMENT  is the complement of separator."
                                   v)))
                            voice
                            " "))
-              (t       ""))
-             text
-             tts-voice-reset-code))))
+              (t       "")))
+             (dtk-interp-queue text)
+             (dtk-interp-queue-code tts-voice-reset-code)))
 
 ;;;Internal function used by dtk-speak to send text out.
 ;;;Handles voice locking etc.
