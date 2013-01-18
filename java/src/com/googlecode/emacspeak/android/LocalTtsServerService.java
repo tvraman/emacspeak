@@ -127,21 +127,24 @@ public class LocalTtsServerService extends Service {
       } else if (command.startsWith("s")) {
         mTts.speak("", 2, null);
         mQueue = new ArrayList<Utterance>();
-      } else if (command.startsWith("q ")) {
-        command = command.replaceFirst("q ", "");
-        mQueue.add(new Utterance(Utterance.TYPE_SPEECH, command));
-      } else if (command.startsWith("d")) {
-        // TODO: Account for queued audio and silences
-          // tvr:We should  queue to the TTSlayer, not
-          // concatenate which will GC
-        String message = "";
-        while (mQueue.size() > 0) {
-          message = message + mQueue.remove(0).payload + "\n";
-        }
-        if (message.length() > 0) {
-          mTts.speak(message, 2, null);
-        }
-      }
+      }else if (command.startsWith("c ")) {
+                                           command = command.replaceFirst("c ", "");
+                                           mQueue.add(new Utterance(Utterance.TYPE_SPEECH, command));
+                                           } else if (command.startsWith("q ")) {
+                                           command = command.replaceFirst("q ", "");
+                                           mQueue.add(new Utterance(Utterance.TYPE_SPEECH, command));
+                                           } else if (command.startsWith("d")) {
+                                // TODO: Account for queued audio and silences
+                                // tvr:We should  queue to the TTSlayer, not
+                                // concatenate which will GC
+                                           String message = "";
+                                           while (mQueue.size() > 0) {
+                                                                      message = message + mQueue.remove(0).payload + "\n";
+                                                                      }
+                                           if (message.length() > 0) {
+                                                                      mTts.speak(message, 2, null);
+                                                                      }
+                                           }
     } catch (PackageManager.NameNotFoundException e) {
       e.printStackTrace();
     }
