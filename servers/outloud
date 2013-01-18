@@ -360,6 +360,7 @@ proc speech_task {} {
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix " `vs$r "
+    synth "`v1 "
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
