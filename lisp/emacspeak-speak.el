@@ -832,6 +832,7 @@ are indicated with auditory icon ellipses."
                      emacspeak-show-point
                      emacspeak-decoration-rule emacspeak-horizontal-rule
                      emacspeak-unspeakable-rule emacspeak-audio-indentation))
+  (when dtk-stop-immediately (dtk-stop))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
     (let ((inhibit-field-text-motion t)
@@ -850,7 +851,6 @@ are indicated with auditory icon ellipses."
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
-      (when dtk-stop-immediately (dtk-stop))
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
