@@ -686,8 +686,7 @@ Arguments START and END specify region to speak."
                         (next-true-single-property-change start 'personality
                                                           (current-buffer) end)))
         (if personality
-            (dtk-speak-using-voice personality
-                                   (buffer-substring start last ))
+            (dtk-speak-using-voice personality (buffer-substring start last ))
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
               personality
@@ -1698,22 +1697,19 @@ Port  defaults to  dtk-local-server-port"
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
-(defvar dtk-speak-process-connection-type nil
-  "*Specifies if we use ptys or pipes to connect to the speech server process.
-Has the same semantics as the builtin `process-connection-type'.
-Default is to use pipes.")
+
 
 (defvar tts-debug-buffer " *speaker*"
   "Buffer holding speech server debug output.")
 
 (defun  dtk-initialize ()
   "Initialize speech system."
-  (declare (special dtk-program tts-debug-buffer dtk-speak-process-connection-type
+  (declare (special dtk-program tts-debug-buffer 
                     dtk-speaker-process  dtk-debug
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
-        (process-connection-type  dtk-speak-process-connection-type))
+        (process-connection-type  nil))
     (setq new-process
           (start-process
            "speaker"
