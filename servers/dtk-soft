@@ -194,12 +194,7 @@ proc speech_task {}  {
             }
             c {
                 set text  [lindex $event 1]
-                puts -nonewline  $tts(write) " $text\\[_.]\013""
-                set retval ""
-            }
-            t {
-                set text  [lindex $event 1]
-                say "\[:np] $text "
+                say  "\[:i r 1]$text "
             }
             a {
                 set sound [lindex $event 1]
