@@ -823,11 +823,11 @@ HTML."
 ;;}}}
 ;;{{{ fix error in insert-char call for emacs 24
 
-(defadvice insert-char (around fix-w3-error pre act comp)
-  "Handle erroneous call from W3."
-  (condition-case nil
-      ad-do-it
-    (error nil)))
+;(defadvice insert-char (around fix-w3-error pre act comp)
+  ;"Handle erroneous call from W3."
+  ;(condition-case nil
+      ;ad-do-it
+    ;(error nil)))
 
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
