@@ -254,6 +254,7 @@ class _ProtocolHandler:
     self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
                                     'a':self.handleAuditoryIcon,
                                     'l':self.handleLetter,
+                                    'c':self.handleQueue,
                                     'q':self.handleQueue,
                                     's':self.handleStopSpeaking,
                                     't':self.handleTone,
