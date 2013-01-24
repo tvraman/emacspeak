@@ -385,10 +385,13 @@ the words that were capitalized."
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
-
-(defadvice ucs-insert (after emacspeak pre act comp)
-  "Speak char we inserted."
-  (when (ems-interactive-p) (emacspeak-speak-char-name (ad-get-arg 0))))
+(loop for f in
+      '(ucs-insert insert-char)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Speak char we inserted."
+          (when (ems-interactive-p) (emacspeak-speak-char-name (ad-get-arg 0))))))
 
 (defadvice delete-forward-char (around emacspeak pre act comp)
   "Speak character you're deleting."
