@@ -165,23 +165,20 @@ Note that some badly formed mime messages  cause trouble."
                     emacspeak-vm-headers-strip-octals
                     emacspeak-vm-user-full-name emacspeak-vm-user-login-name))
   (when vm-message-pointer
-    (dtk-stop)
-    (let*  ((dtk-stop-immediately t )
-            (message (car vm-message-pointer ))
+    (let*  ((message (car vm-message-pointer ))
             (number (emacspeak-vm-number-of  message))
-            (from(or (vm-su-full-name message)
-                     (vm-su-from message )))
+            (from
+             (or (vm-su-full-name message) (vm-su-from message )))
             (subject (vm-su-subject message ))
-            (to(or (vm-su-to-names message)
-                   (vm-su-to message )))
-            (self-p (or
-                     (string-match emacspeak-vm-user-full-name to)
-                     (string-match  (user-login-name) to)
-                     (string-match
-                      (format "%s@%s" (user-login-name) smtpmail-local-domain)
-                      to)))
-            (lines (vm-su-line-count message))
-            (summary nil))
+            (to
+             (or (vm-su-to-names message) (vm-su-to message )))
+            (self-p
+             (or (string-match emacspeak-vm-user-full-name to)
+                 (string-match  (user-login-name) to)
+                 (string-match (format "%s@%s" (user-login-name)
+                                       smtpmail-local-domain)
+                               to)))
+            (lines (vm-su-line-count message)))
       (dtk-speak
        (vm-decode-mime-encoded-words-in-string
         (format "%s %s %s   %s %s "
