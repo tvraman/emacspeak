@@ -850,7 +850,10 @@ Tue Apr 24 17:33:27 PDT 2012
   (declare (special emacspeak-websearch-google-use-https))
   (format "%s://www.google.com/url?q="
           (if emacspeak-websearch-google-use-https "https" "http")))
-
+;;; speed up image handling:
+(defadvice w3-image-loadable-p (around dont pre act comp)
+  "I dont want any images here."
+  nil)
 (loop
  for f in 
  '(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
