@@ -128,6 +128,17 @@
         @emph{dispatch} request is received via execution of command
         @emph{d}.
 
+
+@example
+        c codes
+        @end example
+
+        Queues  synthesis codes  to be sent to the TTS engine. 
+        Codes are sent to the engine with no further transformation or
+        processing.
+The codes are inserted into the  output queue and will be dispatched to
+        the TTS engine at the appropriate point in the output stream.
+
         @example
         a filename
         @end example
