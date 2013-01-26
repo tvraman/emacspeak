@@ -234,8 +234,8 @@ Converts char to unicode if necessary (for emacs 22)."
   "Return unicode name for character CHAR.
 nil if CHAR is not in Unicode."
   (downcase
-   (or (cadar (describe-char-unicode-data char))
-       (car (rassoc char (ucs-names)))
+   (or (car (rassoc char (ucs-names)))
+       (cadar (describe-char-unicode-data char))
        "")))
 
 (defsubst dtk-unicode-char-punctuation-p (char)
