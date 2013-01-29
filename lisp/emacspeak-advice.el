@@ -80,6 +80,17 @@
 (defvar emacspeak-prefix)
 
 ;;}}}
+;;{{{ emacs 24.3.50 work-around *to-be-deleted*
+
+
+;;; This is to work around a bug in the new advice.el from Emacs 24.3.50 head:
+
+(defadvice help-function-arglist (around fix-bug pre act comp)
+  "Work around advice error ."
+  (condition-case nil
+      ad-do-it
+    (error "Caught error.")))
+;;}}}
 ;;{{{ Advice ding
 
 (defadvice ding (before emacspeak pre act comp)
