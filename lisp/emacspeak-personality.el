@@ -264,7 +264,7 @@ displayed in the messages area."
           (object (ad-get-arg 4))
           (voice nil))
       (when (and  emacspeak-personality-voiceify-faces
-                  (or (eq prop 'face) (eq prop 'font-lock-face))
+                  (emacspeak-personality-plist-face-p prop) 
                   (not (= start end)))
         (condition-case nil
             (progn
