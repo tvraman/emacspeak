@@ -507,14 +507,14 @@ Append means place corresponding personality at the end."
 ;;}}}
 ;;{{{ silence font-lock's error messages
 
-(loop for f in
-      '(font-lock-default-fontify-region
-        font-lock-default-fontify-buffer)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Silence auditory feedback from redisplay errors."
-          (ems-with-errors-silenced ad-do-it))))
+;; (loop for f in
+;;       '(font-lock-default-fontify-region
+;;         font-lock-default-fontify-buffer)
+;;       do
+;;       (eval
+;;        `(defadvice ,f (around emacspeak pre act comp)
+;;           "Silence auditory feedback from redisplay errors."
+;;           (ems-with-errors-silenced ad-do-it))))
 
 ;;}}}
 (provide 'emacspeak-personality )
