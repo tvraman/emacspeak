@@ -197,11 +197,7 @@ Argument BODY specifies forms to execute."
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(progn
      (let ((emacspeak-speak-cue-errors nil))
-       (ad-disable-advice  'error 'before 'emacspeak )
-       (ad-deactivate 'error)
-       ,@body
-       (ad-enable-advice  'error 'before 'emacspeak )
-       (ad-activate 'error))))
+       ,@body)))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
