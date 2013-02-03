@@ -695,9 +695,9 @@ before the message is spoken."
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well.
 Handle end-of-buffer and beginning-of-buffer specially."
-  (declare (special emacspeak-speak-cue-errors))
+  (declare (special emacspeak-speak-errors))
   (let ((error-symbol  (ad-get-arg 0)))
-    (when (or emacspeak-speak-cue-errors
+    (when (or emacspeak-speak-errors
               (eq error-symbol 'beginning-of-buffer)
               (eq error-symbol 'end-of-buffer)))
     (let ((dtk-stop-immediately t)
@@ -707,7 +707,7 @@ Handle end-of-buffer and beginning-of-buffer specially."
 
 ;;}}}
 ;;;###autoload
-(defcustom emacspeak-speak-cue-errors nil
+(defcustom emacspeak-speak-errors nil
   "Specifies if error messages are cued."
   :type 'boolean
   :group 'emacspeak-spek)
@@ -715,7 +715,7 @@ Handle end-of-buffer and beginning-of-buffer specially."
 (defadvice error (before emacspeak pre act comp)
   "Speak the error message.
 Also produces an auditory icon if possible."
-  (when emacspeak-speak-cue-errors
+  (when emacspeak-speak-errors
     (let ((dtk-stop-immediately nil ))
       (emacspeak-auditory-icon 'warn-user)
       (tts-with-punctuations 'all
