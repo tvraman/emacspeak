@@ -719,7 +719,7 @@ Also produces an auditory icon if possible."
     (let ((dtk-stop-immediately nil ))
       (emacspeak-auditory-icon 'warn-user)
       (tts-with-punctuations 'all
-                             (message
+                             (dtk-speak
                               (apply #'format
                                      (ad-get-args  0)))))))
 
