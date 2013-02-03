@@ -586,12 +586,17 @@ the words that were capitalized."
   "Speak the character that was inserted."
   (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char ))))
+
+
+;;;###autoload
+(defvar emacspeak-speak-read-events t
+  "Set to nil to silence read-event.")
+
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
-  (when (ad-get-arg 0)
+  (when (and emacspeak-speak-read-events (ad-get-arg 0))
     (tts-with-punctuations 'all
-                           (dtk-speak
-                            (ad-get-arg 0)))))
+                           (dtk-speak (ad-get-arg 0)))))
 
 (defadvice previous-history-element (after emacspeak pre act comp)
   "Speak the history element just inserted."
@@ -706,11 +711,12 @@ Handle end-of-buffer and beginning-of-buffer specially."
       (when  message (dtk-speak message)))))
 
 ;;}}}
+
+
 ;;;###autoload
-(defcustom emacspeak-speak-errors nil
-  "Specifies if error messages are cued."
-  :type 'boolean
-  :group 'emacspeak-spek)
+(defvar emacspeak-speak-errors nil
+  "Specifies if error messages are cued.")
+  
 
 (defadvice error (before emacspeak pre act comp)
   "Speak the error message.

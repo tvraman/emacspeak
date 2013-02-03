@@ -52,19 +52,6 @@
 ;;}}}
 ;;{{{ implementation
 
-(defadvice checkdoc (around emacspeak pre act comp)
-  "Advice read-event temporarily."
-  (cond
-   ((ems-interactive-p )
-    (save-match-data
-      (ad-enable-advice  'read-event 'before 'emacspeak-checkdoc )
-      (ad-activate 'read-event)
-      ad-do-it
-      (ad-disable-advice  'read-event 'before 'emacspeak-checkdoc )
-      (ad-deactivate 'read-event)))
-   (t  ad-do-it))
-  ad-return-value)
-
 (provide 'emacspeak-checkdoc-advice)
 
 ;;; checkdoc-advice.el ends here
