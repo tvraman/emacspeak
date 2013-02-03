@@ -221,7 +221,7 @@ charsets returned by operations such as `find-charset-region'."
 Converts char to unicode if necessary (for emacs 22)."
   (let ((unicode (encode-char char 'ucs)))
     (and unicode (condition-case nil
-                     (let ((emacspeak-speak-cue-errors nil)
+                     (let ((emacspeak-speak-errors nil)
                            (emacspeak-speak-messages nil))
                        (describe-char-unicode-data unicode))
                    (error nil)))))
