@@ -1481,7 +1481,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 ;;{{{ Cache Voicefied mode-names
 
 (defvar emacspeak-voicefied-mode-names
-  (make-hash-table)
+  (make-hash-table :test 'eq)
   "Hash table mapping mode-names to their voicefied equivalents.")
 
 (defsubst emacspeak-get-voicefied-mode-name (mode-name)
