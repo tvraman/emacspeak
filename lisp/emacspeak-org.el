@@ -316,7 +316,7 @@
 
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
-  (declare (special org-goto-map org-mode-map))
+  (declare (special  org-mode-map))
   (loop for k in
         '(
           ([(meta return)] org-meta-return)
@@ -343,12 +343,7 @@
           )
         do
         (emacspeak-keymap-update  org-mode-map k))
-  (loop for k in
-        '(
-          ( "\C-e" emacspeak-prefix-command)
-          ( "\C-h" help-command))
-        do
-        (emacspeak-keymap-update  org-goto-map k)))
+  )
 
 (add-hook 'org-mode-hook 'emacspeak-org-update-keys)
 
