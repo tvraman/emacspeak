@@ -92,7 +92,7 @@
 
 ;;;###autoload
 (defcustom emacspeak-xslt-options
-  "--html --nonet --novalid"
+  "--html --nonet --novalid --encoding utf-8"
   "Options passed to xsltproc."
   :type 'string
   :group 'emacspeak-xslt)
