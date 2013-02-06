@@ -1504,7 +1504,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 ;;{{{ Cache Voicefied buffer-names
 
 (defvar emacspeak-voicefied-buffer-names
-  (make-hash-table)
+  (make-hash-table :test 'eq)
   "Hash table mapping buffer-names to their voicefied equivalents.")
 
 (defsubst emacspeak-get-voicefied-buffer-name (buffer-name)
@@ -1518,6 +1518,51 @@ indicating the arrival  of new mail when displaying the mode line.")
                              'personality voice-bolden-medium result)
           (puthash buffer-name result emacspeak-voicefied-buffer-names)
           result))))
+
+
+
+(defvar emacspeak-voicefied-recursion-info
+  (make-hash-table :test 'eq)
+  "Hash table mapping recursive-depth levels  to their voicefied equivalents.")
+
+(defsubst emacspeak-get-voicefied-recursion-info (level)
+  "Return voicefied version of this recursive-depth level."
+  (declare (special emacspeak-voicefied-recursion-info))
+  (cond
+   ((zerop level) "")
+   (t 
+    (let ((result (gethash level emacspeak-voicefied-recursion-info)))
+      (or result
+          (progn
+            (setq result (format " Recursive Edit %d " level))
+            (put-text-property 0 (length result)
+                               'personality voice-smoothen result)
+            (puthash level result emacspeak-voicefied-buffer-names)
+            result))))))
+
+
+
+(defvar emacspeak-voicefied-frame-info
+  (make-hash-table)
+  "Hash table mapping frame names  levels  to their voicefied equivalents.")
+
+(defsubst emacspeak-get-voicefied-frame-info (frame)
+  "Return voicefied version of this frame name."
+  (declare (special emacspeak-voicefied-frame-info))
+  (cond
+   ((= (length (frame-list)) 1) " ")
+   (t
+    (let ((frame-name (frame-parameter frame 'name))
+          (frame-info nil))
+      (or (gethash  frame-name emacspeak-voicefied-frame-info)
+          (progn
+            ( setq frame-info (format " %s " frame-name))
+            (put-text-property 0 (length frame-info)
+                               'personality voice-lighten-extra frame-info)
+            (puthash  frame-name frame-info emacspeak-voicefied-frame-info)
+            frame-info))))))
+         
+
 
 ;;}}}
 ;;{{{  Speak mode line information
@@ -1595,9 +1640,8 @@ Interactive prefix arg speaks buffer info."
     (emacspeak-dtk-sync)
     (let ((dtk-stop-immediately nil )
           (global-info (format-mode-line global-mode-string))
-          (frame-info nil)
-          (recursion-depth (recursion-depth))
-          (recursion-info nil)
+          (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
+          (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or
                            (eq major-mode 'shell-mode)
                            (eq major-mode 'comint-mode))
@@ -1613,20 +1657,6 @@ Interactive prefix arg speaks buffer info."
         (when dir-info
           (put-text-property 0 (length dir-info)
                              'personality voice-annotate dir-info))
-        (cond
-         ((> (length (frame-list)) 1)
-          (setq frame-info
-                (format " %s " (frame-parameter (selected-frame) 'name)))
-          (put-text-property 0 (length frame-info)
-                             'personality voice-lighten-extra frame-info))
-         (t (setq frame-info "")))
-        (when (> recursion-depth 0)
-          (setq  recursion-info
-                 (format " Recursive Edit %d "
-                         recursion-depth))
-          (put-text-property 0 (length recursion-info)
-                             'personality voice-smoothen
-                             recursion-info))
         (unless (and buffer-read-only
                      (buffer-modified-p)) ;avoid pathological case
           (when(and (not (eq major-mode 'shell-mode))
