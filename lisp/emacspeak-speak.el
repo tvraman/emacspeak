@@ -62,7 +62,7 @@
 (require 'dtk-unicode)
 (eval-when-compile
   (require 'shell)
-  (require 'which-func nil))
+  )
 
 ;;}}}
 ;;{{{ forward declarations:
@@ -1586,16 +1586,6 @@ indicating the arrival  of new mail when displaying the mode line.")
 (make-variable-buffer-local 'column-number-mode)
 (setq-default column-number-mode nil)
 ;;{{{   mode line speaker
-(defvar emacspeak-which-function-mode  nil
-  "*If T, speaking mode line speaks the name of function containing point.")
-
-(make-variable-buffer-local 'emacspeak-which-function-mode)
-
-(ems-generate-switcher ' emacspeak-toggle-which-function
-                         'emacspeak-which-function-mode
-                         "Toggle state of  Emacspeak  which function mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
 
 (defsubst emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
