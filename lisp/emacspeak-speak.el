@@ -1654,9 +1654,7 @@ Interactive prefix arg speaks buffer info."
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline
-        (when dir-info
-          (put-text-property 0 (length dir-info)
-                             'personality voice-annotate dir-info))
+        
         (unless (and buffer-read-only
                      (buffer-modified-p)) ;avoid pathological case
           (when(and (not (eq major-mode 'shell-mode))
