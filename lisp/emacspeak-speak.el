@@ -1515,7 +1515,7 @@ indicating the arrival  of new mail when displaying the mode line.")
         (progn
           (setq result (copy-sequence buffer-name))
           (put-text-property 0 (length result)
-                             'personality voice-bolden-medium result)
+                             'personality voice-lighten-medium result)
           (puthash buffer-name result emacspeak-voicefied-buffer-names)
           result))))
 
@@ -1671,7 +1671,7 @@ Interactive prefix arg speaks buffer info."
          (dtk-speak
           (concat
            dir-info
-           (buffer-name)
+           (emacspeak-get-voicefied-buffer-name (buffer-name))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
