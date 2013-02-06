@@ -1602,9 +1602,8 @@ current local  value to the result.")
 which-func without turning that mode on.  We actually use
 semantic to do the work."
   (declare (special semantic--buffer-cache))
-  (require 'which-func)
-  (when  (and (featurep 'semantic)
-              semantic--buffer-cache)
+  (when  (and (featurep 'semantic) semantic--buffer-cache)
+    (require 'which-func)
     (message  (or
                (which-function)
                "Not inside a function."))))
@@ -1625,14 +1624,13 @@ semantic to do the work."
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info."
   (interactive "P")
-  (declare (special  mode-name  major-mode voice-annotate
-                     header-line-format
-                     emacspeak-which-function-mode global-mode-string
+  (declare (special  mode-name  major-mode 
+                     header-line-format global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (force-mode-line-update)
-    (emacspeak-dtk-sync)
-    (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
+  (emacspeak-dtk-sync)
+  (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
    ((and header-line-format (not (ems-interactive-p )))
     (emacspeak-speak-header-line))
@@ -1643,24 +1641,13 @@ Interactive prefix arg speaks buffer info."
           (global-info (format-mode-line global-mode-string))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
-          (dir-info (when (or
-                           (eq major-mode 'shell-mode)
-                           (eq major-mode 'comint-mode))
-                      (abbreviate-file-name default-directory))))
-      (when (and  emacspeak-which-function-mode
-                  (fboundp 'which-function)
-                  (which-function))
-        (emacspeak-speak-which-function))
+          (dir-info (unless buffer-file-name (abbreviate-file-name default-directory))))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline
-        
-        (unless (and buffer-read-only
-                     (buffer-modified-p)) ;avoid pathological case
-          (when(and (not (eq major-mode 'shell-mode))
-                    (not (eq major-mode 'comint-mode))
-                    (buffer-modified-p))
-            (dtk-tone 950 100))
+        (unless (and buffer-read-only (buffer-modified-p))
+                                        ; avoid pathological case
+          (when (and buffer-file-name  (buffer-modified-p)) (dtk-tone 950 100))
           (when buffer-read-only (dtk-tone 250 100)))
         (put-text-property 0 (length global-info)
                            'personality voice-bolden-medium global-info)
