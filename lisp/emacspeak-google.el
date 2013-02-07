@@ -57,6 +57,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'gweb)
+(require 'derived)
 ;;}}}
 ;;{{{ Data Structures 
 
@@ -431,9 +432,10 @@ This variable is buffer-local.")
 
 ;;}}}
 ;;{{{ Google Maps API V3
+
 ;;; See  https://developers.google.com/maps/documentation/directions/
 
-(defun emacspeak-google-maps-routes (origin destination)
+(defun emacspeak-google-maps-routes (origin destination &optional mode)
   "Return routes as found by Google Maps Directions."
   (let ((result
          (g-json-get-result
@@ -446,6 +448,59 @@ This variable is buffer-local.")
      ((string= "OK" (g-json-get 'status result))
       (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
+
+;;}}}
+;;{{{ Maps UI: 
+
+(define-derived-mode emacspeak-google-maps-mode special-mode
+  "Google Maps Interaction"
+  "A Google Maps front-end for the Emacspeak desktop."
+  (let ((inhibit-read-only t)
+        (start (point)))
+    (goto-char (point-min))
+    (insert "Google Maps Interaction")
+    (put-text-property start (point)
+                       'face font-lock-doc-face)
+    (setq header-line-format "Google Maps")))
+(declaim (special emacspeak-google-maps-mode-map))
+
+(loop for k in
+      '(
+        ("d" emacspeak-google-maps-driving-directions)
+        ("w" emacspeak-google-maps-walking-directions)
+        )
+      do
+      (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
+(defvar emacspeak-google-maps-interaction-buffer "*Google Maps*"
+  "Google Maps interaction buffer.")
+
+(defun emacspeak-google-maps ()
+  "Google Maps Interaction."
+  (interactive)
+  (declare (special emacspeak-google-maps-interaction-buffer))
+  (let ((buffer (get-buffer emacspeak-google-maps-interaction-buffer)))
+    (cond
+     ((buffer-live-p buffer)
+      (switch-to-buffer buffer))
+     (t
+      (with-current-buffer (get-buffer-create emacspeak-google-maps-interaction-buffer)
+        (erase-buffer)
+        (setq buffer-undo-list t)
+        (setq buffer-read-only t)
+        (emacspeak-google-maps-mode))
+      (switch-to-buffer emacspeak-google-maps-interaction-buffer)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+(defun emacspeak-google-maps-driving-directions (origin destination)
+  "Display driving directions obtained from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (unless (eq major-mode 'emacspeak-google-maps-mode)
+    (error "Not in a Maps buffer."))
+  (let ((inhibit-read-only t)
+        (routes (emacspeak-google-maps-routes origin destination)))    (goto-char (point-max))
+        (when routes (emacspeak-google-maps-display-routes routes))))
 
 ;;}}}
 (provide 'emacspeak-google)
