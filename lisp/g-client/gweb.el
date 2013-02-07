@@ -353,6 +353,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
 
 ;;}}}
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
+
 ;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
 
 (defvar gweb-maps-geocoder-base
@@ -433,7 +434,20 @@ Optional argument `raw-p' returns raw JSON  object."
                 (emacspeak-calendar-setup-sunrise-sunset)))
             (set-default sym val))
   :group 'gweb)
-  
+
+;;}}}
+;;{{{ Maps Directions 
+
+;;; See  https://developers.google.com/maps/documentation/directions/
+(defvar gweb-maps-directions-base
+  "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s"
+  "Base URL  end-point for talking to the Google Maps directions service.")
+(defsubst gweb-maps-directions-url (origin destination)
+  "Return URL   for getting directions from origin to destination.
+Parameters 'origin' and 'destination' my be url-encoded."
+  (declare (special gweb-maps-directions-base))
+  (format gweb-maps-directions-base  origin destination))
+
 ;;}}}
 (provide 'gweb)
 ;;{{{ end of file
