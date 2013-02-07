@@ -1,3 +1,4 @@
+
 (defcustom keytables-directory
   "/lib/kbd/keymaps/i386/"
   "Keytables directory"
@@ -30,3 +31,4 @@
                  "dvorak"
                "qwerty")))    
   (setq dvorak-on (not dvorak-on)))
+;;; Dont use this  any more
