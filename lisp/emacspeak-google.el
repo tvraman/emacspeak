@@ -56,7 +56,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'gweb)
 ;;}}}
 ;;{{{ Data Structures 
 
@@ -430,7 +430,24 @@ This variable is buffer-local.")
       (emacspeak-keymap-update emacspeak-google-keymap k))
 
 ;;}}}
+;;{{{ Google Maps API V3
+;;; See  https://developers.google.com/maps/documentation/directions/
 
+(defun emacspeak-google-maps-routes (origin destination)
+  "Return routes as found by Google Maps Directions."
+  (let ((result
+         (g-json-get-result
+          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                  g-curl-program g-curl-common-options
+                  (gweb-maps-directions-url
+                   (emacspeak-url-encode origin)
+                   (emacspeak-url-encode destination))))))
+    (cond
+     ((string= "OK" (g-json-get 'status result))
+      (g-json-get 'routes result))
+     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
