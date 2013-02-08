@@ -521,7 +521,7 @@ This variable is buffer-local.")
      (format "Summary: %s\n"
              (g-json-get 'summary route)))
     (cond
-     ((=1 length)
+     ((= 1 length)
       (emacspeak-google-maps-display-leg (aref (g-json-get 'legs route) 0)))
      (t
       (loop for leg across (g-json-get 'legs route)
