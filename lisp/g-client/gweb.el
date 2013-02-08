@@ -450,6 +450,21 @@ Parameters 'origin' and 'destination' are  be url-encoded."
   (format gweb-maps-directions-base  origin destination
           mode (float-time)))
 
+
+;;; Places:
+;; 
+(defvar gweb-maps-places-base
+  "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
+  "Base URL  end-point for talking to the Google Maps Places service.")
+
+(defsubst gweb-maps-places-url (type key)
+  "Return URL  for Places services.
+Parameter `type' is one of nearbysearch or textsearch.
+Parameter `key' is the API  key."
+  (declare (special gweb-maps-places-base))
+  (format gweb-maps-directions-base  type key))
+          
+
 ;;}}}
 (provide 'gweb)
 ;;{{{ end of file

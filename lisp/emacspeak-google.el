@@ -458,8 +458,8 @@ This variable is buffer-local.")
           (const :tag "None" nil)
           (string :value ""))
   :group 'emacspeak-google)
-;;; Places:
-;; "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.230919,-121.83307&radius=500&sensor=false&key="
+
+
 ;;}}}
 ;;{{{ Maps UI: 
 
