@@ -505,7 +505,7 @@ This variable is buffer-local.")
                    (g-json-get  'html_instructions step)
                    (g-json-get 'text (g-json-get 'distance step))
                    (g-json-get 'text (g-json-get 'duration step))))
-          (incf i)))) )
+          (incf i))))
 
 (defun emacspeak-google-maps-display-route (route)
   "Display route in a Maps buffer."
