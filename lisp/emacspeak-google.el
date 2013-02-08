@@ -528,7 +528,7 @@ This variable is buffer-local.")
             do
             (insert (format "Leg:%d\n" i))
             (emacspeak-google-maps-display-leg leg)
-            (incf i)))))))
+            (incf i))))))
 
 (defun emacspeak-google-maps-display-routes (routes)
   "Display routes in Maps interaction buffer."
