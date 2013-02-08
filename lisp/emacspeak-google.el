@@ -526,7 +526,7 @@ This variable is buffer-local.")
         (inhibit-read-only t))
     (loop for route across routes
           do
-          (insert "\nRoute %d\n" i)
+          (insert (format  "\nRoute %d\n" i))
           (incf i)
           (emacspeak-google-maps-display-route route))))
 
