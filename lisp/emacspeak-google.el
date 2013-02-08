@@ -452,7 +452,14 @@ This variable is buffer-local.")
     (cond
      ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
-
+(defcustom emacspeak-google-maps-places-key nil
+  "Places API  key --- goto  https://code.google.com/apis/console to get one."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :value ""))
+  :group 'emacspeak-google)
+;;; Places:
+;; "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.230919,-121.83307&radius=500&sensor=false&key="
 ;;}}}
 ;;{{{ Maps UI: 
 
