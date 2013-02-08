@@ -494,6 +494,44 @@ This variable is buffer-local.")
     (emacspeak-speak-mode-line)))
 
 
+(defun emacspeak-google-maps-display-leg (leg)
+  "Display a leg of a route."
+  (let ((i 1)
+        (inhibit-read-only t))
+    (loop for step across (g-json-get 'steps leg)
+          do
+          (insert
+           (format "%d:\t%s\t%s\t%s\n" i
+                   (g-json-get  'html_instructions step)
+                   (g-json-get 'text (g-json-get 'distance step))
+                   (g-json-get 'text (g-json-get 'duration step))))
+          (incf i)))) )
+
+(defun emacspeak-google-maps-display-route (route)
+  "Display route in a Maps buffer."
+  (let ((i 1)
+        (inhibit-read-only t))
+    (insert
+     (format "Summary: %s\n"
+             (g-json-get 'summary route)))
+    (loop for leg across (g-json-get 'legs route)
+          do
+          (insert (format "\nLeg: %d\n" i))
+          (emacspeak-google-maps-display-leg leg)
+          (incf i))))
+
+(defun emacspeak-google-maps-display-routes (routes)
+  "Display routes in Maps interaction buffer."
+  (let ((i 1)
+        (inhibit-read-only t))
+    (loop for route across routes
+          do
+          (insert "\nRoute %d\n" i)
+          (incf i)
+          (emacspeak-google-maps-display-route route))))
+
+
+        
 (defun emacspeak-google-maps-driving-directions (origin destination)
   "Display driving directions obtained from Google Maps."
   (interactive "sStart Address: \nsDestination Address: ")
