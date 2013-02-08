@@ -507,6 +507,10 @@ This variable is buffer-local.")
                    (g-json-get  'html_instructions step)
                    (g-json-get 'text (g-json-get 'distance step))
                    (g-json-get 'text (g-json-get 'duration step))))
+          (save-excursion
+            (save-restriction
+              (narrow-to-region start (point))
+              (html2text)))
           (put-text-property start (1- (point))
                              'data step)
           (setq start  (point))
