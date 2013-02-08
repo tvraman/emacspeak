@@ -516,8 +516,12 @@ This variable is buffer-local.")
              (g-json-get 'summary route)))
     (loop for leg across (g-json-get 'legs route)
           do
-          (insert (format "\nLeg: %d\n" i))
-          (emacspeak-google-maps-display-leg leg)
+          (insert
+           (format
+            "\nLeg: %d\t%s\t%s\n"
+            i
+            (g-json-get 'text (g-json-get 'distance  leg))
+            (g-json-get 'text (g-json-get 'duration leg))))          (emacspeak-google-maps-display-leg leg)
           (incf i))))
 
 (defun emacspeak-google-maps-display-routes (routes)
