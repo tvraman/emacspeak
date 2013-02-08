@@ -445,8 +445,7 @@ This variable is buffer-local.")
                    (emacspeak-url-encode origin)
                    (emacspeak-url-encode destination))))))
     (cond
-     ((string= "OK" (g-json-get 'status result))
-      (g-json-get 'routes result))
+     ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
 
 ;;}}}
@@ -455,23 +454,26 @@ This variable is buffer-local.")
 (define-derived-mode emacspeak-google-maps-mode special-mode
   "Google Maps Interaction"
   "A Google Maps front-end for the Emacspeak desktop."
-  (let ((inhibit-read-only t)
-        (start (point)))
+  (let ((start (point))
+        (inhibit-read-only t))
+    (setq buffer-undo-list t)
     (goto-char (point-min))
     (insert "Google Maps Interaction")
-    (put-text-property start (point)
-                       'face font-lock-doc-face)
+    (put-text-property start (point) 'face font-lock-doc-face)
     (insert "\n\n")
     (setq header-line-format "Google Maps")))
+
 (declaim (special emacspeak-google-maps-mode-map))
 
 (loop for k in
       '(
         ("d" emacspeak-google-maps-driving-directions)
         ("w" emacspeak-google-maps-walking-directions)
+        ("t" emacspeak-google-maps-transit-directions)
         )
       do
       (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
+
 (defvar emacspeak-google-maps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
 
@@ -481,14 +483,12 @@ This variable is buffer-local.")
   (declare (special emacspeak-google-maps-interaction-buffer))
   (let ((buffer (get-buffer emacspeak-google-maps-interaction-buffer)))
     (cond
-     ((buffer-live-p buffer)
-      (switch-to-buffer buffer))
+     ((buffer-live-p buffer) (switch-to-buffer buffer))
      (t
       (with-current-buffer (get-buffer-create emacspeak-google-maps-interaction-buffer)
         (erase-buffer)
-        (setq buffer-undo-list t)
-        (setq buffer-read-only t)
-        (emacspeak-google-maps-mode))
+        (emacspeak-google-maps-mode)
+        (setq buffer-read-only t))
       (switch-to-buffer emacspeak-google-maps-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -497,42 +497,52 @@ This variable is buffer-local.")
 (defun emacspeak-google-maps-display-leg (leg)
   "Display a leg of a route."
   (let ((i 1)
-        (inhibit-read-only t))
+        (inhibit-read-only t)
+        (start (point)))
     (loop for step across (g-json-get 'steps leg)
           do
           (insert
-           (format "%d:\t%s\t%s\t%s\n" i
+           (format "%d:\t%s\t%s\t%s\n"
+                   i
                    (g-json-get  'html_instructions step)
                    (g-json-get 'text (g-json-get 'distance step))
                    (g-json-get 'text (g-json-get 'duration step))))
+          (put-text-property start (1- (point))
+                             'data step)
+          (setq start  (point))
           (incf i))))
 
 (defun emacspeak-google-maps-display-route (route)
   "Display route in a Maps buffer."
   (let ((i 1)
-        (inhibit-read-only t))
+        (inhibit-read-only t)
+        (length (length  (g-json-get 'legs route))))
     (insert
      (format "Summary: %s\n"
              (g-json-get 'summary route)))
-    (loop for leg across (g-json-get 'legs route)
-          do
-          (insert
-           (format
-            "\nLeg: %d\t%s\t%s\n"
-            i
-            (g-json-get 'text (g-json-get 'distance  leg))
-            (g-json-get 'text (g-json-get 'duration leg))))          (emacspeak-google-maps-display-leg leg)
-          (incf i))))
+    (cond
+     ((=1 length)
+      (emacspeak-google-maps-display-leg (aref (g-json-get 'legs route) 0)))
+     (t
+      (loop for leg across (g-json-get 'legs route)
+            do
+            (insert (format "Leg:%d\n" i))
+            (emacspeak-google-maps-display-leg leg)
+            (incf i)))))))
 
 (defun emacspeak-google-maps-display-routes (routes)
   "Display routes in Maps interaction buffer."
   (let ((i 1)
+        (length (length routes))
         (inhibit-read-only t))
-    (loop for route across routes
-          do
-          (insert (format  "\nRoute %d\n" i))
-          (incf i)
-          (emacspeak-google-maps-display-route route))))
+    (cond
+     ((=1 length) (emacspeak-google-maps-display-route (aref routes 0)))
+     (t
+      (loop for route across routes
+            do
+            (insert (format  "\nRoute %d\n" i))
+            (incf i)
+            (emacspeak-google-maps-display-route route))))))
 
 
         
@@ -542,8 +552,13 @@ This variable is buffer-local.")
   (unless (eq major-mode 'emacspeak-google-maps-mode)
     (error "Not in a Maps buffer."))
   (let ((inhibit-read-only t)
-        (routes (emacspeak-google-maps-routes origin destination)))    (goto-char (point-max))
-        (when routes (emacspeak-google-maps-display-routes routes))))
+        (start (point))
+        (routes (emacspeak-google-maps-routes origin destination)))
+    (goto-char (point-max))
+        (when routes (emacspeak-google-maps-display-routes routes))
+        (goto-char start)
+        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-speak-rest-of-buffer)))
 
 ;;}}}
 (provide 'emacspeak-google)
