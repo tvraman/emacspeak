@@ -439,7 +439,7 @@ This variable is buffer-local.")
   "Supported modes for getting directions.")
 
 
-(defun emacspeak-google-maps-routes (origin destination  mode)
+(defun emacspeak-google-maps-routes (origin destination mode)
   "Return routes as found by Google Maps Directions."
   (let ((result
          (g-json-get-result
@@ -472,7 +472,10 @@ This variable is buffer-local.")
 
 (loop for k in
       '(
-        ("d" emacspeak-google-maps-directions)
+        ("d" emacspeak-google-maps-driving-directions)
+        ("w" emacspeak-google-maps-walking-directions)
+        ("t" emacspeak-google-maps-transit-directions)
+        ("b" emacspeak-google-maps-bicycling-directions)
         )
       do
       (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
@@ -552,7 +555,29 @@ This variable is buffer-local.")
             (emacspeak-google-maps-display-route route))))))
 
 
-        
+(defun emacspeak-google-maps-driving-directions (origin destination)
+  "Driving directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (emacspeak-google-maps-directions origin destination "driving"))
+
+(defun emacspeak-google-maps-walking-directions (origin destination)
+  "Walking directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (emacspeak-google-maps-directions origin destination "walking"))
+
+(defun emacspeak-google-maps-bicycling-directions (origin destination)
+  "Biking directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (emacspeak-google-maps-directions origin destination "bicycling"))
+
+
+(defun emacspeak-google-maps-transit-directions (origin destination)
+  "Transit directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (emacspeak-google-maps-directions origin destination "transit"))
+
+
+
 (defun emacspeak-google-maps-directions (origin destination mode)
   "Display driving directions obtained from Google Maps."
   (interactive
@@ -564,7 +589,7 @@ This variable is buffer-local.")
     (error "Not in a Maps buffer."))
   (let ((inhibit-read-only t)
         (start (point))
-        (routes (emacspeak-google-maps-routes origin destination)))
+        (routes (emacspeak-google-maps-routes origin destination mode)))
     (goto-char (point-max))
         (when routes (emacspeak-google-maps-display-routes routes))
         (goto-char start)
