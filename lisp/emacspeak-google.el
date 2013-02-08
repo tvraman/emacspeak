@@ -536,7 +536,7 @@ This variable is buffer-local.")
         (length (length routes))
         (inhibit-read-only t))
     (cond
-     ((=1 length) (emacspeak-google-maps-display-route (aref routes 0)))
+     ((= 1 length) (emacspeak-google-maps-display-route (aref routes 0)))
      (t
       (loop for route across routes
             do
