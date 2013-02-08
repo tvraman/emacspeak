@@ -461,6 +461,7 @@ This variable is buffer-local.")
     (insert "Google Maps Interaction")
     (put-text-property start (point)
                        'face font-lock-doc-face)
+    (insert "\n\n")
     (setq header-line-format "Google Maps")))
 (declaim (special emacspeak-google-maps-mode-map))
 

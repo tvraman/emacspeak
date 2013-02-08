@@ -1317,7 +1317,7 @@ Optional interactive  prefix arg local-flag prompts for local
 ;;}}}
 ;;{{{  EmapSpeak
 (emacspeak-websearch-set-searcher 'emaps
-                                  'emacspeak-websearch-emaps-search)
+                                  'emacspeak-google-maps)
 
 (emacspeak-websearch-set-key ?e  'emaps)
 ;;;###autoload
