@@ -440,7 +440,7 @@ Optional argument `raw-p' returns raw JSON  object."
 
 ;;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gweb-maps-directions-base
-  "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%s"
+  "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
   "Base URL  end-point for talking to the Google Maps directions service.")
 
 (defsubst gweb-maps-directions-url (origin destination mode)
