@@ -532,13 +532,27 @@ This variable is buffer-local.")
              (g-json-get 'summary route)))
     (cond
      ((= 1 length)
+      (insert (format "From %s to %s\n"
+                      (g-json-get 'start_address
+                                  (aref (g-json-get 'legs route) 0))
+                      (g-json-get 'end_address
+                                  (aref (g-json-get 'legs route) 0))))
       (emacspeak-google-maps-display-leg (aref (g-json-get 'legs route) 0)))
      (t
       (loop for leg across (g-json-get 'legs route)
             do
-            (insert (format "Leg:%d\n" i))
+            (insert (format "Leg:%d: From %s to %s\n"
+                            i
+                            (g-json-get 'start_address leg)
+                            (g-json-get 'end_address)))
             (emacspeak-google-maps-display-leg leg)
-            (incf i))))))
+            (incf i))))
+    (insert
+     (format "Warnings: %s\n"
+             (g-json-get 'warnings route)))
+    (insert
+     (format "Copyrights: %s\n"
+             (g-json-get 'copyrights route)))))
 
 (defun emacspeak-google-maps-display-routes (routes)
   "Display routes in Maps interaction buffer."
