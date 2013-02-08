@@ -58,6 +58,7 @@
 (require 'emacspeak-preamble)
 (require 'gweb)
 (require 'derived)
+(require 'html2text)
 ;;}}}
 ;;{{{ Data Structures 
 
@@ -434,8 +435,11 @@ This variable is buffer-local.")
 ;;{{{ Google Maps API V3
 
 ;;; See  https://developers.google.com/maps/documentation/directions/
+(defvar emacspeak-google-maps-modes '("driving" "walking" "bicycling" "transit")
+  "Supported modes for getting directions.")
 
-(defun emacspeak-google-maps-routes (origin destination &optional mode)
+
+(defun emacspeak-google-maps-routes (origin destination  mode)
   "Return routes as found by Google Maps Directions."
   (let ((result
          (g-json-get-result
@@ -443,7 +447,8 @@ This variable is buffer-local.")
                   g-curl-program g-curl-common-options
                   (gweb-maps-directions-url
                    (emacspeak-url-encode origin)
-                   (emacspeak-url-encode destination))))))
+                   (emacspeak-url-encode destination)
+                   mode)))))
     (cond
      ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
@@ -467,9 +472,7 @@ This variable is buffer-local.")
 
 (loop for k in
       '(
-        ("d" emacspeak-google-maps-driving-directions)
-        ("w" emacspeak-google-maps-walking-directions)
-        ("t" emacspeak-google-maps-transit-directions)
+        ("d" emacspeak-google-maps-directions)
         )
       do
       (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
@@ -550,9 +553,13 @@ This variable is buffer-local.")
 
 
         
-(defun emacspeak-google-maps-driving-directions (origin destination)
+(defun emacspeak-google-maps-directions (origin destination mode)
   "Display driving directions obtained from Google Maps."
-  (interactive "sStart Address: \nsDestination Address: ")
+  (interactive
+   (list
+    (read-from-minibuffer "Start Address: ")
+    (read-from-minibuffer "Destination Address: ")
+    (completing-read "Mode: " emacspeak-google-maps-modes)))
   (unless (eq major-mode 'emacspeak-google-maps-mode)
     (error "Not in a Maps buffer."))
   (let ((inhibit-read-only t)
