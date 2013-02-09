@@ -462,7 +462,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
 Parameter `type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
   (declare (special gweb-maps-places-base))
-  (format gweb-maps-directions-base  type key))
+  (format gweb-maps-places-base  type key))
           
 
 ;;}}}
