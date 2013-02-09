@@ -432,7 +432,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

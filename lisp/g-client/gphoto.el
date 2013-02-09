@@ -642,7 +642,7 @@ The retrieved entry is placed in a buffer ready for editing.
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

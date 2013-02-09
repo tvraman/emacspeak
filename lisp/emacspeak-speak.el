@@ -3358,7 +3358,7 @@ also copied to the kill ring for convenient yanking."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

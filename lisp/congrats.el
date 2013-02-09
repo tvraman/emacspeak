@@ -209,7 +209,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

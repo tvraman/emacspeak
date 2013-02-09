@@ -584,7 +584,7 @@ Leaves point on the title returned in the reading list buffer."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

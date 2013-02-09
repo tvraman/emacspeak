@@ -243,7 +243,7 @@ Populate auth-handle with the returned cookies and token."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

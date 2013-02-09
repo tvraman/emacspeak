@@ -1974,7 +1974,7 @@ Optional interactive prefix arg results in prompting for a search term."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

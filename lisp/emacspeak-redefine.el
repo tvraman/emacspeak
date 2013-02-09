@@ -203,7 +203,7 @@ They have to be redefined and rebound to make them talk. " )
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

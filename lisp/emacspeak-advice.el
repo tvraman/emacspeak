@@ -3052,7 +3052,7 @@ Variable mark-even-if-inactive is set true ."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

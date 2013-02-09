@@ -241,7 +241,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
@@ -319,7 +319,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
