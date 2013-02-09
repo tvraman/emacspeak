@@ -227,7 +227,7 @@ action is the function to call when we're ready to submit the edit."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

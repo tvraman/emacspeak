@@ -3430,7 +3430,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

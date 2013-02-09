@@ -361,7 +361,7 @@ URL  being retrieved is received as part of the callback args."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

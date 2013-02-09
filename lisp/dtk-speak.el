@@ -1961,7 +1961,7 @@ Optional argument group-count specifies grouping for intonation."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

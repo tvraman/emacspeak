@@ -416,7 +416,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -149,7 +149,7 @@ The player is placed in a buffer in emacspeak-zinf-mode."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

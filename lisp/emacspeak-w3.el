@@ -876,7 +876,7 @@ Tue Apr 24 17:33:27 PDT 2012
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

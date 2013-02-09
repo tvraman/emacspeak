@@ -224,7 +224,7 @@ Generated from http://www.npr.org/api/inputReference.php")
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
