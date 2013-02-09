@@ -452,6 +452,10 @@ This variable is buffer-local.")
     (cond
      ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
+
+
+;;; https://developers.google.com/places/
+
 (defcustom emacspeak-google-maps-places-key nil
   "Places API  key --- goto  https://code.google.com/apis/console to get one."
   :type '(choice
@@ -483,6 +487,8 @@ This variable is buffer-local.")
         ("w" emacspeak-google-maps-walking-directions)
         ("t" emacspeak-google-maps-transit-directions)
         ("b" emacspeak-google-maps-bicycling-directions)
+        ("n" emacspeak-google-maps-places-nearby)
+        ("s" emacspeak-google-maps-places-search)
         )
       do
       (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
@@ -525,7 +531,7 @@ This variable is buffer-local.")
               (narrow-to-region start (point))
               (html2text)))
           (put-text-property start (1- (point))
-                             'data step)
+                             'maps-data step)
           (setq start  (point))
           (incf i))))
 
@@ -533,17 +539,19 @@ This variable is buffer-local.")
   "Display route in a Maps buffer."
   (let ((i 1)
         (inhibit-read-only t)
-        (length (length  (g-json-get 'legs route))))
+        (length (length  (g-json-get 'legs route)))
+        (leg nil))
     (insert
      (format "Summary: %s\n"
              (g-json-get 'summary route)))
     (cond
      ((= 1 length)
-      (insert (format "From %s to %s\n"
-                      (g-json-get 'start_address
-                                  (aref (g-json-get 'legs route) 0))
-                      (g-json-get 'end_address
-                                  (aref (g-json-get 'legs route) 0))))
+      (setq leg (aref (g-json-get 'legs route) 0))
+      (insert (format "From %s to %s\t%s\t%s\n"
+                      (g-json-get 'start_address leg)
+                      (g-json-get 'end_address leg)
+                      (g-json-get 'text (g-json-get 'distance leg))
+                      (g-json-get 'text (g-json-get 'duration leg))))
       (emacspeak-google-maps-display-leg (aref (g-json-get 'legs route) 0)))
      (t
       (loop for leg across (g-json-get 'legs route)
@@ -617,6 +625,28 @@ This variable is buffer-local.")
         (emacspeak-auditory-icon 'task-done)
         (emacspeak-speak-rest-of-buffer)))
 
+(defun emacspeak-google-maps-places-nearby  (&optional radius)
+  "Perform a places nearby search."
+  (interactive "p")
+  (or radius (setq radius 500))
+  (let  ((data (get-text-property (point) 'maps-data))
+         (location nil)
+         (search-type nil)
+         (search-query nil))
+    (cond
+     (maps-data (setq location (g-json-get 'start_location maps-data)))
+      (t
+       (setq location
+             (gweb-maps-geocode
+              (emacspeak-url-encode
+               (read-from-minibuffer "Address: "))))))
+    (setq location
+             (format "%s,%s"
+                              (g-json-get 'lat location)
+                              (g-json-get 'lng location)))))
+       
+         
+    
 ;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
