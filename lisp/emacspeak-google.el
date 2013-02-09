@@ -629,7 +629,7 @@ This variable is buffer-local.")
   "Perform a places nearby search."
   (interactive "p")
   (or radius (setq radius 500))
-  (let  ((data (get-text-property (point) 'maps-data))
+  (let  ((maps-data (get-text-property (point) 'maps-data))
          (location nil)
          (search-type nil)
          (search-query nil))
