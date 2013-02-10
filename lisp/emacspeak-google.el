@@ -521,7 +521,7 @@ This variable is buffer-local.")
     (loop for step across (g-json-get 'steps leg)
           do
           (insert
-           (format "%d:\t%s\t%s\t%s\n"
+           (format "%d:\t%-40ss\t%s\t%s\n"
                    i
                    (g-json-get  'html_instructions step)
                    (g-json-get 'text (g-json-get 'distance step))
@@ -547,7 +547,7 @@ This variable is buffer-local.")
     (cond
      ((= 1 length)
       (setq leg (aref (g-json-get 'legs route) 0))
-      (insert (format "From %s to %s\t%s\t%s\n"
+      (insert (format "From %s to %s\n%s\t%s\n"
                       (g-json-get 'start_address leg)
                       (g-json-get 'end_address leg)
                       (g-json-get 'text (g-json-get 'distance leg))
