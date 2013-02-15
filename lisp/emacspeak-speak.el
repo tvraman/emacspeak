@@ -1631,7 +1631,9 @@ Interactive prefix arg speaks buffer info."
           (global-info (format-mode-line global-mode-string))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
-          (dir-info (unless buffer-file-name (abbreviate-file-name default-directory))))
+          (dir-info (when (or (eq major-mode 'shell-mode)
+                              (eq major-mode 'comint-mode))
+                        (abbreviate-file-name default-directory))))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline
