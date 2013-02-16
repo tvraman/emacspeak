@@ -219,6 +219,7 @@ preserved."
   "Check if plist contains a face setting."
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
+
 (defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
   (and (consp value)
@@ -408,11 +409,9 @@ displayed in the messages area."
     (let  ((start (ad-get-arg 0))
            (end (ad-get-arg 1))
            (props (ad-get-arg 2))
-           (object (ad-get-arg 3))
-           (voice nil)
-           (face nil))
+           (object (ad-get-arg 3)))
       (when (and (not (= start end))
-                 (emacspeak-personality-plist-face-p props) ) ;;; simple minded for now
+                 (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
         (put-text-property start end
                                    'personality nil object)))))
 
@@ -422,11 +421,9 @@ displayed in the messages area."
     (let  ((start (ad-get-arg 0))
            (end (ad-get-arg 1))
            (props (ad-get-arg 2))
-           (object (ad-get-arg 3))
-           (voice nil)
-           (face nil))
+           (object (ad-get-arg 3)))
       (when (and (not (= start end))
-                 (emacspeak-personality-plist-face-p props) ) ;;; simple minded for now
+                 (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
         (put-text-property start end
                            'personality nil object)))))
 
