@@ -476,7 +476,7 @@ This variable is buffer-local.")
     (goto-char (point-min))
     (insert "Google Maps Interaction")
     (put-text-property start (point) 'face font-lock-doc-face)
-    (insert "\n\n")
+    (insert "\n\f\n")
     (setq header-line-format "Google Maps")))
 
 (declaim (special emacspeak-google-maps-mode-map))
@@ -542,7 +542,7 @@ This variable is buffer-local.")
         (length (length  (g-json-get 'legs route)))
         (leg nil))
     (insert
-     (format "\f\nSummary: %s\n"
+     (format "Summary: %s\n"
              (g-json-get 'summary route)))
     (cond
      ((= 1 length)
@@ -566,7 +566,7 @@ This variable is buffer-local.")
      (format "Warnings: %s\n"
              (g-json-get 'warnings route)))
     (insert
-     (format "Copyrights: %s\n\n"
+     (format "Copyrights: %s\n\f\n"
              (g-json-get 'copyrights route)))))
 
 (defun emacspeak-google-maps-display-routes (routes)
