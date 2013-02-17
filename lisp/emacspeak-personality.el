@@ -402,6 +402,7 @@ displayed in the messages area."
         (error nil)))
      (t ad-do-it))
     ad-return-value))
+;;; If a face property is being removed, set personality  to nil:
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
@@ -412,8 +413,7 @@ displayed in the messages area."
            (object (ad-get-arg 3)))
       (when (and (not (= start end))
                  (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
-        (put-text-property start end
-                                   'personality nil object)))))
+        (put-text-property start end 'personality nil object)))))
 
 (defadvice remove-list-of-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
