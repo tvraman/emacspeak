@@ -566,7 +566,7 @@ This variable is buffer-local.")
      (format "Warnings: %s\n"
              (g-json-get 'warnings route)))
     (insert
-     (format "Copyrights: %s\n"
+     (format "Copyrights: %s\n\f\n"
              (g-json-get 'copyrights route)))))
 
 (defun emacspeak-google-maps-display-routes (routes)
