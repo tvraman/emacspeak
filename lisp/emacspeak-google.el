@@ -542,7 +542,7 @@ This variable is buffer-local.")
         (length (length  (g-json-get 'legs route)))
         (leg nil))
     (insert
-     (format "Summary: %s\n"
+     (format "\f\nSummary: %s\n"
              (g-json-get 'summary route)))
     (cond
      ((= 1 length)
@@ -566,7 +566,7 @@ This variable is buffer-local.")
      (format "Warnings: %s\n"
              (g-json-get 'warnings route)))
     (insert
-     (format "Copyrights: %s\n\f\n"
+     (format "Copyrights: %s\n\n"
              (g-json-get 'copyrights route)))))
 
 (defun emacspeak-google-maps-display-routes (routes)
