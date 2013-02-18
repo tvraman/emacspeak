@@ -661,10 +661,10 @@ Uses `emacspeak-google-maps-current-location' for the start location."
   "Set current location."
   (interactive )
   (declare (special emacspeak-google-maps-current-location))
-  (setq emacspeak-google-maps-current-location
-        (gweb-maps-geocode (read-from-minibuffer "Current Address:"))))
-         
-    
+  (let ((address (read-from-minibuffer "Current Address:")))
+    (setq emacspeak-google-maps-current-location
+          (gweb-maps-geocode address))
+    (put 'emacspeak-google-maps-current-location 'address address)))
 ;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
