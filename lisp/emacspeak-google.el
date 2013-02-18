@@ -467,6 +467,15 @@ This variable is buffer-local.")
 ;;}}}
 ;;{{{ Maps UI: 
 
+(defvar emacspeak-google-maps-current-location
+       (and (boundp 'gweb-my-location)
+                 gweb-my-location)
+      "Current maps location.")
+
+(make-variable-buffer-local
+ 'emacspeak-google-maps-current-location)
+
+
 (define-derived-mode emacspeak-google-maps-mode special-mode
   "Google Maps Interaction"
   "A Google Maps front-end for the Emacspeak desktop."
@@ -489,6 +498,7 @@ This variable is buffer-local.")
         ("b" emacspeak-google-maps-bicycling-directions)
         ("n" emacspeak-google-maps-places-nearby)
         ("s" emacspeak-google-maps-places-search)
+        ("c" emacspeak-google-maps-set-current-location)
         )
       do
       (define-key  emacspeak-google-maps-mode-map (first k) (second k)))
@@ -608,7 +618,7 @@ This variable is buffer-local.")
 
 
 (defun emacspeak-google-maps-directions (origin destination mode)
-  "Display driving directions obtained from Google Maps."
+  "Display  directions obtained from Google Maps."
   (interactive
    (list
     (read-from-minibuffer "Start Address: ")
@@ -620,13 +630,15 @@ This variable is buffer-local.")
         (start (point-max))
         (routes (emacspeak-google-maps-routes origin destination mode)))
     (goto-char (point-max))
+    (insert (format "%s Directions\n" (capitalize mode)))
         (when routes (emacspeak-google-maps-display-routes routes))
         (goto-char start)
         (emacspeak-auditory-icon 'task-done)
         (emacspeak-speak-rest-of-buffer)))
 
 (defun emacspeak-google-maps-places-nearby  (&optional radius)
-  "Perform a places nearby search."
+  "Perform a places nearby search.
+Uses `emacspeak-google-maps-current-location' for the start location."
   (interactive "p")
   (or radius (setq radius 500))
   (let  ((maps-data (get-text-property (point) 'maps-data))
@@ -644,7 +656,13 @@ This variable is buffer-local.")
              (format "%s,%s"
                               (g-json-get 'lat location)
                               (g-json-get 'lng location)))))
-       
+     
+(defun emacspeak-google-maps-set-current-location ()
+  "Set current location."
+  (interactive )
+  (declare (special emacspeak-google-maps-current-location))
+  (setq emacspeak-google-maps-current-location
+        (gweb-maps-geocode (read-from-minibuffer "Current Address:"))))
          
     
 ;;}}}
