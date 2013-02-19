@@ -193,8 +193,8 @@ Parameter `key' is the API  key."
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
                   (gmaps-directions-url
-                   (emacspeak-url-encode origin)
-                   (emacspeak-url-encode destination)
+                   (url-hexify-string origin)
+                   (url-hexify-string destination)
                    mode)))))
     (cond
      ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
@@ -208,7 +208,7 @@ Parameter `key' is the API  key."
   :type '(choice
           (const :tag "None" nil)
           (string :value ""))
-  :group 'emacspeak-google)
+  :group 'gmaps)
 
 ;;}}}
 ;;{{{ Maps UI: 
@@ -264,9 +264,7 @@ Parameter `key' is the API  key."
         (erase-buffer)
         (gmaps-mode)
         (setq buffer-read-only t))
-      (switch-to-buffer gmaps-interaction-buffer)))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+      (switch-to-buffer gmaps-interaction-buffer)))))
 
 
 (defun gmaps-display-leg (leg)
@@ -378,9 +376,7 @@ Parameter `key' is the API  key."
     (goto-char (point-max))
     (insert (format "%s Directions\n" (capitalize mode)))
         (when routes (gmaps-display-routes routes))
-        (goto-char start)
-        (emacspeak-auditory-icon 'task-done)
-        (emacspeak-speak-rest-of-buffer)))
+        (goto-char start)))
 
 (defun gmaps-places-nearby  (&optional radius)
   "Perform a places nearby search.
@@ -396,7 +392,7 @@ Uses `gmaps-current-location' for the start location."
       (t
        (setq location
              (gmaps-geocode
-              (emacspeak-url-encode
+              (url-hexify-string
                (read-from-minibuffer "Address: "))))))
     (setq location
              (format "%s,%s"
