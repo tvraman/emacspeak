@@ -57,6 +57,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'gweb)
+(require 'gmaps)
 (require 'derived)
 (require 'html2text)
 ;;}}}
