@@ -445,7 +445,7 @@ This variable is buffer-local.")
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
-                  (gweb-maps-directions-url
+                  (gmaps-directions-url
                    (emacspeak-url-encode origin)
                    (emacspeak-url-encode destination)
                    mode)))))
@@ -649,7 +649,7 @@ Uses `emacspeak-google-maps-current-location' for the start location."
      (maps-data (setq location (g-json-get 'start_location maps-data)))
       (t
        (setq location
-             (gweb-maps-geocode
+             (gmaps-geocode
               (emacspeak-url-encode
                (read-from-minibuffer "Address: "))))))
     (setq location
@@ -663,7 +663,7 @@ Uses `emacspeak-google-maps-current-location' for the start location."
   (declare (special emacspeak-google-maps-current-location))
   (let ((address (read-from-minibuffer "Current Address:")))
     (setq emacspeak-google-maps-current-location
-          (gweb-maps-geocode address))
+          (gmaps-geocode address))
     (put 'emacspeak-google-maps-current-location 'address address)))
 ;;}}}
 (provide 'emacspeak-google)

@@ -356,31 +356,31 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
 
 ;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
 
-(defvar gweb-maps-geocoder-base
+(defvar gmaps-geocoder-base
   "http://maps.google.com/maps/api/geocode/json?"
   "Base URL  end-point for talking to the Google Maps Geocoding service.")
 
-(defsubst gweb-maps-geocoder-url (address)
+(defsubst gmaps-geocoder-url (address)
   "Return URL   for geocoding address."
-  (declare (special gweb-maps-geocoder-base))
+  (declare (special gmaps-geocoder-base))
   (format "%saddress=%s&sensor=false"
-          gweb-maps-geocoder-base address))
+          gmaps-geocoder-base address))
 
-(defsubst gweb-maps-reverse-geocoder-url (address)
+(defsubst gmaps-reverse-geocoder-url (address)
   "Return URL   for reverse geocoding location."
-  (declare (special gweb-maps-geocoder-base))
+  (declare (special gmaps-geocoder-base))
   (format "%slatlng=%s&sensor=false"
-          gweb-maps-geocoder-base address))
+          gmaps-geocoder-base address))
 
 ;;;###autoload
-(defun gweb-maps-geocode (address &optional raw-p)
+(defun gmaps-geocode (address &optional raw-p)
   "Geocode given address.
 Optional argument `raw-p' returns complete JSON  object."
   (let ((result 
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
-                  (gweb-maps-geocoder-url
+                  (gmaps-geocoder-url
                    (g-url-encode address))))))
     
     (unless
@@ -394,14 +394,14 @@ Optional argument `raw-p' returns complete JSON  object."
                               (aref (g-json-get 'results result) 0)))))))
 
 ;;;###autoload
-(defun gweb-maps-reverse-geocode (lat-long &optional raw-p)
+(defun gmaps-reverse-geocode (lat-long &optional raw-p)
   "Reverse geocode lat-long.
 Optional argument `raw-p' returns raw JSON  object."
   (let ((result 
          (g-json-get-result
           (format "%s --max-time 2 --connect-time 1%s '%s'"
                   g-curl-program g-curl-common-options
-                  (gweb-maps-reverse-geocoder-url
+                  (gmaps-reverse-geocoder-url
                    (format "%s,%s"
                            (g-json-get 'lat lat-long)
                            (g-json-get 'lng   lat-long)))))))
@@ -429,7 +429,7 @@ Optional argument `raw-p' returns raw JSON  object."
   :set  #'(lambda (sym val)
             (declare (special gweb-my-location))
             (when val 
-              (setq gweb-my-location (gweb-maps-geocode val))
+              (setq gweb-my-location (gmaps-geocode val))
               (when (featurep 'emacspeak)
                 (emacspeak-calendar-setup-sunrise-sunset)))
             (set-default sym val))
@@ -439,30 +439,30 @@ Optional argument `raw-p' returns raw JSON  object."
 ;;{{{ Maps Directions 
 
 ;;; See  https://developers.google.com/maps/documentation/directions/
-(defvar gweb-maps-directions-base
+(defvar gmaps-directions-base
   "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
   "Base URL  end-point for talking to the Google Maps directions service.")
 
-(defsubst gweb-maps-directions-url (origin destination mode)
+(defsubst gmaps-directions-url (origin destination mode)
   "Return URL   for getting directions from origin to destination.
 Parameters 'origin' and 'destination' are  be url-encoded."
-  (declare (special gweb-maps-directions-base))
-  (format gweb-maps-directions-base  origin destination
+  (declare (special gmaps-directions-base))
+  (format gmaps-directions-base  origin destination
           mode (float-time)))
 
 
 ;;; Places:
 ;; 
-(defvar gweb-maps-places-base
+(defvar gmaps-places-base
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
   "Base URL  end-point for talking to the Google Maps Places service.")
 
-(defsubst gweb-maps-places-url (type key)
+(defsubst gmaps-places-url (type key)
   "Return URL  for Places services.
 Parameter `type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
-  (declare (special gweb-maps-places-base))
-  (format gweb-maps-places-base  type key))
+  (declare (special gmaps-places-base))
+  (format gmaps-places-base  type key))
           
 
 ;;}}}
