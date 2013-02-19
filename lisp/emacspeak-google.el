@@ -433,6 +433,25 @@ This variable is buffer-local.")
       (emacspeak-keymap-update emacspeak-google-keymap k))
 
 ;;}}}
+;;{{{ Advice GMaps:
+
+(defadvice gmaps (after emacspeak pre act comp)
+  "Provide  auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+(loop for f in
+      '(gmaps-driving-directions gmaps-bicycling-directions
+                                 gmaps-walking-directions gmaps-transit-directions)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'task-done)
+            (emacspeak-speak-rest-of-buffer)))))
+
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
