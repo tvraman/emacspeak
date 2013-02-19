@@ -3408,7 +3408,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
    (list
     (read-from-minibuffer "Address: ")
     current-prefix-arg))
-  (let* ((geo (gweb-maps-geocode address))
+  (let* ((geo (gmaps-geocode address))
          (calendar-latitude (g-json-get 'lat geo))
          (calendar-longitude (g-json-get 'lng geo))
          (calendar-time-zone
