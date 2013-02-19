@@ -179,6 +179,239 @@ Parameter `key' is the API  key."
           
 
 ;;}}}
+;;{{{ Google Maps API V3
+
+;;; See  https://developers.google.com/maps/documentation/directions/
+(defvar gmaps-modes '("driving" "walking" "bicycling" "transit")
+  "Supported modes for getting directions.")
+
+
+(defun gmaps-routes (origin destination mode)
+  "Return routes as found by Google Maps Directions."
+  (let ((result
+         (g-json-get-result
+          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                  g-curl-program g-curl-common-options
+                  (gmaps-directions-url
+                   (emacspeak-url-encode origin)
+                   (emacspeak-url-encode destination)
+                   mode)))))
+    (cond
+     ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
+     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+
+
+;;; https://developers.google.com/places/
+
+(defcustom gmaps-places-key nil
+  "Places API  key --- goto  https://code.google.com/apis/console to get one."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :value ""))
+  :group 'emacspeak-google)
+
+;;}}}
+;;{{{ Maps UI: 
+
+(defvar gmaps-current-location
+       (and (boundp 'gweb-my-location)
+                 gweb-my-location)
+      "Current maps location.")
+
+(make-variable-buffer-local
+ 'gmaps-current-location)
+
+
+(define-derived-mode gmaps-mode special-mode
+  "Google Maps Interaction"
+  "A Google Maps front-end for the Emacspeak desktop."
+  (let ((start (point))
+        (inhibit-read-only t))
+    (setq buffer-undo-list t)
+    (goto-char (point-min))
+    (insert "Google Maps Interaction")
+    (put-text-property start (point) 'face font-lock-doc-face)
+    (insert "\n\f\n")
+    (setq header-line-format "Google Maps")))
+
+(declaim (special gmaps-mode-map))
+
+(loop for k in
+      '(
+        ("d" gmaps-driving-directions)
+        ("w" gmaps-walking-directions)
+        ("t" gmaps-transit-directions)
+        ("b" gmaps-bicycling-directions)
+        ("n" gmaps-places-nearby)
+        ("s" gmaps-places-search)
+        ("c" gmaps-set-current-location)
+        )
+      do
+      (define-key  gmaps-mode-map (first k) (second k)))
+
+(defvar gmaps-interaction-buffer "*Google Maps*"
+  "Google Maps interaction buffer.")
+
+(defun gmaps ()
+  "Google Maps Interaction."
+  (interactive)
+  (declare (special gmaps-interaction-buffer))
+  (let ((buffer (get-buffer gmaps-interaction-buffer)))
+    (cond
+     ((buffer-live-p buffer) (switch-to-buffer buffer))
+     (t
+      (with-current-buffer (get-buffer-create gmaps-interaction-buffer)
+        (erase-buffer)
+        (gmaps-mode)
+        (setq buffer-read-only t))
+      (switch-to-buffer gmaps-interaction-buffer)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+(defun gmaps-display-leg (leg)
+  "Display a leg of a route."
+  (let ((i 1)
+        (inhibit-read-only t)
+        (start (point)))
+    (loop for step across (g-json-get 'steps leg)
+          do
+          (insert
+           (format "%d:\t%-40ss\t%s\t%s\n"
+                   i
+                   (g-json-get  'html_instructions step)
+                   (g-json-get 'text (g-json-get 'distance step))
+                   (g-json-get 'text (g-json-get 'duration step))))
+          (save-excursion
+            (save-restriction
+              (narrow-to-region start (point))
+              (html2text)))
+          (put-text-property start (1- (point))
+                             'maps-data step)
+          (setq start  (point))
+          (incf i))))
+
+(defun gmaps-display-route (route)
+  "Display route in a Maps buffer."
+  (let ((i 1)
+        (inhibit-read-only t)
+        (length (length  (g-json-get 'legs route)))
+        (leg nil))
+    (insert
+     (format "Summary: %s\n"
+             (g-json-get 'summary route)))
+    (cond
+     ((= 1 length)
+      (setq leg (aref (g-json-get 'legs route) 0))
+      (insert (format "From %s to %s\n%s\t%s\n"
+                      (g-json-get 'start_address leg)
+                      (g-json-get 'end_address leg)
+                      (g-json-get 'text (g-json-get 'distance leg))
+                      (g-json-get 'text (g-json-get 'duration leg))))
+      (gmaps-display-leg (aref (g-json-get 'legs route) 0)))
+     (t
+      (loop for leg across (g-json-get 'legs route)
+            do
+            (insert (format "Leg:%d: From %s to %s\n"
+                            i
+                            (g-json-get 'start_address leg)
+                            (g-json-get 'end_address)))
+            (gmaps-display-leg leg)
+            (incf i))))
+    (insert
+     (format "Warnings: %s\n"
+             (g-json-get 'warnings route)))
+    (insert
+     (format "Copyrights: %s\n\f\n"
+             (g-json-get 'copyrights route)))))
+
+(defun gmaps-display-routes (routes)
+  "Display routes in Maps interaction buffer."
+  (let ((i 1)
+        (length (length routes))
+        (inhibit-read-only t))
+    (cond
+     ((= 1 length) (gmaps-display-route (aref routes 0)))
+     (t
+      (loop for route across routes
+            do
+            (insert (format  "\nRoute %d\n" i))
+            (incf i)
+            (gmaps-display-route route))))))
+
+
+(defun gmaps-driving-directions (origin destination)
+  "Driving directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (gmaps-directions origin destination "driving"))
+
+(defun gmaps-walking-directions (origin destination)
+  "Walking directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (gmaps-directions origin destination "walking"))
+
+(defun gmaps-bicycling-directions (origin destination)
+  "Biking directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (gmaps-directions origin destination "bicycling"))
+
+
+(defun gmaps-transit-directions (origin destination)
+  "Transit directions from Google Maps."
+  (interactive "sStart Address: \nsDestination Address: ")
+  (gmaps-directions origin destination "transit"))
+
+
+
+(defun gmaps-directions (origin destination mode)
+  "Display  directions obtained from Google Maps."
+  (interactive
+   (list
+    (read-from-minibuffer "Start Address: ")
+    (read-from-minibuffer "Destination Address: ")
+    (completing-read "Mode: " gmaps-modes)))
+  (unless (eq major-mode 'gmaps-mode)
+    (error "Not in a Maps buffer."))
+  (let ((inhibit-read-only t)
+        (start (point-max))
+        (routes (gmaps-routes origin destination mode)))
+    (goto-char (point-max))
+    (insert (format "%s Directions\n" (capitalize mode)))
+        (when routes (gmaps-display-routes routes))
+        (goto-char start)
+        (emacspeak-auditory-icon 'task-done)
+        (emacspeak-speak-rest-of-buffer)))
+
+(defun gmaps-places-nearby  (&optional radius)
+  "Perform a places nearby search.
+Uses `gmaps-current-location' for the start location."
+  (interactive "p")
+  (or radius (setq radius 500))
+  (let  ((maps-data (get-text-property (point) 'maps-data))
+         (location nil)
+         (search-type nil)
+         (search-query nil))
+    (cond
+     (maps-data (setq location (g-json-get 'start_location maps-data)))
+      (t
+       (setq location
+             (gmaps-geocode
+              (emacspeak-url-encode
+               (read-from-minibuffer "Address: "))))))
+    (setq location
+             (format "%s,%s"
+                              (g-json-get 'lat location)
+                              (g-json-get 'lng location)))))
+     
+(defun gmaps-set-current-location ()
+  "Set current location."
+  (interactive )
+  (declare (special gmaps-current-location))
+  (let ((address (read-from-minibuffer "Current Address:")))
+    (setq gmaps-current-location
+          (gmaps-geocode address))
+    (put 'gmaps-current-location 'address address)))
+;;}}}
 (provide 'gmaps)
 ;;{{{ end of file
 
