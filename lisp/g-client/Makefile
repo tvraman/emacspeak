@@ -56,6 +56,7 @@ gnotebook.elc \
 greader.elc \
 gphoto.elc \
 gweb.elc \
+gmaps.elc \
 gtube.elc \
 gsheet.elc
 
@@ -94,6 +95,7 @@ ghealth.elc: ghealth.el g-app.elc
 greader.elc: greader.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
 gweb.elc: gweb.el g-utils.elc
+gmaps.elc: gmaps.el g-utils.elc
 gcal.elc: gcal.el g-app.elc
 gcontacts.elc: gcontacts.el
 gdocs.elc: gdocs.el g-app.elc
