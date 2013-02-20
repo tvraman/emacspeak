@@ -251,7 +251,7 @@ Parameter `key' is the API  key."
 
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
-
+;;;###autoload
 (defun gmaps ()
   "Google Maps Interaction."
   (interactive)
