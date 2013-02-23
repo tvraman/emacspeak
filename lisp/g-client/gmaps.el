@@ -423,13 +423,13 @@ Uses default radius."
   "Display place in Maps buffer."
   (let ((inhibit-read-only t)
         (start (point)))
-          (insert
-           (format "%-40ss\t%s\t%s\n"
-                   (g-json-get  'name place)
-                   (g-json-get 'types place)
-                   (g-json-get 'vicinity place
-          (put-text-property start (1- (point))
-                             'maps-data place)))
+    (insert
+     (format "%-40ss\t%s\t%s\n"
+             (g-json-get  'name place)
+             (g-json-get 'types place)
+             (g-json-get 'vicinity place)))
+    (put-text-property start (1- (point))
+                       'maps-data place)))
 
   
 (defun gmaps-set-current-location ()
