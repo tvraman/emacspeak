@@ -165,17 +165,18 @@ Parameters 'origin' and 'destination' are  be url-encoded."
 
 
 ;;; Places:
+;;; https://developers.google.com/places/documentation/
 ;; 
 (defvar gmaps-places-base
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
   "Base URL  end-point for talking to the Google Maps Places service.")
 
-(defsubst gmaps-places-url (type key)
+(defsubst gmaps-places-url (query-type key)
   "Return URL  for Places services.
-Parameter `type' is one of nearbysearch or textsearch.
+Parameter `query-type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
   (declare (special gmaps-places-base))
-  (format gmaps-places-base  type key))
+  (format gmaps-places-base  query-type key))
           
 
 ;;}}}
@@ -213,14 +214,10 @@ Parameter `key' is the API  key."
 ;;}}}
 ;;{{{ Maps UI: 
 
-(defvar gmaps-current-location
-       (and (boundp 'gweb-my-location)
-                 gweb-my-location)
+(defvar gmaps-current-location nil
       "Current maps location.")
 
-(make-variable-buffer-local
- 'gmaps-current-location)
-
+(make-variable-buffer-local 'gmaps-current-location)
 
 (define-derived-mode gmaps-mode special-mode
   "Google Maps Interaction"
@@ -232,7 +229,7 @@ Parameter `key' is the API  key."
     (insert "Google Maps Interaction")
     (put-text-property start (point) 'face font-lock-doc-face)
     (insert "\n\f\n")
-    (setq header-line-format "Google Maps")))
+    (setq header-line-format '("Google Maps: " (:eval (get 'gmaps-current-location 'address))))))
 
 (declaim (special gmaps-mode-map))
 
@@ -251,6 +248,7 @@ Parameter `key' is the API  key."
 
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
+
 ;;;###autoload
 (defun gmaps ()
   "Google Maps Interaction."
@@ -266,6 +264,8 @@ Parameter `key' is the API  key."
         (setq buffer-read-only t))
       (switch-to-buffer gmaps-interaction-buffer)))))
 
+;;}}}
+;;{{{ Directions:
 
 (defun gmaps-display-leg (leg)
   "Display a leg of a route."
@@ -378,35 +378,29 @@ Parameter `key' is the API  key."
         (when routes (gmaps-display-routes routes))
         (goto-char start)))
 
-(defun gmaps-places-nearby  (&optional radius)
-  "Perform a places nearby search.
-Uses `gmaps-current-location' for the start location."
-  (interactive "p")
-  (or radius (setq radius 500))
-  (let  ((maps-data (get-text-property (point) 'maps-data))
-         (location nil)
-         (search-type nil)
-         (search-query nil))
-    (cond
-     (maps-data (setq location (g-json-get 'start_location maps-data)))
-      (t
-       (setq location
-             (gmaps-geocode
-              (url-hexify-string
-               (read-from-minibuffer "Address: "))))))
-    (setq location
-             (format "%s,%s"
-                              (g-json-get 'lat location)
-                              (g-json-get 'lng location)))))
-     
+;;}}}
+;;{{{ Places:
+
+(defun gmaps-places-nearby ()
+  "Find places near current location.
+Uses default radius."
+  (interactive)
+  (declare (special gmaps-current-location gmaps-places-key
+                    gmaps-places-radius))
+  (message "%s&%s&%s"
+          (gmaps-places-url "nearbysearch" gmaps-places-key)
+          (format "%s,%s"
+                  (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
+            500)))    
 (defun gmaps-set-current-location ()
-  "Set current location."
+  " Set current location."
   (interactive )
   (declare (special gmaps-current-location))
   (let ((address (read-from-minibuffer "Current Address:")))
     (setq gmaps-current-location
           (gmaps-geocode address))
     (put 'gmaps-current-location 'address address)))
+
 ;;}}}
 (provide 'gmaps)
 ;;{{{ end of file
