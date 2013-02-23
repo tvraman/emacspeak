@@ -383,7 +383,7 @@ Parameter `key' is the API  key."
 (defun gmaps-places-nearby (&optional filter)
   "Find places near current location.
 Uses default radius."
-  (interactive "p")
+  (interactive "P")
   (declare (special g-curl-program g-curl-common-options
                     gmaps-current-location gmaps-places-key
                     gmaps-places-radius))
@@ -432,7 +432,7 @@ Uses default radius."
   (let ((inhibit-read-only t)
         (start (point)))
     (insert
-     (format "%s\t%s\t%s"
+     (format "%s\t%s\t%s\n"
              (g-json-get  'name place)
              (g-json-get 'types place)
              (g-json-get 'vicinity place)))
