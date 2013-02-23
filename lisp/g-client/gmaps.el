@@ -391,7 +391,7 @@ Uses default radius."
           (gmaps-places-url "nearbysearch" gmaps-places-key)
           (format "location=%s,%s"
                   (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-            500)))    
+            "radius=500"))
 (defun gmaps-set-current-location ()
   " Set current location."
   (interactive )
