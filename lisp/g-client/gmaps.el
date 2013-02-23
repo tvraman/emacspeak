@@ -385,9 +385,11 @@ Parameter `key' is the API  key."
 Uses default radius."
   (interactive)
   (declare (special g-curl-program g-curl-common-options
-            gmaps-current-location gmaps-places-key
+                    gmaps-current-location gmaps-places-key
                     gmaps-places-radius))
-  (unless gmaps-current-location (error "First set current location."))
+  (unless gmaps-current-location (error "First set current
+  location."))
+  (goto-char (point-max))
   (let ((result
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
@@ -398,8 +400,37 @@ Uses default radius."
                                   (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
                           "radius=500")))))
     (cond
-     ((string= "OK" (g-json-get 'status result)) (g-json-get 'results result))
-     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+     ((string= "OK" (g-json-get 'status result))
+      (gmaps-places-display-places (g-json-get 'results result)))
+     (t (error "Status %s from Maps" (g-json-get 'status
+  result))))))
+
+(defun gmaps-display-places (places)
+  "Display places in Maps interaction buffer."
+  (let ((i 1)
+        (length (length places))
+        (inhibit-read-only t))
+    (cond
+     ((= 1 length) (gmaps-display-place (aref places 0)))
+     (t
+      (loop for place across places
+            do
+            (insert (format  "\nPlace %d\n" i))
+            (incf i)
+            (gmaps-display-place place))))))
+
+(defun gmaps-display-place (place)
+  "Display place in Maps buffer."
+  (let ((inhibit-read-only t)
+        (start (point)))
+          do
+          (insert
+           (format "%-40ss\t%s\t%s\n"
+                   (g-json-get  'name place)
+                   (g-json-get 'types place)
+                   (g-json-get 'vicinityplace)))
+          (put-text-property start (1- (point))
+                             'maps-data place)))
 
   
 (defun gmaps-set-current-location ()
