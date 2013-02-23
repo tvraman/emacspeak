@@ -390,7 +390,9 @@ Uses default radius."
   (unless gmaps-current-location (error "First set current
   location."))
   (goto-char (point-max))
-  (let ((result
+  (let ((start nil)
+        (inhibit-read-only t)
+        (result
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
@@ -401,7 +403,13 @@ Uses default radius."
                           "radius=500")))))
     (cond
      ((string= "OK" (g-json-get 'status result))
-      (gmaps-display-places (g-json-get 'results result)))
+      (goto-char (point-max))
+      (setq start (point))
+      (insert
+   (format "Places near %s\n"
+           (get 'gmaps-current-location 'address)))
+      (gmaps-display-places (g-json-get 'results result))
+      (goto-char start))
      (t (error "Status %s from Maps" (g-json-get 'status
   result))))))
 
@@ -424,7 +432,7 @@ Uses default radius."
   (let ((inhibit-read-only t)
         (start (point)))
     (insert
-     (format "%-40ss\t%s\t%s\n"
+     (format "%s\t%s\t%s"
              (g-json-get  'name place)
              (g-json-get 'types place)
              (g-json-get 'vicinity place)))
