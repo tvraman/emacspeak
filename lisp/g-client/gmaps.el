@@ -401,7 +401,7 @@ Uses default radius."
                           "radius=500")))))
     (cond
      ((string= "OK" (g-json-get 'status result))
-      (gmaps-places-display-places (g-json-get 'results result)))
+      (gmaps-display-places (g-json-get 'results result)))
      (t (error "Status %s from Maps" (g-json-get 'status
   result))))))
 
@@ -415,7 +415,7 @@ Uses default radius."
      (t
       (loop for place across places
             do
-            (insert (format  "\nPlace %d\n" i))
+            (insert (format  "\n%d:\t" i))
             (incf i)
             (gmaps-display-place place))))))
 
@@ -423,12 +423,11 @@ Uses default radius."
   "Display place in Maps buffer."
   (let ((inhibit-read-only t)
         (start (point)))
-          do
           (insert
            (format "%-40ss\t%s\t%s\n"
                    (g-json-get  'name place)
                    (g-json-get 'types place)
-                   (g-json-get 'vicinityplace)))
+                   (g-json-get 'vicinity place
           (put-text-property start (1- (point))
                              'maps-data place)))
 
