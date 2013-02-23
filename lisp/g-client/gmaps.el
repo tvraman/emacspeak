@@ -415,16 +415,13 @@ Uses default radius."
 
 (defun gmaps-display-places (places)
   "Display places in Maps interaction buffer."
-  (let ((i 1)
-        (length (length places))
+  (let ((length (length places))
         (inhibit-read-only t))
     (cond
      ((= 1 length) (gmaps-display-place (aref places 0)))
      (t
       (loop for place across places
             do
-            (insert (format  "%d:\t" i))
-            (incf i)
             (gmaps-display-place place))))))
 
 (defun gmaps-display-place (place)
