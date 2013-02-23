@@ -380,27 +380,30 @@ Parameter `key' is the API  key."
 ;;}}}
 ;;{{{ Places:
 
-(defun gmaps-places-nearby ()
+(defun gmaps-places-nearby (&optional filter)
   "Find places near current location.
 Uses default radius."
-  (interactive)
+  (interactive "p")
   (declare (special g-curl-program g-curl-common-options
                     gmaps-current-location gmaps-places-key
                     gmaps-places-radius))
   (unless gmaps-current-location (error "First set current
   location."))
   (goto-char (point-max))
+  (when filter
+    (setq filter (read-from-minibuffer "Filter: ")))
   (let ((start nil)
         (inhibit-read-only t)
         (result
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
-                  (format "%s&%s&%s"
+                  (format "%s&%s&%s%s"
                           (gmaps-places-url-base "nearbysearch" gmaps-places-key)
                           (format "location=%s,%s"
                                   (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-                          "radius=500")))))
+                          "radius=500"
+                          (or filter ""))))))
     (cond
      ((string= "OK" (g-json-get 'status result))
       (goto-char (point-max))
