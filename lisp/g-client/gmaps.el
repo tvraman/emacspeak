@@ -387,6 +387,8 @@ Uses default radius."
   (interactive)
   (declare (special gmaps-current-location gmaps-places-key
                     gmaps-places-radius))
+  (unless gmaps-current-location
+    (error "First set current location."))
   (message "%s&%s&%s"
           (gmaps-places-url "nearbysearch" gmaps-places-key)
           (format "location=%s,%s"
