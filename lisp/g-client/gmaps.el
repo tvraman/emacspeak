@@ -95,7 +95,6 @@ Optional argument `raw-p' returns complete JSON  object."
                   g-curl-program g-curl-common-options
                   (gmaps-geocoder-url
                    (g-url-encode address))))))
-    
     (unless
         (string= "OK" (g-json-get 'status result))
       (error "Error geo-coding location."))
@@ -171,7 +170,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
   "Base URL  end-point for talking to the Google Maps Places service.")
 
-(defsubst gmaps-places-url (query-type key)
+(defsubst gmaps-places-url-base (query-type key)
   "Return URL  for Places services.
 Parameter `query-type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
@@ -385,15 +384,24 @@ Parameter `key' is the API  key."
   "Find places near current location.
 Uses default radius."
   (interactive)
-  (declare (special gmaps-current-location gmaps-places-key
+  (declare (special g-curl-program g-curl-common-options
+            gmaps-current-location gmaps-places-key
                     gmaps-places-radius))
-  (unless gmaps-current-location
-    (error "First set current location."))
-  (message "%s&%s&%s"
-          (gmaps-places-url "nearbysearch" gmaps-places-key)
-          (format "location=%s,%s"
-                  (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-            "radius=500"))
+  (unless gmaps-current-location (error "First set current location."))
+  (let ((result
+         (g-json-get-result
+          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                  g-curl-program g-curl-common-options
+                  (format "%s&%s&%s"
+                          (gmaps-places-url-base "nearbysearch" gmaps-places-key)
+                          (format "location=%s,%s"
+                                  (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
+                          "radius=500")))))
+    (cond
+     ((string= "OK" (g-json-get 'status result)) (g-json-get 'results result))
+     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+
+  
 (defun gmaps-set-current-location ()
   " Set current location."
   (interactive )
