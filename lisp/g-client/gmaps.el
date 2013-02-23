@@ -415,7 +415,7 @@ Uses default radius."
      (t
       (loop for place across places
             do
-            (insert (format  "\n%d:\t" i))
+            (insert (format  "%d:\t" i))
             (incf i)
             (gmaps-display-place place))))))
 
