@@ -466,6 +466,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (insert
        (format "Places near %s\n"
                (get 'gmaps-current-location 'address)))
+      (when gmaps-current-filter
+        (insert (format "Filter: %s\n"
+                        (gmaps-places-filter-as-string gmaps-current-filter))))
       (gmaps-display-places (g-json-get 'results result))
       (goto-char start))
      (t (error "Status %s from Maps" (g-json-get 'status
