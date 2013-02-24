@@ -213,17 +213,7 @@ Parameter `key' is the API  key."
 ;;}}}
 ;;{{{ Maps UI: 
 
-(defvar gmaps-current-location nil
-      "Current maps location.")
 
-(defun gmaps-set-current-location ()
-  " Set current location."
-  (interactive )
-  (declare (special gmaps-current-location))
-  (let ((address (read-from-minibuffer "Current Address:")))
-    (setq gmaps-current-location
-          (gmaps-geocode address))
-    (put 'gmaps-current-location 'address address)))
 
 (make-variable-buffer-local 'gmaps-current-location)
 
@@ -250,6 +240,7 @@ Parameter `key' is the API  key."
         ("n" gmaps-places-nearby)
         ("s" gmaps-places-search)
         ("c" gmaps-set-current-location)
+        ("f" gmaps-set-current-filter)
         )
       do
       (define-key  gmaps-mode-map (first k) (second k)))
@@ -388,43 +379,72 @@ Parameter `key' is the API  key."
 
 ;;}}}
 ;;{{{ Places:
+(defvar gmaps-current-location nil
+      "Current maps location.")
+
+(defun gmaps-set-current-location ()
+  " Set current location."
+  (interactive )
+  (declare (special gmaps-current-location))
+  (let ((address (read-from-minibuffer "Current Address:")))
+    (setq gmaps-current-location
+          (gmaps-geocode address))
+    (put 'gmaps-current-location 'address address)))
+
+
 (defstruct gmaps-places-filter
   types keyword name )
+(defvar gmaps-current-filter nil
+  "Currently active filter. ")
+(make-variable-buffer-local 'gmaps-current-filter)
 
 (defsubst gmaps-places-filter-as-params (filter)
   "Convert filter structure into URL  params."
-  (let ((keyword
-         (and
-          (gmaps-places-filter-keyword filter)
-          (format "&keyword=%s" (gmaps-places-filter-keyword filter))))
-        (name
-         (and
-          (gmaps-places-filter-name filter)
-          (format "&name=%s" (gmaps-places-filter-name filter))))
-        (types
-         (and
-          (gmaps-places-filter-types filter)
-          (format "&types=%s"
-                  (mapconcat #'identity
-                             (gmaps-places-filter-types filter)
-                             "|")))))
+  (let ((keyword (gmaps-places-filter-keyword filter))
+        (name (gmaps-places-filter-name filter))
+        (types (gmaps-places-filter-types filter)))
     (format "%s%s%s"
-            (or name "")
-            (or types "")
-            (or keyword ""))))
+            (if keyword (format "&keyword=%s" keyword) "")
+            (if name (format "&name=%s" name) "")
+            (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))    
+
+(defsubst gmaps-places-filter-as-string (filter)
+  "Convert filter structure into display-friendly string."
+  (let ((keyword (gmaps-places-filter-keyword filter))
+        (name (gmaps-places-filter-name filter))
+        (types (gmaps-places-filter-types filter)))
+    (format "%s%s%s"
+            (if keyword (format "Keyword: %s" keyword) "")
+            (if name (format "Name: %s" name) "")
+            (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
+
+(defun gmaps-set-current-filter ()
+  "Set up filter in current buffer."
+  (interactive)
+  (declare (special gmaps-current-filter))
+  (let ((name (read-string "Name: " ))
+        (keyword (read-string "Keyword: "))
+        (types (read-string "Types: ")))
+    (when (= (length name) 0) (setq name nil))
+    (when (= (length keyword) 0) (setq keyword nil))
+    (setq gmaps-current-filter
+          (make-gmaps-places-filter
+           :name name
+           :keyword keyword
+           :types (split-string types)))))
     
-(defun gmaps-places-nearby (&optional filter)
+    
+(defun gmaps-places-nearby (&optional clear-filter)
   "Find places near current location.
-Uses default radius."
+Uses default radius. optional interactive prefix arg clears any active filters."
   (interactive "P")
   (declare (special g-curl-program g-curl-common-options
-                    gmaps-current-location gmaps-places-key
+                    gmaps-current-location gmaps-current-filter
+                    gmaps-places-key
                     gmaps-places-radius))
-  (unless gmaps-current-location (error "First set current
-  location."))
+  (unless gmaps-current-location (error "Set current location."))
+  (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
-  (when filter
-    (setq filter (read-from-minibuffer "Filter: ")))
   (let ((start nil)
         (inhibit-read-only t)
         (result
@@ -436,18 +456,20 @@ Uses default radius."
                           (format "location=%s,%s"
                                   (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
                           "radius=500"
-                          (or filter ""))))))
+                          (if gmaps-current-filter
+                              (gmaps-places-filter-as-params gmaps-current-filter)
+                            ""))))))
     (cond
      ((string= "OK" (g-json-get 'status result))
       (goto-char (point-max))
       (setq start (point))
       (insert
-   (format "Places near %s\n"
-           (get 'gmaps-current-location 'address)))
+       (format "Places near %s\n"
+               (get 'gmaps-current-location 'address)))
       (gmaps-display-places (g-json-get 'results result))
       (goto-char start))
      (t (error "Status %s from Maps" (g-json-get 'status
-  result))))))
+                                                 result))))))
 
 (defun gmaps-display-places (places)
   "Display places in Maps interaction buffer."
