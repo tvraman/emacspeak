@@ -442,7 +442,8 @@ This variable is buffer-local.")
     (emacspeak-speak-mode-line)))
 (loop for f in
       '(gmaps-driving-directions gmaps-bicycling-directions
-                                 gmaps-walking-directions gmaps-transit-directions)
+                                 gmaps-walking-directions gmaps-transit-directions
+                                 gmaps-places-nearby)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
