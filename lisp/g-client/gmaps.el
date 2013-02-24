@@ -216,6 +216,15 @@ Parameter `key' is the API  key."
 (defvar gmaps-current-location nil
       "Current maps location.")
 
+(defun gmaps-set-current-location ()
+  " Set current location."
+  (interactive )
+  (declare (special gmaps-current-location))
+  (let ((address (read-from-minibuffer "Current Address:")))
+    (setq gmaps-current-location
+          (gmaps-geocode address))
+    (put 'gmaps-current-location 'address address)))
+
 (make-variable-buffer-local 'gmaps-current-location)
 
 (define-derived-mode gmaps-mode special-mode
@@ -379,7 +388,31 @@ Parameter `key' is the API  key."
 
 ;;}}}
 ;;{{{ Places:
+(defstruct gmaps-places-filter
+  types keyword name )
 
+(defsubst gmaps-places-filter-as-params (filter)
+  "Convert filter structure into URL  params."
+  (let ((keyword
+         (and
+          (gmaps-places-filter-keyword filter)
+          (format "&keyword=%s" (gmaps-places-filter-keyword filter))))
+        (name
+         (and
+          (gmaps-places-filter-name filter)
+          (format "&name=%s" (gmaps-places-filter-name filter))))
+        (types
+         (and
+          (gmaps-places-filter-types filter)
+          (format "&types=%s"
+                  (mapconcat #'identity
+                             (gmaps-places-filter-types filter)
+                             "|")))))
+    (format "%s%s%s"
+            (or name "")
+            (or types "")
+            (or keyword ""))))
+    
 (defun gmaps-places-nearby (&optional filter)
   "Find places near current location.
 Uses default radius."
@@ -440,14 +473,7 @@ Uses default radius."
                        'maps-data place)))
 
   
-(defun gmaps-set-current-location ()
-  " Set current location."
-  (interactive )
-  (declare (special gmaps-current-location))
-  (let ((address (read-from-minibuffer "Current Address:")))
-    (setq gmaps-current-location
-          (gmaps-geocode address))
-    (put 'gmaps-current-location 'address address)))
+
 
 ;;}}}
 (provide 'gmaps)
