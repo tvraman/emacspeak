@@ -420,10 +420,13 @@ Parameter `key' is the API  key."
             (if name (format "Name: %s" name) "")
             (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
 
-(defun gmaps-set-current-filter ()
-  "Set up filter in current buffer."
-  (interactive)
+(defun gmaps-set-current-filter (&optional all)
+  "Set up filter in current buffer.
+Optional interactive prefix arg prompts for all filter fields."
+  (interactive "P")
   (declare (special gmaps-current-filter))
+  (cond
+   (all
   (let ((name (read-string "Name: " ))
         (keyword (read-string "Keyword: "))
         (types (read-string "Types: ")))
@@ -434,6 +437,12 @@ Parameter `key' is the API  key."
            :name name
            :keyword keyword
            :types (split-string types)))))
+   (t
+    (setq gmaps-current-filter
+          (make-gmaps-places-filter
+           :name nil
+           :keyword nil
+           :types (split-string  (read-string "Types: ")))))))
 
 
 (defvar gmaps-current-radius  500
