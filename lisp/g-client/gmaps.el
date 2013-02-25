@@ -512,13 +512,18 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (ratings (g-json-get 'ratings details))
         (price_details (g-json-get 'price_details  details))
   (international_phone_number  (g-json-get 'international_phone_number details))
-  (formatted_address (g-json-get 'formatted_address details))
-  (b1 nil)
-  (b2 nil))
- (when website )
-;;(button-put b 'action #'(lambda (b) (browse-url (button-get b 'url-link))))
-    ))
-  
+  (formatted_address (g-json-get 'formatted_address details)))
+    (when website
+      (insert-button "WebSite"
+                     'url-link website
+                     'action #'(lambda (b) (browse-url
+                                            (button-get b
+                                                        'url-link)))))
+    (when url
+      (insert-button "Places URL"
+                     'url-link url
+                     'action #'(lambda (b) (browse-url (button-get b 'url-link)))))))
+      
 
 (defun gmaps-display-place (place)
   "Display place in Maps buffer."
