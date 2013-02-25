@@ -515,6 +515,43 @@ Uses default radius. optional interactive prefix arg clears any active filters."
     (put-text-property start (1- (point))
                        'maps-data place)))
 
+(defun gmaps-display-place-details ()
+  "Display details for place at point."
+  (interactive)
+  (declare (special g-curl-program g-curl-common-options
+                    gmaps-places-key))
+  (unless (eq major-mode 'gmaps-mode)
+    (error "Not in a Google Maps buffer."))
+  (unless  (get-text-property  (point) 'maps-data)
+    (error "No maps data at point."))
+  (let* ((start nil)
+        (inhibit-read-only t)
+        (place-ref (g-json-get 'reference
+                               (get-text-property
+                                (point)'maps-data )))
+        (result
+         (and place-ref
+              (g-json-get-result
+               (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                       g-curl-program g-curl-common-options
+                       (format "%s&%s&%s"
+                               (gmaps-places-url-base "details" gmaps-places-key)
+                               (format "reference=%s" place-ref)
+                               "extensions=review_summary")))))
+    (cond
+     ((string= "OK" (g-json-get 'status result))
+      (setq start (point))
+      (insert
+       (format "Places near %s\n"
+               (get 'gmaps-current-location 'address)))
+      (when gmaps-current-filter
+        (insert (format "Filter: %s\n"
+                        (gmaps-places-filter-as-string gmaps-current-filter))))
+      (gmaps-display-places (g-json-get 'results result))
+      (goto-char start))
+     (t (error "Status %s from Maps" (g-json-get 'status
+                                                 result))))))
+
   
 
 
