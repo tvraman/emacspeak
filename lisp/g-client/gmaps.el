@@ -241,6 +241,7 @@ Parameter `key' is the API  key."
         ("s" gmaps-places-search)
         ("c" gmaps-set-current-location)
         ("f" gmaps-set-current-filter)
+        ("r" gmaps-set-current-radius)
         )
       do
       (define-key  gmaps-mode-map (first k) (second k)))
@@ -432,6 +433,19 @@ Parameter `key' is the API  key."
            :name name
            :keyword keyword
            :types (split-string types)))))
+
+
+(defvar gmaps-current-radius  500
+  "Radius  to use for places search.")
+
+(make-variable-buffer-local 'gmaps-current-radius)
+
+(defun gmaps-set-current-radius  (radius)
+  "Set current radius"
+  (interactive "nRadius: ")
+  (declare (special gmaps-current-radius))
+  (setq gmaps-current-radius radius))
+
     
     
 (defun gmaps-places-nearby (&optional clear-filter)
@@ -455,7 +469,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                           (gmaps-places-url-base "nearbysearch" gmaps-places-key)
                           (format "location=%s,%s"
                                   (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-                          "radius=500"
+                          (format "radius=%s" gmaps-current-radius)
                           (if gmaps-current-filter
                               (gmaps-places-filter-as-params gmaps-current-filter)
                             ""))))))
@@ -464,13 +478,17 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (goto-char (point-max))
       (setq start (point))
       (insert
-       (format "Places near %s\n"
+       (format "Places within %sm of  %s\n"
+               gmaps-current-radius
                (get 'gmaps-current-location 'address)))
       (when gmaps-current-filter
         (insert (format "Filter: %s\n"
                         (gmaps-places-filter-as-string gmaps-current-filter))))
       (gmaps-display-places (g-json-get 'results result))
       (goto-char start))
+     ((string= "ZERO_RESULTS"  (g-json-get 'status result))
+      (insert (format "No places within %sm  matching currently active filters.\n"
+                      gmaps-current-radius)))
      (t (error "Status %s from Maps" (g-json-get 'status
                                                  result))))))
 
