@@ -511,16 +511,16 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (url (g-json-get 'url details))
         (ratings (g-json-get 'ratings details))
         (price_details (g-json-get 'price_details  details))
-  (international_phone_number  (g-json-get 'international_phone_number details))
-  (formatted_address (g-json-get 'formatted_address details)))
+        (international_phone_number  (g-json-get 'international_phone_number details))
+        (formatted_address (g-json-get 'formatted_address details)))
     (when website
-      (insert-button "WebSite"
+      (insert-text-button "[WebSite]\t"
                      'url-link website
                      'action #'(lambda (b) (browse-url
                                             (button-get b
                                                         'url-link)))))
     (when url
-      (insert-button "Places URL"
+      (insert-text-button "[Places URL]\n"
                      'url-link url
                      'action #'(lambda (b) (browse-url (button-get b 'url-link)))))))
       
