@@ -510,9 +510,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (website (g-json-get 'website details))
         (url (g-json-get 'url details))
         (ratings (g-json-get 'ratings details))
-        (price_details (g-json-get 'price_details  details))
-        (international_phone_number  (g-json-get 'international_phone_number details))
-        (formatted_address (g-json-get 'formatted_address details)))
+        (price (g-json-get 'price_details  details))
+        (phone  (g-json-get 'international_phone_number details))
+        (address (g-json-get 'formatted_address details)))
     (when website
       (insert-text-button "[WebSite]\t"
                      'url-link website
@@ -522,7 +522,13 @@ Uses default radius. optional interactive prefix arg clears any active filters."
     (when url
       (insert-text-button "[Places URL]\n"
                      'url-link url
-                     'action #'(lambda (b) (browse-url (button-get b 'url-link)))))))
+                     'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
+    (insert (format "%s\t%s\n" address  phone))
+    (insert (format "Ratings: %s\tPrice: %s\n"
+                    (or ratings "")
+                    (or price "")))
+    (indent-rigidly start  (point) 4)
+    (goto-char start)))
       
 
 (defun gmaps-display-place (place)
@@ -563,7 +569,8 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                                                                      ((string= "OK" (g-json-get 'status result))
       (goto-char (line-end-position))
       (setq start (point))
-      (gmaps-display-place-details (g-json-get 'result result)))
+      (gmaps-display-place-details (g-json-get 'result result))
+      (put-text-property start (point) 'place-details t))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
 
 ;;}}}
