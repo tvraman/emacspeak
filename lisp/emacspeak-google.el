@@ -452,6 +452,29 @@ This variable is buffer-local.")
             (emacspeak-auditory-icon 'task-done)
             (emacspeak-speak-rest-of-buffer)))))
 
+(defadvice gmaps-set-current-location (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-header-line)))
+
+(defadvice gmaps-set-current-radius (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (message "Radius set to %s. " gmaps-current-radius)))
+
+(defadvice gmaps-place-details (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+      ad-do-it
+      (emacspeak-speak-region  (point)
+                               (or 
+                               (next-single-property-change (point) 'place-details )
+                               (point-max))))
+   (t ad-do-it))
+  ad-return-value)
+
+      
 ;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
