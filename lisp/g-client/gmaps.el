@@ -563,7 +563,6 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                                                                      ((string= "OK" (g-json-get 'status result))
       (goto-char (line-end-position))
       (setq start (point))
-      (insert "\nPlace Description:\n")
       (gmaps-display-place-details (g-json-get 'result result)))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
 
