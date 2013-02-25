@@ -512,6 +512,10 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (loop for place across places
             do
             (gmaps-display-place place))))))
+(defun gmaps-display-places-hours (hours)
+  "Display hours."
+  (print hours))
+  
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
@@ -525,6 +529,11 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (price (g-json-get 'price_level  details))
         (phone  (g-json-get 'international_phone_number details))
         (address (g-json-get 'formatted_address details)))
+    (when hours
+      (insert-text-button "[Hours]\t"
+                          'hours hours
+                          'action #'(lambda (b)
+                                      (gmaps-display-places-hours  (button-get b 'hours)))))
     (when website
       (insert-text-button "[WebSite]\t"
                           'url-link website
