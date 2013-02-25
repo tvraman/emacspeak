@@ -507,27 +507,32 @@ Uses default radius. optional interactive prefix arg clears any active filters."
   "Insert place details."
   (insert "\n")
   (let ((start (point))
+        (hours (g-json-get 'periods (g-json-get 'opening_hours details)))
+        (open (g-json-get 'open_now (g-json-get 'opening_hours details)))        
         (website (g-json-get 'website details))
         (url (g-json-get 'url details))
-        (ratings (g-json-get 'ratings details))
-        (price (g-json-get 'price_details  details))
+        (rating (g-json-get 'rating details))
+        (price (g-json-get 'price_level  details))
         (phone  (g-json-get 'international_phone_number details))
         (address (g-json-get 'formatted_address details)))
     (when website
       (insert-text-button "[WebSite]\t"
-                     'url-link website
-                     'action #'(lambda (b) (browse-url
-                                            (button-get b
-                                                        'url-link)))))
+                          'url-link website
+                          'action #'(lambda (b) (browse-url
+                                                 (button-get b
+                                                             'url-link)))))
     (when url
       (insert-text-button "[Places URL]\n"
-                     'url-link url
-                     'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
+                          'url-link url
+                          'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
     (insert (format "%s\t%s\n" address  phone))
-    (insert (format "Ratings: %s\tPrice: %s\n"
-                    (or ratings "")
+    (insert (format "Open: %s\tRating: %s\tPrice: %s\n"
+                    (if open "Yes" "Closed")
+                    (or rating "")
                     (or price "")))
     (indent-rigidly start  (point) 4)
+    (put-text-property start (point)
+                       'place-details details)
     (goto-char start)))
       
 
@@ -567,10 +572,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                                "extensions=review_summary"))))))
     (cond
                                                                      ((string= "OK" (g-json-get 'status result))
-      (goto-char (line-end-position))
-      (setq start (point))
-      (gmaps-display-place-details (g-json-get 'result result))
-      (put-text-property start (point) 'place-details t))
+      (put-text-property (line-beginning-position) (line-end-position)
+                         'place-details t)
+      (gmaps-display-place-details (g-json-get 'result result)))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
 
 ;;}}}
