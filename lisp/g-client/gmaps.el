@@ -497,8 +497,10 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (gmaps-display-places (g-json-get 'results result))
       (goto-char start))
      ((string= "ZERO_RESULTS"  (g-json-get 'status result))
-      (insert (format "No places within %sm  matching currently active filters.\n"
-                      gmaps-current-radius)))
+      (insert
+       (format "No places within %sm  matching %s.\n"
+                      gmaps-current-radius
+                      (gmaps-places-filter-as-string gmaps-current-filter))))
      (t (error "Status %s from Maps" (g-json-get 'status
                                                  result))))))
 
