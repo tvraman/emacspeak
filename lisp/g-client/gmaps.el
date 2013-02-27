@@ -514,10 +514,27 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (loop for place across places
             do
             (gmaps-display-place place))))))
+
+(defun gmaps-hours-for-day (hours &optional day)
+  "Display hours.Day defaults to today."
+  (or day (setq day  (read-number "Week Day: 0 for Sunday: ")))
+  (let ((open nil)
+        (close nil))
+    (setq open
+          (find-if 
+           #'(lambda (h)
+               (= day (g-json-lookup "open.day" h))) hours)
+          close
+          (find-if
+           #'(lambda (h) (= day (g-json-lookup "close.day" h)) ) hours))
+    (format "Open: %s, Close: %s"
+             (g-json-lookup "open.time" open)
+             (g-json-lookup "close.time" close))))
 (defun gmaps-display-places-hours (hours)
-  "Display hours."
-  (print hours))
-  
+  "Display opening/closing hours."
+  (message
+   (gmaps-hours-for-day hours
+                        (read-number "Week Day (0 for Sunday): "))))
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
@@ -532,10 +549,14 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (phone  (g-json-get 'international_phone_number details))
         (address (g-json-get 'formatted_address details)))
     (when hours
-      (insert-text-button "[Hours]\t"
+      (let
+          ((label
+            (format "[Today: Hours - %s]\t"
+                    (gmaps-hours-for-day hours (read (format-time-string "%w"))))))
+        (insert-text-button label
                           'hours hours
                           'action #'(lambda (b)
-                                      (gmaps-display-places-hours  (button-get b 'hours)))))
+                                      (gmaps-display-places-hours  (button-get b 'hours))))))
     (when website
       (insert-text-button "[WebSite]\t"
                           'url-link website
