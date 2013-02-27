@@ -514,6 +514,11 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (loop for place across places
             do
             (gmaps-display-place place))))))
+(defsubst gmaps-colonize-timestring (timestring)
+  "Insert `:' to turn 0800 into 08:00. "
+  (format "%s:%s"
+          (substring timestring 0 2)
+          (substring timestring 2)))
 
 (defun gmaps-hours-for-day (hours &optional day)
   "Display hours.Day defaults to today."
@@ -528,13 +533,12 @@ Uses default radius. optional interactive prefix arg clears any active filters."
           (find-if
            #'(lambda (h) (= day (g-json-lookup "close.day" h)) ) hours))
     (format "Open: %s, Close: %s"
-             (g-json-lookup "open.time" open)
-             (g-json-lookup "close.time" close))))
+             (gmaps-colonize-timestring (g-json-lookup "open.time" open))
+             (gmaps-colonize-timestring (g-json-lookup "close.time" close)))))
+
 (defun gmaps-display-places-hours (hours)
   "Display opening/closing hours."
-  (message
-   (gmaps-hours-for-day hours
-                        (read-number "Week Day (0 for Sunday): "))))
+  (message (gmaps-hours-for-day hours (read-number "Week Day (0 for Sunday): "))))
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
@@ -549,11 +553,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (phone  (g-json-get 'international_phone_number details))
         (address (g-json-get 'formatted_address details)))
     (when hours
-      (let
-          ((label
-            (format "[Today: Hours - %s]\t"
-                    (gmaps-hours-for-day hours (read (format-time-string "%w"))))))
-        (insert-text-button label
+      (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w")))))
+            (insert (format "Today: %s\t" today))
+        (insert-text-button "[Hours: ]\t"
                           'hours hours
                           'action #'(lambda (b)
                                       (gmaps-display-places-hours  (button-get b 'hours))))))
