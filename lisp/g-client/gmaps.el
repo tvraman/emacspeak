@@ -227,6 +227,7 @@ Parameter `key' is the API  key."
     (insert "Google Maps Interaction")
     (put-text-property start (point) 'face font-lock-doc-face)
     (insert "\n\f\n")
+    (and gweb-my-address (gmaps-set-current-location gweb-my-address))
     (setq header-line-format '("Google Maps: " (:eval (get 'gmaps-current-location 'address))))))
 
 (declaim (special gmaps-mode-map))
