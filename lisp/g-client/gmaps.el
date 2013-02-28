@@ -385,14 +385,12 @@ Parameter `key' is the API  key."
 (defvar gmaps-current-location nil
       "Current maps location.")
 
-(defun gmaps-set-current-location ()
+(defun gmaps-set-current-location (address)
   " Set current location."
-  (interactive )
-  (declare (special gmaps-current-location))
-  (let ((address (read-from-minibuffer "Current Address:")))
+  (interactive  "sAddress: ")  (declare (special gmaps-current-location))
     (setq gmaps-current-location
           (gmaps-geocode address))
-    (put 'gmaps-current-location 'address address)))
+    (put 'gmaps-current-location 'address address))
 
 
 (defstruct gmaps-places-filter
