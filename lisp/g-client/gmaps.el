@@ -244,6 +244,8 @@ Parameter `key' is the API  key."
         ("f" gmaps-set-current-filter)
         ("r" gmaps-set-current-radius)
         (" " gmaps-place-details)
+        ("\C-t" next-button)
+        ("\M-t" previous-button)
         )
       do
       (define-key  gmaps-mode-map (first k) (second k)))
@@ -577,9 +579,9 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                           'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
     (insert (format "%s\t%s\n" address  phone))
     (insert (format "Open: %s\tRating: %s\tPrice: %s\n"
-                    (if open "Yes" "Closed")
-                    (or rating "")
-                    (or price "")))
+                    (if open "Yes" "No")
+                    (or rating "N/A")
+                    (or price "N/A")))
     (indent-rigidly start  (point) 4)
     (put-text-property start (point)
                        'place-details details)
