@@ -576,7 +576,8 @@ Uses default radius. optional interactive prefix arg clears any active filters."
       (insert-text-button "[Places URL]\n"
                           'url-link url
                           'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
-    (insert (format "%s\t%s\n" address  phone))
+    (when (or address phone)
+    (insert (format "%s\t%s\n" address  phone)))
     (insert (format "Open: %s\tRating: %s\tPrice: %s\n"
                     (if open "Yes" "No")
                     (or rating "N/A")
