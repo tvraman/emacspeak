@@ -243,8 +243,6 @@ Parameter `key' is the API  key."
         ("f" gmaps-set-current-filter)
         ("r" gmaps-set-current-radius)
         (" " gmaps-place-details)
-        ("\C-t" next-button)
-        ("\M-t" previous-button)
         )
       do
       (define-key  gmaps-mode-map (first k) (second k)))
