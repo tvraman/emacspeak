@@ -555,7 +555,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
     (when hours
       (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w")))))
             (insert (format "Today: %s\t" today))
-        (insert-text-button "[Hours: ]\t"
+        (insert-text-button "[Hours ]\t"
                           'hours hours
                           'action #'(lambda (b)
                                       (gmaps-display-places-hours  (button-get b 'hours))))))
