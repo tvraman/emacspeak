@@ -523,7 +523,11 @@ Uses default radius. optional interactive prefix arg clears any active filters."
   "Display hours.Day defaults to today."
   (or day (setq day  (read-number "Week Day: 0 for Sunday: ")))
   (let ((open nil)
-        (close nil))
+        (close nil)
+        (weekday
+         (aref
+          '["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]
+          day)))
     (setq open
           (find-if 
            #'(lambda (h)
@@ -531,7 +535,8 @@ Uses default radius. optional interactive prefix arg clears any active filters."
           close
           (find-if
            #'(lambda (h) (= day (g-json-lookup "close.day" h)) ) hours))
-    (format "Open: %s, Close: %s"
+    (format "%s Open: %s, Close: %s"
+            weekday 
              (gmaps-colonize-timestring (g-json-lookup "open.time" open))
              (gmaps-colonize-timestring (g-json-lookup "close.time" close)))))
 
@@ -541,6 +546,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
+  (goto-char (line-end-position))
   (insert "\n")
   (let ((start (point))
         (hours (g-json-get 'periods (g-json-get 'opening_hours details)))
@@ -553,11 +559,12 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (address (g-json-get 'formatted_address details)))
     (when hours
       (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w")))))
-            (insert (format "Today: %s\t" today))
-        (insert-text-button "[Hours ]\t"
-                          'hours hours
-                          'action #'(lambda (b)
-                                      (gmaps-display-places-hours  (button-get b 'hours))))))
+            (insert-text-button
+             "[Hours]\t"
+             'hours hours
+             'action
+             #'(lambda (b) (gmaps-display-places-hours  (button-get b 'hours))))
+        (insert (format "%s\t" today))))
     (when website
       (insert-text-button "[WebSite]\t"
                           'url-link website
