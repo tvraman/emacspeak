@@ -243,7 +243,7 @@ Parameter `key' is the API  key."
         ("f" gmaps-set-current-filter)
         ("r" gmaps-set-current-radius)
         (" " gmaps-place-details)
-        ("\M-t" backward-button
+        ("\M-t" backward-button)
          ("\C-t" forward-button)
         )
       do
