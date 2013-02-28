@@ -373,7 +373,7 @@ proc speech_task {} {
             c {
                 set text  [lindex $event 1]
                 synth " $text"
-                set retval ""
+                set retval [service]
             }
             a {
                 set sound [lindex $event 1]
