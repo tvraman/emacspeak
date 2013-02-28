@@ -1,0 +1,58 @@
+* GMaps: A Google Maps Client For The Emacspeak Desktop
+
+[[http://maps.google.com][Google Maps]] provides a powerful service-oriented [[https://developers.google.com/maps/documentation/directions/][Directions API]]
+and an experimental [[https://developers.google.com/places/documentation/][Places API]]. module [[http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/gmaps.el][GMaps]] (part of
+g-client) implements a new specialized interaction mode that lets
+you quickly get directions and perform Map searches.
+
+** Overview 
+
+Module GMaps is now in the Emacspeak svn repository and will be
+part of the next Emacspeak release.   If you are running from
+SVN, you can start using GMaps today after updating; make sure
+to 
+: make config; make 
+before trying to use it.
+
+*** Usage:
+
+Run command M-x gmaps to bring up the maps interaction buffer.
+This buffer provides many special commands for talking to Google
+Maps --  use _C-h b_ in emacs to get a list of
+key-bindings. Here is a brief summary of how things work:
+
+  - You can get directions (walking, driving, by cycling, or
+    public transit)  via keystrokes _w_, _d_, _b_, or _t_. These
+    commands prompt for start and end addresses.
+  - You can set your current location  by hitting _c_ --- this
+    will be used for Places Search.
+  - You can specify the radius for Places Search by pressing _r_
+    and specifying the radius  e.g. /500/ for 500m.
+  - You can set up an optional  filter for your Places Search by pressing _f_.
+  - Pressing _n_ at this point will show you places in your
+    vicinity that match your filter criteria.
+  - Pressing 'space' on a Place displays details for that place.
+  - Place details when expanded provide buttons that link you to
+    hours-of-business, Web-site for that place, and the place's
+    G+ page if any.
+
+Note that module GMaps replaces the now obsolete Emapspeak
+functionality that has been available on _C-e?e_ since
+early 2005.
+
+
+#+TITLE:     GMaps: A Google Maps Client For The Emacspeak Desktop
+#+AUTHOR:    T.V Raman
+#+EMAIL:     tv.raman.tv@gmail.com
+#+DATE:      2013-02-28 Thu
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:nil mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
