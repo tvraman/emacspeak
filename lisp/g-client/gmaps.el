@@ -239,7 +239,6 @@ Parameter `key' is the API  key."
         ("t" gmaps-transit-directions)
         ("b" gmaps-bicycling-directions)
         ("n" gmaps-places-nearby)
-        ("s" gmaps-places-search)
         ("c" gmaps-set-current-location)
         ("f" gmaps-set-current-filter)
         ("r" gmaps-set-current-radius)
