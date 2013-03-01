@@ -383,6 +383,142 @@ Parameter `key' is the API  key."
 
 ;;}}}
 ;;{{{ Places:
+
+;;; Place Types: https://developers.google.com/places/documentation/supported_types
+
+(defvar gmaps-place-types
+  '(
+    ""
+    "accounting"
+    "administrative_area_level_1"
+    "administrative_area_level_2"
+    "administrative_area_level_3"
+    "airport"
+    "amusement_park"
+    "aquarium"
+    "art_gallery"
+    "atm"
+    "bakery"
+    "bank"
+    "bar"
+    "beauty_salon"
+    "bicycle_store"
+    "book_store"
+    "bowling_alley"
+    "bus_station"
+    "cafe"
+    "campground"
+    "car_dealer"
+    "car_rental"
+    "car_repair"
+    "car_wash"
+    "casino"
+    "cemetery"
+    "church"
+    "city_hall"
+    "clothing_store"
+    "colloquial_area"
+    "convenience_store"
+    "country"
+    "courthouse"
+    "dentist"
+    "department_store"
+    "doctor"
+    "electrician"
+    "electronics_store"
+    "embassy"
+    "establishment"
+    "finance"
+    "fire_station"
+    "floor"
+    "florist"
+    "food"
+    "funeral_home"
+    "furniture_store"
+    "gas_station"
+    "general_contractor"
+    "geocode"
+    "grocery_or_supermarket"
+    "gym"
+    "hair_care"
+    "hardware_store"
+    "health"
+    "hindu_temple"
+    "home_goods_store"
+    "hospital"
+    "insurance_agency"
+    "intersection"
+    "jewelry_store"
+    "laundry"
+    "lawyer"
+    "library"
+    "liquor_store"
+    "local_government_office"
+    "locality"
+    "locksmith"
+    "lodging"
+    "meal_delivery"
+    "meal_takeaway"
+    "mosque"
+    "movie_rental"
+    "movie_theater"
+    "moving_company"
+    "museum"
+    "natural_feature"
+    "neighborhood"
+    "night_club"
+    "painter"
+    "park"
+    "parking"
+    "pet_store"
+    "pharmacy"
+    "physiotherapist"
+    "place_of_worship"
+    "plumber"
+    "point_of_interest"
+    "police"
+    "political"
+    "post_box"
+    "post_office"
+    "postal_code"
+    "postal_code_prefix"
+    "postal_town"
+    "premise"
+    "real_estate_agency"
+    "restaurant"
+    "roofing_contractor"
+    "room"
+    "route"
+    "rv_park"
+    "school"
+    "shoe_store"
+    "shopping_mall"
+    "spa"
+    "stadium"
+    "storage"
+    "store"
+    "street_address"
+    "street_number"
+    "sublocality"
+    "sublocality_level_1"
+    "sublocality_level_2"
+    "sublocality_level_3"
+    "sublocality_level_4"
+    "sublocality_level_5"
+    "subpremise"
+    "subway_station"
+    "synagogue"
+    "taxi_stand"
+    "train_station"
+    "transit_station"
+    "travel_agency"
+    "university"
+    "veterinary_care"
+    "zoo"
+    )
+  "List of supported Place Types.")
+
+
 (defvar gmaps-current-location nil
       "Current maps location.")
 
@@ -424,19 +560,21 @@ Parameter `key' is the API  key."
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
   (interactive "P")
-  (declare (special gmaps-current-filter))
+  (declare (special gmaps-current-filter
+                    gmaps-place-types))
   (cond
    (all
   (let ((name (read-string "Name: " ))
         (keyword (read-string "Keyword: "))
-        (types (read-string "Types: ")))
+        (types (completing-read "Types:" gmaps-place-types)))
     (when (= (length name) 0) (setq name nil))
     (when (= (length keyword) 0) (setq keyword nil))
+    (when (= (length types) 0) (setq types nil))
     (setq gmaps-current-filter
           (make-gmaps-places-filter
            :name name
            :keyword keyword
-           :types (split-string types)))))
+           :types types))))
    (t
     (setq gmaps-current-filter
           (make-gmaps-places-filter
