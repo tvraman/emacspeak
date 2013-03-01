@@ -388,7 +388,6 @@ Parameter `key' is the API  key."
 
 (defvar gmaps-place-types
   '(
-    ""
     "accounting"
     "administrative_area_level_1"
     "administrative_area_level_2"
@@ -566,7 +565,7 @@ Optional interactive prefix arg prompts for all filter fields."
    (all
   (let ((name (read-string "Name: " ))
         (keyword (read-string "Keyword: "))
-        (types (completing-read "Types:" gmaps-place-types)))
+        (types (completing-read "Types:" gmaps-place-types nil 'must-match)))
     (when (= (length name) 0) (setq name nil))
     (when (= (length keyword) 0) (setq keyword nil))
     (when (= (length types) 0) (setq types nil))
