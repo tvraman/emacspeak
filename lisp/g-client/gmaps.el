@@ -554,7 +554,17 @@ Parameter `key' is the API  key."
             (if keyword (format "Keyword: %s" keyword) "")
             (if name (format "Name: %s" name) "")
             (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
-
+(defsubst gmaps-place-read-types ()
+  "Returns a list of types."
+  (declare (special gmaps-place-types))
+  (let ((result nil)
+        (type (completing-read "Type: Blank to quit " gmaps-place-types)))
+    (while (not (= 0 (length type)))
+      (pushnew type result)
+      (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
+    result))
+            
+             (setq type )
 (defun gmaps-set-current-filter (&optional all)
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
@@ -565,7 +575,7 @@ Optional interactive prefix arg prompts for all filter fields."
    (all
   (let ((name (read-string "Name: " ))
         (keyword (read-string "Keyword: "))
-        (types (completing-read "Types:" gmaps-place-types nil 'must-match)))
+        (types (gmaps-place-read-types)))
     (when (= (length name) 0) (setq name nil))
     (when (= (length keyword) 0) (setq keyword nil))
     (when (= (length types) 0) (setq types nil))
@@ -579,7 +589,7 @@ Optional interactive prefix arg prompts for all filter fields."
           (make-gmaps-places-filter
            :name nil
            :keyword nil
-           :types (split-string  (read-string "Types: ")))))))
+           :types (gmaps-place-read-types))))))
 
 
 (defvar gmaps-current-radius  500
