@@ -523,10 +523,14 @@ Parameter `key' is the API  key."
 
 (defun gmaps-set-current-location (address)
   " Set current location."
-  (interactive  "sAddress: ")  (declare (special gmaps-current-location))
+  (interactive  "sAddress: ")  (declare (special
+                                         gmaps-current-location))
+  (condition-case nil
     (setq gmaps-current-location
           (gmaps-geocode address))
-    (put 'gmaps-current-location 'address address))
+    (error (message "Error finding %s" address)))
+    (put 'gmaps-current-location 'address address)
+    (message "Moved to %s" address))
 
 
 (defstruct gmaps-places-filter
@@ -573,24 +577,24 @@ Optional interactive prefix arg prompts for all filter fields."
                     gmaps-place-types))
   (cond
    (all
-  (let ((name (read-string "Name: " ))
-        (keyword (read-string "Keyword: "))
-        (types (gmaps-place-read-types)))
-    (when (= (length name) 0) (setq name nil))
-    (when (= (length keyword) 0) (setq keyword nil))
-    (when (= (length types) 0) (setq types nil))
-    (setq gmaps-current-filter
-          (make-gmaps-places-filter
-           :name name
-           :keyword keyword
-           :types types))))
+    (let ((name (read-string "Name: " ))
+          (keyword (read-string "Keyword: "))
+          (types (gmaps-place-read-types)))
+      (when (= (length name) 0) (setq name nil))
+      (when (= (length keyword) 0) (setq keyword nil))
+      (when (= (length types) 0) (setq types nil))
+      (setq gmaps-current-filter
+            (make-gmaps-places-filter
+             :name name
+             :keyword keyword
+             :types types))))
    (t
     (setq gmaps-current-filter
           (make-gmaps-places-filter
            :name nil
            :keyword nil
-           :types (gmaps-place-read-types))))))
-
+           :types (gmaps-place-read-types)))))
+  (gmaps-places-nearby))
 
 (defvar gmaps-current-radius  500
   "Radius  to use for places search.")
@@ -601,7 +605,8 @@ Optional interactive prefix arg prompts for all filter fields."
   "Set current radius"
   (interactive "nRadius: ")
   (declare (special gmaps-current-radius))
-  (setq gmaps-current-radius radius))
+  (setq gmaps-current-radius radius)
+  (gmaps-places-nearby))
 
     
     
