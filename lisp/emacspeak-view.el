@@ -304,7 +304,14 @@ keybindings for view mode")
                   do
                   (let ((command (lookup-key emacspeak-keymap key)))
                     (when command
-                      (define-key view-mode-map key command))))))))
+                      (define-key view-mode-map key command))))))
+    (loop for k in
+          '(
+            ("[" backward-paragraph)
+            ("]" forward-paragraph)
+            )
+          do
+          (define-key view-mode-map (first k) (second k)))))
 
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"
