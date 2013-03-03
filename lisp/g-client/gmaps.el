@@ -242,6 +242,8 @@ Parameter `key' is the API  key."
         (" " gmaps-place-details)
         ("\M-i" backward-button)
          ("\C-i" forward-button)
+         ("[" backward-page)
+         ("]" forward-page)
         )
       do
       (define-key  gmaps-mode-map (first k) (second k)))
@@ -336,9 +338,7 @@ origin/destination may be returned as a lat,long string."
          (destination nil))
     (setq origin
           (cond
-           (gmaps-current-location (format "%s,%s"
-                    (g-json-get 'lat gmaps-current-location)
-                    (g-json-get 'lng gmaps-current-location)))
+           (gmaps-current-location (url-hexify-string(get 'gmaps-current-location 'address)))
           (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
   (setq destination
         (cond
