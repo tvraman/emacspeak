@@ -613,7 +613,7 @@ Optional interactive prefix arg prompts for all filter fields."
            :name nil
            :keyword nil
            :types (gmaps-place-read-types)))))
-  (gmaps-places-nearby))
+  (call-interactively 'gmaps-places-nearby))
 
 (defvar gmaps-current-radius  500
   "Radius  to use for places search.")
@@ -625,7 +625,7 @@ Optional interactive prefix arg prompts for all filter fields."
   (interactive "nRadius: ")
   (declare (special gmaps-current-radius))
   (setq gmaps-current-radius radius)
-  (gmaps-places-nearby))
+  (call-interactively 'gmaps-places-nearby))
 
     
     
