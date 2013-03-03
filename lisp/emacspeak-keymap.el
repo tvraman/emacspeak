@@ -393,7 +393,7 @@ field in the customization buffer.  You can use the notation
         ("m" emacspeak-speak-mode-line)
         ("n" emacspeak-speak-rest-of-buffer)
         ("o" emacspeak-toggle-comint-output-monitor)
-        ;("p" dtk-pause)
+        ("p" emacspeak-speak-paragraph)
         ("q" emacspeak-toggle-speak-messages)
         ("r" emacspeak-speak-region)
         ("s" dtk-stop)
