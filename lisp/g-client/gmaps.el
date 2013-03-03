@@ -192,10 +192,7 @@ Parameter `key' is the API  key."
          (g-json-get-result
           (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
                   g-curl-program g-curl-common-options
-                  (gmaps-directions-url
-                   (url-hexify-string origin)
-                   (url-hexify-string destination)
-                   mode)))))
+                  (gmaps-directions-url origin  destination mode)))))
     (cond
      ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
      (t (error "Status %s from Maps" (g-json-get 'status result))))))
@@ -339,19 +336,18 @@ origin/destination may be returned as a lat,long string."
          (destination nil))
     (setq origin
           (cond
-           (gmaps-current-location
-            (format "%s,%s"
+           (gmaps-current-location (format "%s,%s"
                     (g-json-get 'lat gmaps-current-location)
                     (g-json-get 'lng gmaps-current-location)))
-           (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
-    (setq destination
-          (cond
-           (place-location
-            (format "%s,%s"
-                    (g-json-get 'lat place-location)
-                    (g-json-get 'lng place-location)))
-           (t (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
-    (list origin destination)))
+          (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
+  (setq destination
+        (cond
+         (place-location
+          (format "%s,%s"
+                  (g-json-get 'lat place-location)
+                  (g-json-get 'lng place-location)))
+         (t (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
+  (list origin destination)))
 
             
 (defun gmaps-display-routes (routes)
@@ -371,34 +367,30 @@ origin/destination may be returned as a lat,long string."
 
 (defun gmaps-driving-directions (origin destination)
   "Driving directions from Google Maps."
-  (interactive "sStart Address: \nsDestination Address: ")
+  (interactive (gmaps-read-origin-destination))
   (gmaps-directions origin destination "driving"))
 
 (defun gmaps-walking-directions (origin destination)
   "Walking directions from Google Maps."
-  (interactive "sStart Address: \nsDestination Address: ")
+  (interactive (gmaps-read-origin-destination))
   (gmaps-directions origin destination "walking"))
 
 (defun gmaps-bicycling-directions (origin destination)
   "Biking directions from Google Maps."
-  (interactive "sStart Address: \nsDestination Address: ")
+  (interactive (gmaps-read-origin-destination))
   (gmaps-directions origin destination "bicycling"))
 
 
 (defun gmaps-transit-directions (origin destination)
   "Transit directions from Google Maps."
-  (interactive "sStart Address: \nsDestination Address: ")
+  (interactive (gmaps-read-origin-destination))
   (gmaps-directions origin destination "transit"))
 
 
 
 (defun gmaps-directions (origin destination mode)
   "Display  directions obtained from Google Maps."
-  (interactive
-   (list
-    (read-from-minibuffer "Start Address: ")
-    (read-from-minibuffer "Destination Address: ")
-    (completing-read "Mode: " gmaps-modes)))
+  (interactive (gmaps-read-origin-destination))
   (unless (eq major-mode 'gmaps-mode)
     (error "Not in a Maps buffer."))
   (let ((inhibit-read-only t)
@@ -596,7 +588,6 @@ origin/destination may be returned as a lat,long string."
       (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
     result))
             
-             (setq type )
 (defun gmaps-set-current-filter (&optional all)
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
