@@ -325,7 +325,35 @@ Parameter `key' is the API  key."
     (insert
      (format "Copyrights: %s\n\f\n"
              (g-json-get 'copyrights route)))))
+(defun gmaps-read-origin-destination ()
+  "Read origin and destination addresses using context-based
+guesses. Addresses are returned url-encoded; if available
+origin/destination may be returned as a lat,long string."
+  (declare (special gmaps-current-location))
+  (let* ((maps-data (get-text-property (point) 'maps-data))
+         (place-location (and maps-data
+                              (g-json-lookup
+                               "geometry.location"
+                               (get-text-property ( point) 'maps-data))))
+         (origin nil)
+         (destination nil))
+    (setq origin
+          (cond
+           (gmaps-current-location
+            (format "%s,%s"
+                    (g-json-get 'lat gmaps-current-location)
+                    (g-json-get 'lng gmaps-current-location)))
+           (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
+    (setq destination
+          (cond
+           (place-location
+            (format "%s,%s"
+                    (g-json-get 'lat place-location)
+                    (g-json-get 'lng place-location)))
+           (t (url-hexify-string (read-from-minibuffer "Destination  Address: ")))))
+    (list origin destination)))
 
+            
 (defun gmaps-display-routes (routes)
   "Display routes in Maps interaction buffer."
   (let ((i 1)
