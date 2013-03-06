@@ -714,15 +714,25 @@ Uses default radius. optional interactive prefix arg clears any active filters."
 
 (defun gmaps-display-places-hours (hours)
   "Display opening/closing hours."
-  (message (gmaps-hours-for-day hours (read-number "Week Day (0 for Sunday): "))))
+  (let* ((inhibit-read-only t)
+         (day-hours  (gmaps-hours-for-day hours (read-number "Week Day (0 for Sunday): ")))
+         (start (next-single-property-change (point) 'open-hours))
+         (end (next-single-property-change start 'open-hours)))
+    (delete-region start end)
+    (goto-char start)
+    (insert (format "%s\t" day-hours))
+    (put-text-property start (point)
+                       'open-hours t)))
+    
+      
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
   (goto-char (line-end-position))
   (insert "\n")
   (let ((start (point))
-        (hours (g-json-get 'periods (g-json-get 'opening_hours details)))
-        (open (g-json-get 'open_now (g-json-get 'opening_hours details)))        
+        (hours (g-json-lookup "opening_hours.periods" details))
+        (open (g-json-lookup "opening_hours.open_now" details))
         (website (g-json-get 'website details))
         (url (g-json-get 'url details))
         (rating (g-json-get 'rating details))
@@ -730,13 +740,17 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (phone  (g-json-get 'international_phone_number details))
         (address (g-json-get 'formatted_address details)))
     (when hours
-      (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w")))))
-            (insert-text-button
-             "[Hours]\t"
-             'hours hours
-             'action
-             #'(lambda (b) (gmaps-display-places-hours  (button-get b 'hours))))
-        (insert (format "%s\t" today))))
+      (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
+            (here nil))
+        (insert-text-button
+         "[Hours]\t"
+         'hours hours
+         'action
+         #'(lambda (b) (gmaps-display-places-hours  (button-get b 'hours))))
+        (setq here (point))
+        (insert (format "%s\t" today))
+        (put-text-property  here (point)
+                            'open-hours t)))
     (when website
       (insert-text-button "[WebSite]\t"
                           'url-link website
@@ -748,7 +762,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                           'url-link url
                           'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
     (when (or address phone)
-    (insert (format "%s\t%s\n" address  phone)))
+      (insert (format "%s\t%s\n" address  phone)))
     (insert (format "Open: %s\tRating: %s\tPrice: %s\n"
                     (if open "Yes" "No")
                     (or rating "N/A")

@@ -714,7 +714,7 @@ Handle end-of-buffer and beginning-of-buffer specially."
 
 
 ;;;###autoload
-(defvar emacspeak-speak-errors nil
+(defvar emacspeak-speak-errors t
   "Specifies if error messages are cued.")
   
 
