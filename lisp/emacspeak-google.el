@@ -443,7 +443,7 @@ This variable is buffer-local.")
 (loop for f in
       '(gmaps-driving-directions gmaps-bicycling-directions
                                  gmaps-walking-directions gmaps-transit-directions
-                                 gmaps-places-nearby)
+                                 gmaps-places-nearby gmaps-places-search)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
