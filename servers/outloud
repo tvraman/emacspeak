@@ -121,6 +121,8 @@ proc s {} {
     if {$tts(not_stopped) == 1} {
         set tts(not_stopped) 0
         stop
+        service
+        stop
         queue_clear
     } else {
         puts stderr StopNoOp
