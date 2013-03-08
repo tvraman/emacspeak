@@ -137,9 +137,8 @@
 (emacspeak-websearch-set-key ?? 'help)
 ;;;###autoload
 (defun emacspeak-websearch-dispatch  (&optional prefix)
-  "Launches specific websearch queries.
+  "Websearch.
 Press `?' to list available search engines.
-Once selected, the selected searcher prompts for additional information as appropriate.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page."
   (interactive "P")
   (let ((engine nil)
