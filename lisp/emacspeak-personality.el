@@ -329,18 +329,21 @@ displayed in the messages area."
         (voice nil)
         (value nil))
     (setq facep (emacspeak-personality-plist-face-p properties))
-    (when (and  emacspeak-personality-voiceify-faces
+    (cond
+     ((and  emacspeak-personality-voiceify-faces
             voice-lock-mode facep)
       ad-do-it
       (setq value (second facep))
             (setq voice (ems-get-voice-for-face value))
             (when voice
               (funcall emacspeak-personality-voiceify-faces 0
-                       (length ad-return-value) voice ad-return-value)))))
+                       (length ad-return-value) voice ad-return-value)))
+     (t ad-do-it))
+     ad-return-value))
             
         
-     (t ad-do-it))
-    ad-return-value))
+     
+    
 ;;; If a face property is being removed, set personality  to nil:
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
