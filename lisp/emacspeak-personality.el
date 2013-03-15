@@ -254,6 +254,22 @@ displayed in the messages area."
 
 (defvar emacspeak-personality-unmapped-faces (make-hash-table)
   "Records faces that we have not yet mapped to personalities.")
+;;; Helper: Get face->voice mapping
+
+(defun ems-get-voice-for-face (value)
+  "Compute face->voice mapping."
+  (let ((voice nil))
+    (condition-case nil
+        (cond
+         ((symbolp value)
+          (setq voice (voice-setup-get-voice-for-face value)))
+         ((ems-plain-cons-p value)) ;;pass on plain cons
+         ( (listp value)
+           (setq voice
+                 (delq nil
+                       (mapcar   #'voice-setup-get-voice-for-face value)))))
+      (error nil))
+    voice))
 
 (defadvice put-text-property (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
