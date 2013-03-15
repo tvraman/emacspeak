@@ -285,12 +285,10 @@ displayed in the messages area."
         (setq voice (ems-get-voice-for-face value))
         (when voice
           (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-              
           
-
 (defadvice add-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
-  (when voice-lock-mode
+  (when (and voice-lock-mode    emacspeak-personality-voiceify-faces)
     (let ((start (ad-get-arg 0))
           (end (ad-get-arg 1 ))
           (properties (ad-get-arg 2))
@@ -299,31 +297,11 @@ displayed in the messages area."
           (voice nil)
           (value nil))
       (setq facep (emacspeak-personality-plist-face-p properties))
-      (when (and  emacspeak-personality-voiceify-faces
-                  facep)
-        (setq value (second facep))
-        (condition-case nil
-            (progn
-              (cond
-               ((symbolp value)
-                (setq voice (voice-setup-get-voice-for-face   value)))
-               ((ems-plain-cons-p value)) ;;pass on plain cons
-               ( (listp value)
-                 (setq voice
-                       (delq nil
-                             (mapcar   #'voice-setup-get-voice-for-face value))))
-               (t (message "Got %s" value)))
-              (when voice
-                (funcall emacspeak-personality-voiceify-faces start end voice object))
-              (when (and emacspeak-personality-show-unmapped-faces
-                         (not voice))
-                (cond
-                 ((listp value)
-                  (mapcar #'(lambda (v)
-                              (puthash  v t emacspeak-personality-unmapped-faces))
-                          value))
-                 (t (puthash  value t emacspeak-personality-unmapped-faces)))))
-          (error nil))))))
+      (when facep (setq value (second facep))
+            (setq voice (ems-get-voice-for-face value))
+            (when voice
+              (funcall emacspeak-personality-voiceify-faces start end voice object))))))
+          
 
 (defadvice set-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
