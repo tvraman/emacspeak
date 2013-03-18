@@ -421,6 +421,43 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
       (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe))
     buffer))
 
+;;;###autoload
+
+(defun emacspeak-webspace-reader-rip (file)
+  "RIP Google Reader.
+Save Reader subscriptions to a specified file."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name
+      "Save feed list to file: "
+      emacspeak-resource-directory "reader.html")
+     emacspeak-resource-directory)))
+  (let ((subscriptions (greader-subscriptions))
+        (buffer (find-file-noselect file))
+        )
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (goto-char (point-min))
+      (insert "<html><head><title>Subscription List</title></head>\n")
+      (insert "<body>\n")
+      (insert
+       (format "<h1>Google Reader %d</h1>\n"
+               (length subscriptions)))
+      (insert "<ol>\n")
+      (loop for feed across subscriptions
+            do
+            (insert
+             (format
+              "<li> <a href='%s'>%s</a></li>\n"
+              (greader-id-to-url (cdr (assoc 'id feed)))
+              (cdr (assq 'title feed)))))
+      (insert "</ol>\n</body>\n</html>\n")
+      (save-buffer))))
+
+
 ;;;###autoload 
 (defun emacspeak-webspace-reader (&optional refresh)
   "Display Google Reader Feed list in a WebSpace buffer.
