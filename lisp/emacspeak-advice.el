@@ -2769,7 +2769,7 @@ emacspeak running."
         (emacspeak-auditory-icon 'on)
       nil
       (emacspeak-auditory-icon 'off))
-    (message "Turned %s debug on error"
+    (message "Turned %s debug on quit"
              debug-on-quit)))
 
 ;;}}}
