@@ -120,7 +120,7 @@ Finally, @samp{voice-bolden} is assigned the above symbol.
 @end menu
 
 @node What this gives.
-@section What this gives is
+@section What this gives 
 
 @enumerate
 @item

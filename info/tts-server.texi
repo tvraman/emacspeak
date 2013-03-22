@@ -13,7 +13,7 @@
         the various Emacspeak speech servers.
         @end itemize
 
-        @subsection High-level Overview
+        @section High-level Overview
 
         The TTS server reads commands from standard input, and  script
         @emph{speech-server} can be used  to cause a TTS server to communicate

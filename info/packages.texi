@@ -48,8 +48,9 @@ with content that is read-only e.g., online documentation.
 *  emacspeak-tabulate:: emacspeak-tabulate
 *  emacspeak-view:: emacspeak-view
 @end menu
-@include web-browsing.texi
 
+
+@include web-browsing.texi
 
 @node Messaging
 @section Electronic Messaging Applications
