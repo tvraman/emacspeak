@@ -1,5 +1,4 @@
 \input texinfo
-@raggedright
 @c$Id$
 @setfilename./emacspeak.info 
 @settitle Emacspeak User's Manual --2nd Edition.
@@ -20,7 +19,7 @@
      
      @page
      @vskip 0pt plus 1filll
-     Copyright @copyright{} 1994--2008 T. V. Raman. All Rights Reserved.
+     Copyright @copyright{} 1994--2013 T. V. Raman. All Rights Reserved.
 
 
 Permission is granted to make and distribute verbatim copies of this
