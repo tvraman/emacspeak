@@ -40,7 +40,7 @@ uninstall:
 emacspeak.info: emacspeak.texi 
 
 introducing-emacspeak.info: introducing-emacspeak.texi
-	makeinfo $<
+	makeinfo --force $<
 
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
