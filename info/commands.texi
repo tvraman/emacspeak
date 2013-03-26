@@ -2283,7 +2283,7 @@ there is terminal activity.
 @kbd{Not bound to any key.}
 
 Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contnets 
+In review mode, you can move around the terminal and listen to the contents 
 without sending input to the terminal itself.
 @end deffn
 
