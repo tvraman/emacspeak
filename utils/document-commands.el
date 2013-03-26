@@ -73,6 +73,7 @@
     ("emacspeak-bbdb". ("bbdb-prepare"))
     ("emacspeak-bibtex" . ("bibtex"))
     ("emacspeak-bookmark" . ("bookmark"))
+    ("emacspeak-kite" . nil)
     ("emacspeak-browse-kill-ring" . ("browse-kill-ring"))
     ("emacspeak-bs" . nil)
     ("emacspeak-buff-menu" . nil)
