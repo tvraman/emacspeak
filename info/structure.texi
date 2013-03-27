@@ -127,7 +127,7 @@ consistently structured code when developing large software modules.
 Emacspeak speech-enables mode @emph{ dmacro} to provide succinct spoken
 feedback as templates are created and filled.  The user invokes @emph{
 dmacro} via command @emph{ insert dmacro}, which is typically bound to a
-single key.  This results in a dialogue where the user is prompted to
+single key.  This results in a dialog where the user is prompted to
 pick one of the dynamic macros available in the current context.  If the
 users choice can be uniquely completed, that completion is spoken;
 otherwise, the list of possible completions based on the available

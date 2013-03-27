@@ -187,7 +187,7 @@ layout can be used to cue the user to the meaning of different data fields.
 On the other hand, in the case of an actively scrolling auditory display, the
 spoken output needs to explicitly convey both the value and interpretation of
 the different data items.  In addition, the interface needs to enable an
-active dialogue between user and application where the user is able to query
+active dialog between user and application where the user is able to query
 the system about the possible meaning of a particular item of data.  Finally,
 the aural interface needs to enable @emph{ multiple} views of the display.
 In the visual interface, such @emph{ multiple} views are automatically
