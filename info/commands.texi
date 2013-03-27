@@ -7120,7 +7120,7 @@ normally bound to C-e TAB.
 @kbd{Not bound to any key.}
 
 Lookup and display a phone number.
-With prefix arg, opens the phone book for editting.
+With prefix arg, opens the phone book for editing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-this-buffer-next-display nil

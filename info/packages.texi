@@ -85,9 +85,9 @@ structured, program source
 (as a concession to the computer's intolerance of lack of structure)
 are per force well-structured and adhere to a fairly stringent  syntax.
 
-The Emacs environment provides editting modes that are specific to
+The Emacs environment provides editing modes that are specific to
 creating and maintaining software written in
-most popular programming languages. Many of these editting modes are
+most popular programming languages. Many of these editing modes are
 speech-enabled by Emacspeak.
 Speech-enabling these modes includes providing
 a rich set of navigational  commands that allow you to move
@@ -110,7 +110,7 @@ through the source efficiently. In addition, Emacspeak's core
 @node Development Environment
 @section Software Development Environment
 
-In addition to providing specialized editting modes for creating and
+In addition to providing specialized editing modes for creating and
 maintaining program source,
 Emacs provides a rich set of software development tools that can be
 combined to create powerful Integrated Development Environments (IDE).

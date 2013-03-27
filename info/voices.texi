@@ -124,7 +124,7 @@ Finally, @samp{voice-bolden} is assigned the above symbol.
 
 @enumerate
 @item
-The ability to customize the voice via custom by editting
+The ability to customize the voice via custom by editing
 the list of numbers in @samp{voice-bolden-settings}
 
 @item
