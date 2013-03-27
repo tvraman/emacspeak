@@ -96,5 +96,5 @@ clean:
 
 spell:
 	@mv .spell.words .spell.tex
-	@cat ${FILES} | aspell -t -l | sort | uniq > .spell.words
+	@cat ${FILES} | aspell -t  | sort | uniq > .spell.words
 	@diff .spell.tex .spell.words
