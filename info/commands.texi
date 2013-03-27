@@ -107,7 +107,7 @@ or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav convertor.
+cdda2wav is a cd to wav converter.
 
 Automatically generated documentation
 for commands defined in module  cd-tool.
@@ -6212,10 +6212,10 @@ Display form specified by form-markup.
 Ebay search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor nil
+@deffn {Interactive Command} emacspeak-websearch-exchange-rate-converter nil
 @kbd{Not bound to any key.}
 
-Currency convertor.
+Currency converter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-foldoc-search nil
@@ -6451,10 +6451,10 @@ Search Wikipedia using Google.
 Perform an Yahoo  search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-convertor nil
+@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-converter nil
 @kbd{Not bound to any key.}
 
-Currency convertor.
+Currency converter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo-historical-chart nil
