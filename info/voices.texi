@@ -128,7 +128,7 @@ The ability to customize the voice via custom by editting
 the list of numbers in @samp{voice-bolden-settings}
 
 @item
-When that list is editted, @samp{voice-bolden} is arranged to be
+When that list is edited, @samp{voice-bolden} is arranged to be
 updated automatically.
 @end enumerate
 
