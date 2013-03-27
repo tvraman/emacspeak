@@ -18,7 +18,7 @@ packages that have been speech-enabled.
 * Browsing Structure:: Browsing Structure
 * Web Browsing:: Web Browsing
 * Messaging:: Messaging
-* Editting Program Source:: Editting Program Source
+* Editing Program Source:: Editing Program Source
 * Development Environment:: Development Environment
 * Desktop Management:: Desktop Management
 * Personal Information Management:: Personal Information Management
@@ -75,8 +75,8 @@ work habits when dealing with content in your messaging application.
   * emacspeak-mspools:: emacspeak-mspools
 @end menu
 
-@node Editting Program Source
-@section Editting Program Source Code
+@node Editing Program Source
+@section Editing Program Source Code
 
 Files containing program source code form a very specific class of
 @b{structured} documents.
