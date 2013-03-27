@@ -119,7 +119,7 @@ search string.
 
 All of the user commands available during incremental search are
 documented in the online Emacs info manual.  These are speech-enabled by
-Emacspeak to provide spoken prompts as the dialogue begins; auditory
+Emacspeak to provide spoken prompts as the dialog begins; auditory
 icons indicate a search hit or search miss as the search progresses.
 Along with auditory icons @emph{search-hit} and @emph{search-miss} the
 user also hears the current line spoken, and in the case of a search
@@ -131,7 +131,7 @@ current match.
 
 
 Search and replace actions are an extension to the basic
-conversational gestures of  a search dialogue.
+conversational gestures of  a search dialog.
 In addition to specifying a search string,
 the user also specifies a replacement string.
 On the Emacspeak desktop, this functionality is provided by
@@ -161,12 +161,12 @@ to the text being edited.  As an example, consider using command @emph{
 
 A more complex instance of conversational gesture ``search and
 replace'' is exhibited by standard spell checking dialogues.  Spell
-checking differs from the search and replace dialogue described above
+checking differs from the search and replace dialog described above
 in that the search and replacement text is guessed by the system based
 on an available dictionary.  Words that are not found in the
 dictionary are flagged as potential spelling errors, and the system
-offers an interactive search and replace dialogue for each of these
-possible errors.  During this dialogue, the system successively selects
+offers an interactive search and replace dialog for each of these
+possible errors.  During this dialog, the system successively selects
 each occurrence of the possibly erroneous word and offers a set of
 possible replacements.  Unlike in the case of simple search and
 replace, more than one possible replacement string is offered, since a
