@@ -89,7 +89,7 @@ or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav convertor.
+cdda2wav is a cd to wav converter.
 
 Automatically generated documentation
 for options defined in module  cd-tool.
@@ -200,8 +200,8 @@ Automatically generated documentation
 for options defined in module  emacspeak-add-log.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-change-log-acknowledgement-voice
-Personality used for change-log-acknowledgement
+@defvar {User Option} emacspeak-change-log-acknowledgment-voice
+Personality used for change-log-acknowledgment
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
@@ -3405,8 +3405,8 @@ Personality used for gnus-signature
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-summary-cancelled-voice
-Personality used for gnus-summary-cancelled
+@defvar {User Option} emacspeak-gnus-summary-canceled-voice
+Personality used for gnus-summary-canceled
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 
