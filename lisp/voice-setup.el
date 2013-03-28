@@ -70,7 +70,7 @@
 ;;; defining face->personality mappings.
 ;;; Older code calls def-voice-font directly, but over time those
 ;;; calls will be changed to the more succinct form provided by
-;;; voice-setup-add-map. For use from other moduels, also see
+;;; voice-setup-add-map. For use from other modules, also see
 ;;; function voice-setup-map-face which is useful when mapping a
 ;;; single face.
 ;;; Both voice-setup-add-map and voice-setup-map-face call
