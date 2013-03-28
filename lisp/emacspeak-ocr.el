@@ -261,7 +261,7 @@ The Emacspeak OCR front-end is launched by command
 emacspeak-ocr bound to \\[emacspeak-ocr].  
 
 This command switches to a special buffer that has OCR
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
