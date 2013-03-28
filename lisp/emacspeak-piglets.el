@@ -122,7 +122,7 @@ Keystrokes are sent to a connected Firefox."
         'backward-delete-char
         'backward-delete-char-untabify
         'completion-kill-region)
-  "Editting commands that emacspeak should rebind in Piglets mode")
+  "Editing commands that emacspeak should rebind in Piglets mode")
 
 (defun emacspeak-piglets-forward-keys ()
   "Set up Piglets mode to forward keys to Firefox."

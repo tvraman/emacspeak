@@ -267,7 +267,7 @@ window")))
     (message "Showing all markup attributes.")))
 
 ;;}}}
-;;{{{  editting attributes
+;;{{{  editing attributes
 
 (defadvice sgml-edit-attributes (after emacspeak pre act
                                        comp)
@@ -412,7 +412,7 @@ shortref- short reference")
 (defun emacspeak-psgml-toggle-interactive-font-lock()
   "Toggles variable sgml-set-face.
 When turned on, the  buffer is font locked interactively.
-Leave this off in general while editting."
+Leave this off in general while editing."
   (interactive)
   (declare (special sgml-set-face))
   (setq sgml-set-face (not sgml-set-face))

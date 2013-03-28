@@ -617,7 +617,7 @@ for the specified mode."
 ;;{{{  dictionary editor 
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
-  "Generate a widget-enabled edit buffer for editting the
+  "Generate a widget-enabled edit buffer for editing the
 pronunciation dictionary for the specified key."
   (declare (special emacspeak-pronounce-dictionaries))
   (unless emacspeak-pronounce-pronunciation-table
@@ -633,7 +633,7 @@ pronunciation dictionary for the specified key."
       (set-buffer  buffer)
       (widget-insert "\n")
       (widget-insert
-       (format "Editting pronunciation dictionary for %s\n\n" key))
+       (format "Editing pronunciation dictionary for %s\n\n" key))
       (widget-create 'repeat
                      :help-echo "Edit Pronunciations"
                      :tag "Pronunciations"

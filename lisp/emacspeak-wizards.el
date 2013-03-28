@@ -481,7 +481,7 @@ directory."
 ;;;###autoload
 (defun emacspeak-speak-telephone-directory (&optional edit)
   "Lookup and display a phone number.
-With prefix arg, opens the phone book for editting."
+With prefix arg, opens the phone book for editing."
   (interactive "P")
   (cond
    (edit

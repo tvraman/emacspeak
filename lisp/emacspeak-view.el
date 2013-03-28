@@ -288,7 +288,7 @@ keybindings for view mode")
         'delete-char
         'completion-kill-region
         )
-  "Editting commands that emacspeak should rebind in view mode")
+  "Editing commands that emacspeak should rebind in view mode")
 
 (defun emacspeak-view-optimize-view-keys()
   "optimize keybindings for emacspeak in view mode"

@@ -239,7 +239,7 @@ Speak field or char moved to."
   )
 
 (defun emacspeak-analog-update-edit-keys ()
-  "We define keys that invoke editting commands to invoke
+  "We define keys that invoke editing commands to invoke
 emacspeak-speak-and-skip-extent-upto-char "
   (declare (special analog-mode-map))
   (mapcar 
