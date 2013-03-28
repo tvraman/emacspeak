@@ -39,7 +39,7 @@
 
 ;;{{{  Introduction:
 
-;;; table.el provides rich table editting for emacs.
+;;; table.el provides rich table editing for emacs.
 ;;; this module speech-enables table.el
 
 ;;}}}

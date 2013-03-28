@@ -54,7 +54,7 @@
 ;;{{{  advice interactive commands
 
 (defadvice sh-mode (after emacspeak pre act comp)
-  "Speech-enable sh-script editting."
+  "Speech-enable sh-script editing."
   (dtk-set-punctuations 'all)
   (unless emacspeak-audio-indentation
     (emacspeak-toggle-audio-indentation))

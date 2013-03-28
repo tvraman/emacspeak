@@ -1,4 +1,4 @@
-;;; emacspeak-folding.el --- Speech enable Folding Mode -- enables structured editting
+;;; emacspeak-folding.el --- Speech enable Folding Mode -- enables structured editing
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for folding-mode

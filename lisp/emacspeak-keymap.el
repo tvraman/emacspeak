@@ -519,7 +519,7 @@ relief."
 ;;;###autoload
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
   (keymap)
-  "We define keys that invoke editting commands to be undefined"
+  "We define keys that invoke editing commands to be undefined"
   (loop for k in
         (where-is-internal 'emacspeak-self-insert-command
                            (list keymap))

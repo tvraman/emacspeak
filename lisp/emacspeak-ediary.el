@@ -40,7 +40,7 @@
 
 ;;{{{  Introduction:
 
-;;; ediary is a special mode for editting your.diary file.
+;;; ediary is a special mode for editing your.diary file.
 ;;; This module speech-enables ediary
 
 ;;}}}
