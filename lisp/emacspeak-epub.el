@@ -73,7 +73,7 @@
 ;;;###autoload
 (defcustom emacspeak-epub-library-directory
   (expand-file-name "~/epubs/")
-  "irectory under which we store Epubs."
+  "Directory under which we store Epubs."
   :type 'directory
   :group 'emacspeak-epub)
 ;;;###autoload

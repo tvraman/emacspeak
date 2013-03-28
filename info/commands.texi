@@ -5717,7 +5717,7 @@ Move by block level displays.
 
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
+specifies by how many elements to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-parsed-item nil
@@ -5731,7 +5731,7 @@ Move to and speak next parsed item.
 
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
+specifies by how many elements to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class nil

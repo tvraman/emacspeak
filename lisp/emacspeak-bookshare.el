@@ -518,7 +518,7 @@ The Emacspeak Bookshare front-end is launched by command
 emacspeak-bookshare bound to \\[emacspeak-bookshare]
 
 This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes-- see the ke-binding list at
+commands bounds to single keystrokes-- see the key-binding list at
 the end of this description. Use Emacs online help facility to
 look up help on these commands.
 

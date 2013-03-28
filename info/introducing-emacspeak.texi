@@ -1231,7 +1231,7 @@ eflite from the /usr/bin/ directory to the /usr/local/bin/ directory
 and renamed it to @file{/usr/local/bin/emacspeak-eflite}.
 
 I start Emacspeak with @code{espeakf} with a different shell script,
-called @file{/usr/local/bin/emacspeak-epeakf}.  (These names are not
+called @file{/usr/local/bin/emacspeak-espeakf}.  (These names are not
 very imaginative, but I can remember them.)
 
 @code{espeakf} is available from CVS on SourceForge.  Fortunately, it
