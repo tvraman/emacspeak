@@ -1014,7 +1014,7 @@ Typically used after the Dectalk has been power   cycled."
 
 ;;;###autoload
 (defun dtk-pause ()
-  "Temporarily pause / rsume speech."
+  "Temporarily pause / resume speech."
   (interactive)
   (declare (special dtk-paused))
   (cond

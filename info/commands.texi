@@ -198,7 +198,7 @@ Port  defaults to  dtk-local-server-port
 @deffn {Interactive Command} dtk-pause nil
 @kbd{Not bound to any key.}
 
-Temporarily pause / rsume speech.
+Temporarily pause / resume speech.
 @end deffn
 
 @deffn {Interactive Command} dtk-reset-state nil
