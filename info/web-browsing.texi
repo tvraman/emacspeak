@@ -185,9 +185,9 @@ variable can be customized in the usual ways, either in your @file{.emacs}
 file or via the @code{Customize} interface.  If you do set this variable,
 reading the mode line can still be achieved with @kbd{C-e m}.
 
-The @kbd{j} command will jump to the first occurance of the title in the
+The @kbd{j} command will jump to the first occurrence of the title in the
 document.  Each time you use this command in succession, it will jump
-to the next occurance of the title.  This is very convenient for web
+to the next occurrence of the title.  This is very convenient for web
 pages that have the title show up in multiple places in the document.
 The web site for The Register is a good example of this.
 
@@ -516,9 +516,9 @@ the story, such as Reuters.  Using a prefix argument with this command
 will untranscode the url under point for pages that are currently
 transcoded.
 
-@kbd{Cap T} will jump to the first occurance of the title in the
+@kbd{Cap T} will jump to the first occurrence of the title in the
 document.  Multiple consecutive executions of this command will jump
-to further occurances.  This command is probably one of the most
+to further occurrences.  This command is probably one of the most
 useful timesavers while web browsing.   
 
 @kbd{M-s} jumps to the ``submit'' button for the form you are editing.
