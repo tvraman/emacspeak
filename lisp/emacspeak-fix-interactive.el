@@ -145,7 +145,7 @@ use the minibuffer."
       ;; cannot handle automatically -- tell developer
       ;; since subsequent prompts use earlier args e.g.global-set-key
       (push sym emacspeak-fix-interactive-problematic-functions)
-      (message "Not auto-advicing %s" sym))))
+      (message "Not auto-advising %s" sym))))
   t)
 
 ;;; inline function for use from other modules:

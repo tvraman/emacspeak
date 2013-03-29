@@ -1,6 +1,8 @@
+acknowledgement
 acss
 ACSS
 adm
+advicing
 al
 alist
 Alist
@@ -68,6 +70,7 @@ builtin
 bulleted
 calc
 CalTrain
+cancelled
 cd
 cdda
 cdplay
@@ -102,7 +105,9 @@ comint
 commandWord
 conf
 config
+contnets
 contrib
+convertor
 cp
 cpan
 CPAN
@@ -171,6 +176,7 @@ eflite
 EFLITE
 eintr
 el
+eleemnts
 elif
 elisp
 elpa
@@ -304,7 +310,6 @@ insertcopying
 internet
 iPlayer
 IRC
-irectory
 isbn
 iso
 ispell
@@ -321,7 +326,6 @@ js
 JS
 ju
 kbd
-ke
 keybinding
 keybindings
 Keybindings
@@ -375,7 +379,6 @@ minibuffer
 MLB
 mml
 modeline
-moduels
 mogrify
 moniter
 moz
@@ -472,6 +475,7 @@ rdc
 Realtime
 reb
 Redhat
+refered
 refontified
 renderer
 repl
@@ -488,6 +492,7 @@ rolodex
 rpmfind
 rss
 RSS
+rsume
 rw
 sak
 samp
@@ -496,6 +501,7 @@ scanimage
 screenfull
 screenreader
 screenreaders
+scroling
 searchable
 Searchable
 setenv
