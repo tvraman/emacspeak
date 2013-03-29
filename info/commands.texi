@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 986 commands.
+This chapter documents a total of 976 commands.
 
 @menu
 * cd-tool::
@@ -28,7 +28,6 @@ This chapter documents a total of 986 commands.
 * emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
-* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -46,7 +45,6 @@ This chapter documents a total of 986 commands.
 * emacspeak-hide::
 * emacspeak-ibuffer::
 * emacspeak-imenu::
-* emacspeak-info::
 * emacspeak-jabber::
 * emacspeak-keymap::
 * emacspeak-librivox::
@@ -75,7 +73,6 @@ This chapter documents a total of 986 commands.
 * emacspeak-tnt::
 * emacspeak-url-template::
 * emacspeak-view::
-* emacspeak-vm::
 * emacspeak-w3::
 * emacspeak-w3m::
 * emacspeak-we::
@@ -89,6 +86,7 @@ This chapter documents a total of 986 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
+* emacspeak-info::
 * emacspeak-jawbreaker::
 * emacspeak-moz::
 * emacspeak-org::
@@ -198,7 +196,7 @@ Port  defaults to  dtk-local-server-port
 @deffn {Interactive Command} dtk-pause nil
 @kbd{Not bound to any key.}
 
-Temporarily pause / rsume speech.
+Temporarily pause / resume speech.
 @end deffn
 
 @deffn {Interactive Command} dtk-reset-state nil
@@ -492,7 +490,7 @@ Skip backwards by  chunks of minutes.
 @deffn {Interactive Command} emacspeak-alsaplayer-cd nil
 @kbd{Not bound to any key.}
 
-Change default directory, and silence its pronounciation.
+Change default directory, and silence its pronunciation.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-clear nil
@@ -906,13 +904,13 @@ Once retrieved, memoize to avoid multiple retrievals.
 @deffn {Interactive Command} emacspeak-bookshare-extract-and-view nil
 @kbd{Not bound to any key.}
 
-Extract content refered to by link under point, and render via the browser.
+Extract content referred to by link under point, and render via the browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-extract-xml nil
 @kbd{Not bound to any key.}
 
-Extract content refered to by link under point, and return an XML buffer.
+Extract content referred to by link under point, and return an XML buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines nil
@@ -1625,26 +1623,6 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track nil
-@kbd{Not bound to any key.}
-
-Speak current track.
-@end deffn
-
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -1813,7 +1791,7 @@ No book files are deleted.
 @kbd{Not bound to any key.}
 
 Saves current bookshelf to  specified name.
-Interactive prefix arg `overwrite' wil overwrite existing file.
+Interactive prefix arg `overwrite' will overwrite existing file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-save nil
@@ -1943,7 +1921,7 @@ for commands defined in module  emacspeak-erc.
 @deffn {Interactive Command} emacspeak-erc-add-name-to-monitor nil
 @kbd{Not bound to any key.}
 
-Add people to moniter in this room.
+Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name.
 @end deffn
@@ -2808,29 +2786,6 @@ Goto the previous index position in current buffer
 @kbd{Not bound to any key.}
 
 Speak upto start of next index entry
-@end deffn
-
-@node emacspeak-info
-@section emacspeak-info
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-info.
-
-@deffn {Interactive Command} emacspeak-info-speak-header nil
-@kbd{Not bound to any key.}
-
-Speak info header line.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-info-wizard nil
-@kbd{ control h TAB   <f1> TAB   <help> TAB }
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
 @end deffn
 
 @node emacspeak-jabber
@@ -5594,65 +5549,6 @@ for commands defined in module  emacspeak-view.
 Moves current line to top of window
 @end deffn
 
-@node emacspeak-vm
-@section emacspeak-vm
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-vm.
-
-@deffn {Interactive Command} emacspeak-vm-browse-message nil
-@kbd{Not bound to any key.}
-
-Browse an email message --read it paragraph at a time. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-catch-up-all-messages nil
-@kbd{Not bound to any key.}
-
-Mark all messages in folder to be deleted. Use with caution.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-locate-subject-line nil
-@kbd{Not bound to any key.}
-
-Locates the subject line in a message being read.
-Useful when you're reading a message
-that has been forwarded multiple times.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-mode-line nil
-@kbd{Not bound to any key.}
-
-VM mode line information. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-next-button nil
-@kbd{Not bound to any key.}
-
-Move point to N buttons forward.
-If N is negative, move backward instead.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-speak-labels nil
-@kbd{Not bound to any key.}
-
-Speak a message's labels
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-speak-message nil
-@kbd{Not bound to any key.}
-
-Move point to the message body.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-vm-yank-header nil
-@kbd{Not bound to any key.}
-
-Yank specified header into kill ring.
-@end deffn
-
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -6596,7 +6492,7 @@ Unsubscribe to link under point.
 @deffn {Interactive Command} emacspeak-webspace-reading-list nil
 @kbd{ control ; SPACE r   hyper  SPACE r }
 
-Set up scroling reading list in header.
+Set up scrolling reading list in header.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reading-list-accumulate nil
@@ -8095,6 +7991,25 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
+@node emacspeak-info
+@section emacspeak-info
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-info.
+
+@deffn {Interactive Command} emacspeak-info-wizard nil
+@kbd{ control h TAB   <f1> TAB   <help> TAB }
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+(fn NODE-SPEC)
+@end deffn
+
 @node emacspeak-jawbreaker
 @section emacspeak-jawbreaker
 
@@ -8537,13 +8452,13 @@ CNN Content
 
 CNN Money
 
-@kbd{CNN Tecnology }
-
-CNN Technology news.
-
 @kbd{CNN headlines }
 
 Retrieve and speak headline news from CNN.
+
+@kbd{CNN technology }
+
+CNN Technology news.
 
 @kbd{CNNContent}
 
