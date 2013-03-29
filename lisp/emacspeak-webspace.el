@@ -557,7 +557,7 @@ Leaves point on the title returned in the reading list buffer."
 
 ;;;###autoload
 (defun emacspeak-webspace-reading-list ()
-  "Set up scroling reading list in header."
+  "Set up scrolling reading list in header."
   (interactive)
   (declare (special emacspeak-webspace-reading-list-buffer
                     emacspeak-webspace-reading-list-timer))
