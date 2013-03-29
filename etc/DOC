@@ -624,7 +624,7 @@ The Emacspeak Bookshare front-end is launched by command
 emacspeak-bookshare bound to C-e C-b
 
 This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes-- see the ke-binding list at
+commands bounds to single keystrokes-- see the key-binding list at
 the end of this description. Use Emacs online help facility to
 look up help on these commands.
 
@@ -832,7 +832,7 @@ The Emacspeak DAISY front-end is launched by command
 emacspeak-daisy-open-book  bound to M-x emacspeak-daisy-open-book.
 
 This command switches to a special buffer that has DAISY
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
@@ -2274,7 +2274,7 @@ The Emacspeak OCR front-end is launched by command
 emacspeak-ocr bound to C-e C-o.  
 
 This command switches to a special buffer that has OCR
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
@@ -4834,7 +4834,7 @@ normally bound to C-e TAB.
 ------------------------------------------------------------
 
 ** emacspeak-speak-telephone-directory Lookup and display a phone number.
-With prefix arg, opens the phone book for editting. 
+With prefix arg, opens the phone book for editing. 
 
 ------------------------------------------------------------
 

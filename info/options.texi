@@ -89,7 +89,7 @@ or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav converter.
+cdda2wav is a cd to wav convertor.
 
 Automatically generated documentation
 for options defined in module  cd-tool.
@@ -200,8 +200,8 @@ Automatically generated documentation
 for options defined in module  emacspeak-add-log.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-change-log-acknowledgment-voice
-Personality used for change-log-acknowledgment
+@defvar {User Option} emacspeak-change-log-acknowledgement-voice
+Personality used for change-log-acknowledgement
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
@@ -241,7 +241,7 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 Commentary:
 This module defines the advice forms for making the core of Emacs speak
 Advice forms that are specific to Emacs subsystems do not belong here!
-I violate this at present by advising completion comint and
+I violate this at present by advicing completion comint and
 shell here.
 
 Note that we needed to advice a lot more for Emacs  19 and
@@ -753,7 +753,7 @@ Command to convert html to text on stdin.
 @end defvar
 
 @defvar {User Option} emacspeak-epub-library-directory
-irectory under which we store Epubs.
+Directory under which we store Epubs.
 @end defvar
 
 @node emacspeak-erc Options
@@ -2684,7 +2684,7 @@ Newer Emacspeak modules should use voice-setup-add-map when
 defining face->personality mappings.
 Older code calls def-voice-font directly, but over time those
 calls will be changed to the more succinct form provided by
-voice-setup-add-map. For use from other moduels, also see
+voice-setup-add-map. For use from other modules, also see
 function voice-setup-map-face which is useful when mapping a
 single face.
 Both voice-setup-add-map and voice-setup-map-face call
@@ -3405,8 +3405,8 @@ Personality used for gnus-signature
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-summary-canceled-voice
-Personality used for gnus-summary-canceled
+@defvar {User Option} emacspeak-gnus-summary-cancelled-voice
+Personality used for gnus-summary-cancelled
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 

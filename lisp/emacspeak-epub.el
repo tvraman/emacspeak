@@ -368,7 +368,7 @@ Useful if table of contents in toc.ncx is empty."
                           "\n"))))
 (defun emacspeak-epub-bookshelf-rename (name &optional overwrite)
   "Saves current bookshelf to  specified name.
-Interactive prefix arg `overwrite' wil overwrite existing file."
+Interactive prefix arg `overwrite' will overwrite existing file."
   (interactive "sBookshelf Name: \nP")
   (declare (special emacspeak-epub-library-directory))
   (setq name (format "%s.bsf" name))

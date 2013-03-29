@@ -23,7 +23,7 @@ The manual is divided into the following chapters.
 * Emacspeak Commands:  Emacspeak Commands.
 * Emacspeak Customizations:  Emacspeak Customizations.
 * TTS Servers:  TTS Servers.
-* Acknowledgements: Acknowledgements.
+* Acknowledgments: Acknowledgments.
 
 Indices:
 
