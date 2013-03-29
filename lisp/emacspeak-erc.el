@@ -156,7 +156,7 @@ spoken.")
 
 (defun emacspeak-erc-add-name-to-monitor (name &optional
                                                quiten-pronunciation)
-  "Add people to moniter in this room.
+  "Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name."
   (interactive
