@@ -388,7 +388,7 @@ Optional second arg watch-pattern specifies line of output to
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-cd (directory)
-  "Change default directory, and silence its pronounciation."
+  "Change default directory, and silence its pronunciation."
   (interactive
    (list
     (read-directory-name "Change to directory: ")))
