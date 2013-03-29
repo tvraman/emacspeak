@@ -2171,10 +2171,10 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @section emacspeak-url-template Options
 
 Commentary:
-It is often useful to have ``parameterized hot list entries''
+It is often useful to have ``parametrized hot list entries''
 i.e., hotlist entries  that are ``templates'' for the
 actual URL.
-The user provides values for the parameterized portions
+The user provides values for the parametrized portions
 of the URL e.g. the date.
 See @xref{URL Templates}, for details on the URL templates
 that are presently defined.
