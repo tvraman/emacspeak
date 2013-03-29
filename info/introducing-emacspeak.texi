@@ -52,7 +52,7 @@
     introducing-emacspeak.texi
 
   ## Please remember to reset update-date and copyright before committing
-  ## to the CVS respository on cvs.sourceforge.net
+  ## to the CVS repository on cvs.sourceforge.net
   ##
   ## First run CVS update.
   ## Then run the CVS commit commands like this:
