@@ -48,7 +48,7 @@
 
 ;;; This module defines the advice forms for making the core of Emacs speak
 ;;; Advice forms that are specific to Emacs subsystems do not belong here!
-;;; I violate this at present by advicing completion comint and
+;;; I violate this at present by advising completion comint and
 ;;; shell here.
 
 ;;; Note that we needed to advice a lot more for Emacs  19 and
