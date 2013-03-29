@@ -6596,7 +6596,7 @@ Unsubscribe to link under point.
 @deffn {Interactive Command} emacspeak-webspace-reading-list nil
 @kbd{ control ; SPACE r   hyper  SPACE r }
 
-Set up scroling reading list in header.
+Set up scrolling reading list in header.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reading-list-accumulate nil
