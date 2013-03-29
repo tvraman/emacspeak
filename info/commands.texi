@@ -906,13 +906,13 @@ Once retrieved, memoize to avoid multiple retrievals.
 @deffn {Interactive Command} emacspeak-bookshare-extract-and-view nil
 @kbd{Not bound to any key.}
 
-Extract content refered to by link under point, and render via the browser.
+Extract content referred to by link under point, and render via the browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-extract-xml nil
 @kbd{Not bound to any key.}
 
-Extract content refered to by link under point, and return an XML buffer.
+Extract content referred to by link under point, and return an XML buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines nil

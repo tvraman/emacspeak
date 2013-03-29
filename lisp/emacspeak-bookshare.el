@@ -1082,7 +1082,7 @@ Make sure it's downloaded and unpacked first."
          (directory-files directory 'full ".xml"))))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
-  "Extract content refered to by link under point, and return an XML buffer."
+  "Extract content referred to by link under point, and return an XML buffer."
   (interactive "sURL: ")
   (declare (special  emacspeak-we-xsl-filter))
   (let ((fields (split-string url "#"))
@@ -1099,7 +1099,7 @@ Make sure it's downloaded and unpacked first."
       (format "//*[@id=\"%s\"]" id) url))))
 
 (defun emacspeak-bookshare-extract-and-view (url)
-  "Extract content refered to by link under point, and render via the browser."
+  "Extract content referred to by link under point, and render via the browser."
   (interactive "sURL: ")
   (declare (special emacspeak-bookshare-browser-function))
   (let ((result (emacspeak-bookshare-extract-xml url))
