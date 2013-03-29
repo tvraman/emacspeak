@@ -1562,7 +1562,7 @@ name of the list.")
                                        "%m/%d") )
 
 (emacspeak-url-template-define
- "CNN Tecnology "
+ "CNN technology "
  "http://www.cnn.com/TECH/"
  nil
  #'(lambda nil

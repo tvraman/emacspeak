@@ -172,7 +172,7 @@ The codes are inserted into the  output queue and will be dispatched to
         tts_set_punctuations mode
         @end example
 
-        Sets TTS engine to the specified punctuation mode. Typicaly, TTS
+        Sets TTS engine to the specified punctuation mode. Typically, TTS
         servers provide at least three modes:
         @itemize @bullet
         @item None: Do not speak punctuation characters.

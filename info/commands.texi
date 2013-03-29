@@ -107,7 +107,7 @@ or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav converter.
+cdda2wav is a cd to wav convertor.
 
 Automatically generated documentation
 for commands defined in module  cd-tool.
@@ -198,7 +198,7 @@ Port  defaults to  dtk-local-server-port
 @deffn {Interactive Command} dtk-pause nil
 @kbd{Not bound to any key.}
 
-Temporarily pause / resume speech.
+Temporarily pause / rsume speech.
 @end deffn
 
 @deffn {Interactive Command} dtk-reset-state nil
@@ -906,13 +906,13 @@ Once retrieved, memoize to avoid multiple retrievals.
 @deffn {Interactive Command} emacspeak-bookshare-extract-and-view nil
 @kbd{Not bound to any key.}
 
-Extract content referred to by link under point, and render via the browser.
+Extract content refered to by link under point, and render via the browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-extract-xml nil
 @kbd{Not bound to any key.}
 
-Extract content referred to by link under point, and return an XML buffer.
+Extract content refered to by link under point, and return an XML buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines nil
@@ -967,7 +967,7 @@ The Emacspeak Bookshare front-end is launched by command
 emacspeak-bookshare bound to C-e C-b
 
 This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes-- see the ke-binding list at
+commands bounds to single keystrokes-- see the key-binding list at
 the end of this description. Use Emacs online help facility to
 look up help on these commands.
 
@@ -1298,7 +1298,7 @@ The Emacspeak DAISY front-end is launched by command
 emacspeak-daisy-open-book  bound to M-x emacspeak-daisy-open-book.
 
 This command switches to a special buffer that has DAISY
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
@@ -2283,7 +2283,7 @@ there is terminal activity.
 @kbd{Not bound to any key.}
 
 Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contents 
+In review mode, you can move around the terminal and listen to the contnets 
 without sending input to the terminal itself.
 @end deffn
 
@@ -3586,7 +3586,7 @@ The Emacspeak OCR front-end is launched by command
 emacspeak-ocr bound to C-e C-o.  
 
 This command switches to a special buffer that has OCR
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
@@ -5717,7 +5717,7 @@ Move by block level displays.
 
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
-specifies by how many elements to move.
+specifies by how many eleemnts to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-parsed-item nil
@@ -5731,7 +5731,7 @@ Move to and speak next parsed item.
 
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT
-specifies by how many elements to move.
+specifies by how many eleemnts to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class nil
@@ -6212,10 +6212,10 @@ Display form specified by form-markup.
 Ebay search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-exchange-rate-converter nil
+@deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor nil
 @kbd{Not bound to any key.}
 
-Currency converter.
+Currency convertor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-foldoc-search nil
@@ -6451,10 +6451,10 @@ Search Wikipedia using Google.
 Perform an Yahoo  search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-converter nil
+@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-convertor nil
 @kbd{Not bound to any key.}
 
-Currency converter.
+Currency convertor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo-historical-chart nil
@@ -6596,7 +6596,7 @@ Unsubscribe to link under point.
 @deffn {Interactive Command} emacspeak-webspace-reading-list nil
 @kbd{ control ; SPACE r   hyper  SPACE r }
 
-Set up scrolling reading list in header.
+Set up scroling reading list in header.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reading-list-accumulate nil
@@ -8059,7 +8059,7 @@ Newer Emacspeak modules should use voice-setup-add-map when
 defining face->personality mappings.
 Older code calls def-voice-font directly, but over time those
 calls will be changed to the more succinct form provided by
-voice-setup-add-map. For use from other moduels, also see
+voice-setup-add-map. For use from other modules, also see
 function voice-setup-map-face which is useful when mapping a
 single face.
 Both voice-setup-add-map and voice-setup-map-face call
