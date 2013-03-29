@@ -92,7 +92,7 @@ pub:  html/index.html introducing-emacspeak.html
 	@dvips -q   -Pwww  $< 2>&1  > /dev/null 
 
 clean: 
-
+	\rm *.info
 
 spell:
 	@mv .spell.words .spell.tex

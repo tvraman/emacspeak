@@ -64,7 +64,7 @@ Port  defaults to  dtk-local-server-port
 
 ------------------------------------------------------------
 
-** dtk-pause Temporarily pause / rsume speech. 
+** dtk-pause Temporarily pause / resume speech. 
 
 ------------------------------------------------------------
 
@@ -311,7 +311,7 @@ As the default, use current position.
 
 ------------------------------------------------------------
 
-** emacspeak-alsaplayer-cd Change default directory, and silence its pronounciation. 
+** emacspeak-alsaplayer-cd Change default directory, and silence its pronunciation. 
 
 ------------------------------------------------------------
 
@@ -581,11 +581,11 @@ Once retrieved, memoize to avoid multiple retrievals.
 
 ------------------------------------------------------------
 
-** emacspeak-bookshare-extract-and-view Extract content refered to by link under point, and render via the browser. 
+** emacspeak-bookshare-extract-and-view Extract content referred to by link under point, and render via the browser. 
 
 ------------------------------------------------------------
 
-** emacspeak-bookshare-extract-xml Extract content refered to by link under point, and return an XML buffer. 
+** emacspeak-bookshare-extract-xml Extract content referred to by link under point, and return an XML buffer. 
 
 ------------------------------------------------------------
 
@@ -1039,10 +1039,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1129,7 +1125,7 @@ No book files are deleted.
 ------------------------------------------------------------
 
 ** emacspeak-epub-bookshelf-rename Saves current bookshelf to  specified name.
-Interactive prefix arg `overwrite' wil overwrite existing file. 
+Interactive prefix arg `overwrite' will overwrite existing file. 
 
 ------------------------------------------------------------
 
@@ -1223,7 +1219,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-erc-add-name-to-monitor Add people to moniter in this room.
+** emacspeak-erc-add-name-to-monitor Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name. 
 
@@ -1758,19 +1754,6 @@ and when you have heard enough navigate easily  to move past the block.
 ------------------------------------------------------------
 
 ** emacspeak-imenu-speak-this-section Speak upto start of next index entry 
-
-------------------------------------------------------------
-
-** emacspeak-info-speak-header Speak info header line. 
-
-------------------------------------------------------------
-
-** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
-
- Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec. 
 
 ------------------------------------------------------------
 
@@ -3749,41 +3732,6 @@ resources.
 
 ------------------------------------------------------------
 
-** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
-Useful when you're reading a message
-that has been forwarded multiple times. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-mode-line VM mode line information.  
-
-------------------------------------------------------------
-
-** emacspeak-vm-next-button Move point to N buttons forward.
-If N is negative, move backward instead. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-labels Speak a message's labels 
-
-------------------------------------------------------------
-
-** emacspeak-vm-speak-message Move point to the message body. 
-
-------------------------------------------------------------
-
-** emacspeak-vm-yank-header Yank specified header into kill ring. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-curl-url-under-point Display contents of URL under point using Curl and W3.  The
 document is displayed in a separate buffer.  
 
@@ -4428,7 +4376,7 @@ Save Reader subscriptions to a specified file.
 
 ** emacspeak-webspace-reading-list	Key Sequence: control ; SPACE r   hyper  SPACE r 
 
- Set up scroling reading list in header. 
+ Set up scrolling reading list in header. 
 
 ------------------------------------------------------------
 
@@ -5524,6 +5472,17 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
+
+------------------------------------------------------------
+
+** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
+
+ Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+(fn NODE-SPEC) 
 
 ------------------------------------------------------------
 
