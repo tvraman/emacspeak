@@ -65,7 +65,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'calendar))
-                   
+
 (require 'voice-setup)
 (require 'thingatpt)
 (eval-when (compile)

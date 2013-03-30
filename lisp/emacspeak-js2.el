@@ -157,8 +157,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-                                        
-
 ;;}}}
 ;;{{{ js2-mode hook
 

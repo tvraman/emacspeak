@@ -840,10 +840,10 @@ Tue Apr 24 17:33:27 PDT 2012
 (defsubst emacspeak-w3-canonicalize-google-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
-(url-unhex-string 
-  (substring url
-             (if emacspeak-websearch-google-use-https 29 28)
-             (string-match "&sa=" url))))
+  (url-unhex-string 
+   (substring url
+              (if emacspeak-websearch-google-use-https 29 28)
+              (string-match "&sa=" url))))
 
 (defsubst emacspeak-w3-google-result-url-prefix ()
   "Return prefix of result urls."

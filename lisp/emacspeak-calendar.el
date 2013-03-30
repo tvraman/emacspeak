@@ -276,10 +276,10 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
-  "Speak modeline. "
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))))
+          "Speak modeline. "
+          (when (ems-interactive-p  )
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-mode-line)))))
 
 (defadvice insert-block-diary-entry (before emacspeak pre act)
   "Speak the line. "

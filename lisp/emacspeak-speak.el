@@ -1519,8 +1519,6 @@ indicating the arrival  of new mail when displaying the mode line.")
           (puthash buffer-name result emacspeak-voicefied-buffer-names)
           result))))
 
-
-
 (defvar emacspeak-voicefied-recursion-info
   (make-hash-table :test 'eq)
   "Hash table mapping recursive-depth levels  to their voicefied equivalents.")
@@ -1539,8 +1537,6 @@ indicating the arrival  of new mail when displaying the mode line.")
                                'personality voice-smoothen result)
             (puthash level result emacspeak-voicefied-buffer-names)
             result))))))
-
-
 
 (defvar emacspeak-voicefied-frame-info
   (make-hash-table)
@@ -1561,8 +1557,6 @@ indicating the arrival  of new mail when displaying the mode line.")
                                'personality voice-lighten-extra frame-info)
             (puthash  frame-name frame-info emacspeak-voicefied-frame-info)
             frame-info))))))
-         
-
 
 ;;}}}
 ;;{{{  Speak mode line information
@@ -1633,7 +1627,7 @@ Interactive prefix arg speaks buffer info."
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or (eq major-mode 'shell-mode)
                               (eq major-mode 'comint-mode))
-                        (abbreviate-file-name default-directory))))
+                      (abbreviate-file-name default-directory))))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline

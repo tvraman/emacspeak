@@ -457,7 +457,6 @@ Save Reader subscriptions to a specified file."
       (insert "</ol>\n</body>\n</html>\n")
       (save-buffer))))
 
-
 ;;;###autoload 
 (defun emacspeak-webspace-reader (&optional refresh)
   "Display Google Reader Feed list in a WebSpace buffer.
