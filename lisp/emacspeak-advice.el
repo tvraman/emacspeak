@@ -82,7 +82,6 @@
 ;;}}}
 ;;{{{ emacs 24.3.50 work-around *to-be-deleted*
 
-
 ;;; This is to work around a bug in the new advice.el from Emacs 24.3.50 head:
 
 ;; (defadvice help-function-arglist (around fix-bug pre act comp)
@@ -587,7 +586,6 @@ the words that were capitalized."
   (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char ))))
 
-
 ;;;###autoload
 (defvar emacspeak-speak-read-events t
   "Set to nil to silence read-event.")
@@ -712,11 +710,9 @@ Handle end-of-buffer and beginning-of-buffer specially."
 
 ;;}}}
 
-
 ;;;###autoload
 (defvar emacspeak-speak-errors t
   "Specifies if error messages are cued.")
-  
 
 (defadvice error (before emacspeak pre act comp)
   "Speak the error message.

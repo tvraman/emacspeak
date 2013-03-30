@@ -466,15 +466,14 @@ This variable is buffer-local.")
   "Provide auditory feedback."
   (cond
    ((ems-interactive-p)
-      ad-do-it
-      (emacspeak-speak-region  (point)
-                               (or 
-                               (next-single-property-change (point) 'place-details )
-                               (point-max))))
+    ad-do-it
+    (emacspeak-speak-region  (point)
+                             (or 
+                              (next-single-property-change (point) 'place-details )
+                              (point-max))))
    (t ad-do-it))
   ad-return-value)
 
-      
 ;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file

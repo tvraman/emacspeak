@@ -78,13 +78,13 @@
        (unwind-protect
            (progn
              (unless (eq ,setting save-punctuation-mode)
-	       (dtk-interp-set-punctuations ,setting)
+               (dtk-interp-set-punctuations ,setting)
                (setq dtk-punctuation-mode ,setting))
              ,@body
              (dtk-force))
          (unless (eq  ,setting  save-punctuation-mode)
            (setq dtk-punctuation-mode save-punctuation-mode)
-	   (dtk-interp-set-punctuations ,setting))
+           (dtk-interp-set-punctuations ,setting))
          (dtk-force)))))
 
 ;;}}}
@@ -119,7 +119,6 @@
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "c {%s }\n" code)))
-
 
 (defsubst dtk-interp-queue-set-rate(rate)
   (declare (special dtk-speaker-process))

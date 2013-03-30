@@ -111,7 +111,6 @@ This is useful when handling bad HTML."
 ;;}}}
 ;;{{{ Functions:
 
-
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params no-comment)
   "Apply XSLT transformation to region and replace it with

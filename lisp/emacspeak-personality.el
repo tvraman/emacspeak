@@ -132,7 +132,7 @@ Existing personality properties on the text range are preserved."
                        (if (listp orig) orig (list orig))
                        (if (listp v) v (list v)))))
                (put-text-property start extent
-                                          'personality new object))
+                                  'personality new object))
              (when (< extent end)
                (emacspeak-personality-append extent end v object)))))))
     (error nil)))
@@ -170,7 +170,7 @@ Existing personality properties on the text range are preserved."
                        (if (listp v) v (list v))
                        (if (listp orig) orig (list orig)))))
                (put-text-property start extent
-                                          'personality new object))
+                                  'personality new object))
              (when (< extent end)
                (emacspeak-personality-prepend extent end v object)))))))
     (error nil)))
@@ -203,10 +203,10 @@ preserved."
                     (t nil)))
              (if new
                  (put-text-property start extent
-                                            'personality new object)
+                                    'personality new object)
                (remove-text-properties start extent
-                                               (list 'personality )
-                                               object))
+                                       (list 'personality )
+                                       object))
              (when (< extent end)
                (emacspeak-personality-remove extent end
                                              personality)))))))
@@ -285,7 +285,7 @@ displayed in the messages area."
         (setq voice (ems-get-voice-for-face value))
         (when voice
           (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-          
+
 (defadvice add-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
   (when (and voice-lock-mode    emacspeak-personality-voiceify-faces)
@@ -301,7 +301,6 @@ displayed in the messages area."
             (setq voice (ems-get-voice-for-face value))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-          
 
 (defadvice set-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
@@ -319,7 +318,7 @@ displayed in the messages area."
         (setq voice (ems-get-voice-for-face value))
         
         (when voice
-                (funcall emacspeak-personality-voiceify-faces start end voice object))))))
+          (funcall emacspeak-personality-voiceify-faces start end voice object))))))
 
 (defadvice propertize (around emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
@@ -334,16 +333,13 @@ displayed in the messages area."
             voice-lock-mode facep)
       ad-do-it
       (setq value (second facep))
-            (setq voice (ems-get-voice-for-face value))
-            (when voice
-              (funcall emacspeak-personality-voiceify-faces 0
-                       (length ad-return-value) voice ad-return-value)))
+      (setq voice (ems-get-voice-for-face value))
+      (when voice
+        (funcall emacspeak-personality-voiceify-faces 0
+                 (length ad-return-value) voice ad-return-value)))
      (t ad-do-it))
-     ad-return-value))
-            
-        
-     
-    
+    ad-return-value))
+
 ;;; If a face property is being removed, set personality  to nil:
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)

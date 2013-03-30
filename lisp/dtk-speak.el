@@ -610,23 +610,23 @@ Argument COMPLEMENT  is the complement of separator."
               (and (listp voice)
                    (member 'inaudible voice)))
     (dtk-interp-queue-code
-             (cond
-              ((symbolp voice)
-               (tts-get-voice-command
-                (if (boundp  voice )
-                    (symbol-value voice )
-                  voice)))
-              ((listp voice)
-               (mapconcat  #'(lambda (v)
-                               (tts-get-voice-command
-                                (if (boundp  v )
-                                    (symbol-value v )
-                                  v)))
-                           voice
-                           " "))
-              (t       "")))
-             (dtk-interp-queue text)
-             (dtk-interp-queue-code tts-voice-reset-code)))
+     (cond
+      ((symbolp voice)
+       (tts-get-voice-command
+        (if (boundp  voice )
+            (symbol-value voice )
+          voice)))
+      ((listp voice)
+       (mapconcat  #'(lambda (v)
+                       (tts-get-voice-command
+                        (if (boundp  v )
+                            (symbol-value v )
+                          v)))
+                   voice
+                   " "))
+      (t       "")))
+    (dtk-interp-queue text)
+    (dtk-interp-queue-code tts-voice-reset-code)))
 
 ;;;Internal function used by dtk-speak to send text out.
 ;;;Handles voice locking etc.
@@ -1697,8 +1697,6 @@ Port  defaults to  dtk-local-server-port"
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
-
-
 (defvar tts-debug-buffer " *speaker*"
   "Buffer holding speech server debug output.")
 
@@ -1901,7 +1899,6 @@ only speak upto the first ctrl-m."
   (let ((emacspeak-speak-messages nil))
     (dtk-speak message) 
     (message message)))
-
 
 (defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.

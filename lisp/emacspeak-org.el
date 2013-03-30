@@ -132,17 +132,17 @@
 
 (loop for f in
       '(org-mark-ring-goto org-mark-ring-push
-        org-forward-same-level org-backward-same-level
-        org-next-link org-previous-link org-open-at-point
-        org-goto  org-goto-ret
-        org-goto-left org-goto-right
-        org-goto-quit
-        org-next-item org-previous-item
-        org-metaleft org-metaright org-metaup org-metadown
-        org-meta-return
-        org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-        org-mark-element org-mark-subtree
-        )
+                           org-forward-same-level org-backward-same-level
+                           org-next-link org-previous-link org-open-at-point
+                           org-goto  org-goto-ret
+                           org-goto-left org-goto-right
+                           org-goto-quit
+                           org-next-item org-previous-item
+                           org-metaleft org-metaright org-metaup org-metadown
+                           org-meta-return
+                           org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+                           org-mark-element org-mark-subtree
+                           )
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)

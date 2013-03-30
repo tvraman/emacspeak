@@ -331,15 +331,15 @@ If already at the beginning then move to previous block."
 ;;{{{ Voice Mappings:
 (voice-setup-add-map
  '(
- (py-number-face voice-lighten)
- (py-XXX-tag-face voice-animate)
- (py-pseudo-keyword-face voice-bolden-medium)
- (py-variable-name-face  emacspeak-voice-lock-variable-name-personality)
- (py-decorators-face voice-lighten)
- (py-builtins-face emacspeak-voice-lock-builtin-personality)
- (py-class-name-face voice-bolden-extra)
- (py-exception-name-face emacspeak-voice-lock-warning-personality)))
- 
+   (py-number-face voice-lighten)
+   (py-XXX-tag-face voice-animate)
+   (py-pseudo-keyword-face voice-bolden-medium)
+   (py-variable-name-face  emacspeak-voice-lock-variable-name-personality)
+   (py-decorators-face voice-lighten)
+   (py-builtins-face emacspeak-voice-lock-builtin-personality)
+   (py-class-name-face voice-bolden-extra)
+   (py-exception-name-face emacspeak-voice-lock-warning-personality)))
+
 ;;}}}
 (provide 'emacspeak-py )
 ;;{{{ end of file 
