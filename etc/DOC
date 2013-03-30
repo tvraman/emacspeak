@@ -1039,6 +1039,10 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-emms-speak-current-track Speak current track. 
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voicifying rich text. 
 
@@ -1754,6 +1758,19 @@ and when you have heard enough navigate easily  to move past the block.
 ------------------------------------------------------------
 
 ** emacspeak-imenu-speak-this-section Speak upto start of next index entry 
+
+------------------------------------------------------------
+
+** emacspeak-info-speak-header Speak info header line. 
+
+------------------------------------------------------------
+
+** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
+
+ Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec. 
 
 ------------------------------------------------------------
 
@@ -3732,6 +3749,41 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-browse-message Browse an email message --read it paragraph at a time.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-catch-up-all-messages Mark all messages in folder to be deleted. Use with caution. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-locate-subject-line Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-mode-line VM mode line information.  
+
+------------------------------------------------------------
+
+** emacspeak-vm-next-button Move point to N buttons forward.
+If N is negative, move backward instead. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-labels Speak a message's labels 
+
+------------------------------------------------------------
+
+** emacspeak-vm-speak-message Move point to the message body. 
+
+------------------------------------------------------------
+
+** emacspeak-vm-yank-header Yank specified header into kill ring. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-curl-url-under-point Display contents of URL under point using Curl and W3.  The
 document is displayed in a separate buffer.  
 
@@ -5472,17 +5524,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
-
- Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC) 
 
 ------------------------------------------------------------
 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 976 commands.
+This chapter documents a total of 986 commands.
 
 @menu
 * cd-tool::
@@ -28,6 +28,7 @@ This chapter documents a total of 976 commands.
 * emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
+* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -45,6 +46,7 @@ This chapter documents a total of 976 commands.
 * emacspeak-hide::
 * emacspeak-ibuffer::
 * emacspeak-imenu::
+* emacspeak-info::
 * emacspeak-jabber::
 * emacspeak-keymap::
 * emacspeak-librivox::
@@ -73,6 +75,7 @@ This chapter documents a total of 976 commands.
 * emacspeak-tnt::
 * emacspeak-url-template::
 * emacspeak-view::
+* emacspeak-vm::
 * emacspeak-w3::
 * emacspeak-w3m::
 * emacspeak-we::
@@ -86,7 +89,6 @@ This chapter documents a total of 976 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
-* emacspeak-info::
 * emacspeak-jawbreaker::
 * emacspeak-moz::
 * emacspeak-org::
@@ -1623,6 +1625,26 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
+@node emacspeak-emms
+@section emacspeak-emms
+
+Commentary:
+Speech-enables EMMS --- the Emacs equivalent of XMMS
+See
+http://savannah.gnu.org/project/emms
+EMMS is under active development,
+to get the current CVS version, use Emacspeak command
+M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+Automatically generated documentation
+for commands defined in module  emacspeak-emms.
+
+@deffn {Interactive Command} emacspeak-emms-speak-current-track nil
+@kbd{Not bound to any key.}
+
+Speak current track.
+@end deffn
+
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -2786,6 +2808,29 @@ Goto the previous index position in current buffer
 @kbd{Not bound to any key.}
 
 Speak upto start of next index entry
+@end deffn
+
+@node emacspeak-info
+@section emacspeak-info
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-info.
+
+@deffn {Interactive Command} emacspeak-info-speak-header nil
+@kbd{Not bound to any key.}
+
+Speak info header line.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-info-wizard nil
+@kbd{ control h TAB   <f1> TAB   <help> TAB }
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
 @end deffn
 
 @node emacspeak-jabber
@@ -5549,6 +5594,65 @@ for commands defined in module  emacspeak-view.
 Moves current line to top of window
 @end deffn
 
+@node emacspeak-vm
+@section emacspeak-vm
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-vm.
+
+@deffn {Interactive Command} emacspeak-vm-browse-message nil
+@kbd{Not bound to any key.}
+
+Browse an email message --read it paragraph at a time. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-catch-up-all-messages nil
+@kbd{Not bound to any key.}
+
+Mark all messages in folder to be deleted. Use with caution.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-locate-subject-line nil
+@kbd{Not bound to any key.}
+
+Locates the subject line in a message being read.
+Useful when you're reading a message
+that has been forwarded multiple times.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-mode-line nil
+@kbd{Not bound to any key.}
+
+VM mode line information. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-next-button nil
+@kbd{Not bound to any key.}
+
+Move point to N buttons forward.
+If N is negative, move backward instead.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-labels nil
+@kbd{Not bound to any key.}
+
+Speak a message's labels
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-speak-message nil
+@kbd{Not bound to any key.}
+
+Move point to the message body.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-vm-yank-header nil
+@kbd{Not bound to any key.}
+
+Yank specified header into kill ring.
+@end deffn
+
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -7989,25 +8093,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect.
-@end deffn
-
-@node emacspeak-info
-@section emacspeak-info
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-info.
-
-@deffn {Interactive Command} emacspeak-info-wizard nil
-@kbd{ control h TAB   <f1> TAB   <help> TAB }
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC)
 @end deffn
 
 @node emacspeak-jawbreaker
