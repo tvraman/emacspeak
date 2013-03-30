@@ -422,10 +422,10 @@ When using supported browsers,  this interface attempts to speak the most releva
 
 (emacspeak-websearch-set-searcher 'foldoc
                                   'emacspeak-websearch-foldoc-search)
-(emacspeak-websearch-set-key ?F 'foldoc)
+(emacspeak-websearch-set-key ?f 'foldoc)
 
 (defvar emacspeak-websearch-foldoc-uri
-  "http://wombat.doc.ic.ac.uk/foldoc/foldoc.cgi?query="
+  "http://wombat.doc.ic.ac.uk/foldoc/"
   "*URI for launching a FolDoc  search.")
 
 ;;;###autoload
