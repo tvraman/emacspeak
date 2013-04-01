@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 986 commands.
+This chapter documents a total of 973 commands.
 
 @menu
 * cd-tool::
@@ -6106,18 +6106,6 @@ for commands defined in module  emacspeak-websearch.
 Google Accessible Search -- see http://labs.google.com/accessible
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-alltheweb-search nil
-@kbd{Not bound to any key.}
-
-Perform an AllTheWeb  search.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-altavista-search nil
-@kbd{Not bound to any key.}
-
-Perform an Altavista search
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-amazon-search nil
 @kbd{Not bound to any key.}
 
@@ -6130,12 +6118,6 @@ Amazon search.
 Ask Jeeves for the answer.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-bbc-search nil
-@kbd{Not bound to any key.}
-
-Search BBC archives.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-biblio-search nil
 @kbd{Not bound to any key.}
 
@@ -6146,12 +6128,6 @@ Search Computer Science Bibliographies.
 @kbd{Not bound to any key.}
 
 BlinkX RSS Generator.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-britannica-search nil
-@kbd{Not bound to any key.}
-
-Search Encyclopedia Britannica.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-citeseer-search nil
@@ -6177,20 +6153,6 @@ Search CPAN  Comprehensive Perl Archive Network   Site.
 @kbd{Not bound to any key.}
 
 Search CTAN Comprehensive TeX Archive Network   Site. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-dictionary-google nil
-@kbd{Not bound to any key.}
-
-Look up word in Google dictionary. 
-Optional interactive prefix arg prompts for language pair for translation.
-Default is to use English as source and target languages.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-dictionary-hypertext-webster-search nil
-@kbd{Not bound to any key.}
-
-Search the Webster Dictionary.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-dispatch nil
@@ -6228,14 +6190,6 @@ Perform a FolDoc search.
 @kbd{Not bound to any key.}
 
 Search Freshmeat  Site. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-froogle nil
-@kbd{Not bound to any key.}
-
-Perform a Froogle search.
-Optional interactive  prefix arg local-flag prompts for local
-  area in which to search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google nil
@@ -6309,12 +6263,6 @@ Perform an Gutenberg search
 Displays key mapping used by Emacspeak Websearch.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-koders-search nil
-@kbd{Not bound to any key.}
-
-Perform a koders.com  search
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-map-yahoo-directions-search nil
 @kbd{Not bound to any key.}
 
@@ -6345,18 +6293,6 @@ Perform an Open Directory search
 @kbd{Not bound to any key.}
 
 Perform an Yahoo  people search
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-podscope nil
-@kbd{Not bound to any key.}
-
-Perform a PodScope search to locate podcasts.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-podzinger-search nil
-@kbd{Not bound to any key.}
-
-Podzinger RSS Generator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search nil
@@ -6400,18 +6336,6 @@ Search SourceForge Site.
 @kbd{Not bound to any key.}
 
 Search swik software community site.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-technorati nil
-@kbd{Not bound to any key.}
-
-Perform a Technorati tag search.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-teoma nil
-@kbd{Not bound to any key.}
-
-Perform an Teoma  search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-usenet nil
@@ -6462,12 +6386,6 @@ Currency convertor.
 
 Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-youtube nil
-@kbd{Not bound to any key.}
-
-Search YouTube
 @end deffn
 
 @node emacspeak-webspace

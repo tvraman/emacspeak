@@ -4081,14 +4081,6 @@ from Web page -- default is the current page being viewed.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-alltheweb-search Perform an AllTheWeb  search. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-altavista-search Perform an Altavista search 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-amazon-search Amazon search. 
 
 ------------------------------------------------------------
@@ -4097,19 +4089,11 @@ from Web page -- default is the current page being viewed.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-bbc-search Search BBC archives. 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-biblio-search Search Computer Science Bibliographies. 
 
 ------------------------------------------------------------
 
 ** emacspeak-websearch-blinkx-search BlinkX RSS Generator. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-britannica-search Search Encyclopedia Britannica. 
 
 ------------------------------------------------------------
 
@@ -4127,16 +4111,6 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 ------------------------------------------------------------
 
 ** emacspeak-websearch-ctan-search Search CTAN Comprehensive TeX Archive Network   Site.  
-
-------------------------------------------------------------
-
-** emacspeak-websearch-dictionary-google Look up word in Google dictionary. 
-Optional interactive prefix arg prompts for language pair for translation.
-Default is to use English as source and target languages. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-dictionary-hypertext-webster-search Search the Webster Dictionary. 
 
 ------------------------------------------------------------
 
@@ -4164,12 +4138,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 ------------------------------------------------------------
 
 ** emacspeak-websearch-freshmeat-search Search Freshmeat  Site.  
-
-------------------------------------------------------------
-
-** emacspeak-websearch-froogle Perform a Froogle search.
-Optional interactive  prefix arg local-flag prompts for local
-  area in which to search. 
 
 ------------------------------------------------------------
 
@@ -4222,10 +4190,6 @@ https://www.google.com/options/specialsearches.html
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-koders-search Perform a koders.com  search 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-map-yahoo-directions-search Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead. 
 
@@ -4245,14 +4209,6 @@ Optional prefix arg no-rss scrapes information from HTML.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-people-yahoo Perform an Yahoo  people search 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-podscope Perform a PodScope search to locate podcasts. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-podzinger-search Podzinger RSS Generator. 
 
 ------------------------------------------------------------
 
@@ -4284,14 +4240,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-swik-search Search swik software community site. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-technorati Perform a Technorati tag search. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-teoma Perform an Teoma  search. 
 
 ------------------------------------------------------------
 
@@ -4328,10 +4276,6 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ** emacspeak-websearch-yahoo-historical-chart Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-youtube Search YouTube 
 
 ------------------------------------------------------------
 
