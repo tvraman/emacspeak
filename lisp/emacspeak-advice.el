@@ -711,8 +711,10 @@ Handle end-of-buffer and beginning-of-buffer specially."
 ;;}}}
 
 ;;;###autoload
-(defvar emacspeak-speak-errors t
-  "Specifies if error messages are cued.")
+(defcustom emacspeak-speak-errors nil
+  "Specifies if error messages are cued."
+  :type 'boolean
+  :group 'emacspeak-speak)
 
 (defadvice error (before emacspeak pre act comp)
   "Speak the error message.
