@@ -55,6 +55,30 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ eclim-ant.el
+
+;;}}}
+;;{{{ eclim-completion.el
+
+;;}}}
+;;{{{ eclimd.el
+
+;;}}}
+;;{{{ eclim.el
+
+;;}}}
+;;{{{ eclim-java.el
+
+;;}}}
+;;{{{ eclim-maven.el
+
+;;}}}
+;;{{{ eclim-problems.el
+
+;;}}}
+;;{{{  eclim-project.el
+
+;;}}}
 (provide 'emacspeak-eclim)
 ;;{{{ end of file
 
