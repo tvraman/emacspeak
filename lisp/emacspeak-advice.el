@@ -664,7 +664,6 @@ before the message is spoken."
 (defadvice message (around  emacspeak pre act comp)
   "Speak the message."
   (declare (special emacspeak-last-message
-                    emacspeak-speak-messages-pause
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t))
     ad-do-it
@@ -2849,14 +2848,6 @@ Variable mark-even-if-inactive is set true ."
     (ad-get-arg 0))))
 ;;}}}
 ;;{{{ eldoc
-
-(defadvice eldoc-message (around  emacspeak pre act comp)
-  "Speech enable ELDoc for the rare times we use it."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    (when eldoc-last-message
-      (dtk-speak eldoc-last-message))
-    ad-return-value))
 
 ;;}}}
 ;;{{{ mail aliases
