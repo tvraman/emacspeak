@@ -130,7 +130,7 @@
     ("emacspeak-imenu"  . nil )
     ("emacspeak-info"  . ("info"))
     ("emacspeak-ispell"  . ("ispell"))
-    ("emacspeak-jde"  . ("jde-prepare"))
+    ("emacspeak-eclim"  . ("eclim-prepare"))
     ("emacspeak-keymap"  . nil )
     ("emacspeak-kotl"  . nil )
     ("emacspeak-make-mode"  . nil )
