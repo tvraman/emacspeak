@@ -57,6 +57,20 @@
 ;;}}}
 ;;{{{ eclim-ant.el
 
+(defadvice eclim-ant-clear-cache (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
+(defadvice eclim-ant-validate (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice eclim-ant-run (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
 ;;}}}
 ;;{{{ eclim-completion.el
 
