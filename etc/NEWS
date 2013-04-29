@@ -20,6 +20,12 @@ support.
 ** Emacs 24.3:
 
 Updated to work with Emacs from tip of tree.
+
+** Updated Advice Implementation:
+
+Emacspeak has been tested to work with the updated advice
+implementation in the Emacs codebase. (Thanks Stefan!)
+
 # local variables:
 # mode: org
 # end:
