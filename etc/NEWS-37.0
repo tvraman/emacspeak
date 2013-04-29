@@ -1,0 +1,26 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 8049 2012-12-21 19:06:10Z tv.raman.tv $
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+* Emacspeak 37 -- Emacspeak 37 User Visible Changes 
+
+
+** emacspeak-js2.el:
+
+Updated support for JS2 mode.
+
+** emacspeak-kite:
+
+Speech-enables Module Kite which enables connecting to   the
+Chrome debugger for live-debugging Web applications.
+
+** Emacs 23: 
+
+Tested with stock Emacs 23 on Lucid and Precise.
+
+** Emacs 24.3:
+
+Updated to work with Emacs from tip of tree.
+# local variables:
+# mode: org
+# end:

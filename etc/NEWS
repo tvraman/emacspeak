@@ -2,21 +2,20 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-* Emacspeak 37 -- Emacspeak 37 User Visible Changes 
+* Emacspeak 38 -- Emacspeak 38 User Visible Changes 
 
+** Google Maps API V2 gmaps.el:
+Find places, get directions using  Google Maps V2 API.
 
-** emacspeak-js2.el:
+** Eclipse Integration:
 
-Updated support for JS2 mode.
+Preliminary support for emacs-eclim --- lets you interface with
+a headless Eclipse. (Work In Progress).
 
-** emacspeak-kite:
+** Improved Semantic Support
 
-Speech-enables Module Kite which enables connecting to   the
-Chrome debugger for live-debugging Web applications.
-
-** Emacs 23: 
-
-Tested with stock Emacs 23 on Lucid and Precise.
+Extensions for integrating with the built-in CEDET/Semantic
+support.
 
 ** Emacs 24.3:
 
