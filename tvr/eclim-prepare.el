@@ -1,6 +1,7 @@
 ;;; Install emacs-eclim via elpa.
 (require 'emacs-eclim-autoloads)
 (require 'eclim)
+(require 'eclimd)
 (global-eclim-mode)
 
 ;; Variables
