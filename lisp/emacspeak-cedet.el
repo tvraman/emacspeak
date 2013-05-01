@@ -44,16 +44,17 @@
 
 ;;}}}
 ;;{{{  Introduction
+;;; Commentary: 
 
 ;;; CEDET consists of speedbar semantic ede and friends.
 ;;; This module speech enables new functionality in semantic,
 ;;senator and friends
-
+;;; Code:
 ;;}}}
 ;;{{{ advice semantic completion
 
 (loop for f in
-      '(semantic-complete-complete-tab semantic-complete-complete-space)
+      '(semantic-complete-symbol)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
