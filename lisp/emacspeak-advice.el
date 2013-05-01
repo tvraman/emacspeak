@@ -678,6 +678,15 @@ before the message is spoken."
                              (dtk-speak emacspeak-last-message)))
     ad-return-value))
 
+(defadvice eldoc-message (around  emacspeak pre act comp)
+  "Speech enable ELDoc  --- now used by semantic."
+  ;;; eldoc flashes message temporarily, we cache and speak.
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    (when eldoc-last-message
+      (dtk-speak eldoc-last-message))
+    ad-return-value))
+
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
 
