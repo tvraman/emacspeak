@@ -1,12 +1,8 @@
 (augment-load-path  "semantic" "semantic")
+(augment-load-path "cedet" "cedet")
 
-(load-library "semantic-load")
 (setq imenu-create-index-function
       'imenu-default-create-index-function)
-(add-hook 'semantic-init-hooks
-          (lambda ()
-            (senator-minor-mode 1)))
-
-(global-semanticdb-minor-mode 1)
+(semantic-mode 1)
 
 (add-hook 'speedbar-load-hook (lambda () (require 'semantic-sb)))
