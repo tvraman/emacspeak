@@ -9,5 +9,16 @@ Execute:
 sudo aptitude install getlibs 
 sudo getlibs -p tcl8.4 tcl8.4-dev tclx8.4 tclx8.4-dev
 
+For Ubuntu Precise, you can first install 
+gcc-4.6-base:i386
+libstdc++6:i386
+and then install the ia32_tcl*.deb packages found on the
+emacspeak downloads area, or in svn in this directory.
+
+Then run ldd on the provided atcleci.so and make sure that all
+linker dependencies are resolved 
+ldd atcleci.so | grep -i found 
+should show missing culprits.
+
 To build  atcleci.so on some ubuntu systems, you may need 
 sudo aptitude install g++-multilib
