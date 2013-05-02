@@ -659,7 +659,9 @@ before the message is spoken."
     ad-do-it))
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
   "Silence progress reporters for now."
-  (let ((emacspeak-speak-messages nil) ad-do-it)))
+  (let ((emacspeak-speak-messages nil)
+        (emacspeak-auditory-icon 'progress)
+        ad-do-it)))
 
 (defadvice message (around  emacspeak pre act comp)
   "Speak the message."
