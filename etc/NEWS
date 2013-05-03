@@ -17,6 +17,10 @@ a headless Eclipse. (Work In Progress).
 Extensions for integrating with the built-in CEDET/Semantic
 support.
 
+** Speech-Enables GTags:
+
+Emacspeak now speech-enables package gtags.el for use with GNU
+global and idutils.
 ** Emacs 24.3:
 
 Updated to work with Emacs from tip of tree.
