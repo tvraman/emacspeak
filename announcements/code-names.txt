@@ -41,7 +41,8 @@ Note that special releases are marked with an '*'.
 | 36.0 | May 2012        | EPubDog        |
 |------+-----------------+----------------|
 | 37.0 | December 2012   | SolidDog       |
-
+| 38.0 | May 2013        | FreeDog        |
+|------+-----------------+----------------|
 #+TITLE:     code-names.txt
 #+AUTHOR:    raman
 #+EMAIL:     raman@users.sf.net
