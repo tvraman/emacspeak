@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 614 user customizable
+This chapter documents a total of 638 user customizable
   options.
 
 @menu
@@ -23,14 +23,13 @@ This chapter documents a total of 614 user customizable
 * emacspeak-custom Options::
 * emacspeak-daisy Options::
 * emacspeak-dired Options::
-* emacspeak-dismal Options::
 * emacspeak-ediff Options::
 * emacspeak-entertain Options::
 * emacspeak-eperiodic Options::
 * emacspeak-epub Options::
 * emacspeak-erc Options::
+* emacspeak-eshell Options::
 * emacspeak-eterm Options::
-* emacspeak-eudc Options::
 * emacspeak-forms Options::
 * emacspeak-gnus Options::
 * emacspeak-hide Options::
@@ -257,6 +256,10 @@ This version of Emacspeak is only tested on Emacs 22.
 Automatically generated documentation
 for options defined in module  emacspeak-advice.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-speak-errors
+Specifies if error messages are cued.
+@end defvar
 
 @defvar {User Option} emacspeak-speak-messages-pause
 * Option to make messages pause speech.
@@ -555,17 +558,6 @@ These options are customizable via Emacs' Custom interface.
 Options passed to Unix builtin `file' command.
 @end defvar
 
-@node emacspeak-dismal Options
-@section emacspeak-dismal Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-dismal.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-dismal-value-personality
-Personality used for speaking cell values in summaries.
-@end defvar
-
 @node emacspeak-ediff Options
 @section emacspeak-ediff Options
 
@@ -782,6 +774,24 @@ My IRC nick.
 Speak all things said if t.
 @end defvar
 
+@node emacspeak-eshell Options
+@section emacspeak-eshell Options
+
+Commentary:
+EShell is a shell implemented entirely in Emacs Lisp.
+It is part of emacs 21 --and can also be used under
+Emacs 20.
+This module speech-enables EShell
+
+Automatically generated documentation
+for options defined in module  emacspeak-eshell.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-eshell-ls-use-personalities
+Indicates if ls in eshell uses different voice
+personalities.
+@end defvar
+
 @node emacspeak-eterm Options
 @section emacspeak-eterm Options
 
@@ -815,23 +825,6 @@ File where list of known remote hosts is cached
 
 @defvar {User Option} emacspeak-eterm-underline-personality
 Personality to indicate terminal underlining.
-@end defvar
-
-@node emacspeak-eudc Options
-@section emacspeak-eudc Options
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for options defined in module  emacspeak-eudc.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-eudc-attribute-value-personality
-Personality t use for voiceifying attribute values. 
 @end defvar
 
 @node emacspeak-forms Options
@@ -3161,6 +3154,126 @@ Personality used for erc-underline-face
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
 @end defvar
 
+@defvar {User Option} emacspeak-eshell-ls-archive-personality
+Personality used for eshell-ls-archive-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-archive-voice
+Personality used for eshell-ls-archive
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-backup-personality
+Personality used for eshell-ls-backup-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-backup-voice
+Personality used for eshell-ls-backup
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-clutter-personality
+Personality used for eshell-ls-clutter-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-clutter-voice
+Personality used for eshell-ls-clutter
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-directory-personality
+Personality used for eshell-ls-directory-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-directory-voice
+Personality used for eshell-ls-directory
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-executable-personality
+Personality used for eshell-ls-executable-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-executable-voice
+Personality used for eshell-ls-executable
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-missing-personality
+Personality used for eshell-ls-missing-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-missing-voice
+Personality used for eshell-ls-missing
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-product-personality
+Personality used for eshell-ls-product-face
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-product-voice
+Personality used for eshell-ls-product
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-readonly-personality
+Personality used for eshell-ls-readonly-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-readonly-voice
+Personality used for eshell-ls-readonly
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-special-personality
+Personality used for eshell-ls-special-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-special-voice
+Personality used for eshell-ls-special
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-symlink-personality
+Personality used for eshell-ls-symlink-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-symlink-voice
+Personality used for eshell-ls-symlink
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-unreadable-personality
+Personality used for eshell-ls-unreadable-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-ls-unreadable-voice
+Personality used for eshell-ls-unreadable
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-prompt-personality
+Personality used for eshell-prompt-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-prompt-voice
+Personality used for eshell-prompt
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-fixed-pitch-voice
 Personality used for fixed-pitch
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
@@ -3571,8 +3684,8 @@ Personality used for info-xref
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-ispell-highlight-personality
-Personality used for ispell-highlight-face
+@defvar {User Option} emacspeak-isearch-voice
+Personality used for isearch
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
