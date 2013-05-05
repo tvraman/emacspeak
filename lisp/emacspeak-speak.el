@@ -122,6 +122,7 @@
 
 (defsubst emacspeak-speak-completions-if-available ()
   "Speak completions if available."
+  (interactive)
   (let ((completions (get-buffer "*Completions*")))
     (cond
      ((and completions
