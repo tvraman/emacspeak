@@ -387,7 +387,8 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'tcl-mode-hook
          'html-helper-mode-hook
          'scheme-mode-hook
-         'dired-mode-hook)))
+         'dired-mode-hook
+         'python-mode-hook)))
 
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions
