@@ -316,8 +316,8 @@ If already at the beginning then move to previous block."
 ;;{{{ keybindings
 
 (progn
-  (declaim (special  py-mode-map))
-  (define-key py-mode-map "\M-a" 'beginning-of-python-def-or-class)
+  (declaim (special  python-mode-map))
+  (define-key python-mode-map "\M-a" 'beginning-of-python-def-or-class)
   (define-key py-mode-map "\M-e" 'end-of-python-def-or-class)
   (define-key py-mode-map "\M-n" 'py-next-statement)
   (define-key py-mode-map "\M-p" 'py-previous-statement)
