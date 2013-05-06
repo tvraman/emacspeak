@@ -318,12 +318,12 @@ If already at the beginning then move to previous block."
 (progn
   (declaim (special  python-mode-map))
   (define-key python-mode-map "\M-a" 'beginning-of-python-def-or-class)
-  (define-key py-mode-map "\M-e" 'end-of-python-def-or-class)
-  (define-key py-mode-map "\M-n" 'py-next-statement)
-  (define-key py-mode-map "\M-p" 'py-previous-statement)
-  (define-key py-mode-map "\C-\M-u" 'py-goto-block-up)
-  (define-key py-mode-map "\C-\M-n" 'emacspeak-py-next-block)
-  (define-key py-mode-map "\C-\M-p" 'emacspeak-py-previous-block)
+  (define-key python-mode-map "\M-e" 'end-of-python-def-or-class)
+  (define-key python-mode-map "\M-n" 'py-next-statement)
+  (define-key python-mode-map "\M-p" 'py-previous-statement)
+  (define-key python-mode-map "\C-\M-u" 'py-goto-block-up)
+  (define-key python-mode-map "\C-\M-n" 'emacspeak-py-next-block)
+  (define-key python-mode-map "\C-\M-p" 'emacspeak-py-previous-block)
   )
 (add-hook 'python-mode-hook
           'emacspeak-setup-programming-mode)
