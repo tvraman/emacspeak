@@ -62,11 +62,8 @@
     "Speak what you inserted"
     (when (ems-interactive-p )
       (dtk-say " colon "))))
-(loop for f in
-      '(python-indent-dedent-line-backspace python-electric-backspace)
-      do
-      (eval
-       `(defadvice  ,f (around emacspeak pre act)
+
+(defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
           "Speak character you're deleting."
           (cond
            ((ems-interactive-p  )
