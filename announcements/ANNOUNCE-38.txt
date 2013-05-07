@@ -5,22 +5,22 @@
 
 **  For Immediate Release:
 
-San Jose, Calif., (May13, 2013)
+San Jose, Calif., (May 13, 2013)
     Emacspeak:  Redefining Accessibility In The Era Of Cloud Computing
     --Zero cost of upgrades/downgrades makes priceless software affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
-announces the immediate world-wide availability of Emacspeak
-38.0 (FreeDog) --a powerful audio desktop for leveraging today's evolving
-data, social and service-oriented  Web cloud.
+announces the immediate world-wide availability of Emacspeak 38.0
+(FreeDog) --a powerful audio desktop for leveraging today's
+evolving data, social and service-oriented Web cloud.
 
 ** Investors Note:
 
 
 With several prominent tweeters expanding coverage of
 _#emacspeak_, NASDOG: ESPK has now been consistently trading over
-the net at levels close to that once attained by DogCom
-high-fliers—and as of October 2009 is trading at levels close to
+the social net at levels close to that once attained by DogCom
+high-fliers—and as of May 2013 is trading at levels close to
 that achieved by once better known stocks in the tech sector.
 
 ** What Is It?
@@ -37,7 +37,7 @@ task-oriented tools provides efficient speech-enabled access to
 the evolving service-oriented social Web cloud.
 
 ** Major Enhancements:
-<TBD>
+
 Plus many more changes too numerous to fit in this margin ... ∞
 
 ** Establishing Liberty, Equality And Freedom:
