@@ -24,8 +24,6 @@ high-fliers—and as of May 2013 is trading at levels close to
 that achieved by once better known stocks in the tech sector.
 
 ** What Is It?
-
-
 Emacspeak is a fully functional audio desktop that provides
 complete eyes-free access to all major 32 and 64 bit operating
 environments. By seamlessly blending live access to all aspects
@@ -42,8 +40,10 @@ the evolving service-oriented social Web cloud.
 
   1. Get directions and find Places via Google Maps. ⛯
   2. Preliminary support for Eclipse integration via Eclim. ⛅
-  3. Speech-enabled GTags (Global) for code browsing. 󠀦
-  4.  Updated to work with advice implementation in Emacs 24.3. ⎈
+  3. Speech-enabled GTags (Global) for code browsing. 󠁿
+  4. Updated to work with advice implementation in Emacs 24.3.  🌚
+  5. Updated Web search wizards ꩜
+  6. Updated URL templates ♅
 
 
 Plus many more changes too numerous to fit in this margin ... ∞
