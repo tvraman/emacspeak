@@ -1,9 +1,7 @@
 #    -*- mode: org -*-
 
 *               Emacspeak-38.0 (FreeDog) Unleashed!
-               
-
-**  For Immediate Release:
+               **  For Immediate Release:
 
 San Jose, Calif., (May 13, 2013)
     Emacspeak:  Redefining Accessibility In The Era Of Cloud Computing
@@ -33,8 +31,6 @@ enables speech access to local and remote information with a
 consistent and well-integrated user interface. A rich suite of
 task-oriented tools provides efficient speech-enabled access to
 the evolving service-oriented social Web cloud.
-
-
 
 ** Major Enhancements:
 
@@ -110,12 +106,11 @@ http://code.google.com/p/emacspeak/ You can visit
 Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
 to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
 mail to the list request address emacspeak-request@cs.vassar.edu.
-The HeadDog release is at 
-[[http://emacspeak.googlecode.com/files/emacspeak-35.0.tar.bz2]].
-The latest development snapshot of Emacspeak is available via
-Subversion from Google Code Hosting at 
+The FreeDog release is at 
+[[http://emacspeak.googlecode.com/files/emacspeak-38.0.tar.bz2]].
+The latest development snapshot of Emacspeak is always available via
+Subversion from Google Code  at 
 http://emacspeak.googlecode.com/svn/trunk/
-
 ** History:
 
 Emacspeak 38.0 is the latest in a series of award-winning
@@ -212,7 +207,7 @@ The Emacspeak mailing list is archived at Vassar --the home of the
 Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
 valuable knowledge base for new users.
 
-* Press/Analyst Contact: Tilden Labrador
+** Press/Analyst Contact: Tilden Labrador
 
 Going forward, Tilden acknowledges his exclusive monopoly on
 setting the direction of the Emacspeak Audio Desktop, and
