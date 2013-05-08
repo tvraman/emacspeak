@@ -36,7 +36,15 @@ consistent and well-integrated user interface. A rich suite of
 task-oriented tools provides efficient speech-enabled access to
 the evolving service-oriented social Web cloud.
 
+
+
 ** Major Enhancements:
+
+  1. Get directions and find Places via Google Maps. ⛯
+  2. Preliminary support for Eclipse integration via Eclim. ⛅
+  3. Speech-enabled GTags (Global) for code browsing. 󠀦
+  4.  Updated to work with advice implementation in Emacs 24.3. ⎈
+
 
 Plus many more changes too numerous to fit in this margin ... ∞
 
@@ -109,6 +117,9 @@ Subversion from Google Code Hosting at
 http://emacspeak.googlecode.com/svn/trunk/
 
 ** History:
+
+Emacspeak 38.0 is the latest in a series of award-winning
+releases from Emacspeak Inc. 
 Emacspeak 37.0 continues the tradition of delivering robust
 software as reflected by its code-name. Emacspeak 36.0 enhances
 the audio desktop with many new tools including full EPub support
