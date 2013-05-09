@@ -1,0 +1,13 @@
+diff --git a/lisp/dtk-speak.el b/lisp/dtk-speak.el
+index 485a49a..0ed96ba 100644
+--- a/lisp/dtk-speak.el
++++ b/lisp/dtk-speak.el
+@@ -395,7 +395,7 @@ will set \"en_GB\".
+   "Remove all octal chars."
+   (let ((inhibit-read-only t))
+     (goto-char (point-min))
+-    (while (re-search-forward "[\177-\377]+"  nil t )
++    (while (re-search-forward "[^\x0-\x7F]+"  nil t )
+       (replace-match " "))))
+ 
+ (defsubst  dtk-fix-brackets (mode)

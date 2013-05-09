@@ -1,0 +1,44 @@
+--=-=-=
+
+Kumar Appaiah <a.kumar@alumni.iitm.ac.in> writes:
+
+> Dear Emacspeak users,
+>
+> I am a Debian contributor, and wanted your help with the emacspeak package.
+...
+
+Kumar's patch for Debian exposed some incorrect syntax in
+lisp/emacspeak-wizards.el.
+(let ((
+  (get-buffer-create ...))))
+should read
+(let ((buffer
+  (get-buffer-create ...))))
+Here's a patch against trunk.
+
+Regards,
+-- Chris
+
+
+--=-=-=
+Content-Type: text/x-patch
+Content-Disposition: inline; filename=syntax.diff
+
+--- lisp/emacspeak-wizards.el	(revision 6048)
++++ lisp/emacspeak-wizards.el	(working copy)
+@@ -1856,7 +1856,7 @@
+     (read-from-minibuffer "Depth: ")
+     (read-from-minibuffer "Count: ")))
+   (declare (special emacspeak-wizards-table-content-extractor))
+-  (let ((
++  (let ((buffer
+ 	 (get-buffer-create " *table extractor* ")))
+     (save-excursion
+       (set-buffer buffer)
+
+--=-=-=--
+
+-----------------------------------------------------------------------------
+To unsubscribe from the emacspeak list or change your address on the
+emacspeak list send mail to "emacspeak-request@cs.vassar.edu" with a
+subject of "unsubscribe" or "help"

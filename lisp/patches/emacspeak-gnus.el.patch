@@ -1,0 +1,170 @@
+*** lisp/emacspeak-gnus.el.orig	2010-07-16 21:22:22.948321609 +1000
+--- lisp/emacspeak-gnus.el	2010-09-28 15:45:11.946621144 +1000
+***************
+*** 1,5 ****
+  ;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to usenet
+! ;;; $Id: emacspeak-gnus.el 6342 2009-10-20 19:12:40Z tv.raman.tv $
+  ;;; $Author: tv.raman.tv $ 
+  ;;; Description:  Emacspeak extension to speech enable Gnus
+  ;;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News
+--- 1,5 ----
+  ;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to usenet
+! ;;; $Id$
+  ;;; $Author: tv.raman.tv $ 
+  ;;; Description:  Emacspeak extension to speech enable Gnus
+  ;;; Keywords: Emacspeak, Gnus, Advice, Spoken Output, News
+***************
+*** 47,54 ****
+--- 47,61 ----
+  ;;{{{ requires
+  (require 'emacspeak-preamble)
+  (require 'gnus)
++ (require 'gnus-art)
+  (require 'gnus-sum)
+  
++ ;; This may not be needed. It seems emacs version of gnus had 
++ ;; gnus-article-buffer as far back as emacs 21.
++ (unless (and (symbolp 'gnus-article-buffer)
++ 	     (boundp 'gnus-article-buffer))
++   (defvar gnus-article-buffer "*Article*"))
++ 
+  ;;}}}
+  ;;{{{  Customizations:
+  
+***************
+*** 146,154 ****
+  
+  (defsubst emacspeak-gnus-speak-article-body ()
+    (declare (special emacspeak-gnus-large-article
+!                     voice-lock-mode dtk-punctuation-mode))
+    (save-excursion
+!     (set-buffer  "*Article*")
+      (goto-char (point-min))
+      (setq dtk-punctuation-mode 'some)
+      (voice-lock-mode 1)
+--- 153,162 ----
+  
+  (defsubst emacspeak-gnus-speak-article-body ()
+    (declare (special emacspeak-gnus-large-article
+!                     voice-lock-mode dtk-punctuation-mode
+! 		    gnus-article-buffer))
+    (save-excursion
+!     (set-buffer  gnus-article-buffer)
+      (goto-char (point-min))
+      (setq dtk-punctuation-mode 'some)
+      (voice-lock-mode 1)
+***************
+*** 642,653 ****
+    "Speak the subject and speak the first screenful.
+  Produce an auditory icon
+  indicating the article is being opened."
+    (when (interactive-p)
+      (emacspeak-gnus-summary-speak-subject)
+      (sit-for 2)
+      (emacspeak-auditory-icon 'open-object)
+      (save-excursion
+!       (set-buffer  "*Article*")
+        (emacspeak-dtk-sync)
+        (let ((start  (point ))
+              (window (get-buffer-window (current-buffer ))))
+--- 650,662 ----
+    "Speak the subject and speak the first screenful.
+  Produce an auditory icon
+  indicating the article is being opened."
++   (declare (special gnus-article-buffer))
+    (when (interactive-p)
+      (emacspeak-gnus-summary-speak-subject)
+      (sit-for 2)
+      (emacspeak-auditory-icon 'open-object)
+      (save-excursion
+!       (set-buffer  gnus-article-buffer)
+        (emacspeak-dtk-sync)
+        (let ((start  (point ))
+              (window (get-buffer-window (current-buffer ))))
+***************
+*** 726,735 ****
+  
+  (defadvice gnus-summary-next-page (after emacspeak pre act)
+    "Speak the next pageful "
+    (dtk-stop)
+    (emacspeak-auditory-icon 'scroll)
+    (save-excursion
+!     (set-buffer  "*Article*")
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (with-selected-window window
+--- 735,745 ----
+  
+  (defadvice gnus-summary-next-page (after emacspeak pre act)
+    "Speak the next pageful "
++   (declare (special gnus-article-buffer))
+    (dtk-stop)
+    (emacspeak-auditory-icon 'scroll)
+    (save-excursion
+!     (set-buffer  gnus-article-buffer)
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (with-selected-window window
+***************
+*** 740,749 ****
+  
+  (defadvice gnus-summary-prev-page (after emacspeak pre act)
+    "Speak the previous  pageful "
+    (dtk-stop)
+    (emacspeak-auditory-icon 'scroll)
+    (save-excursion
+!     (set-buffer  "*Article*")
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (with-selected-window window
+--- 750,760 ----
+  
+  (defadvice gnus-summary-prev-page (after emacspeak pre act)
+    "Speak the previous  pageful "
++   (declare (special gnus-article-buffer))
+    (dtk-stop)
+    (emacspeak-auditory-icon 'scroll)
+    (save-excursion
+!     (set-buffer  gnus-article-buffer)
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (with-selected-window window
+***************
+*** 753,768 ****
+            (emacspeak-speak-region start (point )))))))
+  
+  (defadvice gnus-summary-beginning-of-article (after emacspeak pre act)
+!   "Speak the first line. "(save-excursion
+!                             (set-buffer "*Article*")
+!                             (emacspeak-speak-line )))
+  
+  (defadvice gnus-summary-end-of-article
+  
+    (after emacspeak pre act)
+!   "Speak the first line. "(save-excursion
+!                             (set-buffer "*Article*")
+!                             (emacspeak-speak-line )))
+  
+  (defadvice gnus-summary-next-unread-article (after emacspeak pre act)
+    "Speak the article. "
+--- 764,783 ----
+            (emacspeak-speak-region start (point )))))))
+  
+  (defadvice gnus-summary-beginning-of-article (after emacspeak pre act)
+!   "Speak the first line. "
+!   (declare (special gnus-article-buffer))
+!   (save-excursion
+!     (set-buffer gnus-article-buffer)
+!     (emacspeak-speak-line )))
+  
+  (defadvice gnus-summary-end-of-article
+  
+    (after emacspeak pre act)
+!   "Speak the first line. "
+!   (declare (special gnus-article-buffer))
+!   (save-excursion
+!     (set-buffer gnus-article-buffer)
+!     (emacspeak-speak-line )))
+  
+  (defadvice gnus-summary-next-unread-article (after emacspeak pre act)
+    "Speak the article. "
