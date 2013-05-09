@@ -268,9 +268,7 @@
 ;;{{{ timestamps and calendar:
 
 (loop for f in
-      '(
-        org-timestamp-down org-timestamp-down-day
-                           org-timestamp-up org-timestamp-up-day)
+      '(org-timestamp-down-day org-timestamp-up-day)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -278,6 +276,17 @@
           (when (ems-interactive-p )
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
+
+(loop for f in
+      '(org-timestamp-down org-timestamp-up)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p )
+            (emacspeak-auditory-icon 'select-object)
+            (dtk-speak org-last-changed-timestamp)))))
+            
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
   "Speak what is returned."
