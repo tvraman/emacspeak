@@ -1,7 +1,7 @@
-;;; emacspeak-gtags.el --- Speech-enable GGTAGS
+;;; emacspeak-gtags.el --- Speech-enable GTAGS
 ;;; $Id: emacspeak-gtags.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable GGTAGS An Emacs Interface to gtags
+;;; Description:  Speech-enable GTAGS An Emacs Interface to gtags
 ;;; Keywords: Emacspeak,  Audio Desktop gtags
 ;;{{{  LCD Archive entry:
 
@@ -41,9 +41,9 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; GGTAGS ==  Emacs support for GNU global.
+;;; GTAGS ==  Emacs support for GNU global.
 ;;; GNU  global implements  a modern tags solution
-;;; Package ggtags interfaces Emacs to this tool.
+;;; Package gtags interfaces Emacs to this tool.
 
 ;;}}}
 ;;{{{  Required modules
@@ -58,20 +58,20 @@
 ;;; Jumpers: Move to tags by various means
 (loop for f in
       '(
-        ggtags-find-with-grep
-        ggtags-find-with-idutils
-        ggtags-make-complete-list
-        ggtags-select-tag
-        ggtags-select-mode
-        ggtags-select-tag-by-event
-        ggtags-find-symbol
-        ggtags-find-file
-        ggtags-find-pattern
-        ggtags-find-tag
-        ggtags-display-browser
-        ggtags-find-tag-by-event
-        ggtags-find-rtag
-        ggtags-find-tag-from-here
+        gtags-find-with-grep
+        gtags-find-with-idutils
+        gtags-make-complete-list
+        gtags-select-tag
+        gtags-select-mode
+        gtags-select-tag-by-event
+        gtags-find-symbol
+        gtags-find-file
+        gtags-find-pattern
+        gtags-find-tag
+        gtags-display-browser
+        gtags-find-tag-by-event
+        gtags-find-rtag
+        gtags-find-tag-from-here
         )
         do
         (eval
@@ -81,13 +81,13 @@
               (emacspeak-auditory-icon 'large-movement)
               (emacspeak-speak-line)))))
 
-(defadvice ggtags-pop-stack (after emacspeak pre act comp)
+(defadvice gtags-pop-stack (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
-(defadvice ggtags-select-mode (after emacspeak pre act comp)
+(defadvice gtags-select-mode (after emacspeak pre act comp)
   "Provide  auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
@@ -95,7 +95,7 @@
 
 ;;; Selection Mode:
 ;;}}}
-(provide 'emacspeak-g-gtags)
+(provide 'emacspeak-gtags)
 ;;{{{ end of file
 
 ;;; local variables:
