@@ -36,7 +36,7 @@ the evolving service-oriented social Web cloud.
 
   1. Get directions and find Places via Google Maps. ⛯
   2. Preliminary support for Eclipse integration via Eclim. ⛅
-  3. Speech-enabled GTags (Global) for code browsing. 󠁿
+  3. Speech-enabled GTags (Global) for code browsing. 🌐
   4. Updated to work with advice implementation in Emacs 24.3.  🌚
   5. Updated Web search wizards ꩜
   6. Updated URL templates ♅
