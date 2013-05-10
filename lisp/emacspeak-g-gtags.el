@@ -57,43 +57,16 @@
 
 ;;; Jumpers: Move to tags by various means
 (loop for f in
-      '(
-        ggtags-find-with-grep
-        ggtags-find-with-idutils
-        ggtags-make-complete-list
-        ggtags-select-tag
-        ggtags-select-mode
-        ggtags-select-tag-by-event
-        ggtags-find-symbol
-        ggtags-find-file
-        ggtags-find-pattern
-        ggtags-find-tag
-        ggtags-display-browser
-        ggtags-find-tag-by-event
-        ggtags-find-rtag
-        ggtags-find-tag-from-here
-        )
-        do
-        (eval
-         `(defadvice ,f (after emacspeak pre act comp)
-            "Provide auditory feedback."
-            (when (ems-interactive-p)
-              (emacspeak-auditory-icon 'large-movement)
-              (emacspeak-speak-line)))))
+      '(ggtags-find-tag 	ggtags-find-tag-resume
+                                       ggtags-navigation-next-file 	ggtags-navigation-previous-file)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
 
-(defadvice ggtags-pop-stack (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
-
-(defadvice ggtags-select-mode (after emacspeak pre act comp)
-  "Provide  auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line)))
-
-;;; Selection Mode:
 ;;}}}
 (provide 'emacspeak-g-gtags)
 ;;{{{ end of file
