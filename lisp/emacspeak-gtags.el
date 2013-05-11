@@ -44,6 +44,7 @@
 ;;; GTAGS ==  Emacs support for GNU global.
 ;;; GNU  global implements  a modern tags solution
 ;;; Package gtags interfaces Emacs to this tool.
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
@@ -93,7 +94,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-;;; Selection Mode:
 ;;}}}
 (provide 'emacspeak-gtags)
 ;;{{{ end of file
