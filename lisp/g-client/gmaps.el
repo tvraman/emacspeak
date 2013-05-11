@@ -615,7 +615,7 @@ Optional interactive prefix arg prompts for all filter fields."
   (let ((current-prefix-arg nil))       ;dont clear filter
     (call-interactively 'gmaps-places-nearby)))
 
-(defvar gmaps-current-radius  500
+(defvar gmaps-current-radius  5000
   "Radius  to use for places search.")
 
 (make-variable-buffer-local 'gmaps-current-radius)
