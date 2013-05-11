@@ -592,8 +592,7 @@ origin/destination may be returned as a lat,long string."
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
   (interactive "P")
-  (declare (special gmaps-current-filter
-                    gmaps-place-types))
+  (declare (special gmaps-current-filter gmaps-place-types))
   (cond
    (all
     (let ((name (read-string "Name: " ))
@@ -613,7 +612,8 @@ Optional interactive prefix arg prompts for all filter fields."
            :name nil
            :keyword nil
            :types (gmaps-place-read-types)))))
-  (call-interactively 'gmaps-places-nearby))
+  (let ((current-prefix-arg nil))       ;dont clear filter
+    (call-interactively 'gmaps-places-nearby)))
 
 (defvar gmaps-current-radius  500
   "Radius  to use for places search.")
