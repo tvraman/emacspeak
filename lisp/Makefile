@@ -158,7 +158,6 @@ emacspeak-gnus.elc\
 emacspeak-gomoku.elc \
 emacspeak-google.elc \
 emacspeak-gridtext.elc \
-emacspeak-g-gtags.elc \
 emacspeak-gtags.elc \
 emacspeak-gud.elc \
 emacspeak-hide.elc \
@@ -388,7 +387,6 @@ emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
 emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
 emacspeak-gomoku.elc: emacspeak-gomoku.el dtk-speak.elc voice-setup.elc
 emacspeak-gridtext.elc: emacspeak-gridtext.el dtk-speak.elc voice-setup.elc
-emacspeak-g-gtags.elc: emacspeak-g-gtags.el dtk-speak.elc voice-setup.elc
 emacspeak-gtags.elc: emacspeak-gtags.el dtk-speak.elc voice-setup.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
