@@ -657,10 +657,18 @@ before the message is spoken."
                          (format "%c" exit)
                        "space"))))
     ad-do-it))
+
+(defcustom emacspeak-advice-progress-reporter t
+  "Set to true if progress reporter should produce an auditory
+icon."
+  :type 'boolean
+  :group 'emacspeak-advice)
+
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
   "Silence progress reporters for now."
   (let ((emacspeak-speak-messages nil))
-        (emacspeak-auditory-icon 'progress)
+        (when emacspeak-advice-progress-reporter
+             (emacspeak-auditory-icon 'progress))
         ad-do-it))
 
 (defadvice message (around  emacspeak pre act comp)
