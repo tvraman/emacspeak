@@ -183,7 +183,7 @@ Note that some badly formed mime messages  cause trouble."
        (vm-decode-mime-encoded-words-in-string
         (format "%s %s %s   %s %s "
                 (if subject (format " %s" subject) "")
-                (or from "")
+                (if from (format " by %s " from) "")
                 number
                 (if (and to (< (length to) 80))
                     (format "to %s" to) "")
