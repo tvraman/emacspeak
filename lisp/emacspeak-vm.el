@@ -182,9 +182,9 @@ Note that some badly formed mime messages  cause trouble."
       (dtk-speak
        (vm-decode-mime-encoded-words-in-string
         (format "%s %s %s   %s %s "
-                (if subject (format " %s" subject) "")
-                (if from (format " by %s " from) "")
                 number
+                (or from "")
+                (if subject (format "on %s" subject) "")
                 (if (and to (< (length to) 80))
                     (format "to %s" to) "")
                 (if lines (format "%s lines" lines) ""))))
