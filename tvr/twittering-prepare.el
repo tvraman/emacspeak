@@ -1,4 +1,5 @@
 (require 'epa)
+(augment-load-path "twittering-mode" "twittering-mode")
 (load-library "twittering-mode")
 (setq twittering-use-master-password t)
 (setq epa-protocol 'OpenPGP)
