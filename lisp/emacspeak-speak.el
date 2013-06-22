@@ -1078,7 +1078,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
         (display (get-char-property (point) 'display)))
     (when char
       (cond
-       (display (dtk-speak display))
+       ((stringp display) (dtk-speak display))
        ((> char 128) (emacspeak-speak-char-name char))
        ((and (not prefix)
              (emacspeak-is-alpha-p char))
