@@ -573,7 +573,7 @@ the words that were capitalized."
     (declare (special emacspeak-character-echo))
     (when (and emacspeak-character-echo  (ems-interactive-p ))
       (let ((display (get-char-property (1- (point)) 'display)))
-        (if display
+        (if (stringp display)
             (dtk-say display)
           (emacspeak-speak-this-char (preceding-char ))))))
   )
