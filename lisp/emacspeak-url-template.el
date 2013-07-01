@@ -455,7 +455,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Do a Google search and get a Info view of results.")
 
 ;;}}}
-
 ;;{{{ Anonimize google search
 
 (emacspeak-url-template-define
@@ -570,7 +569,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "Perform patent search via Google")
 
 ;;}}}
-;;{{{ google code search
+;;{{{ google API  search
 
 (emacspeak-url-template-define
  "Google API Search"
@@ -579,31 +578,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Search Google APIDocs")
 
-(emacspeak-url-template-define
- "Code Search From Google"
- "http://www.google.com/codesearch?q=%s"
- (list "Google For Code: ")
- #'(lambda nil
-     (search-forward "results"  )
-     (emacspeak-speak-line))
- "Search using Google Code Search."
- #'(lambda (url)
-     (emacspeak-webutils-without-xsl (browse-url url))))
 
-;;}}}
-;;{{{ google music:
-
-(emacspeak-url-template-define
- "Music Search"
- "http://www.google.com/musicsearch?q=%s"
- (list "Google Music Search:")
- #'(lambda nil
-     (search-forward "results"  )
-     (emacspeak-speak-line))
- "Music search on Google."
- #'(lambda (url)
-     (emacspeak-webutils-without-xsl
-      (browse-url url))))
 
 ;;}}}
 ;;{{{ YouTube:
@@ -630,26 +605,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
            'emacspeak-m-player-youtube-player))
  "YouTube Search Via Feeds"
  'emacspeak-webutils-atom-display)
-
-;;}}}
-;;{{{  Google Video:
-
-(emacspeak-url-template-define
- "Google Soccer Results"
- "http://www.google.com/search?q=%s+world+cup+soccer&num=1"
- (list "Countries:")
- nil
- "Display World Cup Soccer Results for specified countries."
- #'(lambda (url)
-     (emacspeak-we-extract-nested-table 5 url 'speak)))
-
-(emacspeak-url-template-define
- "Google Video"
- "http://video.google.com/videofeed?type=search&q=%s&num=20&output=rss"
- (list "Video Search:")
- nil
- "Retrieve Google Video search results as an atom feed."
- 'emacspeak-webutils-rss-display)
 
 ;;}}}
 ;;{{{ Google Reader:
