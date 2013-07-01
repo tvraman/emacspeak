@@ -226,13 +226,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{  powerset
 
-(emacspeak-url-template-define
- "PowerSet Wikipedia Search"
- "http://www.powerset.com/explore/pset?q=%s"
- (list "PowerSet: ")
- nil
- "Perform powerset query.")
-
 ;;}}}
 ;;{{{ Mozilla MDC
 
@@ -279,49 +272,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Retrieve product details from Amazon by either ISBN or ASIN.")
 ;;}}}
-;;{{{ bookshare
-;;; replacing with API  client:
-
-(defun emacspeak-url-template-calendar-to-seconds ()
-  "Convert date under cursor to seconds since epoch."
-  (unless (eq 'calendar-mode  major-mode)
-    (error "Not in the calendar."))
-  (let ((date (calendar-cursor-to-date)))
-    (format "%d"
-            (float-time
-             (encode-time 0 0 0
-                          (second date)
-                          (first date)
-                          (third date)))))        )
-
-;;}}}
-;;{{{ shoutcast
-(defvar emacspeak-url-template-shoutcast-history nil
-  "History to track shoutcast searchses.")
-
-(emacspeak-url-template-define
- "Shoutcast Search"
- "http://yp.shoutcast.com/directory?s=%s&l=25"
- (list
-  #'(lambda ()
-      (let ((query
-             (read-from-minibuffer "Shoutcast search: "
-                                   (car
-                                    emacspeak-url-template-shoutcast-history)
-                                   nil nil
-                                   'emacspeak-url-template-shoutcast-history)))
-        (pushnew query emacspeak-url-template-shoutcast-history
-                 :test #'string-equal)
-        (emacspeak-url-encode query))))
- nil
- "Locate and display Shoutcast streams."
- #'(lambda (url)
-     (emacspeak-we-extract-table-by-match
-      "Rank"
-      url
-      'speak)))
-
-;;}}}
 ;;{{{  old time radio
 (emacspeak-url-template-define
  "Old Time Radio"
@@ -333,39 +283,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-nested-table-list
       (list 2 3 )
       url)))
-;;}}}
-;;{{{ Netcraft surveys
-(emacspeak-url-template-define
- "Netcraft Web Analysis"
- "http://uptime.netcraft.com/up/graph?display=uptime&site=%s"
- (list "Site to analyze: ")
- nil
- "Analyze WWW site using Netcraft."
- #'(lambda (url)
-     (emacspeak-we-extract-tables-by-match-list
-      (list "running" "average")
-      url 'speak)))
-
-(emacspeak-url-template-define
- "Netcraft Site Report"
- "http://toolbar.netcraft.com/site_report?url=%s"
- (list "Site Report: ")
- 'emacspeak-speak-buffer
- "Analyze WWW site using Netcraft."
- nil
- 'dont-url-encode)
-
-;;}}}
-;;{{{  digg
-
-(emacspeak-url-template-define
- "Digg"
- "http://www.digg.org/rss/index.xml"
- nil
- nil
- "Display Digg Feed."
- 'emacspeak-webutils-rss-display)
-
 ;;}}}
 ;;{{{ BBC iPlayer 
 ;;; convertor is here:
@@ -413,35 +330,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "BBC Mobile Streams.")
 
-(emacspeak-url-template-define
- "BBC  7 Radio Bridge"
- "rtsp://rmv8.bbc.net.uk:554/bbc7coyopa/bbc7_-_%s_%s.ra"
- (list
-  "Weekeday: "
-  "Time: ")
- nil
- "Play BBC  Radio7 show for a given day/time."
- 'emacspeak-m-player)
-
-(emacspeak-url-template-define
- "Radio4 radioBridge"
- "rtsp://rmv8.bbc.net.uk:554/radio4fmcoyopa/radio_4_fm_-_%s_%s.ra"
- (list
-  "Weekeday: "
-  "Time: ")
- nil
- "Play BBC  Radio4 show for a given day/time."
- 'emacspeak-m-player)
-
-;;}}}
-;;{{{  answers.com
-(emacspeak-url-template-define
- "Answers.com"
- "http://www.answers.com/main/ntquery?s=%s"
- (list "Search answers.com for: ")
- nil
- "Search answers.com")
-
 ;;}}}
 ;;{{{ html5irc 
 
@@ -451,35 +339,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Show HTML5 IRC log.")
-
-;;}}}
-;;{{{ product search: Google (used to be  froogle)
-
-(emacspeak-url-template-define
- "Google Product Search"
- "https://www.google.com/products?q=%s&output=html"
- (list "Product: ")
- #'(lambda ()
-     (search-forward "Please" nil t)
-     (forward-line 2)
-     (emacspeak-speak-line))
- "Perform Google Product Search"
- #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "id(\"res0\")/.."
-      url )))
-
-;;; Google Realtime standalone:
-
-(emacspeak-url-template-define
- "Google Realtime Search"
- "http://www.google.com/search?tbs=mbl:1&hl=en&source=hp&ie=ISO-8859-1&q=%s&btnG=Search"
- (list "Realtime Search: ")
- #'(lambda ()
-     (re-search-forward "^ *New Results" nil t)
-     (emacspeak-speak-rest-of-buffer))
- "Perform Google Realtime Search"
- )
 
 ;;}}}
 ;;{{{ market summary from google finance
