@@ -132,7 +132,7 @@
 
 (loop for f in
       '(org-mark-ring-goto org-mark-ring-push
-                           org-forward-same-level org-backward-same-level
+                           org-forward-heading-same-level org-backward-heading-same-level
                            org-next-link org-previous-link org-open-at-point
                            org-goto  org-goto-ret
                            org-goto-left org-goto-right
