@@ -212,7 +212,7 @@ dont-url-encode if true then url arguments are not url-encoded "
       (kill-buffer buffer))))
 
 ;;}}}
-;;{{{  template resources
+;;; template resources
 ;;{{{ twitter:
 
 (emacspeak-url-template-define
@@ -701,65 +701,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       "news" url 'speak)))
 
 ;;}}}
-;;{{{ google maps
-
-;;; public transit using Google Maps:
-
-(emacspeak-url-template-define
- "Public Transit Via Google Maps"
- "http://www.google.com/maps?output=html&ie=UTF8&f=d&dirflg=r&q=%s&ttype=dep&date=%s&time=now"
- (list
-  "Trip Details: "
-  #'(lambda ()
-      (emacspeak-url-encode
-       (format-time-string "%m/%d/%y"))))
- nil
- "Public transit directions from Google."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "directions"
-                                    url 'speak)))
-
-(emacspeak-url-template-define
- "Walking Directions From Google"
- "http://maps.google.com/maps?f=d&output=html&hl=en&q=%s&dirmode=walking&ie=UTF8&dirflg=w"
- (list "Route: ")
- nil
- "Display walking directions using Google."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "dir" url 'speak)))
-
-(emacspeak-url-template-define
- "EmapSpeak Via Google"
- "http://maps.google.com/maps?q=%s&output=kml"
- (list "Query: ")
- 'emacspeak-speak-buffer
- "EmapSpeak Via Google.
-
-Specify the query using English and  addresses as complete as
-  possible.
-
-Here are some examples:
-
-0) To find a location by address specify:
-
-650 Harry Road San Jose CA 95120
-
-1) To get directions, specify:
-
-<source address> to <destination address>
-
-2) To find businesses etc., near a location, specify:
-
-<what> near <location address>
-"
- #'(lambda (url)
-     (let ((buffer
-            (emacspeak-xslt-xml-url
-             (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
-             url )))
-       (browse-url-of-buffer buffer))))
-
-;;}}}
 ;;{{{ google scholar
 
 (emacspeak-url-template-define
@@ -854,27 +795,6 @@ from English to German.")
       (browse-url url))))
 
 ;;}}}
-;;{{{ yubnub
-(emacspeak-url-template-define
- "YubNub Web Command Line"
- "http://yubnub.org/parser/parse?command=%s"
- (list "YubNub Command: ")
- nil
- "YubNub Command Line"
- )
-
-;;}}}
-;;{{{ Google Reader:
-
-(emacspeak-url-template-define
- "Google Reader"
- "http://www.google.com/reader/public/atom/feed/%s"
- (list "Feed: ")
- nil
- "View feed via Google Reader."
- 'emacspeak-webutils-atom-display)
-
-;;}}}
 ;;{{{  google filters
 (emacspeak-url-template-define
  "Google WebQuotes"
@@ -941,18 +861,6 @@ from English to German.")
        (save-excursion
          (set-buffer buffer)
          (browse-url-of-buffer)))))
-
-;;}}}
-;;{{{ Google Local:
-
-(emacspeak-url-template-define
- "Google Local"
- "http://local.google.com/local?output=html&q=%s"
- (list "Google Local Search:")
- #'(lambda ()
-     (search-forward "Local Search within" nil t)
-     (emacspeak-speak-line))
- "Google Local Search.")
 
 ;;}}}
 ;;{{{ google OverviewOfNews
@@ -1082,46 +990,6 @@ from English to German.")
  "Play Podcast from CNET"
  #'(lambda (url)
      (funcall emacspeak-media-player url)))
-
-;;}}}
-;;{{{ Infoworld RSS
-(emacspeak-url-template-define
- "InfoWorld RSS Feeds"
- "http://www.infoworld.com/rss/rss_info.html"
- nil
- nil
- "Produce  a set of RSS links published by InfoWorld."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "//a[contains(@href, \".rdf\") and @class]"
-      url  'speak)))
-
-;;}}}
-
-;;{{{ mapquest
-
-(emacspeak-url-template-define
- "MapQuest Directions"
- "http://www.mapquest.com/directions/main.adp?go=1&do=nw&1y=US&2y=US&ct=NA&1a=%s&1c=%s&1c=%s&1z=%s&2a=%s&2c=%s&2s=%s&2z=%s"
- (list "Start Address:" "City:" "State:" "Zip:"
-       "Destination Address:" "City:" "State:" "Zip:")
- nil
- "Retrieve and speak directions from MapQuest."
- #'(lambda (url)
-     (emacspeak-we-extract-table-by-match "Maneuvers"
-                                          url 'speak)))
-
-;;}}}
-;;{{{ bing rss
-
-(emacspeak-url-template-define
- "Bing RSS"
- "http://www.bing.com/search?go=&qs=ns&form=QBLH&format=rss&q=%s"
- (list "Bing For: ")
- nil
- "RSS Feed of Bing Results."
- #'(lambda (url)
-     (emacspeak-webutils-rss-display url)))
 
 ;;}}}
 ;;{{{ yahoo daily news
@@ -1266,27 +1134,6 @@ from English to German.")
  'emacspeak-url-template-yahoo-news-processor)
 
 ;;}}}
-;;{{{ Adobe pdf conversion
-
-(emacspeak-url-template-define
- "pdf2txt"
- "http://access.adobe.com/access/convert.do?acceptLanguage=en&srcPdfUrl=%s&convertTo=text&visuallyImpaired=true&preferHTMLReason=&platform=Linux&comments=&submit=Convert"
- (list "PDF URL: ")
- nil
- "Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.")
-
-(emacspeak-url-template-define
- "pdf2html"
- "http://access.adobe.com/access/convert.do?acceptLanguage=en&srcPdfUrl=%s&convertTo=html&visuallyImpaired=true&preferHTMLReason=&platform=Linux&comments=&submit=Convert"
- (list "PDF URL: ")
- nil
- "Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.")
-
-;;}}}
 ;;{{{ w3c
 
 (emacspeak-url-template-define
@@ -1428,21 +1275,6 @@ name of the list.")
       'speak)))
 
 ;;}}}
-;;{{{ pbs --pulpit
-(emacspeak-url-template-define
- "Pulpit --- I Cringely"
- "http://www.pbs.org/cringely/pulpit/pulpit%s.html"
- (list
-  #'(lambda nil
-      (emacspeak-url-template-collect-date "Date: (most recent Thursday)"
-                                           "%Y%m%d")))
- nil
- "Read pulpit from PBS. Published on the Thursday of the week."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      emacspeak-we-recent-xpath-filter url 'speak)))
-
-;;}}}
 ;;{{{  The Linux Show
 (emacspeak-url-template-define
  "Geek Linux Daily"
@@ -1472,25 +1304,6 @@ name of the list.")
  "Play specified edition of Redhat Linux Show"
  #'(lambda (url)
      (funcall emacspeak-media-player url 'play-list)))
-
-;;}}}
-;;{{{ technet cast from DDJ
-
-(emacspeak-url-template-define
- "DDJ TechNetCast Save"
- "http://technetcast.ddj.com/tnc_save_mp3.html?stream_id=%s"
- (list "Download Stream ")
- nil
- "Browse to a specified DDJ Technetcast stream and save  it.")
-
-(emacspeak-url-template-define
- "DDJ TechNetCast Play"
- "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
- (list "Stream Id")
- nil
- "Play Technetcast stream from DDJ."
- #'(lambda (url)
-     (funcall emacspeak-media-player  url 'play-list)))
 
 ;;}}}
 ;;{{{  linux today
@@ -1671,21 +1484,6 @@ name of the list.")
       'speak)))
 
 ;;}}}
-;;{{{ flights from travelocity
-
-(emacspeak-url-template-define
- "Travelocity Lookup"
- "http://dps1.travelocity.com/dparflifo.ctl?Service=TRAVELOCITY&GUEST=Y&last_pgd_page=ushpdeparr.pgd&aln_name=%s&flt_num=%s"
- (list
-  "Airline:"
-  "Flight Number:")
- nil
- "Show arrival/departure information from Travelocity."
- #'(lambda (url)
-     (emacspeak-we-extract-table-by-match
-      "Schedule" url 'speak)))
-
-;;}}}
 ;;{{{  times of india
 
 ;;; create url rewrite url to get print page
@@ -1715,77 +1513,6 @@ Set up URL rewrite rule to get print page."
  'emacspeak-speak-buffer
  "Retrieve Cartoon Times Of India."
  )
-
-;;}}}
-;;{{{ meerkat
-(defvar emacspeak-url-template-meerkat-profiles (make-hash-table
-                                                 :test #'equal)
-  "Map Meerkat profile names to profile codes.
-Meerkat realy needs an xml-rpc method for getting this.")
-
-(loop for e in
-      (list
-       '(1 "DEFAULT")
-       '(10586 ".NET")
-       '(1064 "Perl")
-       '(1065 "Macintosh")
-       '(13886 "WebServices.XML.com")
-       '(1398 "O'ReillyNetForums")
-       '(1665 "BSD")
-       '(17 "Python")
-       '(1746 "PHP")
-       '(19 "Software")
-       '(2281 "XML")
-       '(27 "Web")
-       '(4 "Apache")
-       '(441 "Mozilla")
-       '(4862 "P2P")
-       '(4999 "O'Reilly")
-       '(5 "Linux")
-       '(563 "O'ReillyNetwork")
-       '(6304 "XML.com")
-       '(760 "Weblogs")
-       '(9 "Wireless"))
-      do
-      (puthash (second e)  (first e)
-               emacspeak-url-template-meerkat-profiles))
-
-(defsubst emacspeak-url-template-meerkat-profile-names ()
-  "Return alist of Meerkat profile names."
-  (declare (special emacspeak-url-template-meerkat-profiles))
-  (loop for k being the hash-keys of
-        emacspeak-url-template-meerkat-profiles
-        collect k))
-
-(emacspeak-url-template-define
- "Meerkat Profile"
- "http://meerkat.oreillynet.com/?_fl=rss10&p=%s"
- (list
-  #'(lambda nil
-      (let((completion-ignore-case t)
-           (profile
-            (completing-read "Meerkat Profile:"
-                             (emacspeak-url-template-meerkat-profile-names)
-                             nil t)))
-        (gethash profile emacspeak-url-template-meerkat-profiles))))
- nil
- "Meerkat Profile"
- #'(lambda (url)
-     (emacspeak-webutils-rss-display url)))
-
-(emacspeak-url-template-define
- "Meerkat Recipe"
- "http://meerkat.oreillynet.com/?_fl=rss10&%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "Meerkat recipe: ")))
- nil
- "Meerkat tool"
- #'(lambda (url)
-     (emacspeak-webutils-rss-display url)))
-
-;;}}}
-;;{{{  flight arrival
 
 ;;}}}
 ;;{{{ weather underground
@@ -1907,6 +1634,11 @@ Meerkat realy needs an xml-rpc method for getting this.")
  #'(lambda (url)
      (funcall emacspeak-media-player  url 'play-list))) 
 
+
+
+;;}}}
+;;{{{  earthquakes 
+
 (emacspeak-url-template-define
  "Earthquakes"
  "http://earthquake.usgs.gov/earthquakes/recenteqsus/Quakes/quakes_all.php"
@@ -1932,7 +1664,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  #'(lambda (url)
      (emacspeak-m-player url 'playlist)))
 
-;;}}}
 ;;}}}
 ;;{{{ Interactive commands
 
