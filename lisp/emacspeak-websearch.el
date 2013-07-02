@@ -220,7 +220,6 @@ When using supported browsers,  this interface attempts to speak the most releva
       (kill-buffer buffer))))
 
 ;;}}}
-
 ;;{{{ Computer Science Bibliography
 
 (emacspeak-websearch-set-searcher 'biblio
@@ -1343,33 +1342,6 @@ Optional prefix arg no-rss scrapes information from HTML."
    (emacspeak-url-encode (format "site:wikipedia.org %s"query))))
 
 ;;}}}
-;;{{{ People from yahoo
-
-(emacspeak-websearch-set-searcher 'people-yahoo
-                                  'emacspeak-websearch-people-yahoo)
-(emacspeak-websearch-set-key ?p 'people-yahoo)
-
-(defvar emacspeak-websearch-people-yahoo-uri
-  "http://people.yahoo.com/py/psPhoneSearch.py?"
-  "*URI for launching a People   search on Yahoo.")
-
-;;;###autoload
-(defun emacspeak-websearch-people-yahoo ()
-  "Perform an Yahoo  people search"
-  (interactive)
-  (declare (special emacspeak-websearch-people-yahoo-uri))
-  (browse-url
-   (concat emacspeak-websearch-people-yahoo-uri
-           (format "FirstName=%s&LastName=%s&City=%s&State=%s"
-                   (emacspeak-url-encode (read-from-minibuffer "First name: "))
-                   (emacspeak-url-encode (read-from-minibuffer "Last name: "))
-                   (emacspeak-url-encode (read-from-minibuffer "City: "))
-                   (emacspeak-url-encode (read-from-minibuffer "State: ")))))
-  (emacspeak-webutils-post-process
-   "First"
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ yahoo
 
 (emacspeak-websearch-set-searcher 'yahoo
@@ -1554,6 +1526,7 @@ Optional interactive prefix arg results in prompting for a search term."
       (emacspeak-webutils-rss-display url)))))
 
 ;;}}}
+
 ;;}}}
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
