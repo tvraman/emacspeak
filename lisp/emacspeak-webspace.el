@@ -389,40 +389,12 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 
 (defun emacspeak-webspace-reader-create ()
   "Prepare Reader buffer."
-  (declare (special emacspeak-webspace-reader-buffer))
-  (let ((subscriptions (greader-subscriptions))
-        (buffer (get-buffer-create emacspeak-webspace-reader-buffer))
-        (inhibit-read-only t)
-        (start nil))
+  (declare (special emacspeak-webspace-reader-buffer
+                    emacspeak-webspace-reader-feed-list))
+  (let ((buffer (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list))))
     (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (goto-char (point-min))
-      (insert
-       (format "Google Reader %d\n"
-               (length subscriptions)))
-      (setq start (point))
-      (loop for feed across subscriptions
-            and i from 1
-            do
-            (insert
-             (format "%d. %s\n"
-                     i
-                     (cdr (assq 'title feed))))
-            (put-text-property start (point)
-                               'link (greader-id-to-url (cdr
-                                                         (assoc
-                                                          'id
-                                                          feed))))
-            (setq start (point)))
-      (setq buffer-read-only t)
-      (emacspeak-webspace-mode)
-      (local-set-key "u" 'emacspeak-webspace-reader-unsubscribe))
-    buffer))
-
-;;;###autoload
-
+          (set-buffer buffer)
+          (rename-buffer  emacspeak-webspace-reader-buffer))))
 (defun emacspeak-webspace-reader-rip (file)
   "RIP Google Reader.
 Save Reader subscriptions to a specified file."
@@ -456,6 +428,10 @@ Save Reader subscriptions to a specified file."
               (cdr (assq 'title feed)))))
       (insert "</ol>\n</body>\n</html>\n")
       (save-buffer))))
+;;;###autoload
+(defcustom emacspeak-webspace-reader-feed-list
+  (expand-file-name  "reader.html" "~/.emacspeak")
+  "HTML file containing list of feeds.")
 
 ;;;###autoload 
 (defun emacspeak-webspace-reader (&optional refresh)
