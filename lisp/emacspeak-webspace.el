@@ -391,10 +391,8 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   "Prepare Reader buffer."
   (declare (special emacspeak-webspace-reader-buffer
                     emacspeak-webspace-reader-feed-list))
-  (let ((buffer (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list))))
-    (save-excursion
-          (set-buffer buffer)
-          (rename-buffer  emacspeak-webspace-reader-buffer))))
+  (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list)))
+    
 (defun emacspeak-webspace-reader-rip (file)
   "RIP Google Reader.
 Save Reader subscriptions to a specified file."
