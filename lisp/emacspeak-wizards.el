@@ -663,6 +663,23 @@ See /etc/sudoers for how to set up sudo."
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
+;;{{{ find file as root
+
+;;; Taken from http://emacs-fu.blogspot.com/2013/03/editing-with-root-privileges-once-more.html
+;;;###autoload
+
+(defun emacspeak-wizards-find-file-as-root ()
+  "Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user."
+  (interactive)
+  (let ((file (ido-read-file-name "Edit as root: ")))
+    (unless (file-writable-p file)
+      (setq file (concat "/sudo:root@localhost:" file)))
+    (find-file file)))
+
+
+;;}}}
 ;;{{{ edit file as root using sudo vi
 ;;;###autoload
 (defun emacspeak-wizards-vi-as-su-file (file)
