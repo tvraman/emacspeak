@@ -51,7 +51,7 @@
 ;;; Top-level bootstrap module for Google Client.
 ;;; Loads in authentication module and sets up per-service
 ;;modules:
-;;; Google Reader: greader
+;;; gmaps: Google Maps 
 ;;; Google Calendar: gcal
 ;;; ...
 

@@ -49,7 +49,7 @@
 ;;{{{  introduction
 
 ;;; Common Code  For APP
-;;; Used by modules like greader, gblogger etc.
+;;; Used by modules like gphoto, gblogger etc.
 
 ;;}}}
 ;;{{{  Required modules

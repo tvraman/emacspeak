@@ -61,7 +61,7 @@
 ;;; 2) Cache this token for use during its lifetime.
 
 ;;; defstruct g-auth encapsulates this functionality.
-;;; See module greader.el for sample usage
+;;; See module gphoto.el for sample usage
 
 ;;}}}
 ;;{{{  Required modules
