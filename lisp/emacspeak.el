@@ -359,36 +359,37 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
    #'(lambda (hook)
        (add-hook hook
                  'emacspeak-setup-programming-mode))
-   (list 'c-mode-common-hook
-         'conf-unix-mode-hook
-         'prolog-mode-hook
-         'lisp-mode-hook
-         'emacs-lisp-mode-hook
-         'lisp-interaction-mode-hook
-         'javascript-mode-hook
-         'js2-mode-hook
-         'scala-mode-hook
-         'midge-mode-hook
-         'meta-common-mode-hook
-         'perl-mode-hook
-         'muse-mode-hook
-         'cperl-mode-hook
-         'sh-mode-hook
-         'ruby-mode-hook
-         'sql-mode-hook
-         'sgml-mode-hook
-         'xml-mode-hook
-         'nxml-mode-hook
-         'xsl-mode-hook
-         'makefile-mode-hook
-         'TeX-mode-hook
-         'LaTeX-mode-hook
-         'bibtex-mode-hook
-         'tcl-mode-hook
-         'html-helper-mode-hook
-         'scheme-mode-hook
-         'dired-mode-hook
-         'python-mode-hook)))
+   (list
+    'prog-mode-hook'c-mode-common-hook
+    'conf-unix-mode-hook
+    'prolog-mode-hook
+    'lisp-mode-hook
+    'emacs-lisp-mode-hook
+    'lisp-interaction-mode-hook
+    'javascript-mode-hook
+    'js2-mode-hook
+    'scala-mode-hook
+    'midge-mode-hook
+    'meta-common-mode-hook
+    'perl-mode-hook
+    'muse-mode-hook
+    'cperl-mode-hook
+    'sh-mode-hook
+    'ruby-mode-hook
+    'sql-mode-hook
+    'sgml-mode-hook
+    'xml-mode-hook
+    'nxml-mode-hook
+    'xsl-mode-hook
+    'makefile-mode-hook
+    'TeX-mode-hook
+    'LaTeX-mode-hook
+    'bibtex-mode-hook
+    'tcl-mode-hook
+    'html-helper-mode-hook
+    'scheme-mode-hook
+    'dired-mode-hook
+    'python-mode-hook)))
 
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions
