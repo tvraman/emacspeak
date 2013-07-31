@@ -972,7 +972,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Tech News From CNet"
- "http://news.com.com/2547-1_3-0-5.xml"
+ "http://feeds.feedburner.com/cnet/tcoc"
  nil
  'emacspeak-url-template-setup-content-filter
  "Display tech news from CNET"
