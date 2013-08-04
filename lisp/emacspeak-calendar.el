@@ -56,7 +56,7 @@
    (diary-face voice-bolden)
    ))
 
-(defcustom emacspeak-calendar-mark-personality 'ursula
+(defcustom emacspeak-calendar-mark-personality voice-bolden
   "Personality to use when showing marked calendar entries."
   :type 'symbol
   :group 'emacspeak-calendar)
