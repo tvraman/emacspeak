@@ -99,6 +99,7 @@
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
   "URL  that gets suggestions from Google as JSON.")
 ;;; corpus is ds=n for News
+;;; Documentation: https://github.com/OpenRefine/OpenRefine/wiki/Suggest-Api
 
 (defsubst gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
