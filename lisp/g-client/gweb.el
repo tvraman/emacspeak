@@ -119,10 +119,9 @@
      (setq js  (aref js 1))
      (loop for e across js
            collect
-           (replace-regexp-in-string "<b>" ""
-                                     (replace-regexp-in-string
-                                      "</b>" ""
-           (aref e 0)))))))
+           (replace-regexp-in-string
+            "</?b>" ""
+            (aref e 0))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
