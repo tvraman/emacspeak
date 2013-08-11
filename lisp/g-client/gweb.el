@@ -106,7 +106,8 @@
   (declare (special gweb-suggest-url))
   (unless (> (length input) 0) (setq input minibuffer-default))
   (g-using-scratch
-   (let ((url
+   (let ((js nil)
+         (url
           (format gweb-suggest-url (or corpus "psy")
                   (g-url-encode input))))
      (call-process
@@ -114,12 +115,12 @@
       nil t nil
       "-s" url)
      (goto-char (point-min))
-                                        ; nuke comma separator gives:   json array -> lisp vector
-     (while (re-search-forward "\"," nil t) (replace-match "\""))
-     (goto-char (point-min)))
-   ;; The  JSON array is now a vector. So  read it
-                                        ; and turn it into a list
-   (append (aref (read (current-buffer)) 1) nil)))
+   (setq js (json-read))
+   (setq js  (aref js 1))
+   (loop for e across js
+         collect
+          (aref e 0))
+   )))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
