@@ -115,11 +115,14 @@
       nil t nil
       "-s" url)
      (goto-char (point-min))
-   (setq js (json-read))
-   (setq js  (aref js 1))
-   (loop for e across js
-         collect
-          (aref e 0)))))
+     (setq js (json-read))
+     (setq js  (aref js 1))
+     (loop for e across js
+           collect
+           (replace-regexp-in-string "<b>" ""
+                                     (replace-regexp-in-string
+                                      "</b>" ""
+           (aref e 0)))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
