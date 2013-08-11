@@ -119,8 +119,7 @@
    (setq js  (aref js 1))
    (loop for e across js
          collect
-          (aref e 0))
-   )))
+          (aref e 0)))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
