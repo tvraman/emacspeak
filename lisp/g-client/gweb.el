@@ -151,7 +151,7 @@
 
 ;;{{{  Generate suggest handlers for Google properties
 (loop for c in
-      '("news" "products" "youtube" "books")
+      '("news-cc" "products-cc" "youtube" "books" "img")
       do
       (eval
        `(defun
@@ -238,7 +238,7 @@ Uses specified corpus for prompting and suggest selection."
     (setq query
           (completing-read
            (or prompt "Google News: ")
-           'gweb-news-suggest-completer
+           'gweb-news-cc-suggest-completer
            nil nil
            word 'gweb-history))
     (pushnew  query gweb-history)
