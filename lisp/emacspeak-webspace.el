@@ -52,7 +52,7 @@
 (require 'ring)
 (require 'derived)
 (require 'gfeeds)
-(require 'greader)
+
 (require 'gweb)
 (require 'emacspeak-webutils)
 ;;}}}
@@ -80,7 +80,6 @@
         ("b" emacspeak-webspace-previous-link)
         ("y" emacspeak-webspace-yank-link)
         ("A"emacspeak-webspace-atom-view)
-        ("r" greader-reading-list)
         ("R" emacspeak-webspace-rss-view)
         ("F" emacspeak-webspace-feed-view)
         ("t" emacspeak-webspace-transcode)
@@ -393,39 +392,6 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
                     emacspeak-webspace-reader-feed-list))
   (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list)))
     
-(defun emacspeak-webspace-reader-rip (file)
-  "RIP Google Reader.
-Save Reader subscriptions to a specified file."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name
-      "Save feed list to file: "
-      emacspeak-resource-directory "reader.html")
-     emacspeak-resource-directory)))
-  (let ((subscriptions (greader-subscriptions))
-        (buffer (find-file-noselect file))
-        )
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (goto-char (point-min))
-      (insert "<html><head><title>Subscription List</title></head>\n")
-      (insert "<body>\n")
-      (insert
-       (format "<h1>Google Reader %d</h1>\n"
-               (length subscriptions)))
-      (insert "<ol>\n")
-      (loop for feed across subscriptions
-            do
-            (insert
-             (format
-              "<li> <a href='%s'>%s</a></li>\n"
-              (greader-id-to-url (cdr (assoc 'id feed)))
-              (cdr (assq 'title feed)))))
-      (insert "</ol>\n</body>\n</html>\n")
-      (save-buffer))))
 ;;;###autoload
 (defcustom emacspeak-webspace-reader-feed-list
   (expand-file-name  "reader.html" "~/.emacspeak")
@@ -453,36 +419,6 @@ Optional interactive prefix arg forces a refresh."
 (defconst emacspeak-webspace-reading-list-max-size 1800
   "How many headlines we keep around.")
 
-(defun emacspeak-webspace-reading-list-accumulate ()
-  "Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer."
-  (interactive)
-  (declare (special emacspeak-webspace-reading-list-buffer
-                    emacspeak-webspace-reading-list-max-size))
-  (let ((buffer (get-buffer-create emacspeak-webspace-reading-list-buffer))
-        (start nil)
-        (titles (greader-reading-list-titles))
-        (inhibit-read-only t))
-    (with-current-buffer buffer
-      (emacspeak-webspace-mode)
-      (goto-char (point-min))
-      (loop for title in titles
-            do
-            (setq start (point))
-            (insert (first (split-string (cdr title) "\n")))
-            (put-text-property  start (point)
-                                'link (car title))
-            (insert "\n"))
-      (goto-char (point-min))
-      (when (> (count-lines (point-min) (point-max))
-               emacspeak-webspace-reading-list-max-size)
-        (forward-line  emacspeak-webspace-reading-list-max-size)
-        (delete-region (point) (point-max)))
-      (when (ems-interactive-p)
-        (switch-to-buffer buffer)
-        (goto-char (point-min))
-        (emacspeak-speak-mode-line)
-        (emacspeak-auditory-icon 'select-object)))))
-
 ;;;###autoload
 (defun emacspeak-webspace-reading-list-view ()
   "Switch to reading list view, creating it if needed."
@@ -502,14 +438,7 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
-(defun emacspeak-webspace-reader-unsubscribe ()
-  "Unsubscribe to link under point."
-  (interactive)
-  (let ((link (get-text-property (point) 'link)))
-    (cond
-     (link 
-      (greader-unsubscribe-feed link))
-     (t (call-interactively 'greader-unsubscribe-feed)))))
+
 
 (defun emacspeak-webspace-reading-list-get-some-title ()
   "Returns a title chosen at random.
