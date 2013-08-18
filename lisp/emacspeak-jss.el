@@ -84,19 +84,15 @@
 ;;}}}
 ;;{{{ Fix Interactive Commands:
 
-; jss-browser-kill-buffer
-
 ; jss-browser-mode-refresh
 ; jss-connect
 ; jss-console-clear-buffer
 ; jss-console-ensure-connection
-; jss-console-kill
 
 ; jss-console-reload-page
 ; jss-console-switch-to-io-inspector
 ; jss-console-toggle-timing-data
 ; jss-debugger-frame-goto-prompt
-; jss-debugger-kill
 
 ; jss-debugger-set-resume-point-here
 ; jss-debugger-stepper-frame-restart
@@ -113,7 +109,6 @@
 ; jss-http-repl-after-change-function
 ; jss-http-repl-choose-user-agent
 ; jss-http-repl-ensure-header
-
 ; jss-http-repl-read-authorization
 ; jss-http-repl-read-cache-control
 ; jss-http-repl-read-content-length
@@ -122,7 +117,6 @@
 ; jss-invoke-primary-action
 ; jss-invoke-secondary-action
 ; jss-io-clone-into-http-repl
-
 ; jss-next-button
 ; jss-previous-button
 ; jss-prompt-beginning-of-line
@@ -130,15 +124,29 @@
 ; jss-prompt-insert-next-input
 ; jss-prompt-insert-previous-input
 ; jss-remote-value-expand-at-point
-; jss-script-kill
+
 ; jss-set-debugger-sensitivity
 ; jss-tab-goto-console
 ; jss-toggle-network-monitor
 ; jss-toggle-text-visibility
 
 ;;}}}
-;;{{{ Setup JSS buffers in programming mode:
+;;{{{ Advice interactive commands:
 
+;;; Advice Killing Commands:
+(loop for f in
+      '(jss-script-kill
+         jss-debugger-kill
+         jss-console-kill
+ jss-browser-kill-buffer)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory icon."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-mode-line)))))
+        ;;; Setup JSS buffers in programming mode:
 (add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode
           )
 (add-hook
