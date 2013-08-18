@@ -69,10 +69,82 @@
 
 ;;}}}
 ;;{{{ Map Faces:
-
 (voice-setup-add-map
- ; insert map here 
- )
+ '(
+   (jss-console-debug-message  voice-smoothen)
+   (jss-console-log-message    voice-monotone)
+   (jss-console-warn-message   voice-animate)
+   (jss-console-error-message  voice-animate-extra)
+   (jss-http-repl-meta-data-face voice-monotone)
+   (jss-http-repl-submitted-face voice-annotate)
+   (jss-script-line-marker-face  voice-monotone)
+   (jss-button-face  voice-bolden)
+))
+
+;;}}}
+;;{{{ Fix Interactive Commands:
+
+; jss-browser-kill-buffer
+; jss-browser-mode
+; jss-browser-mode-refresh
+; jss-connect
+; jss-console-clear-buffer
+; jss-console-ensure-connection
+; jss-console-kill
+; jss-console-menu
+; jss-console-mode
+; jss-console-reload-page
+; jss-console-switch-to-io-inspector
+; jss-console-toggle-timing-data
+; jss-debugger-frame-goto-prompt
+; jss-debugger-kill
+; jss-debugger-menu
+; jss-debugger-mode
+; jss-debugger-set-resume-point-here
+; jss-debugger-stepper-frame-restart
+; jss-debugger-stepper-resume
+; jss-debugger-stepper-step-into
+; jss-debugger-stepper-step-out
+; jss-debugger-stepper-step-over
+; jss-expand-nearest-remote-value
+; jss-frame-goto-exception
+; jss-frame-goto-source
+; jss-frame-next
+; jss-frame-previous
+; jss-http-repl
+; jss-http-repl-after-change-function
+; jss-http-repl-choose-user-agent
+; jss-http-repl-ensure-header
+; jss-http-repl-menu
+; jss-http-repl-mode
+; jss-http-repl-read-authorization
+; jss-http-repl-read-cache-control
+; jss-http-repl-read-content-length
+; jss-http-repl-read-content-type
+; jss-http-repl-send-request
+; jss-invoke-primary-action
+; jss-invoke-secondary-action
+; jss-io-clone-into-http-repl
+; jss-io-mode
+; jss-io-mode-menu
+; jss-next-button
+; jss-previous-button
+; jss-prompt-beginning-of-line
+; jss-prompt-eval-or-newline
+; jss-prompt-insert-next-input
+; jss-prompt-insert-previous-input
+; jss-remote-value-expand-at-point
+; jss-script-kill
+; jss-set-debugger-sensitivity
+; jss-super-mode
+; jss-tab-goto-console
+; jss-toggle-network-monitor
+; jss-toggle-text-visibility
+
+;;}}}
+;;{{{ Setup JSS buffers in programming mode:
+
+(add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode )
 
 ;;}}}
 (provide 'emacspeak-jss)
