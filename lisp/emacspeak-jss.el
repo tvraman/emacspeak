@@ -91,14 +91,12 @@
 ; jss-console-clear-buffer
 ; jss-console-ensure-connection
 ; jss-console-kill
-; jss-console-menu
 ; jss-console-mode
 ; jss-console-reload-page
 ; jss-console-switch-to-io-inspector
 ; jss-console-toggle-timing-data
 ; jss-debugger-frame-goto-prompt
 ; jss-debugger-kill
-; jss-debugger-menu
 ; jss-debugger-mode
 ; jss-debugger-set-resume-point-here
 ; jss-debugger-stepper-frame-restart
@@ -115,7 +113,6 @@
 ; jss-http-repl-after-change-function
 ; jss-http-repl-choose-user-agent
 ; jss-http-repl-ensure-header
-; jss-http-repl-menu
 ; jss-http-repl-mode
 ; jss-http-repl-read-authorization
 ; jss-http-repl-read-cache-control
@@ -126,7 +123,6 @@
 ; jss-invoke-secondary-action
 ; jss-io-clone-into-http-repl
 ; jss-io-mode
-; jss-io-mode-menu
 ; jss-next-button
 ; jss-previous-button
 ; jss-prompt-beginning-of-line
@@ -136,7 +132,6 @@
 ; jss-remote-value-expand-at-point
 ; jss-script-kill
 ; jss-set-debugger-sensitivity
-; jss-super-mode
 ; jss-tab-goto-console
 ; jss-toggle-network-monitor
 ; jss-toggle-text-visibility
