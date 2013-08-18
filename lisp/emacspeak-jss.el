@@ -85,19 +85,19 @@
 ;;{{{ Fix Interactive Commands:
 
 ; jss-browser-kill-buffer
-; jss-browser-mode
+
 ; jss-browser-mode-refresh
 ; jss-connect
 ; jss-console-clear-buffer
 ; jss-console-ensure-connection
 ; jss-console-kill
-; jss-console-mode
+
 ; jss-console-reload-page
 ; jss-console-switch-to-io-inspector
 ; jss-console-toggle-timing-data
 ; jss-debugger-frame-goto-prompt
 ; jss-debugger-kill
-; jss-debugger-mode
+
 ; jss-debugger-set-resume-point-here
 ; jss-debugger-stepper-frame-restart
 ; jss-debugger-stepper-resume
@@ -113,7 +113,7 @@
 ; jss-http-repl-after-change-function
 ; jss-http-repl-choose-user-agent
 ; jss-http-repl-ensure-header
-; jss-http-repl-mode
+
 ; jss-http-repl-read-authorization
 ; jss-http-repl-read-cache-control
 ; jss-http-repl-read-content-length
@@ -122,7 +122,7 @@
 ; jss-invoke-primary-action
 ; jss-invoke-secondary-action
 ; jss-io-clone-into-http-repl
-; jss-io-mode
+
 ; jss-next-button
 ; jss-previous-button
 ; jss-prompt-beginning-of-line
@@ -139,7 +139,13 @@
 ;;}}}
 ;;{{{ Setup JSS buffers in programming mode:
 
-(add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode )
+(add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode
+          )
+(add-hook
+ 'jss-super-mode-hook
+ #'(lambda ()
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-jss)
