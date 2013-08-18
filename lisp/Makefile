@@ -172,6 +172,7 @@ emacspeak-jabber.elc \
 emacspeak-jde.elc \
 emacspeak-jawbreaker.elc \
 emacspeak-js2.elc \
+emacspeak-jss.elc \
 emacspeak-kite.elc \
 emacspeak-kmacro.elc  \
 emacspeak-librivox.elc \
@@ -402,6 +403,7 @@ emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-jawbreaker.elc: emacspeak-jawbreaker.el emacspeak-piglets.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
+emacspeak-jss.elc: emacspeak-jss.el dtk-speak.elc voice-setup.elc
 emacspeak-kite.elc: emacspeak-kite.el dtk-speak.elc voice-setup.elc
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-librivox.elc: emacspeak-librivox.el dtk-speak.elc voice-setup.elc
