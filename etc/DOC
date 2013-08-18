@@ -644,6 +644,7 @@ b Browse
 key             binding
 ---             -------
 
+RET		emacspeak-bookshare-toc-at-point
 ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
@@ -736,7 +737,9 @@ Make sure it's downloaded and unpacked first.
 ------------------------------------------------------------
 
 ** emacspeak-bookshare-version-handler Do nothing and return nil.
-This function accepts any number of arguments, but ignores them. 
+This function accepts any number of arguments, but ignores them.
+
+(fn &rest IGNORE) 
 
 ------------------------------------------------------------
 
@@ -938,71 +941,6 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
-** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
- (the previous column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
- (the previous row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-expression Display the expression in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-value Display the cell value in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
-The `column header' is the entry in row 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
-The `row header' is the entry in column 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
- (the next column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
- (the next row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list 
-
-------------------------------------------------------------
-
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -1036,10 +974,6 @@ emacspeak-dismal-sheet-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
-
-------------------------------------------------------------
-
-** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -1257,14 +1191,10 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-copy-region-to-register :around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
-
-Copy text from terminal to an Emacs REGISTER.
+** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-(fn REGISTER) 
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -1298,13 +1228,9 @@ in a non eterm buffer if executed via C-e C-e
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-paste-register :around advice: `ad-Advice-emacspeak-eterm-paste-register'
-
-Paste contents of REGISTER at current location.
+** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-(fn REGISTER) 
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -1479,10 +1405,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
-
-------------------------------------------------------------
-
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -4212,10 +4134,6 @@ Optional prefix arg no-rss scrapes information from HTML.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-people-yahoo Perform an Yahoo  people search 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-quotes-yahoo-search Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
 emacspeak-wizards-personal-portfolio.
@@ -4331,7 +4249,6 @@ g		emacspeak-webspace-reader-refresh
 n		next-line
 p		previous-line
 q		bury-buffer
-r		greader-reading-list
 t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
@@ -4365,22 +4282,9 @@ Optional interactive prefix arg forces a refresh.
 
 ------------------------------------------------------------
 
-** emacspeak-webspace-reader-rip RIP Google Reader.
-Save Reader subscriptions to a specified file. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-reader-unsubscribe Unsubscribe to link under point. 
-
-------------------------------------------------------------
-
 ** emacspeak-webspace-reading-list	Key Sequence: control ; SPACE r   hyper  SPACE r 
 
  Set up scrolling reading list in header. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-reading-list-accumulate Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer. 
 
 ------------------------------------------------------------
 
@@ -4961,6 +4865,12 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-find-file-as-root Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-find-grep Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern. 
 
@@ -5475,6 +5385,18 @@ take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-blue-pages Search IBM Blue Pages 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internal Search IBM My News 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-my-news Search IBM My News 
+
+------------------------------------------------------------
+
 ** emacspeak-jawbreaker Opens JawBreaker game in Firefox.
 
 (fn) 
@@ -5664,20 +5586,6 @@ take effect.
 ** emacspeak-piglets-tts-stop Kill TTS  process.
 
 (fn) 
-
-------------------------------------------------------------
-
-** ad-Advice-emacspeak-eterm-copy-region-to-register Advice function assembled by advice.el.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
-
-------------------------------------------------------------
-
-** ad-Advice-emacspeak-eterm-paste-register Advice function assembled by advice.el.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
 
   
 

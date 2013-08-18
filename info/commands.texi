@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 974 commands.
+This chapter documents a total of 956 commands.
 
 @menu
 * cd-tool::
@@ -25,17 +25,14 @@ This chapter documents a total of 974 commands.
 * emacspeak-custom::
 * emacspeak-daisy::
 * emacspeak-dired::
-* emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
-* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
 * emacspeak-epub::
 * emacspeak-erc::
 * emacspeak-eterm::
-* emacspeak-eudc::
 * emacspeak-filtertext::
 * emacspeak-fix-interactive::
 * emacspeak-forms::
@@ -89,6 +86,7 @@ This chapter documents a total of 974 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
+* emacspeak-w3search::
 * emacspeak-jawbreaker::
 * emacspeak-moz::
 * emacspeak-org::
@@ -987,6 +985,7 @@ b Browse
 key             binding
 ---             -------
 
+RET		emacspeak-bookshare-toc-at-point
 ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
@@ -1104,6 +1103,8 @@ Custom URL executor for use in Bookshare TOC.
 
 Do nothing and return nil.
 This function accepts any number of arguments, but ignores them.
+
+(fn &rest IGNORE)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-view nil
@@ -1445,107 +1446,6 @@ Speak the header line of the dired buffer.
 Speaks the target of the symlink on the current line.
 @end deffn
 
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-@deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-col-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-expression nil
-@kbd{Not bound to any key.}
-
-Display the expression in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-value nil
-@kbd{Not bound to any key.}
-
-Display the cell value in the message area
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header nil
-@kbd{Not bound to any key.}
-
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header nil
-@kbd{Not bound to any key.}
-
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize nil
-@kbd{Not bound to any key.}
-
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-row-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset col summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset row summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list nil
-@kbd{Not bound to any key.}
-
-Specify or reset sheet summarizer list.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-dismal-sheet-summarize nil
-@kbd{Not bound to any key.}
-
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -1623,26 +1523,6 @@ for commands defined in module  emacspeak-ediff.
 @kbd{Not bound to any key.}
 
 Speak the current difference
-@end deffn
-
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track nil
-@kbd{Not bound to any key.}
-
-Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -2003,14 +1883,10 @@ for commands defined in module  emacspeak-eterm.
 @deffn {Interactive Command} emacspeak-eterm-copy-region-to-register nil
 @kbd{Not bound to any key.}
 
-:around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
-
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -2056,13 +1932,9 @@ in a non eterm buffer if executed via C-e C-e
 @deffn {Interactive Command} emacspeak-eterm-paste-register nil
 @kbd{Not bound to any key.}
 
-:around advice: `ad-Advice-emacspeak-eterm-paste-register'
-
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -2301,24 +2173,6 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail nil
-@kbd{Not bound to any key.}
-
-Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -6295,12 +6149,6 @@ Optional prefix arg no-rss scrapes information from HTML.
 Perform an Open Directory search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-people-yahoo nil
-@kbd{Not bound to any key.}
-
-Perform an Yahoo  people search
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search nil
 @kbd{Not bound to any key.}
 
@@ -6463,7 +6311,6 @@ g		emacspeak-webspace-reader-refresh
 n		next-line
 p		previous-line
 q		bury-buffer
-r		greader-reading-list
 t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
 <S-tab>		emacspeak-webspace-previous-link
@@ -6504,29 +6351,10 @@ Optional interactive prefix arg forces a refresh.
 Refresh Reader.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-webspace-reader-rip nil
-@kbd{Not bound to any key.}
-
-RIP Google Reader.
-Save Reader subscriptions to a specified file.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webspace-reader-unsubscribe nil
-@kbd{Not bound to any key.}
-
-Unsubscribe to link under point.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-webspace-reading-list nil
 @kbd{ control ; SPACE r   hyper  SPACE r }
 
 Set up scrolling reading list in header.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webspace-reading-list-accumulate nil
-@kbd{Not bound to any key.}
-
-Accumulate  items from Google Reader Reading List (river of news) in a Webspace buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reading-list-view nil
@@ -7262,6 +7090,14 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt.
 @kbd{Not bound to any key.}
 
 Like find-file, but binds default-directory to emacspeak-directory.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-find-file-as-root nil
+@kbd{Not bound to any key.}
+
+Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-grep nil
@@ -8019,6 +7855,33 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
+@kbd{Not bound to any key.}
+
+Search IBM Blue Pages
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
+@kbd{Not bound to any key.}
+
+Search IBM My News
+@end deffn
+
 @node emacspeak-jawbreaker
 @section emacspeak-jawbreaker
 
@@ -8337,36 +8200,13 @@ Kill TTS  process.
 (fn)
 @end deffn
 
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} ad-Advice-emacspeak-eterm-copy-region-to-register nil
-@kbd{Not bound to any key.}
-
-Advice function assembled by advice.el.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-@end deffn
-
-@deffn {Interactive Command} ad-Advice-emacspeak-eterm-paste-register nil
-@kbd{Not bound to any key.}
-
-Advice function assembled by advice.el.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-@end deffn
-
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 140 URL Templates.
+This section documents a total of 110 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8405,10 +8245,6 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 
 Logout from Google to do an anonymous search.
 
-@kbd{Answers.com}
-
-Search answers.com
-
 @kbd{Archive News Search}
 
 Search Google Archive News.
@@ -8420,10 +8256,6 @@ Ask Local Search.
 @kbd{Ask Walking Directions}
 
 Walking directions from Ask.com
-
-@kbd{BBC  7 Radio Bridge}
-
-Play BBC  Radio7 show for a given day/time.
 
 @kbd{BBC  iPlayer}
 
@@ -8444,10 +8276,6 @@ Display baseball scores.
 @kbd{Baseball standings}
 
 Display MLB standings.
-
-@kbd{Bing RSS}
-
-RSS Feed of Bing Results.
 
 @kbd{BlogSearch Google}
 
@@ -8481,25 +8309,9 @@ List CNN Podcast media links.
 
 Retrieve Cartoon Times Of India.
 
-@kbd{Code Search From Google}
-
-Search using Google Code Search.
-
-@kbd{DDJ TechNetCast Play}
-
-Play Technetcast stream from DDJ.
-
-@kbd{DDJ TechNetCast Save}
-
-Browse to a specified DDJ Technetcast stream and save  it.
-
 @kbd{Dictionary Lookup}
 
 Dictionary Lookup
-
-@kbd{Digg}
-
-Display Digg Feed.
 
 @kbd{Earthquakes}
 
@@ -8508,27 +8320,6 @@ Show table of recent quakes.
 @kbd{EmacsWiki Search}
 
 EmacsWiki Search
-
-@kbd{EmapSpeak Via Google}
-
-EmapSpeak Via Google.
-
-Specify the query using English and  addresses as complete as
-  possible.
-
-Here are some examples:
-
-0) To find a location by address specify:
-
-650 Harry Road San Jose CA 95120
-
-1) To get directions, specify:
-
-<source address> to <destination address>
-
-2) To find businesses etc., near a location, specify:
-
-<what> near <location address>
 
 @kbd{Finance Google Portfolio}
 
@@ -8600,10 +8391,6 @@ Google Image Search
 
 Do a Google search and get a Info view of results.
 
-@kbd{Google Local}
-
-Google Local Search.
-
 @kbd{Google Mobile Search}
 
 Google Mobile Search
@@ -8616,17 +8403,9 @@ Search Google news.
 
 Google Print Search
 
-@kbd{Google Product Search}
-
-Perform Google Product Search
-
 @kbd{Google Reader}
 
-View feed via Google Reader.
-
-@kbd{Google Realtime Search}
-
-Perform Google Realtime Search
+Google Reader
 
 @kbd{Google Recent News Search}
 
@@ -8640,10 +8419,6 @@ Show just results and nav bar.
 
 Google Scholar Search
 
-@kbd{Google Soccer Results}
-
-Display World Cup Soccer Results for specified countries.
-
 @kbd{Google Text  News}
 
 Retrieve and speak Google News Overview.
@@ -8655,10 +8430,6 @@ Do a Google search and get a timeline view of results.
 @kbd{Google Transcoder}
 
 Transcode site via Google.
-
-@kbd{Google Video}
-
-Retrieve Google Video search results as an atom feed.
 
 @kbd{Google WebQuotes}
 
@@ -8676,10 +8447,6 @@ Display specified news feed.
 
 Pull RSS  feed corresponding to an ITunes Podcast.
 
-@kbd{InfoWorld RSS Feeds}
-
-Produce  a set of RSS links published by InfoWorld.
-
 @kbd{Linux Today News}
 
 Get news column from Linux Today.
@@ -8692,21 +8459,9 @@ Search MDC Wiki.
 
 Show MLB Scorecard.
 
-@kbd{MapQuest Directions}
-
-Retrieve and speak directions from MapQuest.
-
 @kbd{Market summary from Google}
 
 Display financial market summary.
-
-@kbd{Meerkat Profile}
-
-Meerkat Profile
-
-@kbd{Meerkat Recipe}
-
-Meerkat tool
 
 @kbd{Mobile BBC}
 
@@ -8731,21 +8486,9 @@ Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German
 
-@kbd{Music Search}
-
-Music search on Google.
-
 @kbd{NY Times RSS Feeds}
 
 Display browsable list of NY Times RSS Feeds.
-
-@kbd{Netcraft Site Report}
-
-Analyze WWW site using Netcraft.
-
-@kbd{Netcraft Web Analysis}
-
-Analyze WWW site using Netcraft.
 
 @kbd{Official GoogleBlog Search}
 
@@ -8771,22 +8514,6 @@ Perform patent search via Google
 
 Play Podcast from CNET
 
-@kbd{PowerSet Wikipedia Search}
-
-Perform powerset query.
-
-@kbd{Public Transit Via Google Maps}
-
-Public transit directions from Google.
-
-@kbd{Pulpit --- I Cringely}
-
-Read pulpit from PBS. Published on the Thursday of the week.
-
-@kbd{Radio4 radioBridge}
-
-Play BBC  Radio4 show for a given day/time.
-
 @kbd{Reader Subscription Search}
 
 Search within feeds subscribed to in Google Reader.
@@ -8811,10 +8538,6 @@ Reuters Finance Lookup
 
 Seeking Alpha search.
 
-@kbd{Shoutcast Search}
-
-Locate and display Shoutcast streams.
-
 @kbd{StreamWorld Radio}
 
 Play radio stream.
@@ -8835,10 +8558,6 @@ Translate a Web page using google. Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German.
 
-@kbd{Travelocity Lookup}
-
-Show arrival/departure information from Travelocity.
-
 @kbd{Twitter Search}
 
 Twitter search and display results feed.
@@ -8846,10 +8565,6 @@ Twitter search and display results feed.
 @kbd{UPS Packages}
 
 Display package tracking information from UPS.
-
-@kbd{Walking Directions From Google}
-
-Display walking directions using Google.
 
 @kbd{Weather forecast from Weather Underground}
 
@@ -8923,10 +8638,6 @@ Yahoo World News.
 
 YouTube Search Via Feeds
 
-@kbd{YubNub Web Command Line}
-
-YubNub Command Line
-
 @kbd{ask search mobile}
 
 Mobile search using Ask.com
@@ -8938,18 +8649,6 @@ Display package tracking information from Fedex.
 @kbd{html5IRC}
 
 Show HTML5 IRC log.
-
-@kbd{pdf2html}
-
-Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.
-
-@kbd{pdf2txt}
-
-Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.
 
 @kbd{rss weather from wunderground}
 

@@ -83,17 +83,14 @@
 
 ;;}}}
 ;;{{{ Fix Interactive Commands:
-
 ; jss-browser-mode-refresh
 ; jss-connect
 ; jss-console-clear-buffer
 ; jss-console-ensure-connection
-
 ; jss-console-reload-page
 ; jss-console-switch-to-io-inspector
 ; jss-console-toggle-timing-data
 ; jss-debugger-frame-goto-prompt
-
 ; jss-debugger-set-resume-point-here
 ; jss-debugger-stepper-frame-restart
 ; jss-debugger-stepper-resume
@@ -124,12 +121,10 @@
 ; jss-prompt-insert-next-input
 ; jss-prompt-insert-previous-input
 ; jss-remote-value-expand-at-point
-
 ; jss-set-debugger-sensitivity
 ; jss-tab-goto-console
 ; jss-toggle-network-monitor
 ; jss-toggle-text-visibility
-
 ;;}}}
 ;;{{{ Advice interactive commands:
 

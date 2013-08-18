@@ -1179,9 +1179,9 @@ Produce an auditory icon if possible."
         (monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
         (dtk-stop-immediately nil))
-    (set-buffer buffer)
-    ad-do-it
-    (when (and (boundp 'comint-last-prompt-overlay)
+    (with-current-buffer  buffer
+      ad-do-it
+      (when (and (boundp 'comint-last-prompt-overlay)
                comint-last-prompt-overlay)
       (add-text-properties
        (overlay-start comint-last-prompt-overlay)
@@ -1195,15 +1195,14 @@ Produce an auditory icon if possible."
            (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
            (or monitor (eq (window-buffer) buffer)))
       (emacspeak-speak-region comint-last-output-start (point )))
-    ad-return-value))
+    ad-return-value)))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
   (let ((completions (sort (ad-get-arg 0) 'string-lessp)))
     (with-output-to-temp-buffer "*Completions*"
       (display-completion-list completions))
-    (save-excursion
-      (set-buffer (get-buffer "*Completions*"))
+    (with-current-buffer (get-buffer "*Completions*")
       (set (make-local-variable 'comint-displayed-dynamic-completions)
            completions))
     (next-completion 1)
@@ -1848,8 +1847,7 @@ Indicate change of selection with
     (condition-case nil
         (progn
           ad-do-it
-          (save-excursion
-            (set-buffer emacspeak-scratch )
+          (with-current-buffer emacspeak-scratch 
             (setq buffer-undo-list t)
             (setq case-fold-search nil)
             (erase-buffer)
@@ -2584,10 +2582,9 @@ Produce auditory icons if possible."
 (defadvice view-register (after emacspeak pre act comp)
   "Speak displayed contents."
   (when (ems-interactive-p )
-    (save-current-buffer
-      (set-buffer "*Output*")
-      (dtk-speak (buffer-string )))
-    (emacspeak-auditory-icon 'open-object)))
+    (with-current-buffer "*Output*"
+      (dtk-speak (buffer-string ))
+      (emacspeak-auditory-icon 'open-object))))
 
 (defadvice jump-to-register (after emacspeak pre act comp)
   "Speak the line you jumped to."
