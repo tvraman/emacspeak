@@ -82,26 +82,12 @@
 ))
 
 ;;}}}
-;;{{{ Fix Interactive Commands:
-; jss-browser-mode-refresh
-; jss-connect
-; jss-console-clear-buffer
-; jss-console-ensure-connection
-; jss-console-reload-page
-; jss-console-switch-to-io-inspector
+;;{{{ ToDos: Fix Interactive Commands:
 ; jss-console-toggle-timing-data
-; jss-debugger-frame-goto-prompt
 ; jss-debugger-set-resume-point-here
 ; jss-debugger-stepper-frame-restart
 ; jss-debugger-stepper-resume
-; jss-debugger-stepper-step-into
-; jss-debugger-stepper-step-out
-; jss-debugger-stepper-step-over
 ; jss-expand-nearest-remote-value
-; jss-frame-goto-exception
-; jss-frame-goto-source
-; jss-frame-next
-; jss-frame-previous
 ; jss-http-repl
 ; jss-http-repl-after-change-function
 ; jss-http-repl-choose-user-agent
@@ -114,8 +100,6 @@
 ; jss-invoke-primary-action
 ; jss-invoke-secondary-action
 ; jss-io-clone-into-http-repl
-; jss-next-button
-; jss-previous-button
 ; jss-prompt-beginning-of-line
 ; jss-prompt-eval-or-newline
 ; jss-prompt-insert-next-input
@@ -125,6 +109,7 @@
 ; jss-tab-goto-console
 ; jss-toggle-network-monitor
 ; jss-toggle-text-visibility
+; 
 ;;}}}
 ;;{{{ Advice interactive commands:
 
@@ -138,9 +123,10 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory icon."
-          (when (interactive-p)
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'close-object)
             (emacspeak-speak-mode-line)))))
+
         ;;; Setup JSS buffers in programming mode:
 (add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode
           )
@@ -149,6 +135,47 @@
  #'(lambda ()
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-mode-line)))
+
+
+;;; Cue task completion
+
+(loop for f in
+      '(jss-browser-mode-refresh
+        jss-connect
+        jss-console-clear-buffer
+        jss-console-ensure-connection
+        jss-console-reload-page)
+do
+(eval
+ `(defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-speak-mode-line)))))
+
+
+;;; Navigators:
+
+(loop for f in
+      '(
+        jss-previous-button
+        jss-next-button
+        jss-frame-previous
+        jss-frame-next
+        jss-frame-goto-source
+        jss-frame-goto-exception
+        jss-debugger-stepper-step-into
+        jss-debugger-stepper-step-out
+        jss-debugger-stepper-step-over
+        jss-debugger-frame-goto-prompt
+        )
+      do
+      (eval
+       `(defadvice,f (after emacspeak pre act comp)
+          "provide auditory feedback."
+          (when  (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-jss)
