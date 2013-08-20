@@ -833,7 +833,7 @@ HTML."
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
 
-Tue Apr 24 17:33:27 PDT 2012
+
 ;;; pattern: http://www.google.com/url?q=http://emacspeak.sourceforge.net/&sa=U&ei=GceWT42_EY_ViALW84nlCQ&ved=0CBIQFjAA&usg=AFQjCNGz91Z7Yz9dPVoKPP6HVGZ0UqFhRA
 ;;; prefix: http://www.google.com/url?q=
 ;;; Suffix: &sa=...
