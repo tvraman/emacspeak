@@ -391,7 +391,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (declare (special emacspeak-webspace-reader-buffer
                     emacspeak-webspace-reader-feed-list))
   (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list)))
-    
+
 ;;;###autoload
 (defcustom emacspeak-webspace-reader-feed-list
   (expand-file-name  "reader.html" "~/.emacspeak")
@@ -438,7 +438,6 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
-
 
 (defun emacspeak-webspace-reading-list-get-some-title ()
   "Returns a title chosen at random.

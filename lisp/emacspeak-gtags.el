@@ -74,13 +74,13 @@
         gtags-find-rtag
         gtags-find-tag-from-here
         )
-        do
-        (eval
-         `(defadvice ,f (after emacspeak pre act comp)
-            "Provide auditory feedback."
-            (when (ems-interactive-p)
-              (emacspeak-auditory-icon 'large-movement)
-              (emacspeak-speak-line)))))
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
 
 (defadvice gtags-pop-stack (after emacspeak pre act comp)
   "Provide auditory feedback."

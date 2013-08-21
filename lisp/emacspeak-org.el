@@ -286,7 +286,6 @@
           (when (ems-interactive-p )
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak org-last-changed-timestamp)))))
-            
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
   "Speak what is returned."

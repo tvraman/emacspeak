@@ -678,7 +678,6 @@ user."
       (setq file (concat "/sudo:root@localhost:" file)))
     (find-file file)))
 
-
 ;;}}}
 ;;{{{ edit file as root using sudo vi
 ;;;###autoload
