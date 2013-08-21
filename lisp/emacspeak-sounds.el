@@ -304,8 +304,8 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 Sound is produced only if `emacspeak-use-auditory-icons' is true.
 See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
   (declare (special  emacspeak-use-auditory-icons
-  emacspeak-play-program
-  emacspeak-play-args))
+                     emacspeak-play-program
+                     emacspeak-play-args))
   (and emacspeak-use-auditory-icons
        (let ((process-connection-type nil))
          (condition-case err

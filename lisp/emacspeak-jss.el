@@ -79,46 +79,46 @@
    (jss-http-repl-submitted-face voice-annotate)
    (jss-script-line-marker-face  voice-monotone)
    (jss-button-face  voice-bolden)
-))
+   ))
 
 ;;}}}
 ;;{{{ ToDos: Fix Interactive Commands:
-; jss-console-toggle-timing-data
-; jss-debugger-set-resume-point-here
-; jss-debugger-stepper-frame-restart
-; jss-debugger-stepper-resume
-; jss-expand-nearest-remote-value
-; jss-http-repl
-; jss-http-repl-after-change-function
-; jss-http-repl-choose-user-agent
-; jss-http-repl-ensure-header
-; jss-http-repl-read-authorization
-; jss-http-repl-read-cache-control
-; jss-http-repl-read-content-length
-; jss-http-repl-read-content-type
-; jss-http-repl-send-request
-; jss-invoke-primary-action
-; jss-invoke-secondary-action
-; jss-io-clone-into-http-repl
-; jss-prompt-beginning-of-line
-; jss-prompt-eval-or-newline
-; jss-prompt-insert-next-input
-; jss-prompt-insert-previous-input
-; jss-remote-value-expand-at-point
-; jss-set-debugger-sensitivity
-; jss-tab-goto-console
-; jss-toggle-network-monitor
-; jss-toggle-text-visibility
-; 
+                                        ; jss-console-toggle-timing-data
+                                        ; jss-debugger-set-resume-point-here
+                                        ; jss-debugger-stepper-frame-restart
+                                        ; jss-debugger-stepper-resume
+                                        ; jss-expand-nearest-remote-value
+                                        ; jss-http-repl
+                                        ; jss-http-repl-after-change-function
+                                        ; jss-http-repl-choose-user-agent
+                                        ; jss-http-repl-ensure-header
+                                        ; jss-http-repl-read-authorization
+                                        ; jss-http-repl-read-cache-control
+                                        ; jss-http-repl-read-content-length
+                                        ; jss-http-repl-read-content-type
+                                        ; jss-http-repl-send-request
+                                        ; jss-invoke-primary-action
+                                        ; jss-invoke-secondary-action
+                                        ; jss-io-clone-into-http-repl
+                                        ; jss-prompt-beginning-of-line
+                                        ; jss-prompt-eval-or-newline
+                                        ; jss-prompt-insert-next-input
+                                        ; jss-prompt-insert-previous-input
+                                        ; jss-remote-value-expand-at-point
+                                        ; jss-set-debugger-sensitivity
+                                        ; jss-tab-goto-console
+                                        ; jss-toggle-network-monitor
+                                        ; jss-toggle-text-visibility
+                                        ; 
 ;;}}}
 ;;{{{ Advice interactive commands:
 
 ;;; Advice Killing Commands:
 (loop for f in
       '(jss-script-kill
-         jss-debugger-kill
-         jss-console-kill
- jss-browser-kill-buffer)
+        jss-debugger-kill
+        jss-console-kill
+        jss-browser-kill-buffer)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -136,7 +136,6 @@
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-mode-line)))
 
-
 ;;; Cue task completion
 
 (loop for f in
@@ -145,14 +144,13 @@
         jss-console-clear-buffer
         jss-console-ensure-connection
         jss-console-reload-page)
-do
-(eval
- `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'task-done)
-      (emacspeak-speak-mode-line)))))
-
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'task-done)
+            (emacspeak-speak-mode-line)))))
 
 ;;; Navigators:
 

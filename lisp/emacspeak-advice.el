@@ -667,9 +667,9 @@ icon."
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
   "Silence progress reporters for now."
   (let ((emacspeak-speak-messages nil))
-        (when emacspeak-advice-progress-reporter
-             (emacspeak-auditory-icon 'progress))
-        ad-do-it))
+    (when emacspeak-advice-progress-reporter
+      (emacspeak-auditory-icon 'progress))
+    ad-do-it))
 
 (defadvice message (around  emacspeak pre act comp)
   "Speak the message."
@@ -1182,20 +1182,20 @@ Produce an auditory icon if possible."
     (with-current-buffer  buffer
       ad-do-it
       (when (and (boundp 'comint-last-prompt-overlay)
-               comint-last-prompt-overlay)
-      (add-text-properties
-       (overlay-start comint-last-prompt-overlay)
-       (overlay-end comint-last-prompt-overlay)
-       (list
-        'personality
-        'emacspeak-comint-prompt-personality
-        'rear-sticky nil)))
-    (when (and
-           comint-last-output-start
-           (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-           (or monitor (eq (window-buffer) buffer)))
-      (emacspeak-speak-region comint-last-output-start (point )))
-    ad-return-value)))
+                 comint-last-prompt-overlay)
+        (add-text-properties
+         (overlay-start comint-last-prompt-overlay)
+         (overlay-end comint-last-prompt-overlay)
+         (list
+          'personality
+          'emacspeak-comint-prompt-personality
+          'rear-sticky nil)))
+      (when (and
+             comint-last-output-start
+             (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
+             (or monitor (eq (window-buffer) buffer)))
+        (emacspeak-speak-region comint-last-output-start (point )))
+      ad-return-value)))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"

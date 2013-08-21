@@ -578,8 +578,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  nil
  "Search Google APIDocs")
 
-
-
 ;;}}}
 ;;{{{ YouTube:
 (emacspeak-url-template-define
@@ -1633,8 +1631,6 @@ Set up URL rewrite rule to get print page."
  "Play Prairie Home Companion"
  #'(lambda (url)
      (funcall emacspeak-media-player  url 'play-list))) 
-
-
 
 ;;}}}
 ;;{{{  earthquakes 
