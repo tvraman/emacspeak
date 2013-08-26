@@ -6282,7 +6282,7 @@ Speak current news headline.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-headlines-view nil
-@kbd{Not bound to any key.}
+@kbd{ <control return> }
 
 Display all cached headlines in a special interaction buffer.
 @end deffn
@@ -6358,7 +6358,7 @@ Set up scrolling reading list in header.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reading-list-view nil
-@kbd{ <control return> }
+@kbd{Not bound to any key.}
 
 Switch to reading list view, creating it if needed.
 @end deffn
