@@ -179,8 +179,6 @@
 ;;}}}
 ;;{{{ WebSpace Display:
 
-(global-set-key [C-return] 'emacspeak-webspace-reading-list-view)
-
 ;;;###autoload
 (defun emacspeak-webspace-headlines-view ()
   "Display all cached headlines in a special interaction buffer."
