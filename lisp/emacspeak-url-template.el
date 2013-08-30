@@ -1661,6 +1661,17 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
      (emacspeak-m-player url 'playlist)))
 
 ;;}}}
+;;{{{ Bing RSS
+
+(emacspeak-url-template-define
+ "Bing RSS"
+ "http://www.bing.com/search?format=rss&q=%s"
+ (list "Bing Search: ")
+ nil
+ "Bing results as RSS feed."
+ 'emacspeak-webutils-rss-display)
+
+;;}}}
 ;;{{{ Interactive commands
 
 ;;;###autoload
