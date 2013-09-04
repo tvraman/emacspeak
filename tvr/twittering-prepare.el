@@ -7,6 +7,6 @@
 (setq twittering-timer-interval-for-redisplaying 300)
 (setq twittering-initial-timeline-spec-string
               '("(:home+@)"
-                "(:search/tvraamn/+:search/chromevox/)"))
+                "(:search/tvraamn/+:search/chromevox/+:search/emacspeak/+:search/googleaccess/)"))
 (setq twittering-number-of-tweets-on-retrieval 50)
 (setq twittering-edit-skeleton 'inherit-any)
