@@ -1664,11 +1664,19 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 ;;{{{ Bing RSS
 
 (emacspeak-url-template-define
- "Bing RSS"
+ "Bing Search"
  "http://www.bing.com/search?format=rss&q=%s"
  (list "Bing Search: ")
  nil
  "Bing results as RSS feed."
+ 'emacspeak-webutils-rss-display)
+
+(emacspeak-url-template-define
+ "Bing News"
+ "http://www.bing.com:80/news/search?q=%s&format=RSS"
+ (list "Bing Search: ")
+ nil
+ "Bing News results as RSS feed."
  'emacspeak-webutils-rss-display)
 
 ;;}}}
