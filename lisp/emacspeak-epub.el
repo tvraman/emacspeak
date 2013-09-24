@@ -116,9 +116,10 @@
 (defsubst emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
-  (substring
-   (shell-command-to-string (format emacspeak-epub-toc-command file ))
-   0 -1))
+  (let ((result (shell-command-to-string (format emacspeak-epub-toc-command file ))))
+    (cond
+     ((= 0 (length result)) nil)
+     (t (substring result 0 -1)))))
 
 (defvar emacspeak-epub-opf-path-pattern
   ".opf$"
@@ -160,14 +161,15 @@
   (let ((ls (emacspeak-epub-do-ls epub-file))
         (toc (emacspeak-epub-do-toc epub-file))
         (opf (emacspeak-epub-do-opf epub-file)))
-    (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
+    (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
      :toc toc
      :base (file-name-directory toc)
      :opf opf
      :ls ls)))
+
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
 
