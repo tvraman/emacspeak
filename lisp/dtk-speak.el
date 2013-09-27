@@ -76,6 +76,10 @@ multispeech For Multilingual speech server
 espeak      For eSpeak
 The default is dtk-exp.")
 
+(defvar dtk-program-args
+  (or (getenv "DTK_PROGRAM_ARGS") nil)
+  "Arguments passed to the dtk-program")
+
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server )
 (defvar emacspeak-auditory-icon-function )
@@ -1707,12 +1711,17 @@ Port  defaults to  dtk-local-server-port"
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
-        (process-connection-type  nil))
+        (process-connection-type  nil)
+        (prog-file-name
+         (if (file-name-absolute-p dtk-program)
+             dtk-program
+           (expand-file-name dtk-program emacspeak-servers-directory))))
     (setq new-process
           (start-process
            "speaker"
            (and dtk-debug tts-debug-buffer)
-           (expand-file-name dtk-program emacspeak-servers-directory)))
+           prog-file-name
+           (or dtk-program-args "")))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
@@ -1730,6 +1739,7 @@ Port  defaults to  dtk-local-server-port"
      (t
       (when (ems-interactive-p )
         (message "The speech server is not running."))))))
+
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
