@@ -1711,16 +1711,12 @@ Port  defaults to  dtk-local-server-port"
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
-        (process-connection-type  nil)
-        (prog-file-name
-         (if (file-name-absolute-p dtk-program)
-             dtk-program
-           (expand-file-name dtk-program emacspeak-servers-directory))))
+        (process-connection-type  nil))
     (setq new-process
           (start-process
            "speaker"
            (and dtk-debug tts-debug-buffer)
-           prog-file-name
+           (expand-file-name dtk-program emacspeak-servers-directory)
            (or dtk-program-args "")))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
