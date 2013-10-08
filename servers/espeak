@@ -76,6 +76,7 @@ set langsynth(top) 0
 set langlabel(0) "english"
 set langcode(0) "en-uk"
 set langcode(current) "en-uk"
+set mswindows [expr { $tcl_platform(platform) == "windows" } ]
 
 # select the next synth language
 proc set_next_lang {say_it} {
@@ -409,12 +410,43 @@ proc trackIndex {index} {
     set tts(last_index) $index
 }
 
+proc stdin_readable_handler {} {
+  global stdin_is_readable
+  global timer_or_stdin_breaks
+  set stdin_is_readable 1
+  set timer_or_stdin_breaks 1
+}
+if $mswindows { fileevent stdin readable stdin_readable_handler }
+
+proc timer_handler {} {
+  global timer_ticks
+  global timer_or_stdin_breaks
+  after 200 timer_handler
+  set timer_ticks 1
+  incr timer_or_stdin_breaks
+}
+if $mswindows { after 0 timer_handler }
+
 proc service {} {
     global tts
+    global stdin_is_readable # used only by mswindows
 
     set talking [speakingP]
+    set stdin_is_readable 0
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.02] stdin]
+        if $::mswindows {
+            # need to workaround lack of "select stdin" on windows
+            # set status to 1 if input is available at stdin
+            # if input is not available, timer will cause an exit from vwait
+            set status -1
+            vwait timer_or_stdin_breaks
+            if { $stdin_is_readable > 0 } {
+                set status 1
+            }
+        } else {
+            set status   [lsearch [select [list  stdin]  {} {} 0.02] stdin]
+        }
+
         if { $status >= 0} {
             set tts(talking?) 0
             set talking 0
@@ -528,8 +560,13 @@ service
 
 #Start the main command loop:
 
-commandloop 
-
+if $mswindows {
+  # there is a bug on windows, interactive -on does not work
+  # https://sourceforge.net/p/tclx/bugs/81/
+  commandloop -interactive off
+} else {
+  commandloop
+}
 
 # }}}
 # {{{ Emacs local variables  
