@@ -36,7 +36,6 @@
 //<includes
 
 #include <sys/time.h>
-#include <dlfcn.h>
 #include <tcl.h>
 #include <string.h>
 #include <stdlib.h>
@@ -246,7 +245,8 @@ SetRate (ClientData handle, Tcl_Interp * interp,
 
 static bool closeTags(string input, string& output)
 {
-  char* tag_orig = strdup(input.c_str());
+  char* tag_orig = (char*)malloc(sizeof(char) * (input.size()+1));
+  strcpy(tag_orig, input.c_str());
   output = "";
 
   // check that a text (non whitespace) is present
