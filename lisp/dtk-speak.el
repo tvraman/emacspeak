@@ -77,7 +77,8 @@ espeak      For eSpeak
 The default is dtk-exp.")
 
 (defvar dtk-program-args
-  (or (getenv "DTK_PROGRAM_ARGS") nil)
+  (when (getenv "DTK_PROGRAM_ARGS")
+      (split-string   (getenv "DTK_PROGRAM_ARGS")))
   "Arguments passed to the dtk-program")
 
 (defvar emacspeak-pronounce-pronunciation-table)
@@ -1713,11 +1714,11 @@ Port  defaults to  dtk-local-server-port"
   (let ((new-process nil)
         (process-connection-type  nil))
     (setq new-process
-          (start-process
+          (apply 'start-process
            "speaker"
            (and dtk-debug tts-debug-buffer)
            (expand-file-name dtk-program emacspeak-servers-directory)
-           (or dtk-program-args "")))
+           dtk-program-args))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
