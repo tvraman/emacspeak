@@ -860,6 +860,14 @@ from English to German.")
          (set-buffer buffer)
          (browse-url-of-buffer)))))
 
+(emacspeak-url-template-define
+ "NY Times Mobile"
+ "http://mobile.nytimes.com"
+ nil
+ nil
+ "NYtimes Mobile Site"
+ )
+
 ;;}}}
 ;;{{{ google OverviewOfNews
 
