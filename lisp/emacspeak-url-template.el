@@ -864,7 +864,10 @@ from English to German.")
  "NY Times Mobile"
  "http://mobile.nytimes.com"
  nil
- nil
+ #'(lambda ()
+     (search-forward "Updated" nil t)
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
  "NYtimes Mobile Site"
  )
 
