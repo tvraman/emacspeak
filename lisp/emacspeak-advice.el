@@ -738,7 +738,6 @@ Handle end-of-buffer and beginning-of-buffer specially."
                     emacspeak-speak-messages))
   (let ((emacspeak-speak-messages nil)
         (emacspeak-speak-errors nil))
-    (emacspeak-auditory-icon 'progress)
     ad-do-it))
 
 ;;}}}
