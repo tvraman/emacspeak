@@ -184,6 +184,9 @@ on a specific directory."
                 (emacspeak-m-player-bind-accelerator directory key)))
             val)
            (set-default sym val)))
+(defvar emacspeak-media-directory-regexp
+  "\\(mp3\\)\\|\\(audio\\)"
+  "Pattern matching locations where we store media.")
 
 ;;;###autoload
 (defun emacspeak-multimedia  ()
@@ -296,13 +299,19 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
-          (read-file-name-completion-ignore-case t))
+          (read-file-name-completion-ignore-case t)
+          (ido-work-directory-list
+           (remove-if-not 
+            #'(lambda (d)
+                (string-match  emacspeak-media-directory-regexp  d))
+            ido-work-directory-list)))
       (read-file-name
        "MP3 Resource: "
        (emacspeak-m-player-guess-directory)
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions default-directory
+                    emacspeak-media-directory-regexp
                     emacspeak-m-player-current-directory
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
