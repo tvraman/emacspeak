@@ -865,6 +865,7 @@ from English to German.")
  "http://mobile.nytimes.com"
  nil
  #'(lambda ()
+     (emacspeak-url-template-setup-content-filter)
      (search-forward "Updated" nil t)
      (forward-line 1)
      (emacspeak-speak-rest-of-buffer))
