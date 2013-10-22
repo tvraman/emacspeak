@@ -5,6 +5,7 @@
 (defun batch-elint-files ()
   "Batch elint  elisp files in directory."
   (let ((file-list (directory-files default-directory nil "\\.el\\'")))
+    (push default-directory load-path)
     (loop for f in file-list
           do
             (elint-file f))))
