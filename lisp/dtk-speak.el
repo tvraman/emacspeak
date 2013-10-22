@@ -1820,8 +1820,10 @@ only speak upto the first ctrl-m."
                                         ; If you dont want me to talk,
                                         ;or my server is not
                                         ;running, I will remain silent.
+  ; Do nothing if text is ""
   (unless
       (or dtk-quiet
+          (eq text "")
           (not dtk-speak-server-initialized))
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
@@ -1950,7 +1952,10 @@ Optional argument group-count specifies grouping for intonation."
   (declare (special dtk-speaker-process dtk-stop-immediately
                     dtk-speak-server-initialized dtk-quiet))
   ;; I wont talk if you dont want me to
-  (unless dtk-quiet
+  (unless
+      (or dtk-quiet
+          (eq words ""))
+    
     (or (eq 'run (process-status dtk-speaker-process ))
         (eq 'open (process-status dtk-speaker-process ))
         (dtk-initialize))

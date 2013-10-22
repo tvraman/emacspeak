@@ -721,13 +721,16 @@ icon."
 Handle end-of-buffer and beginning-of-buffer specially."
   (declare (special emacspeak-speak-errors))
   (let ((error-symbol  (ad-get-arg 0)))
-    (when (or emacspeak-speak-errors
-              (eq error-symbol 'beginning-of-buffer)
-              (eq error-symbol 'end-of-buffer)))
-    (let ((dtk-stop-immediately t)
-          (message (and (not (eq 'error (ad-get-arg 0)))
-                        (get (ad-get-arg 0) 'error-message))))
-      (when  message (dtk-speak message)))))
+    (when
+        (or emacspeak-speak-errors
+            (eq error-symbol 'beginning-of-buffer)
+            (eq error-symbol 'end-of-buffer))
+      (let ((dtk-stop-immediately t)
+            (message (and (not (eq 'error (ad-get-arg 0)))
+                          (get (ad-get-arg 0) 'error-message))))
+        (when (and message
+                   (not (eq message "")))
+          (dtk-speak message))))))
 
 
 ;;; Silence messages from async handlers:
