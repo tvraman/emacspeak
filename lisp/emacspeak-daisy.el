@@ -783,7 +783,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
 
 ;;}}}
 ;;{{{ w3 support update:
-eed to handle text/xml and application/xml
+;;; need to handle text/xml and application/xml
 (defun w3-fetch-callback (url)
   (w3-nasty-disgusting-http-equiv-handling (current-buffer) url)
   ;; Process any cookie and refresh headers.
