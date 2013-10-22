@@ -86,7 +86,7 @@ instead of the modeline."
 (define-key w3m-mode-map "l" 'emacspeak-webutils-play-media-at-point)
 (define-key w3m-mode-map "\C-t" 'emacspeak-webutils-transcode-current-url-via-google)
 (define-key w3m-mode-map "\M-t" 'emacspeak-webutils-transcode-via-google)
-' Moved keybindings to avoid conflict with emacs org mode
+; Moved keybindings to avoid conflict with emacs org mode
                                         ; Avoid use of C-g on request of Raman due to concerns of misuse/confusion
                                         ; because C-g used for emacs quit 
                                         ; Moved google related operations to C-cg prefix, with exception of 
