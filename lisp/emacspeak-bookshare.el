@@ -195,7 +195,7 @@ Optional argument `no-auth' says no user auth needed."
     (setq page (string-match "/page/" root))
     (cond
      (page
-      (setq page (split-string root "/page/"))Already paged once
+      (setq page (split-string root "/page/"));Already paged once
       (format "%s/page/%s/for/%s?api_key=%s"
               (first page)
               (1+ (read (second page)))
