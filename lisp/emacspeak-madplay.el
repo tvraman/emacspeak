@@ -52,6 +52,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-aumix)
 (require 'desktop)
 (require 'dired)
 ;;}}}
@@ -65,7 +66,7 @@
 (define-prefix-command 'emacspeak-madplay-prefix-command
   'emacspeak-madplay-mode-map)
 
-(define-derived-mode emacspeak-madplay-mode fundamental-mode 
+(define-derived-mode emacspeak-madplay-mode special-mode 
   "Madplay Interaction"
   "Major mode for madplay interaction. \n\n
 \\{emacspeak-madplay-mode-map}"
