@@ -166,6 +166,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "pianobar" 'emacspeak-pianobar)
 (emacspeak-do-package-setup "proced" 'emacspeak-proced)
 (emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
+(emacspeak-do-package-setup "ein" 'emacspeak-ein)
 (emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
 (emacspeak-do-package-setup "damlite" 'emacspeak-damlite)
 (emacspeak-do-package-setup "desktop" 'emacspeak-desktop )
