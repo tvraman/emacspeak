@@ -51,6 +51,7 @@
 
 (require 'emacspeak-preamble)
 (require 'comint)
+(require 'emacspeak-xslt)
 ;;}}}
 ;;{{{ Customizations
 ;;;###autoload
