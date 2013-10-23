@@ -115,10 +115,10 @@
 ;;}}}
 ;;{{{ voice locking
 
-(defvar xsl-xsl-alternate-personality
+(defvar xsl-alternate-personality
   voice-animate
-  "Personality used in xsl highlighting."
-  :group 'emacspeak-xslide)
+  "Personality used in xsl highlighting.")
+  
 (defcustom xsl-fo-alternate-personality voice-monotone
   "Personality used in XSL highlighting."
   :group 'emacspeak-xslide)
