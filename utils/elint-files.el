@@ -14,8 +14,8 @@
     (loop for f in file-list
           do
           (unless
-              (or (eq file "emacspeak-loaddefs.el")
-                  (eq file "emacspeak-autoload.el"))
+              (or (string-match  "emacspeak-loaddefs.el" file)
+                  (string-match "emacspeak-autoload.el" file))
             (elint-file f)))))
             
 (batch-elint-files)

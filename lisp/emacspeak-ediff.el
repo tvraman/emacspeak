@@ -53,10 +53,11 @@
 
 ;;}}}
 ;;{{{  required:
-
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'voice-setup)
-
+(require 'ediff)
 ;;}}}
 ;;{{{  Map faces to voices.
 

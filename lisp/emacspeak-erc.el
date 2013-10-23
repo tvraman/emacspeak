@@ -51,6 +51,7 @@
 ;;}}}
 ;;{{{ required modules
 (require 'emacspeak-preamble)
+(require 'erc)
 ;;}}}
 ;;{{{  variables
 
