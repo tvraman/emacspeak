@@ -43,7 +43,7 @@
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
-(eval-when-compile (require 'info))
+(require 'info)
 ;;}}}
 ;;{{{  Variables:
 
