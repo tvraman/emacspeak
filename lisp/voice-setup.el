@@ -88,7 +88,6 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
@@ -97,7 +96,7 @@
 (require 'mac-voices)
 (require 'espeak-voices)
 (require 'dectalk-voices)
-
+(require 'emacspeak-sounds)
 ;;}}}
 ;;{{{ customization group
 
