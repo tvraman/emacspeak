@@ -13,7 +13,7 @@
           do
           (unless
               (or (eq file "emacspeak-loaddefs.el")
-                  (eq file "emacspeak-autoloads.el"))
+                  (eq file "emacspeak-autoload.el"))
             (elint-file f)))))
             
 (batch-elint-files)

@@ -49,14 +49,12 @@
 
 ;;;; This library will be used from emacspeak-m-player,
 ;;emacspeak-alsaplayer and friends to set and jump to bookmarks.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
-
-;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-
+(require 'emacspeak-sounds)
 ;;}}}
 ;;{{{ Structure:
 
