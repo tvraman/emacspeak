@@ -53,8 +53,8 @@
 ;;   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 ;;; Code:
-(declaim (special toy-braille-map))
-(setq toy-braille-map
+
+(defvar toy-braille-map
       '((?  . "⠀") (?. . "⠲") (?, . "⠐")
 
         (?1 . "⠼⠁") (?2 . "⠼⠃") (?3 . "⠼⠉") (?4 . "⠼⠙")
@@ -75,7 +75,8 @@
         (?M . "⠠⠍") (?N . "⠠⠝") (?O . "⠠⠕") (?P . "⠠⠏")
         (?Q . "⠠⠟") (?R . "⠠⠗") (?S . "⠠⠎") (?T . "⠠⠞")
         (?U . "⠠⠥") (?V . "⠠⠧") (?W . "⠠⠺") (?X . "⠠⠭")
-        (?Y . "⠠⠽") (?Z . "⠠⠵")))
+        (?Y . "⠠⠽") (?Z . "⠠⠵"))
+      "Braille Map")
 
 (defun get-toy-braille-string (instr)
   (let ((inlst (string-to-list instr)))

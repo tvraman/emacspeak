@@ -129,7 +129,7 @@ Also provide an auditory icon"
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
 
-(defadvice manual-entry (after emacspeak pre act )
+(defadvice man (after emacspeak pre act )
   "Provide auditory feedback"
   (when (ems-interactive-p )
     (emacspeak-speak-mode-line )))
