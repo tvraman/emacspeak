@@ -58,7 +58,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-
+(require 'ido)
 ;;}}}
 ;;{{{ speech-enable feedback routines
 

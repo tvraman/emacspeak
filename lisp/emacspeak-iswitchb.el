@@ -41,7 +41,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-
+(require 'iswitchb)
 ;;}}}
 ;;{{{  Introduction:
 
