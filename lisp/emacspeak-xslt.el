@@ -70,7 +70,7 @@
    (cons "base"
          (format "\"'%s'\""
                  base))))
-
+(declaim (special emacspeak-xslt-directory))
 ;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
@@ -253,8 +253,7 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
-                    emacspeak-xslt-use-wget-to-download
-                    modification-flag
+                    modification-flag emacspeak-xslt-use-wget-to-download
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
@@ -315,6 +314,7 @@ part of the libxslt package."
     (read-file-name "Style File: "
                     emacspeak-xslt-directory)
     (read-file-name "File:" default-directory)))
+  (declare (special emacspeak-xslt-directory))
   (with-temp-buffer
     (let ((coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)
@@ -339,7 +339,8 @@ part of the libxslt package."
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
-  (declare (special emacspeak-xslt-options))
+  (declare (special emacspeak-xslt-options
+                    emacspeak-xslt-directory))
   (emacspeak-webutils-with-xsl-environment
    style
    nil
