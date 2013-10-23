@@ -55,6 +55,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'browse-url)
+(require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'xml-parse)
@@ -805,7 +806,7 @@ b Browse
       do
       (eval
        `(defsubst ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
-          ,(format "Get %s at point. " p)
+          ,(format "Auto-generated function: Get %s at point. " p)
           (get-text-property (point) ',p))))
 
 ;;}}}
@@ -1012,6 +1013,8 @@ Target location is generated from author and title."
 
 (defsubst emacspeak-bookshare-xslt (directory)
   "Return suitable XSL  transform."
+  (declare (special emacspeak-bookshare-xslt
+                    emacspeak-xslt-directory))
   (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (cond
      ((file-exists-p xsl) xsl)
@@ -1023,7 +1026,8 @@ Target location is generated from author and title."
 
 (defsubst emacspeak-bookshare-toc-xslt ()
   "Return suitable XSL  transform for TOC."
-  (declare (special emacspeak-bookshare-toc-xslt))
+  (declare (special emacspeak-bookshare-toc-xslt
+                    emacspeak-xslt-directory))
 
   (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
 
@@ -1102,7 +1106,8 @@ Make sure it's downloaded and unpacked first."
 (defun emacspeak-bookshare-extract-and-view (url)
   "Extract content referred to by link under point, and render via the browser."
   (interactive "sURL: ")
-  (declare (special emacspeak-bookshare-browser-function))
+  (declare (special emacspeak-bookshare-browser-function
+                    emacspeak-xslt-directory))
   (let ((result (emacspeak-bookshare-extract-xml url))
         (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-excursion

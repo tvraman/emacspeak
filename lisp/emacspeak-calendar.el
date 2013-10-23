@@ -47,6 +47,7 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'calendar)
+(require 'appt)
 ;;}}}
 ;;{{{  personalities
 (voice-setup-add-map
