@@ -170,7 +170,6 @@ emacspeak-ispell.elc \
 emacspeak-iswitchb.elc \
 emacspeak-jabber.elc \
 emacspeak-jde.elc \
-emacspeak-jawbreaker.elc \
 emacspeak-js2.elc \
 emacspeak-jss.elc \
 emacspeak-kite.elc \
@@ -185,7 +184,6 @@ emacspeak-message.elc \
 emacspeak-metapost.elc \
 emacspeak-midge.elc \
 emacspeak-mpg123.elc \
-emacspeak-moz.elc \
 emacspeak-muse.elc \
 emacspeak-mspools.elc \
 emacspeak-net-utils.elc \
@@ -401,7 +399,6 @@ emacspeak-iswitchb.elc: emacspeak-iswitchb.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
-emacspeak-jawbreaker.elc: emacspeak-jawbreaker.el emacspeak-piglets.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-jss.elc: emacspeak-jss.el dtk-speak.elc voice-setup.elc
 emacspeak-kite.elc: emacspeak-kite.el dtk-speak.elc voice-setup.elc
@@ -418,7 +415,6 @@ emacspeak-message.elc: emacspeak-message.el dtk-speak.elc voice-setup.elc
 emacspeak-metapost.elc: emacspeak-metapost.el dtk-speak.elc voice-setup.elc
 emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc voice-setup.elc
 emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc voice-setup.elc
-emacspeak-moz.elc: emacspeak-moz.el dtk-speak.elc voice-setup.elc
 emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
@@ -430,7 +426,6 @@ emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
-emacspeak-piglets.elc: emacspeak-piglets.el emacspeak-moz.elc
 emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
