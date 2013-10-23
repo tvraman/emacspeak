@@ -3,9 +3,8 @@
 (require 'cl)
 (require 'advice)
 (push default-directory load-path)
-(push (expand-file-name "g-utils" default-directory) load-path)
+(push (expand-file-name "g-client" default-directory) load-path)
 (require 'emacspeak-load-path)
-
 (require 'elint)
 (defun batch-elint-files ()
   "Batch elint  elisp files in directory."
