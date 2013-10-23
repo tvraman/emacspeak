@@ -197,7 +197,6 @@ emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
 emacspeak-php-mode.elc \
 emacspeak-pianobar.elc \
-emacspeak-piglets.elc \
 emacspeak-proced.elc \
 emacspeak-psgml.elc \
 emacspeak-py.elc \
