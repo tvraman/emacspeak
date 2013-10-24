@@ -72,10 +72,104 @@
 ))
 
 ;;}}}
-;;{{{ Advice Notebook List
+;;{{{ Advice completers:
+
+;; ein:completer-complete
+;; ein:completer-dot-complete
+;; ein:jedi-complete
+;; ein:jedi-dot-complete
 
 ;;}}}
-;;{{{ Advice Notebook interaction
+;;{{{ Advice Tasks:
+
+;; ein:connect-to-notebook
+;; ein:connect-to-notebook-buffer
+;; ein:connect-to-notebook-command
+;; ein:console-open
+
+;;}}}
+;;{{{ Advice Notebook:
+
+;;}}}
+;;{{{ Advice NotebookList:
+
+;; ein:notebooklist-login
+;; ein:notebooklist-menu
+;; ein:notebooklist-new-notebook
+;; ein:notebooklist-new-notebook-with-name
+;; ein:notebooklist-next-item
+;; ein:notebooklist-open
+;; ein:notebooklist-open-notebook-by-file-name
+;; ein:notebooklist-open-notebook-global
+;; ein:notebooklist-prev-item
+;; ein:notebooklist-reload
+;; ein:junk-new
+;; ein:junk-rename
+
+;;}}}
+;;{{{   Commands:
+
+;; ein:header-line-delete-this-tab
+;; ein:header-line-insert-new-tab
+;; ein:header-line-insert-next-tab
+;; ein:header-line-insert-prev-tab
+;; ein:header-line-move-next-tab
+;; ein:header-line-move-prev-tab
+;; ein:header-line-pop-to-this-tab
+;; ein:header-line-switch-to-this-tab
+;; ein:iexec-mode
+;; ein:ipynb-mode
+
+
+
+
+;; ein:pager-goto-docstring-bset-loc
+;; ein:pytools-doctest
+;; ein:pytools-hierarchy
+;; ein:pytools-jump-back-command
+;; ein:pytools-jump-to-source-command
+;; ein:pytools-pandas-to-ses
+;; ein:pytools-request-help
+;; ein:pytools-request-tooltip
+;; ein:pytools-request-tooltip-or-help
+;; ein:pytools-whos
+;; ein:shared-output-eval-string
+;; ein:shared-output-pop-to-buffer
+;; ein:shared-output-show-code-cell-at-point
+;; ein:tb-show
+
+;;}}}
+;;{{{ Worksheets:
+
+;; ein:worksheet-change-cell-type
+;; ein:worksheet-clear-all-output
+;; ein:worksheet-clear-output
+;; ein:worksheet-copy-cell
+;; ein:worksheet-dedent-cell-text
+;; ein:worksheet-delete-cell
+;; ein:worksheet-execute-all-cell
+;; ein:worksheet-execute-autoexec-cells
+;; ein:worksheet-execute-cell
+;; ein:worksheet-execute-cell-and-goto-next
+;; ein:worksheet-execute-cell-and-insert-below
+;; ein:worksheet-goto-next-input
+;; ein:worksheet-goto-prev-input
+;; ein:worksheet-insert-cell-above
+;; ein:worksheet-insert-cell-below
+;; ein:worksheet-kill-cell
+;; ein:worksheet-merge-cell
+;; ein:worksheet-move-cell-down
+;; ein:worksheet-move-cell-up
+;; ein:worksheet-next-input-history
+;; ein:worksheet-previous-input-history
+;; ein:worksheet-rename-sheet
+;; ein:worksheet-set-output-visibility-all
+;; ein:worksheet-split-cell-at-point
+;; ein:worksheet-toggle-autoexec
+;; ein:worksheet-toggle-cell-type
+;; ein:worksheet-toggle-output
+;; ein:worksheet-turn-on-autoexec
+;; ein:worksheet-yank-cell
 
 ;;}}}
 
