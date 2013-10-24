@@ -1,0 +1,17 @@
+Index: lisp/dtk-speak.el
+===================================================================
+--- lisp/dtk-speak.el	(revision 8421)
++++ lisp/dtk-speak.el	(working copy)
+@@ -610,8 +610,11 @@
+ 
+ (defsubst dtk-speak-using-voice (voice text)
+   "Use voice VOICE to speak text TEXT."
+-  (declare (special tts-voice-reset-code))
++  (declare (special dtk-quiet dtk-speak-server-initialized
++                    tts-voice-reset-code))
+   (unless (or (eq 'inaudible voice )
++              dtk-quiet
++              (not dtk-speak-server-initialized)
+               (and (listp voice)
+                    (member 'inaudible voice)))
+     (dtk-interp-queue-code
