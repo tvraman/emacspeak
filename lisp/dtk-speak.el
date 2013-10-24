@@ -330,12 +330,12 @@ Argument PITCH   is specified in hertz.
 Argument DURATION  is specified in milliseconds.
 Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-quiet dtk-speaker-process
-                    dtk-use-tones
-                    dtk-speak-server-initialized))
-  (unless dtk-quiet
-    (when (and dtk-use-tones
-               dtk-speak-server-initialized)
-      (dtk-interp-tone pitch duration force))))
+                    dtk-use-tones dtk-speak-server-initialized))
+  (unless
+      (or dtk-quiet
+          (not dtk-use-tones)
+          (not dtk-speak-server-initialized))
+      (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
   "Set language according to the argument lang."
