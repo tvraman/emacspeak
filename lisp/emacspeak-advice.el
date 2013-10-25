@@ -725,18 +725,22 @@ icon."
 
 ;;{{{ advising signal
 
+(defvar emacspeak-speak-spoken-errors
+  '( beginning-of-buffer end-of-buffer buffer-read-only)
+  "Errors that are always spoken.")
+
+
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well.
 Always speak  read-only-buffer, end-of-buffer and beginning-of-buffer specially."
   (declare (special emacspeak-speak-errors))
   (let* ((error-symbol  (ad-get-arg 0))
-         (message (get error-symbol   'error-message)))))  (when
-      (or emacspeak-speak-errors
-          (memq
-           error-symbol
-           '( beginning-of-buffer end-of-buffer buffer-read-only))
-    (when (and message (not (eq message ""))) (dtk-speak message))))
-
+         (message (get error-symbol   'error-message)))
+    (when
+        (or emacspeak-speak-errors
+            (memq error-symbol emacspeak-speak-spoken-errors )
+            (emacspeak-auditory-icon 'warn-user)
+                        (dtk-speak (symbol-name error-symbol))))))
 
 ;;; Silence messages from async handlers:
 
