@@ -117,6 +117,7 @@ See  command emacspeak-toggle-word-echo bound to
 eech flushes as you type."
   (declare (special last-command-event 
                     emacspeak-character-echo emacspeak-word-echo))
+  (when buffer-read-only (dtk-speak "Buffer is read-only. "))
   (when
       (and (eq (preceding-char) last-command-event) ; Sanity check.
            (not executing-kbd-macro)
