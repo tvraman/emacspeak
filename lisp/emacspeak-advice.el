@@ -729,7 +729,7 @@ icon."
   "Speak the error message as well."
   (declare (special emacspeak-speak-errors))
   (when emacspeak-speak-errors
-    (dtk-speak (symbol-name (ad-get-arg 0)))))
+    (dtk-speak (get  (ad-get-arg 0) 'error-message))))
 
 ;;; Silence messages from async handlers:
 
