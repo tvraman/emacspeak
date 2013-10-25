@@ -715,26 +715,28 @@ icon."
       (dtk-speak
        (format " %s percent" ange-ftp-last-percent )))))
 
+
+
+;;;###autoload
+(defcustom emacspeak-speak-errors nil
+  "Specifies if error messages are cued."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
 ;;{{{ advising signal
 
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well.
-Handle end-of-buffer and beginning-of-buffer specially."
+Always speak  read-only-buffer, end-of-buffer and beginning-of-buffer specially."
   (declare (special emacspeak-speak-errors))
-  (let ((error-symbol  (ad-get-arg 0)))
-    (when
-        (or emacspeak-speak-errors
-            (eq error-symbol 'beginning-of-buffer)
-            (eq error-symbol 'end-of-buffer)
-            (eq error-symbol 'buffer-read-only))
-      (let ((dtk-stop-immediately t)
-            (message
-             (and
-              (not (eq 'error (ad-get-arg 0))) ; handled by advice on error 
-              (get (ad-get-arg 0) 'error-message))))
-        (when (and message
-                   (not (eq message "")))
-          (dtk-speak message))))))
+  (let* ((error-symbol  (ad-get-arg 0))
+         (message (get error-symbol   'error-message))))
+  (when
+      (or emacspeak-speak-errors
+          (memq
+           error-symbol
+           '( beginning-of-buffer end-of-buffer buffer-read-only))
+    (when (and message (not (eq message ""))) (dtk-speak message))))
 
 
 ;;; Silence messages from async handlers:
@@ -748,23 +750,22 @@ Handle end-of-buffer and beginning-of-buffer specially."
     ad-do-it))
 
 ;;}}}
+;;{{{  Junk:  Advice on error
 
-;;;###autoload
-(defcustom emacspeak-speak-errors nil
-  "Specifies if error messages are cued."
-  :type 'boolean
-  :group 'emacspeak-speak)
+;;; Handle through advice on signal:
 
-(defadvice error (before emacspeak pre act comp)
-  "Speak the error message.
-Also produces an auditory icon if possible."
-  (when emacspeak-speak-errors
-    (let ((dtk-stop-immediately nil ))
-      (emacspeak-auditory-icon 'warn-user)
-      (tts-with-punctuations 'all
-                             (dtk-speak
-                              (apply #'format
-                                     (ad-get-args  0)))))))
+;; (defadvice error (before emacspeak pre act comp)
+;;   "Speak the error message.
+;; Also produces an auditory icon if possible."
+;;   (when emacspeak-speak-errors
+;;     (let ((dtk-stop-immediately nil ))
+;;       (emacspeak-auditory-icon 'warn-user)
+;;       (tts-with-punctuations 'all
+;;                              (dtk-speak
+;;                               (apply #'format
+;;                                      (ad-get-args  0)))))))
+
+;;}}}
 
 (defadvice eval-minibuffer (before emacspeak pre act comp)
   "Speak the prompt."
@@ -2685,6 +2686,7 @@ emacspeak running."
 
 (defadvice expand-abbrev (around emacspeak pre act comp)
   "Speak what you expanded."
+  (when buffer-read-only (dtk-speak "Buffer is read-only. "))
   (let ((start (save-excursion
                  (backward-word 1)
                  (point))))
