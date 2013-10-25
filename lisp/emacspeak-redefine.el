@@ -140,9 +140,10 @@ eech flushes as you type."
   ; need to announce read-only errors here
 (defadvice self-insert-command (before emacspeak pre act comp)
   "Announce read-only state."
-  (when buffer-read-only
+  (when (or buffer-read-only
+            (get-text-property (point) 'read-only))
     (emacspeak-auditory-icon 'warn-user)
-    (dtk-speak "Buffer is read-only ")))
+    (dtk-speak "Text is read-only ")))
 
 )
 
