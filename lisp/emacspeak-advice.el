@@ -725,10 +725,13 @@ Handle end-of-buffer and beginning-of-buffer specially."
     (when
         (or emacspeak-speak-errors
             (eq error-symbol 'beginning-of-buffer)
-            (eq error-symbol 'end-of-buffer))
+            (eq error-symbol 'end-of-buffer)
+            (eq error-symbol 'buffer-read-only))
       (let ((dtk-stop-immediately t)
-            (message (and (not (eq 'error (ad-get-arg 0)))
-                          (get (ad-get-arg 0) 'error-message))))
+            (message
+             (and
+              (not (eq 'error (ad-get-arg 0))) ; handled by advice on error 
+              (get (ad-get-arg 0) 'error-message))))
         (when (and message
                    (not (eq message "")))
           (dtk-speak message))))))
