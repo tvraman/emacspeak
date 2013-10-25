@@ -730,8 +730,7 @@ icon."
 Always speak  read-only-buffer, end-of-buffer and beginning-of-buffer specially."
   (declare (special emacspeak-speak-errors))
   (let* ((error-symbol  (ad-get-arg 0))
-         (message (get error-symbol   'error-message))))
-  (when
+         (message (get error-symbol   'error-message)))))  (when
       (or emacspeak-speak-errors
           (memq
            error-symbol
