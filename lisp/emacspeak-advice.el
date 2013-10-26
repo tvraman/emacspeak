@@ -732,8 +732,10 @@ icon."
   (when emacspeak-speak-errors
     (dtk-speak
      (format "%s %s"
-             context
-             (get (car data ) 'error-message)))))
+             (or context "")
+             (mapconcat 
+#'(lambda (d) (get d 'error-message))
+data " ")))))
 
 (declaim (special command-error-function))
 (setq command-error-function 'emacspeak-error-handler)
