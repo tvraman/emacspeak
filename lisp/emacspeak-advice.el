@@ -733,7 +733,8 @@ icon."
     (dtk-speak
      (format "%s %s"
              context
-             (car data )))))
+             (get (car data )
+                  'error-message)))))
 
 (declaim (special command-error-function))
 (setq command-error-function 'emacspeak-error-handler)
