@@ -149,6 +149,7 @@
               (buffer-read-only nil )
               (save-inhibit-read-only inhibit-read-only)
               (inhibit-read-only t)
+              (deactivate-mark nil)
               (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
               (inhibit-point-motion-hooks t)
               (modification-flag (buffer-modified-p)))
@@ -177,6 +178,7 @@ Argument BODY specifies forms to execute."
            (inhibit-modification-hooks nil)
            (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
            (inhibit-point-motion-hooks t)
+           (deactivate-mark nil)
            (modification-flag (buffer-modified-p)))
        (unwind-protect
            (progn
@@ -255,7 +257,8 @@ Useful to do this before you listen to an entire buffer."
       (condition-case nil
           (let ((start nil)
                 (blank-line "\n[ \t\n\r]*\n")
-                (inhibit-point-motion-hooks t))
+                (inhibit-point-motion-hooks t)
+                (deactivate-mark nil))
             (ems-modify-buffer-safely
              (while (re-search-forward blank-line nil t)
                (skip-syntax-forward " ")
@@ -705,7 +708,8 @@ Argument START  and END specify region to speak."
   (interactive "r" )
   (declare (special emacspeak-speak-voice-annotated-paragraphs
                     inhibit-point-motion-hooks))
-  (let ((inhibit-point-motion-hooks t))
+  (let ((inhibit-point-motion-hooks t)
+        (deactivate-mark nil))
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (save-restriction
         (narrow-to-region start end )

@@ -1835,6 +1835,7 @@ only speak upto the first ctrl-m."
              (setq text (substring  text 0 ctrl-m ))
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t)
+          (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table ))
           (inherit-speaker-process dtk-speaker-process)
