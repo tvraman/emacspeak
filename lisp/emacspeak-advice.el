@@ -725,6 +725,18 @@ icon."
 
 ;;{{{ advising signal
 
+
+(defun emacspeak-error-handler  (data  context  calling-function)
+  "Emacspeak custom error handling function."
+  (declare (special emacspeak-speak-errors))
+  (when emacspeak-speak-errors
+    (dtk-speak
+     (format "%s %s"
+             context
+             (car data )))))
+
+(declaim (special command-error-function))
+(setq command-error-function 'emacspeak-error-handler)
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
   (declare (special emacspeak-speak-errors))
