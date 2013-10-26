@@ -137,14 +137,6 @@ eech flushes as you type."
         (emacspeak-speak-this-char (preceding-char)))))))
 (when (= 24 emacs-major-version)  
   (add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook)
-  ; need to announce read-only errors here
-(defadvice self-insert-command (before emacspeak pre act comp)
-  "Announce read-only state."
-  (when (or buffer-read-only
-            (get-text-property (point) 'read-only))
-    (emacspeak-auditory-icon 'warn-user)
-    (dtk-speak "Text is read-only ")))
-
 )
 
 ;;;###autoload
