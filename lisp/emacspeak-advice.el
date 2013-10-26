@@ -737,8 +737,8 @@ icon."
               (get (car data) 'error-message)
               "")))))
 
-(declaim (special command-error-function))
-(setq command-error-function 'emacspeak-error-handler)
+;(declaim (special command-error-function))
+;(setq command-error-function 'emacspeak-error-handler)
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
   (declare (special emacspeak-speak-errors))
