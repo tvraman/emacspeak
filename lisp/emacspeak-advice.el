@@ -718,7 +718,7 @@ icon."
 
 
 ;;;###autoload
-(defcustom emacspeak-speak-errors nil
+(defcustom emacspeak-speak-errors t
   "Specifies if error messages are cued."
   :type 'boolean
   :group 'emacspeak-speak)
