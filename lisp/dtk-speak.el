@@ -614,7 +614,7 @@ Argument COMPLEMENT  is the complement of separator."
   (unless (or (eq 'inaudible voice )
               dtk-quiet
               (null text)
-              (eq text "")
+              (string-equal  text "")
               (and (listp voice) (memq 'inaudible voice)))
     (dtk-interp-queue-code
      (cond
@@ -1825,7 +1825,8 @@ only speak upto the first ctrl-m."
   ; Do nothing if text is ""
   (unless
       (or dtk-quiet
-          (eq text "")
+          (null text)
+          (string-equal text "")
           (not dtk-speak-server-initialized))
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
@@ -1957,7 +1958,7 @@ Optional argument group-count specifies grouping for intonation."
   ;; I wont talk if you dont want me to
   (unless
       (or dtk-quiet
-          (eq words ""))
+          (string-equal words ""))
     
     (or (eq 'run (process-status dtk-speaker-process ))
         (eq 'open (process-status dtk-speaker-process ))

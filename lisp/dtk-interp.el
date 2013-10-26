@@ -111,10 +111,9 @@
 
 (defsubst dtk-interp-queue (text)
   (declare (special dtk-speaker-process))
-  (when (and text (not (eq text "")))
-    (process-send-string dtk-speaker-process
-                         (format "q {%s }\n"
-                                 text))))
+  (process-send-string dtk-speaker-process
+                       (format "q {%s }\n"
+                               text)))
 
 (defsubst dtk-interp-queue-code (code)
   (declare (special dtk-speaker-process))
