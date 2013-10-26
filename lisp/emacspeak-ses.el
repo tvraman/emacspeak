@@ -51,6 +51,7 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'emacspeak-redefine)
+(require 'ses)
 ;;}}}
 
 ;;{{{ SES Accessors:
@@ -89,7 +90,6 @@ is nil if SYM is not a symbol that names a cell."
 When COL is omitted CELL=ROW is a cell object.  When COL is
 present ROW and COL are the integer coordinates of the cell of
 interest."
-  (declare (debug t))
   (ses-cell-property-get-fun
    property-name
    (if col (ses-get-cell row col) row)))
