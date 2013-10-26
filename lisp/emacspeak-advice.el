@@ -733,9 +733,9 @@ icon."
     (dtk-speak
      (format "%s %s"
              (or context "")
-             (mapconcat 
-#'(lambda (d) (get d 'error-message))
-data " ")))))
+             (or
+              (get (car data) 'error-message)
+              "")))))
 
 (declaim (special command-error-function))
 (setq command-error-function 'emacspeak-error-handler)
