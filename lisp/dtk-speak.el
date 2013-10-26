@@ -613,7 +613,6 @@ Argument COMPLEMENT  is the complement of separator."
   (declare (special tts-voice-reset-code dtk-quiet))
   (unless (or (eq 'inaudible voice )
               dtk-quiet
-              (not (eq text ""))
               (and (listp voice)
                    (member 'inaudible voice)))
     (dtk-interp-queue-code
