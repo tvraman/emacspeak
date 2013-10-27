@@ -186,7 +186,7 @@ eech flushes as you type."
        #'(lambda (key)
            (global-set-key key new-fn )))
      keys )))
-;;; self-insert-char is removed since we can use
+;;; self-insert-command is removed since we can use
 ;;; post-self-insert-hook
 
 (defvar emacspeak-functions-that-bypass-function-cell
