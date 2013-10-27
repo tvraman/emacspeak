@@ -611,6 +611,7 @@ Argument COMPLEMENT  is the complement of separator."
 (defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
   (declare (special tts-voice-reset-code dtk-quiet))
+  (unless (stringp text) (setq text (format "%s" text")))
   (unless (or (eq 'inaudible voice )
               dtk-quiet
               (null text)
@@ -675,7 +676,7 @@ Argument COMPLEMENT  is the complement of separator."
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
-Arguments START and END specify region to speak."
+  Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
                     tts-voice-reset-code
                     emacspeak-use-auditory-icons))
@@ -735,15 +736,15 @@ Arguments START and END specify region to speak."
 ;;;###autoload
 (defun dtk-add-cleanup-pattern (&optional delete )
   "Add this pattern to the list of repeating patterns that
-are cleaned up.  Optional interactive prefix arg deletes
-this pattern if previously added.  Cleaning up repeated
-patterns results in emacspeak speaking the pattern followed
-by a repeat count instead of speaking all the characters
-making up the pattern.  Thus, by adding the repeating
-pattern `.' (this is already added by default) emacspeak
-will say ``aw fifteen dot'' when speaking the string
-``...............'' instead of ``period period period period
-''"
+  are cleaned up.  Optional interactive prefix arg deletes
+  this pattern if previously added.  Cleaning up repeated
+  patterns results in emacspeak speaking the pattern followed
+  by a repeat count instead of speaking all the characters
+  making up the pattern.  Thus, by adding the repeating
+  pattern `.' (this is already added by default) emacspeak
+  will say ``aw fifteen dot'' when speaking the string
+  ``...............'' instead of ``period period period period
+  ''"
   (interactive "P")
   (declare (special dtk-cleanup-patterns ))
   (cond
@@ -764,8 +765,8 @@ will say ``aw fifteen dot'' when speaking the string
 
 (defsubst dtk-filter-function (proc output)
   "Filter function for speech server.
-Argument PROC is the server process.
-Argument OUTPUT is the newly arrived output."
+  Argument PROC is the server process.
+  Argument OUTPUT is the newly arrived output."
   (declare (special dtk-last-output))
   (setq dtk-last-output output))
 ;;; Uses the syntax table belonging to the buffer that owns the text
@@ -810,8 +811,8 @@ Argument OUTPUT is the newly arrived output."
 ;;;###autoload
 (defun dtk-set-rate (rate    &optional prefix)
   "Set speaking RATE for the tts.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result."
+  Interactive PREFIX arg means set   the global default value, and then set the
+  current local  value to the result."
   (interactive
    (list
     (read-from-minibuffer "Enter new rate: ")
@@ -835,9 +836,9 @@ current local  value to the result."
 ;;;###autoload
 (defun dtk-set-predefined-speech-rate (&optional prefix)
   "Set speech rate to one of nine predefined levels.
-Interactive PREFIX arg says to set the rate globally.
-Formula used is:
-rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
+  Interactive PREFIX arg says to set the rate globally.
+  Formula used is:
+  rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (declare (special dtk-speech-rate-step
                     dtk-speech-rate-base
@@ -849,7 +850,7 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
     (or (numberp level)
         (setq level
               (read-minibuffer "Enter level between 1 and 9 to set
-speech rate:")))
+  speech rate:")))
     (cond
      ((or (not (numberp level))
           (< level 0)
@@ -866,10 +867,10 @@ speech rate:")))
 ;;;###autoload
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set scale FACTOR for   speech rate.
-Speech rate is scaled by this factor
-when speaking characters.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result."
+  Speech rate is scaled by this factor
+  when speaking characters.
+  Interactive PREFIX arg means set   the global default value, and then set the
+  current local  value to the result."
   (interactive "nEnter new factor:\nP")
   (declare (special dtk-character-scale dtk-speaker-process
                     dtk-speak-server-initialized))
@@ -889,61 +890,61 @@ current local  value to the result."
 (ems-generate-switcher 'dtk-toggle-quiet
                        'dtk-quiet
                        "Toggles state of  dtk-quiet.
-Turning on this switch silences speech.
-Optional interactive prefix arg causes this setting to become global.")
+  Turning on this switch silences speech.
+  Optional interactive prefix arg causes this setting to become global.")
 
 (ems-generate-switcher 'dtk-toggle-split-caps
                        'dtk-split-caps
                        "Toggle split caps mode.
-Split caps mode is useful when reading
-Hungarian notation in program source code.  Interactive PREFIX arg
-means toggle the global default value, and then set the current local
-value to the result.")
+  Split caps mode is useful when reading
+  Hungarian notation in program source code.  Interactive PREFIX arg
+  means toggle the global default value, and then set the current local
+  value to the result.")
 
 (ems-generate-switcher 'dtk-toggle-strip-octals
                        'tts-strip-octals
                        "Toggle stripping of octals.
-Interactive prefix arg means
- toggle the global default value, and then set the current local
-value to the result.")
+  Interactive prefix arg means
+  toggle the global default value, and then set the current local
+  value to the result.")
 
 (ems-generate-switcher' dtk-toggle-capitalization
                         'dtk-capitalize
                         "Toggle capitalization.
-when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.")
+  when set, capitalization is indicated by a
+  short beep.  Interactive PREFIX arg means toggle the global default
+  value, and then set the current local value to the result.")
 
 (ems-generate-switcher' dtk-toggle-speak-nonprinting-chars
                         'dtk-speak-nonprinting-chars
                         "Toggle speak-nonprinting-chars.
-Switches behavior of how characters with the high bit set are handled.
-Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.")
+  Switches behavior of how characters with the high bit set are handled.
+  Interactive PREFIX arg means toggle the global default
+  value, and then set the current local value to the result.")
 
 (ems-generate-switcher'dtk-toggle-allcaps-beep
  'dtk-allcaps-beep
  "Toggle allcaps-beep.
-when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-Note that allcaps-beep is a very useful thing when programming.
-However it is irritating to have it on when reading documents.")
+  when set, allcaps words  are  indicated by a
+  short beep.  Interactive PREFIX arg means toggle the global default
+  value, and then set the current local value to the result.
+  Note that allcaps-beep is a very useful thing when programming.
+  However it is irritating to have it on when reading documents.")
 
 (ems-generate-switcher 'dtk-toggle-debug
                        'dtk-debug
                        "Toggle state of the debug FLAG.
-When debugging is on, you can switch to the buffer
-*speaker* to examine the output from the process
-that talks to the speech device by using command \\[tts-show-debug-buffer].
-Note: *speaker* is a hidden buffer, ie it has a leading space in its name.")
+  When debugging is on, you can switch to the buffer
+  *speaker* to examine the output from the process
+  that talks to the speech device by using command \\[tts-show-debug-buffer].
+  Note: *speaker* is a hidden buffer, ie it has a leading space in its name.")
 
 ;;;###autoload
 (defun dtk-set-punctuations  (mode &optional prefix )
   "Set punctuation mode to MODE.
-Possible values are `some', `all', or `none'.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result."
+  Possible values are `some', `all', or `none'.
+  Interactive PREFIX arg means set   the global default value, and then set the
+  current local  value to the result."
   (interactive
    (list
     (intern
@@ -971,21 +972,21 @@ current local  value to the result."
 ;;;###autoload
 (defun dtk-set-punctuations-to-all (&optional prefix )
   "Set punctuation  mode to all.
-Interactive PREFIX arg sets punctuation mode globally."
+  Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
   (dtk-set-punctuations 'all prefix))
 
 ;;;###autoload
 (defun dtk-set-punctuations-to-some (&optional prefix )
   "Set punctuation  mode to some.
-Interactive PREFIX arg sets punctuation mode globally."
+  Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
   (dtk-set-punctuations 'some prefix))
 
 ;;;###autoload
 (defun dtk-toggle-punctuation-mode (&optional prefix)
   "Toggle punctuation mode between \"some\" and \"all\".
-Interactive PREFIX arg makes the new setting global."
+  Interactive PREFIX arg makes the new setting global."
   (interactive "P")
   (declare (special dtk-punctuation-mode))
   (cond
@@ -1001,7 +1002,7 @@ Interactive PREFIX arg makes the new setting global."
 ;;;###autoload
 (defun dtk-reset-state ()
   "Restore sanity to the Dectalk.
-Typically used after the Dectalk has been power   cycled."
+  Typically used after the Dectalk has been power   cycled."
   (interactive)
   (declare (special  dtk-speaker-process
                      dtk-speak-server-initialized))
@@ -1042,11 +1043,11 @@ Typically used after the Dectalk has been power   cycled."
 ;;;###autoload
 (defun dtk-resume ()
   "Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command `dtk-pause' bound to \\[dtk-pause].
-If speech has not been paused,
-and option `dtk-resume-should-toggle' is set,
- then this command will pause ongoing speech."
+  This command resumes  speech that has been suspended by executing
+  command `dtk-pause' bound to \\[dtk-pause].
+  If speech has not been paused,
+  and option `dtk-resume-should-toggle' is set,
+  then this command will pause ongoing speech."
   (interactive)
   (declare (special dtk-speaker-process
                     dtk-resume-should-toggle
@@ -1068,17 +1069,17 @@ and option `dtk-resume-should-toggle' is set,
 
 (defvar dtk-stop-immediately t
   "If t, speech stopped immediately when new speech received.
-Emacspeak sets this to nil if the current message being spoken is too
-important to be interrupted.")
+  Emacspeak sets this to nil if the current message being spoken is too
+  important to be interrupted.")
 
 (defvar dtk-speaker-process nil
   "Speaker process handle.")
 (defvar dtk-punctuation-mode  'all
   "Current setting of punctuation state.
-Possible values are some, all or none.
-You should not modify this variable;
-Use command  `dtk-set-punctuations' bound to
-\\[dtk-set-punctuations].  .")
+  Possible values are some, all or none.
+  You should not modify this variable;  ;
+  Use command  `dtk-set-punctuations' bound to
+  \\[dtk-set-punctuations].  .")
 
 (make-variable-buffer-local 'dtk-punctuation-mode)
 ;;; forward declaration
@@ -1089,8 +1090,8 @@ Use command  `dtk-set-punctuations' bound to
 
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers.
-File .servers is expected to contain name of one server per
-no line --with no white space."
+  File .servers is expected to contain name of one server per
+  no line --with no white space."
   (declare (special emacspeak-servers-directory
                     dtk-servers-alist))
   (let ((result nil)
@@ -1117,8 +1118,8 @@ no line --with no white space."
 
 (defvar dtk-servers-alist nil
   "Used for completion when prompting for TTS server.
-This variable is automatically setup to reflect the
-available TTS servers.")
+  This variable is automatically setup to reflect the
+  available TTS servers.")
 
 ;;}}}
 ;;{{{  Mapping characters to speech:
@@ -1523,7 +1524,7 @@ available TTS servers.")
 
 (defvar tts-voice-reset-code nil
   "Code sent to reset the voice to its default.
-This is setup on a per engine basis.")
+  This is setup on a per engine basis.")
 
 ;;; will be reset on a per TTS engine basis.
 (defalias 'tts-get-voice-command 'dectalk-get-voice-command)
@@ -1558,10 +1559,10 @@ This is setup on a per engine basis.")
 ;;;###autoload
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
-Argument PROGRAM specifies the speech server program. When called
-interactively, The selected server is started
-immediately. Optional arg device sets up environment variable
-ALSA_DEFAULT to specified device before starting the server."
+  Argument PROGRAM specifies the speech server program. When called
+  interactively, The selected server is started
+  immediately. Optional arg device sets up environment variable
+  ALSA_DEFAULT to specified device before starting the server."
   (interactive
    (list
     (completing-read
@@ -1597,7 +1598,7 @@ ALSA_DEFAULT to specified device before starting the server."
 ;;;###autoload
 (defun tts-cycle-device (&optional restart)
   "Cycle through available ALSA devices.
-Optional interactive prefix arg restarts current TTS server."
+  Optional interactive prefix arg restarts current TTS server."
   (interactive "P")
   (declare (special tts-device tts-device-list))
   (let ((pos (position tts-device tts-device-list :test
@@ -1620,9 +1621,9 @@ Optional interactive prefix arg restarts current TTS server."
 ;;;###autoload
 (defun dtk-async-server (program)
   "Select and start an async  speech server interactively.
-Async servers allow external programs like self-voicing Web browsers to use
-the Emacspeak TTS server abstraction.
-Argument PROGRAM specifies the speech server program."
+  Async servers allow external programs like self-voicing Web browsers to use
+  the Emacspeak TTS server abstraction.
+  Argument PROGRAM specifies the speech server program."
   (interactive
    (list
     (completing-read
@@ -1669,9 +1670,9 @@ Argument PROGRAM specifies the speech server program."
 
 (defun dtk-local-server (program)
   "Select and start an local  speech server interactively.
-Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
-Argument PROGRAM specifies the speech server program.
-Port  defaults to  dtk-local-server-port"
+  Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
+  Argument PROGRAM specifies the speech server program.
+  Port  defaults to  dtk-local-server-port"
   (interactive
    (list
     (completing-read
@@ -1758,18 +1759,18 @@ Port  defaults to  dtk-local-server-port"
 ;;;###autoload
 (defun dtk-toggle-splitting-on-white-space ()
   "Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as `shell-mode' and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak's stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time."
+  This affects the internal state of emacspeak that decides if we split
+  text purely by clause boundaries, or also include
+  whitespace.  By default, emacspeak sends a clause at a time
+  to the speech device.  This produces fluent speech for
+  normal use.  However in modes such as `shell-mode' and some
+  programming language modes, clause markers appear
+  infrequently, and this can result in large amounts of text
+  being sent to the speech device at once, making the system
+  unresponsive when asked to stop talking.  Splitting on white
+  space makes emacspeak's stop command responsive.  However,
+  when splitting on white space, the speech sounds choppy
+  since the synthesizer is getting a word at a time."
   (interactive)
   (declare (special dtk-chunk-separator-syntax))
   (cond
@@ -1784,9 +1785,9 @@ since the synthesizer is getting a word at a time."
 ;;;###autoload
 (defun dtk-set-chunk-separator-syntax (s)
   "Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
-Argument S specifies the syntax class."
+  See the Emacs documentation on syntax tables for details on how characters are
+  classified into various syntactic classes.
+  Argument S specifies the syntax class."
 
   (interactive
    (list
@@ -1801,10 +1802,10 @@ Argument S specifies the syntax class."
 
 (defun dtk-speak (text &optional ignore-skim)
   "Speak the TEXT string on the  tts.
-This is achieved by sending the text to the speech server.
-No-op if variable `dtk-quiet' is set to t.
-If option `outline-minor-mode' is on and selective display is in effect,
-only speak upto the first ctrl-m."
+  This is achieved by sending the text to the speech server.
+  No-op if variable `dtk-quiet' is set to t.
+  If option `outline-minor-mode' is on and selective display is in effect,
+  only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
                     tts-strip-octals inhibit-point-motion-hooks
                     dtk-speak-server-initialized emacspeak-use-auditory-icons
@@ -1917,8 +1918,8 @@ only speak upto the first ctrl-m."
 
 (defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.
-Argument TEXT  is the list of strings to speak.
-Optional argument group-count specifies grouping for intonation."
+  Argument TEXT  is the list of strings to speak.
+  Optional argument group-count specifies grouping for intonation."
   (declare (special dtk-speaker-process))
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
@@ -1957,7 +1958,8 @@ Optional argument group-count specifies grouping for intonation."
   "Say these WORDS."
   (declare (special dtk-speaker-process dtk-stop-immediately
                     dtk-speak-server-initialized dtk-quiet))
-  ;; I wont talk if you dont want me to
+  (unless (stringp words) (setq words (format "%s" words")))
+  ;; I wont talk if you dont want me to ;
   (unless
       (or dtk-quiet
           (string-equal words ""))
