@@ -111,9 +111,8 @@
     (emacspeak-calendar-speak-date)))
 
 (declaim (special diary-display-hook))
-(when (boundp 'diary-display-hook)
-  (unless (memq 'fancy-diary-display diary-display-hook)
-    (add-hook 'diary-display-hook 'fancy-diary-display)))
+(when (boundp 'diary-display-function)
+  (add-hook 'diary-display-function 'fancy-diary-display))
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
 (add-hook 'calendar-mode-hook
