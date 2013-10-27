@@ -1815,6 +1815,8 @@ only speak upto the first ctrl-m."
                     dtk-split-caps
                     emacspeak-pronounce-pronunciation-table
                     selective-display ))
+  ; ensure text is a  string
+  (unless (stringp text) (setq text (format "%s" text)))
                                         ; ensure  the process  is live
   (unless (or (eq 'run (process-status dtk-speaker-process ))
               (eq 'open (process-status dtk-speaker-process )))
