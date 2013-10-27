@@ -754,7 +754,7 @@ icon."
                              (dtk-speak  (ad-get-args  0))))))
 
 ;;;###autoload
-(defcustom emacspeak-speak-signals nil
+(defcustom emacspeak-speak-signals t
   "Specifies if signalled   messages are cued."
   :type 'boolean
   :group 'emacspeak-speak)
