@@ -718,13 +718,11 @@ icon."
 
 
 ;;;###autoload
-(defcustom emacspeak-speak-errors t
-  "Specifies if error messages are cued."
-  :type 'boolean
-  :group 'emacspeak-speak)
+
 
 ;;{{{ advising signal
 
+;;; not  presently  used 
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
@@ -739,11 +737,36 @@ icon."
 
 ;(declaim (special command-error-function))
 ;(setq command-error-function 'emacspeak-error-handler)
-(defadvice signal (before emacspeak pre act compile)
-  "Speak the error message as well."
-  (declare (special emacspeak-speak-errors))
+;;;###autoload
+(defcustom emacspeak-speak-errors t
+  "Specifies if error messages are cued."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
+(defadvice error (before emacspeak pre act comp)
+  "Speak the error message.
+ Also produces an auditory icon if possible."
   (when emacspeak-speak-errors
-    (dtk-speak (get  (ad-get-arg 0) 'error-message))))
+    (let ((dtk-stop-immediately nil )
+          (emacspeak-speak-signals nil))
+      (emacspeak-auditory-icon 'warn-user)
+      (tts-with-punctuations 'all
+                             (dtk-speak  (ad-get-args  0))))))
+
+;;;###autoload
+(defcustom emacspeak-speak-signals t
+  "Specifies if signalled   messages are cued."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
+(defadvice signal (before emacspeak pre act compile)
+  "Speak the signalled  message."
+  (when emacspeak-speak-signals
+    (let ((msg (get  (ad-get-arg 0) 'error-message)))
+      (emacspeak-auditory-icon 'warn-user)
+      (when (and msg (> (length msg) 0))
+        (tts-with-punctuations 'all
+        (dtk-speak msg))))))
 
 ;;; Silence messages from async handlers:
 
@@ -756,27 +779,10 @@ icon."
     ad-do-it))
 
 ;;}}}
-;;{{{  Junk:  Advice on error
-
-;;; Handle through advice on signal:
-
-;; (defadvice error (before emacspeak pre act comp)
-;;   "Speak the error message.
-;; Also produces an auditory icon if possible."
-;;   (when emacspeak-speak-errors
-;;     (let ((dtk-stop-immediately nil ))
-;;       (emacspeak-auditory-icon 'warn-user)
-;;       (tts-with-punctuations 'all
-;;                              (dtk-speak
-;;                               (apply #'format
-;;                                      (ad-get-args  0)))))))
-
-;;}}}
-
 (defadvice eval-minibuffer (before emacspeak pre act comp)
   "Speak the prompt."
   (tts-with-punctuations 'all
-                         (dtk-speak (ad-get-arg 0))))
+                         (dtk-speak (apply #'format (ad-get-arg 0)))))
 
 (defadvice y-or-n-p (around emacspeak pre act comp)
   "Use speech when prompting.
