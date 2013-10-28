@@ -747,11 +747,19 @@ icon."
   "Speak the error message.
  Also produces an auditory icon if possible."
   (when emacspeak-speak-errors
-    (let ((dtk-stop-immediately nil )
-          (emacspeak-speak-signals nil))
+    (let ((emacspeak-speak-signals nil))
       (emacspeak-auditory-icon 'warn-user)
       (tts-with-punctuations 'all
-                             (dtk-speak  (ad-get-args  0))))))
+                             (dtk-speak (apply #'format (ad-get-args  0)))))))
+
+(defadvice user-error (before emacspeak pre act comp)
+  "Speak the error message."
+  (when emacspeak-speak-errors
+    (let ((emacspeak-speak-signals nil))
+      (tts-with-punctuations 'all
+                             (dtk-speak (apply #'format (ad-get-args 0)))))))
+  
+
 
 ;;;###autoload
 (defcustom emacspeak-speak-signals t
