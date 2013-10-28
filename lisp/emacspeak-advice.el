@@ -752,7 +752,9 @@ icon."
           (dtk-stop-immediately  nil))
       (emacspeak-auditory-icon 'warn-user)
       (tts-with-punctuations 'all
-                             (dtk-speak (apply #'format (ad-get-args  0)))))))
+                             (dtk-speak
+                              (apply #'format (ad-get-arg 0)(ad-get-args 1))))))
+  t)
 
 (defadvice user-error (before emacspeak pre act comp)
   "Speak the error message."
@@ -761,7 +763,9 @@ icon."
           (emacspeak-speak-errors nil)
           (dtk-stop-immediately  nil))
       (tts-with-punctuations 'all
-                             (dtk-speak (apply #'format (ad-get-args 0)))))))
+                             (dtk-speak
+                              (apply #'format (ad-get-arg 0)(ad-get-args 1))))))
+  t)
   
 
 
@@ -777,7 +781,8 @@ icon."
     (let ((msg (get  (ad-get-arg 0) 'error-message)))
       (when (and msg (> (length msg) 0))
         (tts-with-punctuations 'all
-        (dtk-speak msg))))))
+        (dtk-speak msg)))))
+  t)
 
 ;;; Silence messages from async handlers:
 
