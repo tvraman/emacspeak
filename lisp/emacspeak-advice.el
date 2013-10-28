@@ -771,7 +771,6 @@ icon."
   "Speak the signalled  message."
   (when emacspeak-speak-signals
     (let ((msg (get  (ad-get-arg 0) 'error-message)))
-      (emacspeak-auditory-icon 'warn-user)
       (when (and msg (> (length msg) 0))
         (tts-with-punctuations 'all
         (dtk-speak msg))))))
