@@ -778,11 +778,9 @@ icon."
 (defadvice signal (before emacspeak pre act compile)
   "Speak the signalled  message."
   (when emacspeak-speak-signals
-    (let ((msg (get  (ad-get-arg 0) 'error-message)))
+    (let ((msg (first (ad-get-arg 1))))
       (when (and msg (> (length msg) 0))
-        (tts-with-punctuations 'all
-        (dtk-speak msg)))))
-  t)
+        (tts-with-punctuations 'all (dtk-speak msg))))))
 
 ;;; Silence messages from async handlers:
 
