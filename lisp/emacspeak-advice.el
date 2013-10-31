@@ -2379,7 +2379,7 @@ Also produce an auditory icon if possible."
 (define-key minibuffer-local-isearch-map emacspeak-prefix
   'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
-
+(define-key isearch-mode-map "\M-m" 'isearch-exit)
 ;;; ISearch setup/teardown
 
 ;;; temporarily disable message and signal advice during searches.

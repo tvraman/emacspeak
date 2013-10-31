@@ -181,9 +181,12 @@ and then cue the next selected buffer."
 
 (defadvice Info-extract-pointer  (around emacspeak pre act comp)
   "Silence emacspeak during call."
-  (let ((emacspeak-speak-messages nil)
-        (emacspeak-use-auditory-icons nil))
-    ad-do-it))
+  (cond
+   ((null window-system) ad-do-it))
+  (t (let ((emacspeak-speak-messages nil)
+           (emacspeak-use-auditory-icons nil))
+       ad-do-it)))
+
 ;;}}}
 ;;{{{ keymaps
 (declaim (special Info-mode-map))
@@ -204,6 +207,16 @@ node-spec."
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
+;;}}}
+;;{{{ Temporary fix for Info in  window-system environments.
+
+
+(defadvice Info-extract-pointer (around emacspeak pre act comp)
+  "Protect from problems with user-error and friends when advised."
+(let ((emacspeak-speak-errors nil)
+      (emacspeak-speak-signals nil))
+ad-do-it)
+ad-return-value)
 ;;}}}
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables
