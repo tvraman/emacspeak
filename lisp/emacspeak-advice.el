@@ -733,10 +733,10 @@ icon."
 
 (defun emacspeak-speak-error-message (error-symbol string)
   "Speak audio-formatted error message."
-  (backtrace)
-  ;(tts-with-punctuations 'all (dtk-speak string))
-  (message  string))
-
+  ;(backtrace)
+  (tts-with-punctuations 'all (dtk-speak string))
+  ;(message  string)
+)
 
 (defadvice signal (before emacspeak pre act comp)
   "Produce audio-formatted message for signals before they are handled by Emacs."
