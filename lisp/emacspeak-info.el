@@ -176,8 +176,6 @@ and then cue the next selected buffer."
 
 ;;}}}
 ;;{{{  Emacs 21
-;;; There is a bug in Emacs 21 that causes info-extract-pointer to be
-;;; called erroneously.
 
 ;;}}}
 ;;{{{ keymaps
@@ -200,16 +198,9 @@ node-spec."
   (emacspeak-info-visit-node))
 
 ;;}}}
-;;{{{ Temporary fix for Info in  window-system environments.
 
 
-(defadvice Info-extract-pointer (around emacspeak pre act comp)
-  "Protect from problems with user-error and friends when advised."
-(let ((emacspeak-speak-errors nil)
-      (emacspeak-speak-signals nil))
-ad-do-it)
-ad-return-value)
-;;}}}
+
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables
 
