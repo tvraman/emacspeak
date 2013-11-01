@@ -735,7 +735,6 @@ icon."
   "Speak audio-formatted error message."
   (backtrace)
   ;(tts-with-punctuations 'all (dtk-speak string))
-  (backtrace)
   (message  string))
 
 
