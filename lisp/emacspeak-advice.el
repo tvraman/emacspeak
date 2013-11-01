@@ -737,9 +737,13 @@ icon."
 
 (defadvice signal (before emacspeak pre act comp)
   "Produce audio-formatted message for signals before they are handled by Emacs."
-  (emacspeak-speak-error-message
-   (ad-get-arg 0)
-   (mapconcat #'identity (ad-get-arg 1) " ")))
+  (let* ((error-symbol (ad-get-arg 0))
+         (data   (ad-get-arg 1))
+         (message
+          (format "%s %s"
+                  (or (get error-symbol 'error-message) "")
+                  (mapconcat #'identity data " "))))
+    (emacspeak-speak-error-message  error-symbol message)))
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
