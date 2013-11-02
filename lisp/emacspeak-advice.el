@@ -984,34 +984,6 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object )))
 
-(defadvice tmm-add-prompt (around emacspeak pre act comp)
-  "Speaks the list of completions we have available."
-  ad-do-it
-  (let ((inhibit-read-only t)
-        (cap "cap "))
-    (put-text-property 0 (length cap)
-                       'personality voice-animate  cap)
-    (put-text-property 0  (length tmm-mid-prompt)
-                       'personality 'inaudible
-                       tmm-mid-prompt)
-    (tts-with-punctuations 'all
-                           (dtk-speak
-                            (mapconcat
-                             (function
-                              (lambda (choice)
-                                (declare (special cap))
-                                (let ((string (car choice )))
-                                  (put-text-property
-                                   0 1
-                                   'personality voice-animate  string)
-                                  (when (string-match "^[A-Z]" string)
-                                    (setq string
-                                          (concat cap string)))
-                                  string)))
-                             minibuffer-completion-table " ")
-                            )))
-  ad-return-value)
-
 (defadvice tmm-shortcut (after emacspeak pre act comp)
   "Provide contextual feedback when exitting minibuffer."
   (emacspeak-auditory-icon 'button))
