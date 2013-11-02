@@ -740,18 +740,13 @@ icon."
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
-  (declare (special emacspeak-speak-errors
-                    emacspeak-speak-signals))
-  (when (or emacspeak-speak-errors emacspeak-speak-signals )
-    (dtk-speak
-     (format "%s %s"
-             (or context "")
-             (or
-              (get (car data) 'error-message)
-              "")))))
+  (tts-with-punctuations
+   'all 
+   (dtk-speak
+     (error-message-string data))))
 
-                                        ;(declaim (special command-error-function))
-                                        ;(add-function :before command-error-function 'emacspeak-error-handler)
+(declaim (special command-error-function))
+;(add-function :before command-error-function 'emacspeak-error-handler)
 
 ;;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
