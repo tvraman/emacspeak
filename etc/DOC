@@ -402,7 +402,8 @@ M-s		emacspeak-amark-save
 
 
 
-This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization. 
 
 ------------------------------------------------------------
@@ -489,14 +490,6 @@ AMarks are bookmarks in audio content.
 ------------------------------------------------------------
 
 ** emacspeak-arc-speak-file-size Speak the size of the file on current line 
-
-------------------------------------------------------------
-
-** emacspeak-aumix Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done. 
 
 ------------------------------------------------------------
 
@@ -941,6 +934,71 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
+** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
+ (the previous column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
+ (the previous row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expression Display the expression in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-value Display the cell value in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
+The `column header' is the entry in row 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
+The `row header' is the entry in column 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
+ (the next column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
+ (the next row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list 
+
+------------------------------------------------------------
+
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -974,6 +1032,10 @@ On a directory line, run du -s on the directory to speak its size.
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
+
+------------------------------------------------------------
+
+** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -1191,10 +1253,14 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
+** emacspeak-eterm-copy-region-to-register :around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
+
+Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+(fn REGISTER) 
 
 ------------------------------------------------------------
 
@@ -1228,9 +1294,13 @@ in a non eterm buffer if executed via C-e C-e
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
+** emacspeak-eterm-paste-register :around advice: `ad-Advice-emacspeak-eterm-paste-register'
+
+Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+(fn REGISTER) 
 
 ------------------------------------------------------------
 
@@ -1405,6 +1475,10 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result.  
+
+------------------------------------------------------------
+
+** emacspeak-eudc-send-mail Send email to the address given by the current record.  
 
 ------------------------------------------------------------
 
@@ -2070,6 +2144,14 @@ A string of the form `<number> 1' sets volume as an absolute.
 
 ------------------------------------------------------------
 
+** emacspeak-aumix Setup output parameters of the auditory display.
+ Launch this tool while you have auditory output on
+multiple channels playing so you can
+adjust the settings to your preference.  Hit q to quit when
+you are done. 
+
+------------------------------------------------------------
+
 ** emacspeak-madplay Play specified resource using madplay.
 Resource is an  MP3 file or directory containing mp3 files.
 The player is placed in a buffer in emacspeak-madplay-mode. 
@@ -2102,7 +2184,8 @@ s .. t		emacspeak-madplay-madplay-call-command
 
 
 
-This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-madplay-mode-hook', as the final step
 during initialization. 
 
 ------------------------------------------------------------
@@ -5385,156 +5468,6 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-blue-pages Search IBM Blue Pages 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internal Search IBM My News 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-news Search IBM My News 
-
-------------------------------------------------------------
-
-** emacspeak-jawbreaker Opens JawBreaker game in Firefox.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-browse-current Browse current node.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-browser-back Move back in history.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-browser-forward Move forward in history.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-close-tab-or-browser Close tab, or browser when one tab left.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-down Go Down a level and browse.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-eval-expression Send expression to Moz.
-
-(fn EXP) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-eval-expression-and-browse Send expression to Moz, get output, and browse it in Emacs.
-
-(fn EXP) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-eval-expression-and-go Send expression to Moz and switch to it.
-
-(fn EXP) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-filter-and-browse Browse document filtered by XPath filter.
-
-(fn XPATH) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-goto-url Make Firefox used by our repl Go to the specified URL.
-
-(fn URL) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-goto-url-at-point Make Firefox used by our repl Go to url under point.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-id-browse Browse node having specified id.
-
-(fn ID) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-inspect Inspect specified object.
-
-(fn WHAT) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-jump Jump to specified index in history.
-
-(fn INDEX) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-left Go left and browse.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-locate-and-browse Browse document filtered by element locator.
-
-(fn ELEMENT) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-refresh Reload document.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-right Go right and browse.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-search Search for pattern in current context.
-
-(fn PATTERN) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-up Go Up a level and browse.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-visit-next-and-browse Asks visitor to go  forward and browses the result.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-moz-visit-previous-and-browse Asks visitor to go  backward and browses the result.
-
-(fn) 
-
-------------------------------------------------------------
-
 ** emacspeak-org-bookmark Bookmark from org.
 
 (fn &optional GOTO) 
@@ -5547,45 +5480,17 @@ take effect.
 
 ------------------------------------------------------------
 
-** emacspeak-piglets-enter Send enter to Firefox.
+** ad-Advice-emacspeak-eterm-copy-region-to-register Advice function assembled by advice.el.
 
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-piglets-key Send last keypress to Firefox.
-
-(fn) 
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
-** emacspeak-piglets-keypress Send keypress to Firefox.
+** ad-Advice-emacspeak-eterm-paste-register Advice function assembled by advice.el.
 
-(fn C) 
-
-------------------------------------------------------------
-
-** emacspeak-piglets-silence Stop speech output from FireVox.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-piglets-tab Send TAB to Firefox.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-piglets-tts-init Start TTS  engine for Piglets.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-piglets-tts-stop Kill TTS  process.
-
-(fn) 
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
   
 
