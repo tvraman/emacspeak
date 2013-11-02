@@ -134,7 +134,7 @@
   (let ((group (ad-get-arg 0))))
   (eval
    `(defadvice ,(intern (concat "magit-key-mode-popup-" (symbol-name group))) 
-      (after emacspeak  pre act comp)
+        (after emacspeak  pre act comp)
       ,(concat "Speech-enabled Key menu for " (symbol-name group))
       (dtk-speak
        (save-excursion

@@ -766,7 +766,7 @@ instead you hear only the first screenful.")
 
 (defadvice gnus-summary-end-of-article
 
-  (after emacspeak pre act)
+    (after emacspeak pre act)
   "Speak the first line. "
   (declare (special gnus-article-buffer))
   (save-excursion

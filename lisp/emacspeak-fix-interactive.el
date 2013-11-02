@@ -123,7 +123,7 @@ use the minibuffer."
       (put sym 'emacspeak-auto-advised t)
       (eval
        `(defadvice ,sym
-          (before  emacspeak-auto pre act  protect compile)
+            (before  emacspeak-auto pre act  protect compile)
           "Automatically defined advice to speak interactive prompts. "
           (interactive
            (nconc

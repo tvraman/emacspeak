@@ -78,7 +78,7 @@ The default is dtk-exp.")
 
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
-      (split-string   (getenv "DTK_PROGRAM_ARGS")))
+    (split-string   (getenv "DTK_PROGRAM_ARGS")))
   "Arguments passed to the dtk-program")
 
 (defvar emacspeak-pronounce-pronunciation-table)
@@ -335,7 +335,7 @@ Optional argument FORCE  flushes the command to the speech server."
       (or dtk-quiet
           (not dtk-use-tones)
           (not dtk-speak-server-initialized))
-      (dtk-interp-tone pitch duration force)))
+    (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
   "Set language according to the argument lang."
@@ -611,7 +611,7 @@ Argument COMPLEMENT  is the complement of separator."
 (defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
   (declare (special tts-voice-reset-code dtk-quiet))
-  ; ensure text is a  string
+                                        ; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
   (unless (or (eq 'inaudible voice )
               dtk-quiet
@@ -1719,10 +1719,10 @@ Port  defaults to  dtk-local-server-port"
         (process-connection-type  nil))
     (setq new-process
           (apply 'start-process
-           "speaker"
-           (and dtk-debug tts-debug-buffer)
-           (expand-file-name dtk-program emacspeak-servers-directory)
-           dtk-program-args))
+                 "speaker"
+                 (and dtk-debug tts-debug-buffer)
+                 (expand-file-name dtk-program emacspeak-servers-directory)
+                 dtk-program-args))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
@@ -1817,7 +1817,7 @@ only speak upto the first ctrl-m."
                     dtk-split-caps
                     emacspeak-pronounce-pronunciation-table
                     selective-display ))
-  ; ensure text is a  string
+                                        ; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
                                         ; ensure  the process  is live
   (unless (or (eq 'run (process-status dtk-speaker-process ))
@@ -1826,7 +1826,7 @@ only speak upto the first ctrl-m."
                                         ; If you dont want me to talk,
                                         ;or my server is not
                                         ;running, I will remain silent.
-  ; Do nothing if text is ""
+                                        ; Do nothing if text is ""
   (unless
       (or dtk-quiet
           (null text)
@@ -1959,7 +1959,7 @@ Optional argument group-count specifies grouping for intonation."
   "Say these WORDS."
   (declare (special dtk-speaker-process dtk-stop-immediately
                     dtk-speak-server-initialized dtk-quiet))
-  ; ensure words is a  string
+                                        ; ensure words is a  string
   (unless (stringp words) (setq words (format "%s" words)))
   ;; I wont talk if you dont want me to
   (unless

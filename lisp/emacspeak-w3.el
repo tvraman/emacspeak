@@ -563,19 +563,19 @@ element. "
 (setq url-http-version "1.0")
 
 (defadvice w3-fetch-callback
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
 (defadvice url-http-content-length-after-change-function
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
 (defadvice url-http-chunked-encoding-after-change-function
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
@@ -587,21 +587,21 @@ element. "
 ;;     ad-do-it))
 
 (defadvice url-cookie-handle-set-cookie
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     ad-return-value))
 
 (defadvice url-cookie-write-file
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     ad-return-value))
 
 (defadvice url-lazy-message
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
@@ -832,7 +832,6 @@ HTML."
 
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
-
 
 ;;; pattern: http://www.google.com/url?q=http://emacspeak.sourceforge.net/&sa=U&ei=GceWT42_EY_ViALW84nlCQ&ved=0CBIQFjAA&usg=AFQjCNGz91Z7Yz9dPVoKPP6HVGZ0UqFhRA
 ;;; prefix: http://www.google.com/url?q=

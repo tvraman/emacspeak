@@ -199,8 +199,6 @@ node-spec."
 
 ;;}}}
 
-
-
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables
 

@@ -467,7 +467,7 @@ functions for details.   "
   (add-hook 'after-init-hook
             #'(lambda ()
                 ;;; turn off tool-bar-mode -- since it raises signals during redisplay
-  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))))
+                (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))))
   (tts-with-punctuations 'some
                          (dtk-speak
                           (format "  Press %s to get an   overview of emacspeak  %s \

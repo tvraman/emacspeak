@@ -715,8 +715,6 @@ icon."
       (dtk-speak
        (format " %s percent" ange-ftp-last-percent )))))
 
-
-
 ;;{{{ advising signal
 
 ;;;###autoload
@@ -736,13 +734,13 @@ icon."
 (defadvice signal (before emacspeak pre act comp)
   "Produce audio-formatted message for signals before they are handled by Emacs."
   (when emacspeak-speak-signals
-  (let ((error-symbol(ad-get-arg 0))
-        (data  (ad-get-arg 1) ))
-    (emacspeak-speak-error-message
-     error-symbol
-     (format "%s %s"
-             (or (get error-symbol 'error-message) "")
-             (mapconcat #'identity data " "))))))
+    (let ((error-symbol(ad-get-arg 0))
+          (data  (ad-get-arg 1) ))
+      (emacspeak-speak-error-message
+       error-symbol
+       (format "%s %s"
+               (or (get error-symbol 'error-message) "")
+               (mapconcat #'identity data " "))))))
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."

@@ -3331,7 +3331,7 @@ which media players get silenced or paused/resumed."
 (defsubst ems-get-active-network-interfaces  ()
   "Return  names of active network interfaces."
   (when (fboundp 'network-interface-list)
-  (mapconcat #'car (network-interface-list) " ")))
+    (mapconcat #'car (network-interface-list) " ")))
 
 ;;}}}
 ;;{{{ Show active network interfaces
