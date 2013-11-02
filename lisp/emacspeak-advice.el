@@ -727,20 +727,16 @@ icon."
 (defvar emacspeak-speak-signals t
   "Specifies if signalled   messages are cued.")
 
-(defun emacspeak-speak-error-message (error-symbol string)
+(defun emacspeak-speak-error-message (string)
   "Speak audio-formatted error message."
   (tts-with-punctuations 'all (dtk-speak string)))
 
 (defadvice signal (before emacspeak pre act comp)
   "Produce audio-formatted message for signals before they are handled by Emacs."
-  (when emacspeak-speak-signals
-    (let ((error-symbol(ad-get-arg 0))
-          (data  (ad-get-arg 1) ))
-      (emacspeak-speak-error-message
-       error-symbol
-       (format "%s %s"
-               (or (get error-symbol 'error-message) "")
-               (mapconcat #'identity data " "))))))
+  (let ((error-symbol(ad-get-arg 0))
+        (data  (ad-get-arg 1)))
+    (tts-with-punctuations 'all 
+                           (dtk-speak (error-message-string (cons error-symbol data))))))
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
