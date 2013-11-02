@@ -79,7 +79,6 @@ grep path:")))
                   (length (file-name-directory path))))
      (t "New Session"))))
 
-
 (define-derived-mode emacspeak-alsaplayer-mode special-mode 
   "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n

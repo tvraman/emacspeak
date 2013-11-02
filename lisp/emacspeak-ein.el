@@ -45,7 +45,6 @@
 ;;; You can install package EIN via ELPA
 ;;; This module speech-enables EIN
 
-
 ;;}}}
 ;;{{{  Required modules
 
@@ -58,18 +57,18 @@
 
 (voice-setup-add-map
  '(
- (ein:cell-input-prompt voice-animate)
- (ein:cell-input-area voice-lighten)
- (ein:cell-heading-1 voice-bolden)
- (ein:cell-heading-2 voice-smoothen)
- (ein:cell-heading-3 voice-smoothen-extra)
- (ein:cell-heading-4 voice-annotate)
- (ein:cell-output-prompt voice-monotone)
- (ein:cell-output-stderr voice-smoothen)
- ;ein:pos-tip-face
- ;ein:notification-tab-selected
- ;ein:notification-tab-normal
-))
+   (ein:cell-input-prompt voice-animate)
+   (ein:cell-input-area voice-lighten)
+   (ein:cell-heading-1 voice-bolden)
+   (ein:cell-heading-2 voice-smoothen)
+   (ein:cell-heading-3 voice-smoothen-extra)
+   (ein:cell-heading-4 voice-annotate)
+   (ein:cell-output-prompt voice-monotone)
+   (ein:cell-output-stderr voice-smoothen)
+                                        ;ein:pos-tip-face
+                                        ;ein:notification-tab-selected
+                                        ;ein:notification-tab-normal
+   ))
 
 ;;}}}
 ;;{{{ Advice completers:
@@ -119,9 +118,6 @@
 ;; ein:header-line-switch-to-this-tab
 ;; ein:iexec-mode
 ;; ein:ipynb-mode
-
-
-
 
 ;; ein:pager-goto-docstring-bset-loc
 ;; ein:pytools-doctest

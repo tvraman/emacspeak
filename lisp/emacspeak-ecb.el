@@ -165,7 +165,7 @@ available."
       'emacspeak-ecb-tree-expand-common-prefix)))
 
 (defadvice tree-buffer-incremental-node-search 
-  (around emacspeak pre act comp)
+    (around emacspeak pre act comp)
   "Track search and provide appropriate auditory feedback."
   
   (cond
