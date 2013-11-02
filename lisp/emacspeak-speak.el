@@ -3315,8 +3315,8 @@ which media players get silenced or paused/resumed."
 ;;{{{ Network interface utils:
 
 (defvar emacspeak-speak-network-interfaces-list
-  (when (boundp 'network-interface-list
-                (mapcar 'car (network-interface-list))))
+  (when (boundp 'network-interface-list)
+    (mapcar 'car (network-interface-list)))
   "Used when prompting for an interface to query.")
 
 (defsubst ems-get-ip-address  (&optional dev)
