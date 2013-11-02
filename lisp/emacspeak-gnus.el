@@ -155,8 +155,7 @@ reading news."
   (declare (special emacspeak-gnus-large-article
                     voice-lock-mode dtk-punctuation-mode
                     gnus-article-buffer))
-  (save-excursion
-    (set-buffer  gnus-article-buffer)
+  (with-current-buffer gnus-article-buffer
     (goto-char (point-min))
     (setq dtk-punctuation-mode 'some)
     (emacspeak-dtk-sync)
@@ -652,8 +651,8 @@ indicating the article is being opened."
     (emacspeak-gnus-summary-speak-subject)
     (sit-for 2)
     (emacspeak-auditory-icon 'open-object)
-    (save-excursion
-      (set-buffer  gnus-article-buffer)
+    (with-current-buffer
+        gnus-article-buffer
       (emacspeak-dtk-sync)
       (let ((start  (point ))
             (window (get-buffer-window (current-buffer ))))
@@ -732,8 +731,8 @@ instead you hear only the first screenful.")
   (declare (special gnus-article-buffer))
   (dtk-stop)
   (emacspeak-auditory-icon 'scroll)
-  (save-excursion
-    (set-buffer  gnus-article-buffer)
+  (with-current-buffer
+      gnus-article-buffer
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
       (with-selected-window window
