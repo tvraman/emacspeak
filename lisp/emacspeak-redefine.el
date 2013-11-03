@@ -138,12 +138,13 @@ eech flushes as you type."
 (when (= 24 emacs-major-version)  
   (add-hook 'post-self-insert-hook
             'emacspeak-post-self-insert-hook)
-  (defadvice self-insert-command (before emacspeak pre act comp)
-    "Provide feedback for read-only context."
-    (when (and (ems-interactive-p)
-               (or buffer-read-only
-                   (get-text-property (point)  'read-only)))
-      (dtk-speak "Text is read-only"))))
+  (unless (boundp 'command-error-function)
+    (defadvice self-insert-command (before emacspeak pre act comp)
+      "Provide feedback for read-only context."
+      (when (and (ems-interactive-p)
+                 (or buffer-read-only
+                     (get-text-property (point)  'read-only)))
+        (dtk-speak "Text is read-only")))))
 ;;;###autoload
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
