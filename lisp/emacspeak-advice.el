@@ -745,7 +745,9 @@ icon."
             (or context " ")))))
 
 (declaim (special command-error-function))
-;(add-function :before command-error-function 'emacspeak-error-handler)
+(when (boundp 'command-error-function)
+  (ad-deactivate 'signal)
+  (setq command-error-function 'emacspeak-error-handler))
 
 ;;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
