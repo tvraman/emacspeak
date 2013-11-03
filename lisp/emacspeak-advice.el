@@ -742,8 +742,7 @@ icon."
   "Emacspeak custom error handling function."
   (tts-with-punctuations
    'all 
-   (dtk-speak
-     (error-message-string data))))
+   (dtk-speak (error-message-string data))))
 
 (declaim (special command-error-function))
 ;(add-function :before command-error-function 'emacspeak-error-handler)
