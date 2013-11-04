@@ -737,8 +737,7 @@ icon."
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
-  (message "%s: %s %s"
-           calling-function
+  (message "%s %s"
            (error-message-string data)
            (or context " ")))
 
