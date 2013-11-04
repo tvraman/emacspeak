@@ -737,12 +737,10 @@ icon."
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
-  (tts-with-punctuations
-   'all 
-   (dtk-speak
-    (format "%s %s"
-            (error-message-string data)
-            (or context " ")))))
+  (message "%s: %s %s"
+           calling-function
+           (error-message-string data)
+           (or context " ")))
 
 (declaim (special command-error-function))
 (when (boundp 'command-error-function)
