@@ -737,6 +737,7 @@ icon."
 
 (defun emacspeak-error-handler  (data  context  calling-function)
   "Emacspeak custom error handling function."
+  (declare (special debug-ignored-errors))
   (unless (memq (car data) debug-ignored-errors)
     (emacspeak-auditory-icon 'warn-user))
   (message "%s %s"
