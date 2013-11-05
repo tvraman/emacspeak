@@ -87,7 +87,7 @@
 ;;{{{ cumulative personalities
 
 ;;;###autoload
-(defsubst emacspeak-personality-put (start end personality object)
+(defsubst emacspeak-personality-put (start end personality &optional object)
   "Apply personality to specified region, over-writing any current personality settings."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end )
@@ -379,6 +379,7 @@ existing personalities on the text under overlay.
 Append means place corresponding personality at the end."
   :type '(choice :tag "Overlay Voiceification"
                  (const :tag "None" nil)
+                 (const :tag "Simple" emacspeak-personality-put)
                  (const :tag "Prepend" emacspeak-personality-prepend)
                  (const :tag "Append" emacspeak-personality-append))
   :group 'emacspeak-personality)
