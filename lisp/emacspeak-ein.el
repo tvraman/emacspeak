@@ -71,6 +71,15 @@
    ))
 
 ;;}}}
+;;{{{ Additional Interactive Commands:
+
+(defun emacspeak-ein-speak-current-cell ()
+  "Speak current cell."
+  (interactive)
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-region (point) (next-overlay-change (point))))
+
+;;}}}
 ;;{{{ Advice completers:
 
 ;; ein:completer-complete
@@ -182,7 +191,7 @@
           "Provide auditory feedback."
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+            (emacspeak-ein-speak-current-cell)))))
 
 (loop for f in
       '(
@@ -212,7 +221,6 @@
  
 
 ;;}}}
-
 (provide 'emacspeak-ein)
 ;;{{{ end of file
 
