@@ -168,8 +168,7 @@ Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   `(progn
-     (let ((saved-personality (get-text-property
-                               ,start 'personality))
+     (let ((saved-personality (get-text-property ,start 'personality))
            (save-read-only buffer-read-only)
            (buffer-read-only nil )
            (save-inhibit-read-only inhibit-read-only)
@@ -179,6 +178,7 @@ Argument BODY specifies forms to execute."
            (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
            (inhibit-point-motion-hooks t)
            (deactivate-mark nil)
+           (buffer-undo-list t)
            (modification-flag (buffer-modified-p)))
        (unwind-protect
            (progn
