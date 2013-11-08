@@ -1,0 +1,12 @@
+Index: lisp/emacspeak-speak.el
+===================================================================
+--- lisp/emacspeak-speak.el	(revision 8509)
++++ lisp/emacspeak-speak.el	(working copy)
+@@ -837,6 +837,7 @@
+   (when (listp arg) (setq arg (car arg )))
+   (save-excursion
+     (let ((inhibit-field-text-motion t)
++          (buffer-undo-list t)
+           (start  nil)
+           (end nil )
+           (inhibit-point-motion-hooks t)
