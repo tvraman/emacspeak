@@ -823,16 +823,13 @@ start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
-  (declare (special  voice-animate
-                     voice-indent dtk-stop-immediately
-                     inhibit-field-text-motion
-                     emacspeak-speak-line-invert-filter
-                     dtk-punctuation-mode
-                     emacspeak-speak-space-regexp
-                     emacspeak-speak-maximum-line-length
-                     emacspeak-show-point
-                     emacspeak-decoration-rule emacspeak-horizontal-rule
-                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
+  (declare
+   (special voice-animate voice-indent
+    dtk-stop-immediately dtk-punctuation-mode
+    emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
+    emacspeak-speak-maximum-line-length emacspeak-show-point
+    emacspeak-decoration-rule emacspeak-horizontal-rule
+    emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when dtk-stop-immediately (dtk-stop))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
@@ -870,9 +867,9 @@ are indicated with auditory icon ellipses."
           (setq indent  (current-column )))
         (when (eq emacspeak-audio-indentation-method 'tone)
           (emacspeak-indent indent )))
-      (when (or
-             (invisible-p end)
-             (get-text-property  start 'emacspeak-hidden-block))
+      (when
+          (or (invisible-p end)
+           (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string-equal ""  line)

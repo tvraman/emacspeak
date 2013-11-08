@@ -221,6 +221,15 @@
  
 
 ;;}}}
+;;{{{ Bind additional interactive commands
+(loop for k in
+      '(
+        ("\C-c." emacspeak-ein-speak-current-cell)
+        )
+      do
+      (emacspeak-keymap-update ein:notebook-mode-map k))
+
+;;}}}
 (provide 'emacspeak-ein)
 ;;{{{ end of file
 
