@@ -66,7 +66,7 @@
         (fields nil)
         (slots nil)
         (current nil))
-    (save-excursion
+    (save-current-buffer
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -116,7 +116,7 @@
         (controls nil)
         (fields nil)
         (slots nil))
-    (save-excursion
+    (save-current-buffer
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -159,7 +159,7 @@
   "Return list of enumerated values."
   (let ((buffer (get-buffer-create " *amixer*"))
         (values nil))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
