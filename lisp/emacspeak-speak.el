@@ -825,7 +825,7 @@ are indicated with auditory icon ellipses."
   (interactive "P")
   (declare
    (special voice-animate voice-indent
-            dtk-stop-immediately dtk-punctuation-mode
+            dtk-quiet dtk-stop-immediately dtk-punctuation-mode
             emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
             emacspeak-speak-maximum-line-length emacspeak-show-point
             emacspeak-decoration-rule emacspeak-horizontal-rule
