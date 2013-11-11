@@ -217,7 +217,7 @@ part of the libxslt package."
              (or parameters "")
              xsl url
              (unless emacspeak-xslt-keep-errors " 2>/dev/null "))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer result)
       (kill-all-local-variables)
       (erase-buffer)
@@ -281,7 +281,7 @@ part of the libxslt package."
              (or parameters "")
              xsl url
              (unless emacspeak-xslt-keep-errors " 2>/dev/null "))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer result)
       (kill-all-local-variables)
       (erase-buffer)
@@ -364,7 +364,7 @@ part of the libxslt package."
                  (format "\"'%s'\""
                          url))))))
     (when (ems-interactive-p ) (emacspeak-webutils-autospeak))
-    (save-excursion
+    (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-webutils-unescape-charent (point-min) (point-max)))
@@ -384,7 +384,7 @@ part of the libxslt package."
   (let ((src-buffer
          (ems-modify-buffer-safely
           (emacspeak-xslt-region style start end))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-webutils-unescape-charent (point-min) (point-max)))
