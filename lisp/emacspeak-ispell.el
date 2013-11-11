@@ -86,8 +86,7 @@ many available corrections."
     (setq line
           (ems-set-personality-temporarily
            start end voice-bolden (thing-at-point 'line)))
-    (save-excursion
-      (set-buffer scratch-buffer)
+    (with-current-buffer scratch-buffer
       (setq voice-lock-mode t)
       (setq buffer-undo-list t)
       (dtk-set-punctuations 'all)
