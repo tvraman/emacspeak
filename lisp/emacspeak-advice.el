@@ -2953,7 +2953,7 @@ Variable mark-even-if-inactive is set true ."
   "Speak what you displayed."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
-    (save-excursion
+    (save-current-buffer
       (set-buffer "*wclock*")
       (emacspeak-speak-buffer))))
 
