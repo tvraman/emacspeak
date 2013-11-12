@@ -276,6 +276,7 @@ install:
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(DESTDIR)$(libdir)/lisp
 	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(DESTDIR)$(libdir)/lisp/xml-forms
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(DESTDIR)$(libdir)/lisp/g-client
+	$(INSTALL) -m 0644  lisp/g-client/*.elc    $(DESTDIR)$(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(DESTDIR)$(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/python/*.py    $(DESTDIR)$(libdir)/lisp/g-client/python
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(DESTDIR)$(libdir)/sawfish
