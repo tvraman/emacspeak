@@ -479,7 +479,7 @@ Optional prefix arg prompts for a new filter."
                                                       &optional filename)
   "Prepare tabular data."
   (declare (special emacspeak-table positions ))
-  (save-excursion
+  (save-current-buffer
     (set-buffer buffer)
     (let ((i 0)
           (j 0)
@@ -591,7 +591,7 @@ The processed  data and presented using emacspeak table navigation. "
         (fields nil)
         (buffer (get-buffer-create
                  (format "*%s-table*" buffer-name))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -642,7 +642,7 @@ the documentation on the table browser."
         (row-start 1)
         (column-start 1)
         (text (buffer-substring start end)))
-    (save-excursion
+    (save-current-buffer
       (when (= 10 (string-to-char (substring text -1)))
         (setq text (substring text 0 -1)))
       (set-buffer workspace)
@@ -655,7 +655,7 @@ the documentation on the table browser."
                     (point-min)
                     (point-max)))))
     (kill-buffer workspace)
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (let ((inhibit-read-only t))
         (erase-buffer)
@@ -1167,7 +1167,7 @@ markup to use."
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table  sorted-table)
      buffer)
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq emacspeak-table-speak-row-filter row-filter))
     (emacspeak-speak-mode-line)))
@@ -1221,7 +1221,7 @@ future  use."
   (let ((buffer (find-file-noselect
                  (expand-file-name file
                                    emacspeak-resource-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
       (loop for key being the hash-keys of
