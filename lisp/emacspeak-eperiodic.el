@@ -179,7 +179,7 @@
     (let ((b (get-buffer "*EPeriodic Element*")))
       (unless b
         (error "Cannot find displayed info."))
-      (save-excursion
+      (save-current-buffer
         (set-buffer b)
         (emacspeak-speak-buffer)))))
 

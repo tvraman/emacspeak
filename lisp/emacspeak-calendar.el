@@ -134,17 +134,18 @@
     (let ((emacspeak-speak-messages nil))
       (cond
        ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
-        (save-excursion
+        (save-current-buffer
           (set-buffer "*Fancy Diary Entries*")
-          (tts-with-punctuations "some"
-                                 (emacspeak-speak-buffer))))
+          (tts-with-punctuations
+           "some"
+           (emacspeak-speak-buffer))))
        (t (dtk-speak "No diary entries."))))))
 
 (defadvice  mark-visible-calendar-date (after emacspeak pre act )
   "Use voice locking to mark date. "
   (let ((date (ad-get-arg 0 )))
     (if (calendar-date-is-valid-p date)
-        (save-excursion
+        (save-current-buffer
           (set-buffer calendar-buffer)
           (calendar-cursor-to-visible-date date)
           (ems-modify-buffer-safely
@@ -372,7 +373,7 @@
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"
   (declare (special calendar-buffer calendar-mode-map emacspeak-prefix ))
-  (save-excursion
+  (save-current-buffer
     (set-buffer calendar-buffer)
     (local-unset-key emacspeak-prefix)
     (define-key calendar-mode-map "v" 'view-diary-entries)
@@ -409,9 +410,10 @@
 (defun emacspeak-appt-delete-display ()
   "Function to delete appointment message"
   (and (get-buffer appt-buffer-name)
-       (save-excursion
+       (save-current-buffer
          (set-buffer appt-buffer-name)
          (erase-buffer))))
+
 (declaim (special appt-delete-window
                   appt-disp-window-function))
 
@@ -425,7 +427,7 @@
   (let  ((appt-buffer (get-buffer appt-buffer-name)))
     (cond
      ( appt-buffer
-       (save-excursion
+       (save-current-buffer
          (set-buffer  appt-buffer)
          (emacspeak-dtk-sync)
          (if (= (point-min) (point-max))

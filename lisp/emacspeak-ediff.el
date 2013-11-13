@@ -198,7 +198,7 @@
   "Voiceify ediff variant"
   (let ((count (length diff-vector))
         (counter 0))
-    (save-excursion
+    (save-current-buffer
       (set-buffer variant)
       (ems-modify-buffer-safely
        (while (< counter count)
@@ -214,14 +214,14 @@
                     ediff-buffer-A ediff-buffer-B))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
         (let ((a-vector ediff-difference-vector-A)
               (b-vector ediff-difference-vector-B))
           (and (<  counter 0)
                (error "ediff-current-difference is negative!"))
           (and a-vector
-               (save-excursion
+               (save-current-buffer
                  (set-buffer ediff-buffer-A)
                  (ems-modify-buffer-safely
                   (mapcar
@@ -232,7 +232,7 @@
                    (emacspeak-ediff-fine-overlays-from-difference
                     a-vector counter)))))
           (and b-vector
-               (save-excursion
+               (save-current-buffer
                  (set-buffer ediff-buffer-B)
                  (ems-modify-buffer-safely
                   (mapcar
@@ -252,7 +252,7 @@
   (let ((buffer (overlay-buffer overlay ))
         (start (overlay-start overlay))
         (end (overlay-end overlay )))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer )
       (ems-modify-buffer-safely
        (put-text-property start end
@@ -269,7 +269,7 @@
                     emacspeak-ediff-fine-B-personality))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
         (when ediff-buffer-A
           (emacspeak-ediff-voiceify-variant ediff-buffer-A
@@ -290,9 +290,9 @@
   (let ((counter 0)
         (control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
-        (save-excursion
+        (save-current-buffer
           (set-buffer ediff-buffer-A)
           (while (< counter ediff-number-of-differences )
             (mapcar
@@ -304,7 +304,7 @@
           (incf counter))
         ;; do the same for variant B
         (setq counter 0)
-        (save-excursion
+        (save-current-buffer
           (set-buffer ediff-buffer-B)
           (while (< counter ediff-number-of-differences)
             (mapcar
@@ -400,7 +400,7 @@ Set this to nil if things get too slow."
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
   (when (ems-interactive-p )
-    (save-excursion
+    (save-current-buffer
       (set-buffer " *ediff-info*")
       (emacspeak-speak-buffer ))))
 
