@@ -56,7 +56,7 @@
     (and marker
          (marker-buffer marker )
          (marker-position marker )
-         (save-excursion
+         (save-current-buffer
            (set-buffer (marker-buffer marker ))
            (goto-char (marker-position marker ))
            (emacspeak-speak-line )))))

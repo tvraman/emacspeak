@@ -169,7 +169,7 @@ end   as specified by grid."
   (let ((buffer (find-file-noselect
                  (expand-file-name file
                                    emacspeak-resource-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
       (loop for key being the hash-keys of

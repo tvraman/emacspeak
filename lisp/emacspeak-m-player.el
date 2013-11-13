@@ -349,7 +349,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
               emacspeak-media-extensions)))
            (t
             (nconc options (list resource)))))
-    (save-excursion
+    (save-current-buffer
       (setq emacspeak-m-player-process
             (apply 'start-process "M PLayer" buffer
                    emacspeak-m-player-program options))
