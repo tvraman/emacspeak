@@ -50,7 +50,7 @@
 
 ;;}}}
 ;;{{{  Required modules
-
+(require 'derived)
 (require 'emacspeak-preamble)
 (require 'emacspeak-amark)
 
