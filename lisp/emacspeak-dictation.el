@@ -64,10 +64,11 @@
   "Speak what you heard. "
   (let ((start nil)
         (dtk-stop-immediately nil))
+    (save-current-buffer
     (set-buffer dictation-buffer)
     (setq start (point))
     ad-do-it
-    (emacspeak-speak-region start (point))))
+    (emacspeak-speak-region start (point)))))
 
 ;;}}}
 (provide 'emacspeak-dictation )

@@ -98,7 +98,7 @@ preparation for interactively filtering text. "
   (let ((this (buffer-substring-no-properties start end))
         (buffer (get-buffer-create
                  (format "filter-%s" (buffer-name)))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq case-fold-search t)
       (erase-buffer)

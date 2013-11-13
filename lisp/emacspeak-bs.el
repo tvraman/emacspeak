@@ -81,7 +81,7 @@
                            document)
         (put-text-property 0 (length with)
                            'personality voice-smoothen  with)
-        (save-excursion
+        (save-current-buffer
           (set-buffer buffer)
           (setq this-buffer-read-only buffer-read-only)
           (setq this-buffer-modified-p (buffer-modified-p))

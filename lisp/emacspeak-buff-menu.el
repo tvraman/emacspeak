@@ -89,7 +89,7 @@
               this-buffer-mode-name
               this-buffer-directory
               (dtk-stop-immediately nil))
-          (save-excursion
+          (save-current-buffer
             (set-buffer buffer)
             (setq this-buffer-read-only buffer-read-only)
             (setq this-buffer-modified-p (buffer-modified-p))

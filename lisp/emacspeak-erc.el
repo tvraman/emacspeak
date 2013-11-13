@@ -261,7 +261,7 @@ set the current local value to the result.")
                     emacspeak-erc-my-nick))
   (let ( (buffer (ad-get-arg 1))
          (case-fold-search t))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (when (and emacspeak-erc-room-monitor
                  emacspeak-erc-monitor-my-messages)

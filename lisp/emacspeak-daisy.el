@@ -218,7 +218,7 @@ to convert and view Daisy Books as a Web page."
             (cons "base"
                   (format "'%s'"
                           path)))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer result)
       (browse-url-of-buffer))
     (kill-buffer result)))
@@ -241,7 +241,7 @@ Contents are indexed by src."
   (let ((smil
          (find-file-noselect
           (emacspeak-daisy-resolve-uri src book))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer smil)
       (goto-char (point-min))
       (search-forward"<smil")
@@ -549,7 +549,7 @@ navigation buffer that can be used to browse and read the book."
                           (file-name-nondirectory filename )))))
     (setf (emacspeak-daisy-book-content book)
           (make-hash-table :test #'equal))
-    (save-excursion
+    (save-current-buffer
       (set-buffer ncx)
       (goto-char (point-min))
       (search-forward"<ncx")
@@ -625,7 +625,7 @@ navigation buffer that can be used to browse and read the book."
         (bookmarks (emacspeak-daisy-collect-bookmarks-in-buffer))
         (buffer (find-file-noselect
                  (emacspeak-speak-get-directory-settings default-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (goto-char (point-max))
       (insert
@@ -670,7 +670,7 @@ No-op if content under point is not currently displayed."
     (ems-modify-buffer-safely
      (put-text-property (line-beginning-position) (line-end-position)
                         'bookmark
-                        (save-excursion
+                        (save-current-buffer
                           (set-buffer (get-text-property (point) 'viewer))
                           (point)))
      (put-text-property (line-beginning-position) (line-end-position)
@@ -734,7 +734,7 @@ No-op if content under point is not currently displayed."
   (setq outline-regexp regexp)
   (let ((buffer (find-file-noselect
                  (emacspeak-speak-get-directory-settings default-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (goto-char (point-max))
       (insert
@@ -771,7 +771,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
              (outline-minor-mode 1)
              (setq outline-regexp ,outline)
              (rename-buffer title 'uniquely)
-             (save-excursion
+             (save-current-buffer
                (set-buffer ,nav-center)
                (put-text-property ,start ,end
                                   'viewer  buffer))

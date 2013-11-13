@@ -239,7 +239,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
          (coding-system-for-read 'binary)
          (coding-system-for-write 'binary)
          (buffer-undo-list t))
-     (save-excursion
+     (save-current-buffer
        (set-buffer buffer)
        (kill-all-local-variables)
        (erase-buffer)
@@ -1111,7 +1111,7 @@ Make sure it's downloaded and unpacked first."
                     emacspeak-xslt-directory))
   (let ((result (emacspeak-bookshare-extract-xml url))
         (browse-url-browser-function emacspeak-bookshare-browser-function))
-    (save-excursion
+    (save-current-buffer
       (set-buffer result)
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer ))))
@@ -1130,7 +1130,7 @@ Make sure it's downloaded and unpacked first."
             (cons "start" (format "'%s'" start ))
             (cons "end" (format "'%s'" end )))))
          (browse-url-browser-function emacspeak-bookshare-browser-function))
-    (save-excursion
+    (save-current-buffer
       (set-buffer result)
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))
