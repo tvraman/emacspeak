@@ -195,7 +195,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   (let ((buffer (find-file-noselect
                  (expand-file-name file
                                    emacspeak-resource-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
@@ -673,7 +673,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (declare (special emacspeak-google-finance-row-filter
                        emacspeak-table-speak-row-filter))
      (let ((buffer (url-retrieve-synchronously url)))
-       (save-excursion
+       (save-current-buffer
          (set-buffer buffer)
          (goto-char (point-min))
          (search-forward "\n\n")
@@ -856,7 +856,7 @@ from English to German.")
              (expand-file-name "opml.xsl"
                                emacspeak-xslt-directory)
              url )))
-       (save-excursion
+       (save-current-buffer
          (set-buffer buffer)
          (browse-url-of-buffer)))))
 
@@ -1730,7 +1730,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
     (princ
      (emacspeak-url-template-documentation
       (emacspeak-url-template-get name)))
-    (save-excursion
+    (save-current-buffer
       (set-buffer standard-output)
       (fill-region (point-min)
                    (point-max)))
