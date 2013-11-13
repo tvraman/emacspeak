@@ -104,7 +104,7 @@ pronunciation dictionaries are stored. ")
     ((file-exists-p emacspeak-readme-file)
      (let ((buffer (find-file-noselect emacspeak-readme-file))
            (revision nil))
-       (save-excursion
+       (save-current-buffer
          (set-buffer buffer)
          (goto-char (point-min))
          (setq revision
