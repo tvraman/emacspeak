@@ -108,7 +108,7 @@
   "Run shell command and speak its output."
   (let ((emacspeak-speak-messages nil)
         (output (get-buffer-create "*Emacspeak Shell Command*")))
-    (save-excursion
+    (save-current-buffer
       (set-buffer output)
       (erase-buffer)
       (shell-command
@@ -127,7 +127,7 @@
     (cond
      ((and completions
            (window-live-p (get-buffer-window completions )))
-      (save-excursion
+      (save-current-buffer
         (set-buffer completions )
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
@@ -641,7 +641,7 @@ emacspeak-speak-filter-table)\n" k v )))
                     emacspeak-speak-filter-table))
   (let ((buffer (find-file-noselect
                  emacspeak-speak-filter-persistent-store)))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
       (maphash 'emacspeak-speak-persist-filter-entry
@@ -1294,7 +1294,7 @@ Useful to listen to a buffer without switching  contexts."
    (list
     (read-buffer "Speak buffer: "
                  nil t)))
-  (save-excursion
+  (save-current-buffer
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
 
@@ -1324,7 +1324,7 @@ Negative prefix arg speaks from start of buffer to point."
            (get-buffer "*Help*"))))
     (cond
      (help-buffer
-      (save-excursion
+      (save-current-buffer
         (set-buffer help-buffer)
         (emacspeak-speak-buffer arg )))
      (t (dtk-speak "First ask for help" )))))
@@ -1338,7 +1338,7 @@ Negative prefix arg speaks from start of buffer to point."
 Negative prefix arg speaks from start of buffer to point."
   (interactive "P" )
   (let ((minibuff (window-buffer (minibuffer-window ))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
 
@@ -2494,16 +2494,17 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
     (when (and (ems-interactive-p )
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
-   (t (save-excursion
-        (set-buffer "*Messages*")
-        (goto-char (point-max))
-        (skip-syntax-backward " ")
-        (emacspeak-speak-line)
-        (when (and (ems-interactive-p )
-                   emacspeak-speak-message-again-should-copy-to-kill-ring)
-          (kill-new
-           (buffer-substring (line-beginning-position)
-                             (line-end-position))))))))
+   (t
+    (save-current-buffer
+      (set-buffer "*Messages*")
+      (goto-char (point-max))
+      (skip-syntax-backward " ")
+      (emacspeak-speak-line)
+      (when (and (ems-interactive-p )
+                 emacspeak-speak-message-again-should-copy-to-kill-ring)
+        (kill-new
+         (buffer-substring (line-beginning-position)
+                           (line-end-position))))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
@@ -2553,7 +2554,7 @@ Optional argument ARG  specifies `other' window to speak."
   (save-excursion
     (save-window-excursion
       (other-window arg )
-      (save-excursion
+      (save-current-buffer
         (set-buffer (window-buffer))
         (emacspeak-speak-region
          (max (point-min) (window-start) )
@@ -2598,9 +2599,8 @@ Numeric prefix arg COUNT can specify number of lines to move."
   (interactive "p")
   (setq count (or count 1 ))
   (let  ((residue nil )
-         (old-buffer (current-buffer )))
-    (unwind-protect
-        (progn
+         )
+    (save-current-buffer
           (set-buffer (window-buffer (next-window )))
           (end-of-line)
           (setq residue (forward-line count))
@@ -2608,8 +2608,7 @@ Numeric prefix arg COUNT can specify number of lines to move."
            ((> residue 0) (message "At bottom of other window "))
            (t (set-window-point (get-buffer-window (current-buffer ))
                                 (point))
-              (emacspeak-speak-line ))))
-      (set-buffer old-buffer ))))
+              (emacspeak-speak-line ))))))
 
 ;;;###autoload
 (defun emacspeak-owindow-previous-line (count)
@@ -2617,10 +2616,8 @@ Numeric prefix arg COUNT can specify number of lines to move."
 Numeric prefix arg COUNT specifies number of lines to move."
   (interactive "p")
   (setq count (or count 1 ))
-  (let  ((residue nil )
-         (old-buffer (current-buffer )))
-    (unwind-protect
-        (progn
+  (let  ((residue nil ))
+    (save-current-buffer
           (set-buffer (window-buffer (next-window )))
           (end-of-line)
           (setq residue (forward-line (- count)))
@@ -2628,20 +2625,18 @@ Numeric prefix arg COUNT specifies number of lines to move."
            ((> 0 residue) (message "At top of other window "))
            (t (set-window-point (get-buffer-window (current-buffer ))
                                 (point))
-              (emacspeak-speak-line ))))
-      (set-buffer old-buffer ))))
+              (emacspeak-speak-line ))))))
+      
 
 ;;;###autoload
 (defun emacspeak-owindow-speak-line ()
   "Speak the current line in the other window."
   (interactive)
-  (let  ((old-buffer (current-buffer )))
-    (unwind-protect
-        (progn
+    (save-current-buffer
           (set-buffer (window-buffer (next-window )))
           (goto-char (window-point ))
-          (emacspeak-speak-line))
-      (set-buffer old-buffer ))))
+          (emacspeak-speak-line)))
+      
 ;;;###autoload
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
@@ -3007,11 +3002,9 @@ builtin blink-paren function which does not talk."
 (defsubst emacspeak-overlay-get-text (o)
   "Return text under overlay OVERLAY.
 Argument O specifies overlay."
-  (save-excursion
+  (save-current-buffer
     (set-buffer (overlay-buffer o ))
-    (buffer-substring
-     (overlay-start o)
-     (overlay-end o ))))
+    (buffer-substring (overlay-start o) (overlay-end o ))))
 
 ;;}}}
 ;;{{{ Speaking spaces
@@ -3065,7 +3058,7 @@ Argument O specifies overlay."
 
 (defsubst emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
-  (save-excursion
+  (save-current-buffer
     (set-buffer (window-buffer (minibuffer-window)))
     (minibuffer-contents-no-properties)))
 
