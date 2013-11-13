@@ -86,7 +86,7 @@
   (declare (special emacspeak-madplay-process))
   (let*  ((buffer (process-buffer emacspeak-madplay-process))
           (mark nil))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (setq mark (point-max))
       (process-send-string
@@ -170,7 +170,7 @@ The player is placed in a buffer in emacspeak-madplay-mode."
         (read-file-name-completion-ignore-case t)
         (buffer (get-buffer-create
                  emacspeak-madplay-buffer-name)))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
       (setq emacspeak-madplay-process

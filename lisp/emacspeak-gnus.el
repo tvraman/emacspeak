@@ -746,7 +746,7 @@ instead you hear only the first screenful.")
   (declare (special gnus-article-buffer))
   (dtk-stop)
   (emacspeak-auditory-icon 'scroll)
-  (save-excursion
+  (save-current-buffer
     (set-buffer  gnus-article-buffer)
     (let ((start  (point ))
           (window (get-buffer-window (current-buffer ))))
@@ -759,7 +759,7 @@ instead you hear only the first screenful.")
 (defadvice gnus-summary-beginning-of-article (after emacspeak pre act)
   "Speak the first line. "
   (declare (special gnus-article-buffer))
-  (save-excursion
+  (save-current-buffer
     (set-buffer gnus-article-buffer)
     (emacspeak-speak-line )))
 
@@ -768,7 +768,7 @@ instead you hear only the first screenful.")
     (after emacspeak pre act)
   "Speak the first line. "
   (declare (special gnus-article-buffer))
-  (save-excursion
+  (save-current-buffer
     (set-buffer gnus-article-buffer)
     (emacspeak-speak-line )))
 

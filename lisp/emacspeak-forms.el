@@ -222,7 +222,7 @@ Assumes that point is at the front of a field value."
   (interactive)
   (declare (special forms--file-buffer
                     forms--total-records forms-read-only))
-  (save-excursion
+  (save-current-buffer
     (set-buffer forms--file-buffer)
     (let ((inhibit-read-only t)
           (file-modified (buffer-modified-p)))
@@ -234,7 +234,6 @@ Assumes that point is at the front of a field value."
           (save-excursion
             (prog1
                 (progn
-                  ;;(message "forms: counting records...")
                   (set-buffer forms--file-buffer)
                   (bury-buffer (current-buffer))
                   (setq ro buffer-read-only)
