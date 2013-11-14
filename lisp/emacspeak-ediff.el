@@ -191,14 +191,15 @@
 (defsubst  emacspeak-ediff-voicify-extent  (overlay  personality)
   (put-text-property (overlay-start overlay)
                      (overlay-end overlay)
-                     'personality personality ))
+                     'personality personality
+                     (overlay-buffer overlay)))
 
 (defun emacspeak-ediff-voiceify-variant (variant diff-vector
                                                  personality fine-personality)
   "Voiceify ediff variant"
   (let ((count (length diff-vector))
         (counter 0))
-    (save-excursion
+    (save-current-buffer
       (set-buffer variant)
       (ems-modify-buffer-safely
        (while (< counter count)
@@ -206,6 +207,7 @@
           (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
           personality )
          (incf counter))))))
+
 (defun emacspeak-ediff-voiceify-fine-diff (counter)
   "Voiceify current fine difference."
   (declare (special ediff-current-difference
@@ -214,7 +216,7 @@
                     ediff-buffer-A ediff-buffer-B))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
         (let ((a-vector ediff-difference-vector-A)
               (b-vector ediff-difference-vector-B))
@@ -225,10 +227,9 @@
                  (set-buffer ediff-buffer-A)
                  (ems-modify-buffer-safely
                   (mapcar
-                   (function
-                    (lambda  (o)
+                   #'(lambda  (o)
                       (emacspeak-ediff-voicify-extent  o
-                                                       emacspeak-ediff-fine-A-personality)))
+                                                       emacspeak-ediff-fine-A-personality))
                    (emacspeak-ediff-fine-overlays-from-difference
                     a-vector counter)))))
           (and b-vector
@@ -236,10 +237,9 @@
                  (set-buffer ediff-buffer-B)
                  (ems-modify-buffer-safely
                   (mapcar
-                   (function
-                    (lambda  (o)
+                   #'(lambda  (o)
                       (emacspeak-ediff-voicify-extent  o
-                                                       emacspeak-ediff-fine-B-personality)))
+                                                       emacspeak-ediff-fine-B-personality))
                    (emacspeak-ediff-fine-overlays-from-difference
                     b-vector counter))))))))))
 
@@ -252,7 +252,7 @@
   (let ((buffer (overlay-buffer overlay ))
         (start (overlay-start overlay))
         (end (overlay-end overlay )))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buffer )
       (ems-modify-buffer-safely
        (put-text-property start end
@@ -269,7 +269,7 @@
                     emacspeak-ediff-fine-B-personality))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
         (when ediff-buffer-A
           (emacspeak-ediff-voiceify-variant ediff-buffer-A
@@ -290,7 +290,7 @@
   (let ((counter 0)
         (control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-excursion
+      (save-current-buffer
         (set-buffer control-panel )
         (save-current-buffer
           (set-buffer ediff-buffer-A)
@@ -400,7 +400,7 @@ Set this to nil if things get too slow."
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
   (when (ems-interactive-p )
-    (save-excursion
+    (save-current-buffer
       (set-buffer " *ediff-info*")
       (emacspeak-speak-buffer ))))
 
