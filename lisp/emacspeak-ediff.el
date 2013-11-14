@@ -198,7 +198,7 @@
   "Voiceify ediff variant"
   (let ((count (length diff-vector))
         (counter 0))
-    (save-current-buffer
+    (save-excursion
       (set-buffer variant)
       (ems-modify-buffer-safely
        (while (< counter count)
@@ -214,7 +214,7 @@
                     ediff-buffer-A ediff-buffer-B))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-current-buffer
+      (save-excursion
         (set-buffer control-panel )
         (let ((a-vector ediff-difference-vector-A)
               (b-vector ediff-difference-vector-B))
@@ -252,7 +252,7 @@
   (let ((buffer (overlay-buffer overlay ))
         (start (overlay-start overlay))
         (end (overlay-end overlay )))
-    (save-current-buffer
+    (save-excursion
       (set-buffer buffer )
       (ems-modify-buffer-safely
        (put-text-property start end
@@ -269,7 +269,7 @@
                     emacspeak-ediff-fine-B-personality))
   (let ((control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-current-buffer
+      (save-excursion
         (set-buffer control-panel )
         (when ediff-buffer-A
           (emacspeak-ediff-voiceify-variant ediff-buffer-A
@@ -290,7 +290,7 @@
   (let ((counter 0)
         (control-panel (emacspeak-ediff-control-panel)))
     (when control-panel
-      (save-current-buffer
+      (save-excursion
         (set-buffer control-panel )
         (save-current-buffer
           (set-buffer ediff-buffer-A)
@@ -400,7 +400,7 @@ Set this to nil if things get too slow."
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
   (when (ems-interactive-p )
-    (save-current-buffer
+    (save-excursion
       (set-buffer " *ediff-info*")
       (emacspeak-speak-buffer ))))
 
