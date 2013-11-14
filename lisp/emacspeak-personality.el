@@ -405,7 +405,7 @@ Append means place corresponding personality at the end."
         (when voice
           (funcall emacspeak-personality-voiceify-overlays
                    (overlay-start overlay) (overlay-end overlay)
-                   voice))))))
+                   voice (overlay-buffer overlay)))))))
 
 (defadvice move-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
@@ -424,7 +424,7 @@ Append means place corresponding personality at the end."
        (overlay-end overlay)
        voice object)
       (funcall emacspeak-personality-voiceify-overlays
-               beg end voice))))
+               beg end voice object))))
 
 ;;}}}
 (provide 'emacspeak-personality )
