@@ -94,10 +94,10 @@
            (integer-or-marker-p start)
            (integer-or-marker-p end )
            (not (= start end)))
-    (let ((inhibit-read-only t)
-          (v (if (listp personality)
-                 (delete-duplicates personality :test #'eq)
-               personality)))
+    (let ((v
+           (if (listp personality)
+               (delete-duplicates personality :test #'eq)
+             personality)))
       (ems-modify-buffer-safely
        (put-text-property start end 'personality v object)))))
 
@@ -422,7 +422,7 @@ Append means place corresponding personality at the end."
       (emacspeak-personality-remove
        (overlay-start overlay)
        (overlay-end overlay)
-       voice object)
+       voice (overlay-buffer overlay))
       (funcall emacspeak-personality-voiceify-overlays
                beg end voice object))))
 
