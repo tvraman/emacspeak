@@ -98,7 +98,7 @@ pronunciations only once.")
 (defun emacspeak-dired-speak-line ()
   "Speak the dired line intelligently."
   (declare (special emacspeak-speak-last-spoken-word-position))
-  (let ((filename (dired-get-filename t t ))
+  (let ((filename (dired-get-filename 'no-dir  t ))
         (personality (get-text-property (point) 'personality)))
     (cond
      (filename
