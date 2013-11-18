@@ -98,7 +98,7 @@
            (if (listp personality)
                (delete-duplicates personality :test #'eq)
              personality)))
-      (ems-modify-buffer-safely
+      (with-silent-modifications
        (put-text-property start end 'personality v object)))))
 
 ;;;###autoload
@@ -110,7 +110,7 @@ Existing personality properties on the text range are preserved."
            (integer-or-marker-p start)
            (integer-or-marker-p end )
            (not (= start end)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (let ((inhibit-read-only t)
            (v (if (listp personality)
                   (delete-duplicates personality :test #'eq)
@@ -149,7 +149,7 @@ Existing personality properties on the text range are preserved."
            (integer-or-marker-p start)
            (integer-or-marker-p end )
            (not (= start end)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (let ((v (if (listp personality)
                   (delete-duplicates personality :test #'eq)
                 personality))
@@ -185,7 +185,7 @@ Preserve other existing personality properties on the text range."
            (integer-or-marker-p start)
            (integer-or-marker-p end )
            (not (= start end)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (let ((orig (get-text-property start 'personality object))
            (new nil)
            (extent

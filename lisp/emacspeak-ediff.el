@@ -189,7 +189,7 @@
   (aref (aref diff counter) 1))
 
 (defsubst  emacspeak-ediff-voicify-extent  (overlay  personality)
-  (ems-modify-buffer-safely
+  (with-silent-modifications
   (put-text-property (overlay-start overlay)
                      (overlay-end overlay)
                      'personality personality
@@ -202,7 +202,7 @@
         (counter 0))
     (save-current-buffer
       (set-buffer variant)
-      (ems-modify-buffer-safely
+      (with-silent-modifications
        (while (< counter count)
          (emacspeak-ediff-voicify-extent
           (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
@@ -226,7 +226,7 @@
           (and a-vector
                (save-current-buffer
                  (set-buffer ediff-buffer-A)
-                 (ems-modify-buffer-safely
+                 (with-silent-modifications
                   (mapcar
                    #'(lambda  (o)
                       (emacspeak-ediff-voicify-extent  o
@@ -236,7 +236,7 @@
           (and b-vector
                (save-current-buffer
                  (set-buffer ediff-buffer-B)
-                 (ems-modify-buffer-safely
+                 (with-silent-modifications
                   (mapcar
                    #'(lambda  (o)
                       (emacspeak-ediff-voicify-extent  o
@@ -255,7 +255,7 @@
         (end (overlay-end overlay )))
     (save-current-buffer
       (set-buffer buffer )
-      (ems-modify-buffer-safely
+      (with-silent-modifications
        (put-text-property start end
                           'personality personality)))))
 

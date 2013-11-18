@@ -196,7 +196,7 @@
       (beginning-of-line)
       (setq  start (point))
       (end-of-line)
-      (ems-modify-buffer-safely
+      (with-silent-modifications
        (put-text-property start (point)
                           'auditory-icon 'mark-object)))))
 
@@ -207,7 +207,7 @@
       (beginning-of-line)
       (setq  start (point))
       (end-of-line)
-      (ems-modify-buffer-safely
+      (with-silent-modifications
        (remove-text-properties
         start (point)
         (list 'auditory-icon 'mark-object))))))

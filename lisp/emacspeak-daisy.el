@@ -643,7 +643,7 @@ navigation buffer that can be used to browse and read the book."
   "Applies specified list of bookmarks to navigation buffer."
   (unless (eq major-mode 'emacspeak-daisy-mode)
     (error "Not in emacspeak-daisy-mode."))
-  (ems-modify-buffer-safely
+  (with-silent-modifications
    (save-excursion
      (goto-char (point-min))
      (let ((entry nil)
@@ -667,7 +667,7 @@ No-op if content under point is not currently displayed."
   (interactive)
   (cond
    ((get-text-property (point) 'viewer)
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (put-text-property (line-beginning-position) (line-end-position)
                         'bookmark
                         (save-current-buffer

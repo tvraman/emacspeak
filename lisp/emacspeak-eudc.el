@@ -162,7 +162,7 @@ Summarize the form to welcome the user. "
     ad-do-it)
    (t (let ((start (point)))
         ad-do-it
-        (ems-modify-buffer-safely
+        (with-silent-modifications
          (put-text-property start (point)
                             'personality
                             emacspeak-eudc-attribute-value-personality)))))

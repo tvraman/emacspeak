@@ -148,7 +148,7 @@
         (save-current-buffer
           (set-buffer calendar-buffer)
           (calendar-cursor-to-visible-date date)
-          (ems-modify-buffer-safely
+          (with-silent-modifications
            (put-text-property  (1-(point)) (1+ (point))
                                'personality   emacspeak-calendar-mark-personality ))))))
 

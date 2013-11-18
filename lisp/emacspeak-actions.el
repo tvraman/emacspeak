@@ -62,7 +62,7 @@ The defined   emacspeak action   causes
 emacspeak to show the matching paren when the cursor moves across a right paren."
   (save-current-buffer
     (goto-char (point-min))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (while (search-forward ")" nil t )
        (put-text-property  (point) (1+ (point))
                            'emacspeak-action
@@ -79,7 +79,7 @@ emacspeak to speak the semantics of the line
  when the cursor moves across a right brace."
   (save-current-buffer
     (goto-char (point-min))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (while (search-forward "}" nil t )
        (put-text-property  (point) (1+ (point))
                            'emacspeak-action

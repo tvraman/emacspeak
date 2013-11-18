@@ -184,7 +184,7 @@ available."
             (backward-char 1)
             (search-forward tree-buffer-incr-searchpattern)
             (setq end (point))
-            (ems-modify-buffer-safely
+            (with-silent-modifications
              (ems-set-personality-temporarily
               beg end   voice-bolden
               (emacspeak-speak-line)))
