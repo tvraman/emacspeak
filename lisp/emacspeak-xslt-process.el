@@ -101,7 +101,7 @@
       (let ((start (point))
             (end (progn (end-of-line)
                         (point))))
-        (ems-modify-buffer-safely
+        (with-silent-modifications
          (put-text-property start end
                             'auditory-icon 'mark-object)
          (put-text-property start end
@@ -117,7 +117,7 @@
       (let ((start (point))
             (end (progn (end-of-line)
                         (point))))
-        (ems-modify-buffer-safely
+        (with-silent-modifications
          (put-text-property start end
                             'auditory-icon nil))
         (emacspeak-speak-line)

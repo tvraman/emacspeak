@@ -171,7 +171,7 @@ in the white-space."
         (tr nil)
         (br nil)
         (bl nil))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (progn
        (message   "Detected %s rows and  %s columns."
                   (count-lines start end)

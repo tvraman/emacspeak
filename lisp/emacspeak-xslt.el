@@ -382,7 +382,7 @@ part of the libxslt package."
     (mark)
     current-prefix-arg))
   (let ((src-buffer
-         (ems-modify-buffer-safely
+         (with-silent-modifications
           (emacspeak-xslt-region style start end))))
     (save-current-buffer
       (set-buffer src-buffer)

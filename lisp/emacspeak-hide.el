@@ -208,7 +208,7 @@ Returns t if a block was found and hidden."
           (incf count))
         (cond
          ((> count 1)
-          (ems-modify-buffer-safely
+          (with-silent-modifications
            (add-text-properties start (point)
                                 (list 'invisible t
                                       'intangible t))
@@ -242,7 +242,7 @@ Returns t if a block was found and hidden."
         (setq end
               (next-single-property-change (point) 'emacspeak-hidden-block
                                            (current-buffer) (point-max)))
-        (ems-modify-buffer-safely
+        (with-silent-modifications
          (put-text-property start end
                             'emacspeak-hidden-block nil)
          (put-text-property start end
@@ -394,7 +394,7 @@ and when you have heard enough navigate easily  to move past the block."
                             (regexp-quote block-prefix)))
         (set-buffer scratch-buffer)
         (setq buffer-undo-list t)
-        (ems-modify-buffer-safely
+        (with-silent-modifications
          (erase-buffer)
          (insert contents)
          (put-text-property (point-min)

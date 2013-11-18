@@ -2889,7 +2889,7 @@ Variable mark-even-if-inactive is set true ."
   "Adds property personality."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (add-text-properties
       beg end
       (list 'personality voice-bolden
@@ -2899,7 +2899,7 @@ Variable mark-even-if-inactive is set true ."
   "Adds property personality."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (add-text-properties
       beg end
       (list 'personality voice-bolden

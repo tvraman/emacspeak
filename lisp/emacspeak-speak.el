@@ -225,7 +225,7 @@ Argument BODY specifies forms to execute."
   (interactive )
   (save-excursion
     (goto-char (point-max))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (let ((sound-cue 'paragraph))
        (while (not (bobp))
          (backward-paragraph)
@@ -259,7 +259,7 @@ Useful to do this before you listen to an entire buffer."
                 (blank-line "\n[ \t\n\r]*\n")
                 (inhibit-point-motion-hooks t)
                 (deactivate-mark nil))
-            (ems-modify-buffer-safely
+            (with-silent-modifications
              (while (re-search-forward blank-line nil t)
                (skip-syntax-forward " ")
                (setq start (point))
@@ -592,7 +592,7 @@ current local  value to the result.")
         (pair nil)
         (personality (if invert-filter nil
                        'inaudible)))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (when invert-filter
        (put-text-property  0   l
                            'personality 'inaudible line))
@@ -897,7 +897,7 @@ are indicated with auditory icon ellipses."
                   t)
                  ((y-or-n-p (format "Speak  this  %s long line? " l))
                   (setq emacspeak-speak-maximum-line-length (1+ l))
-                  (ems-modify-buffer-safely
+                  (with-silent-modifications
                    (put-text-property start end 'speak-line t))
                   t))))
             (when  speakable
@@ -2811,7 +2811,7 @@ Prompts for PERSONALITY  with completion when called interactively."
             (read
              (completing-read "Use personality: "
                               personality-table nil t ))))
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (operate-on-rectangle
       (function (lambda ( start-seg begextra endextra )
                   (emacspeak-put-personality start-seg  (point) personality )))
@@ -3065,11 +3065,11 @@ Argument O specifies overlay."
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
   (unless (string-match "^ *$" string)
-    (ems-modify-buffer-safely
+    (with-silent-modifications
      (save-excursion
        (goto-char (point-min))
        (save-match-data
-         (ems-modify-buffer-safely
+         (with-silent-modifications
           (while (search-forward string nil t)
             (put-text-property (match-beginning 0)
                                (match-end 0)
