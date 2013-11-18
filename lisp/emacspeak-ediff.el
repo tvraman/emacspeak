@@ -189,10 +189,11 @@
   (aref (aref diff counter) 1))
 
 (defsubst  emacspeak-ediff-voicify-extent  (overlay  personality)
+  (with-silent-modifications
   (put-text-property (overlay-start overlay)
                      (overlay-end overlay)
                      'personality personality
-                     (overlay-buffer overlay)))
+                     (overlay-buffer overlay))))
 
 (defun emacspeak-ediff-voiceify-variant (variant diff-vector
                                                  personality fine-personality)
