@@ -122,6 +122,7 @@
     ("emacspeak-gomoku"  . nil )
     ("emacspeak-gridtext"  . nil )
     ("emacspeak-gtags"  . nil )
+    ("emacspeak-ein" nil)
     ("emacspeak-gud"  . nil )
     ("emacspeak-hide"  . nil )
     ("emacspeak-hideshow"  . nil )
