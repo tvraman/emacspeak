@@ -160,27 +160,15 @@
                inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
          (set-buffer-modified-p modification-flag )))))
 
-(defmacro ems-set-personality-temporarily (start end value
-                                                 &rest body)
+(defmacro ems-set-personality-temporarily (start end value &rest body)
   "Temporarily set personality.
 Argument START   specifies the start of the region to operate on.
 Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
-  `(progn
-     (let ((saved-personality (get-text-property ,start 'personality))
-           (save-read-only buffer-read-only)
-           (buffer-read-only nil )
-           (save-inhibit-read-only inhibit-read-only)
-           (inhibit-read-only t)
-           (save-inhibit-modification-hooks inhibit-modification-hooks)
-           (inhibit-modification-hooks nil)
-           (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
-           (inhibit-point-motion-hooks t)
-           (deactivate-mark nil)
-           (buffer-undo-list t)
-           (modification-flag (buffer-modified-p)))
-       (unwind-protect
+  `(let ((saved-personality (get-text-property ,start 'personality)))
+     (with-silent-modifications
+     (unwind-protect
            (progn
              (put-text-property
               (max (point-min) ,start)
@@ -189,12 +177,8 @@ Argument BODY specifies forms to execute."
              ,@body)
          (put-text-property
           (max (point-min) ,start)
-          (min (point-max)  ,end) 'personality saved-personality)
-         (setq buffer-read-only save-read-only
-               inhibit-read-only save-inhibit-read-only
-               inhibit-modification-hooks save-inhibit-modification-hooks
-               inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-         (set-buffer-modified-p modification-flag )))))
+          (min (point-max)  ,end) 'personality saved-personality)))))         
+         
 
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
