@@ -141,24 +141,6 @@
 
 ;;; Save read-only and modification state, perform some actions and
 ;;; restore state
-(defmacro ems-modify-buffer-safely   (&rest body )
-  "Allow BODY to temporarily modify read-only content."
-  `(progn
-     (declare (special inhibit-point-motion-hooks))
-     (let    ((save-read-only buffer-read-only)
-              (buffer-read-only nil )
-              (save-inhibit-read-only inhibit-read-only)
-              (inhibit-read-only t)
-              (deactivate-mark nil)
-              (save-inhibit-point-motion-hooks inhibit-point-motion-hooks)
-              (inhibit-point-motion-hooks t)
-              (modification-flag (buffer-modified-p)))
-       (unwind-protect
-           ,@body 
-         (setq buffer-read-only save-read-only
-               inhibit-read-only save-inhibit-read-only
-               inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-         (set-buffer-modified-p modification-flag )))))
 
 (defmacro ems-set-personality-temporarily (start end value &rest body)
   "Temporarily set personality.
