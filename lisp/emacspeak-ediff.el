@@ -189,11 +189,12 @@
   (aref (aref diff counter) 1))
 
 (defsubst  emacspeak-ediff-voicify-extent  (overlay  personality)
-  (with-silent-modifications
-  (put-text-property (overlay-start overlay)
-                     (overlay-end overlay)
+  (save-current-buffer
+    (set-buffer (overlay-buffer overlay))
+    (with-silent-modifications
+  (put-text-property (overlay-start overlay) (overlay-end overlay)
                      'personality personality
-                     (overlay-buffer overlay))))
+                     (overlay-buffer overlay)))))
 
 (defun emacspeak-ediff-voiceify-variant (variant diff-vector
                                                  personality fine-personality)
@@ -202,12 +203,11 @@
         (counter 0))
     (save-current-buffer
       (set-buffer variant)
-      (with-silent-modifications
-       (while (< counter count)
-         (emacspeak-ediff-voicify-extent
-          (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
-          personality )
-         (incf counter))))))
+      (while (< counter count)
+        (emacspeak-ediff-voicify-extent
+         (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
+         personality )
+        (incf counter)))))
 
 (defun emacspeak-ediff-voiceify-fine-diff (counter)
   "Voiceify current fine difference."
@@ -337,6 +337,7 @@
 
 (defun emacspeak-ediff-speak-difference (n)
   "Speak a difference chunk"
+  (with-silent-modifications
   (let ((a-overlay (emacspeak-ediff-difference-a-overlay n ))
         (b-overlay (emacspeak-ediff-difference-b-overlay  n ))
         (key ""))
@@ -354,7 +355,7 @@
       (dtk-speak
        (concat
         "Difference  B  "
-        (emacspeak-overlay-get-text b-overlay ))))))
+        (emacspeak-overlay-get-text b-overlay )))))))
 
 (defun emacspeak-ediff-speak-current-difference ()
   "Speak the current difference"
@@ -391,9 +392,8 @@ Set this to nil if things get too slow."
 
 (defadvice ediff-make-fine-diffs (after emacspeak pre act comp)
   "voicify the fine differences"
-  (let ((counter(or
-                 (ad-get-arg 0)
-                 ediff-current-difference)))
+  (let ((counter
+         (or (ad-get-arg 0) ediff-current-difference)))
     (emacspeak-ediff-voiceify-fine-diff counter)))
 
 (defadvice ediff-status-info (after emacspeak pre act )
