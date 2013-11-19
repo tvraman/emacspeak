@@ -379,14 +379,12 @@ Set this to nil if things get too slow."
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
-  (declare (special emacspeak-ediff-always-autorefine-diffs))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-previous-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
-  (declare (special emacspeak-ediff-always-autorefine-diffs))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
