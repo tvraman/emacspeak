@@ -119,7 +119,6 @@
 ;;;Please tell me what control buffer you're using--
 
 (defadvice ediff-setup-control-buffer (after emacspeak pre act )
-  (declare (special emacspeak-ediff-control-buffer))
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
 
 (defsubst emacspeak-ediff-control-panel ()
@@ -209,40 +208,7 @@
          personality )
         (incf counter)))))
 
-(defun emacspeak-ediff-voiceify-fine-diff (counter)
-  "Voiceify current fine difference."
-  (declare (special ediff-current-difference
-                    emacspeak-ediff-fine-A-personality emacspeak-ediff-fine-B-personality
-                    ediff-difference-vector-A ediff-difference-vector-B
-                    ediff-buffer-A ediff-buffer-B))
-  (let ((control-panel (emacspeak-ediff-control-panel)))
-    (when control-panel
-      (save-current-buffer
-        (set-buffer control-panel )
-        (let ((a-vector ediff-difference-vector-A)
-              (b-vector ediff-difference-vector-B))
-          (and (<  counter 0)
-               (error "ediff-current-difference is negative!"))
-          (and a-vector
-               (save-current-buffer
-                 (set-buffer ediff-buffer-A)
-                 (with-silent-modifications
-                  (mapcar
-                   #'(lambda  (o)
-                      (emacspeak-ediff-voiceify-extent  o
-                                                       emacspeak-ediff-fine-A-personality))
-                   (emacspeak-ediff-fine-overlays-from-difference
-                    a-vector counter)))))
-          (and b-vector
-               (save-current-buffer
-                 (set-buffer ediff-buffer-B)
-                 (with-silent-modifications
-                  (mapcar
-                   #'(lambda  (o)
-                      (emacspeak-ediff-voiceify-extent  o
-                                                       emacspeak-ediff-fine-B-personality))
-                   (emacspeak-ediff-fine-overlays-from-difference
-                    b-vector counter))))))))))
+
 
 ;;}}}
 ;;{{{  Function: Voicify  ediff overlays:
@@ -284,38 +250,6 @@
                                             emacspeak-ediff-fine-B-personality)))))
   (message "Voicified differences" ))
 
-(defun emacspeak-ediff-voiceify-fine-differences  ()
-  "Voicify all the fine difference chunks"
-  (declare (special ediff-number-of-differences
-                    ediff-buffer-A ediff-buffer-B))
-  (let ((counter 0)
-        (control-panel (emacspeak-ediff-control-panel)))
-    (when control-panel
-      (save-current-buffer
-        (set-buffer control-panel )
-        (save-current-buffer
-          (set-buffer ediff-buffer-A)
-          (while (< counter ediff-number-of-differences )
-            (mapcar
-             (function
-              (lambda (overlay)
-                (emacspeak-ediff-voiceify-extent overlay
-                                                emacspeak-ediff-fine-A-personality)))
-             (emacspeak-ediff-fine-difference-a-overlays counter )))
-          (incf counter))
-        ;; do the same for variant B
-        (setq counter 0)
-        (save-current-buffer
-          (set-buffer ediff-buffer-B)
-          (while (< counter ediff-number-of-differences)
-            (mapcar
-             (function
-              (lambda (overlay)
-                (emacspeak-ediff-voiceify-extent overlay
-                                                emacspeak-ediff-fine-B-personality)))
-             (emacspeak-ediff-fine-difference-b-overlays  counter ))
-            (incf counter )))
-        (message "Voicified fine differences ")))))
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
 
@@ -389,12 +323,6 @@ Set this to nil if things get too slow."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
-
-(defadvice ediff-make-fine-diffs (after emacspeak pre act comp)
-  "voiceify the fine differences"
-  (let ((counter
-         (or (ad-get-arg 0) ediff-current-difference)))
-    (emacspeak-ediff-voiceify-fine-diff counter)))
 
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
