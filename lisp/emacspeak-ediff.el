@@ -254,12 +254,12 @@
 (setq-default ediff-auto-refine 'on)
 
 (add-hook 'ediff-startup-hook
-          (function (lambda ()
-                      (declare (special ediff-mode-map
-                                        voice-lock-mode))
-                      (setq voice-lock-mode t)
-                      (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)
-                      (emacspeak-ediff-voiceify-differences))))
+          #'(lambda ()
+              (declare (special ediff-mode-map
+                                voice-lock-mode))
+              (setq voice-lock-mode t)
+              (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
+                      
 
 ;;}}}
 ;;{{{  Speak an ediff difference:
