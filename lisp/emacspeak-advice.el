@@ -1881,10 +1881,8 @@ Indicate large movement with an auditory icon if possible.
 Auditory highlight indicates position of point."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement )
-    (ems-set-personality-temporarily
-     (point) (1+ (point))
-     voice-animate
-     (emacspeak-speak-line))))
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line))))
 
 (defadvice newline (before emacspeak pre act comp)
   "Speak the previous line if line echo is on.
@@ -2462,26 +2460,23 @@ Produce auditory icons if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p  )
     (emacspeak-auditory-icon 'mark-object )
-    (ems-set-personality-temporarily (point) (1+ (point))
-                                     voice-animate
-                                     (emacspeak-speak-line ))))
-
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line ))))
 (defadvice pop-to-mark-command (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p  )
     (emacspeak-auditory-icon 'mark-object )
-    (ems-set-personality-temporarily (point) (1+ (point))
-                                     voice-animate
-                                     (emacspeak-speak-line ))))
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line ))))
 
 (defadvice pop-global-mark (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p  )
     (emacspeak-auditory-icon 'mark-object )
-    (ems-set-personality-temporarily (point) (1+ (point))
-                                     voice-animate
-                                     (emacspeak-speak-line ))
-    (emacspeak-speak-mode-line)))
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line )
+      (when (sit-for 3)
+        (emacspeak-speak-mode-line)))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
