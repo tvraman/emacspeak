@@ -188,7 +188,7 @@
 (defsubst emacspeak-ediff-fine-overlays-from-difference  (diff counter )
   (aref (aref diff counter) 1))
 
-(defsubst  emacspeak-ediff-voicify-extent  (overlay  personality)
+(defsubst  emacspeak-ediff-voiceify-extent  (overlay  personality)
   (save-current-buffer
     (set-buffer (overlay-buffer overlay))
     (with-silent-modifications
@@ -204,7 +204,7 @@
     (save-current-buffer
       (set-buffer variant)
       (while (< counter count)
-        (emacspeak-ediff-voicify-extent
+        (emacspeak-ediff-voiceify-extent
          (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
          personality )
         (incf counter)))))
@@ -229,7 +229,7 @@
                  (with-silent-modifications
                   (mapcar
                    #'(lambda  (o)
-                      (emacspeak-ediff-voicify-extent  o
+                      (emacspeak-ediff-voiceify-extent  o
                                                        emacspeak-ediff-fine-A-personality))
                    (emacspeak-ediff-fine-overlays-from-difference
                     a-vector counter)))))
@@ -239,7 +239,7 @@
                  (with-silent-modifications
                   (mapcar
                    #'(lambda  (o)
-                      (emacspeak-ediff-voicify-extent  o
+                      (emacspeak-ediff-voiceify-extent  o
                                                        emacspeak-ediff-fine-B-personality))
                    (emacspeak-ediff-fine-overlays-from-difference
                     b-vector counter))))))))))
@@ -249,7 +249,7 @@
 
 ;;; Voiceify ediff overlay
 
-(defsubst  emacspeak-ediff-voicify-overlay  (overlay  personality)
+(defsubst  emacspeak-ediff-voiceify-overlay  (overlay  personality)
   (let ((buffer (overlay-buffer overlay ))
         (start (overlay-start overlay))
         (end (overlay-end overlay )))
@@ -259,7 +259,7 @@
        (put-text-property start end
                           'personality personality)))))
 
-(defun emacspeak-ediff-voicify-differences  ()
+(defun emacspeak-ediff-voiceify-differences  ()
   "Voicify all the difference chunks"
   (declare (special ediff-buffer-A ediff-buffer-B
                     ediff-number-of-differences
@@ -284,7 +284,7 @@
                                             emacspeak-ediff-fine-B-personality)))))
   (message "Voicified differences" ))
 
-(defun emacspeak-ediff-voicify-fine-differences  ()
+(defun emacspeak-ediff-voiceify-fine-differences  ()
   "Voicify all the fine difference chunks"
   (declare (special ediff-number-of-differences
                     ediff-buffer-A ediff-buffer-B))
@@ -299,7 +299,7 @@
             (mapcar
              (function
               (lambda (overlay)
-                (emacspeak-ediff-voicify-extent overlay
+                (emacspeak-ediff-voiceify-extent overlay
                                                 emacspeak-ediff-fine-A-personality)))
              (emacspeak-ediff-fine-difference-a-overlays counter )))
           (incf counter))
@@ -311,7 +311,7 @@
             (mapcar
              (function
               (lambda (overlay)
-                (emacspeak-ediff-voicify-extent overlay
+                (emacspeak-ediff-voiceify-extent overlay
                                                 emacspeak-ediff-fine-B-personality)))
              (emacspeak-ediff-fine-difference-b-overlays  counter ))
             (incf counter )))
@@ -325,7 +325,7 @@
                                         voice-lock-mode))
                       (setq voice-lock-mode t)
                       (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)
-                      (emacspeak-ediff-voicify-differences))))
+                      (emacspeak-ediff-voiceify-differences))))
 
 ;;}}}
 ;;{{{  Speak an ediff difference:
@@ -391,7 +391,7 @@ Set this to nil if things get too slow."
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-make-fine-diffs (after emacspeak pre act comp)
-  "voicify the fine differences"
+  "voiceify the fine differences"
   (let ((counter
          (or (ad-get-arg 0) ediff-current-difference)))
     (emacspeak-ediff-voiceify-fine-diff counter)))

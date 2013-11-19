@@ -2763,7 +2763,7 @@ Argument PERSONALITY gives the value for property personality."
                   (symbol-name key))))
 
 ;;;###autoload
-(defun emacspeak-voicify-rectangle (start end &optional personality )
+(defun emacspeak-voiceify-rectangle (start end &optional personality )
   "Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
@@ -2784,7 +2784,7 @@ Prompts for PERSONALITY  with completion when called interactively."
       start end  nil))))
 
 ;;;###autoload
-(defun emacspeak-voicify-region (start end &optional personality )
+(defun emacspeak-voiceify-region (start end &optional personality )
   "Voicify the current region.
 When calling from a program,arguments are
 START END personality.
