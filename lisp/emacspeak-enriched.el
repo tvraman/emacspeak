@@ -1,7 +1,7 @@
 ;;; emacspeak-enriched.el --- Audio Formatting for Emacs' WYSIWYG RichText  mode
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
-;;; Description: Emacspeak module to speak voicify rich text
+;;; Description: Emacspeak module to speak voiceify rich text
 ;;; Keywords:emacspeak, audio interface to emacs rich text
 ;;{{{  LCD Archive entry: 
 
@@ -39,21 +39,21 @@
 
 ;;{{{  Introduction
 
-;;; emacspeak extensions to voicify rich  text.
+;;; emacspeak extensions to voiceify rich  text.
 
 ;;}}}
 ;;{{{ required modules
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ voicify-faces 
+;;{{{ voiceify-faces 
 (defvar emacspeak-enriched-font-faces-to-voiceify
   (list 'bold 'italic   'bold-italic 'underlined)
   "List of font faces we voiceify")
 
 (defun emacspeak-enriched-voiceify-faces (start end)
   "Map base fonts to voices.
-Useful in voicifying rich text."
+Useful in voiceifying rich text."
   (interactive "r")
   (declare (special
             emacspeak-enriched-font-faces-to-voiceify))

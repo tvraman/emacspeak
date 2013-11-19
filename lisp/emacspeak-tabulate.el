@@ -141,7 +141,7 @@ Fields are assumed to be delimited by whitespace. "
 (defsubst ems-tabulate-process-column (tl tr br bl mark-headers start)
   (let ((header ( buffer-substring  tl tr))
         (personality-table (emacspeak-possible-voices)))
-    (emacspeak-voicify-rectangle
+    (emacspeak-voiceify-rectangle
      tl br 
      (read (completing-read
             (format "Personality for column %s from  %s through %s"
