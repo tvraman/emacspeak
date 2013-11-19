@@ -225,30 +225,7 @@
        (put-text-property start end
                           'personality personality)))))
 
-(defun emacspeak-ediff-voiceify-differences  ()
-  "Voicify all the difference chunks"
-  (declare (special ediff-buffer-A ediff-buffer-B
-                    ediff-number-of-differences
-                    ediff-difference-vector-B ediff-difference-vector-A
-                    emacspeak-ediff-A-personality
-                    emacspeak-ediff-B-personality
-                    emacspeak-ediff-fine-A-personality
-                    emacspeak-ediff-fine-B-personality))
-  (let ((control-panel (emacspeak-ediff-control-panel)))
-    (when control-panel
-      (save-current-buffer
-        (set-buffer control-panel )
-        (when ediff-buffer-A
-          (emacspeak-ediff-voiceify-variant ediff-buffer-A
-                                            ediff-difference-vector-A
-                                            emacspeak-ediff-A-personality
-                                            emacspeak-ediff-fine-A-personality))
-        (when ediff-buffer-B
-          (emacspeak-ediff-voiceify-variant ediff-buffer-B
-                                            ediff-difference-vector-B
-                                            emacspeak-ediff-B-personality
-                                            emacspeak-ediff-fine-B-personality)))))
-  (message "Voicified differences" ))
+
 
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
