@@ -187,8 +187,9 @@ refining searches.</application>
     <application name="gcal">
     Google Calendar client using ATOM and GData.</application>
     
-    <application name="gcontacts">
-    Google Contacts access from Emacs.</application>
+    <application name="gmaps">
+Google Maps (V2) API  client, that enables Maps exploration.
+    </application>
     <application name="gphoto">
       Google Picasa (photo albums)  client using ATOM and GData.
     </application>
@@ -649,6 +650,8 @@ Finds files within a project using cached list of files.</application>
       Tool for browsing  object oriented software codebases
       --- this is largely obsoleted by ECB..
     </application>
+<application name="ein">
+IPython Notebook interaction from Emacs.</application>
   </category>
   <category name="Distractions">
     <application name="entertain">
