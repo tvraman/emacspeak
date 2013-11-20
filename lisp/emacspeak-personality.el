@@ -394,20 +394,20 @@ Append means place corresponding personality at the end."
           (prop (ad-get-arg 1))
           (value (ad-get-arg 2))
           (voice nil))
-                                        ; special case buttons
-      (when (and
-             (or (eq prop 'face)
-                 (and (eq prop 'category) (get value 'face)))
-             (integer-or-marker-p (overlay-start overlay))
-             (integer-or-marker-p (overlay-end overlay)))
+      (when
+          (and
+           (or (eq prop 'face)
+               (and (eq prop 'category) (get value 'face)))
+           (integer-or-marker-p (overlay-start overlay))
+           (integer-or-marker-p (overlay-end overlay)))
         (and (eq prop 'category) (setq value (get value 'face)))
         (setq voice (ems-get-voice-for-face value))
         (when voice
           (save-current-buffer
             (set-buffer (overlay-buffer overlay))
-          (funcall emacspeak-personality-voiceify-overlays
-                   (overlay-start overlay) (overlay-end overlay)
-                   voice (overlay-buffer overlay))))))))
+            (funcall emacspeak-personality-voiceify-overlays
+                     (overlay-start overlay) (overlay-end overlay)
+                     voice (overlay-buffer overlay))))))))
 
 (defadvice move-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
@@ -417,10 +417,11 @@ Append means place corresponding personality at the end."
         (object (ad-get-arg 3))
         (voice nil))
     (setq voice (overlay-get  overlay 'personality))
-    (when (and voice
-               emacspeak-personality-voiceify-overlays
-               (integer-or-marker-p (overlay-start overlay))
-               (integer-or-marker-p (overlay-end overlay)))
+    (when
+        (and voice
+             emacspeak-personality-voiceify-overlays
+             (integer-or-marker-p (overlay-start overlay))
+             (integer-or-marker-p (overlay-end overlay)))
       (emacspeak-personality-remove
        (overlay-start overlay)
        (overlay-end overlay)
