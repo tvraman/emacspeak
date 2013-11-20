@@ -403,9 +403,11 @@ Append means place corresponding personality at the end."
         (and (eq prop 'category) (setq value (get value 'face)))
         (setq voice (ems-get-voice-for-face value))
         (when voice
+          (save-current-buffer
+            (set-buffer (overlay-buffer overlay))
           (funcall emacspeak-personality-voiceify-overlays
                    (overlay-start overlay) (overlay-end overlay)
-                   voice (overlay-buffer overlay)))))))
+                   voice (overlay-buffer overlay))))))))
 
 (defadvice move-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
