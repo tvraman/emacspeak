@@ -1,0 +1,35 @@
+Emacspeak News --History Of User-Visible Changes
+$Id: NEWS 8318 2013-05-03 22:42:11Z tv.raman.tv $
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+* Emacspeak 38 -- Emacspeak 38 User Visible Changes 
+
+** Google Maps API V2 gmaps.el:
+Find places, get directions using  Google Maps V2 API.
+
+** Eclipse Integration:
+
+Preliminary support for emacs-eclim --- lets you interface with
+a headless Eclipse. (Work In Progress).
+
+** Improved Semantic Support
+
+Extensions for integrating with the built-in CEDET/Semantic
+support.
+
+** Speech-Enables GTags:
+
+Emacspeak now speech-enables package gtags.el for use with GNU
+global and idutils.
+** Emacs 24.3:
+
+Updated to work with Emacs from tip of tree.
+
+** Updated Advice Implementation:
+
+Emacspeak has been tested to work with the updated advice
+implementation in the Emacs codebase. (Thanks Stefan!)
+
+# local variables:
+# mode: org
+# end:
