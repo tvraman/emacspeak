@@ -138,7 +138,7 @@ AMarks are bookmarks in audio content."
         (message "No AMarks found.")))
      (t (setq buff
               (find-file-noselect (expand-file-name emacspeak-amark-file where)))
-        (save-excursion
+        (save-current-buffer
           (set-buffer buff)
           (goto-char (point-min))
           (setq l (read buff))
