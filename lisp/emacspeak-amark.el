@@ -108,10 +108,11 @@ AMarks are bookmarks in audio content."
   (interactive)
   (declare (special emacspeak-amark-file))
   (let ((l emacspeak-amark-list)
+        (print-length nil)
         (buff
          (find-file-noselect
           (expand-file-name emacspeak-amark-file default-directory))))
-    (save-excursion
+    (save-current-buffer
       (set-buffer buff)
       (setq buffer-undo-list t)
       (erase-buffer)
