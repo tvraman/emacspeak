@@ -509,7 +509,8 @@ No book files are deleted."
   (interactive)
   (declare (special emacspeak-epub-db-file))
   (let ((buff (find-file-noselect emacspeak-epub-db-file))
-        (emacspeak-speak-messages nil))
+        (emacspeak-speak-messages nil)
+        (print-length  nil))
     (save-current-buffer
       (set-buffer buff)
       (setq buffer-undo-list t)
