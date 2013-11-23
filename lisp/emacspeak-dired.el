@@ -252,7 +252,7 @@ pronunciations only once.")
 
 (defun emacspeak-dired-label-fields-on-current-line ()
   "Labels the fields on a dired line.
-Assumes that `dired-listing-switches' contains  -al"
+Assumes that `dired-listing-switches' contains  -l"
   (let ((start nil)
         (fields (list "permissions"
                       "links"
@@ -278,11 +278,12 @@ Assumes that `dired-listing-switches' contains  -al"
 (defun emacspeak-dired-label-fields ()
   "Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
-unless `dired-listing-switches' contains -al"
+unless `dired-listing-switches' contains -l"
   (interactive)
   (declare (special dired-listing-switches))
-  (when (save-match-data
-          (string-match  "al" dired-listing-switches))
+  (when
+      (save-match-data
+          (string-match  "l" dired-listing-switches))
     (let ((read-only buffer-read-only))
       (unwind-protect
           (progn
