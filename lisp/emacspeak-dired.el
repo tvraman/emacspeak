@@ -67,15 +67,9 @@
    ))
 ;;}}}
 ;;{{{  configure dired
-
-(declaim (special dired-listing-switches ))
-;;; ensure we have -al in the listing switches
-(if (and  dired-listing-switches
-          (not (string-match "^-al" dired-listing-switches)))
-    (setq dired-listing-switches
-          (concat "-al"
-                  (substring dired-listing-switches 1)))
-  (setq dired-listing-switches "-al"))
+;;; Not touching dired-listing-switches 
+;;; Emacspeak in 1994 forcibly set this to  a safe value
+;;; Removing in 2013, since we've now had custom for 13+ years.
 
 (defvar emacspeak-dired-pronunciations-defined nil
   "Internal variable used to ensure we define dired
