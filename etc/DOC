@@ -899,7 +899,7 @@ navigation buffer that can be used to browse and read the book.
 
 ** emacspeak-dired-label-fields Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
-unless `dired-listing-switches' contains -al 
+unless `dired-listing-switches' contains -l 
 
 ------------------------------------------------------------
 
@@ -971,7 +971,7 @@ On a directory line, run du -s on the directory to speak its size.
 ------------------------------------------------------------
 
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
-Useful in voicifying rich text. 
+Useful in voiceifying rich text. 
 
 ------------------------------------------------------------
 
@@ -3266,14 +3266,14 @@ builtin blink-paren function which does not talk.
 
 ------------------------------------------------------------
 
-** emacspeak-voicify-rectangle Voicify the current rectangle.
+** emacspeak-voiceify-rectangle Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
 Prompts for PERSONALITY  with completion when called interactively. 
 
 ------------------------------------------------------------
 
-** emacspeak-voicify-region Voicify the current region.
+** emacspeak-voiceify-region Voicify the current region.
 When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively. 

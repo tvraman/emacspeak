@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 647 user customizable
+This chapter documents a total of 642 user customizable
   options.
 
 @menu
@@ -23,7 +23,6 @@ This chapter documents a total of 647 user customizable
 * emacspeak-custom Options::
 * emacspeak-daisy Options::
 * emacspeak-dired Options::
-* emacspeak-ediff Options::
 * emacspeak-entertain Options::
 * emacspeak-eperiodic Options::
 * emacspeak-epub Options::
@@ -546,45 +545,6 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
 Options passed to Unix builtin `file' command.
-@end defvar
-
-@node emacspeak-ediff Options
-@section emacspeak-ediff Options
-
-Commentary:
-Ediff provides a nice visual interface to diff.  ;;;Comparing and
-patching files is easy with ediff when you can see the screen.
-This module provides Emacspeak extensions to work fluently
-with ediff. Try it out, it's an excellent example of why
-Emacspeak is better than a traditional screenreader.  This module
-was originally written to interface to the old ediff.el bundled
-with GNU Emacs 19.28 and earlier.  It has been updated to work
-with the newer and much larger ediff system found in Emacs 19.29
-and later.
-
-Automatically generated documentation
-for options defined in module  emacspeak-ediff.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-ediff-A-personality
-Personality used to voiceify difference chunk A
-@end defvar
-
-@defvar {User Option} emacspeak-ediff-B-personality
-Personality used to voiceify difference chunk B
-@end defvar
-
-@defvar {User Option} emacspeak-ediff-always-autorefine-diffs
-Says if emacspeak should try computing fine differences each time.
-Set this to nil if things get too slow.
-@end defvar
-
-@defvar {User Option} emacspeak-ediff-fine-A-personality
-Personality used to voiceify difference chunk A
-@end defvar
-
-@defvar {User Option} emacspeak-ediff-fine-B-personality
-Personality used to voiceify difference chunk B
 @end defvar
 
 @node emacspeak-entertain Options
