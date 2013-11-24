@@ -1386,7 +1386,7 @@ for commands defined in module  emacspeak-dired.
 
 Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
-unless `dired-listing-switches' contains -al
+unless `dired-listing-switches' contains -l
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-show-file-type nil
@@ -1494,13 +1494,13 @@ Do shift return in ECB tree browser.
 @section emacspeak-ediff
 
 Commentary:
-Ediff provides a nice visual interface to diff.  ;;;Comparing and
+Ediff provides a nice visual interface to diff. ;;;Comparing and
 patching files is easy with ediff when you can see the screen.
 This module provides Emacspeak extensions to work fluently
 with ediff. Try it out, it's an excellent example of why
-Emacspeak is better than a traditional screenreader.  This module
+Emacspeak is better than a traditional screenreader. This module
 was originally written to interface to the old ediff.el bundled
-with GNU Emacs 19.28 and earlier.  It has been updated to work
+with GNU Emacs 19.28 and earlier. It has been updated to work
 with the newer and much larger ediff system found in Emacs 19.29
 and later.
 
@@ -1525,7 +1525,7 @@ for commands defined in module  emacspeak-enriched.
 @kbd{Not bound to any key.}
 
 Map base fonts to voices.
-Useful in voicifying rich text.
+Useful in voiceifying rich text.
 @end deffn
 
 @node emacspeak-entertain
@@ -4783,7 +4783,7 @@ We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-voicify-rectangle nil
+@deffn {Interactive Command} emacspeak-voiceify-rectangle nil
 @kbd{Not bound to any key.}
 
 Voicify the current rectangle.
@@ -4792,7 +4792,7 @@ START END personality
 Prompts for PERSONALITY  with completion when called interactively.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-voicify-region nil
+@deffn {Interactive Command} emacspeak-voiceify-region nil
 @kbd{Not bound to any key.}
 
 Voicify the current region.

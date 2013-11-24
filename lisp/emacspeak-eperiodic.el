@@ -141,7 +141,7 @@
     (funcall emacspeak-media-player 
              (format  emacspeak-eperiodic-media-location
                       (eperiodic-get-element-property e 'symbol))
-             nil 'noselect)))
+             nil)))
 
 ;;}}}
 ;;{{{ advice interactive commands
