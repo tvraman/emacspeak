@@ -249,8 +249,8 @@ on a specific directory."
   (let ((command
          (eval 
           `(defun 
-             ,(intern (format "emacspeak-m-player-accelerator-%s" (gensym)))
-             ()
+               ,(intern (format "emacspeak-m-player-accelerator-%s" (gensym)))
+               ()
              (interactive)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)))

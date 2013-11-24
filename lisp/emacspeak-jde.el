@@ -197,8 +197,8 @@
       (setq  start (point))
       (end-of-line)
       (with-silent-modifications
-       (put-text-property start (point)
-                          'auditory-icon 'mark-object)))))
+        (put-text-property start (point)
+                           'auditory-icon 'mark-object)))))
 
 (defadvice jde-bug-remove-breakpoint-highlight (after emacspeak pre act comp)
   "Clear auditory annotation"
@@ -208,9 +208,9 @@
       (setq  start (point))
       (end-of-line)
       (with-silent-modifications
-       (remove-text-properties
-        start (point)
-        (list 'auditory-icon 'mark-object))))))
+        (remove-text-properties
+         start (point)
+         (list 'auditory-icon 'mark-object))))))
 
 (defadvice jde-bug-up-stack (after emacspeak pre act comp)
   "Speak the line we stepped to "

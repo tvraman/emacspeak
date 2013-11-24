@@ -59,51 +59,51 @@ Useful in voiceifying rich text."
             emacspeak-enriched-font-faces-to-voiceify))
   (set (make-local-variable 'voice-lock-mode) t)
   (with-silent-modifications
-   (save-excursion
-     (goto-char start)
-     (let ((face nil )
-           (orig start)
-           (pos nil)
-           (justification-type nil))
-       (unless (get-text-property (point) 'justification)
-         (goto-char
-          (or
-           (next-single-property-change (point) 'justification
-                                        (current-buffer) end)
-           end)))
-       (while (and  (not (eobp))
-                    (< start end))
-         (setq justification-type (get-text-property (point) 'justification))
-         (save-excursion
-           (beginning-of-line)
-           (setq pos (point)))
-         (goto-char
-          (or
-           (next-single-property-change (point) 'justification
-                                        (current-buffer) end)
-           end))
-         (when justification-type
-           (put-text-property pos (point)
-                              'auditory-icon
-                              justification-type))
-         (setq start (point)))
-       (goto-char orig)
-       (while (and  (not (eobp))
-                    (< start end))
-         (setq face (get-text-property (point) 'face ))
-         (goto-char
-          (or
-           (next-single-property-change (point) 'face
-                                        (current-buffer) end)
-           end))
-         (when face 
-           (put-text-property start  (point)
-                              'personality
-                              (if (listp face)
-                                  (loop for f in emacspeak-enriched-font-faces-to-voiceify
-                                        thereis (find f face))
-                                face )))
-         (setq start (point))))))
+    (save-excursion
+      (goto-char start)
+      (let ((face nil )
+            (orig start)
+            (pos nil)
+            (justification-type nil))
+        (unless (get-text-property (point) 'justification)
+          (goto-char
+           (or
+            (next-single-property-change (point) 'justification
+                                         (current-buffer) end)
+            end)))
+        (while (and  (not (eobp))
+                     (< start end))
+          (setq justification-type (get-text-property (point) 'justification))
+          (save-excursion
+            (beginning-of-line)
+            (setq pos (point)))
+          (goto-char
+           (or
+            (next-single-property-change (point) 'justification
+                                         (current-buffer) end)
+            end))
+          (when justification-type
+            (put-text-property pos (point)
+                               'auditory-icon
+                               justification-type))
+          (setq start (point)))
+        (goto-char orig)
+        (while (and  (not (eobp))
+                     (< start end))
+          (setq face (get-text-property (point) 'face ))
+          (goto-char
+           (or
+            (next-single-property-change (point) 'face
+                                         (current-buffer) end)
+            end))
+          (when face 
+            (put-text-property start  (point)
+                               'personality
+                               (if (listp face)
+                                   (loop for f in emacspeak-enriched-font-faces-to-voiceify
+                                         thereis (find f face))
+                                 face )))
+          (setq start (point))))))
   (message "voicified faces"))
 
 ;;}}}

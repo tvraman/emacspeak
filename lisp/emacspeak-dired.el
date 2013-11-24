@@ -283,7 +283,7 @@ unless `dired-listing-switches' contains -l"
   (declare (special dired-listing-switches))
   (when
       (save-match-data
-          (string-match  "l" dired-listing-switches))
+        (string-match  "l" dired-listing-switches))
     (let ((read-only buffer-read-only))
       (unwind-protect
           (progn

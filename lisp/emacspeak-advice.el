@@ -751,7 +751,7 @@ icon."
 
 (unless (boundp 'command-error-function)
   ;;; turn off tool-bar-mode -- since it raises signals during redisplay
-                (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)))
 
 ;;; Silence messages from async handlers:
 (defadvice timer-event-handler (around emacspeak pre act comp)
@@ -2885,20 +2885,20 @@ Variable mark-even-if-inactive is set true ."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
     (with-silent-modifications
-     (add-text-properties
-      beg end
-      (list 'personality voice-bolden
-            'auditory-icon 'button)))))
+      (add-text-properties
+       beg end
+       (list 'personality voice-bolden
+             'auditory-icon 'button)))))
 
 (defadvice make-button (after emacspeak pre act comp)
   "Adds property personality."
   (let ((beg (ad-get-arg 0))
         (end (ad-get-arg 1)))
     (with-silent-modifications
-     (add-text-properties
-      beg end
-      (list 'personality voice-bolden
-            'auditory-icon 'button)))))
+      (add-text-properties
+       beg end
+       (list 'personality voice-bolden
+             'auditory-icon 'button)))))
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."

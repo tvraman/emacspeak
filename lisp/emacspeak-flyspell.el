@@ -98,8 +98,8 @@
 `voice-animate' from beg to end"
   (declare (special voice-animate))
   (with-silent-modifications
-   (put-text-property beg end 'personality
-                      voice-animate))
+    (put-text-property beg end 'personality
+                       voice-animate))
   (emacspeak-speak-region beg end)
   nil)
 

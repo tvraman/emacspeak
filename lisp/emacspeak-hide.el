@@ -209,13 +209,13 @@ Returns t if a block was found and hidden."
         (cond
          ((> count 1)
           (with-silent-modifications
-           (add-text-properties start (point)
-                                (list 'invisible t
-                                      'intangible t))
-           (add-text-properties begin (point)
-                                (list 'emacspeak-hide-block-prefix (nth 2  prefix)
-                                      'emacspeak-hidden-block (first prefix)
-                                      'personality emacspeak-hidden-header-line-personality)))
+            (add-text-properties start (point)
+                                 (list 'invisible t
+                                       'intangible t))
+            (add-text-properties begin (point)
+                                 (list 'emacspeak-hide-block-prefix (nth 2  prefix)
+                                       'emacspeak-hidden-block (first prefix)
+                                       'personality emacspeak-hidden-header-line-personality)))
           (message "Hid %s  %s lines"
                    count (first prefix))
           t)
@@ -243,14 +243,14 @@ Returns t if a block was found and hidden."
               (next-single-property-change (point) 'emacspeak-hidden-block
                                            (current-buffer) (point-max)))
         (with-silent-modifications
-         (put-text-property start end
-                            'emacspeak-hidden-block nil)
-         (put-text-property start end
-                            'emacspeak-hide-block-prefix nil)
-         (add-text-properties start end
-                              (list 'invisible nil
-                                    'intangible nil
-                                    'personality nil)))
+          (put-text-property start end
+                             'emacspeak-hidden-block nil)
+          (put-text-property start end
+                             'emacspeak-hide-block-prefix nil)
+          (add-text-properties start end
+                               (list 'invisible nil
+                                     'intangible nil
+                                     'personality nil)))
         (message "Exposed %s block containing %s lines"
                  block-name
                  (count-lines start end))
@@ -395,14 +395,14 @@ and when you have heard enough navigate easily  to move past the block."
         (set-buffer scratch-buffer)
         (setq buffer-undo-list t)
         (with-silent-modifications
-         (erase-buffer)
-         (insert contents)
-         (put-text-property (point-min)
-                            (point-max)
-                            'invisible nil)
-         (goto-char (point-min))
-         (while (re-search-forward block nil t)
-           (replace-match " ")))
+          (erase-buffer)
+          (insert contents)
+          (put-text-property (point-min)
+                             (point-max)
+                             'invisible nil)
+          (goto-char (point-min))
+          (while (re-search-forward block nil t)
+            (replace-match " ")))
         (emacspeak-speak-region (point-min) (point-max)))
        (t (message "Not on a hidden block"))))))
 

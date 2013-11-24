@@ -149,8 +149,8 @@
           (set-buffer calendar-buffer)
           (calendar-cursor-to-visible-date date)
           (with-silent-modifications
-           (put-text-property  (1-(point)) (1+ (point))
-                               'personality   emacspeak-calendar-mark-personality ))))))
+            (put-text-property  (1-(point)) (1+ (point))
+                                'personality   emacspeak-calendar-mark-personality ))))))
 
 (defvar emacspeak-calendar-mode-line-format
   '((calendar-date-string (calendar-current-date))  "Calendar")

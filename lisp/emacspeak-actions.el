@@ -63,10 +63,10 @@ emacspeak to show the matching paren when the cursor moves across a right paren.
   (save-current-buffer
     (goto-char (point-min))
     (with-silent-modifications
-     (while (search-forward ")" nil t )
-       (put-text-property  (point) (1+ (point))
-                           'emacspeak-action
-                           'emacspeak-blink-matching-open )))))
+      (while (search-forward ")" nil t )
+        (put-text-property  (point) (1+ (point))
+                            'emacspeak-action
+                            'emacspeak-blink-matching-open )))))
 (add-hook 'emacspeak-emacs-lisp-mode-actions-hook
           'emacspeak-activate-match-blinker )
 ;;}}}
@@ -80,10 +80,10 @@ emacspeak to speak the semantics of the line
   (save-current-buffer
     (goto-char (point-min))
     (with-silent-modifications
-     (while (search-forward "}" nil t )
-       (put-text-property  (point) (1+ (point))
-                           'emacspeak-action
-                           'emacspeak-c-speak-semantics )))))
+      (while (search-forward "}" nil t )
+        (put-text-property  (point) (1+ (point))
+                            'emacspeak-action
+                            'emacspeak-c-speak-semantics )))))
 (add-hook 'emacspeak-c-mode-actions-hook
           'emacspeak-c-speak-semantics-when-on-closing-brace)
 

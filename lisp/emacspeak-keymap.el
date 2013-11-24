@@ -518,7 +518,7 @@ relief."
 ;;{{{  removing emacspeak-self-insert-command in non-edit modes.
 ;;;###autoload
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
-  (keymap)
+    (keymap)
   "We define keys that invoke editing commands to be undefined"
   (loop for k in
         (where-is-internal 'emacspeak-self-insert-command

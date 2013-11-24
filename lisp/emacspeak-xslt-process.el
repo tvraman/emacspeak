@@ -102,10 +102,10 @@
             (end (progn (end-of-line)
                         (point))))
         (with-silent-modifications
-         (put-text-property start end
-                            'auditory-icon 'mark-object)
-         (put-text-property start end
-                            'personality voice-animate))
+          (put-text-property start end
+                             'auditory-icon 'mark-object)
+          (put-text-property start end
+                             'personality voice-animate))
         (emacspeak-speak-line)
         (emacspeak-auditory-icon 'mark-object)))))
 (defadvice xslt-process-remove-breakpoint (after emacspeak pre
@@ -118,8 +118,8 @@
             (end (progn (end-of-line)
                         (point))))
         (with-silent-modifications
-         (put-text-property start end
-                            'auditory-icon nil))
+          (put-text-property start end
+                             'auditory-icon nil))
         (emacspeak-speak-line)
         (emacspeak-auditory-icon 'deselect-object)))))
 

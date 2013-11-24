@@ -621,8 +621,8 @@ b Browse
       do
       (eval
        `(defun
-          ,(intern (format "emacspeak-bookshare-%s-handler" container))
-          (element)
+            ,(intern (format "emacspeak-bookshare-%s-handler" container))
+            (element)
           "Process children silently."
           (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children element)))))
 
@@ -754,8 +754,8 @@ b Browse
       do
       (eval
        `(defun
-          ,(intern (format "emacspeak-bookshare-%s-handler" e))
-          (element)
+            ,(intern (format "emacspeak-bookshare-%s-handler" e))
+            (element)
           ,(format "Handle leaf-level element  %s. " e)
           (insert (format "%s:\t" ,e))
           (mapc #'insert (xml-tag-children  element))

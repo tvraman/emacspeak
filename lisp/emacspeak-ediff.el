@@ -64,99 +64,99 @@
 
 (voice-setup-add-map
  '(
- (ediff-current-diff-A voice-smoothen)
- (ediff-current-diff-B voice-brighten)
- (ediff-current-diff-C voice-lighten)
- (ediff-current-diff-Ancestor voice-lighten-extra)
- (ediff-fine-diff-A voice-smoothen )
- (ediff-fine-diff-B voice-brighten)
- (ediff-fine-diff-C voice-monotone)
- (ediff-fine-diff-Ancestor voice-lighten-extra)
- (ediff-even-diff-A voice-brighten)
- (ediff-even-diff-B voice-smoothen)
- (ediff-even-diff-C voice-monotone)
- (ediff-even-diff-Ancestor voice-monotone)
- (ediff-odd-diff-A voice-smoothen)
- (ediff-odd-diff-B voice-brighten)
- (ediff-odd-diff-C voice-monotone)
- (ediff-odd-diff-Ancestor voice-lighten)
- ))
+   (ediff-current-diff-A voice-smoothen)
+   (ediff-current-diff-B voice-brighten)
+   (ediff-current-diff-C voice-lighten)
+   (ediff-current-diff-Ancestor voice-lighten-extra)
+   (ediff-fine-diff-A voice-smoothen )
+   (ediff-fine-diff-B voice-brighten)
+   (ediff-fine-diff-C voice-monotone)
+   (ediff-fine-diff-Ancestor voice-lighten-extra)
+   (ediff-even-diff-A voice-brighten)
+   (ediff-even-diff-B voice-smoothen)
+   (ediff-even-diff-C voice-monotone)
+   (ediff-even-diff-Ancestor voice-monotone)
+   (ediff-odd-diff-A voice-smoothen)
+   (ediff-odd-diff-B voice-brighten)
+   (ediff-odd-diff-C voice-monotone)
+   (ediff-odd-diff-Ancestor voice-lighten)
+   ))
 
 ;;}}}
 ;;{{{ Helper functions:
 
 (defvar emacspeak-ediff-control-buffer nil
- "Holds the control buffer for the most recent ediff")
+  "Holds the control buffer for the most recent ediff")
 ;;;Please tell me what control buffer you're using--
 
 (defadvice ediff-setup-control-buffer (after emacspeak pre act )
- (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
+  (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
 
 (defsubst emacspeak-ediff-control-panel ()
- (declare (special emacspeak-ediff-control-buffer ))
- emacspeak-ediff-control-buffer)
+  (declare (special emacspeak-ediff-control-buffer ))
+  emacspeak-ediff-control-buffer)
 
 (defsubst emacspeak-ediff-difference-a-overlay (n)
- (declare (special ediff-difference-vector-A
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-A n) 0))
+  (declare (special ediff-difference-vector-A
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-A n) 0))
 
 (defsubst emacspeak-ediff-difference-b-overlay (n)
- (declare (special ediff-difference-vector-B
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-B n) 0))
+  (declare (special ediff-difference-vector-B
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-B n) 0))
 
 (defsubst emacspeak-ediff-difference-c-overlay (n)
- (declare (special ediff-difference-vector-B
- ediff-difference-vector-C
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-C n) 0))
+  (declare (special ediff-difference-vector-B
+                    ediff-difference-vector-C
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-C n) 0))
 
 (defsubst emacspeak-ediff-fine-difference-a-overlays (n)
- (declare (special ediff-difference-vector-A
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-A n) 1))
+  (declare (special ediff-difference-vector-A
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-A n) 1))
 
 (defsubst emacspeak-ediff-fine-difference-b-overlays (n)
- (declare (special ediff-difference-vector-B
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-B n) 1))
+  (declare (special ediff-difference-vector-B
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-B n) 1))
 
 (defsubst emacspeak-ediff-fine-difference-c-overlays (n)
- (declare (special ediff-difference-vector-B
- ediff-difference-vector-C
- ediff-number-of-differences))
- (assert (< n ediff-number-of-differences) t
- "There are only %s differences"
- ediff-number-of-differences)
- (aref (aref ediff-difference-vector-C n) 1))
+  (declare (special ediff-difference-vector-B
+                    ediff-difference-vector-C
+                    ediff-number-of-differences))
+  (assert (< n ediff-number-of-differences) t
+          "There are only %s differences"
+          ediff-number-of-differences)
+  (aref (aref ediff-difference-vector-C n) 1))
 
 (defsubst emacspeak-ediff-difference-fine-diff (difference)
- (aref difference 2))
+  (aref difference 2))
 
 ;;}}}
 ;;{{{ Diff Overlay Accessors:
 
 (defsubst emacspeak-ediff-diff-overlay-from-difference (diff counter )
- (aref (aref diff counter) 0))
+  (aref (aref diff counter) 0))
 
 (defsubst emacspeak-ediff-fine-overlays-from-difference (diff counter )
- (aref (aref diff counter) 1))
+  (aref (aref diff counter) 1))
 
 ;;}}}
 ;;{{{ Setup Ediff Hook
@@ -164,9 +164,9 @@
 (add-hook
  'ediff-startup-hook
  #'(lambda ()
- (declare (special ediff-mode-map voice-lock-mode))
- (setq voice-lock-mode t)
- (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
+     (declare (special ediff-mode-map voice-lock-mode))
+     (setq voice-lock-mode t)
+     (define-key ediff-mode-map "." 'emacspeak-ediff-speak-current-difference)))
 
 ;;}}}
 ;;{{{ Speak an ediff difference:
@@ -177,127 +177,127 @@
 ;;; and offer to speak difference b.
 
 (defun emacspeak-ediff-speak-difference (n)
- "Speak a difference chunk"
- (with-silent-modifications
- (let ((a-overlay (emacspeak-ediff-difference-a-overlay n ))
- (b-overlay (emacspeak-ediff-difference-b-overlay n ))
- (key ""))
- (emacspeak-auditory-icon 'select-object)
- (dtk-speak
- (concat
- "Difference ai "
- (emacspeak-overlay-get-text a-overlay)))
- (let ((dtk-stop-immediately nil ))
- (sit-for 2)
- (setq key
- (read-key-sequence "Press any key to continue" )))
- (unless (= 7 (string-to-char key ))
- (dtk-stop)
- (dtk-speak
- (concat
- "Difference B "
- (emacspeak-overlay-get-text b-overlay )))))))
+  "Speak a difference chunk"
+  (with-silent-modifications
+    (let ((a-overlay (emacspeak-ediff-difference-a-overlay n ))
+          (b-overlay (emacspeak-ediff-difference-b-overlay n ))
+          (key ""))
+      (emacspeak-auditory-icon 'select-object)
+      (dtk-speak
+       (concat
+        "Difference ai "
+        (emacspeak-overlay-get-text a-overlay)))
+      (let ((dtk-stop-immediately nil ))
+        (sit-for 2)
+        (setq key
+              (read-key-sequence "Press any key to continue" )))
+      (unless (= 7 (string-to-char key ))
+        (dtk-stop)
+        (dtk-speak
+         (concat
+          "Difference B "
+          (emacspeak-overlay-get-text b-overlay )))))))
 
 (defun emacspeak-ediff-speak-current-difference ()
- "Speak the current difference"
- (interactive)
- (declare (special ediff-current-difference
- ediff-number-of-differences))
- (emacspeak-ediff-speak-difference
- (cond
- ((minusp ediff-current-difference) 0)
- ((>= ediff-current-difference ediff-number-of-differences)
- (1- ediff-number-of-differences))
- (t ediff-current-difference))))
+  "Speak the current difference"
+  (interactive)
+  (declare (special ediff-current-difference
+                    ediff-number-of-differences))
+  (emacspeak-ediff-speak-difference
+   (cond
+    ((minusp ediff-current-difference) 0)
+    ((>= ediff-current-difference ediff-number-of-differences)
+     (1- ediff-number-of-differences))
+    (t ediff-current-difference))))
 
 ;;}}}
 ;;{{{ Advice:
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
- "Speak the difference interactively."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-ediff-speak-current-difference)))
+  "Speak the difference interactively."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-previous-difference (after emacspeak pre act comp)
- "Speak the difference interactively."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-ediff-speak-current-difference)))
+  "Speak the difference interactively."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-status-info (after emacspeak pre act )
- "Speak the status information"
- (when (ems-interactive-p )
- (save-current-buffer
- (set-buffer " *ediff-info*")
- (emacspeak-speak-buffer ))))
+  "Speak the status information"
+  (when (ems-interactive-p )
+    (save-current-buffer
+      (set-buffer " *ediff-info*")
+      (emacspeak-speak-buffer ))))
 
 (defadvice ediff-scroll-up (after emacspeak pre act )
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'scroll)
- (message "Scrolled up buffers A and B")))
+  "Provide auditory feedback"
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'scroll)
+    (message "Scrolled up buffers A and B")))
 
 (defadvice ediff-scroll-down (after emacspeak pre act )
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'scroll)
- (message "Scrolled down buffers A and B")))
+  "Provide auditory feedback"
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'scroll)
+    (message "Scrolled down buffers A and B")))
 
 (defadvice ediff-toggle-split (after emacspeak pre act )
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (if (eq ediff-split-window-function 'split-window-vertically)
- (message "Split ediff windows vertically")
- (message "Split ediff windows horizontally"))))
+  "Provide auditory feedback"
+  (when (ems-interactive-p )
+    (if (eq ediff-split-window-function 'split-window-vertically)
+        (message "Split ediff windows vertically")
+      (message "Split ediff windows horizontally"))))
 
 (defadvice ediff-recenter (after emacspeak pre act )
- "Provide spoken feedback"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object )
- (message "Refreshed the ediff display")))
+  "Provide spoken feedback"
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'select-object )
+    (message "Refreshed the ediff display")))
 
 (defadvice ediff-jump-to-difference (after emacspeak pre act )
- "Speak the difference you jumped to"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-ediff-speak-current-difference )))
+  "Speak the difference you jumped to"
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ediff-speak-current-difference )))
 
 (defadvice ediff-jump-to-difference-at-point (after emacspeak pre act )
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-ediff-speak-current-difference)))
+  "Provide auditory feedback"
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ediff-speak-current-difference)))
 
 ;;; advice meta panel
 (defadvice ediff-previous-meta-item (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-speak-line)
- (emacspeak-auditory-icon 'select-object )))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object )))
 (defadvice ediff-next-meta-item (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-speak-line)
- (emacspeak-auditory-icon 'select-object )))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object )))
 
 (defadvice ediff-registry-action (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-speak-mode-line)
- (emacspeak-auditory-icon 'open-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'open-object)
- (message "Welcome to the Ediff registry")))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'open-object)
+    (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (message "turned %s file name truncation in Ediff registry"
- ediff-meta-truncate-filenames)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (message "turned %s file name truncation in Ediff registry"
+             ediff-meta-truncate-filenames)))
 
 ;;}}}
 (provide 'emacspeak-ediff)
