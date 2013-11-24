@@ -146,7 +146,6 @@
 ;;}}}
 ;;{{{ Worksheets:
 
-
 (loop for f in
       '(
         ein:worksheet-clear-all-output
@@ -166,11 +165,11 @@
 
 (loop for f in
       '(
-         ein:worksheet-execute-all-cell
- ein:worksheet-execute-autoexec-cells
- ein:worksheet-execute-cell-and-insert-below
- ein:worksheet-execute-cell-and-goto-next
- ein:worksheet-execute-cell)
+        ein:worksheet-execute-all-cell
+        ein:worksheet-execute-autoexec-cells
+        ein:worksheet-execute-cell-and-insert-below
+        ein:worksheet-execute-cell-and-goto-next
+        ein:worksheet-execute-cell)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -183,7 +182,7 @@
         ein:worksheet-goto-next-input
         ein:worksheet-goto-prev-input
         ein:worksheet-next-input-history
- ein:worksheet-previous-input-history
+        ein:worksheet-previous-input-history
         )
       do
       (eval
@@ -197,7 +196,7 @@
       '(
         ein:worksheet-yank-cell
         ein:worksheet-insert-cell-above
- ein:worksheet-insert-cell-below)
+        ein:worksheet-insert-cell-below)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -206,11 +205,10 @@
             (emacspeak-auditory-icon 'yank-object)
             (emacspeak-speak-line)))))
 
- 
 ;; ein:worksheet-merge-cell
 ;; ein:worksheet-move-cell-down
 ;; ein:worksheet-move-cell-up
- 
+
 ;; ein:worksheet-rename-sheet
 ;; ein:worksheet-set-output-visibility-all
 ;; ein:worksheet-split-cell-at-point
@@ -218,7 +216,6 @@
 ;; ein:worksheet-toggle-cell-type
 ;; ein:worksheet-toggle-output
 ;; ein:worksheet-turn-on-autoexec
- 
 
 ;;}}}
 ;;{{{ Bind additional interactive commands

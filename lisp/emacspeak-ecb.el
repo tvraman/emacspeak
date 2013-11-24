@@ -185,9 +185,9 @@ available."
             (search-forward tree-buffer-incr-searchpattern)
             (setq end (point))
             (with-silent-modifications
-             (ems-set-personality-temporarily
-              beg end   voice-bolden
-              (emacspeak-speak-line)))
+              (ems-set-personality-temporarily
+               beg end   voice-bolden
+               (emacspeak-speak-line)))
             (emacspeak-auditory-icon 'search-hit))))
        (t (emacspeak-auditory-icon 'search-miss)))))
    (t ad-do-it))

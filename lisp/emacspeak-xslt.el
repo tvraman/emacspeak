@@ -383,7 +383,7 @@ part of the libxslt package."
     current-prefix-arg))
   (let ((src-buffer
          (with-silent-modifications
-          (emacspeak-xslt-region style start end))))
+           (emacspeak-xslt-region style start end))))
     (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent

@@ -275,8 +275,8 @@
   (let ((beg (ad-get-arg 1))
         (end (ad-get-arg 2)))
     (with-silent-modifications
-     (put-text-property beg end
-                        'personality voice-bolden))
+      (put-text-property beg end
+                         'personality voice-bolden))
     (emacspeak-speak-line)
     (sit-for 2)))
 

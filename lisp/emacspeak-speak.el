@@ -150,7 +150,7 @@ Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   `(let ((saved-personality (get-text-property ,start 'personality)))
      (with-silent-modifications
-     (unwind-protect
+       (unwind-protect
            (progn
              (put-text-property
               (max (point-min) ,start)
@@ -160,7 +160,6 @@ Argument BODY specifies forms to execute."
          (put-text-property
           (max (point-min) ,start)
           (min (point-max)  ,end) 'personality saved-personality)))))         
-         
 
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
@@ -192,12 +191,12 @@ Argument BODY specifies forms to execute."
   (save-excursion
     (goto-char (point-max))
     (with-silent-modifications
-     (let ((sound-cue 'paragraph))
-       (while (not (bobp))
-         (backward-paragraph)
-         (put-text-property  (point)
-                             (+ 2    (point ))
-                             'auditory-icon sound-cue ))))))
+      (let ((sound-cue 'paragraph))
+        (while (not (bobp))
+          (backward-paragraph)
+          (put-text-property  (point)
+                              (+ 2    (point ))
+                              'auditory-icon sound-cue ))))))
 
 (defcustom  emacspeak-speak-paragraph-personality voice-animate
   "*Personality used to mark start of paragraph."
@@ -226,14 +225,14 @@ Useful to do this before you listen to an entire buffer."
                 (inhibit-point-motion-hooks t)
                 (deactivate-mark nil))
             (with-silent-modifications
-             (while (re-search-forward blank-line nil t)
-               (skip-syntax-forward " ")
-               (setq start (point))
-               (unless (get-text-property start 'personality)
-                 (skip-syntax-forward "^ ")
-                 (put-text-property start (point)
-                                    'personality
-                                    emacspeak-speak-paragraph-personality)))))
+              (while (re-search-forward blank-line nil t)
+                (skip-syntax-forward " ")
+                (setq start (point))
+                (unless (get-text-property start 'personality)
+                  (skip-syntax-forward "^ ")
+                  (put-text-property start (point)
+                                     'personality
+                                     emacspeak-speak-paragraph-personality)))))
         (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
@@ -559,17 +558,17 @@ current local  value to the result.")
         (personality (if invert-filter nil
                        'inaudible)))
     (with-silent-modifications
-     (when invert-filter
-       (put-text-property  0   l
-                           'personality 'inaudible line))
-     (while filter
-       (setq pair (pop filter))
-       (when (and (<= (first pair) l)
-                  (<= (second pair) l))
-         (put-text-property (first pair)
-                            (second pair)
-                            'personality personality
-                            line))))
+      (when invert-filter
+        (put-text-property  0   l
+                            'personality 'inaudible line))
+      (while filter
+        (setq pair (pop filter))
+        (when (and (<= (first pair) l)
+                   (<= (second pair) l))
+          (put-text-property (first pair)
+                             (second pair)
+                             'personality personality
+                             line))))
     line))
 
 (defsubst emacspeak-speak-persist-filter-entry (k v)
@@ -864,7 +863,7 @@ are indicated with auditory icon ellipses."
                  ((y-or-n-p (format "Speak  this  %s long line? " l))
                   (setq emacspeak-speak-maximum-line-length (1+ l))
                   (with-silent-modifications
-                   (put-text-property start end 'speak-line t))
+                    (put-text-property start end 'speak-line t))
                   t))))
             (when  speakable
               (cond
@@ -2567,14 +2566,14 @@ Numeric prefix arg COUNT can specify number of lines to move."
   (let  ((residue nil )
          )
     (save-current-buffer
-          (set-buffer (window-buffer (next-window )))
-          (end-of-line)
-          (setq residue (forward-line count))
-          (cond
-           ((> residue 0) (message "At bottom of other window "))
-           (t (set-window-point (get-buffer-window (current-buffer ))
-                                (point))
-              (emacspeak-speak-line ))))))
+      (set-buffer (window-buffer (next-window )))
+      (end-of-line)
+      (setq residue (forward-line count))
+      (cond
+       ((> residue 0) (message "At bottom of other window "))
+       (t (set-window-point (get-buffer-window (current-buffer ))
+                            (point))
+          (emacspeak-speak-line ))))))
 
 ;;;###autoload
 (defun emacspeak-owindow-previous-line (count)
@@ -2584,25 +2583,24 @@ Numeric prefix arg COUNT specifies number of lines to move."
   (setq count (or count 1 ))
   (let  ((residue nil ))
     (save-current-buffer
-          (set-buffer (window-buffer (next-window )))
-          (end-of-line)
-          (setq residue (forward-line (- count)))
-          (cond
-           ((> 0 residue) (message "At top of other window "))
-           (t (set-window-point (get-buffer-window (current-buffer ))
-                                (point))
-              (emacspeak-speak-line ))))))
-      
+      (set-buffer (window-buffer (next-window )))
+      (end-of-line)
+      (setq residue (forward-line (- count)))
+      (cond
+       ((> 0 residue) (message "At top of other window "))
+       (t (set-window-point (get-buffer-window (current-buffer ))
+                            (point))
+          (emacspeak-speak-line ))))))
 
 ;;;###autoload
 (defun emacspeak-owindow-speak-line ()
   "Speak the current line in the other window."
   (interactive)
-    (save-current-buffer
-          (set-buffer (window-buffer (next-window )))
-          (goto-char (window-point ))
-          (emacspeak-speak-line)))
-      
+  (save-current-buffer
+    (set-buffer (window-buffer (next-window )))
+    (goto-char (window-point ))
+    (emacspeak-speak-line)))
+
 ;;;###autoload
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
@@ -2778,10 +2776,10 @@ Prompts for PERSONALITY  with completion when called interactively."
              (completing-read "Use personality: "
                               personality-table nil t ))))
     (with-silent-modifications
-     (operate-on-rectangle
-      (function (lambda ( start-seg begextra endextra )
-                  (emacspeak-put-personality start-seg  (point) personality )))
-      start end  nil))))
+      (operate-on-rectangle
+       (function (lambda ( start-seg begextra endextra )
+                   (emacspeak-put-personality start-seg  (point) personality )))
+       start end  nil))))
 
 ;;;###autoload
 (defun emacspeak-voiceify-region (start end &optional personality )
@@ -3032,14 +3030,14 @@ Argument O specifies overlay."
 (defsubst emacspeak-make-string-inaudible(string)
   (unless (string-match "^ *$" string)
     (with-silent-modifications
-     (save-excursion
-       (goto-char (point-min))
-       (save-match-data
-         (with-silent-modifications
-          (while (search-forward string nil t)
-            (put-text-property (match-beginning 0)
-                               (match-end 0)
-                               'personality 'inaudible))))))))
+      (save-excursion
+        (goto-char (point-min))
+        (save-match-data
+          (with-silent-modifications
+            (while (search-forward string nil t)
+              (put-text-property (match-beginning 0)
+                                 (match-end 0)
+                                 'personality 'inaudible))))))))
 
 ;;;###autoload
 (defun emacspeak-switch-to-reference-buffer ()

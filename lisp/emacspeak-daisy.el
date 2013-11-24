@@ -644,21 +644,21 @@ navigation buffer that can be used to browse and read the book."
   (unless (eq major-mode 'emacspeak-daisy-mode)
     (error "Not in emacspeak-daisy-mode."))
   (with-silent-modifications
-   (save-excursion
-     (goto-char (point-min))
-     (let ((entry nil)
-           (start nil)
-           (end nil)
-           (bookmark nil))
-       (while bookmarks
-         (setq entry (pop bookmarks))
-         (setq start (car (first entry))
-               end (cdr (first entry))
-               bookmark (second entry))
-         (put-text-property start end
-                            'bookmark bookmark)
-         (put-text-property start end
-                            'face 'highlight))))))
+    (save-excursion
+      (goto-char (point-min))
+      (let ((entry nil)
+            (start nil)
+            (end nil)
+            (bookmark nil))
+        (while bookmarks
+          (setq entry (pop bookmarks))
+          (setq start (car (first entry))
+                end (cdr (first entry))
+                bookmark (second entry))
+          (put-text-property start end
+                             'bookmark bookmark)
+          (put-text-property start end
+                             'face 'highlight))))))
 
 ;;;###autoload
 (defun emacspeak-daisy-mark-position-in-content-under-point ()
@@ -668,13 +668,13 @@ No-op if content under point is not currently displayed."
   (cond
    ((get-text-property (point) 'viewer)
     (with-silent-modifications
-     (put-text-property (line-beginning-position) (line-end-position)
-                        'bookmark
-                        (save-current-buffer
-                          (set-buffer (get-text-property (point) 'viewer))
-                          (point)))
-     (put-text-property (line-beginning-position) (line-end-position)
-                        'face 'highlight))
+      (put-text-property (line-beginning-position) (line-end-position)
+                         'bookmark
+                         (save-current-buffer
+                           (set-buffer (get-text-property (point) 'viewer))
+                           (point)))
+      (put-text-property (line-beginning-position) (line-end-position)
+                         'face 'highlight))
     (message "Marked position."))
    (t (message "Content not currently displayed."))))
 

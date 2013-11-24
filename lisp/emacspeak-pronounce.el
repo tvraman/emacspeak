@@ -352,13 +352,13 @@ Optional argument FILENAME specifies the dictionary file."
                     emacspeak-pronounce-current-buffer))
   (let ((string
          (save-current-buffer
-                  (set-buffer emacspeak-pronounce-current-buffer)
-                  (goto-char emacspeak-pronounce-yank-word-point)
-                  (buffer-substring-no-properties
-                   (point)
-                   (save-excursion
-                     (forward-word 1)
-                     (setq emacspeak-pronounce-yank-word-point (point)))))))
+           (set-buffer emacspeak-pronounce-current-buffer)
+           (goto-char emacspeak-pronounce-yank-word-point)
+           (buffer-substring-no-properties
+            (point)
+            (save-excursion
+              (forward-word 1)
+              (setq emacspeak-pronounce-yank-word-point (point)))))))
     (insert string)
     (dtk-speak string)))
 

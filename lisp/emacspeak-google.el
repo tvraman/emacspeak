@@ -344,11 +344,11 @@ This variable is buffer-local.")
       do
       (eval
        `(defun
-          ,(intern
-            (format
-             "emacspeak-google-toolbelt-change-%s"
-             (emacspeak-google-tool-name this-tool)))
-          ()
+            ,(intern
+              (format
+               "emacspeak-google-toolbelt-change-%s"
+               (emacspeak-google-tool-name this-tool)))
+            ()
           ,(format
             "Change  %s in the currently active toolbelt."
             (emacspeak-google-tool-name this-tool))

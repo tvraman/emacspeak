@@ -1806,17 +1806,17 @@ Extracted content is placed as a csv file in task.csv."
   (declare (special emacspeak-wizards-table-content-extractor))
   (let ((buffer (get-buffer-create " *table extractor*")))
     (save-cur
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (call-process
-       emacspeak-wizards-table-content-extractor
-       nil t nil
-       "--url"  url
-       "--depth" depth
-       "--count" count
-       "2>/dev/null")
-      (emacspeak-table-view-csv-buffer))))
+     (set-buffer buffer)
+     (erase-buffer)
+     (setq buffer-undo-list t)
+     (call-process
+      emacspeak-wizards-table-content-extractor
+      nil t nil
+      "--url"  url
+      "--depth" depth
+      "--count" count
+      "2>/dev/null")
+     (emacspeak-table-view-csv-buffer))))
 
 ;;;###autoload
 (defun emacspeak-wizards-get-table-content-from-file ( file depth count )
@@ -3163,24 +3163,24 @@ Default is to add autoload cookies to current file."
   (let ((buffer (find-file-noselect f))
         (count 0))
     (save-cur
-      (set-buffer buffer)
-      (goto-char (point-min))
-      (unless (eq major-mode'emacs-lisp-mode)
-        (error "Not an Emacs Lisp file."))
-      (goto-char (point-min))
-      (condition-case nil
-          (while    (not (eobp))
-            (re-search-forward "^ *(interactive")
-            (beginning-of-defun)
-            (forward-line -1)
-            (unless (looking-at emacspeak-autoload-cookie-pattern)
-              (incf count)
-              (forward-line 1)
-              (beginning-of-line)
-              (insert
-               (format "%s\n"emacspeak-autoload-cookie-pattern)))
-            (end-of-defun))
-        (error "Added %d autoload cookies." count)))))
+     (set-buffer buffer)
+     (goto-char (point-min))
+     (unless (eq major-mode'emacs-lisp-mode)
+       (error "Not an Emacs Lisp file."))
+     (goto-char (point-min))
+     (condition-case nil
+         (while    (not (eobp))
+           (re-search-forward "^ *(interactive")
+           (beginning-of-defun)
+           (forward-line -1)
+           (unless (looking-at emacspeak-autoload-cookie-pattern)
+             (incf count)
+             (forward-line 1)
+             (beginning-of-line)
+             (insert
+              (format "%s\n"emacspeak-autoload-cookie-pattern)))
+           (end-of-defun))
+       (error "Added %d autoload cookies." count)))))
 
 ;;}}}
 ;;{{{ mail signature:

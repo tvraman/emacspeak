@@ -163,9 +163,9 @@ Summarize the form to welcome the user. "
    (t (let ((start (point)))
         ad-do-it
         (with-silent-modifications
-         (put-text-property start (point)
-                            'personality
-                            emacspeak-eudc-attribute-value-personality)))))
+          (put-text-property start (point)
+                             'personality
+                             emacspeak-eudc-attribute-value-personality)))))
   ad-return-value)
 
 ;;}}}
