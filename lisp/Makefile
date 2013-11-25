@@ -132,6 +132,7 @@ emacspeak-ecb.elc \
 emacspeak-ein.elc \
 emacspeak-ediary.elc \
 emacspeak-ediff.elc \
+emacspeak-eww.elc \
 flite-voices.elc \
 emacspeak-eclim.elc \
 emacspeak-enriched.elc \
@@ -369,6 +370,7 @@ emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc voice-setup.elc
 emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
+emacspeak-eww.elc: emacspeak-eww.el dtk-speak.elc voice-setup.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc voice-setup.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
 emacspeak-find-dired.elc: emacspeak-find-dired.el dtk-speak.elc voice-setup.elc
