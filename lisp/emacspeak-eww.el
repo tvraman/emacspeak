@@ -66,7 +66,43 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+(loop
+ for f in
+ '(eww eww-reload
+        eww-up-url eww-top-url
+   eww-next-url eww-previous-url
+   eww-back-url eww-forward-url)
+      do
+      (eval
+       `(defadvice  ,f (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak eww-current-title)))))
 
+; eww-add-bookmark
+; eww-beginning-of-text
+; eww-bookmark-browse
+; eww-bookmark-kill
+;eww-bookmark-mode
+; eww-bookmark-quit
+; eww-bookmark-yank
+; eww-browse-with-external-browser
+; eww-change-select
+; eww-copy-page-url
+; eww-download
+; eww-end-of-text
+; eww-list-bookmarks
+; eww-mode
+; eww-next-bookmark
+; eww-open-file
+; eww-previous-bookmark
+; eww-quit
+; 
+; eww-submit
+; eww-toggle-checkbox
+; 
+;
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
