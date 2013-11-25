@@ -57,6 +57,7 @@
 ;;{{{  Voices
 (voice-setup-add-map
  '(
+   (info-index-match 'voice-bolden-medium)
    (info-title-1 voice-bolden-extra)
    (info-title-2 voice-bolden-medium)
    (info-title-3 voice-bolden)
