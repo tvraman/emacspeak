@@ -421,6 +421,7 @@ punctuations.")
 
 (voice-setup-add-map
  '(
+   (shr-link voice-bolden)
    (bold voice-bolden)
    (variable-pitch voice-animate)
    (bold-italic voice-bolden-and-animate)
