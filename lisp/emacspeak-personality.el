@@ -284,6 +284,20 @@ displayed in the messages area."
         (when voice
           (funcall emacspeak-personality-voiceify-faces start end voice object))))))
 
+(defadvice add-face-text-property (after emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
+    (let ((start (ad-get-arg 0))
+          (end (ad-get-arg 1 ))
+          (value (ad-get-arg 2 ))
+          (object (ad-get-arg 4))
+          (voice nil))
+      (unless (= start end)
+        (setq voice (ems-get-voice-for-face value))
+        (when voice
+          (funcall emacspeak-personality-voiceify-faces start end voice object))))))
+
+
 (defadvice add-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
   (when (and voice-lock-mode    emacspeak-personality-voiceify-faces)
