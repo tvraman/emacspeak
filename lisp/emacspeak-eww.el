@@ -78,8 +78,11 @@
        `(defadvice  ,f (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-speak eww-current-title)))))
+    (emacspeak-auditory-icon 'open-object)))))
+
+(defadvice eww-render (after emacspeak pre act comp)
+  "Speak header line"
+  (emacspeak-speak-header-line))
 
 (defadvice  eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -142,6 +145,7 @@
 ; eww-toggle-checkbox
 ; 
 ;
+
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
@@ -150,6 +154,9 @@
   (declare (special eww-mode-map))
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
   )
+
+(when (boundp 'eww-mode-map)
+  (emacspeak-eww-setup))
 
 ;;}}}
 (provide 'emacspeak-eww)
