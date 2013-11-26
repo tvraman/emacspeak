@@ -66,6 +66,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
 (loop
  for f in
  '(eww eww-reload
@@ -80,25 +81,63 @@
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak eww-current-title)))))
 
-; eww-add-bookmark
-; eww-beginning-of-text
-; eww-bookmark-browse
-; eww-bookmark-kill
-;eww-bookmark-mode
-; eww-bookmark-quit
-; eww-bookmark-yank
-; eww-browse-with-external-browser
+(defadvice  eww-add-bookmark (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice   eww-beginning-of-text (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'large-movement)))
+
+
+(defadvice    eww-end-of-text(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+
+ 
+(defadvice  eww-bookmark-browse (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+
+ 
+(defadvice   eww-bookmark-kill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
+
+(defadvice   eww-bookmark-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+ 
+(defadvice   eww-bookmark-yank(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
+
+
+(defadvice   eww-list-bookmarks(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+
+
+
+(loop 
+ for f in
+ '(eww-next-bookmark eww-previous-bookmark)
+ do
+ (eval
+  `(defadvice   ,f(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
+  (emacspeak-speak-line))))
+
+
+(defadvice    eww-quit(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+
 ; eww-change-select
 ; eww-copy-page-url
 ; eww-download
-; eww-end-of-text
-; eww-list-bookmarks
-; eww-mode
-; eww-next-bookmark
 ; eww-open-file
-; eww-previous-bookmark
-; eww-quit
-; 
 ; eww-submit
 ; eww-toggle-checkbox
 ; 
