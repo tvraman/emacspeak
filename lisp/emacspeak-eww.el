@@ -69,8 +69,7 @@
 
 (loop
  for f in
- '(eww eww-reload
-        eww-up-url eww-top-url
+ '(eww-up-url eww-top-url
    eww-next-url eww-previous-url
    eww-back-url eww-forward-url)
       do
@@ -78,8 +77,19 @@
        `(defadvice  ,f (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))))
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak eww-current-title)))))
 
+
+(loop
+ for f in
+ '(eww eww-reload)
+      do
+      (eval
+       `(defadvice  ,f (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)))))
 (defadvice eww-render (after emacspeak pre act comp)
   "Speak header line"
   (emacspeak-speak-header-line))
@@ -145,6 +155,19 @@
 ; eww-toggle-checkbox
 ; 
 ;
+
+(loop
+ for f in
+ '(shr-next-link shr-previous-link)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-region
+        (point)
+        (next-single-char-property-change (point) 'face  nil (point-max)))))))
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
