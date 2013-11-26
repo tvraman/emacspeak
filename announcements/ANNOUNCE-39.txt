@@ -98,7 +98,7 @@ video demonstrating such complete user failure.
 ** Obtaining Emacspeak:
 
 
-Emacspeak can be downloaded from Google Code Hosting --see
+Emacspeak can be downloaded from Google Code  --see
 http://code.google.com/p/emacspeak/ You can visit
 Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
 to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
