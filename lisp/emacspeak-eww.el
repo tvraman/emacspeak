@@ -83,13 +83,15 @@
 
 (loop
  for f in
- '(eww eww-reload)
+ '(eww eww-reload eww-open-file)
       do
       (eval
        `(defadvice  ,f (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))))
+
+
 (defadvice eww-render (after emacspeak pre act comp)
   "Speak header line"
   (emacspeak-speak-header-line))
@@ -146,13 +148,22 @@
 (defadvice    eww-quit(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+(loop
+ for f  in
+ '(eww-change-select
+   eww-toggle-checkbox
+   eww-submit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)))))
 
-; eww-change-select
 ; eww-copy-page-url
 ; eww-download
-; eww-open-file
-; eww-submit
-; eww-toggle-checkbox
+; 
+ 
 ; 
 ;
 
