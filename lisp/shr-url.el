@@ -42,6 +42,7 @@
 
 ;;; Commentary:
 ;;; SHR ==  Simple HTML  Reader
+;;; Will work in conjunction with EWWin emacs 24.4 
 ;;; Code:
 
 ;;}}}
@@ -91,12 +92,12 @@
 (when (and (boundp 'shr-map) shr-map)
   (loop for k in
         '(
-          ("\C-i" shr-url-next-link)
-          ("a" shr-url-view-filtered-dom-by-attribute)
-          ("e" shr-url-view-filtered-dom-by-element-list)
+          ("\C-i" shr-next-link)
+          ("A" shr-url-view-filtered-dom-by-attribute)
+          ("E" shr-url-view-filtered-dom-by-element-list)
           ("o" shr-url-open-link-at-point)
           ([backtab] shr-url-previous-link)
-          ("\M-\C-i" shr-url-previous-link)
+          ("\M-\C-i" shr-previous-link)
           ("q" bury-buffer)
           )
         do
@@ -192,6 +193,7 @@ URL  being retrieved is received as part of the callback args."
 
 ;;}}}
 ;;{{{ class and id caches:
+
 (defvar shr-url-cache-updated nil
   "Records if caches are updated.")
 
