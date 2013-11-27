@@ -1441,6 +1441,8 @@ the emacspeak table clipboard instead."
                             nil read-expression-map t
                             'read-expression-history))))
   (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
+        (print-length nil)
+        (print-level nil)
         (result (eval form)))
     (save-current-buffer
       (set-buffer buffer)
