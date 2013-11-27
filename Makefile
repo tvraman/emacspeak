@@ -158,7 +158,6 @@ servers/linux-espeak/Makefile\
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
 servers/software-dtk/Makefile
-JS=js/*.js  js/jsl.conf js/Makefile
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
@@ -192,7 +191,7 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
-DISTFILES =${ELISP} ${JS} ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
+DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
 ${PYLIB} \
 ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
@@ -284,8 +283,6 @@ install:
 	$(INSTALL) -m 0644  ${UGUIDE}   $(DESTDIR)$(libdir)/user-guide
 	$(INSTALL) -m 0644  ${IGUIDE}   $(DESTDIR)$(libdir)/install-guide
 	$(INSTALL) -d $(DESTDIR)$(libdir)/sounds
-	$(INSTALL) -d $(DESTDIR)$(libdir)/js
-	$(INSTALL)  -m 644 ${JS}  $(DESTDIR)$(libdir)/js
 	$(INSTALL) -d $(DESTDIR)$(libdir)/servers
 	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/python
 	$(INSTALL) -d $(DESTDIR)$(libdir)/servers/linux-outloud
