@@ -1,0 +1,50 @@
+diff --git a/lisp/net/eww.el b/lisp/net/eww.el
+index 86e0977..a446a01 100644
+--- a/lisp/net/eww.el
++++ b/lisp/net/eww.el
+@@ -89,6 +89,9 @@
+   :group 'eww)
+ 
+ (defvar eww-current-url nil)
++(defvar eww-current-dom nil)
++(make-variable-buffer-local 'eww-current-dom)
++
+ (defvar eww-current-title ""
+   "Title of current page.")
+ (defvar eww-history nil)
+@@ -208,6 +211,7 @@ word(s) will be searched for via `eww-search-prefix'."
+ 		  (start end &optional base-url))
+ 
+ (defun eww-display-html (charset url)
++  (declare (special eww-current-dom))
+   (or (fboundp 'libxml-parse-html-region)
+       (error "This function requires Emacs to be compiled with libxml2"))
+   (unless (eq charset 'utf8)
+@@ -219,6 +223,7 @@ word(s) will be searched for via `eww-search-prefix'."
+ 	  'base (list (cons 'href url))
+ 	  (libxml-parse-html-region (point) (point-max)))))
+     (eww-setup-buffer)
++    (setq eww-current-dom document)
+     (let ((inhibit-read-only t)
+ 	  (after-change-functions nil)
+ 	  (shr-width nil)
+@@ -387,9 +392,11 @@ word(s) will be searched for via `eww-search-prefix'."
+   )
+ 
+ (defun eww-save-history ()
++  (declare (special ew-current-dom))
+   (push (list :url eww-current-url
+ 	      :title eww-current-title
+ 	      :point (point)
++              :dom eww-current-dom
+ 	      :text (buffer-string))
+ 	eww-history))
+ 
+@@ -427,6 +434,7 @@ word(s) will be searched for via `eww-search-prefix'."
+   (let ((inhibit-read-only t))
+     (erase-buffer)
+     (insert (plist-get elem :text))
++    (setq eww-current-dom (plist-get elem :dom))
+     (goto-char (plist-get elem :point))
+     (setq eww-current-url (plist-get elem :url)
+ 	  eww-current-title (plist-get elem :title))))
