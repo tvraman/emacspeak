@@ -52,7 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'xml)
 ;;}}}
 ;;{{{ Map Faces To Voices:
 
@@ -269,8 +269,6 @@
       ,(format "Test if node  is a member of  %s" element-list)
       (when (member (xml-node-name node) (quote ,element-list)) node))))
 
-
-
 (defun eww-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."
   (interactive)
@@ -284,7 +282,16 @@
        (value (completing-read "Value: " (if (eq attr 'id) eww-id-cache eww-class-cache)))
        (buffer nil)
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value))))
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
+       (shr-external-rendering-functions
+	   '((title . eww-tag-title)
+	     (form . eww-tag-form)
+	     (input . eww-tag-input)
+	     (textarea . eww-tag-textarea)
+	     (body . eww-tag-body)
+	     (select . eww-tag-select)
+	     (link . eww-tag-link)
+	     (a . eww-tag-a))))
     (when dom
       (setq buffer (get-buffer-create "EWW Filtered"))
       (with-current-buffer buffer
@@ -316,7 +323,16 @@
     (let
         ((buffer nil)
          (inhibit-read-only t)
-         (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list))))
+         (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
+         (shr-external-rendering-functions
+	   '((title . eww-tag-title)
+	     (form . eww-tag-form)
+	     (input . eww-tag-input)
+	     (textarea . eww-tag-textarea)
+	     (body . eww-tag-body)
+	     (select . eww-tag-select)
+	     (link . eww-tag-link)
+	     (a . eww-tag-a))))
       (when dom
         (setq buffer (get-buffer-create "SHR Filtered"))
         (with-current-buffer buffer
@@ -332,8 +348,6 @@
         (emacspeak-speak-buffer)))))
 
 ;;}}}
-
-
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
