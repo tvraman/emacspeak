@@ -187,13 +187,14 @@
   "Setup keymaps etc."
   (declare (special eww-mode-map))
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
+  (define-key eww-mode-map "A"  'eww-view-filtered-dom-by-attribute)
+  (define-key eww-mode-map "E"  'eww-view-filtered-dom-by-element-list)
   )
 
 (when (boundp 'eww-mode-map)
   (emacspeak-eww-setup))
 
 ;;}}}
-
 ;;; DOM Filters: 
 ;;; Depends on eww.el patched to cache the parse tree.
 ;;{{{ class and id caches:
@@ -274,6 +275,7 @@
   (interactive)
   (declare (special eww-id-cache eww-class-cache
                     eww-cache-updated eww-current-dom))
+  (unless  (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (unless (or eww-id-cache eww-class-cache) (error "No id/class to filter."))
@@ -306,6 +308,7 @@
   (interactive)
   (declare (special eww-element-cache
                     eww-cache-updated eww-current-dom ))
+  (unless  (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (let ((el-list nil)
@@ -314,17 +317,27 @@
           do
           (pushnew (read el)  el-list)
           (setq el  (completing-read "Element: " eww-element-cache)))
-    (let
-      (when dom
-          (erase-buffer)
-          (goto-char (point-min))
-          (eww-setup-buffer)
-          (shr-insert-document dom)
-          (set-buffer-modified-p nil)
-          (flush-lines "^ *$")
-          (setq buffer-read-only t))
-        (emacspeak-auditory-icon 'open-object)
-        (emacspeak-speak-buffer))))
+    (let ((inhibit-read-only t)
+          (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
+          (shr-external-rendering-functions
+           '((title . eww-tag-title)
+             (form . eww-tag-form)
+             (input . eww-tag-input)
+             (textarea . eww-tag-textarea)
+             (body . eww-tag-body)
+             (select . eww-tag-select)
+             (link . eww-tag-link)
+             (a . eww-tag-a))))          (erase-buffer)
+             (when dom
+               (goto-char (point-min))
+               (erase-buffer)
+               (eww-setup-buffer)
+               (shr-insert-document dom)
+               (set-buffer-modified-p nil)
+               (flush-lines "^ *$")
+               (setq buffer-read-only t))
+             (emacspeak-auditory-icon 'open-object)
+             (emacspeak-speak-buffer))))
 
 ;;}}}
 (provide 'emacspeak-eww)
