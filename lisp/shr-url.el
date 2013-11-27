@@ -235,10 +235,11 @@ URL  being retrieved is received as part of the callback args."
    ((not (listp dom)) nil)
    ((funcall predicate dom) dom)
    (t
-    (let ((filtered (delq nil (mapcar
-                               #'(lambda (node)
-                                   (shr-url-filter-dom node predicate))
-                               (xml-node-children dom)))))
+    (let ((filtered (delq nil
+                          (mapcar
+                           #'(lambda (node)
+                               (shr-url-filter-dom node predicate))
+                           (xml-node-children dom)))))
       (when filtered
         (push (xml-node-attributes dom) filtered)
         (push (xml-node-name dom) filtered))))))
@@ -258,20 +259,7 @@ URL  being retrieved is received as part of the callback args."
       ,(format "Test if node  is a member of  %s" element-list)
       (when (member (xml-node-name node) (quote ,element-list)) node))))
 
-;;{{{ Speech-enable:
 
-(loop for f in
-      '(shr-url-next-link shr-url-previous-link)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (and (get-text-property (point) 'shr-url)
-                 (message (shr-url-get-link-text)))))))
-
-;;}}}
 
 (defun shr-url-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."
@@ -356,6 +344,20 @@ URL  being retrieved is received as part of the callback args."
         (switch-to-buffer buffer)
         (emacspeak-auditory-icon 'open-object)
         (emacspeak-speak-buffer)))))
+
+;;}}}
+;;{{{ Speech-enable:
+
+(loop for f in
+      '(shr-url-next-link shr-url-previous-link)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (ems-interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (and (get-text-property (point) 'shr-url)
+                 (message (shr-url-get-link-text)))))))
 
 ;;}}}
 (provide 'emacspeak-shr)
