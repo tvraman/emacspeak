@@ -1,0 +1,67 @@
+*  Reading  Web Content 
+
+
+** Background 
+
+I still find reading Web content in emacs   to be way more
+efficient than in modern browsers like Chrome with ChromeVox
+enabled.
+Chrome+ChromeVox is what I use for  rich Web Applications;
+but when it comes down to reading straight content ranging from
+technical documentation to news and current affairs, I find that
+I can read a lot more content in a fixed amount of time with
+Emacs+Emacspeak than I can with the Chrome+ChromeVox combination.
+
+
+** Welcome  EWW: Emacs Web Wowser
+
+The author of GNUS recently added package 
+EWW (Emacs Web Wowser) to The Emacs repository --- see his
+[[http://lars.ingebrigtsen.no/2013/06/eww.html][announcement]].
+Emacspeak 37.0 included a small addition called /shr-url/ that
+leveraged his earlier /shr/ package; I've now added support for
+EWW in the Emacspeak source tree. Note that  EWW is in the Emacs
+source tree, i.e. it will be part of Emacs 24.4, but you can use
+it now if you build your own version of Emacs, or obtain an
+Emacs that is build from the Emacs  source repository.
+
+EWW and SHR  are interesting because they both leverage
+/libxml2/ to parse the incoming HTML. This is way faster than
+the native elisp browsing used in Emacs/W3. In my personal
+opinion, it also opens up more possibilities than Emacs/W3M with
+respect to manipulating and filtering content from elisp ---
+something that helps create   a better reading experience when
+using Emacspeak.
+
+** EWW Tips And Tricks 
+
+I've mailed out a small patch to package /eww/ that facilitates
+implementing such higher-level commands; for now, you can find
+that patch in _emacspeak/lisp/patches_ in the Emacspeak svn
+repository. With that patch in place, you can do the following to
+efficiently filter popular news sites such as the New York Times
+(I use http://mobile.nytimes.com) or CNN
+(http://cnn.com). 
+
+When visiting these and other content-heavy sites, try:
+
+  - *A* :: Filter by attributes,
+  - *E* :: Filter by elements
+  - *R* :: Restore original contents 
+
+To flexibly obtain multiple views of a Web site.
+#+TITLE:     reading-web-content.org
+#+AUTHOR:    T.V Raman
+#+EMAIL:     tv.raman.tv@gmail.com
+#+DATE:      2013-11-27 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:nil mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
