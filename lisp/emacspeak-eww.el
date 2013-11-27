@@ -193,14 +193,6 @@
   (emacspeak-eww-setup))
 
 ;;}}}
-;;{{{ Brows-url support:
-
-(defun browse-url-eww (url &optional new-window)
-  "Use EWW to render HTML."
-  (interactive (browse-url-interactive-arg "URL: "))
-    (eww url))
-
-;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 

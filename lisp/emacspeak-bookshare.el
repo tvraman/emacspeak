@@ -101,7 +101,7 @@ This is used by the various Bookshare view commands to display
   content from Daisy books."
   :type '(choice
           (function-item :tag "Emacs W3" :value  browse-url-w3)
-          (function-item :tag "Emacs EWW" :value  browse-url-eww)
+          (function-item :tag "Emacs EWW" :value  eww-browse-url)
           (function-item :tag "Mozilla" :value  browse-url-mozilla)
           (function-item :tag "Firefox" :value browse-url-firefox)
           (function-item :tag "Chromium" :value browse-url-chromium)
