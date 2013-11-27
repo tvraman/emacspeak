@@ -93,10 +93,10 @@
   (loop for k in
         '(
           ("\C-i" shr-next-link)
-          ("A" shr-url-view-filtered-dom-by-attribute)
-          ("E" shr-url-view-filtered-dom-by-element-list)
-          ("o" shr-url-open-link-at-point)
-          ([backtab] shr-url-previous-link)
+          ;("A" shr-url-view-filtered-dom-by-attribute)
+          ;("E" shr-url-view-filtered-dom-by-element-list)
+          ;("o" shr-url-open-link-at-point)
+          ([backtab] shr-previous-link)
           ("\M-\C-i" shr-previous-link)
           ("q" bury-buffer)
           )
