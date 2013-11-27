@@ -193,6 +193,147 @@
   (emacspeak-eww-setup))
 
 ;;}}}
+
+;;; DOM Filters: 
+;;; Depends on eww.el patched to cache the parse tree.
+;;{{{ class and id caches:
+
+(defvar eww-cache-updated nil
+  "Records if caches are updated.")
+
+(make-variable-buffer-local 'eww-cache-updated)
+
+;;; Mark cache to be dirty if we restore history:
+(defadvice eww-restore-history (after emacspeak pre  act comp)
+  "mark cache dirty."
+  (setq eww-cache-updated nil))
+
+(defvar eww-id-cache nil
+  "Cache of id values. Is buffer-local.")
+(make-variable-buffer-local 'eww-id-cache)
+
+(defvar eww-class-cache nil
+  "Cache of class values. Is buffer-local.")
+(make-variable-buffer-local 'eww-class-cache)
+
+(defvar eww-element-cache nil
+  "Cache of element names. Is buffer-local.")
+(make-variable-buffer-local 'eww-element-cache)
+
+(defun eww-update-cache (dom)
+  "Update element, class and id cache."
+  (declare (special eww-element-cache eww-id-cache
+                    eww-class-cache eww-cache-updated))
+  (when (listp dom)                         ; build cache
+    (let ((id (xml-get-attribute-or-nil dom 'id))
+          (class (xml-get-attribute-or-nil dom 'class))
+          (el (symbol-name (xml-node-name dom)))
+          (children (xml-node-children dom)))
+      (when id (pushnew  id eww-id-cache))
+      (when class (pushnew class eww-class-cache))
+      (when el (pushnew el eww-element-cache))
+      (when children (mapc #'eww-update-cache children)))
+    (setq eww-cache-updated t)))
+
+;;}}}
+;;{{{ Filter DOM:
+
+(defun eww-filter-dom (dom predicate)
+  "Return DOM dom filtered by predicate.
+  Predicate receives the node to test."
+  (cond
+   ((not (listp dom)) nil)
+   ((funcall predicate dom) dom)
+   (t
+    (let ((filtered
+           (delq nil
+                 (mapcar
+                  #'(lambda (node) (eww-filter-dom node predicate))
+                  (xml-node-children dom)))))
+      (when filtered
+        (push (xml-node-attributes dom) filtered)
+        (push (xml-node-name dom) filtered))))))
+
+(defun eww-attribute-tester (attr value)
+  "Return predicate that tests for attr=value for use as  a DOM filter."
+  (eval
+   `(defun ,(gensym "eww-predicate") (node)
+      ,(format "Test if attribute %s has value %s" attr value)
+      (when
+          (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
+
+(defun eww-elements-tester (element-list)
+  "Return predicate that tests for presence of element in element-list for use as  a DOM filter."
+  (eval
+   `(defun ,(gensym "eww-predicate") (node)
+      ,(format "Test if node  is a member of  %s" element-list)
+      (when (member (xml-node-name node) (quote ,element-list)) node))))
+
+
+
+(defun eww-view-filtered-dom-by-attribute ()
+  "Display DOM filtered by specified attribute=value test."
+  (interactive)
+  (declare (special eww-id-cache eww-class-cache
+                     eww-cache-updated eww-current-dom))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (unless (or eww-id-cache eww-class-cache) (error "No id/class to filter."))
+  (let*
+      ((attr (read (completing-read "Attribute: " '("id" "class"))))
+       (value (completing-read "Value: " (if (eq attr 'id) eww-id-cache eww-class-cache)))
+       (buffer nil)
+       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value))))
+    (when dom
+      (setq buffer (get-buffer-create "EWW Filtered"))
+      (with-current-buffer buffer
+        (erase-buffer)
+        (eww-setup-buffer)
+        (goto-char (point-min))
+        (special-mode)
+        (shr-insert-document dom)
+        (set-buffer-modified-p nil)
+        (flush-lines "^ *$")
+        (setq buffer-read-only t))
+      (switch-to-buffer buffer)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-buffer))))
+
+(defun eww-view-filtered-dom-by-element-list ()
+  "Display DOM filtered by specified el list."
+  (interactive)
+  (declare (special eww-element-cache
+                    eww-this-url eww-cache-updated eww-current-dom ))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (let ((el-list nil)
+        (el  (completing-read "Element: " eww-element-cache)))
+    (loop until (zerop (length  el))
+          do
+          (pushnew (read el)  el-list)
+          (setq el  (completing-read "Element: " eww-element-cache)))
+    (let
+        ((buffer nil)
+         (inhibit-read-only t)
+         (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list))))
+      (when dom
+        (setq buffer (get-buffer-create "SHR Filtered"))
+        (with-current-buffer buffer
+          (erase-buffer)
+          (goto-char (point-min))
+          (eww-setup-buffer)
+          (shr-insert-document dom)
+          (set-buffer-modified-p nil)
+          (flush-lines "^ *$")
+          (setq buffer-read-only t))
+        (switch-to-buffer buffer)
+        (emacspeak-auditory-icon 'open-object)
+        (emacspeak-speak-buffer)))))
+
+;;}}}
+
+
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
