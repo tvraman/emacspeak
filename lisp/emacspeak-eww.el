@@ -189,6 +189,7 @@
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
   (define-key eww-mode-map "A"  'eww-view-filtered-dom-by-attribute)
   (define-key eww-mode-map "E"  'eww-view-filtered-dom-by-element-list)
+  (define-key eww-mode-map "R"  'emacspeak-eww-restore)
   )
 
 (when (boundp 'eww-mode-map)
@@ -279,6 +280,7 @@
   (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (unless (or eww-id-cache eww-class-cache) (error "No id/class to filter."))
+  (eww-save-history)
   (let*
       ((attr (read (completing-read "Attribute: " '("id" "class"))))
        (value (completing-read "Value: " (if (eq attr 'id) eww-id-cache eww-class-cache)))
@@ -311,6 +313,7 @@
   (unless  (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (eww-save-history)
   (let ((el-list nil)
         (el  (completing-read "Element: " eww-element-cache)))
     (loop until (zerop (length  el))
@@ -338,6 +341,12 @@
                (setq buffer-read-only t))
              (emacspeak-auditory-icon 'open-object)
              (emacspeak-speak-buffer))))
+(defun emacspeak-eww-restore ()
+  "Restore buffer to pre-filtered canonical state."
+  (interactive)
+  (eww-restore-history(elt eww-history eww-history-position))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-eww)
