@@ -227,7 +227,7 @@
     (let ((id (xml-get-attribute-or-nil dom 'id))
           (class (xml-get-attribute-or-nil dom 'class))
           (role (xml-get-attribute-or-nil dom 'role))
-          (el (symbol-name (xml-node-name dom)))
+          (el  (xml-node-name dom))
           (children (xml-node-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
@@ -267,7 +267,7 @@
 for use as a DOM filter."
   (eval
    `#'(lambda (node)
-        (when (member (xml-node-name node) (quote ,element-list)) node))))
+        (when (memq (xml-node-name node) (quote ,element-list)) node))))
 
 (defun eww-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."
@@ -325,7 +325,7 @@ for use as a DOM filter."
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (eww-save-history)
   (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache)))
+        (el  (completing-read "Element: " eww-element-cache)))
     (loop until (zerop (length el))
           do
           (pushnew (read el) el-list)
