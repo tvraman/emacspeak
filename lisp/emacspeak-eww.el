@@ -260,7 +260,7 @@
   (eval
    `#'(lambda (node)
         (when
-            (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
+            (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
 
 (defun eww-elements-tester (element-list)
   "Return predicate that tests for presence of element in element-list
