@@ -271,39 +271,45 @@
  (when (member (xml-node-name node) (quote ,element-list)) node))))
 
 (defun eww-view-filtered-dom-by-attribute ()
- "Display DOM filtered by specified attribute=value test."
- (interactive)
- (declare (special eww-id-cache eww-class-cache
- eww-cache-updated eww-current-dom))
- (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
- (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
- (unless eww-cache-updated (eww-update-cache eww-current-dom))
- (unless (or eww-id-cache eww-class-cache) (error "No id/class to filter."))
- (eww-save-history)
- (let*
- ((attr (read (completing-read "Attribute: " '("id" "class"))))
- (value (completing-read "Value: " (if (eq attr 'id) eww-id-cache eww-class-cache)))
- (inhibit-read-only t)
- (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
- (shr-external-rendering-functions
- '((title . eww-tag-title)
- (form . eww-tag-form)
- (input . eww-tag-input)
- (textarea . eww-tag-textarea)
- (body . eww-tag-body)
- (select . eww-tag-select)
- (link . eww-tag-link)
- (a . eww-tag-a))))
- (when dom
- (eww-setup-buffer)
- (goto-char (point-min))
- (shr-insert-document dom)
- (set-buffer-modified-p nil)
- (flush-lines "^ *$")
- (goto-char (point-min))
- (setq buffer-read-only t))
- (emacspeak-auditory-icon 'open-object)
- (emacspeak-speak-buffer)))
+  "Display DOM filtered by specified attribute=value test."
+  (interactive)
+  (declare (special eww-id-cache eww-class-cache
+                    eww-role-cache eww-cache-updated eww-current-dom))
+  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (unless (or  eww-role-cache eww-id-cache eww-class-cache) (error "No id/class to filter."))
+  (eww-save-history)
+  (let*
+      ((attr (read (completing-read "Attribute: " '("id" "class" "role"))))
+       (value
+        (completing-read
+         "Value: "
+         (cond
+          ((eq attr 'id) eww-id-cache)
+          ((eq attr 'class)eww-class-cache)
+          ((eq attr 'role)eww-role-cache)
+          (t (error "Only filter by class, id or role.")))))       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
+       (shr-external-rendering-functions
+        '((title . eww-tag-title)
+          (form . eww-tag-form)
+          (input . eww-tag-input)
+          (textarea . eww-tag-textarea)
+          (body . eww-tag-body)
+          (select . eww-tag-select)
+          (link . eww-tag-link)
+          (a . eww-tag-a))))
+    (when dom
+      (eww-setup-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
 
 (defun eww-view-filtered-dom-by-element-list ()
  "Display DOM filtered by specified el list."
