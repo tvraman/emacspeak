@@ -190,7 +190,7 @@
 ;;}}}
 ;;; DOM Filters:
 ;;; Depends on eww.el patched to cache the parse tree.
-;;{{{ class and id caches:
+;;{{{ element, class, role, id caches:
 
 (defvar eww-cache-updated nil
  "Records if caches are updated.")
@@ -220,19 +220,21 @@
 (make-variable-buffer-local 'eww-element-cache)
 
 (defun eww-update-cache (dom)
- "Update element, class and id cache."
- (declare (special eww-element-cache eww-id-cache
- eww-class-cache eww-cache-updated))
- (when (listp dom) ; build cache
- (let ((id (xml-get-attribute-or-nil dom 'id))
- (class (xml-get-attribute-or-nil dom 'class))
- (el (symbol-name (xml-node-name dom)))
- (children (xml-node-children dom)))
- (when id (pushnew id eww-id-cache))
- (when class (pushnew class eww-class-cache))
- (when el (pushnew el eww-element-cache))
- (when children (mapc #'eww-update-cache children)))
- (setq eww-cache-updated t)))
+  "Update element, role, class and id cache."
+  (declare (special eww-element-cache eww-id-cache
+                    eww-role-cache eww-class-cache eww-cache-updated))
+  (when (listp dom)                     ; build cache
+    (let ((id (xml-get-attribute-or-nil dom 'id))
+          (class (xml-get-attribute-or-nil dom 'class))
+          (role (xml-get-attribute-or-nil dom 'role))
+          (el (symbol-name (xml-node-name dom)))
+          (children (xml-node-children dom)))
+      (when id (pushnew id eww-id-cache))
+      (when class (pushnew class eww-class-cache))
+      (when role (pushnew class eww-role-cache))
+      (when el (pushnew el eww-element-cache))
+      (when children (mapc #'eww-update-cache children)))
+    (setq eww-cache-updated t)))
 
 ;;}}}
 ;;{{{ Filter DOM:
