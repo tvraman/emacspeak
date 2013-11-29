@@ -178,6 +178,7 @@
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map))
+  (define-key eww-mode-map "q" 'bury-buffer)
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
   (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
   (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
