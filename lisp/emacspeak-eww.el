@@ -58,10 +58,10 @@
 
 (voice-setup-add-map
  '(
- (eww-form-submit voice-animate)
- (eww-form-checkbox voice-monotone)
- (eww-form-select voice-annotate)
- (eww-form-text voice-lighten)))
+   (eww-form-submit voice-animate)
+   (eww-form-checkbox voice-monotone)
+   (eww-form-select voice-annotate)
+   (eww-form-text voice-lighten)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
@@ -69,123 +69,123 @@
 (loop
  for f in
  '(eww-up-url eww-top-url
- eww-next-url eww-previous-url
- eww-back-url eww-forward-url)
+              eww-next-url eww-previous-url
+              eww-back-url eww-forward-url)
  do
  (eval
- `(defadvice ,f (after emacspeak pre act comp)
- "Provide auditory feedback"
- (when (ems-interactive-p)
- (emacspeak-auditory-icon 'open-object)
- (dtk-speak eww-current-title)))))
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback"
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (dtk-speak eww-current-title)))))
 
 (loop
  for f in
  '(eww eww-reload eww-open-file)
  do
  (eval
- `(defadvice ,f (after emacspeak pre act comp)
- "Provide auditory feedback"
- (when (ems-interactive-p)
- (emacspeak-auditory-icon 'open-object)))))
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback"
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice eww-render (after emacspeak pre act comp)
- "Speak header line"
- (emacspeak-speak-header-line))
+  "Speak header line"
+  (emacspeak-speak-header-line))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice eww-beginning-of-text (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'large-movement)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eww-end-of-text(after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
 
 
 (defadvice eww-bookmark-browse (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
 
 (defadvice eww-bookmark-kill (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice eww-bookmark-quit (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
 
 (defadvice eww-bookmark-yank(after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice eww-list-bookmarks(after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
 (loop
  for f in
  '(eww-next-bookmark eww-previous-bookmark)
  do
  (eval
- `(defadvice ,f(after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
- (emacspeak-speak-line))))
+  `(defadvice ,f(after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
+     (emacspeak-speak-line))))
 
 (defadvice eww-quit(after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
 (loop
  for f in
  '(eww-change-select
- eww-toggle-checkbox
- eww-submit)
+   eww-toggle-checkbox
+   eww-submit)
  do
  (eval
- `(defadvice ,f (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p)
- (emacspeak-auditory-icon 'button)))))
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)))))
 
- ; eww-copy-page-url
- ; eww-download
- ;
+                                        ; eww-copy-page-url
+                                        ; eww-download
+                                        ;
 
- ;
- ;
+                                        ;
+                                        ;
 
 (loop
  for f in
  '(shr-next-link shr-previous-link)
  do
  (eval
- `(defadvice ,f (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p)
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-speak-region
- (point)
- (next-single-char-property-change (point) 'face nil (point-max)))))))
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-region
+        (point)
+        (next-single-char-property-change (point) 'face nil (point-max)))))))
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
 (defun emacspeak-eww-setup ()
- "Setup keymaps etc."
- (declare (special eww-mode-map))
- (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
- (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
- (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
- (define-key eww-mode-map "R" 'emacspeak-eww-restore)
- )
+  "Setup keymaps etc."
+  (declare (special eww-mode-map))
+  (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
+  (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
+  (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
+  (define-key eww-mode-map "R" 'emacspeak-eww-restore)
+  )
 
 (when (boundp 'eww-mode-map)
- (emacspeak-eww-setup))
+  (emacspeak-eww-setup))
 
 ;;}}}
 ;;; DOM Filters:
@@ -193,30 +193,30 @@
 ;;{{{ element, class, role, id caches:
 
 (defvar eww-cache-updated nil
- "Records if caches are updated.")
+  "Records if caches are updated.")
 
 (make-variable-buffer-local 'eww-cache-updated)
 
 ;;; Mark cache to be dirty if we restore history:
 (defadvice eww-restore-history (after emacspeak pre act comp)
- "mark cache dirty."
- (setq eww-cache-updated nil))
+  "mark cache dirty."
+  (setq eww-cache-updated nil))
 
 (defvar eww-id-cache nil
- "Cache of id values. Is buffer-local.")
+  "Cache of id values. Is buffer-local.")
 (make-variable-buffer-local 'eww-id-cache)
 
 (defvar eww-class-cache nil
- "Cache of class values. Is buffer-local.")
+  "Cache of class values. Is buffer-local.")
 (make-variable-buffer-local 'eww-class-cache)
 
 (defvar eww-role-cache nil
- "Cache of role values. Is buffer-local.")
+  "Cache of role values. Is buffer-local.")
 
 (make-variable-buffer-local 'eww-role-cache)
 
 (defvar eww-element-cache nil
- "Cache of element names. Is buffer-local.")
+  "Cache of element names. Is buffer-local.")
 (make-variable-buffer-local 'eww-element-cache)
 
 (defun eww-update-cache (dom)
@@ -240,35 +240,34 @@
 ;;{{{ Filter DOM:
 
 (defun eww-filter-dom (dom predicate)
- "Return DOM dom filtered by predicate.
+  "Return DOM dom filtered by predicate.
  Predicate receives the node to test."
- (cond
- ((not (listp dom)) nil)
- ((funcall predicate dom) dom)
- (t
- (let ((filtered
- (delq nil
- (mapcar
- #'(lambda (node) (eww-filter-dom node predicate))
- (xml-node-children dom)))))
- (when filtered
- (push (xml-node-attributes dom) filtered)
- (push (xml-node-name dom) filtered))))))
+  (cond
+   ((not (listp dom)) nil)
+   ((funcall predicate dom) dom)
+   (t
+    (let ((filtered
+           (delq nil
+                 (mapcar
+                  #'(lambda (node) (eww-filter-dom node predicate))
+                  (xml-node-children dom)))))
+      (when filtered
+        (push (xml-node-attributes dom) filtered)
+        (push (xml-node-name dom) filtered))))))
 
 (defun eww-attribute-tester (attr value)
- "Return predicate that tests for attr=value for use as a DOM filter."
- (eval
- `(defun ,(gensym "eww-predicate") (node)
- ,(format "Test if attribute %s has value %s" attr value)
- (when
- (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
+  "Return predicate that tests for attr=value for use as a DOM filter."
+  (eval
+   `#'(lambda (node)
+        (when
+            (equal (xml-get-attribute node (quote ,attr)) ,value) node))))
 
 (defun eww-elements-tester (element-list)
- "Return predicate that tests for presence of element in element-list for use as a DOM filter."
- (eval
- `(defun ,(gensym "eww-predicate") (node)
- ,(format "Test if node is a member of %s" element-list)
- (when (member (xml-node-name node) (quote ,element-list)) node))))
+  "Return predicate that tests for presence of element in element-list
+for use as a DOM filter."
+  (eval
+   `#'(lambda (node)
+        (when (member (xml-node-name node) (quote ,element-list)) node))))
 
 (defun eww-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."
@@ -276,9 +275,12 @@
   (declare (special eww-id-cache eww-class-cache
                     eww-role-cache eww-cache-updated eww-current-dom))
   (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
-  (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+    (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (unless (or  eww-role-cache eww-id-cache eww-class-cache) (error "No id/class to filter."))
+  (unless
+      (or  eww-role-cache eww-id-cache eww-class-cache)
+    (error "No id/class to filter."))
   (eww-save-history)
   (let*
       ((attr (read (completing-read "Attribute: " '("id" "class" "role"))))
@@ -289,7 +291,8 @@
           ((eq attr 'id) eww-id-cache)
           ((eq attr 'class)eww-class-cache)
           ((eq attr 'role)eww-role-cache)
-          (t (error "Only filter by class, id or role.")))))       (inhibit-read-only t)
+          (t (error "Only filter by class, id or role.")))))
+       (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
        (shr-external-rendering-functions
         '((title . eww-tag-title)
@@ -312,48 +315,50 @@
     (emacspeak-speak-buffer)))
 
 (defun eww-view-filtered-dom-by-element-list ()
- "Display DOM filtered by specified el list."
- (interactive)
- (declare (special eww-element-cache
- eww-cache-updated eww-current-dom ))
- (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
- (unless (and (boundp 'eww-current-dom) eww-current-dom) (error "No DOM to filter!"))
- (unless eww-cache-updated (eww-update-cache eww-current-dom))
- (eww-save-history)
- (let ((el-list nil)
- (el (completing-read "Element: " eww-element-cache)))
- (loop until (zerop (length el))
- do
- (pushnew (read el) el-list)
- (setq el (completing-read "Element: " eww-element-cache)))
- (let ((inhibit-read-only t)
- (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
- (shr-external-rendering-functions
- '((title . eww-tag-title)
- (form . eww-tag-form)
- (input . eww-tag-input)
- (textarea . eww-tag-textarea)
- (body . eww-tag-body)
- (select . eww-tag-select)
- (link . eww-tag-link)
- (a . eww-tag-a)))) (erase-buffer)
- (when dom
- (goto-char (point-min))
- (erase-buffer)
- (eww-setup-buffer)
- (shr-insert-document dom)
- (set-buffer-modified-p nil)
- (flush-lines "^ *$")
- (goto-char (point-min))
- (setq buffer-read-only t))
- (emacspeak-auditory-icon 'open-object)
- (emacspeak-speak-buffer))))
+  "Display DOM filtered by specified el list."
+  (interactive)
+  (declare (special eww-element-cache
+                    eww-cache-updated eww-current-dom ))
+  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+    (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (eww-save-history)
+  (let ((el-list nil)
+        (el (completing-read "Element: " eww-element-cache)))
+    (loop until (zerop (length el))
+          do
+          (pushnew (read el) el-list)
+          (setq el (completing-read "Element: " eww-element-cache)))
+    (let ((inhibit-read-only t)
+          (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
+          (shr-external-rendering-functions
+           '((title . eww-tag-title)
+             (form . eww-tag-form)
+             (input . eww-tag-input)
+             (textarea . eww-tag-textarea)
+             (body . eww-tag-body)
+             (select . eww-tag-select)
+             (link . eww-tag-link)
+             (a . eww-tag-a)))) (erase-buffer)
+             (when dom
+               (goto-char (point-min))
+               (erase-buffer)
+               (eww-setup-buffer)
+               (shr-insert-document dom)
+               (set-buffer-modified-p nil)
+               (flush-lines "^ *$")
+               (goto-char (point-min))
+               (setq buffer-read-only t))
+             (emacspeak-auditory-icon 'open-object)
+             (emacspeak-speak-buffer))))
 (defun emacspeak-eww-restore ()
- "Restore buffer to pre-filtered canonical state."
- (interactive)
- (eww-restore-history(elt eww-history eww-history-position))
- (emacspeak-speak-mode-line)
- (emacspeak-auditory-icon 'open-object))
+  "Restore buffer to pre-filtered canonical state."
+  (interactive)
+  (declare (special eww-history eww-history-position))
+  (eww-restore-history(elt eww-history eww-history-position))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-eww)
