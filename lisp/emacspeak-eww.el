@@ -182,6 +182,8 @@
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
   (define-key eww-mode-map "\C-i" 'shr-next-link)
   (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
+  (define-key eww-mode-map "I" 'eww-view-filtered-dom-by-id)
+  (define-key eww-mode-map "C" 'eww-view-filtered-dom-by-class)
   (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
   (define-key eww-mode-map "R" 'emacspeak-eww-restore)
   )
@@ -318,6 +320,82 @@ for use as a DOM filter."
       (setq buffer-read-only t))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
+
+(defun eww-view-filtered-dom-by-id ()
+  "Display DOM filtered by specified id=value test."
+  (interactive)
+  (declare (special eww-id-cache eww-cache-updated eww-current-dom))
+  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+    (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (unless eww-id-cache 
+    (error "No id to filter."))
+  (let*
+      ((value
+        (completing-read "Value: " eww-id-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
+       (shr-external-rendering-functions
+        '((title . eww-tag-title)
+          (form . eww-tag-form)
+          (input . eww-tag-input)
+          (textarea . eww-tag-textarea)
+          (body . eww-tag-body)
+          (select . eww-tag-select)
+          (link . eww-tag-link)
+          (a . eww-tag-a))))
+    (when dom
+      (eww-save-history)
+      (eww-setup-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+
+(defun eww-view-filtered-dom-by-class ()
+  "Display DOM filtered by specified class=value test."
+  (interactive)
+  (declare (special eww-class-cache eww-cache-updated eww-current-dom))
+  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+    (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (unless eww-class-cache 
+    (error "No class to filter."))
+  (let*
+      ((value
+        (completing-read "Value: " eww-class-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'class value)))
+       (shr-external-rendering-functions
+        '((title . eww-tag-title)
+          (form . eww-tag-form)
+          (input . eww-tag-input)
+          (textarea . eww-tag-textarea)
+          (body . eww-tag-body)
+          (select . eww-tag-select)
+          (link . eww-tag-link)
+          (a . eww-tag-a))))
+    (when dom
+      (eww-save-history)
+      (eww-setup-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+
+
 
 (defun eww-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
