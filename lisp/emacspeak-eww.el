@@ -180,6 +180,7 @@
   (declare (special eww-mode-map))
   (define-key eww-mode-map "q" 'bury-buffer)
   (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
+  (define-key eww-mode-map "\C-i" 'shr-next-link)
   (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
   (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
   (define-key eww-mode-map "R" 'emacspeak-eww-restore)
@@ -284,7 +285,9 @@ for use as a DOM filter."
     (error "No id/class to filter."))
   (eww-save-history)
   (let*
-      ((attr (read (completing-read "Attribute: " '("id" "class" "role"))))
+      ((attr
+        (read
+         (completing-read "Attr: " '("id" "class" "role") nil 'must-match)))
        (value
         (completing-read
          "Value: "
@@ -292,7 +295,8 @@ for use as a DOM filter."
           ((eq attr 'id) eww-id-cache)
           ((eq attr 'class)eww-class-cache)
           ((eq attr 'role)eww-role-cache)
-          (t (error "Only filter by class, id or role.")))))
+          (t (error "Only filter by class, id or role.")))
+         nil 'must-match))
        (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
        (shr-external-rendering-functions
@@ -326,11 +330,13 @@ for use as a DOM filter."
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (eww-save-history)
   (let ((el-list nil)
-        (el  (completing-read "Element: " eww-element-cache)))
+        (el  (completing-read "Element: " eww-element-cache
+                              nil 'must-match)))
     (loop until (zerop (length el))
           do
           (pushnew (read el) el-list)
-          (setq el (completing-read "Element: " eww-element-cache)))
+          (setq el (completing-read "Element: " eww-element-cache
+                                    nil 'must-match)))
     (let ((inhibit-read-only t)
           (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
           (shr-external-rendering-functions
