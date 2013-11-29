@@ -2415,6 +2415,23 @@ directory to where find is to be launched."
    (t (setq browse-url-browser-function 'w3-fetch)
       (message "Restoring sanity by switching to W3."))))
 
+(defun emacspeak-wizards-use-w3-or-eww ()
+  "Alternates between using W3 and EWW for browse-url."
+  (interactive)
+  (declare (special browse-url-browser-function))
+  (cond
+   ((eq browse-url-browser-function 'browse-url-w3)
+    (setq browse-url-browser-function 'eww-browse-url)
+    (message "Browse  URL will now use EWW")
+    (emacspeak-auditory-icon 'select-object))
+   ((eq browse-url-browser-function 'eww-browse-url)
+    (setq browse-url-browser-function 'browse-url-w3)
+    (message "Browse  URL will now use W3")
+    (emacspeak-auditory-icon 'select-object))
+   (t (setq browse-url-browser-function 'w3-fetch)
+      (message "Restoring sanity by switching to W3."))))
+
+
 ;;}}}
 ;;{{{ customize emacspeak
 ;;;###autoload
