@@ -285,7 +285,6 @@ for use as a DOM filter."
   (unless
       (or  eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
-  (eww-save-history)
   (let*
       ((attr
         (read
@@ -311,6 +310,7 @@ for use as a DOM filter."
           (link . eww-tag-link)
           (a . eww-tag-a))))
     (when dom
+      (eww-save-history)
       (eww-setup-buffer)
       (goto-char (point-min))
       (shr-insert-document dom)
@@ -394,9 +394,6 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-
-
-
 (defun eww-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
@@ -406,7 +403,6 @@ for use as a DOM filter."
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (eww-save-history)
   (let ((el-list nil)
         (el  (completing-read "Element: " eww-element-cache
                               nil 'must-match)))
@@ -425,18 +421,18 @@ for use as a DOM filter."
              (body . eww-tag-body)
              (select . eww-tag-select)
              (link . eww-tag-link)
-             (a . eww-tag-a)))) (erase-buffer)
-             (when dom
-               (goto-char (point-min))
-               (erase-buffer)
-               (eww-setup-buffer)
-               (shr-insert-document dom)
-               (set-buffer-modified-p nil)
-               (flush-lines "^ *$")
-               (goto-char (point-min))
-               (setq buffer-read-only t))
-             (emacspeak-auditory-icon 'open-object)
-             (emacspeak-speak-buffer))))
+             (a . eww-tag-a)))) 
+      (when dom
+        (eww-save-history)
+        (eww-setup-buffer)
+        (goto-char (point-min))
+        (shr-insert-document dom)
+        (set-buffer-modified-p nil)
+        (flush-lines "^ *$")
+        (goto-char (point-min))
+        (setq buffer-read-only t))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-buffer))))
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
   (interactive)
