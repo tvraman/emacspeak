@@ -218,6 +218,13 @@
   "Cache of class values. Is buffer-local.")
 (make-variable-buffer-local 'eww-class-cache)
 
+
+ (defvar eww-role-cache nil
+  "Cache of role values. Is buffer-local.")
+
+(make-variable-buffer-local 'eww-role-cache)
+
+
 (defvar eww-element-cache nil
   "Cache of element names. Is buffer-local.")
 (make-variable-buffer-local 'eww-element-cache)
