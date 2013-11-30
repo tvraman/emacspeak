@@ -234,7 +234,7 @@
     (let ((id (xml-get-attribute-or-nil dom 'id))
           (class (xml-get-attribute-or-nil dom 'class))
           (role (xml-get-attribute-or-nil dom 'role))
-          (el  (xml-node-name dom))
+          (el  (symbol-name (xml-node-name dom)))
           (children (xml-node-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
