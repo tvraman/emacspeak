@@ -108,11 +108,9 @@
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))
 
-
 (defadvice eww-bookmark-browse (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
-
 
 (defadvice eww-bookmark-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -230,11 +228,11 @@
   "Update element, role, class and id cache."
   (declare (special eww-element-cache eww-id-cache
                     eww-role-cache eww-class-cache eww-cache-updated))
-  (when (listp dom)                     ; build cache
+  (when (listp dom) ; build cache
     (let ((id (xml-get-attribute-or-nil dom 'id))
           (class (xml-get-attribute-or-nil dom 'class))
           (role (xml-get-attribute-or-nil dom 'role))
-          (el  (symbol-name (xml-node-name dom)))
+          (el (symbol-name (xml-node-name dom)))
           (children (xml-node-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
@@ -247,13 +245,13 @@
 ;;{{{ Filter DOM:
 (defvar eww-shr-render-functions
   '((title . eww-tag-title)
-             (form . eww-tag-form)
-             (input . eww-tag-input)
-             (textarea . eww-tag-textarea)
-             (body . eww-tag-body)
-             (select . eww-tag-select)
-             (link . eww-tag-link)
-             (a . eww-tag-a))
+    (form . eww-tag-form)
+    (input . eww-tag-input)
+    (textarea . eww-tag-textarea)
+    (body . eww-tag-body)
+    (select . eww-tag-select)
+    (link . eww-tag-link)
+    (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 
 (defun eww-filter-dom (dom predicate)
@@ -297,7 +295,7 @@ for use as a DOM filter."
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (unless
-      (or  eww-role-cache eww-id-cache eww-class-cache)
+      (or eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
   (let*
       ((attr
@@ -336,7 +334,7 @@ for use as a DOM filter."
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (unless eww-id-cache 
+  (unless eww-id-cache
     (error "No id to filter."))
   (let*
       ((value
@@ -356,7 +354,6 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-
 (defun eww-view-filtered-dom-by-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
@@ -366,7 +363,7 @@ for use as a DOM filter."
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (unless eww-class-cache 
+  (unless eww-class-cache
     (error "No class to filter."))
   (let*
       ((value
@@ -395,8 +392,8 @@ for use as a DOM filter."
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
   (let ((el-list nil)
-        (el  (completing-read "Element: " eww-element-cache
-                              nil 'must-match)))
+        (el (completing-read "Element: " eww-element-cache
+                             nil 'must-match)))
     (loop until (zerop (length el))
           do
           (pushnew (read el) el-list)
@@ -404,7 +401,7 @@ for use as a DOM filter."
                                     nil 'must-match)))
     (let ((inhibit-read-only t)
           (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
-          (shr-external-rendering-functions eww-shr-render-functions)) 
+          (shr-external-rendering-functions eww-shr-render-functions))
       (when dom
         (eww-save-history)
         (eww-setup-buffer)
