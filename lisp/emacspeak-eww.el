@@ -75,6 +75,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
+     (setq eww-cache-updated nil)
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (dtk-speak eww-current-title)))))
@@ -86,11 +87,13 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
+     (setq eww-cache-updated nil)
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice eww-render (after emacspeak pre act comp)
   "Speak header line"
+  (setq eww-cache-updated nil)
   (emacspeak-speak-header-line))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
