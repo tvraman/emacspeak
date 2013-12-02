@@ -294,7 +294,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  Play an icon
 
-(defcustom emacspeak-play-args "-n"
+(defcustom emacspeak-play-args "-N"
   "Set this to nil if using paplay from pulseaudio."
   :type 'string
   :group 'emacspeak-sounds)
