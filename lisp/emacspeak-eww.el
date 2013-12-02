@@ -236,7 +236,7 @@
           (children (xml-node-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
-      (when role (pushnewrole eww-role-cache))
+      (when role (pushnew role eww-role-cache))
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq eww-cache-updated t)))

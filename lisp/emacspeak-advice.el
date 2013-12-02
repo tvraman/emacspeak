@@ -141,9 +141,8 @@
        `(defadvice ,f (after emacspeak pre act comp)
   "Speak the word you just moved to."
   (when (ems-interactive-p )
-    (save-excursion
     (skip-syntax-forward " ")
-    (emacspeak-speak-word ))))))
+    (emacspeak-speak-word )))))
 (loop
  for f in
  '(backward-word left-word)
