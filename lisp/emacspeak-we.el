@@ -1115,7 +1115,7 @@ and provide a completion list of applicable  property values. Filter document by
         ("w" emacspeak-we-extract-by-property)
         ("M" emacspeak-we-extract-tables-by-match-list)
         ("P" emacspeak-we-follow-and-extract-main)
-        ("r" emacspeak-we-extract-by-class)
+        ("r" emacspeak-we-extract-by-role)
         ("R" emacspeak-we-extract-media-streams)
         ("T" emacspeak-we-extract-tables-by-position-list)
         ("X" emacspeak-we-extract-nested-table-list)
