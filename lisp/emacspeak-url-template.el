@@ -793,10 +793,10 @@ from English to German.")
  nil
  #'(lambda ()
      (emacspeak-url-template-setup-content-filter)
-     (search-forward "Updated" nil t)
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
- "NYtimes Mobile Site"
+     (emacspeak-speak-buffer))
+ "NYTimes Mobile Site"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-role "main" url))
  )
 
 ;;}}}
