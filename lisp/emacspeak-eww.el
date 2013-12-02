@@ -298,9 +298,13 @@ for use as a DOM filter."
       (or eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
   (let*
-      ((attr
-        (read
-         (completing-read "Attr: " '("id" "class" "role") nil 'must-match)))
+      ((attr-list nil)
+       (attr
+        (progn
+          (when eww-class-cache (push "class" attr-list))
+          (when eww-id-cache (push "id" attr-list))
+          (when eww-role-cache (push "role" attr-list))
+          (read (completing-read "Attr: " attr-list nil 'must-match))))
        (value
         (completing-read
          "Value: "
