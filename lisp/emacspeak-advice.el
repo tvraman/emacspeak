@@ -133,16 +133,25 @@
                   (dtk-speak (buffer-substring start end)))
               (error nil))
             (emacspeak-auditory-icon 'large-movement)))))
-
-(defadvice forward-word (after emacspeak pre act comp)
+(loop
+ for f in
+      '(forward-word right-word)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
   "Speak the word you just moved to."
   (when (ems-interactive-p )
+    (save-excursion
     (skip-syntax-forward " ")
-    (emacspeak-speak-word )))
-
-(defadvice backward-word (after emacspeak pre act comp)
-  "Speak the word you just moved to."
-  (when (ems-interactive-p ) (emacspeak-speak-word )))
+    (emacspeak-speak-word ))))))
+(loop
+ for f in
+ '(backward-word left-word)
+ do
+ (eval
+  `(defadvice,f (after emacspeak pre act comp)
+     "Speak the word you just moved to."
+     (when (ems-interactive-p ) (emacspeak-speak-word )))))
 
 (defadvice next-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
