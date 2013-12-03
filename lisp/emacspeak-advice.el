@@ -133,6 +133,19 @@
                   (dtk-speak (buffer-substring start end)))
               (error nil))
             (emacspeak-auditory-icon 'large-movement)))))
+
+(loop
+ for  f in
+ '(left-char right-char
+             backward-char forward-char)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak char under point."
+     (when (ems-interactive-p )
+      (and dtk-stop-immediately (dtk-stop))
+      (emacspeak-speak-char t  )))))
+
 (loop
  for f in
       '(forward-word right-word)
