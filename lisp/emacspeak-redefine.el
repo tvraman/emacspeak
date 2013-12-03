@@ -190,13 +190,14 @@ eech flushes as you type."
 ;;; self-insert-command is removed since we can use
 ;;; post-self-insert-hook
 
-(defvar emacspeak-functions-that-bypass-function-cell
-  (list 'backward-char 'forward-char  )
+(defvar emacspeak-functions-that-bypass-function-cell nil
   "These commands are activated directly through C,
 rather than through their function cell.
-They have to be redefined and rebound to make them talk. " )
+They have to be redefined and rebound to make them talk in versions older than Emacs 24. " )
 
 (unless (= 24 emacs-major-version)
+  (push 'backward-char emacspeak-functions-that-bypass-function-cell)
+  (push 'forward-char emacspeak-functions-that-bypass-function-cell)
   (push 'self-insert-command emacspeak-functions-that-bypass-function-cell))
 
 (mapcar
