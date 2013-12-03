@@ -479,8 +479,6 @@ field in the customization buffer.  You can use the notation
 (global-set-key  [27 prior]  'emacspeak-owindow-scroll-down)
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
 (global-set-key  [27 select]  'emacspeak-owindow-speak-line)
-;(global-set-key '[left] 'emacspeak-backward-char)
-;(global-set-key '[right] 'emacspeak-forward-char)
 (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 ;;}}}
 ;;{{{ emacspeak under X windows
