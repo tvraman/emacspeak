@@ -472,7 +472,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (interactive)
   (shell-command
    (format
-    "%s %s %s  '%s' -o %s"
+    "%s %s %s  '%s' -o \"%s\""
     emacspeak-bookshare-curl-program
     emacspeak-bookshare-curl-common-options
     (emacspeak-bookshare-user-password)
