@@ -1173,7 +1173,7 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (first (directory-files directory 'full ".xml")))))
+     (first (directory-files directory 'full ".xml"))))))
 ;;;###autoload
 (defcustom emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"

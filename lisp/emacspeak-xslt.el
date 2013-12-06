@@ -321,7 +321,7 @@ part of the libxslt package."
           (buffer-file-coding-system 'utf-8))
       (insert-file file)
       (shell-command
-       (format "%s   --novalid --nonet --param base %s  %s  %s  2>/dev/null"
+       (format "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
                emacspeak-xslt-program 
                (format "\"'file://%s'\"" (expand-file-name file))
                (expand-file-name style)
