@@ -5,14 +5,17 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;}}}
 ;;{{{ personal lib
+
 (defvar emacs-private-library
   (expand-file-name "~/.elisp")
   "Private personalization directory. ")
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep personal libraries")
+
 ;;}}}
 ;;{{{ helper functions:
+
 (defsubst augment-load-path (path &optional library whence at-end)
   "add directory to load path.
 Path is resolved relative to `whence' which defaults to emacs-personal-library."
@@ -50,13 +53,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (error (message
 	      "Error loading %s"
 	      lib)))))
+
 ;;}}}
 ;;{{{ customize custom
-
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
 (setq message-log-max 1024)
+
 ;;}}}
 ;;{{{ Configure packages  after load:
 
@@ -79,8 +83,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         (debug-on-quit t)
         (debug-on-error t))
     (setq outline-minor-mode-prefix "\C-x@h")
-    (defalias 'outline-mode 'org-mode)
-    (defalias 'outline-minor-mode 'orgstruct-mode)
+    
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
     (when (file-exists-p  emacs-personal-library)
@@ -143,7 +146,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-                                                    
+
     (mapc
      #'load-library-if-available
      '(
@@ -167,6 +170,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "fap-prepare"
        "local"
        "emacspeak-dbus"))
+
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
@@ -181,8 +185,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (calendar)
      (nm-enable)
      (initialize-completions)
-     (shell-command "aplay ~/cues/highbells.au")
-(set-frame-name "Emacs")
+     (set-frame-name "Emacs")
+(shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
 
 (start-up-my-emacs)
