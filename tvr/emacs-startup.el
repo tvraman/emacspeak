@@ -182,6 +182,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (nm-enable)
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
+(set-frame-name "Emacs")
      (message "Successfully initialized Emacs")))
 
 (start-up-my-emacs)
