@@ -3460,6 +3460,20 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (message "%s: %s at %s" date-string time-string address)))
 
 ;;}}}
+;;{{{ Shell Helper: Path Cleanup
+
+(defun emacspeak-wizards-cleanup-shell-path ()
+  "Cleans up duplicates in shell path env variable."
+  (interactive)
+  (let ((p (split-string (getenv "PATH") ":"))
+        (h (make-hash-table :test #'equal)))
+    (loop  for e in p do (puthash e 1 h ))
+    (setenv "PATH"
+            (mapconcat 
+             #'identity 
+             (loop  for k being the hash-keys of h collect k)
+             ":"))))
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
