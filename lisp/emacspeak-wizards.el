@@ -3468,11 +3468,13 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((p (split-string (getenv "PATH") ":"))
         (h (make-hash-table :test #'equal)))
     (loop  for e in p do (puthash e 1 h ))
+(print
     (setenv "PATH"
             (mapconcat 
              #'identity 
              (loop  for k being the hash-keys of h collect k)
-             ":"))))
+             ":")))))
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
