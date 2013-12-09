@@ -288,11 +288,11 @@ Optional argument 'no-auth says we dont need a user auth."
 (defsubst emacspeak-bookshare-generate-target (author title)
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
-  (expand-file-name
-   (replace-regexp-in-string
-    " " "-"
-    (format "%s-%s.zip" author title))
-   emacspeak-bookshare-downloads-directory))
+  (let  ((target
+          (replace-regexp-in-string
+           "[ _&\'\":()\;]+" "-"
+           (format "%s-%s.zip" author title))))
+    (expand-file-name target emacspeak-bookshare-downloads-directory)))
 
 (defsubst emacspeak-bookshare-generate-directory (author title)
   "Generate name of unpack directory."
