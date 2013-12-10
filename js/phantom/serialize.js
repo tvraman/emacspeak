@@ -7,6 +7,7 @@ var page = require('webpage').create(),
 if (system.args.length > 1) {
     url = Array.prototype.slice.call(system.args, 1);
 }
+
 page.open(url, function(status) {
     var result;
     if (status !== 'success') {
@@ -15,10 +16,10 @@ page.open(url, function(status) {
         result = page.evaluate(function () {
             var r = document;
             return '<html><head>' +
- r.head.innerHTML +
- '</head><body>' +
-r.body.innerHTML +
-'</body></html>';
+                r.head.innerHTML +
+                '</head><body>' +
+                r.body.innerHTML +
+                '</body></html>';
         });
 
         try {
