@@ -110,10 +110,11 @@
 
 (defun emacspeak-dired-initialize ()
   "Set up emacspeak dired."
-  (emacspeak-dired-label-fields))
+  (emacspeak-dired-label-fields)
+  (emacspeak-dired-setup-keys))
 
 (defadvice dired (after emacspeak pre act comp)
-  "Hook is not reliable."
+  "Set up emacspeak."
   (when (ems-interactive-p)
     (emacspeak-dired-initialize)
     (emacspeak-auditory-icon 'open-object )
@@ -356,8 +357,8 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map "\C-t" 'emacspeak-dired-speak-symlink-target)
   (define-key dired-mode-map "\C-i" 'emacspeak-speak-next-field)
   (define-key dired-mode-map  "," 'emacspeak-speak-previous-field))
-(add-hook 'dired-mode-hook 'emacspeak-dired-initialize 'append)
-(add-hook 'dired-mode-hook 'emacspeak-dired-setup-keys)
+(add-hook 'emacspeak-dired-initialize 'append)
+
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
