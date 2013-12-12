@@ -54,42 +54,24 @@
 (require 'dired)
 ;;}}}
 ;;{{{ Define personalities
+
 (voice-setup-add-map
  '(
    (dired-header voice-smoothen)
    (dired-mark voice-lighten)
-   (dired-marked voice-bolden-and-animate)
+   (dired-perm-write voice-lighten-extra)
+   (dired-marked voice-lighten)
    (dired-warning voice-animate-extra)
    (dired-directory voice-bolden-medium)
    (dired-symlink voice-animate-extra)
    (dired-ignored voice-lighten-extra)
    (dired-flagged voice-animate-extra)
    ))
-;;}}}
-;;{{{  configure dired
-;;; Not touching dired-listing-switches 
-;;; Emacspeak in 1994 forcibly set this to  a safe value
-;;; Removing in 2013, since we've now had custom for 13+ years.
-
-(defvar emacspeak-dired-pronunciations-defined nil
-  "Internal variable used to ensure we define dired
-pronunciations only once.")
-
-(defun emacspeak-dired-define-pronunciations ()
-  "Define pronunciations specific to Dired buffers."
-  (declare (special emacspeak-dired-pronunciations-defined
-                    emacspeak-pronounce-pronunciation-table emacspeak-pronounce-dictionaries-loaded))
-  (unless emacspeak-dired-pronunciations-defined
-    (setq emacspeak-dired-pronunciations-defined t)
-    (emacspeak-pronounce-add-dictionary-entry 'dired-mode "Dired" " DirEd  "))
-  (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
-            (not emacspeak-pronounce-pronunciation-table))
-    (emacspeak-pronounce-toggle-use-of-dictionaries)))
 
 ;;}}}
 ;;{{{  functions:
 
-(defun emacspeak-dired-speak-line ()
+(defsubst emacspeak-dired-speak-line ()
   "Speak the dired line intelligently."
   (declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename (dired-get-filename 'no-dir  t ))
@@ -105,8 +87,7 @@ pronunciations only once.")
 ;;}}}
 ;;{{{  advice:
 
-(defadvice dired-sort-toggle-or-edit (around emacspeak pre
-                                             act comp)
+(defadvice dired-sort-toggle-or-edit (around emacspeak pre act comp)
   "Provide auditory feedback."
   (cond
    ((ems-interactive-p )
@@ -127,22 +108,16 @@ pronunciations only once.")
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice dired-up-directory (after emacspeak pre act)
-  "Produce an auditory icon."
-  (when (ems-interactive-p )
-    (let ((emacspeak-speak-messages nil))
-      (emacspeak-dired-label-fields)
-      (emacspeak-auditory-icon 'open-object )
-      (emacspeak-speak-mode-line))))
 (defun emacspeak-dired-initialize ()
   "Set up emacspeak dired."
-  (emacspeak-dired-label-fields)
-  (emacspeak-auditory-icon 'open-object )
-  (emacspeak-speak-mode-line))
+  (emacspeak-dired-label-fields))
 
 (defadvice dired (after emacspeak pre act comp)
   "Hook is not reliable."
-  (emacspeak-dired-initialize))
+  (when (ems-interactive-p)
+    (emacspeak-dired-initialize)
+    (emacspeak-auditory-icon 'open-object )
+    (emacspeak-speak-mode-line)))
 
 (defadvice dired-find-file  (around  emacspeak pre act)
   "Produce an auditory icon."
@@ -159,7 +134,7 @@ pronunciations only once.")
  for  f in
  '(
    dired-next-subdir dired-prev-subdir
-   dired-tree-up dired-tree-down
+   dired-tree-up dired-tree-down dired-up-directory
    dired-next-marked-file dired-prev-marked-file
    dired-next-dirline dired-prev-dirline
    )
@@ -260,6 +235,7 @@ unless `dired-listing-switches' contains -l"
 
 ;;}}}
 ;;{{{ Additional status speaking commands
+
 (defcustom emacspeak-dired-file-cmd-options "-b"
   "Options passed to Unix builtin `file' command."
   :type '(choice
@@ -382,7 +358,6 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map  "," 'emacspeak-speak-previous-field))
 (add-hook 'dired-mode-hook 'emacspeak-dired-initialize 'append)
 (add-hook 'dired-mode-hook 'emacspeak-dired-setup-keys)
-(add-hook 'dired-mode-hook 'emacspeak-dired-define-pronunciations)
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
