@@ -761,7 +761,8 @@ specified pronunciation dictionary key."
       (list
        ( read (substring string 4 6))
        (read (substring string 6))
-       (read (substring string 0 4))))
+       (read (substring string 0 4)))
+nil 'nodayname)
      'personality voice-punctuations-some)))
 
 
