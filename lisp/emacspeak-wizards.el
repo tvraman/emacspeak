@@ -2990,6 +2990,32 @@ dates.")
            (if emacspeak-wizards-mm-dd-yyyy-date-pronounce "" "
   not ")))
 
+(defvar emacspeak-wizards-yyyymmdd-date-pronounce nil
+  "Toggled by wizard to record how we are pronouncing yyyymmdd dates.")
+
+
+;;;###autoload
+(defun emacspeak-wizards-toggle-yyyymmdd-date-pronouncer ()
+  "Toggle pronunciation of yyyymmdd  dates."
+  (interactive)
+  (declare (special emacspeak-wizards-yyyymmdd-date-pronounce
+                    emacspeak-pronounce-date-yyyymmdd-pattern))
+  (cond
+   (emacspeak-wizards-yyyymmdd-date-pronounce
+    (setq emacspeak-wizards-yyyymmdd-date-pronounce nil)
+    (emacspeak-pronounce-remove-buffer-local-dictionary-entry
+     emacspeak-pronounce-date-yyyymmdd-pattern))
+   (t (setq emacspeak-wizards-yyyymmdd-date-pronounce t)
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       emacspeak-pronounce-date-yyyymmdd-pattern
+       (cons 're-search-forward
+             'emacspeak-pronounce-yyyymmdd-date))))
+  (message "Will %s pronounce YYYYMMDD date strings in
+  English."
+           (if emacspeak-wizards-yyyymmdd-date-pronounce "" "
+  not ")))
+
+
 ;;}}}
 ;;{{{ units wizard
 
