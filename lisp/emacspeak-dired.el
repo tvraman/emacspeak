@@ -155,71 +155,33 @@ pronunciations only once.")
       (emacspeak-auditory-icon 'open-object )))
    (t ad-do-it))
   ad-return-value)
+(loop
+ for  f in
+ '(
+   dired-next-subdir dired-prev-subdir
+   dired-tree-up dired-tree-down
+   dired-next-marked-file dired-prev-marked-file
+   dired-next-dirline dired-prev-dirline
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+     "Speak the filename."
+     (when (ems-interactive-p  )
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-dired-speak-line)))))
 
-(defadvice dired-tree-up (after emacspeak pre act)
-  "Speak the filename."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-tree-down (after emacspeak pre act)
-  "Speak the filename."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-next-line (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-previous-line (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-next-marked-file (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-prev-marked-file  (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-prev-subdir (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-next-subdir (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-next-dirline (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-prev-dirline (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-dired-speak-line)))
-
-(defadvice dired-unmark-backward (after emacspeak pre act)
-  "Speak the filename name."
-  (when (ems-interactive-p  )
-    (emacspeak-dired-speak-line)))
+(loop
+ for f in
+ '(dired-next-line dired-previous-line
+                   dired-unmark-backward dired-maybe-insert-subdir)
+ do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act)
+     "Speak the filename name."
+     (when (ems-interactive-p  )
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-dired-speak-line)))))
 
 ;;; Producing auditory icons:
 ;;; These dired commands do some action that causes a state change:
