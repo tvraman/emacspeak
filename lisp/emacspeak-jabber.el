@@ -200,9 +200,14 @@
   (unless *jabber-connected*
     (call-interactively 'jabber-connect))
   (pop-to-buffer jabber-roster-buffer)
+  (jabber-roster-update)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
+
+(defadvice jabber-roster-update (around efficient pre act comp)
+  "Efficiency hack."
+  (when (eq (current-buffer) jabber-roster-buffer) ad-do-it))
 
 ;;}}}
 
