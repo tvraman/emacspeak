@@ -204,9 +204,9 @@
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
-(defadvice jabber-roster-update (around efficient pre act comp)
-  "Efficiency hack."
-  (when (eq (current-buffer) jabber-roster-buffer) ad-do-it))
+(defadvice jabber-roster-update (around emacspeak pre act comp)
+  "Make this operation a No-Op unless the roster is visible."
+  (when (get-buffer-window-list jabber-roster-buffer) ad-do-it))
 
 ;;}}}
 
