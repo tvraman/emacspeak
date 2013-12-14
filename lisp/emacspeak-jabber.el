@@ -200,7 +200,6 @@
   (unless *jabber-connected*
     (call-interactively 'jabber-connect))
   (pop-to-buffer jabber-roster-buffer)
-  (jabber-roster-update)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
