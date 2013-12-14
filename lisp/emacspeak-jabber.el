@@ -77,7 +77,12 @@
    ))
 ;;}}}
 ;;{{{ Advice interactive commands:
-
+(defadvice jabber-switch-to-roster-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+  
 ;;}}}
 ;;{{{ silence keepalive
 
