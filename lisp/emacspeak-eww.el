@@ -193,8 +193,6 @@
   (emacspeak-eww-setup))
 
 ;;}}}
-;;; DOM Filters:
-;;; Depends on eww.el patched to cache the parse tree.
 ;;{{{ element, class, role, id caches:
 
 (defvar eww-cache-updated nil
