@@ -2220,7 +2220,13 @@ this requires Perl module Finance::YahooQuote."
   "Set this to the stock tickers you want to check by
 default."
   :type 'string
-  :group 'emacspeak-wizards)
+  :group 'emacspeak-wizards
+  :set
+  #'(lambda (sym val)
+      (mapconcat  #'identity 
+                  (sort (split-string val "\n")#'string-lessp)
+                  "\n")
+  (set-default sym val)))
 
 ;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
