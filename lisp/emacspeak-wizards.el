@@ -2221,11 +2221,10 @@ this requires Perl module Finance::YahooQuote."
   :type 'string
   :group 'emacspeak-wizards
   :set
-  '(lambda (sym val)
-     (mapconcat  #'identity 
-                 (sort (split-string val "\n")#'string-lessp)
-                 "\n")
-     (set-default sym val)))
+  #'(lambda (sym val)
+      (set-default  
+       sym
+       (mapconcat  #'identity (sort (split-string val)#'string-lessp) "\n"))))
 
 ;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
