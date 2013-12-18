@@ -211,6 +211,10 @@
   "Make this operation a No-Op unless the roster is visible."
   (when (get-buffer-window-list jabber-roster-buffer) ad-do-it))
 
+(defadvice jabber-connect (after emacspeak  pre act comp)
+  "Give roster a chance to update itself."
+  (when (ems-interactive-p) (jabber-switch-to-roster-buffer)))
+
 ;;}}}
 
 ;;}}}
