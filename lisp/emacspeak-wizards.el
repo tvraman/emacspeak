@@ -2218,15 +2218,20 @@ this requires Perl module Finance::YahooQuote."
 
 (defcustom emacspeak-wizards-personal-portfolio ""
   "Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are  sorted in lexical order when set."
+Tickers are separated by white-space and are sorted in lexical
+order with duplicates removed."
   :type 'string
   :group 'emacspeak-wizards
   :initialize  'custom-initialize-reset
   :set
   #'(lambda (sym val)
-      (set-default  
+      (set-default
        sym
-       (mapconcat  #'identity (sort (split-string val)#'string-lessp) "\n"))))
+       (mapconcat
+        #'identity
+        (remove-duplicates
+         (sort (split-string val)#'string-lessp) :test #'string=)
+        "\n"))))
 
 ;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
