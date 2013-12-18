@@ -2217,9 +2217,11 @@ this requires Perl module Finance::YahooQuote."
   :group 'emacspeak-wizards)
 
 (defcustom emacspeak-wizards-personal-portfolio ""
-  "Set this to the stock tickers you want to check."
+  "Set this to the stock tickers you want to check.
+Tickers are separated by white-space and are  sorted in lexical order when set."
   :type 'string
   :group 'emacspeak-wizards
+  :initialize  'custom-initialize-reset
   :set
   #'(lambda (sym val)
       (set-default  
