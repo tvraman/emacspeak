@@ -818,26 +818,18 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{  advice various input functions to speak:
 
-(defadvice read-key-sequence(around emacspeak pre act comp)
-  "Prompt using speech as well. "
-  (let ((prompt (ad-get-arg 0)))
-    (when prompt
-      (tts-with-punctuations 'all
-                             (dtk-speak prompt)))
-    ad-do-it
-                                        ;(tts-with-punctuations 'all
-                                        ;(dtk-speak (format "%s" ad-return-value)))
-    ad-return-value))
 
-(defadvice read-char (before emacspeak pre act comp)
-  "Speak the prompt"
-  (when (ad-get-arg 0)
-    (tts-with-punctuations
-     'all
-     (dtk-speak
-      (ad-get-arg 0)))))
+(loop
+ for f in
+ '(read-key-sequence read-char read-char-exclusive)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Speak the prompt"
+     (when (ad-get-arg 0)
+       (tts-with-punctuations 'all (dtk-speak (ad-get-arg 0)))))))
 
-(defadvice read-char-choice (before emacspeak pre act comp)
+(defadvice  read-char-choice(before emacspeak pre act comp)
   "Speak the prompt"
   (let ((prommmmpt (ad-get-arg 0))
         (chars (ad-get-arg 1)))
@@ -851,12 +843,7 @@ Produce an auditory icon if possible."
                chars
                ", "))))))
 
-(defadvice read-char-exclusive (before emacspeak pre act comp)
-  "Speak the prompt"
-  (when (ad-get-arg 0)
-    (tts-with-punctuations 'all
-                           (dtk-speak
-                            (ad-get-arg 0)))))
+
 
 ;;}}}
 ;;{{{  advice completion functions to speak:
