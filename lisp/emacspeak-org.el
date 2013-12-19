@@ -357,10 +357,10 @@
 ;;; Work In Progress:
 ;;; Need to be able to use Emacspeak keys within the dispatcher.
 
-(defadvice org-export--dispatch-action (around emacspeak (prompt allowed-keys entries options first-key expertp)  pre act comp)
-  "Enable Emacspeak keys."
-  (ad-set-argument '(prompt allowed-keys entries options first-key expertp) 1  (pushnew  5 (ad-get-arg 1)))
-  ad-do-it)
+;(defadvice org-export--dispatch-action (around emacspeak (prompt allowed-keys entries options first-key expertp)  pre act comp)
+  ;"Enable Emacspeak keys."
+  ;(ad-set-argument '(prompt allowed-keys entries options first-key expertp) 1  (pushnew  5 (ad-get-arg 1)))
+  ;ad-do-it)
 
 ;;}}}
 ;;{{{ org-goto fixup:
