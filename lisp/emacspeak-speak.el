@@ -84,6 +84,7 @@
 
 ;;}}}
 ;;{{{  custom group
+
 (defgroup emacspeak-speak nil
   "Basic speech output commands."
   :group 'emacspeak)
@@ -106,14 +107,13 @@
 
 (defsubst  emacspeak-shell-command (command)
   "Run shell command and speak its output."
+  (interactive)
   (let ((emacspeak-speak-messages nil)
         (output (get-buffer-create "*Emacspeak Shell Command*")))
     (save-current-buffer
       (set-buffer output)
       (erase-buffer)
-      (shell-command
-       command
-       output)
+      (shell-command command output)
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
@@ -131,9 +131,9 @@
         (set-buffer completions )
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
-        (tts-with-punctuations 'all
-                               (dtk-speak
-                                (buffer-substring (point) (point-max))))))
+        (tts-with-punctuations
+         'all
+         (dtk-speak (buffer-substring (point) (point-max))))))
      (t (emacspeak-speak-line)))))
 
 ;;}}}
@@ -163,23 +163,23 @@ Argument BODY specifies forms to execute."
 
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
-  `(progn
-     (let ((emacspeak-speak-errors nil))
-       ,@body)))
+  `(let ((emacspeak-speak-errors nil))
+       ,@body))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
 
 (defsubst emacspeak-speak-get-text-range (property)
-  "Return text range  around  at point and having the same value as  specified by argument PROPERTY."
+  "Return text range  around   point and having the same value as  specified by argument PROPERTY."
   (buffer-substring
-   (previous-single-property-change (point)
-                                    property nil (point-min))
+   (previous-single-property-change
+    (point) property nil (point-min))
    (next-single-property-change
     (point) property nil (point-max))))
 
 (defun emacspeak-speak-text-range (property)
   "Speak text range identified by this PROPERTY."
+  (interactive)
   (dtk-speak (emacspeak-speak-get-text-range property)))
 
 ;;}}}
@@ -187,7 +187,6 @@ Argument BODY specifies forms to execute."
 
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
-  (interactive )
   (save-excursion
     (goto-char (point-max))
     (with-silent-modifications
@@ -204,8 +203,7 @@ Argument BODY specifies forms to execute."
   :type 'symbol)
 
 (defvar emacspeak-speak-voice-annotated-paragraphs nil
-  "Records if paragraphs in this buffer have been voice
-  annotated.")
+  "Records if paragraphs in this buffer have been voice annotated.")
 
 (make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
 
@@ -323,7 +321,7 @@ Value returned is compatible with `encode-time'."
 
 ;;;###autoload
 (defcustom emacspeak-speak-embedded-url-pattern
-  "<http:.*>"
+  "<https?:[^ \t]*>"
   "Pattern to recognize embedded URLs."
   :type 'string
   :group 'emacspeak-speak)
@@ -347,10 +345,11 @@ point is spoken."
 (make-variable-buffer-local 'emacspeak-action-mode)
 
 ;;; Record in the mode line
-(or (assq 'emacspeak-action-mode minor-mode-alist)
-    (setq minor-mode-alist
-          (append minor-mode-alist
-                  '((emacspeak-action-mode " Action")))))
+(or
+ (assq 'emacspeak-action-mode minor-mode-alist)
+ (setq minor-mode-alist
+       (append minor-mode-alist
+               '((emacspeak-action-mode " Action")))))
 
 ;;; Return the appropriate action hook variable that defines actions
 ;;; for this mode.
@@ -437,7 +436,7 @@ current local  value to the result.")
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
-;;{{{ simple percentage getter
+
 
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
@@ -457,7 +456,7 @@ current local  value to the result.")
      ((= 100 percent) " bottom ")
      (t (format " %d%% " percent)))))
 
-;;}}}
+
 
 ;;}}}
 ;;{{{  indentation:
@@ -664,8 +663,8 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
-;;{{{  Speak units of text              ; ; ;
+;;}}}
+;;{{{  Speak units of text              
 
 (defsubst emacspeak-speak-region (start end )
   "Speak region.
@@ -741,39 +740,6 @@ with a long string of gibberish."
   "Pattern that matches white space."
   :type 'string
   :group 'emacspeak)
-
-(unless (fboundp 'format-mode-line)
-  (defun format-mode-line (spec)
-    "Process mode line format spec."
-    (cond
-;;; leaves                              ; ; ; ; ; ; ; ;
-     ((symbolp spec) (symbol-value  spec))
-     ((stringp spec) spec)
-;;; leaf + tree:                        ; ; ; ; ; ; ; ;
-     ((and (listp spec)
-           (stringp (car spec)))
-      (concat
-       (car spec)
-       (format-mode-line (cdr spec))))
-     ((and (listp spec)
-           (symbolp (car spec))
-           (null (car spec)))
-      (format-mode-line (cdr spec)))
-     ((and (listp spec)
-           (eq :eval  (car spec)))
-      (eval (cadr spec)))
-     ((and (listp spec)
-           (symbolp (car spec)))
-      (concat
-       (format-mode-line (symbol-value (car spec)))
-       (if (cdr spec)
-           (format-mode-line (cdr spec))
-         "")))
-     ((and (listp spec)
-           (caar spec))
-      (concat
-       (format-mode-line  (symbol-value (cadar spec)))
-       (format-mode-line (cdr spec)))))))
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
@@ -1071,7 +1037,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (dtk-speak (dtk-unicode-name-for-char char)))
 
 ;;}}}
-
 ;;{{{ emacspeak-speak-display-char
 
 ;;;###autoload
