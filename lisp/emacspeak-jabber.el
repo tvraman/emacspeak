@@ -211,9 +211,7 @@
   "Make this operation a No-Op unless the roster is visible."
   (when (get-buffer-window-list jabber-roster-buffer) ad-do-it))
 
-(add-hook 'jabber-post-connect-hook
-  #'(lambda ()
-      (jabber-switch-to-roster-buffer)))
+(add-hook 'jabber-post-connect-hook 'jabber-switch-to-roster-buffer)
 
 ;;}}}
 
