@@ -176,6 +176,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
  "Provide auditory feedback."
  (when (ems-interactive-p )
+   (emacspeak-auditory-icon 'fill-object)
  (emacspeak-speak-current-column)))))
 
 (loop
