@@ -2088,30 +2088,20 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ Stop talking if activity
 
-(defadvice beginning-of-line (before emacspeak pre act comp)
+(loop
+ for f in
+ '(beginning-of-line end-of-line
+                     move-beginning-of-line move-end-of-line
+                     recenter-top-bottom recenter)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
  "Stop speech first."
  (when (ems-interactive-p )
  (dtk-stop )
- (emacspeak-auditory-icon 'select-object)))
+ (emacspeak-auditory-icon 'select-object)))))
 
-(defadvice end-of-line (before emacspeak pre act comp)
- "Stop speech first."
- (when (ems-interactive-p )
- (dtk-stop )
- (emacspeak-auditory-icon 'select-object)))
 
-(defadvice recenter (before emacspeak pre act comp)
- "Stop speech first."
- (when (ems-interactive-p )
- (dtk-stop )
- (emacspeak-auditory-icon 'scroll)))
-
-(defadvice recenter-top-bottom (before emacspeak pre act comp)
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (dtk-stop )
- (dtk-speak (format "Recentered to %s" recenter-last-op))
- (emacspeak-auditory-icon 'scroll)))
 
 ;;}}}
 ;;{{{ yanking and popping
@@ -2660,10 +2650,9 @@ changed."
  (emacspeak-auditory-icon 'button)))
 ;;}}}
 ;;{{{ fix transient mark mode
+
 (defadvice transient-mark-mode (after emacspeak pre act comp)
- "Transient mark mode is customized by emacspeak.
-Variable mark-even-if-inactive is set true ."
- (setq mark-even-if-inactive t)
+ "Provide auditory feedback."
  (when (ems-interactive-p )
  (emacspeak-auditory-icon
  (if transient-mark-mode 'on 'off))
