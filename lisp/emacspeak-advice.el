@@ -170,14 +170,16 @@
  (emacspeak-speak-line )))))
 (loop
  for f in
- '(tab-to-tab-stop indent-for-tab-command)
+ '(tab-to-tab-stop indent-for-tab-command reindent-then-newline-and-indent
+                   indent-sexp indent-pp-sexp
+                   indent-region indent-relative)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
-   (emacspeak-auditory-icon 'fill-object)
- (emacspeak-speak-current-column)))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'fill-object)
+       (emacspeak-speak-current-column)))))
 
 (loop
  for f in
@@ -1238,67 +1240,35 @@ Produce an auditory icon if possible."
  (message"Centered current line")))
 
 (defadvice center-region (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (message"Centered current region containing %s lines"
- (count-lines
- (region-beginning)
- (region-end)))))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'select-object)
+    (message"Centered current region containing %s lines"
+            (count-lines (region-beginning) (region-end)))))
 
 (defadvice center-paragraph (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (message"Centered current paragraph")))
-
-(defadvice fill-paragraph (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'fill-object )
- (message "Filled current paragraph")))
-
-(defadvice lisp-fill-paragraph (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'fill-object )
- (message "Filled current paragraph")))
-
-(defadvice reindent-then-newline-and-indent (after emacspeak pre act comp)
- "Provide auditory feedback to indicate indentation."
- (when (ems-interactive-p )
- (emacspeak-speak-line)))
-(defadvice indent-region (after emacspeak pre act comp)
- "Provide auditory feedback to indicate indentation."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (message "Indented region")))
-
-(defadvice indent-relative (after emacspeak pre act comp)
- "Provide auditory feedback to indicate indentation."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'large-movement)
- (emacspeak-speak-current-column)))
-
-(defadvice indent-pp-sexp (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'fill-object )
- (message "Indented current s expression ")))
-
-(defadvice indent-sexp (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'fill-object )
- (message "Indented current s expression ")))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'select-object)
+    (message"Centered current paragraph")))
+(loop
+ for f in
+ '(fill-paragraph lisp-fill-paragraph)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'fill-object )
+       (message "Filled current paragraph")))))
 
 (defadvice fill-region (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'fill-object )
- (message "Filled current region containing %s lines"
- (count-lines (region-beginning)
- (region-end)))))
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'fill-object )
+    (message "Filled current region containing %s lines"
+             (count-lines (region-beginning)
+                          (region-end)))))
 
 ;;}}}
 ;;{{{ vc:
@@ -2101,24 +2071,20 @@ Produce an auditory icon if possible."
  (dtk-stop )
  (emacspeak-auditory-icon 'select-object)))))
 
-
-
 ;;}}}
 ;;{{{ yanking and popping
 
-(defadvice yank (after emacspeak pre act comp)
+(loop
+ for f in
+ '(yank yank-pop)
+ do
+ (eval
+`(defadvice ,f (after emacspeak pre act comp)
  "Say what you yanked.
 Produce an auditory icon if possible."
  (when (ems-interactive-p )
  (emacspeak-auditory-icon 'yank-object )
- (emacspeak-speak-region (mark 'force) (point))))
-
-(defadvice yank-pop (after emacspeak pre act comp)
- "Say what you yanked.
-Also produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'yank-object)
- (emacspeak-speak-region (point) (mark 'force))))
+ (emacspeak-speak-region (mark 'force) (point))))))
 
 ;;}}}
 ;;{{{ advice non-incremental searchers
