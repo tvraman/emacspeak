@@ -1943,11 +1943,12 @@ Provide an auditory icon if possible."
 
 ;;}}}
 ;;{{{ view echo area
+
 (defadvice view-echo-area-messages (after emacspeak pre act comp)
- "Speak mode-line and play auditory icon."
+ "Provide auditory feedback."
  (when (ems-interactive-p )
  (emacspeak-auditory-icon 'open-object)
- (emacspeak-speak-mode-line)))
+ (message "Displayed messages in other window.")))
 
 ;;}}}
 ;;{{{ selective display
@@ -2009,26 +2010,17 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ advice non-incremental searchers
 
-(defadvice search-forward (after emacspeak pre act comp)
+(loop
+ for f in
+ '(search-forward search-backward
+ word-search-forward word-search-backward)
+ do
+ (eval
+ `(defadvice ,f (after emacspeak pre act comp)
  "Speak line we land on."
  (when (ems-interactive-p )
  (emacspeak-speak-line)
- (emacspeak-auditory-icon 'select-object)))
-(defadvice search-backward (after emacspeak pre act comp)
- "Speak line we land on."
- (when (ems-interactive-p )
- (emacspeak-speak-line)
- (emacspeak-auditory-icon 'select-object)))
-
-(defadvice word-search-forward (after emacspeak pre act comp)
- "Speak line we land on."
- (when (ems-interactive-p )
- (emacspeak-speak-line)this is last ))
-
-(defadvice word-search-backward (after emacspeak pre act comp)
- "Speak line we land on."
- (when (ems-interactive-p )
- (emacspeak-speak-line)this is last ))
+ (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ customize isearch:
@@ -2036,16 +2028,14 @@ Produce an auditory icon if possible."
 ;;; Fix key bindings:
 
 (declaim (special isearch-mode-map
- minibuffer-local-isearch-map
- emacspeak-prefix))
+ minibuffer-local-isearch-map emacspeak-prefix))
 
-(define-key minibuffer-local-isearch-map emacspeak-prefix
- 'emacspeak-prefix-command)
+(define-key minibuffer-local-isearch-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
 ;;; ISearch setup/teardown
 
-;;; temporarily disable message and signal advice during searches.
+;;; temporarily silence messages,
 ;;; Produce auditory icon
 
 (defsubst emacspeak-isearch-setup()
@@ -2096,48 +2086,27 @@ Produce auditory icons if possible."
  (+ (point) (length isearch-string )))
  voice-bolden
  (emacspeak-speak-line nil ))))
-
-(defadvice isearch-yank-word (after emacspeak pre act comp)
+(loop
+ for f in
+ '(isearch-yank-word isearch-yank-kill isearch-yank-line)
+ do
+ (eval
+ `(defadvice ,f (after emacspeak pre act comp)
  "Provide auditory feedback."
  (when (ems-interactive-p )
  (emacspeak-speak-string isearch-string voice-bolden)
- (emacspeak-auditory-icon 'yank-object)))
-
-(defadvice isearch-yank-kill (after emacspeak pre act comp)
+ (emacspeak-auditory-icon 'yank-object)))))
+(loop
+ for f in
+ '(isearch-ring-advance isearch-ring-retreat
+ isearch-ring-advance-edit isearch-ring-retreat-edit)
+ do
+ (eval
+ `(defadvice ,f (after emacspeak pre act comp)
  "Provide auditory feedback."
  (when (ems-interactive-p )
  (emacspeak-speak-string isearch-string voice-bolden)
- (emacspeak-auditory-icon 'yank-object)))
-
-(defadvice isearch-yank-line (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-speak-string isearch-string voice-bolden)
- (emacspeak-auditory-icon 'yank-object)))
-
-(defadvice isearch-ring-advance (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-speak-string isearch-string voice-bolden)
- (emacspeak-auditory-icon 'select-object)))
-
-(defadvice isearch-ring-retreat (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (emacspeak-speak-string isearch-string voice-bolden)))
-
-(defadvice isearch-ring-advance-edit (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (emacspeak-speak-string isearch-string voice-bolden)))
-
-(defadvice isearch-ring-retreat-edit (after emacspeak pre act comp)
- "Provide auditory feedback."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (emacspeak-speak-string isearch-string voice-bolden)))
+ (emacspeak-auditory-icon 'select-object)))))
 
 ;;; Note the advice on the next two toggle commands
 ;;; checks the variable being toggled.
@@ -2180,84 +2149,71 @@ Produce auditory icons if possible."
  (ad-set-arg 1 t))
  ad-do-it
  ad-return-value)
-
-(defadvice set-mark-command (after emacspeak pre act comp)
+(loop
+ for f in
+ '(set-mark-command pop-to-mark-command pop-global-mark)
+ do
+ (eval
+`(defadvice ,f (after emacspeak pre act comp)
  "Produce an auditory icon if possible."
  (when (ems-interactive-p )
  (emacspeak-auditory-icon 'mark-object )
  (let ((emacspeak-show-point t))
- (emacspeak-speak-line ))))
-(defadvice pop-to-mark-command (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object )
- (let ((emacspeak-show-point t))
- (emacspeak-speak-line ))))
-
-(defadvice pop-global-mark (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object )
- (let ((emacspeak-show-point t))
- (emacspeak-speak-line )
- (when (sit-for 3)
- (emacspeak-speak-mode-line)))))
+ (emacspeak-speak-line ))))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)
- (message "Marked function containing %s lines"
- (count-lines (point)
- (mark 'force)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Marked function containing %s lines"
+             (count-lines (point) (mark 'force)))))
 
 (defadvice mark-whole-buffer (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)
- (message "Marked buffer containing %s lines"
- (count-lines (point)
- (mark 'force)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Marked buffer containing %s lines"
+             (count-lines (point) (mark 'force)))))
 
 (defadvice mark-paragraph (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)
- (message "Marked paragraph containing %s lines"
- (count-lines (point)
- (mark 'force)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Marked paragraph containing %s lines"
+             (count-lines (point)
+                          (mark 'force)))))
 
 (defadvice mark-page (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)
- (message "Marked page containing %s lines"
- (count-lines (point)
- (mark 'force)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Marked page containing %s lines"
+             (count-lines (point)
+                          (mark 'force)))))
 
 (defadvice mark-word (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)
- (message "Word %s marked"
- (buffer-substring-no-properties (point) (mark 'force)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Word %s marked"
+             (buffer-substring-no-properties (point) (mark 'force)))))
 
 (defadvice mark-sexp (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (let ((lines (count-lines (point)
- (mark 'force)))
- (chars (abs (- (point) (mark 'force)))))
- (emacspeak-auditory-icon 'mark-object)
- (if (> lines 1)
- (message "Marked S expression spanning %s lines" lines)
- (message "marked S expression containing %s characters"
- chars)))))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (let ((lines (count-lines (point)
+                              (mark 'force)))
+          (chars (abs (- (point) (mark 'force)))))
+      (emacspeak-auditory-icon 'mark-object)
+      (if (> lines 1)
+          (message "Marked S expression spanning %s lines" lines)
+        (message "marked S expression containing %s characters"
+                 chars)))))
 
 (defadvice mark-end-of-sentence (after emacspeak pre act comp)
- "Produce an auditory icon if possible."
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'mark-object)))
+  "Produce an auditory icon if possible."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'mark-object)))
 
 ;;}}}
 ;;{{{ emacs registers
