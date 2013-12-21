@@ -1895,12 +1895,7 @@ Provide an auditory icon if possible."
  (when (ems-interactive-p )
  (emacspeak-auditory-icon 'open-object)
  (emacspeak-speak-mode-line)))
-(when (featurep 'yasb)
- (defadvice yasb (after emacspeak pre act comp)
- "Provide auditory feedback"
- (when (ems-interactive-p )
- (emacspeak-auditory-icon 'select-object)
- (emacspeak-speak-mode-line ))))
+
 
 (defvar emacspeak--help-char-helpbuf " *Char Help*"
  "This is hard-coded in subr.el")
