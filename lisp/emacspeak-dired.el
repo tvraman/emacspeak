@@ -112,13 +112,18 @@
   "Set up emacspeak dired."
   (emacspeak-dired-label-fields)
   (emacspeak-dired-setup-keys))
-
-(defadvice dired (after emacspeak pre act comp)
-  "Set up emacspeak."
-  (when (ems-interactive-p)
-    (emacspeak-dired-initialize)
-    (emacspeak-auditory-icon 'open-object )
-    (emacspeak-speak-mode-line)))
+(loop
+ for  f in
+ '(dired ido-dired
+         dired-other-window dired-other-frame)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Set up emacspeak."
+     (when (ems-interactive-p)
+       (emacspeak-dired-initialize)
+       (emacspeak-auditory-icon 'open-object )
+       (emacspeak-speak-mode-line)))))
 
 (defadvice dired-find-file  (around  emacspeak pre act)
   "Produce an auditory icon."
