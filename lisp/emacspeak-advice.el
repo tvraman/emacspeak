@@ -365,7 +365,7 @@ the words that were capitalized."
 
 (loop
  for f in
- '(backward-delete-char backward-delete-char-untabify)
+ '(backward-delete-char backward-delete-char-untabify delete-backward-char )
  do
  (eval
  `(defadvice ,f (around emacspeak pre act comp)
