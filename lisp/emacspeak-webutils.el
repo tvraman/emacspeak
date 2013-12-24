@@ -530,7 +530,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (pushnew
    (list title url type)
    emacspeak-feeds
-   :test #'(lambda (a b) (string= (second a) (second b)))))
+   :test #'(lambda (a b) (string= (second a) (second b))))
+  (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
    
    
 
