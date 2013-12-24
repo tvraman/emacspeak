@@ -506,8 +506,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
     ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
-    ("CNet Tech News"  "http://rss.com.com/2547-12-0-5.xml"  rss)
-    ("XML.COM"  "http://www.xml.com/xml/news.rss"  rss)
+    ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
   "Table of RSS feeds."
   :type '(repeat
