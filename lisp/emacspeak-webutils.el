@@ -501,7 +501,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 (defgroup emacspeak-rss nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
-
+;;;###autoload
 (defcustom emacspeak-feeds
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
@@ -517,6 +517,23 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
                         (const :tag "RSS" 'rss)
                         (const :tag "Atom" 'atom))))
   :group 'emacspeak-rss)
+
+
+(defun emacspeak-feeds-add-feed (title url type)
+  "Add specified feed to our feed store."
+  (interactive
+   (list
+    (read-from-minibuffer "Title: ")
+    (read-from-minibuffer "URL: ")
+    (read (completing-read "Type: " '(rss atom)))))
+  (declare (special emacspeak-feeds))
+  (pushnew
+   (list title url type)
+   emacspeak-feeds
+   :test #'(lambda (a b) (string= (second a) (second b)))))
+   
+   
+
 
 ;;}}}
 ;;{{{  view feed
