@@ -504,16 +504,19 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 
 (defcustom emacspeak-rss-feeds
   '(
-    ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf")
-    ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
-    ("CNet Tech News"  "http://rss.com.com/2547-12-0-5.xml")
-    ("XML.COM"  "http://www.xml.com/xml/news.rss")
+    ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
+    ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
+    ("CNet Tech News"  "http://rss.com.com/2547-12-0-5.xml"  rss)
+    ("XML.COM"  "http://www.xml.com/xml/news.rss"  rss)
     )
   "Table of RSS feeds."
   :type '(repeat
           (list :tag "RSS Feed"
                 (string :tag "Title")
-                (string :tag "URI")))
+                (string :tag "URI")
+                (choice :tag "Type"
+                        (const :tag "RSS" 'rss)
+                        (const :tag "Atom" 'atom))))
   :group 'emacspeak-rss)
 
 ;;}}}
@@ -555,9 +558,13 @@ unescape HTML tags."
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
                        emacspeak-rss-feeds))))
-  (let ((uri (cadr
-              (assoc feed emacspeak-rss-feeds))))
-    (emacspeak-webutils-rss-display uri )))
+  (let* ((feed (assoc feed emacspeak-rss-feeds))
+         (uri (second feed))
+         (type  (third feed)))
+    (cond
+     ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
+     ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
+     (t (error "Unknown feed type %s" type)))))
 
 ;;}}}
 ;;}}}
