@@ -510,12 +510,12 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     )
   "Table of RSS feeds."
   :type '(repeat
-          (list :tag "RSS Feed"
+          (list :tag "Feed"
                 (string :tag "Title")
                 (string :tag "URI")
                 (choice :tag "Type"
-                        (const :tag "RSS" 'rss)
-                        (const :tag "Atom" 'atom))))
+                        (const :tag "RSS" rss)
+                        (const :tag "Atom" atom))))
   :group 'emacspeak-rss)
 
 
