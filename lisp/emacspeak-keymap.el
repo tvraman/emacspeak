@@ -355,7 +355,7 @@ field in the customization buffer.  You can use the notation
         ("\C-r" emacspeak-root)
         ("\C-s" tts-restart )
         ("\C-t" emacspeak-table-find-file)
-        ("\C-u" emacspeak-rss-browse)
+        ("\C-u" emacspeak-feed-browse)
         ("\C-v" view-mode)
         ("\C-w" emacspeak-speak-window-information)
         ("\C-y" emacspeak-clipboard-paste)

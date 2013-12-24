@@ -502,7 +502,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
 
-(defcustom emacspeak-rss-feeds
+(defcustom emacspeak-feeds
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
     ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
@@ -551,14 +551,14 @@ unescape HTML tags."
   (emacspeak-opml-display emacspeak-my-subscribed-feeds))
 
 ;;;###autoload
-(defun emacspeak-rss-browse (feed)
+(defun emacspeak-feed-browse (feed)
   "Browse specified RSS feed."
   (interactive
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
-                       emacspeak-rss-feeds))))
-  (let* ((feed (assoc feed emacspeak-rss-feeds))
+                       emacspeak-feeds))))
+  (let* ((feed (assoc feed emacspeak-feeds))
          (uri (second feed))
          (type  (third feed)))
     (cond
