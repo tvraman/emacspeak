@@ -277,6 +277,26 @@ and xsl environment specified by style, params and options."
 (make-variable-buffer-local 'emacspeak-webutils-current-url)
 
 ;;}}}
+;;{{{ Properties from HTML stack:
+
+(defsubst emacspeak-webutils-property-names-from-html-stack (html-stack)
+  "Returns list of attributes from HTML stack."
+  (delete nil
+          (loop for e in html-stack
+                append
+                (mapcar 'car (rest e)))))
+
+(defun emacspeak-webutils-get-property-from-html-stack (html-stack prop)
+  "Extract and return list of prop values from HTML  stack.
+Stack is a list of the form ((element-name (attribute-alist)))."
+  (let ((props nil))
+    (loop for element in html-stack
+          do
+          (push (cdr (assoc prop (rest element)))
+                props))
+    (nreverse (delq nil props))))
+
+;;}}}
 ;;{{{  google tools
 
 ;;;###autoload
@@ -462,8 +482,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    (list
     (emacspeak-webutils-read-this-url)))
   (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url
-                                   (emacspeak-xslt-get "rss.xsl")))
+  (emacspeak-webutils-feed-display feed-url (emacspeak-xslt-get "rss.xsl")))
 
 ;;;###autoload
 (defun emacspeak-webutils-atom-display (feed-url )
@@ -471,8 +490,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url
-                                   emacspeak-atom-view-xsl))
+  (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
 
 ;;;###autoload
 (defun emacspeak-webutils-fv (feed-url )
@@ -598,26 +616,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
      (t (error "Unknown feed type %s" type)))))
 
 ;;}}}
-;;}}}
-;;{{{ Properties from HTML stack:
-
-(defsubst emacspeak-webutils-property-names-from-html-stack (html-stack)
-  "Returns list of attributes from HTML stack."
-  (delete nil
-          (loop for e in html-stack
-                append
-                (mapcar 'car (rest e)))))
-
-(defun emacspeak-webutils-get-property-from-html-stack (html-stack prop)
-  "Extract and return list of prop values from HTML  stack.
-Stack is a list of the form ((element-name (attribute-alist)))."
-  (let ((props nil))
-    (loop for element in html-stack
-          do
-          (push (cdr (assoc prop (rest element)))
-                props))
-    (nreverse (delq nil props))))
-
 ;;}}}
 
 (provide 'emacspeak-webutils)
