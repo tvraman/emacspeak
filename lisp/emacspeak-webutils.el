@@ -419,17 +419,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (funcall  emacspeak-media-player  url  playlist-p)))
 
 ;;;###autoload
-(defun emacspeak-webutils-view-feed-via-google-reader ()
-  "Pulls feed under point via Google Reader."
-  (interactive)
-  (let ((feed (funcall emacspeak-webutils-url-at-point)))
-    (cond
-     ((null feed) (error "No url under point."))
-     (t (emacspeak-webutils-atom-display
-         (format
-          "http://www.google.com/reader/public/atom/feed/%s?n=20"
-          (emacspeak-url-encode feed)))))))
-;;;###autoload
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa"
