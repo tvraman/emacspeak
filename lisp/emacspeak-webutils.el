@@ -522,7 +522,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
       (set-default
        sym
        (sort val #'(lambda (a b)
-                     (string-lessp (first a) (first b)))))))  :group 'emacspeak-rss)
+                     (string-lessp (first a) (first b))))))
+  :group 'emacspeak-feeds)
 
 
 (defun emacspeak-feeds-add-feed (title url type)
