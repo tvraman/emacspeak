@@ -516,7 +516,13 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
                 (choice :tag "Type"
                         (const :tag "RSS" rss)
                         (const :tag "Atom" atom))))
-  :group 'emacspeak-rss)
+  :initialize  'custom-initialize-reset
+  :set
+  #'(lambda (sym val)
+      (set-default
+       sym
+       (sort val #'(lambda (a b)
+                     (string-lessp (first a) (first b)))))))  :group 'emacspeak-rss)
 
 
 (defun emacspeak-feeds-add-feed (title url type)
