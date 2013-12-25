@@ -483,13 +483,35 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (gfeeds-view  feed-url))
 
 ;;}}}
-;;{{{ RSS:
-;;{{{ RSS feed cache
+;;{{{ Atom, RSS Feeds:
+;;{{{ Atom, RSS feed cache
 
 ;;;###autoload
-(defgroup emacspeak-rss nil
+(defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
+
+(defvar emacspeak-atom-legacy
+  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
+  "Legacy Atom support.")
+
+(defvar emacspeak-atom-modern
+  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
+  "Modern Atom support.")
+
+(defcustom emacspeak-atom-view-xsl
+  emacspeak-atom-legacy
+  "XSL stylesheet used for viewing Atom Feeds."
+  :type '(choice
+          (string :tag "Legacy"  emacspeak-atom-legacy)
+          (string :tag "Modern" emacspeak-atom-modern))
+  :group 'emacspeak-xsl)
+
+
+
+
+
+
 ;;;###autoload
 (defcustom emacspeak-feeds
   '(
@@ -534,13 +556,9 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 
 ;;}}}
 ;;{{{  view feed
-(defcustom emacspeak-rss-unescape-html t
-  "Fix malformed  XML that results from sites attempting to
-unescape HTML tags."
-  :type 'boolean
-  :group 'emacspeak-rss)
 
-;;;###autoload
+
+
 
 ;;;###autoload
 (defun emacspeak-opml-display (opml-url &optional speak)
@@ -555,8 +573,8 @@ unescape HTML tags."
    (emacspeak-xslt-get "opml.xsl")
    speak))
 
-;;;###autoload
 
+;;;###autoload
 (defun emacspeak-webutils-open-subscribed-feeds ()
   "Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds"
   (interactive)
@@ -581,60 +599,6 @@ unescape HTML tags."
 
 ;;}}}
 ;;}}}
-;;{{{ ATOM:
-;;{{{ ATOM feed cache
-
-;;;###autoload
-(defgroup emacspeak-atom nil
-  "ATOM Feeds for the Emacspeak desktop."
-  :group 'emacspeak)
-
-;;;###autoload
-(defcustom emacspeak-atom-feeds
-  nil
-  "Table of ATOM feeds."
-  :type '(repeat
-          (list :tag "ATOM Feed"
-                (string :tag "Title")
-                (string :tag "URI")))
-  :group 'emacspeak-atom)
-
-;;}}}
-;;{{{  view feed
-
-(defvar emacspeak-atom-legacy
-  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
-  "Legacy Atom support.")
-
-(defvar emacspeak-atom-modern
-  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
-  "Modern Atom support.")
-
-(defcustom emacspeak-atom-view-xsl
-  emacspeak-atom-legacy
-  "XSL stylesheet used for viewing Atom Feeds."
-  :type '(choice
-          (string :tag "Legacy"  emacspeak-atom-legacy)
-          (string :tag "Modern" emacspeak-atom-modern))
-  :group 'emacspeak-xsl)
-
-;;;###autoload
-
-;;;###autoload
-(defun emacspeak-atom-browse (feed)
-  "Browse specified ATOM feed."
-  (interactive
-   (list
-    (let ((completion-ignore-case t))
-      (completing-read "Feed:"
-                       emacspeak-atom-feeds))))
-  (let ((uri (cadr (assoc feed emacspeak-atom-feeds))))
-    (emacspeak-webutils-atom-display uri)))
-
-;;}}}
-
-;;}}}
-
 ;;{{{ Properties from HTML stack:
 
 (defsubst emacspeak-webutils-property-names-from-html-stack (html-stack)
