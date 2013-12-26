@@ -426,7 +426,9 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'open-object))
 (defun emacspeak-webspace-feed-reader-create ()
   "Prepare Reader buffer."
-  (declare (special emacspeak-feeds))
+  (declare (special emacspeak-feeds
+                    emacspeak-webspace-reader-buffer))
+  (kill-buffer emacspeak-webspace-reader-buffer)
   (with-temp-buffer " feed-reader-temp "
     (erase-buffer)
     (insert "<html><head><title>Reader</title></head><body>\n")
