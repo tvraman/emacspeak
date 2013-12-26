@@ -68,14 +68,16 @@
 (declaim (special emacspeak-webspace-mode-map))
 (set-keymap-parent emacspeak-webspace-mode-map button-buffer-map)
 (loop for k in
- '(
- ("q" bury-buffer)
- ("<" beginning-of-buffer)
- (">" end-of-buffer)
- ("/" search-forward)
- ("?" search-backward)
- ("n" forward-button)
- ("p" backward-button))
+      '(
+        ("q" bury-buffer)
+        ("<" beginning-of-buffer)
+        (">" end-of-buffer)
+        ("/" search-forward)
+        ("?" search-backward)
+        ("n" forward-button)
+        ("p" backward-button)
+      ("f" forward-button)
+      ("b" backward-button))
  do
  (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
