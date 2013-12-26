@@ -409,6 +409,37 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
+
+;;; New Reader using emacspeak-feeds:
+;;;###autoload
+(defun emacspeak-webspace-feed-reader (&optional refresh)
+  "Display Feed  Reader Feed list in a WebSpace buffer.
+Optional interactive prefix arg forces a refresh."
+  (interactive "P")
+  (declare (special emacspeak-webspace-reader-buffer))
+  (when (or refresh
+            (not (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))))
+    (emacspeak-webspace-feed-reader-create))
+  (switch-to-buffer emacspeak-webspace-reader-buffer)
+  (goto-char (point-min))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
+(defun emacspeak-webspace-feed-reader-create ()
+  "Prepare Reader buffer."
+  (declare (special emacspeak-feeds))
+  (with-temp-buffer " feed-reader-temp "
+    (erase-buffer)
+    (insert "<html><head><title>Reader</title></head><body>\n")
+    (insert (format "<h1>Feed Reader %s</h1>\n<ol>\n" (length emacspeak-feeds)))
+     (loop for f in emacspeak-feeds
+           do
+           (insert
+            (format "<li><a href='%s'>%s [%s]</a></li>\n"
+                    (second f) (first f) (third f))))
+     (insert "</ol></body></html>\n")
+     (browse-url-of-buffer)))
+
+
 ;;;###autoload
 (defvar emacspeak-webspace-reading-list-buffer
   "Reading List"
