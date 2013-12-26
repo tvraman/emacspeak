@@ -414,13 +414,19 @@ Optional interactive prefix arg forces a refresh."
   "Prepare Reader buffer."
   (declare (special emacspeak-feeds emacspeak-webspace-reader-buffer))
   (with-current-buffer (get-buffer-create emacspeak-webspace-reader-buffer)
-    (erase-buffer)
-    (loop for f in emacspeak-feeds
-          do
-          (emacspeak-webspeace-feed-reader-insert-button f)
-          (insert "\n"))
-    (switch-to-buffer emacspeak-webspace-reader-buffer)
-    (emacspeak-webspace-mode)))
+    (let ((inhibit-read-only t))
+      (erase-buffer)
+      (goto-char (point-min))
+      (insert "Press enter to open feeds.\n\n")
+      (put-text-property (point-min) (point) 'face font-lock-doc-face)
+      (loop for f in emacspeak-feeds
+            and position  from 1
+            do
+            (insert (format "%d\t" position))
+            (emacspeak-webspeace-feed-reader-insert-button f)
+            (insert "\n"))
+      (switch-to-buffer emacspeak-webspace-reader-buffer)
+      (emacspeak-webspace-mode))))
 
 ;;;###autoload
 (defvar emacspeak-webspace-reading-list-buffer
