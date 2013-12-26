@@ -428,11 +428,12 @@ Optional interactive prefix arg forces a refresh."
   "Prepare Reader buffer."
   (declare (special emacspeak-feeds
                     emacspeak-webspace-reader-buffer))
-  (kill-buffer emacspeak-webspace-reader-buffer)
+  (when (buffer-live-p  (get-buffer emacspeak-webspace-reader-buffer))
+    (kill-buffer emacspeak-webspace-reader-buffer))
   (with-temp-buffer " feed-reader-temp "
     (erase-buffer)
     (insert "<html><head><title>Reader</title></head><body>\n")
-    (insert (format "<h1>Feed Reader %s</h1>\n<ol>\n" (length emacspeak-feeds)))
+    (insert (format "<h1>Subscribed Feeds:  %s</h1>\n<ol>\n" (length emacspeak-feeds)))
      (loop for f in emacspeak-feeds
            do
            (insert
