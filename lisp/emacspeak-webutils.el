@@ -520,6 +520,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 (defcustom emacspeak-feeds
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
+    ("BBC Podcast Directory" "http://www.bbc.co.uk/podcasts.opml" opml)
     ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
     ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
@@ -530,6 +531,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
                 (string :tag "URI")
                 (choice :tag "Type"
                         (const :tag "RSS" rss)
+                        (const :tag "opml" opml)
                         (const :tag "Atom" atom))))
   :initialize  'custom-initialize-reset
   :set
@@ -546,7 +548,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    (list
     (read-from-minibuffer "Title: ")
     (read-from-minibuffer "URL: ")
-    (read (completing-read "Type: " '(rss atom)))))
+    (read (completing-read "Type: " '(rss atom opml)))))
   (declare (special emacspeak-feeds))
   (let ((found
          (find-if #'(lambda (f) (string= url (second f))) emacspeak-feeds)))
@@ -563,11 +565,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 ;;}}}
 ;;{{{  view feed
 
-
-
-
 ;;;###autoload
-(defun emacspeak-feeds-opml-display (opml-url &optional speak)
+(defun emacspeak-webutils-opml-display (opml-url &optional speak)
   "Retrieve and display OPML  URL."
   (interactive
    (list
@@ -577,10 +576,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    opml-url
    (emacspeak-xslt-get "opml.xsl")
    speak))
-
-
-
-
 
 ;;;###autoload
 (defun emacspeak-feed-browse (feed)
@@ -595,6 +590,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
          (type  (third feed)))
     (cond
      ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
+     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
      ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
      (t (error "Unknown feed type %s" type)))))
 
