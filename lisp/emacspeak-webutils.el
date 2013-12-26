@@ -452,7 +452,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
 
 ;;}}}
-;;{{{ display authenticated feeds:
+;;{{{ display  feeds:
 
 (defun emacspeak-webutils-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
@@ -494,41 +494,27 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 
 ;;;###autoload
 (defun emacspeak-webutils-fv (feed-url )
-  "Display RSS or ATOM feed URL."
+  "Display RSS or ATOM  feed by pulling from Google."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-webutils-autospeak)
   (gfeeds-view  feed-url))
 
 ;;}}}
-;;{{{ Atom, RSS Feeds:
-;;{{{ Atom, RSS feed cache
+;;{{{  feed cache
 
 ;;;###autoload
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
 
-(defvar emacspeak-atom-legacy
-  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
-  "Legacy Atom support.")
-
-(defvar emacspeak-atom-modern
-  (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)
-  "Modern Atom support.")
-
 (defcustom emacspeak-atom-view-xsl
-  emacspeak-atom-legacy
+  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
   "XSL stylesheet used for viewing Atom Feeds."
   :type '(choice
-          (string :tag "Legacy"  emacspeak-atom-legacy)
-          (string :tag "Modern" emacspeak-atom-modern))
+          (string :tag "Legacy"  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory))
+          (string :tag "Modern" (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)))
   :group 'emacspeak-xsl)
-
-
-
-
-
 
 ;;;###autoload
 (defcustom emacspeak-feeds
@@ -554,7 +540,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
                      (string-lessp (first a) (first b))))))
   :group 'emacspeak-feeds)
 
-
 (defun emacspeak-feeds-add-feed (title url type)
   "Add specified feed to our feed store."
   (interactive
@@ -569,9 +554,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    :test #'(lambda (a b) (string= (second a) (second b))))
   (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
    
-   
-
-
 ;;}}}
 ;;{{{  view feed
 
@@ -592,16 +574,12 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    speak))
 
 
-;;;###autoload
-(defun emacspeak-webutils-open-subscribed-feeds ()
-  "Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds"
-  (interactive)
-  (declare (special emacspeak-my-subscribed-feeds))
-  (emacspeak-opml-display emacspeak-my-subscribed-feeds))
+
+
 
 ;;;###autoload
 (defun emacspeak-feed-browse (feed)
-  "Browse specified RSS feed."
+  "Browse specified  feed."
   (interactive
    (list
     (let ((completion-ignore-case t))
@@ -616,8 +594,6 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
      (t (error "Unknown feed type %s" type)))))
 
 ;;}}}
-;;}}}
-
 (provide 'emacspeak-webutils)
 ;;{{{ end of file
 
