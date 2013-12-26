@@ -34,6 +34,7 @@ View OPML feeds as XHTML
           </xsl:attribute>
           <xsl:value-of select="@title|@text"/>
         </xsl:element>
+<xsl:value-of select="@description"/>
       </li>
     </xsl:if>
   </xsl:template>
