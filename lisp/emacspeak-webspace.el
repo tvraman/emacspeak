@@ -74,8 +74,8 @@
  (">" end-of-buffer)
  ("/" search-forward)
  ("?" search-backward)
- ("n" next-line)
- ("p" previous-line))
+ ("n" forward-button)
+ ("p" backward-button))
  do
  (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
