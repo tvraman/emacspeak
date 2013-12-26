@@ -567,13 +567,12 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 
 
 ;;;###autoload
-(defun emacspeak-opml-display (opml-url &optional speak)
+(defun emacspeak-feeds-opml-display (opml-url &optional speak)
   "Retrieve and display OPML  URL."
   (interactive
    (list
     (car (browse-url-interactive-arg "OPML  URL: "))
-    (or (ems-interactive-p )
-        current-prefix-arg)))
+    (or (ems-interactive-p ) current-prefix-arg)))
   (emacspeak-webutils-feed-display
    opml-url
    (emacspeak-xslt-get "opml.xsl")
