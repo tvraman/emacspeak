@@ -74,6 +74,7 @@
         (">" end-of-buffer)
         ("/" search-forward)
         ("?" search-backward)
+        ("y" emacspeak-webspace-yank-link)
         ("n" forward-button)
         ("p" backward-button)
       ("f" forward-button)
@@ -115,13 +116,13 @@
 (defun emacspeak-webspace-yank-link ()
  "Yank link under point into kill ring."
  (interactive)
- (let ((link (get-text-property (point) 'link)))
- (cond
- (link
- (kill-new link)
- (emacspeak-auditory-icon 'yank-object)
- (message link))
- (t (error "No link under point")))))
+ (let ((button (button-at (point))))
+   (cond
+    (button (emacspeak-auditory-icon 'yank-object)
+            (kill-new (second (button-get button 'feed))))
+    (t (error "No link under point")))))
+    
+ 
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
  "Automatically speak display."
