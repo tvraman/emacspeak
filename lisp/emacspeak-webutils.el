@@ -548,12 +548,18 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (read-from-minibuffer "URL: ")
     (read (completing-read "Type: " '(rss atom)))))
   (declare (special emacspeak-feeds))
-  (pushnew
-   (list title url type)
-   emacspeak-feeds
-   :test #'(lambda (a b) (string= (second a) (second b))))
-  (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
-   
+  (let ((found
+         (find-if #'(lambda (f) (string= url (second f))) emacspeak-feeds)))
+    (cond
+     (found
+      (message "Feed already present  as %s" (first found)))
+     (t (pushnew
+         (list title url type)
+         emacspeak-feeds
+         :test #'(lambda (a b) (string= (second a) (second b))))
+        (customize-save-variable 'emacspeak-feeds emacspeak-feeds)
+        (message "Added feed as %s" title)))))
+
 ;;}}}
 ;;{{{  view feed
 
