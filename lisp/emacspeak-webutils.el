@@ -576,6 +576,17 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    opml-url
    (emacspeak-xslt-get "opml.xsl")
    speak))
+;;; Helper:
+(defun emacspeak-feeds-browse-feed (feed)
+  "Display specified feed.
+Argument `feed' is a feed structure (label url type)."
+  (let ((uri (second feed))
+         (type  (third feed)))
+    (cond
+     ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
+     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
+     ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
+     (t (error "Unknown feed type %s" type)))))
 
 ;;;###autoload
 (defun emacspeak-feed-browse (feed)
@@ -585,14 +596,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
                        emacspeak-feeds))))
-  (let* ((feed (assoc feed emacspeak-feeds))
-         (uri (second feed))
-         (type  (third feed)))
-    (cond
-     ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
-     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
-     ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
-     (t (error "Unknown feed type %s" type)))))
+  (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds)))
 
 ;;}}}
 (provide 'emacspeak-webutils)
