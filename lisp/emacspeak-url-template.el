@@ -324,7 +324,19 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ bbc
 
+
 (emacspeak-url-template-define
+ 
+
+(emacspeak-url-template-define
+ "BBC Program Guide"
+ "http://downloads.bbc.co.uk/podcasts/ppg.xml"
+ nil nil
+ "Display interactive BBC Program Guide."
+ #'(lambda (url)
+     (emacspeak-xslt-view-xml
+      (expand-file-name "bbc-ppg.xsl" emacspeak-xslt-directory) url )))
+
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
  nil nil
