@@ -14,13 +14,13 @@ View OPML feeds as XHTML
     </html>
   </xsl:template>
   <xsl:template match="head">
-    <xsl:copy-of select="."/>
+<h1>
+        <xsl:value-of select="title"/> </h1>
+        <h2>Date Modified: <xsl:copy-of select="dateModified"/></h2>
   </xsl:template>
   <xsl:template match="body">
     <body>
-      <h1>
-        <xsl:value-of select="../head/title"/>
-      </h1>
+      
       <ol>
         <xsl:apply-templates select=".//outline"/>
       </ol>
