@@ -465,12 +465,13 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
      ((null buffer) (message "Nothing to display."))
      (t
       (with-current-buffer buffer
+        (emacspeak-webutils-without-xsl
         (goto-char (point-min))
         (search-forward "\n\n")
         (delete-region (point-min) (point))
         (decode-coding-region (point-min) (point-max) 'utf-8)
         (emacspeak-xslt-region style (point-min) (point-max)))
-      (browse-url-of-buffer)))))
+      (browse-url-of-buffer))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-rss-display (feed-url )
