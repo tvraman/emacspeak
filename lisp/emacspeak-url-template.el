@@ -359,7 +359,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display financial market summary."
  #'(lambda (url)
-     (let ((w3-auto-image-alt nil))
+     (let ((w3-auto-image-alt " "))
        (emacspeak-we-extract-by-class
         "id-summary-chart" url 'speak))))
 
