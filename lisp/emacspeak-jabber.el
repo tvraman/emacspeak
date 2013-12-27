@@ -207,7 +207,7 @@
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
 
-(defadvice jabber-roster-update (around emacspeak pre deactivate comp)
+(defadvice jabber-roster-update (around emacspeak    comp)
   "Make this operation a No-Op unless the roster is visible."
   (when (get-buffer-window-list jabber-roster-buffer) ad-do-it))
 
