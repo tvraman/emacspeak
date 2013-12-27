@@ -1828,18 +1828,14 @@ only speak upto the first ctrl-m."
                                         ;running, I will remain silent.
                                         ; Do nothing if text is ""
   (unless
-      (or dtk-quiet
-          (null text)
-          (string-equal text "")
-          (not dtk-speak-server-initialized))
+      (or dtk-quiet (null text)
+          (string-equal text "") (not dtk-speak-server-initialized))
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
     (dtk-interp-sync)
-    (or (stringp text) (setq text (format "%s" text )))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text )))
-        (and ctrl-m
-             (setq text (substring  text 0 ctrl-m ))
+        (and ctrl-m (setq text (substring  text 0 ctrl-m ))
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t)
           (deactivate-mark nil)
