@@ -483,7 +483,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  (save-restriction
  (narrow-to-region start end)
  (goto-char start)
- (while (re-search-forward "[ ]+" end 'no-error)
+ (while (re-search-forward (format "[%c]+" 160)end 'no-error)
  (replace-match" ")))))))
 
 ;;}}}
