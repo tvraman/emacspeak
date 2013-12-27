@@ -385,8 +385,8 @@ Optional interactive prefix arg forces a refresh."
 
 (define-button-type 'emacspeak-webspace-feed-link
  'follow-link t
- 'feed nil nil
- nil
+ 'feed nil 
+'help-echo "Open Feed"
  'action #'emacspeak-webspace-feed-reader-action)
 
 (defun emacspeak-webspeace-feed-reader-insert-button (feed)
