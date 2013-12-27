@@ -15,6 +15,7 @@ all: emacspeak.info
 
 info: emacspeak.texi
 	$(MAKEINFO) emacspeak.texi
+	$(MAKEINFO) introducing-emacspeak.texi
 .PHONY: commands.texi 
 
 commands.texi: 
