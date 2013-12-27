@@ -11,9 +11,9 @@ infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 EMACS=emacs
 
-all: emacspeak.info 
+all: emacspeak.info  introducing-emacspeak.info
 
-info: emacspeak.texi
+info: emacspeak.texi introducing-emacspeak.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 .PHONY: commands.texi 
