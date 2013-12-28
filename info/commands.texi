@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 926 commands.
+This chapter documents a total of 944 commands.
 
 @menu
 * cd-tool::
@@ -25,14 +25,17 @@ This chapter documents a total of 926 commands.
 * emacspeak-custom::
 * emacspeak-daisy::
 * emacspeak-dired::
+* emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
+* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
 * emacspeak-epub::
 * emacspeak-erc::
 * emacspeak-eterm::
+* emacspeak-eudc::
 * emacspeak-filtertext::
 * emacspeak-fix-interactive::
 * emacspeak-forms::
@@ -86,7 +89,6 @@ This chapter documents a total of 926 commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
-* emacspeak-w3search::
 * emacspeak-org::
 * URL Templates ::
 @end menu
@@ -1434,6 +1436,107 @@ Speak the header line of the dired buffer.
 Speaks the target of the symlink on the current line.
 @end deffn
 
+@node emacspeak-dismal
+@section emacspeak-dismal
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-dismal.
+
+@deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize nil
+@kbd{Not bound to any key.}
+
+Move backward by arg columns
+ (the previous column by default)and summarize it.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize nil
+@kbd{Not bound to any key.}
+
+Move backward by arg rows
+ (the previous row by default)and summarize it.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-col-summarize nil
+@kbd{Not bound to any key.}
+
+Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-display-cell-expression nil
+@kbd{Not bound to any key.}
+
+Display the expression in the message area
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-display-cell-value nil
+@kbd{Not bound to any key.}
+
+Display the cell value in the message area
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header nil
+@kbd{Not bound to any key.}
+
+Display current cell along with its column header.
+The `column header' is the entry in row 0.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header nil
+@kbd{Not bound to any key.}
+
+Displays current cell along with its row header.
+The `row header' is the entry in column 0.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize nil
+@kbd{Not bound to any key.}
+
+Move forward by arg columns
+ (the next column by default)and summarize it.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize nil
+@kbd{Not bound to any key.}
+
+Move forward by arg rows
+ (the next row by default)and summarize it.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-row-summarize nil
+@kbd{Not bound to any key.}
+
+Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list nil
+@kbd{Not bound to any key.}
+
+Specify or reset col summarizer list.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list nil
+@kbd{Not bound to any key.}
+
+Specify or reset row summarizer list.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list nil
+@kbd{Not bound to any key.}
+
+Specify or reset sheet summarizer list.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-dismal-sheet-summarize nil
+@kbd{Not bound to any key.}
+
+Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+@end deffn
+
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -1511,6 +1614,26 @@ for commands defined in module  emacspeak-ediff.
 @kbd{Not bound to any key.}
 
 Speak the current difference
+@end deffn
+
+@node emacspeak-emms
+@section emacspeak-emms
+
+Commentary:
+Speech-enables EMMS --- the Emacs equivalent of XMMS
+See
+http://savannah.gnu.org/project/emms
+EMMS is under active development,
+to get the current CVS version, use Emacspeak command
+M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+Automatically generated documentation
+for commands defined in module  emacspeak-emms.
+
+@deffn {Interactive Command} emacspeak-emms-speak-current-track nil
+@kbd{Not bound to any key.}
+
+Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -1871,10 +1994,14 @@ for commands defined in module  emacspeak-eterm.
 @deffn {Interactive Command} emacspeak-eterm-copy-region-to-register nil
 @kbd{Not bound to any key.}
 
+:around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
+
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window nil
@@ -1920,9 +2047,13 @@ in a non eterm buffer if executed via C-e C-e
 @deffn {Interactive Command} emacspeak-eterm-paste-register nil
 @kbd{Not bound to any key.}
 
+:around advice: `ad-Advice-emacspeak-eterm-paste-register'
+
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word nil
@@ -2161,6 +2292,24 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
+@end deffn
+
+@node emacspeak-eudc
+@section emacspeak-eudc
+
+Commentary:
+EUDC --Emacs Universal Directory Client 
+provides a unified interface to directory servers
+e.g. ldap servers
+this module speech enables eudc 
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eudc.
+
+@deffn {Interactive Command} emacspeak-eudc-send-mail nil
+@kbd{Not bound to any key.}
+
+Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -3771,13 +3920,13 @@ Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
 @deffn {Interactive Command} emacspeak-backward-char nil
-@kbd{ control b   <left> }
+@kbd{Not bound to any key.}
 
 Backward-char redefined to speak char moved to. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forward-char nil
-@kbd{ control f   <right> }
+@kbd{Not bound to any key.}
 
 Forward-char redefined to speak char moved to. 
 @end deffn
@@ -3981,12 +4130,6 @@ from becoming dependent on the speech server modules
 Automatically generated documentation
 for commands defined in module  emacspeak-speak.
 
-@deffn {Interactive Command} emacspeak-audio-annotate-paragraphs nil
-@kbd{Not bound to any key.}
-
-Set property auditory-icon at front of all paragraphs.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-blink-matching-open nil
 @kbd{Not bound to any key.}
 
@@ -4092,6 +4235,12 @@ Default is to read the previous word.
 @kbd{ <search> }
 
 Call search defined in <search>.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-shell-command nil
+@kbd{Not bound to any key.}
+
+Run shell command and speak its output.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-silence nil
@@ -4607,6 +4756,12 @@ Speak the white space at point.
 @kbd{Not bound to any key.}
 
 Spell word at  point.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-text-range nil
+@kbd{Not bound to any key.}
+
+Speak text range identified by this PROPERTY.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-this-face-chunk nil
@@ -5747,6 +5902,14 @@ Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-we-extract-by-role nil
+@kbd{Not bound to any key.}
+
+Extract elements having specified role attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Interactive use provides list of role values as completion.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-we-extract-id-list-text nil
 @kbd{Not bound to any key.}
 
@@ -5837,6 +6000,12 @@ Tables are specified by containing  match pattern
 Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-we-follow-and-extract-main nil
+@kbd{Not bound to any key.}
+
+Follow URL, then extract role=main.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-follow-and-filter-by-id nil
@@ -6256,10 +6425,17 @@ for commands defined in module  emacspeak-webspace.
 View Atom feed.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-webspace-feed-reader nil
+@kbd{Not bound to any key.}
+
+Display Feed Reader Feed list in a WebSpace buffer.
+Optional interactive prefix arg forces a refresh.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-webspace-feed-view nil
 @kbd{Not bound to any key.}
 
-View  feed using gfeeds.
+View feed using gfeeds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-filter nil
@@ -6294,47 +6470,31 @@ Major mode for Webspace interaction.
 key             binding
 ---             -------
 
-TAB		emacspeak-webspace-next-link
-RET		emacspeak-webspace-open
-.		emacspeak-webspace-filter
+TAB		forward-button
+ESC		Prefix Command
 /		search-forward
 <		beginning-of-buffer
 >		end-of-buffer
 ?		search-backward
-A		emacspeak-webspace-atom-view
-F		emacspeak-webspace-feed-view
-R		emacspeak-webspace-rss-view
-b		emacspeak-webspace-previous-link
-f		emacspeak-webspace-next-link
-g		emacspeak-webspace-reader-refresh
-n		next-line
-p		previous-line
+b		backward-button
+f		forward-button
+n		forward-button
+p		backward-button
 q		bury-buffer
-t		emacspeak-webspace-transcode
 y		emacspeak-webspace-yank-link
-<S-tab>		emacspeak-webspace-previous-link
+<backtab>	backward-button
+
+C-M-i		backward-button
 
 In addition to any hooks its parent mode `special-mode' might have run,
 this mode runs the hook `emacspeak-webspace-mode-hook', as the final step
 during initialization.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-webspace-next-link nil
-@kbd{Not bound to any key.}
-
-Move to next link.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-webspace-open nil
 @kbd{Not bound to any key.}
 
 Open headline at point by following its link property.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webspace-previous-link nil
-@kbd{Not bound to any key.}
-
-Move to previous link.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-reader nil
@@ -6377,7 +6537,7 @@ Transcode headline at point by following its link property.
 @deffn {Interactive Command} emacspeak-webspace-update-headlines nil
 @kbd{Not bound to any key.}
 
-Setup  news updates.
+Setup news updates.
 Updated headlines found in emacspeak-webspace-headlines.
 @end deffn
 
@@ -6411,22 +6571,16 @@ and emacspeak-w3m.el
 Automatically generated documentation
 for commands defined in module  emacspeak-webutils.
 
-@deffn {Interactive Command} emacspeak-atom-browse nil
-@kbd{Not bound to any key.}
-
-Browse specified ATOM feed.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-opml-display nil
-@kbd{Not bound to any key.}
-
-Retrieve and display OPML  URL.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-rss-browse nil
+@deffn {Interactive Command} emacspeak-feed-browse nil
 @kbd{ control e control u }
 
-Browse specified RSS feed.
+Browse specified  feed.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-feeds-add-feed nil
+@kbd{ control e meta u }
+
+Add specified feed to our feed store.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-atom-display nil
@@ -6438,7 +6592,7 @@ Display ATOM feed.
 @deffn {Interactive Command} emacspeak-webutils-fv nil
 @kbd{Not bound to any key.}
 
-Display RSS or ATOM feed URL.
+Display RSS or ATOM  feed by pulling from Google.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-google-extract-from-cache nil
@@ -6483,10 +6637,10 @@ Opens link in alternate browser.
  If using default browser is w3, uses w3m and vice-versa
 @end deffn
 
-@deffn {Interactive Command} emacspeak-webutils-open-subscribed-feeds nil
+@deffn {Interactive Command} emacspeak-webutils-opml-display nil
 @kbd{Not bound to any key.}
 
-Feed list specified by OPML file customized via emacspeak-my-subscribed-feeds
+Retrieve and display OPML  URL.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-play-media-at-point nil
@@ -6514,12 +6668,6 @@ Transcode current URL via Google.
 
 Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-webutils-view-feed-via-google-reader nil
-@kbd{Not bound to any key.}
-
-Pulls feed under point via Google Reader.
 @end deffn
 
 @node emacspeak-widget
@@ -6985,6 +7133,12 @@ Insert Braille string at point.
 @kbd{Not bound to any key.}
 
 byte compile current buffer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-cleanup-shell-path nil
+@kbd{Not bound to any key.}
+
+Cleans up duplicates in shell path env variable.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-comma-at-end-of-word nil
@@ -7483,6 +7637,12 @@ insert thanks , --Raman at the end of mail message
 Toggle pronunciation of mm-dd-yyyy dates.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-toggle-yyyymmdd-date-pronouncer nil
+@kbd{Not bound to any key.}
+
+Toggle pronunciation of yyyymmdd  dates.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-tpctl-display-status nil
 @kbd{Not bound to any key.}
 
@@ -7506,6 +7666,12 @@ UnEscape URI
 @kbd{Not bound to any key.}
 
 Run units in a comint sub-process.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-use-w3-or-eww nil
+@kbd{Not bound to any key.}
+
+Alternates between using W3 and EWW for browse-url.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-use-w3-or-w3m nil
@@ -7854,33 +8020,6 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-blue-pages nil
-@kbd{Not bound to any key.}
-
-Search IBM Blue Pages
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal nil
-@kbd{Not bound to any key.}
-
-Search IBM My News
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-my-news nil
-@kbd{Not bound to any key.}
-
-Search IBM My News
-@end deffn
-
 @node emacspeak-org
 @section emacspeak-org
 
@@ -7909,13 +8048,36 @@ Pops up an org input area.
 (fn)
 @end deffn
 
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  nil.
+
+@deffn {Interactive Command} ad-Advice-emacspeak-eterm-copy-region-to-register nil
+@kbd{Not bound to any key.}
+
+Advice function assembled by advice.el.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+@end deffn
+
+@deffn {Interactive Command} ad-Advice-emacspeak-eterm-paste-register nil
+@kbd{Not bound to any key.}
+
+Advice function assembled by advice.el.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+@end deffn
+
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 113 URL Templates.
+This section documents a total of 110 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -7969,6 +8131,14 @@ Walking directions from Ask.com
 @kbd{BBC  iPlayer}
 
 BBC iPlayer
+
+@kbd{BBC Podcast Directory}
+
+BBC PodCast Directory
+
+@kbd{BBC Program Guide}
+
+Display interactive BBC Program Guide.
 
 @kbd{Baseball Game Index}
 
@@ -8053,28 +8223,6 @@ Display content from Google Finance.
 @kbd{GCalendar Mobile}
 
 Google Calendar XHTML version.
-
-@kbd{GMail Contacts}
-
-Open GMail Inbox
-
-@kbd{GMail Inbox}
-
-Open GMail Inbox
-
-@kbd{GMail Labels}
-
-Find messages having label from GMail. 
-Make sure to sign in before invoking this template.
-
-@kbd{GMail Mobile}
-
-GMail Mobile XHTML version --- light-weight, fast!
-
-@kbd{GMail Search}
-
-Search GMail. 
-Make sure to sign in before invoking this template.
 
 @kbd{Geek Linux Daily}
 
@@ -8205,7 +8353,7 @@ from English to German
 
 @kbd{NY Times Mobile}
 
-NYtimes Mobile Site
+NYTimes Mobile Site
 
 @kbd{NY Times RSS Feeds}
 
