@@ -474,17 +474,17 @@ the words that were capitalized."
  :version "37.0")
 
 (defadvice untabify (after emacspeak-fix-nbspc pre act comp)
- "Fix NBSP chars if asked to ---
+  "Fix NBSP chars if asked to ---
 see option emacspeak-untabify-fixes-non-breaking-space."
- (when emacspeak-untabify-fixes-non-breaking-space
- (let ((start (ad-get-arg 0))
- (end (ad-get-arg 1)))
- (save-excursion
- (save-restriction
- (narrow-to-region start end)
- (goto-char start)
- (while (re-search-forward (format "[%c]+" 160)end 'no-error)
- (replace-match" ")))))))
+  (when emacspeak-untabify-fixes-non-breaking-space
+    (let ((start (ad-get-arg 0))
+          (end (ad-get-arg 1)))
+      (save-excursion
+        (save-restriction
+          (narrow-to-region start end)
+          (goto-char start)
+          (while (re-search-forward (format "[%c]+" 160)end 'no-error)
+            (replace-match" ")))))))
 
 ;;}}}
 ;;{{{ Advice PComplete
