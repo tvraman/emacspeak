@@ -2442,7 +2442,6 @@ directory to where find is to be launched."
    (t (setq browse-url-browser-function 'w3-fetch)
       (message "Restoring sanity by switching to W3."))))
 
-
 ;;}}}
 ;;{{{ customize emacspeak
 ;;;###autoload
@@ -3004,7 +3003,6 @@ dates.")
 (defvar emacspeak-wizards-yyyymmdd-date-pronounce nil
   "Toggled by wizard to record how we are pronouncing yyyymmdd dates.")
 
-
 ;;;###autoload
 (defun emacspeak-wizards-toggle-yyyymmdd-date-pronouncer ()
   "Toggle pronunciation of yyyymmdd  dates."
@@ -3025,7 +3023,6 @@ dates.")
   English."
            (if emacspeak-wizards-yyyymmdd-date-pronounce "" "
   not ")))
-
 
 ;;}}}
 ;;{{{ units wizard
@@ -3510,7 +3507,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                      (loop  for k being the hash-keys of h collect k)
                      ":"))
     (kill-new (format "export PATH=\"%s\"" p))
-(message (setenv "PATH" p))))
+    (message (setenv "PATH" p))))
 
 ;;}}}
 (provide 'emacspeak-wizards)

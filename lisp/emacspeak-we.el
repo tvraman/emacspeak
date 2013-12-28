@@ -359,7 +359,6 @@ operate on current web page when in a browser buffer; otherwise
   (emacspeak-we-extract-by-role "main"
                                 (funcall emacspeak-webutils-url-at-point) 'speak))
 
-
 ;;;###autoload
 (defun emacspeak-we-extract-media-streams-under-point ()
   "In browser buffers, extract media streams from url under point."

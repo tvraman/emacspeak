@@ -93,9 +93,9 @@
   (loop for k in
         '(
           ("\C-i" shr-next-link)
-          ;("A" shr-url-view-filtered-dom-by-attribute)
-          ;("E" shr-url-view-filtered-dom-by-element-list)
-          ;("o" shr-url-open-link-at-point)
+                                        ;("A" shr-url-view-filtered-dom-by-attribute)
+                                        ;("E" shr-url-view-filtered-dom-by-element-list)
+                                        ;("o" shr-url-open-link-at-point)
           ([backtab] shr-previous-link)
           ("\M-\C-i" shr-previous-link)
           ("q" bury-buffer)
@@ -258,8 +258,6 @@ URL  being retrieved is received as part of the callback args."
    `(defun ,(gensym "shr-url-predicate") (node)
       ,(format "Test if node  is a member of  %s" element-list)
       (when (member (xml-node-name node) (quote ,element-list)) node))))
-
-
 
 (defun shr-url-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."

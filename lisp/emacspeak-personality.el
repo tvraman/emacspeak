@@ -297,7 +297,6 @@ displayed in the messages area."
         (when voice
           (funcall emacspeak-personality-voiceify-faces start end voice object))))))
 
-
 (defadvice add-text-properties (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
   (when (and voice-lock-mode    emacspeak-personality-voiceify-faces)
@@ -427,24 +426,24 @@ Append means place corresponding personality at the end."
 (defadvice move-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
   (when emacspeak-personality-advice-move-overlay
-  (let ((overlay (ad-get-arg 0))
-        (emacspeak-personality-advice-move-overlay nil)
-        (beg (ad-get-arg 1))
-        (end (ad-get-arg 2))
-        (object (ad-get-arg 3))
-        (voice nil))
-    (setq voice (overlay-get  overlay 'personality))
-    (when
-        (and voice
-             emacspeak-personality-voiceify-overlays
-             (integer-or-marker-p (overlay-start overlay))
-             (integer-or-marker-p (overlay-end overlay)))
-      (emacspeak-personality-remove
-       (overlay-start overlay)
-       (overlay-end overlay)
-       voice (overlay-buffer overlay))
-      (funcall emacspeak-personality-voiceify-overlays
-               beg end voice object)))))
+    (let ((overlay (ad-get-arg 0))
+          (emacspeak-personality-advice-move-overlay nil)
+          (beg (ad-get-arg 1))
+          (end (ad-get-arg 2))
+          (object (ad-get-arg 3))
+          (voice nil))
+      (setq voice (overlay-get  overlay 'personality))
+      (when
+          (and voice
+               emacspeak-personality-voiceify-overlays
+               (integer-or-marker-p (overlay-start overlay))
+               (integer-or-marker-p (overlay-end overlay)))
+        (emacspeak-personality-remove
+         (overlay-start overlay)
+         (overlay-end overlay)
+         voice (overlay-buffer overlay))
+        (funcall emacspeak-personality-voiceify-overlays
+                 beg end voice object)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
