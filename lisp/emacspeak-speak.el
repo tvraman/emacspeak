@@ -164,7 +164,7 @@ Argument BODY specifies forms to execute."
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(let ((emacspeak-speak-errors nil))
-       ,@body))
+     ,@body))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
@@ -437,7 +437,6 @@ current local  value to the result.")
 ;;}}}
 ;;{{{ compute percentage into the buffer:
 
-
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
   (let* ((pos (point))
@@ -455,8 +454,6 @@ current local  value to the result.")
      ((= 0 percent) " top ")
      ((= 100 percent) " bottom ")
      (t (format " %d%% " percent)))))
-
-
 
 ;;}}}
 ;;{{{  indentation:
