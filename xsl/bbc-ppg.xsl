@@ -21,7 +21,9 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
     </html>
   </xsl:template>
 
-<xsl:template match="program">
+  <xsl:template match="program">
+    <xsl:choose>
+<xsl:when test="@public='true' and @active='true'">
 <h2><xsl:value-of select="title"/></h2>
 <p>Genre:  <xsl:value-of select="bbcGenre/@name"/></p>
 <xsl:apply-templates select="link"/>
@@ -29,7 +31,9 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
   Duration: <xsl:value-of select="@typicalDuration"/><br/>
   Region: <xsl:value-of select="@region"/>
 </p>
-   <p><xsl:copy-of select="description"/></p>
+<p><xsl:copy-of select="description"/></p>
+</xsl:when>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="link">
