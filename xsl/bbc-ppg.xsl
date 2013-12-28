@@ -23,16 +23,16 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
 
   <xsl:template match="program">
     <xsl:choose>
-      <xsl:when test="@public='true' and @active='true' and @liveItems
-                      &gt; 0">
-        <h2><xsl:value-of select="title"/></h2>
-        <p>Genre:  <xsl:value-of select="bbcGenre/@name"/></p>
+      <xsl:when test="@public='true' 
+                      and @active='true' 
+                      and @liveItems &gt; 0 
+                      and @region='all'">
+        <h2><xsl:value-of select="title"/>
+<em>(<xsl:value-of select="bbcGenre/@name"/>)</em></h2>
         <xsl:apply-templates select="link"/>
         <p>
-          Duration: <xsl:value-of select="@typicalDuration"/><br/>
-          Region: <xsl:value-of select="@region"/>
-        </p>
-        <p><xsl:copy-of select="description"/></p>
+           Duration: <xsl:value-of select="@typicalDuration"/><br/>
+        <xsl:copy-of select="description"/></p>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
