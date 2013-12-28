@@ -16,7 +16,7 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
         <title>BBC Program Guide</title>
       </head>
       <body>
-        <h1>BBC Program Guide</h1>
+        <h1>BBC Program Guide: Modified <xsl:value-of select="@modifiedDate"/></h1>
         <xsl:apply-templates select="program"/>
       </body>
     </html>
