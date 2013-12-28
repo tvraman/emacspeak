@@ -23,7 +23,8 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
 
   <xsl:template match="program">
     <xsl:choose>
-<xsl:when test="@public='true' and @active='true'">
+<xsl:when test="@public='true' and @active='true' and @liveItems
+                &gt; 0">
 <h2><xsl:value-of select="title"/></h2>
 <p>Genre:  <xsl:value-of select="bbcGenre/@name"/></p>
 <xsl:apply-templates select="link"/>
