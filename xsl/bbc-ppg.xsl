@@ -28,12 +28,12 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
           <xsl:value-of select="title"/>
           <em>(<xsl:value-of select="bbcGenre/@name"/>)</em>
         </h2>
+<p>
+        <xsl:copy-of select="description"/></p>
         <xsl:apply-templates select="link"/>
         <p>
            Duration: <xsl:value-of
            select="@typicalDuration"/></p>
-           <p>
-        <xsl:copy-of select="description"/></p>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
