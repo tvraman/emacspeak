@@ -1,0 +1,51 @@
+* Managing And Accessing Feeds  On The Emacspeak Audio Desktop 
+
+
+** Summary
+
+Feature *emacspeak-feeds* enables rapid access to managing and
+accessing Atom, RSS and OPML feeds. Feeds can be browsed from a
+dedicated buffer, or accessed via minibuffer completion for
+oft-accessed feeds. Feeds are stored as a user customizable
+option, and can be added and deleted either via Emacs' customize
+interface or directly via interactive Emacs commands.
+
+** How It Works
+
+The list of subscribed feeds is stored in variable
+_emacspeak-feeds_ which is managed via Emacs' _customize_
+interface. Each entry this list contains a label for the feed,
+the feed URL, and the type of the feed (_rss_, _atom_, or
+_opml_).
+
+Interactive command  _emacspeak-webspace-feed-reader_ opens a
+buffer containing the list of subscribed feeds; feeds can be
+opened by pressing _enter_ on the relevant feed. 
+
+Oft-accessed feeds can be opened directly via command
+_emacspeak-feed-browse_ bound to _C-e C-u_ — this command prompts
+for a feed label with minibuffer completion.
+
+Feeds can be added or deleted by customizing _emacspeak-feeds_
+via Emacs' _M-x customize-variable_ — bound by default in
+emacspeak to _C-h V_. Alternatively, interactive command
+_emacspeak-feed-add-feed_ bound to _C-e M-u_ can be used to
+subscribe to feeds. Note that both methods result in the
+subscribed feed being stored in _emacspeak-feeds_.
+
+
+#+TITLE:Managing And Accessing Feeds  On The Emacspeak Audio Desktop 
+#+DATE: <2013-12-29 Sun>
+#+AUTHOR: T.V Raman
+#+EMAIL: tv.raman.tv@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.3.50.2 (Org mode 8.2.3a)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
