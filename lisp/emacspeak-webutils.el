@@ -546,7 +546,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    (list
     (read-from-minibuffer "Title: ")
     (read-from-minibuffer "URL: ")
-    (read (completing-read "Type: " '(rss atom opml)))))
+    (read (completing-read "Type: " '(rss atom opml) nil 'must-match))))
   (declare (special emacspeak-feeds))
   (let ((found
          (find-if #'(lambda (f) (string= url (second f))) emacspeak-feeds)))
