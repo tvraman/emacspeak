@@ -1,0 +1,65 @@
+* Exploring  BBC  Podcasts And Program Archives
+
+** Summary
+
+A short overview of tools on the emacspeak desktop for easily
+exploring and accessing BBC program content.
+
+** Background 
+
+The BBC offers a wealth of audio content from both domestic BBC
+Radio as well as BBC World Service.
+Much of this content is available as Podcasts for a week after it
+has been broadcast; in some instances, content is archived and
+available for more than a week.
+
+
+The  primary gateway to this content is BBC IPlayer. In
+addition, one can subscribe to RSS feeds for BBC Podcasts.
+** Accessing BBC Content From Emacspeak
+
+Here are some of the tools I  use on the Emacspeak desktop to
+quickly find and access content from the BBC:
+
+  - The BBC publishes a continuously updated directory of 
+     RSS feeds; Emacspeak url template  *BBC Podcast Directory*
+    can be used to open this directory of feeds.
+  - With the above directory of feeds at hand, it is easy to
+    subscribe to oft-accessed feeds via *emacspeak-feeds* — see
+    [[http://emacspeak.blogspot.com/2013/12/managing-and-accessing-feeds-on.html][Managing And Accessing Feeds]].
+  - In addition to the directory of feeds covered above, the BBC
+    publishes a detailed program guide as XML; Emacspeak url
+    template *BBC  Program Guide* accesses the program guide.
+  - The program guide described above gives access to RSS feeds
+    for both current programs as 
+  well as past archives. The program guide is a wealth of
+information that makes all the information available in one
+location, unlike the BBC IPlayer site.
+  - A note for UK users; the program guide above is presently set
+    up to  only show content that is available world-wide; if
+    you're in the UK, you may want to remove the test for
+: region='all'
+  in the XSL  stylesheet  emacspeak/xsl/bbc-ppg.xsl.
+  - You can find the [[http://downloads.bbc.co.uk/podcasts/ppg.xml][XML feed]] for the BBC Program Guide, as well
+    as the associated [[http://downloads.bbc.co.uk/podcasts/ppg.xsd][XML Schema]] definition on the BBC's Web
+    site.
+  - Finally, you can access the BBC IPlayer page for any given
+    BBC channel via Emacspeak url template *BBC IPlayer*.
+
+*Share And Enjoy!* And Hear's Wishing Everyone A Very Happy 2014!
+
+#+TITLE: Exploring  BBC  Podcasts And Program Archives
+#+DATE: <2014-01-01 Wed>
+#+AUTHOR: T.V Raman
+#+EMAIL: tv.raman.tv@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.3.50.2 (Org mode 8.2.3a)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
