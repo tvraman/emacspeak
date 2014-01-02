@@ -282,6 +282,8 @@ applied."
   (interactive)
   (declare (special emacspeak-pronounce-dictionaries))
   (let* (
+         (print-level nil)
+         (print-length nil)
          (filename (read-file-name
                     "Save pronunciation dictionaries to file: "
                     emacspeak-resource-directory
