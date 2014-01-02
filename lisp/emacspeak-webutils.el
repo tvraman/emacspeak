@@ -596,17 +596,20 @@ Archiving is useful when synchronizing feeds across multiple machines."
                     emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
-  (let* ((buffer (find-file-noselect emacspeak-feeds-archive-file))
-         (feeds  (read buffer))
-         (count  (length feeds))
+  (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
+         (feeds  nil)
          (emacspeak-speak-messages nil))
+         (with-current-buffer buffer
+           (goto-char (point-min))
+           (setq feeds (read buffer)))
+         (kill-buffer buffer)
     (loop for f in feeds
           do
           (apply #'emacspeak-feeds-add-feed f))
     (when
         (y-or-n-p
      (format "After restoring %d feeds, we have a total of %d feeds. Save? "
-             count (length emacspeak-feeds)))
+             (length feeds) (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
     
 
