@@ -362,7 +362,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 
 ;;;###autoload
 (defcustom emacspeak-webspace-reader-feed-list
-  (expand-file-name "reader.html" "~/.emacspeak")
+  (expand-file-name "reader.html" emacspeak-resource-directory)
   "HTML file containing list of feeds.")
 
 ;;;###autoload
