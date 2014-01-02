@@ -563,7 +563,78 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
         (message "Added feed as %s" title)))))
+(defvar emacspeak-feeds-archive-file
+  (expand-file-name "feeds.el" emacspeak-resource-directory)
+  "Feed archive.")
 
+;;;###autoload
+(defun emacspeak-feeds-archive-feeds ()
+  "Archive list of subscribed fees to personal resource directory.
+Archiving is useful when synchronizing feeds across multiple machines."
+  (interactive)
+  (declare (special emacspeak-feeds-archive-file
+                    emacspeak-speak-messages emacspeak-feeds))
+  (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
+        (emacspeak-speak-messages nil)
+        (print-level nil)
+        (print-length nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (cl-prettyprint emacspeak-feeds)
+      (save-buffer)
+      (emacspeak-auditory-icon 'save-object)))
+  (message "Archived emacspeak-feeds containing %d feeds in %s"
+           (length emacspeak-feeds)
+           emacspeak-feeds-archive-file))
+
+;;;###autoload
+(defun emacspeak-feeds-restoere-feeds ()
+  "Restore list of subscribed fees from  personal resource directory.
+Archiving is useful when synchronizing feeds across multiple machines."
+  (interactive)
+  (declare (special emacspeak-feeds-archive-file
+                    emacspeak-feeds))
+  (unless (file-exists-p emacspeak-feeds-archive-file)
+    (error "No archived feeds to restore. "))
+  (let* ((buffer (find-file-noselect emacspeak-feeds-archive-file))
+         (feeds  (read buffer))
+         (count  (length feeds))
+         (emacspeak-speak-messages nil))
+    (loop for f in feeds
+          do
+          (apply #'emacspeak-feeds-add-feed f))
+    (when
+        (y-or-n-p
+     (format "After restoring %d feeds, we have a total of %d feeds. Save? "
+             count (length emacspeak-feeds)))
+      (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
+    
+
+;;}}}
+;;{{{  view feed
+
+;;;###autoload
+(defun emacspeak-webutils-opml-display (opml-url &optional speak)
+  "Retrieve and display OPML  URL."
+  (interactive
+   (list
+    (car (browse-url-interactive-arg "OPML  URL: "))
+    (or (ems-interactive-p ) current-prefix-arg)))
+  (emacspeak-webutils-feed-display
+   opml-url
+   (emacspeak-xslt-get "opml.xsl")
+   speak))
+;;; Helper:
+(defun emacspeak-feeds-browse-feed (feed)
+  "Display specified feed.
+Argument `feed' is a feed structure (label url type)."
+  (let ((uri (second feed))
+        (type  (third feed)))
+    (cond
+     ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
+     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
+     ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
+     (t (error "Unknown feed type %s" type)))))
 ;;}}}
 ;;{{{  view feed
 
