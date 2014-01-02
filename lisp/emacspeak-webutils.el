@@ -557,7 +557,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
          (list title url type)
          emacspeak-feeds
          :test #'(lambda (a b) (string= (second a) (second b))))
-        (customize-save-variable 'emacspeak-feeds emacspeak-feeds)
+        (let ((dtk-quiet t))
+          (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
         (message "Added feed as %s" title)))))
 
 ;;}}}
