@@ -28,12 +28,17 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
           <xsl:value-of select="title"/>
           <em>(<xsl:value-of select="bbcGenre/@name"/>)</em>
         </h2>
-<p>
+        <p>
         <xsl:copy-of select="description"/></p>
+        <p>
+          Frequency: 
+          <xsl:value-of select="@frequency"/>.
+          Items are live for <xsl:value-of select="@daysLive"/> days,
+        <xsl:value-of select="@liveItems"/> available.</p>
         <xsl:apply-templates select="link"/>
         <p>
-           Duration: <xsl:value-of
-           select="@typicalDuration"/></p>
+          Duration: <xsl:value-of
+          select="@typicalDuration"/></p>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
