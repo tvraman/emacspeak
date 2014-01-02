@@ -600,7 +600,9 @@ emacspeak-speak-filter-table)\n" k v )))
   "Persist emacspeak filter settings for future sessions."
   (declare (special emacspeak-speak-filter-persistent-store
                     emacspeak-speak-filter-table))
-  (let ((buffer (find-file-noselect
+  (let ((print-level nil)
+        (print-length nil)
+        (buffer (find-file-noselect
                  emacspeak-speak-filter-persistent-store)))
     (save-current-buffer
       (set-buffer buffer)

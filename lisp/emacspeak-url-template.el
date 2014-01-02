@@ -192,7 +192,9 @@ dont-url-encode if true then url arguments are not url-encoded "
     (read-file-name "Save URL templates to file: "
                     emacspeak-resource-directory)))
   (declare (special emacspeak-resource-directory))
-  (let ((buffer (find-file-noselect
+  (let ((print-level nil)
+        (print-length nil)
+        (buffer (find-file-noselect
                  (expand-file-name file
                                    emacspeak-resource-directory))))
     (save-current-buffer

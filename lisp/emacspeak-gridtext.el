@@ -166,7 +166,9 @@ end   as specified by grid."
                     emacspeak-resource-directory
                     ".gridtext")))
   (declare (special emacspeak-resource-directory))
-  (let ((buffer (find-file-noselect
+  (let ((print-level nil)
+        (print-length nil)
+        (buffer (find-file-noselect
                  (expand-file-name file
                                    emacspeak-resource-directory))))
     (save-current-buffer
