@@ -2414,6 +2414,10 @@ Produce auditory icons if possible."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+(defadvice customize-save-variable (around emacspeak pre act comp)
+  "Silence chatter."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 ;;}}}
 ;;{{{ transient mark mode
