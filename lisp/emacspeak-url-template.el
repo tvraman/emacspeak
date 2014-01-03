@@ -289,17 +289,25 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ BBC iPlayer 
 ;;; convertor is here:
 ;;; http://www.iplayerconverter.co.uk/convert.aspx
+;;;Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
+;;; This used to work, but now gives a 403:
+;;; "http://www.iplayerconverter.co.uk/pid/%s/r/stream.aspx"
+;;; So now we need to open a Web page and click a link (sad)
 
 (defvar emacspeak-url-template-iplayer-convertor
-  "http://www.iplayerconverter.co.uk/pid/%s/r/stream.aspx"
+  "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
   "Template for generating persistent realplayer URL for iplayer content.")
 
 (defun emacspeak-url-template-iplayer-player (cid)
-  "Take a cid particle, and invokes mplayer."
+  "Take a cid particle, and opens player page."
   (declare (special emacspeak-url-template-iplayer-convertor))
-  (let ((handle (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
-    (emacspeak-m-player handle 'playlist)
-    (message handle)))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil
+       (when (search-forward "mms:" nil t) (emacspeak-webutils-play-media-at-point)))
+   'at-end)
+  (browse-url
+   (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
 
 (emacspeak-url-template-define
  "BBC  iPlayer"
