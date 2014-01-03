@@ -4,6 +4,10 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 Transform BBC iPlayer schedules to simple HTML.
+Schedules can be pulled from:
+http://www.bbc.co.uk/radio4/programmes/schedules/fm/yyyy/mm/dd.xml
+as documented at
+http://www.bbc.co.uk/programmes/developers
 -->
 
 
@@ -14,11 +18,11 @@ Transform BBC iPlayer schedules to simple HTML.
   <xsl:template match="/">    <html>
       <head>
 <title>
-          <xsl:value-of select="//title[1]"/>
+          <xsl:value-of select="/schedule/service/title"/>
         </title>
       </head>
       <body>
-        <h1><xsl:value-of select="//title[1]"/></h1>
+        <h1><xsl:value-of select="/schedule/service/title"/></h1>
         <xsl:apply-templates select="//broadcasts"/>
       </body>
     </html>
