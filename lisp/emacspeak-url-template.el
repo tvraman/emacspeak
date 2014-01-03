@@ -304,7 +304,9 @@ dont-url-encode if true then url arguments are not url-encoded "
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
-       (when (search-forward "mms:" nil t) (emacspeak-webutils-play-media-at-point)))
+       (when (search-forward "mms:" nil t)
+         (emacspeak-webutils-play-media-at-point)
+         (bury-buffer)))
    'at-end)
   (browse-url
    (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
@@ -331,6 +333,23 @@ dont-url-encode if true then url arguments are not url-encoded "
       (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
       nil emacspeak-xslt-options
       (browse-url url))))
+
+(emacspeak-url-template-define
+ "BBC  iPlayer Genre"
+ "http://www.bbc.co.uk/radio/programmes/genres/%s/schedules.xml"
+ (list "Genre/Genre/Genre: ")
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor 'emacspeak-url-template-iplayer-player))
+ "BBC iPlayer Genre"
+ #'(lambda (url)
+     
+     (emacspeak-webutils-with-xsl-environment
+      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
+      nil emacspeak-xslt-options
+      (browse-url url))))
+      
+      
 
 ;;}}}
 ;;{{{ bbc
