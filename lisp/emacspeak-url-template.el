@@ -308,7 +308,8 @@ dont-url-encode if true then url arguments are not url-encoded "
    'at-end)
   (browse-url
    (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
-
+;;; See http://www.bbc.co.uk/programmes/developers
+;;; for how to obtain xml schedules 
 (emacspeak-url-template-define
  "BBC  iPlayer"
  "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.xml"
