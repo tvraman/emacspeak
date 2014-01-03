@@ -304,9 +304,11 @@ dont-url-encode if true then url arguments are not url-encoded "
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
-       (when (search-forward "mms:" nil t)
+       (cond
+        ((search-forward "mms:" nil t)
          (emacspeak-webutils-play-media-at-point)
-         (bury-buffer)))
+         (bury-buffer))
+        (t (message "Could not find media link."))))
    'at-end)
   (browse-url
    (format emacspeak-url-template-iplayer-convertor (substring  cid 4))))
