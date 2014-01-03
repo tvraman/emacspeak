@@ -347,7 +347,8 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-webutils-with-xsl-environment
       (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
       nil emacspeak-xslt-options
-      (browse-url url))))
+      (browse-url url)))
+ 'dont-url-encode)
       
       
 
