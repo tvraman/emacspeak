@@ -316,8 +316,15 @@ Optional argument FILENAME specifies the dictionary file."
           emacspeak-pronounce-dictionaries-file )))
   (declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
-    (load-file filename)
-    (setq emacspeak-pronounce-dictionaries-loaded t)))
+    (condition-case nil
+        (progn
+          (load-file filename)
+          (setq emacspeak-pronounce-dictionaries-loaded t))
+      (error
+       (message "Error loading pronunciation dictionary, deactivating  pronunciations.")
+       (setq emacspeak-pronounce-dictionaries (make-hash-table )
+             emacspeak-pronounce-dictionaries-loaded t)))))
+
 ;;;###autoload
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."
@@ -325,8 +332,7 @@ Optional argument FILENAME specifies the dictionary file."
   (declare (special emacspeak-pronounce-dictionaries ))
   (when (yes-or-no-p
          "Do you really want to nuke all currently defined dictionaries?")
-    (setq emacspeak-pronounce-dictionaries
-          (make-hash-table ))
+    (setq emacspeak-pronounce-dictionaries (make-hash-table ))
     (emacspeak-pronounce-refresh-pronunciations)))
 
 ;;}}}
