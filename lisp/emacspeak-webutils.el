@@ -434,7 +434,10 @@ instances."
   "Play media url under point.
 Optional interactive prefix arg `playlist-p' says to treat the link as a playlist. "
   (interactive "P" )
-  (let ((url (funcall emacspeak-webutils-url-at-point)))
+  (let ((url
+         (if emacspeak-webutils-url-at-point
+         (funcall emacspeak-webutils-url-at-point)
+         (browse-url-url-at-point))))
     (message "Playing media  URL under point")
     (funcall  emacspeak-media-player  url  playlist-p)))
 

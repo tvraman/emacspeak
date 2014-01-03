@@ -303,6 +303,7 @@ field in the customization buffer.  You can use the notation
 (loop for binding in
       '(
         (  "\C-a" emacspeak-toggle-auditory-icons )
+        ("\M-\;" emacspeak-webutils-play-media-at-point (&optional  playlist-p))
         ( "\M-f" emacspeak-frame-label-or-switch-to-labelled-frame )
         (" " emacspeak-speak-header-line)
         ("!" emacspeak-speak-run-shell-command)
