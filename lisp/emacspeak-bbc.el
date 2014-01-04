@@ -60,30 +60,23 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'button)
 (require 'emacspeak-webutils)
 (require 'g-utils)
 
 ;;}}}
-;;{{{ Customizations
-
-(defgroup emacspeak-bbc nil
-  "Bbc Access on the Complete Audio Desktop."
-  :group 'emacspeak)
-
-;;}}}
-;;{{{ Variables:
-
-;;}}}
 ;;{{{ Helpers:
+
 (defvar emacspeak-bbc-json-schedules-template
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
   "URL template for pulling schedules as json.")
+
 (defvar emacspeak-bbc-iplayer-convertor
   "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
   "REST API for converting IPlayer program-id to  stream.")
 
 (defun emacspeak-bbc-get-schedules-url (station outlet date)
-  "Return schedule for specified station, outlet, date.
+  "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
   (interactive
    (list
@@ -98,6 +91,10 @@ Date defaults to today."
 
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
+(defun emacspeak-bbc ()
+  "Launch BBC Interaction."
+  (interactive)
+  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-get-schedules-url)))
 
 (defun emacspeak-bbc-iplayer (url)
   "Generate BBC IPlayer interface  from JSON."
