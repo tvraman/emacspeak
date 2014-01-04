@@ -66,7 +66,9 @@
 
 ;;}}}
 ;;{{{ Helpers:
-
+(defvar emacspeak-bbc-json nil
+  "Buffer local variable to store API results.")
+(make-variable-buffer-local 'emacspeak-bbc-json)
 (defvar emacspeak-bbc-json-schedules-template
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
   "URL template for pulling schedules as json.")
