@@ -66,9 +66,12 @@
 
 ;;}}}
 ;;{{{ Helpers:
-(defvar emacspeak-bbc-json-schedules-template 
-"http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
-"URL template for pulling schedules as json.")
+(defvar emacspeak-bbc-json-schedules-template
+  "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
+  "URL template for pulling schedules as json.")
+(defvar emacspeak-bbc-iplayer-convertor
+  "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
+  "REST API for converting IPlayer program-id to  stream.")
 
 (defun emacspeak-bbc-get-schedules-url (station outlet date)
   "Return schedule for specified station, outlet, date.
@@ -83,9 +86,70 @@ Date defaults to today."
           station
           (if (= (length outlet) 0) "" (format "%s/" outlet))
           date))
-                  
-;;}}}
 
+;;}}}
+;;{{{ BBC IPlayer Interaction
+
+(defun emacspeak-bbc-iplayer (url)
+  "Generate BBC IPlayer interface  from JSON."
+  (message url)
+  (emacspeak-bbc-iplayer-create
+   (g-json-get-result
+    (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
+            g-curl-program g-curl-common-options
+            url))))
+
+(defun emacspeak-bbc-iplayer-create (json)
+  "Create iplayer buffer given JSON object."
+  (let ((buffer (get-buffer-create "IPlayer")))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert (g-json-lookup "schedule.service.title" json))
+      (insert "\n\n")
+      (loop
+       for b in (g-json-lookup  "schedule.day.broadcasts" json)
+       and position  from 1
+       do
+       (insert (format "%d\t" position))
+       (emacspeak-bbc-insert-broadcast b)
+       (insert "\n"))
+      (emacspeak-webspace-mode))
+    (switch-to-buffer buffer)))
+
+(define-button-type 'emacspeak-bbc-iplayer-button
+  'follow-link t
+  'pid nil
+  'help-echo "Play Program"
+  'action #'emacspeak-bbc-iplayer-button-action)
+
+(defun   emacspeak-bbc-insert-broadcast (broadcast)
+  "Insert a formatted button for this broadcast."
+  (insert-text-button
+   (g-json-lookup "programme.display_titles/title" broadcast) ; label
+   'type 'emacspeak-bbc-iplayer-button
+   'pid (g-json-lookup "programme.pid" broadcast))
+  (insert (g-json-lookup "programme.display_titles.subtitle" broadcast)
+          (insert (g-json-get 'start broadcast))
+          (insert (g-json-get"programme.short_synopsis" broadcast))))
+
+
+
+(defun emacspeak-bbc-iplayer-button-action (button)
+  "Play program  refered to by this button."
+  (declare (special emacspeak-bbc-iplayer-convertor))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil
+       (cond
+        ((search-forward "mms:" nil t)
+         (emacspeak-webutils-play-media-at-point)
+         (bury-buffer))
+        (t (message "Could not find media link."))))
+   'at-end)
+  (browse-url
+   (format emacspeak-bbc-iplayer-convertor (button-get button 'pid))))
+
+;;}}}
 (provide 'emacspeak-bbc)
 ;;{{{ end of file
 
