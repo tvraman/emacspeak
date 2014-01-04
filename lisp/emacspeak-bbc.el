@@ -109,6 +109,7 @@ Date defaults to today."
 
 (defun emacspeak-bbc-iplayer-create (json)
   "Create iplayer buffer given JSON object."
+  (declare (special emacspeak-bbc-json))
   (let ((buffer (get-buffer-create "IPlayer")))
     (with-current-buffer buffer
       (erase-buffer)
@@ -121,7 +122,8 @@ Date defaults to today."
        (insert (format "%d\t" position))
        (emacspeak-bbc-insert-broadcast b)
        (insert "\n"))
-      (emacspeak-webspace-mode))
+      (emacspeak-webspace-mode)
+      (setq emacspeak-bbc-json json))
     (switch-to-buffer buffer)))
 
 (define-button-type 'emacspeak-bbc-iplayer-button
