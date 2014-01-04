@@ -338,7 +338,7 @@ dont-url-encode if true then url arguments are not url-encoded "
       (browse-url url))))
 
 (emacspeak-url-template-define
- "BBCGenre Using IPlayer"
+ "BBC Genre Using IPlayer"
  "http://www.bbc.co.uk/radio/programmes/genres/%s/schedules.xml"
  (list "Genre/Genre/Genre: ")
  #'(lambda ()
