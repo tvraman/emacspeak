@@ -45,6 +45,15 @@
 ;;; publicly available REST APIs to implement a native Emacs
 ;;; client for browsing and listening to BBC programs.
 
+;;; See http://www.bbc.co.uk/programmes/developers
+;;; The BBC API helps locate a PID for a given program stream.
+;;; That PID is converted to a streamable URL via the convertor:
+;;; http://www.iplayerconverter.co.uk/convert.aspx
+;;;Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
+;;; The result of the above conversion gives a Web page with a
+;;; set of links,
+;;; We hand the link to the raw stream  to mplayer.
+
 ;;}}}
 ;;{{{  Required modules
 
