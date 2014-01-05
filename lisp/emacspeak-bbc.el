@@ -112,7 +112,6 @@ Date defaults to today."
   (declare (special emacspeak-bbc-json))
   (let ((buffer (get-buffer-create "IPlayer")))
     (with-current-buffer buffer
-      (erase-buffer)
       (insert (g-json-lookup "schedule.service.title" json))
       (insert "\n\n")
       (loop
