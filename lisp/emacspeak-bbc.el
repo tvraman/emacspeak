@@ -149,7 +149,7 @@ Date defaults to today."
      'pid pid)
     (insert short-title)
     (insert start)
-    (insert synopsis))))
+    (insert synopsis)))
 x
 
 
