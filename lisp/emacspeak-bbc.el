@@ -110,12 +110,14 @@ Date defaults to today."
 (defun emacspeak-bbc-iplayer-create (json)
   "Create iplayer buffer given JSON object."
   (declare (special emacspeak-bbc-json))
-  (let ((buffer (get-buffer-create "IPlayer")))
+  (let ((inhibit-read-only t)
+        (buffer (get-buffer-create "IPlayer")))
     (with-current-buffer buffer
+      (erase-buffer)
       (insert (g-json-lookup "schedule.service.title" json))
       (insert "\n\n")
       (loop
-       for b in (g-json-lookup  "schedule.day.broadcasts" json)
+       for b across  (g-json-lookup  "schedule.day.broadcasts" json)
        and position  from 1
        do
        (insert (format "%d\t" position))
@@ -134,13 +136,13 @@ Date defaults to today."
 (defun   emacspeak-bbc-insert-broadcast (broadcast)
   "Insert a formatted button for this broadcast."
   (insert-text-button
-   (g-json-lookup "programme.display_titles/title" broadcast) ; label
+   (g-json-lookup "programme.display_titles.title" broadcast) ; label
    'type 'emacspeak-bbc-iplayer-button
    'pid (g-json-lookup "programme.pid" broadcast))
   (insert (g-json-lookup "programme.display_titles.subtitle" broadcast)
           (insert (g-json-get 'start broadcast))
           (insert (g-json-get"programme.short_synopsis" broadcast))))
-
+x
 
 
 (defun emacspeak-bbc-iplayer-button-action (button)
