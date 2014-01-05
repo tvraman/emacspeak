@@ -117,11 +117,11 @@ Date defaults to today."
       (insert (g-json-lookup "schedule.service.title" json))
       (insert "\n\n")
       (loop
-       for b across  (g-json-lookup  "schedule.day.broadcasts" json)
+       for show across  (g-json-lookup  "schedule.day.broadcasts" json)
        and position  from 1
        do
        (insert (format "%d\t" position))
-       (emacspeak-bbc-insert-broadcast b)
+       (emacspeak-bbc-insert-show show)
        (insert "\n"))
       (emacspeak-webspace-mode)
       (setq emacspeak-bbc-json json))
@@ -133,15 +133,15 @@ Date defaults to today."
   'help-echo "Play Program"
   'action #'emacspeak-bbc-iplayer-button-action)
 
-(defun   emacspeak-bbc-insert-broadcast (broadcast)
-  "Insert a formatted button for this broadcast."
+(defun   emacspeak-bbc-insert-show (show)
+  "Insert a formatted button for this show."
   (insert-text-button
-   (g-json-lookup "programme.display_titles.title" broadcast) ; label
+   (g-json-lookup "programme.display_titles.title" show) ; label
    'type 'emacspeak-bbc-iplayer-button
-   'pid (g-json-lookup "programme.pid" broadcast))
-  (insert (g-json-lookup "programme.display_titles.subtitle" broadcast)
-          (insert (g-json-get 'start broadcast))
-          (insert (g-json-get"programme.short_synopsis" broadcast))))
+   'pid (g-json-lookup "programme.pid" show))
+  (insert (g-json-lookup "programme.display_titles.subtitle" show)
+          (insert (g-json-get 'start show))
+          (insert (g-json-get"programme.short_synopsis" show))))
 x
 
 
