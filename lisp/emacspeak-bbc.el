@@ -93,6 +93,7 @@ Date defaults to today."
 
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
+
 (defun emacspeak-bbc ()
   "Launch BBC Interaction."
   (interactive)
@@ -114,7 +115,7 @@ Date defaults to today."
         (buffer (get-buffer-create "IPlayer")))
     (with-current-buffer buffer
       (erase-buffer)
-      (insert (g-json-lookup "schedule.service.title" json))
+      (insert (g-json-lookup-string "schedule.service.title" json))
       (insert "\n\n")
       (loop
        for show across  (g-json-lookup  "schedule.day.broadcasts" json)
@@ -125,7 +126,9 @@ Date defaults to today."
        (insert "\n"))
       (emacspeak-webspace-mode)
       (setq emacspeak-bbc-json json))
-    (switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+(emacspeak-auditory-icon 'open-object)
+(emacspeak-speak-mode-line)))
 
 (define-button-type 'emacspeak-bbc-iplayer-button
   'follow-link t
@@ -135,13 +138,18 @@ Date defaults to today."
 
 (defun   emacspeak-bbc-insert-show (show)
   "Insert a formatted button for this show."
-  (insert-text-button
-   (g-json-lookup "programme.display_titles.title" show) ; label
-   'type 'emacspeak-bbc-iplayer-button
-   'pid (g-json-lookup "programme.pid" show))
-  (insert (g-json-lookup "programme.display_titles.subtitle" show)
-          (insert (g-json-get 'start show))
-          (insert (g-json-get"programme.short_synopsis" show))))
+  (let ((title  (g-json-lookup-string "programme.display_titles.title" show))
+        (pid (g-json-lookup-string "programme.pid" show))
+        (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
+        (start (g-json-get-string 'start show))
+        (synopsis (g-json-get-string"programme.short_synopsis" show)))
+    (insert-text-button
+     title                              ; label
+     'type 'emacspeak-bbc-iplayer-button
+     'pid pid)
+    (insert short-title)
+    (insert start)
+    (insert synopsis))))
 x
 
 
