@@ -238,7 +238,7 @@ For using string keys, use g-json-lookup."
   (cdr (assq key object)))
 (defsubst g-json-get-string (key object)
   "Return empty string instead of nil for false."
-  (or (get-json-get key object) ""))
+  (or (g-json-get key object) ""))
 
 ;;; Make sure to call json-read
 ;;; with json-key-type bound to 'string before using this:
@@ -259,6 +259,7 @@ Key  is a string of of the form a.b.c"
 (defun g-json-lookup-string  (key object)
   "Like g-json-lookup, but returns empty string for nil."
   (or (g-json-lookup key object) ""))
+
 (defalias 'g-json-aref 'aref)
 
 ;;}}}
