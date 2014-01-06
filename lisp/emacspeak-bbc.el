@@ -89,16 +89,14 @@ Date defaults to today."
             (if (= (length outlet) 0) "" (format "%s/" outmlet))
             date)))
 
-
 (defvar emacspeak-bbc-json-genre-template
   "http://www.bbc.co.uk/radio/programmes/genres/%s/schedules.json"
   "Template URL for schedule  by Genre.")
 
-
 (defun emacspeak-bbc-read-genre-url ()
   "Return URL for specified  genre."
   (declare (special emacspeak-bbc-json-genre-template))
-  (let 
+  (let
       ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
     (format emacspeak-bbc-json-genre-template genre)))
 ;;}}}
@@ -108,7 +106,6 @@ Date defaults to today."
   "Launch BBC Interaction."
   (interactive)
   (emacspeak-bbc-iplayer (emacspeak-bbc-read-schedules-url)))
-
 
 ;;;###autoload
 (defun emacspeak-bbc-genre ()
@@ -132,7 +129,7 @@ Date defaults to today."
          (title (or
                  (g-json-lookup "schedule.service.title" json)
                  "BBC IPlayer"))
-        (buffer (get-buffer-create title)))
+         (buffer (get-buffer-create title)))
     (with-current-buffer buffer
       (erase-buffer)
       (insert title)
@@ -148,8 +145,8 @@ Date defaults to today."
       (emacspeak-webspace-mode)
       (setq emacspeak-bbc-json json))
     (switch-to-buffer buffer)
-(emacspeak-auditory-icon 'open-object)
-(emacspeak-speak-mode-line)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 (define-button-type 'emacspeak-bbc-iplayer-button
   'follow-link t
@@ -167,15 +164,12 @@ Date defaults to today."
         (orig (point)))
     (when start (setq start (emacspeak-speak-decode-rfc-3339-datetime start)))
     (insert-text-button
-     title                              ; label
+     (format "%s %s" title short-title); label
      'type 'emacspeak-bbc-iplayer-button
      'pid pid)
-    (insert (format "\t%s" short-title))
     (insert (format "\t%s\n" start))
-    (insert (format "%s\n" synopsis))
+    (insert (format "%s" synopsis))
     (put-text-property  orig (point) 'show show)))
-
-
 
 (defun emacspeak-bbc-iplayer-button-action (button)
   "Play program  refered to by this button."
