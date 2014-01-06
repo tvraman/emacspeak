@@ -112,18 +112,19 @@ Date defaults to today."
 (defun emacspeak-bbc-genre ()
   "Launch BBC Interaction for specified Genre."
   (interactive)
-  (emacspeak-bbc-iplayer (emacspeak-bbc-read-genre-url)))
+  (emacspeak-bbc-iplayer  (emacspeak-bbc-read-genre-url) 'genres))
 
-(defun emacspeak-bbc-iplayer (url)
+(defun emacspeak-bbc-iplayer (url &optional genres)
   "Generate BBC IPlayer interface  from JSON."
   (message url)
   (emacspeak-bbc-iplayer-create
    (g-json-get-result
     (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
             g-curl-program g-curl-common-options
-            url))))
+            url))
+   genres))
 
-(defun emacspeak-bbc-iplayer-create (json)
+(defun emacspeak-bbc-iplayer-create (json &optional genres)
   "Create iplayer buffer given JSON object."
   (declare (special emacspeak-bbc-json))
   (let* ((inhibit-read-only t)
@@ -136,7 +137,10 @@ Date defaults to today."
       (insert title)
       (insert "\n\n")
       (loop
-       for show across  (g-json-lookup  "schedule.day.broadcasts" json)
+       for show across
+       (if genres
+           (g-json-get 'broadcasts json)
+         (g-json-lookup  "schedule.day.broadcasts" json))
        and position  from 1
        do
        (insert (format "%d\t" position))
