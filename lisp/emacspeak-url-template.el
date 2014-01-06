@@ -366,7 +366,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "html5IRC"
  "http://krijnhoetmer.nl/irc-logs/whatwg/%s"
- (list 'emacspeak-url-template-date-YearMonthDate)
+ (list 'emacspeak-speak-date-YearMonthDate)
  nil
  "Show HTML5 IRC log.")
 
@@ -1173,11 +1173,6 @@ name of the list.")
  "Retrieve and speak headline news from CNN."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "cnnMainT1" url 'speak)))
-
-(defun emacspeak-url-template-date-YearMonthDate ()
-  "Return today as yyyymmdd"
-  (emacspeak-speak-collect-date "Date:"
-                                       "%Y%m%d"))
 
 (defun emacspeak-url-template-date-month/date ()
   "Return today as mm/dd"
