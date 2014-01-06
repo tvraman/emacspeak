@@ -47,6 +47,8 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 (require 'calendar)
+(require 'solar)
+(require 'g-utils)
 (require 'appt)
 ;;}}}
 ;;{{{  personalities
