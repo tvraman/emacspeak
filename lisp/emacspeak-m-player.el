@@ -351,10 +351,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (nconc options (list resource)))))
     (save-current-buffer
       (setq emacspeak-m-player-process
-            (apply 'start-process "M PLayer" buffer
+            (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
       (set-buffer buffer)
-      (emacspeak-m-player-mode))))
+      (emacspeak-m-player-mode)
+      (message "MPlayer opened  %s" resource))))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
