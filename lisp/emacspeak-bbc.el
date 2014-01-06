@@ -169,8 +169,8 @@ Date defaults to today."
      'type 'emacspeak-bbc-iplayer-button
      'pid pid)
     (insert (format "\t%s" short-title))
-    (insert (format "\t%s\n" start)
-    (insert (format "%s\n" synopsis)
+    (insert (format "\t%s\n" start))
+    (insert (format "%s\n" synopsis))
     (put-text-property  orig (point) 'show show)))
 
 
