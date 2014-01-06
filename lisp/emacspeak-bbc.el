@@ -103,17 +103,19 @@ Date defaults to today."
     (format emacspeak-bbc-json-genre-template genre)))
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
-
+;;;###autoload
 (defun emacspeak-bbc ()
   "Launch BBC Interaction."
   (interactive)
-  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-read-schedules-url)))
+  (emacspeak-bbc-iplayer (emacspeak-bbc-read-schedules-url)))
 
 
+;;;###autoload
 (defun emacspeak-bbc-genre ()
   "Launch BBC Interaction for specified Genre."
   (interactive)
-  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-read-genre-url)))
+  (emacspeak-bbc-iplayer (emacspeak-bbc-read-genre-url)))
+
 (defun emacspeak-bbc-iplayer (url)
   "Generate BBC IPlayer interface  from JSON."
   (message url)
