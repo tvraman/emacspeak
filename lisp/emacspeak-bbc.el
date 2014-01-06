@@ -83,7 +83,7 @@ Date defaults to today."
   (declare  (special emacspeak-bbc-json-schedules-template))
   (let ((station (read-from-minibuffer "Station:"))
         (outlet (read-from-minibuffer "Outlet:"))
-        (date (emacspeak-url-template-date-year/month/date)))
+        (date (emacspeak-speak-read-date-year/month/date)))
     (format emacspeak-bbc-json-schedules-template
             station
             (if (= (length outlet) 0) "" (format "%s/" outmlet))
