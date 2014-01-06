@@ -77,28 +77,43 @@
   "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
   "REST API for converting IPlayer program-id to  stream.")
 
-(defun emacspeak-bbc-get-schedules-url (station outlet date)
+(defun emacspeak-bbc-read-schedules-url ()
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
-  (interactive
-   (list
-    (read-from-minibuffer "Station:")
-    (read-from-minibuffer "Outlet:")
-    (emacspeak-url-template-date-year/month/date)))
-  (declare (special emacspeak-bbc-json-schedules-template))
-  (format emacspeak-bbc-json-schedules-template
-          station
-          (if (= (length outlet) 0) "" (format "%s/" outlet))
-          date))
+  (let ((station (read-from-minibuffer "Station:"))
+        (declare  (special emacspeak-bbc-json-schedules-template))
+        (outlet (read-from-minibuffer "Outlet:"))
+        (date (emacspeak-url-template-date-year/month/date)))
+    (format emacspeak-bbc-json-schedules-template
+            station
+            (if (= (length outlet) 0) "" (format "%s/" outmlet))
+            date)))
 
+
+(defvar emacspeak-bbc-json-genre-template
+  "http://www.bbc.co.uk/radio/programmes/genres/%s/schedules.json"
+  "Template URL for schedule  by Genre.")
+
+
+(defun emacspeak-bbc-read-genre-url ()
+  "Return URL for specified  genre."
+  (declare (special emacspeak-bbc-json-genre-template))
+  (let 
+      ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
+    (format emacspeak-bbc-json-genre-template genre)))
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
 
 (defun emacspeak-bbc ()
   "Launch BBC Interaction."
   (interactive)
-  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-get-schedules-url)))
+  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-read-schedules-url)))
 
+
+(defun emacspeak-bbc-genre ()
+  "Launch BBC Interaction for specified Genre."
+  (interactive)
+  (emacspeak-bbc-iplayer (call-interactively 'emacspeak-bbc-read-genre-url)))
 (defun emacspeak-bbc-iplayer (url)
   "Generate BBC IPlayer interface  from JSON."
   (message url)
