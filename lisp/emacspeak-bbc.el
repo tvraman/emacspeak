@@ -103,10 +103,13 @@ Date defaults to today."
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
 ;;;###autoload
-(defun emacspeak-bbc ()
-  "Launch BBC Interaction."
-  (interactive)
-  (emacspeak-bbc-iplayer (emacspeak-bbc-read-schedules-url)))
+(defun emacspeak-bbc (&optional genre)
+  "Launch BBC Interaction.
+Interactive prefix arg filters  content by genre."
+  (interactive "P")
+  (cond
+   (genre  (call-interactively 'emacspeak-bbc-genre))
+   (t (emacspeak-bbc-iplayer (emacspeak-bbc-read-schedules-url)))))
 
 ;;;###autoload
 (defun emacspeak-bbc-genre ()
