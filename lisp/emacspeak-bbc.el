@@ -142,9 +142,8 @@ Date defaults to today."
         (pid (g-json-lookup-string "programme.pid" show))
         (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
         (start (g-json-get-string 'start show))
-        (synopsis (g-json-get-string"programme.short_synopsis"
-                                    show))
-(orig (point)))
+        (synopsis (g-json-get-string"short_synopsis" show))
+        (orig (point)))
     (insert-text-button
      title                              ; label
      'type 'emacspeak-bbc-iplayer-button
@@ -152,7 +151,7 @@ Date defaults to today."
     (insert short-title)
     (insert start)
     (insert synopsis)
-(put-text-property  orig (point) 'show show)))
+    (put-text-property  orig (point) 'show show)))
 
 
 
