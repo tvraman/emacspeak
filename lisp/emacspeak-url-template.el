@@ -1174,11 +1174,6 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-we-extract-by-class "cnnMainT1" url 'speak)))
 
-(defun emacspeak-url-template-date-month/date ()
-  "Return today as mm/dd"
-  (emacspeak-speak-collect-date "Date:"
-                                       "%m/%d") )
-
 (emacspeak-url-template-define
  "CNN technology "
  "http://www.cnn.com/TECH/"

@@ -3306,6 +3306,11 @@ This function is sensitive to calendar mode when prompting."
   (emacspeak-speak-collect-date "Date:"
                                        "%Y%m%d"))
 
+(defun emacspeak-speak-date-month/date ()
+  "Return today as mm/dd"
+  (emacspeak-speak-collect-date "Date:"
+                                       "%m/%d") )
+
 ;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
