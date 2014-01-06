@@ -3274,6 +3274,14 @@ also copied to the kill ring for convenient yanking."
       (ems-get-active-network-interfaces)))))
 
 ;;}}}
+;;{{{ Smart date prompers:
+
+(defun emacspeak-speak-read-date-year/month/date ()
+  "Return today as yyyy/mm/dd"
+  (emacspeak-url-template-collect-date "Date:"
+                                       "%Y/%m/%d"))
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 

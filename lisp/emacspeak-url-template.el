@@ -325,7 +325,7 @@ dont-url-encode if true then url arguments are not url-encoded "
         (cond
          ((= 0 (length outlet)) outlet)
          (t (concat outlet "/")))))
-  'emacspeak-url-template-date-year/month/date)
+  'emacspeak-speak-read-date-year/month/date)
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor
@@ -1199,11 +1199,6 @@ name of the list.")
   (emacspeak-url-template-collect-date "Date:"
                                        "%Y%m%d"))
 
-(defun emacspeak-url-template-date-year/month/date ()
-  "Return today as yyyy/mm/dd"
-  (emacspeak-url-template-collect-date "Date:"
-                                       "%Y/%m/%d"))
-
 (defun emacspeak-url-template-date-month/date ()
   "Return today as mm/dd"
   (emacspeak-url-template-collect-date "Date:"
@@ -1615,7 +1610,7 @@ Set up URL rewrite rule to get print page."
 (emacspeak-url-template-define
  "PHC Prairie Home Companion"
  "http://www.publicradio.org/tools/media/player/phc/%s_phc.ram"
- (list 'emacspeak-url-template-date-year/month/date)
+ (list 'emacspeak-speak-read-date-year/month/date)
  nil
  "Play Prairie Home Companion"
  #'(lambda (url)
