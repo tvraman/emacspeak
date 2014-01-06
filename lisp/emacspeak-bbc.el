@@ -80,8 +80,8 @@
 (defun emacspeak-bbc-read-schedules-url ()
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
+  (declare  (special emacspeak-bbc-json-schedules-template))
   (let ((station (read-from-minibuffer "Station:"))
-        (declare  (special emacspeak-bbc-json-schedules-template))
         (outlet (read-from-minibuffer "Outlet:"))
         (date (emacspeak-url-template-date-year/month/date)))
     (format emacspeak-bbc-json-schedules-template
