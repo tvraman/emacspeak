@@ -3276,9 +3276,29 @@ also copied to the kill ring for convenient yanking."
 ;;}}}
 ;;{{{ Smart date prompers:
 
+(defun emacspeak-speak-collect-date (prompt time-format-string)
+  "Smart date collector.
+Prompts with `prompt'.
+`time-format-string' is format argument for format-time-string.
+This function is sensitive to calendar mode when prompting."
+  (let ((default (format-time-string time-format-string))) ; today is default
+    (when (eq major-mode 'calendar-mode)
+                                        ;get smart default from calendar
+      (let ((date (calendar-cursor-to-nearest-date)))
+        (setq default (format-time-string time-format-string
+                                          (apply 'encode-time 0 0
+                                                 0
+                                                 (second date)
+                                                 (first date)
+                                                 (list (third date )))))))
+    (read-from-minibuffer prompt
+                          default
+                          nil nil nil
+                          default)))
+
 (defun emacspeak-speak-read-date-year/month/date ()
   "Return today as yyyy/mm/dd"
-  (emacspeak-url-template-collect-date "Date:"
+  (emacspeak-speak-collect-date "Date:"
                                        "%Y/%m/%d"))
 
 ;;}}}
