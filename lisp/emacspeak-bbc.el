@@ -142,7 +142,7 @@ Date defaults to today."
         (pid (g-json-lookup-string "programme.pid" show))
         (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
         (start (g-json-get-string 'start show))
-        (synopsis (g-json-get-string"short_synopsis" show))
+        (synopsis (g-json-get-string 'short_synopsis show))
         (orig (point)))
     (insert-text-button
      title                              ; label
