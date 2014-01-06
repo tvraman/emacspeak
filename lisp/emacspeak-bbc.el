@@ -160,16 +160,17 @@ Date defaults to today."
   (let ((title  (g-json-lookup-string "programme.display_titles.title" show))
         (pid (g-json-lookup-string "programme.pid" show))
         (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
-        (start (g-json-get-string 'start show))
+        (start (g-json-get 'start show))
         (synopsis (g-json-lookup-string "programme.short_synopsis" show))
         (orig (point)))
+    (when start (setq start (emacspeak-speak-decode-rfc-3339-datetime start)))
     (insert-text-button
      title                              ; label
      'type 'emacspeak-bbc-iplayer-button
      'pid pid)
-    (insert short-title)
-    (insert start)
-    (insert synopsis)
+    (insert (format "\t%s" short-title))
+    (insert (format "\t%s\n" start)
+    (insert (format "%s\n" synopsis)
     (put-text-property  orig (point) 'show show)))
 
 
