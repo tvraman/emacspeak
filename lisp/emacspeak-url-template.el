@@ -101,26 +101,6 @@
           (list (emacspeak-url-template-name ut)))
     url))
 
-(defun emacspeak-url-template-collect-date (prompt time-format-string)
-  "Smart date collector.
-Prompts with `prompt'.
-`time-format-string' is format argument for format-time-string.
-This function is sensitive to calendar mode when prompting."
-  (let ((default (format-time-string time-format-string))) ; today is default
-    (when (eq major-mode 'calendar-mode)
-                                        ;get smart default from calendar
-      (let ((date (calendar-cursor-to-nearest-date)))
-        (setq default (format-time-string time-format-string
-                                          (apply 'encode-time 0 0
-                                                 0
-                                                 (second date)
-                                                 (first date)
-                                                 (list (third date )))))))
-    (read-from-minibuffer prompt
-                          default
-                          nil nil nil
-                          default)))
-
 ;;}}}
 ;;{{{  persistent store
 
@@ -1128,7 +1108,7 @@ from English to German.")
  "http://www.w3.org/%s-%s-irc "
  (list
   #'(lambda nil
-      (emacspeak-url-template-collect-date "Date: "
+      (emacspeak-speak-collect-date "Date: "
                                            "%Y/%m/%d"))
   "Channel Name: ")
  #'(lambda ()
@@ -1157,7 +1137,7 @@ name of the list.")
 
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
-  (emacspeak-url-template-collect-date "Date range: "
+  (emacspeak-speak-collect-date "Date range: "
                                        "%Y%h"))
 
 ;;}}}
@@ -1196,12 +1176,12 @@ name of the list.")
 
 (defun emacspeak-url-template-date-YearMonthDate ()
   "Return today as yyyymmdd"
-  (emacspeak-url-template-collect-date "Date:"
+  (emacspeak-speak-collect-date "Date:"
                                        "%Y%m%d"))
 
 (defun emacspeak-url-template-date-month/date ()
   "Return today as mm/dd"
-  (emacspeak-url-template-collect-date "Date:"
+  (emacspeak-speak-collect-date "Date:"
                                        "%m/%d") )
 
 (emacspeak-url-template-define
@@ -1263,7 +1243,7 @@ name of the list.")
  "http://thelinuxdaily.com/shows/%s.m3u"
  (list
   #'(lambda ()
-      (emacspeak-url-template-collect-date "Date:"
+      (emacspeak-speak-collect-date "Date:"
                                            "%Y/%m/%d")))
  nil
  "Play specified edition of Geek  Linux DailyShow"
@@ -1276,7 +1256,7 @@ name of the list.")
  (list
   #'(lambda ()
       (let ((mm-dd-yy
-             (emacspeak-url-template-collect-date
+             (emacspeak-speak-collect-date
               "Date: (Tuesday)"
               "%m-%d-%Y")))
         (format "%s/tls-%s"
@@ -1339,7 +1319,7 @@ name of the list.")
  (list
   #'(lambda nil
       (let ((date
-             (emacspeak-url-template-collect-date
+             (emacspeak-speak-collect-date
               "Date: "
               "%Y-%m-%d"))
             (fields nil)
@@ -1378,7 +1358,7 @@ name of the list.")
  (list
   #'(lambda nil
       (let ((date
-             (emacspeak-url-template-collect-date "Date: "
+             (emacspeak-speak-collect-date "Date: "
                                                   "%Y-%m-%d"))
             (fields nil)
             (result nil))
@@ -1400,7 +1380,7 @@ name of the list.")
  (list
   #'(lambda nil
       (let ((date
-             (emacspeak-url-template-collect-date
+             (emacspeak-speak-collect-date
               "Date: "
               "%Y-%m-%d"))
             (fields nil)
@@ -1428,7 +1408,7 @@ name of the list.")
  (list
   #'(lambda nil
       (let ((date
-             (emacspeak-url-template-collect-date
+             (emacspeak-speak-collect-date
               "Date: "
               "%Y-%m-%d"))
             (fields nil)
