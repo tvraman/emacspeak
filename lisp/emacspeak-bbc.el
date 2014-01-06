@@ -81,12 +81,13 @@
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
   (declare  (special emacspeak-bbc-json-schedules-template))
-  (let ((station (read-from-minibuffer "Station:"))
-        (outlet (read-from-minibuffer "Outlet:"))
-        (date (emacspeak-speak-read-date-year/month/date)))
+  (let* ((fields (split-string (read-from-minibuffer "Station:Outlet:") ":"))
+         (date (emacspeak-speak-read-date-year/month/date))
+         (station (first fields))
+         (outlet (second fields)))
     (format emacspeak-bbc-json-schedules-template
             station
-            (if (= (length outlet) 0) "" (format "%s/" outmlet))
+            (if  (null outlet) "" (format "%s/" outlet))
             date)))
 
 (defvar emacspeak-bbc-json-genre-template
