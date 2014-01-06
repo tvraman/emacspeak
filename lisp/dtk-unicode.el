@@ -223,6 +223,17 @@ nil if CHAR is not in Unicode."
        (car (rassoc char (ucs-names)))
        "")))
 
+(defsubst dtk-unicode-char-properties (char)
+  "Return unicode properties for CHAR."
+  (let ((unicode (encode-char char 'ucs)))
+    (when unicode (describe-char-unicode-data unicode))))
+                   
+
+(defsubst dtk-unicode-char-property (char prop-name)
+  "Get character property by name."
+  (second (assoc prop-name (dtk-unicode-char-properties char))))
+
+
 (defsubst dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."
   (let ((category (dtk-unicode-char-property char "Category"))
