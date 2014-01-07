@@ -105,6 +105,7 @@ Date defaults to today."
 ;;;###autoload
 (defun emacspeak-bbc (&optional genre)
   "Launch BBC Interaction.
+See http://www.bbc.co.uk/radio/stations for full list of stations.
 Interactive prefix arg filters  content by genre."
   (interactive "P")
   (cond
