@@ -489,6 +489,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key [67108908] 'emacspeak-alt-keymap)
 (global-set-key  [67108903] 'emacspeak-super-keymap)
 (global-set-key [67108923] 'emacspeak-hyper-keymap)
+(global-set-key [67108910]  'emacspeak-super-keymap)
 ;;; Our very own silence key on the console
 ;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
