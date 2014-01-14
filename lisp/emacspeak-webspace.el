@@ -59,7 +59,7 @@
 ;;{{{ WebSpace Mode:
 
 ;;; Define a derived-mode called WebSpace that is generally useful for hypetext display.
-
+;;;###autoload
 (define-derived-mode emacspeak-webspace-mode special-mode
   "Webspace Interaction"
   "Major mode for Webspace interaction.\n\n

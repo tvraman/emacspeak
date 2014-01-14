@@ -80,8 +80,11 @@
 (defun emacspeak-bbc-read-schedules-url ()
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
-  (declare  (special emacspeak-bbc-json-schedules-template))
-  (let* ((fields (split-string (read-from-minibuffer "Station:Outlet:") ":"))
+  (declare  (special emacspeak-bbc-json-schedules-template
+                     emacspeak-bbc-station-list))
+  (let* ((fields (split-string
+                  (completing-read  "Station:Outlet:" emacspeak-bbc-station-list)
+                  ":"))
          (date (emacspeak-speak-read-date-year/month/date))
          (station (first fields))
          (outlet (second fields)))
@@ -100,6 +103,95 @@ Date defaults to today."
   (let
       ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
     (format emacspeak-bbc-json-genre-template genre)))
+
+(defvar emacspeak-bbc-station-list
+  '("radio1"
+"1xtra"
+"radio2"
+"radio3"
+"radio4"
+"radio4extra"
+"5live"
+"5livesportsextra"
+"6music"
+"asiannetwork"
+"worldserviceradio"
+"radioscotland"
+"radionangaidheal"
+"radioulster"
+"radiofoyle"
+"radiowales"
+"radiocymru"
+"radioberkshire"
+"radiobristol"
+"radiocambridgeshire"
+"radiocornwall"
+"bbccoventryandwarwickshire"
+"radiocumbria"
+"radioderby"
+"radiodevon"
+"bbcessex"
+"radiogloucestershire"
+"bbcguernsey"
+"bbcherefordandworcester"
+"radiohumberside"
+"radiojersey"
+"radiokent"
+"radiolancashire"
+"radioleeds"
+"radioleicester"
+"bbclincolnshire"
+"bbclondon"
+"radiomanchester"
+"radiomerseyside"
+"bbcnewcastle"
+"radionorfolk"
+"radionorthampton"
+"radionottingham"
+"bbcoxford"
+"radiosheffield"
+"radioshropshire"
+"radiosolent"
+"bbcsomerset"
+"radiostoke"
+"radiosuffolk"
+"bbcsurrey"
+"bbcsussex"
+"bbctees"
+"threecountiesradio"
+"bbcwiltshire"
+"wm"
+"radioyork"
+"radiolanguagecy"
+"radiolanguagega"
+"radiolanguagegd"
+"http:twitter.comBBCiPlayerRadio" class="radio-link-twitter"
+"radioinfo"
+"http:www.bbc.co.ukblogsradio"
+"http:iplayerhelp.external.bbc.co.ukhelpplaying_radio_progs"
+"radiofeedback"
+"podcasts"
+"radio1"
+"1xtra"
+"radio2"
+"radio3"
+"radio4:lw"
+"radio4:fm"
+"radio4extra"
+"5live"
+"5livesportsextra"
+"6music"
+"asiannetwork"
+"worldserviceradio"
+"radioscotland"
+"radionangaidheal"
+"radioulster"
+"radiofoyle"
+"radiowales"
+"radiocymru")
+  "List of BBC Radio stations.")
+
+
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
 ;;;###autoload
