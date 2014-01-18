@@ -7,28 +7,12 @@
           (nnimap-address "imap.gmail.com")
           (nnimap-server-port 993)
           (nnimap-stream ssl)))
-;;; dovecot and offlineimap:
-(setq
- offline-method
- '(nnimap "google"
-          (nnimap-shell-program "/usr/lib/dovecot/imap")
-          (nnimap-expunge-on-close always)
-          (nnimap-stream shell)))
 
 (setq gnus-select-method gnus-gmail-plain-method)
 
-;;; split out mailing lists:
-(setq nnimap-split-fancy
-  `(|
-   ;; All lists
-   ("List-Id" ".*<\\(.*\\).google.com>.*" "\\1")))
-
-(setq nnimap-split-methods '(nnimap-split-fancy) )
-
-
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      smtpmail-auth-credentials '(("smtp.gmail.com" 587 "raman@google.com" nil))
+      smtpmail-auth-credentials '(("smtp.gmail.com" 587 "user@gmail.com" nil))
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587)
