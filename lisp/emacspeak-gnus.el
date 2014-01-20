@@ -92,8 +92,8 @@
   (define-key gnus-summary-wash-map "D" 'gnus-summary-downcase-article)
   (define-key gnus-group-mode-map '[right]
     'gnus-group-read-group))
-;;; Will bring this up after seeing how much of above we need in 2014
-;(add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
+
+(add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
 
 ;;}}}
 ;;{{{  Hiding headers
