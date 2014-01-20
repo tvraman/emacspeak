@@ -858,7 +858,7 @@ Helps to prevent words from being spelled instead of spoken."
   (dtk-speak "Downcased article body"))
 
 ;;}}}
-;;{{{ rdc: refreshing the pronunciation  and punctuation mode
+;;{{{ refreshing the pronunciation  and punctuation mode
 
 (loop
  for hook in
@@ -968,6 +968,7 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-server-denied voice-bolden-extra)
    (gnus-server-offline voice-animate)
    (gnus-server-opened voice-lighten)))
+
 ;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
