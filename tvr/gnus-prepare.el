@@ -1,6 +1,6 @@
 ;;;  Gnus Setup For GMail imap:
 ;;{{{  News Source etc 
-
+;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (setq
  gnus-gmail-plain-method 
  '(nnimap "gmail"
@@ -11,24 +11,23 @@
 (setq gnus-select-method gnus-gmail-plain-method)
 
 ;;; split out mailing lists:
-;(setq nnimap-split-fancy
-  ;`(|
-   ;;; All lists
-   ;("List-Id" ".*<\\(.*\\).google.com>.*" "\\1")))
-
-;(setq nnimap-split-methods '(nnimap-split-fancy))
-
 ;;; Mail split per Info manual:
 
 (setq nnimap-inbox "[Gmail]/Important")
 
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      smtpmail-auth-credentials '(("smtp.gmail.com" 587 "raman@google.com" nil))
-      smtpmail-default-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587)
-(setq gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+(setq nnimap-split-methods 'gnus-group-split  )
+(setq nnmail-split-methods 'gnus-group-split)
+(gnus-group-split-setup 'AUTO-UPDATE 'CATCH-ALL)
+
+(setq
+ message-send-mail-function 'smtpmail-send-it
+ smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+ smtpmail-auth-credentials '(("smtp.gmail.com" 587 user-mail-address nil))
+ smtpmail-default-smtp-server "smtp.gmail.com"
+ smtpmail-smtp-server "smtp.gmail.com"
+ smtpmail-smtp-service 587)
+(setq
+ gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
 (setq gnus-agent nil)
 
 ;;}}}
