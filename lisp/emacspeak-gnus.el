@@ -42,19 +42,15 @@
 ;;; Commentary
 
 ;;; This module advices gnus to speak. 
+;;; Updating support in 2014 (Emacspeak is nearly 20 years old)
 
 ;;}}}
 ;;{{{ requires
+
 (require 'emacspeak-preamble)
 (require 'gnus)
 (require 'gnus-art)
 (require 'gnus-sum)
-
-;; This may not be needed. It seems emacs version of gnus had 
-;; gnus-article-buffer as far back as emacs 21.
-(unless (and (symbolp 'gnus-article-buffer)
-             (boundp 'gnus-article-buffer))
-  (defvar gnus-article-buffer "*Article*"))
 
 ;;}}}
 ;;{{{  Customizations:
@@ -84,14 +80,9 @@
   (declare (special gnus-summary-mode-map
                     gnus-group-mode-map
                     gnus-article-mode-map))
-  (when (boundp 'gnus-summary-mode-map))
-  (when (boundp 'gnus-article-mode-map)
-    )
-  (when (boundp 'gnus-group-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
-  (define-key gnus-summary-mode-map "T" 'gnus-summary-hide-all-headers )
-  (define-key gnus-summary-mode-map "t"
-    'gnus-summary-show-some-headers)
+  (define-key gnus-summary-mode-map "T" 'emacspeak-gnus-summary-hide-all-headers )
+  (define-key gnus-summary-mode-map "t" 'emacspeak-gnus-summary-show-some-headers)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
   (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
@@ -101,13 +92,13 @@
   (define-key gnus-summary-wash-map "D" 'gnus-summary-downcase-article)
   (define-key gnus-group-mode-map '[right]
     'gnus-group-read-group))
-
-(add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
+;;; Will bring this up after seeing how much of above we need in 2014
+;(add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
 
 ;;}}}
 ;;{{{  Hiding headers
 
-(defvar  gnus-ignored-most-headers
+(defvar  emacspeak-gnus-ignored-most-headers
   (concat
    "^Path:\\|^Posting-Version:\\|^Article-I.D.:\\|^Expires:"
    "\\|^Date-Received:\\|^References:\\|^Control:\\|^Xref:"
@@ -120,22 +111,22 @@
    "\\|^Followup-To:\\|^Original-Cc:\\|^Reply-To:")
   "Article headers to ignore when only important article headers are to be
 spoken.
-See command \\[gnus-summary-show-some-headers].")
+See command \\[emacspeak-gnus-summary-show-some-headers].")
 (declaim (special gnus-ignored-headers))
 (setq gnus-ignored-headers "^.*:")
 (declaim (special gnus-visible-headers))
 (setq gnus-visible-headers "^Subject:")
 
-(defun gnus-summary-show-some-headers ()
+(defun emacspeak-gnus-summary-show-some-headers ()
   "Show only the important article headers,
 i.e. sender name, and subject."
   (interactive)
-  (declare (special gnus-ignored-most-headers )) 
-  (let ((gnus-ignored-headers gnus-ignored-most-headers ))
+  (declare (special emacspeak-gnus-ignored-most-headers )) 
+  (let ((gnus-ignored-headers emacspeak-gnus-ignored-most-headers ))
     (gnus-summary-toggle-header 1)
     (gnus-summary-toggle-header -1)))
 
-(defun gnus-summary-hide-all-headers()
+(defun emacspeak-gnus-summary-hide-all-headers()
   "Hide all headers in the article.
 Use this command if you don't want to listen to any article headers when
 reading news."
@@ -157,7 +148,6 @@ reading news."
                     gnus-article-buffer))
   (with-current-buffer gnus-article-buffer
     (goto-char (point-min))
-    (setq dtk-punctuation-mode 'some)
     (emacspeak-dtk-sync)
     (cond
      ((< (count-lines (point-min) (point-max))
