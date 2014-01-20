@@ -860,43 +860,19 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ rdc: refreshing the pronunciation  and punctuation mode
 
-(add-hook 'gnus-article-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'gnus-group-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-;; the following is for summary mode.  By default, the 
-;; summary mode hook is defined as gnus-agent-mode
-
-(add-hook 'gnus-agent-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'gnus-article-edit-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'gnus-category-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'gnus-score-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
-
-(add-hook 'gnus-server-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
-                      (emacspeak-pronounce-refresh-pronunciations))))
+(loop
+ for hook in
+ '(
+   gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook
+   gnus-agent-mode-hook  gnus-article-edit-mode-hook
+   gnus-server-mode-hook gnus-category-mode-hook
+   )
+ do
+ (add-hook
+  hook 
+  #'(lambda ()
+      (dtk-set-punctuations emacspeak-gnus-punctuation-mode)
+      (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}
 ;;{{{ rdc: mapping font faces to personalities 
