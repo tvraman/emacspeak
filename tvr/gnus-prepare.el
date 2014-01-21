@@ -15,9 +15,12 @@
 
 (setq nnimap-inbox "[Gmail]/Important")
 
-(setq nnimap-split-methods 'gnus-group-split  )
-(setq nnmail-split-methods 'gnus-group-split)
-(gnus-group-split-setup 'AUTO-UPDATE 'CATCH-ALL)
+(setq nnimap-split-fancy
+      '(|
+    ("List-Id" ".*<\\(.*\\).com>.*" "\\1")))
+
+(setq nnimap-split-methods 'nnimap-split-fancy)
+
 
 (setq
  message-send-mail-function 'smtpmail-send-it
