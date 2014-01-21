@@ -69,6 +69,14 @@
           (const  :tag "all" all))
   :group 'emacspeak-gnus)
 
+(defcustom  emacspeak-gnus-large-article 100
+  "*Articles having more than
+emacspeak-gnus-large-article lines will be considered to be a large article.
+A large article is not spoken all at once;
+instead you hear only the first screenful."
+  :type 'integer
+  :group 'emacspeak-gnus 
+  )
 ;;; These customizations to gnus make it convenient to listen to news:
 ;;; You can read news mostly by using the four arrow keys.
 ;;; By default all article headers are hidden, so you hear the real news.
@@ -704,11 +712,7 @@ Produce an auditory icon if possible."
   (emacspeak-auditory-icon 'close-object))
 ;;; helper function:
 
-(defvar emacspeak-gnus-large-article 30 
-  "*Articles having more than
-emacspeak-gnus-large-article lines will be considered to be a large article.
-A large article is not spoken all at once;
-instead you hear only the first screenful.")
+
 
 (defadvice gnus-summary-show-article (after emacspeak pre act)
   "Start speaking the article. "
