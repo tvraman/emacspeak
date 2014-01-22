@@ -473,7 +473,10 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
          (search-forward "\n\n")
          (delete-region (point-min) (point))
          (decode-coding-region (point-min) (point-max) 'utf-8)
-         (emacspeak-xslt-region style (point-min) (point-max)))
+         (emacspeak-xslt-region style (point-min) (point-max)
+                                 (list (cons "base"
+         (format "\"'%s'\""
+                 feed-url)))))
         (browse-url-of-buffer))))))
 
 ;;;###autoload
