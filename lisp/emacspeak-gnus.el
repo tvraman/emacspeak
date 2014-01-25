@@ -89,7 +89,7 @@ instead you hear only the first screenful."
                     gnus-group-mode-map
                     gnus-article-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
-  (define-key gnus-summary-mode-map "T" 'emacspeak-gnus-summary-hide-all-headers )
+  (define-key gnus-summary-mode-map "\M-T" 'emacspeak-gnus-summary-hide-all-headers )
   (define-key gnus-summary-mode-map "t" 'emacspeak-gnus-summary-show-some-headers)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
