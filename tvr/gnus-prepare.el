@@ -20,7 +20,7 @@
 (setq nnimap-split-fancy
       '(|
     ("List-Id" ".*<\\(.*\\).com>.*" "\\1")
-    ("X-Mailing-List" ".*<\\(.*\\).org>.*" "\\1")))
+    ("List-Id" ".*<\\(.*\\).org>.*" "\\1")))
 
 (setq nnimap-split-methods 'nnimap-split-fancy)
 
