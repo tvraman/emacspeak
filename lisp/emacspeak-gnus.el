@@ -896,8 +896,8 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-cite-1 voice-bolden-medium)
    (gnus-cite-2 voice-lighten) 
    (gnus-cite-3 voice-lighten-extra)
-   (gnus-cite-4 voice-bolden)
-   (gnus-cite-5 voice-bolden-medium)
+   (gnus-cite-4 voice-smoothen)
+   (gnus-cite-5 voice-smoothen-extra)
    (gnus-cite-6 voice-lighten)
    (gnus-cite-7 voice-lighten-extra)
    (gnus-cite-8 voice-bolden)
@@ -920,7 +920,7 @@ Helps to prevent words from being spelled instead of spoken."
    ;; on the same thing are given the same voice.  Any user that
    ;; uses low and high interest is sufficiently advanced to change
    ;; the voice to his own preferences
-   (gnus-summary-normal-read voice-bolden)
+   (gnus-summary-normal-read voice-smoothen)
    (gnus-summary-high-read voice-bolden)
    (gnus-summary-low-read voice-bolden)
    (gnus-summary-normal-ticked voice-brighten-extra)
