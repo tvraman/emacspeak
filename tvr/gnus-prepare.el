@@ -6,29 +6,31 @@
 
 ;;; split out mailing lists:
 ;;; Mail split per Info manual:
-(setq tvr-mail-split-rules
-      '(|
-    ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
+(setq
+ tvr-mail-split-rules
+ `(|
+   ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
 
 (setq nnimap-split-fancy tvr-mail-split-rules)
 
-(setq nnimap-inbox "[Gmail]/Important")
+(setq nnimap-inbox  '("INBOX" "[Gmail]/Important"))
 
 (setq nnimap-split-methods nnimap-split-fancy)
 
 
 (setq
- gnus-gmail-plain-method 
+ gnus-gmail 
  '(nnimap "gmail"
           (nnimap-address "imap.gmail.com")
           (nnimap-server-port 993)
-          (nnimap-inbox "[Gmail]/Important")
-          (nnimap-split-methods tvr-mail-split-rules)
+          (nnimap-fetch-partial-articles "text/")
+          (nnimap-inbox '("INBOX" "[Gmail]/Important"))
+          (nnimap-split-methods (| ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
           (nnimap-split-fancy (|
     ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
           (nnimap-stream ssl)))
 
-(setq gnus-select-method gnus-gmail-plain-method)
+(setq gnus-select-method gnus-gmail)
 ;;; Fetch news when emacs is idle.
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
 
