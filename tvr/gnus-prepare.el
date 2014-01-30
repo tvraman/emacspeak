@@ -24,7 +24,8 @@
           (nnimap-server-port 993)
           (nnimap-inbox "[Gmail]/Important")
           (nnimap-split-methods tvr-mail-split-rules)
-          (nnimap-split-fancy tvr-mail-split-rules)
+          (nnimap-split-fancy (|
+    ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
           (nnimap-stream ssl)))
 
 (setq gnus-select-method gnus-gmail-plain-method)
