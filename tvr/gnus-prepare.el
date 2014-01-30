@@ -3,32 +3,29 @@
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (require 'nnimap)
 (require 'nnir)
+(setq gnus-auto-subscribed-groups nil)
+(setq gnus-auto-subscribed-categories nil)
 
-;;; split out mailing lists:
-;;; Mail split per Info manual:
-(setq
- tvr-mail-split-rules
- `(|
-   ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
 
-(setq nnimap-split-fancy tvr-mail-split-rules)
 
-(setq nnimap-inbox  '("INBOX" "[Gmail]/Important"))
 
-(setq nnimap-split-methods nnimap-split-fancy)
 
+;;; Set all nnimap options through the select method.
 
 (setq
  gnus-gmail 
- '(nnimap "gmail"
-          (nnimap-address "imap.gmail.com")
-          (nnimap-server-port 993)
-          (nnimap-fetch-partial-articles "text/")
-          (nnimap-inbox '("INBOX" "[Gmail]/Important"))
-          (nnimap-split-methods (| ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
-          (nnimap-split-fancy (|
-    ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
-          (nnimap-stream ssl)))
+ '(nnimap
+   "gmail"
+   (nnimap-address "imap.gmail.com")
+   (nnimap-server-port 993)
+   (nnimap-fetch-partial-articles "text/")
+   (nnimap-inbox  "[Gmail]/All")
+   (nnimap-split-methods
+    (
+     ("\\1" "List-Id:.* \\(.*\\)")
+     ("Unclassified" ""))) 
+   (nnimap-expunge-on-close always)
+   (nnimap-stream ssl)))
 
 (setq gnus-select-method gnus-gmail)
 ;;; Fetch news when emacs is idle.
