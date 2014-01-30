@@ -3,29 +3,33 @@
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (require 'nnimap)
 (require 'nnir)
+
+;;; split out mailing lists:
+;;; Mail split per Info manual:
+(setq tvr-mail-split-rules
+      '(|
+    ("List-Id" ".*<\\(.*\\)>.*" "\\1")))
+
+(setq nnimap-split-fancy tvr-mail-split-rules)
+
+(setq nnimap-inbox "[Gmail]/Important")
+
+(setq nnimap-split-methods 'nnimap-split-fancy)
+
+
 (setq
  gnus-gmail-plain-method 
  '(nnimap "gmail"
           (nnimap-address "imap.gmail.com")
           (nnimap-server-port 993)
+          (nnimap-inbox "[Gmail]/Important")
+          (nnimap-split-methods nnimap-split-fancy)
+          (nnimap-split-fancy tvr-mail-split-rules)
           (nnimap-stream ssl)))
 
 (setq gnus-select-method gnus-gmail-plain-method)
 ;;; Fetch news when emacs is idle.
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
-
-;;; split out mailing lists:
-;;; Mail split per Info manual:
-
-(setq nnimap-inbox "[Gmail]/Important")
-
-(setq nnimap-split-fancy
-      '(|
-    ("List-Id" ".*<\\(.*\\).com>.*" "\\1")
-    ("List-Id" ".*<\\(.*\\).org>.*" "\\1")))
-
-(setq nnimap-split-methods 'nnimap-split-fancy)
-
 
 (setq
  message-send-mail-function 'smtpmail-send-it
