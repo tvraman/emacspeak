@@ -14,7 +14,7 @@
 
 (setq nnimap-inbox "[Gmail]/Important")
 
-(setq nnimap-split-methods 'nnimap-split-fancy)
+(setq nnimap-split-methods nnimap-split-fancy)
 
 
 (setq
@@ -23,7 +23,7 @@
           (nnimap-address "imap.gmail.com")
           (nnimap-server-port 993)
           (nnimap-inbox "[Gmail]/Important")
-          (nnimap-split-methods nnimap-split-fancy)
+          (nnimap-split-methods tvr-mail-split-rules)
           (nnimap-split-fancy tvr-mail-split-rules)
           (nnimap-stream ssl)))
 
