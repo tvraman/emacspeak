@@ -3,6 +3,7 @@
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (require 'nnimap)
 (require 'nnir)
+(require 'gnus-demon)
 (setq gnus-auto-subscribed-groups nil)
 (setq gnus-auto-subscribed-categories nil)
 
