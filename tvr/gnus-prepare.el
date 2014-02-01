@@ -22,9 +22,9 @@
    (nnimap-fetch-partial-articles "text/")
    (nnimap-inbox  "[Gmail]/All")
    (nnimap-split-methods
-    (
-     ("\\1" "List-Id:.* \\(.*\\)")
-     ("Unclassified" ""))) 
+    (|
+     ("List-ID" "<\\(.*\\)" "\\1")
+     ("Unclassified" ))) 
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
 
