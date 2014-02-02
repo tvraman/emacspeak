@@ -14,7 +14,7 @@
 ;;; Set all nnimap options through the select method.
 
 (setq
- gnus-gmail 
+ gnus-ssselect-method
  '(nnimap
    "gmail"
    (nnimap-address "imap.gmail.com")
@@ -23,12 +23,11 @@
    (nnimap-inbox  "[Gmail]/All")
    (nnimap-split-methods
     (|
-     ("List-ID" "<\\(.*\\)" "\\1")
+     ("List-ID" ".*<\\(.*\\)>.*" "\\1")
      ("Unclassified" ))) 
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
 
-(setq gnus-select-method gnus-gmail)
 ;;; Fetch news when emacs is idle.
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
 
