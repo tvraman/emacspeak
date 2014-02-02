@@ -20,7 +20,7 @@
    (nnimap-address "imap.gmail.com")
    (nnimap-server-port 993)
    (nnimap-fetch-partial-articles "text/")
-   (nnimap-inbox  "[Gmail]/All")
+   (nnimap-inbox  "[Gmail]/All Mail")
    (nnimap-split-methods
     (|
      ("List-ID" ".*<\\(.*\\)>.*" "\\1")
