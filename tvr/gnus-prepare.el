@@ -22,9 +22,8 @@
    (nnimap-fetch-partial-articles "text/")
    (nnimap-inbox  "[Gmail]/All Mail")
    (nnimap-split-methods
-    (|
-     ("List-ID" ".*<\\(.*\\)>.*" "\\1")
-     ("Unclassified" ))) 
+    (("\\1" "List-ID: .*<\\(.*\\)>.*")
+     ("Unclassified" ""))) 
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
 
@@ -65,3 +64,4 @@
 ;;}}}
 ;(setq gnus-summary-line-format "%t%U%R%-20,20a %s \n")
 ;(setq gnus-group-line-format "%M%S%p%P%5y: %(%G%)%l \n")
+(provide 'gnus-prepare)
