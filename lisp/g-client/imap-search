@@ -1,0 +1,20 @@
+      BCC <string>
+      BEFORE <date>
+      BODY <string>
+      CC <string>
+      FROM <string>
+      HEADER <field-name> <string>
+      KEYWORD <flag>
+      LARGER <n>
+      NOT <search-key>
+      ON <date>
+      SENTBEFORE <date>
+      SENTON <date>
+      SENTSINCE <date>
+      SINCE <date>
+      SMALLER <n>
+      SUBJECT <string>
+      TEXT <string>
+      TO <string>
+      
+      
