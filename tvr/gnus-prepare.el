@@ -20,10 +20,11 @@
    (nnimap-address "imap.gmail.com")
    (nnimap-server-port 993)
    (nnimap-fetch-partial-articles "text/")
-   (nnimap-inbox  "[Gmail]/All Mail")
-   (nnimap-split-methods
-    (("\\1" "List-ID: .*<\\(.*\\)>.*")
-     ("Unclassified" ""))) 
+   ;(nnimap-inbox  "[Gmail]/All Mail")
+   (nnimap-record-commands t)
+   ;(nnimap-split-methods
+    ;(("\\1" "List-ID: .*<\\(.*\\)>.*")
+     ;("Unclassified" ""))) 
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
 
