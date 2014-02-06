@@ -61,7 +61,7 @@
   :group 'gnus
   :prefix "emacspeak-gnus-")
 
-(defcustom emacspeak-gnus-punctuation-mode  'some
+(defcustom emacspeak-gnus-punctuation-mode  'all
   "Pronunciation mode to use for gnus buffers."
   :type '(choice
           (const  :tag "Ignore" nil)
