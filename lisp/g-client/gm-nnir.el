@@ -68,7 +68,12 @@
 ;;; with imap-search as the current buffer.
 
 (defvar gm-nnir-search-criteria
-  '(("BCC" "<string>")
+  '(("DELETED")
+    ("NEW")
+    ("RECENT")
+    ("OLD")
+  
+    ("BCC" "<string>")
     ("BEFORE" "<date>")
     ("BODY" "<string>")
     ("CC" "<string>")
