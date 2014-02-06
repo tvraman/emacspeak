@@ -16,5 +16,5 @@
       SUBJECT <string>
       TEXT <string>
       TO <string>
-      
+      X-GM-RAW <string>
       
