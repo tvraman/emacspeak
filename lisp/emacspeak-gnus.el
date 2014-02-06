@@ -94,6 +94,7 @@ instead you hear only the first screenful."
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
   (define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
+  (define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
   (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
   (define-key gnus-group-mode-map [down] 'gnus-group-next-group)
   (define-key gnus-group-mode-map [up] 'gnus-group-prev-group)
