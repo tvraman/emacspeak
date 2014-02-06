@@ -117,7 +117,7 @@
 ;;}}}
 ;;{{{ NNIR Engine For GMail 
 ;;; GMail Search Commands 
-
+;;;###autoload
 (defun gm-nnir-group-make-nnir-group ()
   "GMail equivalent of gnus-group-make-nnir-group."
   (interactive)
@@ -127,6 +127,22 @@
    `(
      (nnir-query-spec    ; Use smart prompter  to build up query 
       (query  ,(gm-nnir-read-imap-query)))))))
+
+;;;###autoload
+(defun gm-nnir-group-make-gmail-group ()
+  "Use GMail search syntax eclusively."
+  (interactive)
+  (let ((nnir-imap-default-search-key "imap"))
+    (gnus-group-make-nnir-group
+     nil                                ; no extra parms needed
+     `(
+       (nnir-query-spec  ; Use smart prompter  to build up query 
+        (query
+         ,(format "X-GM-RAW \"%s\""
+                  (read-from-minibuffer "GMail Query: "))))))))
+
+
+
 
 ;;}}}
 (provide 'gm-nnir)
