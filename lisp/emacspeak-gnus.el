@@ -51,7 +51,7 @@
 (require 'gnus)
 (require 'gnus-art)
 (require 'gnus-sum)
-
+(require 'gm-nnir) ; for smart GMail search
 ;;}}}
 ;;{{{  Customizations:
 
@@ -86,13 +86,14 @@ instead you hear only the first screenful."
 (defun emacspeak-gnus-setup-keys ()
   "Setup Emacspeak keys."
   (declare (special gnus-summary-mode-map
-                    gnus-group-mode-map
+                    gnus-group-mmode-map
                     gnus-article-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map "\M-T" 'emacspeak-gnus-summary-hide-all-headers )
   (define-key gnus-summary-mode-map "t" 'emacspeak-gnus-summary-show-some-headers)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
+  (define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
   (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
   (define-key gnus-group-mode-map [down] 'gnus-group-next-group)
   (define-key gnus-group-mode-map [up] 'gnus-group-prev-group)
