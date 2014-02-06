@@ -72,7 +72,7 @@
     ("NEW")
     ("RECENT")
     ("OLD")
-  
+  ("UNSEEN")
     ("BCC" "<string>")
     ("BEFORE" "<date>")
     ("BODY" "<string>")
@@ -100,14 +100,15 @@
   (declare (special gm-nnir-search-criteria))
   (let*
       ((completion-ignore-case t)
-       (command (completing-read "Search Clause" gm-nnir-search-criteria))
+       (key (upcase (completing-read "Search Clause" gm-nnir-search-criteria)))
        (args
-        (when (cdr (assoc (upcase command) gm-nnir-search-criteria))
-          (read-from-minibuffer
-           (mapconcat #'identity (cdr (assoc (upcase command) gm-nnir-search-criteria))
-                      " ")))))
-    (if (> (length command ) 0)
-        (format "%s \"%s\"" command args)
+        (when (cdr (assoc key gm-nnir-search-criteria))
+          (read-from-minibuffer (mapconcat #'identity (cdr (assoc key gm-nnir-search-criteria))
+                                           " ")))))
+    (if (> (length key ) 0)
+        (format
+         "%s %s" key
+         (if args (format "\"%s\"" args) ""))
       "")))
 
 (defun gm-nnir-read-imap-query ()
