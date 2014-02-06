@@ -89,23 +89,23 @@
     ("X-GM-RAW" "<GMail Search Clause>"))
   "IMap search criteria with argument specs.")
 
-  
+
 (defun gm-nnir-read-imap-clause ()
   "Read one IMap search clause with smart prompts."
   (declare (special gm-nnir-search-criteria))
   (let*
-      ((command (completing-read "Search Clause" gm-nnir-search-criteria))
+      ((completion-ignore-case t)
+       (command (completing-read "Search Clause" gm-nnir-search-criteria))
        (args
-        (when (cdr (assoc command gm-nnir-search-criteria))
+        (when (cdr (assoc (upcase command) gm-nnir-search-criteria))
           (read-from-minibuffer
-           (mapconcat #'identity (cdr (assoc command gm-nnir-search-criteria))
+           (mapconcat #'identity (cdr (assoc (upcase command) gm-nnir-search-criteria))
                       " ")))))
     (if (> (length command ) 0)
-    (format "%s %s" command args)
-    "")))
+        (format "%s \"%s\"" command args)
+      "")))
 
-
-(defun gm-nnir-read-query ()
+(defun gm-nnir-read-imap-query ()
   "Return query built from a set of clauses."
   (let ((query nil)
         (clause (gm-nnir-read-imap-clause)))
@@ -113,8 +113,8 @@
       (push clause query)
       (setq clause (gm-nnir-read-imap-clause)))
     (mapconcat #'identity query " ")))
-        
-    ;;}}}
+
+;;}}}
 (provide 'gm-nnir)
 ;;{{{ end of file
 
