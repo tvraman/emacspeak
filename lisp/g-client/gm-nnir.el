@@ -115,6 +115,18 @@
     (mapconcat #'identity query " ")))
 
 ;;}}}
+;;{{{ NNIR Engine For GMail 
+;;; GMail Search Commands 
+
+(defun gm-nnir-group-make-nnir-group ()
+  "GMail equivalent of gnus-group-make-nnir-group."
+  (interactive)
+  (gnus-group-make-nnir-group
+   nil                                  ; no extra parms needed
+   `(
+     (nnir-query-spec    ; Use smart prompter  to build up query 
+      (query  ,(gm-nnir-read-imap-query))))))
+;;}}}
 (provide 'gm-nnir)
 ;;{{{ end of file
 
