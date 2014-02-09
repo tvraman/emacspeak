@@ -60,6 +60,18 @@
 (require 'nnir)
 
 ;;}}}
+;;{{{ Customizations:
+
+(defcustom gm-nnir-default-inbox "INBOX"
+  "Default folder to search."
+  :type '(choice "Default Mailbox To Search: "
+                 (const "INBOX")
+                 (const  "[Gmail]/Important")
+                 (const "[Gmail]/All Mail"))
+  :group 'gm-nnir)
+  )
+
+;;}}}
 ;;{{{ IMap Search Operators:
 
 ;;; this list is extracted from the IMap RFC 3501
