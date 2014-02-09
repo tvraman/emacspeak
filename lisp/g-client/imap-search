@@ -1,4 +1,5 @@
-      BCC <string>
+
+            BCC <string>
       BEFORE <date>
       BODY <string>
       CC <string>
@@ -17,8 +18,11 @@
       TEXT <string>
       TO <string>
       X-GM-RAW <string>
-      
 DELETED 
-RECENT
+DRAFT
+FLAGGED
 NEW
-UNSEEN
+RECENT
+UNANSWERED
+UNDELETED
+unseen
