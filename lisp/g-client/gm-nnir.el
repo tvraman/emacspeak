@@ -69,7 +69,7 @@
                  (const  "[Gmail]/Important")
                  (const "[Gmail]/All Mail"))
   :group 'gm-nnir)
-  )
+  
 
 ;;}}}
 ;;{{{ IMap Search Operators:
