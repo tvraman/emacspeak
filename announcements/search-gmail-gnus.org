@@ -1,0 +1,57 @@
+* Searching GMail Using IMap and GNUS
+
+Emacs package GNUS provides a very efficient interface for
+consuming large amounts of email.
+You can access GMail using GNUS' IMap interface, for my own
+configuration for doing this, see file _tvr/gnus-prepare.el_ in
+the Emacspeak SVN  repository.
+Module _gm-nnir.el_  in package _g-client_ implements some
+convenience hooks to enable efficient searching of GMail. Module
+_emacspeak-gnus_ has been updated to bind commands from module
+_gm-nnir.el_ to _?_ and _/_ in  the *Group* buffer.
+
+** Basic Usage
+
+Assuming you already have GNUS configured to read GMail via IMap,
+you can:
+
+  - Press _/_ in the  groups buffer  to search your mail. This
+    command accepts all GMail queries, so for example,
+: after: 2014/02/01 to: me
+  Will find all messages received after   February 1, 2014 and
+  addressed to you.
+:  label: foo after: 2014/01/01
+  Will find messages with label _foo_ and received after January
+  1, 2014.
+  -  Press _?_ in the Group buffer to execute a more extensive
+     search command; this accepts both IMap query specifications
+     (per RFC 3501) as well as GMail query specifications. The
+     command provides smart completion, follow the prompts  to
+     build up complex queries. In general, there is almost
+     nothing you cannot do with the GMail query language, so this
+     command is mostly there as a backup.
+
+** The Technical Details
+
+The GMail query language is exposed to IMap via custom search key
+_X-GM-RAW_; commands _gm-nnir-group-make-gmail-group_ and
+_gm-nnir-group-make-nnir-group_ use this functionality to
+construct /ephemeral/ groups that hold the search results.
+
+
+
+#+TITLE: Searching GMail Using IMap and GNUS
+#+DATE: <2014-02-08 Sat>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.3.50.2 (Org mode 8.2.5c)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
