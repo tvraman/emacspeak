@@ -64,7 +64,8 @@
 
 (defcustom gm-nnir-default-inbox "INBOX"
   "Default folder to search."
-  :type '(choice "Default Mailbox To Search: "
+  :type '(choice 
+:tag "Default Mailbox To Search: "
                  (const "INBOX")
                  (const  "[Gmail]/Important")
                  (const "[Gmail]/All Mail"))
@@ -142,8 +143,9 @@
 ;;;###autoload
 (defun gm-nnir-group-make-nnir-group ()
   "GMail equivalent of gnus-group-make-nnir-group.
-Default is to search All Mail when not on a group."
+Default is to search gm-nnir-default-inboxwhen not on a group."
   (interactive)
+  (declare (special gm-nnir-default-inbox))
   (let ((nnir-imap-default-search-key "imap")
         (q (gm-nnir-read-imap-query)))
     (cond
@@ -151,18 +153,19 @@ Default is to search All Mail when not on a group."
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query  ,q)))))
-     (t                                 ; "Search All Mail
+     (t                                 ; "Search gm-nnir-default-inbox
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs 
          (nnir-query-spec (query ,q))
-         (nnir-group-spec ("nnimap:gmail" ("[Gmail]/All Mail")))))))))
+         (nnir-group-spec ("nnimap:gmail" (,gm-nnir-default-inbox)))))))))
 
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group ()
   "Use GMail search syntax exclusively.
-Default is to search All Mail when not on a Group line."
+Default is to search gm-nnir-default-inbox  when not on a Group line."
   (interactive)
+(declare (special gm-nnir-default-inbox))
   (let ((nnir-imap-default-search-key "imap")
         (q (format "X-GM-RAW \"%s\"" (read-from-minibuffer "GMail Query: "))))
     (cond
@@ -170,12 +173,12 @@ Default is to search All Mail when not on a Group line."
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query ,q)))))
-     (t                                 ; "Search All Mail
+     (t                                 ; "Search gm-nnir-default-inbox
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs 
          (nnir-query-spec (query ,q))
-         (nnir-group-spec ("nnimap:gmail" ("[Gmail]/All Mail")))))))))
+         (nnir-group-spec ("nnimap:gmail" (,gm-nnir-default-inbox)))))))))
 
 ;;}}}
 (provide 'gm-nnir)
