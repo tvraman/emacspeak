@@ -136,19 +136,22 @@
 
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group ()
-  "Use GMail search syntax eclusively."
+  "Use GMail search syntax exclusively.
+Default is to search All Mail when not on a Group line.."
   (interactive)
-  (let ((nnir-imap-default-search-key "imap"))
-    (gnus-group-make-nnir-group
-     nil                                ; no extra parms needed
-     `(
-       (nnir-query-spec  ; Use smart prompter  to build up query 
-        (query
-         ,(format "X-GM-RAW \"%s\""
-                  (read-from-minibuffer "GMail Query: "))))))))
-
-
-
+  (let ((nnir-imap-default-search-key "imap")
+        (q (format "X-GM-RAW \"%s\"" (read-from-minibuffer "GMail Query: "))))
+    (cond
+     ((gnus-group-group-name)           ; Search current group
+      (gnus-group-make-nnir-group
+       nil                              ; no extra parms needed
+       `(nnir-specs (nnir-query-spec (query ,q)))))
+     (t                                 ; "Search All Mail
+      (gnus-group-make-nnir-group
+       nil                              ; no extra parms needed
+       `(nnir-specs 
+         (nnir-query-spec (query ,q))
+         (nnir-group-spec ("nnimap:gmail" ("[Gmail]/All Mail")))))))))
 
 ;;}}}
 (provide 'gm-nnir)
