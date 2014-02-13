@@ -704,7 +704,11 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p ) 
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gnus-summary-speak-subject )))
-
+(defadvice gnus-summary-hide-all-threads (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
 ;;}}}
 ;;{{{  Article reading
 
@@ -870,7 +874,7 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ refreshing the pronunciation  and punctuation mode
 
-(loop
+(loopm
  for hook in
  '(
    gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook
