@@ -10,9 +10,9 @@
 ;;; Set all nnimap options through the select method.
 
 (setq
- gnus-ssselect-method
- '(nnimap
-   user-mail-address
+ gnus-select-method
+ `(nnimap
+   "gmail"
    (nnimap-address "imap.gmail.com")
    (nnimap-server-port 993)
    (nnimap-fetch-partial-articles "text/")
@@ -24,11 +24,11 @@
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
 
-
+;;; See http://www.cataclysmicmutation.com/2010/11/multiple-gmail-accounts-in-gnus/ for mult-account setup
 (defun gm-user-to-nnimap (user)
   "Return nnimap select method for sspecified user."
   `(nnimap
-    ,(format "%s@imap.gmail.com" user)
+    ,user
     (nnimap-user ,(format "%s@gmail.com" user))
     (nnimap-address "imap.gmail.com")
     (nnimap-server-port 993)
@@ -38,9 +38,9 @@
     (nnimap-stream ssl)
     (nnimap-authinfo-file "~/.authinfo.gpg")))
 
-(setq gnus-secondary-select-methods 
-      (mapcar #'gm-user-to-nnimap
-              '("emacspeak" "tv.raman.tv")))
+ (setq gnus-secondary-select-methods 
+       (mapcar #'gm-user-to-nnimap
+               '( "tv.raman.tv" "emacspeak")))
 
 ;;; Fetch news when emacs is idle.
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
