@@ -712,7 +712,9 @@ Produce an auditory icon if possible."
   "Catch up on all articles in current group."
   (interactive)
   (gnus-summary-catchup-and-exit t t)
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-speak-line))
+
 ;;; helper function:
 
 
