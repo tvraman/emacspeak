@@ -48,6 +48,7 @@
 ;;{{{ requires
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-hide)
 (require 'gnus)
 (require 'gnus-art)
 (require 'gnus-sum)
@@ -720,6 +721,7 @@ Produce an auditory icon if possible."
   "Start speaking the article. "
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-hide-all-blocks-in-buffer)
     (emacspeak-gnus-speak-article-body)))
 
 (defadvice gnus-summary-next-page (after emacspeak pre act)

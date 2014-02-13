@@ -7,16 +7,12 @@
 (setq gnus-auto-subscribed-groups nil)
 (setq gnus-auto-subscribed-categories nil)
 
-
-
-
-
 ;;; Set all nnimap options through the select method.
 
 (setq
  gnus-ssselect-method
  '(nnimap
-   "gmail"
+   user-mail-address
    (nnimap-address "imap.gmail.com")
    (nnimap-server-port 993)
    (nnimap-fetch-partial-articles "text/")
@@ -27,6 +23,24 @@
      ;("Unclassified" ""))) 
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
+
+
+(defun gm-user-to-nnimap (user)
+  "Return nnimap select method for sspecified user."
+  `(nnimap
+    ,(format "%s@imap.gmail.com" user)
+    (nnimap-user ,(format "%s@gmail.com" user))
+    (nnimap-address "imap.gmail.com")
+    (nnimap-server-port 993)
+    (nnimap-fetch-partial-articles "text/")
+    (nnimap-record-commands t)
+    (nnimap-expunge-on-close always)
+    (nnimap-stream ssl)
+    (nnimap-authinfo-file "~/.authinfo.gpg")))
+
+(setq gnus-secondary-select-methods 
+      (mapcar #'gm-user-to-nnimap
+              '("emacspeak" "tv.raman.tv")))
 
 ;;; Fetch news when emacs is idle.
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
