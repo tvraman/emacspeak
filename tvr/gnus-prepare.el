@@ -43,7 +43,7 @@
                '( "tv.raman.tv" "emacspeak")))
 
 ;;; Fetch news when emacs is idle.
-(gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
+;(gnus-demon-add-handler 'gnus-demon-scan-news 2 t) 
 
 (setq
  message-send-mail-function 'smtpmail-send-it
