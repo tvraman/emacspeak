@@ -46,7 +46,7 @@
 
 ;;}}}
 ;;{{{ requires
-
+(require 'cl)
 (require 'emacspeak-preamble)
 (require 'emacspeak-hide)
 (require 'gnus)
@@ -874,8 +874,8 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ refreshing the pronunciation  and punctuation mode
 
-(loopm
- for hook in
+(loop
+ for hook  in 
  '(
    gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook
    gnus-agent-mode-hook  gnus-article-edit-mode-hook
