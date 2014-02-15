@@ -642,25 +642,15 @@ default-directory after switching."
 
 ;;}}}
 ;;;###autoload
-(defun emacspeak-wizards-edit-file-as-root (filename)
-  "Edit file as root using sudo vi.
-See /etc/sudoers for how to set up sudo."
-  (interactive
-   (list
-    (read-file-name "Edit file as root: ")))
-  (require 'term)
-  (delete-other-windows)
-  (switch-to-buffer
-   (term-ansi-make-term
-    (generate-new-buffer-name
-     (format "vi-%s"
-             (file-name-nondirectory filename)))
-    "sudo"
-    nil
-    "vi"
-    filename))
-  (term-char-mode)
-  (emacspeak-auditory-icon 'open-object))
+(defun emacspeak-wizards-edit-file-as-root  ()
+  "Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user."
+  (interactive)
+  (let ((file (ido-read-file-name "Edit as root: ")))
+    (unless (file-writable-p file)
+      (setq file (concat "/sudo:root@localhost:" file)))
+    (find-file file)))
 
 ;;}}}
 ;;{{{ find file as root
