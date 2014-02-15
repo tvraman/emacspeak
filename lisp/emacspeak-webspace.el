@@ -190,6 +190,7 @@ Generates auditory and visual display."
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
         ("r" emacspeak-webspace-reading-list)
+        ("'" emacspeak-speak-rest-of-buffer)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
