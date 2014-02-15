@@ -8,12 +8,13 @@
 (autoload 'bbdb-company "bbdb-com" "Insidious Big Brother Database" t)
 (autoload 'bbdb-net     "bbdb-com" "Insidious Big Brother Database" t)
 (autoload 'bbdb-notes   "bbdb-com" "Insidious Big Brother Database" t)
-(autoload 'bbdb-insinuate-mh       "bbdb-mhe"   "Hook BBDB into MH-E")
+
 (autoload 'bbdb-insinuate-gnus     "bbdb-gnus"  "Hook BBDB into GNUS")
 (autoload 'bbdb-insinuate-vm     "bbdb-vm"  "Hook BBDB into vm")
 (autoload 'bbdb-insinuate-sendmail "bbdb"       "Hook BBDB into sendmail")
 (autoload 'bbdb/gnus-lines-and-from "bbdb-gnus")
 
+(bbdb-initialize 'vm  'gnus 'smtpmail)
 ;; Configuration for bbdb
 (setq bbdb-ignore-some-messages-alist
       '(
