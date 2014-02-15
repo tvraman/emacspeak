@@ -70,6 +70,7 @@
 (loop for k in
       '(
         ("q" bury-buffer)
+        ("'" emacspeak-speak-rest-of-buffer)
         ("<" beginning-of-buffer)
         (">" end-of-buffer)
         ("/" search-forward)
@@ -190,7 +191,6 @@ Generates auditory and visual display."
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
         ("r" emacspeak-webspace-reading-list)
-        ("'" emacspeak-speak-rest-of-buffer)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
