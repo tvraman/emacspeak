@@ -2228,20 +2228,20 @@ order with duplicates removed."
   "Bring up detailed stock quotes for portfolio specified by
 emacspeak-wizards-personal-portfolio."
   (interactive)
-  (declare (special emacspeak-wizards-personal-portfolio
-                    emacspeak-wizards-quote-command
-                    emacspeak-wizards-quote-row-filter))
+  (declare (special emacspeak-wizards-personal-portfolio emacspeak-table-speak-element
+                    emacspeak-wizards-quote-command emacspeak-wizards-quote-row-filter))
+  (when  (get-buffer "Portfolio") (kill-buffer  (get-buffer "Portfolio")))
   (let ((temp-file (make-temp-file  "quotes" nil ".csv")))
     (shell-command
      (format
       "echo '%s' | perl %s > %s"
       emacspeak-wizards-personal-portfolio
-      emacspeak-wizards-quote-command
-      temp-file))
+      emacspeak-wizards-quote-command temp-file))
     (emacspeak-table-find-csv-file temp-file)
-    (setq emacspeak-table-speak-row-filter
-          emacspeak-wizards-quote-row-filter)
+    (setq emacspeak-table-speak-row-filter emacspeak-wizards-quote-row-filter
+          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (setq tab-width 12)
+    
     (rename-buffer "Portfolio" 'unique)
     (goto-char (point-min))
     (call-interactively 'emacspeak-table-next-row)
