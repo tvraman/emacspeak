@@ -45,7 +45,7 @@
 ;;;  Org allows you to keep organized notes and todo lists.
 ;;; Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
 ;;; or http://orgmode.org/
-;;; 
+;;;
 ;;; Code:
 
 ;;}}}
@@ -142,7 +142,7 @@
                            org-meta-return
                            org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
                            org-mark-element org-mark-subtree
-			   org-agenda-forward-block org-agenda-backward-block
+                           org-agenda-forward-block org-agenda-backward-block
                            )
       do
       (eval
@@ -167,11 +167,10 @@
           (when (ems-interactive-p )
             (cond
              ((org-at-table-p 'any)
-              (let ((emacspeak-show-point t))
-                (skip-syntax-forward " ")
-                (emacspeak-speak-line)
-                (emacspeak-auditory-icon 'large-movement)))
-             (t (emacspeak-auditory-icon 'select-object)))))))
+              (emacspeak-org-table-speak-current-element))
+             (t
+              (emacspeak-speak-line)
+              (emacspeak-auditory-icon 'select-object)))))))xrjp
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -442,7 +441,12 @@
 (defadvice org-return (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
-    (emacspeak-speak-line)))
+    (cond
+     ((org-at-table-p 'any)
+      (emacspeak-org-table-speak-current-element))
+     (t
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ mode hook:
@@ -456,7 +460,7 @@
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
 
-;;; advice end-of-line here to call org specific action 
+;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
   (when (and (ems-interactive-p )
@@ -489,7 +493,7 @@
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Avoid outline errors bubbling up."
-          
+
           (ems-with-errors-silenced ad-do-it))))
 
 ;;}}}
@@ -534,6 +538,20 @@
 (defadvice org-capture-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'close-object))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-current-element ()
+  "echoes current table element"
+  (interactive)
+  (dtk-speak-and-echo (org-table-get-field)))
+(loop
+ for f in
+ '(org-table-next-field org-table-previous-field)
+ do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (emacspeak-org-table-speak-current-element))))
 
 ;;}}}
 (provide 'emacspeak-org)
