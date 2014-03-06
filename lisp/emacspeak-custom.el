@@ -96,12 +96,16 @@
     (emacspeak-auditory-icon 'save-object)
     (message "Saved customizations.")))
 
-(defadvice custom-save-all (after emacspeak pre
-                                  act comp)
+(defadvice custom-save-all (after emacspeak pre act comp)
   "Provide auditory feedback. "
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'save-object)
     (message "Saved customizations.")))
+
+(defadvice customize-save-customized (around quiet pre act comp)
+  "Silence speech."
+  (let ((dtk-quiet t) ad-do-it)))
+
 (defadvice custom-set (after emacspeak pre act comp)
   "Provide auditory feedback. "
   (when (ems-interactive-p )
