@@ -47,7 +47,7 @@ View an RSS feed as clean HTML
     <li>
       <xsl:element name="a">
         <xsl:attribute name="href">
-          <xsl:apply-templates select="rss:link|nsrss:link"/>
+          <xsl:value-of select="rss:link|nsrss:link"/>
         </xsl:attribute>
         <xsl:apply-templates select="rss:title|nsrss:title"/>
       </xsl:element>
@@ -90,7 +90,7 @@ View an RSS feed as clean HTML
     <li>
       <xsl:element name="a">
         <xsl:attribute name="href">
-          <xsl:apply-templates select="link"/>
+          <xsl:value-of select="link"/>
         </xsl:attribute>
         <xsl:apply-templates select="title"/>
       </xsl:element>
