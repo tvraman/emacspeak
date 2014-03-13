@@ -45,13 +45,13 @@ View an RSS feed as clean HTML
   </xsl:template>
   <xsl:template match="rss:item|nsrss:item">
     <li>
-      <xsl:element name="a">
+      <h2><xsl:element name="a">
         <xsl:attribute name="href">
           <xsl:value-of select="rss:link|nsrss:link"/>
         </xsl:attribute>
         <xsl:apply-templates select="rss:title|nsrss:title"/>
       </xsl:element>
-	  <br/>
+      </h2>
       <xsl:apply-templates
           select="rss:description|nsrss:description"/>
       <!--<em><xsl:value-of select="rss:pubDate"/></em>-->
@@ -88,13 +88,13 @@ View an RSS feed as clean HTML
   </xsl:template>
   <xsl:template match="item">
     <li>
-      <xsl:element name="a">
+      <h2><xsl:element name="a">
         <xsl:attribute name="href">
           <xsl:value-of select="link"/>
         </xsl:attribute>
         <xsl:apply-templates select="title"/>
       </xsl:element>
-	  <br/>
+      </h2>
       <xsl:apply-templates select="description"/>
 	  <!--<em><xsl:value-of select="pubDate"/></em><br/>-->
 <p><xsl:value-of select="smh:bkmk_annotation"/></p>
