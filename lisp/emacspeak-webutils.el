@@ -56,6 +56,15 @@
 (require 'gfeeds)
 (require 'browse-url)
 ;;}}}
+;;{{{ Fix bug in url-cookie
+
+(defadvice url-cookie-write-file (around fix-write-bug pre act comp)
+  "Fix bug in url-cookie-write-file."
+  (let ((print-length nil)
+        (print-level nil))
+    ad-do-it))
+
+;;}}}
 ;;{{{ keymap: web-prefix
 (define-prefix-command 'emacspeak-web-prefix)
 
