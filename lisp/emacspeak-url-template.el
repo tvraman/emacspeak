@@ -520,7 +520,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "http://www.google.com/patents?ie=ISO-8859-1&q=%s"
  (list "Google For Patents: ")
  #'(lambda nil
-     (search-forward " Patent Search" nil t)
+     (search-forward " Patent Search" nil t)
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
  "Perform patent search via Google")
@@ -837,7 +837,7 @@ from English to German.")
  "http://print.google.com/print?oi=print&q=%s"
  (list "Google Print Search:")
  #'(lambda nil
-     (search-forward "Print  Books" nil t)
+     (search-forward "Print  Books" nil t)
      (emacspeak-speak-rest-of-buffer))
  "Google Print Search")
 
@@ -1632,6 +1632,19 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  nil
  "Bing News results as RSS feed."
  'emacspeak-webutils-rss-display)
+
+;;}}}
+;;{{{ GitHub Search
+
+(emacspeak-url-template-define
+ "GitHub Search"
+ "https://github.com/search?q=%s"
+ (list "Query: ")
+ #'(lambda ()
+     (emacspeak-imenu-goto-next-index-position)
+     (emacspeak-speak-rest-of-buffer))
+ "Perform a GitHub Search.")
+
 
 ;;}}}
 ;;{{{ Interactive commands
