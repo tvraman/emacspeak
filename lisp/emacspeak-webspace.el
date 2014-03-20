@@ -201,8 +201,10 @@ Generates auditory and visual display."
 ;;; Encapsulate collection feeds, headlines, timer, and recently updated feed.-index
 
 (defstruct emacspeak-webspace-fs
-  feeds titles
-  timer slow-timer index )
+  feeds
+  titles
+  timer slow-timer
+  index )
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
@@ -277,8 +279,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines ()
   "Speak current news headline."
   (interactive)
-  (declare (special emacspeak-webspace-headlines
-                    emacspeak-feeds))
+  (declare (special emacspeak-webspace-headlines emacspeak-feeds))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
@@ -345,7 +346,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
-;;{{{ Feed Reader In Webspace:
+;;{{{ Feed Reader::
 
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
