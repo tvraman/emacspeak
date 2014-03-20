@@ -246,7 +246,7 @@ Generates auditory and visual display."
   (emacspeak-auditory-icon 'working)
   t)
 
-(defun emacspeak-webspace-update-headlines ()
+(defun emacspeak-webspace-headlines-update ()
   "Setup news updates.
 Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
@@ -293,7 +293,7 @@ Updated headlines found in emacspeak-webspace-headlines."
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
-    (call-interactively 'emacspeak-webspace-update-headlines))
+    (call-interactively 'emacspeak-webspace-headlines-update))
   (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
 
 ;;}}}
@@ -370,7 +370,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   'help-echo "Open Feed"
   'action #'emacspeak-webspace-feed-reader-action)
 
-(defun emacspeak-webspeace-feed-reader-insert-button (feed)
+(defun emacspeak-webspace-feed-reader-insert-button (feed)
   "Insert a button for this feed at point."
   (insert-text-button
    (first feed) ; label
@@ -407,7 +407,7 @@ Optional interactive prefix arg forces a refresh."
             and position  from 1
             do
             (insert (format "%d\t" position))
-            (emacspeak-webspeace-feed-reader-insert-button f)
+            (emacspeak-webspace-feed-reader-insert-button f)
             (insert "\n"))
       (switch-to-buffer emacspeak-webspace-reader-buffer)
       (emacspeak-webspace-mode))))
