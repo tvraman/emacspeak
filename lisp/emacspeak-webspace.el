@@ -52,9 +52,9 @@
 (require 'ring)
 (require 'derived)
 (require 'gfeeds)
-
 (require 'gweb)
 (require 'emacspeak-webutils)
+
 ;;}}}
 ;;{{{ WebSpace Mode:
 
@@ -198,12 +198,6 @@ Generates auditory and visual display."
 ;;}}}
 ;;{{{ Headlines:
 
-(defcustom emacspeak-webspace-feeds nil
-  "Collection of ATOM and RSS feeds."
-  :type '(repeat
-          (string :tag "URL"))
-  :group 'emacspeak-webspace)
-
 ;;; Encapsulate collection feeds, headlines, timer, and recently updated feed.-index
 
 (defstruct emacspeak-webspace-fs
@@ -287,8 +281,8 @@ Updated headlines found in emacspeak-webspace-headlines."
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
-           :feeds (apply 'vector emacspeak-webspace-feeds)
-           :titles (make-ring (* 10 (length emacspeak-webspace-feeds)))
+           :feeds (apply 'vector emacspeak-feeds)
+           :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
     (call-interactively 'emacspeak-webspace-update-headlines))
@@ -350,35 +344,15 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
-;;{{{ Google Reader In Webspace:
+;;{{{ Feed Reader In Webspace:
 
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
 
-(defun emacspeak-webspace-reader-create ()
-  "Prepare Reader buffer."
-  (declare (special emacspeak-webspace-reader-buffer
-                    emacspeak-webspace-reader-feed-list))
-  (browse-url (format "file:%s"emacspeak-webspace-reader-feed-list)))
 
-;;;###autoload
-(defcustom emacspeak-webspace-reader-feed-list
-  (expand-file-name "reader.html" emacspeak-resource-directory)
-  "HTML file containing list of feeds.")
 
-;;;###autoload
-(defun emacspeak-webspace-reader (&optional refresh)
-  "Display Google Reader Feed list in a WebSpace buffer.
-Optional interactive prefix arg forces a refresh."
-  (interactive "P")
-  (declare (special emacspeak-webspace-reader-buffer))
-  (when (or refresh
-            (not (buffer-live-p (get-buffer emacspeak-webspace-reader-buffer))))
-    (emacspeak-webspace-reader-create))
-  (switch-to-buffer emacspeak-webspace-reader-buffer)
-  (goto-char (point-min))
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+
+
 
 ;;; New Reader using emacspeak-feeds:
 
@@ -437,56 +411,6 @@ Optional interactive prefix arg forces a refresh."
 
 (defconst emacspeak-webspace-reading-list-max-size 1800
   "How many headlines we keep around.")
-
-;;;###autoload
-(defun emacspeak-webspace-reading-list-view ()
-  "Switch to reading list view, creating it if needed."
-  (interactive)
-  (declare (special emacspeak-webspace-reading-list-buffer))
-  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
-    (emacspeak-webspace-reading-list-accumulate))
-  (emacspeak-auditory-icon 'select-object)
-  (switch-to-buffer emacspeak-webspace-reading-list-buffer)
-  (emacspeak-speak-mode-line))
-
-;;;###autoload
-(defun emacspeak-webspace-reader-refresh ()
-  "Refresh Reader."
-  (interactive )
-  (emacspeak-webspace-reader 'refresh) (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
-
-;;;###autoload
-
-(defun emacspeak-webspace-reading-list-get-some-title ()
-  "Returns a title chosen at random.
-Leaves point on the title returned in the reading list buffer."
-  (declare (special emacspeak-webspace-reading-list-buffer))
-  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
-    (emacspeak-webspace-reading-list-accumulate))
-  (with-current-buffer (get-buffer emacspeak-webspace-reading-list-buffer)
-    (let ((choice
-           (random (count-lines (point-min) (point-max)))))
-      (goto-char (point-min))
-      (forward-line (1- choice))
-      (buffer-substring (line-beginning-position)
-                        (line-end-position)))))
-
-(defvar emacspeak-webspace-reading-list-timer nil
-  "Timer used to regularly update river of news.")
-
-;;;###autoload
-(defun emacspeak-webspace-reading-list ()
-  "Set up scrolling reading list in header."
-  (interactive)
-  (declare (special emacspeak-webspace-reading-list-buffer
-                    emacspeak-webspace-reading-list-timer))
-  (unless (buffer-live-p (get-buffer emacspeak-webspace-reading-list-buffer))
-    (emacspeak-webspace-reading-list-accumulate))
-  (unless emacspeak-webspace-reading-list-timer
-    (setq emacspeak-webspace-reading-list-timer
-          (run-with-timer 1800 1800 'emacspeak-webspace-reading-list-accumulate)))
-  (emacspeak-webspace-display '((:eval (emacspeak-webspace-reading-list-get-some-title)))))
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
