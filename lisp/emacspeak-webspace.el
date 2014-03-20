@@ -283,7 +283,13 @@ Updated headlines found in emacspeak-webspace-headlines."
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
-           :feeds (apply 'vector (mapcar 'second emacspeak-feeds))
+           :feeds
+           (apply
+            #'vector
+            (delq nil
+                  (mapcar
+                   #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
+                   emacspeak-feeds)))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
