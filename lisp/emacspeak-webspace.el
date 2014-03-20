@@ -70,6 +70,8 @@
 (loop for k in
       '(
         ("q" bury-buffer)
+        ("." emacspeak-webspace-filter)
+        ("h" emacspeak-webspace-headlines-browse)
         ("'" emacspeak-speak-rest-of-buffer)
         ("<" beginning-of-buffer)
         (">" end-of-buffer)
@@ -120,7 +122,9 @@
   (let ((button (button-at (point))))
     (cond
      (button (emacspeak-auditory-icon 'yank-object)
-             (kill-new (second (button-get button 'feed))))
+             (kill-new
+              (or (second (button-get button 'feed))
+                  (button-get button 'link))))
      (t (error "No link under point")))))
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
@@ -190,7 +194,6 @@ Generates auditory and visual display."
       '(
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
-        ("r" emacspeak-webspace-reading-list)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
@@ -312,12 +315,12 @@ Updated headlines found in emacspeak-webspace-headlines."
       (insert "Press enter to open stories.\n\n")
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
       (loop
-       for f in
+       for h in
        (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines )))
        and position  from 1
        do
        (insert (format "%d\t" position))
-       (emacspeak-webspace-headlines-insert-button f)
+       (emacspeak-webspace-headlines-insert-button h)
        (insert "\n")
        (emacspeak-webspace-mode))))
       (switch-to-buffer emacspeak-webspace-headlines-buffer)
