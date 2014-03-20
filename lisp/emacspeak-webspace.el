@@ -218,8 +218,7 @@ Generates auditory and visual display."
   (let ((last-update (get-text-property 0 'last-update feed))
         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when (or (null last-update)
-              (time-less-p '(0 1800 0) ; 30 minutes
-                           (time-since last-update)))
+              (time-less-p '(0 1800 0) (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h) (ring-insert titles h ))
