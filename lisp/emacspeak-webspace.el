@@ -195,6 +195,7 @@ Generates auditory and visual display."
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
 (global-set-key [C-return] 'emacspeak-webspace-headlines-view)
+
 ;;}}}
 ;;{{{ Headlines:
 
@@ -296,6 +297,51 @@ Updated headlines found in emacspeak-webspace-headlines."
     (call-interactively 'emacspeak-webspace-headlines-update))
   (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
 
+(defvar emacspeak-webspace-headlines-buffer "*Headlines*"
+  "Name of buffer that displays headlines.")
+
+(defun emacspeak-webspace-headlines-browse ()
+  "Display buffer of browsable headlines."
+  (interactive)
+  (declare (special emacspeak-webspace-headlines))
+  (with-current-buffer
+      (get-buffer-create emacspeak-webspace-headlines-buffer)
+    (let ((inhibit-read-only t))
+      (erase-buffer)
+      (goto-char (point-min))
+      (insert "Press enter to open stories.\n\n")
+      (put-text-property (point-min) (point) 'face font-lock-doc-face)
+      (loop
+       for f in
+       (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines )))
+       and position  from 1
+       do
+       (insert (format "%d\t" position))
+       (emacspeak-webspace-headlines-insert-button f)
+       (insert "\n")
+       (emacspeak-webspace-mode))))
+      (switch-to-buffer emacspeak-webspace-headlines-buffer)
+      (goto-char (point-min))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line))
+
+(define-button-type 'emacspeak-webspace-headline
+  'follow-link t
+  'link nil
+  'help-echo "Open Headline"
+  'action #'emacspeak-webspace-headline-action)
+
+(defun emacspeak-webspace-headline-action (button)
+  "Open story associated with this button."
+  (browse-url (button-get button 'link)))
+
+(defun emacspeak-webspace-headlines-insert-button (headline)
+  "Insert a button for this headline at point."
+  (insert-text-button
+   headline
+   'type 'emacspeak-webspace-headline
+   'link (get-text-property 0 'link headline )))
+
 ;;}}}
 ;;{{{ Weather:
 
@@ -328,7 +374,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   (setq emacspeak-webspace-current-weather
         (emacspeak-webspace-weather-conditions)))
 
-(defun emacspeak-webspace-update-weather ()
+(defun emacspeak-webspace-weather-update ()
   "Setup periodic weather updates.
 Updated weather is found in `emacspeak-webspace-current-weather'."
   (interactive)
@@ -348,7 +394,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (declare (special emacspeak-webspace-current-weather
                     emacspeak-webspace-weather-timer))
   (unless emacspeak-webspace-weather-timer
-    (call-interactively 'emacspeak-webspace-update-weather))
+    (call-interactively 'emacspeak-webspace-weather-update))
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
@@ -357,16 +403,11 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
 
-
-
-
-
-
 ;;; New Reader using emacspeak-feeds:
 
 (define-button-type 'emacspeak-webspace-feed-link
   'follow-link t
-  'feed nil 
+  'feed nil
   'help-echo "Open Feed"
   'action #'emacspeak-webspace-feed-reader-action)
 
