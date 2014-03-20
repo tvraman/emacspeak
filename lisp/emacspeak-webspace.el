@@ -277,11 +277,12 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines ()
   "Speak current news headline."
   (interactive)
-  (declare (special emacspeak-webspace-headlines))
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-feeds))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
-           :feeds (apply 'vector emacspeak-feeds)
+           :feeds (apply 'vector (mapcar 'second emacspeak-feeds))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
