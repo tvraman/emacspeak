@@ -665,31 +665,6 @@ Argument `feed' is a feed structure (label url type)."
      ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
      ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
      (t (error "Unknown feed type %s" type)))))
-;;}}}
-;;{{{  view feed
-
-;;;###autoload
-(defun emacspeak-webutils-opml-display (opml-url &optional speak)
-  "Retrieve and display OPML  URL."
-  (interactive
-   (list
-    (car (browse-url-interactive-arg "OPML  URL: "))
-    (or (ems-interactive-p ) current-prefix-arg)))
-  (emacspeak-webutils-feed-display
-   opml-url
-   (emacspeak-xslt-get "opml.xsl")
-   speak))
-;;; Helper:
-(defun emacspeak-feeds-browse-feed (feed)
-  "Display specified feed.
-Argument `feed' is a feed structure (label url type)."
-  (let ((uri (second feed))
-        (type  (third feed)))
-    (cond
-     ((eq type 'rss) (emacspeak-webutils-rss-display uri ))
-     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
-     ((eq type 'atom) (emacspeak-webutils-atom-display uri ))
-     (t (error "Unknown feed type %s" type)))))
 
 ;;;###autoload
 (defun emacspeak-feed-browse (feed)
