@@ -313,7 +313,6 @@ ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 nm.elc: nm.el
 amixer.elc: amixer.el
-shr-url.elc: shr-url.el
 emacspeak-actions.elc: emacspeak-actions.el
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
