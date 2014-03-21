@@ -153,6 +153,16 @@ URL  being retrieved is received as part of the callback args."
      (shr-base (shr-url (shr-expand-url url)))
      (t (shr-url url)))))
 
+(defun shr-format-html-string (html-string)
+  "Return formatted string."
+  (with-temp-buffer "*html-format*"
+                    (setq buffer-undo-list t)
+                    (insert html-string)
+                    (shr-render-region  (point-min) (point-max))
+                    (buffer-string)))
+                    (erase-buffer)
+
+
 ;;;###autoload
 (defun shr-url-region (start end)
   "Display region as web page."
