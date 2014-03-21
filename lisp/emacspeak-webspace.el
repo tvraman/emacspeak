@@ -214,11 +214,13 @@ Generates auditory and visual display."
   "Feedstore structure to use a continuously updating ticker.")
 
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
-  "Add headlines from specified feed to our cache."
+  "Add headlines from specified feed to our cache.
+Newly found headlines are inserted into the ring within our feedstore."
   (let ((last-update (get-text-property 0 'last-update feed))
         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when (or (null last-update)
-              (time-less-p '(0 1800 0) (time-since last-update)))
+    (when
+        (or (null last-update)
+            (time-less-p '(0 1800 0) (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h) (ring-insert titles h ))
