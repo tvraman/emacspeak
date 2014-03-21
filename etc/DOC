@@ -934,6 +934,71 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
+** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
+ (the previous column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
+ (the previous row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expression Display the expression in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-value Display the cell value in the message area 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
+The `column header' is the entry in row 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
+The `row header' is the entry in column 0. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
+ (the next column by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
+ (the next row by default)and summarize it. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list 
+
+------------------------------------------------------------
+
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -967,6 +1032,10 @@ On a directory line, run du -s on the directory to speak its size.
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
+
+------------------------------------------------------------
+
+** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -1184,10 +1253,14 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
+** emacspeak-eterm-copy-region-to-register :around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
+
+Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+(fn REGISTER) 
 
 ------------------------------------------------------------
 
@@ -1221,9 +1294,13 @@ in a non eterm buffer if executed via C-e C-e
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
+** emacspeak-eterm-paste-register :around advice: `ad-Advice-emacspeak-eterm-paste-register'
+
+Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user. 
+sent to the terminal as if it were typed by the user.
+
+(fn REGISTER) 
 
 ------------------------------------------------------------
 
@@ -1401,6 +1478,48 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
+** emacspeak-eudc-send-mail Send email to the address given by the current record.  
+
+------------------------------------------------------------
+
+** emacspeak-feeds-add-feed	Key Sequence: control e meta u 
+
+ Add specified feed to our feed store. 
+
+------------------------------------------------------------
+
+** emacspeak-feeds-archive-feeds Archive list of subscribed fees to personal resource directory.
+Archiving is useful when synchronizing feeds across multiple machines. 
+
+------------------------------------------------------------
+
+** emacspeak-feeds-atom-display Display ATOM feed. 
+
+------------------------------------------------------------
+
+** emacspeak-feeds-browse	Key Sequence: control e control u 
+
+ Browse specified  feed. 
+
+------------------------------------------------------------
+
+** emacspeak-feeds-restoere-feeds Restore list of subscribed fees from  personal resource directory.
+Archiving is useful when synchronizing feeds across multiple machines. 
+
+------------------------------------------------------------
+
+** emacspeak-feeds-rss-display Display RSS feed. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-fv Display RSS or ATOM  feed by pulling from Google. 
+
+------------------------------------------------------------
+
+** emacspeak-webutils-opml-display Retrieve and display OPML  URL. 
+
+------------------------------------------------------------
+
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
  Copy over text in region to special filtertext buffer in
@@ -1466,6 +1585,17 @@ Assumes that point is at the front of a field value.
 ------------------------------------------------------------
 
 ** emacspeak-gnus-summary-catchup-quietly-and-exit Catch up on all articles in current group. 
+
+------------------------------------------------------------
+
+** emacspeak-gnus-summary-hide-all-headers Hide all headers in the article.
+Use this command if you don't want to listen to any article headers when
+reading news. 
+
+------------------------------------------------------------
+
+** emacspeak-gnus-summary-show-some-headers Show only the important article headers,
+i.e. sender name, and subject. 
 
 ------------------------------------------------------------
 
@@ -1777,12 +1907,7 @@ S t		emacspeak-librivox-search-title
 
 ** emacspeak-mark-forward-mark	Key Sequence: <control down> 
 
- :around advice: `ad-Advice-pop-to-mark-command'
-
-Jump to mark, and pop a new position for mark off the ring.
-(Does not affect global mark ring).
-
-(fn) 
+   
 
 ------------------------------------------------------------
 
@@ -4236,7 +4361,16 @@ Optional interactive prefix arg forces a refresh.
 
 ** emacspeak-webspace-headlines	Key Sequence: control ; SPACE h   hyper  SPACE h 
 
- Speak current news headline. 
+ Startup Headlines ticker. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-headlines-browse Display buffer of browsable headlines. 
+
+------------------------------------------------------------
+
+** emacspeak-webspace-headlines-update Setup news updates.
+Updated headlines found in emacspeak-webspace-headlines. 
 
 ------------------------------------------------------------
 
@@ -4254,12 +4388,15 @@ key             binding
 
 TAB		forward-button
 ESC		Prefix Command
+'		emacspeak-speak-rest-of-buffer
+.		emacspeak-webspace-filter
 /		search-forward
 <		beginning-of-buffer
 >		end-of-buffer
 ?		search-backward
 b		backward-button
 f		forward-button
+h		emacspeak-webspace-headlines-browse
 n		forward-button
 p		backward-button
 q		bury-buffer
@@ -4280,40 +4417,11 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-webspace-reader Display Google Reader Feed list in a WebSpace buffer.
-Optional interactive prefix arg forces a refresh. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-reader-refresh Refresh Reader. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-reading-list	Key Sequence: control ; SPACE r   hyper  SPACE r 
-
- Set up scrolling reading list in header. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-reading-list-view Switch to reading list view, creating it if needed. 
-
-------------------------------------------------------------
-
 ** emacspeak-webspace-rss-view View RSS feed. 
 
 ------------------------------------------------------------
 
 ** emacspeak-webspace-transcode Transcode headline at point by following its link property. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-update-headlines Setup news updates.
-Updated headlines found in emacspeak-webspace-headlines. 
-
-------------------------------------------------------------
-
-** emacspeak-webspace-update-weather Setup periodic weather updates.
-Updated weather is found in `emacspeak-webspace-current-weather'. 
 
 ------------------------------------------------------------
 
@@ -4323,27 +4431,12 @@ Updated weather is found in `emacspeak-webspace-current-weather'.
 
 ------------------------------------------------------------
 
+** emacspeak-webspace-weather-update Setup periodic weather updates.
+Updated weather is found in `emacspeak-webspace-current-weather'. 
+
+------------------------------------------------------------
+
 ** emacspeak-webspace-yank-link Yank link under point into kill ring. 
-
-------------------------------------------------------------
-
-** emacspeak-feed-browse	Key Sequence: control e control u 
-
- Browse specified  feed. 
-
-------------------------------------------------------------
-
-** emacspeak-feeds-add-feed	Key Sequence: control e meta u 
-
- Add specified feed to our feed store. 
-
-------------------------------------------------------------
-
-** emacspeak-webutils-atom-display Display ATOM feed. 
-
-------------------------------------------------------------
-
-** emacspeak-webutils-fv Display RSS or ATOM  feed by pulling from Google. 
 
 ------------------------------------------------------------
 
@@ -4377,16 +4470,10 @@ instances.
 
 ------------------------------------------------------------
 
-** emacspeak-webutils-opml-display Retrieve and display OPML  URL. 
+** emacspeak-webutils-play-media-at-point	Key Sequence: control e meta ; 
 
-------------------------------------------------------------
-
-** emacspeak-webutils-play-media-at-point Play media url under point.
+ Play media url under point.
 Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.  
-
-------------------------------------------------------------
-
-** emacspeak-webutils-rss-display Display RSS feed. 
 
 ------------------------------------------------------------
 
@@ -4826,8 +4913,9 @@ key             binding
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-edit-file-as-root Edit file as root using sudo vi.
-See /etc/sudoers for how to set up sudo. 
+** emacspeak-wizards-edit-file-as-root Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user. 
 
 ------------------------------------------------------------
 
@@ -5396,6 +5484,21 @@ take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-bbc Launch BBC Interaction.
+See http://www.bbc.co.uk/radio/stations for full list of stations.
+See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
+Interactive prefix arg filters  content by genre.
+
+(fn &optional GENRE) 
+
+------------------------------------------------------------
+
+** emacspeak-bbc-genre Launch BBC Interaction for specified Genre.
+
+(fn) 
+
+------------------------------------------------------------
+
 ** emacspeak-org-bookmark Bookmark from org.
 
 (fn &optional GOTO) 
@@ -5405,6 +5508,31 @@ take effect.
 ** emacspeak-org-popup-input Pops up an org input area.
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-org-table-speak-current-element echoes current table element
+
+(fn) 
+
+------------------------------------------------------------
+
+** ad-Advice-emacspeak-eterm-copy-region-to-register Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
+
+------------------------------------------------------------
+
+** ad-Advice-emacspeak-eterm-paste-register Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
+
+------------------------------------------------------------
+
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
 
   
 

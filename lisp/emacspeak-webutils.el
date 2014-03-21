@@ -478,7 +478,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 ;;}}}
 ;;{{{ display  feeds:
 
-(defun emacspeak-webutils-feed-display(feed-url style &optional speak)
+(defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
   (let ((buffer (url-retrieve-synchronously feed-url))
         (coding-system-for-read 'utf-8)
@@ -507,7 +507,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
    (list
     (emacspeak-webutils-read-this-url)))
   (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url (emacspeak-xslt-get "rss.xsl")))
+  (emacspeak-feeds-feed-display feed-url (emacspeak-xslt-get "rss.xsl")))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url )
@@ -515,7 +515,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
   (emacspeak-webutils-autospeak)
-  (emacspeak-webutils-feed-display feed-url emacspeak-atom-view-xsl))
+  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl))
 
 ;;;###autoload
 (defun emacspeak-webutils-fv (feed-url )
@@ -650,7 +650,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
    (list
     (car (browse-url-interactive-arg "OPML  URL: "))
     (or (ems-interactive-p ) current-prefix-arg)))
-  (emacspeak-webutils-feed-display
+  (emacspeak-feeds-feed-display
    opml-url
    (emacspeak-xslt-get "opml.xsl")
    speak))

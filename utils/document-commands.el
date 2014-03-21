@@ -107,6 +107,7 @@
     ("emacspeak-eterm"  . nil )
     ("emacspeak-eudc"  . ("eudc-prepare"))
     ("emacspeak-facemenu"  . nil )
+    ("emacspeak-feeds" . nil)
     ("emacspeak-filtertext"  . nil )
     ("emacspeak-find-dired"  . nil )
     ("emacspeak-find-func"  . nil )
