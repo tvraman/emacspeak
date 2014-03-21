@@ -72,6 +72,7 @@
                      (third content)))))
       (setq content (third content)))
     (when title (third title))))
+
 (defsubst shr-url-get-link-text()
   "Return link text at point."
   (let ((url (get-text-property (point) 'shr-url))
@@ -83,76 +84,6 @@
       (setq start (previous-single-property-change (point) 'shr-url)
             end (next-single-property-change (point) 'shr-url))
       (buffer-substring start end)))))
-
-(defvar shr-url-dom nil
-  "Buffer local value of DOM.")
-(make-variable-buffer-local 'shr-url-dom)
-
-(declaim (special shr-map))
-(when (and (boundp 'shr-map) shr-map)
-  (loop for k in
-        '(
-          ("\C-i" shr-next-link)
-                                        ;("A" shr-url-view-filtered-dom-by-attribute)
-                                        ;("E" shr-url-view-filtered-dom-by-element-list)
-                                        ;("o" shr-url-open-link-at-point)
-          ([backtab] shr-previous-link)
-          ("\M-\C-i" shr-previous-link)
-          ("q" bury-buffer)
-          )
-        do
-        (emacspeak-keymap-update  shr-map  k)))
-(defvar shr-url-this-url nil
-  "Buffer local copy of URL of current page.")
-
-(make-variable-buffer-local 'shr-url-this-url)
-
-(defun shr-url-callback (status &rest args)
-  "Callback for url-retrieve.
-URL  being retrieved is received as part of the callback args."
-  (declare (special  shr-map shr-url-dom shr-url-this-url))
-  (goto-char (point-min))
-  (let*
-      ((inhibit-read-only t)
-       (start (re-search-forward "^$"))
-       (dom (libxml-parse-html-region start(point-max)))
-       (buffer (get-buffer-create (or (shr-url-get-title-from-dom dom) "Web"))))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (special-mode)
-      (shr-insert-document dom)
-      (setq shr-url-dom dom
-            shr-url-this-url (first args))
-      (goto-char (point-min))
-      (set-buffer-modified-p nil)
-      (flush-lines "^ *$")
-      (use-local-map shr-map)
-      (setq buffer-read-only t))
-    (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-buffer)))
-
-;;;###autoload
-(defun shr-url (url &optional display)
-  "Display web page."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: "
-                          (get-text-property (point) 'shr-url))
-    current-prefix-arg))
-  (url-retrieve url 'shr-url-callback (list url)))
-
-;;;###autoload
-
-(defun shr-url-open-link-at-point ()
-  "Open link under point using shr."
-  (interactive)
-  (let ((url (get-text-property (point) 'shr-url)))
-    (cond
-     ((null url) (message "Not on a link."))
-     (shr-base (shr-url (shr-expand-url url)))
-     (t (shr-url url)))))
-
 (defun shr-format-html-string (html-string)
   "Return formatted string."
   (with-temp-buffer "*html-format*"
@@ -161,22 +92,6 @@ URL  being retrieved is received as part of the callback args."
                     (shr-render-region  (point-min) (point-max))
                     (buffer-string)))
                     (erase-buffer)
-
-(defun shr-url-next-link ()
-  "Move to next link."
-  (interactive)
-  (let ((url (get-text-property (point) 'shr-url)))
-    (when url (goto-char (next-single-property-change (point) 'shr-url)))
-    (setq url (next-single-property-change (point) 'shr-url)); find next link
-    (when url (goto-char url))))
-
-(defun shr-url-previous-link ()
-  "Move to previous link."
-  (interactive)
-  (let ((url (get-text-property (point) 'shr-url)))
-    (when url (goto-char (previous-single-property-change (point) 'shr-url)))
-    (setq url (previous-single-property-change (point) 'shr-url)); find next link
-    (when url (goto-char url))))
 
 ;;}}}
 ;;{{{ class and id caches:
@@ -329,20 +244,6 @@ URL  being retrieved is received as part of the callback args."
         (switch-to-buffer buffer)
         (emacspeak-auditory-icon 'open-object)
         (emacspeak-speak-buffer)))))
-
-;;}}}
-;;{{{ Speech-enable:
-
-(loop for f in
-      '(shr-url-next-link shr-url-previous-link)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (and (get-text-property (point) 'shr-url)
-                 (message (shr-url-get-link-text)))))))
 
 ;;}}}
 (provide 'emacspeak-shr)
