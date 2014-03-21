@@ -56,6 +56,18 @@
 (require 'gfeeds)
 (require 'browse-url)
 ;;}}}
+;;{{{ Utility: Render HTML To String
+
+(defun shr-format-html-string (html-string)
+  "Return formatted string."
+  (or (require 'shr) (error "Need  emacs 24.4"))
+  (with-temp-buffer "*html-format*"
+                    (setq buffer-undo-list t)
+                    (insert html-string)
+                    (shr-render-region  (point-min) (point-max))
+                    (buffer-string)))
+
+;;}}}
 ;;{{{ Fix bug in url-cookie
 
 (defadvice url-cookie-write-file (around fix-write-bug pre act comp)
