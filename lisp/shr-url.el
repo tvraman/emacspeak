@@ -162,29 +162,6 @@ URL  being retrieved is received as part of the callback args."
                     (buffer-string)))
                     (erase-buffer)
 
-
-;;;###autoload
-(defun shr-url-region (start end)
-  "Display region as web page."
-  (interactive "r")
-  (let* ((inhibit-read-only t)
-         (dom (libxml-parse-html-region start end))
-         (buffer
-          (get-buffer-create
-           (or
-            (shr-url-get-title-from-dom dom)
-            "Untitled"))))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (shr-insert-document dom)
-      (setq shr-url-dom dom)
-      (goto-char (point-min))
-      (set-buffer-modified-p nil)
-      (flush-lines "^ *$")
-      (setq buffer-read-only t))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)))
-
 (defun shr-url-next-link ()
   "Move to next link."
   (interactive)
