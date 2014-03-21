@@ -634,7 +634,7 @@ Suitable for text searches."
   "Search for Epubs from Gooble Books."
   (interactive "sGoogle Books Query: ")
   (declare (special emacspeak-epub-google-search-template))
-  (emacspeak-webutils-atom-display
+  (emacspeak-feeds-atom-display
    (format emacspeak-epub-google-search-template
            (emacspeak-url-encode query))))
 
