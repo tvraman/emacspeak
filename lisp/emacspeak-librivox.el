@@ -206,7 +206,7 @@
               emacspeak-table
               (emacspeak-table-current-row emacspeak-table)
               (emacspeak-librivox-field-position "RssURL"))))
-    (emacspeak-webutils-rss-display rss)))
+    (emacspeak-feeds-rss-display rss)))
 
 ;;;###autoload
 (defun emacspeak-librivox-open-url ()

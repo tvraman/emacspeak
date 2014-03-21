@@ -165,7 +165,7 @@
            operation
            (format "%s&output=atom" operand))))
     (emacspeak-webutils-autospeak)
-    (emacspeak-webutils-atom-display url)))
+    (emacspeak-feeds-atom-display url)))
 
 ;;}}}
 ;;{{{ program index
@@ -196,7 +196,7 @@ Generated from http://www.npr.org/api/inputReference.php")
 (defun emacspeak-npr-listing-url-executor (url)
   "Special executor for use in NPR  listings."
   (interactive "sURL: ")
-  (emacspeak-webutils-atom-display
+  (emacspeak-feeds-atom-display
    (emacspeak-npr-rest-endpoint "query"
                                 (format "id=%s&output=atom"
                                         (file-name-nondirectory url)))))

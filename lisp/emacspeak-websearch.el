@@ -317,7 +317,7 @@ When using supported browsers,  this interface attempts to speak the most releva
    (list
     (emacspeak-websearch-read-query "Search Online Broadcasts for: ")))
   (declare (special emacspeak-websearch-blinkx-uri))
-  (emacspeak-webutils-rss-display
+  (emacspeak-feeds-rss-display
    (concat  emacspeak-websearch-blinkx-uri
             (emacspeak-url-encode query))))
 
@@ -1166,7 +1166,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                       '("$" "&printer=1"))))
   (cond
    ((null no-rss)                       ;use rss feed
-    (emacspeak-webutils-rss-display
+    (emacspeak-feeds-rss-display
      (concat emacspeak-websearch-news-yahoo-rss-uri
              (format "p=%s&n=20&c=news"
                      (emacspeak-url-encode query)))))
@@ -1523,7 +1523,7 @@ Optional interactive prefix arg results in prompting for a search term."
      (t                                 ;browse
       (setq url
             (format emacspeak-usenet-feeds-uri group))
-      (emacspeak-webutils-rss-display url)))))
+      (emacspeak-feeds-rss-display url)))))
 
 ;;}}}
 
