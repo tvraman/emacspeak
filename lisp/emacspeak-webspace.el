@@ -218,6 +218,7 @@ Generates auditory and visual display."
 Newly found headlines are inserted into the ring within our feedstore.
 We use module gfeeds to efficiently fetch feed contents using the Google AJAX API."
   (let ((last-update (get-text-property 0 'last-update feed))
+        (emacspeak-speak-messages nil)
         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when ; check if we need to add from this feed
         (or (null last-update) ;  at most every half hour 
