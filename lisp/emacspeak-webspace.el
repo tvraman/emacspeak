@@ -311,9 +311,11 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines-browse ()
   "Display buffer of browsable headlines."
   (interactive)
-  (declare (special emacspeak-webspace-headlines))
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-headlines-buffer))
   (with-current-buffer
       (get-buffer-create emacspeak-webspace-headlines-buffer)
+    (setq buffer-undo-list t)
     (let ((inhibit-read-only t))
       (erase-buffer)
       (goto-char (point-min))
