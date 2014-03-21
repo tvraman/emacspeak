@@ -101,8 +101,7 @@ Optional argument `raw-p' returns complete JSON  object."
     (cond
      (raw-p (g-json-get 'results result))
      (t
-      (g-json-lookup "geometry.location"
-                     (aref (g-json-get 'results result) 0))))))
+      (g-json-lookup "geometry.location" (aref (g-json-get 'results result) 0))))))
 
 ;;;###autoload
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)

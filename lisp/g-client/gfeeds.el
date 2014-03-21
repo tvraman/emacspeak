@@ -155,6 +155,7 @@ Customize this to point to your Web location."
 
 ;;}}}
 ;;{{{ Convenience commands:
+
 (defvar gfeeds-freshness-internal nil
   "Internal cached value of freshness as a time value.")
 
@@ -234,7 +235,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
    (list
     (read-from-minibuffer "Site: " (browse-url-url-at-point))))
   (gfeeds-view site 'lookup))
-  
+
 ;;}}}
 (provide 'gfeeds)
 ;;{{{ end of file
