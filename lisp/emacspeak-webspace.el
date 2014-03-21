@@ -215,11 +215,12 @@ Generates auditory and visual display."
 
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache.
-Newly found headlines are inserted into the ring within our feedstore."
+Newly found headlines are inserted into the ring within our feedstore.
+We use module gfeeds to efficiently fetch feed contents using the Google AJAX API."
   (let ((last-update (get-text-property 0 'last-update feed))
         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when
-        (or (null last-update)
+    (when ; check if we need to add from this feed
+        (or (null last-update) ;  at most every half hour 
             (time-less-p '(0 1800 0) (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
@@ -282,7 +283,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
-  "Speak current news headline."
+  "Startup Headlines ticker."
   (interactive)
   (declare (special emacspeak-webspace-headlines emacspeak-feeds))
   (unless emacspeak-webspace-headlines
