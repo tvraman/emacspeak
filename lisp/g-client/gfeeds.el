@@ -228,13 +228,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
        (insert html)
        (browse-url-of-buffer))))))
 
-;;;###autoload
-(defun gfeeds-lookup-and-view (site)
-  "Lookup feed URL for a site and browse result."
-  (interactive
-   (list
-    (read-from-minibuffer "Site: " (browse-url-url-at-point))))
-  (gfeeds-view site 'lookup))
+
 
 ;;}}}
 (provide 'gfeeds)

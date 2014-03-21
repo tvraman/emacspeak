@@ -256,6 +256,14 @@ Argument `feed' is a feed structure (label url type)."
                        emacspeak-feeds))))
   (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds)))
 
+;;;###autoload
+(defun emacspeak-feeds-lookup-and-view  (site)
+  "Lookup feed URL for a site and browse result."
+  (interactive
+   (list
+    (read-from-minibuffer "Site: " (browse-url-url-at-point))))
+  (gfeeds-view site 'lookup))
+
 ;;}}}
 (provide 'emacspeak-feeds)
 ;;{{{ end of file
