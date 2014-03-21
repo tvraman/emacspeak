@@ -262,6 +262,7 @@ Argument `feed' is a feed structure (label url type)."
   (interactive
    (list
     (read-from-minibuffer "Site: " (browse-url-url-at-point))))
+  (emacspeak-webutils-autospeak)
   (gfeeds-view site 'lookup))
 
 ;;}}}
