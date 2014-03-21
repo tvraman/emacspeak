@@ -54,6 +54,7 @@
 (require 'gfeeds)
 (require 'gweb)
 (require 'emacspeak-webutils)
+(require 'emacspeak-feeds)
 
 ;;}}}
 ;;{{{ WebSpace Mode:
