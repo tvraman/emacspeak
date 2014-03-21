@@ -222,6 +222,7 @@ We use module gfeeds to efficiently fetch feed contents using the Google AJAX AP
     (when ; check if we need to add from this feed
         (or (null last-update) ;  at most every half hour 
             (time-less-p '(0 1800 0) (time-since last-update)))
+      (message "Fetching %s" feed)
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h) (ring-insert titles h ))
