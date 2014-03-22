@@ -2274,9 +2274,9 @@ Produce auditory icons if possible."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (message "Copied frame  configuration to register %c" (ad-get-arg 0 ))))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (message "Copied frame  configuration to register %c" (ad-get-arg 0 ))))))
 
 ;;}}}
 ;;{{{ set up clause boundaries for specific modes:

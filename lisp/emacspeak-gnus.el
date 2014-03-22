@@ -721,8 +721,6 @@ Produce an auditory icon if possible."
 
 ;;; helper function:
 
-
-
 (defadvice gnus-summary-show-article (after emacspeak pre act)
   "Start speaking the article. "
   (when (ems-interactive-p )
@@ -878,9 +876,9 @@ Helps to prevent words from being spelled instead of spoken."
  for hook  in 
  '(
    gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook
-   gnus-agent-mode-hook  gnus-article-edit-mode-hook
-   gnus-server-mode-hook gnus-category-mode-hook
-   )
+                          gnus-agent-mode-hook  gnus-article-edit-mode-hook
+                          gnus-server-mode-hook gnus-category-mode-hook
+                          )
  do
  (add-hook
   hook 

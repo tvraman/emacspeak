@@ -330,10 +330,10 @@ Updated headlines found in emacspeak-webspace-headlines."
        (emacspeak-webspace-headlines-insert-button h)
        (insert "\n")
        (emacspeak-webspace-mode))))
-      (switch-to-buffer emacspeak-webspace-headlines-buffer)
-      (goto-char (point-min))
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line))
+  (switch-to-buffer emacspeak-webspace-headlines-buffer)
+  (goto-char (point-min))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
 
 (define-button-type 'emacspeak-webspace-headline
   'follow-link t
