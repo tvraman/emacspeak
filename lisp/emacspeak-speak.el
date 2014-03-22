@@ -3299,17 +3299,17 @@ This function is sensitive to calendar mode when prompting."
 (defun emacspeak-speak-read-date-year/month/date ()
   "Return today as yyyy/mm/dd"
   (emacspeak-speak-collect-date "Date:"
-                                       "%Y/%m/%d"))
+                                "%Y/%m/%d"))
 
 (defun emacspeak-speak-date-YearMonthDate ()
   "Return today as yyyymmdd"
   (emacspeak-speak-collect-date "Date:"
-                                       "%Y%m%d"))
+                                "%Y%m%d"))
 
 (defun emacspeak-speak-date-month/date ()
   "Return today as mm/dd"
   (emacspeak-speak-collect-date "Date:"
-                                       "%m/%d") )
+                                "%m/%d") )
 
 ;;}}}
 (provide 'emacspeak-speak )

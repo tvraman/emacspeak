@@ -332,8 +332,6 @@ dont-url-encode if true then url arguments are not url-encoded "
       nil emacspeak-xslt-options
       (browse-url url)))
  'dont-url-encode)
-      
-      
 
 ;;}}}
 ;;{{{ bbc
@@ -1109,7 +1107,7 @@ from English to German.")
  (list
   #'(lambda nil
       (emacspeak-speak-collect-date "Date: "
-                                           "%Y/%m/%d"))
+                                    "%Y/%m/%d"))
   "Channel Name: ")
  #'(lambda ()
      (let ((inhibit-read-only t))
@@ -1138,7 +1136,7 @@ name of the list.")
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
   (emacspeak-speak-collect-date "Date range: "
-                                       "%Y%h"))
+                                "%Y%h"))
 
 ;;}}}
 ;;{{{ cnn
@@ -1234,7 +1232,7 @@ name of the list.")
  (list
   #'(lambda ()
       (emacspeak-speak-collect-date "Date:"
-                                           "%Y/%m/%d")))
+                                    "%Y/%m/%d")))
  nil
  "Play specified edition of Geek  Linux DailyShow"
  #'(lambda (url)
@@ -1349,7 +1347,7 @@ name of the list.")
   #'(lambda nil
       (let ((date
              (emacspeak-speak-collect-date "Date: "
-                                                  "%Y-%m-%d"))
+                                           "%Y-%m-%d"))
             (fields nil)
             (result nil))
         (setq fields (split-string date "-"))
@@ -1644,7 +1642,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
      (emacspeak-imenu-goto-next-index-position)
      (emacspeak-speak-rest-of-buffer))
  "Perform a GitHub Search.")
-
 
 ;;}}}
 ;;{{{ Interactive commands

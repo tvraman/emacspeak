@@ -62,9 +62,9 @@
   "Return formatted string."
   (or (require 'shr) (error "Need  emacs 24.4"))
   (with-temp-buffer 
-                    (insert html-string)
-                    (shr-render-region  (point-min) (point-max))
-                    (buffer-string)))
+    (insert html-string)
+    (shr-render-region  (point-min) (point-max))
+    (buffer-string)))
 
 ;;}}}
 ;;{{{ Fix bug in url-cookie
@@ -456,8 +456,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (interactive "P" )
   (let ((url
          (if emacspeak-webutils-url-at-point
-         (funcall emacspeak-webutils-url-at-point)
-         (browse-url-url-at-point))))
+             (funcall emacspeak-webutils-url-at-point)
+           (browse-url-url-at-point))))
     (message "Playing media  URL under point")
     (funcall  emacspeak-media-player  url  playlist-p)))
 
@@ -494,9 +494,9 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
          (delete-region (point-min) (point))
          (decode-coding-region (point-min) (point-max) 'utf-8)
          (emacspeak-xslt-region style (point-min) (point-max)
-                                 (list (cons "base"
-         (format "\"'%s'\""
-                 feed-url)))))
+                                (list (cons "base"
+                                            (format "\"'%s'\""
+                                                    feed-url)))))
         (browse-url-of-buffer))))))
 
 ;;;###autoload
@@ -623,21 +623,20 @@ Archiving is useful when synchronizing feeds across multiple machines."
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
-         (feeds  nil)
-         (emacspeak-speak-messages nil))
-         (with-current-buffer buffer
-           (goto-char (point-min))
-           (setq feeds (read buffer)))
-         (kill-buffer buffer)
+        (feeds  nil)
+        (emacspeak-speak-messages nil))
+    (with-current-buffer buffer
+      (goto-char (point-min))
+      (setq feeds (read buffer)))
+    (kill-buffer buffer)
     (loop for f in feeds
           do
           (apply #'emacspeak-feeds-add-feed f))
     (when
         (y-or-n-p
-     (format "After restoring %d feeds, we have a total of %d feeds. Save? "
-             (length feeds) (length emacspeak-feeds)))
+         (format "After restoring %d feeds, we have a total of %d feeds. Save? "
+                 (length feeds) (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
-    
 
 ;;}}}
 ;;{{{  view feed
