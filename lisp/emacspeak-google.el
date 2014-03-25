@@ -151,7 +151,38 @@ This variable is buffer-local.")
         :range '("m" "s" "l")
         :default "m"
         :value "m"
-        :type 'tbs)
+        :type 'tbs)j ;;; Recipes 
+       (make-emacspeak-google-tool
+        :name "recipes"
+        :param "rcp"
+        :range '(0 1)
+        :default 0
+        :value 0
+        :type 'tbm)
+;;; places/local:
+       (make-emacspeak-google-tool
+        :name "places"
+        :param "plcs"
+        :range '(0 1)
+        :default 0
+        :value 0
+        :type 'tbm)
+                                        ; patents 
+       (make-emacspeak-google-tool
+        :name "patents"
+        :param "pts"
+        :range '(0 1)
+        :default 0
+        :value 0
+        :type 'tbm)
+       ;;; discussions/forums
+(make-emacspeak-google-tool
+        :name "discussions"
+        :param "dsc"
+        :range '(0 1)
+        :default 0
+        :value 0
+        :type 'tbm)
 ;;; Blog mode
        (make-emacspeak-google-tool
         :name "blog"
@@ -304,7 +335,7 @@ This variable is buffer-local.")
         :default 0
         :type 'tbs
         :value 0)
-       ;;; shopping
+;;; shopping
        (make-emacspeak-google-tool
         :name "Shopping"
         :param "shop"
@@ -327,7 +358,7 @@ This variable is buffer-local.")
         :default 0
         :type 'tbs
         :value 0)
-       ;;; soc
+;;; soc
        (make-emacspeak-google-tool
         :name "social" 
         :param "sa"
