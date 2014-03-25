@@ -151,7 +151,8 @@ This variable is buffer-local.")
         :range '("m" "s" "l")
         :default "m"
         :value "m"
-        :type 'tbs)j ;;; Recipes 
+        :type 'tbs)
+;;; Recipes 
        (make-emacspeak-google-tool
         :name "recipes"
         :param "rcp"
@@ -175,8 +176,8 @@ This variable is buffer-local.")
         :default 0
         :value 0
         :type 'tbm)
-       ;;; discussions/forums
-(make-emacspeak-google-tool
+;;; discussions/forums
+       (make-emacspeak-google-tool
         :name "discussions"
         :param "dsc"
         :range '(0 1)
