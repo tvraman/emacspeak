@@ -1,0 +1,140 @@
+* WebSpace: A Web News Ticker For Emacs
+
+Module Emacspeak-Webspace provides a rolling ticker of
+information  that is automatically retrieved, cached and
+maintained by Emacspeak.  Using this functionality, you can set
+up specific buffers to have /interesting/ tit-bits of information
+displayed automatically in the header-line; Emacspeak speaks
+these items of information as you switch contexts. This article
+explains the usage model and underlying  design of Emacspeak
+Webspaces.
+
+** Background 
+
+The Emacspeak Webspace module was originally created in early
+2009  because I wanted the audio equivalent of being able to
+quickly /glance/ at information.  Here are some aspects of visual
+interaction that I wanted to emulate:
+
+  - You can quickly glance at something while switching contexts,
+    and ignore it if it is not important.
+  - The object that you /glance/ at while switching contexts does
+    not become an object of attention ie, the casual task remains
+    casual, as opposed to becoming the primary task.  Email is
+    the antithesis to this model --- where if you start glancing
+    at email, it's a sufficiently strong distraction that you'll
+    start doing email  --- as opposed to what you were supposed
+    to be doing.
+  - If the item you glanced at deserves further attention, you
+    can come back to it later --- and the system gives you
+    sufficient confidence in your ability to come back to it
+    later --- note that this is *essential* to ensure the
+    previous  requirement.
+  - Items  are cached  but get pushed out by newer items --- this
+    makes sure you dont feel pressured to /read everything/ or
+    have to explicitly /catch-up/ --- in prior systems including
+    email and Google Reader, I always found the task of hitting
+    /catch-up/ without reading everything  a fairly stressful experience.
+  - Applied to information updates, think /hallway conversations/
+    outside your office --- you mostly ignore them, but sometime
+    get drawn because you hear some specific keywords and/or
+    concepts that draw your attention.
+
+** Early Implementation In 2009
+
+I used the WebSpace functionality in Emacspeak for news and
+weather updates starting 2009; at some time in late 2009, I cut
+it over to get updates from my Google Reader stream.  It was
+extremely effective for my usage pattern --- I typically
+activated the functionality in all shell buffers. In my work
+style where I switch among the primary tasks of engineering
+(writing/reviewing  code), writing/reviewing design documents,
+and doing email to facilitate the previous two tasks, the shell
+buffer is where I switch to while context-switching e.g.,
+launching a build after writing code as an example.  Having the
+Webspace functionality say /something interesting/ at those times
+was optimal.
+
+** Initial Implementation And Design 
+
+The information to be pulled in the rolling header line is pulled
+from a cache --- in 2009, this cache was populated from my Google
+Reader stream. The cache was maintained in a ring with older
+items falling off the end.  You could optionally switch to a
+buffer displaying all of the currently cached items --- this
+functionality assured me that  I could always later find an item
+that  had caught my attention while  I was in the process of
+context switching amongst tasks. Notice that if I didn't go back
+and check for that item within a day, it would fall off the
+ring-buffer cache --- and this usually would mean that it likely
+wasn't that important after all.
+
+** Life After Google Reader
+
+With the passing of Google Reader last year, I started
+implementing the feed-reading functionality I needed in Emacspeak
+independent of Google Reader; see the earlier article in this
+blog titled [[http://emacspeak.blogspot.com/2013/12/managing-and-accessing-feeds-on.html][Managing And Accessing Feeds On The Emacspeak Audio
+Desktop]].
+Next, I updated the Emacspeak WebSpace functionality to build its
+cache from the set of feeds in _emacspeak_feeds_.
+
+** Usage Pattern
+
+This section details my own usage pattern and set-up --- this is
+by no means the only way to use this functionality.
+
+  1. Emacspeak binds Webspace functionality to  _Hyper Space_  as
+     a prefix key.
+  2. _Hyper Space h_ invokes command
+     _emacspeak-webspace-headlines_  --- this command
+     initializes the feed-store cache, and sets up the
+     header-line in the current buffer to display a rolling
+     ticker.  Note that you can invoke this command in multiple
+     buffers;  those buffers will share a common headlines cache.
+  3. The feed-store is updated during Emacs idle-time; I often
+     invoke  the elisp form
+     _(emacspeak-webspace-headlines-populate)_ to populate the
+     cache initially. Note that depending on your network, and
+     the number of feeds you have in _emacspeak-feeds_, this can
+     block emacs for a couple of minutes.
+  4. Command _emacspeak-webspace-headlines-browse_  displays an
+     interactive buffer containing the current set  of cached
+     headlines --- this is where you go to track down a headline
+     you heard in passing. I bind this to _Super h_ by
+     customizing _emacspeak-super-keys_.
+  5. You can set up other types of information in your rolling
+     header --- something I initially used it for was weather
+     --- see command  _emacspeak-webspace-weather_   personally,
+     I 've not found this as useful in CA given how consistently
+     good the weather is here.
+  6.  For related work in Emacs, see Emacs package _newsticker_.
+      That package works well with Emacspeak, but in using it
+      earlier, I found that I could not prevent myself from
+      starting to read content i.e., it failed to meet the
+      /glance and continue/ requirement.
+
+
+      
+      
+    
+     
+     
+ 
+  
+    
+#+TITLE:A Web News Ticker For Emacs
+#+DATE: <2014-03-24 Mon>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.3.50.2 (Org mode 8.2.5c)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
