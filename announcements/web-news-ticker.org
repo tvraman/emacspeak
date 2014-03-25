@@ -3,7 +3,7 @@
 Module Emacspeak-Webspace provides a rolling ticker of
 information  that is automatically retrieved, cached and
 maintained by Emacspeak.  Using this functionality, you can set
-up specific buffers to have /interesting/ tit-bits of information
+up specific buffers to have /interesting/  bits of information
 displayed automatically in the header-line; Emacspeak speaks
 these items of information as you switch contexts. This article
 explains the usage model and underlying  design of Emacspeak
