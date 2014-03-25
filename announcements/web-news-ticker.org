@@ -12,7 +12,9 @@ Webspaces.
 ** Background 
 
 The Emacspeak Webspace module was originally created in early
-2009  because I wanted the audio equivalent of being able to
+[[http://emacspeak.blogspot.com/2008/03/emacspeak-webspace-interaction-free.html][Interaction
+Free Information Access (2008)]]
+because I wanted the audio equivalent of being able to
 quickly /glance/ at information.  Here are some aspects of visual
 interaction that I wanted to emulate:
 
