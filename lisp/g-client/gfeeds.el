@@ -160,7 +160,7 @@ Customize this to point to your Web location."
   "Internal cached value of freshness as a time value.")
 
 ;;;###autoload
-(defcustom gfeeds-freshness "1 hour"
+(defcustom gfeeds-freshness "6 hours"
   "Freshness used to decide if we return titles."
   :type  'string
   :set  #'(lambda (sym val)
