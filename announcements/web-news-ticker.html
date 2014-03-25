@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>A Web News Ticker For Emacs</title>
+<!-- 2014-03-24 Mon 17:48 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">A Web News Ticker For Emacs</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> WebSpace: A Web News Ticker For Emacs</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Module Emacspeak-Webspace provides a rolling ticker of
+information  that is automatically retrieved, cached and
+maintained by Emacspeak.  Using this functionality, you can set
+up specific buffers to have <i>interesting</i> tit-bits of information
+displayed automatically in the header-line; Emacspeak speaks
+these items of information as you switch contexts. This article
+explains the usage model and underlying  design of Emacspeak
+Webspaces.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Background</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The Emacspeak Webspace module was originally created in early
+2009  because I wanted the audio equivalent of being able to
+quickly <i>glance</i> at information.  Here are some aspects of visual
+interaction that I wanted to emulate:
+</p>
+
+<ul class="org-ul">
+<li>You can quickly glance at something while switching contexts,
+and ignore it if it is not important.
+</li>
+<li>The object that you <i>glance</i> at while switching contexts does
+not become an object of attention ie, the casual task remains
+casual, as opposed to becoming the primary task.  Email is
+the antithesis to this model &#x2014; where if you start glancing
+at email, it's a sufficiently strong distraction that you'll
+start doing email  &#x2014; as opposed to what you were supposed
+to be doing.
+</li>
+<li>If the item you glanced at deserves further attention, you
+can come back to it later &#x2014; and the system gives you
+sufficient confidence in your ability to come back to it
+later &#x2014; note that this is <b>essential</b> to ensure the
+previous  requirement.
+</li>
+<li>Items  are cached  but get pushed out by newer items &#x2014; this
+makes sure you dont feel pressured to <i>read everything</i> or
+have to explicitly <i>catch-up</i> &#x2014; in prior systems including
+email and Google Reader, I always found the task of hitting
+<i>catch-up</i> without reading everything  a fairly stressful experience.
+</li>
+<li>Applied to information updates, think <i>hallway conversations</i>
+outside your office &#x2014; you mostly ignore them, but sometime
+get drawn because you hear some specific keywords and/or
+concepts that draw your attention.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Early Implementation In 2009</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+I used the WebSpace functionality in Emacspeak for news and
+weather updates starting 2009; at some time in late 2009, I cut
+it over to get updates from my Google Reader stream.  It was
+extremely effective for my usage pattern &#x2014; I typically
+activated the functionality in all shell buffers. In my work
+style where I switch among the primary tasks of engineering
+(writing/reviewing  code), writing/reviewing design documents,
+and doing email to facilitate the previous two tasks, the shell
+buffer is where I switch to while context-switching e.g.,
+launching a build after writing code as an example.  Having the
+Webspace functionality say <i>something interesting</i> at those times
+was optimal.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Initial Implementation And Design</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+The information to be pulled in the rolling header line is pulled
+from a cache &#x2014; in 2009, this cache was populated from my Google
+Reader stream. The cache was maintained in a ring with older
+items falling off the end.  You could optionally switch to a
+buffer displaying all of the currently cached items &#x2014; this
+functionality assured me that  I could always later find an item
+that  had caught my attention while  I was in the process of
+context switching amongst tasks. Notice that if I didn't go back
+and check for that item within a day, it would fall off the
+ring-buffer cache &#x2014; and this usually would mean that it likely
+wasn't that important after all.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Life After Google Reader</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+With the passing of Google Reader last year, I started
+implementing the feed-reading functionality I needed in Emacspeak
+independent of Google Reader; see the earlier article in this
+blog titled <a href="http://emacspeak.blogspot.com/2013/12/managing-and-accessing-feeds-on.html">Managing And Accessing Feeds On The Emacspeak Audio
+Desktop</a>.
+Next, I updated the Emacspeak WebSpace functionality to build its
+cache from the set of feeds in <span class="underline">emacspeak<sub>feeds</sub></span>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Usage Pattern</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+This section details my own usage pattern and set-up &#x2014; this is
+by no means the only way to use this functionality.
+</p>
+
+<ol class="org-ol">
+<li>Emacspeak binds Webspace functionality to  <span class="underline">Hyper Space</span>  as
+a prefix key.
+</li>
+<li><span class="underline">Hyper Space h</span> invokes command
+<span class="underline">emacspeak-webspace-headlines</span>  &#x2014; this command
+initializes the feed-store cache, and sets up the
+header-line in the current buffer to display a rolling
+ticker.  Note that you can invoke this command in multiple
+buffers;  those buffers will share a common headlines cache.
+</li>
+<li>The feed-store is updated during Emacs idle-time; I often
+invoke  the elisp form
+<span class="underline">(emacspeak-webspace-headlines-populate)</span> to populate the
+cache initially. Note that depending on your network, and
+the number of feeds you have in <span class="underline">emacspeak-feeds</span>, this can
+block emacs for a couple of minutes.
+</li>
+<li>Command <span class="underline">emacspeak-webspace-headlines-browse</span>  displays an
+interactive buffer containing the current set  of cached
+headlines &#x2014; this is where you go to track down a headline
+you heard in passing. I bind this to <span class="underline">Super h</span> by
+customizing <span class="underline">emacspeak-super-keys</span>.
+</li>
+<li>You can set up other types of information in your rolling
+header &#x2014; something I initially used it for was weather
+&#x2014; see command  <span class="underline">emacspeak-webspace-weather</span>   personally,
+I 've not found this as useful in CA given how consistently
+good the weather is here.
+</li>
+<li>For related work in Emacs, see Emacs package <span class="underline">newsticker</span>.
+That package works well with Emacspeak, but in using it
+earlier, I found that I could not prevent myself from
+starting to read content i.e., it failed to meet the
+<i>glance and continue</i> requirement.
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-03-24 Mon&gt;</span></span></p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2014-03-24 Mon 17:48</p>
+<p class="creator">Emacs 24.3.50.2 (Org mode 8.2.5c)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
