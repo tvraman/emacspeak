@@ -2399,22 +2399,26 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{ alternate between w3 and w3m
+
+(defvar emacspeak-wizards-available-browsers
+  (delq nil
+        (list
+         (when (featurep 'w3) 'browse-url-w3)
+         (when (featurep 'eww) 'eww-browse-url)
+         (when (featurep 'w3m) 'browse-url-w3m)))
+  "List of available browsers to cycle through.")
+
 ;;;###autoload
-(defun emacspeak-wizards-use-w3-or-w3m ()
-  "Alternates between using W3 and W3M for browse-url."
+(defun emacspeak-wizards-cycle-browser  ()
+  "Cycles through available browsers."
   (interactive)
-  (declare (special browse-url-browser-function))
-  (cond
-   ((eq browse-url-browser-function 'browse-url-w3)
-    (setq browse-url-browser-function 'w3m-browse-url)
-    (message "Browse  URL will now use W3M")
-    (emacspeak-auditory-icon 'select-object))
-   ((eq browse-url-browser-function 'w3m-browse-url)
-    (setq browse-url-browser-function 'browse-url-w3)
-    (message "Browse  URL will now use W3")
-    (emacspeak-auditory-icon 'select-object))
-   (t (setq browse-url-browser-function 'w3-fetch)
-      (message "Restoring sanity by switching to W3."))))
+  (declare (special browse-url-browser-function emacspeak-wizards-available-browsers))
+  (let* ((count (length emacspeak-wizards-available-browsers))
+         (current (position browse-url-browser-function emacspeak-wizards-available-browsers))
+         (next  (% (1+ current) count) ))
+    (setq browse-url-browser-function (nth  next emacspeak-wizards-available-browsers))
+    (message "Browser set to %s" browse-url-browser-function)))
+  )
 
 (defun emacspeak-wizards-use-w3-or-eww ()
   "Alternates between using W3 and EWW for browse-url."
