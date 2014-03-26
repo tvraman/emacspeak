@@ -2418,7 +2418,7 @@ directory to where find is to be launched."
          (next  (% (1+ current) count) ))
     (setq browse-url-browser-function (nth  next emacspeak-wizards-available-browsers))
     (message "Browser set to %s" browse-url-browser-function)))
-  )
+  
 
 (defun emacspeak-wizards-use-w3-or-eww ()
   "Alternates between using W3 and EWW for browse-url."
