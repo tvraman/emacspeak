@@ -313,6 +313,8 @@ Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
   (declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-buffer))
+  (unless emacspeak-webspace-headlines
+    (error "No cached headlines in this Emacs session."))
   (with-current-buffer
       (get-buffer-create emacspeak-webspace-headlines-buffer)
     (setq buffer-undo-list t)
