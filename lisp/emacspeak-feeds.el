@@ -188,10 +188,9 @@ Archiving is useful when synchronizing feeds across multiple machines."
          (search-forward "\n\n")
          (delete-region (point-min) (point))
          (decode-coding-region (point-min) (point-max) 'utf-8)
-         (emacspeak-xslt-region style (point-min) (point-max)
-                                (list (cons "base"
-                                            (format "\"'%s'\""
-                                                    feed-url)))))
+         (emacspeak-xslt-region
+          style (point-min) (point-max)
+          (list (cons "base" (format "\"'%s'\"" feed-url)))))
         (browse-url-of-buffer))))))
 
 ;;;###autoload
