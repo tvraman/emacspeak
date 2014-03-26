@@ -500,10 +500,7 @@ Optional interactive prefix arg forces a refresh."
               "%d. %s\n%s"
               i
               (g-json-get 'titleNoFormatting r)
-              (shell-command-to-string
-               (format
-                "echo '%s' | lynx -dump -stdin 2>/dev/null"
-                (g-json-get 'content r)))))
+              (g-html-string (g-json-get 'content r))))
             (put-text-property
              start (point)
              'link (g-json-get 'url r)))
