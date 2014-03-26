@@ -2403,9 +2403,12 @@ directory to where find is to be launched."
 (defvar emacspeak-wizards-available-browsers
   (delq nil
         (list
-         (when (featurep 'w3) 'browse-url-w3)
-         (when (featurep 'eww) 'eww-browse-url)
-         (when (featurep 'w3m) 'browse-url-w3m)))
+         (when
+             (or (featurep 'w3) (locate-library "w3"))
+           'browse-url-w3)
+         (when (or (featurep 'eww)  (locate-library "eww"))'eww-browse-url)
+         (when
+             (or (featurep 'w3m)  (locate-library "w3m"))'browse-url-w3m)))
   "List of available browsers to cycle through.")
 
 ;;;###autoload
