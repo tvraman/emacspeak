@@ -182,7 +182,7 @@ Customize this to point to your Web location."
 	    (mapcar
 	     #'(lambda (article)
 		 (let ((since (time-since  (cdr (assq 'publishedDate article))))
-		       (title (cdr (assq 'title article)))
+		       (title (g-html-string (cdr (assq 'title article))))
 		       (link (cdr (assq 'link article))))
 		   (when (and (time-less-p  since gfeeds-freshness-internal)
                               (> (length title) 0))
