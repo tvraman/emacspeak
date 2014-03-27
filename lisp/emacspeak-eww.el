@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-we)
 (require 'xml)
 ;;}}}
 ;;{{{ Map Faces To Voices:
@@ -423,6 +424,11 @@ for use as a DOM filter."
   (eww-restore-history(elt eww-history eww-history-position))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
+
+;;}}}
+;;{{{ xslt transform on request:
+
+
 
 ;;}}}
 (provide 'emacspeak-eww)
