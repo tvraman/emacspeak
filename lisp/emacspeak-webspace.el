@@ -43,6 +43,7 @@
 ;;; Commentary:
 ;;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 ;;; Code:
+
 ;;}}}
 ;;{{{ Required modules
 
@@ -72,7 +73,6 @@
       '(
         ("q" bury-buffer)
         ("." emacspeak-webspace-filter)
-        ("h" emacspeak-webspace-headlines-browse)
         ("'" emacspeak-speak-rest-of-buffer)
         ("<" beginning-of-buffer)
         (">" end-of-buffer)
@@ -80,9 +80,7 @@
         ("?" search-backward)
         ("y" emacspeak-webspace-yank-link)
         ("n" forward-button)
-        ("p" backward-button)
-        ("f" forward-button)
-        ("b" backward-button))
+        ("p" backward-button))
       do
       (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
@@ -98,23 +96,6 @@
   "Transcode headline at point by following its link property."
   (interactive)
   (emacspeak-webspace-act-on-link 'emacspeak-webutils-transcode-this-url-via-google))
-
-(defun emacspeak-webspace-atom-view ()
-  "View Atom feed."
-  (interactive)
-  (emacspeak-webutils-autospeak)
-  (emacspeak-webspace-act-on-link 'emacspeak-feeds-atom-display))
-
-(defun emacspeak-webspace-rss-view ()
-  "View RSS feed."
-  (interactive)
-  (emacspeak-webutils-autospeak)
-  (emacspeak-webspace-act-on-link 'emacspeak-feeds-rss-display))
-
-(defun emacspeak-webspace-feed-view ()
-  "View feed using gfeeds."
-  (interactive)
-  (emacspeak-webspace-act-on-link 'gfeeds-view))
 
 ;;;###autoload
 (defun emacspeak-webspace-yank-link ()
@@ -155,29 +136,6 @@
 ;;}}}
 ;;{{{ WebSpace Display:
 
-;;;###autoload
-(defun emacspeak-webspace-headlines-view ()
-  "Display all cached headlines in a special interaction buffer."
-  (interactive)
-  (declare (special emacspeak-webspace-headlines))
-  (let ((buffer (get-buffer-create "Headlines"))
-        (inhibit-read-only t))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (mapc
-       #'(lambda (r)
-           (insert (format "%s\n" r)))
-       (ring-elements
-        (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))))
-    (switch-to-buffer buffer)
-    (setq buffer-read-only t)
-    (emacspeak-webspace-mode)
-    (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line)))
-
 (defsubst emacspeak-webspace-display (infolet)
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
@@ -198,7 +156,7 @@ Generates auditory and visual display."
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
-(global-set-key [C-return] 'emacspeak-webspace-headlines-view)
+(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
 
 ;;}}}
 ;;{{{ Headlines:
@@ -410,7 +368,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
-;;{{{ Feed Reader::
+;;{{{ Feed Reader:
 
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
