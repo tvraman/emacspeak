@@ -288,7 +288,6 @@ Updated headlines found in emacspeak-webspace-headlines."
        do
        (insert (format "%d\t" position))
        (emacspeak-webspace-headlines-insert-button h)
-       (insert "\n")
        (emacspeak-webspace-mode))))
   (switch-to-buffer emacspeak-webspace-headlines-buffer)
   (goto-char (point-min))
