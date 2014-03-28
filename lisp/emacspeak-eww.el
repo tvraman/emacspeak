@@ -429,6 +429,14 @@ for use as a DOM filter."
 ;;{{{ xslt transform on request:
 
 
+(defadvice eww-display-html (before emacspeak pre act comp)
+  "Apply XSLT transform if requested."
+  (let ((orig (point)))
+    (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
+    (emacspeak-xslt-region
+     emacspeak-we-xsl-transform (point) (point-max)
+     emacspeak-we-xsl-params))
+    (goto-char orig)))
 
 ;;}}}
 (provide 'emacspeak-eww)
