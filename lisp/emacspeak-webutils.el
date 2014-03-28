@@ -174,7 +174,8 @@ Note that the Web browser should reset this hook after using it.")
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode))
   (unless (or (eq major-mode 'w3-mode)
-              (eq major-mode 'w3m-mode))
+              (eq major-mode 'w3m-mode)
+              (eq major-mode 'eww-mode))
     (error "This command cannot be used outside browser buffers.")))
 
 (defsubst emacspeak-webutils-read-url ( )
