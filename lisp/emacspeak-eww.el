@@ -53,6 +53,7 @@
 (declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
+(require 'emacspeak-webutils)
 (require 'xml)
 ;;}}}
 ;;{{{ Map Faces To Voices:
@@ -176,6 +177,25 @@
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
+
+;;; Inform emacspeak-webutils about EWW:
+
+(add-hook
+ 'eww-mode-hook
+ #'(lambda ()
+     (setq
+      emacspeak-webutils-document-title
+      #'(lambda ()
+          (declare (special  eww-current-title))
+          eww-current-title)
+      emacspeak-webutils-url-at-point
+      #'(lambda ()
+          (get-text-property (point) 'help-echo))
+      emacspeak-webutils-current-url
+      #'(lambda ()
+          (declare (special eww-current-url))
+          eww-current-url))))
+
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
@@ -428,14 +448,13 @@ for use as a DOM filter."
 ;;}}}
 ;;{{{ xslt transform on request:
 
-
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
   (let ((orig (point)))
     (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
-    (emacspeak-xslt-region
-     emacspeak-we-xsl-transform (point) (point-max)
-     emacspeak-we-xsl-params))
+      (emacspeak-xslt-region
+       emacspeak-we-xsl-transform (point) (point-max)
+       emacspeak-we-xsl-params))
     (goto-char orig)))
 
 ;;}}}
