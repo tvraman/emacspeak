@@ -557,11 +557,12 @@ instead of the modeline."
 ;;}}}
 ;;{{{ webutils variables
 
-(add-hook 'w3m-fontify-after-hook
-          #'(lambda ()
-              (setq emacspeak-webutils-document-title 'w3m-current-title)
-              (setq emacspeak-webutils-url-at-point 'emacspeak-w3m-url-at-point)
-              (setq emacspeak-webutils-current-url 'emacspeak-w3m-current-url)))
+(add-hook
+ 'w3m-fontify-after-hook
+ #'(lambda ()
+     (setq emacspeak-webutils-document-title 'w3m-current-title)
+     (setq emacspeak-webutils-url-at-point 'emacspeak-w3m-url-at-point)
+     (setq emacspeak-webutils-current-url 'emacspeak-w3m-current-url)))
 
 ;;}}}
 ;;{{{ buffer select mode
