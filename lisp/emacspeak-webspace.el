@@ -171,23 +171,30 @@ Generates auditory and visual display."
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
+(defvar emacspeak-webspace-headlines-period '(0 1800 0)
+  "How often we fetch from a feed.")
 
 (defsubst emacspeak-webspace-headlines-fetch ( feed)
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore.
-We use module gfeeds to efficiently fetch feed contents using the Google AJAX API."
-  (let ((last-update (get-text-property 0 'last-update feed))
-        (emacspeak-speak-messages nil)
-        (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when ; check if we need to add from this feed
-        (or (null last-update) ;  at most every half hour 
-            (time-less-p '(0 1800 0) (time-since last-update)))
+We use module gfeeds to efficiently fetch feed contents using the
+  Google AJAX API."
+  (declare (special emacspeak-webspace-headlines-period))
+  (let* ((emacspeak-speak-messages nil)
+         (last-update (get-text-property 0 'last-update feed))
+         (gfeeds-freshness-internal
+          (if last-update
+              emacspeak-webspace-headlines-period gfeeds-freshness-internal))
+         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+    (when                ; check if we need to add from this feed
+        (or (null last-update)        ;  at most every half hour 
+            (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (message "Fetching %s" feed)
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h)
            (unless (ring-member titles h)
-           (ring-insert titles h )))
+             (ring-insert titles h )))
        (gfeeds-titles feed)))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
