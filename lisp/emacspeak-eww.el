@@ -471,6 +471,23 @@ for use as a DOM filter."
     (goto-char orig)))
 
 ;;}}}
+;;{{{ DOM Structure In Rendered Buffer:
+(loop
+ for  tag in
+ '(h1 h2 h3 div
+              ul ol dl
+              li dt dd p
+              form blockquote
+              table td tr th)
+ do
+ (eval
+  `(defadvice  ,(intern (format "shr-tag-%s" tag)   )(around emacspeak pre act comp)
+     (let ((start (point)))
+       ad-do-it
+       (put-text-property start  (point)
+                          'html-element (quote ,tag))))))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
