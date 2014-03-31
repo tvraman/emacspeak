@@ -485,7 +485,7 @@ for use as a DOM filter."
      (let ((start (point)))
        ad-do-it
        (put-text-property start  (point)
-                          'html-element (quote ,tag))))))
+                           (quote ,tag) t)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
