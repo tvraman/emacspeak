@@ -485,7 +485,9 @@ for use as a DOM filter."
   `(defadvice  ,(intern (format "shr-tag-%s" tag)   )(around emacspeak pre act comp)
      (let ((start (point)))
        ad-do-it
-       (put-text-property start   (point) (quote ,tag) t)))))
+       (put-text-property
+        start
+        (if (> (point) start) (1- (point)) (point)))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
