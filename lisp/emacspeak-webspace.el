@@ -295,7 +295,7 @@ Updated headlines found in emacspeak-webspace-headlines."
        (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines )))
        and position  from 1
        do
-       (insert (format "\n%d\t" position))
+       (insert (format "%d\t" position))
        (emacspeak-webspace-headlines-insert-button h)
        (emacspeak-webspace-mode))))
   (switch-to-buffer emacspeak-webspace-headlines-buffer)
