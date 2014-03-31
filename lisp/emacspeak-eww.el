@@ -203,6 +203,7 @@
      ("A" eww-view-filtered-dom-by-attribute)
      ("I" eww-view-filtered-dom-by-id)
      ("C" eww-view-filtered-dom-by-class)
+     ("'" emacspeak-speak-rest-of-buffer)
      ("E" eww-view-filtered-dom-by-element-list)
      ("R" emacspeak-eww-restore)
 ;;; lower case letters
