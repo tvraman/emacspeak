@@ -164,10 +164,11 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
+       (let ((emacspeak-speak-messages nil))
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-region
         (point)
-        (next-single-char-property-change (point) 'face nil (point-max)))))))
+        (next-single-char-property-change (point) 'face nil (point-max))))))))
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
