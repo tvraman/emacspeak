@@ -94,9 +94,10 @@
        (emacspeak-auditory-icon 'open-object)))))
 
 (defadvice eww-render (after emacspeak pre act comp)
-  "Speak header line"
+  "Setup Emacspeak for rendered buffer."
   (setq eww-cache-updated nil)
-  (emacspeak-speak-header-line))
+  (emacspeak-webutils-run-post-process-hook)
+  (rename-buffer eww-current-title 'unique))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -155,13 +156,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
-                                        ; eww-copy-page-url
-                                        ; eww-download
-                                        ;
-
-                                        ;
-                                        ;
-
 (loop
  for f in
  '(shr-next-link shr-previous-link)
@@ -196,22 +190,30 @@
           (declare (special eww-current-url))
           eww-current-url))))
 
-
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map))
-  (define-key eww-mode-map "q" 'bury-buffer)
-  (define-key eww-mode-map "\C-e" 'emacspeak-prefix-command)
-  (define-key eww-mode-map "\C-i" 'shr-next-link)
-  (define-key eww-mode-map "A" 'eww-view-filtered-dom-by-attribute)
-  (define-key eww-mode-map "I" 'eww-view-filtered-dom-by-id)
-  (define-key eww-mode-map "C" 'eww-view-filtered-dom-by-class)
-  (define-key eww-mode-map "E" 'eww-view-filtered-dom-by-element-list)
-  (define-key eww-mode-map "R" 'emacspeak-eww-restore)
-  )
+  (loop
+   for binding  in
+   '(
+     ("\M-r" rename-buffer)
+     ("\C-e" emacspeak-prefix-command)
+;;; Capital Letters 
+     ("A" eww-view-filtered-dom-by-attribute)
+     ("I" eww-view-filtered-dom-by-id)
+     ("C" eww-view-filtered-dom-by-class)
+     ("E" eww-view-filtered-dom-by-element-list)
+     ("R" emacspeak-eww-restore)
+;;; lower case letters 
+     ("e" emacspeak-we-xsl-map)
+     ("f" shr-next-link)
+     ("b" shr-previous-link)
+     ("*" eww-add-bookmark)
+     )
+   do
+   (emacspeak-keymap-update eww-mode-map binding)))
 
-(when (boundp 'eww-mode-map)
-  (emacspeak-eww-setup))
+(when (boundp 'eww-mode-map) (emacspeak-eww-setup))
 
 ;;}}}
 ;;{{{ element, class, role, id caches:
@@ -445,6 +447,17 @@ for use as a DOM filter."
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
+;;}}}
+;;{{{  Customize image loading:
+
+(defcustom emacspeak-eww-silence-images t
+  "Set to nil if you want EWW to load images."
+  :type 'boolean
+  :group 'emacspeak-eww)
+
+(defadvice eww-display-image (around emacspeak pre act comp)
+  "Dont load images if asked to silence them."
+  (unless emacspeak-eww-silence-images ad-do-it))
 ;;}}}
 ;;{{{ xslt transform on request:
 
