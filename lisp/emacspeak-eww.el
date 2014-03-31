@@ -487,7 +487,8 @@ for use as a DOM filter."
        ad-do-it
        (put-text-property
         start
-        (if (> (point) start) (1- (point)) (point)))))))
+        (if (> (point) start) (1- (point)) (point))
+        (quote ,tag) t)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
