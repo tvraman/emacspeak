@@ -478,7 +478,7 @@ for use as a DOM filter."
               ul ol dl
               li dt dd p
               form blockquote
-              table td tr th)
+              table )
  do
  (eval
   `(defadvice  ,(intern (format "shr-tag-%s" tag)   )(around emacspeak pre act comp)
