@@ -165,10 +165,10 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (let ((emacspeak-speak-messages nil))
-       (emacspeak-auditory-icon 'large-movement)
-       (emacspeak-speak-region
-        (point)
-        (next-single-char-property-change (point) 'face nil (point-max))))))))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-region
+          (point)
+          (next-single-char-property-change (point) 'face nil (point-max))))))))
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
@@ -199,13 +199,13 @@
    '(
      ("\M-r" rename-buffer)
      ("\C-e" emacspeak-prefix-command)
-;;; Capital Letters 
+;;; Capital Letters
      ("A" eww-view-filtered-dom-by-attribute)
      ("I" eww-view-filtered-dom-by-id)
      ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
      ("R" emacspeak-eww-restore)
-;;; lower case letters 
+;;; lower case letters
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
      ("b" shr-previous-link)
@@ -312,7 +312,7 @@ for use as a DOM filter."
   (declare (special eww-id-cache eww-class-cache
                     eww-shr-render-functions
                     eww-role-cache eww-cache-updated eww-current-dom))
-  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -356,7 +356,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-id-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -385,7 +385,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-class-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -413,7 +413,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-element-cache
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
-  (unless (string= (buffer-name) "*eww*") (error "Not in EWW buffer."))
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -476,17 +476,17 @@ for use as a DOM filter."
 (loop
  for  tag in
  '(h1 h2 h3 div
-              ul ol dl
-              li dt dd p
-              form blockquote
-              table )
+      ul ol dl
+      li dt dd p
+      form blockquote
+      table )
  do
  (eval
   `(defadvice  ,(intern (format "shr-tag-%s" tag)   )(around emacspeak pre act comp)
      (let ((start (point)))
        ad-do-it
        (put-text-property start  (1- (point))
-                           (quote ,tag) t)))))
+                          (quote ,tag) t)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
