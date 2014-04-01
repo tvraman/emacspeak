@@ -96,8 +96,9 @@
 (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer."
   (setq eww-cache-updated nil)
+  (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (emacspeak-webutils-run-post-process-hook)
-  (rename-buffer eww-current-title 'unique))
+  (rename-buffer eww-current-title))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
