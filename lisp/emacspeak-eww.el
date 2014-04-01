@@ -197,20 +197,26 @@
   (loop
    for binding  in
    '(
-     ("\M-r" rename-buffer)
-     ("\C-e" emacspeak-prefix-command)
-;;; Capital Letters
-     ("A" eww-view-filtered-dom-by-attribute)
-     ("I" eww-view-filtered-dom-by-id)
-     ("C" eww-view-filtered-dom-by-class)
      ("'" emacspeak-speak-rest-of-buffer)
+     ("*" eww-add-bookmark)
+     ("/" search-forward)
+     ("?" emacspeak-webutils-google-similar-to-this-page)
+     ("A" eww-view-filtered-dom-by-attribute)
+     ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
+     ("I" eww-view-filtered-dom-by-id)
      ("R" emacspeak-eww-restore)
-;;; lower case letters
+     ("\C-e" emacspeak-prefix-command)
+     ("\M-;" emacspeak-webutils-play-media-at-point)
+     ("\M-r" rename-buffer)
+     ("b" shr-previous-link)
+     ("c" emacspeak-webutils-google-extract-from-cache)
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
-     ("b" shr-previous-link)
-     ("*" eww-add-bookmark)
+     ("g" emacspeak-webutils-google-on-this-site)
+     ("n" emacspeak-speak-next-personality-chunk)
+     ("p" emacspeak-speak-previous-personality-chunk)
+     ( "\C-t" emacspeak-google-command)
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
