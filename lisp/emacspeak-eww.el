@@ -202,6 +202,7 @@
      ("*" eww-add-bookmark)
      ("/" search-forward)
      ("?" emacspeak-webutils-google-similar-to-this-page)
+     ("." dtk-toggle-punctuation-mode)
      ("A" eww-view-filtered-dom-by-attribute)
      ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
