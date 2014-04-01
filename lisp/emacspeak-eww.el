@@ -170,7 +170,17 @@
          (emacspeak-speak-region
           (point)
           (next-single-char-property-change (point) 'face nil (point-max))))))))
-
+;;; Handle emacspeak-we-url-executor
+(defadvice eww-follow-link (around emacspeak pre act comp)
+  "Respect emacspeak-we-url-executor if set."
+  (cond
+   ((and (ems-interactive-p)
+         (boundp 'emacspeak-we-url-executor)
+         (fboundp emacspeak-we-url-executor))
+    (let ((url (get-text-property (point) 'shr-url)))
+      (unless url (error "No URL  under point"))
+    (funcall emacspeak-we-url-executor url)))
+   (t ad-do-it)))
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
