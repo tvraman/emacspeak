@@ -528,7 +528,7 @@ for use as a DOM filter."
        (next (next-single-property-change start  el )))
     (cond
      (next
-      (goto-char (min (point-max) (1+ next)))
+      (goto-char next)
         (emacspeak-auditory-icon 'large-movement)
         (emacspeak-speak-region (point) (next-single-property-change (point) el)))
      (t (message "No next %s" el)))))
@@ -550,7 +550,7 @@ for use as a DOM filter."
          (previous (previous-single-property-change  start  el)))
     (cond
      (previous
-      (goto-char (max (1- previous) (point-min)))
+      (goto-char previous)
         (emacspeak-auditory-icon 'large-movement)
         (emacspeak-speak-region
          (or (previous-single-property-change previous el) (point-min))
