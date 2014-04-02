@@ -61,6 +61,7 @@
 
 (defsubst emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer that is well set up."
+  (declare (special major-mode eww-current-dom eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
