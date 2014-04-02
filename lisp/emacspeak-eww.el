@@ -523,9 +523,9 @@ for use as a DOM filter."
     (progn
       (emacspeak-eww-prepare-eww)
       (read (completing-read "Element: " eww-element-cache nil 'must-match
-                             nil emacspeak-eww-element-navigation-history)))))
+                             nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
-  (pushnew el emacspeak-eww-element-navigation-history)
+  (pushnew el  emacspeak-eww-element-navigation-history)
   (let*
       ((start
         (or 
