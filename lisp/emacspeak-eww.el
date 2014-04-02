@@ -231,6 +231,9 @@
      ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
      ("G" emacspeak-webutils-google-on-this-site)
+     ("1" emacspeak-eww-next-h1)
+     ("2" emacspeak-eww-next-h2)
+     ("3" emacspeak-eww-next-h3)
      ("I" eww-view-filtered-dom-by-id)
      ("R" emacspeak-eww-restore)
      ("\C-e" emacspeak-prefix-command)
@@ -553,6 +556,15 @@ for use as a DOM filter."
          (or (previous-single-property-change previous el) (point-min))
              (point)))
       (t (message "No previous  %s" el)))))
+(loop
+ for  f in
+ '(1 2 3)
+ do
+ (eval
+  `(defun ,(intern (format "emacspeak-eww-next-h%d" f)) ()
+     ,(format "Move forward to the next H%d" f)
+     (interactive)
+      (funcall 'emacspeak-eww-next-element (intern ,(format "h%d" f))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
