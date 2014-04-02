@@ -513,14 +513,19 @@ for use as a DOM filter."
 ;;}}}
 ;;{{{ Element Navigation:
 
+(defvar emacspeak-eww-element-navigation-history nil
+  "History for element navigation.")
+
 (defun emacspeak-eww-next-element (el)
   "Move forward to the next specified element."
   (interactive
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (read (completing-read "Element: " eww-element-cache nil 'must-match)))))
-  (declare (special eww-element-cache))
+      (read (completing-read "Element: " eww-element-cache nil 'must-match
+                             nil emacspeak-eww-element-navigation-history)))))
+  (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
+  (pushnew el emacspeak-eww-element-navigation-history)
   (let*
       ((start
         (or 
