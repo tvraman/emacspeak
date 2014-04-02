@@ -439,8 +439,8 @@ for use as a DOM filter."
     (loop until (zerop (length el))
           do
           (pushnew (read el) el-list)
-          (setq el (completing-read "Element: " eww-element-cache
-                                    nil 'must-match)))
+          (setq el
+                (completing-read "Element: " eww-element-cache nil 'must-match)))
     (let ((inhibit-read-only t)
           (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
           (shr-external-rendering-functions eww-shr-render-functions))
