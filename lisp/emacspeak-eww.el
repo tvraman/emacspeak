@@ -435,8 +435,7 @@ for use as a DOM filter."
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
   (emacspeak-eww-prepare-eww)
   (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache
-                             nil 'must-match)))
+        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
     (loop until (zerop (length el))
           do
           (pushnew (read el) el-list)
@@ -516,21 +515,19 @@ for use as a DOM filter."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (completing-read "Element: " eww-element-cache nil 'must-match))))
-  (declare (special eww-element-cache
-                    eww-cache-updated eww-current-dom))
+      (read (completing-read "Element: " eww-element-cache nil 'must-match)))))
+  (declare (special eww-element-cache))
   (let*
       ((start
         (or 
          (when (get-text-property (point) el) (next-single-property-change (point) el ))
          (point)))
-       (next (text-property-any start (point-max) el t)))
+       (next (next-single-property-change start  el )))
     (cond
      (next
       (goto-char (min (point-max) (1+ next)))
-      (when (ems-interactive-p)
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-line)))
+        (emacspeak-speak-region (point) (next-single-property-change (point) el)))
      (t (message "No next %s" el)))))
   
 
@@ -540,21 +537,21 @@ for use as a DOM filter."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (completing-read "Element: " eww-element-cache nil 'must-match))))
-  (declare (special eww-element-cache
-                    eww-cache-updated eww-current-dom))
+      (read (completing-read "Element: " eww-element-cache nil 'must-match)))))
+  (declare (special eww-element-cache ))
   (let* ((start
           (or 
            (when (get-text-property (point) el)
              (previous-single-property-change (point) el ))
            (point)))
-         (previous (text-property-any (point-min) start  el t)))
+         (previous (previous-single-property-change  start  el)))
     (cond
      (previous
       (goto-char (max (1- previous) (point-min)))
-      (when (ems-interactive-p)
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-line)))
+        (emacspeak-speak-region
+         (or (previous-single-property-change previous el) (point-min))
+             (point)))
       (t (message "No previous  %s" el)))))
 
 ;;}}}
