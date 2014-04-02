@@ -51,10 +51,18 @@
 
 (require 'cl)
 (declaim (optimize (safety 0) (speed 3)))
+(eval-when-compile (require 'eww "eww" 'no-error))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'xml)
+;;}}}
+;;{{{ Inline Helpers:
+
+(defsubst emacspeak-eww-assert-eww ()
+  "Ensure that we are in an EWW buffer."
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer.")))
+
 ;;}}}
 ;;{{{ Map Faces To Voices:
 
@@ -95,6 +103,7 @@
 
 (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer."
+  (declare (special eww-cache-updated))
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (emacspeak-webutils-run-post-process-hook)
@@ -225,8 +234,8 @@
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
      ("g" emacspeak-webutils-google-on-this-site)
-     ("n" emacspeak-speak-next-personality-chunk)
-     ("p" emacspeak-speak-previous-personality-chunk)
+     ("n" emacspeak-eww-next-element)
+     ("p" emacspeak-eww-previous-element)
      ( "\C-t" emacspeak-google-command)
      )
    do
@@ -330,7 +339,7 @@ for use as a DOM filter."
   (declare (special eww-id-cache eww-class-cache
                     eww-shr-render-functions
                     eww-role-cache eww-cache-updated eww-current-dom))
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (emacspeak-eww-assert-eww)
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -374,7 +383,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-id-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (emacspeak-eww-assert-eww)
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -403,7 +412,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-class-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (emacspeak-eww-assert-eww)
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -431,7 +440,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-element-cache
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (emacspeak-eww-assert-eww)
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom))
@@ -511,10 +520,58 @@ for use as a DOM filter."
 ;;}}}
 ;;{{{ Element Navigation:
 
-(defun emacspeak-eww-next-element (element-name)
+(defun emacspeak-eww-next-element (el)
   "Move forward to the next specified element."
-  (declare (special eww-elements-cache))
-  )
+  (interactive
+   (list
+    (progn
+      (emacspeak-eww-assert-eww)
+      (unless (and (boundp 'eww-current-dom) eww-current-dom)
+        (error "No DOM to filter!"))
+      (unless eww-cache-updated (eww-update-cache eww-current-dom)) 
+      (completing-read "Element: " eww-element-cache nil 'must-match))))
+  (declare (special eww-element-cache
+                    eww-cache-updated eww-current-dom))
+  (let*
+      ((start
+        (or 
+         (when (get-text-property (point) el) (next-single-property-change (point) el ))
+         (point)))
+       (next (text-property-any start (point-max) el t)))
+    (cond
+     (next
+      (goto-char (min (point-max) (1+ next)))
+      (when (ems-interactive-p)
+                                                     (emacspeak-auditory-icon 'large-movement)
+                                                     (emacspeak-speak-line)))
+     (t (message "No next %s" el)))))
+  
+
+(defun emacspeak-eww-previous-element (el)
+  "Move backward  to the previous  specified element."
+  (interactive
+   (list
+    (progn
+      (emacspeak-eww-assert-eww)
+      (unless (and (boundp 'eww-current-dom) eww-current-dom)
+        (error "No DOM to filter!"))
+      (unless eww-cache-updated (eww-update-cache eww-current-dom)) 
+      (completing-read "Element: " eww-element-cache nil 'must-match))))
+  (declare (special eww-element-cache
+                    eww-cache-updated eww-current-dom))
+  (let* ((start
+          (or 
+           (when (get-text-property (point) el)
+             (previous-single-property-change (point) el ))
+           (point)))
+         (previous (text-property-any (point-min) start  el t)))
+    (cond
+     (previous
+      (goto-char (max (1- previous) (point-min)))
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-speak-line)))
+      (t (message "No previous  %s" el)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
