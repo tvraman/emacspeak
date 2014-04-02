@@ -542,8 +542,8 @@ for use as a DOM filter."
      (next
       (goto-char (min (point-max) (1+ next)))
       (when (ems-interactive-p)
-                                                     (emacspeak-auditory-icon 'large-movement)
-                                                     (emacspeak-speak-line)))
+        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-speak-line)))
      (t (message "No next %s" el)))))
   
 
