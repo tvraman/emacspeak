@@ -98,7 +98,7 @@
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (emacspeak-webutils-run-post-process-hook)
-  (rename-buffer eww-current-title))
+  (rename-buffer eww-current-title 'unique))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -220,7 +220,6 @@
      ("R" emacspeak-eww-restore)
      ("\C-e" emacspeak-prefix-command)
      ("\M-;" emacspeak-webutils-play-media-at-point)
-     ("\M-r" rename-buffer)
      ("b" shr-previous-link)
      ("c" emacspeak-webutils-google-extract-from-cache)
      ("e" emacspeak-we-xsl-map)
@@ -508,6 +507,14 @@ for use as a DOM filter."
         start
         (if (> (point) start) (1- (point)) (point))
         (quote ,tag) t)))))
+
+;;}}}
+;;{{{ Element Navigation:
+
+(defun emacspeak-eww-next-element (element-name)
+  "Move forward to the next specified element."
+  (declare (special eww-elements-cache))
+  )
 
 ;;}}}
 (provide 'emacspeak-eww)
