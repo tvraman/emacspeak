@@ -59,9 +59,12 @@
 ;;}}}
 ;;{{{ Inline Helpers:
 
-(defsubst emacspeak-eww-assert-eww ()
-  "Ensure that we are in an EWW buffer."
-  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer.")))
+(defsubst emacspeak-eww-prepare-eww ()
+  "Ensure that we are in an EWW buffer that is well set up."
+  (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
+  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+    (error "No DOM to filter!"))
+  (unless eww-cache-updated (eww-update-cache eww-current-dom)) )
 
 ;;}}}
 ;;{{{ Map Faces To Voices:
@@ -339,10 +342,7 @@ for use as a DOM filter."
   (declare (special eww-id-cache eww-class-cache
                     eww-shr-render-functions
                     eww-role-cache eww-cache-updated eww-current-dom))
-  (emacspeak-eww-assert-eww)
-  (unless (and (boundp 'eww-current-dom) eww-current-dom)
-    (error "No DOM to filter!"))
-  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (emacspeak-eww-prepare-eww)
   (unless
       (or eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
@@ -383,12 +383,8 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-id-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (emacspeak-eww-assert-eww)
-  (unless (and (boundp 'eww-current-dom) eww-current-dom)
-    (error "No DOM to filter!"))
-  (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (unless eww-id-cache
-    (error "No id to filter."))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-id-cache (error "No id to filter."))
   (let*
       ((value
         (completing-read "Value: " eww-id-cache nil 'must-match))
@@ -412,12 +408,8 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-class-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
-  (emacspeak-eww-assert-eww)
-  (unless (and (boundp 'eww-current-dom) eww-current-dom)
-    (error "No DOM to filter!"))
-  (unless eww-cache-updated (eww-update-cache eww-current-dom))
-  (unless eww-class-cache
-    (error "No class to filter."))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-class-cache (error "No class to filter."))
   (let*
       ((value
         (completing-read "Value: " eww-class-cache nil 'must-match))
@@ -440,10 +432,7 @@ for use as a DOM filter."
   (interactive)
   (declare (special eww-element-cache
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
-  (emacspeak-eww-assert-eww)
-  (unless (and (boundp 'eww-current-dom) eww-current-dom)
-    (error "No DOM to filter!"))
-  (unless eww-cache-updated (eww-update-cache eww-current-dom))
+  (emacspeak-eww-prepare-eww)
   (let ((el-list nil)
         (el (completing-read "Element: " eww-element-cache
                              nil 'must-match)))
@@ -525,10 +514,7 @@ for use as a DOM filter."
   (interactive
    (list
     (progn
-      (emacspeak-eww-assert-eww)
-      (unless (and (boundp 'eww-current-dom) eww-current-dom)
-        (error "No DOM to filter!"))
-      (unless eww-cache-updated (eww-update-cache eww-current-dom)) 
+      (emacspeak-eww-prepare-eww)
       (completing-read "Element: " eww-element-cache nil 'must-match))))
   (declare (special eww-element-cache
                     eww-cache-updated eww-current-dom))
@@ -552,10 +538,7 @@ for use as a DOM filter."
   (interactive
    (list
     (progn
-      (emacspeak-eww-assert-eww)
-      (unless (and (boundp 'eww-current-dom) eww-current-dom)
-        (error "No DOM to filter!"))
-      (unless eww-cache-updated (eww-update-cache eww-current-dom)) 
+      (emacspeak-eww-prepare-eww)
       (completing-read "Element: " eww-element-cache nil 'must-match))))
   (declare (special eww-element-cache
                     eww-cache-updated eww-current-dom))
