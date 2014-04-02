@@ -175,11 +175,12 @@
  '(shr-next-link shr-previous-link)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
+  `(defadvice ,f (around emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (let ((emacspeak-speak-messages nil))
-         (emacspeak-auditory-icon 'large-movement)
+     (let ((emacspeak-speak-messages nil))
+         ad-do-it
+         (when (ems-interactive-p)
+           (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-region
           (point)
           (next-single-char-property-change (point) 'face nil (point-max))))))))
