@@ -189,7 +189,6 @@ We use module gfeeds to efficiently fetch feed contents using the
     (when                ; check if we need to add from this feed
         (or (null last-update)        ;  at most every half hour 
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
-      (message "Fetching %s" feed)
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
        #'(lambda (h)
