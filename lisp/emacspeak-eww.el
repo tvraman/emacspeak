@@ -566,17 +566,18 @@ for use as a DOM filter."
       (t (message "No previous  %s" el)))))
 (loop
  for  f in
- '(1 2 3)
+ '(h1 h2 h3)
  do
  (eval
-  `(defun ,(intern (format "emacspeak-eww-next-h%d" f)) ()
-     ,(format "Move forward to the next H%d" f)
+  `(defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
+     ,(format "Move forward to the next %s" f)
      (interactive)
-      (funcall 'emacspeak-eww-next-element (intern ,(format "h%d" f))))
-  `(defun ,(intern (format "emacspeak-eww-previous-h%d" f)) ()
-     ,(format "Move backward to the next H%d" f)
+      (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
+  (eval
+   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
+     ,(format "Move backward to the next %s" f)
      (interactive)
-      (funcall 'emacspeak-eww-previous-element (intern ,(format "h%d" f))))))
+      (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
