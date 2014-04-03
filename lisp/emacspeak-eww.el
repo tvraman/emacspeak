@@ -509,7 +509,8 @@ for use as a DOM filter."
      (let ((start (point)))
        ad-do-it
        (put-text-property
-        (min (point-max)(1+ start))
+        (if (char-equal (following-char) ?\n)
+            (min (point-max) (1+ start) )start)
         (if (> (point) start) (1- (point)) (point))
         (quote ,tag) t)))))
 
@@ -532,7 +533,8 @@ for use as a DOM filter."
   (let*
       ((start
         (or 
-         (when (get-text-property (point) el) (next-single-property-change (point) el ))
+         (when (get-text-property (point) el)
+           (next-single-property-change (point) el ))
          (point)))
        (next (next-single-property-change start  el )))
     (cond
