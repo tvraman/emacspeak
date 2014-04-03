@@ -509,7 +509,7 @@ for use as a DOM filter."
      (let ((start (point)))
        ad-do-it
        (put-text-property
-        start
+        (min (point-max)(1+ start))
         (if (> (point) start) (1- (point)) (point))
         (quote ,tag) t)))))
 
@@ -562,8 +562,10 @@ for use as a DOM filter."
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region (point) previous))
+        (emacspeak-speak-region (point) previous)
+        )
       (t (message "No previous  %s" el)))))
+
 (loop
  for  f in
  '(h1 h2 h3)
