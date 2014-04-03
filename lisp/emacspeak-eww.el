@@ -235,6 +235,9 @@
      ("1" emacspeak-eww-next-h1)
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
+     ("\M-1" emacspeak-eww-previous-h1)
+     ("\M-2" emacspeak-eww-previous-h2)
+     ("\M-3" emacspeak-eww-previous-h3)
      ("I" eww-view-filtered-dom-by-id)
      ("R" emacspeak-eww-restore)
      ("\C-e" emacspeak-prefix-command)
@@ -572,7 +575,11 @@ for use as a DOM filter."
   `(defun ,(intern (format "emacspeak-eww-next-h%d" f)) ()
      ,(format "Move forward to the next H%d" f)
      (interactive)
-      (funcall 'emacspeak-eww-next-element (intern ,(format "h%d" f))))))
+      (funcall 'emacspeak-eww-next-element (intern ,(format "h%d" f))))
+  `(defun ,(intern (format "emacspeak-eww-previous-h%d" f)) ()
+     ,(format "Move backward to the next H%d" f)
+     (interactive)
+      (funcall 'emacspeak-eww-previous-element (intern ,(format "h%d" f))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
