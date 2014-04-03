@@ -539,9 +539,8 @@ for use as a DOM filter."
      (next
       (goto-char next)
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region (point) (next-single-property-change (point) el)))
+        (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
-  
 
 (defun emacspeak-eww-previous-element (el)
   "Move backward  to the previous  specified element."
@@ -561,11 +560,9 @@ for use as a DOM filter."
          (previous (previous-single-property-change  start  el)))
     (cond
      (previous
-      (goto-char previous)
+      (goto-char (or (previous-single-property-change previous el) (point-min)))
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region
-         (or (previous-single-property-change previous el) (point-min))
-             (point)))
+        (emacspeak-speak-region (point) previous))
       (t (message "No previous  %s" el)))))
 (loop
  for  f in
