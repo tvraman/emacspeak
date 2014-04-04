@@ -556,16 +556,15 @@ for use as a DOM filter."
   (pushnew el  emacspeak-eww-element-navigation-history)
   (let* ((start
           (or 
-           (when (get-text-property (point) el)
-             (previous-single-property-change (point) el ))
+           (when (get-text-property  (point) el)
+             (previous-single-property-change (1+ (point)) el ))
            (point)))
          (previous (previous-single-property-change  start  el)))
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
         (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region (point) previous)
-        )
+        (emacspeak-speak-region (point) previous))
       (t (message "No previous  %s" el)))))
 
 (loop
