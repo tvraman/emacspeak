@@ -238,6 +238,7 @@
      ("I" eww-view-filtered-dom-by-id)
      ("O" emacspeak-eww-previous-li)
      ("R" emacspeak-eww-restore)
+     ("T" emacspeak-eww-previous-table)
      ("[" emacspeak-eww-previous-p)
      ("\C-e" emacspeak-prefix-command)
      ("\M-1" emacspeak-eww-previous-h1)
@@ -252,6 +253,7 @@
      ("n" emacspeak-eww-next-element)
      ("o" emacspeak-eww-next-li)
      ("p" emacspeak-eww-previous-element)
+     ("t" emacspeak-eww-next-table)
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
