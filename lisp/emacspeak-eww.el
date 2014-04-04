@@ -237,6 +237,7 @@
      ("G" emacspeak-webutils-google-on-this-site)
      ("I" eww-view-filtered-dom-by-id)
      ("O" emacspeak-eww-previous-li)
+     ("Q" kill-buffer)
      ("R" emacspeak-eww-restore)
      ("T" emacspeak-eww-previous-table)
      ("[" emacspeak-eww-previous-p)
