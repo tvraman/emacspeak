@@ -227,26 +227,30 @@
      ("*" eww-add-bookmark)
      ("." dtk-toggle-punctuation-mode)
      ("/" search-forward)
+     ("1" emacspeak-eww-next-h1)
+     ("2" emacspeak-eww-next-h2)
+     ("3" emacspeak-eww-next-h3)
      ("?" emacspeak-webutils-google-similar-to-this-page)
      ("A" eww-view-filtered-dom-by-attribute)
      ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
      ("G" emacspeak-webutils-google-on-this-site)
-     ("1" emacspeak-eww-next-h1)
-     ("2" emacspeak-eww-next-h2)
-     ("3" emacspeak-eww-next-h3)
+     ("I" eww-view-filtered-dom-by-id)
+     ("O" emacspeak-eww-previous-li)
+     ("R" emacspeak-eww-restore)
+     ("[" emacspeak-eww-previous-p)
+     ("\C-e" emacspeak-prefix-command)
      ("\M-1" emacspeak-eww-previous-h1)
      ("\M-2" emacspeak-eww-previous-h2)
      ("\M-3" emacspeak-eww-previous-h3)
-     ("I" eww-view-filtered-dom-by-id)
-     ("R" emacspeak-eww-restore)
-     ("\C-e" emacspeak-prefix-command)
      ("\M-;" emacspeak-webutils-play-media-at-point)
      ("\M-c" emacspeak-webutils-google-extract-from-cache)
+     ("]" emacspeak-eww-next-p)
      ("b" shr-previous-link)
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
      ("n" emacspeak-eww-next-element)
+     ("o" emacspeak-eww-next-li)
      ("p" emacspeak-eww-previous-element)
      )
    do
@@ -569,18 +573,18 @@ for use as a DOM filter."
 
 (loop
  for  f in
- '(h1 h2 h3)
+ '(h1 h2 h3 li table ol ul p)
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
      ,(format "Move forward to the next %s" f)
      (interactive)
-      (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
-  (eval
-   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
+     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
+ (eval
+  `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
      ,(format "Move backward to the next %s" f)
      (interactive)
-      (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
+     (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
