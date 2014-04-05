@@ -195,6 +195,7 @@
       (unless url (error "No URL  under point"))
     (funcall emacspeak-we-url-executor url)))
    (t ad-do-it)))
+
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
@@ -218,7 +219,16 @@
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (declare (special eww-mode-map))
+  (declare (special eww-mode-map
+                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
+  emacspeak-pronounce-load-pronunciations-on-startup
+  (when emacspeak-pronounce-load-pronunciations-on-startup
+    (emacspeak-pronounce-augment-pronunciations
+     'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+    (emacspeak-pronounce-add-dictionary-entry
+     'eww-mode
+     emacspeak-speak-rfc-3339-datetime-pattern
+     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
   (loop
    for binding  in
    '(
