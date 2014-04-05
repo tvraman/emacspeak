@@ -103,7 +103,8 @@
      "Provide auditory feedback"
      (setq eww-cache-updated nil)
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)))))
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-webutils-autospeak)))))
 
 (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer."
@@ -187,6 +188,9 @@
 ;;; Handle emacspeak-we-url-executor
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
+  (when (ems-interactive-p)
+    (emacspeak-webutils-autospeak)
+    (emacspeak-auditory-icon 'button))
   (cond
    ((and (ems-interactive-p)
          (boundp 'emacspeak-we-url-executor)
