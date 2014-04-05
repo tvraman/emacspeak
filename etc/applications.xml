@@ -118,6 +118,9 @@ Support for DBus integration.</application>
 Support for the Emacs Lisp Package Archive.</application>
   </category>
   <category name="Web">
+    <application name="eww">
+      Built-in, Standards-compliant WWW browser with Aural CSS
+    support.</application>
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
     support.</application>
