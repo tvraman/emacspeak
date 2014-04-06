@@ -79,7 +79,6 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-
 (loop
  for f in
  '(eww-up-url eww-top-url
@@ -94,6 +93,24 @@
        (emacspeak-auditory-icon 'open-object)
        (dtk-speak eww-current-title)))))
 
+(defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
+  "Table storing eww buffer handles hashed by URL.")
+
+;;;Check cache if URL already open, otherwise cache.
+ 
+(defadvice eww-render (around emacspeak pre act comp)
+  "Check cache, if already open, switch to existing buffer.
+Otherwise proceed  and cache the buffer."
+  (let* ((this-url (ad-get-arg 1))
+         (handle  (gethash  this-url emacspeak-eww-buffer-hash)))
+    (cond
+     ((and handle (buffer-live-p handle))
+      (switch-to-buffer handle))
+     (t                                ; proceed 
+      ad-do-it))
+    ad-return-value))
+      
+ 
 (loop
  for f in
  '(eww eww-reload eww-open-file)
@@ -110,12 +127,13 @@
 
 (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer."
-  (declare (special eww-cache-updated))
+  (declare (special eww-cache-updated emacspeak-eww-buffer-hash))
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (emacspeak-webutils-run-post-process-hook)
-  (when emacspeak-eww-rename-result-buffer 
-  (rename-buffer eww-current-title 'unique)))
+  (when emacspeak-eww-rename-result-buffer
+    (rename-buffer eww-current-title 'unique))
+  (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
