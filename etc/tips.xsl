@@ -4,7 +4,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
-  <xsl:import href="/usr/share/sgml/docbook/xsl-stylesheets/html/docbook.xsl"/>
+  <xsl:import href="/usr/share/boostbook/xsl/docbook.xsl"/>
   <xsl:variable name= "toc.list.type">ul</xsl:variable>
   <xsl:variable name= "make.valid.html"> 1 </xsl:variable>
   <xsl:variable name= "html.stylesheet"> docbook.css</xsl:variable>
