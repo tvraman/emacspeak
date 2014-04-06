@@ -105,6 +105,8 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-webutils-autospeak)))))
+(defvar emacspeak-eww-rename-result-buffer t
+  "Result buffer is renamed to document title.")
 
 (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer."
@@ -112,7 +114,8 @@
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (emacspeak-webutils-run-post-process-hook)
-  (rename-buffer eww-current-title 'unique))
+  (when emacspeak-eww-rename-result-buffer 
+  (rename-buffer eww-current-title 'unique)))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -368,7 +371,8 @@ for use as a DOM filter."
 (defun eww-view-filtered-dom-by-attribute ()
   "Display DOM filtered by specified attribute=value test."
   (interactive)
-  (declare (special eww-id-cache eww-class-cache
+  (declare (special emacspeak-eww-rename-result-buffer
+            eww-id-cache eww-class-cache
                     eww-shr-render-functions
                     eww-role-cache eww-cache-updated eww-current-dom))
   (emacspeak-eww-prepare-eww)
@@ -376,7 +380,8 @@ for use as a DOM filter."
       (or eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
   (let*
-      ((attr-list nil)
+      ((emacspeak-eww-rename-result-buffer nil)
+       (attr-list nil)
        (attr
         (progn
           (when eww-class-cache (push "class" attr-list))
@@ -410,12 +415,14 @@ for use as a DOM filter."
 (defun eww-view-filtered-dom-by-id ()
   "Display DOM filtered by specified id=value test."
   (interactive)
-  (declare (special eww-id-cache eww-cache-updated
+  (declare (special emacspeak-eww-rename-result-buffer
+            eww-id-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (unless eww-id-cache (error "No id to filter."))
   (let*
-      ((value
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value
         (completing-read "Value: " eww-id-cache nil 'must-match))
        (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
@@ -435,12 +442,14 @@ for use as a DOM filter."
 (defun eww-view-filtered-dom-by-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
-  (declare (special eww-class-cache eww-cache-updated
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-class-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (unless eww-class-cache (error "No class to filter."))
   (let*
-      ((value
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value
         (completing-read "Value: " eww-class-cache nil 'must-match))
        (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'class value)))
@@ -456,13 +465,16 @@ for use as a DOM filter."
       (setq buffer-read-only t))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
+
 (defun eww-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
-  (declare (special eww-element-cache
+  (declare (special emacspeak-eww-rename-result-buffer
+            eww-element-cache
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
   (emacspeak-eww-prepare-eww)
-  (let ((el-list nil)
+  (let ((emacspeak-eww-rename-result-buffer nil)
+        (el-list nil)
         (el (completing-read "Element: " eww-element-cache nil 'must-match)))
     (loop until (zerop (length el))
           do
