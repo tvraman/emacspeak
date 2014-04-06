@@ -98,9 +98,9 @@
 
 ;;;Check cache if URL already open, otherwise cache.
  
-(defadvice eww-render (around emacspeak pre act comp)
+(defadvice eww (around emacspeak pre act comp)
   "Check cache, if already open, switch to existing buffer.
-Otherwise proceed  and cache the buffer."
+Otherwise proceed  and cache the buffer at the end of eww-render."
   (let* ((this-url (ad-get-arg 1))
          (handle  (gethash  this-url emacspeak-eww-buffer-hash)))
     (cond
