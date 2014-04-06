@@ -179,9 +179,9 @@
   `(defadvice ,f (around emacspeak pre act comp)
      "Provide auditory feedback."
      (let ((emacspeak-speak-messages nil))
-         ad-do-it
-         (when (ems-interactive-p)
-           (emacspeak-auditory-icon 'large-movement)
+       ad-do-it
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-region
           (point)
           (next-single-char-property-change (point) 'face nil (point-max))))))))
@@ -197,7 +197,7 @@
          (fboundp emacspeak-we-url-executor))
     (let ((url (get-text-property (point) 'shr-url)))
       (unless url (error "No URL  under point"))
-    (funcall emacspeak-we-url-executor url)))
+      (funcall emacspeak-we-url-executor url)))
    (t ad-do-it)))
 
 ;;}}}
@@ -553,7 +553,7 @@ for use as a DOM filter."
   (pushnew el  emacspeak-eww-element-navigation-history)
   (let*
       ((start
-        (or 
+        (or
          (when (get-text-property (point) el)
            (next-single-property-change (point) el ))
          (point)))
@@ -561,8 +561,8 @@ for use as a DOM filter."
     (cond
      (next
       (goto-char next)
-        (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region next (next-single-property-change next el)))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -576,7 +576,7 @@ for use as a DOM filter."
   (declare (special eww-element-cache  emacspeak-eww-element-navigation-history))
   (pushnew el  emacspeak-eww-element-navigation-history)
   (let* ((start
-          (or 
+          (or
            (when (get-text-property  (point) el)
              (previous-single-property-change (1+ (point)) el ))
            (point)))
@@ -584,9 +584,9 @@ for use as a DOM filter."
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-        (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region (point) previous))
-      (t (message "No previous  %s" el)))))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-region (point) previous))
+     (t (message "No previous  %s" el)))))
 
 (loop
  for  f in
