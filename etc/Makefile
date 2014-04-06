@@ -40,6 +40,8 @@
 all: #fix perms
 	chmod 755 *.pl
 # {{{xml -> html 
+tips.html: tips.xml tips.xsl
+	xsltproc tips.xsl tips.xml > tips.html 
 %.html: %.xml
 	xsltproc    $< > $@
 
