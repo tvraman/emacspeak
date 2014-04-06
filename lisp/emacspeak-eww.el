@@ -205,7 +205,8 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-region
           (point)
-          (next-single-char-property-change (point) 'face nil (point-max))))))))
+          (next-single-property-change (point) 'help-echo  nil (point-max))))))))
+
 ;;; Handle emacspeak-we-url-executor
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
