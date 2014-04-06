@@ -69,6 +69,7 @@ This chapter documents a total of 619 user customizable
 * emacspeak-w3m Options::
 * emacspeak-we Options::
 * emacspeak-websearch Options::
+* emacspeak-webspace Options::
 * emacspeak-wizards Options::
 * emacspeak-xml-shell Options::
 * emacspeak-xslt Options::
@@ -713,10 +714,6 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-atom-view-xsl
 XSL stylesheet used for viewing Atom Feeds.
-@end defvar
-
-@defvar {User Option} emacspeak-feeds
-Table of RSS feeds.
 @end defvar
 
 @node emacspeak-forms Options
@@ -2297,6 +2294,20 @@ Specify if we show just results or the complete Google page.
 
 @defvar {User Option} emacspeak-websearch-google-use-https
 Specify whether we use secure connections for Google search.
+@end defvar
+
+@node emacspeak-webspace Options
+@section emacspeak-webspace Options
+
+Commentary:
+WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
+
+Automatically generated documentation
+for options defined in module  emacspeak-webspace.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-feeds
+Table of RSS feeds.
 @end defvar
 
 @node emacspeak-wizards Options

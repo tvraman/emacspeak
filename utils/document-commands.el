@@ -192,6 +192,7 @@
     ("emacspeak-url-template"  . nil )
     ("emacspeak-view"  . nil )
     ("emacspeak-vm"  . ("vm-prepare"))
+    ("emacspeak-eww" . "eww")
     ("emacspeak-w3"  . ("w3-prepare"))
     ("emacspeak-websearch"  . nil )
     ("emacspeak-epub"  . nil )
