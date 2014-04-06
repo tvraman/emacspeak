@@ -142,11 +142,15 @@ Note that the Web browser should reset this hook after using it.")
         (eq browse-url-browser-function 'w3m-browse-url)))
 
 (defsubst emacspeak-webutils-autospeak()
-  "Setup post process hook to speak the Web page when rendered."
+  "Setup post process hook to speak the Web page when rendered.
+Forward punctuation and rate  settings to resulting buffer."
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
-                (declare (special emacspeak-we-xpath-filter))
+                (declare (special emacspeak-we-xpath-filter
+                                  dtk-speech-rate dtk-punctuation-mode))
                 (let ((inhibit-read-only t))
+                  (dtk-set-punctuations dtk-punctuation-mode)
+                  (dtk-set-rate dtk-speech-rate)
                   (setq emacspeak-we-xpath-filter
                         emacspeak-we-paragraphs-xpath-filter)
                   (emacspeak-speak-buffer)))
