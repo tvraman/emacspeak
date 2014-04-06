@@ -327,6 +327,7 @@
 
 ;;}}}
 ;;{{{ Filter DOM:
+
 (defvar eww-shr-render-functions
   '((title . eww-tag-title)
     (form . eww-tag-form)
@@ -402,7 +403,7 @@ for use as a DOM filter."
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
-      (eww-setup-buffer)
+      (erase-buffer)
       (goto-char (point-min))
       (shr-insert-document dom)
       (set-buffer-modified-p nil)
@@ -422,14 +423,13 @@ for use as a DOM filter."
   (unless eww-id-cache (error "No id to filter."))
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
-       (value
-        (completing-read "Value: " eww-id-cache nil 'must-match))
+       (value (completing-read "Value: " eww-id-cache nil 'must-match))
        (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
-      (eww-setup-buffer)
+      (erase-buffer)
       (goto-char (point-min))
       (shr-insert-document dom)
       (set-buffer-modified-p nil)
@@ -456,7 +456,7 @@ for use as a DOM filter."
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
-      (eww-setup-buffer)
+      (erase-buffer)
       (goto-char (point-min))
       (shr-insert-document dom)
       (set-buffer-modified-p nil)
@@ -486,7 +486,7 @@ for use as a DOM filter."
           (shr-external-rendering-functions eww-shr-render-functions))
       (when dom
         (eww-save-history)
-        (eww-setup-buffer)
+        (erase-buffer)
         (goto-char (point-min))
         (shr-insert-document dom)
         (set-buffer-modified-p nil)
