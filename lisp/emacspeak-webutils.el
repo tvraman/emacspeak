@@ -151,6 +151,7 @@ Forward punctuation and rate  settings to resulting buffer."
                 (let ((inhibit-read-only t))
                   (dtk-set-punctuations dtk-punctuation-mode)
                   (dtk-set-rate dtk-speech-rate)
+                  (emacspeak-dtk-sync)
                   (setq emacspeak-we-xpath-filter
                         emacspeak-we-paragraphs-xpath-filter)
                   (emacspeak-speak-buffer)))
