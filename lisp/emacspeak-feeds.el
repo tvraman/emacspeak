@@ -249,48 +249,6 @@ Argument `feed' is a feed structure (label url type)."
   (gfeeds-view site 'lookup))
 
 ;;}}}
-;;{{{ display  feeds:
-
-(defun emacspeak-feeds-feed-display(feed-url style &optional speak)
-  "Fetch feed via Emacs and display using xsltproc."
-  (let ((buffer (url-retrieve-synchronously feed-url))
-        (coding-system-for-read 'utf-8)
-        (coding-system-for-write 'utf-8)
-        (emacspeak-xslt-options nil))
-    (when speak (emacspeak-webutils-autospeak))
-    (cond
-     ((null buffer) (message "Nothing to display."))
-     (t
-      (with-current-buffer buffer
-        (emacspeak-webutils-without-xsl
-         (goto-char (point-min))
-         (search-forward "\n\n")
-         (delete-region (point-min) (point))
-         (decode-coding-region (point-min) (point-max) 'utf-8)
-         (emacspeak-xslt-region style (point-min) (point-max)
-                                (list (cons "base"
-                                            (format "\"'%s'\""
-                                                    feed-url)))))
-        (browse-url-of-buffer))))))
-
-;;;###autoload
-(defun emacspeak-feeds-rss-display (feed-url )
-  "Display RSS feed."
-  (interactive
-   (list
-    (emacspeak-webutils-read-this-url)))
-  (emacspeak-webutils-autospeak)
-  (emacspeak-feeds-feed-display feed-url (emacspeak-xslt-get "rss.xsl")))
-
-;;;###autoload
-(defun emacspeak-feeds-atom-display (feed-url )
-  "Display ATOM feed."
-  (interactive (list (emacspeak-webutils-read-this-url)))
-  (declare (special emacspeak-atom-view-xsl))
-  (emacspeak-webutils-autospeak)
-  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl))
-
-;;}}}
 ;;{{{ Finding Feeds:
 
 (define-button-type 'emacspeak-feeds-feed-button
