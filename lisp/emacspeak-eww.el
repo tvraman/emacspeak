@@ -264,7 +264,9 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      ( "\C-t" emacspeak-google-command)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
-     ("." dtk-toggle-punctuation-mode)
+     ("," emacspeak-eww-previous-h)
+     ("." emacspeak-eww-next-h)
+     ("=" dtk-toggle-punctuation-mode)
      ("/" search-forward)
      ("1" emacspeak-eww-next-h1)
      ("2" emacspeak-eww-next-h2)
@@ -560,14 +562,16 @@ for use as a DOM filter."
       table )
  do
  (eval
-  `(defadvice  ,(intern (format "shr-tag-%s" tag)   )(around emacspeak pre act comp)
+  `(defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
      (let ((start (point)))
        ad-do-it
-       (put-text-property
-        (if (char-equal (following-char) ?\n)
-            (min (point-max) (1+ start) )start)
-        (if (> (point) start) (1- (point)) (point))
-        (quote ,tag) t)))))
+       (let ((start (if (char-equal (following-char) ?\n)
+            (min (point-max) (1+ start) )start))
+             (end (if (> (point) start) (1- (point)) (point))))
+       (put-text-property start end
+        (quote ,tag) t)
+       (when (memq (quote ,tag) '(h1 h2 h3))
+         (put-text-property start end 'h t)))))))
 
 ;;}}}
 ;;{{{ Element Navigation:
@@ -624,7 +628,7 @@ for use as a DOM filter."
 
 (loop
  for  f in
- '(h1 h2 h3 li table ol ul p)
+ '(h h1 h2 h3 li table ol ul p)
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
