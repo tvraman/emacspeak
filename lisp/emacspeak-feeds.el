@@ -62,6 +62,11 @@
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
+(defcustom emacspeak-rss-view-xsl
+  (expand-file-name "rss.xsl" emacspeak-xslt-directory)
+  "XSL stylesheet used for viewing RSS Feeds."
+  :type  'file
+  :group 'emacspeak-xsl)
 
 (defcustom emacspeak-atom-view-xsl
   (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
@@ -199,39 +204,20 @@ Archiving is useful when synchronizing feeds across multiple machines."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (emacspeak-webutils-autospeak)
-  (emacspeak-feeds-feed-display feed-url (emacspeak-xslt-get "rss.xsl")))
+  (declare (special emacspeak-rss-view-xsl))
+  (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url )
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))
-  (emacspeak-webutils-autospeak)
-  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl))
-
-;;;###autoload
-(defun emacspeak-webutils-fv (feed-url )
-  "Display RSS or ATOM  feed by pulling from Google."
-  (interactive (list (emacspeak-webutils-read-this-url)))
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-webutils-autospeak)
-  (gfeeds-view  feed-url))
+  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
 ;;{{{  view feed
 
-;;;###autoload
-(defun emacspeak-webutils-opml-display (opml-url &optional speak)
-  "Retrieve and display OPML  URL."
-  (interactive
-   (list
-    (car (browse-url-interactive-arg "OPML  URL: "))
-    (or (ems-interactive-p ) current-prefix-arg)))
-  (emacspeak-feeds-feed-display
-   opml-url
-   (emacspeak-xslt-get "opml.xsl")
-   speak))
+
 ;;; Helper:
 (defun emacspeak-feeds-browse-feed (feed)
   "Display specified feed.
