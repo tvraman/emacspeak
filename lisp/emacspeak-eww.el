@@ -286,7 +286,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      ("\M-1" emacspeak-eww-previous-h1)
      ("\M-2" emacspeak-eww-previous-h2)
      ("\M-3" emacspeak-eww-previous-h3)
-     ("\M-;" emacspeak-webutils-play-media-at-point)
+     ("\;" emacspeak-webutils-play-media-at-point)
      ("\M-c" emacspeak-webutils-google-extract-from-cache)
      ("]" emacspeak-eww-next-p)
      ("b" shr-previous-link)
