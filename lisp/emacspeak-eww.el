@@ -245,7 +245,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (declare (special eww-mode-map
+  (declare (special eww-mode-map shr-map
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
   emacspeak-pronounce-load-pronunciations-on-startup
   (when emacspeak-pronounce-load-pronunciations-on-startup
@@ -255,6 +255,9 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
+                                        ; remove "o" from shr-map
+  (when (assoc  ?o shr-map)
+    (delete (assoc ?o shr-map) shr-map))
   (loop
    for binding  in
    '(
