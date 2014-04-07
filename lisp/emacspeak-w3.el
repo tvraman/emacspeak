@@ -101,13 +101,7 @@
 ;;}}}
 ;;{{{ setup
 
-(defcustom emacspeak-w3-punctuation-mode  'all
-  "Pronunciation mode to use for W3 buffers."
-  :type '(choice
-          (const  :tag "Ignore" nil)
-          (const  :tag "some" some)
-          (const  :tag "all" all))
-  :group 'emacspeak-w3)
+
 
 (defcustom emacspeak-w3-create-imenu-index nil
   "Create IMenu index by default."
@@ -118,13 +112,10 @@
   "Updated emacspeak hook for W3 mode."
   (declare (special imenu-create-index-function
                     emacspeak-web-post-process-hook
-                    emacspeak-w3-create-imenu-index
-                    emacspeak-w3-punctuation-mode))
+                    emacspeak-w3-create-imenu-index ))
   (set (make-local-variable 'voice-lock-mode) t)
   (modify-syntax-entry 10 " ")
   (modify-syntax-entry 160 " ")
-  (when emacspeak-w3-punctuation-mode
-    (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
   (when (featurep 'w3-imenu)
     (setq imenu-create-index-function 'w3-imenu-create-index))
