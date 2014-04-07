@@ -144,18 +144,20 @@ Note that the Web browser should reset this hook after using it.")
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
+  (lexical-let
+      ((p dtk-punctuation-mode)
+       (r dtk-speech-rate))
   (add-hook 'emacspeak-web-post-process-hook
             #'(lambda nil
-                (declare (special emacspeak-we-xpath-filter
-                                  dtk-speech-rate dtk-punctuation-mode))
+                (declare (special emacspeak-we-xpath-filter))
                 (let ((inhibit-read-only t))
-                  (dtk-set-punctuations dtk-punctuation-mode)
-                  (dtk-set-rate dtk-speech-rate)
+                  (dtk-set-punctuations p)
+                  (dtk-set-rate r)
                   (emacspeak-dtk-sync)
                   (setq emacspeak-we-xpath-filter
                         emacspeak-we-paragraphs-xpath-filter)
                   (emacspeak-speak-buffer)))
-            'at-end))
+            'at-end)))
 
 (defsubst emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
