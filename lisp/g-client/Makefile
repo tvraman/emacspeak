@@ -51,7 +51,7 @@ gcal.elc \
 gcontacts.elc \
 gdocs.elc \
 gfeeds.elc \
-gnotebook.elc \
+gf.elc \
 gphoto.elc \
 gweb.elc \
 gmaps.elc \
@@ -92,6 +92,7 @@ gfeeds.elc: g-utils.elc gfeeds.el
 ghealth.elc: ghealth.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
 gweb.elc: gweb.el g-utils.elc
+gf.elc: gf.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
 gm-nnir.elc: gm-nnir.el 
 gcal.elc: gcal.el g-app.elc
