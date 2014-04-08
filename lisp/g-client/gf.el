@@ -47,8 +47,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  introduction
 ;;; Commentary:
-;;; Explore Freebase graph search results 
-
+;;; Explore Freebase graph search results
 
 ;;; Documentation: https://developers.google.com/freebase/v1/search-overview
 ;;}}}
@@ -63,7 +62,7 @@
 ;;{{{ Variables
 
 (defvar gf-base-url
-   "https://www.googleapis.com/freebase/v1/"
+  "https://www.googleapis.com/freebase/v1/"
   "Base URL for Freebase API end-point.")
 
 (defvar gf-search-url
@@ -77,21 +76,27 @@
 ;;{{{ Freebase Search
 (defun gf-search-results (query)
   "Return Freebase search results as a parsed JSON."
-  (let
-       ((result (g-json-get-result
-               (format "%s -s '%s'"
-                       g-curl-program
-                       (format "%s?query=%s" gf-search-url query)))))
-    result))
-
-
+  (let ((result
+         (g-json-get
+          'result
+          (g-json-get-result
+           (format "%s -s '%s'"
+                   g-curl-program
+                   (format "%s?query=%s" gf-search-url query))))))
+    (loop
+     for a across result
+     when (g-json-get 'id a)
+     collect
+     (list (g-json-get 'name a)
+           (gf-topic-description (g-json-get 'id a))))))
 
 
 (defun gf-topic-description (topic)
   "Return topic description."
   (interactive "%sLookup: lang/topic")
   (declare (special gf-topic-url))
-  (let ((entry
+  (let ((desc nil)
+        (entry
          (g-json-get-result
           (format
            "%s -s '%s'"
@@ -99,10 +104,14 @@
            (format "%s/%s?filter=/common/topic/description"
                    gf-topic-url
                    topic)))))
-  (g-json-get 'value
-              (aref
-               (g-json-lookup "property./common/topic/description.values" entry)
-               0))))
+    (setq desc
+          (g-json-get 'value
+                      (aref
+                       (g-json-lookup "property./common/topic/description.values" entry)
+                       0)))
+    (put-text-property 0 (length desc)
+                       'json entry desc)
+    desc))
 
 ;;}}}
 (provide 'gf)
