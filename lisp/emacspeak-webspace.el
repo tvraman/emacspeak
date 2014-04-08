@@ -54,6 +54,7 @@
 (require 'derived)
 (require 'gfeeds)
 (require 'gweb)
+(require 'gf)
 (require 'emacspeak-webutils)
 (require 'emacspeak-feeds)
 
@@ -431,12 +432,6 @@ Optional interactive prefix arg forces a refresh."
       (emacspeak-webspace-mode))))
 
 ;;;###autoload
-(defvar emacspeak-webspace-reading-list-buffer
-  "Reading List"
-  "Buffer where we accumulate reading list headlines.")
-
-(defconst emacspeak-webspace-reading-list-max-size 1800
-  "How many headlines we keep around.")
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
@@ -445,30 +440,29 @@ Optional interactive prefix arg forces a refresh."
   "Save results in a WebSpace mode buffer for later use."
   (declare (special gweb-history))
   (let ((buffer
-         (get-buffer-create
-          (format "Search %s" (first gweb-history))))
+         (get-buffer-create (format "Search %s" (first gweb-history))))
         (inhibit-read-only t)
-        (start nil))
-    (save-excursion
-      (set-buffer buffer)
+        (headline nil))
+    (with-current-buffer buffer 
       (erase-buffer)
       (setq buffer-undo-list t)
-      (insert (format "Search Results For %s\n\n"
-                      (first gweb-history)))
+      (insert (format "Search Results For %s\n\n" (first gweb-history)))
       (center-line)
-      (loop for r across results
-            and i from 1
-            do
-            (setq start (point))
-            (insert
-             (format
-              "%d. %s\n%s"
-              i
-              (g-json-get 'titleNoFormatting r)
-              (g-html-string (g-json-get 'content r))))
-            (put-text-property
-             start (point)
-             'link (g-json-get 'url r)))
+      (loop
+       for r across results
+       and i from 1
+       do
+       (insert (format "%d.\t" i))
+       (setq headline
+             (or
+              (g-html-string (g-json-get 'title r))
+              (g-json-get 'titleNoFormatting r)))
+       (when headline
+         (put-text-property 0 (length headline)
+                            'link   (g-json-get 'url r)  headline)
+         (emacspeak-webspace-headlines-insert-button headline))
+       (insert (format "\n%s\n"
+                       (g-html-string (g-json-get 'content r)))))
       (emacspeak-webspace-mode)
       (setq buffer-read-only t)
       (goto-char (point-min)))

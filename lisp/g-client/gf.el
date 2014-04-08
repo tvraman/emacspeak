@@ -95,22 +95,23 @@
   "Return topic description."
   (interactive "%sLookup: lang/topic")
   (declare (special gf-topic-url))
-  (let ((desc nil)
+  (let ((root nil)
+        (desc nil)
+        (citation nil)
         (entry
          (g-json-get-result
           (format
            "%s -s '%s'"
            g-curl-program
            (format "%s/%s?filter=/common/topic/description"
-                   gf-topic-url
-                   topic)))))
-    (setq desc
-          (g-json-get 'value
-                      (aref
-                       (g-json-lookup "property./common/topic/description.values" entry)
-                       0)))
-    (put-text-property 0 (length desc)
-                       'json entry desc)
+                   gf-topic-url topic)))))
+    (setq root
+           (aref
+            (g-json-lookup "property./common/topic/description.values" entry)
+           0))
+    (setq desc (g-json-get 'value root))
+    (setq citation (g-json-lookup "citation.uri" root))
+    (put-text-property 0 (length desc) 'link  citation  desc)
     desc))
 
 ;;}}}
