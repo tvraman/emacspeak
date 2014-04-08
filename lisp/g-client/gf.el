@@ -65,11 +65,12 @@
 (defvar gf-base-url
    "https://www.googleapis.com/freebase/v1/"
   "Base URL for Freebase API end-point.")
+
 (defvar gf-search-url
-  (format "%s/search" gf-base-url)
+  (format "%ssearch" gf-base-url)
   "REST end-point for Freebase searches.")
 (defvar gf-topic-url
-  (format "%s/topic" gf-base-url)
+  (format "%stopic" gf-base-url)
   "REST  end-point for Freebase topic lookup.")
 
 ;;}}}
@@ -77,11 +78,31 @@
 (defun gf-search-results (query)
   "Return Freebase search results as a parsed JSON."
   (let
-      (result (g-json-get-result
-               (format "%s -s %s"
-                       (format "%s?query=%s" gf-search-url query)
-                       g-curl-program)))
+       ((result (g-json-get-result
+               (format "%s -s '%s'"
+                       g-curl-program
+                       (format "%s?query=%s" gf-search-url query)))))
     result))
+
+
+
+
+(defun gf-topic-description (topic)
+  "Return topic description."
+  (interactive "%sLookup: lang/topic")
+  (declare (special gf-topic-url))
+  (let ((entry
+         (g-json-get-result
+          (format
+           "%s -s '%s'"
+           g-curl-program
+           (format "%s/%s?filter=/common/topic/description"
+                   gf-topic-url
+                   topic)))))
+  (g-json-get 'value
+              (aref
+               (g-json-lookup "property./common/topic/description.values" entry)
+               0))))
 
 ;;}}}
 (provide 'gf)
