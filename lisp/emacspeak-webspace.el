@@ -478,10 +478,12 @@ Optional interactive prefix arg forces a refresh."
 
 ;;}}}
 ;;{{{ Freebase:
-
+;;;###autoload
 (defun emacspeak-webspace-freebase-search (query)
   "Perform a Freebase search and display results."
-  (interactive "sQuery:")
+  (interactive
+   (list
+    (emacspeak-url-encode (read-from-minibuffer "Freebase Query: "))))
   (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
         (start nil)
         (results (gf-search-results query))
