@@ -483,10 +483,10 @@ Optional interactive prefix arg forces a refresh."
   "Perform a Freebase search and display results."
   (interactive
    (list
-    (emacspeak-url-encode (read-from-minibuffer "Freebase Query: "))))
+     (read-from-minibuffer "Freebase Query: ")))
   (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
         (start nil)
-        (results (gf-search-results query))
+        (results (gf-search-results (emacspeak-url-encode query)))
         (inhibit-read-only t)
         (title nil)
         (desc nil))
