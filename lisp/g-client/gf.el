@@ -73,10 +73,17 @@
   "REST  end-point for Freebase topic lookup.")
 
 ;;}}}
+;;{{{ Freebase Search
+(defun gf-search-results (query)
+  "Return Freebase search results as a parsed JSON."
+  (let
+      (result (g-json-get-result
+               (format "%s -s %s"
+                       (format "%s?query=%s" gf-search-url query)
+                       g-curl-program)))
+    result))
 
-
-
-
+;;}}}
 (provide 'gf)
 ;;{{{ end of file
 
