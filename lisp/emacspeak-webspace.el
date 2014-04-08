@@ -188,7 +188,7 @@ We use module gfeeds to efficiently fetch feed contents using the
               emacspeak-webspace-headlines-period gfeeds-freshness-internal))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when                ; check if we need to add from this feed
-        (or (null last-update)        ;  at most every half hour 
+        (or (null last-update)        ;  at most every half hour
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
       (mapc
@@ -443,7 +443,7 @@ Optional interactive prefix arg forces a refresh."
          (get-buffer-create (format "Search %s" (first gweb-history))))
         (inhibit-read-only t)
         (headline nil))
-    (with-current-buffer buffer 
+    (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
       (insert (format "Search Results For %s\n\n" (first gweb-history)))
@@ -488,7 +488,7 @@ Optional interactive prefix arg forces a refresh."
         (inhibit-read-only t)
         (title nil)
         (desc nil))
-    (with-current-buffer buffer 
+    (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
       (format (buffer-name buffer))
@@ -509,7 +509,8 @@ Optional interactive prefix arg forces a refresh."
       (emacspeak-webspace-mode)
       (setq buffer-read-only t)
       (goto-char (point-min)))
-    (display-buffer buffer)
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
