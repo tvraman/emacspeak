@@ -477,6 +477,42 @@ Optional interactive prefix arg forces a refresh."
     (call-interactively 'gweb-google-at-point)))
 
 ;;}}}
+;;{{{ Freebase:
+
+(defun emacspeak-webspace-freebase-search (query)
+  "Perform a Freebase search and display results."
+  (interactive "sQuery:")
+  (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
+        (start nil)
+        (results (gf-search-results query))
+        (inhibit-read-only t)
+        (title nil)
+        (desc nil))
+    (with-current-buffer buffer 
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (format (buffer-name buffer))
+      (center-line)
+      (loop
+       for r in results
+       and i from 1
+       do
+       (insert (format "%d.\t" i))
+       (setq title (first r))
+       (setq desc (second r))
+       (put-text-property 0 (length title)
+                          'link (get-text-property 0 'link desc) title)
+       (emacspeak-webspace-headlines-insert-button title)
+       (setq start (point))
+       (insert (format "%s\n" desc))
+       (fill-region start (point)))
+      (emacspeak-webspace-mode)
+      (setq buffer-read-only t)
+      (goto-char (point-min)))
+    (display-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)))
+
+;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
 
