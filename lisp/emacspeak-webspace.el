@@ -478,6 +478,31 @@ Optional interactive prefix arg forces a refresh."
 
 ;;}}}
 ;;{{{ Freebase:
+
+
+(define-button-type 'emacspeak-webspace-freebase-topic
+  'id nil
+  'action #'emacspeak-webspace-freebase-topic-expand )
+
+(defun emacspeak-webspace-freebase-topic-expand (button)
+  "Expand topic at point."
+  (let ((inhibit-read-only t)
+        (start nil)
+        (id (button-get button 'id)))
+    (goto-char (line-end-pposition))
+    (insert "\n")
+    (setq start (point))
+   (insert (gf-topic-description id))
+   (goto-char start)
+   (emacspeak-auditory-icon 'open-object)))
+
+(defun emacspeak-webspace-freebase-topic (headline)
+  "Insert a button for this headline at point."
+  (insert-text-button
+   headline
+   'type 'emacspeak-webspace-headline
+   'link (get-text-property 0 'link headline )))
+
 ;;;###autoload
 (defun emacspeak-webspace-freebase-search (query)
   "Perform a Freebase search and display results."
