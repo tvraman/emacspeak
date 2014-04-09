@@ -62,6 +62,13 @@
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
+
+(defcustom emacspeak-opml-view-xsl
+  (expand-file-name "opml.xsl" emacspeak-xslt-directory)
+  "XSL stylesheet used for viewing OPML  Feeds."
+  :type  'file
+  :group 'emacspeak-xsl)
+
 (defcustom emacspeak-rss-view-xsl
   (expand-file-name "rss.xsl" emacspeak-xslt-directory)
   "XSL stylesheet used for viewing RSS Feeds."
@@ -190,6 +197,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
+           (declare (special eww-current-url))
            (lexical-let ((u feed-url))
              (setq eww-current-url u))))
       (with-current-buffer buffer
@@ -211,6 +219,12 @@ Archiving is useful when synchronizing feeds across multiple machines."
     (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-rss-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+;;;###autoload
+(defun emacspeak-feeds-opml-display (feed-url )
+  "Display OPML feed."
+  (interactive (list (emacspeak-webutils-read-this-url)))
+  (declare (special emacspeak-opml-view-xsl))
+  (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url )
@@ -223,16 +237,19 @@ Archiving is useful when synchronizing feeds across multiple machines."
 ;;{{{  view feed
 
 ;;; Helper:
-(defun emacspeak-feeds-browse-feed (feed)
+(defun emacspeak-feeds-browse-feed (feed &optional speak)
   "Display specified feed.
 Argument `feed' is a feed structure (label url type)."
   (let ((uri (second feed))
-        (type  (third feed)))
-    (cond
-     ((eq type 'rss) (emacspeak-feeds-rss-display uri ))
-     ((eq type 'opml) (emacspeak-webutils-opml-display uri ))
-     ((eq type 'atom) (emacspeak-feeds-atom-display uri ))
-     (t (error "Unknown feed type %s" type)))))
+        (type  (third feed))
+        (style nil))
+    (setq style
+          (cond
+           ((eq type 'rss)emacspeak-rss-view-xsl)
+           ((eq type 'opml) emacspeak-opml-view-xsl)
+           ((eq type 'atom) emacspeak-atom-view-xsl)
+           (t (error "Unknown feed type %s" type))))
+    (emacspeak-feeds-feed-display uri style speak)))
 
 ;;;###autoload
 (defun emacspeak-feeds-browse (feed)
@@ -242,7 +259,9 @@ Argument `feed' is a feed structure (label url type)."
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
                        emacspeak-feeds))))
-  (emacspeak-feeds-browse-feed (assoc feed emacspeak-feeds)))
+  (emacspeak-feeds-browse-feed
+   (assoc feed emacspeak-feeds)
+   'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-lookup-and-view  (site)
