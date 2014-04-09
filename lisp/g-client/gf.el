@@ -88,7 +88,7 @@
      when (g-json-get 'id a)
      collect
      (list (g-json-get 'name a)
-           (gf-topic-description (g-json-get 'id a))))))
+            (g-json-get 'id a)))))
 
 
 (defun gf-topic-description (topic)

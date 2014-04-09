@@ -934,71 +934,6 @@ On a directory line, run du -s on the directory to speak its size.
 
 ------------------------------------------------------------
 
-** emacspeak-dismal-backward-col-and-summarize Move backward by arg columns
- (the previous column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-row-and-summarize Move backward by arg rows
- (the previous row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-col-summarize Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-expression Display the expression in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-value Display the cell value in the message area 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-col-header Display current cell along with its column header.
-The `column header' is the entry in row 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-row-header Displays current cell along with its row header.
-The `row header' is the entry in column 0. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-col-and-summarize Move forward by arg columns
- (the next column by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-row-and-summarize Move forward by arg rows
- (the next row by default)and summarize it. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-row-summarize Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-col-summarizer-list Specify or reset col summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-row-summarizer-list Specify or reset row summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-sheet-summarizer-list Specify or reset sheet summarizer list. 
-
-------------------------------------------------------------
-
-** emacspeak-dismal-sheet-summarize Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list 
-
-------------------------------------------------------------
-
 ** emacspeak-ecb-speak-window-directories Speak contents of directories window. 
 
 ------------------------------------------------------------
@@ -1032,10 +967,6 @@ emacspeak-dismal-sheet-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
-
-------------------------------------------------------------
-
-** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -1253,14 +1184,10 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-copy-region-to-register :around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
-
-Copy text from terminal to an Emacs REGISTER.
+** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-
-(fn REGISTER) 
+emacspeak eterm pointer to a register. 
 
 ------------------------------------------------------------
 
@@ -1294,13 +1221,9 @@ in a non eterm buffer if executed via C-e C-e
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-paste-register :around advice: `ad-Advice-emacspeak-eterm-paste-register'
-
-Paste contents of REGISTER at current location.
+** emacspeak-eterm-paste-register Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-
-(fn REGISTER) 
+sent to the terminal as if it were typed by the user. 
 
 ------------------------------------------------------------
 
@@ -1478,10 +1401,6 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
-** emacspeak-eudc-send-mail Send email to the address given by the current record.  
-
-------------------------------------------------------------
-
 ** emacspeak-feeds-add-feed	Key Sequence:C-e M-u
 
  Add specified feed to our feed store. 
@@ -1511,20 +1430,16 @@ Archiving is useful when synchronizing feeds across multiple machines.
 
 ------------------------------------------------------------
 
+** emacspeak-feeds-opml-display Display OPML feed. 
+
+------------------------------------------------------------
+
 ** emacspeak-feeds-restoere-feeds Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines. 
 
 ------------------------------------------------------------
 
 ** emacspeak-feeds-rss-display Display RSS feed. 
-
-------------------------------------------------------------
-
-** emacspeak-webutils-fv Display RSS or ATOM  feed by pulling from Google. 
-
-------------------------------------------------------------
-
-** emacspeak-webutils-opml-display Retrieve and display OPML  URL. 
 
 ------------------------------------------------------------
 
@@ -4371,6 +4286,10 @@ Optional interactive prefix arg forces a refresh.
 
 ------------------------------------------------------------
 
+** emacspeak-webspace-freebase-search Perform a Freebase search and display results. 
+
+------------------------------------------------------------
+
 ** emacspeak-webspace-google Display Google Search in a WebSpace buffer. 
 
 ------------------------------------------------------------
@@ -5277,10 +5196,6 @@ Location is specified by name.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-use-w3-or-eww Alternates between using W3 and EWW for browse-url. 
-
-------------------------------------------------------------
-
 ** emacspeak-wizards-vc-n Accelerator for VC viewer. 
 
 ------------------------------------------------------------
@@ -5522,13 +5437,15 @@ Interactive prefix arg filters  content by genre.
 
 ------------------------------------------------------------
 
-** ad-Advice-emacspeak-eterm-copy-region-to-register Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-webutils-fv Display RSS or ATOM  feed by pulling from Google.
+
+(fn FEED-URL) 
 
 ------------------------------------------------------------
 
-** ad-Advice-emacspeak-eterm-paste-register Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
+** emacspeak-webutils-opml-display Retrieve and display OPML  URL.
+
+(fn OPML-URL &optional SPEAK) 
 
   
 
