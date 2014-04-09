@@ -183,10 +183,15 @@ Archiving is useful when synchronizing feeds across multiple machines."
         (coding-system-for-read 'utf-8)
         (coding-system-for-write 'utf-8)
         (emacspeak-xslt-options nil))
-    (when speak (emacspeak-webutils-autospeak))
     (cond
      ((null buffer) (message "Nothing to display."))
      (t
+      (when speak (emacspeak-webutils-autospeak))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (lexical-let ((u feed-url))
+             (setq eww-current-url u))))
       (with-current-buffer buffer
         (emacspeak-webutils-without-xsl
          (goto-char (point-min))
