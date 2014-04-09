@@ -486,22 +486,32 @@ Optional interactive prefix arg forces a refresh."
 
 (defun emacspeak-webspace-freebase-topic-expand (button)
   "Expand topic at point."
-  (let ((inhibit-read-only t)
+  (let* ((inhibit-read-only t)
         (start nil)
-        (id (button-get button 'id)))
-    (goto-char (line-end-pposition))
+        (end nil)
+        (id (button-get button 'id))
+        (desc (gf-topic-description id)))
+    (goto-char (button-end button))
+    (insert "\n")
+    (put-text-property 0 (length id)
+                       'link (get-text-property 0 'link desc) id)
+    (emacspeak-webspace-headlines-insert-button id)
     (insert "\n")
     (setq start (point))
-   (insert (gf-topic-description id))
+   (insert desc)
+   (fill-region-as-paragraph  start (point))
+   (setq end (point))
+   (insert "\n")
    (goto-char start)
+   (emacspeak-speak-region start end)
    (emacspeak-auditory-icon 'open-object)))
 
-(defun emacspeak-webspace-freebase-topic (headline)
-  "Insert a button for this headline at point."
+(defun emacspeak-webspace-freebase-topic-insert (id)
+  "Insert a button for this topic at point."
   (insert-text-button
-   headline
-   'type 'emacspeak-webspace-headline
-   'link (get-text-property 0 'link headline )))
+   id
+   'type 'emacspeak-webspace-freebase-topic
+   'link (get-text-property 0 'id id   )))
 
 ;;;###autoload
 (defun emacspeak-webspace-freebase-search (query)
@@ -529,7 +539,7 @@ Optional interactive prefix arg forces a refresh."
        (setq id (second r))
        (put-text-property 0 (length title)
                           'id id title)
-       (emacspeak-webspace-headlines-insert-button title)
+       (emacspeak-webspace-freebase-topic-insert title)
        (insert "\n"))
       (emacspeak-webspace-mode)
       (setq buffer-read-only t)
