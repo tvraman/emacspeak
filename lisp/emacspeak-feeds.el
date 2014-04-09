@@ -206,9 +206,12 @@ Archiving is useful when synchronizing feeds across multiple machines."
         (add-hook
          'emacspeak-web-post-process-hook
          #'(lambda ()
-             (declare (special eww-current-url))
-             (lexical-let ((u feed-url))
-               (setq eww-current-url u))))
+             (declare (special eww-current-url
+                               emacspeak-eww-style))
+             (lexical-let ((u feed-url)
+                           (s style))
+               (setq eww-current-url u)
+               (setq emacspeak-eww-style s))))
         (with-current-buffer buffer
           (emacspeak-webutils-without-xsl
            (goto-char (point-min))
