@@ -92,7 +92,9 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (dtk-speak eww-current-title)))))
-
+(defvar emacspeak-eww-style nil
+  "Record if we applied an  xsl style in this buffer.")
+(make-variable-buffer-local 'emacspeak-eww-style)
 (defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
   "Table storing eww buffer handles hashed by URL.")
 
