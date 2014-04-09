@@ -1644,7 +1644,7 @@ Indicate change of selection with an auditory icon
             (while (re-search-forward caps-regexp nil t)
               (replace-match " cap \\& " t)))
           (buffer-string ))
-    (error ""))))
+      (error ""))))
 
 (defadvice exchange-point-and-mark (after emacspeak pre act comp)
   "Speak the line.

@@ -101,8 +101,6 @@
 ;;}}}
 ;;{{{ setup
 
-
-
 (defcustom emacspeak-w3-create-imenu-index nil
   "Create IMenu index by default."
   :type 'boolean

@@ -97,7 +97,7 @@
   "Table storing eww buffer handles hashed by URL.")
 
 ;;;Check cache if URL already open, otherwise cache.
- 
+
 (defadvice eww (around emacspeak pre act comp)
   "Check cache, if already open, switch to existing buffer.
 Otherwise proceed  and cache the buffer at the end of eww-render."
@@ -109,8 +109,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      (t                                ; proceed 
       ad-do-it))
     ad-return-value))
-      
- 
+
 (loop
  for f in
  '(eww eww-reload eww-open-file)
@@ -397,7 +396,7 @@ for use as a DOM filter."
   "Display DOM filtered by specified attribute=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
-            eww-id-cache eww-class-cache
+                    eww-id-cache eww-class-cache
                     eww-shr-render-functions
                     eww-role-cache eww-cache-updated eww-current-dom))
   (emacspeak-eww-prepare-eww)
@@ -441,7 +440,7 @@ for use as a DOM filter."
   "Display DOM filtered by specified id=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
-            eww-id-cache eww-cache-updated
+                    eww-id-cache eww-cache-updated
                     eww-shr-render-functions eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (unless eww-id-cache (error "No id to filter."))
@@ -494,7 +493,7 @@ for use as a DOM filter."
   "Display DOM filtered by specified el list."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
-            eww-element-cache
+                    eww-element-cache
                     eww-shr-render-functions eww-cache-updated eww-current-dom ))
   (emacspeak-eww-prepare-eww)
   (let ((emacspeak-eww-rename-result-buffer nil)
@@ -566,12 +565,12 @@ for use as a DOM filter."
      (let ((start (point)))
        ad-do-it
        (let ((start (if (char-equal (following-char) ?\n)
-            (min (point-max) (1+ start) )start))
+                        (min (point-max) (1+ start) )start))
              (end (if (> (point) start) (1- (point)) (point))))
-       (put-text-property start end
-        (quote ,tag) t)
-       (when (memq (quote ,tag) '(h1 h2 h3))
-         (put-text-property start end 'h t)))))))
+         (put-text-property start end
+                            (quote ,tag) t)
+         (when (memq (quote ,tag) '(h1 h2 h3))
+           (put-text-property start end 'h t)))))))
 
 ;;}}}
 ;;{{{ Element Navigation:
