@@ -302,8 +302,7 @@ Uses specified corpus for prompting and suggest selection."
   (interactive "sNews Search: ")
   (let ((html (gweb-news-html query)))
     (cond
-     ((null html)
-      (message "No news found."))
+     ((null html) (message "No news found."))
      (t 
       (g-using-scratch
        (insert html)
