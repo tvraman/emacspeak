@@ -481,12 +481,12 @@ Optional interactive prefix arg forces a refresh."
 
 (define-button-type 'emacspeak-webspace-freebase-topic
   'id nil
+  'help-echo ""
   'action #'emacspeak-webspace-freebase-topic-expand )
 
 (defun emacspeak-webspace-freebase-topic-expand (button)
   "Expand topic at point."
   (let* ((inhibit-read-only t)
-         (emacspeak-advice-push-buttons-to-speak nil)
          (start nil)
          (end nil)
          (id (button-get button 'id))

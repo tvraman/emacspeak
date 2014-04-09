@@ -2493,12 +2493,10 @@ Produce auditory icons if possible."
           beg end
           (list 'personality voice-bolden
                 'auditory-icon 'button)))))))
-(defvar emacspeak-advice-push-buttons-to-speak t
-  "Set to nil when custom buttons do their own speaking.")
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (and (ems-interactive-p ) emacspeak-advice-push-buttons-to-speak)
+  (when  (ems-interactive-p ) 
     (emacspeak-auditory-icon 'push-button)
     (emacspeak-speak-line)))
 
