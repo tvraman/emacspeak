@@ -186,30 +186,39 @@ Archiving is useful when synchronizing feeds across multiple machines."
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
-  (let ((buffer (url-retrieve-synchronously feed-url))
-        (coding-system-for-read 'utf-8)
-        (coding-system-for-write 'utf-8)
-        (emacspeak-xslt-options nil))
-    (cond
-     ((null buffer) (message "Nothing to display."))
-     (t
-      (when speak (emacspeak-webutils-autospeak))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (declare (special eww-current-url))
-           (lexical-let ((u feed-url))
-             (setq eww-current-url u))))
-      (with-current-buffer buffer
-        (emacspeak-webutils-without-xsl
-         (goto-char (point-min))
-         (search-forward "\n\n")
-         (delete-region (point-min) (point))
-         (decode-coding-region (point-min) (point-max) 'utf-8)
-         (emacspeak-xslt-region
-          style (point-min) (point-max)
-          (list (cons "base" (format "\"'%s'\"" feed-url)))))
-        (browse-url-of-buffer))))))
+  (declare (special emacspeak-eww-buffer-hash))
+  (cond
+   ((and (boundp 'emacspeak-eww-buffer-hash) emacspeak-eww-buffer-hash
+         (gethash   feed-url emacspeak-eww-buffer-hash))
+    (buffer-live-p (gethash   feed-url emacspeak-eww-buffer-hash))
+    (switch-to-buffer (gethash feed-url emacspeak-eww-buffer-hash))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line))
+   (t
+    (let ((buffer (url-retrieve-synchronously feed-url))
+          (coding-system-for-read 'utf-8)
+          (coding-system-for-write 'utf-8)
+          (emacspeak-xslt-options nil))
+      (cond
+       ((null buffer) (message "Nothing to display."))
+       (t
+        (when speak (emacspeak-webutils-autospeak))
+        (add-hook
+         'emacspeak-web-post-process-hook
+         #'(lambda ()
+             (declare (special eww-current-url))
+             (lexical-let ((u feed-url))
+               (setq eww-current-url u))))
+        (with-current-buffer buffer
+          (emacspeak-webutils-without-xsl
+           (goto-char (point-min))
+           (search-forward "\n\n")
+           (delete-region (point-min) (point))
+           (decode-coding-region (point-min) (point-max) 'utf-8)
+           (emacspeak-xslt-region
+            style (point-min) (point-max)
+            (list (cons "base" (format "\"'%s'\"" feed-url)))))
+          (browse-url-of-buffer))))))))
 
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url )
