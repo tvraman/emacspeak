@@ -479,7 +479,6 @@ Optional interactive prefix arg forces a refresh."
 ;;}}}
 ;;{{{ Freebase:
 
-
 (define-button-type 'emacspeak-webspace-freebase-topic
   'id nil
   'action #'emacspeak-webspace-freebase-topic-expand )
@@ -487,10 +486,10 @@ Optional interactive prefix arg forces a refresh."
 (defun emacspeak-webspace-freebase-topic-expand (button)
   "Expand topic at point."
   (let* ((inhibit-read-only t)
-        (start nil)
-        (end nil)
-        (id (button-get button 'id))
-        (desc (gf-topic-description id)))
+         (start nil)
+         (end nil)
+         (id (button-get button 'id))
+         (desc (gf-topic-description id)))
     (goto-char (button-end button))
     (insert "\n")
     (put-text-property 0 (length id)
@@ -498,13 +497,13 @@ Optional interactive prefix arg forces a refresh."
     (emacspeak-webspace-headlines-insert-button id)
     (insert "\n")
     (setq start (point))
-   (insert desc)
-   (setq end (point))
-   (fill-region  start end)
-   (insert "\n")
-   (goto-char start)
-   (emacspeak-speak-region start end)
-   (emacspeak-auditory-icon 'open-object)))
+    (insert desc)
+    (setq end (point))
+    (fill-region  start end)
+    (insert "\n")
+    (goto-char start)
+    (emacspeak-speak-region start end)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-webspace-freebase-topic-insert (id)
   "Insert a button for this topic at point."
