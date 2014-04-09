@@ -502,7 +502,6 @@ Optional interactive prefix arg forces a refresh."
     (fill-region  start end)
     (insert "\n")
     (goto-char start)
-    (emacspeak-speak-region start end)
     (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-webspace-freebase-topic-insert (id)
