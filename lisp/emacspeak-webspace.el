@@ -483,13 +483,13 @@ Optional interactive prefix arg forces a refresh."
   "Perform a Freebase search and display results."
   (interactive
    (list
-     (read-from-minibuffer "Freebase Query: ")))
+    (read-from-minibuffer "Freebase Query: ")))
   (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
         (start nil)
         (results (gf-search-results (emacspeak-url-encode query)))
         (inhibit-read-only t)
         (title nil)
-        (desc nil))
+        (id nil))
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
@@ -501,13 +501,11 @@ Optional interactive prefix arg forces a refresh."
        do
        (insert (format "%d.\t" i))
        (setq title (first r))
-       (setq desc (second r))
+       (setq id (second r))
        (put-text-property 0 (length title)
-                          'link (get-text-property 0 'link desc) title)
+                          'id id title)
        (emacspeak-webspace-headlines-insert-button title)
-       (setq start (point))
-       (insert (format "%s\n" desc))
-       (fill-region start (point)))
+       (insert "\n"))
       (emacspeak-webspace-mode)
       (setq buffer-read-only t)
       (goto-char (point-min)))
