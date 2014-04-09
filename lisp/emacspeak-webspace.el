@@ -486,6 +486,7 @@ Optional interactive prefix arg forces a refresh."
 (defun emacspeak-webspace-freebase-topic-expand (button)
   "Expand topic at point."
   (let* ((inhibit-read-only t)
+         (emacspeak-advice-push-buttons-to-speak nil)
          (start nil)
          (end nil)
          (id (button-get button 'id))
@@ -500,6 +501,7 @@ Optional interactive prefix arg forces a refresh."
     (insert desc)
     (setq end (point))
     (fill-region  start end)
+    (emacspeak-speak-region start end)
     (insert "\n")
     (goto-char start)
     (emacspeak-auditory-icon 'open-object)))
