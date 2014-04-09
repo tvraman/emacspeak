@@ -95,6 +95,9 @@
 (defvar emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
 (make-variable-buffer-local 'emacspeak-eww-style)
+(defvar emacspeak-eww-feed nil
+  "Record if this eww buffer is displaying a feed.")
+(make-variable-buffer-local 'emacspeak-eww-feed)
 (defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
   "Table storing eww buffer handles hashed by URL.")
 
@@ -114,11 +117,11 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers."
   (cond
-   ((and eww-current-url emacspeak-eww-style)
-    (emacspeak-webutils-with-xsl-environment
-     emacspeak-eww-style
-     nil
-     (eww-browse-url eww-current-url)))
+   ((and eww-current-url
+         emacspeak-eww-feed
+         emacspeak-eww-style) ; this is a    
+displayed feed
+    (emacspeak-feeds-feed-display eww-current-url emacspeak-eww-style))
    (t ad-do-it)))
 (loop
  for f in
