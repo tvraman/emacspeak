@@ -111,7 +111,15 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      (t                                ; proceed 
       ad-do-it))
     ad-return-value))
-
+(defadvice eww-reload (around emacspeak pre act comp)
+  "Check buffer local settings for feed buffers."
+  (cond
+   ((and eww-current-url emacspeak-eww-style)
+    (emacspeak-webutils-with-xsl-environment
+     emacspeak-eww-style
+     nil
+     (eww-browse-url eww-current-url)))
+   (t ad-do-it)))
 (loop
  for f in
  '(eww eww-reload eww-open-file)
