@@ -119,10 +119,14 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   (cond
    ((and eww-current-url
          emacspeak-eww-feed
-         emacspeak-eww-style) ; this is a    
-displayed feed
-    (emacspeak-feeds-feed-display eww-current-url emacspeak-eww-style))
+         emacspeak-eww-style)
+                                        ; this is a displayed feed
+    (let ((u eww-current-url )
+          (s emacspeak-eww-style))
+      (kill-buffer)
+      (emacspeak-feeds-feed-display u s 'speak)))
    (t ad-do-it)))
+
 (loop
  for f in
  '(eww eww-reload eww-open-file)
