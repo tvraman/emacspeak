@@ -70,7 +70,7 @@
 ;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html
 
 (defvar gmaps-geocoder-base
-  "http://maps.google.com/maps/api/geocode/json?"
+  "https://maps.google.com/maps/api/geocode/json?"
   "Base URL  end-point for talking to the Google Maps Geocoding service.")
 
 (defsubst gmaps-geocoder-url (address)
@@ -150,7 +150,7 @@ Optional argument `raw-p' returns raw JSON  object."
 
 ;;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-directions-base
-  "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
+  "https://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
   "Base URL  end-point for talking to the Google Maps directions service.")
 
 (defsubst gmaps-directions-url (origin destination mode)
