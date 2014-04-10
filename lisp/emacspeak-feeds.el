@@ -188,7 +188,9 @@ Archiving is useful when synchronizing feeds across multiple machines."
   "Fetch feed via Emacs and display using xsltproc."
   (declare (special emacspeak-eww-buffer-hash))
   (cond
-   ((and (boundp 'emacspeak-eww-buffer-hash) emacspeak-eww-buffer-hash
+   ((and (eq browse-url-browser-function 'eww-browse-url)
+         (boundp 'emacspeak-eww-buffer-hash)
+         emacspeak-eww-buffer-hash
          (gethash   feed-url emacspeak-eww-buffer-hash)
          (buffer-live-p (gethash   feed-url emacspeak-eww-buffer-hash)))
     (switch-to-buffer (gethash feed-url emacspeak-eww-buffer-hash))
@@ -213,7 +215,8 @@ Archiving is useful when synchronizing feeds across multiple machines."
                            (s style))
                (setq eww-current-url u
                      emacspeak-eww-feed t 
-                emacspeak-eww-style s))))
+                emacspeak-eww-style s)
+               (eww-update-header-line-format))))
         (with-current-buffer buffer
           (emacspeak-webutils-without-xsl
            (goto-char (point-min))
