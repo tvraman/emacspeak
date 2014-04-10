@@ -215,8 +215,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
                            (s style))
                (setq eww-current-url u
                      emacspeak-eww-feed t 
-                emacspeak-eww-style s)
-               (eww-update-header-line-format))))
+                     emacspeak-eww-style s))))
         (with-current-buffer buffer
           (emacspeak-webutils-without-xsl
            (goto-char (point-min))
