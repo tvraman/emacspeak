@@ -114,7 +114,6 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      (t                                ; proceed
       (emacspeak-webutils-autospeak)
       ad-do-it))
-    (eww-update-header-line-format)
     ad-return-value))
 
 (defadvice eww-reload (around emacspeak pre act comp)
@@ -152,7 +151,8 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   (emacspeak-webutils-run-post-process-hook)
   (when emacspeak-eww-rename-result-buffer
     (rename-buffer eww-current-title 'unique))
-  (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash))
+  (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
+  (eww-update-header-line-format))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
