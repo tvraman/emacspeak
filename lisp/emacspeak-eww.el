@@ -111,9 +111,12 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
     (cond
      ((and handle (buffer-live-p handle))
       (switch-to-buffer handle))
-     (t                                ; proceed 
+     (t                                ; proceed
+      (emacspeak-webutils-autospeak)
       ad-do-it))
+    (eww-update-header-line-format)
     ad-return-value))
+
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers."
   (cond
@@ -136,8 +139,8 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      "Provide auditory feedback"
      (setq eww-cache-updated nil)
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
-       (emacspeak-webutils-autospeak)))))
+       (emacspeak-auditory-icon 'open-object)))))
+
 (defvar emacspeak-eww-rename-result-buffer t
   "Result buffer is renamed to document title.")
 
@@ -227,7 +230,6 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
   (when (ems-interactive-p)
-    (emacspeak-webutils-autospeak)
     (emacspeak-auditory-icon 'button))
   (cond
    ((and (ems-interactive-p)

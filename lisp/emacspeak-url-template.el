@@ -349,7 +349,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "http://www.bbc.co.uk/podcasts.opml"
  nil nil
  "BBC PodCast Directory"
- 'emacspeak-feeds-opml-display)
+ #'emacspeak-feeds-opml-display)
 
 (emacspeak-url-template-define
  "Mobile BBC"
@@ -546,7 +546,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (setq emacspeak-we-url-executor
            'emacspeak-m-player-youtube-player))
  "YouTube Search Via Feeds"
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
  "Recent YouTube Results"
@@ -557,7 +557,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (setq emacspeak-we-url-executor
            'emacspeak-m-player-youtube-player))
  "YouTube Search Via Feeds"
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 ;;}}}
 ;;{{{ Google Reader:
@@ -568,7 +568,7 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  (list 'emacspeak-webutils-read-this-url )
  nil
  "Google Reader"
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 ;;}}}
 ;;{{{ google finance
@@ -698,14 +698,15 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
+
 (emacspeak-url-template-define
  "Recent BlogSearch Google"
  "http://www.google.com/search?q=%s&hl=en&tbm=blg&scoring=d&output=atom"
  (list "Google Blog Search: ")
  nil
  "Google Blog Search"
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 ;;}}}
 ;;{{{ google translation service
@@ -856,7 +857,7 @@ from English to German.")
  (list 'gweb-news-autocomplete)
  'emacspeak-url-template-setup-content-filter
  "Search Google news."
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
  "Google Recent News Search"
@@ -864,8 +865,7 @@ from English to German.")
  (list "Search news for: ")
  nil
  "Search Google news."
- #'(lambda (url)
-     (emacspeak-feeds-atom-display url )))
+ #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
  "Google Mobile Search"
@@ -897,7 +897,7 @@ from English to German.")
  (list "Topic Code: ")
  nil
  "Display specified news feed."
- 'emacspeak-feeds-atom-display)
+ #'emacspeak-feeds-atom-display)
 
 (emacspeak-url-template-define
  "Google Feeds"
@@ -930,7 +930,7 @@ from English to German.")
  (list "ITunes URL: ")
  nil
  "Pull RSS  feed corresponding to an ITunes Podcast."
- 'emacspeak-feeds-rss-display)
+ #'emacspeak-feeds-rss-display)
 
 ;;}}}
 ;;{{{  cnet news
@@ -941,7 +941,7 @@ from English to German.")
  nil
  'emacspeak-url-template-setup-content-filter
  "Display tech news from CNET"
- 'emacspeak-feeds-rss-display)
+ #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "PodCast CNet"
@@ -1483,8 +1483,7 @@ Set up URL rewrite rule to get print page."
                             emacspeak-url-template-weather-city-state)))
  nil
  "Pull RSS weather feed for specified state/city."
- #'(lambda (url)
-     (emacspeak-feeds-rss-display url)))
+ #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "Weather forecast from Weather Underground"
@@ -1621,7 +1620,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  (list "Bing Search: ")
  nil
  "Bing results as RSS feed."
- 'emacspeak-feeds-rss-display)
+ #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "Bing News"
@@ -1629,7 +1628,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  (list "Bing Search: ")
  nil
  "Bing News results as RSS feed."
- 'emacspeak-feeds-rss-display)
+ #'emacspeak-feeds-rss-display)
 
 ;;}}}
 ;;{{{ GitHub Search
