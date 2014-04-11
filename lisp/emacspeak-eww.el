@@ -274,6 +274,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
                                         ; remove "o" from eww-link-keymap
   (when (assoc  ?o eww-link-keymap)
     (delete (assoc ?o eww-link-keymap) eww-link-keymap))
+  (define-key eww-link-keymap  "k" 'shr-copy-url)
   (loop
    for binding  in
    '(
@@ -308,6 +309,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      ("b" shr-previous-link)
      ("e" emacspeak-we-xsl-map)
      ("f" shr-next-link)
+     ("k" eww-copy-page-url)
      ("n" emacspeak-eww-next-element)
      ("o" emacspeak-eww-next-li)
      ("p" emacspeak-eww-previous-element)
