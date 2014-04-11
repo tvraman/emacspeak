@@ -838,20 +838,19 @@ Optional  prefix arg clears any active filters."
   (unless  (get-text-property  (point) 'maps-data)
     (error "No maps data at point."))
   (let* ((start nil)
-        (inhibit-read-only t)
-        (place-ref
-         (g-json-get 'reference (get-text-property (point)'maps-data )))
-        (result
-         (and place-ref
-              (g-json-get-result
-               (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                       g-curl-program g-curl-common-options
-                       (format "%s&%s&%s"
-                               (gmaps-places-url-base "details" gmaps-places-key)
-                               (format "reference=%s" place-ref)
-                               "extensions=review_summary"))))))
+         (inhibit-read-only t)
+         (place-ref
+          (g-json-get 'reference (get-text-property (point)'maps-data )))
+         (result
+          (and place-ref
+               (g-json-get-result
+                (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                        g-curl-program g-curl-common-options
+                        (format "%s&%s"
+                                (gmaps-places-url-base "details" gmaps-places-key)
+                                (format "reference=%s" place-ref)))))))
     (cond
-                                                                     ((string= "OK" (g-json-get 'status result))
+     ((string= "OK" (g-json-get 'status result))
       (put-text-property (line-beginning-position) (line-end-position)
                          'place-details t)
       (gmaps-display-place-details (g-json-get 'result result)))
