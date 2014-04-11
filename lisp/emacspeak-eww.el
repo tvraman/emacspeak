@@ -266,7 +266,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   (declare (special eww-mode-map eww-link-keymap
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-  emacspeak-pronounce-load-pronunciations-on-startup)
+  emacspeak-pronounce-load-pronunciations-on-startup))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
@@ -563,16 +563,10 @@ for use as a DOM filter."
   "Dont load images if asked to silence them."
   (unless emacspeak-eww-silence-images ad-do-it))
 
-
-  
-  
-        (when (zerop (length alt))
-	  (setq alt "*"))
-    (let ((alt (cdr (assq :alt cont)))
-	  (url (shr-expand-url (or url (cdr (assq :src cont))))))
-      (let ((start (point-marker)))
+	  
+      
 	
-	  (url (shr-expand-url (or url (cdr (assq :src cont))))))
+	  
 ;;}}}
 ;;{{{ xslt transform on request:
 
