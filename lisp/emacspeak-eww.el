@@ -264,8 +264,9 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
-                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
-  emacspeak-pronounce-load-pronunciations-on-startup
+                    shr-inhibit-images
+                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+  emacspeak-pronounce-load-pronunciations-on-startup)
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
@@ -273,6 +274,8 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
+  ;;; turn off images 
+(setq shr-inhibit-images t)
                                         ; remove "o" from eww-link-keymap
   (when (assoc  ?o eww-link-keymap)
     (delete (assoc ?o eww-link-keymap) eww-link-keymap))
@@ -559,6 +562,17 @@ for use as a DOM filter."
 (defadvice eww-display-image (around emacspeak pre act comp)
   "Dont load images if asked to silence them."
   (unless emacspeak-eww-silence-images ad-do-it))
+
+
+  
+  
+        (when (zerop (length alt))
+	  (setq alt "*"))
+    (let ((alt (cdr (assq :alt cont)))
+	  (url (shr-expand-url (or url (cdr (assq :src cont))))))
+      (let ((start (point-marker)))
+	
+	  (url (shr-expand-url (or url (cdr (assq :src cont))))))
 ;;}}}
 ;;{{{ xslt transform on request:
 
