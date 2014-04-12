@@ -137,6 +137,7 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
      (setq eww-cache-updated nil)
+     (emacspeak-pronounce-toggle-use-of-dictionaries t)
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
@@ -275,7 +276,6 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
-  (emacspeak-pronounce-toggle-use-of-dictionaries t)
   ;;; turn off images 
 (setq shr-inhibit-images t)
                                         ; remove "o" from eww-link-keymap
