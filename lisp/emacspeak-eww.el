@@ -152,7 +152,8 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   (when emacspeak-eww-rename-result-buffer
     (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
-  (eww-update-header-line-format))
+  (when (eq major-mode 'eww-mode)
+  (eww-update-header-line-format)))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
