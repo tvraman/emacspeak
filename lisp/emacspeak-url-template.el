@@ -854,7 +854,7 @@ from English to German.")
 (emacspeak-url-template-define
  "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
- (list 'gweb-news-autocomplete)
+ (list "Google News: ")
  'emacspeak-url-template-setup-content-filter
  "Search Google news."
  #'emacspeak-feeds-atom-display)
