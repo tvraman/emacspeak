@@ -829,33 +829,73 @@ Optional  prefix arg clears any active filters."
                        'maps-data place)))
 
 (defun gmaps-place-details ()
-  "Display details for place at point."
+  "Display details for place at point.
+Insert reviews if already displaying details."
   (interactive)
   (declare (special g-curl-program g-curl-common-options
                     gmaps-places-key))
-  (unless (eq major-mode 'gmaps-mode)
-    (error "Not in a Google Maps buffer."))
-  (unless  (get-text-property  (point) 'maps-data)
+  (unless (eq major-mode 'gmaps-mode) (error "Not in a Google Maps buffer."))
+  (unless
+      (or (get-text-property  (point) 'maps-data)
+          (get-text-property (point) 'place-details))
     (error "No maps data at point."))
-  (let* ((start nil)
-         (inhibit-read-only t)
-         (place-ref
-          (g-json-get 'reference (get-text-property (point)'maps-data )))
-         (result
-          (and place-ref
-               (g-json-get-result
-                (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                        g-curl-program g-curl-common-options
-                        (format "%s&%s"
-                                (gmaps-places-url-base "details" gmaps-places-key)
-                                (format "reference=%s" place-ref)))))))
-    (cond
-     ((string= "OK" (g-json-get 'status result))
-      (put-text-property (line-beginning-position) (line-end-position)
-                         'place-details t)
-      (gmaps-display-place-details (g-json-get 'result result)))
-     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+  (cond
+   ((get-text-property (point) 'place-details)
+    (gmaps-place-reviews))
+   (t
+    (let* ((start nil)
+           (inhibit-read-only t)
+           (place-ref
+            (g-json-get 'reference (get-text-property (point)'maps-data )))
+           (result
+            (and place-ref
+                 (g-json-get-result
+                  (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
+                          g-curl-program g-curl-common-options
+                          (format "%s&%s"
+                                  (gmaps-places-url-base "details" gmaps-places-key)
+                                  (format "reference=%s" place-ref)))))))
+      (cond
+       ((string= "OK" (g-json-get 'status result))
+        (put-text-property (line-beginning-position) (line-end-position)
+                           'place-details t)
+        (gmaps-display-place-details (g-json-get 'result result)))
+       (t (error "Status %s from Maps" (g-json-get 'status result))))))))
 
+(defun gmaps-place-reviews ()
+  "Display reviews for place at point.
+Place details need to have been expanded first."
+  (interactive)
+  (let ((inhibit-read-only t)
+        (start (point))
+        (details (get-text-property (point) 'place-details))
+        (reviews nil))
+    (unless  details (error  "No place details here."))
+    (setq reviews (g-json-get 'reviews details))
+    (unless reviews (error "No reviews for this place."))
+    (goto-char (next-single-property-change (point)  'place-details))
+    (setq start (point))
+    (insert
+     (with-temp-buffer
+       (insert "<ol>")
+       (loop
+        for r across reviews
+        do
+        (insert
+         (format "<li><a href='%s'>%s %s</a> [%s] %s</li>\n"
+                 (g-json-get 'author_url r)
+                 (g-json-get 'author_name r)
+                 (format-time-string "%m/%d/%y"
+                                     (seconds-to-time (g-json-get 'time r)))
+                 (g-json-get 'rating r)
+                 (g-json-get 'text r))))
+       (insert "</ol>")
+       (g-html-string  (buffer-string))))
+    (set-mark (point))
+    (emacspeak-auditory-icon 'task-done)
+    (goto-char start)
+    (message (format "Inserted %d reviews"  (length reviews)))))
+    
 ;;}}}
 (provide 'gmaps)
 ;;{{{ end of file
