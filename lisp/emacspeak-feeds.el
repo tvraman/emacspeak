@@ -195,7 +195,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
          (buffer-live-p (gethash   feed-url emacspeak-eww-buffer-hash)))
     (switch-to-buffer (gethash feed-url emacspeak-eww-buffer-hash))
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line))
+    (emacspeak-speak-rest-of-buffer))
    (t
     (let ((buffer (url-retrieve-synchronously feed-url))
           (coding-system-for-read 'utf-8)
