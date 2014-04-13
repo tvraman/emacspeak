@@ -278,9 +278,14 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
   ;;; turn off images 
 (setq shr-inhibit-images t)
-                                        ; remove "o" from eww-link-keymap
-  (when (assoc  ?o eww-link-keymap)
-    (delete (assoc ?o eww-link-keymap) eww-link-keymap))
+                                        ; remove "I" "o" from
+                                        ; eww-link-keymap
+(loop
+ for c in
+ '(?I ?o)
+ do
+ (when (assoc  c eww-link-keymap)
+   (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (loop
    for binding  in
