@@ -520,6 +520,33 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
+(defun eww-view-filtered-dom-by-role ()
+  "Display DOM filtered by specified role=value test."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-role-cache eww-cache-updated
+                    eww-shr-render-functions eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-role-cache (error "No role to filter."))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value
+        (completing-read "Value: " eww-role-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'role value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
 (defun eww-view-filtered-dom-by-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
