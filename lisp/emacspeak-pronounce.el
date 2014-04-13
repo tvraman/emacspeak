@@ -518,21 +518,24 @@ explicitly turn pronunciations on or off."
     (make-local-variable 'emacspeak-pronounce-pronunciation-table)
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
-    (emacspeak-auditory-icon 'on)
-    (message "Emacspeak pronunciation dictionaries are now active in this buffer"))
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'on)
+    (message "Emacspeak pronunciation dictionaries are now active in this buffer")))
    ((or (eq state 'off)
                                         ;already on --turn it off
         emacspeak-pronounce-pronunciation-table )
     (setq emacspeak-pronounce-pronunciation-table nil)
+    (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
     (message
-     "Emacspeak pronunciation dictionaries no longer active in this buffer"))
+     "Emacspeak pronunciation dictionaries no longer active in this buffer")))
    (t ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
+    (when (ems-interactive-p)
     (message
      "Emacspeak pronunciations have been re-activated in this buffer")
-    (emacspeak-auditory-icon 'on))))
+    (emacspeak-auditory-icon 'on)))))
 ;;;###autoload
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer.
