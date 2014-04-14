@@ -81,7 +81,6 @@
 (defun emacspeak-url-template-url (ut)
   "Instantiate URL identified by URL template."
   (declare (special emacspeak-url-template-current-ut))
-  (setq emacspeak-url-template-current-ut nil)
   (let ((url 
          (apply 'format
                 ( emacspeak-url-template-template ut)
@@ -97,8 +96,12 @@
                               (t (funcall g))))
                        input))
                  (emacspeak-url-template-generators ut)))))
-    (setq emacspeak-url-template-current-ut
-          (list (emacspeak-url-template-name ut)))
+    (add-hook
+     'emacspeak-webutils-run-post-process-hook
+     #'(lambda ()
+         (lexical-let
+             ((name (list (emacspeak-url-template-name ut))))
+           (setq emacspeak-url-template-current-ut name))))
     url))
 
 ;;}}}
