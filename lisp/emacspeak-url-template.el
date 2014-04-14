@@ -1651,13 +1651,12 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
   (declare (special  emacspeak-web-post-process-hook
                      emacspeak-eww-url-template))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
-        (url (emacspeak-url-template-url ut)))
+        (url (emacspeak-url-template-url ut))
+        (action (emacspeak-url-template-post-action ut)))
     (when
-        (and (emacspeak-url-template-post-action ut)
-             (or (emacspeak-url-template-fetcher ut)
-                 (emacspeak-webutils-supported-p)))
-      (add-hook 'emacspeak-web-post-process-hook
-                (emacspeak-url-template-post-action ut)))
+        (and action
+             (or fetcher  (emacspeak-webutils-supported-p)))
+      (add-hook 'emacspeak-web-post-process-hook action))
     (kill-new url)
     (funcall fetcher   url)))
 
