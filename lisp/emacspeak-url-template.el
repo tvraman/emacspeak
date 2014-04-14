@@ -1670,9 +1670,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
   (emacspeak-speak-help)
   (emacspeak-auditory-icon 'help))
 
-(defvar emacspeak-url-template-current-ut nil
-  "Records name and args of URL template we're executing.")
-
 ;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
@@ -1681,7 +1678,6 @@ Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
-  (declare (special emacspeak-url-template-current-ut emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (name  nil))
@@ -1693,6 +1689,10 @@ Optional interactive prefix arg displays documentation for specified resource."
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (setq emacspeak-eww-url-template name)))
       (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
