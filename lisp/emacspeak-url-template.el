@@ -80,7 +80,7 @@
 
 (defun emacspeak-url-template-url (ut)
   "Instantiate URL identified by URL template."
-  (declare (special emacspeak-url-template-current-ut))
+  
   (let ((url 
          (apply 'format
                 ( emacspeak-url-template-template ut)
@@ -96,14 +96,6 @@
                               (t (funcall g))))
                        input))
                  (emacspeak-url-template-generators ut)))))
-    (add-hook
-     'emacspeak-webutils-run-post-process-hook
-     #'(lambda ()
-         (lexical-let
-             ((name (list (emacspeak-url-template-name ut))))
-           (setq emacspeak-url-template-current-ut name)
-           (when (eq major-mode  'eww-mode)
-             (setq emacspeak-eww-url-template  name)))))
     url))
 
 ;;}}}
@@ -1657,11 +1649,19 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut))
-        (using-eww-p (eq browse-url-browser-function 'eww-browse-url)))
+        (name (emacspeak-url-template-name ut)))
     (when
         (and action
              (or fetcher  (emacspeak-webutils-supported-p)))
-      (add-hook 'emacspeak-web-post-process-hook action))
+      (add-hook 'emacspeak-web-post-process-hook action)
+      (add-hook
+       'emacspeak-webutils-run-post-process-hook
+       #'(lambda ()
+           (declare (special emacspeak-url-template-current-ut
+                             emacspeak-eww-url-template))
+           (lexical-let ((n name))
+             (setq emacspeak-url-template-current-ut n
+                   emacspeak-eww-url-template  n)))))
     (kill-new url)
     (funcall fetcher   url)))
 
@@ -1692,8 +1692,7 @@ Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
-  (declare (special emacspeak-url-template-current-ut
-                    emacspeak-speak-messages))
+  (declare (special emacspeak-url-template-current-ut emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (name  nil))
@@ -1705,8 +1704,7 @@ Optional interactive prefix arg displays documentation for specified resource."
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t
-      (emacspeak-url-template-open
-       (emacspeak-url-template-get name))))))
+      (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
   "Display documentation for  a URL template.
