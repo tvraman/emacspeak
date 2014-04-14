@@ -101,7 +101,9 @@
      #'(lambda ()
          (lexical-let
              ((name (list (emacspeak-url-template-name ut))))
-           (setq emacspeak-url-template-current-ut name))))
+           (setq emacspeak-url-template-current-ut name)
+           (when (eq major-mode  'eww-mode)
+             (setq emacspeak-eww-url-template  name)))))
     url))
 
 ;;}}}
@@ -1651,11 +1653,11 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special  emacspeak-web-post-process-hook
-                     emacspeak-eww-url-template))
+  (declare (special  emacspeak-web-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
-        (action (emacspeak-url-template-post-action ut)))
+        (action (emacspeak-url-template-post-action ut))
+        (using-eww-p (eq browse-url-browser-function 'eww-browse-url)))
     (when
         (and action
              (or fetcher  (emacspeak-webutils-supported-p)))
