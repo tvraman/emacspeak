@@ -98,6 +98,12 @@
 (defvar emacspeak-eww-feed nil
   "Record if this eww buffer is displaying a feed.")
 (make-variable-buffer-local 'emacspeak-eww-feed)
+
+
+(defvar emacspeak-eww-url-template nil
+  "Record if this eww buffer is displaying a url-template.")
+(make-variable-buffer-local 'emacspeak-eww-url-template)
+
 (defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
   "Table storing eww buffer handles hashed by URL.")
 
