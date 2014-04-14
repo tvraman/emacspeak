@@ -1659,9 +1659,8 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
        #'(lambda ()
            (declare (special emacspeak-url-template-current-ut
                              emacspeak-eww-url-template))
-           (lexical-let ((n name))
-             (setq emacspeak-url-template-current-ut n
-                   emacspeak-eww-url-template  n)))))
+           (setq emacspeak-url-template-current-ut name
+                 emacspeak-eww-url-template  name))))
     (kill-new url)
     (funcall fetcher   url)))
 
