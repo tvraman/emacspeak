@@ -1648,28 +1648,16 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special  emacspeak-web-post-process-hook))
-  (let ((fetcher (or (emacspeak-url-template-fetcher ut)
-                     'browse-url))
+  (declare (special  emacspeak-web-post-process-hook
+                     emacspeak-eww-url-template))
+  (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut)))
-    (when (and (emacspeak-url-template-post-action ut)
-               (or (emacspeak-url-template-fetcher ut)
-                   (emacspeak-webutils-supported-p)))
+    (when
+        (and (emacspeak-url-template-post-action ut)
+             (or (emacspeak-url-template-fetcher ut)
+                 (emacspeak-webutils-supported-p)))
       (add-hook 'emacspeak-web-post-process-hook
-                (emacspeak-url-template-post-action ut))
-      (add-hook 'emacspeak-web-post-process-hook
-                #'(lambda ()
-                    (declare (special emacspeak-web-post-process-hook
-                                      emacspeak-url-template-current-ut))
-                    (rename-buffer
-                     (downcase
-                      (mapconcat #'identity
-                                 (or
-                                  emacspeak-url-template-current-ut
-                                  (list "Untitled"))
-                                 ": "))
-                     'unique)
-                    (setq emacspeak-web-post-process-hook nil))))
+                (emacspeak-url-template-post-action ut)))
     (kill-new url)
     (funcall fetcher   url)))
 
