@@ -139,7 +139,7 @@ If we came from a url-template, reload that template."
                                         ; this is a url template
     (let ((n emacspeak-eww-url-template))
       (kill-buffer)
-      (emacspeak-url-template-fetch (emacspeak-url-template-get  n))))
+      (emacspeak-url-template-open (emacspeak-url-template-get  n))))
    (t ad-do-it)
    (t ad-do-it)))
 
