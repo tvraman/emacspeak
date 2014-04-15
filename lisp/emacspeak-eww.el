@@ -1,7 +1,7 @@
 ;;{{{ Google Search  fixes:
 (loop
  for f in 
- '(url-retrieve-internal eww url-truncate-url-for-viewing)
+ '(url-retrieve-internal  url-truncate-url-for-viewing eww)
  do
  (eval
   `(defadvice ,f (before cleanup-url  pre act comp)
@@ -12,6 +12,12 @@
               (string-prefix-p (emacspeak-google-result-url-prefix) u))
          (ad-set-arg 0 (emacspeak-google-canonicalize-result-url u))))))))
 
+(defadvice shr-copy-url (around emacspeak pre act comp)
+  "Canonicalize Google URLs"
+  ad-do-it
+  (when (ems-interactive-p)
+    (emacspeak-google-canonicalize-result-url ad-return-value)))
+    
 
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
