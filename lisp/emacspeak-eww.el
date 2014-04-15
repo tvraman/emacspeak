@@ -16,9 +16,11 @@
   "Canonicalize Google URLs"
   ad-do-it
   (when (ems-interactive-p)
-    (kill-new
-     (emacspeak-google-canonicalize-result-url (car kill-ring)))))
-
+    (let ((u (car kill-ring)))
+      (when
+          (and u (stringp u)
+               (string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
+        (kill-new  (emacspeak-w3-canonicalize-google-result-url u))))))
 
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
