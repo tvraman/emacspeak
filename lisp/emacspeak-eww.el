@@ -1,6 +1,6 @@
 ;;{{{ Google Search  fixes:
 (loop
- for f in 
+ for f in
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
  do
  (eval
@@ -16,9 +16,9 @@
   "Canonicalize Google URLs"
   ad-do-it
   (when (ems-interactive-p)
-    (setq ad-return-value
-          (emacspeak-google-canonicalize-result-url ad-return-value))))
-    
+    (kill-new
+     (emacspeak-google-canonicalize-result-url (car kill-ring)))))
+
 
 ;;}}}
 ;;{{{ Fix url breakage in emacs 24 GIT:
@@ -30,7 +30,7 @@
 (defsubst emacspeak-w3-canonicalize-google-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
-  (url-unhex-string 
+  (url-unhex-string
    (substring url
               (if emacspeak-websearch-google-use-https 29 28)
               (string-match "&sa=" url))))
@@ -44,7 +44,6 @@
 (defadvice w3-image-loadable-p (around dont pre act comp)
   "I dont want any images here."
   nil)
-
 
 ;;; emacspeak-eww.el --- Speech-enable EWW
 ;;; $Id: emacspeak-eww.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
@@ -363,7 +362,7 @@ If we came from a url-template, reload that template."
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
-  ;;; turn off images 
+  ;;; turn off images
   (setq shr-inhibit-images t)
                                         ; remove "I" "o" from
                                         ; eww-link-keymap
