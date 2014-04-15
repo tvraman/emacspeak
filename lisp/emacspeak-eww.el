@@ -111,7 +111,7 @@
 
 (defadvice eww (around emacspeak pre act comp)
   "Check cache, if already open, switch to existing buffer.
-Otherwise proceed  and cache the buffer at the end of eww-render."
+Otherwise proceed  and cache the buffer at the end of eww-render. "
   (let* ((this-url (ad-get-arg 1))
          (handle  (gethash  this-url emacspeak-eww-buffer-hash)))
     (cond
@@ -123,7 +123,9 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
     ad-return-value))
 
 (defadvice eww-reload (around emacspeak pre act comp)
-  "Check buffer local settings for feed buffers."
+  "Check buffer local settings for feed buffers.
+If buffer was result of displaying a feed, reload feed.
+If we came from a url-template, reload that template."
   (cond
    ((and eww-current-url
          emacspeak-eww-feed
@@ -133,6 +135,12 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
           (s emacspeak-eww-style))
       (kill-buffer)
       (emacspeak-feeds-feed-display u s 'speak)))
+   ((and eww-current-url emacspeak-eww-url-template)
+                                        ; this is a url template
+    (let ((n emacspeak-eww-url-template))
+      (kill-buffer)
+      (emacspeak-url-template-fetch (emacspeak-url-template-get  n))))
+   (t ad-do-it)
    (t ad-do-it)))
 
 (loop
@@ -151,7 +159,9 @@ Otherwise proceed  and cache the buffer at the end of eww-render."
   "Result buffer is renamed to document title.")
 
 (defadvice eww-render (after emacspeak pre act comp)
-  "Setup Emacspeak for rendered buffer."
+  "Setup Emacspeak for rendered buffer.
+If buffer was result of displaying a feed, reload feed.
+If we came from a url-template, reload that template."
   (declare (special eww-cache-updated emacspeak-eww-buffer-hash))
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
