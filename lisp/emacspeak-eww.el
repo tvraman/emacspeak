@@ -1,3 +1,44 @@
+;;{{{ Google Search  fixes:
+(loop
+ for f in 
+ '(url-retrieve-internal eww url-truncate-url-for-viewing)
+ do
+ (eval
+  `(defadvice ,f (before cleanup-url  pre act comp)
+     "Canonicalize Google search URLs."
+     (let ((u (ad-get-arg 0)))
+       (cond
+        ((and u (stringp u)
+              (string-prefix-p (emacspeak-google-result-url-prefix) u))
+         (ad-set-arg 0 (emacspeak-google-canonicalize-result-url u))))))))
+
+
+;;}}}
+;;{{{ Fix url breakage in emacs 24 GIT:
+
+;;; pattern: http://www.google.com/url?q=http://emacspeak.sourceforge.net/&sa=U&ei=GceWT42_EY_ViALW84nlCQ&ved=0CBIQFjAA&usg=AFQjCNGz91Z7Yz9dPVoKPP6HVGZ0UqFhRA
+;;; prefix: http://www.google.com/url?q=
+;;; Suffix: &sa=...
+
+(defsubst emacspeak-w3-canonicalize-google-result-url (url)
+  "Strip out the actual result URL from the redirect wrapper."
+  (declare (special emacspeak-websearch-google-use-https))
+  (url-unhex-string 
+   (substring url
+              (if emacspeak-websearch-google-use-https 29 28)
+              (string-match "&sa=" url))))
+
+(defsubst emacspeak-w3-google-result-url-prefix ()
+  "Return prefix of result urls."
+  (declare (special emacspeak-websearch-google-use-https))
+  (format "%s://www.google.com/url?q="
+          (if emacspeak-websearch-google-use-https "https" "http")))
+;;; speed up image handling:
+(defadvice w3-image-loadable-p (around dont pre act comp)
+  "I dont want any images here."
+  nil)
+
+
 ;;; emacspeak-eww.el --- Speech-enable EWW
 ;;; $Id: emacspeak-eww.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
@@ -279,6 +320,9 @@ If we came from a url-template, reload that template."
    (t ad-do-it)))
 
 ;;}}}
+
+;;}}}
+
 ;;{{{ Setup EWW Initialization:
 
 ;;; Inform emacspeak-webutils about EWW:

@@ -369,6 +369,27 @@ This variable is buffer-local.")
         :value 0))))
 
 ;;}}}
+;;{{{  URL Fixup
+
+;;; pattern: http://www.google.com/url?q=http://emacspeak.sourceforge.net/&sa=U&ei=GceWT42_EY_ViALW84nlCQ&ved=0CBIQFjAA&usg=AFQjCNGz91Z7Yz9dPVoKPP6HVGZ0UqFhRA
+;;; prefix: http://www.google.com/url?q=
+;;; Suffix: &sa=...
+
+(defsubst emacspeak-google-canonicalize-result-url (url)
+  "Strip out the actual result URL from the redirect wrapper."
+  (declare (special emacspeak-websearch-google-use-https))
+  (url-unhex-string 
+   (substring url
+              (if emacspeak-websearch-google-use-https 29 28)
+              (string-match "&sa=" url))))
+
+(defsubst emacspeak-google-result-url-prefix ()
+  "Return prefix of result urls."
+  (declare (special emacspeak-websearch-google-use-https))
+  (format "%s://www.google.com/url?q="
+          (if emacspeak-websearch-google-use-https "https" "http")))
+
+;;}}}
 ;;{{{ Interactive Commands
 
 (loop for this-tool in
