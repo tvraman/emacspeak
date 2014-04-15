@@ -855,9 +855,7 @@ HTML."
               (string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
          (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u))))))))
 
-(defun foo (x y)
-  "show x"
-  (message (concat x y)))
+
 
 ;;}}}
 ;;{{{  emacs local variables
