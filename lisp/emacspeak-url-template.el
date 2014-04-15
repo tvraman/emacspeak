@@ -1642,7 +1642,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 ;;}}}
 ;;{{{ Interactive commands
 
-
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
@@ -1699,8 +1698,8 @@ Optional interactive prefix arg displays documentation for specified resource."
      (documentation (emacspeak-url-template-help-internal name))
      (t
       (add-hook
-      'emacspeak-web-post-process-hook
-      (emacspeak-url-template-generate-name-setter name))
+       'emacspeak-web-post-process-hook
+       (emacspeak-url-template-generate-name-setter name))
       (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
