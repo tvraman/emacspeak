@@ -16,7 +16,8 @@
   "Canonicalize Google URLs"
   ad-do-it
   (when (ems-interactive-p)
-    (emacspeak-google-canonicalize-result-url ad-return-value)))
+    (setq ad-return-value
+          (emacspeak-google-canonicalize-result-url ad-return-value))))
     
 
 ;;}}}
