@@ -124,22 +124,42 @@ Otherwise proceed  and cache the buffer at the end of eww-render. "
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers.
 If buffer was result of displaying a feed, reload feed.
-If we came from a url-template, reload that template."
+If we came from a url-template, reload that template.
+Retain previously set punctuations  mode."
   (cond
    ((and eww-current-url
          emacspeak-eww-feed
          emacspeak-eww-style)
                                         ; this is a displayed feed
-    (let ((u eww-current-url )
-          (s emacspeak-eww-style))
+    (lexical-let
+        ((p dtk-punctuation-mode)
+         (r dtk-speech-rate)
+         (u eww-current-url )
+         (s emacspeak-eww-style))
       (kill-buffer)
-      (emacspeak-feeds-feed-display u s 'speak)))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync))
+       'at-end)
+      )(emacspeak-feeds-feed-display u s 'speak))
    ((and eww-current-url emacspeak-eww-url-template)
                                         ; this is a url template
-    (let ((n emacspeak-eww-url-template))
+    (lexical-let
+        ((n emacspeak-eww-url-template)
+         (p dtk-punctuation-mode)
+         (r dtk-speech-rate))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync))
+       'at-end)
       (kill-buffer)
       (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-   (t ad-do-it)
    (t ad-do-it)))
 
 (loop
