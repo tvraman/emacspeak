@@ -542,14 +542,14 @@ origin/destination may be returned as a lat,long string."
 
 (defun gmaps-set-current-location (address)
   " Set current location."
-  (interactive  "sAddress: ")  (declare (special
-                                         gmaps-current-location))
+  (interactive  "sAddress: ")
+  (declare (special gmaps-current-location))
   (condition-case nil
-    (setq gmaps-current-location
-          (gmaps-geocode address))
-    (error (message "Error finding %s" address)))
+      (progn 
+    (setq gmaps-current-location (gmaps-geocode address))
     (put 'gmaps-current-location 'address address)
     (message "Moved to %s" address))
+    (error (message "Error finding %s" address))))
 
 
 (defstruct gmaps-places-filter
