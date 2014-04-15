@@ -1670,6 +1670,14 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
     (help-print-return-message))
   (emacspeak-speak-help)
   (emacspeak-auditory-icon 'help))
+(defun emacspeak-url-template-generate-name-setter (name)
+  "Generate a setter that sets emacspeak-eww-url-template
+to specified name for use as a callback."
+  (eval
+   (function
+    `(lambda ()
+       (declare (special emacspeak-eww-url-template))
+       (setq emacspeak-eww-url-template ',name)))))
 
 ;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
@@ -1691,11 +1699,8 @@ Optional interactive prefix arg displays documentation for specified resource."
      (documentation (emacspeak-url-template-help-internal name))
      (t
       (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (declare (special emacspeak-eww-url-template))
-           (lexical-let ((n name))
-               (setq emacspeak-eww-url-template n))))
+      'emacspeak-web-post-process-hook
+      (emacspeak-url-template-generate-name-setter name))
       (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
