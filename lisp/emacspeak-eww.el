@@ -99,7 +99,6 @@
   "Record if this eww buffer is displaying a feed.")
 (make-variable-buffer-local 'emacspeak-eww-feed)
 
-
 (defvar emacspeak-eww-url-template nil
   "Record if this eww buffer is displaying a url-template.")
 (make-variable-buffer-local 'emacspeak-eww-url-template)
@@ -170,7 +169,7 @@ If we came from a url-template, reload that template."
     (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
   (when (eq major-mode 'eww-mode)
-  (eww-update-header-line-format)))
+    (eww-update-header-line-format)))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -284,7 +283,7 @@ If we came from a url-template, reload that template."
   (declare (special eww-mode-map eww-link-keymap
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-  emacspeak-pronounce-load-pronunciations-on-startup))
+                    emacspeak-pronounce-load-pronunciations-on-startup))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
@@ -293,15 +292,15 @@ If we came from a url-template, reload that template."
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
   ;;; turn off images 
-(setq shr-inhibit-images t)
+  (setq shr-inhibit-images t)
                                         ; remove "I" "o" from
                                         ; eww-link-keymap
-(loop
- for c in
- '(?I ?o)
- do
- (when (assoc  c eww-link-keymap)
-   (delete (assoc  c eww-link-keymap) eww-link-keymap)))
+  (loop
+   for c in
+   '(?I ?o)
+   do
+   (when (assoc  c eww-link-keymap)
+     (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (loop
    for binding  in
@@ -613,10 +612,6 @@ for use as a DOM filter."
   "Dont load images if asked to silence them."
   (unless emacspeak-eww-silence-images ad-do-it))
 
-	  
-      
-	
-	  
 ;;}}}
 ;;{{{ xslt transform on request:
 
