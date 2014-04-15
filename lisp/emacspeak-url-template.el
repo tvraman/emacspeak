@@ -1641,15 +1641,20 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 
 ;;}}}
 ;;{{{ Interactive commands
+(defvar emacspeak-url-template-current-template
+  nil
+  "Name of   most recent template.")
 
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special  emacspeak-web-post-process-hook))
+  (declare (special  emacspeak-web-post-process-hook
+                     emacspeak-url-template-current-template))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut))
         (name (emacspeak-url-template-name ut)))
+    (setq emacspeak-url-template-current-template name)
     (when action (add-hook 'emacspeak-web-post-process-hook action))
     (kill-new url)
     (funcall fetcher   url)))
@@ -1692,7 +1697,8 @@ Optional interactive prefix arg displays documentation for specified resource."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
-           (setq emacspeak-eww-url-template name)))
+           (lexical-let ((n emacspeak-url-template-current-template))
+               (setq emacspeak-eww-url-template n))))
       (emacspeak-url-template-open (emacspeak-url-template-get name))))))
 
 (defun emacspeak-url-template-help ()
