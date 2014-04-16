@@ -194,7 +194,7 @@ Retain previously set punctuations  mode."
            (dtk-set-rate r)
            (emacspeak-dtk-sync))
        'at-end)
-      )(emacspeak-feeds-feed-display u s 'speak))
+      (emacspeak-feeds-feed-display u s 'speak)))
    ((and eww-current-url emacspeak-eww-url-template)
                                         ; this is a url template
     (lexical-let
@@ -234,12 +234,11 @@ If we came from a url-template, reload that template."
   (declare (special eww-cache-updated emacspeak-eww-buffer-hash))
   (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
-  (emacspeak-webutils-run-post-process-hook)
-  (when emacspeak-eww-rename-result-buffer
-    (rename-buffer eww-current-title 'unique))
+  (when emacspeak-eww-rename-result-buffer (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
-  (when (eq major-mode 'eww-mode)
-    (eww-update-header-line-format)))
+  (when (eq major-mode 'eww-mode) (eww-update-header-line-format))
+  (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
+  (emacspeak-webutils-run-post-process-hook))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."

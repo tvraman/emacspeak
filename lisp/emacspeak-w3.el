@@ -68,15 +68,8 @@
   :prefix "emacspeak-w3-")
 
 ;;}}}
-;;{{{  additional advice
-
-(defadvice url-write-global-history (around emacspeak pre act comp)
-  "Silence messages while this function executes"
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-;;}}}
 ;;{{{  show http headers
+
 (defcustom emacspeak-w3-lwp-request "lwp-request"
   "LWP Request command from perl LWP."
   :type 'string
@@ -486,9 +479,6 @@ element. "
                         (widget-get (widget-at (point)) :class ) " "))))
 
 ;;}}}
-;;{{{ url rewrite
-
-;;}}}
 ;;{{{ jump to submit button
 
 (defun emacspeak-w3-jump-to-submit ()
@@ -537,15 +527,7 @@ element. "
       (error (message "caught an error")))))
 
 ;;}}}
-;;{{{ silence url history save
-
-(defadvice url-history-save-history (around emacspeak pre act comp)
-  "Silence spoken messages while url history is being saved."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))(provide 'emacspeak-w3)
-
-;;}}}
-;;{{{ silence  url package
+;;{{{ silence  w3 package
 
 (declaim (special url-http-version))
 (setq url-http-version "1.0")
@@ -556,48 +538,11 @@ element. "
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
-(defadvice url-http-content-length-after-change-function
-    (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-(defadvice url-http-chunked-encoding-after-change-function
-    (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
 ;; (defadvice url-http-wait-for-headers-change-function
 ;;   (around emacspeak pre act comp)
 ;;   "silence spoken messages."
 ;;   (let ((emacspeak-speak-messages nil))
 ;;     ad-do-it))
-
-(defadvice url-cookie-handle-set-cookie
-    (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    ad-return-value))
-
-(defadvice url-cookie-write-file
-    (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    ad-return-value))
-
-(defadvice url-lazy-message
-    (around emacspeak pre act comp)
-  "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-
-;;}}}
-;;{{{ pull RSS feed
-
-;;;###autoload
 
 ;;}}}
 ;;{{{ backward compatibility
@@ -635,6 +580,7 @@ element. "
       (setq emacspeak-pronounce-pronunciation-table save-pronunciations)))
    (t ad-do-it))
   ad-return-value)
+
 ;;}}}
 ;;{{{ jump by block level elements (experimental:
 
@@ -747,6 +693,7 @@ If a rewrite rule is defined in the current buffer, we change
 
 ;;}}}
 ;;{{{ utf-8 
+
 (defadvice  w3-slow-parse-buffer (around emacspeak pre act comp)
   "Force buffer encoding to utf-8."
   (let ((coding-system-for-read 'utf-8)
@@ -795,6 +742,7 @@ HTML."
 
 ;;}}}
 ;;{{{ handle xml as HTML:
+
 ;;; fix mm-inline-types
 (require 'mm-decode)
 (declaim (special  mm-inline-media-tests))
@@ -855,9 +803,8 @@ HTML."
               (string-prefix-p (emacspeak-w3-google-result-url-prefix) u))
          (ad-set-arg 0 (emacspeak-w3-canonicalize-google-result-url u))))))))
 
-
-
 ;;}}}
+(provide 'emacspeak-w3)
 ;;{{{  emacs local variables
 
 ;;; local variables:

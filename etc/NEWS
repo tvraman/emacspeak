@@ -2,22 +2,17 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-* Emacspeak 39 -- Emacspeak 39 User Visible Changes 
+* Emacspeak 40 -- Emacspeak 40 User Visible Changes 
 
 
-** emacspeak-ein: 
+** Emacs 24.4:
+Supports all new features in Emacs 24.4.
+** Emacs EWW:
 
-Speech-enable IPython Notebook interaction via module EIN.
-
-
-** Emacs 24.3:
-
-Updated Emacspeak internals to better leverage Emacs 24.3.
-
-** emacspeak-jss:
-
-Speech-enable Web browser integration (chrome/firefox) via
- JSS.
+Full support for the newly integrated EWW in emacs 24.4.
+Module emacspeak-eww adds many enhancements to the EWW Web
+browser that are useful for the Emacspeak user -- including
+document filtering, element navigation and much more.
 
 ** emacspeak-url-templates:
 
@@ -32,8 +27,14 @@ Updated search wizards.
 updated Google Maps V2 implementation.
 
 
+** Feed Browser
 
+Updated support for implementing most of Google Reader
+functionality within Emacspeak. 
 
+** Freebase Search:
+
+Uses FreeBase API  for providing knowledge card searches.
 
 
 # local variables:
