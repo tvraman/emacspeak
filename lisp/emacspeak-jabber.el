@@ -209,11 +209,12 @@
 
 (defadvice jabber-roster-update (around emacspeak    pre act  comp)
   "Make this operation a No-Op unless the roster is visible."
-  (when
-      (or
-       (not (buffer-live-p jabber-roster-buffer)) 
-       (get-buffer-window-list jabber-roster-buffer))
+  (when (get-buffer-window-list jabber-roster-buffer)
     ad-do-it))
+
+(defadvice jabber-display-roster (around emacspeak    pre act  comp)
+  "Make this operation a No-Op unless called interactively."
+  (when (ems-interactive-p) ad-do-it))
 
 (add-hook 'jabber-post-connect-hook 'jabber-switch-to-roster-buffer)
 
