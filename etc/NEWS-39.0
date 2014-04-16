@@ -1,0 +1,41 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+* Emacspeak 39 -- Emacspeak 39 User Visible Changes 
+
+
+** emacspeak-ein: 
+
+Speech-enable IPython Notebook interaction via module EIN.
+
+
+** Emacs 24.3:
+
+Updated Emacspeak internals to better leverage Emacs 24.3.
+
+** emacspeak-jss:
+
+Speech-enable Web browser integration (chrome/firefox) via
+ JSS.
+
+** emacspeak-url-templates:
+
+Updated url templates for efficient Web interaction.
+
+** emacspeak-websearch.el
+Updated search wizards.
+
+
+** gmaps.el:
+
+updated Google Maps V2 implementation.
+
+
+
+
+
+
+# local variables:
+# mode: org
+# end:

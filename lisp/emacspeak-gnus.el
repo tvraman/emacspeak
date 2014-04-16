@@ -209,6 +209,11 @@ reading news."
   (message "Gnus is ready ")
   (emacspeak-auditory-icon 'news))
 
+(defadvice nnheader-message-maybe (around emacspeak pre act comp)
+  "Silence emacspeak"
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
 ;;}}}
 ;;{{{  Newsgroup selection
 

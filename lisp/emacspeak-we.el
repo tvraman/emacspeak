@@ -1149,6 +1149,21 @@ and provide a completion list of applicable  property values. Filter document by
       (emacspeak-keymap-update emacspeak-we-xsl-map binding))
 
 ;;}}}
+;;{{{  URL Advice: 
+
+(loop
+ for f in
+ '(url-write-global-history url-history-save-history
+                            url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
+                            url-lazy-message url-cookie-write-file)
+ do
+ (eval
+  `(defadvice   ,f (around emacspeak pre act comp)
+     "Silence messages while this function executes"
+     (let ((emacspeak-speak-messages nil))
+       ad-do-it))))
+
+;;}}}
 (provide 'emacspeak-we)
 ;;{{{ end of file
 
