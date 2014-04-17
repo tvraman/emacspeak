@@ -236,9 +236,9 @@ If we came from a url-template, reload that template."
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (when emacspeak-eww-rename-result-buffer (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
-  (when (eq major-mode 'eww-mode) (eww-update-header-line-format))
   (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
-  (emacspeak-webutils-run-post-process-hook))
+  (emacspeak-webutils-run-post-process-hook)
+  (when (eq major-mode 'eww-mode) (eww-update-header-line-format)))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
