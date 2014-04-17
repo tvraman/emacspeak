@@ -393,6 +393,7 @@ If we came from a url-template, reload that template."
      ("E" eww-view-filtered-dom-by-element-list)
      ("G" emacspeak-google-command)
      ("I" eww-view-filtered-dom-by-id)
+     ("K" emacspeak-kill-buffer-quietly)
      ("O" emacspeak-eww-previous-li)
      ("Q" emacspeak-kill-buffer-quietly)
      ("R" emacspeak-eww-restore)
