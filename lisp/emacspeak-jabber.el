@@ -200,7 +200,7 @@
   (interactive)
   (declare (special jabber-roster-buffer *jabber-connected*))
   (unless *jabber-connected* (call-interactively 'jabber-connect))
-  (unless (buffer-live-p jabber-roster-buffer) (jabber-display-roster))
+  (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (forward-line 4)
