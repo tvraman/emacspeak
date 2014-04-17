@@ -391,7 +391,7 @@ If we came from a url-template, reload that template."
      ("A" eww-view-filtered-dom-by-attribute)
      ("C" eww-view-filtered-dom-by-class)
      ("E" eww-view-filtered-dom-by-element-list)
-     ("G" emacspeak-webutils-google-on-this-site)
+     ("G" emacspeak-google-command)
      ("I" eww-view-filtered-dom-by-id)
      ("O" emacspeak-eww-previous-li)
      ("Q" emacspeak-kill-buffer-quietly)
