@@ -256,9 +256,14 @@ Useful to do this before you listen to an entire buffer."
    (list
     (read
      (completing-read
-     "Punctuation Mode: "
-     '(all none some)))))
-  (emacspeak-speak-set-mode-punctuation-setting major-mode setting))
+      "Punctuation Mode: "
+      '(all none some)))))
+  (emacspeak-speak-set-mode-punctuation-setting major-mode
+                                                setting)
+  (emacspeak-speak-sync-mode-punctuation-mode)
+  (message "Set punctuations to %s in %s"
+           setting mode-name)
+  (emacspeak-auditory-icon 'select-objjjject))
 
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
