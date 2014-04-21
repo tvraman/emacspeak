@@ -447,6 +447,7 @@ field in the customization buffer.  You can use the notation
         ("N" dtk-set-next-language)
         ("S" dtk-set-language)
         ("o" dtk-toggle-strip-octals)
+        ("m"emacspeak-speak-set-mode-punctuations)
         ("p" dtk-set-punctuations)
         ("P" dtk-set-previous-language)
         ("q" dtk-toggle-quiet )
