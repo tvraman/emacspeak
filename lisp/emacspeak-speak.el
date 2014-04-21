@@ -114,20 +114,6 @@
   "Set punctuation setting for specified mode."
   (declare (special emacspeak-speak-mode-punctuation-table))
   (puthash   mode value emacspeak-speak-mode-punctuation-table))
-(defun emacspeak-speak-set-mode-punctuations  (setting)
-  "Set punctuation mode for all buffers in current mode."
-  (interactive
-   (list
-    (read
-     (completing-read
-      "Punctuation Mode: "
-      '(all none some)))))
-  (declare (special major-mode))
-  (emacspeak-speak-set-mode-punctuation-setting major-mode setting)
-  (emacspeak-speak-sync-mode-punctuation-mode major-mode)
-  (message "Set punctuations to %s in %s"
-           setting mode-name)
-  (emacspeak-auditory-icon 'select-objjjject))
 
 ;;}}}
 ;;{{{ Shell Command Helper:
@@ -267,6 +253,7 @@ Useful to do this before you listen to an entire buffer."
 
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
+
 (defsubst emacspeak-speak-sync-mode-punctuation-mode (mode)
   "Update per-mode punctuation setting if needed."
   (declare (special dtk-punctuation-mode))
@@ -277,6 +264,20 @@ Useful to do this before you listen to an entire buffer."
 
 (defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
 
+(defun emacspeak-speak-set-mode-punctuations  (setting)
+  "Set punctuation mode for all buffers in current mode."
+  (interactive
+   (list
+    (read
+     (completing-read
+      "Punctuation Mode: "
+      '(all none some)))))
+  (declare (special major-mode))
+  (emacspeak-speak-set-mode-punctuation-setting major-mode setting)
+  (emacspeak-speak-sync-mode-punctuation-mode major-mode)
+  (message "Set punctuations to %s in %s"
+           setting mode-name)
+  (emacspeak-auditory-icon 'select-objjjject))
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
 
