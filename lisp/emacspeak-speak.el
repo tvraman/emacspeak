@@ -235,6 +235,23 @@ Useful to do this before you listen to an entire buffer."
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
+;;{{{ Per-Mode PUnctuations:
+
+(defvar emacspeak-speak-mode-punctuation-table
+  (make-hash-table :test #'eq)
+  "Store mode-specific punctuation mode setting.")
+
+(defsubst emacspeak-speak-get-mode-punctuation-setting (mode)
+  "Return punctuation setting for specified mode."
+  (declare (special emacspeak-speak-mode-punctuation-table))
+  (gethash  mode emacspeak-speak-mode-punctuation-table))
+
+(defsubst emacspeak-speak-set-mode-punctuation-setting (mode value)
+  "Set punctuation setting for specified mode."
+  (declare (special emacspeak-speak-mode-punctuation-table))
+  (puthash   mode value emacspeak-speak-mode-punctuation-table))
+
+;;}}}
 ;;{{{  sync emacspeak and TTS:
 
 (defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
