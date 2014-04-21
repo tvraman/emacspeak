@@ -122,9 +122,9 @@
      (completing-read
       "Punctuation Mode: "
       '(all none some)))))
-  (emacspeak-speak-set-mode-punctuation-setting major-mode
-                                                setting)
-  (emacspeak-speak-sync-mode-punctuation-mode)
+  (declare (special major-mode))
+  (emacspeak-speak-set-mode-punctuation-setting major-mode setting)
+  (emacspeak-speak-sync-mode-punctuation-mode major-mode)
   (message "Set punctuations to %s in %s"
            setting mode-name)
   (emacspeak-auditory-icon 'select-objjjject))
