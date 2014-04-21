@@ -99,6 +99,37 @@
     (< current (line-end-position))))
 
 ;;}}}
+;;{{{ Per-Mode Punctuations:
+
+(defvar emacspeak-speak-mode-punctuation-table
+  (make-hash-table :test #'eq)
+  "Store mode-specific punctuation mode setting.")
+
+(defsubst emacspeak-speak-get-mode-punctuation-setting (mode)
+  "Return punctuation setting for specified mode."
+  (declare (special emacspeak-speak-mode-punctuation-table))
+  (gethash  mode emacspeak-speak-mode-punctuation-table))
+
+(defsubst emacspeak-speak-set-mode-punctuation-setting (mode value)
+  "Set punctuation setting for specified mode."
+  (declare (special emacspeak-speak-mode-punctuation-table))
+  (puthash   mode value emacspeak-speak-mode-punctuation-table))
+(defun emacspeak-speak-set-mode-punctuations  (setting)
+  "Set punctuation mode for all buffers in current mode."
+  (interactive
+   (list
+    (read
+     (completing-read
+      "Punctuation Mode: "
+      '(all none some)))))
+  (emacspeak-speak-set-mode-punctuation-setting major-mode
+                                                setting)
+  (emacspeak-speak-sync-mode-punctuation-mode)
+  (message "Set punctuations to %s in %s"
+           setting mode-name)
+  (emacspeak-auditory-icon 'select-objjjject))
+
+;;}}}
 ;;{{{ Shell Command Helper:
 
 ;;; Emacspeak silences messages from shell-command when called non-interactively.
@@ -233,37 +264,6 @@ Useful to do this before you listen to an entire buffer."
                                      emacspeak-speak-paragraph-personality)))))
         (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
-
-;;}}}
-;;{{{ Per-Mode Punctuations:
-
-(defvar emacspeak-speak-mode-punctuation-table
-  (make-hash-table :test #'eq)
-  "Store mode-specific punctuation mode setting.")
-
-(defsubst emacspeak-speak-get-mode-punctuation-setting (mode)
-  "Return punctuation setting for specified mode."
-  (declare (special emacspeak-speak-mode-punctuation-table))
-  (gethash  mode emacspeak-speak-mode-punctuation-table))
-
-(defsubst emacspeak-speak-set-mode-punctuation-setting (mode value)
-  "Set punctuation setting for specified mode."
-  (declare (special emacspeak-speak-mode-punctuation-table))
-  (puthash   mode value emacspeak-speak-mode-punctuation-table))
-(defun emacspeak-speak-set-mode-punctuations  (setting)
-  "Set punctuation mode for all buffers in current mode."
-  (interactive
-   (list
-    (read
-     (completing-read
-      "Punctuation Mode: "
-      '(all none some)))))
-  (emacspeak-speak-set-mode-punctuation-setting major-mode
-                                                setting)
-  (emacspeak-speak-sync-mode-punctuation-mode)
-  (message "Set punctuations to %s in %s"
-           setting mode-name)
-  (emacspeak-auditory-icon 'select-objjjject))
 
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
