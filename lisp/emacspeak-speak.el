@@ -235,7 +235,7 @@ Useful to do this before you listen to an entire buffer."
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
-;;{{{ Per-Mode PUnctuations:
+;;{{{ Per-Mode Punctuations:
 
 (defvar emacspeak-speak-mode-punctuation-table
   (make-hash-table :test #'eq)
@@ -250,9 +250,25 @@ Useful to do this before you listen to an entire buffer."
   "Set punctuation setting for specified mode."
   (declare (special emacspeak-speak-mode-punctuation-table))
   (puthash   mode value emacspeak-speak-mode-punctuation-table))
+(defun emacspeak-speak-set-mode-punctuations  (setting)
+  "Set punctuation mode for all buffers in current mode."
+  (interactive
+   (list
+    (read
+     (completing-read
+     "Punctuation Mode: "
+     '(all none some)))))
+  (emacspeak-speak-set-mode-punctuation-setting major-mode setting))
 
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
+(defsubst emacspeak-speak-sync-mode-punctuation-mode (mode)
+  "Update per-mode punctuation setting if needed."
+  (declare (special dtk-punctuation-mode))
+  (let ((p (emacspeak-speak-get-mode-punctuation-setting mode)))
+    (when (and p
+               (not (eq p dtk-punctuation-mode)))
+      (dtk-set-punctuations p))))
 
 (defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
 
@@ -1562,6 +1578,7 @@ Interactive prefix arg speaks buffer info."
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (force-mode-line-update)
+  (emacspeak-speak-sync-mode-punctuation-mode major-mode)
   (emacspeak-dtk-sync)
   (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
