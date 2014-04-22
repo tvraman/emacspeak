@@ -13,67 +13,68 @@
 
 struct langInfo {
   enum ECILanguageDialect lang;
-  const char* code;
-  const char* encoding;
-  const char* id;
-  const char* label;
+  const char *code;
+  const char *encoding;
+  const char *id;
+  const char *label;
 };
 
 enum {
   LANGUAGE_MAX_LABEL = 30
-};  // max size of the label field
+}; // max size of the label field
 
 static struct langInfo TheLanguages[] = {
-    {NODEFINEDCODESET, NULL, NULL, NULL, NULL},
-    {eciGeneralAmericanEnglish, "en_US", "iso8859-1", "1.0", "American"},
-    {eciBritishEnglish, "en_GB", "iso8859-1", "1.1", "British"},
-    {eciCastilianSpanish, "es_ES", "iso8859-1", "2.0", "Español"},
-    {eciMexicanSpanish, "es_MX", "iso8859-1", "2.1", "Mexicano"},
-    {eciStandardFrench, "fr_FR", "iso8859-1", "3.0", "Français"},
-    {eciCanadianFrench, "fr_CA", "iso8859-1", "3.1", "Français Canadien"},
-    {eciStandardGerman, "de_DE", "iso8859-1", "4.0", "Deutsch"},
-    {eciStandardItalian, "it_IT", "iso8859-1", "5.0", "Italiano"},
-    {eciMandarinChineseGB, "zh_CN", "gb2312", "6.0", "Chinese Simplified"},
-    {eciMandarinChinesePinYin, "zh_CN",             "gb2312",
-     "6.0.1",                  "Chinese Simplified"},
-    {eciMandarinChineseUCS, "zh_CN", "UCS2", "6.0.8", "Chinese Simplified"},
-    {eciTaiwaneseMandarinBig5, "zh_HK", "big5", "6.1", "Chinese Traditional"},
-    {eciTaiwaneseMandarinZhuYin, "zh_HK",              "big5",
-     "6.1.1",                    "Chinese Traditional"},
-    {eciTaiwaneseMandarinPinYin, "zh_HK",              "big5",
-     "6.1.2",                    "Chinese Traditional"},
-    {eciTaiwaneseMandarinUCS, "zh_HK", "UCS2", "6.1.8", "Chinese Traditional"},
-    {eciBrazilianPortuguese, "pt_BR",               "iso8859-1",
-     "7.0",                  "Brazilian Portuguese"},
-    {eciStandardJapaneseSJIS, "ja_JP", "shiftjis", "8.0", "Japanese"},
-    {eciStandardJapaneseUCS, "ja_JP", "UCS2", "8.0.8", "Japanese"},
-    {eciStandardFinnish, "fi_FI", "iso8859-1", "9.0", "Finnish"},
-    {eciStandardKoreanUHC, NULL, NULL, NULL},
-    {eciStandardKoreanUCS, NULL, NULL, NULL, NULL},
-    {eciStandardCantoneseGB, NULL, NULL, NULL, NULL},
-    {eciStandardCantoneseUCS, NULL, NULL, NULL, NULL},
-    {eciHongKongCantoneseBig5, NULL, NULL, NULL, NULL},
-    {eciHongKongCantoneseUCS, NULL, NULL, NULL, NULL},
-    {eciStandardDutch, NULL, NULL, NULL, NULL},
-    {eciStandardNorwegian, NULL, NULL, NULL, NULL},
-    {eciStandardSwedish, NULL, NULL, NULL, NULL},
-    {eciStandardDanish, NULL, NULL, NULL, NULL},
-    {eciStandardReserved, NULL, NULL, NULL, NULL},
-    {eciStandardThai, NULL, NULL, NULL, NULL},
-    {eciStandardThaiTIS, NULL, NULL, NULL, NULL}, };
+  { NODEFINEDCODESET, NULL, NULL, NULL, NULL },
+  { eciGeneralAmericanEnglish, "en_US", "iso8859-1", "1.0", "American" },
+  { eciBritishEnglish, "en_GB", "iso8859-1", "1.1", "British" },
+  { eciCastilianSpanish, "es_ES", "iso8859-1", "2.0", "Español" },
+  { eciMexicanSpanish, "es_MX", "iso8859-1", "2.1", "Mexicano" },
+  { eciStandardFrench, "fr_FR", "iso8859-1", "3.0", "Français" },
+  { eciCanadianFrench, "fr_CA", "iso8859-1", "3.1", "Français Canadien" },
+  { eciStandardGerman, "de_DE", "iso8859-1", "4.0", "Deutsch" },
+  { eciStandardItalian, "it_IT", "iso8859-1", "5.0", "Italiano" },
+  { eciMandarinChineseGB, "zh_CN", "gb2312", "6.0", "Chinese Simplified" },
+  { eciMandarinChinesePinYin, "zh_CN", "gb2312", "6.0.1",
+    "Chinese Simplified" },
+  { eciMandarinChineseUCS, "zh_CN", "UCS2", "6.0.8", "Chinese Simplified" },
+  { eciTaiwaneseMandarinBig5, "zh_HK", "big5", "6.1", "Chinese Traditional" },
+  { eciTaiwaneseMandarinZhuYin, "zh_HK", "big5", "6.1.1",
+    "Chinese Traditional" },
+  { eciTaiwaneseMandarinPinYin, "zh_HK", "big5", "6.1.2",
+    "Chinese Traditional" },
+  { eciTaiwaneseMandarinUCS, "zh_HK", "UCS2", "6.1.8", "Chinese Traditional" },
+  { eciBrazilianPortuguese, "pt_BR", "iso8859-1", "7.0",
+    "Brazilian Portuguese" },
+  { eciStandardJapaneseSJIS, "ja_JP", "shiftjis", "8.0", "Japanese" },
+  { eciStandardJapaneseUCS, "ja_JP", "UCS2", "8.0.8", "Japanese" },
+  { eciStandardFinnish, "fi_FI", "iso8859-1", "9.0", "Finnish" },
+  { eciStandardKoreanUHC, NULL, NULL, NULL },
+  { eciStandardKoreanUCS, NULL, NULL, NULL, NULL },
+  { eciStandardCantoneseGB, NULL, NULL, NULL, NULL },
+  { eciStandardCantoneseUCS, NULL, NULL, NULL, NULL },
+  { eciHongKongCantoneseBig5, NULL, NULL, NULL, NULL },
+  { eciHongKongCantoneseUCS, NULL, NULL, NULL, NULL },
+  { eciStandardDutch, NULL, NULL, NULL, NULL },
+  { eciStandardNorwegian, NULL, NULL, NULL, NULL },
+  { eciStandardSwedish, NULL, NULL, NULL, NULL },
+  { eciStandardDanish, NULL, NULL, NULL, NULL },
+  { eciStandardReserved, NULL, NULL, NULL, NULL },
+  { eciStandardThai, NULL, NULL, NULL, NULL },
+  { eciStandardThaiTIS, NULL, NULL, NULL, NULL },
+};
 
 // >
 // <initLanguage
 
-enum ECILanguageDialect initLanguage(Tcl_Interp* interp,
-                                     enum ECILanguageDialect* aLanguages,
+enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
+                                     enum ECILanguageDialect *aLanguages,
                                      int nLanguages) {
   // List the available languages
   int i = 0;
   int j = 0;
   enum ECILanguageDialect aCurrentLanguage, aEnglishLanguage, aFirstLanguage;
   aCurrentLanguage = aEnglishLanguage = aFirstLanguage = NODEFINEDCODESET;
-  const char* aDefaultLang = getenv("LANGUAGE");
+  const char *aDefaultLang = getenv("LANGUAGE");
 
   if (aDefaultLang == NULL) {
     aDefaultLang = getenv("LANG");
@@ -93,7 +94,7 @@ enum ECILanguageDialect initLanguage(Tcl_Interp* interp,
       snprintf(buffer_i, 3, "%d", i);
       char command[40];
       sprintf(command, "set langalias(%s)  %s\n",
-              const_cast<char*>(TheLanguages[i].code), buffer_i);
+              const_cast<char *>(TheLanguages[i].code), buffer_i);
       int rc = Tcl_Eval(interp, command);
     }
   }
@@ -108,7 +109,8 @@ enum ECILanguageDialect initLanguage(Tcl_Interp* interp,
     char buffer_j[3];
 
     for (aLang = 0; aLang < LANG_INFO_MAX; aLang++) {
-      if (TheLanguages[aLang].lang == aLanguages[i]) break;
+      if (TheLanguages[aLang].lang == aLanguages[i])
+        break;
     }
 
     if ((aLang == LANG_INFO_MAX) || (TheLanguages[aLang].code == NULL)) {
@@ -132,7 +134,7 @@ enum ECILanguageDialect initLanguage(Tcl_Interp* interp,
       }
     }
     Tcl_SetVar2(interp, "langlabel", buffer_j,
-                const_cast<char*>(TheLanguages[aLang].label), 0);
+                const_cast<char *>(TheLanguages[aLang].label), 0);
     Tcl_SetVar2(interp, "langsynth", "top", buffer_j, 0);
   }
 
@@ -157,9 +159,9 @@ enum ECILanguageDialect initLanguage(Tcl_Interp* interp,
 // >
 // <getAnnotation
 
-const char* getAnnotation(Tcl_Interp* interp, int* theIndex) {
-  const char* code = NULL;
-  const char* aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
+const char *getAnnotation(Tcl_Interp *interp, int *theIndex) {
+  const char *code = NULL;
+  const char *aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
 
   if (aInfo) {
     *theIndex = atoi(aInfo);
@@ -173,8 +175,8 @@ const char* getAnnotation(Tcl_Interp* interp, int* theIndex) {
 // >
 // <convertFromUTF8
 
-char* convertFromUTF8(Tcl_Interp* interp, const char* src) {
-  char* dest = NULL;
+char *convertFromUTF8(Tcl_Interp *interp, const char *src) {
+  char *dest = NULL;
 
   if (interp && src) {
     int srcLen = -1;
@@ -185,7 +187,7 @@ char* convertFromUTF8(Tcl_Interp* interp, const char* src) {
     int destCharsPtr = 0;
     int aIndex = 0;
 
-    const char* aEncoding = "iso8859-1";
+    const char *aEncoding = "iso8859-1";
     if (getAnnotation(interp, &aIndex)) {
       aEncoding = TheLanguages[aIndex].encoding;
     }
