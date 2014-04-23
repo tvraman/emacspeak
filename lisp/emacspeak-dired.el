@@ -143,6 +143,7 @@
                      dired-tree-up dired-tree-down dired-up-directory
                      dired-next-marked-file dired-prev-marked-file
                      dired-next-dirline dired-prev-dirline
+                     dired-jump
                      )
  do
  (eval
