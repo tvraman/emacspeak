@@ -1,14 +1,20 @@
 // Serialize  HTML DOM
 var page = require('webpage').create(),
     system = require('system'),
-    url='http://emacspeak.sf.net'; //default
-
+    url='http://www.google.com/search?source=hp&num=25&q='
+var q='emacspeak'
 
 if (system.args.length > 1) {
-    url = Array.prototype.slice.call(system.args, 1);
+    q = Array.prototype.slice.call(system.args, 1);
 }
-
-page.open(url, function(status) {
+                                                       
+Element.prototype.innerText = function(){              
+    var serializer = new XMLSerializer();                   
+    var serialized = serializer.serializeToString(this);    
+    return serialized;                                      
+}                                                       
+var target = url + q;
+page.open(target, function(status) {
     var result;
     if (status !== 'success') {
         console.log('Error: Unable to access network!');
@@ -31,3 +37,4 @@ page.open(url, function(status) {
     }
     phantom.exit();
 });
+
