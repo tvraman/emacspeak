@@ -105,9 +105,9 @@ org2blogger.elc: org2blogger.el gblogger.elc
 # }}}
 # {{{dist
 
-dist:g-client.tar.bz2
+dist:../g-client.tar.bz2
 
-g-client.tar.bz2: 
+../g-client.tar.bz2: 
 	rm -f $@
 	tar  cfj $@ -X .excludes -C ..  g-client
 
