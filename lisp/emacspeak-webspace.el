@@ -530,13 +530,14 @@ Optional interactive prefix arg forces a refresh."
       (setq buffer-undo-list t)
       (format (buffer-name buffer))
       (center-line)
+      ; Nuke initial '/' in id 
       (loop
        for r in results
        and i from 1
        do
        (insert (format "%d.\t" i))
        (setq title (first r))
-       (setq id (second r))
+       (setq id (substring (second r) 1))
        (put-text-property 0 (length title)
                           'id id title)
        (emacspeak-webspace-freebase-topic-insert title)
