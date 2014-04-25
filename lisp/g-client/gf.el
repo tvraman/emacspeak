@@ -106,9 +106,8 @@
            (format "%s/%s?filter=/common/topic/description"
                    gf-topic-url topic)))))
     (setq root
-           (aref
-            (g-json-lookup "property./common/topic/description.values" entry)
-           0))
+          (g-json-path-lookup
+           "property./common/topic/description.values.[0]" entry))
     (setq desc (g-json-get 'value root))
     (setq citation (g-json-lookup "citation.uri" root))
     (put-text-property 0 (length desc) 'link  citation  desc)
