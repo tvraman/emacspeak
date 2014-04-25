@@ -93,7 +93,7 @@
 
 (defun gf-topic-description (topic)
   "Return topic description."
-  (interactive "%sLookup: lang/topic")
+  (interactive "sLookup: lang/topic")
   (declare (special gf-topic-url))
   (let ((root nil)
         (desc nil)
