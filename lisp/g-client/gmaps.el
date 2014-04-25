@@ -93,15 +93,12 @@ Optional argument `raw-p' returns complete JSON  object."
          (g-json-get-result
           (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
                   g-curl-program g-curl-common-options
-                  (gmaps-geocoder-url
-                   (g-url-encode address))))))
-    (unless
-        (string= "OK" (g-json-get 'status result))
+                  (gmaps-geocoder-url (g-url-encode address))))))
+    (unless (string= "OK" (g-json-get 'status result))
       (error "Error geo-coding location."))
     (cond
      (raw-p (g-json-get 'results result))
-     (t
-      (g-json-lookup "geometry.location" (aref (g-json-get 'results result) 0))))))
+     (t (g-json-path-lookup "results.[0].geometry.location" result)))))
 
 ;;;###autoload
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)
@@ -119,9 +116,7 @@ Optional argument `raw-p' returns raw JSON  object."
       (error "Error reverse geo-coding."))
     (cond
      (raw-p (g-json-get 'results result))
-     (t
-     (g-json-get 'formatted_address
-                 (aref (g-json-get 'results result) 0))))))
+     (t (g-json-path-lookup "results.[0].formatted_address" result)))))
 
 ;;; Example of use:
 ;;;###autoload
