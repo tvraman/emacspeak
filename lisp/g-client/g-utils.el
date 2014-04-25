@@ -255,7 +255,7 @@ Key  is a string of  the form a.b.c"
      ((null name) v)
      (t nil))))
 
-(defun g-json-path-lookup (path object)
+(defsubst g-json-path-lookup (path object)
   "Return objectat path from json object or nil if not
 found. Path is a string of the form a.b.[1].c. [n] denotes array
 references, poor-man's xpath."
