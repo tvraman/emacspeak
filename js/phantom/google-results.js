@@ -1,10 +1,13 @@
 // Serialize Google Search Results 
 var page = require('webpage').create(),
     system = require('system'),
-    url='http://www.google.com/search?source=hp&num=25&q='
-var q='emacspeak'
-
+    url='http://www.google.com/search?source=hp&num=25&q=',
+var q='emacspeak';
+var phantomjs.page.settings.userAgent  = 
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 "
++"(KHTML, like Gecko) Chrome/35.0.87";
 if (system.args.length > 1) {
+
     q = Array.prototype.slice.call(system.args, 1);
 }
                                                        
