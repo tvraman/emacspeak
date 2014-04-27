@@ -292,7 +292,11 @@ If we came from a url-template, reload that template."
           eww-current-title)
       emacspeak-webutils-url-at-point
       #'(lambda ()
-          (get-text-property (point) 'help-echo))
+           (let ((url (get-text-property (point) 'help-echo)))
+             (cond
+              (url (emacspeak-google-canonicalize-result-url
+ url))
+              (t (error "No URL under point.")))))
       emacspeak-webutils-current-url
       #'(lambda ()
           (declare (special eww-current-url))
