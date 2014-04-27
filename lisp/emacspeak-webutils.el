@@ -343,13 +343,11 @@ current page."
 With a prefix argument, extracts url under point."
   (interactive "P")
   (emacspeak-webutils-browser-check)
-  (emacspeak-websearch-google
-   (format "cache:%s"
+  (browse-url
+   (format "http://webcache.googleusercontent.com/search?q=cache:%s"
            (cond
-            ((null prefix)
-             (funcall emacspeak-webutils-current-url))
-            (t
-             (funcall emacspeak-webutils-url-at-point))))))
+            ((null prefix) (funcall emacspeak-webutils-current-url))
+            (t (funcall emacspeak-webutils-url-at-point))))))
 
 ;;;###autoload
 (defun emacspeak-webutils-google-on-this-site ()
