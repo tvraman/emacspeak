@@ -787,7 +787,23 @@ for use as a DOM filter."
         (kill-new  (emacspeak-google-canonicalize-result-url u))))))
 
 ;;}}}
+;;{{{ Masquerade 
+(defun emacspeak-eww-masquerade ()
+  "Masquerade as a main-stream browser."
+  (interactive)
+  (declare (special url-package-name))
+  (cond
+   (url-package-name (setq url-package-name nil))
+   (t 
+    (setq url-package-name  (format "%s %s %s"
+                                    "Mozilla/5.0 (Linux; Intel )"
+                                    "AppleWebKit/537.36 (KHTML, like Gecko) " 
+                                    "Chrome/36.0.1944.0 Safari/537.36"))))
+  (emacspeak-auditory-icon 'button)
+  (message "Masquerading %s"
+           (if url-package-name "on" "off")))
 
+;;}}}
 
 (provide 'emacspeak-eww)
 ;;{{{ end of file
