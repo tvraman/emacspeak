@@ -116,7 +116,7 @@ This is used by the various Bookshare view commands to display
 ;;}}}
 ;;{{{ XML Compatibility:
 (unless (fboundp 'xml-substitute-numeric-entities)
-  ;;; cloned from xml.el in emacs 24
+;;; cloned from xml.el in emacs 24
   (defun xml-substitute-numeric-entities (string)
     "Substitute SGML numeric entities by their respective utf characters.
 This function replaces numeric entities in the input STRING and
