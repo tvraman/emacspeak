@@ -350,7 +350,9 @@ If we came from a url-template, reload that template."
      ("G" emacspeak-google-command)
      ("I" eww-view-filtered-dom-by-id)
      ("K" emacspeak-kill-buffer-quietly)
+     ("N" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
+     ("P" emacspeak-eww-previous-element-from-history)
      ("Q" emacspeak-kill-buffer-quietly)
      ("R" emacspeak-eww-restore)
      ("T" emacspeak-eww-previous-table)
@@ -690,7 +692,6 @@ for use as a DOM filter."
       (read (completing-read "Element: " eww-element-cache nil 'must-match
                              nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
-  (pushnew el  emacspeak-eww-element-navigation-history)
   (let*
       ((start
         (or
@@ -714,7 +715,6 @@ for use as a DOM filter."
       (read (completing-read "Element: " eww-element-cache nil 'must-match
                              nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache  emacspeak-eww-element-navigation-history))
-  (pushnew el  emacspeak-eww-element-navigation-history)
   (let* ((start
           (or
            (when (get-text-property  (point) el)
@@ -727,6 +727,24 @@ for use as a DOM filter."
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
+
+(defun emacspeak-eww-next-element-from-history ()
+  "Uses element navigation history to decide where we jump."
+  (interactive)
+  (declare (special emacspeak-eww-element-navigation-history))
+  (cond
+   ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
+    (emacspeak-eww-next-element (read (car emacspeak-eww-element-navigation-history))))
+   (t (error "No elements in navigation history"))))
+
+(defun emacspeak-eww-previous-element-from-history ()
+  "Uses element navigation history to decide where we jump."
+  (interactive)
+  (declare (special emacspeak-eww-element-navigation-history))
+  (cond
+   ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
+    (emacspeak-eww-previous-element (read (car emacspeak-eww-element-navigation-history))))
+   (t (error "No elements in navigation history"))))
 
 (loop
  for  f in
