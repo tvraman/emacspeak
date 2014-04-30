@@ -568,7 +568,9 @@ Returns a string with appropriate personality."
 
 ;;}}}
 ;;{{{  activating widgets:
-
+;;; forward declaration:
+(defvar emacspeak-webutils-url-at-point)
+(defvar emacspeak-we-url-executor)
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
   (declare (special emacspeak-webutils-url-at-point
@@ -581,7 +583,7 @@ Returns a string with appropriate personality."
             (old-position (point)))
         (cond
          ((and
-           (or (eq major-mode 'w3-mode) (eq major-mode 'w3m-mode))
+           (or (eq major-mode 'eww-mode)(eq major-mode 'w3-mode) (eq major-mode 'w3m-mode))
            emacspeak-webutils-url-at-point
            (funcall emacspeak-webutils-url-at-point)
            emacspeak-we-url-executor
