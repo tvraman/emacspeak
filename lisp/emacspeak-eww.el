@@ -804,6 +804,30 @@ for use as a DOM filter."
            (if url-package-name "on" "off")))
 
 ;;}}}
+;;{{{  Google Knowledge Card:
+(defun emacspeak-eww-google-knowledge-card ()
+  "Show just the knowledge card."
+  (interactive)
+  (declare (special eww-shr-render-functions eww-current-dom))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value "kno-result")
+       (inhibit-read-only t)
+       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+(define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
+;;}}}
 
 (provide 'emacspeak-eww)
 ;;{{{ end of file
