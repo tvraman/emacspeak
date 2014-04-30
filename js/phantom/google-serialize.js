@@ -4,7 +4,7 @@ var page = require('webpage').create(),
     url='http://www.google.com/search?source=hp&num=25&q=', 
     q='emacspeak';
 page.settings.userAgent  =
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2)" +
+    "Mozilla/5.0 (Linux; Intel  )" +
      "AppleWebKit/537.36 (KHTML, like Gecko) " +
      "Chrome/36.0.1944.0 Safari/537.36";
 
