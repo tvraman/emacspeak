@@ -130,7 +130,8 @@ The default value of 12 is too high for using ido effectively with speech. "
     (dtk-speak
      (format "Prefix %s"
              (if ido-enable-prefix 'on 'off)))))
-
+;;; forward declaration
+(defvar ido-process-ignore-lists) 
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
