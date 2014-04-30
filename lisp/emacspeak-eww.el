@@ -439,7 +439,7 @@ If we came from a url-template, reload that template."
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 
-(defun eww-filter-dom (dom predicate)
+(defun eww-filter-dom-if (dom predicate)
   "Return DOM dom filtered by predicate.
  Predicate receives the node to test."
   (cond
@@ -449,7 +449,24 @@ If we came from a url-template, reload that template."
     (let ((filtered
            (delq nil
                  (mapcar
-                  #'(lambda (node) (eww-filter-dom node predicate))
+                  #'(lambda (node) (eww-filter-dom-if node predicate))
+                  (xml-node-children dom)))))
+      (when filtered
+        (push (xml-node-attributes dom) filtered)
+        (push (xml-node-name dom) filtered))))))
+
+
+(defun eww-filter-dom-if-not (dom predicate)
+  "Filter out nodes that match predicate.
+Predicate recieves node to test."
+  (cond
+   ((not (listp dom)) dom)
+   ((funcall predicate dom) nil)
+   (t
+    (let ((filtered
+           (delq nil
+                 (mapcar
+                  #'(lambda (node) (eww-filter-dom-if-not  node predicate))
                   (xml-node-children dom)))))
       (when filtered
         (push (xml-node-attributes dom) filtered)
@@ -460,13 +477,6 @@ If we came from a url-template, reload that template."
   (eval
    `#'(lambda (node)
         (when
-            (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
-
-(defun eww-attribute-not-tester (attr value)
-  "Return predicate that tests for attr!=value for use as a DOM filter."
-  (eval
-   `#'(lambda (node)
-        (unless
             (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
 
 (defun eww-elements-tester (element-list)
@@ -506,7 +516,7 @@ for use as a DOM filter."
           (t (error "Only filter by class, id or role.")))
          nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester attr value)))
+       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester attr value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -532,7 +542,7 @@ for use as a DOM filter."
       ((emacspeak-eww-rename-result-buffer nil)
        (value (completing-read "Value: " eww-id-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
+       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'id value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -559,7 +569,7 @@ for use as a DOM filter."
        (value
         (completing-read "Value: " eww-class-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'class value)))
+       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'class value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -586,7 +596,7 @@ for use as a DOM filter."
        (value
         (completing-read "Value: " eww-role-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'role value)))
+       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'role value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -616,7 +626,7 @@ for use as a DOM filter."
           (setq el
                 (completing-read "Element: " eww-element-cache nil 'must-match)))
     (let ((inhibit-read-only t)
-          (dom (eww-filter-dom eww-current-dom (eww-elements-tester el-list)))
+          (dom (eww-filter-dom-if eww-current-dom (eww-elements-tester el-list)))
           (shr-external-rendering-functions eww-shr-render-functions))
       (when dom
         (eww-save-history)
@@ -823,10 +833,13 @@ for use as a DOM filter."
        (value "kno-result")
        (media "media_result_group")
        (inhibit-read-only t)
-       (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
+       (dom
+        (eww-filter-dom-if-not 
+        (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'id value))
+        (eww-attribute-tester 'id media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
-      (setq dom (eww-filter-dom dom (eww-attribute-not-tester 'id media)))
+      (setq dom (eww-filter-dom-if dom (eww-attribute-tester 'id media)))
       (eww-save-history)
       (erase-buffer)
       (goto-char (point-min))
@@ -837,6 +850,7 @@ for use as a DOM filter."
       (setq buffer-read-only t))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
+
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 ;;}}}
 
