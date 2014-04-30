@@ -104,7 +104,7 @@
 
 (defadvice customize-save-customized (around quiet pre act comp)
   "Silence speech."
-  (let ((dtk-quiet t) ad-do-it)))
+  (let ((dtk-quiet t)) ad-do-it))
 
 (defadvice custom-set (after emacspeak pre act comp)
   "Provide auditory feedback. "
