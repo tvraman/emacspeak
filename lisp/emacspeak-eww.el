@@ -488,7 +488,7 @@ for use as a DOM filter."
           (when eww-class-cache (push "class" attr-list))
           (when eww-id-cache (push "id" attr-list))
           (when eww-role-cache (push "role" attr-list))
-          (read (completing-read "Attr: " attr-list nil 'must-match))))
+          (intern (completing-read "Attr: " attr-list nil 'must-match))))
        (value
         (completing-read
          "Value: "
@@ -605,7 +605,7 @@ for use as a DOM filter."
         (el (completing-read "Element: " eww-element-cache nil 'must-match)))
     (loop until (zerop (length el))
           do
-          (pushnew (read el) el-list)
+          (pushnew (intern  el) el-list)
           (setq el
                 (completing-read "Element: " eww-element-cache nil 'must-match)))
     (let ((inhibit-read-only t)
@@ -689,7 +689,7 @@ for use as a DOM filter."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (read (completing-read "Element: " eww-element-cache nil 'must-match
+      (intern (completing-read "Element: " eww-element-cache nil 'must-match
                              nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
   (let*
@@ -712,7 +712,7 @@ for use as a DOM filter."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (read (completing-read "Element: " eww-element-cache nil 'must-match
+      (intern (completing-read "Element: " eww-element-cache nil 'must-match
                              nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache  emacspeak-eww-element-navigation-history))
   (let* ((start
@@ -734,7 +734,7 @@ for use as a DOM filter."
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
    ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
-    (emacspeak-eww-next-element (read (car emacspeak-eww-element-navigation-history))))
+    (emacspeak-eww-next-element (intern (car emacspeak-eww-element-navigation-history))))
    (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
@@ -743,7 +743,7 @@ for use as a DOM filter."
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
    ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
-    (emacspeak-eww-previous-element (read (car emacspeak-eww-element-navigation-history))))
+    (emacspeak-eww-previous-element (intern (car emacspeak-eww-element-navigation-history))))
    (t (error "No elements in navigation history"))))
 
 (loop
