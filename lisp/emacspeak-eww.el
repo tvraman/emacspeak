@@ -462,6 +462,13 @@ If we came from a url-template, reload that template."
         (when
             (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
 
+(defun eww-attribute-not-tester (attr value)
+  "Return predicate that tests for attr!=value for use as a DOM filter."
+  (eval
+   `#'(lambda (node)
+        (unless
+            (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
+
 (defun eww-elements-tester (element-list)
   "Return predicate that tests for presence of element in element-list
 for use as a DOM filter."
@@ -805,6 +812,8 @@ for use as a DOM filter."
 
 ;;}}}
 ;;{{{  Google Knowledge Card:
+
+
 (defun emacspeak-eww-google-knowledge-card ()
   "Show just the knowledge card."
   (interactive)
@@ -812,10 +821,12 @@ for use as a DOM filter."
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
        (value "kno-result")
+       (media "media_result_group")
        (inhibit-read-only t)
        (dom (eww-filter-dom eww-current-dom (eww-attribute-tester 'id value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
+      (setq dom (eww-filter-dom dom (eww-attribute-not-tester 'id media)))
       (eww-save-history)
       (erase-buffer)
       (goto-char (point-min))
