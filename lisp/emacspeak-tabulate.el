@@ -143,7 +143,7 @@ Fields are assumed to be delimited by whitespace. "
         (personality-table (emacspeak-possible-voices)))
     (emacspeak-voiceify-rectangle
      tl br 
-     (read (completing-read
+     (intern (completing-read
             (format "Personality for column %s from  %s through %s"
                     header (- tl start) (- tr start))
             personality-table  nil t )))
