@@ -2,7 +2,7 @@
 (augment-load-path "bbdb/lisp" "bbdb")
 (load-library "bbdb-autoloads")
 
-(bbdb-initialize 'vm  'gnus 'smtpmail)
+(bbdb-initialize 'vm  'gnus)
 ;; Configuration for bbdb
 (setq bbdb-ignore-some-messages-alist
       '(
