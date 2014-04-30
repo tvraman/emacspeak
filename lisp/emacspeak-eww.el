@@ -440,7 +440,7 @@ If we came from a url-template, reload that template."
   "Customize shr rendering for EWW.")
 
 (defun eww-filter-dom-if (dom predicate)
-  "Return DOM dom filtered by predicate.
+  "Return filtered DOM  keeping nodes that match  predicate.
  Predicate receives the node to test."
   (cond
    ((not (listp dom)) nil)
@@ -455,19 +455,18 @@ If we came from a url-template, reload that template."
         (push (xml-node-attributes dom) filtered)
         (push (xml-node-name dom) filtered))))))
 
-
 (defun eww-filter-dom-if-not (dom predicate)
-  "Filter out nodes that match predicate.
-Predicate recieves node to test."
+  "Return filtered DOM  dropping  nodes that match  predicate.
+ Predicate receives the node to test."
   (cond
    ((not (listp dom)) dom)
    ((funcall predicate dom) nil)
    (t
-    (let ((filtered
-           (delq nil
-                 (mapcar
-                  #'(lambda (node) (eww-filter-dom-if-not  node predicate))
-                  (xml-node-children dom)))))
+    (let
+        ((filtered
+          (delq nil
+                (mapcar #'(lambda (node) (eww-filter-dom-if-not  node predicate))
+                        (xml-node-children dom)))))
       (when filtered
         (push (xml-node-attributes dom) filtered)
         (push (xml-node-name dom) filtered))))))
@@ -839,7 +838,6 @@ for use as a DOM filter."
         (eww-attribute-tester 'id media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
-      (setq dom (eww-filter-dom-if dom (eww-attribute-tester 'id media)))
       (eww-save-history)
       (erase-buffer)
       (goto-char (point-min))
