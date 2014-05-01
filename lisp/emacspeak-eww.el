@@ -870,7 +870,8 @@ for use as a DOM filter."
          (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
          (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions eww-shr-render-functions))
-    (when dom
+    (cond
+     (dom
       (eww-save-history)
       (erase-buffer)
       (goto-char (point-min))
@@ -879,6 +880,7 @@ for use as a DOM filter."
       (flush-lines "^ *$")
       (goto-char (point-min))
       (setq buffer-read-only t))
+     (t (message "Knowledge Card not found.")))))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
