@@ -486,6 +486,8 @@ for use as a DOM filter."
    `#'(lambda (node)
         (when (memq (xml-node-name node) (quote ,element-list)) node))))
 
+;;{{{ Filters: Having
+
 (defun eww-view-dom-having-attribute ()
   "Display DOM filtered by specified attribute=value test."
   (interactive)
@@ -640,6 +642,164 @@ for use as a DOM filter."
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-buffer))))
 
+;;}}}
+;;{{{ Filters: not-having
+
+(defun eww-view-dom-not-having-attribute ()
+  "Display DOM filtered by specified nodes not passing  attribute=value test."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-id-cache eww-class-cache
+                    eww-shr-render-functions
+                    eww-role-cache eww-cache-updated eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless
+      (or eww-role-cache eww-id-cache eww-class-cache)
+    (error "No id/class to filter."))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (attr-list nil)
+       (attr
+        (progn
+          (when eww-class-cache (push "class" attr-list))
+          (when eww-id-cache (push "id" attr-list))
+          (when eww-role-cache (push "role" attr-list))
+          (intern (completing-read "Attr: " attr-list nil 'must-match))))
+       (value
+        (completing-read
+         "Value: "
+         (cond
+          ((eq attr 'id) eww-id-cache)
+          ((eq attr 'class)eww-class-cache)
+          ((eq attr 'role)eww-role-cache)
+          (t (error "Only filter by class, id or role.")))
+         nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester attr value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+(defun eww-view-dom-not-having-id ()
+  "Display DOM filtered by specified nodes not passing  id=value test."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-id-cache eww-cache-updated
+                    eww-shr-render-functions eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-id-cache (error "No id to filter."))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value (completing-read "Value: " eww-id-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'id value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+(defun eww-view-dom-not-having-class ()
+  "Display DOM filtered by specified nodes not passing   class=value test."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-class-cache eww-cache-updated
+                    eww-shr-render-functions eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-class-cache (error "No class to filter."))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value
+        (completing-read "Value: " eww-class-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'class value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+(defun eww-view-dom-not-having-role ()
+  "Display DOM filtered by specified  nodes not passing   role=value test."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-role-cache eww-cache-updated
+                    eww-shr-render-functions eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-role-cache (error "No role to filter."))
+  (let*
+      ((emacspeak-eww-rename-result-buffer nil)
+       (value
+        (completing-read "Value: " eww-role-cache nil 'must-match))
+       (inhibit-read-only t)
+       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'role value)))
+       (shr-external-rendering-functions eww-shr-render-functions))
+    (when dom
+      (eww-save-history)
+      (erase-buffer)
+      (goto-char (point-min))
+      (shr-insert-document dom)
+      (set-buffer-modified-p nil)
+      (flush-lines "^ *$")
+      (goto-char (point-min))
+      (setq buffer-read-only t))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
+
+(defun eww-view-dom-not-having-element-list ()
+  "Display DOM filtered by specified nodes not passing   el list."
+  (interactive)
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-element-cache
+                    eww-shr-render-functions eww-cache-updated eww-current-dom ))
+  (emacspeak-eww-prepare-eww)
+  (let ((emacspeak-eww-rename-result-buffer nil)
+        (el-list nil)
+        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
+    (loop until (zerop (length el))
+          do
+          (pushnew (intern  el) el-list)
+          (setq el
+                (completing-read "Element: " eww-element-cache nil 'must-match)))
+    (let ((inhibit-read-only t)
+          (dom (eww-dom-remove-if eww-current-dom (eww-elements-tester el-list)))
+          (shr-external-rendering-functions eww-shr-render-functions))
+      (when dom
+        (eww-save-history)
+        (erase-buffer)
+        (goto-char (point-min))
+        (shr-insert-document dom)
+        (set-buffer-modified-p nil)
+        (flush-lines "^ *$")
+        (goto-char (point-min))
+        (setq buffer-read-only t))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-buffer))))
+
+;;}}}
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
   (interactive)
