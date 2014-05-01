@@ -531,22 +531,22 @@ for use as a DOM filter."
       (or eww-role-cache eww-id-cache eww-class-cache)
     (error "No id/class to filter."))
   (let* ((attr-list nil)
-       (attr
-        (progn
-          (when eww-class-cache (push "class" attr-list))
-          (when eww-id-cache (push "id" attr-list))
-          (when eww-role-cache (push "role" attr-list))
-          (intern (completing-read "Attr: " attr-list nil 'must-match))))
-       (value
-        (completing-read
-         "Value: "
-         (cond
-          ((eq attr 'id) eww-id-cache)
-          ((eq attr 'class)eww-class-cache)
-          ((eq attr 'role)eww-role-cache)
-          (t (error "Only filter by class, id or role.")))
-         nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester attr value))))
+         (attr
+          (progn
+            (when eww-class-cache (push "class" attr-list))
+            (when eww-id-cache (push "id" attr-list))
+            (when eww-role-cache (push "role" attr-list))
+            (intern (completing-read "Attr: " attr-list nil 'must-match))))
+         (value
+          (completing-read
+           "Value: "
+           (cond
+            ((eq attr 'id) eww-id-cache)
+            ((eq attr 'class)eww-class-cache)
+            ((eq attr 'role)eww-role-cache)
+            (t (error "Only filter by class, id or role.")))
+           nil 'must-match))
+         (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester attr value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-having-class ()
@@ -736,7 +736,7 @@ for use as a DOM filter."
     (progn
       (emacspeak-eww-prepare-eww)
       (intern (completing-read "Element: " eww-element-cache nil 'must-match
-                             nil 'emacspeak-eww-element-navigation-history)))))
+                               nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
   (let*
       ((start
@@ -759,7 +759,7 @@ for use as a DOM filter."
     (progn
       (emacspeak-eww-prepare-eww)
       (intern (completing-read "Element: " eww-element-cache nil 'must-match
-                             nil 'emacspeak-eww-element-navigation-history)))))
+                               nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache  emacspeak-eww-element-navigation-history))
   (let* ((start
           (or
@@ -833,17 +833,17 @@ for use as a DOM filter."
         (kill-new  (emacspeak-google-canonicalize-result-url u))))))
 
 ;;}}}
-;;{{{ Masquerade 
+;;{{{ Masquerade
 (defun emacspeak-eww-masquerade ()
   "Masquerade as a main-stream browser."
   (interactive)
   (declare (special url-package-name))
   (cond
    (url-package-name (setq url-package-name nil))
-   (t 
+   (t
     (setq url-package-name  (format "%s %s %s"
                                     "Mozilla/5.0 (Linux; Intel )"
-                                    "AppleWebKit/537.36 (KHTML, like Gecko) " 
+                                    "AppleWebKit/537.36 (KHTML, like Gecko) "
                                     "Chrome/36.0.1944.0 Safari/537.36"))))
   (emacspeak-auditory-icon 'button)
   (message "Masquerading %s"
@@ -851,7 +851,6 @@ for use as a DOM filter."
 
 ;;}}}
 ;;{{{  Google Knowledge Card:
-
 
 (defun emacspeak-eww-google-knowledge-card ()
   "Show just the knowledge card."
@@ -870,7 +869,7 @@ for use as a DOM filter."
        (media "rg_meta")
        (inhibit-read-only t)
        (dom
-        (eww-dom-remove-if 
+        (eww-dom-remove-if
          (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
          (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions eww-shr-render-functions))
