@@ -879,10 +879,10 @@ for use as a DOM filter."
       (set-buffer-modified-p nil)
       (flush-lines "^ *$")
       (goto-char (point-min))
-      (setq buffer-read-only t))
-     (t (message "Knowledge Card not found.")))))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-buffer)))
+      (setq buffer-read-only t)
+      (emacspeak-speak-buffer))
+     (t (message "Knowledge Card not found.")))    (emacspeak-auditory-icon 'open-object)))
+
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 
