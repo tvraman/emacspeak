@@ -838,12 +838,12 @@ for use as a DOM filter."
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
        (value "kno-result")
-       (media "media_result_group")
+       (media "rg_meta")
        (inhibit-read-only t)
        (dom
         (eww-dom-remove-if 
          (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
-         (eww-attribute-tester 'id media)))
+         (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -858,6 +858,7 @@ for use as a DOM filter."
     (emacspeak-speak-buffer)))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
+
 ;;}}}
 
 (provide 'emacspeak-eww)
