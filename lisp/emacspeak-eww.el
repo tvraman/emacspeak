@@ -334,6 +334,7 @@ If we came from a url-template, reload that template."
   (loop
    for binding  in
    '(
+     ("\d" emacspeak-eww-restore)
      ( "\C-t" emacspeak-google-command)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
@@ -355,7 +356,7 @@ If we came from a url-template, reload that template."
      ("O" emacspeak-eww-previous-li)
      ("P" emacspeak-eww-previous-element-from-history)
      ("Q" emacspeak-kill-buffer-quietly)
-     ("R" emacspeak-eww-restore)
+     ("R" eww-view-dom-having-role)
      ("T" emacspeak-eww-previous-table)
      ("[" emacspeak-eww-previous-p)
      ("\C-e" emacspeak-prefix-command)
