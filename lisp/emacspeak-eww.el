@@ -507,146 +507,149 @@ for use as a DOM filter."
     (setq buffer-read-only t))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
+(defsubst emacspeak-eww-get-id ()
+  "Return id value read from minibuffer."
+  (declare (special eww-id-cache))
+  (completing-read "Value: " eww-id-cache nil 'must-match))
 
 (defun eww-view-dom-having-id ()
   "Display DOM filtered by specified id=value test."
   (interactive)
-  (declare (special eww-id-cache eww-cache-updated eww-current-dom))
+  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (unless eww-id-cache (error "No id to filter."))
-  (let*
-      ((value (completing-read "Value: " eww-id-cache nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))))
+  (let
+      ((dom
+        (eww-dom-keep-if eww-current-dom
+                         (eww-attribute-tester 'id (emacspeak-eww-get-id)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-id ()
   "Display DOM filtered by specified nodes not passing  id=value test."
   (interactive)
-  (declare (special eww-id-cache eww-current-dom))
+  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (unless eww-id-cache (error "No id to filter."))
-  (let*
-      ((value (completing-read "Value: " eww-id-cache nil 'must-match))
-       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'id value))))
+  (let ((dom
+         (eww-dom-remove-if eww-current-dom
+                            (eww-attribute-tester 'id (emacspeak-eww-get-id)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defun emacspeak-eww-get-attribute-and-value ()
+  "Read attr-value pair and return as a list."
+  (declare (special eww-id-cache eww-class-cache eww-role-cache))
+  (unless (or eww-role-cache eww-id-cache eww-class-cache)
+    (error "No id/class to filter."))
+  (let*((attr-list nil)
+        (attr
+         (progn
+           (when eww-class-cache (push "class" attr-list))
+           (when eww-id-cache (push "id" attr-list))
+           (when eww-role-cache (push "role" attr-list))
+           (intern (completing-read "Attr: " attr-list nil 'must-match))))
+        (value
+         (completing-read
+          "Value: "
+          (cond
+           ((eq attr 'id) eww-id-cache)
+           ((eq attr 'class)eww-class-cache)
+           ((eq attr 'role)eww-role-cache)
+           (t (error "Only filter by class, id or role.")))
+          nil 'must-match)))
+    (list attr value)))
 
 (defun eww-view-dom-having-attribute ()
   "Display DOM filtered by specified attribute=value test."
   (interactive)
-  (declare (special eww-id-cache eww-class-cache
-                    eww-role-cache  eww-current-dom))
+  (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless
-      (or eww-role-cache eww-id-cache eww-class-cache)
-    (error "No id/class to filter."))
-  (let* ((attr-list nil)
-         (attr
-          (progn
-            (when eww-class-cache (push "class" attr-list))
-            (when eww-id-cache (push "id" attr-list))
-            (when eww-role-cache (push "role" attr-list))
-            (intern (completing-read "Attr: " attr-list nil 'must-match))))
-         (value
-          (completing-read
-           "Value: "
-           (cond
-            ((eq attr 'id) eww-id-cache)
-            ((eq attr 'class)eww-class-cache)
-            ((eq attr 'role)eww-role-cache)
-            (t (error "Only filter by class, id or role.")))
-           nil 'must-match))
-         (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester attr value))))
+  (let ((dom
+         (eww-dom-keep-if eww-current-dom
+                          (apply 'eww-attribute-tester  (emacspeak-eww-get-attribute-and-value)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-attribute ()
   "Display DOM filtered by specified nodes not passing  attribute=value test."
   (interactive)
-  (declare (special eww-id-cache eww-class-cache
-                    eww-role-cache  eww-current-dom))
+  (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless
-      (or eww-role-cache eww-id-cache eww-class-cache)
-    (error "No id/class to filter."))
-  (let*
-      ((attr-list nil)
-       (attr
-        (progn
-          (when eww-class-cache (push "class" attr-list))
-          (when eww-id-cache (push "id" attr-list))
-          (when eww-role-cache (push "role" attr-list))
-          (intern (completing-read "Attr: " attr-list nil 'must-match))))
-       (value
-        (completing-read
-         "Value: "
-         (cond
-          ((eq attr 'id) eww-id-cache)
-          ((eq attr 'class)eww-class-cache)
-          ((eq attr 'role)eww-role-cache)
-          (t (error "Only filter by class, id or role.")))
-         nil 'must-match))
-       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester attr value))))
+  (let ((dom
+         (eww-dom-remove-if eww-current-dom
+                            (apply 'eww-attribute-tester (emacspeak-eww-get-attribute-and-value)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defsubst emacspeak-eww-get-class ()
+  "Return class value read from minibuffer."
+  (declare (special eww-class-cache))
+  (unless eww-class-cache (error "No class to filter."))
+  (completing-read "Value: " eww-class-cache nil 'must-match))
 
 (defun eww-view-dom-having-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
-  (declare (special eww-class-cache   eww-current-dom))
-  (let*
-      ((value
-        (completing-read "Value: " eww-class-cache nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'class value))))
+  (declare (special    eww-current-dom))
+  (let ((dom
+         (eww-dom-keep-if eww-current-dom
+                          (eww-attribute-tester 'class (emacspeak-eww-get-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class ()
   "Display DOM filtered by specified nodes not passing   class=value test."
   (interactive)
-  (declare (special eww-class-cache eww-current-dom))
+  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless eww-class-cache (error "No class to filter."))
-  (let*
-      ((value
-        (completing-read "Value: " eww-class-cache nil 'must-match))
-       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'class value))))
+  (let ((dom
+         (eww-dom-remove-if eww-current-dom
+                            (eww-attribute-tester 'class (emacspeak-eww-get-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defsubst emacspeak-eww-get-role ()
+  "Return role value read from minibuffer."
+  (declare (special eww-role-cache))
+  (unless eww-role-cache (error "No role to filter."))
+  (completing-read "Value: " eww-role-cache nil 'must-match))
 
 (defun eww-view-dom-having-role ()
   "Display DOM filtered by specified role=value test."
   (interactive)
-  (declare (special eww-role-cache eww-current-dom))
+  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless eww-role-cache (error "No role to filter."))
-  (let*
-      ((value
-        (completing-read "Value: " eww-role-cache nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'role value))))
+  (let ((dom
+         (eww-dom-keep-if eww-current-dom
+                          (eww-attribute-tester 'role (emacspeak-eww-get-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-role ()
   "Display DOM filtered by specified  nodes not passing   role=value test."
   (interactive)
-  (declare (special eww-role-cache eww-shr-render-functions eww-current-dom))
+  (declare (special  eww-shr-render-functions eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless eww-role-cache (error "No role to filter."))
-  (let*
-      ((value
-        (completing-read "Value: " eww-role-cache nil 'must-match))
-       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'role value))))
+  (let ((dom
+         (eww-dom-remove-if eww-current-dom
+                            (eww-attribute-tester 'role (emacspeak-eww-get-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defun emacspeak-eww-get-element-list ()
+  "Return list of elements read from minibuffer."
+  (declare (special eww-element-cache  ))
+  (let ((el-list nil)
+        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
+    (loop
+     until (zerop (length el))
+     do
+     (pushnew (intern  el) el-list)
+     (setq el (completing-read "Element: " eww-element-cache nil 'must-match)))
+    el-list))
 
 (defun eww-view-dom-having-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
-  (declare (special eww-element-cache eww-current-dom ))
+  (declare (special  eww-current-dom ))
   (emacspeak-eww-prepare-eww)
-  (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (loop until (zerop (length el))
-          do
-          (pushnew (intern  el) el-list)
-          (setq el
-                (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (let ((dom (eww-dom-keep-if eww-current-dom (eww-elements-tester el-list))))
-      (when dom (emacspeak-eww-view-helper dom)))))
+  (let ((dom
+         (eww-dom-keep-if eww-current-dom
+                          (eww-elements-tester (emacspeak-eww-get-element-list)))))
+    (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-element-list ()
   "Display DOM filtered by specified nodes not passing   el list."
