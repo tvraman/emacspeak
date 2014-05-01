@@ -827,7 +827,14 @@ for use as a DOM filter."
 (defun emacspeak-eww-google-knowledge-card ()
   "Show just the knowledge card."
   (interactive)
-  (declare (special eww-shr-render-functions eww-current-dom))
+  (declare (special eww-shr-render-functions eww-current-dom
+                    url-package-name))
+  (unless url-package-name
+    (error "Repeat search after turning on masquerade mode to see knowledge cards."))
+  (unless (eq major-mode 'eww-mode)
+    (error "This command is only available in EWW"))
+  (unless  emacspeak-google-toolbelt
+    (error "This doesn't look like a Google results page."))
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
        (value "kno-result")
@@ -835,8 +842,8 @@ for use as a DOM filter."
        (inhibit-read-only t)
        (dom
         (eww-dom-remove-if 
-        (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
-        (eww-attribute-tester 'id media)))
+         (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
+         (eww-attribute-tester 'id media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
