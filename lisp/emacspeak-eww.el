@@ -508,8 +508,6 @@ for use as a DOM filter."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
 
-;;{{{ Filters: Having
-
 (defun eww-view-dom-having-id ()
   "Display DOM filtered by specified id=value test."
   (interactive)
@@ -519,6 +517,17 @@ for use as a DOM filter."
   (let*
       ((value (completing-read "Value: " eww-id-cache nil 'must-match))
        (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))))
+    (when dom (emacspeak-eww-view-helper dom))))
+
+(defun eww-view-dom-not-having-id ()
+  "Display DOM filtered by specified nodes not passing  id=value test."
+  (interactive)
+  (declare (special eww-id-cache eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-id-cache (error "No id to filter."))
+  (let*
+      ((value (completing-read "Value: " eww-id-cache nil 'must-match))
+       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'id value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-having-attribute ()
@@ -549,46 +558,6 @@ for use as a DOM filter."
          (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester attr value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-having-class ()
-  "Display DOM filtered by specified class=value test."
-  (interactive)
-  (declare (special eww-class-cache   eww-current-dom))
-  (let*
-      ((value
-        (completing-read "Value: " eww-class-cache nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'class value))))
-    (when dom (emacspeak-eww-view-helper dom))))
-
-(defun eww-view-dom-having-role ()
-  "Display DOM filtered by specified role=value test."
-  (interactive)
-  (declare (special eww-role-cache eww-current-dom))
-  (emacspeak-eww-prepare-eww)
-  (unless eww-role-cache (error "No role to filter."))
-  (let*
-      ((value
-        (completing-read "Value: " eww-role-cache nil 'must-match))
-       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'role value))))
-    (when dom (emacspeak-eww-view-helper dom))))
-
-(defun eww-view-dom-having-element-list ()
-  "Display DOM filtered by specified el list."
-  (interactive)
-  (declare (special eww-element-cache eww-current-dom ))
-  (emacspeak-eww-prepare-eww)
-  (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (loop until (zerop (length el))
-          do
-          (pushnew (intern  el) el-list)
-          (setq el
-                (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (let ((dom (eww-dom-keep-if eww-current-dom (eww-elements-tester el-list))))
-      (when dom (emacspeak-eww-view-helper dom)))))
-
-;;}}}
-;;{{{ Filters: not-having
-
 (defun eww-view-dom-not-having-attribute ()
   "Display DOM filtered by specified nodes not passing  attribute=value test."
   (interactive)
@@ -618,15 +587,14 @@ for use as a DOM filter."
        (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester attr value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-id ()
-  "Display DOM filtered by specified nodes not passing  id=value test."
+(defun eww-view-dom-having-class ()
+  "Display DOM filtered by specified class=value test."
   (interactive)
-  (declare (special eww-id-cache eww-current-dom))
-  (emacspeak-eww-prepare-eww)
-  (unless eww-id-cache (error "No id to filter."))
+  (declare (special eww-class-cache   eww-current-dom))
   (let*
-      ((value (completing-read "Value: " eww-id-cache nil 'must-match))
-       (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'id value))))
+      ((value
+        (completing-read "Value: " eww-class-cache nil 'must-match))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'class value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class ()
@@ -641,6 +609,18 @@ for use as a DOM filter."
        (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'class value))))
     (when dom (emacspeak-eww-view-helper dom))))
 
+(defun eww-view-dom-having-role ()
+  "Display DOM filtered by specified role=value test."
+  (interactive)
+  (declare (special eww-role-cache eww-current-dom))
+  (emacspeak-eww-prepare-eww)
+  (unless eww-role-cache (error "No role to filter."))
+  (let*
+      ((value
+        (completing-read "Value: " eww-role-cache nil 'must-match))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'role value))))
+    (when dom (emacspeak-eww-view-helper dom))))
+
 (defun eww-view-dom-not-having-role ()
   "Display DOM filtered by specified  nodes not passing   role=value test."
   (interactive)
@@ -652,6 +632,21 @@ for use as a DOM filter."
         (completing-read "Value: " eww-role-cache nil 'must-match))
        (dom (eww-dom-remove-if eww-current-dom (eww-attribute-tester 'role value))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defun eww-view-dom-having-element-list ()
+  "Display DOM filtered by specified el list."
+  (interactive)
+  (declare (special eww-element-cache eww-current-dom ))
+  (emacspeak-eww-prepare-eww)
+  (let ((el-list nil)
+        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
+    (loop until (zerop (length el))
+          do
+          (pushnew (intern  el) el-list)
+          (setq el
+                (completing-read "Element: " eww-element-cache nil 'must-match)))
+    (let ((dom (eww-dom-keep-if eww-current-dom (eww-elements-tester el-list))))
+      (when dom (emacspeak-eww-view-helper dom)))))
 
 (defun eww-view-dom-not-having-element-list ()
   "Display DOM filtered by specified nodes not passing   el list."
@@ -668,7 +663,6 @@ for use as a DOM filter."
     (let ((dom (eww-dom-remove-if eww-current-dom (eww-elements-tester el-list))))
       (when dom (emacspeak-eww-view-helper dom)))))
 
-;;}}}
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
   (interactive)
