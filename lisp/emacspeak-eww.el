@@ -345,11 +345,11 @@ If we came from a url-template, reload that template."
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
      ("?" emacspeak-webutils-google-similar-to-this-page)
-     ("A" eww-view-filtered-dom-by-attribute)
-     ("C" eww-view-filtered-dom-by-class)
-     ("E" eww-view-filtered-dom-by-element-list)
+     ("A" eww-view-dom-having-attribute)
+     ("C" eww-view-dom-having-class)
+     ("E" eww-view-dom-having-element-list)
      ("G" emacspeak-google-command)
-     ("I" eww-view-filtered-dom-by-id)
+     ("I" eww-view-dom-having-id)
      ("K" emacspeak-kill-buffer-quietly)
      ("N" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
@@ -486,7 +486,7 @@ for use as a DOM filter."
    `#'(lambda (node)
         (when (memq (xml-node-name node) (quote ,element-list)) node))))
 
-(defun eww-view-filtered-dom-by-attribute ()
+(defun eww-view-dom-having-attribute ()
   "Display DOM filtered by specified attribute=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
@@ -530,7 +530,7 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-(defun eww-view-filtered-dom-by-id ()
+(defun eww-view-dom-having-id ()
   "Display DOM filtered by specified id=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
@@ -556,7 +556,7 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-(defun eww-view-filtered-dom-by-class ()
+(defun eww-view-dom-having-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
@@ -583,7 +583,7 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-(defun eww-view-filtered-dom-by-role ()
+(defun eww-view-dom-having-role ()
   "Display DOM filtered by specified role=value test."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
@@ -610,7 +610,7 @@ for use as a DOM filter."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
-(defun eww-view-filtered-dom-by-element-list ()
+(defun eww-view-dom-having-element-list ()
   "Display DOM filtered by specified el list."
   (interactive)
   (declare (special emacspeak-eww-rename-result-buffer
