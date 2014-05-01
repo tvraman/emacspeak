@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile (require 'eww "eww" 'no-error))
+(eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
@@ -439,7 +440,7 @@ If we came from a url-template, reload that template."
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 
-(defun eww-filter-dom-if (dom predicate)
+(defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
  Predicate receives the node to test."
   (cond
@@ -449,13 +450,13 @@ If we came from a url-template, reload that template."
     (let ((filtered
            (delq nil
                  (mapcar
-                  #'(lambda (node) (eww-filter-dom-if node predicate))
+                  #'(lambda (node) (eww-dom-keep-if node predicate))
                   (xml-node-children dom)))))
       (when filtered
         (push (xml-node-attributes dom) filtered)
         (push (xml-node-name dom) filtered))))))
 
-(defun eww-filter-dom-if-not (dom predicate)
+(defun eww-dom-remove-if (dom predicate)
   "Return filtered DOM  dropping  nodes that match  predicate.
  Predicate receives the node to test."
   (cond
@@ -465,7 +466,7 @@ If we came from a url-template, reload that template."
     (let
         ((filtered
           (delq nil
-                (mapcar #'(lambda (node) (eww-filter-dom-if-not  node predicate))
+                (mapcar #'(lambda (node) (eww-dom-remove-if  node predicate))
                         (xml-node-children dom)))))
       (when filtered
         (push (xml-node-attributes dom) filtered)
@@ -515,7 +516,7 @@ for use as a DOM filter."
           (t (error "Only filter by class, id or role.")))
          nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester attr value)))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester attr value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -541,7 +542,7 @@ for use as a DOM filter."
       ((emacspeak-eww-rename-result-buffer nil)
        (value (completing-read "Value: " eww-id-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'id value)))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -568,7 +569,7 @@ for use as a DOM filter."
        (value
         (completing-read "Value: " eww-class-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'class value)))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'class value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -595,7 +596,7 @@ for use as a DOM filter."
        (value
         (completing-read "Value: " eww-role-cache nil 'must-match))
        (inhibit-read-only t)
-       (dom (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'role value)))
+       (dom (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'role value)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
       (eww-save-history)
@@ -625,7 +626,7 @@ for use as a DOM filter."
           (setq el
                 (completing-read "Element: " eww-element-cache nil 'must-match)))
     (let ((inhibit-read-only t)
-          (dom (eww-filter-dom-if eww-current-dom (eww-elements-tester el-list)))
+          (dom (eww-dom-keep-if eww-current-dom (eww-elements-tester el-list)))
           (shr-external-rendering-functions eww-shr-render-functions))
       (when dom
         (eww-save-history)
@@ -833,8 +834,8 @@ for use as a DOM filter."
        (media "media_result_group")
        (inhibit-read-only t)
        (dom
-        (eww-filter-dom-if-not 
-        (eww-filter-dom-if eww-current-dom (eww-attribute-tester 'id value))
+        (eww-dom-remove-if 
+        (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
         (eww-attribute-tester 'id media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (when dom
