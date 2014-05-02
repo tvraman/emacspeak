@@ -508,6 +508,7 @@ for use as a DOM filter."
     (setq buffer-read-only t))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
+
 (defsubst emacspeak-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
