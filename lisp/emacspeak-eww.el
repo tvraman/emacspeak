@@ -310,9 +310,10 @@ If we came from a url-template, reload that template."
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images
+                    shr-inhibit-images  
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                    emacspeak-pronounce-load-pronunciations-on-startup))
+                    url-package-name emacspeak-pronounce-load-pronunciations-on-startup))
+  (unless url-package-name (emacspeak-eww-masquerade))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
