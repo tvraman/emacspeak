@@ -306,6 +306,20 @@ If we came from a url-template, reload that template."
       #'(lambda ()
           (declare (special eww-current-url))
           eww-current-url))))
+(defun emacspeak-eww-masquerade ()
+  "Masquerade as a main-stream browser."
+  (interactive)
+  (declare (special url-package-name))
+  (cond
+   (url-package-name (setq url-package-name nil))
+   (t
+    (setq url-package-name  (format "%s %s %s"
+                                    "Mozilla/5.0 (Linux; Intel )"
+                                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                    "Chrome/36.0.1944.0 Safari/537.36"))))
+  (emacspeak-auditory-icon 'button)
+  (message "Masquerading %s"
+           (if url-package-name "on" "off")))
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
@@ -833,20 +847,7 @@ for use as a DOM filter."
 
 ;;}}}
 ;;{{{ Masquerade
-(defun emacspeak-eww-masquerade ()
-  "Masquerade as a main-stream browser."
-  (interactive)
-  (declare (special url-package-name))
-  (cond
-   (url-package-name (setq url-package-name nil))
-   (t
-    (setq url-package-name  (format "%s %s %s"
-                                    "Mozilla/5.0 (Linux; Intel )"
-                                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                                    "Chrome/36.0.1944.0 Safari/537.36"))))
-  (emacspeak-auditory-icon 'button)
-  (message "Masquerading %s"
-           (if url-package-name "on" "off")))
+
 
 ;;}}}
 ;;{{{  Google Knowledge Card:
