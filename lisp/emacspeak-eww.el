@@ -492,6 +492,21 @@ If we came from a url-template, reload that template."
         (push (xml-node-attributes dom) filtered)
         (push (xml-node-name dom) filtered))))))
 
+(defun eww-attribute-list-tester (attr-list)
+  "Return predicate that tests for attr=value from members of
+attr-value list for use as a DOM filter."
+  (eval
+   `#'(lambda (node)
+        (let (attr  value found)
+          (loop for pair in ,attr-list
+                until found 
+                do
+                (setq attr (first pair)
+                      value (second pair))
+                (setq found
+                      (string= (xml-get-attribute node attr) value)))
+          (if found node nil)))))
+        
 (defun eww-attribute-tester (attr value)
   "Return predicate that tests for attr=value for use as a DOM filter."
   (eval
@@ -523,7 +538,7 @@ for use as a DOM filter."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
 
-(defun emacspeak-eww-read-list (reader)
+(defun ems-eww-read-list (reader)
   "Return list of values  read using reader."
   (let ((value-list nil)
         (value (funcall reader)))
@@ -534,7 +549,7 @@ for use as a DOM filter."
      (setq value (funcall reader)))
     value-list))
 
-(defsubst emacspeak-eww-read-id ()
+(defsubst ems-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
   (completing-read "Value: " eww-id-cache nil 'must-match))
@@ -548,7 +563,7 @@ for use as a DOM filter."
   (let
       ((dom
         (eww-dom-keep-if eww-current-dom
-                         (eww-attribute-tester 'id (emacspeak-eww-read-id)))))
+                         (eww-attribute-tester 'id (ems-eww-read-id)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-id ()
@@ -559,10 +574,10 @@ for use as a DOM filter."
   (unless eww-id-cache (error "No id to filter."))
   (let ((dom
          (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'id (emacspeak-eww-read-id)))))
+                            (eww-attribute-tester 'id (ems-eww-read-id)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun emacspeak-eww-read-attribute-and-value ()
+(defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
   (declare (special eww-id-cache eww-class-cache eww-role-cache))
   (unless (or eww-role-cache eww-id-cache eww-class-cache)
@@ -592,7 +607,7 @@ for use as a DOM filter."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if eww-current-dom
-                          (apply 'eww-attribute-tester  (emacspeak-eww-read-attribute-and-value)))))
+                          (apply 'eww-attribute-tester  (ems-eww-read-attribute-and-value)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-attribute ()
@@ -602,10 +617,10 @@ for use as a DOM filter."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if eww-current-dom
-                            (apply 'eww-attribute-tester (emacspeak-eww-read-attribute-and-value)))))
+                            (apply 'eww-attribute-tester (ems-eww-read-attribute-and-value)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defsubst emacspeak-eww-read-class ()
+(defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
   (declare (special eww-class-cache))
   (unless eww-class-cache (error "No class to filter."))
@@ -619,7 +634,6 @@ for use as a DOM filter."
          (eww-dom-keep-if eww-current-dom
                           (eww-attribute-tester 'class (emacspeak-eww-read-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
-
 (defun eww-view-dom-not-having-class ()
   "Display DOM filtered by specified nodes not passing   class=value test."
   (interactive)
@@ -627,10 +641,10 @@ for use as a DOM filter."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'class (emacspeak-eww-read-class)))))
+                            (eww-attribute-tester 'class (ems-eww-read-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defsubst emacspeak-eww-read-role ()
+(defsubst ems-eww-read-role ()
   "Return role value read from minibuffer."
   (declare (special eww-role-cache))
   (unless eww-role-cache (error "No role to filter."))
@@ -643,7 +657,7 @@ for use as a DOM filter."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if eww-current-dom
-                          (eww-attribute-tester 'role (emacspeak-eww-read-role)))))
+                          (eww-attribute-tester 'role (ems-eww-read-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-role ()
@@ -653,9 +667,9 @@ for use as a DOM filter."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'role (emacspeak-eww-read-role)))))
+                            (eww-attribute-tester 'role (ems-eww-read-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
-(defsubst emacspeak-eww-read-element ()
+(defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
   (completing-read "Value: " eww-element-cache nil 'must-match))
@@ -671,8 +685,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
           eww-current-dom
           (eww-elements-tester
            (if multi
-               (emacspeak-eww-read-list 'emacspeak-eww-read-element)
-             (list (intern (emacspeak-eww-read-element))))))))
+               (ems-eww-read-list 'ems-eww-read-element)
+             (list (intern (ems-eww-read-element))))))))
     (cond
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
