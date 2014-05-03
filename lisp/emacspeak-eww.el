@@ -324,7 +324,7 @@ If we came from a url-template, reload that template."
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images  
+                    shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     url-package-name emacspeak-pronounce-load-pronunciations-on-startup))
   (unless url-package-name (emacspeak-eww-masquerade))
@@ -363,7 +363,7 @@ If we came from a url-template, reload that template."
      ("?" emacspeak-webutils-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
-     ("E" eww-view-dom-having-element-list)
+     ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
      ("K" emacspeak-kill-buffer-quietly)
@@ -534,7 +534,6 @@ for use as a DOM filter."
      (setq value (funcall reader)))
     value-list))
 
-
 (defsubst emacspeak-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
@@ -612,9 +611,6 @@ for use as a DOM filter."
   (unless eww-class-cache (error "No class to filter."))
   (completing-read "Value: " eww-class-cache nil 'must-match))
 
-
-
-
 (defun eww-view-dom-having-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
@@ -664,26 +660,22 @@ for use as a DOM filter."
   (declare (special eww-element-cache))
   (completing-read "Value: " eww-element-cache nil 'must-match))
 
-(defun emacspeak-eww-read-element-list ()
-  "Return list of elements read from minibuffer."
-  (let ((el-list nil)
-        (el (emacspeak-eww-read-element)))
-    (loop
-     until (zerop (length el))
-     do
-     (pushnew (intern  el) el-list)
-     (setq el (emacspeak-eww-read-element)))
-    el-list))
-
-(defun eww-view-dom-having-element-list ()
-  "Display DOM filtered by specified el list."
-  (interactive)
+(defun eww-view-dom-having-elements (&optional multi)
+  "Display DOM filtered by specified elements.
+Optional interactive prefix arg `multi' prompts for multiple elements."
+  (interactive "P")
   (declare (special  eww-current-dom ))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if eww-current-dom
-                          (eww-elements-tester (emacspeak-eww-read-element-list)))))
-    (when dom (emacspeak-eww-view-helper dom))))
+         (eww-dom-keep-if
+          eww-current-dom
+          (eww-elements-tester
+           (if multi
+               (emacspeak-eww-read-list 'emacspeak-eww-read-element)
+             (list (intern (emacspeak-eww-read-element))))))))
+    (cond
+     (dom (emacspeak-eww-view-helper dom))
+     (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-element-list ()
   "Display DOM filtered by specified nodes not passing   el list."
@@ -866,7 +858,6 @@ for use as a DOM filter."
 ;;}}}
 ;;{{{ Masquerade
 
-
 ;;}}}
 ;;{{{  Google Knowledge Card:
 
@@ -904,11 +895,9 @@ for use as a DOM filter."
       (emacspeak-speak-buffer))
      (t (message "Knowledge Card not found.")))    (emacspeak-auditory-icon 'open-object)))
 
-
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 
 ;;}}}
-
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
