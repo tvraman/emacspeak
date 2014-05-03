@@ -523,6 +523,18 @@ for use as a DOM filter."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
 
+(defun emacspeak-eww-read-list (reader)
+  "Return list of values  read using reader."
+  (let ((value-list nil)
+        (value (funcall reader)))
+    (loop
+     until (zerop (length value))
+     do
+     (pushnew (intern  value) value-list)
+     (setq value (funcall reader)))
+    value-list))
+
+
 (defsubst emacspeak-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
