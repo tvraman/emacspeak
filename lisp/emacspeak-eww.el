@@ -600,6 +600,9 @@ for use as a DOM filter."
   (unless eww-class-cache (error "No class to filter."))
   (completing-read "Value: " eww-class-cache nil 'must-match))
 
+
+
+
 (defun eww-view-dom-having-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
@@ -644,17 +647,20 @@ for use as a DOM filter."
          (eww-dom-remove-if eww-current-dom
                             (eww-attribute-tester 'role (emacspeak-eww-read-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
+(defsubst emacspeak-eww-read-element ()
+  "Return element  value read from minibuffer."
+  (declare (special eww-element-cache))
+  (completing-read "Value: " eww-element-cache nil 'must-match))
 
 (defun emacspeak-eww-read-element-list ()
   "Return list of elements read from minibuffer."
-  (declare (special eww-element-cache  ))
   (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
+        (el (emacspeak-eww-read-element)))
     (loop
      until (zerop (length el))
      do
      (pushnew (intern  el) el-list)
-     (setq el (completing-read "Element: " eww-element-cache nil 'must-match)))
+     (setq el (emacspeak-eww-read-element)))
     el-list))
 
 (defun eww-view-dom-having-element-list ()
