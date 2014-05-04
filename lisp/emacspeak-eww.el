@@ -72,7 +72,7 @@
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
-  (setq eww-cache-updated nil)
+  
   (emacspeak-eww-prepare-eww)
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
 
@@ -98,7 +98,6 @@
   `
   (defadvice ,f (after emacspeak pre act comp)
     "Provide auditory feedback"
-    (setq eww-cache-updated nil)
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak eww-current-title)))))
@@ -198,7 +197,6 @@ Retain previously set punctuations  mode."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template."
   (declare (special eww-cache-updated emacspeak-eww-buffer-hash))
-  (setq eww-cache-updated nil)
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (when emacspeak-eww-rename-result-buffer (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
@@ -431,7 +429,8 @@ If we came from a url-template, reload that template."
 
 (defadvice eww-restore-history (after emacspeak pre act comp)
   "mark cache dirty."
-  (setq eww-cache-updated nil))
+  (setq eww-cache-updated nil)
+  (emacspeak-eww-prepare-eww))
 
 (defvar eww-id-cache nil
   "Cache of id values. Is buffer-local.")
@@ -566,7 +565,9 @@ for use as a DOM filter."
     (loop
      until (zerop (length value))
      do
-     (pushnew (intern  value) value-list)
+     (when (stringp value)
+       (setq value (intern value)))
+     (pushnew value value-list)
      (setq value (funcall reader)))
     value-list))
 
