@@ -565,9 +565,7 @@ for use as a DOM filter."
     (loop
      until (zerop (length value))
      do
-     (when (stringp value)
-       (setq value (intern value)))
-     (pushnew value value-list)
+     (pushnew (intern value) value-list)
      (setq value (funcall reader)))
     value-list))
 
@@ -648,43 +646,38 @@ for use as a DOM filter."
   (unless eww-class-cache (error "No class to filter."))
   (completing-read "Value: " eww-class-cache nil 'must-match))
 
-(defsubst ems-eww-read-class-value ()
-  "Return class value read from minibuffer."
-  (declare (special eww-class-cache))
-  (unless eww-class-cache (error "No class to filter."))
-  (list 'class (completing-read "Value: " eww-class-cache nil 'must-match)))
-
-(defun eww-view-dom-having-class ()
-  "Display DOM filtered by specified class=value test."
-  (interactive)
-  (declare (special    eww-current-dom))
-  (let ((dom
-         (eww-dom-keep-if eww-current-dom
-                          (eww-attribute-tester 'class (ems-eww-read-class)))))
-    (when dom (emacspeak-eww-view-helper dom))))
-
-(defun eww-view-dom-having-class-list (multi)
+(defun eww-view-dom-having-class (multi)
   "Display DOM filtered by specified class=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (declare (special    eww-current-dom))
+  (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
           eww-current-dom
           (eww-attribute-list-tester
            (if multi
-               (ems-eww-read-list 'ems-eww-read-class-value)
-             (list (ems-eww-read-class-value)))))))
+               (loop
+                for c in (ems-eww-read-list 'ems-eww-read-class)
+                collect (list 'class c))
+             (list (list 'class (ems-eww-read-class))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-class ()
-  "Display DOM filtered by specified nodes not passing   class=value test."
+(defun eww-view-dom-not-having-class (multi)
+  "Display DOM filtered by specified nodes not passing   class=value test.
+Optional interactive arg `multi' prompts for multiple classes."
   (interactive)
   (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'class (ems-eww-read-class)))))
+         (eww-dom-remove-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for c in (ems-eww-read-list 'ems-eww-read-class)
+                collect (list 'class c))
+             (list (list 'class (ems-eww-read-class))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-role ()
