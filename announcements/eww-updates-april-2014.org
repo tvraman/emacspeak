@@ -1,0 +1,86 @@
+* Emacspeak EWW Updates 
+
+Within a few weeks, [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][EWW]] has become my prefered way of consuming
+large amounts of Web content --- except for simple fill-out
+forms, it has entirely replaced Emacs/W3 for me. Goes without
+saying that I still use ChromeVox for Js-heavy Web sites.
+
+This article summarizes  some of the major enhancements to EWW
+implemented in module _emacspeak-eww_; See the online
+documentation and key-binding help for complete details.
+
+** EWW And Masquerade Mode
+
+You can now have EWW masquerade as modern  browsers; note that
+some sites might serve you more feature-rich content in this
+mode. 
+
+** Smart Google Searches
+
+All of the features from module _emacspeak-google_ have been
+integrated to work with EWW. In addition, if running in
+masquerade-mode, you can quickly access knowledge cards if
+available on the current results page.
+
+** Rich DOM  Filtering
+
+The suite of DOM filtered views has been enhanced to support
+filtering by class, id, role, or element-list.  In addition, you
+can also invert these filters.
+
+**  Structure Navigation 
+
+Emacspeak now supports structured navigation in pages rendered by
+EWW, see the key-bindings for details.
+
+** Integration With URL-Templates And Feeds
+
+EWW is now fully integrated with Emacspeak WebSearch,
+URL-Templates and Feeds. This means that hitting _g_ in an EWW
+buffer does the /right thing/ with respect to updating the
+rendered buffer:
+
+  - If viewing a feed, the feed is reloaded before it is rendered
+    as HTML.
+  - If viewing a url-template, the template is re-opened,
+    prompting for user-input if needed.
+  
+
+** XSLT Integration
+
+Most of the functionality provided by module _emacspeak-xslt_ for
+filtering the DOM in the world of Emacs/W3 is achieved more
+effectively via the DOM  filtering commands in _emacspeak-eww_
+—that said, XSLT pre-processing is fully integrated with EWW via
+supporting modules _emacspeak-ew_ and _emacspeak-webutils_.
+
+** Other Fun Things To Do
+
+Here are some more fun things that might be worth doing:
+
+  - Integrate [[http://phantomjs.org/][PhantomJS]] with EWW  to load content that is
+    rendered via JS _document.write_.
+  - Integrate with  [[http://casperjs.org/./index.html][CasperJS]] to enable interaction with
+    light-weight WebApps.
+  - Integrate with Chrome over the debugger API to access the
+    live DOM  within Chrome.
+
+*Share And Enjoy*
+
+
+
+#+TITLE: Emacspeak EWW Updates 
+#+DATE: <2014-05-01 Thu>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.4.50.2 (Org mode 8.2.5c)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
