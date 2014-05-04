@@ -775,7 +775,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
           (eww-elements-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
-             (list (intern (ems-eww-read-element))))))))
+             (list  (ems-eww-read-element)))))))
     (cond
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
