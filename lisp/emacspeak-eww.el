@@ -499,14 +499,14 @@ attr-value list for use as a DOM filter."
    `#'(lambda (node)
         (let (attr  value found)
           (loop for pair in ,attr-list
-                until found 
+                until found
                 do
                 (setq attr (first pair)
                       value (second pair))
                 (setq found
                       (string= (xml-get-attribute node attr) value)))
           (if found node nil)))))
-        
+
 (defun eww-attribute-tester (attr value)
   "Return predicate that tests for attr=value for use as a DOM filter."
   (eval
@@ -626,6 +626,12 @@ for use as a DOM filter."
   (unless eww-class-cache (error "No class to filter."))
   (completing-read "Value: " eww-class-cache nil 'must-match))
 
+(defsubst ems-eww-read-class-value ()
+  "Return class value read from minibuffer."
+  (declare (special eww-class-cache))
+  (unless eww-class-cache (error "No class to filter."))
+  (list 'class (completing-read "Value: " eww-class-cache nil 'must-match)))
+
 (defun eww-view-dom-having-class ()
   "Display DOM filtered by specified class=value test."
   (interactive)
@@ -691,20 +697,20 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
 
-(defun eww-view-dom-not-having-element-list ()
-  "Display DOM filtered by specified nodes not passing   el list."
-  (interactive)
-  (declare (special eww-element-cache eww-current-dom ))
+(defun eww-view-dom-not-having-element-list (multi)
+  "Display DOM filtered by specified nodes not passing   el list.
+Optional interactive prefix arg `multi' prompts for multiple elements."
+  (interactive "P")
+  (declare (special  eww-current-dom ))
   (emacspeak-eww-prepare-eww)
-  (let ((el-list nil)
-        (el (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (loop until (zerop (length el))
-          do
-          (pushnew (intern  el) el-list)
-          (setq el
-                (completing-read "Element: " eww-element-cache nil 'must-match)))
-    (let ((dom (eww-dom-remove-if eww-current-dom (eww-elements-tester el-list))))
-      (when dom (emacspeak-eww-view-helper dom)))))
+  (let ((dom
+         (eww-dom-remove-if
+          eww-current-dom
+          (eww-elements-tester
+           (if multi
+               (ems-eww-read-list 'ems-eww-read-element)
+             (list (intern (ems-eww-read-element))))))))
+    (when dom (emacspeak-eww-view-helper dom))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
