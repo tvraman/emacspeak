@@ -98,14 +98,17 @@
 
 (defvar emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
+
 (make-variable-buffer-local 'emacspeak-eww-style)
 
 (defvar emacspeak-eww-feed nil
   "Record if this eww buffer is displaying a feed.")
+
 (make-variable-buffer-local 'emacspeak-eww-feed)
 
 (defvar emacspeak-eww-url-template nil
   "Record if this eww buffer is displaying a url-template.")
+
 (make-variable-buffer-local 'emacspeak-eww-url-template)
 
 (defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
@@ -177,6 +180,7 @@ Retain previously set punctuations  mode."
     "Provide auditory feedback"
     (setq eww-cache-updated nil)
     (emacspeak-pronounce-toggle-use-of-dictionaries t)
+    (emacspeak-eww-prepare-eww)
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)))))
 
@@ -515,8 +519,7 @@ attr-value list for use as a DOM filter."
            do
            (setq attr (first pair)
                  value (second pair))
-           (setq found
-                 (string= (xml-get-attribute node attr) value)))
+           (setq found (string= (xml-get-attribute node attr) value)))
           (when found node)))))
 
 (defun eww-attribute-tester (attr value)
@@ -664,7 +667,7 @@ Optional interactive arg `multi' prompts for multiple classes."
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-class-value)
-             (ems-eww-read-class-value))))))
+             (list (ems-eww-read-class-value)))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class ()
