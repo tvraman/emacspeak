@@ -69,10 +69,9 @@
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom)) )
 
-
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
-  
+
   (emacspeak-eww-prepare-eww)
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
 
@@ -134,7 +133,6 @@ Otherwise proceed  and cache the buffer at the end of eww-render. "
       (emacspeak-webutils-autospeak)
       ad-do-it))
     ad-return-value))
-
 
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers.
@@ -572,29 +570,42 @@ for use as a DOM filter."
 (defsubst ems-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
+  (unless eww-id-cache (error "No id to filter."))
   (completing-read "Value: " eww-id-cache nil 'must-match))
 
-(defun eww-view-dom-having-id ()
-  "Display DOM filtered by specified id=value test."
-  (interactive)
+(defun eww-view-dom-having-id (multi)
+  "Display DOM filtered by specified id=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
   (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless eww-id-cache (error "No id to filter."))
   (let
       ((dom
-        (eww-dom-keep-if eww-current-dom
-                         (eww-attribute-tester 'id (ems-eww-read-id)))))
+        (eww-dom-keep-if
+         eww-current-dom
+         (eww-attribute-list-tester
+          (if multi
+              (loop
+               for i in (ems-eww-read-list 'ems-eww-read-id)
+               collect (list 'id i))
+            (list (list 'id (ems-eww-read-id))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-id ()
-  "Display DOM filtered by specified nodes not passing  id=value test."
+(defun eww-view-dom-not-having-id (multi)
+  "Display DOM filtered by specified nodes not passing  id=value test.
+Optional interactive arg `multi' prompts for multiple classes."
   (interactive)
   (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
-  (unless eww-id-cache (error "No id to filter."))
   (let ((dom
-         (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'id (ems-eww-read-id)))))
+         (eww-dom-remove-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for i in (ems-eww-read-list 'ems-eww-read-id)
+                collect (list 'id i))
+             (list (list 'id (ems-eww-read-id))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun ems-eww-read-attribute-and-value ()
@@ -620,24 +631,34 @@ for use as a DOM filter."
           nil 'must-match)))
     (list attr value)))
 
-(defun eww-view-dom-having-attribute ()
-  "Display DOM filtered by specified attribute=value test."
-  (interactive)
+(defun eww-view-dom-having-attribute (multi)
+  "Display DOM filtered by specified attribute=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
   (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if eww-current-dom
-                          (apply 'eww-attribute-tester  (ems-eww-read-attribute-and-value)))))
+         (eww-dom-keep-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (ems-eww-read-list 'ems-eww-read-attribute-and-value)
+             (list  (ems-eww-read-attribute-and-value)))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-attribute ()
-  "Display DOM filtered by specified nodes not passing  attribute=value test."
-  (interactive)
+(defun eww-view-dom-not-having-attribute (multi)
+  "Display DOM filtered by specified nodes not passing  attribute=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
   (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-remove-if eww-current-dom
-                            (apply 'eww-attribute-tester (ems-eww-read-attribute-and-value)))))
+         (eww-dom-remove-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (ems-eww-read-list 'ems-eww-read-attribute-and-value)
+             (list  (ems-eww-read-attribute-and-value)))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-class ()
@@ -686,24 +707,38 @@ Optional interactive arg `multi' prompts for multiple classes."
   (unless eww-role-cache (error "No role to filter."))
   (completing-read "Value: " eww-role-cache nil 'must-match))
 
-(defun eww-view-dom-having-role ()
-  "Display DOM filtered by specified role=value test."
-  (interactive)
+(defun eww-view-dom-having-role (multi)
+  "Display DOM filtered by specified role=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
   (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if eww-current-dom
-                          (eww-attribute-tester 'role (ems-eww-read-role)))))
+         (eww-dom-keep-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for r in (ems-eww-read-list 'ems-eww-read-role)
+                collect (list 'role r))
+             (list (list 'role (ems-eww-read-role))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-role ()
-  "Display DOM filtered by specified  nodes not passing   role=value test."
-  (interactive)
+(defun eww-view-dom-not-having-role (multi)
+  "Display DOM filtered by specified  nodes not passing   role=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
   (declare (special  eww-shr-render-functions eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-remove-if eww-current-dom
-                            (eww-attribute-tester 'role (ems-eww-read-role)))))
+         (eww-dom-remove-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for r in (ems-eww-read-list 'ems-eww-read-role)
+                collect (list 'role r))
+             (list (list 'role (ems-eww-read-role))))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-element ()
