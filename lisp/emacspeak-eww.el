@@ -69,6 +69,13 @@
     (error "No DOM to filter!"))
   (unless eww-cache-updated (eww-update-cache eww-current-dom)) )
 
+
+(defsubst emacspeak-eww-post-render-actions ()
+  "Post-render actions for setting up emacspeak."
+  (setq eww-cache-updated nil)
+  (emacspeak-eww-prepare-eww)
+  (emacspeak-pronounce-toggle-use-of-dictionaries t))
+
 ;;}}}
 ;;{{{ Map Faces To Voices:
 
@@ -129,11 +136,13 @@ Otherwise proceed  and cache the buffer at the end of eww-render. "
       ad-do-it))
     ad-return-value))
 
+
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers.
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
+  (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
   (cond
    ((and eww-current-url
          emacspeak-eww-feed
@@ -178,9 +187,6 @@ Retain previously set punctuations  mode."
   `
   (defadvice ,f (after emacspeak pre act comp)
     "Provide auditory feedback"
-    (setq eww-cache-updated nil)
-    (emacspeak-pronounce-toggle-use-of-dictionaries t)
-    (emacspeak-eww-prepare-eww)
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)))))
 
