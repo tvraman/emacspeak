@@ -498,14 +498,15 @@ attr-value list for use as a DOM filter."
   (eval
    `#'(lambda (node)
         (let (attr  value found)
-          (loop for pair in ,attr-list
-                until found
-                do
-                (setq attr (first pair)
-                      value (second pair))
-                (setq found
-                      (string= (xml-get-attribute node attr) value)))
-          (if found node nil)))))
+          (loop
+           for pair in (quote ,attr-list)
+           until found
+           do
+           (setq attr (first pair)
+                 value (second pair))
+           (setq found
+                 (string= (xml-get-attribute node attr) value)))
+          (when found node)))))
 
 (defun eww-attribute-tester (attr value)
   "Return predicate that tests for attr=value for use as a DOM filter."
