@@ -50,13 +50,21 @@
 ;;{{{ Required modules
 
 (require 'cl)
+
 (declaim (optimize (safety 0) (speed 3)))
+
 (eval-when-compile (require 'eww "eww" 'no-error))
+
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
+
 (require 'emacspeak-preamble)
+
 (require 'emacspeak-we)
+
 (require 'emacspeak-webutils)
+
 (require 'emacspeak-google)
+
 (require 'xml)
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -87,6 +95,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
 (loop
  for f in
  '(eww-up-url eww-top-url
@@ -248,6 +257,7 @@ If we came from a url-template, reload that template."
 (defadvice eww-quit(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
+
 (loop
  for f in
  '(eww-change-select
@@ -432,10 +442,12 @@ If we came from a url-template, reload that template."
 
 (defvar eww-id-cache nil
   "Cache of id values. Is buffer-local.")
+
 (make-variable-buffer-local 'eww-id-cache)
 
 (defvar eww-class-cache nil
   "Cache of class values. Is buffer-local.")
+
 (make-variable-buffer-local 'eww-class-cache)
 
 (defvar eww-role-cache nil
@@ -445,6 +457,7 @@ If we came from a url-template, reload that template."
 
 (defvar eww-element-cache nil
   "Cache of element names. Is buffer-local.")
+
 (make-variable-buffer-local 'eww-element-cache)
 
 (defun eww-update-cache (dom)
@@ -558,20 +571,22 @@ for use as a DOM filter."
 
 (defun ems-eww-read-list (reader)
   "Return list of values  read using reader."
-  (let ((value-list nil)
-        (value (funcall reader)))
+  (let (value-list  value done)
     (loop
-     until (zerop (length value))
+     until done
      do
-     (pushnew (intern value) value-list)
-     (setq value (funcall reader)))
+     (setq value (funcall reader))
+     (cond
+      (value (pushnew   value value-list))
+      (t (setq done t))))
     value-list))
 
 (defsubst ems-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
   (unless eww-id-cache (error "No id to filter."))
-  (completing-read "Value: " eww-id-cache nil 'must-match))
+  (let ((value (completing-read "Value: " eww-id-cache nil 'must-match)))
+    (unless (zerop (length value)) value)))
 
 (defun eww-view-dom-having-id (multi)
   "Display DOM filtered by specified id=value test.
@@ -612,25 +627,24 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Read attr-value pair and return as a list."
   (declare (special eww-id-cache eww-class-cache eww-role-cache))
   (unless (or eww-role-cache eww-id-cache eww-class-cache)
-    (error "No id/class to filter."))
-  (let*((attr-names nil)
-        (attr
-         (progn
-           (when eww-class-cache (push "class" attr-names))
-           (when eww-id-cache (push "id" attr-names))
-           (when eww-role-cache (push "role" attr-names))
-           (intern (completing-read "Attr: " attr-names nil 'must-match))))
-        (value
-         (completing-read
-          "Value: "
-          (cond
-           ((eq attr 'id) eww-id-cache)
-           ((eq attr 'class)eww-class-cache)
-           ((eq attr 'role)eww-role-cache)
-           (t (error "Only filter by class, id or role.")))
-          nil 'must-match)))
-    (list attr value)))
-;;; ToDo: read-list wont work with above.
+    (error "No attributes to filter."))
+  (let(attr-names attr value)
+    (when eww-class-cache (push "class" attr-names))
+    (when eww-id-cache (push "id" attr-names))
+    (when eww-role-cache (push "role" attr-names))
+    (setq attr (completing-read "Attr: " attr-names nil 'must-match))
+    (unless (zerop (length attr))
+      (setq attr (intern attr))
+      (setq value
+            (completing-read
+             "Value: "
+             (cond
+              ((eq attr 'id) eww-id-cache)
+              ((eq attr 'class)eww-class-cache)
+              ((eq attr 'role)eww-role-cache))
+             nil 'must-match))
+      (list attr value))))
+
 (defun eww-view-dom-having-attribute (multi)
   "Display DOM filtered by specified attribute=value test.
 Optional interactive arg `multi' prompts for multiple classes."
@@ -665,7 +679,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Return class value read from minibuffer."
   (declare (special eww-class-cache))
   (unless eww-class-cache (error "No class to filter."))
-  (completing-read "Value: " eww-class-cache nil 'must-match))
+  (let ((value (completing-read "Value: " eww-class-cache nil 'must-match)))
+    (unless (zerop (length value)) value)))
 
 (defun eww-view-dom-having-class (multi)
   "Display DOM filtered by specified class=value test.
@@ -705,7 +720,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Return role value read from minibuffer."
   (declare (special eww-role-cache))
   (unless eww-role-cache (error "No role to filter."))
-  (completing-read "Value: " eww-role-cache nil 'must-match))
+  (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
+    (unless (zerop (length value)) value)))
 
 (defun eww-view-dom-having-role (multi)
   "Display DOM filtered by specified role=value test.
@@ -744,7 +760,8 @@ Optional interactive arg `multi' prompts for multiple classes."
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
-  (completing-read "Value: " eww-element-cache nil 'must-match))
+  (let ((value (completing-read "Value: " eww-element-cache nil 'must-match)))
+    (unless (zerop (length value)) (intern value))))
 
 (defun eww-view-dom-having-elements (&optional multi)
   "Display DOM filtered by specified elements.
@@ -812,6 +829,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:
+
 (loop
  for  tag in
  '(h1 h2 h3 div
@@ -921,6 +939,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;}}}
 ;;{{{ Google Search  fixes:
+
 (loop
  for f in
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
@@ -988,6 +1007,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 
 ;;}}}
+
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
