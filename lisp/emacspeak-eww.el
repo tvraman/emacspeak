@@ -88,15 +88,18 @@
               eww-back-url eww-forward-url)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
-     (setq eww-cache-updated nil)
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
-       (dtk-speak eww-current-title)))))
+  `
+  (defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback"
+    (setq eww-cache-updated nil)
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'open-object)
+      (dtk-speak eww-current-title)))))
+
 (defvar emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
 (make-variable-buffer-local 'emacspeak-eww-style)
+
 (defvar emacspeak-eww-feed nil
   "Record if this eww buffer is displaying a feed.")
 (make-variable-buffer-local 'emacspeak-eww-feed)
@@ -169,12 +172,13 @@ Retain previously set punctuations  mode."
  '(eww eww-reload eww-open-file)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback"
-     (setq eww-cache-updated nil)
-     (emacspeak-pronounce-toggle-use-of-dictionaries t)
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)))))
+  `
+  (defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback"
+    (setq eww-cache-updated nil)
+    (emacspeak-pronounce-toggle-use-of-dictionaries t)
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'open-object)))))
 
 (defvar emacspeak-eww-rename-result-buffer t
   "Result buffer is renamed to document title.")
@@ -229,10 +233,11 @@ If we came from a url-template, reload that template."
  '(eww-next-bookmark eww-previous-bookmark)
  do
  (eval
-  `(defadvice ,f(after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
-     (emacspeak-speak-line))))
+  `
+  (defadvice ,f(after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
+    (emacspeak-speak-line))))
 
 (defadvice eww-quit(after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -244,27 +249,30 @@ If we came from a url-template, reload that template."
    eww-submit)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)))))
+  `
+  (defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'button)))))
 
 (loop
  for f in
  '(shr-next-link shr-previous-link)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
-     "Provide auditory feedback."
-     (let ((emacspeak-speak-messages nil))
-       ad-do-it
-       (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'large-movement)
-         (emacspeak-speak-region
-          (point)
-          (next-single-property-change (point) 'help-echo  nil (point-max))))))))
+  `
+  (defadvice ,f (around emacspeak pre act comp)
+    "Provide auditory feedback."
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-speak-region
+         (point)
+         (next-single-property-change (point) 'help-echo  nil (point-max))))))))
 
 ;;; Handle emacspeak-we-url-executor
+
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
   (when (ems-interactive-p)
@@ -306,6 +314,7 @@ If we came from a url-template, reload that template."
       #'(lambda ()
           (declare (special eww-current-url))
           eww-current-url))))
+
 (defun emacspeak-eww-masquerade ()
   "Masquerade as a main-stream browser."
   (interactive)
@@ -345,6 +354,7 @@ If we came from a url-template, reload that template."
    do
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
+
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (loop
    for binding  in
@@ -408,6 +418,7 @@ If we came from a url-template, reload that template."
 (make-variable-buffer-local 'eww-cache-updated)
 
 ;;; Mark cache to be dirty if we restore history:
+
 (defadvice eww-restore-history (after emacspeak pre act comp)
   "mark cache dirty."
   (setq eww-cache-updated nil))
@@ -641,6 +652,21 @@ for use as a DOM filter."
          (eww-dom-keep-if eww-current-dom
                           (eww-attribute-tester 'class (ems-eww-read-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
+(defun eww-view-dom-having-class-list (multi)
+  "Display DOM filtered by specified class=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (declare (special    eww-current-dom))
+  (let ((dom
+         (eww-dom-keep-if
+          eww-current-dom
+          (eww-attribute-list-tester
+           (if multi
+               (ems-eww-read-list 'ems-eww-read-class-value)
+             (ems-eww-read-class-value))))))
+    (when dom (emacspeak-eww-view-helper dom))))
+
 (defun eww-view-dom-not-having-class ()
   "Display DOM filtered by specified nodes not passing   class=value test."
   (interactive)
@@ -676,6 +702,7 @@ for use as a DOM filter."
          (eww-dom-remove-if eww-current-dom
                             (eww-attribute-tester 'role (ems-eww-read-role)))))
     (when dom (emacspeak-eww-view-helper dom))))
+
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
@@ -756,16 +783,17 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       table )
  do
  (eval
-  `(defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
-     (let ((start (point)))
-       ad-do-it
-       (let ((start (if (char-equal (following-char) ?\n)
-                        (min (point-max) (1+ start) )start))
-             (end (if (> (point) start) (1- (point)) (point))))
-         (put-text-property start end
-                            (quote ,tag) t)
-         (when (memq (quote ,tag) '(h1 h2 h3))
-           (put-text-property start end 'h t)))))))
+  `
+  (defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
+    (let ((start (point)))
+      ad-do-it
+      (let ((start (if (char-equal (following-char) ?\n)
+                       (min (point-max) (1+ start) )start))
+            (end (if (> (point) start) (1- (point)) (point))))
+        (put-text-property start end
+                           (quote ,tag) t)
+        (when (memq (quote ,tag) '(h1 h2 h3))
+          (put-text-property start end 'h t)))))))
 
 ;;}}}
 ;;{{{ Element Navigation:
@@ -841,15 +869,17 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
  '(h h1 h2 h3 li table ol ul p)
  do
  (eval
-  `(defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
-     ,(format "Move forward to the next %s" f)
-     (interactive)
-     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
+  `
+  (defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
+    ,(format "Move forward to the next %s" f)
+    (interactive)
+    (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
  (eval
-  `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
-     ,(format "Move backward to the next %s" f)
-     (interactive)
-     (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
+  `
+  (defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
+    ,(format "Move backward to the next %s" f)
+    (interactive)
+    (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
@@ -858,13 +888,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
  do
  (eval
-  `(defadvice ,f (before cleanup-url  pre act comp)
-     "Canonicalize Google search URLs."
-     (let ((u (ad-get-arg 0)))
-       (cond
-        ((and u (stringp u)
-              (string-prefix-p (emacspeak-google-result-url-prefix) u))
-         (ad-set-arg 0 (emacspeak-google-canonicalize-result-url u))))))))
+  `
+  (defadvice ,f (before cleanup-url  pre act comp)
+    "Canonicalize Google search URLs."
+    (let ((u (ad-get-arg 0)))
+      (cond
+       ((and u (stringp u)
+             (string-prefix-p (emacspeak-google-result-url-prefix) u))
+        (ad-set-arg 0 (emacspeak-google-canonicalize-result-url u))))))))
 
 (defadvice shr-copy-url (around emacspeak pre act comp)
   "Canonicalize Google URLs"
