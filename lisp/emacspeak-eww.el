@@ -632,7 +632,7 @@ for use as a DOM filter."
   (declare (special    eww-current-dom))
   (let ((dom
          (eww-dom-keep-if eww-current-dom
-                          (eww-attribute-tester 'class (emacspeak-eww-read-class)))))
+                          (eww-attribute-tester 'class (ems-eww-read-class)))))
     (when dom (emacspeak-eww-view-helper dom))))
 (defun eww-view-dom-not-having-class ()
   "Display DOM filtered by specified nodes not passing   class=value test."
