@@ -838,15 +838,18 @@ from English to German.")
  "Google Print Search")
 
 (emacspeak-url-template-define
- "Google Text  News"
- "http://news.google.com/news?ned=tus"
+ "Google NewsPaper"
+ "http://news.google.com/news"
  nil
- #'(lambda nil
-     (emacspeak-speak-rest-of-buffer))
+ nil
  "Retrieve and speak Google News Overview."
  #'(lambda (url)
-     (emacspeak-webutils-without-xsl
-      (browse-url url))))
+     (emacspeak-we-extract-by-id-list
+      '("s_WEATHER_GADGET" "s_SPORTS_GADGET"
+        "s_MOST_POPULAR" "s_INTERESTING"
+        "s_EDITORS_PICK" "s_BREAKING_NEWS_BOX")
+      url
+      'speak)))      
 
 (emacspeak-url-template-define
  "Google News Search"
