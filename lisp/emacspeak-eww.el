@@ -331,28 +331,47 @@ If we came from a url-template, reload that template."
           (declare (special eww-current-url))
           eww-current-url))))
 
+(defvar emacspeak-eww-masquerade t
+  "Says if we masquerade as a mainstream browser.")
+
 (defun emacspeak-eww-masquerade ()
-  "Masquerade as a main-stream browser."
+  "Toggle masquerade state."
   (interactive)
-  (declare (special url-package-name))
+  (declare (special emacspeak-eww-masquerade))
+  (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
+  (message "Turned %s masquerade"
+           (if emacspeak-eww-masquerade "on" "off"))
+  (emacspeak-auditory-icon
+   (if emacspeak-eww-masquerade 'on 'off)))
+                                    
+(defcustom  emacspeak-eww-masquerade-as
+  (format "User-Agent: %s %s %s\r\n"
+          "Mozilla/5.0 (X11; Linux x86_64)"
+          "AppleWebKit/537.36 (KHTML, like Gecko)"
+          "Chrome/36.0.1964.2 Safari/537.36")
+  "User Agent string that is  sent when masquerading is on."
+  :type 'string
+  :group 'emacspeak-eww)
+;;; Advice note: Setting ad-return-value in one arm of the cond appears to perculate to both arms.
+
+(defadvice url-http-user-agent-string (around emacspeak pre act comp)
+  "Respond to user  asking us to masquerade."
   (cond
-   (url-package-name (setq url-package-name nil))
-   (t
-    (setq url-package-name  (format "%s %s %s"
-                                    "Mozilla/5.0 (Linux; Intel )"
-                                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                                    "Chrome/36.0.1944.0 Safari/537.36"))))
-  (emacspeak-auditory-icon 'button)
-  (message "Masquerading %s"
-           (if url-package-name "on" "off")))
+   (emacspeak-eww-masquerade (setq ad-return-value emacspeak-eww-masquerade-as))
+   (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
+                                    
+                                    
+  
+  
+           
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                    url-package-name emacspeak-pronounce-load-pronunciations-on-startup))
-  (unless url-package-name (emacspeak-eww-masquerade))
+                     emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
+  (unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
