@@ -481,6 +481,12 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ Anonimize google search
+(emacspeak-url-template-define
+ "Sign in to Google"
+ "https://accounts.google.com/ServiceLogin?hl=en&continue=https://www.google.com/"
+ nil
+ nil
+ "Login to Google.")
 
 (emacspeak-url-template-define
  "Anonymize Google Search"
