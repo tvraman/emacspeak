@@ -450,6 +450,32 @@ This variable is buffer-local.")
     (emacspeak-websearch-google emacspeak-google-query)))
 
 ;;}}}
+;;{{{ Sign in, Sign out:
+
+(defvar emacspeak-google-sign-out-url
+  "http://www.google.com/accounts/Logout"
+  "URL for signing out of Google.")
+
+(defvar emacspeak-google-sign-in-url
+  "https://accounts.google.com/ServiceLogin?hl=en&continue=https://www.google.com/"
+  "URL for signing in to Google.")
+
+(defun emacspeak-google-sign-in ()
+  "Sign in to Google."
+  (interactive)
+  (declare (special emacspeak-google-sign-in-url))
+  (browse-url emacspeak-google-sign-in-url))
+
+(defun emacspeak-google-sign-out ()
+  "Sign out to Google."
+  (interactive)
+  (declare (special emacspeak-google-sign-out-url))
+  (browse-url emacspeak-google-sign-out-url))
+(declaim (special emacspeak-google-keymap))
+(define-key emacspeak-google-keymap "a" 'emacspeak-google-sign-out)
+(define-key emacspeak-google-keymap "A" 'emacspeak-google-sign-in)
+         
+;;}}}
 ;;{{{  keymap
 ;;;###autoload
 (define-prefix-command  'emacspeak-google-command
