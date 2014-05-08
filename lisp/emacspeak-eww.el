@@ -1024,7 +1024,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      (t (message "Knowledge Card not found.")))    (emacspeak-auditory-icon 'open-object)))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
-
+(define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
 ;;}}}
 
 (provide 'emacspeak-eww)
