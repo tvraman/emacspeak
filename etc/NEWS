@@ -21,7 +21,10 @@ Updated url templates for efficient Web interaction.
 ** emacspeak-websearch.el
 Updated search wizards.
 
+** Google  Search:
 
+Better Google search including support for viewing knowledge
+cards when using EWW.
 ** gmaps.el:
 
 updated Google Maps V2 implementation.
