@@ -97,6 +97,12 @@ pronunciation dictionaries are stored. ")
   "README file from where we get SVN revision number.")
 
 ;;;###autoload
+(defconst emacspeak-codename
+  "WowDog"
+  "Code name of present release.")
+
+
+;;;###autoload
 (defconst emacspeak-version
   (format
    "40.0 %s:  %s"
@@ -120,11 +126,6 @@ pronunciation dictionaries are stored. ")
        revision))
     (t "")))
   "Version number for Emacspeak.")
-
-;;;###autoload
-(defconst emacspeak-codename
-  "WowDog"
-  "Code name of present release.")
 
 ;;}}}
 ;;{{{ speech rate
