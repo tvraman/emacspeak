@@ -99,7 +99,8 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defconst emacspeak-version
   (format
-   "40.0 %s"
+   "40.0 %s:  %s"
+   emacspeak-codename
    (cond
     ((file-exists-p emacspeak-readme-file)
      (let ((buffer (find-file-noselect emacspeak-readme-file))
@@ -122,7 +123,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "WOWDog"
+  "WowDog"
   "Code name of present release.")
 
 ;;}}}
