@@ -1,0 +1,3755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>voice-setup Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href="emacspeak-Options.html#emacspeak-Options"
+  title="emacspeak Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="voice-setup-Options" id="voice-setup-Options"></a>
+    <a name="voice_002dsetup-Options" id=
+    "voice_002dsetup-Options"></a>
+
+    <p>Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "emacspeak-Options.html#emacspeak-Options">emacspeak
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.66 voice-setup Options</h3>
+
+  <p>Commentary: A voice is to audio as a font is to a visual
+  display. A personality is to audio as a face is to a visual
+  display.</p>
+
+  <p>Voice-lock-mode is a minor mode that causes your comments to
+  be spoken in one personality, strings in another, reserved words
+  in another, documentation strings in another, and so on.</p>
+
+  <p>Comments will be spoken in
+  `emacspeak-voice-lock-comment-personality'. Strings will be
+  spoken in `emacspeak-voice-lock-string-personality'. Function and
+  variable names (in their defining forms) will be spoken in
+  `emacspeak-voice-lock-function-name-personality'. Reserved words
+  will be spoken in `emacspeak-voice-lock-keyword-personality'.</p>
+
+  <p>To make the text you type be voiceified, use M-x
+  voice-lock-mode. When this minor mode is on, the voices of the
+  current line are updated with every insertion or deletion.</p>
+
+  <p>How faces map to voices: TTS engine specific modules e.g.,
+  dectalk-voices.el and outloud-voices.el define a standard set of
+  voice names. This module maps standard "personality" names to
+  these pre-defined voices. It does this via special form
+  def-voice-font which takes a personality name, a voice name and a
+  face name to set up the mapping between face and personality, and
+  personality and voice. Newer Emacspeak modules should use
+  voice-setup-add-map when defining face-&gt;personality mappings.
+  Older code calls def-voice-font directly, but over time those
+  calls will be changed to the more succinct form provided by
+  voice-setup-add-map. For use from other modules, also see
+  function voice-setup-map-face which is useful when mapping a
+  single face. Both voice-setup-add-map and voice-setup-map-face
+  call special form def-voice-font.</p>
+
+  <p>Special form def-voice-font sets up the personality name to be
+  available via custom. new voices can be defined using CSS style
+  specifications see special form defvoice Voices defined via
+  defvoice can be customized via custom see the documentation for
+  defvoice.</p>
+
+  <p>Automatically generated documentation for options defined in
+  module voice-setup. These options are customizable via Emacs'
+  Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>global-voice-lock-mode<a name="index-User-Option-1442" id=
+    "index-User-Option-1442"></a></var><br />
+
+    <blockquote>
+      <p>Non-nil if Global-Voice-Lock mode is enabled. See the
+      command `global-voice-lock-mode' for a description of this
+      minor mode. Setting this variable directly does not take
+      effect; either customize it (see the info node `Easy
+      Customization') or call the function
+      `global-voice-lock-mode'.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-animate-extra-settings<a name=
+    "index-User-Option-1443" id=
+    "index-User-Option-1443"></a></var><br />
+
+    <blockquote>
+      <p>Adds extra animation current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-animate-medium-settings<a name=
+    "index-User-Option-1444" id=
+    "index-User-Option-1444"></a></var><br />
+
+    <blockquote>
+      <p>Adds medium animation current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-animate-settings<a name="index-User-Option-1445" id=
+    "index-User-Option-1445"></a></var><br />
+
+    <blockquote>
+      <p>Animates current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-annotate-settings<a name="index-User-Option-1446"
+    id="index-User-Option-1446"></a></var><br />
+
+    <blockquote>
+      <p>Indicate annotation.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-bolden-and-animate-settings<a name=
+    "index-User-Option-1447" id=
+    "index-User-Option-1447"></a></var><br />
+
+    <blockquote>
+      <p>Bolden and animate current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-bolden-extra-settings<a name=
+    "index-User-Option-1448" id=
+    "index-User-Option-1448"></a></var><br />
+
+    <blockquote>
+      <p>Extra bolden current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-bolden-medium-settings<a name=
+    "index-User-Option-1449" id=
+    "index-User-Option-1449"></a></var><br />
+
+    <blockquote>
+      <p>Add medium bolden current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-bolden-settings<a name="index-User-Option-1450" id=
+    "index-User-Option-1450"></a></var><br />
+
+    <blockquote>
+      <p>Bolden current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-brighten-extra-settings<a name=
+    "index-User-Option-1451" id=
+    "index-User-Option-1451"></a></var><br />
+
+    <blockquote>
+      <p>Extra brighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-brighten-medium-settings<a name=
+    "index-User-Option-1452" id=
+    "index-User-Option-1452"></a></var><br />
+
+    <blockquote>
+      <p>Brighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-brighten-settings<a name="index-User-Option-1453"
+    id="index-User-Option-1453"></a></var><br />
+
+    <blockquote>
+      <p>Brighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-indent-settings<a name="index-User-Option-1454" id=
+    "index-User-Option-1454"></a></var><br />
+
+    <blockquote>
+      <p>Indicate indentation .</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lighten-extra-settings<a name=
+    "index-User-Option-1455" id=
+    "index-User-Option-1455"></a></var><br />
+
+    <blockquote>
+      <p>Add extra lighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lighten-medium-settings<a name=
+    "index-User-Option-1456" id=
+    "index-User-Option-1456"></a></var><br />
+
+    <blockquote>
+      <p>Add medium lighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lighten-settings<a name="index-User-Option-1457" id=
+    "index-User-Option-1457"></a></var><br />
+
+    <blockquote>
+      <p>Lighten current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lock-overlay-0-settings<a name=
+    "index-User-Option-1458" id=
+    "index-User-Option-1458"></a></var><br />
+
+    <blockquote>
+      <p>Overlay voice that sets dimension 0 of ACSS structure to
+      8.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lock-overlay-1-settings<a name=
+    "index-User-Option-1459" id=
+    "index-User-Option-1459"></a></var><br />
+
+    <blockquote>
+      <p>Overlay voice that sets dimension 1 of ACSS structure to
+      8.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lock-overlay-2-settings<a name=
+    "index-User-Option-1460" id=
+    "index-User-Option-1460"></a></var><br />
+
+    <blockquote>
+      <p>Overlay voice that sets dimension 2 of ACSS structure to
+      8.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-lock-overlay-3-settings<a name=
+    "index-User-Option-1461" id=
+    "index-User-Option-1461"></a></var><br />
+
+    <blockquote>
+      <p>Overlay voice that sets dimension 3 of ACSS structure to
+      8.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-monotone-medium-settings<a name=
+    "index-User-Option-1462" id=
+    "index-User-Option-1462"></a></var><br />
+
+    <blockquote>
+      <p>Turns current voice into a medium monotone.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-monotone-settings<a name="index-User-Option-1463"
+    id="index-User-Option-1463"></a></var><br />
+
+    <blockquote>
+      <p>Turns current voice into a monotone and speaks all
+      punctuations.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-punctuations-all-settings<a name=
+    "index-User-Option-1464" id=
+    "index-User-Option-1464"></a></var><br />
+
+    <blockquote>
+      <p>Turns current voice into one that speaks all
+      punctuations.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-punctuations-none-settings<a name=
+    "index-User-Option-1465" id=
+    "index-User-Option-1465"></a></var><br />
+
+    <blockquote>
+      <p>Turns current voice into one that speaks no
+      punctuations.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-punctuations-some-settings<a name=
+    "index-User-Option-1466" id=
+    "index-User-Option-1466"></a></var><br />
+
+    <blockquote>
+      <p>Turns current voice into one that speaks some
+      punctuations.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-setup-sample-text<a name="index-User-Option-1467"
+    id="index-User-Option-1467"></a></var><br />
+
+    <blockquote>
+      <p>Sample text used when displaying available voices.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-smoothen-extra-settings<a name=
+    "index-User-Option-1468" id=
+    "index-User-Option-1468"></a></var><br />
+
+    <blockquote>
+      <p>Extra smoothen current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-smoothen-medium-settings<a name=
+    "index-User-Option-1469" id=
+    "index-User-Option-1469"></a></var><br />
+
+    <blockquote>
+      <p>Add medium smoothen current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-smoothen-settings<a name="index-User-Option-1470"
+    id="index-User-Option-1470"></a></var><br />
+
+    <blockquote>
+      <p>Smoothen current voice.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>voice-womanize-1-settings<a name="index-User-Option-1471"
+    id="index-User-Option-1471"></a></var><br />
+
+    <blockquote>
+      <p>Apply first female voice.</p>
+    </blockquote>
+  </div>
+
+  <p>Automatically generated documentation for options defined in
+  module nil. These options are customizable via Emacs' Custom
+  interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-Buffer-menu-buffer-voice<a name=
+    "index-User-Option-1472" id=
+    "index-User-Option-1472"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for Buffer-menu-buffer This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-bold-italic-voice<a name=
+    "index-User-Option-1473" id=
+    "index-User-Option-1473"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for bold-italic This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-bold-voice<a name="index-User-Option-1474" id=
+    "index-User-Option-1474"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for bold This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-button-voice<a name="index-User-Option-1475" id=
+    "index-User-Option-1475"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-c-annotation-personality<a name=
+    "index-User-Option-1476" id=
+    "index-User-Option-1476"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for c-annotation-face This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-calendar-today-voice<a name=
+    "index-User-Option-1477" id=
+    "index-User-Option-1477"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for calendar-today This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-comint-highlight-input-voice<a name=
+    "index-User-Option-1478" id=
+    "index-User-Option-1478"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for comint-highlight-input This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-comint-highlight-prompt-voice<a name=
+    "index-User-Option-1479" id=
+    "index-User-Option-1479"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for comint-highlight-prompt This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-completions-annotations-voice<a name=
+    "index-User-Option-1480" id=
+    "index-User-Option-1480"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for completions-annotations This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-completions-common-part-voice<a name=
+    "index-User-Option-1481" id=
+    "index-User-Option-1481"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for completions-common-part This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-completions-first-difference-voice<a name=
+    "index-User-Option-1482" id=
+    "index-User-Option-1482"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for completions-first-difference This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-button-mouse-voice<a name=
+    "index-User-Option-1483" id=
+    "index-User-Option-1483"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-button-mouse This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-button-pressed-unraised-voice<a name=
+    "index-User-Option-1484" id=
+    "index-User-Option-1484"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-button-pressed-unraised This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-button-pressed-voice<a name=
+    "index-User-Option-1485" id=
+    "index-User-Option-1485"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-button-pressed This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-button-unraised-voice<a name=
+    "index-User-Option-1486" id=
+    "index-User-Option-1486"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-button-unraised This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-button-voice<a name=
+    "index-User-Option-1487" id=
+    "index-User-Option-1487"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-changed-voice<a name=
+    "index-User-Option-1488" id=
+    "index-User-Option-1488"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-changed This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-comment-tag-voice<a name=
+    "index-User-Option-1489" id=
+    "index-User-Option-1489"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-comment-tag This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-comment-voice<a name=
+    "index-User-Option-1490" id=
+    "index-User-Option-1490"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-comment This personality uses
+      voice-monotone-medium whose effect can be changed globally by
+      customizing voice-monotone-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-documentation-voice<a name=
+    "index-User-Option-1491" id=
+    "index-User-Option-1491"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-documentation This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-face-tag-voice<a name=
+    "index-User-Option-1492" id=
+    "index-User-Option-1492"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-face-tag This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-group-tag-1-voice<a name=
+    "index-User-Option-1493" id=
+    "index-User-Option-1493"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-group-tag-1 This personality
+      uses voice-lighten-medium whose effect can be changed
+      globally by customizing voice-lighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-group-tag-voice<a name=
+    "index-User-Option-1494" id=
+    "index-User-Option-1494"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-group-tag This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-invalid-voice<a name=
+    "index-User-Option-1495" id=
+    "index-User-Option-1495"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-invalid This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-link-voice<a name=
+    "index-User-Option-1496" id=
+    "index-User-Option-1496"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-modified-voice<a name=
+    "index-User-Option-1497" id=
+    "index-User-Option-1497"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-modified This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-rogue-voice<a name=
+    "index-User-Option-1498" id=
+    "index-User-Option-1498"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-rogue This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-saved-voice<a name=
+    "index-User-Option-1499" id=
+    "index-User-Option-1499"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-saved This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-set-voice<a name="index-User-Option-1500"
+    id="index-User-Option-1500"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-set This personality uses
+      voice-smoothen-medium whose effect can be changed globally by
+      customizing voice-smoothen-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-state-voice<a name=
+    "index-User-Option-1501" id=
+    "index-User-Option-1501"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-state This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-variable-button-voice<a name=
+    "index-User-Option-1502" id=
+    "index-User-Option-1502"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-variable-button This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-custom-variable-tag-voice<a name=
+    "index-User-Option-1503" id=
+    "index-User-Option-1503"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for custom-variable-tag This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-diary-personality<a name=
+    "index-User-Option-1504" id=
+    "index-User-Option-1504"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for diary-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-directory-voice<a name=
+    "index-User-Option-1505" id=
+    "index-User-Option-1505"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-directory This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-flagged-voice<a name=
+    "index-User-Option-1506" id=
+    "index-User-Option-1506"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-flagged This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-header-voice<a name=
+    "index-User-Option-1507" id=
+    "index-User-Option-1507"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-header This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-ignored-voice<a name=
+    "index-User-Option-1508" id=
+    "index-User-Option-1508"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-ignored This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-mark-voice<a name="index-User-Option-1509"
+    id="index-User-Option-1509"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-mark This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-marked-voice<a name=
+    "index-User-Option-1510" id=
+    "index-User-Option-1510"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-marked This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-perm-write-voice<a name=
+    "index-User-Option-1511" id=
+    "index-User-Option-1511"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-perm-write This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-symlink-voice<a name=
+    "index-User-Option-1512" id=
+    "index-User-Option-1512"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-symlink This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-dired-warning-voice<a name=
+    "index-User-Option-1513" id=
+    "index-User-Option-1513"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for dired-warning This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-current-diff-A-voice<a name=
+    "index-User-Option-1514" id=
+    "index-User-Option-1514"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-current-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-current-diff-Ancestor-voice<a name=
+    "index-User-Option-1515" id=
+    "index-User-Option-1515"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-current-diff-Ancestor This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-current-diff-B-voice<a name=
+    "index-User-Option-1516" id=
+    "index-User-Option-1516"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-current-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-current-diff-C-voice<a name=
+    "index-User-Option-1517" id=
+    "index-User-Option-1517"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-current-diff-C This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-even-diff-A-voice<a name=
+    "index-User-Option-1518" id=
+    "index-User-Option-1518"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-even-diff-A This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-even-diff-Ancestor-voice<a name=
+    "index-User-Option-1519" id=
+    "index-User-Option-1519"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-even-diff-Ancestor This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-even-diff-B-voice<a name=
+    "index-User-Option-1520" id=
+    "index-User-Option-1520"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-even-diff-B This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-even-diff-C-voice<a name=
+    "index-User-Option-1521" id=
+    "index-User-Option-1521"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-even-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-fine-diff-A-voice<a name=
+    "index-User-Option-1522" id=
+    "index-User-Option-1522"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-fine-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-fine-diff-Ancestor-voice<a name=
+    "index-User-Option-1523" id=
+    "index-User-Option-1523"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-fine-diff-Ancestor This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-fine-diff-B-voice<a name=
+    "index-User-Option-1524" id=
+    "index-User-Option-1524"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-fine-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-fine-diff-C-voice<a name=
+    "index-User-Option-1525" id=
+    "index-User-Option-1525"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-fine-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-odd-diff-A-voice<a name=
+    "index-User-Option-1526" id=
+    "index-User-Option-1526"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-odd-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-odd-diff-Ancestor-voice<a name=
+    "index-User-Option-1527" id=
+    "index-User-Option-1527"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-odd-diff-Ancestor This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-odd-diff-B-voice<a name=
+    "index-User-Option-1528" id=
+    "index-User-Option-1528"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-odd-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ediff-odd-diff-C-voice<a name=
+    "index-User-Option-1529" id=
+    "index-User-Option-1529"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ediff-odd-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-discovered-after-personality<a name=
+    "index-User-Option-1530" id=
+    "index-User-Option-1530"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-discovered-after-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-discovered-before-personality<a name=
+    "index-User-Option-1531" id=
+    "index-User-Option-1531"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-discovered-before-face This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-discovered-in-personality<a name=
+    "index-User-Option-1532" id=
+    "index-User-Option-1532"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-discovered-in-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-f-block-personality<a name=
+    "index-User-Option-1533" id=
+    "index-User-Option-1533"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-f-block-face This
+      personality uses voice-lighten-medium whose effect can be
+      changed globally by customizing
+      voice-lighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-gas-personality<a name=
+    "index-User-Option-1534" id=
+    "index-User-Option-1534"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-gas-face This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-group-number-personality<a name=
+    "index-User-Option-1535" id=
+    "index-User-Option-1535"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-group-number-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-header-personality<a name=
+    "index-User-Option-1536" id=
+    "index-User-Option-1536"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-header-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-liquid-personality<a name=
+    "index-User-Option-1537" id=
+    "index-User-Option-1537"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-liquid-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-p-block-personality<a name=
+    "index-User-Option-1538" id=
+    "index-User-Option-1538"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-p-block-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-period-number-personality<a name=
+    "index-User-Option-1539" id=
+    "index-User-Option-1539"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-period-number-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-s-block-personality<a name=
+    "index-User-Option-1540" id=
+    "index-User-Option-1540"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-s-block-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-solid-personality<a name=
+    "index-User-Option-1541" id=
+    "index-User-Option-1541"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-solid-face This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-eperiodic-unknown-personality<a name=
+    "index-User-Option-1542" id=
+    "index-User-Option-1542"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for eperiodic-unknown-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-action-personality<a name=
+    "index-User-Option-1543" id=
+    "index-User-Option-1543"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-action-face This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-bold-personality<a name=
+    "index-User-Option-1544" id=
+    "index-User-Option-1544"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-bold-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-dangerous-host-personality<a name=
+    "index-User-Option-1545" id=
+    "index-User-Option-1545"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-dangerous-host-face This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-direct-msg-personality<a name=
+    "index-User-Option-1546" id=
+    "index-User-Option-1546"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-direct-msg-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-error-personality<a name=
+    "index-User-Option-1547" id=
+    "index-User-Option-1547"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-error-face This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-input-personality<a name=
+    "index-User-Option-1548" id=
+    "index-User-Option-1548"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-input-face This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-inverse-personality<a name=
+    "index-User-Option-1549" id=
+    "index-User-Option-1549"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-inverse-face This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-keyword-personality<a name=
+    "index-User-Option-1550" id=
+    "index-User-Option-1550"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-keyword-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-notice-personality<a name=
+    "index-User-Option-1551" id=
+    "index-User-Option-1551"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-notice-face This personality uses
+      (quote inaudible) whose effect can be changed globally by
+      customizing (quote inaudible)-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-pal-personality<a name=
+    "index-User-Option-1552" id=
+    "index-User-Option-1552"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-pal-face This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-prompt-personality<a name=
+    "index-User-Option-1553" id=
+    "index-User-Option-1553"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-prompt-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-erc-underline-personality<a name=
+    "index-User-Option-1554" id=
+    "index-User-Option-1554"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for erc-underline-face This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-fixed-pitch-voice<a name=
+    "index-User-Option-1555" id=
+    "index-User-Option-1555"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for fixed-pitch This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-flyspell-incorrect-voice<a name=
+    "index-User-Option-1556" id=
+    "index-User-Option-1556"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for flyspell-incorrect This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-1-voice<a name=
+    "index-User-Option-1557" id=
+    "index-User-Option-1557"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-1 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-10-voice<a name=
+    "index-User-Option-1558" id=
+    "index-User-Option-1558"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-10 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-11-voice<a name=
+    "index-User-Option-1559" id=
+    "index-User-Option-1559"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-11 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-2-voice<a name=
+    "index-User-Option-1560" id=
+    "index-User-Option-1560"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-2 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-3-voice<a name=
+    "index-User-Option-1561" id=
+    "index-User-Option-1561"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-3 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-4-voice<a name=
+    "index-User-Option-1562" id=
+    "index-User-Option-1562"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-4 This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-5-voice<a name=
+    "index-User-Option-1563" id=
+    "index-User-Option-1563"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-5 This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-6-voice<a name=
+    "index-User-Option-1564" id=
+    "index-User-Option-1564"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-6 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-7-voice<a name=
+    "index-User-Option-1565" id=
+    "index-User-Option-1565"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-7 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-8-voice<a name=
+    "index-User-Option-1566" id=
+    "index-User-Option-1566"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-8 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-cite-9-voice<a name=
+    "index-User-Option-1567" id=
+    "index-User-Option-1567"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-cite-9 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-emphasis-bold-voice<a name=
+    "index-User-Option-1568" id=
+    "index-User-Option-1568"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-emphasis-bold This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-emphasis-highlight-words-voice<a name=
+    "index-User-Option-1569" id=
+    "index-User-Option-1569"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-emphasis-highlight-words This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-emphasis-italic-voice<a name=
+    "index-User-Option-1570" id=
+    "index-User-Option-1570"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-emphasis-italic This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-emphasis-strikethru-voice<a name=
+    "index-User-Option-1571" id=
+    "index-User-Option-1571"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-emphasis-strikethru This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-emphasis-underline-voice<a name=
+    "index-User-Option-1572" id=
+    "index-User-Option-1572"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-emphasis-underline This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-1-empty-voice<a name=
+    "index-User-Option-1573" id=
+    "index-User-Option-1573"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-1-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-1-voice<a name=
+    "index-User-Option-1574" id=
+    "index-User-Option-1574"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-1 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-2-empty-voice<a name=
+    "index-User-Option-1575" id=
+    "index-User-Option-1575"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-2-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-2-voice<a name=
+    "index-User-Option-1576" id=
+    "index-User-Option-1576"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-2 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-3-empty-voice<a name=
+    "index-User-Option-1577" id=
+    "index-User-Option-1577"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-3-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-3-voice<a name=
+    "index-User-Option-1578" id=
+    "index-User-Option-1578"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-3 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-low-empty-voice<a name=
+    "index-User-Option-1579" id=
+    "index-User-Option-1579"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-low-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-mail-low-voice<a name=
+    "index-User-Option-1580" id=
+    "index-User-Option-1580"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-mail-low This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-1-empty-voice<a name=
+    "index-User-Option-1581" id=
+    "index-User-Option-1581"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-1-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-1-voice<a name=
+    "index-User-Option-1582" id=
+    "index-User-Option-1582"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-1 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-2-empty-voice<a name=
+    "index-User-Option-1583" id=
+    "index-User-Option-1583"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-2-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-2-voice<a name=
+    "index-User-Option-1584" id=
+    "index-User-Option-1584"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-2 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-3-empty-voice<a name=
+    "index-User-Option-1585" id=
+    "index-User-Option-1585"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-3-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-3-voice<a name=
+    "index-User-Option-1586" id=
+    "index-User-Option-1586"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-3 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-4-empty-voice<a name=
+    "index-User-Option-1587" id=
+    "index-User-Option-1587"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-4-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-4-voice<a name=
+    "index-User-Option-1588" id=
+    "index-User-Option-1588"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-4 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-5-empty-voice<a name=
+    "index-User-Option-1589" id=
+    "index-User-Option-1589"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-5-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-5-voice<a name=
+    "index-User-Option-1590" id=
+    "index-User-Option-1590"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-5 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-6-empty-voice<a name=
+    "index-User-Option-1591" id=
+    "index-User-Option-1591"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-6-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-6-voice<a name=
+    "index-User-Option-1592" id=
+    "index-User-Option-1592"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-6 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-low-empty-voice<a name=
+    "index-User-Option-1593" id=
+    "index-User-Option-1593"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-low-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-group-news-low-voice<a name=
+    "index-User-Option-1594" id=
+    "index-User-Option-1594"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-group-news-low This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-header-content-voice<a name=
+    "index-User-Option-1595" id=
+    "index-User-Option-1595"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-header-content This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-header-from-voice<a name=
+    "index-User-Option-1596" id=
+    "index-User-Option-1596"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-header-from This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-header-name-voice<a name=
+    "index-User-Option-1597" id=
+    "index-User-Option-1597"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-header-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-header-newsgroups-voice<a name=
+    "index-User-Option-1598" id=
+    "index-User-Option-1598"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-header-newsgroups This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-header-subject-voice<a name=
+    "index-User-Option-1599" id=
+    "index-User-Option-1599"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-header-subject This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-server-agent-voice<a name=
+    "index-User-Option-1600" id=
+    "index-User-Option-1600"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-server-agent This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-server-closed-voice<a name=
+    "index-User-Option-1601" id=
+    "index-User-Option-1601"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-server-closed This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-server-denied-voice<a name=
+    "index-User-Option-1602" id=
+    "index-User-Option-1602"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-server-denied This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-server-offline-voice<a name=
+    "index-User-Option-1603" id=
+    "index-User-Option-1603"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-server-offline This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-server-opened-voice<a name=
+    "index-User-Option-1604" id=
+    "index-User-Option-1604"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-server-opened This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-signature-voice<a name=
+    "index-User-Option-1605" id=
+    "index-User-Option-1605"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-signature This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-cancelled-voice<a name=
+    "index-User-Option-1606" id=
+    "index-User-Option-1606"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-cancelled This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-high-ancient-voice<a name=
+    "index-User-Option-1607" id=
+    "index-User-Option-1607"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-high-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-high-read-voice<a name=
+    "index-User-Option-1608" id=
+    "index-User-Option-1608"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-high-read This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-high-ticked-voice<a name=
+    "index-User-Option-1609" id=
+    "index-User-Option-1609"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-high-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-high-undownloadedvoice-bolden-and-animate-voice<a name="index-User-Option-1610"
+    id="index-User-Option-1610"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for
+      gnus-summary-high-undownloadedvoice-bolden-and-animate This
+      personality uses nil whose effect can be changed globally by
+      customizing nil-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-high-unread-voice<a name=
+    "index-User-Option-1611" id=
+    "index-User-Option-1611"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-high-unread This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-low-ancient-voice<a name=
+    "index-User-Option-1612" id=
+    "index-User-Option-1612"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-low-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-low-read-voice<a name=
+    "index-User-Option-1613" id=
+    "index-User-Option-1613"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-low-read This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-low-ticked-voice<a name=
+    "index-User-Option-1614" id=
+    "index-User-Option-1614"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-low-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-low-undownloaded-voice<a name=
+    "index-User-Option-1615" id=
+    "index-User-Option-1615"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-low-undownloaded This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-low-unread-voice<a name=
+    "index-User-Option-1616" id=
+    "index-User-Option-1616"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-low-unread This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-normal-ancient-voice<a name=
+    "index-User-Option-1617" id=
+    "index-User-Option-1617"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-normal-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-normal-read-voice<a name=
+    "index-User-Option-1618" id=
+    "index-User-Option-1618"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-normal-read This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-normal-ticked-voice<a name=
+    "index-User-Option-1619" id=
+    "index-User-Option-1619"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-normal-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-normal-undownloaded-voice<a name=
+    "index-User-Option-1620" id=
+    "index-User-Option-1620"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-normal-undownloaded This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-gnus-summary-selected-voice<a name=
+    "index-User-Option-1621" id=
+    "index-User-Option-1621"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for gnus-summary-selected This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-header-line-voice<a name=
+    "index-User-Option-1622" id=
+    "index-User-Option-1622"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for header-line This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-help-argument-name-voice<a name=
+    "index-User-Option-1623" id=
+    "index-User-Option-1623"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for help-argument-name This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-highlight-voice<a name="index-User-Option-1624"
+    id="index-User-Option-1624"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for highlight This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-holiday-personality<a name=
+    "index-User-Option-1625" id=
+    "index-User-Option-1625"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for holiday-face This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ido-first-match-voice<a name=
+    "index-User-Option-1626" id=
+    "index-User-Option-1626"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ido-first-match This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ido-incomplete-regexp-voice<a name=
+    "index-User-Option-1627" id=
+    "index-User-Option-1627"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ido-incomplete-regexp This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ido-indicator-voice<a name=
+    "index-User-Option-1628" id=
+    "index-User-Option-1628"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ido-indicator This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ido-only-match-voice<a name=
+    "index-User-Option-1629" id=
+    "index-User-Option-1629"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ido-only-match This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ido-subdir-voice<a name="index-User-Option-1630"
+    id="index-User-Option-1630"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for ido-subdir This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-header-node-voice<a name=
+    "index-User-Option-1631" id=
+    "index-User-Option-1631"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-header-node This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-header-xref-voice<a name=
+    "index-User-Option-1632" id=
+    "index-User-Option-1632"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-header-xref This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-index-match-voice<a name=
+    "index-User-Option-1633" id=
+    "index-User-Option-1633"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-index-match This personality
+      uses (quote voice-bolden-medium) whose effect can be changed
+      globally by customizing (quote
+      voice-bolden-medium)-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-menu-5-voice<a name=
+    "index-User-Option-1634" id=
+    "index-User-Option-1634"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-menu-5 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-menu-header-voice<a name=
+    "index-User-Option-1635" id=
+    "index-User-Option-1635"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-menu-header This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-menu-star-voice<a name=
+    "index-User-Option-1636" id=
+    "index-User-Option-1636"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-menu-star This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-node-voice<a name="index-User-Option-1637"
+    id="index-User-Option-1637"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-node This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-title-1-voice<a name=
+    "index-User-Option-1638" id=
+    "index-User-Option-1638"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-title-1 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-title-2-voice<a name=
+    "index-User-Option-1639" id=
+    "index-User-Option-1639"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-title-2 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-title-3-voice<a name=
+    "index-User-Option-1640" id=
+    "index-User-Option-1640"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-title-3 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-title-4-voice<a name=
+    "index-User-Option-1641" id=
+    "index-User-Option-1641"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-title-4 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-xref-visited-voice<a name=
+    "index-User-Option-1642" id=
+    "index-User-Option-1642"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-xref-visited This personality
+      uses voice-animate-medium whose effect can be changed
+      globally by customizing voice-animate-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-info-xref-voice<a name="index-User-Option-1643"
+    id="index-User-Option-1643"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for info-xref This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-isearch-voice<a name="index-User-Option-1644"
+    id="index-User-Option-1644"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for isearch This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-italic-voice<a name="index-User-Option-1645" id=
+    "index-User-Option-1645"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-link-voice<a name="index-User-Option-1646" id=
+    "index-User-Option-1646"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-match-voice<a name="index-User-Option-1647" id=
+    "index-User-Option-1647"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for match This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-cited-text-personality<a name=
+    "index-User-Option-1648" id=
+    "index-User-Option-1648"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-cited-text-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-cited-text-voice<a name=
+    "index-User-Option-1649" id=
+    "index-User-Option-1649"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-cited-text This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-cc-personality<a name=
+    "index-User-Option-1650" id=
+    "index-User-Option-1650"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-cc-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-cc-voice<a name=
+    "index-User-Option-1651" id=
+    "index-User-Option-1651"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-cc This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-name-personality<a name=
+    "index-User-Option-1652" id=
+    "index-User-Option-1652"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-name-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-name-voice<a name=
+    "index-User-Option-1653" id=
+    "index-User-Option-1653"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-newsgroups-personality<a name=
+    "index-User-Option-1654" id=
+    "index-User-Option-1654"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-newsgroups-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-newsgroups-voice<a name=
+    "index-User-Option-1655" id=
+    "index-User-Option-1655"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-newsgroups This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-other-personality<a name=
+    "index-User-Option-1656" id=
+    "index-User-Option-1656"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-other-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-other-voice<a name=
+    "index-User-Option-1657" id=
+    "index-User-Option-1657"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-other This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-subject-personality<a name=
+    "index-User-Option-1658" id=
+    "index-User-Option-1658"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-subject-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-subject-voice<a name=
+    "index-User-Option-1659" id=
+    "index-User-Option-1659"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-subject This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-to-personality<a name=
+    "index-User-Option-1660" id=
+    "index-User-Option-1660"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-to-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-to-voice<a name=
+    "index-User-Option-1661" id=
+    "index-User-Option-1661"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-to This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-xheader-personality<a name=
+    "index-User-Option-1662" id=
+    "index-User-Option-1662"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-xheader-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-header-xheader-voice<a name=
+    "index-User-Option-1663" id=
+    "index-User-Option-1663"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-header-xheader This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-mml-personality<a name=
+    "index-User-Option-1664" id=
+    "index-User-Option-1664"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-mml-face This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-mml-voice<a name=
+    "index-User-Option-1665" id=
+    "index-User-Option-1665"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-mml This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-separator-personality<a name=
+    "index-User-Option-1666" id=
+    "index-User-Option-1666"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-separator-face This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-message-separator-voice<a name=
+    "index-User-Option-1667" id=
+    "index-User-Option-1667"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for message-separator This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-minibuffer-prompt-voice<a name=
+    "index-User-Option-1668" id=
+    "index-User-Option-1668"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for minibuffer-prompt This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-1-voice<a name="index-User-Option-1669"
+    id="index-User-Option-1669"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-1 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-2-voice<a name="index-User-Option-1670"
+    id="index-User-Option-1670"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-2 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-3-voice<a name="index-User-Option-1671"
+    id="index-User-Option-1671"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-3 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-4-voice<a name="index-User-Option-1672"
+    id="index-User-Option-1672"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-4 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-5-voice<a name="index-User-Option-1673"
+    id="index-User-Option-1673"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-5 This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-outline-6-voice<a name="index-User-Option-1674"
+    id="index-User-Option-1674"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for outline-6 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-query-replace-voice<a name=
+    "index-User-Option-1675" id=
+    "index-User-Option-1675"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for query-replace This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-region-voice<a name="index-User-Option-1676" id=
+    "index-User-Option-1676"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for region This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-shadow-voice<a name="index-User-Option-1677" id=
+    "index-User-Option-1677"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for shadow This personality uses
+      voice-monotone-medium whose effect can be changed globally by
+      customizing voice-monotone-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-shr-link-voice<a name="index-User-Option-1678"
+    id="index-User-Option-1678"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for shr-link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-term-underline-voice<a name=
+    "index-User-Option-1679" id=
+    "index-User-Option-1679"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for term-underline This personality uses
+      voice-brighten-medium whose effect can be changed globally by
+      customizing voice-brighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-underline-voice<a name="index-User-Option-1680"
+    id="index-User-Option-1680"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for underline This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-variable-pitch-voice<a name=
+    "index-User-Option-1681" id=
+    "index-User-Option-1681"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for variable-pitch This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-builtin-personality<a name=
+    "index-User-Option-1682" id=
+    "index-User-Option-1682"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-builtin-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-comment-delimiter-personality<a name=
+    "index-User-Option-1683" id=
+    "index-User-Option-1683"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-comment-delimiter-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-comment-personality<a name=
+    "index-User-Option-1684" id=
+    "index-User-Option-1684"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-comment-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-constant-personality<a name=
+    "index-User-Option-1685" id=
+    "index-User-Option-1685"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-constant-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-doc-personality<a name=
+    "index-User-Option-1686" id=
+    "index-User-Option-1686"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-doc-face This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-function-name-personality<a name=
+    "index-User-Option-1687" id=
+    "index-User-Option-1687"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-function-name-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-keyword-personality<a name=
+    "index-User-Option-1688" id=
+    "index-User-Option-1688"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-keyword-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-negation-char-personality<a name=
+    "index-User-Option-1689" id=
+    "index-User-Option-1689"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-negation-char-face This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-preprocessor-personality<a name=
+    "index-User-Option-1690" id=
+    "index-User-Option-1690"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-preprocessor-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-regexp-grouping-backslash<a name=
+    "index-User-Option-1691" id=
+    "index-User-Option-1691"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-regexp-grouping-backslash
+      This personality uses voice-smoothen-extra whose effect can
+      be changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-regexp-grouping-construct<a name=
+    "index-User-Option-1692" id=
+    "index-User-Option-1692"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-regexp-grouping-construct
+      This personality uses voice-smoothen whose effect can be
+      changed globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-string-personality<a name=
+    "index-User-Option-1693" id=
+    "index-User-Option-1693"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-string-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-type-personality<a name=
+    "index-User-Option-1694" id=
+    "index-User-Option-1694"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-type-face This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-variable-name-personality<a name=
+    "index-User-Option-1695" id=
+    "index-User-Option-1695"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-variable-name-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voice-lock-warning-personality<a name=
+    "index-User-Option-1696" id=
+    "index-User-Option-1696"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for font-lock-warning-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-anchor-voice<a name="index-User-Option-1697"
+    id="index-User-Option-1697"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-anchor This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-arrived-anchor-voice<a name=
+    "index-User-Option-1698" id=
+    "index-User-Option-1698"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-arrived-anchor This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-bold-voice<a name="index-User-Option-1699"
+    id="index-User-Option-1699"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-bold This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-current-anchor-voice<a name=
+    "index-User-Option-1700" id=
+    "index-User-Option-1700"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-current-anchor This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-form-button-pressed-voice<a name=
+    "index-User-Option-1701" id=
+    "index-User-Option-1701"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-form-button-pressed This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-form-button-voice<a name=
+    "index-User-Option-1702" id=
+    "index-User-Option-1702"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-form-button This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-form-voice<a name="index-User-Option-1703"
+    id="index-User-Option-1703"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-form This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-header-line-location-content-voice<a name=
+    "index-User-Option-1704" id=
+    "index-User-Option-1704"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-header-line-location-content This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-header-line-location-title-voice<a name=
+    "index-User-Option-1705" id=
+    "index-User-Option-1705"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-header-line-location-title This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-history-current-url-voice<a name=
+    "index-User-Option-1706" id=
+    "index-User-Option-1706"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-history-current-url This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-image-voice<a name="index-User-Option-1707"
+    id="index-User-Option-1707"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-image This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-insert-voice<a name="index-User-Option-1708"
+    id="index-User-Option-1708"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-insert This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-italic-voice<a name="index-User-Option-1709"
+    id="index-User-Option-1709"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-strike-through-voice<a name=
+    "index-User-Option-1710" id=
+    "index-User-Option-1710"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-strike-through This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-tab-selected-voice<a name=
+    "index-User-Option-1711" id=
+    "index-User-Option-1711"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-tab-selected This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-tab-unselected-voice<a name=
+    "index-User-Option-1712" id=
+    "index-User-Option-1712"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-tab-unselected This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-w3m-underline-voice<a name=
+    "index-User-Option-1713" id=
+    "index-User-Option-1713"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for w3m-underline This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-warning-voice<a name="index-User-Option-1714"
+    id="index-User-Option-1714"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for warning This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-button-pressed-voice<a name=
+    "index-User-Option-1715" id=
+    "index-User-Option-1715"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-button-pressed This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-button-voice<a name=
+    "index-User-Option-1716" id=
+    "index-User-Option-1716"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-documentation-voice<a name=
+    "index-User-Option-1717" id=
+    "index-User-Option-1717"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-documentation This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-field-voice<a name=
+    "index-User-Option-1718" id=
+    "index-User-Option-1718"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-field This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-inactive-voice<a name=
+    "index-User-Option-1719" id=
+    "index-User-Option-1719"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-inactive This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-widget-single-line-field-voice<a name=
+    "index-User-Option-1720" id=
+    "index-User-Option-1720"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for widget-single-line-field This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-woman-bold-voice<a name="index-User-Option-1721"
+    id="index-User-Option-1721"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for woman-bold This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-woman-edition-voice<a name=
+    "index-User-Option-1722" id=
+    "index-User-Option-1722"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for woman-edition This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-woman-italic-voice<a name=
+    "index-User-Option-1723" id=
+    "index-User-Option-1723"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for woman-italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-woman-unknown-voice<a name=
+    "index-User-Option-1724" id=
+    "index-User-Option-1724"></a></var><br />
+
+    <blockquote>
+      <p>Personality used for woman-unknown This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </blockquote>
+  </div>
+  <!-- $Id: tts-server.texi 8272 2013-03-29 15:39:21Z tv.raman.tv $ -->
+</body>
+</html>

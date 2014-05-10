@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-we Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href=
+  "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options" title=
+  "emacspeak-w3m Options" />
+  <link rel="next" href=
+  "emacspeak_002dwebsearch-Options.html#emacspeak_002dwebsearch-Options"
+  title="emacspeak-websearch Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-we-Options" id="emacspeak-we-Options"></a>
+    <a name="emacspeak_002dwe-Options" id=
+    "emacspeak_002dwe-Options"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002dwebsearch-Options.html#emacspeak_002dwebsearch-Options">emacspeak-websearch
+    Options</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href=
+    "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options">emacspeak-w3m
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.59 emacspeak-we Options</h3>
+
+  <p>Commentary: we is for webedit Invoke XSLT to edit/transform
+  Web pages before they get rendered. we makes emacspeak's webedit
+  layer independent of a given Emacs web browser like W3 or W3M
+  This module will use the abstraction provided by browse-url to
+  handle Web pages. Module emacspeak-webutils provides the needed
+  additional abstractions not already covered by browse-url</p>
+
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-we. These options are customizable via Emacs'
+  Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-cleanup-bogus-quotes<a name=
+    "index-User-Option-1390" id=
+    "index-User-Option-1390"></a></var><br />
+
+    <blockquote>
+      <p>Clean up bogus Unicode chars for magic quotes.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-filters-rename-buffer<a name=
+    "index-User-Option-1391" id=
+    "index-User-Option-1391"></a></var><br />
+
+    <blockquote>
+      <p>Set to T if you want the buffer name to contain the
+      applied filter.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-media-stream-suffixes<a name=
+    "index-User-Option-1392" id=
+    "index-User-Option-1392"></a></var><br />
+
+    <blockquote>
+      <p>Suffixes that identify URLs to media streams.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-paragraphs-xpath-filter<a name=
+    "index-User-Option-1393" id=
+    "index-User-Option-1393"></a></var><br />
+
+    <blockquote>
+      <p>Filter paragraphs.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-recent-class-filter<a name=
+    "index-User-Option-1394" id=
+    "index-User-Option-1394"></a></var><br />
+
+    <blockquote>
+      <p>Caches most recently used class filter. Can be customized
+      to set up initial default.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-recent-xpath-filter<a name=
+    "index-User-Option-1395" id=
+    "index-User-Option-1395"></a></var><br />
+
+    <blockquote>
+      <p>Caches most recently used xpath filter. Can be customized
+      to set up initial default.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-xsl-p<a name="index-User-Option-1396" id=
+    "index-User-Option-1396"></a></var><br />
+
+    <blockquote>
+      <p>T means we apply XSL before displaying HTML.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-we-xsl-transform<a name="index-User-Option-1397"
+    id="index-User-Option-1397"></a></var><br />
+
+    <blockquote>
+      <p>Specifies transform to use before displaying a page. Nil
+      means no transform is used.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

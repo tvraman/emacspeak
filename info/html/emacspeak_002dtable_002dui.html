@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-table-ui - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Emacspeak-Commands.html#Emacspeak-Commands"
+  title="Emacspeak Commands" />
+  <link rel="prev" href=
+  "emacspeak_002dsudoku.html#emacspeak_002dsudoku" title=
+  "emacspeak-sudoku" />
+  <link rel="next" href=
+  "emacspeak_002dtabulate.html#emacspeak_002dtabulate" title=
+  "emacspeak-tabulate" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-table-ui" id="emacspeak-table-ui"></a>
+    <a name="emacspeak_002dtable_002dui" id=
+    "emacspeak_002dtable_002dui"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002dtabulate.html#emacspeak_002dtabulate">emacspeak-tabulate</a>,
+    Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "emacspeak_002dsudoku.html#emacspeak_002dsudoku">emacspeak-sudoku</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Commands.html#Emacspeak-Commands">Emacspeak
+    Commands</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">11.61 emacspeak-table-ui</h3>
+
+  <p>No Commentary</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-table-ui.</p>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-copy-current-element-to-kill-ring</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring-748"
+    id=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring-748"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Copy current table element to kill ring.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-copy-current-element-to-register</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister-749"
+    id=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister-749"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Copy current table element to specified register.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-copy-to-clipboard</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard-750"
+    id=
+    "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard-750"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Copy table in current buffer to the table clipboard.
+      Current buffer must be in emacspeak-table mode.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-display-table-in-region</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion-751"
+    id=
+    "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion-751"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>C-e TAB</kbd></p>
+
+      <p>Recognize tabular data in current region and display it in
+      table browsing mode in a a separate buffer. emacspeak table
+      mode is designed to let you browse tabular data using all the
+      power of the two-dimensional spatial layout while giving you
+      sufficient contextual information. The tables subdirectory of
+      the emacspeak distribution contains some sample tables
+      &ndash;these are the CalTrain schedules. Execute command
+      `describe-mode' bound to C-h m in a buffer that is in
+      emacspeak table mode to read the documentation on the table
+      browser.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-find-csv-file</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dfind_002dcsv_002dfile-752" id=
+    "index-emacspeak_002dtable_002dfind_002dcsv_002dfile-752"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Process a csv (comma separated values) file. The processed
+      data and presented using emacspeak table navigation.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-find-file</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dfind_002dfile-753" id=
+    "index-emacspeak_002dtable_002dfind_002dfile-753"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>C-e C-t</kbd></p>
+
+      <p>Open a file containing table data and display it in table
+      mode. emacspeak table mode is designed to let you browse
+      tabular data using all the power of the two-dimensional
+      spatial layout while giving you sufficient contextual
+      information. The etc/tables subdirectory of the emacspeak
+      distribution contains some sample tables &ndash;these are the
+      CalTrain schedules. Execute command `describe-mode' bound to
+      C-h m in a buffer that is in emacspeak table mode to read the
+      documentation on the table browser.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-get-entry-with-headers</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dget_002dentry_002dwith_002dheaders-754"
+    id=
+    "index-emacspeak_002dtable_002dget_002dentry_002dwith_002dheaders-754"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Return both row and column header and table element</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-goto</b>
+    <var>nil<a name="index-emacspeak_002dtable_002dgoto-755" id=
+    "index-emacspeak_002dtable_002dgoto-755"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Prompt for a table cell coordinates and jump to it.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-goto-bottom</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dgoto_002dbottom-756" id=
+    "index-emacspeak_002dtable_002dgoto_002dbottom-756"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Goes to the bottom of the current column.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-goto-left</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dgoto_002dleft-757" id=
+    "index-emacspeak_002dtable_002dgoto_002dleft-757"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Goes to the left of the current row.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-goto-right</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dgoto_002dright-758" id=
+    "index-emacspeak_002dtable_002dgoto_002dright-758"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Goes to the right of the current row.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-goto-top</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dgoto_002dtop-759" id=
+    "index-emacspeak_002dtable_002dgoto_002dtop-759"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Goes to the top of the current column.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-next-column</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dnext_002dcolumn-760" id=
+    "index-emacspeak_002dtable_002dnext_002dcolumn-760"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to the next column if possible</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-next-row</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dnext_002drow-761" id=
+    "index-emacspeak_002dtable_002dnext_002drow-761"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to the next row if possible</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-paste-from-clipboard</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard-762"
+    id=
+    "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard-762"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Paste the emacspeak table clipboard into the current
+      buffer. Use the major mode of this buffer to decide what kind
+      of table markup to use.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-previous-column</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dprevious_002dcolumn-763" id=
+    "index-emacspeak_002dtable_002dprevious_002dcolumn-763"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to the previous column if possible</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-previous-row</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dprevious_002drow-764" id=
+    "index-emacspeak_002dtable_002dprevious_002drow-764"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to the previous row if possible</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-search</b>
+    <var>nil<a name="index-emacspeak_002dtable_002dsearch-765" id=
+    "index-emacspeak_002dtable_002dsearch-765"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Search the table for matching elements. Interactively
+      prompts for row or column to search and pattern to look for.
+      If there is a match, makes the matching cell current. When
+      called from a program, `what' can be either `row' or
+      `column'.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-search-column</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dsearch_002dcolumn-766" id=
+    "index-emacspeak_002dtable_002dsearch_002dcolumn-766"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Search in current table column.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-search-headers</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dsearch_002dheaders-767" id=
+    "index-emacspeak_002dtable_002dsearch_002dheaders-767"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Search the table row or column headers. Interactively
+      prompts for row or column to search and pattern to look for.
+      If there is a match, makes the matching row or column
+      current.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-table-search-row</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dsearch_002drow-768" id=
+    "index-emacspeak_002dtable_002dsearch_002drow-768"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Search in current table row.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-select-automatic-speaking-method</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod-769"
+    id=
+    "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod-769"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Interactively select the kind of automatic speech to
+      produce when browsing table elements</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-sort-on-current-column</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn-770"
+    id=
+    "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn-770"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Sort table on current column.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-both-headers-and-element</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-771"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-771"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak both row and column header and table element</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-column-filtered</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered-772"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered-772"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speaks a table column after applying a specified column
+      filter. Optional prefix arg prompts for a new filter.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-column-header-and-element</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-773"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-773"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak column header and table element</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-coordinates</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002dcoordinates-774" id=
+    "index-emacspeak_002dtable_002dspeak_002dcoordinates-774"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak current table coordinates.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-current-element</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement-775"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement-775"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak current table element</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-dimensions</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002ddimensions-776" id=
+    "index-emacspeak_002dtable_002dspeak_002ddimensions-776"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak current table dimensions.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-row-filtered</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered-777"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered-777"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speaks a table row after applying a specified row filter.
+      Optional prefix arg prompts for a new filter.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-speak-row-header-and-element</b>
+    <var>nil<a name=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement-778"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement-778"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speak row header and table element</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-ui-filter-load</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dload-779" id=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dload-779"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Load saved filter settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-ui-filter-save</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dsave-780" id=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dsave-780"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Save out filter settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-table-view-csv-buffer</b> <var>nil<a name=
+    "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer-781" id=
+    "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer-781"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Process a csv (comma separated values) data. The processed
+      data and presented using emacspeak table navigation.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

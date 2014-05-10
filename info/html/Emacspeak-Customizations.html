@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Emacspeak Customizations - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="prev" href=
+  "Emacspeak-Commands.html#Emacspeak-Commands" title=
+  "Emacspeak Commands" />
+  <link rel="next" href="TTS-Servers.html#TTS-Servers" title=
+  "TTS Servers" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Emacspeak-Customizations" id=
+    "Emacspeak-Customizations"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "TTS-Servers.html#TTS-Servers">TTS Servers</a>,
+    Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "Emacspeak-Commands.html#Emacspeak-Commands">Emacspeak
+    Commands</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "index.html#Top">Top</a></p>
+    <hr />
+  </div>
+
+  <h2 class="chapter">12 Emacspeak Customizations</h2>
+
+  <p>This chapter is generated automatically from the source-level
+  documentation. Any errors or corrections should be made to the
+  source-level documentation. This chapter documents a total of 620
+  user customizable options.</p>
+
+  <ul class="menu">
+    <li><a accesskey="1" href=
+    "cd_002dtool-Options.html#cd_002dtool-Options">cd-tool
+    Options</a></li>
+
+    <li><a accesskey="2" href=
+    "dtk_002dspeak-Options.html#dtk_002dspeak-Options">dtk-speak
+    Options</a></li>
+
+    <li><a accesskey="3" href=
+    "dtk_002dunicode-Options.html#dtk_002dunicode-Options">dtk-unicode
+    Options</a></li>
+
+    <li><a accesskey="4" href=
+    "emacspeak_002dadd_002dlog-Options.html#emacspeak_002dadd_002dlog-Options">
+    emacspeak-add-log Options</a></li>
+
+    <li><a accesskey="5" href=
+    "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options">
+    emacspeak-advice Options</a></li>
+
+    <li><a accesskey="6" href=
+    "emacspeak_002dalsaplayer-Options.html#emacspeak_002dalsaplayer-Options">
+    emacspeak-alsaplayer Options</a></li>
+
+    <li><a accesskey="7" href=
+    "emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options">
+    emacspeak-auctex Options</a></li>
+
+    <li><a accesskey="8" href=
+    "emacspeak_002daumix-Options.html#emacspeak_002daumix-Options">emacspeak-aumix
+    Options</a></li>
+
+    <li><a accesskey="9" href=
+    "emacspeak_002dbookshare-Options.html#emacspeak_002dbookshare-Options">
+    emacspeak-bookshare Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dcalendar-Options.html#emacspeak_002dcalendar-Options">
+    emacspeak-calendar Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dcompile-Options.html#emacspeak_002dcompile-Options">
+    emacspeak-compile Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options">
+    emacspeak-custom Options</a></li>
+
+    <li><a href=
+    "emacspeak_002ddaisy-Options.html#emacspeak_002ddaisy-Options">emacspeak-daisy
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002ddired-Options.html#emacspeak_002ddired-Options">emacspeak-dired
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002ddismal-Options.html#emacspeak_002ddismal-Options">
+    emacspeak-dismal Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dentertain-Options.html#emacspeak_002dentertain-Options">
+    emacspeak-entertain Options</a></li>
+
+    <li><a href=
+    "emacspeak_002deperiodic-Options.html#emacspeak_002deperiodic-Options">
+    emacspeak-eperiodic Options</a></li>
+
+    <li><a href=
+    "emacspeak_002depub-Options.html#emacspeak_002depub-Options">emacspeak-epub
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002derc-Options.html#emacspeak_002derc-Options">emacspeak-erc
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002determ-Options.html#emacspeak_002determ-Options">emacspeak-eterm
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002deudc-Options.html#emacspeak_002deudc-Options">emacspeak-eudc
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dfeeds-Options.html#emacspeak_002dfeeds-Options">emacspeak-feeds
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dforms-Options.html#emacspeak_002dforms-Options">emacspeak-forms
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dgnus-Options.html#emacspeak_002dgnus-Options">emacspeak-gnus
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dhide-Options.html#emacspeak_002dhide-Options">emacspeak-hide
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dimenu-Options.html#emacspeak_002dimenu-Options">emacspeak-imenu
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dinfo-Options.html#emacspeak_002dinfo-Options">emacspeak-info
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dispell-Options.html#emacspeak_002dispell-Options">
+    emacspeak-ispell Options</a></li>
+
+    <li><a href=
+    "emacspeak_002djabber-Options.html#emacspeak_002djabber-Options">
+    emacspeak-jabber Options</a></li>
+
+    <li><a href=
+    "emacspeak_002djss-Options.html#emacspeak_002djss-Options">emacspeak-jss
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options">
+    emacspeak-keymap Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dkite-Options.html#emacspeak_002dkite-Options">emacspeak-kite
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dloaddefs-Options.html#emacspeak_002dloaddefs-Options">
+    emacspeak-loaddefs Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options">
+    emacspeak-m-player Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dmadplay-Options.html#emacspeak_002dmadplay-Options">
+    emacspeak-madplay Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dmake_002dmode-Options.html#emacspeak_002dmake_002dmode-Options">
+    emacspeak-make-mode Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options">
+    emacspeak-message Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dmuse-Options.html#emacspeak_002dmuse-Options">emacspeak-muse
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options">emacspeak-npr
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002docr-Options.html#emacspeak_002docr-Options">emacspeak-ocr
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options">
+    emacspeak-outline Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dpcl_002dcvs-Options.html#emacspeak_002dpcl_002dcvs-Options">
+    emacspeak-pcl-cvs Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options">
+    emacspeak-personality Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dpronounce-Options.html#emacspeak_002dpronounce-Options">
+    emacspeak-pronounce Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dre_002dbuilder-Options.html#emacspeak_002dre_002dbuilder-Options">
+    emacspeak-re-builder Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dremote-Options.html#emacspeak_002dremote-Options">
+    emacspeak-remote Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dreplace-Options.html#emacspeak_002dreplace-Options">
+    emacspeak-replace Options</a></li>
+
+    <li><a href=
+    "emacspeak_002drpm_002dspec-Options.html#emacspeak_002drpm_002dspec-Options">
+    emacspeak-rpm-spec Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dsigbegone-Options.html#emacspeak_002dsigbegone-Options">
+    emacspeak-sigbegone Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options">
+    emacspeak-sounds Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dspeak-Options.html#emacspeak_002dspeak-Options">emacspeak-speak
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options">
+    emacspeak-speedbar Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options">
+    emacspeak-table-ui Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dtnt-Options.html#emacspeak_002dtnt-Options">emacspeak-tnt
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options">
+    emacspeak-url-template Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dvm-Options.html#emacspeak_002dvm-Options">emacspeak-vm
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dw3-Options.html#emacspeak_002dw3-Options">emacspeak-w3
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options">emacspeak-w3m
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dwe-Options.html#emacspeak_002dwe-Options">emacspeak-we
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dwebsearch-Options.html#emacspeak_002dwebsearch-Options">
+    emacspeak-websearch Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dwebspace-Options.html#emacspeak_002dwebspace-Options">
+    emacspeak-webspace Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options">
+    emacspeak-wizards Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options">
+    emacspeak-xml-shell Options</a></li>
+
+    <li><a href=
+    "emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options">emacspeak-xslt
+    Options</a></li>
+
+    <li><a href=
+    "emacspeak-Options.html#emacspeak-Options">emacspeak
+    Options</a></li>
+
+    <li><a href=
+    "voice_002dsetup-Options.html#voice_002dsetup-Options">voice-setup
+    Options</a></li>
+  </ul>
+</body>
+</html>

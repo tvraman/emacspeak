@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-epub - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Emacspeak-Commands.html#Emacspeak-Commands"
+  title="Emacspeak Commands" />
+  <link rel="prev" href=
+  "emacspeak_002deperiodic.html#emacspeak_002deperiodic" title=
+  "emacspeak-eperiodic" />
+  <link rel="next" href="emacspeak_002derc.html#emacspeak_002derc"
+  title="emacspeak-erc" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-epub" id="emacspeak-epub"></a> <a name=
+    "emacspeak_002depub" id="emacspeak_002depub"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002derc.html#emacspeak_002derc">emacspeak-erc</a>,
+    Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "emacspeak_002deperiodic.html#emacspeak_002deperiodic">emacspeak-eperiodic</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Commands.html#Emacspeak-Commands">Emacspeak
+    Commands</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">11.25 emacspeak-epub</h3>
+
+  <p>Commentary: In celebration of a million books and more to read
+  from Google Books The EPubs format is slightly simpler than full
+  Daisy &mdash; (see) emacspeak-daisy.el Since it only needs one
+  level of indirection (no audio, therefore no smil). This module
+  is consequently simpler than emacspeak-daisy.el. This module will
+  eventually implement the Google Books API &mdash; probably by
+  invoking the yet-to-be-written gbooks.el in emacs-g-client As we
+  move to epub-3, this module will bring back audio layers etc.,
+  perhaps via a simplified smil implementation.</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-epub.</p>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub</b>
+    <var>nil<a name="index-emacspeak_002depub-332" id=
+    "index-emacspeak_002depub-332"></a></var><br />
+
+    <blockquote>
+      <p><kbd>C-e g</kbd></p>
+
+      <p>EPub Interaction. For detailed documentation, see M-x
+      emacspeak-epub-mode</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-add-directory</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002ddirectory-333"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002ddirectory-333"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Add EPubs found in specified directory to the bookshelf.
+      Interactive prefix arg searches recursively in directory.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-add-epub</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002depub-334"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002depub-334"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Add epub file to current bookshelf.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-clear</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dclear-335" id=
+    "index-emacspeak_002depub_002dbookshelf_002dclear-335"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Clear all books from bookshelf.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-load</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dload-336" id=
+    "index-emacspeak_002depub_002dbookshelf_002dload-336"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Load bookshelf metadata from disk.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-open</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dopen-337" id=
+    "index-emacspeak_002depub_002dbookshelf_002dopen-337"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Load bookshelf metadata from specified bookshelf.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-open-epub</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dopen_002depub-338"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dopen_002depub-338"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open epub file and add it to current bookshelf.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-redraw</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dredraw-339" id=
+    "index-emacspeak_002depub_002dbookshelf_002dredraw-339"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Redraw Bookshelf. Optional interactive prefix arg
+      author-first prints author at the left.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-refresh</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002drefresh-340" id=
+    "index-emacspeak_002depub_002dbookshelf_002drefresh-340"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Refresh and redraw bookshelf.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-remove-directory</b>
+    <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002ddirectory-341"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002ddirectory-341"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Remove EPubs found in specified directory from the
+      bookshelf. Interactive prefix arg searches recursively in
+      directory.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-remove-this-book</b>
+    <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook-342"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook-342"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Remove the book on current line from this bookshelf. No
+      book files are deleted.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-rename</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002drename-343" id=
+    "index-emacspeak_002depub_002dbookshelf_002drename-343"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Saves current bookshelf to specified name. Interactive
+      prefix arg `overwrite' will overwrite existing file.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-bookshelf-save</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dbookshelf_002dsave-344" id=
+    "index-emacspeak_002depub_002dbookshelf_002dsave-344"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Save bookshelf metadata.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-browse-files</b>
+    <var>nil<a name=
+    "index-emacspeak_002depub_002dbrowse_002dfiles-345" id=
+    "index-emacspeak_002depub_002dbrowse_002dfiles-345"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Browse list of HTML files in an EPub. Useful if table of
+      contents in toc.ncx is empty.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-delete</b>
+    <var>nil<a name="index-emacspeak_002depub_002ddelete-346" id=
+    "index-emacspeak_002depub_002ddelete-346"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Delete EPub under point.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-fulltext</b>
+    <var>nil<a name="index-emacspeak_002depub_002dfulltext-347" id=
+    "index-emacspeak_002depub_002dfulltext-347"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Display fulltext from EPub in a buffer. Suitable for text
+      searches.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-google</b>
+    <var>nil<a name="index-emacspeak_002depub_002dgoogle-348" id=
+    "index-emacspeak_002depub_002dgoogle-348"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Search for Epubs from Gooble Books.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-gutenberg-catalog</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dgutenberg_002dcatalog-349" id=
+    "index-emacspeak_002depub_002dgutenberg_002dcatalog-349"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open Gutenberg catalog. Fetch if needed, or if refresh is
+      T.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-epub-gutenberg-download</b> <var>nil<a name=
+    "index-emacspeak_002depub_002dgutenberg_002ddownload-350" id=
+    "index-emacspeak_002depub_002dgutenberg_002ddownload-350"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Download specified EBook to local cache</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-mode</b>
+    <var>nil<a name="index-emacspeak_002depub_002dmode-351" id=
+    "index-emacspeak_002depub_002dmode-351"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>An EPub Front-end. Letters do not insert themselves;
+      instead, they are commands.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;&mdash;</p>
+
+      <p>C-a emacspeak-epub-bookshelf-add-directory C-d
+      emacspeak-epub-bookshelf-remove-directory C-k
+      emacspeak-epub-delete C-l emacspeak-epub-bookshelf-redraw RET
+      emacspeak-epub-open C-o emacspeak-epub-bookshelf-open-epub
+      C-x Prefix Command ESC Prefix Command C
+      emacspeak-epub-gutenberg-catalog G
+      emacspeak-epub-gutenberg-download a
+      emacspeak-epub-bookshelf-add-epub b
+      emacspeak-epub-bookshelf-open c
+      emacspeak-epub-bookshelf-clear d
+      emacspeak-epub-bookshelf-remove-this-book e
+      emacspeak-epub-bookshelf-rename f emacspeak-epub-browse-files
+      g emacspeak-epub-google n next-line o emacspeak-epub-open p
+      previous-line r emacspeak-epub-bookshelf-rename t
+      emacspeak-epub-fulltext &lt;return&gt;
+      emacspeak-epub-open</p>
+
+      <p>M-s emacspeak-epub-bookshelf-save</p>
+
+      <p>C-x C-q emacspeak-epub-bookshelf-refresh C-x C-s
+      emacspeak-epub-bookshelf-save</p>
+
+      <p>In addition to any hooks its parent mode `special-mode'
+      might have run, this mode runs the hook
+      `emacspeak-epub-mode-hook', as the final step during
+      initialization.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-next</b>
+    <var>nil<a name="index-emacspeak_002depub_002dnext-352" id=
+    "index-emacspeak_002depub_002dnext-352"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to next book.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-open</b>
+    <var>nil<a name="index-emacspeak_002depub_002dopen-353" id=
+    "index-emacspeak_002depub_002dopen-353"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open specified Epub.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-previous</b>
+    <var>nil<a name="index-emacspeak_002depub_002dprevious-354" id=
+    "index-emacspeak_002depub_002dprevious-354"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to previous book.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-epub-url-executor</b>
+    <var>nil<a name=
+    "index-emacspeak_002depub_002durl_002dexecutor-355" id=
+    "index-emacspeak_002depub_002durl_002dexecutor-355"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Custom URL executor for use in EPub Mode.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

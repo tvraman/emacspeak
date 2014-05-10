@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Controlling Echo - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Speech-System.html#Speech-System" title=
+  "Speech System" />
+  <link rel="next" href=
+  "Speech-Output-Control.html#Speech-Output-Control" title=
+  "Speech Output Control" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Controlling-Echo" id="Controlling-Echo"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "Speech-Output-Control.html#Speech-Output-Control">Speech
+    Output Control</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Speech-System.html#Speech-System">Speech System</a></p>
+    <hr />
+  </div>
+
+  <h4 class="subsection">5.4.1 Character, Word And Line Echo.</h4>
+
+  <p><a name="index-line-echo-52" id=
+  "index-line-echo-52"></a><a name="index-character-echo-53" id=
+  "index-character-echo-53"></a><a name="index-word-echo-54" id=
+  "index-word-echo-54"></a> By default, Emacspeak speaks characters
+  as they are typed &ndash;this is called character echo; Words are
+  spoken as they are completed &ndash;this is called word echo.
+  Emacspeak can also optionally speak each line as it is typed
+  &ndash;this is called line echo.</p>
+
+  <p>Character, word and line echo can be toggled &ndash;either in
+  the current buffer&ndash; or for all buffers (globally). To
+  toggle the specific echo functionality for all buffers, precede
+  the specific command with <kbd>C-u</kbd>. Note that in the
+  documentation below, this use of <kbd>C-u</kbd> is indicated
+  using the common Emacs terminology of <em>prefix arg</em> or
+  <em>interactive prefix arg</em>. <a name=
+  "index-emacspeak_002dtoggle_002dcharacter_002decho-55" id=
+  "index-emacspeak_002dtoggle_002dcharacter_002decho-55"></a>
+  <a name="index-control-e-d-k-56" id=
+  "index-control-e-d-k-56"></a></p>
+
+  <dl>
+    <dt><kbd>control e d k</kbd></dt>
+
+    <dd>
+      emacspeak-toggle-character-echo Toggle state of Emacspeak
+      character echo. Interactive PREFIX arg means toggle the
+      global default value, and then set the current local value to
+      the result.
+
+      <p><a name="index-emacspeak_002dtoggle_002dword_002decho-57"
+      id="index-emacspeak_002dtoggle_002dword_002decho-57"></a>
+      <a name="index-control-e-d-w-58" id=
+      "index-control-e-d-w-58"></a><br /></p>
+    </dd>
+
+    <dt><kbd>control e d w</kbd></dt>
+
+    <dd>
+      emacspeak-toggle-word-echo Toggle state of Emacspeak word
+      echo. Interactive PREFIX arg means toggle the global default
+      value, and then set the current local value to the result.
+
+      <p><a name="index-emacspeak_002dtoggle_002dline_002decho-59"
+      id="index-emacspeak_002dtoggle_002dline_002decho-59"></a>
+      <a name="index-control-e-d-l-60" id=
+      "index-control-e-d-l-60"></a><br /></p>
+    </dd>
+
+    <dt><kbd>control e d l</kbd></dt>
+
+    <dd>emacspeak-toggle-line-echo Toggle state of Emacspeak line
+    echo. Interactive PREFIX arg means toggle the global default
+    value, and then set the current local value to the result.</dd>
+  </dl>
+</body>
+</html>

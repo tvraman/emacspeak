@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-speak Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href=
+  "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options"
+  title="emacspeak-sounds Options" />
+  <link rel="next" href=
+  "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options"
+  title="emacspeak-speedbar Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-speak-Options" id=
+    "emacspeak-speak-Options"></a> <a name=
+    "emacspeak_002dspeak-Options" id=
+    "emacspeak_002dspeak-Options"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options">emacspeak-speedbar
+    Options</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href=
+    "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options">emacspeak-sounds
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.51 emacspeak-speak Options</h3>
+
+  <p>Commentary: This module defines the core speech services used
+  by emacspeak. It depends on the speech server interface modules
+  It protects other parts of emacspeak from becoming dependent on
+  the speech server modules</p>
+
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-speak. These options are customizable via Emacs'
+  Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-audio-indentation<a name=
+    "index-User-Option-1331" id=
+    "index-User-Option-1331"></a></var><br />
+
+    <blockquote>
+      <p>Option indicating if line indentation is cued. If non-nil
+      , then speaking a line indicates its indentation. You can use
+      command `emacspeak-toggle-audio-indentation' bound to C-e d i
+      to toggle this setting..</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-audio-indentation-method<a name=
+    "index-User-Option-1332" id=
+    "index-User-Option-1332"></a></var><br />
+
+    <blockquote>
+      <p>*Current technique used to cue indentation. Default is
+      `speak'. You can specify `tone' for producing a beep
+      indicating the indentation. Automatically becomes local in
+      any buffer where it is set.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-comint-autospeak<a name="index-User-Option-1333"
+    id="index-User-Option-1333"></a></var><br />
+
+    <blockquote>
+      <p>Says if comint output is automatically spoken. You can use
+      `emacspeak-toggle-comint-autospeak` bound to C-e C-q to
+      toggle this setting.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-decoration-rule<a name="index-User-Option-1334"
+    id="index-User-Option-1334"></a></var><br />
+
+    <blockquote>
+      <p>*Regular expressions to match lines that are purely
+      decorative ascii.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-horizontal-rule<a name="index-User-Option-1335"
+    id="index-User-Option-1335"></a></var><br />
+
+    <blockquote>
+      <p>*Regular expression to match horizontal rules in ascii
+      text.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-mail-alert<a name="index-User-Option-1336" id=
+    "index-User-Option-1336"></a></var><br />
+
+    <blockquote>
+      <p>*Option to indicate cueing of new mail. If t, emacspeak
+      will alert you about newly arrived mail with an auditory icon
+      when displaying the mode line. You can use command
+      `emacspeak-toggle-mail-alert' bound to C-e M-m to set this
+      option. If you have online access to a voicemail drop, you
+      can have a voice-mail alert set up by specifying the location
+      of the voice-mail drop via custom option
+      emacspeak-voicemail-spool-file.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-mail-alert-interval<a name=
+    "index-User-Option-1337" id=
+    "index-User-Option-1337"></a></var><br />
+
+    <blockquote>
+      <p>Interval in seconds between mail alerts for the same
+      pending message.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-mail-spool-file<a name="index-User-Option-1338"
+    id="index-User-Option-1338"></a></var><br />
+
+    <blockquote>
+      <p>Mail spool file examined to alert you about newly arrived
+      mail.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-search<a name="index-User-Option-1339" id=
+    "index-User-Option-1339"></a></var><br />
+
+    <blockquote>
+      <p>Default search engine.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-directory-settings<a name=
+    "index-User-Option-1340" id=
+    "index-User-Option-1340"></a></var><br />
+
+    <blockquote>
+      <p>*Name of file that holds directory specific settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-filter-persistent-store<a name=
+    "index-User-Option-1341" id=
+    "index-User-Option-1341"></a></var><br />
+
+    <blockquote>
+      <p>File where emacspeak filters are persisted.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-line-column-filter<a name=
+    "index-User-Option-1342" id=
+    "index-User-Option-1342"></a></var><br />
+
+    <blockquote>
+      <p>*List that specifies columns to be filtered. The list when
+      set holds pairs of start-col.end-col pairs that specifies the
+      columns that should not be spoken. Each column contains a
+      single character &ndash;this is inspired by cut -c on
+      UNIX.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-line-invert-filter<a name=
+    "index-User-Option-1343" id=
+    "index-User-Option-1343"></a></var><br />
+
+    <blockquote>
+      <p>Non-nil means the sense of `filter' is inverted when
+      filtering columns in a line &ndash;see command
+      emacspeak-speak-line-set-column-filter.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-load-directory-settings-quietly<a name=
+    "index-User-Option-1344" id=
+    "index-User-Option-1344"></a></var><br />
+
+    <blockquote>
+      <p>*User option that affects loading of directory specific
+      settings. If set to T,Emacspeak will not prompt before
+      loading directory specific settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-maximum-line-length<a name=
+    "index-User-Option-1345" id=
+    "index-User-Option-1345"></a></var><br />
+
+    <blockquote>
+      <p>*Threshold for determining `long' lines. Emacspeak will
+      ask for confirmation before speaking lines that are longer
+      than this length. This is to avoid accidentally opening a
+      binary file and torturing the speech synthesizer with a long
+      string of gibberish.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-message-again-should-copy-to-kill-ring<a name="index-User-Option-1346"
+    id="index-User-Option-1346"></a></var><br />
+
+    <blockquote>
+      <p>If set, asking for last message will copy it to the kill
+      ring.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-messages<a name="index-User-Option-1347"
+    id="index-User-Option-1347"></a></var><br />
+
+    <blockquote>
+      <p>*Option indicating if messages are spoken. If nil,
+      emacspeak will not speak messages as they are echoed to the
+      message area. You can use command
+      `emacspeak-toggle-speak-messages' bound to C-e q.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-paragraph-personality<a name=
+    "index-User-Option-1348" id=
+    "index-User-Option-1348"></a></var><br />
+
+    <blockquote>
+      <p>*Personality used to mark start of paragraph.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-space-regexp<a name=
+    "index-User-Option-1349" id=
+    "index-User-Option-1349"></a></var><br />
+
+    <blockquote>
+      <p>Pattern that matches white space.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-time-format-string<a name=
+    "index-User-Option-1350" id=
+    "index-User-Option-1350"></a></var><br />
+
+    <blockquote>
+      <p>*Format string that specifies how the time should be
+      spoken. See the documentation for function
+      `format-time-string'</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-speak-zoneinfo-directory<a name=
+    "index-User-Option-1351" id=
+    "index-User-Option-1351"></a></var><br />
+
+    <blockquote>
+      <p>Directory containing timezone data.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-unspeakable-rule<a name="index-User-Option-1352"
+    id="index-User-Option-1352"></a></var><br />
+
+    <blockquote>
+      <p>*Pattern to match lines of special chars. This is a
+      regular expression that matches lines containing only
+      non-alphanumeric characters. emacspeak will generate a tone
+      instead of speaking such lines when punctuation mode is set
+      to some.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-voicemail-spool-file<a name=
+    "index-User-Option-1353" id=
+    "index-User-Option-1353"></a></var><br />
+
+    <blockquote>
+      <p>Mail spool file examined to alert you about newly arrived
+      voicemail.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

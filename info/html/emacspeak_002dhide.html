@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-hide - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Emacspeak-Commands.html#Emacspeak-Commands"
+  title="Emacspeak Commands" />
+  <link rel="prev" href=
+  "emacspeak_002dgridtext.html#emacspeak_002dgridtext" title=
+  "emacspeak-gridtext" />
+  <link rel="next" href=
+  "emacspeak_002dibuffer.html#emacspeak_002dibuffer" title=
+  "emacspeak-ibuffer" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-hide" id="emacspeak-hide"></a> <a name=
+    "emacspeak_002dhide" id="emacspeak_002dhide"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002dibuffer.html#emacspeak_002dibuffer">emacspeak-ibuffer</a>,
+    Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "emacspeak_002dgridtext.html#emacspeak_002dgridtext">emacspeak-gridtext</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Commands.html#Emacspeak-Commands">Emacspeak
+    Commands</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">11.37 emacspeak-hide</h3>
+
+  <p>Commentary: Flexible hide and show for emacspeak. This module
+  allows one to easily hide or expose blocks of lines starting with
+  a common prefix. It is motivated by the need to flexibly hide
+  quoted text in email but is designed to be more general. the
+  prefix parsing is inspired by filladapt.el</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-hide.</p>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-hide-or-expose-all-blocks</b> <var>nil<a name=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks-472"
+    id=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks-472"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Hide or expose all blocks in buffer.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-hide-or-expose-block</b> <var>nil<a name=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dblock-473" id=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dblock-473"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>C-e j</kbd></p>
+
+      <p>Hide or expose a block of text. This command either hides
+      or exposes a block of text starting on the current line. A
+      block of text is defined as a portion of the buffer in which
+      all lines start with a common PREFIX. Optional interactive
+      prefix arg causes all blocks in current buffer to be hidden
+      or exposed.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-hide-speak-block-sans-prefix</b> <var>nil<a name=
+    "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix-474"
+    id=
+    "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix-474"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>C-e C-j</kbd></p>
+
+      <p>Speaks current block after stripping its prefix. If the
+      current block is not hidden, it first hides it. This is
+      useful because as you locate blocks, you can invoke this
+      command to listen to the block, and when you have heard
+      enough navigate easily to move past the block.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

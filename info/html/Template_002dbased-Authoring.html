@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Template-based Authoring - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Structured-Editing.html#Structured-Editing"
+  title="Structured Editing" />
+  <link rel="prev" href="Outline-Editing.html#Outline-Editing"
+  title="Outline Editing" />
+  <link rel="next" href=
+  "Maintaining-Structured-Data.html#Maintaining-Structured-Data"
+  title="Maintaining Structured Data" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Template-based-Authoring" id=
+    "Template-based-Authoring"></a> <a name=
+    "Template_002dbased-Authoring" id=
+    "Template_002dbased-Authoring"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "Maintaining-Structured-Data.html#Maintaining-Structured-Data">Maintaining
+    Structured Data</a>, Previous:&nbsp;<a rel="previous"
+    accesskey="p" href=
+    "Outline-Editing.html#Outline-Editing">Outline Editing</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Structured-Editing.html#Structured-Editing">Structured
+    Editing</a></p>
+    <hr />
+  </div>
+
+  <h4 class="subsection">9.2.2 Template-based Authoring</h4>
+
+  <p>Emacspeak supports two powerful template-based authoring
+  subsystems that enable the user to quickly create and fill in
+  templates. <em>Dmacro</em> (short for &ldquo;dynamic
+  macros&rdquo;) allows the user to define and invoke
+  template-based macros that are specialized for creating different
+  types of content. For example, when programming in C, the user
+  can invoke dynamic macros that insert skeletons of standard C
+  constructs with a few keystrokes. This form of editing has
+  numerous advantages in creating consistently structured code when
+  developing large software modules. Emacspeak speech-enables mode
+  <em>dmacro</em> to provide succinct spoken feedback as templates
+  are created and filled. The user invokes <em>dmacro</em> via
+  command <em>insert dmacro</em>, which is typically bound to a
+  single key. This results in a dialog where the user is prompted
+  to pick one of the dynamic macros available in the current
+  context. If the users choice can be uniquely completed, that
+  completion is spoken; otherwise, the list of possible completions
+  based on the available partial input is spoken, accompanied by
+  auditory icon <em>help</em>.</p>
+
+  <p>An alternative template-editing facility is provided by mode
+  <em>tempo</em> This mode is designed to be used in creating
+  template-based editing tools for specific markup languages; a
+  good example is mode <em>html-helper</em>, a mode for creating
+  and updating HTML documents for publishing on the WWW (see see
+  <a href="Document-Authoring.html#Document-Authoring">Document
+  Authoring</a>).</p>
+</body>
+</html>

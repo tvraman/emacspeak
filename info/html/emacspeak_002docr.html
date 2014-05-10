@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-ocr - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Emacspeak-Commands.html#Emacspeak-Commands"
+  title="Emacspeak Commands" />
+  <link rel="prev" href="emacspeak_002dnpr.html#emacspeak_002dnpr"
+  title="emacspeak-npr" />
+  <link rel="next" href=
+  "emacspeak_002doutline.html#emacspeak_002doutline" title=
+  "emacspeak-outline" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-ocr" id="emacspeak-ocr"></a> <a name=
+    "emacspeak_002docr" id="emacspeak_002docr"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002doutline.html#emacspeak_002doutline">emacspeak-outline</a>,
+    Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "emacspeak_002dnpr.html#emacspeak_002dnpr">emacspeak-npr</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Commands.html#Emacspeak-Commands">Emacspeak
+    Commands</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">11.49 emacspeak-ocr</h3>
+
+  <p>Commentary: This module defines Emacspeak front-end to OCR.
+  This module assumes that sane is installed and working for image
+  acquisition, and that there is an OCR engine that can take
+  acquired images and produce text. Prerequisites: Sane installed
+  and working. scanimage to generate tiff files from scanner.
+  tiffcp to compress the tiff file. working ocr executable by
+  default this module assumes that the OCR executable is named
+  "ocr"</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-ocr.</p>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr</b>
+    <var>nil<a name="index-emacspeak_002docr-555" id=
+    "index-emacspeak_002docr-555"></a></var><br />
+
+    <blockquote>
+      <p><kbd>C-e C-o</kbd></p>
+
+      <p>An OCR front-end for the Emacspeak desktop.</p>
+
+      <p>Page image is acquired using tools from the SANE package.
+      The acquired image is run through the OCR engine if one is
+      available, and the results placed in a buffer that is
+      suitable for browsing the results.</p>
+
+      <p>For detailed help, invoke command emacspeak-ocr bound to
+      C-e C-o to launch emacspeak-ocr-mode, and press `?' to
+      display mode-specific help for emacspeak-ocr-mode.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-backward-page</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dbackward_002dpage-556" id=
+    "index-emacspeak_002docr_002dbackward_002dpage-556"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Like backward page, but tracks page number of current
+      document.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-customize</b>
+    <var>nil<a name="index-emacspeak_002docr_002dcustomize-557" id=
+    "index-emacspeak_002docr_002dcustomize-557"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Customize OCR settings.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-flipflop-and-recognize-image</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage-558"
+    id=
+    "index-emacspeak_002docr_002dflipflop_002dand_002drecognize_002dimage-558"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Run OCR engine on current image after flip-flopping it.
+      Useful if you've scanned a page upside down and are using an
+      engine that does not automatically flip the image for you.
+      You need the imagemagik family of tools &mdash; we use
+      mogrify to transform the image. Prompts for image file if
+      file corresponding to the expected `current page' is not
+      found.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-forward-page</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dforward_002dpage-559" id=
+    "index-emacspeak_002docr_002dforward_002dpage-559"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Like forward page, but tracks page number of current
+      document.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-mode</b>
+    <var>nil<a name="index-emacspeak_002docr_002dmode-560" id=
+    "index-emacspeak_002docr_002dmode-560"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>An OCR front-end for the Emacspeak desktop.</p>
+
+      <p>Pre-requisites:</p>
+
+      <p>1) A working scanner back-end like SANE on Linux.</p>
+
+      <p>2) An OCR engine.</p>
+
+      <p>1: Make sure your scanner back-end works, and that you
+      have the utilities to scan a document and acquire an image as
+      a tiff file. Then set variable
+      emacspeak-ocr-scan-image-program to point at this utility. By
+      default, this is set to `scanimage' which is the image
+      scanning utility provided by SANE.</p>
+
+      <p>By default, this front-end attempts to compress the
+      acquired tiff image; make sure you have a utility like
+      tiffcp. Variable emacspeak-ocr-compress-image is set to
+      `tiffcp' by default; if you use something else, you should
+      customize this variable.</p>
+
+      <p>2: Next, make sure you have an OCR engine installed and
+      working. By default this front-end assumes that OCR is
+      available as /usr/bin/ocr.</p>
+
+      <p>Once you have ensured that acquiring an image and applying
+      OCR to it work independently of Emacs, you can use this
+      Emacspeak front-end to enable easy OCR access from within
+      Emacspeak.</p>
+
+      <p>The Emacspeak OCR front-end is launched by command
+      emacspeak-ocr bound to C-e C-o.</p>
+
+      <p>This command switches to a special buffer that has OCR
+      commands bounds to single keystrokes&ndash; see the
+      key-binding list at the end of this description. Use Emacs
+      online help facility to look up help on these commands.</p>
+
+      <p>emacspeak-ocr-mode provides the necessary functionality to
+      scan, OCR, read and save documents. By default, scanned
+      images and the resulting text are saved under directory
+      ~/ocr; see variable emacspeak-ocr-working-directory. Invoking
+      command emacspeak-ocr-open-working-directory bound to M-x
+      emacspeak-ocr-open-working-directory will open this
+      directory.</p>
+
+      <p>By default, the document being scanned is named
+      `untitled'. You can name the document by using command
+      emacspeak-ocr-name-document bound to M-x
+      emacspeak-ocr-name-document. The document name is used in
+      constructing the name of the image and text files.</p>
+
+      <p>Key Bindings:</p>
+
+      <p>See key binding &mdash; &mdash;&mdash;&mdash;</p>
+
+      <p>RET emacspeak-ocr-scan-and-recognize SPC
+      emacspeak-ocr-read-current-page 1 .. 9 emacspeak-ocr-page ?
+      describe-mode C emacspeak-ocr-set-compress-image-options I
+      emacspeak-ocr-set-scan-image-options [
+      emacspeak-ocr-backward-page ] emacspeak-ocr-forward-page c
+      emacspeak-ocr-customize d
+      emacspeak-ocr-open-working-directory f
+      emacspeak-ocr-flipflop-and-recognize-image i
+      emacspeak-ocr-scan-image j emacspeak-ocr-scan-photo n
+      emacspeak-ocr-name-document o emacspeak-ocr-recognize-image p
+      emacspeak-ocr-page q bury-buffer s
+      emacspeak-ocr-save-current-page w
+      emacspeak-ocr-write-document</p>
+
+      <p>.</p>
+
+      <p>In addition to any hooks its parent mode `text-mode' might
+      have run, this mode runs the hook `emacspeak-ocr-mode-hook',
+      as the final step during initialization.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-name-document</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dname_002ddocument-561" id=
+    "index-emacspeak_002docr_002dname_002ddocument-561"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Name document being scanned in the current OCR buffer.
+      Pick a short but meaningful name.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-open-working-directory</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dopen_002dworking_002ddirectory-562"
+    id=
+    "index-emacspeak_002docr_002dopen_002dworking_002ddirectory-562"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Launch dired on OCR working directory.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-page</b>
+    <var>nil<a name="index-emacspeak_002docr_002dpage-563" id=
+    "index-emacspeak_002docr_002dpage-563"></a></var><br />
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Move to specified page.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-read-current-page</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dread_002dcurrent_002dpage-564" id=
+    "index-emacspeak_002docr_002dread_002dcurrent_002dpage-564"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Speaks current page.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-recognize-image</b> <var>nil<a name=
+    "index-emacspeak_002docr_002drecognize_002dimage-565" id=
+    "index-emacspeak_002docr_002drecognize_002dimage-565"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Run OCR engine on current image. Prompts for image file if
+      file corresponding to the expected `current page' is not
+      found.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-save-current-page</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dsave_002dcurrent_002dpage-566" id=
+    "index-emacspeak_002docr_002dsave_002dcurrent_002dpage-566"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Writes out recognized text from current page to an
+      appropriately named file.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-scan-and-recognize</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dscan_002dand_002drecognize-567"
+    id="index-emacspeak_002docr_002dscan_002dand_002drecognize-567"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Scan in a page and run OCR engine on it. Use this command
+      once you've verified that the separate steps of acquiring an
+      image and running the OCR engine work correctly by
+      themselves.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-scan-image</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dscan_002dimage-568" id=
+    "index-emacspeak_002docr_002dscan_002dimage-568"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Acquire page image.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command: <b>emacspeak-ocr-scan-photo</b>
+    <var>nil<a name=
+    "index-emacspeak_002docr_002dscan_002dphoto-569" id=
+    "index-emacspeak_002docr_002dscan_002dphoto-569"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Scan in a photograph. The scanned image is converted to
+      JPEG.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-set-compress-image-options</b>
+    <var>nil<a name="index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions-570"
+    id=
+    "index-emacspeak_002docr_002dset_002dcompress_002dimage_002doptions-570"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Interactively update image compression options. Prompts
+      with current setting in the minibuffer. Setting persists for
+      current Emacs session.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-set-scan-image-options</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions-571"
+    id=
+    "index-emacspeak_002docr_002dset_002dscan_002dimage_002doptions-571"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Interactively update scan image options. Prompts with
+      current setting in the minibuffer. Setting persists for
+      current Emacs session.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Interactive Command:
+    <b>emacspeak-ocr-write-document</b> <var>nil<a name=
+    "index-emacspeak_002docr_002dwrite_002ddocument-572" id=
+    "index-emacspeak_002docr_002dwrite_002ddocument-572"></a></var><br />
+
+
+    <blockquote>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Writes out recognized text from all pages in current
+      document.</p>
+    </blockquote>
+  </div>
+</body>
+</html>
