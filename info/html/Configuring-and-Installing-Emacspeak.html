@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Configuring and Installing Emacspeak - Emacspeak User's
+  Manual --2nd Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Installation.html#Installation" title=
+  "Installation" />
+  <link rel="prev" href=
+  "Quick-Installation.html#Quick-Installation" title=
+  "Quick Installation" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Configuring-and-Installing-Emacspeak" id=
+    "Configuring-and-Installing-Emacspeak"></a>
+
+    <p>Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "Quick-Installation.html#Quick-Installation">Quick
+    Installation</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Installation.html#Installation">Installation</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">4.3 Configuring and Installing Emacspeak</h3>
+
+  <p>Note: You need a current version of GNU Emacs for using newer
+  versions of Emacspeak.</p>
+
+  <p>The speech server for the Dectalk is written in TclX. (For
+  example, see the source file <samp><span class=
+  "file">dtk-exp</span></samp>).</p>
+
+  <ul>
+    <li>Decide where you want the Emacspeak elisp files. Most Unix
+    packages are unpacked and compiled in one directory, and then
+    the executable, documentation, and data files are installed in
+    the appropriate system directories.
+
+      <p>Once you have decided on the appropriate directory, make
+      it if necessary and unpack the distribution <code>.tar</code>
+      file there.</p>
+    </li>
+
+    <li>Look through the introductory section of the Makefile to
+    see if you need to edit it for your site.</li>
+
+    <li>Check the directory prefix for installation. The default is
+    <samp><span class="file">/usr/local</span></samp>, so
+    <samp><span class="file">.info</span></samp> files go to
+    <samp><span class="file">/usr/local/info</span></samp> and the
+    executable file goes to <samp><span class=
+    "file">/usr/local/bin</span></samp>. To change this, edit the
+    line defining <var>PREFIX</var>.</li>
+  </ul>
+
+  <p>Configure the source files by typing &lsquo;<samp><span class=
+  "samp">make config</span></samp>&rsquo;. At this point you can
+  check that the speech server is correctly configured by
+  typing</p>
+  <pre class="example">
+     tcl dtk-exp
+</pre>
+
+  <p class="noindent">(assuming you are using the Dectalk Express).
+  You should hear the Dectalk speak and get a TCL prompt if
+  everything is okay.</p>
+
+  <p>If you're feeling paranoid, you can perform a couple of
+  additional tests at this point. Execute the following commands in
+  the running tcl session you just started above. (Most users will
+  not need to do this; it is a sanity check and is useful in
+  tracking problems, especially if you find emacspeak beginning to
+  talk and then immediately fall silent.)</p>
+
+  <ul>
+    <li>
+      <pre class="example">
+          q "this is a test."
+          d
+</pre>
+
+      <p>You should hear the Dectalk speak the text.</p>
+    </li>
+
+    <li>&lsquo;<samp><span class="samp">s</span></samp>&rsquo; The
+    above command stops speech. You should see a TCL prompt when
+    you execute it. If things appear to hang when you execute
+    &lsquo;<samp><span class="samp">s</span></samp>&rsquo; i.e. you
+    don't see a TCL prompt
+
+      <ol type="1" start="1">
+        <li>The serial cable connecting your speech device is
+        flaky</li>
+
+        <li>Your serial port is flaky</li>
+
+        <li>The stty settings on the port are incorrect for your
+        system</li>
+      </ol>
+
+      <p>In the case of incorrect stty settings please report the
+      problem. The following UNIX command can be used to report the
+      stty settings:</p>
+      <pre class="example">
+          stty -a &lt; serial_port
+</pre>
+    </li>
+  </ul>
+
+  <p>Quit this TCL session by typing <kbd>C-D</kbd>.</p>
+
+  <p>Next, compile the elisp files by typing</p>
+  <pre class="example">
+     make emacspeak
+</pre>
+
+  <p>Finally, install the documentation and executable files by
+  typing</p>
+  <pre class="example">
+     make PREFIX=&lt;prefix&gt; install
+</pre>
+
+  <p>The speech server program and/or output port can also be
+  specified at run time by setting the shell environment variables
+  <var>DTK_PROGRAM</var> and <var>DTK_PORT</var>. Examples: If
+  using <code>csh</code> or <code>tcsh</code></p>
+  <pre class="example">
+     setenv DTK_PROGRAM "dtk-exp"
+</pre>
+
+  <p class="noindent">if using <code>sh</code> or
+  <code>bash</code></p>
+  <pre class="example">
+     DTK_PROGRAM=dtk-exp
+     export DTK_PROGRAM
+</pre>
+
+  <p class="noindent">Similarly,</p>
+  <pre class="example">
+     DTK_PORT=/dev/ttyS0
+</pre>
+
+  <p>You can always set these variables from a running Emacs
+  session by executing the Emacs setenv command. 
+  <!-- $Id: using.texi 5429 2008-01-03 04:24:37Z tv.raman.tv $ --></p>
+</body>
+</html>

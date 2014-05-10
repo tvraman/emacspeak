@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Voice-lock - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Basic-Usage.html#Basic-Usage" title=
+  "Basic Usage" />
+  <link rel="prev" href="Speech-System.html#Speech-System" title=
+  "Speech System" />
+  <link rel="next" href=
+  "Status-Information.html#Status-Information" title=
+  "Status Information" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Voice-lock" id="Voice-lock"></a> <a name=
+    "Voice_002dlock" id="Voice_002dlock"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "Status-Information.html#Status-Information">Status
+    Information</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href="Speech-System.html#Speech-System">Speech System</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Basic-Usage.html#Basic-Usage">Basic Usage</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">5.5 Voice Lock Mode</h3>
+
+  <p>The status of voice lock mode can be toggled on and off by
+  issuing the command <kbd>C-e d v (M-x voice-lock-mode)</kbd>.
+  With a prefix arg, this function applies globally; otherwise, it
+  is local to the current buffer. To have voice lock mode activated
+  automatically when Emacspeak starts, include the following code
+  in your <samp><span class="file">.emacs</span></samp> file:</p>
+  <pre class="lisp">
+     (add-hook 'emacs-lisp-mode-hook
+     'turn-on-voice-lock)
+</pre>
+
+  <p>Alternatively, Emacspeak can be set to enable voice lock
+  automatically in all of the major modes that support it. To do
+  so, insert the following statement into your Emacs initialization
+  file:</p>
+  <pre class="lisp">
+     (global-voice-lock-mode t)
+</pre>
+
+  <p>Note that the list of major modes in which
+  <code>global-voice-lock-mode</code> will provide automatic
+  activation is specified in the variable
+  <var>voice-lock-global-modes</var> See <a href=
+  "Voice-Lock.html#Voice-Lock">Voice Lock</a>.</p>
+
+  <p>The characteristics of the different voice personalities
+  deployed by voice lock mode vary according to the capabilities of
+  the speech synthesizer. The definitions applicable to the Dectalk
+  family of synthesizers are contained in <samp><span class=
+  "file">dtk-voices.el</span></samp>, which is supplied as part of
+  the Emacspeak distribution.</p>
+
+  <p>Using voice lock mode, Emacspeak also supports many of the
+  aural style properties defined in level 2 of the World Wide Web
+  Consortium's Cascading Style Sheet specification (see
+  <code>http://www.w3.org/TR/REC-CSS2/</code>. Thus, when Emacspeak
+  is running in conjunction with a cooperating user agent, such as
+  William Perry's Emacspeak/W3 web browser, the rendering of HTML
+  documents can be regulated by style sheets. Examples of style
+  rules which employ the CSS audio properties can be found in the
+  default style sheet which is supplied in the Emacs/W3
+  distribution.</p>
+</body>
+</html>

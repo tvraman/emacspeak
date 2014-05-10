@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Working - Emacspeak User's Manual --2nd Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Basic-Usage.html#Basic-Usage" title=
+  "Basic Usage" />
+  <link rel="prev" href="Overview.html#Overview" title=
+  "Overview" />
+  <link rel="next" href="Reading.html#Reading" title="Reading" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Working" id="Working"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "Reading.html#Reading">Reading</a>, Previous:&nbsp;<a rel=
+    "previous" accesskey="p" href=
+    "Overview.html#Overview">Overview</a>, Up:&nbsp;<a rel="up"
+    accesskey="u" href="Basic-Usage.html#Basic-Usage">Basic
+    Usage</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">5.2 Working In Emacs Buffers.</h3>
+
+  <p>While typing in an Emacs buffer, hitting space speaks the
+  recently typed word. I use completion all the time; so Emacspeak
+  will speak the completion just inserted as well as the next
+  possible completion. In Emacs, use <code>load-library ret
+  completion ret</code> for loading the completion package.</p>
+
+  <p>The standard Emacs prompting functions have also been
+  speech-enabled. Emacs prompts with available lists of completions
+  in response to partial input wherever appropriate &mdash;all
+  forms of completion provide speech feedback.</p>
+
+  <p>In addition, Emacspeak provides a number of commands for
+  reading portions of the current buffer, getting status
+  information, and modifying Emacspeak's state.</p>
+
+  <p>All of the commands are documented in the subsequent sections.
+  They can be classified into types:</p>
+
+  <ul>
+    <li>Emacspeak commands for listening to chunks of information.
+    The names of these commands all start with the common prefix
+    <code>emacspeak-speak-</code>. All Emacspeak commands are bound
+    to the keymap <var>emacspeak-keymap</var> and are accessed with
+    the key <kbd>Control e</kbd><a rel="footnote" href="#fn-1"
+    name="fnd-1" id="fnd-1"><sup>1</sup></a>. Thus, the Emacspeak
+    command <dfn>emacspeak-speak-line</dfn> is bound to
+    <kbd>l</kbd> in keymap <var>emacspeak-keymap</var> and can be
+    accessed with the keystroke <kbd>Control-e l</kbd>. If for some
+    reason you wish to use some key other than <kbd>control-e</kbd>
+    as the common keyboard prefix for all Emacspeak commands, set
+    the variable <var>emacspeak-prefix</var>.</li>
+
+    <li>The second category of commands provided by Emacspeak
+    manipulate the state of the speech device. The names of these
+    commands start with the common prefix <code>dtk-</code> and are
+    bound in keymap <var>emacspeak-dtk-submap</var>. You can access
+    these commands via the prefix <kbd>Control-e d</kbd><a rel=
+    "footnote" href="#fn-2" name="fnd-2" id=
+    "fnd-2"><sup>2</sup></a>. Thus, the command
+    <dfn>dtk-set-rate</dfn> is bound to <kbd>r</kbd> in keymap
+    <var>emacspeak-dtk-submap</var> and can be executed by pressing
+    <kbd>Control e d r</kbd>.</li>
+  </ul>
+
+  <p>Emacs has extensive online help; so does emacspeak. Please use
+  it.</p>
+
+  <p>This info manual is only to get you started. You can get a
+  summary of Emacspeak's features by pressing <kbd>Control-h
+  Control-e</kbd></p>
+
+  <div class="footnote">
+    <hr />
+
+    <h4>Footnotes</h4>
+
+    <p class="footnote"><small>[<a name="fn-1" href="#fnd-1" id=
+    "fn-1">1</a>]</small> Control e is mnemonic for Emacspeak.</p>
+
+    <p class="footnote"><small>[<a name="fn-2" href="#fnd-2" id=
+    "fn-2">2</a>]</small> d is mnemonic for Dectalk.</p>
+    <hr />
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>How It All Works. - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href="Voice-Lock.html#Voice-Lock" title=
+  "Voice Lock" />
+  <link rel="next" href=
+  "What-this-gives_002e.html#What-this-gives_002e" title=
+  "What this gives." />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="How-It-All-Works." id="How-It-All-Works."></a>
+    <a name="How-It-All-Works_002e" id="How-It-All-Works_002e"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "What-this-gives_002e.html#What-this-gives_002e">What this
+    gives.</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Voice-Lock.html#Voice-Lock">Voice Lock</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">7.1 How It All Works</h3>
+
+  <p>Here is a brief explanation of the connection between
+  &lsquo;<samp><span class="samp">voice-bolden</span></samp>&rsquo;
+  and its associated &lsquo;<samp><span class=
+  "samp">voice-bolden-settings</span></samp>&rsquo;.</p>
+
+  <ol type="1" start="1">
+    <li>Voice settings are initially in &lsquo;<samp><span class=
+    "samp">voice-bolden-settings</span></samp>&rsquo; which is a
+    list of numbers.</li>
+
+    <li>That list of numbers needs to be translated to appropriate
+    device-specific codes to send to the TTS engine.</li>
+
+    <li>You do not want to do this translation <em>each</em> time
+    you speak something.</li>
+
+    <li>So when &lsquo;<samp><span class=
+    "samp">voice-bolden</span></samp>&rsquo; is defined, the
+    definition happens in two steps:</li>
+  </ol>
+
+  <ul>
+    <li>The list of settings is stored away in
+    &lsquo;<samp><span class=
+    "samp">voice-bolden-settings</span></samp>&rsquo;,</li>
+
+    <li>A corresponding voice-name is generated &mdash;
+    &lsquo;<samp><span class=
+    "samp">acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</span></samp>&rsquo;
+    and the corresponding control codes to send to the device are
+    stored away in a hash-table keyed by the above symbol.</li>
+
+    <li>Finally, &lsquo;<samp><span class=
+    "samp">voice-bolden</span></samp>&rsquo; is assigned the above
+    symbol.</li>
+  </ul>
+
+  <ul class="menu">
+    <li><a accesskey="1" href=
+    "What-this-gives_002e.html#What-this-gives_002e">What this
+    gives.</a></li>
+  </ul>
+</body>
+</html>

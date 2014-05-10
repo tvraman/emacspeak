@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-keymap Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href=
+  "emacspeak_002djss-Options.html#emacspeak_002djss-Options" title=
+  "emacspeak-jss Options" />
+  <link rel="next" href=
+  "emacspeak_002dkite-Options.html#emacspeak_002dkite-Options"
+  title="emacspeak-kite Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-keymap-Options" id=
+    "emacspeak-keymap-Options"></a> <a name=
+    "emacspeak_002dkeymap-Options" id=
+    "emacspeak_002dkeymap-Options"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002dkite-Options.html#emacspeak_002dkite-Options">emacspeak-kite
+    Options</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href=
+    "emacspeak_002djss-Options.html#emacspeak_002djss-Options">emacspeak-jss
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.31 emacspeak-keymap Options</h3>
+
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-keymap. These options are customizable via
+  Emacs' Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-alt-keys<a name="index-User-Option-1225" id=
+    "index-User-Option-1225"></a></var><br />
+
+    <blockquote>
+      <p>*Specifies alt key bindings for the audio desktop. You can
+      turn the `Pause' key on your Linux PC keyboard into a `alt'
+      key on Linux by having it emit the sequence `C-x@a'.</p>
+
+      <p>Bindings specified here are available on prefix key `alt'
+      (not to be confused with alt==meta) for example, if you bind
+      `s' to command emacspeak-emergency-tts-restart then that
+      command will be available on key `ALT s'</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes. To
+      enter a key with a modifier, type C-q followed by the desired
+      modified keystroke. For example, to enter C-s (Control s) as
+      the key to be bound, type C-q C-s in the key field in the
+      customization buffer. You can use the notation [f1], [f2],
+      etc., to specify function keys.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-hyper-keys<a name="index-User-Option-1226" id=
+    "index-User-Option-1226"></a></var><br />
+
+    <blockquote>
+      <p>*Specifies hyper key bindings for the audio desktop. Emacs
+      can use the `hyper' key as a modifier key. You can turn the
+      `windows' keys on your Linux PC keyboard into a `hyper' key
+      on Linux by having it emit the sequence `C-x@h'.</p>
+
+      <p>Bindings specified here are available on prefix key
+      `hyper' for example, if you bind `b' to command `bbdb ' then
+      that command will be available on key `hyper b'.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes. To
+      enter a key with a modifier, type C-q followed by the desired
+      modified keystroke. For example, to enter C-s (Control s) as
+      the key to be bound, type C-q C-s in the key field in the
+      customization buffer. You can use the notation [f1], [f2],
+      etc., to specify function keys.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-personal-keys<a name="index-User-Option-1227"
+    id="index-User-Option-1227"></a></var><br />
+
+    <blockquote>
+      <p>*Specifies personal key bindings for the audio desktop.
+      Bindings specified here are available on prefix key C-e x for
+      example, if you bind `s' to command
+      emacspeak-emergency-tts-restart then that command will be
+      available on key C-e x s</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes. To
+      enter a key with a modifier, type C-q followed by the desired
+      modified keystroke. For example, to enter C-s (Control s) as
+      the key to be bound, type C-q C-s in the key field in the
+      customization buffer. You can use the notation [f1], [f2],
+      etc., to specify function keys.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-super-keys<a name="index-User-Option-1228" id=
+    "index-User-Option-1228"></a></var><br />
+
+    <blockquote>
+      <p>*Specifies super key bindings for the audio desktop. You
+      can turn the right `windows menu' keys on your Linux PC
+      keyboard into a `super' key on Linux by having it emit the
+      sequence `C-x@s'.</p>
+
+      <p>Bindings specified here are available on prefix key
+      `super' for example, if you bind `s' to command
+      emacspeak-emergency-tts-restart then that command will be
+      available on key `super s'</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes. To
+      enter a key with a modifier, type C-q followed by the desired
+      modified keystroke. For example, to enter C-s (Control s) as
+      the key to be bound, type C-q C-s in the key field in the
+      customization buffer. You can use the notation [f1], [f2],
+      etc., to specify function keys.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

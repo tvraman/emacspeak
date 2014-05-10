@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>dtk-speak Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href=
+  "cd_002dtool-Options.html#cd_002dtool-Options" title=
+  "cd-tool Options" />
+  <link rel="next" href=
+  "dtk_002dunicode-Options.html#dtk_002dunicode-Options" title=
+  "dtk-unicode Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="dtk-speak-Options" id="dtk-speak-Options"></a>
+    <a name="dtk_002dspeak-Options" id="dtk_002dspeak-Options"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "dtk_002dunicode-Options.html#dtk_002dunicode-Options">dtk-unicode
+    Options</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href="cd_002dtool-Options.html#cd_002dtool-Options">cd-tool
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.2 dtk-speak Options</h3>
+
+  <p>Commentary: Defines the TTS interface.</p>
+
+  <p>Automatically generated documentation for options defined in
+  module dtk-speak. These options are customizable via Emacs'
+  Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-cleanup-patterns<a name="index-User-Option-1106" id=
+    "index-User-Option-1106"></a></var><br />
+
+    <blockquote>
+      <p>List of repeating patterns to clean up. You can use
+      command `dtk-add-cleanup-pattern' bound to C-e d a to add
+      more patterns. Specify patterns that people use to decorate
+      their ASCII files, and cause untold pain to the speech
+      synthesizer.</p>
+
+      <p>If more than 3 consecutive occurrences of a specified
+      pattern is found, the TTS engine replaces it with a repeat
+      count.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-local-engine<a name="index-User-Option-1107" id=
+    "index-User-Option-1107"></a></var><br />
+
+    <blockquote>
+      <p>Engine we use for our local TTS server.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-resume-should-toggle<a name="index-User-Option-1108"
+    id="index-User-Option-1108"></a></var><br />
+
+    <blockquote>
+      <p>*T means `dtk-resume' acts as a toggle.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-speak-nonprinting-chars<a name=
+    "index-User-Option-1109" id=
+    "index-User-Option-1109"></a></var><br />
+
+    <blockquote>
+      <p>*Option that specifies handling of non-printing chars. Non
+      nil value means non printing characters should be spoken as
+      their octal value. Set this to t to avoid a dectalk bug that
+      makes the speech box die if it seems some accented characters
+      in certain contexts.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-speech-rate-base<a name="index-User-Option-1110" id=
+    "index-User-Option-1110"></a></var><br />
+
+    <blockquote>
+      <p>*Value of lowest tolerable speech rate.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-speech-rate-step<a name="index-User-Option-1111" id=
+    "index-User-Option-1111"></a></var><br />
+
+    <blockquote>
+      <p>*Value of speech rate increment. This determines step size
+      used when setting speech rate via command
+      `dtk-set-predefined-speech-rate'. Formula used is
+      dtk-speech-rate-base + dtk-speech-rate-step*level.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-speech-server-program<a name="index-User-Option-1112"
+    id="index-User-Option-1112"></a></var><br />
+
+    <blockquote>
+      <p>Local speech server script.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>dtk-startup-hook<a name="index-User-Option-1113" id=
+    "index-User-Option-1113"></a></var><br />
+
+    <blockquote>
+      <p>List of hooks to be run after starting up the speech
+      server. Set things like speech rate, punctuation mode etc in
+      this hook.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b> <var>dtk-use-tones<a name=
+    "index-User-Option-1114" id=
+    "index-User-Option-1114"></a></var><br />
+
+    <blockquote>
+      <p>Allow tones to be turned off.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>tts-device-list<a name="index-User-Option-1115" id=
+    "index-User-Option-1115"></a></var><br />
+
+    <blockquote>
+      <p>List of ALSA sound devices we can use.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>tts-strip-octals<a name="index-User-Option-1116" id=
+    "index-User-Option-1116"></a></var><br />
+
+    <blockquote>
+      <p>Set to T to strip all octal chars before speaking.
+      Particularly useful for web browsing.</p>
+    </blockquote>
+  </div>
+</body>
+</html>

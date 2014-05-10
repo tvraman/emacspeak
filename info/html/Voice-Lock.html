@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Voice Lock - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="prev" href="Audio-Desktop.html#Audio-Desktop" title=
+  "Audio Desktop" />
+  <link rel="next" href="Using-Online-Help.html#Using-Online-Help"
+  title="Using Online Help" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="Voice-Lock" id="Voice-Lock"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "Using-Online-Help.html#Using-Online-Help">Using Online
+    Help</a>, Previous:&nbsp;<a rel="previous" accesskey="p" href=
+    "Audio-Desktop.html#Audio-Desktop">Audio Desktop</a>,
+    Up:&nbsp;<a rel="up" accesskey="u" href=
+    "index.html#Top">Top</a></p>
+    <hr />
+  </div>
+
+  <h2 class="chapter">7 Voice Lock</h2>
+
+  <ol type="1" start="1">
+    <li>Emacspeak defines a number of voice overlays such as
+    &lsquo;<samp><span class=
+    "samp">voice-bolden</span></samp>&rsquo;, and
+    &lsquo;<samp><span class=
+    "samp">voice-lighten</span></samp>&rsquo; that can be applied
+    to a given voice to change what it sounds like.</li>
+
+    <li>Voice overlays are defined in terms of Aural CSS (<a href=
+    "http://www.w3.org/tr/css2/aural.html">ACSS</a>) to keep them
+    independent of a specific TTS engine.</li>
+
+    <li>For each such overlay there is a corresponding
+    &lsquo;<samp><span class=
+    "samp">&lt;overlay-name&gt;-settings</span></samp>&rsquo;
+    variable that can be customized via custom.</li>
+
+    <li>The numbers in &lsquo;<samp><span class=
+    "samp">voice-bolden-settings as an
+    example</span></samp>&rsquo;:</li>
+  </ol>
+
+  <table summary="">
+    <tr align="left">
+      <td valign="top" width="50%">Setting</td>
+
+      <td valign="top" width="50%">Value<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">family</td>
+
+      <td valign="top" width="50%">nil<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">average-pitch</td>
+
+      <td valign="top" width="50%">1<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">pitch-range</td>
+
+      <td valign="top" width="50%">6<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">stress</td>
+
+      <td valign="top" width="50%">6<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">richness</td>
+
+      <td valign="top" width="50%">nil<br /></td>
+    </tr>
+
+    <tr align="left">
+      <td valign="top" width="50%">punctuation</td>
+
+      <td valign="top" width="50%">nil<br /></td>
+    </tr>
+  </table>Unset values (&lsquo;<samp><span class=
+  "samp">nil</span></samp>&rsquo;) show up as
+  &ldquo;unspecified&rdquo; in the customize interface.
+
+  <ol type="1" start="1">
+    <li>Do not directly customize &lsquo;<samp><span class=
+    "samp">voice-bolden</span></samp>&rsquo; and friends, instead
+    customize the corresponding &lsquo;<samp><span class=
+    "samp">voice-bolden-settings</span></samp>&rsquo;, since that
+    ensures that all voices that are defined in terms of
+    &lsquo;<samp><span class=
+    "samp">voice-bolden</span></samp>&rsquo; get correctly
+    updated.</li>
+
+    <li>Discovering what to customize:</li>
+  </ol>
+
+  <p>Command &lsquo;<samp><span class=
+  "samp">emacspeak-show-personality-at-point</span></samp>&rsquo;
+  (bound by default to C-e M-v) will show you the value of
+  properties personality and face at point. A recent update I
+  implemented last weekend makes this more useful, so make sure you
+  do a CVS update; earlier this command used to display the ACSS
+  setting &mdash; now it displays the abstract name.
+  Describe-variable on these names should tell you what to
+  customize; so as an example:</p>
+
+  <p>Put point on a comment line, and hit &lsquo;<samp><span class=
+  "samp">C-e M-v</span></samp>&rsquo;: you will hear</p>
+  <pre class="example">
+     Personality emacspeak-voice-lock-comment-personality
+     Face font-lock-comment-delimiter-face
+</pre>
+
+  <p>Describe-variable of &lsquo;<samp><span class=
+  "samp">emacspeak-voice-lock-comment-personality</span></samp>&rsquo;
+  gives:</p>
+  <pre class="example">
+     emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
+     
+     Documentation:
+     Personality used for font-lock-comment-face
+     This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+     
+</pre>
+
+  <ul class="menu">
+    <li><a accesskey="1" href=
+    "How-It-All-Works_002e.html#How-It-All-Works_002e">How It All
+    Works.</a></li>
+
+    <li><a accesskey="2" href=
+    "What-this-gives_002e.html#What-this-gives_002e">What this
+    gives.</a></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>emacspeak-ocr Options - Emacspeak User's Manual --2nd
+  Edition.</title>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="description" content=
+  "Emacspeak User's Manual --2nd Edition." />
+  <meta name="generator" content="makeinfo 4.13" />
+  <link title="Top" rel="start" href="index.html#Top" />
+  <link rel="up" href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" title=
+  "Emacspeak Customizations" />
+  <link rel="prev" href=
+  "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options" title=
+  "emacspeak-npr Options" />
+  <link rel="next" href=
+  "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options"
+  title="emacspeak-outline Options" />
+  <link href="http://www.gnu.org/software/texinfo/" rel=
+  "generator-home" title="Texinfo Homepage" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  -->
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table summary="logo">
+    <tr>
+      <td><a href="http://emacspeak.sf.net"><img width="150"
+      height="216" src="emacspeak.jpg" alt=
+      "EMACSPEAK --Complete Audio Desktop" /></a></td>
+    </tr>
+  </table>
+
+  <div class="node">
+    <a name="emacspeak-ocr-Options" id="emacspeak-ocr-Options"></a>
+    <a name="emacspeak_002docr-Options" id=
+    "emacspeak_002docr-Options"></a>
+
+    <p>Next:&nbsp;<a rel="next" accesskey="n" href=
+    "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options">emacspeak-outline
+    Options</a>, Previous:&nbsp;<a rel="previous" accesskey="p"
+    href=
+    "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options">emacspeak-npr
+    Options</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations">Emacspeak
+    Customizations</a></p>
+    <hr />
+  </div>
+
+  <h3 class="section">12.40 emacspeak-ocr Options</h3>
+
+  <p>Commentary: This module defines Emacspeak front-end to OCR.
+  This module assumes that sane is installed and working for image
+  acquisition, and that there is an OCR engine that can take
+  acquired images and produce text. Prerequisites: Sane installed
+  and working. scanimage to generate tiff files from scanner.
+  tiffcp to compress the tiff file. working ocr executable by
+  default this module assumes that the OCR executable is named
+  "ocr"</p>
+
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-ocr. These options are customizable via Emacs'
+  Custom interface.</p>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-compress-image<a name=
+    "index-User-Option-1286" id=
+    "index-User-Option-1286"></a></var><br />
+
+    <blockquote>
+      <p>Command used to compress the scanned tiff file.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-compress-image-options<a name=
+    "index-User-Option-1287" id=
+    "index-User-Option-1287"></a></var><br />
+
+    <blockquote>
+      <p>Options used for compressing tiff image.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-compress-photo-options<a name=
+    "index-User-Option-1288" id=
+    "index-User-Option-1288"></a></var><br />
+
+    <blockquote>
+      <p>Options used when created JPEG from scanned
+      photographs.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-engine<a name="index-User-Option-1289" id=
+    "index-User-Option-1289"></a></var><br />
+
+    <blockquote>
+      <p>OCR engine to process acquired image.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-engine-options<a name=
+    "index-User-Option-1290" id=
+    "index-User-Option-1290"></a></var><br />
+
+    <blockquote>
+      <p>Command line options to pass to OCR engine.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-image-extension<a name=
+    "index-User-Option-1291" id=
+    "index-User-Option-1291"></a></var><br />
+
+    <blockquote>
+      <p>Filename extension used for acquired image.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-jpeg-metadata-writer<a name=
+    "index-User-Option-1292" id=
+    "index-User-Option-1292"></a></var><br />
+
+    <blockquote>
+      <p>Program to add metadata to JPEG files.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-keep-uncompressed-image<a name=
+    "index-User-Option-1293" id=
+    "index-User-Option-1293"></a></var><br />
+
+    <blockquote>
+      <p>If set to T, uncompressed image is not removed.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-photo-compress<a name=
+    "index-User-Option-1294" id=
+    "index-User-Option-1294"></a></var><br />
+
+    <blockquote>
+      <p>Program to create JPEG compressed images.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-scan-image<a name="index-User-Option-1295"
+    id="index-User-Option-1295"></a></var><br />
+
+    <blockquote>
+      <p>Name of image acquisition program.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-scan-image-options<a name=
+    "index-User-Option-1296" id=
+    "index-User-Option-1296"></a></var><br />
+
+    <blockquote>
+      <p>Command line options to pass to image acquisition
+      program.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-scan-photo-options<a name=
+    "index-User-Option-1297" id=
+    "index-User-Option-1297"></a></var><br />
+
+    <blockquote>
+      <p>Options used when scanning in photographs.</p>
+    </blockquote>
+  </div>
+
+  <div class="defun">
+    &mdash; Variable: <b>User Option</b>
+    <var>emacspeak-ocr-working-directory<a name=
+    "index-User-Option-1298" id=
+    "index-User-Option-1298"></a></var><br />
+
+    <blockquote>
+      <p>Directory where images and OCR results will be placed.</p>
+    </blockquote>
+  </div>
+</body>
+</html>
