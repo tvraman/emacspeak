@@ -993,8 +993,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   "Show just the knowledge card."
   (interactive)
   (declare (special eww-shr-render-functions eww-current-dom
-                    url-package-name))
-  (unless url-package-name
+                    emacspeak-eww-masquerade))
+  (unless emacspeak-eww-masquerade
     (error "Repeat search after turning on masquerade mode to see knowledge cards."))
   (unless (eq major-mode 'eww-mode)
     (error "This command is only available in EWW"))
