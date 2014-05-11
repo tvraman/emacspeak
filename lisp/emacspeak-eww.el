@@ -990,7 +990,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 ;;{{{  Google Knowledge Card:
 
 (defun emacspeak-eww-google-knowledge-card ()
-  "Show just the knowledge card."
+  "Show just the knowledge card.
+Warning, this is fragile, and depends on a stable id for the
+  knowledge card."
   (interactive)
   (declare (special eww-shr-render-functions eww-current-dom
                     emacspeak-eww-masquerade))
