@@ -38,7 +38,6 @@ the evolving service-oriented social Web cloud.
   - Emacs EWW: Consume Web content efficiently.   📚
   - emacspeak-url-templates: Smart Web access. ♅
   - emacspeak-websearch.el Find things fast. ♁
-  - Google  Search: Single click knowledge cards. 
   - gmaps.el: Find places, read reviews, get there. 🌐
   - Feed Browser Consume feeds post Google-Reader.  ␌
   - Freebase Search: Explore freebase knowledge base. 🆓
