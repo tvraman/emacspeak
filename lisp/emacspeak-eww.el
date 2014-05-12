@@ -357,7 +357,9 @@ If we came from a url-template, reload that template."
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
   "Respond to user  asking us to masquerade."
   (cond
-   (emacspeak-eww-masquerade (setq ad-return-value emacspeak-eww-masquerade-as))
+   ((and emacspeak-eww-masquerade
+         (eq browse-url-browser-function 'eww-browse-url))
+         (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
                                     
                                     
@@ -371,7 +373,7 @@ If we came from a url-template, reload that template."
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                      emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
-  (unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
+  ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
