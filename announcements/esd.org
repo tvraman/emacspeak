@@ -43,7 +43,7 @@ speechd was difficult to resolve on my FC3 64bit machine.
 
 ** Emacspeak Features Not Found In SpeechDel
 
-  1) Emacpeak implements Aural CSS [[http://www.w3.org/Press/1998/CSS2-REC][ACSS]], and uses it to  provides
+  1) Emacspeak implements Aural CSS [[http://www.w3.org/Press/1998/CSS2-REC][ACSS]], and uses it to  provides
      the aural analog of =font-lock=.
 
   2) Emacspeak provides pronunciation
@@ -79,7 +79,7 @@ speechd was difficult to resolve on my FC3 64bit machine.
      myself who also create such Emacs applications --- so where
      Emacs applications already exist, I merely speech-enable
      them with a small set of advice definitions, and in some
-     cases add a few additional interacive commands.
+     cases add a few additional interactive commands.
 
   5) Emacs applications are plentiful for most tasks; one
      exception is the Web. Since emacs/w3 development was

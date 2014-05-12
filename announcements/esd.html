@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Emacspeak And Speechdel  -*- mode:org -*-</title>
+<!-- 2014-05-12 Mon 16:32 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Emacspeak And Speechdel  -*- mode:org -*-</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Background</a></li>
+<li><a href="#sec-2">2. Speech Dispatcher (SpeechD)</a></li>
+<li><a href="#sec-3">3. Emacspeak Features Not Found In SpeechDel</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Background</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="http://emacspeak.sf.net">Emacspeak</a> speech-enables Emacs by advising core emacs
+functionality.  Speech services are provided by a simple
+Emacspeak speech-server.  Additionally, Emacspeak implements
+speech-extensions for popular emacs modules &#x2014; see the 
+<a href="http://emacspeak.sf.net/applications.html">speech-enabled applications list</a>.
+</p>
+
+<p>
+Emacspeak was first released in 1995, and then (as now), there
+was limited speech access to the Linux GUI.  Therefore, to be
+useful as a complete access solution, Emacspeak has always needed
+to enable the user to <b>do everything</b> from within Emacs, not just
+regular editing operations. As a case in point, emacspeak users
+are probably one of the last remaining communities that use Emacs
+for browsing the Web.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Speech Dispatcher (SpeechD)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The idea of SpeechD &#x2014; peech Dispatcher as an intermediate layer
+between speech clients and TTS engines was first floated sometime
+in the late 90's.  Such a common layer is a laudible goal but is
+something that takes time and effort to get right. Additionally,
+you have the challenge of geting existing software e.g.,
+emacspeak, to abandon their own speech abstraction and
+re-implement against a supposedly more generic, but completely
+untested and untried intermediate layer.
+</p>
+
+<p>
+The developers of SpeechD initially incorporated some of the
+Emacspeak code into an Emacs wrapper (speechdel) that called
+SpeechD, but later decided to go their own way &#x2013; and present
+<a href="http://www.freebsoft.org/speechd-el">speechdel</a> is the result.
+</p>
+
+<p>
+Like Emacspeak, speechdel uses Emacs Lisp's advice facility to
+add spoken feedback to core editing commands; speech output is
+produced by calling out to speech-dispatcher.
+</p>
+
+<p>
+The summary of feature differences between Emacspeak and speechdel in the
+next section is from examining the speechdel code-base; I have
+not run speechdel since its dependency chain resulting from
+speechd was difficult to resolve on my FC3 64bit machine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Emacspeak Features Not Found In SpeechDel</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Emacspeak implements Aural CSS <a href="http://www.w3.org/Press/1998/CSS2-REC">ACSS</a>, and uses it to  provides
+the aural analog of <code>font-lock</code>.
+</li>
+
+<li>Emacspeak provides pronunciation
+dictionaries. Pronunciations can be defined on a per-mode,
+per-buffer or per-directory basis. Directory and mode
+specific pronunciations are persisted across sessions. This
+allows Emacspeak to leverage Emacs' intelligence about the
+semantics of a given application; thus, you can have
+it say "p arrow x" for "p-&gt;x" when editing C
+code. Per-directory pronunciations are useful for reading
+electronic books. Per-buffer pronunciations are useful for
+succinctly speaking long lines of shell output e.g. when
+compiling complex software.
+</li>
+
+<li>By advising core Emacs functionality, Emacs modes work out
+of the box with Emacspeak. But in most cases, Emacspeak goes
+one step further by providing light-weight speech-modules
+that specialize spoken output for a given mode. As an
+example, advising next-line to speak the current line is
+sufficient to use <code>dired-mode</code> &#x2014; but having to listen to
+the entire line of dired output is not a pleasant
+experience. The dired-specific module in Emacspeak advises
+all interactive dired commands to speak the "right"
+information. As an another example, GUD interaction
+automatically speaks the line of source-code without leaving
+the <b>Gud</b> buffer.
+</li>
+
+<li>Emacspeak comes with many "Emacs Applets" for performing
+tasks that most users would perform outside of
+Emacs. Examples include playing CDs, playing multimedia
+streams etc. Fortunately, I have not had to write too many
+of these since there are always Emacs users other than
+myself who also create such Emacs applications &#x2014; so where
+Emacs applications already exist, I merely speech-enable
+them with a small set of advice definitions, and in some
+cases add a few additional interactive commands.
+</li>
+
+<li>Emacs applications are plentiful for most tasks; one
+exception is the Web. Since emacs/w3 development was
+abandoned sometime around 1998, I have added significant Web
+interaction functionality to Emacspeak using Emacs/W3 as the
+basis. Today, a lot of this has also been ported to
+Emacs/W3M thanks to other enthusiasts on the Emacspeak
+mailing list.  Examples include:
+
+<ol class="org-ol">
+<li>WebSearch module &#x2014; prompts for query and processes
+response to focus on the results.
+</li>
+
+<li>XSLT pre-processing: Allows pre-processing of complex
+pages before rendering via W3. Used to enable <b>smart</b>
+screen-scrapers using XPath.
+</li>
+
+<li>URL-Tempaltes: Originally motivated by <code>webjump.el</code>, this
+provides url templates that enable easy access to a
+variety of Web tasks rangig from looking up flight times
+to listening to your favorite NPR or BBc show. Think early
+cut at a "Web Command Line in the minibuffer".
+</li>
+</ol>
+</li>
+
+<li>Customization via Custom, including additional
+keymaps. Comes with additional keymap files for the Linux
+console to enable <code>hyper</code>, <code>super</code>, and <code>alt</code> prefix
+keymaps.
+</li>
+
+<li>Module emacspeak-wizards iplements a large collection of
+Emacs wizards that enable common tasks that you would
+otherwise perform at the shell e.g., checking display status
+on a laptop. The additional prefix keymaps come in handy!
+</li>
+</ol>
+
+<p>
+8)Finally, note that <b>all</b> modules (except the core) are loaded
+on demand.All code is compiled with <code>byte-compile-dynamic</code> set to
+<code>T</code>  and individual application-specific modules  are kept
+completely independent of one another. Given the size of the
+Emacspeak codebase, this is a  pre-requisite for both efficiency
+and developer sanity.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2014-05-12 Mon 16:32</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.50.2 (<a href="http://orgmode.org">Org</a> mode 8.2.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
