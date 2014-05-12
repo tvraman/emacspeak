@@ -70,7 +70,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
    #'load-library-if-available
    '(
      "auctex-prepare"
-     "ecb-prepare"
+     ;"ecb-prepare"
      "emms-prepare"
      "gm-smtp"
      )))
@@ -133,7 +133,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (put 'eval-expression 'disabled nil)
 
     (dynamic-completion-mode)
-
     ;;}}}
     ;;{{{  different mode settings
 
@@ -153,9 +152,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "my-functions" ;;; personal functions and advice
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare" "mspools-prepare"
-"gnus-prepare"
+       "gnus-prepare"
        "smtpmail" "sigbegone"
-       "w3-prepare" "w3m-prepare"  ;;; Web Browsers:
+       "w3-prepare"
+       ;"w3m-prepare"  ;;; Web Browsers:
        "nxml-prepare"
        "folding-prepare"
        "calc-prepare" 
@@ -167,7 +167,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
-       "tramp-prepare"
+       ;"tramp-prepare"
        "fap-prepare"
        "local"
        "emacspeak-dbus"))
@@ -184,7 +184,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (server-start)
      (shell)
      (calendar)
-     (nm-enable)
+     ;(nm-enable)
      (initialize-completions)
 (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
