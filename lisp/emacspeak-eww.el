@@ -1006,7 +1006,7 @@ Warning, this is fragile, and depends on a stable id for the
     (error "This doesn't look like a Google results page."))
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
-       (value "kno-result")
+       (value "rhs")
        (media "rg_meta")
        (inhibit-read-only t)
        (dom
