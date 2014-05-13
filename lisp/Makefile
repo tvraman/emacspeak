@@ -140,6 +140,7 @@ emacspeak-enriched.elc \
 emacspeak-emms.elc \
 emacspeak-entertain.elc \
 emacspeak-eperiodic.elc \
+emacspeak-espn.elc \
 emacspeak-erc.elc \
 emacspeak-eshell.elc \
 emacspeak-ess.elc \
@@ -367,6 +368,7 @@ emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
 emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
+emacspeak-espn.elc: emacspeak-espn.el dtk-speak.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc voice-setup.elc
 emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
