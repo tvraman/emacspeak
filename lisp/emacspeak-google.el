@@ -471,9 +471,6 @@ This variable is buffer-local.")
   (interactive)
   (declare (special emacspeak-google-sign-out-url))
   (browse-url emacspeak-google-sign-out-url))
-(declaim (special emacspeak-google-keymap))
-(define-key emacspeak-google-keymap "a" 'emacspeak-google-sign-out)
-(define-key emacspeak-google-keymap "A" 'emacspeak-google-sign-in)
          
 ;;}}}
 ;;{{{  keymap
@@ -483,6 +480,7 @@ This variable is buffer-local.")
 
 (loop for k in
       '(
+        ("A" emacspeak-google-sign-in)
         ("B" emacspeak-google-toolbelt-change-books)
         ("C" emacspeak-google-toolbelt-change-commercial)
         ("D" emacspeak-google-toolbelt-change-discussions)
@@ -497,6 +495,7 @@ This variable is buffer-local.")
         ("\C-b" emacspeak-google-toolbelt-change-books-format)
         ("\C-s" emacspeak-google-toolbelt-change-social)
         ("\C-t" emacspeak-google-show-toolbelt)
+        ("a" emacspeak-google-sign-out)
         ("b" emacspeak-google-toolbelt-change-blog)
         ("c" emacspeak-webutils-google-extract-from-cache)
         ("d" emacspeak-google-toolbelt-change-sort-by-date)

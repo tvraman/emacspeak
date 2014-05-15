@@ -203,6 +203,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "gomoku" 'emacspeak-gomoku)
 (emacspeak-do-package-setup "gud" 'emacspeak-gud)
 (emacspeak-do-package-setup "gdb-ui" 'emacspeak-gud)
+(emacspeak-do-package-setup "go-mode" 'emacspeak-go-mode)
 (emacspeak-do-package-setup "hangman" 'emacspeak-entertain)
 (emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
