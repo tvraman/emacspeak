@@ -41,7 +41,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; GO-MODE ==  Go Language support in emacs 
+;;; GO-MODE ==  Go Language support in emacs
 
 ;;}}}
 ;;{{{  Required modules
@@ -53,8 +53,30 @@
   (require 'go-mode "go-mode" 'no-error))
 
 ;;}}}
-;;{{{ Advice interactive commands: 
+;;{{{ Advice interactive commands:
 
+(loop
+ for f in
+ '(go-goto-imports go-import-add
+                   godef-jump godef-jump-other-window
+                   go-mode-indent-line go-mode-insert-and-indent)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+(loop
+ for f in
+ '(godoc gofmt)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 (provide 'emacspeak-go-mode)
