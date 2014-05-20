@@ -21,3 +21,8 @@
 
 (augment-load-path "goflymake"  "go-flymake")
 (require 'go-flymake)
+
+(add-hook 'go-mode-hook 'company-mode)
+(add-hook 'go-mode-hook (lambda ()
+  (set (make-local-variable 'company-backends) '(company-go))
+  (company-mode)))
