@@ -89,7 +89,6 @@ g-auth.elc: g-auth.el g-utils.elc
 g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
 gfeeds.elc: g-utils.elc gfeeds.el
-ghealth.elc: ghealth.el g-app.elc
 gsheet.elc: gsheet.el g-app.elc
 gweb.elc: gweb.el g-utils.elc
 gf.elc: gf.el g-utils.elc
