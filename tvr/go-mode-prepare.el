@@ -15,7 +15,7 @@
      (local-set-key (kbd "C-c C-k") 'godoc)))
 (condition-case nil
     (progn 
-  (load "go-oracle/oracle"))
+  (load "go-oracle/oracle")
   (add-hook 'go-mode-hook 'go-oracle-mode))
   (error "not loading go oracle support"))
 
