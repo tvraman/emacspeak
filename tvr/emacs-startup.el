@@ -26,34 +26,20 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      'load-path
      (expand-file-name
       path
-      (or
-       whence
-       (and (boundp 'emacs-personal-library) emacs-personal-library)))
-     at-end))
-  (when library (locate-library library)))
+      (or whence (and (boundp 'emacs-personal-library) emacs-personal-library)))
+     at-end)))
 
 (defsubst augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
-  (setq auto-mode-alist
-	(cons
-	 (cons ext mode)
-	 auto-mode-alist)))
+  (add-to-list 'auto-mode-alist (cons ext mode)))
+
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
-  (let ((emacspeak-speak-messages nil))
-    (condition-case nil
-	(cond
-	 ((locate-library lib)
-	  (load-library lib)
-	  (message "Loaded %s" lib)
-	  t)
-	 (t (message "Could not locate library %s" lib)
-	    nil))
-      (error (message
-	      "Error loading %s"
-	      lib)))))
-
+  (condition-case nil
+        (when (locate-library lib)
+          (load-library lib) (message "Loaded %s" lib))
+      (error (message "Error loading %s" lib))))
 ;;}}}
 ;;{{{ customize custom
 
@@ -68,12 +54,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   "Called from after-init-hook to configure packages."
   (mapc
    #'load-library-if-available
-   '(
-     "auctex-prepare"
-     ;"ecb-prepare"
-     "emms-prepare"
-     "gm-smtp"
-     )))
+   '("auctex-prepare" "gm-smtp")))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -91,7 +72,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Load and customize emacspeak
 
     (unless (featurep 'emacspeak)
-      (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
+      (load-file
+       (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
       (emacspeak-sounds-select-theme "chimes-stereo/")
@@ -111,7 +93,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ( [f8]emacspeak-remote-quick-connect-to-server)
             ([f11]shell)
             ([f12]vm)
-            ( "\C-xc"compile)
             (  "\C-x%"comment-region)
             ( "\M-r"replace-string)
             ( "\M-e"end-of-word)
@@ -153,24 +134,22 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Mail readers:
        "vm-prepare" "bbdb-prepare" "mspools-prepare"
        "gnus-prepare"
-       "smtpmail" "sigbegone"
+       "smtpmail" "gm-smtp" "sigbegone"
        "w3-prepare"
        ;"w3m-prepare"  ;;; Web Browsers:
        "nxml-prepare"
        "folding-prepare"
        "calc-prepare" 
-       "tcl-prepare" 
+       "tcl-prepare"  "go-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" 
        "org-prepare"
-        
-       
+        "emms-prepare"
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
-       ;"tramp-prepare"
        "fap-prepare"
        "local"
-       "emacspeak-dbus"))
+       ))
 
     ;;}}}
     ))                                  ; end defun
@@ -184,7 +163,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (server-start)
      (shell)
      (calendar)
-     ;(nm-enable)
      (initialize-completions)
 (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
