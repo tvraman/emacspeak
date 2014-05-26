@@ -65,14 +65,9 @@
 (defun emacspeak-company-speak-this ()
   "Formatting rule for speaking company selection."
   (let ((metadata (funcall 'company-fetch-metadata)))
-    (when metadata
-      (put-text-property 0 (length metadata)
-                         'personality 'voice-annotate metadata))
-  (dtk-speak
-   (concat
-    (ems-company-current)
-    " "
-    metadata))))    
+    (when metadata (ems-voiceify-string metadata 'voice-annotate))
+    (dtk-speak
+     (concat (ems-company-current) " " metadata))))    
            
 
 ;;}}}

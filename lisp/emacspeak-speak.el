@@ -99,6 +99,13 @@
     (< current (line-end-position))))
 
 ;;}}}
+;;{{{ Helper: voicify string 
+(defsubst ems-voiceify-string (string personality)
+  "Apply personality personality to string."
+  (put-text-property 0 (length string)
+                     'personality personality string))
+
+;;}}}
 ;;{{{ Per-Mode Punctuations:
 
 (defvar emacspeak-speak-mode-punctuation-table
