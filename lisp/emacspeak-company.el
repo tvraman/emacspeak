@@ -56,19 +56,32 @@
 ;;{{{ Customizations:
 
 ;;}}}
+;;{{{ Helpers:
+(defsubst ems-company-current ()
+  "Helper: Return current selection in company."
+  (declare (special  company-selection company-candidates))
+  (nth company-selection company-candidates))
+;;}}}
 ;;{{{ Emacspeak Front-End For Company:
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
     (case command
       (pre-command
        (dtk-speak
-        (format "%d: %s" (length company-candidates)
-                (nth company-selection company-candidates))))
-      (post-command (dtk-speak (format "%s" (car company-candidates))))
+        (format "%d: %s"
+                (length company-candidates)  (ems-company-current))))
+      (post-command (dtk-speak (format "%s" (ems-company-current))))
       (hide (dtk-stop ))))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
+(defadvice company-complete-selection (before emacspeak pre act comp)
+  "Speak the selection."
+  (when (ems-interactive-p)
+    (let ((selection (ems-company-current)))
+      (emacspeak-auditory-icon 'select-object)
+      (dtk-speak selection))))
 
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
