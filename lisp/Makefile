@@ -115,6 +115,7 @@ emacspeak-cedet.elc \
 emacspeak-checkdoc.elc \
 emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
+emacspeak-company.elc \
 congrats.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
@@ -344,6 +345,7 @@ emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
 emacspeak-cedet.elc: emacspeak-cedet.el dtk-speak.elc voice-setup.elc
 emacspeak-checkdoc.elc: emacspeak-checkdoc.el dtk-speak.elc voice-setup.elc
 emacspeak-compile.elc: emacspeak-compile.el  dtk-speak.elc
+emacspeak-company.elc: emacspeak-company.el dtk-speak.elc
 congrats.elc: congrats.el dtk-speak.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
