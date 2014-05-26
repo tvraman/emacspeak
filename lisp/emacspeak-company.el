@@ -71,21 +71,22 @@
         (format "%d: %s"
                 (length company-candidates)  (ems-company-current))))
       (post-command (dtk-speak (format "%s" (ems-company-current))))
-      (hide (dtk-stop ))))
+      (hide nil)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-
 (defadvice company-complete-selection (before emacspeak pre act comp)
   "Speak the selection."
   (when (ems-interactive-p)
-    (let ((selection (ems-company-current)))
       (emacspeak-auditory-icon 'select-object)
-      (dtk-speak selection))))
+      (dtk-speak (ems-company-current))))
 
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
-
+(defun emacspeak-company-setup ()
+  "Set front-end to our sole front-end action."
+  (declare (special company-frontends))
+  (setq company-frontends '(emacspeak-company-frontend)))
 ;;}}}
 (provide 'emacspeak-company)
 ;;{{{ end of file
