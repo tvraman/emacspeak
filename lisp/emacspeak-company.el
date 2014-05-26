@@ -51,7 +51,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(eval-when-compile (require 'company "company" 'no-error))
 ;;}}}
 ;;{{{ Customizations:
 
@@ -61,16 +61,21 @@
   "Helper: Return current selection in company."
   (declare (special  company-selection company-candidates))
   (nth company-selection company-candidates))
+
+(defun emacspeak-company-speak-this ()
+  "Formatting rule for speaking company selection."
+  (dtk-speak
+   (format "%s %s"
+           (ems-company-current)
+           (funcall 'company-fetch-metadata))))
+
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
     (case command
-      (pre-command
-       (dtk-speak
-        (format "%d: %s"
-                (length company-candidates)  (ems-company-current))))
-      (post-command (dtk-speak (format "%s" (ems-company-current))))
+      (pre-command (emacspeak-company-speak-this))
+      (post-command (emacspeak-company-speak-this))
       (hide nil)))
 
 ;;}}}
