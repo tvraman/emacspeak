@@ -62,7 +62,8 @@
     (case command
       (pre-command
        (dtk-speak
-        (format "%d: %s" (length company-candidates) (car company-candidates))))
+        (format "%d: %s" (length company-candidates)
+                (nth company-selection company-candidates))))
       (post-command (dtk-speak (format "%s" (car company-candidates))))
       (hide (dtk-stop ))))
 
