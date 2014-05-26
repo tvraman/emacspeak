@@ -80,6 +80,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
 (defadvice company-complete-selection (before emacspeak pre act comp)
   "Speak the selection."
   (when (ems-interactive-p)
@@ -108,6 +109,7 @@
  #'(lambda (&rest ignore) (emacspeak-auditory-icon 'close-object))))
 
 ;;}}}
+(emacspeak-company-setup)
 (provide 'emacspeak-company)
 ;;{{{ end of file
 
