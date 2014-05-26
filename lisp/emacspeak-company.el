@@ -83,15 +83,23 @@
 (defadvice company-complete-selection (before emacspeak pre act comp)
   "Speak the selection."
   (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'select-object)
-      (dtk-speak (ems-company-current))))
+    (emacspeak-auditory-icon 'select-object)
+    (dtk-speak (ems-company-current))))
+(defadvice company-show-doc-buffer (before emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (ems-interactive-p)
+    (let* ((selected (nth company-selection company-candidates))
+           (doc-buffer (or (company-call-backend 'doc-buffer selected)
+                           (error "No documentation available"))))
+      (with-current-buffer doc-buffer (dtk-speak (buffer-string)))
+      (emacspeak-auditory-icon 'help))))
 
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
 (defun emacspeak-company-setup ()
   "Set front-end to our sole front-end action."
   (declare (special company-frontends))
-  (setq company-frontends '(emacspeak-company-frontend))
+  (add-hook 'company-frontends 'emacspeak-company-frontend 'at-end)
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest ignore) (emacspeak-auditory-icon 'help)))
