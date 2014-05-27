@@ -2,8 +2,7 @@
 
 (when (featurep 'yasnippet)
   (add-to-list
-   'yas-snippet-dirs
-   (expand-file-name "yasnippet-go" emacs-personal-library)))
+   'yas-snippet-dirs (expand-file-name "yasnippet-go" emacs-personal-library)))
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook
@@ -13,16 +12,12 @@
      (local-set-key (kbd "C-c C-g") 'go-goto-imports)
      (local-set-key (kbd "C-c C-f") 'gofmt)
      (local-set-key (kbd "C-c C-k") 'godoc)))
-(condition-case nil
-    (progn 
-  (load "go-oracle/oracle")
-  (add-hook 'go-mode-hook 'go-oracle-mode))
-  (error "not loading go oracle support"))
 
 (augment-load-path "goflymake"  "go-flymake")
 (require 'go-flymake)
 
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook (lambda ()
-  (set (make-local-variable 'company-backends) '(company-go))
-  (company-mode)))
+;; (condition-case nil
+;;     (progn
+;;   (load "go-oracle/oracle")
+;;   (add-hook 'go-mode-hook 'go-oracle-mode))
+;;   (error "not loading go oracle support"))
