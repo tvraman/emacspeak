@@ -1,0 +1,102 @@
+* Emacspeak And Company: Complete Anything Front-End For Emacspeak
+
+Module [[http://emacspeak.googlecode.com/svn/trunk/lisp/emacspeak-company.el][emacspeak-company]] speech-enables package 
+[[http://www.emacswiki.org/emacs/CompanyMode][Company]] — a  flexible *complete-anything*   extension for Emacs.
+Package /company/ gains much of its flexibility by providing an
+extensible framework for both back-ends and front-ends; back-ends
+are responsible for  language-specific support e.g., *C++* vs
+*Emacs Lisp*; front-ends can provide different /visualizations/
+of the available completions.
+
+I started using package *company* as I taught myself to program
+in [[http://golang.org][Go]]  over the last couple of weeks, and package
+*emacspeak-company*  was one of the bi-products.
+
+** Using Company With Emacspeak
+
+You can turn on /company-mode/ in dividual buffers; you can also
+turn it on globally. Company comes pre-packaged with backend
+support for many programming languages; for programming in Go, I
+use module /company-go/ in conjunction with the [[http://github.com/nsf/gocode][GoCode]] tool.
+
+See customization group /company/  to customize package
+/company/;
+Emacspeak loads package /emacspeak-company/  when package
+/company/ is loaded, and that automatically sets up the
+*Emacspeak* front-end.
+
+Once activated, package /company/ shows available completions
+where available once you type a prescribed number of
+characters. Available candidates are displayed visually via an
+overlay and can be traversed using either the _up/down_ arrows or
+keys _M-n_ and _M-p_. You can also search and filter the
+available completions, see documentation for command
+_company-mode_. The available visual front-ends also display
+relevant metadata for the current candidate in the echo
+area. 
+
+Front-end /emacspeak-company/ performs the following additional
+actions:
+
+  - Speaks current candidate along with the relevant metadata.
+  - The metadata is spoken using  _voice-annotate_.
+  - Auditory icon _help_ indicates  that  completion has started.
+  - pressing _F1_ during completion displays documentation for
+    the current candidate.
+  - You can choose the current candidate by pressing _RET_; this
+  speaks the selected candidate.
+  - Auditory icon _close-object_ indicates that completion has finished.
+
+
+** Insights From Speech-Enabling Company
+  
+
+Company uses a fluid visual interface to display completions
+without the user having to switch contexts — it achieves this by
+using overlays that appear briefly in the form of a conceptual
+tooltip. These pseudo tooltips are created and destroyed via a
+timer; keyboard interaction causes these to be updated —
+including hiding the tooltip where appropriate.
+
+Module /emacspeak-company/   speech-enables this interface by
+examining the underlying information used to create the
+visualization  to produce an effective audio-formatted representation.
+The net effect is that you can write code with completion helping
+you along the way; you do not need  to switch tasks to lookup
+details  as to what completions are available.
+** Acknowledgements 
+
+Thanks again to the authors of package /company/ for a really
+nice tool —  it's a real productivity winner — especially when
+learning a new language and its built-in packages.
+
+I found these articles really helpful while learning to write
+package /emacspeak-company/.
+  - [[http://yousefourabi.com/blog/2014/05/emacs-for-go/][Setting Up GoMode]]
+  - [[http://dominik.honnef.co/posts/2013/08/writing_go_in_emacs__cont__/][Writing Go In Emacs]]
+  
+
+Learning Go was a pleasure (it's still a pleasure --- I'm still
+learning:-))
+and the documentation on [[http://golang.org][GoLang]]  is excellent. As an added bonus,
+that entire site uses clean, well-formed HTML  without any
+unnecessary  artifacts that make so much of today's Web a  giant
+mess; I have been able to use Emacs/EWW exclusively while working
+with [[golang.org]]  — a real bonus for someone programming heavily
+in Emacs.
+
+#+TITLE: Emacspeak And Company: Complete Anything Front-End For Emacspeak
+#+DATE: <2014-05-27 Tue>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.3.91.1 (Org mode 8.2.6)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
