@@ -52,7 +52,10 @@
 
 ;;}}}
 ;;{{{ Map faces
-
+(voice-setup-add-map
+ '(
+   (flycheck-warning voice-bolden)
+   ))
 ;;}}}
 ;;{{{ Advice interactive commands.
 (loop
