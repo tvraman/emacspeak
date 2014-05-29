@@ -1,143 +1,23 @@
-diff --git a/.gitignore b/.gitignore
-new file mode 100644
-index 0000000..856ee35
---- /dev/null
-+++ b/.gitignore
-@@ -0,0 +1,50 @@
-+Makefile
-+config.cache
-+config.log
-+config.status
-+etc/Makefile
-+lisp/Makefile
-+lisp/auto-autoloads.el
-+lisp/auto-autoloads.elc
-+lisp/contrib/
-+lisp/css.elc
-+lisp/custom-load.el
-+lisp/devices.elc
-+lisp/font.elc
-+lisp/images.elc
-+lisp/ssl.elc
-+lisp/url-hotlist.elc
-+lisp/w3-auto.el
-+lisp/w3-auto.elc
-+lisp/w3-cfg.el
-+lisp/w3-cfg.elc
-+lisp/w3-compat.elc
-+lisp/w3-cus.elc
-+lisp/w3-dired.elc
-+lisp/w3-display.elc
-+lisp/w3-emacs.elc
-+lisp/w3-emulate.elc
-+lisp/w3-fast-parse.elc
-+lisp/w3-forms.elc
-+lisp/w3-hot.elc
-+lisp/w3-hotindex.elc
-+lisp/w3-imap.elc
-+lisp/w3-imenu.el
-+lisp/w3-java.elc
-+lisp/w3-keymap.elc
-+lisp/w3-menu.elc
-+lisp/w3-mouse.elc
-+lisp/w3-parse.elc
-+lisp/w3-print.elc
-+lisp/w3-props.elc
-+lisp/w3-speak-table.elc
-+lisp/w3-speak.elc
-+lisp/w3-style.elc
-+lisp/w3-toolbar.elc
-+lisp/w3-vars.elc
-+lisp/w3-widget.elc
-+lisp/w3-xemac.elc
-+lisp/w3.elc
-+texi/Makefile
-+texi/w3-faq.info
-+texi/w3.info
-diff --git a/etc/default.css b/etc/default.css
-index a57879e..b9e376e 100644
---- a/etc/default.css
-+++ b/etc/default.css
-@@ -51,7 +51,7 @@
- ******************************************************************************/
- 
- /* Headers */
--
-+code {white-space: pre;}
- h1,h2,h3,
- h4,h5,h6  {
- 	    display: block;
-@@ -97,7 +97,7 @@ strong,em { color: red         }
- 
-        p  { display: block }
-  pre,xmp  { display: block; white-space: pre; }
--blockquote{ display: block; margin-left: 5em; margin-right: 5em; }
-+blockquote{ display: block; }/*margin-left: 5em; margin-right: 5em; }*/
- 
- /*
- ** How to draw form elements.
-@@ -268,6 +268,7 @@ a:visited { color : magenta  }
- ** speech synthesizer.  This was contributed by T.V. Raman (raman@adobe.com)
- */
- @media speech {
-+code {white-space: pre;}
- h1,h2,h3,
- h4,h5,h6 { voice-family: paul; stress: 2; richness: 9; }
-       h1 { pitch: 1; pitch-range: 9; }
-diff --git a/lisp/w3-display.el b/lisp/w3-display.el
-index 851908d..9c87cec 100644
---- a/lisp/w3-display.el
-+++ b/lisp/w3-display.el
-@@ -619,9 +619,11 @@ If the face already exists, it is unmodified."
- 		 (margin (1- (car left-margin-stack)))
- 		 (indent (w3-get-style-info 'text-indent node 0)))
- 	     (if (> indent 0)
-+             (setq indent (/ indent 8))
- 		 (setq margin (+ margin indent))
- 	       (setq margin (max 0 (- margin indent))))
- 	     (beginning-of-line)
-+         (setq margin (/ margin 12))
- 	     (case list-style
- 	       ((disc circle square)
- 		(insert (format (format "%%%dc" margin)
-@@ -645,13 +647,16 @@ If the face already exists, it is unmodified."
- 		  )
- 		)
- 	       (otherwise
--		(insert (w3-get-pad-string margin)))
-+		;(insert (w3-get-pad-string margin)))
-+                (insert " "))
- 	       )
- 	     )
- 	   )
- 	  (otherwise
--	   (insert (w3-get-pad-string (+ (car left-margin-stack)
--					 (w3-get-style-info 'text-indent node 0)))))
-+       (insert " ") ;simple padding
-+	   ;(insert (w3-get-pad-string (+ (car left-margin-stack)
-+					 ;(w3-get-style-info 'text-indent node 0))))
-+       )
- 	  )
- 	(point))
-       (list 'start-open t
-@@ -661,11 +666,16 @@ If the face already exists, it is unmodified."
- 
-   (defmacro w3-display-set-margins ()
-     `(progn
--       (push (+ (w3-get-style-info 'margin-left node 0)
--		(car left-margin-stack)) left-margin-stack)
--       (push (-
-+       (push
-+        (/ 
-+        (+ (w3-get-style-info 'margin-left node 0)
-+		(car left-margin-stack))
-+        4)left-margin-stack)
-+       (push
-+         (-
- 	      (car right-margin-stack)
--	      (w3-get-style-info 'margin-right node 0)) right-margin-stack)
-+	      (w3-get-style-info 'margin-right node 0))
-+         right-margin-stack)
-        (setq fill-column (car right-margin-stack))
-        (w3-set-fill-prefix-length (car left-margin-stack))
-        (w3-display-handle-list-type)))
+(augment-load-path "go-mode.el" "go-mode")
+
+(when (featurep 'yasnippet)
+  (add-to-list
+   'yas-snippet-dirs
+   (expand-file-name "yasnippet-go" emacs-personal-library)))
+
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook
+ 'go-mode-hook
+ #'(lambda ()
+     (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
+     (local-set-key (kbd "C-c C-g") 'go-goto-imports)
+     (local-set-key (kbd "C-c C-f") 'gofmt)
+     (local-set-key (kbd "C-c C-k") 'godoc)))
+(condition-case nil
+    (progn 
+      (load "go-oracle/oracle")
+      (add-hook 'go-mode-hook 'go-oracle-mode))
+  (error "not loading go oracle support"))
+
+(augment-load-path "goflymake"  "go-flymake")
+(require 'go-flymake)
