@@ -194,7 +194,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "find-dired" 'emacspeak-find-dired)
 (emacspeak-do-package-setup "find-things-fast" 'emacspeak-ftf)
 (emacspeak-do-package-setup "find-func" 'emacspeak-find-func)
-(emacspeak-do-package-setup "flymake" 'emacspeak-flymake)
+(emacspeak-do-package-setup "flycheck" 'emacspeak-flycheck)
 (emacspeak-do-package-setup "flyspell" 'emacspeak-flyspell)
 (emacspeak-do-package-setup "folding" 'emacspeak-folding)
 (emacspeak-do-package-setup "forms" 'emacspeak-forms)
