@@ -54,7 +54,8 @@
 ;;{{{ Map faces
 (voice-setup-add-map
  '(
-   (flycheck-warning voice-bolden)
+   (flycheck-warning voice-animate)
+   (flycheck-error voice-bolden)
    ))
 ;;}}}
 ;;{{{ Advice interactive commands.
