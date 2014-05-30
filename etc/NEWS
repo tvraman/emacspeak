@@ -13,3 +13,7 @@ emacspeak.
 # local variables:
 # mode: org
 # end:
+* Emacspeak And Flycheck 
+
+Module emacspeak-flycheck speech-enables flycheck for on-the-fly
+syntax checking.
