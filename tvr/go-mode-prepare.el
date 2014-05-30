@@ -1,5 +1,5 @@
 (augment-load-path "go-mode.el" "go-mode")
-
+(require 'go-mode)
 (when (featurep 'yasnippet)
   (add-to-list
    'yas-snippet-dirs (expand-file-name "yasnippet-go" emacs-personal-library)))
@@ -14,8 +14,8 @@
      (local-set-key (kbd "C-c C-k") 'godoc)))
 
 (augment-load-path "goflymake"  "go-flymake")
-(require 'go-flymake)
-
+(when (featurep 'flycheck)
+  (require 'go-flycheck "go-flycheck" 'no-error))
 ;; (condition-case nil
 ;;     (progn
 ;;   (load "go-oracle/oracle")
