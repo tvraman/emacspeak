@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 ;;; FLYCHECK == On-the-fly checking.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
@@ -56,7 +56,7 @@
  '(
    (flycheck-warning voice-animate)
    (flycheck-error voice-bolden)
-   ))
+   (flycheck-info voice-monotone)))
 ;;}}}
 ;;{{{ Advice interactive commands.
 (loop
@@ -117,6 +117,7 @@
 
 ;;}}}
 (provide 'emacspeak-flycheck)
+;;; emacspeak-flycheck ends here
 ;;{{{ end of file
 
 ;;; local variables:
