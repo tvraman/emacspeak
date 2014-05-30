@@ -1,7 +1,7 @@
 /*
  * $Id$
  */
-// <copyright info
+//<copyright info
 
 /*
  * Tcl ViaVoiceOutloud Interface program (c) Copyright 1999 by
@@ -42,8 +42,8 @@
  * February 2005 TVR: Updating to use alsalib output routines
  */
 
-// >
-// <Usage:
+//>
+//<Usage:
 
 /*
  * TCL usage package require tts
@@ -58,8 +58,8 @@
  * text blocks as you like after a command.
  */
 
-// >
-// <includes
+//>
+//<includes
 
 #include <sys/time.h>
 #include <dlfcn.h>
@@ -73,8 +73,8 @@
 #define PACKAGEVERSION "1.0"
 #define ECILIBRARYNAME "libibmeci.so"
 
-// >
-// < alsa: globals and defines
+//>
+//< alsa: globals and defines
 
 #define DEFAULT_FORMAT SND_PCM_FORMAT_S16
 #define DEFAULT_SPEED 11025
@@ -87,8 +87,8 @@ static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
 
-// >
-// <decls and function prototypes
+//>
+//<decls and function prototypes
 
 /*
  * The following declarations are derived from the publically
@@ -163,66 +163,66 @@ int SetLanguage(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int alsa_close();
 int eciCallback(void *, int, long, void *);
 
-// >
-// <alsa: set hw and sw params
+//>
+//<alsa: set hw and sw params
 
 static size_t alsa_configure(void) {
-  // <init:
+  //<init:
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
   snd_pcm_uframes_t chunk_size, buffer_size = 0;
   snd_pcm_hw_params_t *params;
   unsigned int rate = DEFAULT_SPEED;
   int err;
   snd_pcm_hw_params_alloca(&params);
-  // >
-  // <defaults:
+  //>
+  //<defaults:
 
   err = snd_pcm_hw_params_any(AHandle, params);
   if (err < 0) {
     fprintf(stderr, "PCM: Broken configuration: no configurations available");
     exit(EXIT_FAILURE);
   }
-  // >
-  // <Format:
+  //>
+  //<Format:
 
   err = snd_pcm_hw_params_set_format(AHandle, params, DEFAULT_FORMAT);
   if (err < 0) {
     fprintf(stderr, "Sample format non available");
     exit(EXIT_FAILURE);
   }
-  // >
-  // <Channels:
+  //>
+  //<Channels:
 
   err = snd_pcm_hw_params_set_channels(AHandle, params, 1);
   if (err < 0) {
     fprintf(stderr, "Channels count non available");
     exit(EXIT_FAILURE);
   }
-  // >
-  // <Rate:
+  //>
+  //<Rate:
 
   err = snd_pcm_hw_params_set_rate_near(AHandle, params, &rate, 0);
   assert(err >= 0);
 
-  // >
-  // <Access Mode:
+  //>
+  //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
                                      SND_PCM_ACCESS_RW_INTERLEAVED);
   if (err < 0) {
     fprintf(stderr, "Access type not available");
     exit(EXIT_FAILURE);
   }
-  // >
-  // < Set things explicitly if DEBUG
-  // >
-  // <Commit hw params:
+  //>
+  //< Set things explicitly if DEBUG
+  //>
+  //<Commit hw params:
   err = snd_pcm_hw_params(AHandle, params);
   if (err < 0) {
     fprintf(stderr, "Unable to install hw params:");
     exit(EXIT_FAILURE);
   }
-  // >
-  // <finalize chunk_size and buffer_size:
+  //>
+  //<finalize chunk_size and buffer_size:
 
   snd_pcm_hw_params_get_period_size(params, &chunk_size, 0);
   snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
@@ -231,17 +231,17 @@ static size_t alsa_configure(void) {
             chunk_size, buffer_size);
     exit(EXIT_FAILURE);
   }
-  // >
-  // < If DEBUG: SW Params Configure transfer:
-  // >
+  //>
+  //< If DEBUG: SW Params Configure transfer:
+  //>
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1; // mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
   return chunk_bytes;
 }
 
-// >
-// <xrun and suspend
+//>
+//<xrun and suspend
 
 #ifndef timersub
 
@@ -306,8 +306,8 @@ static void suspend(void) {
   fprintf(stderr, "Done.\n");
 }
 
-// >
-// <alsa: pcm_write
+//>
+//<alsa: pcm_write
 
 static ssize_t pcm_write(short *data, size_t count) {
   ssize_t r;
@@ -333,16 +333,16 @@ static ssize_t pcm_write(short *data, size_t count) {
   return result;
 }
 
-// >
-// <alsa_reset
+//>
+//<alsa_reset
 
 void alsa_reset() {
   snd_pcm_drop(AHandle);
   snd_pcm_prepare(AHandle);
 }
 
-// >
-// <alsa_init
+//>
+//<alsa_init
 
 int alsa_init() {
   int err;
@@ -361,8 +361,8 @@ int alsa_init() {
   return chunk_bytes;
 }
 
-// >
-// <alsa_close
+//>
+//<alsa_close
 
 int alsa_close() {
   // shut down alsa
@@ -371,20 +371,20 @@ int alsa_close() {
   return TCL_OK;
 }
 
-// >
-// <eciFree
+//>
+//<eciFree
 
 void TclEciFree(ClientData eciHandle) { _eciDelete(eciHandle); }
 
-// >
-// <tcleci_init
+//>
+//<tcleci_init
 
 int Atcleci_Init(Tcl_Interp *interp) {
   int rc;
   size_t chunk_bytes = 0;
   void *eciHandle;
   void *eciLib;
-  // < configure shared library symbols
+  //< configure shared library symbols
 
   eciLib = dlopen(ECILIBRARYNAME, RTLD_LAZY);
   if (eciLib == NULL) {
@@ -428,8 +428,8 @@ int Atcleci_Init(Tcl_Interp *interp) {
   _eciSetOutputDevice =
       (int(*)(void *, int))(unsigned long) dlsym(eciLib, "eciSetOutputDevice");
 
-  // >
-  // < check for needed symbols
+  //>
+  //< check for needed symbols
 
   int okay = 1;
   if (!_eciNewEx) {
@@ -508,8 +508,8 @@ int Atcleci_Init(Tcl_Interp *interp) {
     Tcl_AppendResult(interp, "Missing symbols from ", ECILIBRARYNAME, NULL);
     return TCL_ERROR;
   }
-  // >
-  // <setup package, create tts handle
+  //>
+  //<setup package, create tts handle
 
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
@@ -532,10 +532,10 @@ int Atcleci_Init(Tcl_Interp *interp) {
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
     return TCL_ERROR;
   }
-  // >
-  // <initialize alsa
+  //>
+  //<initialize alsa
   chunk_bytes = alsa_init();
-  // <Finally, allocate waveBuffer
+  //<Finally, allocate waveBuffer
 
   fprintf(stderr, "allocating %d samples\n", (int) chunk_bytes);
   waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
@@ -544,9 +544,9 @@ int Atcleci_Init(Tcl_Interp *interp) {
     alsa_close();
     exit(EXIT_FAILURE);
   }
-  // >
-  // >
-  // <initialize TTS
+  //>
+  //>
+  //<initialize TTS
 
   if ((_eciSetParam(eciHandle, eciInputType, 1) == -1) ||
       (_eciSetParam(eciHandle, eciSynthMode, 1) == -1) ||
@@ -557,8 +557,8 @@ int Atcleci_Init(Tcl_Interp *interp) {
   }
   _eciRegisterCallback(eciHandle, eciCallback, interp);
 
-  // >
-  // <set output to buffer
+  //>
+  //<set output to buffer
 
   rc = _eciSynchronize(eciHandle);
   if (!rc) {
@@ -573,8 +573,8 @@ int Atcleci_Init(Tcl_Interp *interp) {
   fprintf(stderr, "output buffered to waveBuffer with size %d\n",
           (int) chunk_bytes);
 
-  // >
-  // <register tcl commands
+  //>
+  //<register tcl commands
 
   Tcl_CreateObjCommand(interp, "setRate", SetRate, (ClientData) eciHandle,
                        TclEciFree);
@@ -598,26 +598,26 @@ int Atcleci_Init(Tcl_Interp *interp) {
                        TclEciFree);
   Tcl_CreateObjCommand(interp, "setLanguage", SetLanguage,
                        (ClientData) eciHandle, TclEciFree);
-  // >
-  // <set up index processing
+  //>
+  //<set up index processing
 
   rc = Tcl_Eval(interp, "proc index x {global tts; \
 set tts(last_index) $x}");
 
-  // >
+  //>
   return TCL_OK;
 }
 
-// >
-// <playTTS
+//>
+//<playTTS
 
 int playTTS(int count) {
   pcm_write(waveBuffer, count);
   return eciDataProcessed;
 }
 
-// >
-// <eciCallBack
+//>
+//<eciCallBack
 
 int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   Tcl_Interp *interp = (Tcl_Interp *)data;
@@ -633,8 +633,8 @@ int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   return 1;
 }
 
-// >
-// <getRate, setRate
+//>
+//<getRate, setRate
 
 int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
             Tcl_Obj *CONST objv[]) {
@@ -676,8 +676,8 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-// >
-// <say
+//>
+//<say
 
 int Say(ClientData eciHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
@@ -731,10 +731,10 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-// >
-// <stop, pause, resume
+//>
+//<stop, pause, resume
 
-// <synchronize, stop
+//<synchronize, stop
 
 int Synchronize(ClientData eciHandle, Tcl_Interp *interp, int objc,
                 Tcl_Obj *CONST objv[]) {
@@ -759,7 +759,7 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_ERROR;
 }
 
-// >
+//>
 
 int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc,
               Tcl_Obj *CONST objv[]) {
@@ -789,8 +789,8 @@ int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_ERROR;
 }
 
-// >
-// <getVersion
+//>
+//<getVersion
 
 int getTTSVersion(ClientData eciHandle, Tcl_Interp *interp, int objc,
                   Tcl_Obj *CONST objv[]) {
@@ -804,8 +804,8 @@ int getTTSVersion(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-// >
-// <show alsa state
+//>
+//<show alsa state
 
 int showAlsaState(ClientData eciHandle, Tcl_Interp *interp, int objc,
                   Tcl_Obj *CONST objv[]) {
@@ -817,8 +817,8 @@ int showAlsaState(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-// >
-// <SetLanguage
+//>
+//<SetLanguage
 
 int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
                 Tcl_Obj *CONST objv[]) {
@@ -833,9 +833,9 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_OK;
 }
 
-// >
-// <end of file
+//>
+//<end of file
 // local variables:
 // folded-file: t
 // end:
-// >
+//>
