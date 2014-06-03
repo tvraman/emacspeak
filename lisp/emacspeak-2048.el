@@ -73,6 +73,16 @@
      "Provide spoken feedback"
      (when (ems-interactive-p)
        (emacspeak-2048-speak-board)))))
+
+(defadvice 2048-check-game-end (after emacspeak pre act comp)
+  "Checks whether the game has either been won or lost. If so, it handles notifying and restarting."
+  (when (ems-interactive-p)
+    (cond
+     ((2048-game-was-won)
+      (emacspeak-auditory-icon 'task-done))
+     ((2048-game-was-lost)
+      (emacspeak-auditory-icon 'alarm)))))
+
 (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
 ;;}}}
 
