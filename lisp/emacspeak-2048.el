@@ -56,6 +56,13 @@
 
 ;;}}}
 ;;{{{ Advice commands, bind one review command
+(defun emacspeak-2048-speak-board ()
+  "Speak board."
+  (interactive)
+  (declare (special *2048-board*))
+  (dtk-speak-list 
+                   (append *2048-board* nil )
+                   4))
 
 (loop 
  for f in
@@ -65,10 +72,8 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide spoken feedback"
      (when (ems-interactive-p)
-       (dtk-speak-list 
-                   (append *2048-board* nil )
-                   4)))))
-
+       (emacspeak-2048-speak-board)))))
+(define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
 ;;}}}
 
 (provide 'emacspeak-2048)
