@@ -73,6 +73,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide spoken feedback"
      (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-2048-speak-board)))))
 
 (defadvice 2048-check-game-end (after emacspeak pre act comp)
@@ -91,7 +92,10 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
-  (dtk-set-predefined-speech-rate 3)
+  (define-key 2048-mode-map "g" '2048-game)
+  (dtk-set-rate 
+   (+ dtk-speech-rate-base
+            (* dtk-speech-rate-step  3 )))
   (dtk-set-punctuations 'some)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-2048-speak-board))
