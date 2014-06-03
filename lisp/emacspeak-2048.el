@@ -73,7 +73,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide spoken feedback"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-auditory-icon 'mark-object)
        (emacspeak-2048-speak-board)))))
 
 (defadvice 2048-check-game-end (after emacspeak pre act comp)
