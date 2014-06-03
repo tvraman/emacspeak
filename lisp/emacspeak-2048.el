@@ -56,6 +56,7 @@
 
 ;;}}}
 ;;{{{ Advice commands, bind one review command
+
 (defun emacspeak-2048-speak-board ()
   "Speak board."
   (interactive)
@@ -83,9 +84,18 @@
      ((2048-game-was-lost)
       (emacspeak-auditory-icon 'alarm)))))
 
-(define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
 ;;}}}
-
+;;{{{ Setup
+(defun emacspeak-2048-setup ()
+  "Emacspeak setup for 2048."
+  (declaim (special  2048-mode-map))
+  (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
+  (dtk-set-predefined-speech-rate 3)
+  (dtk-set-punctuations 'some)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-2048-speak-board))
+  
+;;}}}
 (provide 'emacspeak-2048)
 ;;{{{ end of file
 
