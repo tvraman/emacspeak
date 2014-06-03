@@ -271,6 +271,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "term" 'emacspeak-eterm )
 (emacspeak-do-package-setup "eudc" 'emacspeak-eudc )
 (emacspeak-do-package-setup "tetris" 'emacspeak-tetris)
+(emacspeak-do-package-setup "2048-game" 'emacspeak-2048)
 (emacspeak-do-package-setup "tex-site" 'emacspeak-auctex)
 (emacspeak-do-package-setup "texinfo" 'emacspeak-texinfo)
 (emacspeak-do-package-setup "tmm" 'emacspeak-facemenu)
