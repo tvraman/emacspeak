@@ -86,6 +86,7 @@
 
 ;;}}}
 ;;{{{ Setup
+
 (defun emacspeak-2048-setup ()
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
@@ -94,7 +95,8 @@
   (dtk-set-punctuations 'some)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-2048-speak-board))
-  
+(declaim (special-display-p 2048-mode-hook))
+(add-hook '2048-mode-hook 'emacspeak-2048-setup )
 ;;}}}
 (provide 'emacspeak-2048)
 ;;{{{ end of file
