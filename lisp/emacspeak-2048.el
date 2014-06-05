@@ -81,6 +81,13 @@
 
 
 
+(defun emacspeak-2048-score ()
+  "Show total on board."
+  (interactive)
+  (declare (special *2048-board*))
+  (message (format "Score: %d"
+                   (apply '+ (append *2048-board* nil)))))
+
 ;;}}}
 ;;{{{ Setup
 
@@ -88,12 +95,14 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
+  (define-key 2048-mode-map "=" 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate 
    (+ dtk-speech-rate-base
-            (* dtk-speech-rate-step  3 )))
+      (* dtk-speech-rate-step  3 )))
   (dtk-set-punctuations 'some)
   (emacspeak-auditory-icon 'open-object)
+  (emacspeak-pronounce-define-local-pronunciation "0" "o")
   (emacspeak-2048-speak-board))
 (declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup )
