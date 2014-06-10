@@ -95,7 +95,7 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
-  (define-key 2048-mode-map "=" 'emacspeak-2048-score)
+  (define-key 2048-mode-map "\C- " 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate 
    (+ dtk-speech-rate-base
