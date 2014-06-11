@@ -61,9 +61,19 @@
   "Speak board."
   (interactive)
   (declare (special *2048-board*))
-  (dtk-speak-list 
-                   (append *2048-board* nil )
-                   4))
+  (dtk-speak-list (append *2048-board* nil ) 4))
+
+(defun emacspeak-2048-speak-transposed-board ()
+  "Speak board column-wise."
+  (interactive)
+  (declare (special *2048-board*))
+  (dtk-speak-list
+   (loop for col from 0 to 3 
+      collect 
+      (loop for row from 0 to 3 
+            collect
+            (aref  *2048-board*  (+ col (* 4 row)))))
+   4))
 
 (loop 
  for f in
@@ -73,7 +83,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide spoken feedback"
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'mark-object)
+       (cond
+        ((some #'identity *2048-combines-this-move*) (emacspeak-auditory-icon 'item))
+       (t (emacspeak-auditory-icon 'close-object)))
        (emacspeak-2048-speak-board)
        (cond
         ((2048-game-was-won) (emacspeak-auditory-icon 'task-done))
@@ -84,9 +96,8 @@
 (defun emacspeak-2048-score ()
   "Show total on board."
   (interactive)
-  (declare (special *2048-board*))
-  (message (format "Score: %d"
-                   (apply '+ (append *2048-board* nil)))))
+  (declare (special *2048-score*))
+  (message (format "Score: %d" *2048-score*)))
 
 ;;}}}
 ;;{{{ Setup
@@ -95,6 +106,7 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
+  (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map "\C- " 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate 

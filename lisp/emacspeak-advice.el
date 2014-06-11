@@ -727,7 +727,7 @@ Produce an auditory icon if possible."
 
 (loop
  for f in
- '(read-key-sequence read-char read-char-exclusive)
+ '(read-key read-key-sequence read-char read-char-exclusive)
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
