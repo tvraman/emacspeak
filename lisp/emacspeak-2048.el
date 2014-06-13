@@ -69,9 +69,9 @@
   (declare (special *2048-board*
                     *2048-columns* *2048-rows*))
   (dtk-speak-list
-   (loop for col from 0 to *2048-columns* 
+   (loop for col from 0 to (- *2048-columns*  1)
       collect 
-      (loop for row from 0 to *2048-rows* 
+      (loop for row from 0 to (- *2048-rows*  1)
             collect
             (aref  *2048-board*  (+ col (* 4 row)))))
    4))
