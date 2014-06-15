@@ -66,8 +66,8 @@
 (defun emacspeak-2048-speak-transposed-board ()
   "Speak board column-wise."
   (interactive)
-  (declare *2048-board*      *2048-columns* *2048-rows*))
-  (dtk-speak-list
+  (declare (special *2048-board*      *2048-columns* *2048-rows*))
+(dtk-speak-list
    (loop for col from 0 to (- *2048-columns*  1)
       collect 
       (loop for row from 0 to (- *2048-rows*  1)
