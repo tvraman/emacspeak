@@ -60,21 +60,20 @@
 (defun emacspeak-2048-speak-board ()
   "Speak board."
   (interactive)
-  (declare (special *2048-board*))
-  (dtk-speak-list (append *2048-board* nil ) 4))
+  (declare (special *2048-board* *2048-columns* ))
+  (dtk-speak-list (append *2048-board* nil ) *2048-columns*))
 
 (defun emacspeak-2048-speak-transposed-board ()
   "Speak board column-wise."
   (interactive)
-  (declare (special *2048-board*
-                    *2048-columns* *2048-rows*))
+  (declare *2048-board*      *2048-columns* *2048-rows*))
   (dtk-speak-list
    (loop for col from 0 to (- *2048-columns*  1)
       collect 
       (loop for row from 0 to (- *2048-rows*  1)
             collect
             (aref  *2048-board*  (+ col (* 4 row)))))
-   4))
+   *2048-rows*))
 
 (loop 
  for f in
