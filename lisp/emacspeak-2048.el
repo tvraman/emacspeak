@@ -81,6 +81,7 @@
 
 (defun emacspeak-2048-pop-state ()
   "Reset state from stack."
+  (interactive)
   (declare (special emacspeak-2048-game-stack))
   (cond
    ((null emacspeak-2048-game-stack) (error "No saved  states."))
