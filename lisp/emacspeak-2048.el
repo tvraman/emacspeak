@@ -94,7 +94,7 @@
 *2048-columns* (emacspeak-2048-game-state-cols state))
       (2048-print-board)
       (emacspeak-auditory-icon 'yank-object)
-      (message "Popped saved   state.")))))
+      (message "Popped: Score is now %s" *2048-score*)))
 
 ;;}}}
 ;;{{{ Advice commands, bind one review command
