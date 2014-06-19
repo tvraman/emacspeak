@@ -55,6 +55,47 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Push And Pop states:
+(defstruct emacspeak-2048-game-state
+  board score
+  rows cols 
+    )
+
+
+(defvar emacspeak-2048-game-stack nil
+  "Stack of saved states.")
+(defun emacspeak-2048-push-state ()
+  "Push current game state on stack."
+  (interactive)
+  (declare (special emacspeak-2048-game-stack))
+  (push
+   (make-emacspeak-2048-game-state
+    :board *2048-board*
+    :score *2048-score*
+    :rows *2048-rows*
+    :cols *2048-columns*)
+   emacspeak-2048-game-stack )
+  (emacspeak-auditory-icon 'mark-object)
+  (message "Saved state."))
+
+
+(defun emacspeak-2048-pop-state ()
+  "Reset state from stack."
+  (declare (special emacspeak-2048-game-stack))
+  (cond
+   ((null emacspeak-2048-game-stack) (error "No saved  states."))
+   (t
+    (let ((state (pop emacspeak-2048-game-stack)))
+      (setq
+     *2048-board* (emacspeak-2048-game-state-board state)
+     *2048-score* (emacspeak-2048-game-state-score state)
+     *2048-rows* (emacspeak-2048-game-state-rows state)
+*2048-columns* (emacspeak-2048-game-state-cols state))
+      (2048-print-board)
+      (emacspeak-auditory-icon 'yank-object)
+      (message "Popped saved   state.")))))
+
+;;}}}
 ;;{{{ Advice commands, bind one review command
 
 (defun emacspeak-2048-speak-board ()
@@ -106,6 +147,8 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
+  (define-key 2048-mode-map "s" 'emacspeak-2048-push-state)
+  (define-key 2048-mode-map "u"  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map "\C- " 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
