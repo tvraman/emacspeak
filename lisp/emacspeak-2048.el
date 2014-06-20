@@ -149,6 +149,7 @@
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
   (define-key 2048-mode-map "s" 'emacspeak-2048-push-state)
   (define-key 2048-mode-map "u"  'emacspeak-2048-pop-state)
+  (define-key 2048-mode-map [delete]  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map  "="'emacspeak-2048-score)
   (define-key 2048-mode-map  [?\C- ] 'emacspeak-2048-score)
