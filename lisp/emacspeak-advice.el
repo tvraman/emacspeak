@@ -2448,7 +2448,8 @@ Produce auditory icons if possible."
     (emacspeak-speak-mode-line)))
 (defadvice customize-save-variable (around emacspeak pre act comp)
   "Silence chatter."
-  (let ((emacspeak-speak-messages nil))
+  (let ((emacspeak-speak-messages nil)
+        (dtk-quiet t))
     ad-do-it))
 
 ;;}}}
