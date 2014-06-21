@@ -1237,6 +1237,17 @@ Produce an auditory icon if possible."
     (emacspeak-speak-completions-if-available)))
 ;;; Directory tracking for shell buffers on  systems that have  /proc
 ;;; Adapted from Emacs Wiki:
+(defun emacspeak-shell-dirtrack-procfs  (str)
+  "Directory tracking using /proc.
+/proc/pid/cwd is a symlink to working directory."
+  (prog1 str
+    (when (string-match comint-prompt-regexp str)
+      (condition-case nil
+          (cd
+           (file-symlink-p
+            (format "/proc/%s/cwd"
+                    (process-id (get-buffer-process (current-buffer))))))
+        (error)))))
 (define-minor-mode dirtrack-procfs-mode
   "Toggle procfs-based directory tracking (Dirtrack-Procfs mode).
 With a prefix argument ARG, enable Dirtrack-Procfs mode if ARG is
@@ -1251,23 +1262,11 @@ process PID's current working directory.
 
 Turning on Ditrack-Procfs mode automatically turns off
 Shell-Dirtrack mode; turning it off does not re-enable it."
-
-  nil nil nil
+  nil "DirTrack" nil 
   (if (not dirtrack-procfs-mode)
-      (remove-hook 'comint-preoutput-filter-functions #'dirtrack-procfs t)
+      (remove-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs t)
     (add-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs nil t)
     (shell-dirtrack-mode 0)))
-(defun emacspeak-shell-dirtrack-procfs  (str)
-  "Directory tracking using /proc.
-/proc/pid/cwd is a symlink to working directory."
-  (prog1 str
-    (when (string-match comint-prompt-regexp str)
-      (condition-case nil
-          (cd
-           (file-symlink-p
-            (format "/proc/%s/cwd"
-                    (process-id (get-buffer-process (current-buffer))))))
-        (error)))))
 
 (add-hook 'shell-mode-hook 'dirtrack-procfs-mode)
 ;;}}}
