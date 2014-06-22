@@ -125,13 +125,11 @@
     (cond
      (found
       (message "Feed already present  as %s" (first found)))
-     (t (pushnew
-         (list title url type)
-         emacspeak-feeds
-         :test #'(lambda (a b) (string= (second a) (second b))))
+     (t (push (list title url type) emacspeak-feeds)
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
         (message "Added feed as %s" title)))))
+
 (defvar emacspeak-feeds-archive-file
   (expand-file-name "feeds.el" emacspeak-resource-directory)
   "Feed archive.")
