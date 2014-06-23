@@ -1267,8 +1267,8 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
       (remove-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs t)
     (add-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs nil t)
     (shell-dirtrack-mode 0)))
-
-(add-hook 'shell-mode-hook 'dirtrack-procfs-mode)
+(when (file-exists-p "/proc")
+  (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
 ;;}}}
 ;;{{{ Advice centering and filling commands:
 
