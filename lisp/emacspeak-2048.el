@@ -70,7 +70,7 @@
   (declare (special emacspeak-2048-game-stack))
   (push
    (make-emacspeak-2048-game-state
-    :board *2048-board*
+    :board (copy-sequence *2048-board*)
     :score *2048-score*
     :rows *2048-rows*
     :cols *2048-columns*)
