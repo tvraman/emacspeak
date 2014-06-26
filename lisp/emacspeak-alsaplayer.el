@@ -183,7 +183,12 @@ Optional second arg watch-pattern specifies line of output to
   (interactive
    (list
     (let ((completion-ignore-case t)
-          (read-file-name-completion-ignore-case t))
+          (read-file-name-completion-ignore-case t)
+          (ido-work-directory-list
+           (remove-if-not 
+            #'(lambda (d)
+                (string-match  emacspeak-media-directory-regexp  d))
+            ido-work-directory-list)))
       (expand-file-name
        (read-file-name
           "Media Resource: "
