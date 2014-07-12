@@ -42,6 +42,7 @@
 
 ;;}}}
 ;;{{{ Definitions
+;;;###autoload 
 (defcustom amixer-card "0"
   "Card number to control."
   :type 'string
