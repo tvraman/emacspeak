@@ -119,7 +119,6 @@ emacspeak-company.elc \
 congrats.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
-emacspeak-daisy.elc \
 emacspeak-damlite.elc \
 emacspeak-dbus.elc \
 emacspeak-dictation.elc \
@@ -352,7 +351,6 @@ congrats.elc: congrats.el dtk-speak.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
 emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
-emacspeak-daisy.elc: emacspeak-daisy.el dtk-speak.elc voice-setup.elc
 emacspeak-epub.elc: emacspeak-epub.el dtk-speak.elc voice-setup.elc
 emacspeak-damlite.elc: emacspeak-damlite.el dtk-speak.elc voice-setup.elc
 emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc
