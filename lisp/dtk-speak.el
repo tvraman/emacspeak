@@ -1546,10 +1546,13 @@ This is setup on a per engine basis.")
                                         ; exact match
    ((string-match "^espeak$" tts-name) (espeak-configure-tts))
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
-   ((string-match "^log-server$" tts-name) t); use previous configuration
+   ((string-match "^log-server$" tts-name) t) ; use previous configuration
                                         ; generic configure
    (t (plain-configure-tts)))
-  (when (string-match "^ssh" tts-name)  ;remote server
+  (when
+      (or 
+       (string-match "^ssh" tts-name)   ;remote server
+       (string-match "^cloud" tts-name))
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
