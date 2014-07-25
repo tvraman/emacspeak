@@ -86,7 +86,6 @@
     ("emacspeak-cmuscheme" . nil )
     ("emacspeak-compile" . nil )
     ("emacspeak-cperl"  . nil )
-    ("emacspeak-daisy" . nil)
     ("emacspeak-bookshare" . nil)
     ("emacspeak-npr" . nil)
     ("emacspeak-librivox" . nil)
