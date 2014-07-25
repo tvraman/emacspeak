@@ -219,7 +219,7 @@ port that that host is listening on for speech requests."
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
   (declare (special dtk-speaker-process dtk-program 
                     dtk-local-server-port
-                    emacspeak-eterm-remote-hosts-table))
+                    dtk-local-engine emacspeak-eterm-remote-hosts-table))
   (let* ((dtk-program dtk-local-engine)
          (process-connection-type nil)  ;dont waste a pty
          (old-process dtk-speaker-process)
