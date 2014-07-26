@@ -1,5 +1,8 @@
 #$Id$
 cloud 
+cloud-dtk
+cloud-outloud
+cloud-espeak
 dtk-exp
 dtk-mv
 dtk-soft
