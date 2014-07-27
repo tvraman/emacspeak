@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 620 user customizable
+This chapter documents a total of 617 user customizable
   options.
 
 @menu
@@ -21,7 +21,6 @@ This chapter documents a total of 620 user customizable
 * emacspeak-calendar Options::
 * emacspeak-compile Options::
 * emacspeak-custom Options::
-* emacspeak-daisy Options::
 * emacspeak-dired Options::
 * emacspeak-dismal Options::
 * emacspeak-entertain Options::
@@ -498,31 +497,6 @@ Pattern identifying start of custom group.
 
 @defvar {User Option} emacspeak-custom-toolbar-regexp
 Pattern that identifies toolbar section.
-@end defvar
-
-@node emacspeak-daisy Options
-@section emacspeak-daisy Options
-
-Commentary:
-Daisy Digital Talking Book Reader
-
-Automatically generated documentation
-for options defined in module  emacspeak-daisy.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-daisy-books-directory
-Customize this to the root of where books are organized.
-@end defvar
-
-@defvar {User Option} emacspeak-daisy-completion-extensions-to-ignore
-These file name extensions are ignored when locating the
-navigation file for a book. Include all extensions except `.ncx'
-  for optimal performance.
-@end defvar
-
-@defvar {User Option} emacspeak-daisy-xsl
-Style sheet for transforming Daisy books to HTML. 
-Bookshare provides this with newer books.
 @end defvar
 
 @node emacspeak-dired Options

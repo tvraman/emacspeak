@@ -1,73 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Maintaining Structured Data - Emacspeak User's Manual
-  --2nd Edition.</title>
-  <meta http-equiv="Content-Type" content="text/html" />
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Maintaining Structured Data</title>
   <meta name="description" content=
-  "Emacspeak User's Manual --2nd Edition." />
-  <meta name="generator" content="makeinfo 4.13" />
-  <link title="Top" rel="start" href="index.html#Top" />
-  <link rel="up" href="Structured-Editing.html#Structured-Editing"
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Maintaining Structured Data" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Maintaining Structured Data" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Structured-Editing.html#Structured-Editing" rel="up"
   title="Structured Editing" />
-  <link rel="prev" href=
+  <link href="Browsing-Structure.html#Browsing-Structure" rel=
+  "next" title="Browsing Structure" />
+  <link href=
   "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
-  title="Template-based Authoring" />
-  <link href="http://www.gnu.org/software/texinfo/" rel=
-  "generator-home" title="Texinfo Homepage" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  rel="prev" title="Template-based Authoring" />
   <style type="text/css">
 /*<![CDATA[*/
   <!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
   -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
   /*]]>*/
   </style>
 </head>
 
-<body>
-  <table summary="logo">
-    <tr>
-      <td><a href="http://emacspeak.sf.net"><img width="150"
-      height="216" src="emacspeak.jpg" alt=
-      "EMACSPEAK --Complete Audio Desktop" /></a></td>
-    </tr>
-  </table>
+<body lang="en" xml:lang="en">
+  <a name="Maintaining-Structured-Data" id=
+  "Maintaining-Structured-Data"></a>
 
-  <div class="node">
-    <a name="Maintaining-Structured-Data" id=
-    "Maintaining-Structured-Data"></a>
-
-    <p>Previous:&nbsp;<a rel="previous" accesskey="p" href=
-    "Template_002dbased-Authoring.html#Template_002dbased-Authoring">Template-based
-    Authoring</a>, Up:&nbsp;<a rel="up" accesskey="u" href=
-    "Structured-Editing.html#Structured-Editing">Structured
-    Editing</a></p>
-    <hr />
+  <div class="header">
+    <p>Previous: <a href=
+    "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
+    accesskey="p" rel="prev">Template-based Authoring</a>, Up:
+    <a href="Structured-Editing.html#Structured-Editing" accesskey=
+    "u" rel="up">Structured Editing</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
   </div>
+  <hr />
+  <a name="Maintaining-Structured-Data-1" id=
+  "Maintaining-Structured-Data-1"></a>
 
   <h4 class="subsection">9.2.3 Maintaining Structured Data</h4>
 
   <p>Consider the following entry from file
   <code>/etc/passwd</code> on my laptop.</p>
 
-  <p>&lsquo;<samp><span class="samp">aster:KoUxwQ2:501:100:Aster
-  Labrador:/home/aster:/bin/bash</span></samp>&rsquo;</p>
+  <p>&lsquo;<samp>aster:KoUxwQ2:501:100:Aster
+  Labrador:/home/aster:/bin/bash</samp>&rsquo;</p>
 
   <p>File <code>/etc/passwd</code> is a simple instance of a text
   file that stores structured data records as a series of fields
