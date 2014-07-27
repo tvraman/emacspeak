@@ -1,65 +1,99 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Search replace and spell check - Emacspeak User's Manual
-  --2nd Edition.</title>
-  <meta http-equiv="Content-Type" content="text/html" />
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search
+  replace and spell check</title>
   <meta name="description" content=
-  "Emacspeak User's Manual --2nd Edition." />
-  <meta name="generator" content="makeinfo 4.13" />
-  <link title="Top" rel="start" href="index.html#Top" />
-  <link rel="up" href="Document-Authoring.html#Document-Authoring"
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Document-Authoring.html#Document-Authoring" rel="up"
   title="Document Authoring" />
-  <link rel="prev" href=
+  <link href="Structured-Editing.html#Structured-Editing" rel=
+  "next" title="Structured Editing" />
+  <link href=
   "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
-  title="Creating Well-formatted Documents" />
-  <link href="http://www.gnu.org/software/texinfo/" rel=
-  "generator-home" title="Texinfo Homepage" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  rel="prev" title="Creating Well-formatted Documents" />
   <style type="text/css">
 /*<![CDATA[*/
   <!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
   -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
   /*]]>*/
   </style>
 </head>
 
-<body>
-  <table summary="logo">
-    <tr>
-      <td><a href="http://emacspeak.sf.net"><img width="150"
-      height="216" src="emacspeak.jpg" alt=
-      "EMACSPEAK --Complete Audio Desktop" /></a></td>
-    </tr>
-  </table>
+<body lang="en" xml:lang="en">
+  <a name="Search-replace-and-spell-check" id=
+  "Search-replace-and-spell-check"></a>
 
-  <div class="node">
-    <a name="Search-replace-and-spell-check" id=
-    "Search-replace-and-spell-check"></a>
-
-    <p>Previous:&nbsp;<a rel="previous" accesskey="p" href=
-    "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents">Creating
-    Well-formatted Documents</a>, Up:&nbsp;<a rel="up" accesskey=
-    "u" href="Document-Authoring.html#Document-Authoring">Document
-    Authoring</a></p>
-    <hr />
+  <div class="header">
+    <p>Previous: <a href=
+    "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
+    accesskey="p" rel="prev">Creating Well-formatted Documents</a>,
+    Up: <a href="Document-Authoring.html#Document-Authoring"
+    accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
   </div>
+  <hr />
+  <a name="Searching_002c-Replacing_002c-And-Spell-Checking" id=
+  "Searching_002c-Replacing_002c-And-Spell-Checking"></a>
 
   <h4 class="subsection">9.1.2 Searching, Replacing, And Spell
   Checking</h4>
@@ -104,8 +138,8 @@
   and replace the second occurrence of <b>foo</b> with <b>bar</b>
   in the text</p>
 
-  <p>&lsquo;<samp><span class="samp">Do not change this fool, but
-  change this food.</span></samp>&rsquo;</p>
+  <p>&lsquo;<samp>Do not change this fool, but change this
+  food.</samp>&rsquo;</p>
 
   <p>When the search matches the first occurrence of <b>foo</b> in
   word <em>fool</em>, the aural highlighting helps the user in
@@ -114,9 +148,10 @@
   user to supply a simple &ldquo;yes or no&rdquo; answer for each
   match, command <em>query-replace</em> also allows the user to
   specify a number of other valid answers as described in the
-  online Emacs documentation.</p>
+  online Emacs documentation.</p><a name="Spell-Checking" id=
+  "Spell-Checking"></a>
 
-  <h5 class="unnumberedsubsubsec">Spell Checking</h5>
+  <h4 class="unnumberedsubsubsec">Spell Checking</h4>
 
   <p>A more complex instance of conversational gesture
   &ldquo;search and replace&rdquo; is exhibited by standard spell
@@ -159,7 +194,19 @@
   newer versions of Emacs include an &ldquo;on-the-fly&rdquo; spell
   checker that flags erroneous words as they are typed. Emacspeak
   speech-enables package <code>flyspell</code> so that such
-  erroneous words are aurally highlighted. 
-  <!-- $Id: structure.texi 8256 2013-03-27 15:49:59Z tv.raman.tv $ --></p>
+  erroneous words are aurally highlighted.</p>
+  <hr />
+
+  <div class="header">
+    <p>Previous: <a href=
+    "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
+    accesskey="p" rel="prev">Creating Well-formatted Documents</a>,
+    Up: <a href="Document-Authoring.html#Document-Authoring"
+    accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
