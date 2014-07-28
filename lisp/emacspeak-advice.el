@@ -200,10 +200,9 @@
          (let ((start (point)))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
-           ;(skip-syntax-forward " ")
            (cond
             ((ems-same-line-p start (point))
-             (emacspeak-speak-sexp))
+             (emacspeak-speak-region start (point)))
             (t (emacspeak-speak-line))))
        ad-do-it)
      ad-return-value)))
