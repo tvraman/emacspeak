@@ -200,7 +200,7 @@
          (let ((start (point)))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
-           (skip-syntax-forward " ")
+           ;(skip-syntax-forward " ")
            (cond
             ((ems-same-line-p start (point))
              (emacspeak-speak-sexp))
