@@ -197,7 +197,7 @@
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak sexp after moving."
      (cond
-      ((eq this-command ',f)
+      ((ems-interactive-p)
        (let ((start (point)))
          ad-do-it
          (emacspeak-auditory-icon 'large-movement)
