@@ -194,21 +194,16 @@
  '(forward-sexp backward-sexp)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak sexp after moving."
-     (cond
-      ((ems-interactive-p)
-       (let ((start (point)))
-         ad-do-it
+     
+     (when (ems-interactive-p)
+       
+         
          (emacspeak-auditory-icon 'large-movement)
-         (skip-syntax-forward " ")
-         (cond
-          ((ems-same-line-p start (point))
-           (emacspeak-speak-region start (point)))
-          (t (emacspeak-speak-line)))))
-      (t ad-do-it))
-     ad-return-value)))
-
+         ;(skip-syntax-forward " ")
+         (emacspeak-speak-sexp)))))
+          
 (loop
  for f in
  '(forward-paragraph backward-paragraph)
