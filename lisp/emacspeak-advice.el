@@ -189,6 +189,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak sentence after moving."
      (when (ems-interactive-p ) (emacspeak-speak-sentence )))))
+
+;;; Not using ems-interactive-p below to work around Emacs bug:
+
 (loop
  for f in
  '(forward-sexp backward-sexp)
@@ -196,14 +199,13 @@
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak sexp after moving."
-     (if (ems-interactive-p )
+     (if (eq this-command ',f)
          (let ((start (point)))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
-           (skip-syntax-forward " ")
            (cond
             ((ems-same-line-p start (point))
-             (emacspeak-speak-sexp))
+             (emacspeak-speak-region start (point)))
             (t (emacspeak-speak-line))))
        ad-do-it)
      ad-return-value)))
