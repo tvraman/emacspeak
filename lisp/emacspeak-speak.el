@@ -92,11 +92,9 @@
 ;;}}}
 ;;{{{ same-line-p
 
-(defsubst ems-same-line-p (orig current)
-  "Check if current is in the same line as orig."
-  (save-excursion
-    (goto-char orig)
-    (< current (line-end-position))))
+(defsubst ems-same-line-p (start end)
+  "Check if start and end are in the same line."
+  (= (count-lines start end) 1))
 
 ;;}}}
 ;;{{{ Helper: voicify string 
