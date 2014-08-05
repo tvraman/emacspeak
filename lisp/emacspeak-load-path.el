@@ -55,7 +55,7 @@
 
 (cond
  ((string-match "24" emacs-version)
-  (defun ems-interactive-p  ()
+  (defsubst ems-interactive-p  ()
     "called-interactively-p 'interactive"
     (called-interactively-p 'interactive)))
  (t (defalias 'ems-interactive-p  'interactive-p )))
