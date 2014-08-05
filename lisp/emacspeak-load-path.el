@@ -77,10 +77,10 @@ Return T if set, after turning off the flag."
 ;;}}}
 
 (cond
-  ((string-match "24" emacs-version)
-;   (defsubst ems-interactive-p  ()
-;     "called-interactively-p 'interactive"
-;     (called-interactively-p 'interactive)))
-  (t (defalias 'ems-interactive-p  'interactive-p ))))
+ ((string-match "24" emacs-version)
+  (defsubst ems-interactive-p  ()
+    "called-interactively-p 'interactive"
+    (called-interactively-p 'interactive)))
+ (t (defalias 'ems-interactive-p  'interactive-p )))
 
 (provide 'emacspeak-load-path)
