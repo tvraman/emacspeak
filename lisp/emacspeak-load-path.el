@@ -53,11 +53,34 @@
 (setq byte-compile-warnings t)
                                         ;'(redefine callargs free-vars unresolved obsolete))
 
+
+;;{{{ Implementation:
+(defvar ems-called-interactively-p nil
+  "Flag recording interactive calls.")
+
+(defadvice call-interactively (before emacspeak pre act comp)
+  "Set our interactive flag."
+  (setq ems-called-interactively-p t))
+
+;;; Intentionally spelt differently to help debugging 
+(defsubst ems-dinteractively-p ()
+  "Check our interactive flag.
+Return T if set, after turning off the flag."
+  (declare (special ems-called-interactively-p))
+  (cond
+   (ems-called-interactively-p            ;interactive call
+    (setq ems-called-interactively-p nil) ; turn off now that we used  it 
+    t)
+   (t nil)))
+
+
+;;}}}
+
 (cond
- ((string-match "24" emacs-version)
-  (defsubst ems-interactive-p  ()
-    "called-interactively-p 'interactive"
-    (called-interactively-p 'interactive)))
- (t (defalias 'ems-interactive-p  'interactive-p )))
+  ((string-match "24" emacs-version)
+;   (defsubst ems-interactive-p  ()
+;     "called-interactively-p 'interactive"
+;     (called-interactively-p 'interactive)))
+  (t (defalias 'ems-interactive-p  'interactive-p ))))
 
 (provide 'emacspeak-load-path)
