@@ -63,7 +63,7 @@
   (setq ems-called-interactively-p t))
 
 ;;; Intentionally spelt differently to help debugging 
-(defsubst ems-dinteractively-p ()
+(defsubst ems-interactively-p ()
   "Check our interactive flag.
 Return T if set, after turning off the flag."
   (declare (special ems-called-interactively-p))
