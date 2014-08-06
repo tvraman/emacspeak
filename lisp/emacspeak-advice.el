@@ -98,7 +98,8 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak line that you just moved to."
-     (when (ems-interactive-p ) (emacspeak-speak-line )))))
+     (when (ems-interactive-p )
+       (emacspeak-speak-line )))))
 
 (loop
  for f in
@@ -2017,10 +2018,11 @@ Produce an auditory icon if possible."
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
-     "Stop speech first."
+     "Speak line."
      (when (ems-interactive-p )
-       (dtk-stop )
-       (emacspeak-auditory-icon 'select-object)))))
+       (let ((emacspeak-show-point t))
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object))))))
 
 ;;}}}
 ;;{{{ yanking and popping
