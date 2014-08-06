@@ -51,14 +51,12 @@
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
 (setq byte-compile-warnings t)
-                                        ;'(redefine callargs free-vars unresolved obsolete))
-
 
 ;;{{{ Implementation:
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
 
-(defadvice call-interactively (before emacspeak pre act comp)
+(defadvice call-interactively (before emacspeak  comp)
   "Set our interactive flag."
   (setq ems-called-interactively-p t))
 
