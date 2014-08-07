@@ -2020,9 +2020,8 @@ Produce an auditory icon if possible."
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak line."
      (when (ems-interactive-p )
-       (let ((emacspeak-show-point t))
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object))))))
+       (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ yanking and popping
