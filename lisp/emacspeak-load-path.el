@@ -65,14 +65,11 @@
   "Check our interactive flag.
 Return T if set, after turning off the flag."
   (declare (special ems-called-interactively-p))
-  (message "Before: Flat %s" ems-called-interactively-p)
   (cond
    (ems-called-interactively-p            ;interactive call
     (setq ems-called-interactively-p nil) ; turn off now that we used  it
-    (message "After: Flat %s" ems-called-interactively-p)
     t)
    (t
-    (message "Flag: %s" ems-called-interactively-p)
     nil)))
     
 
