@@ -53,6 +53,9 @@
 (setq byte-compile-warnings t)
 
 ;;{{{ Implementation:
+;;; Notes:
+;;; Comint completion advice doesn't work correctly.
+;;; This implementation below appears to work for 90% of emacspeak.
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
 
