@@ -58,8 +58,9 @@
 ;;; This implementation below appears to work for 90% of emacspeak.
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
+;;; Using this in places where called-interactively hits deadlocks :
 
-(defadvice call-interactively (before emacspeak  comp)
+(defadvice call-interactively (before emacspeak  pre act comp)
   "Set our interactive flag."
   (setq ems-called-interactively-p t))
 
