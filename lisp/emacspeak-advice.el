@@ -191,8 +191,8 @@
      "Speak sentence after moving."
      (when (ems-interactive-p ) (emacspeak-speak-sentence )))))
 
-;;; Not using ems-interactive-p below to work around Emacs bug:
 
+;;; Use  ems-interactively-p instead of ems-interactive-p to avoid emacs bug.
 (loop
  for f in
  '(forward-sexp backward-sexp)
