@@ -64,13 +64,16 @@
   "Set our interactive flag."
   (setq ems-called-interactively-p t))
 
-;;; Intentionally spelt differently to help debugging 
-(defsubst ems-interactively-p ()
+
+(defsubst ems-interactive-p ()
   "Check our interactive flag.
-Return T if set, after turning off the flag."
-  (declare (special ems-called-interactively-p))
+Return T if set and we are called from the advice for the current
+interactive command. Turn off the flag once used."
+  (declare (special ems-called-interactively-p this-command))
   (cond
-   (ems-called-interactively-p            ;interactive call
+   ((and ems-called-interactively-p     ;interactive call
+         (eq (ad-make-advicefunname this-command ) ; called from our advice?
+             (second (backtrace-frame 1))))
     (setq ems-called-interactively-p nil) ; turn off now that we used  it
     t)
    (t
@@ -80,11 +83,6 @@ Return T if set, after turning off the flag."
 
 ;;}}}
 
-(cond
- ((string-match "24" emacs-version)
-  (defsubst ems-interactive-p  ()
-    "called-interactively-p 'interactive"
-    (called-interactively-p 'interactive)))
- (t (defalias 'ems-interactive-p  'interactive-p )))
+
 
 (provide 'emacspeak-load-path)
