@@ -1617,7 +1617,7 @@ Indicate change of selection with an auditory icon
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the help."
-     (when (ems-debug-interactive-p )
+     (when (ems-interactive-p )
        (emacspeak-auditory-icon 'help)
        (emacspeak-speak-help )))))
 
