@@ -72,15 +72,13 @@ interactive command. Turn off the flag once used."
   (declare (special ems-called-interactively-p this-command))
   (cond
    ((and ems-called-interactively-p     ;interactive call
-         (eq this-command ems-called-interactively-p)
          (eq
           (or (ad-get-advice-info-field  this-command  'advicefunname)
               this-command) ; called from our advice?
              (second (backtrace-frame 1))))
     (setq ems-called-interactively-p nil) ; turn off now that we used  it
     t)
-   (t
-    nil)))
+   (t nil)))
     
 
 

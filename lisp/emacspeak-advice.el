@@ -2385,7 +2385,8 @@ Produce auditory icons if possible."
 
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
-  (when (ems-interactive-p ) (emacspeak-speak-message-again)))
+  (when t ;(ems-interactive-p )
+    (emacspeak-speak-message-again)))
 
 ;;}}}
 ;;{{{ apropos and friends

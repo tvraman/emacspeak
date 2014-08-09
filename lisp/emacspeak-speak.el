@@ -2216,34 +2216,6 @@ Interactive prefix arg `browse'  repeatedly browses  through
 
 (defvar emacspeak-read-line-by-line-quotient 10
   "Determines behavior of emacspeak-read-line-by-line.")
-
-(defvar emacspeak-read-by-line-by-line-tick 1.0
-  "Granularity of time for reading line-by-line.")
-
-                                        ;(defun emacspeak-read-line-by-line ()
-                                        ;  "Read line by line until interrupted"
-                                        ;  (interactive)
-                                        ;  (let ((count 0)
-                                        ;        (line-length 0)
-                                        ;        (continue t))
-                                        ;    (while
-                                        ;        (and continue
-                                        ;             (not (eobp)))
-                                        ;      (setq dtk-last-output "")
-                                        ;      (call-interactively 'next-line)
-                                        ;      (setq line-length (length  (thing-at-point 'line)))
-                                        ;      (setq count 0)
-                                        ;      (when (> line-length 0)
-                                        ;        (while(and (< count
-                                        ;                      (1+ (/ line-length emacspeak-read-line-by-line-quotient)))
-                                        ;                   (setq continue
-                                        ;                         (sit-for
-                                        ;                          emacspeak-read-by-line-by-line-tick 0 nil ))
-                                        ;                   (not (string-match  "done" dtk-last-output))
-                                        ;                   (incf count))))))
-                                        ;  (emacspeak-auditory-icon 'task-done)
-                                        ;  (message "done moving "))
-
 ;;}}}
 ;;{{{  skimming
 
