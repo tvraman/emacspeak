@@ -68,17 +68,18 @@
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
-  (declare (special ems-called-interactively-p this-command))
+  (when ems-called-interactively-p ; interactive call 
+    (let ((caller (second (backtrace-frame 1))) 
+          (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+          (result nil))
+      (setq result (or (eq caller caller-advice) ; called from our advice
+        (eq ems-called-interactively-p caller ) ; call-interactively call
+        (eq this-command caller)))
   (cond
-   ((and ems-called-interactively-p     ;interactive call
-         (eq
-          (or (ad-get-advice-info-field
-  ems-called-interactively-p  'advicefunname)
-              this-command) ; called from our advice?
-             (second (backtrace-frame 1))))
+   (result 
     (setq ems-called-interactively-p nil) ; turn off now that we used  it
-    t)
-   (t nil)))
+    result)
+   (t nil)))))
     
 
 
