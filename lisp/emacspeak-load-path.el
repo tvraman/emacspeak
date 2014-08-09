@@ -80,6 +80,27 @@ interactive command. Turn off the flag once used."
     (setq ems-called-interactively-p nil) ; turn off now that we used  it
     result)
    (t nil)))))
+
+(defsubst ems-debug-interactive-p ()
+  "Check our interactive flag.
+Return T if set and we are called from the advice for the current
+interactive command. Turn off the flag once used."
+  (message "Debug: %s" ems-called-interactively-p)
+  (when ems-called-interactively-p ; interactive call 
+    (let ((caller (second (backtrace-frame 1))) 
+          (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+          (result nil))
+      (message "this: %s caller: %s caller-advice %s
+  ems-called-interactively-p %s"
+               this-command caller caller-advice ems-called-interactively-p)
+      (setq result (or (eq caller caller-advice) ; called from our advice
+        (eq ems-called-interactively-p caller ) ; call-interactively call
+        (eq this-command caller)))
+  (cond
+   (result 
+    (setq ems-called-interactively-p nil) ; turn off now that we used  it
+    result)
+   (t nil)))))
     
 
 
