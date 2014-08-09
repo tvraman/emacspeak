@@ -64,7 +64,6 @@
   "Set our interactive flag."
   (setq ems-called-interactively-p (ad-get-arg 0)))
 
-
 (defsubst ems-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
@@ -73,7 +72,8 @@ interactive command. Turn off the flag once used."
   (cond
    ((and ems-called-interactively-p     ;interactive call
          (eq
-          (or (ad-get-advice-info-field  this-command  'advicefunname)
+          (or (ad-get-advice-info-field
+  ems-called-interactively-p  'advicefunname)
               this-command) ; called from our advice?
              (second (backtrace-frame 1))))
     (setq ems-called-interactively-p nil) ; turn off now that we used  it

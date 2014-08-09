@@ -1093,7 +1093,7 @@ Produce an auditory icon if possible."
           'rear-sticky nil)))
       (when (and
              comint-last-output-start
-             (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
+              emacspeak-comint-autospeak 
              (or monitor (eq (window-buffer) buffer)))
         (emacspeak-speak-region comint-last-output-start (point )))
       ad-return-value)))
