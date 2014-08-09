@@ -2390,15 +2390,19 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ apropos and friends
-
-(defadvice apropos-command (after emacspeak pre act comp)
+(loop
+ for f in
+ '(apropos-command apropos-documentation)
+ do
+ (eval
+`(defadvice ,f (after emacspeak pre act comp)
   "Provide an auditory icon."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'help)))
+  (when t ;(ems-interactive-p )
+    (emacspeak-auditory-icon 'help)))))
 
 (defadvice apropos-follow (after emacspeak pre act comp)
   "Speak the help you displayed."
-  (when (ems-interactive-p )
+  (when t ;(ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-help)))
 
