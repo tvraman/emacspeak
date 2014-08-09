@@ -2322,19 +2322,8 @@ set the current local value to the result.")
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
-(defvar emacspeak-speak-comint-output nil
-  "Temporarily set to T by command
-emacspeak-speak-comint-send-input.")
 
 ;;;###autoload
-(defun emacspeak-speak-comint-send-input ()
-  "Causes output to be spoken i.e., as if comint autospeak were turned
-on."
-  (interactive)
-  
-  (let ((emacspeak-speak-comint-output t))
-  (call-interactively 'comint-send-input)
-  (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{   quiten messages
