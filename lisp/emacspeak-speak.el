@@ -2331,10 +2331,10 @@ emacspeak-speak-comint-send-input.")
   "Causes output to be spoken i.e., as if comint autospeak were turned
 on."
   (interactive)
-  (declare (special emacspeak-speak-comint-output))
-  (setq emacspeak-speak-comint-output t)
+  
+  (let ((emacspeak-speak-comint-output t))
   (call-interactively 'comint-send-input)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{   quiten messages
