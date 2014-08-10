@@ -2529,9 +2529,8 @@ Obsoleted by `previous-buffer' in Emacs 22"
   "Kill current buffer without asking for confirmation."
   (interactive)
   (kill-buffer nil )
-  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line ))
 
 ;;}}}
 ;;{{{  spotting words
