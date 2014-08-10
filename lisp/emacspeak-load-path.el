@@ -63,9 +63,11 @@
 (defadvice call-interactively (before emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0)))
-    (when 
-           (or (ad-get-advice-info-macro f)
-               (string-match "^emacspeak-" (symbol-name f)))
+    (when
+        (and (symbolp f)
+             (or (ad-get-advice-info-macro f)
+                 (string-match "^dtk-" (symbol-name f))
+                 (string-match "^emacspeak-" (symbol-name f))))
       (setq ems-called-interactively-p f))))
 
 (defsubst ems-interactive-p ()
