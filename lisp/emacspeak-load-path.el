@@ -60,7 +60,7 @@
   "Flag recording interactive calls.")
 ;;; Using this in places where called-interactively hits deadlocks :
 
-(defadvice call-interactively (before emacspeak  pre act )
+(defadvice call-interactively (before emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0)))
     (when (ad-get-advice-info-macro f)
