@@ -61,8 +61,10 @@
 ;;; Using this in places where called-interactively hits deadlocks :
 
 (defadvice call-interactively (before emacspeak  pre act comp)
-  "Set our interactive flag."
-  (setq ems-called-interactively-p (ad-get-arg 0)))
+  "Set emacspeak  interactive flag if there is an advice."
+  (let ((f (ad-get-arg 0)))
+    (when f 
+      (setq ems-called-interactively-p f))))
 
 (defsubst ems-interactive-p ()
   "Check our interactive flag.
