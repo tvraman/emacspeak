@@ -290,9 +290,8 @@ If we came from a url-template, reload that template."
 ;;; Handle emacspeak-we-url-executor
 
 (defadvice eww-follow-link (around emacspeak pre act comp)
-  "Respect emacspeak-we-url-executor if set."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button))
+"Respect emacspeak-we-url-executor if set."
+    (emacspeak-auditory-icon 'button)
   (cond
    ((and (ems-interactive-p)
          (boundp 'emacspeak-we-url-executor)
