@@ -216,77 +216,21 @@ reading news."
 
 ;;}}}
 ;;{{{  Newsgroup selection
-
-(defadvice gnus-group-select-group (before emacspeak pre act)
-  "Provide auditory feedback.
- Produce an auditory icon if possible."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice gnus-group-first-unread-group (after emacspeak pre act)
-  "Provide auditory feedback.
- Produce an auditory icon if possible."
+(loop
+ for f in
+ '(gnus-group-select-group gnus-group-first-unread-group
+                           gnus-group-read-group
+                           gnus-group-prev-group gnus-group-next-group
+                           gnus-group-prev-unread-group  gnus-group-next-unread-group
+                           gnus-group-get-new-news-this-group
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+  "Provide auditory feedback."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line)))
-
-(defadvice gnus-group-read-group  (after  emacspeak pre act)
-  "Speak the first article line.
- Produce an auditory icon indicating 
-an object has been opened."
-  (when (ems-interactive-p ) 
-    (emacspeak-auditory-icon 'open-object)
-    (dtk-speak (gnus-summary-article-subject))))
-
-(defadvice gnus-group-prev-group (around emacspeak pre act)
-  "Speak the newsgroup line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point )))
-    (when (ems-interactive-p )
-      (emacspeak-auditory-icon 'select-object))
-    ad-do-it
-    (when (ems-interactive-p )
-      (if (= saved-point (point))
-          (dtk-speak "No more newsgroups ")
-        (emacspeak-speak-line))))
-  ad-return-value)
-
-(defadvice gnus-group-prev-unread-group (around emacspeak pre act)
-  "Speak the newsgroup line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point )))
-    (when (ems-interactive-p )
-      (emacspeak-auditory-icon 'select-object))
-    ad-do-it
-    (when (ems-interactive-p )
-      (if (= saved-point (point))
-          (dtk-speak "No more newsgroups ")
-        (emacspeak-speak-line))))
-  ad-return-value)
-
-(defadvice gnus-group-next-group (around emacspeak pre act)
-  "Speak the newsgroup line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point )))
-    (when (ems-interactive-p ) 
-      (emacspeak-auditory-icon 'select-object))
-    ad-do-it
-    (when (ems-interactive-p )
-      (if (= saved-point (point))
-          (dtk-speak "No more newsgroups")
-        (emacspeak-speak-line)))))
-
-(defadvice gnus-group-next-unread-group (around emacspeak pre act)
-  "Speak the newsgroup line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point )))
-    (when (ems-interactive-p )
-      (emacspeak-auditory-icon 'select-object))
-    ad-do-it
-    (when (ems-interactive-p )
-      (if (= saved-point (point))
-          (dtk-speak "No more newsgroups")
-        (emacspeak-speak-line)))))
+    (emacspeak-speak-line)))))
 
 (defadvice gnus-group-unsubscribe-current-group (after emacspeak pre act)
   "Produce an auditory icon indicating
@@ -309,12 +253,7 @@ this group is being deselected."
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
-(defadvice gnus-group-get-new-news-this-group  (after emacspeak pre act)
-  "Provide auditory feedback.
- Produce an auditory icon if possible."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line)))
+
 
 (defadvice gnus-group-list-groups (after emacspeak pre act)
   "Provide auditory feedback.
