@@ -1286,11 +1286,7 @@ Useful to listen to a buffer without switching  contexts."
 With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point."
   (interactive "P")
-  (declare (special help-buffer-list))
-  (let ((help-buffer
-         (if (boundp 'help-buffer-list)
-             (car help-buffer-list)
-           (get-buffer "*Help*"))))
+  (let ((help-buffer (get-buffer "*Help*")))
     (cond
      (help-buffer
       (save-current-buffer
