@@ -173,7 +173,6 @@ emacspeak-ido.elc \
 emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
-emacspeak-iswitchb.elc \
 emacspeak-jabber.elc \
 emacspeak-jde.elc \
 emacspeak-js2.elc \
@@ -406,7 +405,6 @@ emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
-emacspeak-iswitchb.elc: emacspeak-iswitchb.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
