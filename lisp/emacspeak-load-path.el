@@ -80,7 +80,8 @@ interactive command. Turn off the flag once used."
           (result nil))
       (setq result (or (eq caller caller-advice) ; called from our advice
                        (eq ems-called-interactively-p caller ) ; call-interactively call
-                       (eq this-command caller)))
+                       ;(eq this-command caller)
+                       ))
       (when result 
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
