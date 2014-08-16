@@ -52,22 +52,27 @@
 
 (setq byte-compile-warnings t)
 
-;;{{{ Implementation:
+;;{{{ Interactive Check Implementation:
+
 ;;; Notes:
-;;; Comint completion advice doesn't work correctly.
-;;; This implementation below appears to work for 90% of emacspeak.
+;;; This implementation below appears to work for 99% of emacspeak.
+
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
-;;; Using this in places where called-interactively hits deadlocks :
+
+
+;; Record interactive calls:
 
 (defadvice call-interactively (before emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0)))
     (when
         (and (symbolp f)
-             (or (ad-get-advice-info-macro f)
-                 (string-match "^dtk-" (symbol-name f))
-                 (string-match "^emacspeak-" (symbol-name f))))
+             (or
+              (ad-get-advice-info-macro f) ; tighten this to just
+                                        ; emacspeak
+              (string-match "^dtk-" (symbol-name f))
+              (string-match "^emacspeak-" (symbol-name f))))
       (setq ems-called-interactively-p f))))
 
 (defsubst ems-interactive-p ()
@@ -105,10 +110,6 @@ interactive command. Turn off the flag once used."
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 
-
-
 ;;}}}
-
-
 
 (provide 'emacspeak-load-path)
