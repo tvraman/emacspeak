@@ -62,7 +62,7 @@
 
 
 ;; Record interactive calls:
-
+; (ad-find-some-advice s 'any  "emacspeak")
 (defadvice call-interactively (before emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0)))
