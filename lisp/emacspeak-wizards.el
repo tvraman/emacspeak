@@ -2710,13 +2710,6 @@ Use with caution."
 ;;{{{ google hits
 
 ;;;###autoload
-(defun emacspeak-wizards-google-squared ()
-  "Invoke Google Squared search."
-  (interactive)
-  (emacspeak-url-template-open
-   (emacspeak-url-template-get "Answers from Google Squared")))
-
-;;;###autoload
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
