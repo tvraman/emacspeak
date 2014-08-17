@@ -62,17 +62,27 @@
 
 
 ;; Record interactive calls:
-; (ad-find-some-advice s 'any  "emacspeak")
+
+(defsubst ems-record-interactive-p (f)
+  "Predicate to test if we need to record interactive calls of
+this function. Memoizes result for future use by placing a
+property 'emacspeak on the function."
+  (cond
+   ((get f 'emacspeak) t)
+   ((and
+     (symbolp f)
+     (or
+      (string-match "^dtk-" (symbol-name f))
+      (string-match "^emacspeak-" (symbol-name f))))
+    (put f 'emacspeak t))
+   ((ad-find-some-advice f 'any  "emacspeak")
+    (put f 'emacspeak t))
+   (t nil)))
+
 (defadvice call-interactively (before emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0)))
-    (when
-        (and (symbolp f)
-             (or
-              (ad-get-advice-info-macro f) ; tighten this to just
-                                        ; emacspeak
-              (string-match "^dtk-" (symbol-name f))
-              (string-match "^emacspeak-" (symbol-name f))))
+    (when (ems-record-interactive-p f)
       (setq ems-called-interactively-p f))))
 
 (defsubst ems-interactive-p ()
