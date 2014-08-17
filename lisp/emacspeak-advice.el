@@ -1610,6 +1610,13 @@ Indicate change of selection with an auditory icon
   (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
+
+
+;;; Silence help for help 
+(defadvice help-window-display-message (around emacspeak pre act comp)
+  (let ((emacspeak-speak-messages  nil))
+    ad-do-it))
+
 (loop
  for f in
  '(describe-function describe-variable describe-key)
