@@ -68,12 +68,11 @@
 this function. Memoizes result for future use by placing a
 property 'emacspeak on the function."
   (cond
+   ((not (symbolp f)) nil)
    ((get f 'emacspeak) t)
-   ((and
-     (symbolp f)
-     (or
-      (string-match "^dtk-" (symbol-name f))
-      (string-match "^emacspeak-" (symbol-name f))))
+   ((or
+     (string-match "^dtk-" (symbol-name f))
+     (string-match "^emacspeak-" (symbol-name f)))
     (put f 'emacspeak t))
    ((ad-find-some-advice f 'any  "emacspeak")
     (put f 'emacspeak t))
