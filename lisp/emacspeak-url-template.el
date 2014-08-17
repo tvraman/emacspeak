@@ -790,16 +790,7 @@ from English to German.")
       (list "subform_ctrl" "res" "nav")
       url 'speak)))
 
-(emacspeak-url-template-define
- "1Box Google"
- "http://www.google.com/search?q=%s"
- (list 'gweb-google-autocomplete)
- nil
- "Show 1box result from Google. Actually now shows just the results."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "res"
-      url 'speak)))
+
 
 (emacspeak-url-template-define
  "Google Hits"

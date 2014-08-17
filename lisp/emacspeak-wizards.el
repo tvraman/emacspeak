@@ -2708,12 +2708,6 @@ Use with caution."
 
 ;;}}}
 ;;{{{ google hits
-;;;###autoload
-(defun emacspeak-wizards-google-1box ()
-  "Invoke Google 1Box search."
-  (interactive)
-  (emacspeak-url-template-open
-   (emacspeak-url-template-get "1Box Google")))
 
 ;;;###autoload
 (defun emacspeak-wizards-google-squared ()
