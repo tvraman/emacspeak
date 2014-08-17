@@ -70,11 +70,9 @@ property 'emacspeak on the function."
   (cond
    ((not (symbolp f)) nil)
    ((get f 'emacspeak) t)
-   ((or
-     (string-match "^dtk-" (symbol-name f))
-     (string-match "^emacspeak-" (symbol-name f)))
-    (put f 'emacspeak t))
    ((ad-find-some-advice f 'any  "emacspeak")
+    (put f 'emacspeak t))
+   ((string-match "^\\(dt\\|emacspea\\)k" (symbol-name f))
     (put f 'emacspeak t))
    (t nil)))
 
