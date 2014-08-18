@@ -102,7 +102,6 @@
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Compiling buffer")))
 
-
 (defadvice flycheck-error-list-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -111,17 +110,7 @@
 
 ;;  "flycheck-copy-messages-as-kill"
 
-
-
-
-
 ;;  "flycheck-google-messages"
-
-
-
-
-
-
 
 ;;}}}
 (provide 'emacspeak-flycheck)

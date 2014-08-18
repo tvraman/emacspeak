@@ -530,7 +530,7 @@ Optional interactive prefix arg forces a refresh."
       (setq buffer-undo-list t)
       (format (buffer-name buffer))
       (center-line)
-      ; Nuke initial '/' in id 
+                                        ; Nuke initial '/' in id 
       (loop
        for r in results
        and i from 1

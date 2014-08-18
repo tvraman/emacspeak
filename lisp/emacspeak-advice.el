@@ -191,8 +191,6 @@
      "Speak sentence after moving."
      (when (ems-interactive-p ) (emacspeak-speak-sentence )))))
 
-
-
 (loop
  for f in
  '(forward-sexp backward-sexp)
@@ -210,7 +208,7 @@
             (t (emacspeak-speak-line))))
        ad-do-it)
      ad-return-value)))
-          
+
 (loop
  for f in
  '(forward-paragraph backward-paragraph)
@@ -1093,7 +1091,7 @@ Produce an auditory icon if possible."
           'rear-sticky nil)))
       (when (and
              comint-last-output-start
-              emacspeak-comint-autospeak 
+             emacspeak-comint-autospeak 
              (or monitor (eq (window-buffer) buffer)))
         (emacspeak-speak-region comint-last-output-start (point )))
       ad-return-value)))
@@ -1610,7 +1608,6 @@ Indicate change of selection with an auditory icon
   (when (ems-interactive-p )
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
-
 
 ;;; Silence help for help 
 (defadvice help-window-display-message (around emacspeak pre act comp)
@@ -2401,10 +2398,10 @@ Produce auditory icons if possible."
  '(apropos-command apropos-documentation)
  do
  (eval
-`(defadvice ,f (after emacspeak pre act comp)
-  "Provide an auditory icon."
-  (when t ;(ems-interactive-p )
-    (emacspeak-auditory-icon 'help)))))
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide an auditory icon."
+     (when t ;(ems-interactive-p )
+       (emacspeak-auditory-icon 'help)))))
 
 (defadvice apropos-follow (after emacspeak pre act comp)
   "Speak the help you displayed."

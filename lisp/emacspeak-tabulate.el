@@ -144,9 +144,9 @@ Fields are assumed to be delimited by whitespace. "
     (emacspeak-voiceify-rectangle
      tl br 
      (intern (completing-read
-            (format "Personality for column %s from  %s through %s"
-                    header (- tl start) (- tr start))
-            personality-table  nil t )))
+              (format "Personality for column %s from  %s through %s"
+                      header (- tl start) (- tr start))
+              personality-table  nil t )))
     (and mark-headers
          (emacspeak-put-text-property-on-rectangle
           tl br

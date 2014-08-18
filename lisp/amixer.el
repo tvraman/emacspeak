@@ -131,7 +131,7 @@
        (format
         "amixer -c %s controls | sed -e s/\\'//g"
         amixer-card)
-                     (current-buffer))
+       (current-buffer))
       (goto-char (point-min))
       (while (not (eobp))
         (setq fields
@@ -239,8 +239,8 @@ Interactive prefix arg refreshes cache."
        (format
         "amixer -c %s cset numid=%s %s"
         amixer-card
-               (amixer-control-numid control)
-               update))
+        (amixer-control-numid control)
+        update))
       (message
        "updated %s to %s"
        (amixer-control-name control)

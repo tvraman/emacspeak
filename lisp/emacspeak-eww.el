@@ -290,8 +290,8 @@ If we came from a url-template, reload that template."
 ;;; Handle emacspeak-we-url-executor
 
 (defadvice eww-follow-link (around emacspeak pre act comp)
-"Respect emacspeak-we-url-executor if set."
-    (emacspeak-auditory-icon 'button)
+  "Respect emacspeak-we-url-executor if set."
+  (emacspeak-auditory-icon 'button)
   (cond
    ((and (ems-interactive-p)
          (boundp 'emacspeak-we-url-executor)
@@ -342,7 +342,7 @@ If we came from a url-template, reload that template."
            (if emacspeak-eww-masquerade "on" "off"))
   (emacspeak-auditory-icon
    (if emacspeak-eww-masquerade 'on 'off)))
-                                    
+
 (defcustom  emacspeak-eww-masquerade-as
   (format "User-Agent: %s %s %s\r\n"
           "Mozilla/5.0 (X11; Linux x86_64)"
@@ -358,21 +358,16 @@ If we came from a url-template, reload that template."
   (cond
    ((and emacspeak-eww-masquerade
          (eq browse-url-browser-function 'eww-browse-url))
-         (setq ad-return-value emacspeak-eww-masquerade-as))
+    (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
-                                    
-                                    
-  
-  
-           
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                     emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
-  ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
+                    emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
+                                        ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)

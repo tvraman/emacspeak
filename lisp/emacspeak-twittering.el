@@ -177,9 +177,9 @@
 
 (loop for f in
       '(twittering-get-and-render-timeline
-      twittering-http-default-sentinel
-      twittering-http-post-default-sentinel
-      twittering-retrieve-single-tweet-sentinel)
+        twittering-http-default-sentinel
+        twittering-http-post-default-sentinel
+        twittering-retrieve-single-tweet-sentinel)
       do
       (eval
        `(defadvice ,f  (around emacspeak pre act comp)

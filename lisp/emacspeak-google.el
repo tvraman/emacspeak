@@ -471,7 +471,7 @@ This variable is buffer-local.")
   (interactive)
   (declare (special emacspeak-google-sign-out-url))
   (browse-url emacspeak-google-sign-out-url))
-         
+
 ;;}}}
 ;;{{{  keymap
 ;;;###autoload

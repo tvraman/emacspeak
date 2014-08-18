@@ -68,16 +68,15 @@
     (when metadata (ems-voiceify-string metadata 'voice-annotate))
     (dtk-speak
      (concat (ems-company-current) " " metadata))))    
-           
 
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
-    (case command
-      (pre-command (emacspeak-company-speak-this))
-      (post-command (emacspeak-company-speak-this))
-      (hide nil)))
+  (case command
+    (pre-command (emacspeak-company-speak-this))
+    (post-command (emacspeak-company-speak-this))
+    (hide nil)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
@@ -105,9 +104,9 @@
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest ignore) (emacspeak-auditory-icon 'help)))
-(add-hook
- 'company-completion-finished-hook
- #'(lambda (&rest ignore) (emacspeak-auditory-icon 'close-object))))
+  (add-hook
+   'company-completion-finished-hook
+   #'(lambda (&rest ignore) (emacspeak-auditory-icon 'close-object))))
 
 ;;}}}
 (emacspeak-company-setup)
