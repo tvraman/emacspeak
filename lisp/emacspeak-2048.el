@@ -59,8 +59,7 @@
 (defstruct emacspeak-2048-game-state
   board score
   rows cols 
-    )
-
+  )
 
 (defvar emacspeak-2048-game-stack nil
   "Stack of saved states.")
@@ -78,7 +77,6 @@
   (emacspeak-auditory-icon 'mark-object)
   (message "Saved state."))
 
-
 (defun emacspeak-2048-pop-state ()
   "Reset state from stack."
   (interactive)
@@ -88,10 +86,10 @@
    (t
     (let ((state (pop emacspeak-2048-game-stack)))
       (setq
-     *2048-board* (emacspeak-2048-game-state-board state)
-     *2048-score* (emacspeak-2048-game-state-score state)
-     *2048-rows* (emacspeak-2048-game-state-rows state)
-*2048-columns* (emacspeak-2048-game-state-cols state))
+       *2048-board* (emacspeak-2048-game-state-board state)
+       *2048-score* (emacspeak-2048-game-state-score state)
+       *2048-rows* (emacspeak-2048-game-state-rows state)
+       *2048-columns* (emacspeak-2048-game-state-cols state))
       (2048-print-board)
       (emacspeak-auditory-icon 'yank-object)
       (message "Popped: Score is now %s" *2048-score*)))))
@@ -108,12 +106,12 @@
   "Speak board column-wise."
   (interactive)
   (declare (special *2048-board*      *2048-columns* *2048-rows*))
-(dtk-speak-list
+  (dtk-speak-list
    (loop for col from 0 to (- *2048-columns*  1)
-      collect 
-      (loop for row from 0 to (- *2048-rows*  1)
-            collect
-            (aref  *2048-board*  (+ col (* 4 row)))))
+         collect 
+         (loop for row from 0 to (- *2048-rows*  1)
+               collect
+               (aref  *2048-board*  (+ col (* 4 row)))))
    *2048-rows*))
 
 (loop 
@@ -126,13 +124,11 @@
      (when (ems-interactive-p)
        (cond
         ((some #'identity *2048-combines-this-move*) (emacspeak-auditory-icon 'item))
-       (t (emacspeak-auditory-icon 'close-object)))
+        (t (emacspeak-auditory-icon 'close-object)))
        (emacspeak-2048-speak-board)
        (cond
         ((2048-game-was-won) (emacspeak-auditory-icon 'task-done))
         ((2048-game-was-lost) (emacspeak-auditory-icon 'alarm)))))))
-
-
 
 (defun emacspeak-2048-score ()
   "Show total on board."

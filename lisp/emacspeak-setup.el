@@ -101,7 +101,6 @@ pronunciation dictionaries are stored. ")
   "WowDog"
   "Code name of present release.")
 
-
 ;;;###autoload
 (defconst emacspeak-version
   (format

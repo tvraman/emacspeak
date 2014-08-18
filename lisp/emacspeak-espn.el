@@ -75,7 +75,6 @@
           emacspeak-espn-api-key)
   "URL end-point for retrieving list of sports.")
 
-
 ;;}}}
 (provide 'emacspeak-espn)
 ;;{{{ end of file

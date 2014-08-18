@@ -179,7 +179,6 @@ Archiving is useful when synchronizing feeds across multiple machines."
                  (length feeds) (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
-
 ;;;###autoload
 
 (defun emacspeak-feeds-fastload-feeds ()

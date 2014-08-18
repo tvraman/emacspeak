@@ -223,14 +223,14 @@ reading news."
                            gnus-group-prev-group gnus-group-next-group
                            gnus-group-prev-unread-group  gnus-group-next-unread-group
                            gnus-group-get-new-news-this-group
-   )
+                           )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line)))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 (defadvice gnus-group-unsubscribe-current-group (after emacspeak pre act)
   "Produce an auditory icon indicating
@@ -252,8 +252,6 @@ this group is being deselected."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
-
-
 
 (defadvice gnus-group-list-groups (after emacspeak pre act)
   "Provide auditory feedback.

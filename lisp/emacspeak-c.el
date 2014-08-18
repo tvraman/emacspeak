@@ -79,11 +79,11 @@
 ;;{{{  advice things to speak
 ;;{{{  Electric chars speak
 (defadvice c-electric-semi&comma (after emacspeak pre act )
-    "Speak the line when a statement is completed."
-    (when (ems-interactive-p )
-      (cond
-       ((= last-input-event ?,) (dtk-speak " comma "))
-       (t (emacspeak-speak-line )))))
+  "Speak the line when a statement is completed."
+  (when (ems-interactive-p )
+    (cond
+     ((= last-input-event ?,) (dtk-speak " comma "))
+     (t (emacspeak-speak-line )))))
 
 (unless
     (and (boundp 'post-self-insert-hook)

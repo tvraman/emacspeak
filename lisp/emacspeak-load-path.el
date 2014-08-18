@@ -60,7 +60,6 @@
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
 
-
 ;; Record interactive calls:
 
 (defsubst ems-record-interactive-p (f)
@@ -96,7 +95,6 @@ interactive command. Turn off the flag once used."
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
-
 
 (defsubst ems-debug-interactive-p ()
   "Check our interactive flag.
