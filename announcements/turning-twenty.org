@@ -1,0 +1,72 @@
+* Emacspeak At Twenty: Looking Back, Looking Forward
+
+** The Beginning: Using UNIX With Speech Output In 1994
+
+** Key Enabler: Emacs And Lisp Advice
+
+** Emacspeak And Authoring Documents 
+
+** Emacspeak And Software Development 
+
+** Emacspeak And The Early Days Of The Web
+
+** Audio Formatting: Generalizing Aural CSS 
+
+** Conversational Gestures For The Audio Desktop 
+
+
+** The RESTful Web:  Web Wizards And URL Templates For Faster Access
+
+** Accessing Media Streams 
+
+** Leveraging Computational Tools: From R To IPython Notebooks 
+
+
+
+** Integrating With Window Managers: SawFish And StumpWM
+
+
+** Bookshare And Epub: Ubiquitous Access To Books 
+
+
+
+
+** Mashing It Up: Leveraging Evolving Web APIs
+
+** EMail, GMail And Instant Messaging Using Open Protocols 
+
+
+
+** References 
+
+** Conclusion 
+
+#+TITLE: Emacspeak At Twenty: Looking Back, Looking Forward
+#+DATE: <2014-08-19 Tue>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 24.4.50.1 (Org mode 8.2.6)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+LATEX_HEADER:
