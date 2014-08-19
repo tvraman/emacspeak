@@ -39,6 +39,8 @@
 
 ** References 
 
+  - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]: Klewer Publishing, 1997.
+   
 ** Conclusion 
 
 #+TITLE: Emacspeak At Twenty: Looking Back, Looking Forward
