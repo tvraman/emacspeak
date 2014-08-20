@@ -847,11 +847,12 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (loop
  for  tag in
- '(h1 h2 h3 div
-      ul ol dl
-      li dt dd p
-      form blockquote
-      table )
+ '(h1 h2 h3 div ; sectioning 
+      ul ol dl ; Lists 
+      li dt dd p ; block-level: bullets, paras 
+      form blockquote ; block-level
+      b it em span ; in-line
+      th tr table )
  do
  (eval
   `
