@@ -1,5 +1,15 @@
 * Emacspeak At Twenty: Looking Back, Looking Forward
 
+** Introduction
+
+One afternoon in  the third week of September 1994, 
+I started writing myself a small Emacs extension using Lisp
+Advice to make Emacs speak to me so I could use a Linux laptop. 
+As Emacspeak turns twenty, this article is both a quick look back
+over the twenty years of lessons learned, as well as a  glimpse
+into what might be possible as we evolve to a  world of
+connected, ubiquitous computing.
+
 ** The Beginning: Using UNIX With Speech Output In 1994
 
 As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
