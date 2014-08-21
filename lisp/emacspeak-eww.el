@@ -851,7 +851,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       ul ol dl ; Lists 
       li dt dd p ; block-level: bullets, paras 
       form blockquote ; block-level
-      b it em span ; in-line
+      a b it em span ; in-line
       th tr table )
  do
  (eval
