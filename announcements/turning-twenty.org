@@ -2,7 +2,52 @@
 
 ** The Beginning: Using UNIX With Speech Output In 1994
 
+As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
+(SunOS) from a 486 PC running IBM Screenreader.  There was no
+means of directly using a UNIX box at the time; after graduating,
+I continued doing the same for about six months at Digital
+Research in Cambridge --- the only difference being that my
+desktop workstation was now a DEC-Alpha.  Throughout this time,
+Emacs was my environment of choice for everything from software
+development and Internet access to writing documents.
+
+
+In fall of 1994, I wanted to start using a laptop running Linux;
+a colleague (Dave Wecker) was retiring his 386mhz laptop that already had Linux
+on it and I decided to inherit it. But there was only one problem
+--- until then I had always accessed a UNIX machine from a
+secondary PC running a screenreader --- something that would clearly make
+no sense with a laptop!
+
+A few weeks earlier, another colleague Win Treese, had pointed
+out the interesting possibilities presented by package [[Advice][Advice]]
+that had just been added to Emacs 19.23 --- he had sent around a
+small snippet of code that magically modified Emacs'
+version-control primitive to first create an /RCS/ directory if
+none existed before adding a file to version control. When I
+speculated about using the Linux laptop, Dave remarked --- you
+live in Emacs anyway --- why dont you just make it talk!
+
+Connecting the dots, I decided to write myself a tool that
+augmented Emacs' default behaviour to /speak/ --- within about 4
+hours, version 0.01 of Emacspeak was up and running.
+
+
 ** Key Enabler: Emacs And Lisp Advice
+
+It took me a couple of weeks to fully recognize the potential of
+what I had been able to build with Emacs Lisp Advice. Until then,
+I had used screen-readers to listen to the contents of the visual
+display --- but Lisp Advice let me do a lot more --- it enabled
+Emacspeak to generate highly context-specific spoken feedback,
+augmented by a set of auditory icons.  I later formalized this
+design under the name [[Speech-Enabled Applications]].
+
+For a detailed overview of the architecture of Emacspeak, see the
+[[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] in the book [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] from O'Reilly.
+
+** Key Component: Text To Speech (TTS)
+
 
 ** Emacspeak And Authoring Documents 
 
@@ -39,7 +84,13 @@
 
 ** References 
 
-  - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]: Klewer Publishing, 1997.
+  - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]::  Klewer Publishing, 1997.
+  - Advice  ::   An Emacs Lisp package by    [[http://www.isi.edu/~hans/][Hans Chalupsky]] that
+                 became  part of Emacs 19.23.
+  - [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] :: An overview of the Emacspeak architecture.
+  - <<[[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications>>]] :: Emacspeak at CHI 1996.
+
+
    
 ** Conclusion 
 

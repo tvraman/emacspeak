@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Emacspeak At Twenty: Looking Back, Looking Forward</title>
+<!-- 2014-08-20 Wed 17:54 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Emacspeak At Twenty: Looking Back, Looking Forward</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Emacspeak At Twenty: Looking Back, Looking Forward</a>
+<ul>
+<li><a href="#sec-1-1">1.1. The Beginning: Using UNIX With Speech Output In 1994</a></li>
+<li><a href="#sec-1-2">1.2. Key Enabler: Emacs And Lisp Advice</a></li>
+<li><a href="#sec-1-3">1.3. Key Component: Text To Speech (TTS)</a></li>
+<li><a href="#sec-1-4">1.4. Emacspeak And Authoring Documents</a></li>
+<li><a href="#sec-1-5">1.5. Emacspeak And Software Development</a></li>
+<li><a href="#sec-1-6">1.6. Emacspeak And The Early Days Of The Web</a></li>
+<li><a href="#sec-1-7">1.7. Audio Formatting: Generalizing Aural CSS</a></li>
+<li><a href="#sec-1-8">1.8. Conversational Gestures For The Audio Desktop</a></li>
+<li><a href="#sec-1-9">1.9. The RESTful Web:  Web Wizards And URL Templates For Faster Access</a></li>
+<li><a href="#sec-1-10">1.10. Accessing Media Streams</a></li>
+<li><a href="#sec-1-11">1.11. Leveraging Computational Tools: From R To IPython Notebooks</a></li>
+<li><a href="#sec-1-12">1.12. Integrating With Window Managers: SawFish And StumpWM</a></li>
+<li><a href="#sec-1-13">1.13. Bookshare And Epub: Ubiquitous Access To Books</a></li>
+<li><a href="#sec-1-14">1.14. Mashing It Up: Leveraging Evolving Web APIs</a></li>
+<li><a href="#sec-1-15">1.15. EMail, GMail And Instant Messaging Using Open Protocols</a></li>
+<li><a href="#sec-1-16">1.16. References</a></li>
+<li><a href="#sec-1-17">1.17. Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Emacspeak At Twenty: Looking Back, Looking Forward</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> The Beginning: Using UNIX With Speech Output In 1994</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+As a graduate student at <a href="http://www.cs.cornell.edu/info/people/raman/raman.html">Cornell</a>,  I accessed my Unix workstation
+(SunOS) from a 486 PC running IBM Screenreader.  There was no
+means of directly using a UNIX box at the time; after graduating,
+I continued doing the same for about six months at Digital
+Research in Cambridge &#x2014; the only difference being that my
+desktop workstation was now a DEC-Alpha.  Throughout this time,
+Emacs was my environment of choice for everything from software
+development and Internet access to writing documents.
+</p>
+
+
+<p>
+In fall of 1994, I wanted to start using a laptop running Linux;
+a colleague (Dave Wecker) was retiring his 386mhz laptop that already had Linux
+on it and I decided to inherit it. But there was only one problem
+&#x2014; until then I had always accessed a UNIX machine from a
+secondary PC running a screenreader &#x2014; something that would clearly make
+no sense with a laptop!
+</p>
+
+<p>
+A few weeks earlier, another colleague Win Treese, had pointed
+out the interesting possibilities presented by package <a href="#Advice">Advice</a>
+that had just been added to Emacs 19.23 &#x2014; he had sent around a
+small snippet of code that magically modified Emacs'
+version-control primitive to first create an <i>RCS</i> directory if
+none existed before adding a file to version control. When I
+speculated about using the Linux laptop, Dave remarked &#x2014; you
+live in Emacs anyway &#x2014; why dont you just make it talk!
+</p>
+
+<p>
+Connecting the dots, I decided to write myself a tool that
+augmented Emacs' default behaviour to <i>speak</i> &#x2014; within about 4
+hours, version 0.01 of Emacspeak was up and running.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Key Enabler: Emacs And Lisp Advice</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+It took me a couple of weeks to fully recognize the potential of
+what I had been able to build with Emacs Lisp Advice. Until then,
+I had used screen-readers to listen to the contents of the visual
+display &#x2014; but Lisp Advice let me do a lot more &#x2014; it enabled
+Emacspeak to generate highly context-specific spoken feedback,
+augmented by a set of auditory icons.  I later formalized this
+design under the name <i>Speech-Enabled Applications</i>.
+For a detailed overview of
+the architecture of Emacspeak, see the
+<a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a>
+in the book <a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">Beautiful Code</a> from O'Reilly.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Key Component: Text To Speech (TTS)</h3>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Emacspeak And Authoring Documents</h3>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Emacspeak And Software Development</h3>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Emacspeak And The Early Days Of The Web</h3>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Audio Formatting: Generalizing Aural CSS</h3>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Conversational Gestures For The Audio Desktop</h3>
+</div>
+
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> The RESTful Web:  Web Wizards And URL Templates For Faster Access</h3>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Accessing Media Streams</h3>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Leveraging Computational Tools: From R To IPython Notebooks</h3>
+</div>
+
+
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Integrating With Window Managers: SawFish And StumpWM</h3>
+</div>
+
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Bookshare And Epub: Ubiquitous Access To Books</h3>
+</div>
+
+
+
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Mashing It Up: Leveraging Evolving Web APIs</h3>
+</div>
+
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15"><span class="section-number-3">1.15</span> EMail, GMail And Instant Messaging Using Open Protocols</h3>
+</div>
+
+
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16"><span class="section-number-3">1.16</span> References</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li><a href="http://emacspeak.sourceforge.net/raman/aui/aui.html">Auditory User Interfaces</a>::  Klewer Publishing, 1997.
+</li>
+<li id="Emacs Lisp"><a id="Advice" name="Advice"></a>  by <a href="http://www.isi.edu/~hans/">Hans Chalupsky</a>.
+</li>
+<li id="<a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">Beautiful Code</a>">An overview of the Emacspeak architecture.
+</li>
+<li id="<a id="http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/-Speech-Enabled-Applications" name="http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/-Speech-Enabled-Applications"></a>]]">Emacspeak at CHI 1996.
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17"><span class="section-number-3">1.17</span> Conclusion</h3>
+<div class="outline-text-3" id="text-1-17">
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-08-19 Tue&gt;</span></span></p>
+<p class="author">Author: raman</p>
+<p class="date">Created: 2014-08-20 Wed 17:54</p>
+<p class="creator">Emacs 24.4.50.1 (Org mode 8.2.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
