@@ -1204,7 +1204,7 @@ name of the list.")
  "CNN Money"
  #'(lambda (url)
      (emacspeak-we-extract-by-id
-      "wsod_marketsOverview" 
+      "cnnBody" ;"wsod_marketsOverview" 
       url 'speak)))
 
 (emacspeak-url-template-define
