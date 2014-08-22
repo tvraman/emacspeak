@@ -667,13 +667,14 @@ widget before summarizing."
                     widget-field-keymap widget-text-keymap))
   (loop
    for map in
-   '( widget-field-keymap widget-text-keymap)
+   '(widget-keymap  widget-field-keymap widget-text-keymap)
    do
+   (when  (keymapp map)
    (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
    (define-key map  "\C-e\C-e" 'widget-end-of-line)
    (define-key map "\M-h" 'emacspeak-widget-help)
    (define-key map "\M-p" 'emacspeak-widget-summarize-parent)
-   (define-key map "\M-\C-m" 'emacspeak-widget-update-from-minibuffer)))
+   (define-key map "\M-\C-m" 'emacspeak-widget-update-from-minibuffer))))
 
 ;;}}}
 ;;{{{ augment widgets 
