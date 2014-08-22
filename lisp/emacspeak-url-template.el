@@ -371,12 +371,11 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Google Lite"
  "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s"
- (list "Google: ")
+ (list 'gweb-google-autocomplete)
  nil
  "Light weight Google search (experimental)."
  #'(lambda (url)
-     (emacspeak-webutils-without-xsl
-      (browse-url url))))
+     (emacspeak-we-extract-by-role  "main" url 'speak)))
 
 ;;}}}
 ;;{{{ market summary from google finance
