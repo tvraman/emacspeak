@@ -407,7 +407,7 @@ If we came from a url-template, reload that template."
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
-     ("KN" emacspeak-eww-next-element-from-history)
+     ("K" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
      ("P" emacspeak-eww-previous-element-from-history)
      ("Q" emacspeak-kill-buffer-quietly)
@@ -935,6 +935,21 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
    ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
     (emacspeak-eww-previous-element (intern (car emacspeak-eww-element-navigation-history))))
    (t (error "No elements in navigation history"))))
+
+
+(defun emacspeak-eww-next-element-like-this (element)
+  "Moves to next element like current.
+Prompts if content at point is enclosed by multiple elements."
+  (interactive
+   (list
+    (let ((eww-tags (text-properties-at (point))))
+)
+  (declare (special emacspeak-eww-element-navigation-history))
+  (cond
+   ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
+    (emacspeak-eww-next-element (intern (car emacspeak-eww-element-navigation-history))))
+   (t (error "No elements in navigation history")))) ))
+
 
 (loop
  for  f in
