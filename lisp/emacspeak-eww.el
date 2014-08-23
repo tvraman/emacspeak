@@ -863,7 +863,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                        (min (point-max) (1+ start) )start))
             (end (if (> (point) start) (1- (point)) (point))))
         (put-text-property start end
-                           (quote ,tag) t)
+                           (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3))
           (put-text-property start end 'h t)))))))
 
