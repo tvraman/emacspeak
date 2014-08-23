@@ -370,7 +370,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Lite"
- "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s"
+ "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s&num=25"
  (list 'gweb-google-autocomplete)
  nil
  "Light weight Google search (experimental)."
