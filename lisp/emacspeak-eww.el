@@ -406,7 +406,7 @@ If we came from a url-template, reload that template."
      ("C" eww-view-dom-having-class)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
-     ("I " eww-view-dom-having-id)
+     ("I" eww-view-dom-having-id)
      ("KN" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
      ("P" emacspeak-eww-previous-element-from-history)
