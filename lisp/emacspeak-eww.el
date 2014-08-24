@@ -847,12 +847,12 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (loop
  for  tag in
- '(h1 h2 h3 div                    ; sectioning 
-      ul ol dl                     ; Lists 
-      li dt dd p                   ; block-level: bullets, paras 
+ '(h1 h2 h3 div                    ; sectioning
+      ul ol dl                     ; Lists
+      li dt dd p                   ; block-level: bullets, paras
       form blockquote              ; block-level
       a b it em span               ; in-line
-      br hr                        ; separators 
+      br hr                        ; separators
       th tr table )
  do
  (eval
@@ -937,51 +937,38 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (emacspeak-eww-previous-element (intern (car emacspeak-eww-element-navigation-history))))
    (t (error "No elements in navigation history"))))
 
-
 (defsubst emacspeak-eww-here-tags ()
   "Return list of enclosing tags at point."
   (let* ((eww-tags (text-properties-at (point))))
-    (loop 
-      for i from 0 to (1- (length eww-tags)) by 2
-      if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag )
-      collect (nth i eww-tags))))
+    (loop
+     for i from 0 to (1- (length eww-tags)) by 2
+     if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag )
+     collect (nth i eww-tags))))
+
+(defsubst emacspeak-eww-read-tags-like-this()
+  "Read tag for like-this navigation."
+  (let ((tags (emacspeak-eww-here-tags)))
+    (cond
+     ((null tags) (error "No enclosing element here."))
+     ((= 1 (length tags)) (first tag))
+     (t
+      (completing-read "Jump to: " tags)))))
+
+
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
-   (list
-    (let* ((tags (emacspeak-eww-here-tags)))
-      (cond
-       ((null tags) (error "No enclosing element here."))
-       ((= 1 (length tags)) (first tag))
-       (t 
-        (completing-read 
-         "Jump to: " tags
-         nil 'must-match
-         nil 'emacspeak-eww-element-navigation-history))))))
-  (declare (special  emacspeak-eww-element-navigation-history))
+   (list (emacspeak-eww-read-tags-like-this)))
   (emacspeak-eww-next-element (intern element)))
-
 
 (defun emacspeak-eww-previous-element-like-this (element)
   "Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
-   (list
-    (let* ((tags (emacspeak-eww-here-tags)))
-      (cond
-       ((null tags) (error "No enclosing element here."))
-       ((= 1 (length tags)) (first tag))
-       (t 
-        (completing-read 
-         "Jump to: " tags
-         nil 'must-match
-         nil 'emacspeak-eww-element-navigation-history))))))
-  (declare (special  emacspeak-eww-element-navigation-history))
+   (list (emacspeak-eww-read-tags-like-this)))
   (emacspeak-eww-previous-element (intern element)))
-
-
 
 (loop
  for  f in
