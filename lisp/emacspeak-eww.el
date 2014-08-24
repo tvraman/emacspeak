@@ -955,7 +955,12 @@ Prompts if content at point is enclosed by multiple elements."
       (cond
        ((null tags) (error "No enclosing element here."))
        ((= 1 (length tags)) (first tag))
-       (t (completing-read "Jump to: " tags))))))
+       (t 
+        (completing-read 
+         "Jump to: " tags
+         nil 'must-match
+         nil 'emacspeak-eww-element-navigation-history))))))
+  (declare (special  emacspeak-eww-element-navigation-history))
   (emacspeak-eww-next-element (intern element)))
 
 
@@ -968,7 +973,12 @@ Prompts if content at point is enclosed by multiple elements."
       (cond
        ((null tags) (error "No enclosing element here."))
        ((= 1 (length tags)) (first tag))
-       (t (completing-read "Jump to: " tags))))))
+       (t 
+        (completing-read 
+         "Jump to: " tags
+         nil 'must-match
+         nil 'emacspeak-eww-element-navigation-history))))))
+  (declare (special  emacspeak-eww-element-navigation-history))
   (emacspeak-eww-previous-element (intern element)))
 
 
