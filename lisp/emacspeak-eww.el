@@ -950,25 +950,22 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((tags (emacspeak-eww-here-tags)))
     (cond
      ((null tags) (error "No enclosing element here."))
-     ((= 1 (length tags)) (first tag))
-     (t
-      (completing-read "Jump to: " tags)))))
-
-
+     ((= 1 (length tags))  (first tags))
+     (t (intern (completing-read "Jump to: " tags))))))
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
    (list (emacspeak-eww-read-tags-like-this)))
-  (emacspeak-eww-next-element (intern element)))
+  (emacspeak-eww-next-element  element))
 
 (defun emacspeak-eww-previous-element-like-this (element)
   "Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
    (list (emacspeak-eww-read-tags-like-this)))
-  (emacspeak-eww-previous-element (intern element)))
+  (emacspeak-eww-previous-element  element))
 
 (loop
  for  f in
