@@ -585,7 +585,8 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
 
 ;;;###autoload
 (defun emacspeak-epub-open (epub-file)
-  "Open specified Epub."
+  "Open specified Epub.
+Filename may need to  be shell-quoted when called from Lisp."
   (interactive
    (list
     (or
