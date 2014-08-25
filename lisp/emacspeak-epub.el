@@ -868,13 +868,14 @@ Fetch if needed, or if refresh is T."
 ;;}}}
 ;;{{{ Calibre Hookup:
 ;;; Inspired by https://github.com/whacked/calibre-mode.git
-
+;;;###autoload
 (defcustom emacspeak-epub-calibre-root-dir
   (expand-file-name "calibre" emacspeak-epub-library-directory)
   "Root of Calibre library."
   :type 'directory
   :group 'emacspeak-epub)
 
+;;;###autoload
 (defcustom   emacspeak-epub-calibre-sqlite
   (executable-find "sqlite3")
   "Path to sqlite3."
@@ -884,20 +885,27 @@ Fetch if needed, or if refresh is T."
 (defvar emacspeak-epub-calibre-db
   (expand-file-name "metadata.db" emacspeak-epub-calibre-root-dir)
   "Calibre database.")
+
+;;; Record returned by queries:
+
+(defstruct emacspeak-epub-calibre-record
+  ; "b.title,  b.author_sort, b.path,  d.format"
+  title author  path format )
+
 ;;; Helper: Construct query
-(defun emacspeak-epub-calibre-build-default-query (where &optional limit)
+(defun emacspeak-epub-calibre-build-query (where &optional limit)
   "Build a Calibre query as SQL statement.
 Argument  `where' is a simple SQL where clause."
   (concat
    "select "
-   "b.id,b.title,  b.author_sort, b.path,  d.format"
+   "b.title,  b.author_sort, b.path,  d.format"
    " from data as d "
    "left outer join books as b on d.book = b.id "
    " where "
    where
    (when limit (format "limit %s" limit))))
 
-(defun emacspeak-epub-calibre-search (pattern)
+(defun emacspeak-epub-calibre-query (pattern)
   "Return  search query matching `pattern'.
 Searches for matches in both  Title and Author."
   (setq pattern (shell-quote-argument pattern))
@@ -906,19 +914,51 @@ Searches for matches in both  Title and Author."
     "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
     (downcase pattern) (downcase pattern))))
    
-(defun emacspeak-epub-calibre-title-search (pattern)
+(defun emacspeak-epub-calibre-title-query (pattern)
   "Return title search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
    (format "lower(b.title) like '%%%s%%' " 
            (downcase pattern))))
 
-(defun emacspeak-epub-calibre-author-search (pattern)
+(defun emacspeak-epub-calibre-author-query (pattern)
   "Return author search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
    (format "lower(b.author_sort) like '%%%s%%' " 
            (downcase pattern))))
+
+
+(defun emacspeak-epub-calibre-get-results (query)
+  "Execute query against Calibre DB, and return parsed results."
+  (declare (special emacspeak-epub-calibre-db emacspeak-epub-calibre-sqlite))
+  (let ((fields nil)
+        (result nil)
+        (calibre (get-buffer-create "*Calibre Results *")))
+    (with-current-buffer  calibre
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command
+       (format
+        "%s -list -separator '@@' %s \"%s\" 2>/dev/null"
+        emacspeak-epub-calibre-sqlite emacspeak-epub-calibre-db query)
+       calibre)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (setq fields
+              (split-string
+               (buffer-substring-no-properties (line-beginning-position)  (line-end-position))
+               "@@"))
+        (when (= (length fields) 4)
+          (push
+           (make-emacspeak-epub-calibre-record
+            :title (first fields)
+            :author (second fields)
+            :path (third fields)
+            :format (fourth fields))
+           result))
+        (forward-line 1)))
+    result))
 
 ;;}}}
 (provide 'emacspeak-epub)
