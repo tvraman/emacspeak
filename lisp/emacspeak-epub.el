@@ -889,7 +889,7 @@ Fetch if needed, or if refresh is T."
 ;;; Record returned by queries:
 
 (defstruct emacspeak-epub-calibre-record
-  ; "b.title,  b.author_sort, b.path,  d.format"
+                                        ; "b.title,  b.author_sort, b.path,  d.format"
   title author  path format )
 
 ;;; Helper: Construct query
@@ -910,24 +910,23 @@ Argument  `where' is a simple SQL where clause."
 Searches for matches in both  Title and Author."
   (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
-   (format 
+   (format
     "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
     (downcase pattern) (downcase pattern))))
-   
+
 (defun emacspeak-epub-calibre-title-query (pattern)
   "Return title search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
-   (format "lower(b.title) like '%%%s%%' " 
+   (format "lower(b.title) like '%%%s%%' "
            (downcase pattern))))
 
 (defun emacspeak-epub-calibre-author-query (pattern)
   "Return author search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
-   (format "lower(b.author_sort) like '%%%s%%' " 
+   (format "lower(b.author_sort) like '%%%s%%' "
            (downcase pattern))))
-
 
 (defun emacspeak-epub-calibre-get-results (query)
   "Execute query against Calibre DB, and return parsed results."
