@@ -897,15 +897,28 @@ Argument  `where' is a simple SQL where clause."
    where
    (when limit (format "limit %s" limit))))
 
+(defun emacspeak-epub-calibre-search (pattern)
+  "Return  search query matching `pattern'.
+Searches for matches in both  Title and Author."
+  (emacspeak-epub-calibre-build-default-query
+   (setq pattern (shell-quote-argument pattern))
+   (format 
+    "lower(b.author_sort) LIKE %%%s%% OR lower(b.title) LIKE %%%s%%"
+    (downcase pattern) (downcase pattern))))
+   
 (defun emacspeak-epub-calibre-title-search (pattern)
   "Return title search query matching `pattern'."
+  (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
-   (format "lower(b.title) like '%%%s%%' " pattern)))
+   (format "lower(b.title) like '%%%s%%' " 
+           (downcase pattern))))
 
 (defun emacspeak-epub-calibre-author-search (pattern)
   "Return author search query matching `pattern'."
+  (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-default-query
-   (format "lower(b.author_sort) like '%%%s%%' " pattern)))
+   (format "lower(b.author_sort) like '%%%s%%' " 
+           (downcase pattern))))
 
 ;;}}}
 (provide 'emacspeak-epub)
