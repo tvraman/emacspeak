@@ -764,6 +764,7 @@ Letters do not insert themselves; instead, they are commands.
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
+        ("/" emacspeak-epub-calibre-results)
         ("A" emacspeak-epub-bookshelf-calibre-author)
         ("S" emacspeak-epub-bookshelf-calibre-search)
         ("T" emacspeak-epub-bookshelf-calibre-title)
@@ -963,10 +964,14 @@ Searches for matches in both  Title and Author."
 ;;}}}
 ;;{{{ Add  to bookshelf using calibre search:
 
+(defvar emacspeak-epub-calibre-results nil
+  "Results from most recent Calibre search.")
+
 (defun emacspeak-epub-bookshelf-calibre-search (pattern)
   "Add results of an title/author search to current bookshelf."
   (interactive "sSearch For: ")
-  (declare (special emacspeak-epub-calibre-root-dir))
+  (declare (special emacspeak-epub-calibre-root-dir 
+                    emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)
@@ -980,12 +985,14 @@ Searches for matches in both  Title and Author."
      (emacspeak-epub-bookshelf-add-directory
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
     (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
 (defun emacspeak-epub-bookshelf-calibre-author (pattern)
   "Add results of an author search to current bookshelf."
   (interactive "sAuthor: ")
-  (declare (special emacspeak-epub-calibre-root-dir))
+  (declare (special emacspeak-epub-calibre-root-dir
+                    emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)
@@ -999,12 +1006,14 @@ Searches for matches in both  Title and Author."
      (emacspeak-epub-bookshelf-add-directory
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
     (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
 (defun emacspeak-epub-bookshelf-calibre-title (pattern)
   "Add results of an title search to current bookshelf."
   (interactive "sTitle: ")
-  (declare (special emacspeak-epub-calibre-root-dir))
+  (declare (special emacspeak-epub-calibre-root-dir
+                    emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)
@@ -1018,8 +1027,42 @@ Searches for matches in both  Title and Author."
      (emacspeak-epub-bookshelf-add-directory
       (expand-file-name (emacspeak-epub-calibre-record-path r)
                         emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
     (dtk-speak-and-echo  (format "Added %d books" (length results)))))
-
+(defun emacspeak-epub-calibre-results ()
+  "Show most recent Calibre search results."
+  (interactive)
+  (declare (special emacspeak-epub-calibre-results))
+  (let ((inhibit-read-only  t)
+        (buffer (get-buffer-create "*Calibre Results*"))
+        (start nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (goto-char (point-min))
+      (insert "Calibre Results\n\n")
+      (loop
+       for r in emacspeak-epub-calibre-results
+       do
+       (setq start (point))
+       (insert
+        (format "%s\t%s\t%s"
+                (emacspeak-epub-calibre-record-title r)
+                (emacspeak-epub-calibre-record-author r)
+                (emacspeak-epub-calibre-record-format r)))
+       (put-text-property start (point)
+                          'path (emacspeak-epub-calibre-record-path r))
+       (insert "\n"))
+      (setq buffer-read-only t)
+      (help-mode)
+      (goto-char (point-min))
+      (forward-line 2))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+    
+                       
+            
 ;;}}}
 (provide 'emacspeak-epub)
 ;;{{{ end of file
