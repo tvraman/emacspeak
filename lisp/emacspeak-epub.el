@@ -764,6 +764,9 @@ Letters do not insert themselves; instead, they are commands.
 (declaim (special emacspeak-epub-mode-map))
 (loop for k in
       '(
+        ("A" emacspeak-epub-bookshelf-calibre-author)
+        ("S" emacspeak-epub-bookshelf-calibre-search)
+        ("T" emacspeak-epub-bookshelf-calibre-title)
         ("C" emacspeak-epub-gutenberg-catalog)
         ("G" emacspeak-epub-gutenberg-download)
         ("\C-a" emacspeak-epub-bookshelf-add-directory)
@@ -867,6 +870,7 @@ Fetch if needed, or if refresh is T."
 
 ;;}}}
 ;;{{{ Calibre Hookup:
+
 ;;; Inspired by https://github.com/whacked/calibre-mode.git
 ;;;###autoload
 (defcustom emacspeak-epub-calibre-root-dir
@@ -908,7 +912,6 @@ Argument  `where' is a simple SQL where clause."
 (defun emacspeak-epub-calibre-query (pattern)
   "Return  search query matching `pattern'.
 Searches for matches in both  Title and Author."
-  (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-query
    (format
     "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
@@ -916,14 +919,12 @@ Searches for matches in both  Title and Author."
 
 (defun emacspeak-epub-calibre-title-query (pattern)
   "Return title search query matching `pattern'."
-  (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-query
    (format "lower(b.title) like '%%%s%%' "
            (downcase pattern))))
 
 (defun emacspeak-epub-calibre-author-query (pattern)
   "Return author search query matching `pattern'."
-  (setq pattern (shell-quote-argument pattern))
   (emacspeak-epub-calibre-build-query
    (format "lower(b.author_sort) like '%%%s%%' "
            (downcase pattern))))
@@ -958,6 +959,66 @@ Searches for matches in both  Title and Author."
            result))
         (forward-line 1)))
     result))
+
+;;}}}
+;;{{{ Add  to bookshelf using calibre search:
+
+(defun emacspeak-epub-bookshelf-calibre-search (pattern)
+  "Add results of an title/author search to current bookshelf."
+  (interactive "sSearch For: ")
+  (declare (special emacspeak-epub-calibre-root-dir))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results 
+         (emacspeak-epub-calibre-get-results 
+          (emacspeak-epub-calibre-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (loop 
+     for r in results 
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+
+(defun emacspeak-epub-bookshelf-calibre-author (pattern)
+  "Add results of an author search to current bookshelf."
+  (interactive "sAuthor: ")
+  (declare (special emacspeak-epub-calibre-root-dir))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results 
+         (emacspeak-epub-calibre-get-results 
+          (emacspeak-epub-calibre-author-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (loop 
+     for r in results 
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+
+(defun emacspeak-epub-bookshelf-calibre-title (pattern)
+  "Add results of an title search to current bookshelf."
+  (interactive "sTitle: ")
+  (declare (special emacspeak-epub-calibre-root-dir))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results 
+         (emacspeak-epub-calibre-get-results 
+          (emacspeak-epub-calibre-title-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (loop 
+     for r in results 
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
 ;;}}}
 (provide 'emacspeak-epub)
