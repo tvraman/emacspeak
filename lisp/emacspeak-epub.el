@@ -1029,6 +1029,19 @@ Searches for matches in both  Title and Author."
                         emacspeak-epub-calibre-root-dir)))
     (setq emacspeak-epub-calibre-results results)
     (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+
+(define-derived-mode emacspeak-calibre-mode special-mode
+  "Calibre Interaction On The Emacspeak Audio Desktop"
+  "A Calibre Front-end.
+Letters do not insert themselves; instead, they are commands.
+\\<emacspeak-calibre-mode-map>
+\\{emacspeak-calibre-mode-map}"
+  (setq buffer-undo-list t)
+  (setq header-line-format
+        (propertize "Calibre Results" 'face 'bold))
+  (goto-char (point-min))
+  (cd-absolute emacspeak-epub-library-directory))
+
 (defun emacspeak-epub-calibre-results ()
   "Show most recent Calibre search results."
   (interactive)
@@ -1054,7 +1067,7 @@ Searches for matches in both  Title and Author."
                           'path (emacspeak-epub-calibre-record-path r))
        (insert "\n"))
       (setq buffer-read-only t)
-      (help-mode)
+      (emacspeak-calibre-mode)
       (goto-char (point-min))
       (forward-line 2))
     (switch-to-buffer buffer)
