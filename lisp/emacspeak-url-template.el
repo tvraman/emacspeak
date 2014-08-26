@@ -375,7 +375,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Light weight Google search (experimental)."
  #'(lambda (url)
-     (emacspeak-we-extract-by-role  "main" url 'speak)))
+     (emacspeak-we-xslt-filter
+      "//section|//footer" url 'speak)))
 
 ;;}}}
 ;;{{{ market summary from google finance

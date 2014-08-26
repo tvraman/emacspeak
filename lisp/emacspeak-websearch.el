@@ -825,24 +825,22 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-  "http://www.google.com/cse?cx=000183394137052953072%3Azc1orsc6mbq&nojs=1&ie=UTF-8&sa=Search&q="
-  "Google Accessible Search -- see http://labs.google.com/accessible")
+  "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s&num=25"
+  "Using experimental Google Lite.")
 
 ;;;###autoload
 (defun emacspeak-websearch-accessible-google(query)
-  "Google Accessible Search -- see http://labs.google.com/accessible"
+  "Use Google Lite (Experimental)."
   (interactive
    (list
     (gweb-google-autocomplete "AGoogle: ")))
   (declare (special emacspeak-websearch-accessible-google-url))
-  (let ((emacspeak-w3-tidy-html nil))
-    (emacspeak-webutils-cache-google-query query)
-    (emacspeak-webutils-post-process "results" 'emacspeak-speak-line)
-    (emacspeak-webutils-with-xsl-environment
-     (expand-file-name "default.xsl" emacspeak-xslt-directory)
-     nil emacspeak-xslt-options
-     (browse-url
-      (concat emacspeak-websearch-accessible-google-url query)))))
+  (emacspeak-webutils-cache-google-query query)
+  (emacspeak-we-xslt-filter
+   "//section|//footer"
+   (format emacspeak-websearch-accessible-google-url query)
+   'speak))
+      
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
