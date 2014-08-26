@@ -909,7 +909,7 @@ Argument  `where' is a simple SQL where clause."
   "Return  search query matching `pattern'.
 Searches for matches in both  Title and Author."
   (setq pattern (shell-quote-argument pattern))
-  (emacspeak-epub-calibre-build-default-query
+  (emacspeak-epub-calibre-build-query
    (format
     "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
     (downcase pattern) (downcase pattern))))
@@ -917,14 +917,14 @@ Searches for matches in both  Title and Author."
 (defun emacspeak-epub-calibre-title-query (pattern)
   "Return title search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
-  (emacspeak-epub-calibre-build-default-query
+  (emacspeak-epub-calibre-build-query
    (format "lower(b.title) like '%%%s%%' "
            (downcase pattern))))
 
 (defun emacspeak-epub-calibre-author-query (pattern)
   "Return author search query matching `pattern'."
   (setq pattern (shell-quote-argument pattern))
-  (emacspeak-epub-calibre-build-default-query
+  (emacspeak-epub-calibre-build-query
    (format "lower(b.author_sort) like '%%%s%%' "
            (downcase pattern))))
 
@@ -933,7 +933,7 @@ Searches for matches in both  Title and Author."
   (declare (special emacspeak-epub-calibre-db emacspeak-epub-calibre-sqlite))
   (let ((fields nil)
         (result nil)
-        (calibre (get-buffer-create "*Calibre Results *")))
+        (calibre (get-buffer-create " *Calibre Results *")))
     (with-current-buffer  calibre
       (erase-buffer)
       (setq buffer-undo-list t)
