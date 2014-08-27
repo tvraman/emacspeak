@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacspeak At Twenty: Looking Back, Looking Forward</title>
-<!-- 2014-08-20 Wed 17:54 -->
+<!-- 2014-08-27 Wed 08:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="raman" />
@@ -144,23 +144,24 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1">1. Emacspeak At Twenty: Looking Back, Looking Forward</a>
 <ul>
-<li><a href="#sec-1-1">1.1. The Beginning: Using UNIX With Speech Output In 1994</a></li>
-<li><a href="#sec-1-2">1.2. Key Enabler: Emacs And Lisp Advice</a></li>
-<li><a href="#sec-1-3">1.3. Key Component: Text To Speech (TTS)</a></li>
-<li><a href="#sec-1-4">1.4. Emacspeak And Authoring Documents</a></li>
-<li><a href="#sec-1-5">1.5. Emacspeak And Software Development</a></li>
-<li><a href="#sec-1-6">1.6. Emacspeak And The Early Days Of The Web</a></li>
-<li><a href="#sec-1-7">1.7. Audio Formatting: Generalizing Aural CSS</a></li>
-<li><a href="#sec-1-8">1.8. Conversational Gestures For The Audio Desktop</a></li>
-<li><a href="#sec-1-9">1.9. The RESTful Web:  Web Wizards And URL Templates For Faster Access</a></li>
-<li><a href="#sec-1-10">1.10. Accessing Media Streams</a></li>
-<li><a href="#sec-1-11">1.11. Leveraging Computational Tools: From R To IPython Notebooks</a></li>
-<li><a href="#sec-1-12">1.12. Integrating With Window Managers: SawFish And StumpWM</a></li>
-<li><a href="#sec-1-13">1.13. Bookshare And Epub: Ubiquitous Access To Books</a></li>
-<li><a href="#sec-1-14">1.14. Mashing It Up: Leveraging Evolving Web APIs</a></li>
-<li><a href="#sec-1-15">1.15. EMail, GMail And Instant Messaging Using Open Protocols</a></li>
-<li><a href="#sec-1-16">1.16. References</a></li>
-<li><a href="#sec-1-17">1.17. Conclusion</a></li>
+<li><a href="#sec-1-1">1.1. Introduction</a></li>
+<li><a href="#sec-1-2">1.2. The Beginning: Using UNIX With Speech Output In 1994</a></li>
+<li><a href="#sec-1-3">1.3. Key Enabler: Emacs And Lisp Advice</a></li>
+<li><a href="#sec-1-4">1.4. Key Component: Text To Speech (TTS)</a></li>
+<li><a href="#sec-1-5">1.5. Emacspeak And Authoring Documents</a></li>
+<li><a href="#sec-1-6">1.6. Emacspeak And Software Development</a></li>
+<li><a href="#sec-1-7">1.7. Emacspeak And The Early Days Of The Web</a></li>
+<li><a href="#sec-1-8">1.8. Audio Formatting: Generalizing Aural CSS</a></li>
+<li><a href="#sec-1-9">1.9. Conversational Gestures For The Audio Desktop</a></li>
+<li><a href="#sec-1-10">1.10. The RESTful Web:  Web Wizards And URL Templates For Faster Access</a></li>
+<li><a href="#sec-1-11">1.11. Accessing Media Streams</a></li>
+<li><a href="#sec-1-12">1.12. Leveraging Computational Tools: From R To IPython Notebooks</a></li>
+<li><a href="#sec-1-13">1.13. Integrating With Window Managers: SawFish And StumpWM</a></li>
+<li><a href="#sec-1-14">1.14. Bookshare And Epub: Ubiquitous Access To Books</a></li>
+<li><a href="#sec-1-15">1.15. Mashing It Up: Leveraging Evolving Web APIs</a></li>
+<li><a href="#sec-1-16">1.16. EMail, GMail And Instant Messaging Using Open Protocols</a></li>
+<li><a href="#sec-1-17">1.17. References</a></li>
+<li><a href="#sec-1-18">1.18. Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -170,15 +171,30 @@ for the JavaScript code in this tag.
 <h2 id="sec-1"><span class="section-number-2">1</span> Emacspeak At Twenty: Looking Back, Looking Forward</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> The Beginning: Using UNIX With Speech Output In 1994</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Introduction</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+One afternoon in  the third week of September 1994, 
+I started writing myself a small Emacs extension using Lisp
+Advice to make Emacs speak to me so I could use a Linux laptop. 
+As Emacspeak turns twenty, this article is both a quick look back
+over the twenty years of lessons learned, as well as a  glimpse
+into what might be possible as we evolve to a  world of
+connected, ubiquitous computing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> The Beginning: Using UNIX With Speech Output In 1994</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 As a graduate student at <a href="http://www.cs.cornell.edu/info/people/raman/raman.html">Cornell</a>,  I accessed my Unix workstation
 (SunOS) from a 486 PC running IBM Screenreader.  There was no
 means of directly using a UNIX box at the time; after graduating,
 I continued doing the same for about six months at Digital
 Research in Cambridge &#x2014; the only difference being that my
-desktop workstation was now a DEC-Alpha.  Throughout this time,
+desktop workstation was now a DEC-Alpha. Throughout this time,
 Emacs was my environment of choice for everything from software
 development and Internet access to writing documents.
 </p>
@@ -186,17 +202,17 @@ development and Internet access to writing documents.
 
 <p>
 In fall of 1994, I wanted to start using a laptop running Linux;
-a colleague (Dave Wecker) was retiring his 386mhz laptop that already had Linux
-on it and I decided to inherit it. But there was only one problem
-&#x2014; until then I had always accessed a UNIX machine from a
-secondary PC running a screenreader &#x2014; something that would clearly make
-no sense with a laptop!
+a colleague (Dave Wecker) was retiring his 386mhz laptop that
+already had Linux on it and I decided to inherit it. But there
+was only one problem &#x2014; until then I had always accessed a UNIX
+machine from a secondary PC running a screenreader &#x2014; something
+that would clearly make no sense with a laptop!
 </p>
 
 <p>
 A few weeks earlier, another colleague Win Treese, had pointed
-out the interesting possibilities presented by package <a href="#Advice">Advice</a>
-that had just been added to Emacs 19.23 &#x2014; he had sent around a
+out the interesting possibilities presented by package <i>Advice</i>
+ in Emacs 19.23 &#x2014; he had sent around a
 small snippet of code that magically modified Emacs'
 version-control primitive to first create an <i>RCS</i> directory if
 none existed before adding a file to version control. When I
@@ -213,92 +229,136 @@ hours, version 0.01 of Emacspeak was up and running.
 </div>
 
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Key Enabler: Emacs And Lisp Advice</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Key Enabler: Emacs And Lisp Advice</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 It took me a couple of weeks to fully recognize the potential of
-what I had been able to build with Emacs Lisp Advice. Until then,
-I had used screen-readers to listen to the contents of the visual
-display &#x2014; but Lisp Advice let me do a lot more &#x2014; it enabled
-Emacspeak to generate highly context-specific spoken feedback,
-augmented by a set of auditory icons.  I later formalized this
-design under the name <i>Speech-Enabled Applications</i>.
-For a detailed overview of
-the architecture of Emacspeak, see the
-<a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a>
-in the book <a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">Beautiful Code</a> from O'Reilly.
+what I had built with Emacs Lisp Advice. Until then, I had used
+screen-readers to listen to the contents of the visual display
+&#x2014; but Lisp Advice let me do a lot more &#x2014; it enabled Emacspeak
+to generate highly context-specific spoken feedback, augmented by
+a set of auditory icons. I later formalized this design under the
+name <i>Speech-Enabled Applications</i>. For a detailed overview of the
+architecture of Emacspeak, see the <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a> in the
+book <a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">Beautiful Code</a> from O'Reilly.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Key Component: Text To Speech (TTS)</h3>
-</div>
 
 <div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Emacspeak And Authoring Documents</h3>
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Key Component: Text To Speech (TTS)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Emacspeak is a speech-subsystem for Emacs; it depends on an
+external Text-To-Speech (TTS) engine to produce speech. In 1994,
+Digital Equipment released what would turn out to be the last in
+the line of hardware DECTalk synthesizers, the DECTalk
+Express. This was essentially an Intel 386with 1mb of flash
+memory that ran a version of the DECTalk TTS software &#x2014; to
+date, it still remains my favorite Text-To-Speech engine.
+At the time,  I also had a software version of the same engine
+running on my DEC-Alpha workstation;  the desire to use either a
+software or hardware solution to produce speech output defined
+the Emacspeak speech-server architecture.
+</p>
+
+<p>
+I went to IBM Research in 1999; this coincided with IBM releasing
+a version of the Eloquennce TTS engine on Linux under the name
+<i>ViaVoice Outloud</i>. My colleague Jeffrey Sorenson implemented an
+early version of the Emacspeak speech-server for this engineusing
+the OSS API; I later updated it to use the ALSA library while on
+a flight back to SFO from Boston in 2001. That is still the TTS
+engine that is speaking as I type this article on my laptop. 
+</p>
+
+<p>
+20 years on, TTS continues to be the weakest link on Linux; the
+best available solution in terms of quality continues to be the
+Linux port of Eloquence TTS available from Voxin in Europe for a
+small price. Looking back across 20 years, the state of TTS on
+Linux in particular and across all platforms in general continues
+to be a disappointment; most of today's newer TTS engines are
+geared toward mainstream use-cases where <i>naturalness</i> of the
+voice tends to supercede intelligebility at higher
+speech-rates. Ironically, modern TTS engines also give
+applications far less control over the generated output &#x2014; as a
+case in point, I implemented <a href="http://www.cs.cornell.edu/home/raman/aster/demo.html">Audio System For Technical Readings
+(AsTeR)</a> in 1994 using the DECTalk; 20 years later, we implemented
+<a href="http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">MathML support</a> in <a href="http://www.chromevox.com/">ChromeVox</a>  using Google TTS. In 2013, it turned
+out to be difficult or impossible to implement the type of audio
+renderings that were possible with the admittedly less-natural
+sounding DECTalk!
+</p>
+</div>
 </div>
 
 <div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Emacspeak And Software Development</h3>
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Emacspeak And Authoring Documents</h3>
 </div>
 
 <div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Emacspeak And The Early Days Of The Web</h3>
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Emacspeak And Software Development</h3>
 </div>
 
 <div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Audio Formatting: Generalizing Aural CSS</h3>
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Emacspeak And The Early Days Of The Web</h3>
 </div>
 
 <div id="outline-container-sec-1-8" class="outline-3">
-<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Conversational Gestures For The Audio Desktop</h3>
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Audio Formatting: Generalizing Aural CSS</h3>
 </div>
-
 
 <div id="outline-container-sec-1-9" class="outline-3">
-<h3 id="sec-1-9"><span class="section-number-3">1.9</span> The RESTful Web:  Web Wizards And URL Templates For Faster Access</h3>
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Conversational Gestures For The Audio Desktop</h3>
 </div>
 
+
 <div id="outline-container-sec-1-10" class="outline-3">
-<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Accessing Media Streams</h3>
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> The RESTful Web:  Web Wizards And URL Templates For Faster Access</h3>
 </div>
 
 <div id="outline-container-sec-1-11" class="outline-3">
-<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Leveraging Computational Tools: From R To IPython Notebooks</h3>
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Accessing Media Streams</h3>
 </div>
-
-
 
 <div id="outline-container-sec-1-12" class="outline-3">
-<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Integrating With Window Managers: SawFish And StumpWM</h3>
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Leveraging Computational Tools: From R To IPython Notebooks</h3>
 </div>
+
 
 
 <div id="outline-container-sec-1-13" class="outline-3">
-<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Bookshare And Epub: Ubiquitous Access To Books</h3>
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Integrating With Window Managers: SawFish And StumpWM</h3>
 </div>
-
-
 
 
 <div id="outline-container-sec-1-14" class="outline-3">
-<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Mashing It Up: Leveraging Evolving Web APIs</h3>
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Bookshare And Epub: Ubiquitous Access To Books</h3>
 </div>
+
+
+
 
 <div id="outline-container-sec-1-15" class="outline-3">
-<h3 id="sec-1-15"><span class="section-number-3">1.15</span> EMail, GMail And Instant Messaging Using Open Protocols</h3>
+<h3 id="sec-1-15"><span class="section-number-3">1.15</span> Mashing It Up: Leveraging Evolving Web APIs</h3>
+</div>
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16"><span class="section-number-3">1.16</span> EMail, GMail And Instant Messaging Using Open Protocols</h3>
 </div>
 
 
 
-<div id="outline-container-sec-1-16" class="outline-3">
-<h3 id="sec-1-16"><span class="section-number-3">1.16</span> References</h3>
-<div class="outline-text-3" id="text-1-16">
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17"><span class="section-number-3">1.17</span> References</h3>
+<div class="outline-text-3" id="text-1-17">
 <ul class="org-ul">
 <li><a href="http://emacspeak.sourceforge.net/raman/aui/aui.html">Auditory User Interfaces</a>::  Klewer Publishing, 1997.
 </li>
-<li id="Emacs Lisp"><a id="Advice" name="Advice"></a>  by <a href="http://www.isi.edu/~hans/">Hans Chalupsky</a>.
+<li id="Advice ">An Emacs Lisp package by    <a href="http://www.isi.edu/~hans/">Hans Chalupsky</a> that
+became part of Emacs 19.23.
 </li>
 <li id="<a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">Beautiful Code</a>">An overview of the Emacspeak architecture.
 </li>
@@ -310,9 +370,9 @@ in the book <a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautif
 
 
 
-<div id="outline-container-sec-1-17" class="outline-3">
-<h3 id="sec-1-17"><span class="section-number-3">1.17</span> Conclusion</h3>
-<div class="outline-text-3" id="text-1-17">
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18"><span class="section-number-3">1.18</span> Conclusion</h3>
+<div class="outline-text-3" id="text-1-18">
 </div>
 </div>
 </div>
@@ -320,7 +380,7 @@ in the book <a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautif
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-08-19 Tue&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2014-08-20 Wed 17:54</p>
+<p class="date">Created: 2014-08-27 Wed 08:48</p>
 <p class="creator">Emacs 24.4.50.1 (Org mode 8.2.6)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
