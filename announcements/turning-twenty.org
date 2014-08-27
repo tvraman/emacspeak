@@ -72,7 +72,7 @@ the Emacspeak speech-server architecture.
 I went to IBM Research in 1999; this coincided with IBM releasing
 a version of the Eloquennce TTS engine on Linux under the name
 /ViaVoice Outloud/. My colleague Jeffrey Sorenson implemented an
-early version of the Emacspeak speech-server for this engineusing
+early version of the Emacspeak speech-server for this engine using
 the OSS API; I later updated it to use the ALSA library while on
 a flight back to SFO from Boston in 2001. That is still the TTS
 engine that is speaking as I type this article on my laptop. 
