@@ -94,9 +94,49 @@ out to be difficult or impossible to implement the type of audio
 renderings that were possible with the admittedly less-natural
 sounding DECTalk!
 
-** Emacspeak And Authoring Documents 
-
 ** Emacspeak And Software Development 
+
+
+
+Version 0.01 of Emacspeak was written using IBM Screenreader on
+a PC with a terminal emulator accessing a UNIX  workstation. But
+in about 2 weeks, Emacspeak was already a better  environment for
+developing Emacspeak in particular and software development in
+general.  Here are a few highlights  in 1994 that made Emacspeak
+a good software development environment, present-day users of
+Emacspeak will see that that was just scratching the surface.
+
+  - Audio formatting using voice-lock to provide aural syntax
+    highlighting.
+  - Succinct auditory icons to provide efficient feedback.
+  - Emacs' ability to navigate code structurally -- as opposed to
+    moving around by plain-text units such as characters, lines
+    and works. S-Expressions are a major win!
+  - Emacs' ability to specialize behavior based on major and
+    minor modes.
+  - Ability to browse program code using  tags, and getting
+    fluent spoken feedback.
+  - Interactive spell-checking using ISpell with continuous
+    spoken feedback augmented by  aural highlights.
+  - Running code compilation  and being able to jump to errors
+    with spoken feedback.
+  - Ability to easily move between email, document authoring and
+    programming --- though this may appear trivial, it continues
+    to be one of Emacs' biggest wins.
+
+
+Long-term Emacs users will recognize all of the above as  being
+among the reasons why they do most things inside Emacs --- there
+is little that is Emacspeak specific in the above list --- except
+that Emacspeak was able to provide fluent, well-integrated
+contextual feedback for all of these tasks. And that was a
+game-changer given what I had had before Emacspeak. As a case in
+point, I did not dare program in Python before  I speech-enabled
+Emacs' Python-Mode; the fact that whitespace is significant in
+Python made it difficult to program using a plain screenreader
+that was unaware of the semantics of the underlying content being accessed.
+
+** Emacspeak And Authoring Documents 
 
 ** Emacspeak And The Early Days Of The Web
 
