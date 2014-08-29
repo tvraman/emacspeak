@@ -169,6 +169,8 @@ using Emacs.
 
 ** Audio Formatting: Generalizing Aural CSS 
 
+** EMail, GMail And Instant Messaging Using Open Protocols 
+
 ** Conversational Gestures For The Audio Desktop 
 
 
@@ -183,14 +185,14 @@ using Emacs.
 ** Integrating With Window Managers: SawFish And StumpWM
 
 
-** Bookshare And Epub: Ubiquitous Access To Books 
+** Bookshare, Calibre And Epub: Ubiquitous Access To Books 
 
 
 
 
 ** Mashing It Up: Leveraging Evolving Web APIs
 
-** EMail, GMail And Instant Messaging Using Open Protocols 
+
 
 
 
