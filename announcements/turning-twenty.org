@@ -111,11 +111,14 @@ Emacspeak will see that that was just scratching the surface.
   - Succinct auditory icons to provide efficient feedback.
   - Emacs' ability to navigate code structurally -- as opposed to
     moving around by plain-text units such as characters, lines
-    and works. S-Expressions are a major win!
+    and words. S-Expressions are a major win!
   - Emacs' ability to specialize behavior based on major and
     minor modes.
   - Ability to browse program code using  tags, and getting
     fluent spoken feedback.
+  - Completion *everywhere*.
+  - Everything is searchable --- this is a huge win when you
+    cannot see the screen.
   - Interactive spell-checking using ISpell with continuous
     spoken feedback augmented by  aural highlights.
   - Running code compilation  and being able to jump to errors
@@ -137,6 +140,30 @@ Python made it difficult to program using a plain screenreader
 that was unaware of the semantics of the underlying content being accessed.
 
 ** Emacspeak And Authoring Documents 
+
+In 1994, my prefered environment for authoring *all* documents
+was _LaTeX_ using the Auctex package. Later I started writing
+either LaTeX or HTML using the appropriate support modes; today I
+use _org-mode_ to do most of my content authoring. Personally, I
+have never been a fan of What You See Is What You Get (WYSIWYG )
+authoring tools --- in my experience that places an undue burden
+on the author in terms of drawing attention away from the content
+to focus on the final appearance. An added benefit  of creating
+content in Emacs in the form of light-weight markup  is that the
+content is long-lived --- I can still usefully process and re-use
+things I have written 20 years ago.
+
+Emacs, with Emacspeak providing audio formatting and
+context-specific feedback remains my environment of choice for
+writing all forms of content ranging from simple email messages
+to polished documents for print publishing. And it is worth
+repeating that I *never* need to focus on what the content is
+going to look like --- that job is best left to the computer.
+
+As an example of producing high-fidelity visual content, see
+this write-up on [[http://emacspeak.sourceforge.net/raman/publications/polyhedra/][Polyhedral Geometry]] that  I published in 2000;
+all of the content, including the drawings were created by me
+using Emacs. 
 
 ** Emacspeak And The Early Days Of The Web
 
