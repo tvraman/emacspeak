@@ -169,7 +169,8 @@ using Emacs.
 
 ** Audio Formatting: Generalizing Aural CSS 
 
-** EMail, GMail And Instant Messaging Using Open Protocols 
+** Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols 
+
 
 ** Conversational Gestures For The Audio Desktop 
 
