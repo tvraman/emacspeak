@@ -193,10 +193,6 @@ using Emacs.
 
 ** Mashing It Up: Leveraging Evolving Web APIs
 
-
-
-
-
 ** References 
 
   - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]::  Klewer Publishing, 1997.
