@@ -312,6 +312,11 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Bookshelf Implementation:
+(defcustom emacspeak-epub-bookshelf-directory
+  (file-name-as-directory(expand-file-name "bsf" emacspeak-epub-library-directory))
+  "Directory where we keep .bsf files defining various bookshelves."
+  :type 'directory
+  :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-db-file
   (expand-file-name ".bookshelf" emacspeak-epub-library-directory)
@@ -375,10 +380,10 @@ Useful if table of contents in toc.ncx is empty."
   "Saves current bookshelf to  specified name.
 Interactive prefix arg `overwrite' will overwrite existing file."
   (interactive "sBookshelf Name: \nP")
-  (declare (special emacspeak-epub-library-directory))
+  (declare (special emacspeak-epub-bookshelf-directory))
   (setq name (format "%s.bsf" name))
   (let ((bookshelf (expand-file-name ".bookshelf" emacspeak-epub-library-directory))
-        (bsf (expand-file-name name emacspeak-epub-library-directory)))
+        (bsf (expand-file-name name emacspeak-epub-bookshelf-directory)))
     (when (and overwrite (file-exists-p bsf)) (delete-file bsf))
     (copy-file bookshelf bsf)
     (message "Copied current bookshelf to %s" name)))
@@ -527,20 +532,20 @@ No book files are deleted."
 (defun emacspeak-epub-bookshelf-load ()
   "Load bookshelf metadata from disk."
   (interactive)
-  (declare (special emacspeak-epub-db
-                    emacspeak-epub-db-file))
+  (declare (special emacspeak-epub-db emacspeak-epub-db-file))
   (when (file-exists-p emacspeak-epub-db-file)
     (let ((buffer (find-file-noselect emacspeak-epub-db-file)))
       (with-current-buffer buffer
         (goto-char (point-min))
         (setq emacspeak-epub-db (read buffer)))
       (kill-buffer buffer))))
+
 (defun emacspeak-epub-bookshelf-open (bookshelf)
   "Load bookshelf metadata from specified bookshelf."
   (interactive
    (list
     (read-file-name "BookShelf: "
-                    (expand-file-name emacspeak-epub-library-directory)
+                    (expand-file-name emacspeak-epub-bookshelf-directory)
                     nil t nil
                     #'(lambda (s) (string-match ".bsf$" s)))))
   (declare (special emacspeak-epub-db))
