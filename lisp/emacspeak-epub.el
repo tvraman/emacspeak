@@ -223,7 +223,10 @@
   "Browse content in specified element of EPub."
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((base (emacspeak-epub-base epub))
-        (content nil))
+        (content nil)
+        (default-process-coding-system (cons 'utf-8 'utf-8))
+         (coding-system-for-read 'utf-8)
+         )
     (unless (string-match (format "^%s" base) element)
       (setq element (concat base element)))
     (setq content (emacspeak-epub-get-contents epub element))
