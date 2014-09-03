@@ -16,7 +16,7 @@ As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.htm
 (SunOS) from a 486 PC running IBM Screenreader.  There was no
 means of directly using a UNIX box at the time; after graduating,
 I continued doing the same for about six months at Digital
-Research in Cambridge --- the only difference being that my
+Research in Cambridge  —  the only difference being that my
 desktop workstation was now a DEC-Alpha. Throughout this time,
 Emacs was my environment of choice for everything from software
 development and Internet access to writing documents.
@@ -25,21 +25,21 @@ development and Internet access to writing documents.
 In fall of 1994, I wanted to start using a laptop running Linux;
 a colleague (Dave Wecker) was retiring his 386mhz laptop that
 already had Linux on it and I decided to inherit it. But there
-was only one problem --- until then I had always accessed a UNIX
-machine from a secondary PC running a screenreader --- something
+was only one problem  —  until then I had always accessed a UNIX
+machine from a secondary PC running a screenreader  —  something
 that would clearly make no sense with a laptop!
 
 A few weeks earlier, another colleague Win Treese, had pointed
 out the interesting possibilities presented by package [[Advice][Advice]]
- in Emacs 19.23 --- he had sent around a
+ in Emacs 19.23  —  he had sent around a
 small snippet of code that magically modified Emacs'
 version-control primitive to first create an /RCS/ directory if
 none existed before adding a file to version control. When I
-speculated about using the Linux laptop, Dave remarked --- you
-live in Emacs anyway --- why dont you just make it talk!
+speculated about using the Linux laptop, Dave remarked  —  you
+live in Emacs anyway  —  why dont you just make it talk!
 
 Connecting the dots, I decided to write myself a tool that
-augmented Emacs' default behaviour to /speak/ --- within about 4
+augmented Emacs' default behaviour to /speak/  —  within about 4
 hours, version 0.01 of Emacspeak was up and running.
 
 
@@ -48,7 +48,7 @@ hours, version 0.01 of Emacspeak was up and running.
 It took me a couple of weeks to fully recognize the potential of
 what I had built with Emacs Lisp Advice. Until then, I had used
 screen-readers to listen to the contents of the visual display
---- but Lisp Advice let me do a lot more --- it enabled Emacspeak
+ —  but Lisp Advice let me do a lot more  —  it enabled Emacspeak
 to generate highly context-specific spoken feedback, augmented by
 a set of auditory icons. I later formalized this design under the
 name [[Speech-Enabled Applications]]. For a detailed overview of the
@@ -62,7 +62,7 @@ external Text-To-Speech (TTS) engine to produce speech. In 1994,
 Digital Equipment released what would turn out to be the last in
 the line of hardware DECTalk synthesizers, the DECTalk
 Express. This was essentially an Intel 386with 1mb of flash
-memory that ran a version of the DECTalk TTS software --- to
+memory that ran a version of the DECTalk TTS software  —  to
 date, it still remains my favorite Text-To-Speech engine.
 At the time,  I also had a software version of the same engine
 running on my DEC-Alpha workstation;  the desire to use either a
@@ -86,7 +86,7 @@ to be a disappointment; most of today's newer TTS engines are
 geared toward mainstream use-cases where /naturalness/ of the
 voice tends to supercede intelligebility at higher
 speech-rates. Ironically, modern TTS engines also give
-applications far less control over the generated output --- as a
+applications far less control over the generated output  —  as a
 case in point, I implemented [[http://www.cs.cornell.edu/home/raman/aster/demo.html][Audio System For Technical Readings
 (AsTeR)]] in 1994 using the DECTalk; 20 years later, we implemented
 [[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][MathML support]] in [[http://www.chromevox.com/][ChromeVox]]  using Google TTS. In 2013, it turned
@@ -109,7 +109,8 @@ Emacspeak will see that that was just scratching the surface.
   - Audio formatting using voice-lock to provide aural syntax
     highlighting.
   - Succinct auditory icons to provide efficient feedback.
-  - Emacs' ability to navigate code structurally -- as opposed to
+  - Emacs' ability to navigate code structurally  —
+  as opposed to
     moving around by plain-text units such as characters, lines
     and words. S-Expressions are a major win!
   - Emacs' ability to specialize behavior based on major and
@@ -117,20 +118,20 @@ Emacspeak will see that that was just scratching the surface.
   - Ability to browse program code using  tags, and getting
     fluent spoken feedback.
   - Completion *everywhere*.
-  - Everything is searchable --- this is a huge win when you
+  - Everything is searchable  —  this is a huge win when you
     cannot see the screen.
   - Interactive spell-checking using ISpell with continuous
     spoken feedback augmented by  aural highlights.
   - Running code compilation  and being able to jump to errors
     with spoken feedback.
   - Ability to easily move between email, document authoring and
-    programming --- though this may appear trivial, it continues
+    programming  —  though this may appear trivial, it continues
     to be one of Emacs' biggest wins.
 
 
 Long-term Emacs users will recognize all of the above as  being
-among the reasons why they do most things inside Emacs --- there
-is little that is Emacspeak specific in the above list --- except
+among the reasons why they do most things inside Emacs  —  there
+is little that is Emacspeak specific in the above list  —  except
 that Emacspeak was able to provide fluent, well-integrated
 contextual feedback for all of these tasks. And that was a
 game-changer given what I had had before Emacspeak. As a case in
@@ -146,11 +147,11 @@ was _LaTeX_ using the Auctex package. Later I started writing
 either LaTeX or HTML using the appropriate support modes; today I
 use _org-mode_ to do most of my content authoring. Personally, I
 have never been a fan of What You See Is What You Get (WYSIWYG )
-authoring tools --- in my experience that places an undue burden
+authoring tools  —  in my experience that places an undue burden
 on the author in terms of drawing attention away from the content
 to focus on the final appearance. An added benefit  of creating
 content in Emacs in the form of light-weight markup  is that the
-content is long-lived --- I can still usefully process and re-use
+content is long-lived  —  I can still usefully process and re-use
 things I have written 20 years ago.
 
 Emacs, with Emacspeak providing audio formatting and
@@ -158,7 +159,7 @@ context-specific feedback remains my environment of choice for
 writing all forms of content ranging from simple email messages
 to polished documents for print publishing. And it is worth
 repeating that I *never* need to focus on what the content is
-going to look like --- that job is best left to the computer.
+going to look like  —  that job is best left to the computer.
 
 As an example of producing high-fidelity visual content, see
 this write-up on [[http://emacspeak.sourceforge.net/raman/publications/polyhedra/][Polyhedral Geometry]] that  I published in 2000;
@@ -167,12 +168,69 @@ using Emacs.
 
 ** Emacspeak And The Early Days Of The Web
 
+Right around the time that I was writing version 0.01 of
+emacspeak, a far more significant software movement was under way
+ —  the World Wide Web was moving from the realms of academia to
+the mainstream world with the launch of NCSA Mosaic  —
+  and in
+late 1994 by the first commercial Web browser in Netscape
+Navigator. Emacs had always enabled integrated access to FTP
+archives via package /ange-ftp/; in late 1993, William Perry
+released Emacs-W3, a Web browser for Emacs written entirely in
+Emacs Lisp. W3 was one of the first large packages to be
+speech-enabled by Emacspeak  —  later it was the browser on which
+I implemented the first draft of the [[http://www.w3.org/TR/CSS2/aural.html][Aural CSS
+specification]]. Emacs-W3 enabled many early innovations in the
+context of providing non-visual access to Web content, including
+audio formatting and structured content navigation; in summer of
+1995, Dave Raggett and I outlined a few extensions to HTML Forms,
+including the _label_ element as a means of associating metadata
+with interactive form controls in HTML, and many of these ideas
+were prototyped in Emacs-W3 at the time. Over time, Emacs-W3 fell
+behind the times  —  especially as the Web moved away from
+cleanly structured HTML to a massive soup of unmatched tags. This
+made parsing and error-correcting badly-formed HTML markup
+expensive to do in Emacs-Lisp — 
+and performance suffered. To add
+to this, mainstream users moved away because Emacs' rendering
+engine at the time was not rich enough to provide the type of
+visual renderings that users had come to expect. The advent of
+DHTML, and JavaScript based Web Applications finally killed off
+Emacs-W3 as far as most Emacs users were concerned.
+
+But Emacs-W3 went through a revival on the emacspeak audio
+desktop in late 1999 with the arrival of XSLT, and Daniel
+Valliard's excellent implementation via the _libxml2_ and
+_libxslt_ packages. With these in hand, Emacspeak was able to
+hand-off the bulk of HTML error correction to the _xsltproc_
+tool. The lack of visual fidelity didn't matter much for an
+eyes-free environment; so Emacs-W3 continued to be a useful tool
+for consuming large amounts of Web content that did not require
+JavaScript support.
+
+During the last 24 months, _libxml2_ has been built into Emacs;
+this means that you can now parse arbitrary HTML as found in the
+wild without incuring a performance hit. This functionality was
+leveraged first by package _shr_ (Simple HTML Renderer) within
+the _gnus_ package for rendering HTML email; later, the author of
+_gnus_ and _shr_ created a new light-weight HTML viewer called
+_eww_ that is now part of Emacs 24. the improved support for
+variable pitch fonts and image embedding, Emacs is once again
+able to provide visual renderings for a large proportion of
+text-heavy Web content that is useful for mainstream Emacs users
+to view at least some Web content within Emacs; during the last
+year, I have added support within emacspeak to [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extend package
+_eww_]] with support for DOM filtering and quick content
+navigation.
+
 ** Audio Formatting: Generalizing Aural CSS 
+
+** Conversational Gestures For The Audio Desktop 
 
 ** Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols 
 
 
-** Conversational Gestures For The Audio Desktop 
+
 
 
 ** The RESTful Web:  Web Wizards And URL Templates For Faster Access
@@ -200,6 +258,7 @@ using Emacs.
                  became part of Emacs 19.23.
   - [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] :: An overview of the Emacspeak architecture.
   - <<[[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications>>]] :: Emacspeak at CHI 1996.
+  - EWW :: Emacspeak  [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extends EWW ]].
 
 
    
