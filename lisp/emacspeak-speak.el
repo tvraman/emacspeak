@@ -1866,6 +1866,26 @@ Second interactive prefix sets clock to new timezone."
                              'personality voice-punctuations-some))))))
 
 ;;;###autoload
+(defun emacspeak-speak-seconds-since-epoch (seconds)
+  "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
+  (interactive
+   (list
+    (read-minibuffer "Seconds: '"
+                          (word-at-point))))
+  (declare (special emacspeak-speak-time-format-string))
+  (message
+   (format-time-string
+    emacspeak-speak-time-format-string (seconds-to-time seconds))))
+
+;;;###autoload
+(defun emacspeak-speak-microseconds-since-epoch (ms)
+  "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
+  (interactive
+   (list
+    (read-minibuffer "Seconds: '" (word-at-point))))
+  (let ((seconds (/ ms 1000000)))
+    (emacspeak-speak-seconds-since-epoch seconds)))
+;;;###autoload
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
   (interactive)
