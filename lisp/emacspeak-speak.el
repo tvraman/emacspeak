@@ -1882,7 +1882,7 @@ Second interactive prefix sets clock to new timezone."
   "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
   (interactive
    (list
-    (read-minibuffer "Seconds: '" (word-at-point))))
+    (read-minibuffer "MicroSeconds: '" (word-at-point))))
   (let ((seconds (/ ms 1000000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
 ;;;###autoload
