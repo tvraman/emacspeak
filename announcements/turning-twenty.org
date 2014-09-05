@@ -225,6 +225,49 @@ navigation.
 
 ** Audio Formatting: Generalizing Aural CSS 
 
+
+A key idea in Audio System For Technical Readings [[http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html][(AsTeR)]] was the
+use of various voice properties in combination with non-speech
+auditory icons to create rich aural renderings. When I
+implemented Emacspeak, I brought over the notion of audio
+formatting to all buffers in Emacs by creating a _voice_lock_
+module that paralleled Emacs' _font_lock_ module. The visual
+medium is far richer in terms of available fonts and colors as
+compared to voice parameters available on TTS engines —
+consequently, it did not make sense to directly map Emacs' _face_
+properties to voice parameters. To aid in projecting visual
+formatting onto auditory space, I created property _personality_
+analogous to Emacs' _face_ property that could be applied to
+content displayed in Emacs; module _voice_lock_ applied that
+property appropriately, and the Emacspeak core handled the
+details of mapping personality values to the underlying TTS
+engine. The values used in property _personality_ were abstract,
+i.e., they were independent of any given speech engine. Later in
+the fall of 1995, I re-expressed these set of abstract voice
+properties in terms of Aural CSS; the work was published as a
+first draft toward the end of 1995, and implemented in Emacs-W3
+in early 1996. Aural CSS was an appendix in the CSS-1.0
+specification; later, it graduated to being its own module within
+CSS-2.0.
+
+Later in 1996, all of Emacs' _voice-lock_ functionality was
+re-implemented in terms of Aural CSS; the implementation has
+stood the test of time in that as we added support for more TTS
+engines, we were able to implement engine-specific mappings of
+Aural-CSS values. This meant that the rest of Emacspek could
+define various types of voices for use in specific contexts
+without having to worry about individual TTS engines.
+
+Audio formatting as implemented in Emacspeak is extremely
+effective when working with all types of content ranging from
+richly structured mark-up documents (LaTeX, org-mode) and
+formatted Web pages to program source code. Perceptually,
+switching to audio formatted output feels like switching from a
+black-and-white monitor to a rich color display. Today,
+Emacspeak's audio formatted output is the only way I can
+correctly write _else if_ vs _elsif_ in various programming
+languages!
+
 ** Conversational Gestures For The Audio Desktop 
 
 ** Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols 
