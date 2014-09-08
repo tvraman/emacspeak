@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacspeak At Twenty: Looking Back, Looking Forward</title>
-<!-- 2014-09-05 Fri 16:20 -->
+<!-- 2014-09-08 Mon 08:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="raman" />
@@ -153,9 +153,9 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-7">1.7. Emacspeak And The Early Days Of The Web</a></li>
 <li><a href="#sec-1-8">1.8. Audio Formatting: Generalizing Aural CSS</a></li>
 <li><a href="#sec-1-9">1.9. Conversational Gestures For The Audio Desktop</a></li>
-<li><a href="#sec-1-10">1.10. Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols</a></li>
-<li><a href="#sec-1-11">1.11. The RESTful Web:  Web Wizards And URL Templates For Faster Access</a></li>
-<li><a href="#sec-1-12">1.12. Accessing Media Streams</a></li>
+<li><a href="#sec-1-10">1.10. Accessing Media Streams</a></li>
+<li><a href="#sec-1-11">1.11. Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols</a></li>
+<li><a href="#sec-1-12">1.12. The RESTful Web:  Web Wizards And URL Templates For Faster Access</a></li>
 <li><a href="#sec-1-13">1.13. Leveraging Computational Tools: From R To IPython Notebooks</a></li>
 <li><a href="#sec-1-14">1.14. Integrating With Window Managers: SawFish And StumpWM</a></li>
 <li><a href="#sec-1-15">1.15. Bookshare, Calibre And Epub: Ubiquitous Access To Books</a></li>
@@ -435,7 +435,7 @@ Emacs-W3 as far as most Emacs users were concerned.
 But Emacs-W3 went through a revival on the emacspeak audio
 desktop in late 1999 with the arrival of XSLT, and Daniel
 Valliard's excellent implementation via the <span class="underline">libxml2</span> and
-<span class="underline">libxslt</span> packages. With these in hand, Emacspeak was able to
+<sub> </sub>packages. With these in hand, Emacspeak was able to
 hand-off the bulk of HTML error correction to the <span class="underline">xsltproc</span>
 tool. The lack of visual fidelity didn't matter much for an
 eyes-free environment; so Emacs-W3 continued to be a useful tool
@@ -449,14 +449,14 @@ this means that you can now parse arbitrary HTML as found in the
 wild without incuring a performance hit. This functionality was
 leveraged first by package <span class="underline">shr</span> (Simple HTML Renderer) within
 the <span class="underline">gnus</span> package for rendering HTML email; later, the author of
-<span class="underline">gnus</span> and <span class="underline">shr</span> created a new light-weight HTML viewer called
-<span class="underline">eww</span> that is now part of Emacs 24. the improved support for
+<sub> </sub>and <span class="underline">shr</span> created a new light-weight HTML viewer called
+<sub> </sub>that is now part of Emacs 24. the improved support for
 variable pitch fonts and image embedding, Emacs is once again
 able to provide visual renderings for a large proportion of
 text-heavy Web content that is useful for mainstream Emacs users
 to view at least some Web content within Emacs; during the last
 year, I have added support within emacspeak to <a href="http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html">extend package
-<span class="underline">eww</span></a> with support for DOM filtering and quick content
+<sub>nil</sub></a> with support for DOM filtering and quick content
 navigation.
 </p>
 </div>
@@ -481,9 +481,13 @@ analogous to Emacs' <span class="underline">face</span> property that could be a
 content displayed in Emacs; module <span class="underline">voice<sub>lock</sub></span> applied that
 property appropriately, and the Emacspeak core handled the
 details of mapping personality values to the underlying TTS
-engine. The values used in property <span class="underline">personality</span> were abstract,
-i.e., they were independent of any given speech engine. Later in
-the fall of 1995, I re-expressed these set of abstract voice
+engine. 
+</p>
+
+<p>
+The values used in property <span class="underline">personality</span> were abstract, i.e.,
+they were independent of any given speech engine. Later in the
+fall of 1995, I re-expressed these set of abstract voice
 properties in terms of Aural CSS; the work was published as a
 first draft toward the end of 1995, and implemented in Emacs-W3
 in early 1996. Aural CSS was an appendix in the CSS-1.0
@@ -494,12 +498,20 @@ CSS-2.0.
 <p>
 Later in 1996, all of Emacs' <span class="underline">voice-lock</span> functionality was
 re-implemented in terms of Aural CSS; the implementation has
-stood the test of time in that as we added support for more TTS
-engines, we were able to implement engine-specific mappings of
-Aural-CSS values. This meant that the rest of Emacspek could
+stood the test of time in that as I added support for more TTS
+engines, I was  able to implement engine-specific mappings of
+Aural-CSS values. This meant that the rest of Emacspeak could
 define various types of voices for use in specific contexts
 without having to worry about individual TTS engines.
+Conceptually, property <span class="underline">personality</span> can be thought of as holding
+an <span class="underline">aural display list</span> &#x2014; various parts of the system can
+annotate pieces of text with relevant properties that finally get
+rendered in the aggregate. 
+This model also works well with the notion of Emacs overlays
+where a moving overlay is used to temporarily highlight text that
+has other context-specific properties applied to it.
 </p>
+
 
 <p>
 Audio formatting as implemented in Emacspeak is extremely
@@ -517,23 +529,85 @@ languages!
 
 <div id="outline-container-sec-1-9" class="outline-3">
 <h3 id="sec-1-9"><span class="section-number-3">1.9</span> Conversational Gestures For The Audio Desktop</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+By 1996, Emacspeak was the only piece of adaptive technology I
+used; in fall of 1995, I had moved to Adobe Systems from DEC
+Research to focus on enhancing the Portable Document Format (PDF)
+to make PDF content repurposable. Between 1996 and 1998, I was
+primarily focused on electronic document formats &#x2014; I took this
+opportunity to step back and evaluate what I had built as an
+auditory interface within Emacspeak. This retrospect proved
+extremely useful in gaining a sense of perspective and led to
+formalizing the high-level concept of <i>Conversational Gestures</i>
+as a means of thinking about user interfaces.
+</p>
+
+<p>
+By now, Emacspeak was a complete environment &#x2014; I formalized
+what it provided under the moniker <i>Complete Audio Desktop</i>. The
+fully integrated user experience allowed me to move forward with
+respect to defining interaction models that were highly optimized
+to eyes-free interaction &#x2014; as an example, see how Emacspeak
+interfaces with modes like <span class="underline">dired</span>. Emacs' integration with
+<sub> </sub>for spell checking, as well as its various completion
+facilities ranging from minibuffer completion to other forms of
+dynamic completion while typing text provided more opportunities
+for creating innovative forms of eyes-free interaction. With
+respect to what had gone before (and is still par for the course
+as far as traditional screen-readers are concerned), these types
+of highly dynamic interfaces present a challenge. For example,
+consider handling a completion interface using a screen-reader
+that is speaking the visual display. There is a significant
+challenge in deciding <i>what to speak</i> e.g., when presented with a
+list of completions, the currently typed text, and the default
+completion, which of these should you speak, and in what order?
+</p>
+
+<p>
+The problem gets harder when you consider that the underlying
+semantics of these items is generally not available from
+examining the visual presentation in a consistent manner. By
+having direct access to the underlying information being
+presented, Emacspeak had a leg up with respect to addressing the
+higher-level question &#x2014; when you do have access to this
+information, how to you present it effectively in an eyes-free
+environment? For this and many other cases of dynamic
+interaction, a combination of audio formatting, auditory icons,
+and the ability to synthesize succinct messages from a
+combination of information items &#x2014; rather than having to
+forcibly speak each item as it is rendered visually provided for
+highly efficient eyes-free interaction. So in 1997, I went the
+next step in asking &#x2014; given access to the underlying
+infromation, is it possible to build effective eyes-free
+interaction to highly interactive tasks? I picked <span class="underline">Tetris</span> as a
+means of exploring this space, the result was an Emacspeak
+extension to speech-enable module <span class="underline">tetris.el</span>. The details of
+what was learnt were published as a paper in Assets 98, and
+expanded as a chapter on Conversational Gestures in my book on
+Auditory Interfaces; that book was in a sense a culmination of
+stepping back and gaining a sense of perspective of what I had
+build during this period. The work on Conversational Gestures
+also helped in formalizing the abstract user interface layer that
+formed part of the XForms work at the W3C.
+</p>
+</div>
 </div>
 
 <div id="outline-container-sec-1-10" class="outline-3">
-<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols</h3>
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Accessing Media Streams</h3>
 </div>
-
-
-
 
 
 <div id="outline-container-sec-1-11" class="outline-3">
-<h3 id="sec-1-11"><span class="section-number-3">1.11</span> The RESTful Web:  Web Wizards And URL Templates For Faster Access</h3>
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols</h3>
 </div>
 
 <div id="outline-container-sec-1-12" class="outline-3">
-<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Accessing Media Streams</h3>
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> The RESTful Web:  Web Wizards And URL Templates For Faster Access</h3>
 </div>
+
+
 
 <div id="outline-container-sec-1-13" class="outline-3">
 <h3 id="sec-1-13"><span class="section-number-3">1.13</span> Leveraging Computational Tools: From R To IPython Notebooks</h3>
@@ -588,7 +662,7 @@ became part of Emacs 19.23.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-08-19 Tue&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2014-09-05 Fri 16:20</p>
+<p class="date">Created: 2014-09-08 Mon 08:52</p>
 <p class="creator">Emacs 24.4.50.1 (Org mode 8.2.6)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

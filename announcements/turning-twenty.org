@@ -241,9 +241,11 @@ analogous to Emacs' _face_ property that could be applied to
 content displayed in Emacs; module _voice_lock_ applied that
 property appropriately, and the Emacspeak core handled the
 details of mapping personality values to the underlying TTS
-engine. The values used in property _personality_ were abstract,
-i.e., they were independent of any given speech engine. Later in
-the fall of 1995, I re-expressed these set of abstract voice
+engine. 
+
+The values used in property _personality_ were abstract, i.e.,
+they were independent of any given speech engine. Later in the
+fall of 1995, I re-expressed these set of abstract voice
 properties in terms of Aural CSS; the work was published as a
 first draft toward the end of 1995, and implemented in Emacs-W3
 in early 1996. Aural CSS was an appendix in the CSS-1.0
@@ -252,11 +254,19 @@ CSS-2.0.
 
 Later in 1996, all of Emacs' _voice-lock_ functionality was
 re-implemented in terms of Aural CSS; the implementation has
-stood the test of time in that as we added support for more TTS
-engines, we were able to implement engine-specific mappings of
-Aural-CSS values. This meant that the rest of Emacspek could
+stood the test of time in that as I added support for more TTS
+engines, I was  able to implement engine-specific mappings of
+Aural-CSS values. This meant that the rest of Emacspeak could
 define various types of voices for use in specific contexts
 without having to worry about individual TTS engines.
+Conceptually, property _personality_ can be thought of as holding
+an _aural display list_ --- various parts of the system can
+annotate pieces of text with relevant properties that finally get
+rendered in the aggregate. 
+This model also works well with the notion of Emacs overlays
+where a moving overlay is used to temporarily highlight text that
+has other context-specific properties applied to it.
+
 
 Audio formatting as implemented in Emacspeak is extremely
 effective when working with all types of content ranging from
@@ -270,15 +280,70 @@ languages!
 
 ** Conversational Gestures For The Audio Desktop 
 
+By 1996, Emacspeak was the only piece of adaptive technology I
+used; in fall of 1995, I had moved to Adobe Systems from DEC
+Research to focus on enhancing the Portable Document Format (PDF)
+to make PDF content repurposable. Between 1996 and 1998, I was
+primarily focused on electronic document formats --- I took this
+opportunity to step back and evaluate what I had built as an
+auditory interface within Emacspeak. This retrospect proved
+extremely useful in gaining a sense of perspective and led to
+formalizing the high-level concept of /Conversational Gestures/
+as a means of thinking about user interfaces.
+
+By now, Emacspeak was a complete environment --- I formalized
+what it provided under the moniker /Complete Audio Desktop/. The
+fully integrated user experience allowed me to move forward with
+respect to defining interaction models that were highly optimized
+to eyes-free interaction --- as an example, see how Emacspeak
+interfaces with modes like _dired_. Emacs' integration with
+_ispell_ for spell checking, as well as its various completion
+facilities ranging from minibuffer completion to other forms of
+dynamic completion while typing text provided more opportunities
+for creating innovative forms of eyes-free interaction. With
+respect to what had gone before (and is still par for the course
+as far as traditional screen-readers are concerned), these types
+of highly dynamic interfaces present a challenge. For example,
+consider handling a completion interface using a screen-reader
+that is speaking the visual display. There is a significant
+challenge in deciding /what to speak/ e.g., when presented with a
+list of completions, the currently typed text, and the default
+completion, which of these should you speak, and in what order?
+
+The problem gets harder when you consider that the underlying
+semantics of these items is generally not available from
+examining the visual presentation in a consistent manner. By
+having direct access to the underlying information being
+presented, Emacspeak had a leg up with respect to addressing the
+higher-level question --- when you do have access to this
+information, how to you present it effectively in an eyes-free
+environment? For this and many other cases of dynamic
+interaction, a combination of audio formatting, auditory icons,
+and the ability to synthesize succinct messages from a
+combination of information items --- rather than having to
+forcibly speak each item as it is rendered visually provided for
+highly efficient eyes-free interaction. So in 1997, I went the
+next step in asking --- given access to the underlying
+infromation, is it possible to build effective eyes-free
+interaction to highly interactive tasks? I picked _Tetris_ as a
+means of exploring this space, the result was an Emacspeak
+extension to speech-enable module _tetris.el_. The details of
+what was learnt were published as a paper in Assets 98, and
+expanded as a chapter on Conversational Gestures in my book on
+Auditory Interfaces; that book was in a sense a culmination of
+stepping back and gaining a sense of perspective of what I had
+build during this period. The work on Conversational Gestures
+also helped in formalizing the abstract user interface layer that
+formed part of the XForms work at the W3C.
+
+** Accessing Media Streams 
+
+
 ** Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols 
-
-
-
-
 
 ** The RESTful Web:  Web Wizards And URL Templates For Faster Access
 
-** Accessing Media Streams 
+
 
 ** Leveraging Computational Tools: From R To IPython Notebooks 
 
