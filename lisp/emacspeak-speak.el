@@ -1638,7 +1638,7 @@ This should eventually be initialized based on the OS we are
 running under.")
 
 (defsubst ems-get-buffer-coding-system ()
-  "Return buffer coding system info if releant.
+  "Return buffer coding system info if relevant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
   (declare (special buffer-file-coding-system voice-lighten
