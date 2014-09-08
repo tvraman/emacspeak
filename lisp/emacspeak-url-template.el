@@ -366,19 +366,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Show HTML5 IRC log.")
 
 ;;}}}
-;;{{{ Google Lite (Experimental)
 
-(emacspeak-url-template-define
- "Google Lite"
- "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s&num=25"
- (list 'gweb-google-autocomplete)
- nil
- "Light weight Google search (experimental)."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "//section|//footer" url 'speak)))
-
-;;}}}
 ;;{{{ market summary from google finance
 
 (emacspeak-url-template-define
