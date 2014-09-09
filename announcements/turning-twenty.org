@@ -371,7 +371,8 @@ streams. Over the years, Emacspeak has come to integrate with
 Emacs packages like _emms_ as well as providing wrappers for
 _mplayer_ and _alsaplayer_ — collectively, these let you
 efficiently launch all types of media streams, including
-streaming video.
+streaming video, without having to explicitly switch context.
+
 
 In the mid-90's, Emacspeak started including a directory of media
 links to some of the more popular radio stations — primarily as a
