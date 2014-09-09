@@ -336,10 +336,23 @@ build during this period. The work on Conversational Gestures
 also helped in formalizing the abstract user interface layer that
 formed part of the XForms work at the W3C.
 
+Speech-enabling games for effective eyes-free interaction  has
+proven highly educational. Interactive games are typically built to challenge
+the user,  and if the eyes-free interface is inefficient,  you
+just wont play the game —
+ contrast this with a task that you *must* perform, where you're
+likely to make do with a sub-optimal interface.  Over the years,
+Emacspeak has come to include eyes-free interfaces to several
+games including Tetris, SuDoKu, and of late the popular
+2048-game. Each of these have in turn contributed to  enhancing
+the interaction model in Emacspeak, and those innovations
+typically make their way to the rest of the environment. 
+
+
 ** Accessing Media Streams 
 
 
-** Social Web: EMail,Instant Messaging And Blogging  Using Open Protocols 
+** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
 ** The RESTful Web:  Web Wizards And URL Templates For Faster Access
 
