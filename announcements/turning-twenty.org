@@ -351,6 +351,33 @@ typically make their way to the rest of the environment.
 
 ** Accessing Media Streams 
 
+Streaming real-time audio on the Internet became a reality with
+the advent of RealAudio in 1994; soon there were a large number
+of media streams available on the Internet ranging from music
+streams to live radio stations. But there was an interesting
+twist — for the most part, all of these media streams expected
+one to look at the screen, even though the primary content was
+purely audio (streaming video hadn't arrived yet!). Starting in
+1996, Emacspeak started including a variety of eyes-free
+front-ends for accessing media streams. Initially, this was
+achieved by building a wrapper around _trplayer_ — a headless
+version of RealPlayer; later I built Emacspeak module
+_emacspeak-m-player_ for interfacing with package _mplayer_. A
+key aspect of streaming media integration in emacspeak is that
+one can launch and control streams without ever switching away
+from one's primary task; thus, you can continue to type email or
+edit code while seamlessly launching and controlling media
+streams. Over the years, Emacspeak has come to integrate with
+Emacs packages like _emms_ as well as providing wrappers for
+_mplayer_ and _alsaplayer_ — collectively, these let you
+efficiently launch all types of media streams, including
+streaming video.
+
+In the mid-90's, Emacspeak started including a directory of media
+links to some of the more popular radio stations — primarily as a
+means of helping users getting started — Emacs' ability to
+rapidly complete directory and file-names turned out to be the
+most effective means of quickly launching a radio station!
 
 ** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
