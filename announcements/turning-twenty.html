@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacspeak At Twenty: Looking Back, Looking Forward</title>
-<!-- 2014-09-11 Thu 08:29 -->
+<!-- 2014-09-11 Thu 08:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="raman" />
@@ -654,6 +654,64 @@ types of actions become even more efficient!
 
 <div id="outline-container-sec-1-11" class="outline-3">
 <h3 id="sec-1-11"><span class="section-number-3">1.11</span> Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+The ability to process large amounts of email and electronic news
+has always been a feature of Emacs. I started using package <span class="underline">vm</span>
+for email in 1990, along with <span class="underline">gnus</span> for Usenet access many years
+before developing Emacspeak. So these were the first major
+packages that Emacspeak speech-enabled. Being able to access the
+underlying data structures used to visually render email messages
+and Usenet articles enabled Emacspeak to produce rich, succinct
+auditory output — this vastly increased my ability to consume and
+organize large amounts of information. Toward the turn of the
+century, instant messaging arived in the mainstream — package
+<span class="underline">tnt</span> provided an Emacs implementation of a chat client that
+could communicate with users on the then popular AOL Instant
+Messenger platform. At the time, I worked at IBM Research, and
+inspired by package <span class="underline">tnt</span>, I created an Emacs client called
+<span class="underline">ChatterBox</span> using the Lotus Sametime API — this enabled me to
+communicate with colleagues at work from the comfort of
+Emacs. Packages like <span class="underline">vm</span>, <span class="underline">gnus</span>, <span class="underline">tnt</span> and <span class="underline">ChatterBox</span> provide
+an interesting example of how availability of a clean underlying
+API to a specific service or content stream can encourage the
+creation of efficient (and different) user interfaces. The
+touchstone of such successful implementations is a simple test —
+can the user of a specific interface tell if the person whom he
+is communicating with is also using the same interface? In each
+of the examples enumerated above, a user at one end of the
+communication chain cannot tell, and in fact shouldn't be able to
+tell what client the user at the other end is using. Contrast
+this with closed services that have an inherent <i>lock-in</i> model
+e.g., proprietary word processors that use undocumented
+serialization formats — for a fun read, see this write-up on
+<a href="http://emacspeak.sourceforge.net/publications/colored-paper.html">Universe Of Fancy Colored Paper</a>.
+</p>
+
+
+<p>
+Today, my personal choice for instant messaging is the open
+Jabber platform. I connect to Jabber via Emacs package
+<span class="underline">emacs-jabber</span> and with Emacspeak providing a light-weight
+wrapper for generating the eyes-free interface, I can communicate
+seamlessly with colleagues and friends around the world.
+</p>
+
+<p>
+As the Web evolved to encompass ever-increasing swathes of
+communication functionality that had already been available on
+the Internet, we saw the world move from Usenet groups to <span class="underline">Blogs</span>
+— I remember initially dismissing the blogging phenomenon as just
+a re-invention of Usenet in the early days. Howeverm mainstream
+users flocked to Blogging, and I later realized that blogging as
+a publishing platform brought along interesting features that
+made communicating and publishing information <b>much</b> easier. In
+2005, I joined Google; during the winter holidays that year, I
+implemented a light-weight client for Blogger that became the
+start of Emacs package <span class="underline">g-client</span> — this package provides Emacs
+wrappers for Google services that provide a RESTful API.
+</p>
+</div>
 </div>
 
 <div id="outline-container-sec-1-12" class="outline-3">
@@ -715,7 +773,7 @@ became part of Emacs 19.23.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-08-19 Tue&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2014-09-11 Thu 08:29</p>
+<p class="date">Created: 2014-09-11 Thu 08:48</p>
 <p class="creator">Emacs 24.4.50.1 (Org mode 8.2.6)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
