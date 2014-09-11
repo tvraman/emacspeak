@@ -378,7 +378,12 @@ In the mid-90's, Emacspeak started including a directory of media
 links to some of the more popular radio stations — primarily as a
 means of helping users getting started — Emacs' ability to
 rapidly complete directory and file-names turned out to be the
-most effective means of quickly launching a radio station!
+most effective means of quickly launching everything from
+streaming radio stations to audio books. And even beter — as the
+Emacs community develops better and smarter ways of navigating
+the filesystem using completions, e.g., package _ido_, these
+types of actions become even more efficient!
+
 
 ** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
