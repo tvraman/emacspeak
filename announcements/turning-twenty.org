@@ -8,9 +8,8 @@ Emacs speak to me so I could use a Linux laptop. As Emacspeak
 turns twenty, this article is both a quick look back over the
 twenty years of lessons learned, as well as a glimpse into what
 might be possible as we evolve to a world of connected,
-ubiquitous computing. It draws on
-[[http://norvig.com/21-days.html][Learning To Program In 10
-Years]] by Peter Norvig for some of its inspiration.
+ubiquitous computing. It draws on [[http://norvig.com/21-days.html][Learning To Program In 10 Years]]
+by Peter Norvig for some of its inspiration.
 ** The Beginning: Using UNIX With Speech Output In 1994
 
 As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
@@ -52,7 +51,7 @@ screen-readers to listen to the contents of the visual display
   —   but Lisp Advice let me do a lot more   —   it enabled Emacspeak
 to generate highly context-specific spoken feedback, augmented by
 a set of auditory icons. I later formalized this design under the
-name [[Speech-Enabled Applications]]. For a detailed overview of the
+name [[http://en.wikipedia.org/wiki/Self-voicing][speech-enabled applications]]. For a detailed overview of the
 architecture of Emacspeak, see the [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] in the
 book [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] from O'Reilly.
 
