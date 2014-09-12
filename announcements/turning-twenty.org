@@ -388,6 +388,15 @@ the filesystem using completions, e.g., package _ido_, these
 types of actions become even more efficient!
 
 
+** Leveraging Computational Tools: From SQL And R To IPython Notebooks 
+
+** Integrating With Window Managers: SawFish And StumpWM
+
+
+** Bookshare, Calibre And Epub: Ubiquitous Access To Books 
+
+
+
 ** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
 The ability to process large amounts of email and electronic news
@@ -546,12 +555,6 @@ though the full potential of this design pattern remains to be
 fully realized given today's tight association of the Web to the
 Web Browser.
 
-** Leveraging Computational Tools: From SQL And R To IPython Notebooks 
-
-** Integrating With Window Managers: SawFish And StumpWM
-
-
-** Bookshare, Calibre And Epub: Ubiquitous Access To Books 
 
 
 
