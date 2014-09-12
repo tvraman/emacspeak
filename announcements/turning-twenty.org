@@ -432,7 +432,7 @@ As the Web evolved to encompass ever-increasing swathes of
 communication functionality that had already been available on
 the Internet, we saw the world move from Usenet groups to _Blogs_
 — I remember initially dismissing the blogging phenomenon as just
-a re-invention of Usenet in the early days. Howeverm mainstream
+a re-invention of Usenet in the early days. However, mainstream
 users flocked to Blogging, and I later realized that blogging as
 a publishing platform brought along interesting features that
 made communicating and publishing information *much* easier. In
@@ -509,7 +509,7 @@ content-rich sites without having to deal with complex visual navigation!
 
 The next step in this evolution came with the arrival of richer
 Web APIs — especially ones that defined a clean client/server
-separation. In this respect, the world of WEb APIs is a somewhat
+separation. In this respect, the world of Web APIs is a somewhat
 mixed bag in that many Web sites equate a Web API  with a
 JS-based API that can be invoked from within a Web-Browser
 run-time. 
@@ -531,9 +531,21 @@ to many useful services, here are a few:
 
 
 And a lot more than will fit this margin! This is an example of
-generalizing the concept of a mashup  as seen on the Web with
+generalizing the concept of a mashup as seen on the Web with
 respect to creating hybrid applications by bringing together a
-collection of different Web APIs.
+collection of different Web APIs. Another way to think of such
+separation is to view an application as a *head* and a *body* —
+where the *head* is a specific user interface, with the *body*
+implementing the application logic. A cleanly defined separation
+between the *head* and *body* allows one to attach /different/
+user interfaces i.e., *heads* to the given *body* without any
+loss of functionality, or the need to re-implement the entire
+application. Modern platforms like Android enable such separation
+via an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] mechanism. The Web platform as originally defined
+around URLs is actually well-suited to this type of separation —
+though the full potential of this design pattern remains to be
+fully realized given today's tight association of the Web to the
+Web Browser.
 
 ** Leveraging Computational Tools: From R To IPython Notebooks 
 
