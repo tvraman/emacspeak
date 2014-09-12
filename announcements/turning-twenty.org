@@ -293,7 +293,7 @@ opportunity to step back and evaluate what I had built as an
 auditory interface within Emacspeak. This retrospect proved
 extremely useful in gaining a sense of perspective and led to
 formalizing the high-level concept of /Conversational Gestures/
-as a means of thinking about user interfaces.
+and structured browsing/searching as a means of thinking about user interfaces.
 
 By now, Emacspeak was a complete environment — I formalized what
 it provided under the moniker /Complete Audio Desktop/. The fully
@@ -316,7 +316,6 @@ is a significant challenge in deciding /what to speak/ e.g., when
 presented with a list of completions, the currently typed text,
 and the default completion, which of these should you speak, and
 in what order?
-
 The problem gets harder when you consider that the underlying
 semantics of these items is generally not available from
 examining the visual presentation in a consistent manner. By
@@ -329,7 +328,18 @@ interaction, a combination of audio formatting, auditory icons,
 and the ability to synthesize succinct messages from a
 combination of information items  —   rather than having to
 forcibly speak each item as it is rendered visually provided for
-highly efficient eyes-free interaction. So in 1997, I went the
+highly efficient eyes-free interaction. 
+
+
+This was also when I stepped back to build out Emacspeak's table
+browsing facilities — see the online Emacspeak documentation for
+ details on Emacspeak's table  browsing functionality which
+continues to remain one of the richest  collection of  end-user
+affordances for working with two-dimensional data.
+
+*** Speech-Enabling Interactive Games 
+
+So in 1997, I went the
 next step in asking  —   given access to the underlying
 infromation, is it possible to build effective eyes-free
 interaction to highly interactive tasks? I picked _Tetris_ as a
