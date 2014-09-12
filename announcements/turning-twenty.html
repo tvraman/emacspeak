@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacspeak At Twenty: Looking Back, Looking Forward</title>
-<!-- 2014-09-12 Fri 13:17 -->
+<!-- 2014-09-12 Fri 13:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="raman" />
@@ -152,7 +152,11 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-6">1.6. Emacspeak And Authoring Documents</a></li>
 <li><a href="#sec-1-7">1.7. Emacspeak And The Early Days Of The Web</a></li>
 <li><a href="#sec-1-8">1.8. Audio Formatting: Generalizing Aural CSS</a></li>
-<li><a href="#sec-1-9">1.9. Conversational Gestures For The Audio Desktop</a></li>
+<li><a href="#sec-1-9">1.9. Conversational Gestures For The Audio Desktop</a>
+<ul>
+<li><a href="#sec-1-9-1">1.9.1. Speech-Enabling Interactive Games</a></li>
+</ul>
+</li>
 <li><a href="#sec-1-10">1.10. Accessing Media Streams</a></li>
 <li><a href="#sec-1-11">1.11. EBooks: Bookshare, Calibre And Epub: Ubiquitous Access To Books</a></li>
 <li><a href="#sec-1-12">1.12. Leveraging Computational Tools: From SQL And R To IPython Notebooks</a></li>
@@ -338,6 +342,11 @@ spoken feedback augmented by  aural highlights.
 </li>
 <li>Running code compilation  and being able to jump to errors
 with spoken feedback.
+</li>
+<li>Ability to move through diff chunks when working with source
+code and source control systems;  refined diffs as provided
+by the <span class="underline">ediff</span> package when speech-enabled is a major
+productivity win.
 </li>
 <li>Ability to easily move between email, document authoring and
 programming   —   though this may appear trivial, it continues
@@ -540,7 +549,7 @@ opportunity to step back and evaluate what I had built as an
 auditory interface within Emacspeak. This retrospect proved
 extremely useful in gaining a sense of perspective and led to
 formalizing the high-level concept of <i>Conversational Gestures</i>
-as a means of thinking about user interfaces.
+and structured browsing/searching as a means of thinking about user interfaces.
 </p>
 
 <p>
@@ -565,9 +574,6 @@ is a significant challenge in deciding <i>what to speak</i> e.g., when
 presented with a list of completions, the currently typed text,
 and the default completion, which of these should you speak, and
 in what order?
-</p>
-
-<p>
 The problem gets harder when you consider that the underlying
 semantics of these items is generally not available from
 examining the visual presentation in a consistent manner. By
@@ -580,7 +586,24 @@ interaction, a combination of audio formatting, auditory icons,
 and the ability to synthesize succinct messages from a
 combination of information items  —   rather than having to
 forcibly speak each item as it is rendered visually provided for
-highly efficient eyes-free interaction. So in 1997, I went the
+highly efficient eyes-free interaction. 
+</p>
+
+
+<p>
+This was also when I stepped back to build out Emacspeak's table
+browsing facilities — see the online Emacspeak documentation for
+ details on Emacspeak's table  browsing functionality which
+continues to remain one of the richest  collection of  end-user
+affordances for working with two-dimensional data.
+</p>
+</div>
+
+<div id="outline-container-sec-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1"><span class="section-number-4">1.9.1</span> Speech-Enabling Interactive Games</h4>
+<div class="outline-text-4" id="text-1-9-1">
+<p>
+So in 1997, I went the
 next step in asking  —   given access to the underlying
 infromation, is it possible to build effective eyes-free
 interaction to highly interactive tasks? I picked <span class="underline">Tetris</span> as a
@@ -608,6 +631,7 @@ games including Tetris, SuDoKu, and of late the popular
 the interaction model in Emacspeak, and those innovations
 typically make their way to the rest of the environment. 
 </p>
+</div>
 </div>
 </div>
 
@@ -662,38 +686,39 @@ AsTeR — was motivated by the increasing availability of technical
 material as online electronic documents. While AsTeR processed
 the TeX family of markup languages, more general ebooks came in a
 wide range of formats, ranging from plain text generated from
-various underlying file formats to structured EBooks. During the
-mid-90's, I had access to a wide range of electronic materials
-from sources such as O'Reilly Publishing and various electronic
-journals &#x2013; The Perl Journal (TPJ) is one that I still remember
-fondly.  Emacspeak provided fairly light-weight but efficient
-access to all of the electronic books I had on my local disk —
-Emacs' strengths with respect to browsing textual documents meant
-that I needed to build little that was specific to Emacspeak. 
+various underlying file formats to structured EBooks, with
+Project Gutenberg leading the way. During the mid-90's, I had
+access to a wide range of electronic materials from sources such
+as O'Reilly Publishing and various electronic journals &#x2013; The
+Perl Journal (TPJ) is one that I still remember fondly. 
 </p>
 
 <p>
-The last decade has seen the rapid convergence to <b>epub</b> as a
-distribution format of choice for electronic books. The late 90's
-also saw the arival of Daisy as an XML-based format for
-accessible electronic books. Emacspeak provides interaction modes
-that make organizing, searching and reading these materials  on
-the Emacspeak Audio Desktop  a pleasant experience.  Emacspeak
-also provides an OCR-Mode — this enables one to call out to an
-external OCR  program and read the content efficiently.
+Emacspeak provided fairly light-weight but efficient access to
+all of the electronic books I had on my local disk — Emacs'
+strengths with respect to browsing textual documents meant that I
+needed to build little that was specific to Emacspeak. The late
+90's saw the arival of Daisy as an XML-based format for
+accessible electronic books. The last decade has seen the rapid
+convergence to <b>epub</b> as a distribution format of choice for
+electronic books. Emacspeak provides interaction modes that make
+organizing, searching and reading these materials on the
+Emacspeak Audio Desktop a pleasant experience. Emacspeak also
+provides an OCR-Mode — this enables one to call out to an
+external OCR program and read the content efficiently.
 </p>
 
 <p>
 The somewhat informal process used by publishers like O'Reilly to
 make technical material available to users with print impairments
-was later formalized by BookShare — today, qualified users can
+was later formalized by <a href="https://www.bookshare.org/#mainContent">BookShare</a> — today, qualified users can
 obtain a large number of books and periodicals initially as
 Daisy-3 and increasingly as <span class="underline">EPub</span>. BookShare provides a RESTful
 API for searching and downloading books; Emacspeak module
-<span class="underline">emacspeak-bookshare</span> implements this API to create a
-client for browsing the BookShare  library, downloading and
-organizing books locally, and an integrated EPub reading mode to
-round off the experience.
+<span class="underline">emacspeak-bookshare</span> implements this API to create a client for
+browsing the BookShare library, downloading and organizing books
+locally, and an integrated ebook  reading mode to round off the
+experience.
 </p>
 
 <p>
@@ -705,11 +730,6 @@ for reading books.
 </p>
 </div>
 </div>
-
-
-
-
-
 
 <div id="outline-container-sec-1-12" class="outline-3">
 <h3 id="sec-1-12"><span class="section-number-3">1.12</span> Leveraging Computational Tools: From SQL And R To IPython Notebooks</h3>
@@ -870,9 +890,16 @@ right pieces of information on the Web.
 
 <p>
 The final icing on the cake was the arrival of RSS and Atom feeds
-and the consequent deep-linking into content-rich sites 
-— this meant that Emacspeak could  provide audio renderings of
-useful content  without having to deal with complex visual navigation!
+and the consequent deep-linking into content-rich sites — this
+meant that Emacspeak could provide audio renderings of useful
+content without having to deal with complex visual navigation!
+While Google Reader existed, Emacspeak provided a light-weight
+<span class="underline">greader</span> client for managing ones feed subscriptions; with the
+demise of Google Reader, I implemented module <span class="underline">emacspeak-feeds</span>
+for organizing feeds on the Emacspeak desktop. A companion
+package <span class="underline">emacspeak-webspace</span> implements additional goodies
+including a continuously updating ticker of headlines taken from
+the user's collection of subscribed feeds.
 </p>
 </div>
 </div>
@@ -971,7 +998,7 @@ became part of Emacs 19.23.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-08-19 Tue&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2014-09-12 Fri 13:17</p>
+<p class="date">Created: 2014-09-12 Fri 13:45</p>
 <p class="creator">Emacs 24.4.50.1 (Org mode 8.2.6)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
