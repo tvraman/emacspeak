@@ -810,7 +810,7 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
        (lucky (browse-url search-url))
        (emacspeak-websearch-google-results-only
         (emacspeak-we-extract-by-id-list
-         '( "rhs" "center_col")
+         '( "rhs" "center_col" "nav")
          search-url 'speak))
        (t (emacspeak-webutils-with-xsl-environment
            (expand-file-name "default.xsl" emacspeak-xslt-directory)

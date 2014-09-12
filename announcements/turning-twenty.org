@@ -13,7 +13,7 @@ In 10 Years]] by Peter Norvig for some of its inspiration.
 * The Beginning: Using UNIX With Speech Output In 1994
 
 As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
-(SunOS) from a 486 PC running IBM Screenreader.  There was no
+(SunOS) from a 486 PC running IBM Screen-Reader.  There was no
 means of directly using a UNIX box at the time; after graduating,
 I continued doing the same for about six months at Digital
 Research in Cambridge   —   the only difference being that my
@@ -26,7 +26,7 @@ In fall of 1994, I wanted to start using a laptop running Linux;
 a colleague (Dave Wecker) was retiring his 386mhz laptop that
 already had Linux on it and I decided to inherit it. But there
 was only one problem   —   until then I had always accessed a UNIX
-machine from a secondary PC running a screenreader   —   something
+machine from a secondary PC running a screen-reader   —   something
 that would clearly make no sense with a laptop!
 
 A few weeks earlier, another colleague Win Treese, had pointed
@@ -39,7 +39,7 @@ speculated about using the Linux laptop, Dave remarked   —   you
 live in Emacs anyway   —   why dont you just make it talk!
 
 Connecting the dots, I decided to write myself a tool that
-augmented Emacs' default behaviour to /speak/   —   within about 4
+augmented Emacs' default behavior to /speak/   —   within about 4
 hours, version 0.01 of Emacspeak was up and running.
 
 
@@ -84,7 +84,7 @@ small price. Looking back across 20 years, the state of TTS on
 Linux in particular and across all platforms in general continues
 to be a disappointment; most of today's newer TTS engines are
 geared toward mainstream use-cases where /naturalness/ of the
-voice tends to supercede intelligebility at higher
+voice tends to supersede intelligibility at higher
 speech-rates. Ironically, modern TTS engines also give
 applications far less control over the generated output   —   as a
 case in point, I implemented [[http://www.cs.cornell.edu/home/raman/aster/demo.html][Audio System For Technical Readings
@@ -98,7 +98,7 @@ sounding DECTalk!
 
 
 
-Version 0.01 of Emacspeak was written using IBM Screenreader on
+Version 0.01 of Emacspeak was written using IBM Screen-Reader on
 a PC with a terminal emulator accessing a UNIX  workstation. But
 in about 2 weeks, Emacspeak was already a better  environment for
 developing Emacspeak in particular and software development in
@@ -140,13 +140,13 @@ that Emacspeak was able to provide fluent, well-integrated
 contextual feedback for all of these tasks. And that was a
 game-changer given what I had had before Emacspeak. As a case in
 point, I did not dare program in Python before  I speech-enabled
-Emacs' Python-Mode; the fact that whitespace is significant in
-Python made it difficult to program using a plain screenreader
+Emacs' Python-Mode; the fact that white space is significant in
+Python made it difficult to program using a plain screen-reader
 that was unaware of the semantics of the underlying content being accessed.
 
 * Emacspeak And Authoring Documents 
 
-In 1994, my prefered environment for authoring *all* documents
+In 1994, my preferred environment for authoring *all* documents
 was _LaTeX_ using the Auctex package. Later I started writing
 either LaTeX or HTML using the appropriate support modes; today I
 use _org-mode_ to do most of my content authoring. Personally, I
@@ -204,7 +204,7 @@ Emacs-W3 as far as most Emacs users were concerned.
 
 But Emacs-W3 went through a revival on the emacspeak audio
 desktop in late 1999 with the arrival of XSLT, and Daniel
-Valliard's excellent implementation via the _libxml2_ and
+Veillard's excellent implementation via the _libxml2_ and
 _libxslt_ packages. With these in hand, Emacspeak was able to
 hand-off the bulk of HTML error correction to the _xsltproc_
 tool. The lack of visual fidelity didn't matter much for an
@@ -345,7 +345,7 @@ infromation, is it possible to build effective eyes-free
 interaction to highly interactive tasks? I picked _Tetris_ as a
 means of exploring this space, the result was an Emacspeak
 extension to speech-enable module _tetris.el_. The details of
-what was learnt were published as a paper in Assets 98, and
+what was learned were published as a paper in Assets 98, and
 expanded as a chapter on Conversational Gestures in my book on
 Auditory Interfaces; that book was in a sense a culmination of
 stepping back and gaining a sense of perspective of what I had
@@ -446,12 +446,12 @@ for reading books.
 
 * Leveraging Computational Tools: From SQL And R To IPython Notebooks 
 
-The ability to invoke external processes and interface from them
-via a simple read-eval-loop is perhaps one of Emacs' strongest
-extension points. This means that a wide variety of computational
-tools become immediately available for embedding within the Emacs
-environment — a facility that has been widely exploited by the
-Emacs community. Over the years, Emacspeak has
+The ability to invoke external processes and interface with them
+via a simple read-eval-loop (REPL) is perhaps one of Emacs'
+strongest extension points. This means that a wide variety of
+computational tools become immediately available for embedding
+within the Emacs environment — a facility that has been widely
+exploited by the Emacs community. Over the years, Emacspeak has
 leveraged every one of these facilities to provide a
 well-integrated auditory interface.
 
@@ -638,14 +638,14 @@ determined by the keyboard and display. This is even more true in
 today's world of tablets, phablets and large-sized phones — with
 the only difference that the keyboard has been replaced by a
 touch screen. The next generation in the evolution of *personal*
-devices is that they will become truly personal by being werables
+devices is that they will become truly personal by being wearables
 — this once again forces a separation of the user interface
 peripherals from the underlying compute engine. Imagine a variety
-of werables that collectively connect to ones cell phone, which
+of wearables that collectively connect to ones cell phone, which
 itself connects to the cloud for all its computational and
 information needs. Such an environment is rich in possibilities
 for  creating a wide variety of  user experiences to a single
-underlying body of information.Eyes-Free interfaces as pioneered
+underlying body of information; Eyes-Free interfaces as pioneered
 by systems like Emacspeak will come to play an increasingly vital
 role alongside  visual interaction when this comes to pass.
 
