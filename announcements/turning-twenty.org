@@ -2,14 +2,15 @@
 
 ** Introduction
 
-One afternoon in  the third week of September 1994, 
-I started writing myself a small Emacs extension using Lisp
-Advice to make Emacs speak to me so I could use a Linux laptop. 
-As Emacspeak turns twenty, this article is both a quick look back
-over the twenty years of lessons learned, as well as a  glimpse
-into what might be possible as we evolve to a  world of
-connected, ubiquitous computing.
-
+One afternoon in the third week of September 1994, I started
+writing myself a small Emacs extension using Lisp Advice to make
+Emacs speak to me so I could use a Linux laptop. As Emacspeak
+turns twenty, this article is both a quick look back over the
+twenty years of lessons learned, as well as a glimpse into what
+might be possible as we evolve to a world of connected,
+ubiquitous computing. It draws on
+[[http://norvig.com/21-days.html][Learning To Program In 10
+Years]] by Peter Norvig for some of its inspiration.
 ** The Beginning: Using UNIX With Speech Output In 1994
 
 As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
@@ -438,6 +439,7 @@ implemented a light-weight client for Blogger that became the
 start of Emacs package _g-client_ — this package provides Emacs
 wrappers for Google services that provide a RESTful API.
 
+
 ** The RESTful Web:  Web Wizards And URL Templates For Faster Access
 
 Today, the Web, based on URLs and HTTP-style protocols is widely
@@ -501,10 +503,37 @@ and the consequent deep-linking into content-rich sites
 content-rich sites without having to deal with complex visual navigation!
 
 
+** Mashing It Up: Leveraging Evolving Web APIs
+
+The next step in this evolution came with the arrival of richer
+Web APIs — especially ones that defined a clean client/server
+separation. In this respect, the world of WEb APIs is a somewhat
+mixed bag in that many Web sites equate a Web API  with a
+JS-based API that can be invoked from within a Web-Browser
+run-time. 
+The issue with that type of API  binding is that the only runtime
+that is supported is a full-blown Web browser; but the arrival of
+native mobile apps  has actually proven a net positive in
+encouraging sites to create a cleaner separation. Emacspeak has
+leveraged these APIs to create Emacspeak front-ends 
+to many useful services, here are a few:
+
+
+  1. Librivox for browsing  and playing free audio books.
+  2. NPR  for browsing and playing NPR archived programs.
+  3. BBC for playing a wide variety of streaming content
+     available from the BBC.
+  4. A Google Maps front-end that  provides instantaneous access
+     to directions and Places search.
+  5. Access to Twitter via package _twittering.-mode_.
+
+
+And a lot more than will fit this margin! This is an example of
+generalizing the concept of a mashup  as seen on the Web with
+respect to creating hybrid applications by bringing together a
+collection of different Web APIs.
 
 ** Leveraging Computational Tools: From R To IPython Notebooks 
-
-
 
 ** Integrating With Window Managers: SawFish And StumpWM
 
@@ -514,7 +543,7 @@ content-rich sites without having to deal with complex visual navigation!
 
 
 
-** Mashing It Up: Leveraging Evolving Web APIs
+
 
 ** References 
 
