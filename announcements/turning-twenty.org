@@ -1,6 +1,5 @@
-* Emacspeak At Twenty: Looking Back, Looking Forward
 
-** Introduction
+* Introduction
 
 One afternoon in the third week of September 1994, I started
 writing myself a small Emacs extension using Lisp Advice to make
@@ -8,9 +7,10 @@ Emacs speak to me so I could use a Linux laptop. As Emacspeak
 turns twenty, this article is both a quick look back over the
 twenty years of lessons learned, as well as a glimpse into what
 might be possible as we evolve to a world of connected,
-ubiquitous computing. It draws on [[http://norvig.com/21-days.html][Learning To Program In 10 Years]]
-by Peter Norvig for some of its inspiration.
-** The Beginning: Using UNIX With Speech Output In 1994
+ubiquitous computing. This article draws on [[http://norvig.com/21-days.html][Learning To Program
+In 10 Years]] by Peter Norvig for some of its inspiration.
+
+* The Beginning: Using UNIX With Speech Output In 1994
 
 As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
 (SunOS) from a 486 PC running IBM Screenreader.  There was no
@@ -43,7 +43,7 @@ augmented Emacs' default behaviour to /speak/   —   within about 4
 hours, version 0.01 of Emacspeak was up and running.
 
 
-** Key Enabler: Emacs And Lisp Advice
+* Key Enabler: Emacs And Lisp Advice
 
 It took me a couple of weeks to fully recognize the potential of
 what I had built with Emacs Lisp Advice. Until then, I had used
@@ -55,7 +55,7 @@ name [[http://en.wikipedia.org/wiki/Self-voicing][speech-enabled applications]].
 architecture of Emacspeak, see the [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] in the
 book [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] from O'Reilly.
 
-** Key Component: Text To Speech (TTS)
+* Key Component: Text To Speech (TTS)
 
 Emacspeak is a speech-subsystem for Emacs; it depends on an
 external Text-To-Speech (TTS) engine to produce speech. In 1994,
@@ -94,7 +94,7 @@ out to be difficult or impossible to implement the type of audio
 renderings that were possible with the admittedly less-natural
 sounding DECTalk!
 
-** Emacspeak And Software Development 
+* Emacspeak And Software Development 
 
 
 
@@ -144,7 +144,7 @@ Emacs' Python-Mode; the fact that whitespace is significant in
 Python made it difficult to program using a plain screenreader
 that was unaware of the semantics of the underlying content being accessed.
 
-** Emacspeak And Authoring Documents 
+* Emacspeak And Authoring Documents 
 
 In 1994, my prefered environment for authoring *all* documents
 was _LaTeX_ using the Auctex package. Later I started writing
@@ -152,11 +152,11 @@ either LaTeX or HTML using the appropriate support modes; today I
 use _org-mode_ to do most of my content authoring. Personally, I
 have never been a fan of What You See Is What You Get (WYSIWYG )
 authoring tools   —   in my experience that places an undue burden
-on the author in terms of drawing attention away from the content
+on the author by  drawing attention away from the content
 to focus on the final appearance. An added benefit  of creating
 content in Emacs in the form of light-weight markup  is that the
 content is long-lived   —   I can still usefully process and re-use
-things I have written 20 years ago.
+things I have written 25 years ago.
 
 Emacs, with Emacspeak providing audio formatting and
 context-specific feedback remains my environment of choice for
@@ -170,7 +170,7 @@ this write-up on [[http://emacspeak.sourceforge.net/raman/publications/polyhedra
 all of the content, including the drawings were created by me
 using Emacs. 
 
-** Emacspeak And The Early Days Of The Web
+* Emacspeak And The Early Days Of The Web
 
 Right around the time that I was writing version 0.01 of
 emacspeak, a far more significant software movement was under way
@@ -190,7 +190,7 @@ audio formatting and structured content navigation; in summer of
 1995, Dave Raggett and I outlined a few extensions to HTML Forms,
 including the _label_ element as a means of associating metadata
 with interactive form controls in HTML, and many of these ideas
-were prototyped in Emacs-W3 at the time. Over time, Emacs-W3 fell
+were prototyped in Emacs-W3 at the time. Over the years, Emacs-W3 fell
 behind the times   —   especially as the Web moved away from
 cleanly structured HTML to a massive soup of unmatched tags. This
 made parsing and error-correcting badly-formed HTML markup
@@ -227,7 +227,7 @@ year, I have added support within emacspeak to [[http://emacspeak.blogspot.com/2
 _eww_]] with support for DOM filtering and quick content
 navigation.
 
-** Audio Formatting: Generalizing Aural CSS 
+* Audio Formatting: Generalizing Aural CSS 
 
 
 A key idea in Audio System For Technical Readings [[http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html][(AsTeR)]] was the
@@ -282,7 +282,7 @@ Emacspeak's audio formatted output is the only way I can
 correctly write _else if_ vs _elsif_ in various programming
 languages!
 
-** Conversational Gestures For The Audio Desktop 
+* Conversational Gestures For The Audio Desktop 
 
 By 1996, Emacspeak was the only piece of adaptive technology I
 used; in fall of 1995, I had moved to Adobe Systems from DEC
@@ -337,7 +337,7 @@ browsing facilities — see the online Emacspeak documentation for
 continues to remain one of the richest  collection of  end-user
 affordances for working with two-dimensional data.
 
-*** Speech-Enabling Interactive Games 
+** Speech-Enabling Interactive Games 
 
 So in 1997, I went the
 next step in asking  —   given access to the underlying
@@ -351,7 +351,7 @@ Auditory Interfaces; that book was in a sense a culmination of
 stepping back and gaining a sense of perspective of what I had
 build during this period. The work on Conversational Gestures
 also helped in formalizing the abstract user interface layer that
-formed part of the XForms work at the W3C.
+formed part of the [[http://www.w3.org/MarkUp/Forms/][XForms]]  work at the W3C.
 
 Speech-enabling games for effective eyes-free interaction  has
 proven highly educational. Interactive games are typically built to challenge
@@ -366,10 +366,10 @@ the interaction model in Emacspeak, and those innovations
 typically make their way to the rest of the environment. 
 
 
-** Accessing Media Streams 
+* Accessing Media Streams 
 
 Streaming real-time audio on the Internet became a reality with
-the advent of RealAudio in 1994; soon there were a large number
+the advent of RealAudio in 1995; soon there were a large number
 of media streams available on the Internet ranging from music
 streams to live radio stations. But there was an interesting
 twist — for the most part, all of these media streams expected
@@ -401,7 +401,7 @@ Emacs community develops better and smarter ways of navigating
 the filesystem using completions, e.g., package _ido_, these
 types of actions become even more efficient!
 
-** EBooks: Bookshare, Calibre And Epub: Ubiquitous Access To Books 
+* EBooks: Bookshare, Calibre And Epub: Ubiquitous Access To Books 
 
 
 AsTeR — was motivated by the increasing availability of technical
@@ -409,7 +409,7 @@ material as online electronic documents. While AsTeR processed
 the TeX family of markup languages, more general ebooks came in a
 wide range of formats, ranging from plain text generated from
 various underlying file formats to structured EBooks, with
-Project Gutenberg leading the way. During the mid-90's, I had
+Project [[http://www.gutenberg.org/][Gutenberg]] leading the way. During the mid-90's, I had
 access to a wide range of electronic materials from sources such
 as O'Reilly Publishing and various electronic journals -- The
 Perl Journal (TPJ) is one that I still remember fondly. 
@@ -444,14 +444,14 @@ for organizing ones ebook collection; Emacspeak now implements an
 to search and browse books, along with an integrated *EPub mode*
 for reading books.
 
-** Leveraging Computational Tools: From SQL And R To IPython Notebooks 
+* Leveraging Computational Tools: From SQL And R To IPython Notebooks 
 
 The ability to invoke external processes and interface from them
 via a simple read-eval-loop is perhaps one of Emacs' strongest
 extension points. This means that a wide variety of computational
 tools become immediately available for embedding within the Emacs
 environment — a facility that has been widely exploited by the
-Emacs community over the years. Over the years, Emacspeak has
+Emacs community. Over the years, Emacspeak has
 leveraged every one of these facilities to provide a
 well-integrated auditory interface.
 
@@ -463,7 +463,7 @@ Audio Desktop has come to encompass a collection of rich tools
 that provide an efficient eyes-free experience backed up by
 consistent audio formatted output.
 
-** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
+* Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
 The ability to process large amounts of email and electronic news
 has always been a feature of Emacs. I started using package _vm_
@@ -517,16 +517,16 @@ start of Emacs package _g-client_ — this package provides Emacs
 wrappers for Google services that provide a RESTful API.
 
 
-** The RESTful Web:  Web Wizards And URL Templates For Faster Access
+* The RESTful Web:  Web Wizards And URL Templates For Faster Access
 
 Today, the Web, based on URLs and HTTP-style protocols is widely
 recognized as a platform in its own right. This platform emerged
 over time — to me, Web APIs arrived in the late 90's when I
-observed the following with respect  to my own usage on many
+observed the following with respect  to my own behavior  on many
 popular sites:
 
   1. I opened a Web page that took a while to load (remember,  I
-     was still using Emacs/W3),
+     was still using Emacs-W3),
   2. I then searched through the page to find a form-field that
      I filled out, e.g. start and end destinations on Yahoo Maps,
   3. I hit _submit_, and once again waited for a heavy-weight
@@ -561,9 +561,9 @@ However, over time, the CGI parameter names remained fixed — the
 
 I later codified these filtering rules in terms of XPath, and
 also integrated XSLT-based pre-processing of incoming HTML
-content before it got handed off to Emacs/W3 — and yes,
+content before it got handed off to Emacs-W3 — and yes,
 Emacs/Advice once again came in handy with respect to injecting
-XSLT pre-processing into Emacs/W3!
+XSLT pre-processing into Emacs-W3!
 
 Later, in early 2000, I created companion module
 _emacspeak-url-templates_ — partially inspired by Emacs'
@@ -586,13 +586,13 @@ including a continuously updating ticker of headlines taken from
 the user's collection of subscribed feeds.
 
 
-** Mashing It Up: Leveraging Evolving Web APIs
+* Mashing It Up: Leveraging Evolving Web APIs
 
 The next step in this evolution came with the arrival of richer
 Web APIs — especially ones that defined a clean client/server
 separation. In this respect, the world of Web APIs is a somewhat
 mixed bag in that many Web sites equate a Web API  with a
-JS-based API that can be invoked from within a Web-Browser
+JS-based API that can be exclusively invoked from within a Web-Browser
 run-time. 
 The issue with that type of API  binding is that the only runtime
 that is supported is a full-blown Web browser; but the arrival of
@@ -601,14 +601,15 @@ encouraging sites to create a cleaner separation. Emacspeak has
 leveraged these APIs to create Emacspeak front-ends 
 to many useful services, here are a few:
 
-
-  1. Librivox for browsing  and playing free audio books.
-  2. NPR  for browsing and playing NPR archived programs.
-  3. BBC for playing a wide variety of streaming content
+  1. Minibuffer completion for Google Search using Google Suggest
+     to provide completions.
+  2. Librivox for browsing  and playing free audio books.
+  3. NPR  for browsing and playing NPR archived programs.
+  4. BBC for playing a wide variety of streaming content
      available from the BBC.
-  4. A Google Maps front-end that  provides instantaneous access
+  5. A Google Maps front-end that  provides instantaneous access
      to directions and Places search.
-  5. Access to Twitter via package _twittering.-mode_.
+  6. Access to Twitter via package _twittering.-mode_.
 
 
 And a lot more than will fit this margin! This is an example of
@@ -628,24 +629,28 @@ though the full potential of this design pattern remains to be
 fully realized given today's tight association of the Web to the
 Web Browser.
 
+* Conclusion 
 
 
 
 
 
 
-** References 
+
+
+* References 
 
   - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]::  Klewer Publishing, 1997.
   - Advice  ::   An Emacs Lisp package by    [[http://www.isi.edu/~hans/][Hans Chalupsky]] that
                  became part of Emacs 19.23.
+  - [[http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml][In The Beginning Was The Command Line]] By Neal Stephenson 
   - [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] :: An overview of the Emacspeak architecture.
   - <<[[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications>>]] :: Emacspeak at CHI 1996.
   - EWW :: Emacspeak  [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extends EWW ]].
 
 
    
-** Conclusion 
+
 
 #+TITLE: Emacspeak At Twenty: Looking Back, Looking Forward
 #+DATE: <2014-08-19 Tue>
