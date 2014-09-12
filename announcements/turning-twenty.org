@@ -214,7 +214,7 @@ JavaScript support.
 
 During the last 24 months, _libxml2_ has been built into Emacs;
 this means that you can now parse arbitrary HTML as found in the
-wild without incuring a performance hit. This functionality was
+wild without incurring  a performance hit. This functionality was
 leveraged first by package _shr_ (Simple HTML Renderer) within
 the _gnus_ package for rendering HTML email; later, the author of
 _gnus_ and _shr_ created a new light-weight HTML viewer called
