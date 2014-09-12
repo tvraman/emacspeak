@@ -291,24 +291,27 @@ extremely useful in gaining a sense of perspective and led to
 formalizing the high-level concept of /Conversational Gestures/
 as a means of thinking about user interfaces.
 
-By now, Emacspeak was a complete environment  —   I formalized
-what it provided under the moniker /Complete Audio Desktop/. The
-fully integrated user experience allowed me to move forward with
+By now, Emacspeak was a complete environment — I formalized what
+it provided under the moniker /Complete Audio Desktop/. The fully
+integrated user experience allowed me to move forward with
 respect to defining interaction models that were highly optimized
-to eyes-free interaction  —   as an example, see how Emacspeak
-interfaces with modes like _dired_. Emacs' integration with
-_ispell_ for spell checking, as well as its various completion
-facilities ranging from minibuffer completion to other forms of
-dynamic completion while typing text provided more opportunities
-for creating innovative forms of eyes-free interaction. With
-respect to what had gone before (and is still par for the course
-as far as traditional screen-readers are concerned), these types
-of highly dynamic interfaces present a challenge. For example,
-consider handling a completion interface using a screen-reader
-that is speaking the visual display. There is a significant
-challenge in deciding /what to speak/ e.g., when presented with a
-list of completions, the currently typed text, and the default
-completion, which of these should you speak, and in what order?
+to eyes-free interaction — as an example, see how Emacspeak
+interfaces with modes like _dired_ (Directory Editor) for
+browsing and manipulating the filesystem, or _proced_ (Process Editor) for
+browsing and manipulating running processes. Emacs' integration
+with _ispell_ for spell checking, as well as its various
+completion facilities ranging from minibuffer completion to other
+forms of dynamic completion while typing text provided more
+opportunities for creating innovative forms of eyes-free
+interaction. With respect to what had gone before (and is still
+par for the course as far as traditional screen-readers are
+concerned), these types of highly dynamic interfaces present a
+challenge. For example, consider handling a completion interface
+using a screen-reader that is speaking the visual display. There
+is a significant challenge in deciding /what to speak/ e.g., when
+presented with a list of completions, the currently typed text,
+and the default completion, which of these should you speak, and
+in what order?
 
 The problem gets harder when you consider that the underlying
 semantics of these items is generally not available from
