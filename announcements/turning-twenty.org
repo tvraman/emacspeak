@@ -632,6 +632,26 @@ Web Browser.
 * Conclusion 
 
 
+In 1996, I wrote an article entitled [[http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453][User Interface — A Means To
+An End]] pointing out that the size and shape of computers were
+determined by the keyboard and display. This is even more true in
+today's world of tablets, phablets and large-sized phones — with
+the only difference that the keyboard has been replaced by a
+touch screen. The next generation in the evolution of *personal*
+devices is that they will become truly personal by being werables
+— this once again forces a separation of the user interface
+peripherals from the underlying compute engine. Imagine a variety
+of werables that collectively connect to ones cell phone, which
+itself connects to the cloud for all its computational and
+information needs. Such an environment is rich in possibilities
+for  creating a wide variety of  user experiences to a single
+underlying body of information.Eyes-Free interfaces as pioneered
+by systems like Emacspeak will come to play an increasingly vital
+role alongside  visual interaction when this comes to pass.
+
+
+
+  --T.V. Raman, San Jose, CA, September 12, 2014
 
 
 
