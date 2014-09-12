@@ -440,6 +440,66 @@ wrappers for Google services that provide a RESTful API.
 
 ** The RESTful Web:  Web Wizards And URL Templates For Faster Access
 
+Today, the Web, based on URLs and HTTP-style protocols is widely
+recognized as a platform in its own right. This platform emerged
+over time — to me, Web APIs arrived in the late 90's when I
+observed the following with respect  to my own usage on many
+popular sites:
+
+  1. I opened a Web page that took a while to load (remember,  I
+     was still using Emacs/W3),
+  2. I then searched through the page to find a form-field that
+     I filled out, e.g. start and end destinations,
+  3. I hit _submit_, and once again waited for a heavy-weight
+     HTML page to load,
+  4.  And finally, I hunted through the rendered content to find
+      what I was looking for.
+
+This pattern repeated across a wide-range of interactive Web
+sites ranging from AltaVista for search (this was pre-Google for
+real), Yahoo Maps for directions, and Amazon for product searches
+to name but a few. So I decided to automate away the pain by
+creating Emacspeak module _emacspeak-websearch_
+that  did the following: 
+
+  1. Prompt via the minibuffer for the requisite fields,
+  2. Consed up an HTTP GET URL,
+  3. Retrieved this URL,
+  4. And filtered out the specific portion of the HTML  DOM that
+     held the  generated response.
+
+Notice that the above implementation hard-wires the CGI parameter
+names used by a given Web application into the code implemented
+in module _emacspeak-websearch_ — REST as a design pattern had
+not yet been recognized, leave alone formalized, and module
+_emacspeak-websearch_ was initially decryed as being fragile.
+
+However, over time, the CGI parameter names remained fixed — the
+ only things that have required updating in the Emacspeak
+ code-base are the content filtering rules that extract the
+ response — for popular services, this has averaged about one to
+ two times a year.
+
+
+I later codified these filtering rules in terms of XPath, and
+also integrated XSLT-based pre-processing of incoming HTML
+content before it got handed off to Emacs/W3 — and yes,
+Emacs/Advice once again came in handy with respect to injecting
+XSLT pre-processing into Emacs/W3!
+
+Later, in early 2000, I created companion module
+_emacspeak-url-templates_ — partially inspired by Emacs'
+_webjump_ module.
+URL templates in Emacspeak leveraged the now recognized REST
+interaction pattern to provide a large collection of Web widgets
+that could be quickly invoked to provide rapid access to the
+right pieces of information on the Web.
+
+The final icing on the cake was the arrival of RSS and Atom feeds
+and the consequent deep-linking into content-rich sites 
+— this meant that Emacspeak could  provide audio renderings of
+content-rich sites without having to deal with complex visual navigation!
+
 
 
 ** Leveraging Computational Tools: From R To IPython Notebooks 

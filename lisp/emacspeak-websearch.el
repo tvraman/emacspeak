@@ -809,8 +809,8 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
       (cond
        (lucky (browse-url search-url))
        (emacspeak-websearch-google-results-only
-        (emacspeak-we-extract-by-id-list
-         (list "kno-result"  "res" "nav" "rhs")
+        (emacspeak-we-extract-by-id
+         "center_col"
          search-url 'speak))
        (t (emacspeak-webutils-with-xsl-environment
            (expand-file-name "default.xsl" emacspeak-xslt-directory)
