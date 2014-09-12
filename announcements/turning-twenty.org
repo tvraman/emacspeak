@@ -446,12 +446,22 @@ for reading books.
 
 ** Leveraging Computational Tools: From SQL And R To IPython Notebooks 
 
-** Integrating With Window Managers: SawFish And StumpWM
+The ability to invoke external processes and interface from them
+via a simple read-eval-loop is perhaps one of Emacs' strongest
+extension points. This means that a wide variety of computational
+tools become immediately available for embedding within the Emacs
+environment — a facility that has been widely exploited by the
+Emacs community over the years. Over the years, Emacspeak has
+leveraged every one of these facilities to provide a
+well-integrated auditory interface.
 
-
-
-
-
+Starting from a tight code, eval, test form of iterative
+programming as encouraged by Lisp and applied to languages like
+Python and Ruby to explorative computational tools such as R for
+data analysis and SQL for database interaction, the Emacspeak
+Audio Desktop has come to encompass a collection of rich tools
+that provide an efficient eyes-free experience backed up by
+consistent audio formatted output.
 
 ** Social Web: EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
