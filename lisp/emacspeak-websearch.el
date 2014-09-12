@@ -837,8 +837,8 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
   (declare (special emacspeak-websearch-accessible-google-url))
   (let ((emacspeak-eww-masquerade nil))
   (emacspeak-webutils-cache-google-query query)
-  (emacspeak-we-extract-by-id-list
-   '("res" "foot")
+  (emacspeak-we-extract-by-id
+   "center_col"
    (format emacspeak-websearch-accessible-google-url query)
    'speak)))
       
