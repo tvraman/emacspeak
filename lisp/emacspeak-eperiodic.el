@@ -102,7 +102,7 @@
   (forward-line 1)
   (call-interactively 'eperiodic-next-element))
   
-  (emacspeak-auditory-icon 'select-object))
+
 (defun emacspeak-eperiodic-speak-current-element ()
   "Speak element at point."
   (interactive)
