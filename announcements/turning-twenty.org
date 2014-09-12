@@ -453,15 +453,14 @@ popular sites:
   1. I opened a Web page that took a while to load (remember,  I
      was still using Emacs/W3),
   2. I then searched through the page to find a form-field that
-     I filled out, e.g. start and end destinations,
+     I filled out, e.g. start and end destinations on Yahoo Maps,
   3. I hit _submit_, and once again waited for a heavy-weight
      HTML page to load,
   4.  And finally, I hunted through the rendered content to find
       what I was looking for.
 
 This pattern repeated across a wide-range of interactive Web
-sites ranging from AltaVista for search (this was pre-Google for
-real), Yahoo Maps for directions, and Amazon for product searches
+sites ranging from AltaVista for search (this was pre-Google), Yahoo Maps for directions, and Amazon for product searches
 to name but a few. So I decided to automate away the pain by
 creating Emacspeak module _emacspeak-websearch_
 that  did the following: 
@@ -474,7 +473,7 @@ that  did the following:
 
 Notice that the above implementation hard-wires the CGI parameter
 names used by a given Web application into the code implemented
-in module _emacspeak-websearch_ — REST as a design pattern had
+in module _emacspeak-websearch_.  REST as a design pattern had
 not yet been recognized, leave alone formalized, and module
 _emacspeak-websearch_ was initially decryed as being fragile.
 
@@ -494,7 +493,7 @@ XSLT pre-processing into Emacs/W3!
 Later, in early 2000, I created companion module
 _emacspeak-url-templates_ — partially inspired by Emacs'
 _webjump_ module.
-URL templates in Emacspeak leveraged the now recognized REST
+URL templates in Emacspeak leveraged the  recognized REST
 interaction pattern to provide a large collection of Web widgets
 that could be quickly invoked to provide rapid access to the
 right pieces of information on the Web.
@@ -502,7 +501,7 @@ right pieces of information on the Web.
 The final icing on the cake was the arrival of RSS and Atom feeds
 and the consequent deep-linking into content-rich sites 
 — this meant that Emacspeak could  provide audio renderings of
-content-rich sites without having to deal with complex visual navigation!
+useful content  without having to deal with complex visual navigation!
 
 
 ** Mashing It Up: Leveraging Evolving Web APIs
@@ -547,7 +546,7 @@ though the full potential of this design pattern remains to be
 fully realized given today's tight association of the Web to the
 Web Browser.
 
-** Leveraging Computational Tools: From R To IPython Notebooks 
+** Leveraging Computational Tools: From SQL And R To IPython Notebooks 
 
 ** Integrating With Window Managers: SawFish And StumpWM
 

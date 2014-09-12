@@ -94,14 +94,14 @@
   "Move to next row and speak element."
   (interactive)
   (forward-line -1)
-  (emacspeak-eperiodic-speak-current-element)
-  (emacspeak-auditory-icon 'select-object))
+  (call-interactively 'eperiodic-next-element))
 
 (defun emacspeak-eperiodic-next-line ()
   "Move to next row and speak element."
   (interactive)
   (forward-line 1)
-  (emacspeak-eperiodic-speak-current-element)
+  (call-interactively 'eperiodic-next-element))
+  
   (emacspeak-auditory-icon 'select-object))
 (defun emacspeak-eperiodic-speak-current-element ()
   "Speak element at point."
@@ -148,8 +148,8 @@
 
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (dtk-speak (emacspeak-eperiodic-name-element-at-point))
+  (when  t ;(ems-interactive-p )
+    (emacspeak-eperiodic-speak-current-element)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-previous-element (after emacspeak pre act comp)
