@@ -409,6 +409,7 @@ If we came from a url-template, reload that template."
      ("I" eww-view-dom-having-id)
      ("J" emacspeak-eww-next-element-like-this)
      ("K" emacspeak-eww-previous-element-like-this)
+     ("N" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
      ("P" emacspeak-eww-previous-element-from-history)
      ("Q" emacspeak-kill-buffer-quietly)
