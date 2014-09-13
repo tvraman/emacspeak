@@ -435,7 +435,7 @@ external OCR program and read the content efficiently.
 
 The somewhat informal process used by publishers like O'Reilly to
 make technical material available to users with print impairments
-was later formalized by [[https://www.bookshare.org/#mainContent][BookShare]] — today, qualified users can
+was later formalized by [[https://www.bookshare.org/][BookShare]] — today, qualified users can
 obtain a large number of books and periodicals initially as
 Daisy-3 and increasingly as _EPub_. BookShare provides a RESTful
 API for searching and downloading books; Emacspeak module
@@ -669,13 +669,14 @@ visual interaction when this comes to pass.
 
 * References 
 
-  - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]::  Klewer Publishing, 1997.
-  - Advice  ::   An Emacs Lisp package by    [[http://www.isi.edu/~hans/][Hans Chalupsky]] that
+  - [[http://emacspeak.sourceforge.net/raman/aui/aui.html][Auditory User Interfaces]]   Klewer Publishing, 1997.
+  - Advice      An Emacs Lisp package by    [[http://www.isi.edu/~hans/][Hans Chalupsky]] that
                  became part of Emacs 19.23.
+  - [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]]   An overview of the Emacspeak architecture.
+  - [[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications]]   Emacspeak at CHI 1996.
+  - EWW   Emacspeak  [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extends EWW ]].
   - [[http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml][In The Beginning Was The Command Line]] By Neal Stephenson 
-  - [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] :: An overview of the Emacspeak architecture.
-  - <<[[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications>>]] :: Emacspeak at CHI 1996.
-  - EWW :: Emacspeak  [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extends EWW ]].
+
 
 #+TITLE: Emacspeak At Twenty: Looking Back, Looking Forward
 #+DATE: <2014-09-12>
@@ -692,9 +693,9 @@ visual interaction when this comes to pass.
 #+KEYWORDS: Emacspeak, Complete Audio Desktop, Speech-Enabled Applications
 #+LANGUAGE: en
 #+SELECT_TAGS: export
-#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
-#+OPTIONS: html5-fancy:nil tex:t
+#+OPTIONS: html5-fancy:t tex:t
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
