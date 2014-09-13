@@ -836,12 +836,14 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
    (list
     (gweb-google-autocomplete "AGoogle: ")))
   (declare (special emacspeak-websearch-accessible-google-url))
-  (let ((emacspeak-eww-masquerade nil))
-  (emacspeak-webutils-cache-google-query query)
-  (emacspeak-we-extract-by-id
-   "center_col"
-   (format emacspeak-websearch-accessible-google-url query)
-   'speak)))
+  (let ((emacspeak-eww-masquerade nil)
+        (toolbelt (emacspeak-google-toolbelt)))
+    (emacspeak-webutils-cache-google-query query)
+    (emacspeak-webutils-cache-google-toolbelt toolbelt)
+    (emacspeak-we-extract-by-id
+     "center_col"
+     (format emacspeak-websearch-accessible-google-url query)
+     'speak)))
       
 
 (emacspeak-websearch-set-searcher 'google-lucky
