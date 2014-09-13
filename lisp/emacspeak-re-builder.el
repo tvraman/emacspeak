@@ -113,6 +113,9 @@
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 
+(defadvice reb-auto-update (after emacspeak pre act comp)
+"Provide spoken feedback after update is done."
+(emacspeak-speak-message-again))
 ;;}}}
 (provide 'emacspeak-re-builder)
 ;;{{{ end of file
