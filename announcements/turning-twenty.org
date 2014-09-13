@@ -1,4 +1,3 @@
-
 * Introduction
 
 One afternoon in the third week of September 1994, I started
@@ -10,13 +9,13 @@ might be possible as we evolve to a world of connected,
 ubiquitous computing. This article draws on [[http://norvig.com/21-days.html][Learning To Program
 In 10 Years]] by Peter Norvig for some of its inspiration.
 
-* The Beginning: Using UNIX With Speech Output In 1994
+* The Beginning: Using UNIX With Speech Output —  1994
 
-As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]],  I accessed my Unix workstation
-(SunOS) from a 486 PC running IBM Screen-Reader.  There was no
-means of directly using a UNIX box at the time; after graduating,
-I continued doing the same for about six months at Digital
-Research in Cambridge   —   the only difference being that my
+As a graduate student at [[http://www.cs.cornell.edu/info/people/raman/raman.html][Cornell]], I accessed my Unix workstation
+(SunOS) from an Intel 486 PC running IBM Screen-Reader. There was
+no means of directly using a UNIX box at the time; after
+graduating, I continued doing the same for about six months at
+Digital Research in Cambridge — the only difference being that my
 desktop workstation was now a DEC-Alpha. Throughout this time,
 Emacs was my environment of choice for everything from software
 development and Internet access to writing documents.
@@ -25,21 +24,21 @@ development and Internet access to writing documents.
 In fall of 1994, I wanted to start using a laptop running Linux;
 a colleague (Dave Wecker) was retiring his 386mhz laptop that
 already had Linux on it and I decided to inherit it. But there
-was only one problem   —   until then I had always accessed a UNIX
-machine from a secondary PC running a screen-reader   —   something
+was only one problem — until then I had always accessed a UNIX
+machine from a secondary PC running a screen-reader — something
 that would clearly make no sense with a laptop!
 
 A few weeks earlier, another colleague Win Treese, had pointed
-out the interesting possibilities presented by package [[Advice][Advice]]
- in Emacs 19.23   —   he had sent around a
-small snippet of code that magically modified Emacs'
-version-control primitive to first create an /RCS/ directory if
-none existed before adding a file to version control. When I
-speculated about using the Linux laptop, Dave remarked   —   you
-live in Emacs anyway   —   why dont you just make it talk!
+out the interesting possibilities presented by package [[Advice][Advice]] in
+Emacs 19.23 — he had sent around a small snippet of code that
+magically modified Emacs' version-control primitive to first
+create an /RCS/ directory if none existed before adding a file to
+version control. When I speculated about using the Linux laptop,
+Dave remarked — you live in Emacs anyway — why dont you just make
+it talk!
 
 Connecting the dots, I decided to write myself a tool that
-augmented Emacs' default behavior to /speak/   —   within about 4
+augmented Emacs' default behavior to /speak/ — within about 4
 hours, version 0.01 of Emacspeak was up and running.
 
 
@@ -47,10 +46,10 @@ hours, version 0.01 of Emacspeak was up and running.
 
 It took me a couple of weeks to fully recognize the potential of
 what I had built with Emacs Lisp Advice. Until then, I had used
-screen-readers to listen to the contents of the visual display
-  —   but Lisp Advice let me do a lot more   —   it enabled Emacspeak
-to generate highly context-specific spoken feedback, augmented by
-a set of auditory icons. I later formalized this design under the
+screen-readers to listen to the contents of the visual display —
+but Lisp Advice let me do a lot more — it enabled Emacspeak to
+generate highly context-specific spoken feedback, augmented by a
+set of auditory icons. I later formalized this design under the
 name [[http://en.wikipedia.org/wiki/Self-voicing][speech-enabled applications]]. For a detailed overview of the
 architecture of Emacspeak, see the [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] in the
 book [[http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html][Beautiful Code]] from O'Reilly.
@@ -62,20 +61,21 @@ external Text-To-Speech (TTS) engine to produce speech. In 1994,
 Digital Equipment released what would turn out to be the last in
 the line of hardware DECTalk synthesizers, the DECTalk
 Express. This was essentially an Intel 386with 1mb of flash
-memory that ran a version of the DECTalk TTS software   —   to
-date, it still remains my favorite Text-To-Speech engine.
-At the time,  I also had a software version of the same engine
-running on my DEC-Alpha workstation;  the desire to use either a
-software or hardware solution to produce speech output defined
-the Emacspeak speech-server architecture.
+memory that ran a version of the DECTalk TTS software — to date,
+it still remains my favorite Text-To-Speech engine. At the time,
+I also had a software version of the same engine running on my
+DEC-Alpha workstation; the desire to use either a software or
+hardware solution to produce speech output defined the Emacspeak
+speech-server architecture.
 
 I went to IBM Research in 1999; this coincided with IBM releasing
 a version of the Eloquennce TTS engine on Linux under the name
 /ViaVoice Outloud/. My colleague Jeffrey Sorenson implemented an
-early version of the Emacspeak speech-server for this engine using
-the OSS API; I later updated it to use the ALSA library while on
-a flight back to SFO from Boston in 2001. That is still the TTS
-engine that is speaking as I type this article on my laptop. 
+early version of the Emacspeak speech-server for this engine
+using the OSS API; I later updated it to use the ALSA library
+while on a flight back to SFO from Boston in 2001. That is still
+the TTS engine that is speaking as I type this article on my
+laptop.
 
 20 years on, TTS continues to be the weakest link on Linux; the
 best available solution in terms of quality continues to be the
@@ -86,33 +86,35 @@ to be a disappointment; most of today's newer TTS engines are
 geared toward mainstream use-cases where /naturalness/ of the
 voice tends to supersede intelligibility at higher
 speech-rates. Ironically, modern TTS engines also give
-applications far less control over the generated output   —   as a
-case in point, I implemented [[http://www.cs.cornell.edu/home/raman/aster/demo.html][Audio System For Technical Readings
-(AsTeR)]] in 1994 using the DECTalk; 20 years later, we implemented
-[[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][MathML support]] in [[http://www.chromevox.com/][ChromeVox]]  using Google TTS. In 2013, it turned
-out to be difficult or impossible to implement the type of audio
-renderings that were possible with the admittedly less-natural
-sounding DECTalk!
+applications far less control over the generated output — as a
+case in point, I implemented
+[[http://www.cs.cornell.edu/home/raman/aster/demo.html][Audio
+System For Technical Readings (AsTeR)]] in 1994 using the
+DECTalk; 20 years later, we implemented
+[[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][MathML
+support]] in [[http://www.chromevox.com/][ChromeVox]] using
+Google TTS. In 2013, it turned out to be difficult or impossible
+to implement the type of audio renderings that were possible with
+the admittedly less-natural sounding DECTalk!
 
 * Emacspeak And Software Development 
 
 
 
 Version 0.01 of Emacspeak was written using IBM Screen-Reader on
-a PC with a terminal emulator accessing a UNIX  workstation. But
-in about 2 weeks, Emacspeak was already a better  environment for
+a PC with a terminal emulator accessing a UNIX workstation. But
+in about 2 weeks, Emacspeak was already a better environment for
 developing Emacspeak in particular and software development in
-general.  Here are a few highlights  in 1994 that made Emacspeak
-a good software development environment, present-day users of
+general. Here are a few highlights in 1994 that made Emacspeak a
+good software development environment, present-day users of
 Emacspeak will see that that was just scratching the surface.
 
   - Audio formatting using voice-lock to provide aural syntax
     highlighting.
   - Succinct auditory icons to provide efficient feedback.
   - Emacs' ability to navigate code structurally   — 
-  as opposed to
-    moving around by plain-text units such as characters, lines
-    and words. S-Expressions are a major win!
+  as opposed to moving around by plain-text units such as
+    characters, lines and words. S-Expressions are a major win!
   - Emacs' ability to specialize behavior based on major and
     minor modes.
   - Ability to browse program code using  tags, and getting
@@ -121,28 +123,29 @@ Emacspeak will see that that was just scratching the surface.
   - Everything is searchable   —   this is a huge win when you
     cannot see the screen.
   - Interactive spell-checking using ISpell with continuous
-    spoken feedback augmented by  aural highlights.
+    spoken feedback augmented by aural highlights.
   - Running code compilation  and being able to jump to errors
     with spoken feedback.
   - Ability to move through diff chunks when working with source
-    code and source control systems;  refined diffs as provided
-    by the _ediff_ package when speech-enabled is a major
+    code and source control systems; refined diffs as provided by
+    the _ediff_ package when speech-enabled is a major
     productivity win.
   - Ability to easily move between email, document authoring and
-    programming   —   though this may appear trivial, it continues
-    to be one of Emacs' biggest wins.
+    programming — though this may appear trivial, it continues to
+    be one of Emacs' biggest wins.
 
 
-Long-term Emacs users will recognize all of the above as  being
-among the reasons why they do most things inside Emacs   —   there
-is little that is Emacspeak specific in the above list   —   except
-that Emacspeak was able to provide fluent, well-integrated
-contextual feedback for all of these tasks. And that was a
-game-changer given what I had had before Emacspeak. As a case in
-point, I did not dare program in Python before  I speech-enabled
-Emacs' Python-Mode; the fact that white space is significant in
-Python made it difficult to program using a plain screen-reader
-that was unaware of the semantics of the underlying content being accessed.
+Long-term Emacs users will recognize all of the above as being
+among the reasons why they do most things inside Emacs — there is
+little that is Emacspeak specific in the above list — except that
+Emacspeak was able to provide fluent, well-integrated contextual
+feedback for all of these tasks. And that was a game-changer
+given what I had had before Emacspeak. As a case in point, I did
+not dare program in Python before I speech-enabled Emacs'
+Python-Mode; the fact that white space is significant in Python
+made it difficult to program using a plain screen-reader that was
+unaware of the semantics of the underlying content being
+accessed.
 
 * Emacspeak And Authoring Documents 
 
@@ -151,51 +154,51 @@ was _LaTeX_ using the Auctex package. Later I started writing
 either LaTeX or HTML using the appropriate support modes; today I
 use _org-mode_ to do most of my content authoring. Personally, I
 have never been a fan of What You See Is What You Get (WYSIWYG )
-authoring tools   —   in my experience that places an undue burden
-on the author by  drawing attention away from the content
-to focus on the final appearance. An added benefit  of creating
-content in Emacs in the form of light-weight markup  is that the
-content is long-lived   —   I can still usefully process and re-use
-things I have written 25 years ago.
+authoring tools — in my experience that places an undue burden on
+the author by drawing attention away from the content to focus on
+the final appearance. An added benefit of creating content in
+Emacs in the form of light-weight markup is that the content is
+long-lived — I can still usefully process and re-use things I
+have written 25 years ago.
 
 Emacs, with Emacspeak providing audio formatting and
 context-specific feedback remains my environment of choice for
 writing all forms of content ranging from simple email messages
 to polished documents for print publishing. And it is worth
 repeating that I *never* need to focus on what the content is
-going to look like   —   that job is best left to the computer.
+going to look like — that job is best left to the computer.
 
-As an example of producing high-fidelity visual content, see
-this write-up on [[http://emacspeak.sourceforge.net/raman/publications/polyhedra/][Polyhedral Geometry]] that  I published in 2000;
-all of the content, including the drawings were created by me
-using Emacs. 
+As an example of producing high-fidelity visual content, see this
+write-up on
+[[http://emacspeak.sourceforge.net/raman/publications/polyhedra/][Polyhedral
+Geometry]] that I published in 2000; all of the content,
+including the drawings were created by me using Emacs.
 
 * Emacspeak And The Early Days Of The Web
 
 Right around the time that I was writing version 0.01 of
 emacspeak, a far more significant software movement was under way
-  —   the World Wide Web was moving from the realms of academia to
-the mainstream world with the launch of NCSA Mosaic   — 
-  and in
-late 1994 by the first commercial Web browser in Netscape
+— the World Wide Web was moving from the realms of academia to
+the mainstream world with the launch of NCSA Mosaic — and in late
+1994 by the first commercial Web browser in Netscape
 Navigator. Emacs had always enabled integrated access to FTP
 archives via package /ange-ftp/; in late 1993, William Perry
 released Emacs-W3, a Web browser for Emacs written entirely in
 Emacs Lisp. W3 was one of the first large packages to be
-speech-enabled by Emacspeak   —   later it was the browser on which
-I implemented the first draft of the [[http://www.w3.org/TR/CSS2/aural.html][Aural CSS
+speech-enabled by Emacspeak — later it was the browser on which I
+implemented the first draft of the
+[[http://www.w3.org/TR/CSS2/aural.html][Aural CSS
 specification]]. Emacs-W3 enabled many early innovations in the
 context of providing non-visual access to Web content, including
 audio formatting and structured content navigation; in summer of
 1995, Dave Raggett and I outlined a few extensions to HTML Forms,
 including the _label_ element as a means of associating metadata
 with interactive form controls in HTML, and many of these ideas
-were prototyped in Emacs-W3 at the time. Over the years, Emacs-W3 fell
-behind the times   —   especially as the Web moved away from
+were prototyped in Emacs-W3 at the time. Over the years, Emacs-W3
+fell behind the times — especially as the Web moved away from
 cleanly structured HTML to a massive soup of unmatched tags. This
 made parsing and error-correcting badly-formed HTML markup
-expensive to do in Emacs-Lisp  —  
-and performance suffered. To add
+expensive to do in Emacs-Lisp — and performance suffered. To add
 to this, mainstream users moved away because Emacs' rendering
 engine at the time was not rich enough to provide the type of
 visual renderings that users had come to expect. The advent of
@@ -214,7 +217,7 @@ JavaScript support.
 
 During the last 24 months, _libxml2_ has been built into Emacs;
 this means that you can now parse arbitrary HTML as found in the
-wild without incurring  a performance hit. This functionality was
+wild without incurring a performance hit. This functionality was
 leveraged first by package _shr_ (Simple HTML Renderer) within
 the _gnus_ package for rendering HTML email; later, the author of
 _gnus_ and _shr_ created a new light-weight HTML viewer called
@@ -223,21 +226,23 @@ variable pitch fonts and image embedding, Emacs is once again
 able to provide visual renderings for a large proportion of
 text-heavy Web content that is useful for mainstream Emacs users
 to view at least some Web content within Emacs; during the last
-year, I have added support within emacspeak to [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extend package
-_eww_]] with support for DOM filtering and quick content
+year, I have added support within emacspeak to
+[[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extend
+package _eww_]] with support for DOM filtering and quick content
 navigation.
 
 * Audio Formatting: Generalizing Aural CSS 
 
 
-A key idea in Audio System For Technical Readings [[http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html][(AsTeR)]] was the
-use of various voice properties in combination with non-speech
-auditory icons to create rich aural renderings. When I
+A key idea in Audio System For Technical Readings
+[[http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html][(AsTeR)]]
+was the use of various voice properties in combination with
+non-speech auditory icons to create rich aural renderings. When I
 implemented Emacspeak, I brought over the notion of audio
 formatting to all buffers in Emacs by creating a _voice_lock_
 module that paralleled Emacs' _font_lock_ module. The visual
 medium is far richer in terms of available fonts and colors as
-compared to voice parameters available on TTS engines  — 
+compared to voice parameters available on TTS engines —
 consequently, it did not make sense to directly map Emacs' _face_
 properties to voice parameters. To aid in projecting visual
 formatting onto auditory space, I created property _personality_
@@ -245,7 +250,7 @@ analogous to Emacs' _face_ property that could be applied to
 content displayed in Emacs; module _voice_lock_ applied that
 property appropriately, and the Emacspeak core handled the
 details of mapping personality values to the underlying TTS
-engine. 
+engine.
 
 The values used in property _personality_ were abstract, i.e.,
 they were independent of any given speech engine. Later in the
@@ -259,17 +264,17 @@ CSS-2.0.
 Later in 1996, all of Emacs' _voice-lock_ functionality was
 re-implemented in terms of Aural CSS; the implementation has
 stood the test of time in that as I added support for more TTS
-engines, I was  able to implement engine-specific mappings of
+engines, I was able to implement engine-specific mappings of
 Aural-CSS values. This meant that the rest of Emacspeak could
 define various types of voices for use in specific contexts
-without having to worry about individual TTS engines.
-Conceptually, property _personality_ can be thought of as holding
-an _aural display list_  —   various parts of the system can
-annotate pieces of text with relevant properties that finally get
-rendered in the aggregate. 
-This model also works well with the notion of Emacs overlays
-where a moving overlay is used to temporarily highlight text that
-has other context-specific properties applied to it.
+without having to worry about individual TTS
+engines. Conceptually, property _personality_ can be thought of
+as holding an _aural display list_ — various parts of the system
+can annotate pieces of text with relevant properties that finally
+get rendered in the aggregate. This model also works well with
+the notion of Emacs overlays where a moving overlay is used to
+temporarily highlight text that has other context-specific
+properties applied to it.
 
 
 Audio formatting as implemented in Emacspeak is extremely
@@ -288,12 +293,13 @@ By 1996, Emacspeak was the only piece of adaptive technology I
 used; in fall of 1995, I had moved to Adobe Systems from DEC
 Research to focus on enhancing the Portable Document Format (PDF)
 to make PDF content repurposable. Between 1996 and 1998, I was
-primarily focused on electronic document formats  —   I took this
+primarily focused on electronic document formats — I took this
 opportunity to step back and evaluate what I had built as an
 auditory interface within Emacspeak. This retrospect proved
 extremely useful in gaining a sense of perspective and led to
 formalizing the high-level concept of /Conversational Gestures/
-and structured browsing/searching as a means of thinking about user interfaces.
+and structured browsing/searching as a means of thinking about
+user interfaces.
 
 By now, Emacspeak was a complete environment — I formalized what
 it provided under the moniker /Complete Audio Desktop/. The fully
@@ -301,12 +307,12 @@ integrated user experience allowed me to move forward with
 respect to defining interaction models that were highly optimized
 to eyes-free interaction — as an example, see how Emacspeak
 interfaces with modes like _dired_ (Directory Editor) for
-browsing and manipulating the filesystem, or _proced_ (Process Editor) for
-browsing and manipulating running processes. Emacs' integration
-with _ispell_ for spell checking, as well as its various
-completion facilities ranging from minibuffer completion to other
-forms of dynamic completion while typing text provided more
-opportunities for creating innovative forms of eyes-free
+browsing and manipulating the filesystem, or _proced_ (Process
+Editor) for browsing and manipulating running processes. Emacs'
+integration with _ispell_ for spell checking, as well as its
+various completion facilities ranging from minibuffer completion
+to other forms of dynamic completion while typing text provided
+more opportunities for creating innovative forms of eyes-free
 interaction. With respect to what had gone before (and is still
 par for the course as far as traditional screen-readers are
 concerned), these types of highly dynamic interfaces present a
@@ -315,55 +321,54 @@ using a screen-reader that is speaking the visual display. There
 is a significant challenge in deciding /what to speak/ e.g., when
 presented with a list of completions, the currently typed text,
 and the default completion, which of these should you speak, and
-in what order?
-The problem gets harder when you consider that the underlying
-semantics of these items is generally not available from
-examining the visual presentation in a consistent manner. By
+in what order? The problem gets harder when you consider that the
+underlying semantics of these items is generally not available
+from examining the visual presentation in a consistent manner. By
 having direct access to the underlying information being
 presented, Emacspeak had a leg up with respect to addressing the
-higher-level question  —   when you do have access to this
+higher-level question — when you do have access to this
 information, how to you present it effectively in an eyes-free
 environment? For this and many other cases of dynamic
 interaction, a combination of audio formatting, auditory icons,
 and the ability to synthesize succinct messages from a
-combination of information items  —   rather than having to
-forcibly speak each item as it is rendered visually provided for
-highly efficient eyes-free interaction. 
+combination of information items — rather than having to forcibly
+speak each item as it is rendered visually provided for highly
+efficient eyes-free interaction.
 
 
 This was also when I stepped back to build out Emacspeak's table
 browsing facilities — see the online Emacspeak documentation for
- details on Emacspeak's table  browsing functionality which
-continues to remain one of the richest  collection of  end-user
+details on Emacspeak's table browsing functionality which
+continues to remain one of the richest collection of end-user
 affordances for working with two-dimensional data.
 
 ** Speech-Enabling Interactive Games 
 
-So in 1997, I went the
-next step in asking  —   given access to the underlying
-infromation, is it possible to build effective eyes-free
-interaction to highly interactive tasks? I picked _Tetris_ as a
-means of exploring this space, the result was an Emacspeak
-extension to speech-enable module _tetris.el_. The details of
-what was learned were published as a paper in Assets 98, and
-expanded as a chapter on Conversational Gestures in my book on
-Auditory Interfaces; that book was in a sense a culmination of
-stepping back and gaining a sense of perspective of what I had
-build during this period. The work on Conversational Gestures
-also helped in formalizing the abstract user interface layer that
-formed part of the [[http://www.w3.org/MarkUp/Forms/][XForms]]  work at the W3C.
+So in 1997, I went the next step in asking — given access to the
+underlying infromation, is it possible to build effective
+eyes-free interaction to highly interactive tasks? I picked
+_Tetris_ as a means of exploring this space, the result was an
+Emacspeak extension to speech-enable module _tetris.el_. The
+details of what was learned were published as a paper in Assets
+98, and expanded as a chapter on Conversational Gestures in my
+book on Auditory Interfaces; that book was in a sense a
+culmination of stepping back and gaining a sense of perspective
+of what I had build during this period. The work on
+Conversational Gestures also helped in formalizing the abstract
+user interface layer that formed part of the
+[[http://www.w3.org/MarkUp/Forms/][XForms]] work at the W3C.
 
-Speech-enabling games for effective eyes-free interaction  has
-proven highly educational. Interactive games are typically built to challenge
-the user,  and if the eyes-free interface is inefficient,  you
-just wont play the game —
- contrast this with a task that you *must* perform, where you're
-likely to make do with a sub-optimal interface.  Over the years,
-Emacspeak has come to include eyes-free interfaces to several
-games including Tetris, SuDoKu, and of late the popular
-2048-game. Each of these have in turn contributed to  enhancing
-the interaction model in Emacspeak, and those innovations
-typically make their way to the rest of the environment. 
+Speech-enabling games for effective eyes-free interaction has
+proven highly educational. Interactive games are typically built
+to challenge the user, and if the eyes-free interface is
+inefficient, you just wont play the game — contrast this with a
+task that you *must* perform, where you're likely to make do with
+a sub-optimal interface. Over the years, Emacspeak has come to
+include eyes-free interfaces to several games including Tetris,
+SuDoKu, and of late the popular 2048-game. Each of these have in
+turn contributed to enhancing the interaction model in Emacspeak,
+and those innovations typically make their way to the rest of the
+environment.
 
 
 * Accessing Media Streams 
@@ -409,10 +414,11 @@ material as online electronic documents. While AsTeR processed
 the TeX family of markup languages, more general ebooks came in a
 wide range of formats, ranging from plain text generated from
 various underlying file formats to structured EBooks, with
-Project [[http://www.gutenberg.org/][Gutenberg]] leading the way. During the mid-90's, I had
-access to a wide range of electronic materials from sources such
-as O'Reilly Publishing and various electronic journals -- The
-Perl Journal (TPJ) is one that I still remember fondly. 
+Project [[http://www.gutenberg.org/][Gutenberg]] leading the
+way. During the mid-90's, I had access to a wide range of
+electronic materials from sources such as O'Reilly Publishing and
+various electronic journals -- The Perl Journal (TPJ) is one that
+I still remember fondly.
 
 Emacspeak provided fairly light-weight but efficient access to
 all of the electronic books I had on my local disk — Emacs'
@@ -435,7 +441,7 @@ Daisy-3 and increasingly as _EPub_. BookShare provides a RESTful
 API for searching and downloading books; Emacspeak module
 _emacspeak-bookshare_ implements this API to create a client for
 browsing the BookShare library, downloading and organizing books
-locally, and an integrated ebook  reading mode to round off the
+locally, and an integrated ebook reading mode to round off the
 experience.
 
 A useful complement to this suite of tools is the Calibre package
@@ -494,7 +500,8 @@ tell what client the user at the other end is using. Contrast
 this with closed services that have an inherent /lock-in/ model
 e.g., proprietary word processors that use undocumented
 serialization formats — for a fun read, see this write-up on
-[[http://emacspeak.sourceforge.net/publications/colored-paper.html][Universe Of Fancy Colored Paper]].
+[[http://emacspeak.sourceforge.net/publications/colored-paper.html][Universe
+Of Fancy Colored Paper]].
 
 
 Today, my personal choice for instant messaging is the open
@@ -522,7 +529,7 @@ wrappers for Google services that provide a RESTful API.
 Today, the Web, based on URLs and HTTP-style protocols is widely
 recognized as a platform in its own right. This platform emerged
 over time — to me, Web APIs arrived in the late 90's when I
-observed the following with respect  to my own behavior  on many
+observed the following with respect to my own behavior on many
 popular sites:
 
   1. I opened a Web page that took a while to load (remember,  I
@@ -535,21 +542,22 @@ popular sites:
       what I was looking for.
 
 This pattern repeated across a wide-range of interactive Web
-sites ranging from AltaVista for search (this was pre-Google), Yahoo Maps for directions, and Amazon for product searches
-to name but a few. So I decided to automate away the pain by
-creating Emacspeak module _emacspeak-websearch_
-that  did the following: 
+sites ranging from AltaVista for search (this was pre-Google),
+Yahoo Maps for directions, and Amazon for product searches to
+name but a few. So I decided to automate away the pain by
+creating Emacspeak module _emacspeak-websearch_ that did the
+following:
 
   1. Prompt via the minibuffer for the requisite fields,
   2. Consed up an HTTP GET URL,
   3. Retrieved this URL,
   4. And filtered out the specific portion of the HTML  DOM that
-     held the  generated response.
+     held the generated response.
 
 Notice that the above implementation hard-wires the CGI parameter
 names used by a given Web application into the code implemented
-in module _emacspeak-websearch_.  REST as a design pattern had
-not yet been recognized, leave alone formalized, and module
+in module _emacspeak-websearch_. REST as a design pattern had not
+yet been recognized, leave alone formalized, and module
 _emacspeak-websearch_ was initially decryed as being fragile.
 
 However, over time, the CGI parameter names remained fixed — the
@@ -567,11 +575,10 @@ XSLT pre-processing into Emacs-W3!
 
 Later, in early 2000, I created companion module
 _emacspeak-url-templates_ — partially inspired by Emacs'
-_webjump_ module.
-URL templates in Emacspeak leveraged the  recognized REST
-interaction pattern to provide a large collection of Web widgets
-that could be quickly invoked to provide rapid access to the
-right pieces of information on the Web.
+_webjump_ module. URL templates in Emacspeak leveraged the
+recognized REST interaction pattern to provide a large collection
+of Web widgets that could be quickly invoked to provide rapid
+access to the right pieces of information on the Web.
 
 The final icing on the cake was the arrival of RSS and Atom feeds
 and the consequent deep-linking into content-rich sites — this
@@ -591,15 +598,14 @@ the user's collection of subscribed feeds.
 The next step in this evolution came with the arrival of richer
 Web APIs — especially ones that defined a clean client/server
 separation. In this respect, the world of Web APIs is a somewhat
-mixed bag in that many Web sites equate a Web API  with a
-JS-based API that can be exclusively invoked from within a Web-Browser
-run-time. 
-The issue with that type of API  binding is that the only runtime
-that is supported is a full-blown Web browser; but the arrival of
-native mobile apps  has actually proven a net positive in
-encouraging sites to create a cleaner separation. Emacspeak has
-leveraged these APIs to create Emacspeak front-ends 
-to many useful services, here are a few:
+mixed bag in that many Web sites equate a Web API with a JS-based
+API that can be exclusively invoked from within a Web-Browser
+run-time. The issue with that type of API binding is that the
+only runtime that is supported is a full-blown Web browser; but
+the arrival of native mobile apps has actually proven a net
+positive in encouraging sites to create a cleaner
+separation. Emacspeak has leveraged these APIs to create
+Emacspeak front-ends to many useful services, here are a few:
 
   1. Minibuffer completion for Google Search using Google Suggest
      to provide completions.
@@ -623,31 +629,34 @@ between the *head* and *body* allows one to attach /different/
 user interfaces i.e., *heads* to the given *body* without any
 loss of functionality, or the need to re-implement the entire
 application. Modern platforms like Android enable such separation
-via an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] mechanism. The Web platform as originally defined
-around URLs is actually well-suited to this type of separation —
-though the full potential of this design pattern remains to be
-fully realized given today's tight association of the Web to the
-Web Browser.
+via an
+[[http://developer.android.com/reference/android/content/Intent.html][Intent]]
+mechanism. The Web platform as originally defined around URLs is
+actually well-suited to this type of separation — though the full
+potential of this design pattern remains to be fully realized
+given today's tight association of the Web to the Web Browser.
 
 * Conclusion 
 
 
-In 1996, I wrote an article entitled [[http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453][User Interface — A Means To
-An End]] pointing out that the size and shape of computers were
-determined by the keyboard and display. This is even more true in
-today's world of tablets, phablets and large-sized phones — with
-the only difference that the keyboard has been replaced by a
-touch screen. The next generation in the evolution of *personal*
-devices is that they will become truly personal by being wearables
-— this once again forces a separation of the user interface
-peripherals from the underlying compute engine. Imagine a variety
-of wearables that collectively connect to ones cell phone, which
-itself connects to the cloud for all its computational and
-information needs. Such an environment is rich in possibilities
-for  creating a wide variety of  user experiences to a single
-underlying body of information; Eyes-Free interfaces as pioneered
-by systems like Emacspeak will come to play an increasingly vital
-role alongside  visual interaction when this comes to pass.
+In 1996, I wrote an article entitled
+[[http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453][User
+Interface — A Means To An End]] pointing out that the size and
+shape of computers were determined by the keyboard and
+display. This is even more true in today's world of tablets,
+phablets and large-sized phones — with the only difference that
+the keyboard has been replaced by a touch screen. The next
+generation in the evolution of *personal* devices is that they
+will become truly personal by being wearables — this once again
+forces a separation of the user interface peripherals from the
+underlying compute engine. Imagine a variety of wearables that
+collectively connect to ones cell phone, which itself connects to
+the cloud for all its computational and information needs. Such
+an environment is rich in possibilities for creating a wide
+variety of user experiences to a single underlying body of
+information; Eyes-Free interfaces as pioneered by systems like
+Emacspeak will come to play an increasingly vital role alongside
+visual interaction when this comes to pass.
 
 
 
@@ -668,26 +677,21 @@ role alongside  visual interaction when this comes to pass.
   - <<[[http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/][Speech-Enabled Applications>>]] :: Emacspeak at CHI 1996.
   - EWW :: Emacspeak  [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extends EWW ]].
 
-
-   
-
-
 #+TITLE: Emacspeak At Twenty: Looking Back, Looking Forward
-#+DATE: <2014-08-19 Tue>
-#+AUTHOR: raman
-#+EMAIL: raman@google.com
+#+DATE: <2014-09-12>
+#+AUTHOR: T. V. Raman
+#+EMAIL: tv.raman.tv@gmail.com
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
-#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: date:t e:t email:t f:t inline:t num:t p:nil pri:nil
 #+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t
 #+OPTIONS: |:t
 #+CREATOR: Emacs 24.4.50.1 (Org mode 8.2.6)
-#+DESCRIPTION:
+#+DESCRIPTION: Emacspeak At 20
 #+EXCLUDE_TAGS: noexport
-#+KEYWORDS:
+#+KEYWORDS: Emacspeak, Complete Audio Desktop, Speech-Enabled Applications
 #+LANGUAGE: en
 #+SELECT_TAGS: export
-
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil tex:t
@@ -696,8 +700,8 @@ role alongside  visual interaction when this comes to pass.
 #+HTML_DOCTYPE: xhtml-strict
 #+HTML_HEAD:
 #+HTML_HEAD_EXTRA:
-#+HTML_LINK_HOME:
-#+HTML_LINK_UP:
+#+HTML_LINK_HOME: http://emacspeak.sf.net
+#+HTML_LINK_UP: http://emacspeak.blogspot.com
 #+HTML_MATHJAX:
 #+INFOJS_OPT:
 #+LATEX_HEADER:
