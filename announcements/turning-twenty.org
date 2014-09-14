@@ -478,7 +478,7 @@ content; module _ein_ brings the power and convenience of Emacs
 ' editting facilities when developing the content.
 
 
-* Social Web  — EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
+* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
 The ability to process large amounts of email and electronic news
 has always been a feature of Emacs. I started using package _vm_
@@ -544,7 +544,7 @@ popular sites:
   1. I opened a Web page that took a while to load (remember,  I
      was still using Emacs-W3),
   2. I then searched through the page to find a form-field that
-     I filled out, e.g. start and end destinations on Yahoo Maps,
+     I filled out, e.g., start and end destinations on Yahoo Maps,
   3. I hit _submit_, and once again waited for a heavy-weight
      HTML page to load,
   4.  And finally, I hunted through the rendered content to find
