@@ -469,6 +469,15 @@ Audio Desktop has come to encompass a collection of rich tools
 that provide an efficient eyes-free experience backed up by
 consistent audio formatted output.
 
+In this context, module _ein_ — Emacs IPython Notebooks — 
+provides another excellent example of an Emacs tool that helps
+interface seamlessly with others in the technical domain. IPython
+Notebooks provide an easy means of reaching a large audience when
+publishing technical material with interactive computational
+content; module _ein_ brings the power and convenience of Emacs
+' editting facilities when developing the content.
+
+
 * Social Web  — EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
 The ability to process large amounts of email and electronic news
