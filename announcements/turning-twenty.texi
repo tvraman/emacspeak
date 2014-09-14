@@ -52,7 +52,7 @@
 * Accessing Media Streams::     
 * EBooks—   Ubiquitous Access To Books::  
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks::  
-* Social Web  — EMailInstant Messaging Blogging  And Tweeting Using Open Protocols::  
+* Social Web  — EMail Instant Messaging Blogging  And Tweeting Using Open Protocols::  
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access::  
 * Mashing It Up —  Leveraging Evolving Web APIs::  
 * Conclusion::                  
@@ -590,8 +590,8 @@ publishing technical material with interactive computational
 content; module brings the power and convenience of Emacs
 ' editting facilities when developing the content.
 
-@node Social Web  — EMailInstant Messaging Blogging  And Tweeting Using Open Protocols
-@chapter Social Web  — EMail,Instant Messaging, Blogging  And Tweeting Using Open Protocols
+@node Social Web  — EMail Instant Messaging Blogging  And Tweeting Using Open Protocols
+@chapter Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols
 
 The ability to process large amounts of email and electronic news
 has always been a feature of Emacs. I started using package 
@@ -661,7 +661,7 @@ was still using Emacs-W3),
 
 @item 
 I then searched through the page to find a form-field that
-I filled out, e.g. start and end destinations on Yahoo Maps,
+I filled out, e.g., start and end destinations on Yahoo Maps,
 
 @item 
 I hit , and once again waited for a heavy-weight

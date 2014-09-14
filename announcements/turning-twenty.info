@@ -21,7 +21,7 @@ Emacspeak At Twenty: Looking Back, Looking Forward Manual
 * Accessing Media Streams::     
 * EBooks—   Ubiquitous Access To Books::  
 * Leveraging Computational Tools —  From SQL And R To IPython Notebooks::  
-* Social Web  — EMailInstant Messaging Blogging  And Tweeting Using Open Protocols::  
+* Social Web  — EMail Instant Messaging Blogging  And Tweeting Using Open Protocols::  
 * The RESTful Web —  Web Wizards And URL Templates For Faster Access::  
 * Mashing It Up —  Leveraging Evolving Web APIs::  
 * Conclusion::                  
@@ -505,7 +505,7 @@ and browse books, along with an integrated *EPub mode* for reading
 books.
 
 
-File: turning-twenty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — EMailInstant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks— Ubiquitous Access To Books,  Up: Top
+File: turning-twenty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks— Ubiquitous Access To Books,  Up: Top
 
 12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
 ***********************************************************************
@@ -533,10 +533,10 @@ interactive computational content; module brings the power and
 convenience of Emacs ’ editting facilities when developing the content.
 
 
-File: turning-twenty.info,  Node: Social Web — EMailInstant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
+File: turning-twenty.info,  Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
 
-13 Social Web — EMail,Instant Messaging, Blogging And Tweeting Using Open Protocols
-***********************************************************************************
+13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
+************************************************************************************
 
 The ability to process large amounts of email and electronic news has
 always been a feature of Emacs.  I started using package for email in
@@ -585,7 +585,7 @@ Blogger that became the start of Emacs package — this package provides
 Emacs wrappers for Google services that provide a RESTful API.
 
 
-File: turning-twenty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging Evolving Web APIs,  Prev: Social Web — EMailInstant Messaging Blogging And Tweeting Using Open Protocols,  Up: Top
+File: turning-twenty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging Evolving Web APIs,  Prev: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Up: Top
 
 14 The RESTful Web — Web Wizards And URL Templates For Faster Access
 ********************************************************************
@@ -599,7 +599,7 @@ following with respect to my own behavior on many popular sites:
      still using Emacs-W3),
 
   2. I then searched through the page to find a form-field that I filled
-     out, e.g.  start and end destinations on Yahoo Maps,
+     out, e.g., start and end destinations on Yahoo Maps,
 
   3. I hit , and once again waited for a heavy-weight HTML page to load,
 
@@ -758,24 +758,24 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 Tag Table:
 Node: Top89
-Node: Introduction1252
-Node: Using UNIX With Speech Output — 19941929
-Node: Key Enabler — Emacs And Lisp Advice3741
-Node: Key Component — Text To Speech TTS4767
-Node: Emacspeak And Software Development7292
-Node: Emacspeak And Authoring Documents9853
-Node: Emacspeak And The Early Days Of The Web11393
-Node: Audio Formatting — Generalizing Aural CSS14727
-Node: Conversational Gestures For The Audio Desktop17631
-Node: Speech-Enabling Interactive Games20944
-Node: Accessing Media Streams22565
-Node: EBooks— Ubiquitous Access To Books24577
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks27076
-Node: Social Web — EMailInstant Messaging Blogging And Tweeting Using Open Protocols28785
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access32147
-Node: Mashing It Up — Leveraging Evolving Web APIs35514
-Node: Conclusion37971
-Node: References39281
+Node: Introduction1253
+Node: Using UNIX With Speech Output — 19941930
+Node: Key Enabler — Emacs And Lisp Advice3742
+Node: Key Component — Text To Speech TTS4768
+Node: Emacspeak And Software Development7293
+Node: Emacspeak And Authoring Documents9854
+Node: Emacspeak And The Early Days Of The Web11394
+Node: Audio Formatting — Generalizing Aural CSS14728
+Node: Conversational Gestures For The Audio Desktop17632
+Node: Speech-Enabling Interactive Games20945
+Node: Accessing Media Streams22566
+Node: EBooks— Ubiquitous Access To Books24578
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks27077
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols28787
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access32152
+Node: Mashing It Up — Leveraging Evolving Web APIs35520
+Node: Conclusion37977
+Node: References39287
 
 End Tag Table
 
