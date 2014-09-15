@@ -28,10 +28,10 @@ was only one problem — until then I had always accessed a UNIX
 machine from a secondary PC running a screen-reader — something
 that would clearly make no sense with a laptop!
 
-A few weeks earlier, another colleague Win Treese, had pointed
-out the interesting possibilities presented by package *advice*  in
-Emacs 19.23 — he had sent around a small snippet of code that
-magically modified Emacs' version-control primitive to first
+Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package *advice* in Emacs 19.23 — a
+few weeks earlier, he had sent around a small snippet of code
+that magically modified Emacs' version-control primitive to first
 create an /RCS/ directory if none existed before adding a file to
 version control. When I speculated about using the Linux laptop,
 Dave remarked — you live in Emacs anyway — why dont you just make
@@ -242,14 +242,14 @@ wild without incurring a performance hit. This functionality was
 leveraged first by package *shr* (Simple HTML Renderer) within
 the *gnus* package for rendering HTML email. Later, the author of
 *gnus* and *shr* created a new light-weight HTML viewer called
-*eww* that is now part of Emacs 24. The improved support for
+*eww* that is now part of Emacs 24. With improved support for
 variable pitch fonts and image embedding, Emacs is once again
 able to provide visual renderings for a large proportion of
-text-heavy Web content that is useful for mainstream Emacs users
-to view at least some Web content within Emacs; during the last
-year, I have added support within emacspeak to [[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extend package
-*eww*]] with support for DOM filtering and quick content
-navigation.
+text-heavy Web content where it becomes useful for mainstream
+Emacs users to view at least some Web content within Emacs;
+during the last year, I have added support within emacspeak to
+[[http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html][extend package *eww*]] with support for DOM filtering and quick
+content navigation.
 
 * Audio Formatting —  Generalizing Aural CSS 
 
@@ -258,15 +258,15 @@ A key idea in Audio System For Technical Readings [[http://www.cs.cornell.edu/ho
 use of various voice properties in combination with non-speech
 auditory icons to create rich aural renderings. When I
 implemented Emacspeak, I brought over the notion of audio
-formatting to all buffers in Emacs by creating a *voice*lock*
-module that paralleled Emacs' *font*lock* module. The visual
+formatting to all buffers in Emacs by creating a *voice-lock*
+module that paralleled Emacs' *font-lock* module. The visual
 medium is far richer in terms of available fonts and colors as
 compared to voice parameters available on TTS engines —
 consequently, it did not make sense to directly map Emacs' *face*
 properties to voice parameters. To aid in projecting visual
 formatting onto auditory space, I created property *personality*
 analogous to Emacs' *face* property that could be applied to
-content displayed in Emacs; module *voice*lock* applied that
+content displayed in Emacs; module *voice-lock* applied that
 property appropriately, and the Emacspeak core handled the
 details of mapping personality values to the underlying TTS
 engine.
@@ -346,7 +346,7 @@ from examining the visual presentation in a consistent manner. By
 having direct access to the underlying information being
 presented, Emacspeak had a leg up with respect to addressing the
 higher-level question — when you do have access to this
-information, how to you present it effectively in an eyes-free
+information, how do you present it effectively in an eyes-free
 environment? For this and many other cases of dynamic
 interaction, a combination of audio formatting, auditory icons,
 and the ability to synthesize succinct messages from a
@@ -383,8 +383,8 @@ to challenge the user, and if the eyes-free interface is
 inefficient, you just wont play the game — contrast this with a
 task that you *must* perform, where you're likely to make do with
 a sub-optimal interface. Over the years, Emacspeak has come to
-include eyes-free interfaces to several games including Tetris,
-SuDoKu, and of late the popular 2048-game. Each of these have in
+include eyes-free interfaces to several games including [[http://en.wikipedia.org/wiki/Tetris][Tetris]],
+[[http://en.wikipedia.org/wiki/2048_(video_game)][Sudoku]], and of late the popular [[http://en.wikipedia.org/wiki/2048_(video_game)][2048 game]]. Each of these have in
 turn contributed to enhancing the interaction model in Emacspeak,
 and those innovations typically make their way to the rest of the
 environment.
@@ -420,7 +420,7 @@ links to some of the more popular radio stations — primarily as a
 means of helping users getting started — Emacs' ability to
 rapidly complete directory and file-names turned out to be the
 most effective means of quickly launching everything from
-streaming radio stations to audio books. And even beter — as the
+streaming radio stations to audio books. And even better — as the
 Emacs community develops better and smarter ways of navigating
 the filesystem using completions, e.g., package *ido*, these
 types of actions become even more efficient!
@@ -510,7 +510,7 @@ underlying data structures used to visually render email messages
 and Usenet articles enabled Emacspeak to produce rich, succinct
 auditory output — this vastly increased my ability to consume and
 organize large amounts of information. Toward the turn of the
-century, instant messaging arived in the mainstream — package
+century, instant messaging arrived in the mainstream — package
 *tnt* provided an Emacs implementation of a chat client that
 could communicate with users on the then popular AOL Instant
 Messenger platform. At the time, I worked at IBM Research, and
@@ -645,7 +645,7 @@ Emacspeak front-ends to many useful services, here are a few:
      available from the BBC.
   5. A Google Maps front-end that  provides instantaneous access
      to directions and Places search.
-  6. Access to Twitter via package *twittering.-mode*.
+  6. Access to Twitter via package *twittering-mode*.
 
 
 And a lot more than will fit this margin! This is an example of
@@ -719,20 +719,20 @@ visual interaction when this comes to pass.
 #+OPTIONS: |:t
 #+CREATOR: Emacs 24.4.50.1 (Org mode 8.2.6)
 #+DESCRIPTION: Emacspeak At 20
-#+EXCLUDE*TAGS: noexport
+#+EXCLUDE_TAGS: noexport
 #+KEYWORDS: Emacspeak, Complete Audio Desktop, Speech-Enabled Applications
 #+LANGUAGE: en
-#+SELECT*TAGS: export
+#+SELECT_TAGS: export
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:t tex:t
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)
-#+HTML*CONTAINER: div
-#+HTML*DOCTYPE: xhtml-strict
-#+HTML*HEAD:
-#+HTML*HEAD*EXTRA:
-#+HTML*LINK*HOME: http://emacspeak.sf.net
-#+HTML*LINK*UP: http://emacspeak.blogspot.com
-#+HTML*MATHJAX:
-#+INFOJS*OPT:
-#+LATEX*HEADER:
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME: http://emacspeak.sf.net
+#+HTML_LINK_UP: http://emacspeak.blogspot.com
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+LATEX_HEADER:

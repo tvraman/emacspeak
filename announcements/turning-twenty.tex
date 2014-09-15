@@ -1,4 +1,4 @@
-% Created 2014-09-15 Mon 11:41
+% Created 2014-09-15 Mon 13:58
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -60,10 +60,10 @@ was only one problem — until then I had always accessed a UNIX
 machine from a secondary PC running a screen-reader — something
 that would clearly make no sense with a laptop!
 
-A few weeks earlier, another colleague Win Treese, had pointed
-out the interesting possibilities presented by package \textbf{advice}  in
-Emacs 19.23 — he had sent around a small snippet of code that
-magically modified Emacs' version-control primitive to first
+Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package \textbf{advice} in Emacs 19.23 — a
+few weeks earlier, he had sent around a small snippet of code
+that magically modified Emacs' version-control primitive to first
 create an \emph{RCS} directory if none existed before adding a file to
 version control. When I speculated about using the Linux laptop,
 Dave remarked — you live in Emacs anyway — why dont you just make
@@ -286,14 +286,14 @@ wild without incurring a performance hit. This functionality was
 leveraged first by package \textbf{shr} (Simple HTML Renderer) within
 the \textbf{gnus} package for rendering HTML email. Later, the author of
 \textbf{gnus} and \textbf{shr} created a new light-weight HTML viewer called
-\textbf{eww} that is now part of Emacs 24. The improved support for
+\textbf{eww} that is now part of Emacs 24. With improved support for
 variable pitch fonts and image embedding, Emacs is once again
 able to provide visual renderings for a large proportion of
-text-heavy Web content that is useful for mainstream Emacs users
-to view at least some Web content within Emacs; during the last
-year, I have added support within emacspeak to \href{http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html}{extend package
-\textbf{eww}} with support for DOM filtering and quick content
-navigation.
+text-heavy Web content where it becomes useful for mainstream
+Emacs users to view at least some Web content within Emacs;
+during the last year, I have added support within emacspeak to
+\href{http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html}{extend package \textbf{eww}} with support for DOM filtering and quick
+content navigation.
 
 \section{Audio Formatting —  Generalizing Aural CSS}
 \label{sec-8}
@@ -303,15 +303,15 @@ A key idea in Audio System For Technical Readings \href{http://www.cs.cornell.ed
 use of various voice properties in combination with non-speech
 auditory icons to create rich aural renderings. When I
 implemented Emacspeak, I brought over the notion of audio
-formatting to all buffers in Emacs by creating a \textbf{voice*lock}
-module that paralleled Emacs' \textbf{font*lock} module. The visual
+formatting to all buffers in Emacs by creating a \textbf{voice-lock}
+module that paralleled Emacs' \textbf{font-lock} module. The visual
 medium is far richer in terms of available fonts and colors as
 compared to voice parameters available on TTS engines —
 consequently, it did not make sense to directly map Emacs' \textbf{face}
 properties to voice parameters. To aid in projecting visual
 formatting onto auditory space, I created property \textbf{personality}
 analogous to Emacs' \textbf{face} property that could be applied to
-content displayed in Emacs; module \textbf{voice*lock} applied that
+content displayed in Emacs; module \textbf{voice-lock} applied that
 property appropriately, and the Emacspeak core handled the
 details of mapping personality values to the underlying TTS
 engine.
@@ -392,7 +392,7 @@ from examining the visual presentation in a consistent manner. By
 having direct access to the underlying information being
 presented, Emacspeak had a leg up with respect to addressing the
 higher-level question — when you do have access to this
-information, how to you present it effectively in an eyes-free
+information, how do you present it effectively in an eyes-free
 environment? For this and many other cases of dynamic
 interaction, a combination of audio formatting, auditory icons,
 and the ability to synthesize succinct messages from a
@@ -430,8 +430,8 @@ to challenge the user, and if the eyes-free interface is
 inefficient, you just wont play the game — contrast this with a
 task that you \textbf{must} perform, where you're likely to make do with
 a sub-optimal interface. Over the years, Emacspeak has come to
-include eyes-free interfaces to several games including Tetris,
-SuDoKu, and of late the popular 2048-game. Each of these have in
+include eyes-free interfaces to several games including \href{http://en.wikipedia.org/wiki/Tetris}{Tetris},
+\href{http://en.wikipedia.org/wiki/2048_(video_game)}{Sudoku}, and of late the popular \href{http://en.wikipedia.org/wiki/2048_(video_game)}{2048 game}. Each of these have in
 turn contributed to enhancing the interaction model in Emacspeak,
 and those innovations typically make their way to the rest of the
 environment.
@@ -468,7 +468,7 @@ links to some of the more popular radio stations — primarily as a
 means of helping users getting started — Emacs' ability to
 rapidly complete directory and file-names turned out to be the
 most effective means of quickly launching everything from
-streaming radio stations to audio books. And even beter — as the
+streaming radio stations to audio books. And even better — as the
 Emacs community develops better and smarter ways of navigating
 the filesystem using completions, e.g., package \textbf{ido}, these
 types of actions become even more efficient!
@@ -561,7 +561,7 @@ underlying data structures used to visually render email messages
 and Usenet articles enabled Emacspeak to produce rich, succinct
 auditory output — this vastly increased my ability to consume and
 organize large amounts of information. Toward the turn of the
-century, instant messaging arived in the mainstream — package
+century, instant messaging arrived in the mainstream — package
 \textbf{tnt} provided an Emacs implementation of a chat client that
 could communicate with users on the then popular AOL Instant
 Messenger platform. At the time, I worked at IBM Research, and
@@ -703,7 +703,7 @@ to provide completions.
 available from the BBC.
 \item A Google Maps front-end that  provides instantaneous access
 to directions and Places search.
-\item Access to Twitter via package \textbf{twittering.-mode}.
+\item Access to Twitter via package \textbf{twittering-mode}.
 \end{enumerate}
 
 
