@@ -273,7 +273,7 @@ going to look like — that job is best left to the computer.
 As an example of producing high-fidelity visual content, see this
 write-up on
 @uref{http://emacspeak.sourceforge.net/raman/publications/polyhedra/,Polyhedral
-Geometry} that I published in 2000; all of the content,
+Geometry} that I published in 2002; all of the content,
 including the drawings were created by me using Emacs.
 
 @node Emacspeak And The Early Days Of The Web
