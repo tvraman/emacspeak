@@ -62,14 +62,12 @@
 
 ;;}}}
 ;;{{{  APP Methods
-(if (fboundp 'nxml-mode)
-    (defalias 'xml-mode 'nxml-mode))
-
-(define-derived-mode g-app-mode xml-mode
+(define-derived-mode g-app-mode nxml-mode
   "Atom  Publishing Interaction"
   "Major mode for APP interaction\n\n
 \\{g-app-mode-map"
   (auto-fill-mode 1))
+
 (declaim (special g-app-mode-map))
 (define-key g-app-mode-map "\C-c\C-c" 'g-app-publish)
 
