@@ -1,38 +1,37 @@
-This is turning-twenty.info, produced by makeinfo version 5.0 from
+This is turning-twenty.info, produced by makeinfo version 5.2 from
 turning-twenty.texi.
 
 
 File: turning-twenty.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
-Emacspeak At Twenty: Looking Back, Looking Forward Manual
-*********************************************************
+Emacspeak At Twenty: Looking Back, Looking Forward
+**************************************************
 
 * Menu:
 
-* Introduction::                
-* Using UNIX With Speech Output —  1994::  
-* Key Enabler — Emacs And Lisp Advice::  
-* Key Component —  Text To Speech TTS::  
-* Emacspeak And Software Development::  
-* Emacspeak And Authoring Documents::  
-* Emacspeak And The Early Days Of The Web::  
-* Audio Formatting —  Generalizing Aural CSS::  
-* Conversational Gestures For The Audio Desktop::  
-* Accessing Media Streams::     
-* EBooks—   Ubiquitous Access To Books::  
-* Leveraging Computational Tools —  From SQL And R To IPython Notebooks::  
-* Social Web  — EMail Instant Messaging Blogging  And Tweeting Using Open Protocols::  
-* The RESTful Web —  Web Wizards And URL Templates For Faster Access::  
-* Mashing It Up —  Leveraging Evolving Web APIs::  
-* Conclusion::                  
-* References::                  
+* Introduction::
+* Using UNIX With Speech Output —  1994: Using UNIX With Speech Output — 1994. 
+* Key Enabler — Emacs And Lisp Advice::
+* Key Component —  Text To Speech (TTS): Key Component — Text To Speech (TTS). 
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak And The Early Days Of The Web::
+* Audio Formatting —  Generalizing Aural CSS: Audio Formatting — Generalizing Aural CSS. 
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* EBooks—   Ubiquitous Access To Books: EBooks— Ubiquitous Access To Books. 
+* Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks. 
+* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols. 
+* The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access. 
+* Mashing It Up —  Leveraging Evolving Web APIs: Mashing It Up — Leveraging Evolving Web APIs. 
+* Conclusion::
+* References::
 
- — The Detailed Node Listing —
+— The Detailed Node Listing —
 
 Conversational Gestures For The Audio Desktop
 
-* Speech-Enabling Interactive Games::  
-
+* Speech-Enabling Interactive Games::
 
 
 File: turning-twenty.info,  Node: Introduction,  Next: Using UNIX With Speech Output — 1994,  Prev: Top,  Up: Top
@@ -85,7 +84,7 @@ Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
 of Emacspeak was up and running.
 
 
-File: turning-twenty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key Component — Text To Speech TTS,  Prev: Using UNIX With Speech Output — 1994,  Up: Top
+File: turning-twenty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key Component — Text To Speech (TTS),  Prev: Using UNIX With Speech Output — 1994,  Up: Top
 
 3 Key Enabler — Emacs And Lisp Advice
 *************************************
@@ -104,7 +103,7 @@ in the book Beautiful Code
 from O’Reilly.
 
 
-File: turning-twenty.info,  Node: Key Component — Text To Speech TTS,  Next: Emacspeak And Software Development,  Prev: Key Enabler — Emacs And Lisp Advice,  Up: Top
+File: turning-twenty.info,  Node: Key Component — Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler — Emacs And Lisp Advice,  Up: Top
 
 4 Key Component — Text To Speech (TTS)
 **************************************
@@ -147,7 +146,7 @@ renderings that were possible with the admittedly less-natural sounding
 DECTalk!
 
 
-File: turning-twenty.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component — Text To Speech TTS,  Up: Top
+File: turning-twenty.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component — Text To Speech (TTS),  Up: Top
 
 5 Emacspeak And Software Development
 ************************************
@@ -162,34 +161,24 @@ scratching the surface.
 
    • Audio formatting using voice-lock to provide aural syntax
      highlighting.
-
    • Succinct auditory icons to provide efficient feedback.
-
    • Emacs’ ability to navigate code structurally —
-
    as opposed to moving around by plain-text units such as characters,
 lines and words.  S-Expressions are a major win!
    • Emacs’ ability to specialize behavior based on major and minor
      modes.
-
    • Ability to browse program code using tags, and getting fluent
      spoken feedback.
-
    • Completion *everywhere*.
-
    • Everything is searchable — this is a huge win when you cannot see
      the screen.
-
    • Interactive spell-checking using ISpell with continuous spoken
      feedback augmented by aural highlights.
-
    • Running code compilation and being able to jump to errors with
      spoken feedback.
-
    • Ability to move through diff chunks when working with source code
      and source control systems; refined diffs as provided by the
      package when speech-enabled is a major productivity win.
-
    • Ability to easily move between email, document authoring and
      programming — though this may appear trivial, it continues to be
      one of Emacs’ biggest wins.
@@ -269,8 +258,8 @@ finally killed off Emacs-W3 as far as most Emacs users were concerned.
 
    But Emacs-W3 went through a revival on the emacspeak audio desktop in
 late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
-implementation via the and packages.  With these in hand, Emacspeak was
-able to hand-off the bulk of HTML error correction to the tool.  The
+implementation via the and _ packages.  With these in hand, Emacspeak
+was able to hand-off the bulk of HTML error correction to the tool.  The
 lack of visual fidelity didn’t matter much for an eyes-free environment;
 so Emacs-W3 continued to be a useful tool for consuming large amounts of
 Web content that did not require JavaScript support.
@@ -279,8 +268,8 @@ Web content that did not require JavaScript support.
 you can now parse arbitrary HTML as found in the wild without incurring
 a performance hit.  This functionality was leveraged first by package
 (Simple HTML Renderer) within the package for rendering HTML email;
-later, the author of and created a new light-weight HTML viewer called
-that is now part of Emacs 24.  the improved support for variable pitch
+later, the author of _ and created a new light-weight HTML viewer called
+_ that is now part of Emacs 24.  the improved support for variable pitch
 fonts and image embedding, Emacs is once again able to provide visual
 renderings for a large proportion of text-heavy Web content that is
 useful for mainstream Emacs users to view at least some Web content
@@ -392,10 +381,9 @@ browsing facilities — see the online Emacspeak documentation for details
 on Emacspeak’s table browsing functionality which continues to remain
 one of the richest collection of end-user affordances for working with
 two-dimensional data.
-
 * Menu:
 
-* Speech-Enabling Interactive Games::  
+* Speech-Enabling Interactive Games::
 
 
 File: turning-twenty.info,  Node: Speech-Enabling Interactive Games,  Up: Conversational Gestures For The Audio Desktop
@@ -405,7 +393,7 @@ File: turning-twenty.info,  Node: Speech-Enabling Interactive Games,  Up: Conver
 
 So in 1997, I went the next step in asking — given access to the
 underlying infromation, is it possible to build effective eyes-free
-interaction to highly interactive tasks?  I picked as a means of
+interaction to highly interactive tasks?  I picked _ as a means of
 exploring this space, the result was an Emacspeak extension to
 speech-enable module .  The details of what was learned were published
 as a paper in Assets 98, and expanded as a chapter on Conversational
@@ -441,15 +429,15 @@ though the primary content was purely audio (streaming video hadn’t
 arrived yet!).  Starting in 1996, Emacspeak started including a variety
 of eyes-free front-ends for accessing media streams.  Initially, this
 was achieved by building a wrapper around — a headless version of
-RealPlayer; later I built Emacspeak module for interfacing with package
-.  A key aspect of streaming media integration in emacspeak is that one
-can launch and control streams without ever switching away from one’s
-primary task; thus, you can continue to type email or edit code while
-seamlessly launching and controlling media streams.  Over the years,
-Emacspeak has come to integrate with Emacs packages like as well as
-providing wrappers for and — collectively, these let you efficiently
-launch all types of media streams, including streaming video, without
-having to explicitly switch context.
+RealPlayer; later I built Emacspeak module _ for interfacing with
+package .  A key aspect of streaming media integration in emacspeak is
+that one can launch and control streams without ever switching away from
+one’s primary task; thus, you can continue to type email or edit code
+while seamlessly launching and controlling media streams.  Over the
+years, Emacspeak has come to integrate with Emacs packages like as well
+as providing wrappers for _ and — collectively, these let you
+efficiently launch all types of media streams, including streaming
+video, without having to explicitly switch context.
 
    In the mid-90’s, Emacspeak started including a directory of media
 links to some of the more popular radio stations — primarily as a means
@@ -493,7 +481,7 @@ make technical material available to users with print impairments was
 later formalized by BookShare (https://www.bookshare.org/) — today,
 qualified users can obtain a large number of books and periodicals
 initially as Daisy-3 and increasingly as .  BookShare provides a RESTful
-API for searching and downloading books; Emacspeak module implements
+API for searching and downloading books; Emacspeak module _ implements
 this API to create a client for browsing the BookShare library,
 downloading and organizing books locally, and an integrated ebook
 reading mode to round off the experience.
@@ -515,15 +503,15 @@ simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
 extension points.  This means that a wide variety of computational tools
 become immediately available for embedding within the Emacs environment
 — a facility that has been widely exploited by the Emacs community.
-Over the years, Emacspeak has leveraged every one of these facilities to
+Over the years, Emacspeak has leveraged many of these facilities to
 provide a well-integrated auditory interface.
 
    Starting from a tight code, eval, test form of iterative programming
-as encouraged by Lisp and applied to languages like Python and Ruby to
+as encouraged by Lisp.  Applied to languages like Python and Ruby to
 explorative computational tools such as R for data analysis and SQL for
 database interaction, the Emacspeak Audio Desktop has come to encompass
-a collection of rich tools that provide an efficient eyes-free
-experience backed up by consistent audio formatted output.
+a collection of rich computational tools that provide an efficient
+eyes-free experience.
 
    In this context, module — Emacs IPython Notebooks — provides another
 excellent example of an Emacs tool that helps interface seamlessly with
@@ -531,6 +519,9 @@ others in the technical domain.  IPython Notebooks provide an easy means
 of reaching a large audience when publishing technical material with
 interactive computational content; module brings the power and
 convenience of Emacs ’ editting facilities when developing the content.
+Speech-enabling package is a major win since editting program source
+code in an eyes-free environment is far smoother in Emacs than in a
+browser-based editor.
 
 
 File: turning-twenty.info,  Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
@@ -547,10 +538,10 @@ used to visually render email messages and Usenet articles enabled
 Emacspeak to produce rich, succinct auditory output — this vastly
 increased my ability to consume and organize large amounts of
 information.  Toward the turn of the century, instant messaging arived
-in the mainstream — package provided an Emacs implementation of a chat
+in the mainstream — package _ provided an Emacs implementation of a chat
 client that could communicate with users on the then popular AOL Instant
 Messenger platform.  At the time, I worked at IBM Research, and inspired
-by package , I created an Emacs client called using the Lotus Sametime
+by package , I created an Emacs client called _ using the Lotus Sametime
 API — this enabled me to communicate with colleagues at work from the
 comfort of Emacs.  Packages like , , and provide an interesting example
 of how availability of a clean underlying API to a specific service or
@@ -567,7 +558,7 @@ write-up on Universe Of Fancy Colored Paper
 (http://emacspeak.sourceforge.net/publications/colored-paper.html).
 
    Today, my personal choice for instant messaging is the open Jabber
-platform.  I connect to Jabber via Emacs package and with Emacspeak
+platform.  I connect to Jabber via Emacs package _ and with Emacspeak
 providing a light-weight wrapper for generating the eyes-free interface,
 I can communicate seamlessly with colleagues and friends around the
 world.
@@ -597,12 +588,9 @@ following with respect to my own behavior on many popular sites:
 
   1. I opened a Web page that took a while to load (remember, I was
      still using Emacs-W3),
-
   2. I then searched through the page to find a form-field that I filled
      out, e.g., start and end destinations on Yahoo Maps,
-
   3. I hit , and once again waited for a heavy-weight HTML page to load,
-
   4. And finally, I hunted through the rendered content to find what I
      was looking for.
 
@@ -613,18 +601,15 @@ decided to automate away the pain by creating Emacspeak module that did
 the following:
 
   1. Prompt via the minibuffer for the requisite fields,
-
   2. Consed up an HTTP GET URL,
-
   3. Retrieved this URL,
-
   4. And filtered out the specific portion of the HTML DOM that held the
      generated response.
 
    Notice that the above implementation hard-wires the CGI parameter
 names used by a given Web application into the code implemented in
 module .  REST as a design pattern had not yet been recognized, leave
-alone formalized, and module was initially decryed as being fragile.
+alone formalized, and module _ was initially decryed as being fragile.
 
    However, over time, the CGI parameter names remained fixed — the only
 things that have required updating in the Emacspeak code-base are the
@@ -636,21 +621,22 @@ integrated XSLT-based pre-processing of incoming HTML content before it
 got handed off to Emacs-W3 — and yes, Emacs/Advice once again came in
 handy with respect to injecting XSLT pre-processing into Emacs-W3!
 
-   Later, in early 2000, I created companion module — partially inspired
-by Emacs’ module.  URL templates in Emacspeak leveraged the recognized
-REST interaction pattern to provide a large collection of Web widgets
-that could be quickly invoked to provide rapid access to the right
-pieces of information on the Web.
+   Later, in early 2000, I created companion module _ — partially
+inspired by Emacs’ _ module.  URL templates in Emacspeak leveraged the
+recognized REST interaction pattern to provide a large collection of Web
+widgets that could be quickly invoked to provide rapid access to the
+right pieces of information on the Web.
 
    The final icing on the cake was the arrival of RSS and Atom feeds and
 the consequent deep-linking into content-rich sites — this meant that
 Emacspeak could provide audio renderings of useful content without
 having to deal with complex visual navigation!  While Google Reader
-existed, Emacspeak provided a light-weight client for managing ones feed
-subscriptions; with the demise of Google Reader, I implemented module
-for organizing feeds on the Emacspeak desktop.  A companion package
-implements additional goodies including a continuously updating ticker
-of headlines taken from the user’s collection of subscribed feeds.
+existed, Emacspeak provided a light-weight _ client for managing ones
+feed subscriptions; with the demise of Google Reader, I implemented
+module for organizing feeds on the Emacspeak desktop.  A companion
+package implements additional goodies including a continuously updating
+ticker of headlines taken from the user’s collection of subscribed
+feeds.
 
 
 File: turning-twenty.info,  Node: Mashing It Up — Leveraging Evolving Web APIs,  Next: Conclusion,  Prev: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Up: Top
@@ -671,17 +657,12 @@ many useful services, here are a few:
 
   1. Minibuffer completion for Google Search using Google Suggest to
      provide completions.
-
   2. Librivox for browsing and playing free audio books.
-
   3. NPR for browsing and playing NPR archived programs.
-
   4. BBC for playing a wide variety of streaming content available from
      the BBC.
-
   5. A Google Maps front-end that provides instantaneous access to
      directions and Places search.
-
   6. Access to Twitter via package .
 
    And a lot more than will fit this margin!  This is an example of
@@ -735,21 +716,16 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
    • Auditory User Interfaces
      (http://emacspeak.sourceforge.net/raman/aui/aui.html) Klewer
      Publishing, 1997.
-
    • Advice An Emacs Lisp package by Hans Chalupsky
      (http://www.isi.edu/~hans/) that became part of Emacs 19.23.
-
    • Beautiful Code
      (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
      An overview of the Emacspeak architecture.
-
    • Speech-Enabled Applications
      (http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/)
      Emacspeak at CHI 1996.
-
    • EWW Emacspeak extends EWW
      (http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html).
-
    • In The Beginning Was The Command Line
      (http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml) By
      Neal Stephenson
@@ -758,24 +734,24 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 Tag Table:
 Node: Top89
-Node: Introduction1253
-Node: Using UNIX With Speech Output — 19941930
-Node: Key Enabler — Emacs And Lisp Advice3742
-Node: Key Component — Text To Speech TTS4768
-Node: Emacspeak And Software Development7293
-Node: Emacspeak And Authoring Documents9854
-Node: Emacspeak And The Early Days Of The Web11394
-Node: Audio Formatting — Generalizing Aural CSS14728
-Node: Conversational Gestures For The Audio Desktop17632
-Node: Speech-Enabling Interactive Games20945
-Node: Accessing Media Streams22566
-Node: EBooks— Ubiquitous Access To Books24578
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks27077
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols28787
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access32152
-Node: Mashing It Up — Leveraging Evolving Web APIs35520
-Node: Conclusion37977
-Node: References39287
+Node: Introduction1591
+Node: Using UNIX With Speech Output — 19942268
+Node: Key Enabler — Emacs And Lisp Advice4080
+Node: Key Component — Text To Speech (TTS)5108
+Node: Emacspeak And Software Development7635
+Node: Emacspeak And Authoring Documents10188
+Node: Emacspeak And The Early Days Of The Web11728
+Node: Audio Formatting — Generalizing Aural CSS15068
+Node: Conversational Gestures For The Audio Desktop17972
+Node: Speech-Enabling Interactive Games21282
+Node: Accessing Media Streams22905
+Node: EBooks— Ubiquitous Access To Books24921
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks27422
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols29251
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access32622
+Node: Mashing It Up — Leveraging Evolving Web APIs35992
+Node: Conclusion38444
+Node: References39754
 
 End Tag Table
 

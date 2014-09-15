@@ -458,16 +458,17 @@ strongest extension points. This means that a wide variety of
 computational tools become immediately available for embedding
 within the Emacs environment — a facility that has been widely
 exploited by the Emacs community. Over the years, Emacspeak has
-leveraged every one of these facilities to provide a
-well-integrated auditory interface.
+leveraged many of these facilities to provide a well-integrated
+auditory interface.
 
 Starting from a tight code, eval, test form of iterative
-programming as encouraged by Lisp and applied to languages like
+programming as encouraged by Lisp. Applied to languages like
 Python and Ruby to explorative computational tools such as R for
 data analysis and SQL for database interaction, the Emacspeak
-Audio Desktop has come to encompass a collection of rich tools
-that provide an efficient eyes-free experience backed up by
-consistent audio formatted output.
+Audio Desktop has come to encompass a collection of rich
+computational tools
+that provide an efficient eyes-free experience.
+
 
 In this context, module _ein_ — Emacs IPython Notebooks — 
 provides another excellent example of an Emacs tool that helps
@@ -476,7 +477,9 @@ Notebooks provide an easy means of reaching a large audience when
 publishing technical material with interactive computational
 content; module _ein_ brings the power and convenience of Emacs
 ' editting facilities when developing the content.
-
+Speech-enabling package _ein_ is a major win since editting
+program source code in an eyes-free environment is far smoother
+in Emacs than in a browser-based editor.
 
 * Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols 
 
