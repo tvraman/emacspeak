@@ -1,4 +1,4 @@
-% Created 2014-09-14 Sun 07:25
+% Created 2014-09-15 Mon 08:34
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -249,7 +249,7 @@ Emacs-W3 as far as most Emacs users were concerned.
 But Emacs-W3 went through a revival on the emacspeak audio
 desktop in late 1999 with the arrival of XSLT, and Daniel
 Veillard's excellent implementation via the \uline{libxml2} and
-\uline{libxslt} packages. With these in hand, Emacspeak was able to
+$_{\text{ }}$packages. With these in hand, Emacspeak was able to
 hand-off the bulk of HTML error correction to the \uline{xsltproc}
 tool. The lack of visual fidelity didn't matter much for an
 eyes-free environment; so Emacs-W3 continued to be a useful tool
@@ -261,8 +261,8 @@ this means that you can now parse arbitrary HTML as found in the
 wild without incurring a performance hit. This functionality was
 leveraged first by package \uline{shr} (Simple HTML Renderer) within
 the \uline{gnus} package for rendering HTML email; later, the author of
-\uline{gnus} and \uline{shr} created a new light-weight HTML viewer called
-\uline{eww} that is now part of Emacs 24. the improved support for
+$_{\text{ }}$and \uline{shr} created a new light-weight HTML viewer called
+$_{\text{ }}$that is now part of Emacs 24. the improved support for
 variable pitch fonts and image embedding, Emacs is once again
 able to provide visual renderings for a large proportion of
 text-heavy Web content that is useful for mainstream Emacs users
@@ -391,7 +391,7 @@ affordances for working with two-dimensional data.
 So in 1997, I went the next step in asking — given access to the
 underlying infromation, is it possible to build effective
 eyes-free interaction to highly interactive tasks? I picked
-\uline{Tetris} as a means of exploring this space, the result was an
+$_{\text{ }}$as a means of exploring this space, the result was an
 Emacspeak extension to speech-enable module \uline{tetris.el}. The
 details of what was learned were published as a paper in Assets
 98, and expanded as a chapter on Conversational Gestures in my
@@ -429,14 +429,14 @@ purely audio (streaming video hadn't arrived yet!). Starting in
 front-ends for accessing media streams. Initially, this was
 achieved by building a wrapper around \uline{trplayer} — a headless
 version of RealPlayer; later I built Emacspeak module
-\uline{emacspeak-m-player} for interfacing with package \uline{mplayer}. A
+$_{\text{ }}$for interfacing with package \uline{mplayer}. A
 key aspect of streaming media integration in emacspeak is that
 one can launch and control streams without ever switching away
 from one's primary task; thus, you can continue to type email or
 edit code while seamlessly launching and controlling media
 streams. Over the years, Emacspeak has come to integrate with
 Emacs packages like \uline{emms} as well as providing wrappers for
-\uline{mplayer} and \uline{alsaplayer} — collectively, these let you
+$_{\text{ }}$and \uline{alsaplayer} — collectively, these let you
 efficiently launch all types of media streams, including
 streaming video, without having to explicitly switch context.
 
@@ -485,7 +485,7 @@ was later formalized by \href{https://www.bookshare.org/}{BookShare} — today, 
 obtain a large number of books and periodicals initially as
 Daisy-3 and increasingly as \uline{EPub}. BookShare provides a RESTful
 API for searching and downloading books; Emacspeak module
-\uline{emacspeak-bookshare} implements this API to create a client for
+$_{\text{ }}$implements this API to create a client for
 browsing the BookShare library, downloading and organizing books
 locally, and an integrated ebook reading mode to round off the
 experience.
@@ -505,16 +505,17 @@ strongest extension points. This means that a wide variety of
 computational tools become immediately available for embedding
 within the Emacs environment — a facility that has been widely
 exploited by the Emacs community. Over the years, Emacspeak has
-leveraged every one of these facilities to provide a
-well-integrated auditory interface.
+leveraged many of these facilities to provide a well-integrated
+auditory interface.
 
 Starting from a tight code, eval, test form of iterative
-programming as encouraged by Lisp and applied to languages like
+programming as encouraged by Lisp. Applied to languages like
 Python and Ruby to explorative computational tools such as R for
 data analysis and SQL for database interaction, the Emacspeak
-Audio Desktop has come to encompass a collection of rich tools
-that provide an efficient eyes-free experience backed up by
-consistent audio formatted output.
+Audio Desktop has come to encompass a collection of rich
+computational tools
+that provide an efficient eyes-free experience.
+
 
 In this context, module \uline{ein} — Emacs IPython Notebooks — 
 provides another excellent example of an Emacs tool that helps
@@ -523,7 +524,9 @@ Notebooks provide an easy means of reaching a large audience when
 publishing technical material with interactive computational
 content; module \uline{ein} brings the power and convenience of Emacs
 ' editting facilities when developing the content.
-
+Speech-enabling package \uline{ein} is a major win since editting
+program source code in an eyes-free environment is far smoother
+in Emacs than in a browser-based editor.
 
 \section{Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols}
 \label{sec-13}
@@ -538,11 +541,11 @@ and Usenet articles enabled Emacspeak to produce rich, succinct
 auditory output — this vastly increased my ability to consume and
 organize large amounts of information. Toward the turn of the
 century, instant messaging arived in the mainstream — package
-\uline{tnt} provided an Emacs implementation of a chat client that
+$_{\text{ }}$provided an Emacs implementation of a chat client that
 could communicate with users on the then popular AOL Instant
 Messenger platform. At the time, I worked at IBM Research, and
 inspired by package \uline{tnt}, I created an Emacs client called
-\uline{ChatterBox} using the Lotus Sametime API — this enabled me to
+$_{\text{ }}$using the Lotus Sametime API — this enabled me to
 communicate with colleagues at work from the comfort of
 Emacs. Packages like \uline{vm}, \uline{gnus}, \uline{tnt} and \uline{ChatterBox} provide
 an interesting example of how availability of a clean underlying
@@ -563,7 +566,7 @@ Of Fancy Colored Paper}.
 
 Today, my personal choice for instant messaging is the open
 Jabber platform. I connect to Jabber via Emacs package
-\uline{emacs-jabber} and with Emacspeak providing a light-weight
+$_{\text{ }}$and with Emacspeak providing a light-weight
 wrapper for generating the eyes-free interface, I can communicate
 seamlessly with colleagues and friends around the world.
 
@@ -620,7 +623,7 @@ Notice that the above implementation hard-wires the CGI parameter
 names used by a given Web application into the code implemented
 in module \uline{emacspeak-websearch}. REST as a design pattern had not
 yet been recognized, leave alone formalized, and module
-\uline{emacspeak-websearch} was initially decryed as being fragile.
+$_{\text{ }}$was initially decryed as being fragile.
 
 However, over time, the CGI parameter names remained fixed — the
  only things that have required updating in the Emacspeak
@@ -636,8 +639,8 @@ Emacs/Advice once again came in handy with respect to injecting
 XSLT pre-processing into Emacs-W3!
 
 Later, in early 2000, I created companion module
-\uline{emacspeak-url-templates} — partially inspired by Emacs'
-\uline{webjump} module. URL templates in Emacspeak leveraged the
+$_{\text{ }}$— partially inspired by Emacs'
+$_{\text{ }}$module. URL templates in Emacspeak leveraged the
 recognized REST interaction pattern to provide a large collection
 of Web widgets that could be quickly invoked to provide rapid
 access to the right pieces of information on the Web.
@@ -647,7 +650,7 @@ and the consequent deep-linking into content-rich sites — this
 meant that Emacspeak could provide audio renderings of useful
 content without having to deal with complex visual navigation!
 While Google Reader existed, Emacspeak provided a light-weight
-\uline{greader} client for managing ones feed subscriptions; with the
+$_{\text{ }}$client for managing ones feed subscriptions; with the
 demise of Google Reader, I implemented module \uline{emacspeak-feeds}
 for organizing feeds on the Emacspeak desktop. A companion
 package \uline{emacspeak-webspace} implements additional goodies
