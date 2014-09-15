@@ -826,7 +826,7 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-  "https://www.google.com/search?deb=0mobile&esrch=SearchLite::OptIn&site=&q=%s&num=25&gbv=1&sei=L8kNVI_kKJWpyATPv4Aw"
+  "https://www.google.com/search?esrch=SearchLite::OptIn&site=&q=%s&num=25&gbv=1&sei=L8kNVI_kKJWpyATPv4Aw"
   "Using experimental Google Lite.")
 
 ;;;###autoload
