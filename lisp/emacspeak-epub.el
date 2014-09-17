@@ -626,8 +626,9 @@ Suitable for text searches."
       (loop for f in files
             do
             (setq command
-                  (format "unzip -c -qq %s '%s' | %s"
-                          epub-file f
+                  (format "unzip -c -qq %s %s | %s"
+                          epub-file 
+                          (shell-quote-argument f)
                           emacspeak-epub-html-to-text-command))
             (insert (shell-command-to-string command ))
             (goto-char (point-max)))
