@@ -11,11 +11,12 @@ infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 EMACS=emacs
 
-all: emacspeak.info  introducing-emacspeak.info
+all: emacspeak.info  introducing-emacspeak.info turning-twenty.info
 
-info: emacspeak.texi introducing-emacspeak.texi
+info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
+$(MAKEINFO) turning-twenty.texi
 .PHONY: commands.texi 
 
 commands.texi: 
@@ -27,7 +28,7 @@ commands.texi:
 options.texi:  
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 
-install: emacspeak.info
+install: emacspeak.info turning-twenty.info
 	if test  -x /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
