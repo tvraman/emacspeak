@@ -16,7 +16,7 @@ all: emacspeak.info  introducing-emacspeak.info turning-twenty.info
 info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
-$(MAKEINFO) turning-twenty.texi
+	$(MAKEINFO) turning-twenty.texi
 .PHONY: commands.texi 
 
 commands.texi: 
