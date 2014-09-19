@@ -78,6 +78,7 @@
 (if (zerop (length xkcd-transcript))
 "Not available yet."
 xkcd-transcript)))
+(goto-char (point-min))
 (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-buffer)))
 
