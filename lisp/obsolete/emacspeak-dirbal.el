@@ -1,4 +1,6 @@
-;http://dirble.com/inlogged/apikeys
+;;; Author: T. V. Raman
+;;; Not pursuing this for now, since search quality is not satisfactory.
+                                        ;http://dirble.com/inlogged/apikeys
 (defcustom  emacspeak-dirbal-api-key 
 ""
 "API key."
