@@ -97,6 +97,7 @@
     ("emacspeak-dmacro"  . nil )
     ("emacspeak-ecb"  . nil )
     ("emacspeak-ediff"  . nil )
+("emacspeak-xkcd" . nil)
     ("emacspeak-enriched"  . nil )
     ("emacspeak-entertain"  . nil )
     ("emacspeak-erc"  . ("erc-prepare"))
