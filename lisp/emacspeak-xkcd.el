@@ -77,18 +77,11 @@
      (format "Transcript: %s" 
 (if (zerop (length xkcd-transcript))
 "Not available yet."
-xkcd-transcript)))))
+xkcd-transcript)))
+(emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-buffer)))
 
-(loop 
- for f in 
- '(xkcd-get xkcd-next xkcd-prev xkcd-rand)
- do
- (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
-       (emacspeak-speak-buffer)))))
+
 
 (provide 'emacspeak-xkcd)
 ;;{{{ end of file
