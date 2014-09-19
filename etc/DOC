@@ -971,6 +971,23 @@ Useful in voiceifying rich text.
 
 ------------------------------------------------------------
 
+** emacspeak-calibre-mode A Calibre Front-end.
+Letters do not insert themselves; instead, they are commands.
+
+key             binding
+---             -------
+
+RET		emacspeak-epub-calibre-dired-at-point
+<Return>	emacspeak-epub-calibre-dired-at-point
+
+
+
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-calibre-mode-hook', as the final step
+during initialization. 
+
+------------------------------------------------------------
+
 ** emacspeak-epub	Key Sequence:C-e g
 
  EPub  Interaction.
@@ -984,6 +1001,18 @@ Interactive prefix arg searches recursively in directory.
 ------------------------------------------------------------
 
 ** emacspeak-epub-bookshelf-add-epub Add epub file to current bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-calibre-author Add results of an author search to current bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-calibre-search Add results of an title/author search to current bookshelf. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-bookshelf-calibre-title Add results of an title search to current bookshelf. 
 
 ------------------------------------------------------------
 
@@ -1037,6 +1066,14 @@ Useful if table of contents in toc.ncx is empty.
 
 ------------------------------------------------------------
 
+** emacspeak-epub-calibre-dired-at-point Open directory containing current result. 
+
+------------------------------------------------------------
+
+** emacspeak-epub-calibre-results Show most recent Calibre search results. 
+
+------------------------------------------------------------
+
 ** emacspeak-epub-delete Delete EPub under point. 
 
 ------------------------------------------------------------
@@ -1073,8 +1110,12 @@ RET		emacspeak-epub-open
 C-o		emacspeak-epub-bookshelf-open-epub
 C-x		Prefix Command
 ESC		Prefix Command
+/		emacspeak-epub-calibre-results
+A		emacspeak-epub-bookshelf-calibre-author
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-gutenberg-download
+S		emacspeak-epub-bookshelf-calibre-search
+T		emacspeak-epub-bookshelf-calibre-title
 a		emacspeak-epub-bookshelf-add-epub
 b		emacspeak-epub-bookshelf-open
 c		emacspeak-epub-bookshelf-clear
@@ -1106,7 +1147,8 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-epub-open Open specified Epub. 
+** emacspeak-epub-open Open specified Epub.
+Filename may need to  be shell-quoted when called from Lisp. 
 
 ------------------------------------------------------------
 
@@ -2805,11 +2847,6 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-comint-send-input Causes output to be spoken i.e., as if comint autospeak were turned
-on. 
-
-------------------------------------------------------------
-
 ** emacspeak-speak-completions-if-available Speak completions if available. 
 
 ------------------------------------------------------------
@@ -2987,6 +3024,14 @@ See documentation for command run-at-time for details on time-spec.
 
 ------------------------------------------------------------
 
+** emacspeak-speak-microseconds-since-epoch Speaks time value specified as microseconds  since epoch, e.g. as from float-time. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-milliseconds-since-epoch Speaks time value specified as milliseconds  since epoch, e.g. as from float-time. 
+
+------------------------------------------------------------
+
 ** emacspeak-speak-minibuffer Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point. 
@@ -3137,6 +3182,10 @@ Argument START  and END specify region to speak.
 ** emacspeak-speak-rest-of-buffer	Key Sequence:C-e n
 
  Speak remainder of the buffer starting at point 
+
+------------------------------------------------------------
+
+** emacspeak-speak-seconds-since-epoch Speaks time value specified as seconds  since epoch, e.g. as from float-time. 
 
 ------------------------------------------------------------
 
@@ -4117,7 +4166,7 @@ from Web page -- default is the current page being viewed.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-accessible-google Google Accessible Search -- see http://labs.google.com/accessible 
+** emacspeak-websearch-accessible-google Use Google Lite (Experimental). 
 
 ------------------------------------------------------------
 
@@ -4997,16 +5046,8 @@ Extracted content is placed as a csv file in task.csv.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-google-1box Invoke Google 1Box search. 
-
-------------------------------------------------------------
-
 ** emacspeak-wizards-google-hits Filter Google results after performing search to show just the
 hits. 
-
-------------------------------------------------------------
-
-** emacspeak-wizards-google-squared Invoke Google Squared search. 
 
 ------------------------------------------------------------
 
