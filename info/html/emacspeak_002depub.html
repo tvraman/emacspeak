@@ -2,11 +2,11 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.0, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux/x86 (vers 7 December 2008), see www.w3.org" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
@@ -31,7 +31,7 @@
   <link href="emacspeak_002derc.html#emacspeak_002derc" rel="next"
   title="emacspeak-erc" />
   <link href="emacspeak_002deperiodic.html#emacspeak_002deperiodic"
-  rel="previous" title="emacspeak-eperiodic" />
+  rel="prev" title="emacspeak-eperiodic" />
   <style type="text/css">
 /*<![CDATA[*/
   <!--
@@ -82,9 +82,9 @@
     <p>Next: <a href="emacspeak_002derc.html#emacspeak_002derc"
     accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href=
     "emacspeak_002deperiodic.html#emacspeak_002deperiodic"
-    accesskey="p" rel="previous">emacspeak-eperiodic</a>, Up:
-    <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey=
-    "u" rel="up">Emacspeak Commands</a> &nbsp; [<a href=
+    accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href=
     "Concept-Index.html#Concept-Index" title="Index" rel=
@@ -107,6 +107,29 @@
 
   <p>Automatically generated documentation for commands defined in
   module emacspeak-epub.</p>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dcalibre_002dmode" id=
+    "index-emacspeak_002dcalibre_002dmode"></a>Interactive Command:
+    <strong>emacspeak-calibre-mode</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>A Calibre Front-end. Letters do not insert themselves;
+      instead, they are commands.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>RET emacspeak-epub-calibre-dired-at-point &lt;Return&gt;
+      emacspeak-epub-calibre-dired-at-point</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-calibre-mode-hook&rsquo;, as the final
+      step during initialization.</p>
+    </dd>
+  </dl>
 
   <dl>
     <dt><a name="index-emacspeak_002depub" id=
@@ -149,6 +172,55 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Add epub file to current bookshelf.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-calibre-author</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Add results of an author search to current bookshelf.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-calibre-search</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Add results of an title/author search to current
+      bookshelf.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"></a>Interactive
+    Command:
+    <strong>emacspeak-epub-bookshelf-calibre-title</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Add results of an title search to current bookshelf.</p>
     </dd>
   </dl>
 
@@ -317,6 +389,36 @@
   </dl>
 
   <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint"
+    id=
+    "index-emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-calibre-dired-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open directory containing current result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dcalibre_002dresults"
+    id=
+    "index-emacspeak_002depub_002dcalibre_002dresults"></a>Interactive
+    Command: <strong>emacspeak-epub-calibre-results</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Show most recent Calibre search results.</p>
+    </dd>
+  </dl>
+
+  <dl>
     <dt><a name="index-emacspeak_002depub_002ddelete" id=
     "index-emacspeak_002depub_002ddelete"></a>Interactive Command:
     <strong>emacspeak-epub-delete</strong> <em>nil</em></dt>
@@ -400,9 +502,13 @@
       emacspeak-epub-bookshelf-remove-directory C-k
       emacspeak-epub-delete C-l emacspeak-epub-bookshelf-redraw RET
       emacspeak-epub-open C-o emacspeak-epub-bookshelf-open-epub
-      C-x Prefix Command ESC Prefix Command C
+      C-x Prefix Command ESC Prefix Command /
+      emacspeak-epub-calibre-results A
+      emacspeak-epub-bookshelf-calibre-author C
       emacspeak-epub-gutenberg-catalog G
-      emacspeak-epub-gutenberg-download a
+      emacspeak-epub-gutenberg-download S
+      emacspeak-epub-bookshelf-calibre-search T
+      emacspeak-epub-bookshelf-calibre-title a
       emacspeak-epub-bookshelf-add-epub b
       emacspeak-epub-bookshelf-open c
       emacspeak-epub-bookshelf-clear d
@@ -445,7 +551,8 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Open specified Epub.</p>
+      <p>Open specified Epub. Filename may need to be shell-quoted
+      when called from Lisp.</p>
     </dd>
   </dl>
 
@@ -480,9 +587,9 @@
     <p>Next: <a href="emacspeak_002derc.html#emacspeak_002derc"
     accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href=
     "emacspeak_002deperiodic.html#emacspeak_002deperiodic"
-    accesskey="p" rel="previous">emacspeak-eperiodic</a>, Up:
-    <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey=
-    "u" rel="up">Emacspeak Commands</a> &nbsp; [<a href=
+    accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
     "contents">Contents</a>][<a href=
     "Concept-Index.html#Concept-Index" title="Index" rel=

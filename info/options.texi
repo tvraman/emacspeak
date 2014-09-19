@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 617 user customizable
+This chapter documents a total of 619 user customizable
   options.
 
 @menu
@@ -378,10 +378,6 @@ These options are customizable via Emacs' Custom interface.
 ALSA sound controller used to restore settings.
 @end defvar
 
-@defvar {User Option} emacspeak-aumix-full-duplex-p
-*Set to T if the sound card is truly full duplex.
-@end defvar
-
 @defvar {User Option} emacspeak-aumix-multichannel-capable-p
 *Set to T if the sound card is capable of mixing multiple channels of audio.
 @end defvar
@@ -581,6 +577,18 @@ As we move to epub-3, this module will bring back audio layers etc., perhaps via
 Automatically generated documentation
 for options defined in module  emacspeak-epub.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-epub-bookshelf-directory
+Directory where we keep .bsf files defining various bookshelves.
+@end defvar
+
+@defvar {User Option} emacspeak-epub-calibre-root-dir
+Root of Calibre library.
+@end defvar
+
+@defvar {User Option} emacspeak-epub-calibre-sqlite
+Path to sqlite3.
+@end defvar
 
 @defvar {User Option} emacspeak-epub-gutenberg-mirror
 Base URL  for Gutenberg mirror.
@@ -1223,6 +1231,14 @@ Default theme for auditory icons.
 
 @defvar {User Option} emacspeak-speak-embedded-url-pattern
 Pattern to recognize embedded URLs.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-messages
+*Option indicating if messages are spoken.  If nil,
+emacspeak will not speak messages as they are echoed to the
+message area.  You can use command
+`emacspeak-toggle-speak-messages' bound to
+C-e q.
 @end defvar
 
 @defvar {User Option} emacspeak-use-header-line
@@ -1911,14 +1927,6 @@ with a long string of gibberish.
 
 @defvar {User Option} emacspeak-speak-message-again-should-copy-to-kill-ring
 If set, asking for last message will copy it to the kill ring.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-messages
-*Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-`emacspeak-toggle-speak-messages' bound to
-C-e q.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-paragraph-personality

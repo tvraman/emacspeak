@@ -60,18 +60,24 @@
   "Cache current transcript.")
 ;;; Cache transcript.
 ;;; Content downloaded by the time this is called.
+(defsubst emacspeak-xkcd-get-current-transcript ()
+  "Cache current transcript."
+  (setq 
+   xkcd-transcript 
+   (cdr 
+    (assoc 'transcript (json-read-from-string (xkcd-get-json "" xkcd-cur))))))
 (defadvice xkcd-get (after emacspeak first pre act comp)
-  "Cache transcript in xkcd-transcript."
+  "Insert cached transcript in xkcd-transcript."
   (let ((inhibit-read-only t))
-    (setq 
-     xkcd-transcript 
-     (cdr 
-      (assoc 'transcript (json-read-from-string (xkcd-get-json "" xkcd-cur)))))
+    (emacspeak-xkcd-get-current-transcript)
     (goto-char (point-max))
     (insert xkcd-alt)
     (insert "\n")
     (insert 
-(format "Transcript: %s" xkcd-transcript))))
+     (format "Transcript: %s" 
+(if (zerop (length xkcd-transcript))
+"Not available yet."
+xkcd-transcript)))))
 
 (loop 
  for f in 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 949 commands.
+This chapter documents a total of 955 commands.
 
 @menu
 * cd-tool::
@@ -1581,6 +1581,23 @@ As we move to epub-3, this module will bring back audio layers etc., perhaps via
 Automatically generated documentation
 for commands defined in module  emacspeak-epub.
 
+@deffn {Interactive Command} emacspeak-calibre-mode nil
+@kbd{Not bound to any key.}
+
+A Calibre Front-end.
+Letters do not insert themselves; instead, they are commands.
+
+key             binding
+---             -------
+
+RET		emacspeak-epub-calibre-dired-at-point
+<Return>	emacspeak-epub-calibre-dired-at-point
+
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `emacspeak-calibre-mode-hook', as the final step
+during initialization.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-epub nil
 @kbd{C-e g}
 
@@ -1599,6 +1616,24 @@ Interactive prefix arg searches recursively in directory.
 @kbd{Not bound to any key.}
 
 Add epub file to current bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-author nil
+@kbd{Not bound to any key.}
+
+Add results of an author search to current bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-search nil
+@kbd{Not bound to any key.}
+
+Add results of an title/author search to current bookshelf.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-title nil
+@kbd{Not bound to any key.}
+
+Add results of an title search to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-clear nil
@@ -1673,6 +1708,18 @@ Browse list of HTML files in an EPub.
 Useful if table of contents in toc.ncx is empty.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-epub-calibre-dired-at-point nil
+@kbd{Not bound to any key.}
+
+Open directory containing current result.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-epub-calibre-results nil
+@kbd{Not bound to any key.}
+
+Show most recent Calibre search results.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-epub-delete nil
 @kbd{Not bound to any key.}
 
@@ -1722,8 +1769,12 @@ RET		emacspeak-epub-open
 C-o		emacspeak-epub-bookshelf-open-epub
 C-x		Prefix Command
 ESC		Prefix Command
+/		emacspeak-epub-calibre-results
+A		emacspeak-epub-bookshelf-calibre-author
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-gutenberg-download
+S		emacspeak-epub-bookshelf-calibre-search
+T		emacspeak-epub-bookshelf-calibre-title
 a		emacspeak-epub-bookshelf-add-epub
 b		emacspeak-epub-bookshelf-open
 c		emacspeak-epub-bookshelf-clear
@@ -1758,6 +1809,7 @@ Move to next book.
 @kbd{Not bound to any key.}
 
 Open specified Epub.
+Filename may need to  be shell-quoted when called from Lisp.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-previous nil
@@ -4355,13 +4407,6 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 tell me what this is
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-comint-send-input nil
-@kbd{Not bound to any key.}
-
-Causes output to be spoken i.e., as if comint autospeak were turned
-on.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-speak-completions-if-available nil
 @kbd{Not bound to any key.}
 
@@ -4553,6 +4598,18 @@ Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-speak-microseconds-since-epoch nil
+@kbd{Not bound to any key.}
+
+Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-milliseconds-since-epoch nil
+@kbd{Not bound to any key.}
+
+Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-speak-minibuffer nil
 @kbd{Not bound to any key.}
 
@@ -4718,6 +4775,12 @@ Argument START  and END specify region to speak.
 @kbd{C-e n}
 
 Speak remainder of the buffer starting at point
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-seconds-since-epoch nil
+@kbd{Not bound to any key.}
+
+Speaks time value specified as seconds  since epoch, e.g. as from float-time.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-sentence nil
@@ -6175,7 +6238,7 @@ for commands defined in module  emacspeak-websearch.
 @deffn {Interactive Command} emacspeak-websearch-accessible-google nil
 @kbd{Not bound to any key.}
 
-Google Accessible Search -- see http://labs.google.com/accessible
+Use Google Lite (Experimental).
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-amazon-search nil
@@ -7321,23 +7384,11 @@ content at URL.
 Extracted content is placed as a csv file in task.csv.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-google-1box nil
-@kbd{Not bound to any key.}
-
-Invoke Google 1Box search.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-wizards-google-hits nil
 @kbd{Not bound to any key.}
 
 Filter Google results after performing search to show just the
 hits.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-wizards-google-squared nil
-@kbd{Not bound to any key.}
-
-Invoke Google Squared search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-google-transcode nil
@@ -8073,7 +8124,7 @@ Automatically defined advice to speak interactive prompts.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 114 URL Templates.
+This section documents a total of 113 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -8091,10 +8142,6 @@ Each URL template carries out the following steps:
 As an example, the URL templates that enable access to map directions
 prompt for address and automatically
 speak the relevant results.
-
-@kbd{1Box Google}
-
-Show 1box result from Google. Actually now shows just the results.
 
 @kbd{Air Traffic Control}
 
