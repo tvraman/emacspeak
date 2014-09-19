@@ -182,6 +182,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "ediary" 'emacspeak-ediary)
 (emacspeak-do-package-setup "ediff" 'emacspeak-ediff)
 (emacspeak-do-package-setup "ediff-mult" 'emacspeak-ediff)
+(emacspeak-do-package-setup "emacs-xkcd" 'emacspeak-xkcd)
 (emacspeak-do-package-setup "emms" 'emacspeak-emms)
 (emacspeak-do-package-setup "eperiodic" 'emacspeak-eperiodic)
 (emacspeak-do-package-setup "erc" 'emacspeak-erc)

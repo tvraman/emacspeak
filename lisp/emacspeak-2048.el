@@ -160,6 +160,23 @@
 (declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup )
 ;;}}}
+;;{{{ Counting moves:
+
+(defvar emacspeak-2048-move-count 0
+  "Number of moves in this game.")
+(loop 
+for f in 
+'(2048-up 2048-down 2048-left 2048-right)
+do
+(eval
+`(defadvice ,f (after  count-moves pre act comp)
+"Count this move."
+(incf emacspeak-2048-move-count))))
+(defadvice 2048-game (after count-moves pre act comp)
+"Reset move count."
+(setq emacspeak-2048-move-count 0))
+
+;;}}}
 (provide 'emacspeak-2048)
 ;;{{{ end of file
 
