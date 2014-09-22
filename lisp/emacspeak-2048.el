@@ -165,16 +165,16 @@
 (defvar emacspeak-2048-move-count 0
   "Number of moves in this game.")
 (loop 
-for f in 
-'(2048-up 2048-down 2048-left 2048-right)
-do
-(eval
-`(defadvice ,f (after  count-moves pre act comp)
-"Count this move."
-(incf emacspeak-2048-move-count))))
+ for f in 
+ '(2048-up 2048-down 2048-left 2048-right)
+ do
+ (eval
+  `(defadvice ,f (after  count-moves pre act comp)
+     "Count this move."
+     (incf emacspeak-2048-move-count))))
 (defadvice 2048-game (after count-moves pre act comp)
-"Reset move count."
-(setq emacspeak-2048-move-count 0))
+  "Reset move count."
+  (setq emacspeak-2048-move-count 0))
 
 ;;}}}
 (provide 'emacspeak-2048)

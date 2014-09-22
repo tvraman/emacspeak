@@ -1871,7 +1871,7 @@ Second interactive prefix sets clock to new timezone."
   (interactive
    (list
     (read-minibuffer "Seconds: "
-                          (word-at-point))))
+                     (word-at-point))))
   (declare (special emacspeak-speak-time-format-string))
   (message
    (format-time-string
@@ -1894,7 +1894,6 @@ Second interactive prefix sets clock to new timezone."
     (read-minibuffer "MilliSeconds: " (word-at-point))))
   (let ((seconds (/ ms 1000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
-
 
 ;;;###autoload
 (defun emacspeak-speak-version ()
