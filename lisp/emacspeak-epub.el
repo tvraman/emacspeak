@@ -225,8 +225,8 @@
   (let ((base (emacspeak-epub-base epub))
         (content nil)
         (default-process-coding-system (cons 'utf-8 'utf-8))
-         (coding-system-for-read 'utf-8)
-         )
+        (coding-system-for-read 'utf-8)
+        )
     (unless (string-match (format "^%s" base) element)
       (setq element (concat base element)))
     (setq content (emacspeak-epub-get-contents epub element))
@@ -1062,7 +1062,6 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (declaim (special emacspeak-calibre-mode-map))
 (define-key emacspeak-calibre-mode-map [Return] 'emacspeak-epub-calibre-dired-at-point )
 
@@ -1100,9 +1099,7 @@ Letters do not insert themselves; instead, they are commands.
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-    
-                       
-            
+
 ;;}}}
 (provide 'emacspeak-epub)
 ;;{{{ end of file

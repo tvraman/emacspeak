@@ -101,7 +101,6 @@
   (interactive)
   (forward-line 1)
   (call-interactively 'eperiodic-next-element))
-  
 
 (defun emacspeak-eperiodic-speak-current-element ()
   "Speak element at point."

@@ -844,7 +844,6 @@ Uses  customizable option `emacspeak-websearch-google-results-only' to determine
      "center_col"
      (format emacspeak-websearch-accessible-google-url query)
      'speak)))
-      
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)

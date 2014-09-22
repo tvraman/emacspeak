@@ -75,14 +75,12 @@
     (insert "\n")
     (insert 
      (format "Transcript: %s" 
-(if (zerop (length xkcd-transcript))
-"Not available yet."
-xkcd-transcript)))
-(goto-char (point-min))
-(emacspeak-auditory-icon 'open-object)
-       (emacspeak-speak-buffer)))
-
-
+             (if (zerop (length xkcd-transcript))
+                 "Not available yet."
+               xkcd-transcript)))
+    (goto-char (point-min))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
 
 (provide 'emacspeak-xkcd)
 ;;{{{ end of file
