@@ -614,7 +614,7 @@ A string of the form `<number> 1' sets volume as an absolute."
                (mapconcat #'identity
                           (cdr (assoc command emacspeak-m-player-command-list))
                           " ")))))
-      (message 
+      (message  "%s"
        (emacspeak-m-player-dispatch (format "%s %s" command args))))))
 
 ;;;###autoload
