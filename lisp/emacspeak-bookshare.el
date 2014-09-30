@@ -835,6 +835,7 @@ b Browse
           ("V" emacspeak-bookshare-view-at-point)
           ("C" emacspeak-bookshare-fulltext)
           ("D" emacspeak-bookshare-download-daisy-at-point)
+          ("E" emacspeak-bookshare-eww)
           ("B" emacspeak-bookshare-download-brf-at-point)
           ("j" next-line)
           ("k" previous-line)
@@ -1218,6 +1219,39 @@ Useful for fulltext search in a book."
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
+;;;###autoload
+(defun emacspeak-bookshare-eww (directory)
+  "Render complete book using EWW if available."
+  (interactive
+   (list
+    (or (emacspeak-bookshare-get-directory)
+        (let ((completion-ignore-case t)
+              (emacspeak-speak-messages nil)
+              (read-file-name-completion-ignore-case t))
+          (read-directory-name "Book: "
+                               (when (eq major-mode 'dired-mode) (dired-get-filename))
+                               emacspeak-bookshare-directory)))))
+  (declare (special emacspeak-xslt-program))
+  (declare (special emacspeak-bookshare-directory))
+  (unless (fboundp 'eww)
+    (error "Your Emacs doesn't have EWW."))
+  (let ((xsl (emacspeak-bookshare-xslt directory))
+        (buffer (get-buffer-create "Full Text"))
+        (command nil)
+        (inhibit-read-only t))
+    (with-current-buffer buffer
+      (setq command
+            (format
+             "%s  --nonet --novalid %s %s "
+             emacspeak-xslt-program xsl
+             (shell-quote-argument
+              (first (directory-files directory 'full ".xml")))))
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command command (current-buffer) nil)
+      (eww-display-html 'utf-8 "")
+      (kill-buffer buffer))))
 
 (defun emacspeak-bookshare-sign-out ()
   "Sign out, clearing password."
