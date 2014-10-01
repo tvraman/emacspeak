@@ -1232,8 +1232,7 @@ Useful for fulltext search in a book."
           (read-directory-name "Book: "
                                (when (eq major-mode 'dired-mode) (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (declare (special emacspeak-xslt-program))
-  (declare (special emacspeak-bookshare-directory))
+  (declare (special emacspeak-xslt-program emacspeak-bookshare-directory))
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((xsl (emacspeak-bookshare-xslt directory))
