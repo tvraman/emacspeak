@@ -453,7 +453,7 @@ punctuations.")
    (italic voice-animate)
    (match voice-animate)
    (region voice-brighten)
-   (underline voice-lighten-medium)
+   (underline voice-lighten-extra)
    ))
 
 ;;}}}
