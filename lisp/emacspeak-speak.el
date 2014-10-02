@@ -495,11 +495,11 @@ current local  value to the result.")
      ((= 100 percent) " bottom ")
      (t (format " %d%% " percent)))))
 
-(defun emacspeak-goto-percent (&optional percent)
-  "Move to end (or prefix PERCENT) of buffer like in View mode.
+(defun emacspeak-goto-percent (percent)
+  "Move to end  PERCENT of buffer like in View mode.
 Display is centered at point.
 Also set the mark at the position where point was."
-  (interactive "P")
+  (interactive "nPercent:")
   (push-mark)
   (goto-char
    (if percent
