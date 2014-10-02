@@ -495,6 +495,23 @@ current local  value to the result.")
      ((= 100 percent) " bottom ")
      (t (format " %d%% " percent)))))
 
+(defun emacspeak-goto-percent (&optional percent)
+  "Move to end (or prefix PERCENT) of buffer like in View mode.
+Display is centered at point.
+Also set the mark at the position where point was."
+  (interactive "P")
+  (push-mark)
+  (goto-char
+   (if percent
+       (+ (point-min)
+	  (floor (* (- (point-max) (point-min)) 0.01
+		    (max 0 (min 100 (prefix-numeric-value percent))))))
+     (point-max)))
+  (recenter)
+(emacspeak-auditory-icon 'large-movement)
+(emacspeak-speak-line))
+
+
 ;;}}}
 ;;{{{  indentation:
 
