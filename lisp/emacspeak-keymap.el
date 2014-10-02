@@ -415,6 +415,7 @@ field in the customization buffer.  You can use the notation
         ([insert] emacspeak-emergency-tts-restart)
         ([delete] emacspeak-ssh-tts-restart)
         ([(deletechar)] emacspeak-ssh-tts-restart)
+        ("\M-%" emacspeak-goto-percent)
         )
       do
       (emacspeak-keymap-update emacspeak-keymap binding))
