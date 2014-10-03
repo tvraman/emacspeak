@@ -637,6 +637,37 @@ Suitable for text searches."
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+(defun emacspeak-epub-eww (epub-file)
+  "Display entire book  using EWW from EPub in a buffer.
+Suitable for text searches."
+  (interactive
+   (list
+    (or
+     (get-text-property (point) 'epub)
+     (read-file-name "EPub: " emacspeak-epub-library-directory))))
+  (declare (special emacspeak-epub-files-command))
+  (let ((buffer (get-buffer-create "FullText EPub"))
+        (files
+         (split-string
+          (shell-command-to-string
+           (format  emacspeak-epub-files-command epub-file))
+          "\n" 'omit-nulls))
+        (inhibit-read-only t)
+        (command nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (loop for f in files
+            do
+            (setq command
+                  (format "unzip -c -qq %s %s "
+                          epub-file 
+                          (shell-quote-argument f)))
+            (insert (shell-command-to-string command ))
+            (goto-char (point-min))
+            (eww-display-html  'utf-8 "")))
+    (kill-buffer buffer)))
+
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
@@ -792,7 +823,7 @@ Letters do not insert themselves; instead, they are commands.
         ("b" emacspeak-epub-bookshelf-open)
         ("c" emacspeak-epub-bookshelf-clear)
         ("d" emacspeak-epub-bookshelf-remove-this-book)
-        ("e" emacspeak-epub-bookshelf-rename)
+        ("e" emacspeak-epub-eww)
         ("f" emacspeak-epub-browse-files)
         ("g" emacspeak-epub-google)
         ("n" next-line)
