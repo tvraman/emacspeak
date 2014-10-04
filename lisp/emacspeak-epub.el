@@ -72,7 +72,7 @@
 
 ;;;###autoload
 (defcustom emacspeak-epub-library-directory
-  (expand-file-name "~/epubs/")
+  (expand-file-name "~/EBooks/")
   "Directory under which we store Epubs."
   :type 'directory
   :group 'emacspeak-epub)
@@ -659,14 +659,16 @@ Suitable for text searches."
       (setq buffer-undo-list t)
       (loop for f in files
             do
+            (insert (format "<!-- %s -->" f))
             (setq command
                   (format "unzip -c -qq %s %s "
                           epub-file 
                           (shell-quote-argument f)))
             (insert (shell-command-to-string command ))
-            (goto-char (point-min))
-            (eww-display-html  'utf-8 "")))
-    (kill-buffer buffer)))
+            (goto-char (point-max)))
+                                        ;(eww-display-html  'utf-8 "")
+      )
+    (switch-to-buffer buffer)))
 
 
 (defvar emacspeak-epub-google-search-template
