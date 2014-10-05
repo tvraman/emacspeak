@@ -666,9 +666,8 @@ Suitable for text searches."
                           (shell-quote-argument f)))
             (insert (shell-command-to-string command ))
             (goto-char (point-max)))
-                                        ;(eww-display-html  'utf-8 "")
-      )
-    (switch-to-buffer buffer)))
+      (eww-display-html  'utf-8 ""))
+    (kill-buffer buffer)))
 
 
 (defvar emacspeak-epub-google-search-template
