@@ -113,8 +113,7 @@
     (emacspeak-calendar-speak-date)))
 
 (declaim (special diary-display-hook))
-(when (boundp 'diary-display-function)
-  (add-hook 'diary-display-function 'fancy-diary-display))
+
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
 (add-hook 'calendar-mode-hook
