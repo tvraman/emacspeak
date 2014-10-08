@@ -168,7 +168,7 @@ This variable is buffer-local.")
         :default 0
         :value 0
         :type 'tbm)
-                                        ; patents 
+;;; patents 
        (make-emacspeak-google-tool
         :name "patents"
         :param "pts"
@@ -308,7 +308,7 @@ This variable is buffer-local.")
        (make-emacspeak-google-tool
         :name "date-filter"
         :param "qdr"
-        :range "tn"
+        :range "dmwy"
         :default ""
         :type 'tbs
         :value "")
