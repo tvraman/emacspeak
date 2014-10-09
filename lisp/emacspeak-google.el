@@ -308,7 +308,7 @@ This variable is buffer-local.")
        (make-emacspeak-google-tool
         :name "date-filter"
         :param "qdr"
-        :range "dmwy"
+        :range '("d" "m" "w" "y")
         :default ""
         :type 'tbs
         :value "")
@@ -442,6 +442,18 @@ This variable is buffer-local.")
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
+
+(defun emacspeak-toolbelt-change ()
+  "Command to change values in the toolbelt."
+  (interactive)
+  (declare (special emacspeak-google-toolbelt))
+  (call-interactively
+         (read 
+         (format  "emacspeak-google-toolbelt-change-%s"
+         (completing-read
+          "Toolbelt: "
+          (loop for b in belt collect (emacspeak-google-tool-name b)))))))                                    
+
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
   (interactive)
@@ -482,6 +494,7 @@ This variable is buffer-local.")
       '(
         ("A" emacspeak-google-sign-in)
         ("B" emacspeak-google-toolbelt-change-books)
+        ("." emacspeak-google-toolbelt-change)
         ("C" emacspeak-google-toolbelt-change-commercial)
         ("D" emacspeak-google-toolbelt-change-discussions)
         ("H" emacspeak-google-toolbelt-change-web-history-not-visited)
