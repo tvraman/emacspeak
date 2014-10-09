@@ -443,7 +443,7 @@ This variable is buffer-local.")
                    (gweb-google-autocomplete))))))))
 
 
-(defun emacspeak-toolbelt-change ()
+(defun emacspeak-google-toolbelt-change ()
   "Command to change values in the toolbelt."
   (interactive)
   (declare (special emacspeak-google-toolbelt))
