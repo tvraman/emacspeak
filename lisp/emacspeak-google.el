@@ -127,7 +127,7 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
-  (declare (special emacspeak-google-toolbelt emacspeak-google-toolbelt-names))
+  (declare (special emacspeak-google-toolbelt ))
   (or emacspeak-google-toolbelt
       (setq
        emacspeak-google-toolbelt
@@ -370,12 +370,8 @@ This variable is buffer-local.")
          :range '(0 1)
          :default 0
          :type 'tbs
-         :value 0)))
-      (setq emacspeak-google-toolbelt-names
-            (loo
-             for b in emacspeak-google-toolbelt
-             collect (emacspeak-google-tool-name b)))
-      emacspeak-google-toolbelt))
+         :value 0)))))
+      
 
 ;;}}}
 ;;{{{  URL Fixup
@@ -451,11 +447,22 @@ This variable is buffer-local.")
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
+(defvar emacspeak-google-toolbelt-names nil
+  "Cache of tool names.")
+(make-variable-buffer-local 'emacspeak-google-toolbelt-names)
 
+
+(defsubst emacspeak-google-toolbelt-names ()
+  "Return memoized cache of names."
+  (declare (special emacspeak-google-toolbelt-names))
+  (or emacspeak-google-toolbelt-names
+      (setq emacspeak-google-toolbelt-names
+            (loop
+             for b in emacspeak-google-toolbelt
+             collect (emacspeak-google-tool-name b)))))
 (defun emacspeak-google-toolbelt-change ()
   "Command to change values in the toolbelt."
   (interactive)
-  (declare (special emacspeak-google-toolbelt-names))
   (call-interactively
          (read 
          (format  "emacspeak-google-toolbelt-change-%s"
