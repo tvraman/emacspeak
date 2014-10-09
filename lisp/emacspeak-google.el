@@ -372,7 +372,9 @@ This variable is buffer-local.")
          :type 'tbs
          :value 0)))
       (setq emacspeak-google-toolbelt-names
-            (loo for b in belt collect (emacspeak-google-tool-name b)))
+            (loo
+             for b in emacspeak-google-toolbelt
+             collect (emacspeak-google-tool-name b)))
       emacspeak-google-toolbelt))
 
 ;;}}}
