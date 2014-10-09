@@ -507,14 +507,13 @@ This variable is buffer-local.")
 
 (loop for k in
       '(
+        ("." emacspeak-google-toolbelt-change)("." emacspeak-google-toolbelt-change)
         ("A" emacspeak-google-sign-in)
         ("a" emacspeak-google-sign-out)
         ("c" emacspeak-webutils-google-extract-from-cache)
         ("g" emacspeak-websearch-google)
         ("l" emacspeak-webutils-google-who-links-to-this-page)
         ("s" emacspeak-webutils-google-similar-to-this-page)
-        ("g" emacspeak-google-toolbelt-change)
-        ("." emacspeak-google-toolbelt-change)
         )
       do
       (emacspeak-keymap-update emacspeak-google-keymap k))
