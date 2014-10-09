@@ -61,7 +61,7 @@
 (require 'derived)
 (require 'html2text)
 ;;}}}
-;;{{{ Data Structures 
+;;{{{ Data Structures
 
 ;;; One tool on a tool-belt
 
@@ -89,7 +89,7 @@ This variable is buffer-local.")
   (let
       ((settings
         (delq nil
-              (mapcar 
+              (mapcar
                #'(lambda (tool)
                    (when (eq 'tbm (emacspeak-google-tool-type tool))
                      (cond
@@ -99,7 +99,7 @@ This variable is buffer-local.")
                       (t (format "%s"
                                  (emacspeak-google-tool-param tool))))))
                belt))))
-    (when settings 
+    (when settings
       (concat "&tbm="
               (mapconcat #'identity settings ",")))))
 
@@ -108,7 +108,7 @@ This variable is buffer-local.")
   (let
       ((settings
         (delq nil
-              (mapcar 
+              (mapcar
                #'(lambda (tool)
                    (when (eq 'tbs (emacspeak-google-tool-type tool))
                      (cond
@@ -119,7 +119,7 @@ This variable is buffer-local.")
                                  (emacspeak-google-tool-param tool)
                                  (emacspeak-google-tool-value tool))))))
                belt))))
-    (when settings 
+    (when settings
       (concat "&tbs="
               (mapconcat #'identity settings ",")))))
 (defvar emacspeak-google-toolbelt-names  nil
@@ -156,7 +156,7 @@ This variable is buffer-local.")
          :default "m"
          :value "m"
          :type 'tbs)
-;;; Recipes 
+;;; Recipes
         (make-emacspeak-google-tool
          :name "recipes"
          :param "rcp"
@@ -172,7 +172,7 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;; patents 
+;;; patents
         (make-emacspeak-google-tool
          :name "patents"
          :param "pts"
@@ -204,7 +204,7 @@ This variable is buffer-local.")
          :default 0
          :type 'tbm
          :value 0)
-;;; epub 
+;;; epub
         (make-emacspeak-google-tool
          :name "books-format"
          :param "bft"
@@ -357,7 +357,7 @@ This variable is buffer-local.")
          :value 0)
 ;;; less:commercial (demotion)
         (make-emacspeak-google-tool
-         :name "non-commercial" 
+         :name "non-commercial"
          :param "cdcpk"
          :range '(0 1)
          :default 0
@@ -365,13 +365,13 @@ This variable is buffer-local.")
          :value 0)
 ;;; soc
         (make-emacspeak-google-tool
-         :name "social" 
+         :name "social"
          :param "sa"
          :range '(0 1)
          :default 0
          :type 'tbs
          :value 0)))))
-      
+
 
 ;;}}}
 ;;{{{  URL Fixup
@@ -383,7 +383,7 @@ This variable is buffer-local.")
 (defsubst emacspeak-google-canonicalize-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
-  (url-unhex-string 
+  (url-unhex-string
    (substring url
               (if emacspeak-websearch-google-use-https 29 28)
               (string-match "&sa=" url))))
@@ -451,7 +451,6 @@ This variable is buffer-local.")
   "Cache of tool names.")
 (make-variable-buffer-local 'emacspeak-google-toolbelt-names)
 
-
 (defsubst emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
   (declare (special emacspeak-google-toolbelt-names))
@@ -464,11 +463,11 @@ This variable is buffer-local.")
   "Command to change values in the toolbelt."
   (interactive)
   (call-interactively
-         (read 
-         (format  "emacspeak-google-toolbelt-change-%s"
-         (completing-read
-          "Toolbelt: "
-          emacspeak-google-toolbelt-names)))))                                    
+   (read
+    (format  "emacspeak-google-toolbelt-change-%s"
+             (completing-read
+              "Toolbelt: "
+              (emacspeak-google-toolbelt-names)))))                                    )
 
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
@@ -579,7 +578,7 @@ This variable is buffer-local.")
    ((ems-interactive-p)
     ad-do-it
     (emacspeak-speak-region  (point)
-                             (or 
+                             (or
                               (next-single-property-change (point) 'place-details )
                               (point-max))))
    (t ad-do-it))
