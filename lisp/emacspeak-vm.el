@@ -120,7 +120,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defvar emacspeak-vm-user-login-name  (user-login-name)
   "Login name of this user")
-(defun emacspeak-vm-yank-header ()
+s(defun emacspeak-vm-yank-header ()
   "Yank specified header into kill ring."
   (interactive)
   (declare (special vm-message-pointer))
@@ -140,8 +140,9 @@ Note that some badly formed mime messages  cause trouble."
                 (?f from)
                 (?t to))))
       (kill-new header)
-      (message header)))
+      (message "%s" header)))
    (t (error "No current message." ))))
+
 (defcustom emacspeak-vm-headers-strip-octals t
   "Specify whether non-ascii chars should be stripped when
   speaking email headers."
