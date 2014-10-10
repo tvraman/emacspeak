@@ -221,12 +221,12 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
   (let* ((feed-url (if lookup (gfeeds-lookup url) url))
          (html (when feed-url (gfeeds-html feed-url))))
     (cond
-     ((null html)
-      (message "No feed found."))
+     ((null html) (message "No feed found."))
      (t 
       (g-using-scratch
        (insert html)
-       (browse-url-of-buffer))))))
+       (browse-url-of-buffer))
+      (message "%s" feed-url)))))
 
 
 
