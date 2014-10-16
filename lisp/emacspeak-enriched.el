@@ -55,8 +55,7 @@
   "Map base fonts to voices.
 Useful in voiceifying rich text."
   (interactive "r")
-  (declare (special
-            emacspeak-enriched-font-faces-to-voiceify))
+  (declare (special emacspeak-enriched-font-faces-to-voiceify))
   (set (make-local-variable 'voice-lock-mode) t)
   (with-silent-modifications
     (save-excursion
@@ -102,7 +101,7 @@ Useful in voiceifying rich text."
                                (if (listp face)
                                    (loop for f in emacspeak-enriched-font-faces-to-voiceify
                                          thereis (find f face))
-                                 face )))
+                                 (voice-setup-get-voice-for-face  ))))
           (setq start (point))))))
   (message "voicified faces"))
 
