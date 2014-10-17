@@ -95,13 +95,15 @@ Useful in voiceifying rich text."
             (next-single-property-change (point) 'face
                                          (current-buffer) end)
             end))
+          (when (listp face)
+            (setq face 
+                  (loop for f in emacspeak-enriched-font-faces-to-voiceify
+                        thereis (find f face))))
           (when face 
             (put-text-property start  (point)
                                'personality
-                               (if (listp face)
-                                   (loop for f in emacspeak-enriched-font-faces-to-voiceify
-                                         thereis (find f face))
-                                 (voice-setup-get-voice-for-face  ))))
+                               (voice-setup-get-voice-for-face face))
+            (setq face nil))
           (setq start (point))))))
   (message "voicified faces"))
 
