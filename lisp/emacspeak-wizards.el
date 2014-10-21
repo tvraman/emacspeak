@@ -3287,9 +3287,11 @@ Default is to add autoload cookies to current file."
 ;;}}}
 ;;{{{ Start or switch to term:
 ;;;###autoload
-(defun emacspeak-wizards-term (prefix)
-  "Like M-x shell for ansi-term.
-Starts a terminal, or switches to an existing one."
+(defun emacspeak-wizards-term (create)
+  "Switch to an ansi-term buffer or create one.
+With prefix arg, always creates a new terminal.
+Otherwise cycles through existing terminals, creating the first
+term if needed."
   (interactive "P")
   (let ((term (get-buffer "*ansi-term*")))
     (cond
