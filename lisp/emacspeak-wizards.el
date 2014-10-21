@@ -3288,10 +3288,9 @@ Default is to add autoload cookies to current file."
 ;;{{{  Buffer Cycling:
 
 (defun emacspeak-wizards-buffer-cycle-next (mode)
-  "Return next buffer in cycle order having same major mode as specified.
+  "Return next buffer in cycle order having same major mode as `mode'.
 Side-effect: Buries current buffer."
-  (when (derived-mode-p mode)
-    (bury-buffer))
+  (when (derived-mode-p mode) (bury-buffer))
   (catch 'loop
     (dolist (buf  (buffer-list))
       (when (with-current-buffer buf (derived-mode-p mode))
