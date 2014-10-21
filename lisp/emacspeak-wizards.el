@@ -3304,8 +3304,7 @@ Default is to add autoload cookies to current file."
      (next (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
-     (t 
-(error "No next buffer in mode %s" major-mode)))))
+     (t (message "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
