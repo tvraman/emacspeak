@@ -3285,7 +3285,32 @@ Default is to add autoload cookies to current file."
   (message "Brailled %s" s))
 
 ;;}}}
+;;{{{  Buffer Cycling:
+
+(defun emacspeak-wizards-buffer-cycle-next (mode)
+  "Return next buffer in cycle order having same major mode as specified.
+Side-effect: Buries current buffer."
+  (when (derived-mode-p mode)
+    (bury-buffer))
+  (catch 'loop
+    (dolist (buf  (buffer-list))
+      (when (with-current-buffer buf (derived-mode-p mode))
+        (throw 'loop buf)))))
+
+
+(defun emacspeak-wizards-cycle-to-next-buffer()
+  "Cycles to next buffer having same mode."
+  (interactive)
+  (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
+    (cond
+     (next (switch-to-buffer next)
+           (emacspeak-auditory-icon 'select-object)
+           (emacspeak-speak-mode-line))
+     (t (error "No next buffer in mode %s" major-mode)))))
+
+;;}}}
 ;;{{{ Start or switch to term:
+
 ;;;###autoload
 (defun emacspeak-wizards-term (create)
   "Switch to an ansi-term buffer or create one.
@@ -3293,14 +3318,16 @@ With prefix arg, always creates a new terminal.
 Otherwise cycles through existing terminals, creating the first
 term if needed."
   (interactive "P")
-  (let ((term (get-buffer "*ansi-term*")))
+  (declare (special explicit-shell-file-name))
+  (let ((next (or create  (emacspeak-wizards-buffer-cycle-next 'term-mode))))
     (cond
-     ((and term
-           (process-live-p (get-buffer-process term)))
-      (switch-to-buffer term)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-mode-line))
-     (t (call-interactively 'ansi-term)))))
+     ((or create  (not next)) (ansi-term explicit-shell-file-name))
+     (next (switch-to-buffer  next))
+     (t (error "Confused?")))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+  )))
 
 ;;}}}
 ;;{{{ Espeak: MultiLingual Wizard
