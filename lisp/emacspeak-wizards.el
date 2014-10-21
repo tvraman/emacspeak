@@ -3298,8 +3298,8 @@ Default is to add autoload cookies to current file."
 (defun emacspeak-wizards-cycle-to-next-buffer()
   "Cycles to next buffer having same mode."
   (interactive)
-  (when (derived-mode-p major-mode) (bury-buffer))
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
+    (when (derived-mode-p major-mode) (bury-buffer))
     (cond
      (next (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
