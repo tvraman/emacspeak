@@ -3288,11 +3288,9 @@ Default is to add autoload cookies to current file."
 ;;{{{  Buffer Cycling:
 
 (defun emacspeak-wizards-buffer-cycle-next (mode)
-  "Return next buffer in cycle order having same major mode as `mode'.
-Side-effect: Buries current buffer."
-  (when (derived-mode-p mode) (bury-buffer))
+  "Return next buffer in cycle order having same major mode as `mode'."
   (catch 'loop
-    (dolist (buf  (buffer-list))
+    (dolist (buf  (cdr (buffer-list)))
       (when (with-current-buffer buf (derived-mode-p mode))
         (throw 'loop buf)))))
 
@@ -3300,6 +3298,7 @@ Side-effect: Buries current buffer."
 (defun emacspeak-wizards-cycle-to-next-buffer()
   "Cycles to next buffer having same mode."
   (interactive)
+  (when (derived-mode-p mode) (bury-buffer))
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
     (cond
      (next (switch-to-buffer next)
@@ -3321,7 +3320,9 @@ term if needed."
   (let ((next (or create  (emacspeak-wizards-buffer-cycle-next 'term-mode))))
     (cond
      ((or create  (not next)) (ansi-term explicit-shell-file-name))
-     (next (switch-to-buffer  next))
+     (next 
+      (when (derived-mode-p 'term-mode) (bury-buffer))
+      (switch-to-buffer  next))
      (t (error "Confused?")))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
