@@ -3299,12 +3299,13 @@ Default is to add autoload cookies to current file."
   "Cycles to next buffer having same mode."
   (interactive)
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
-    (when (derived-mode-p major-mode) (bury-buffer))
+    (when (and next (derived-mode-p major-mode)) (bury-buffer))
     (cond
      (next (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
-     (t (error "No next buffer in mode %s" major-mode)))))
+     (t 
+(error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
