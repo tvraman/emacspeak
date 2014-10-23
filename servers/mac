@@ -1,13 +1,14 @@
 #!/usr/bin/python
 # E-Mac-Speak
 # Emacspeak on Mac.
-# author: David Tseng
-# author: Bart Bunting
+
+__author__ = "David Tseng, Bart Bunting"
 
 import aifc
 import math
 import mmap
 import os
+import platform
 import re
 import StringIO
 import subprocess
@@ -30,6 +31,10 @@ try:
   enableSox &= True
 except:
   enableSox = False
+
+# Detect OSX version for use in conditional code
+osx_version, _, _ = platform.mac_ver()
+osx_version = int(osx_version.split(".")[1])
 
 ttsState = {}
 
@@ -253,8 +258,8 @@ class _ProtocolHandler:
     # Maps a protocol id to a handler function.
     self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
                                     'a':self.handleAuditoryIcon,
-                                    'l':self.handleLetter,
                                     'c':self.handleQueue,
+                                    'l':self.handleLetter,
                                     'q':self.handleQueue,
                                     's':self.handleStopSpeaking,
                                     't':self.handleTone,
@@ -308,7 +313,7 @@ class _ProtocolHandler:
     speechSynthesizer.startSpeakingString_(output)
 
   def handleQueue(self, args):
-    preprocessCustomEmbeds(args)
+    parseContent(args)
 
   def handleStopSpeaking(self, args):
     speechSynthesizer.stopSpeaking()
@@ -463,35 +468,36 @@ class _ProtocolHandler:
 # Static.
 ProtocolHandler = _ProtocolHandler()
 
-
-# This takes a string with embedded voice changes and
-# splits it up and queues individual text events with voice changes inbetween.
-def preprocessCustomEmbeds(text):
-  writeDebugLog(4, "preprocess custom embeds.")
+# Parse all content into an ordered sequence of tokens.
+def parseContent(text):
+  writeDebugLog(4, "Parsing content...")
   effects = []
   text = text.strip(' {}')
 
-  # The following uses a car/cdr pattern.
-  # Since we don't know if the car is a text or embedded command, we try both.
   while text:
-    matcher = re.match(r"(?P<first>(^(.|\n)*?))\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\](?P<rest>(.|\n)*?)$", text)
+    matcher = re.match(r"(?P<first>(^(.|\n)*?))(\[\{(?P<customembed>[a-zA-Z0-9 \.-]*?)\}\])|(?P<num>(\d+))(?P<rest>(.|\n)*?)$", text)
     if not matcher:
       writeDebugLog(8, "no match in string " + text + "\n")
       break
 
     first = matcher.group('first')
     embed = matcher.group('customembed')
+    num = matcher.group('num')
     rest = matcher.group('rest')
 
     if first and len(effects) > 0:
       speechQueue.append(("textclip", (effects, first)))
     elif first:
+      first = ProcessSpecialCharacters(first)
       while len(first) > 1024:
         speechQueue.append(('text', first[:1024]))
         first = first[1024:]
       speechQueue.append(('text', first))
     writeDebugLog(
         8, "first: " + str(first) + "\neffects " + str(effects) + "\nrest " + str(rest))
+
+    if num:
+      speechQueue.append(('text', processNumbers(num)))
 
     if embed:
       embedArgs = embed.split(' ')
@@ -508,6 +514,7 @@ def preprocessCustomEmbeds(text):
       text = ""
 
   if text:
+    text = ProcessSpecialCharacters(text)
     writeDebugLog(8, "queueing final chunk " + text)
     if len(effects) > 0:
       writeDebugLog(8, "Appending textclip" + str(effects))
@@ -524,12 +531,19 @@ def preprocessCustomEmbeds(text):
 #  format is:
 #  { type, value }
 def processSpeechQueue():
-  # hacky way to work around buggy NSSpeechSynthesizerDelegate
-  speechLock.acquire()
-  if NSSpeechSynthesizer.isAnyApplicationSpeaking() or textClipPlayer.isPlaying():
-    speechLock.release()
+  # Emacspeak controls flushing via the 's' command, so it's safe to do this.
+  # This allows us to not be strict about what thread controls processing the
+  # queue.
+  if speechSynthesizer.isSpeaking():
     return
-  speechLock.release()
+
+  if (osx_version < 9):
+    # hacky way to work around buggy NSSpeechSynthesizerDelegate
+    speechLock.acquire()
+    if speechSynthesizer.isSpeaking() or textClipPlayer.isPlaying():
+      speechLock.release()
+      return
+    speechLock.release()
 
   if (len(speechQueue) > 0):
     item = speechQueue.pop(0)
@@ -539,10 +553,9 @@ def processSpeechQueue():
       #Basic processing.  TODO: refactor.
       output = item[1].strip(" {}")
       if output:
-        output = Clean(output)
         speechSynthesizer.setRate_(ttsState['speechRate'])
         speechSynthesizer.startSpeakingString_(output)
-        writeDebugLog(2, "\nsay: " + item[1] + "\nend\n")
+        writeDebugLog(2, "\nsay: " + output + "\nend\n")
       else:
         processSpeechQueue()
 
@@ -559,7 +572,6 @@ def processSpeechQueue():
     elif item[0] == 'textclip':
       # This is totally repetitive with above.
       output = (item[1])[1]
-      output = ProcessSpecialCharacters(output)
       output = output.strip(' ')
       if not output:
         processSpeechQueue()
@@ -590,12 +602,6 @@ output, speechOutUrl) and output not in renderingBlacklist:
       outStream.close()
       textClipPlayer.initWithContentsOfFile_byReference_(
 '/tmp/soxSpeechOut.aiff', False).play()
-
-
-def Clean(text):
-  text = ProcessSpecialCharacters(text)
-  text = ExpandNumbers(text)
-  return text
 
 def ProcessSpecialCharacters(wordList):
   punctList = punctuationMap[ttsState['punctuationLevel']]
@@ -632,35 +638,7 @@ def ProcessSpecialCharacters(wordList):
   return expansion
 
 
-
-#* Numbers to words
-def ExpandNumbers(text):
-  writeDebugLog(4, "Expand numbers")
-  expanded_text = ""
-
-  while text:
-    writeDebugLog(4, "expandNumbers: while loop: text " + text + " expanded " + expanded_text)
-    matcher = re.match(r"^(?P<first>.*?)(?P<number>[0-9]+)(?P<rest>.*)$", text)
-    if not matcher:
-      writeDebugLog(8, "no match in string " + text + "\n")
-      break
-    first = matcher.group('first')
-    number = matcher.group('number')
-    rest = matcher.group('rest')
-    if first.endswith(',') or rest.startswith(','):
-      break
-    expanded_text += first + " " + num2eng(number) + " "
-
-    writeDebugLog(8, "first: " + first + "\nnumber " + number + "\nrest " + rest)
-    text = rest
-  if text:
-    writeDebugLog(8, "appending final chunk " + text)
-    expanded_text += text
-
-  writeDebugLog(4, "ExpandNumbers:  returning " + expanded_text)
-  return expanded_text
-
-def num2eng(num):
+def processNumbers(num):
     '''English representation of a number'''
     # No preprocessing necessary.
     if len(num) <= 6 or "," in num:
