@@ -3527,19 +3527,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
   "Buffer menu filtered by  mode of current-buffer."
   (interactive)
-  (let ((buffer-list
-         (remove-if-not
-          #'(lambda (b) (with-current-buffer b (derived-mode-p major-mode)))
-          (buffer-list)))
-        (old-buffer (current-buffer))
-        (buffer (get-buffer-create (format "*%s: Buffer Menu" mode))))
-    (with-current-buffer buffer
-      (Buffer-menu-mode)
-      (list-buffers--refresh  buffer-list old-buffer)
-      (tabulated-list-print))
-    (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+  (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
