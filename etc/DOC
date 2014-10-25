@@ -569,6 +569,10 @@ Target location is generated from author and title.
 
 ------------------------------------------------------------
 
+** emacspeak-bookshare-eww Render complete book using EWW if available. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare-expand-at-point Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals. 
 
@@ -645,6 +649,7 @@ A		emacspeak-bookshare-action
 B		emacspeak-bookshare-download-brf-at-point
 C		emacspeak-bookshare-fulltext
 D		emacspeak-bookshare-download-daisy-at-point
+E		emacspeak-bookshare-eww
 I		emacspeak-bookshare-action
 P		emacspeak-bookshare-action
 S		emacspeak-bookshare-action
@@ -938,6 +943,10 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-emms-speak-current-track Speak current track. 
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voiceifying rich text. 
 
@@ -1078,6 +1087,11 @@ Useful if table of contents in toc.ncx is empty.
 
 ------------------------------------------------------------
 
+** emacspeak-epub-eww Display entire book  using EWW from EPub in a buffer.
+Suitable for text searches. 
+
+------------------------------------------------------------
+
 ** emacspeak-epub-fulltext Display fulltext from EPub in a buffer.
 Suitable for text searches. 
 
@@ -1120,7 +1134,7 @@ a		emacspeak-epub-bookshelf-add-epub
 b		emacspeak-epub-bookshelf-open
 c		emacspeak-epub-bookshelf-clear
 d		emacspeak-epub-bookshelf-remove-this-book
-e		emacspeak-epub-bookshelf-rename
+e		emacspeak-epub-eww
 f		emacspeak-epub-browse-files
 g		emacspeak-epub-google
 n		next-line
@@ -1598,6 +1612,10 @@ i.e. sender name, and subject.
 ------------------------------------------------------------
 
 ** emacspeak-google-sign-out Sign out to Google. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change Command to change values in the toolbelt. 
 
 ------------------------------------------------------------
 
@@ -2564,15 +2582,21 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-backward-char Backward-char redefined to speak char moved to.  
+** emacspeak-backward-char	Key Sequence:C-b
+
+ Backward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-forward-char Forward-char redefined to speak char moved to.  
+** emacspeak-forward-char	Key Sequence:C-f
+
+ Forward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command Insert a character.
+** emacspeak-self-insert-command	Key Sequence:SPC..~ €..ÿ
+
+ Insert a character.
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 C-e d w.
@@ -2702,6 +2726,14 @@ char, or dont move.
 ------------------------------------------------------------
 
 ** emacspeak-execute-repeatedly Execute COMMAND repeatedly. 
+
+------------------------------------------------------------
+
+** emacspeak-goto-percent	Key Sequence:C-e M-%
+
+ Move to end  PERCENT of buffer like in View mode.
+Display is centered at point.
+Also set the mark at the position where point was. 
 
 ------------------------------------------------------------
 
@@ -2980,9 +3012,7 @@ any other key to speak entire line.
 
 ** emacspeak-speak-line-number	Key Sequence:C-e C-l
 
- Print the current buffer line number and narrowed line number of point.
-
-(fn) 
+ Print the current buffer line number and narrowed line number of point. 
 
 ------------------------------------------------------------
 
@@ -4901,6 +4931,10 @@ Default is to add autoload cookies to current file.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-cycle-to-next-buffer Cycles to next buffer having same mode. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-display-pod-as-manpage Create a virtual manpage in Emacs from the Perl Online Documentation. 
 
 ------------------------------------------------------------
@@ -4963,6 +4997,10 @@ user.
 
 ** emacspeak-wizards-espeak-string Speak string in lang via ESpeak.
 Lang is obtained from property `lang' on string, or  via an interactive prompt. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-eww-buffer-list Display list of open EWW buffers. 
 
 ------------------------------------------------------------
 
@@ -5232,8 +5270,10 @@ Direction specifies previous/next.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-term Like M-x shell for ansi-term.
-Starts a terminal, or switches to an existing one. 
+** emacspeak-wizards-term Switch to an ansi-term buffer or create one.
+With prefix arg, always creates a new terminal.
+Otherwise cycles through existing terminals, creating the first
+term if needed. 
 
 ------------------------------------------------------------
 
@@ -5302,6 +5342,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-vi-as-su-file Launch sudo vi on specified file in a terminal. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-view-buffers-filtered-by-mode Display list of buffers filtered by specified mode. 
 
 ------------------------------------------------------------
 
@@ -5522,6 +5566,15 @@ Automatically defined advice to speak interactive prompts.
 
 ** ad-Advice-emacspeak-eterm-paste-register Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts.  
+
+------------------------------------------------------------
+
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
 
   
 

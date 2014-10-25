@@ -82,9 +82,10 @@
 (declaim (special emacspeak-web-prefix))
 (loop for k in
       '(
-        ("b" browse-url-of-buffer)
-        ("r" browse-url-of-region)
         ("R" emacspeak-xslt-view-region)
+        ("b" browse-url-of-buffer)
+        ("m" emacspeak-wizards-eww-buffer-list)
+        ("r" browse-url-of-region)
         )
       do
       (emacspeak-keymap-update  emacspeak-web-prefix k))

@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Running
-  Terminal Based Applications</title>
+  <title>Emacspeak User’s Manual –2nd Edition.: Running Terminal
+  Based Applications</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Running Terminal Based Applications" />
+  "Emacspeak User’s Manual –2nd Edition.: Running Terminal Based Applications" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Running Terminal Based Applications" />
+  "Emacspeak User’s Manual –2nd Edition.: Running Terminal Based Applications" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -98,10 +98,9 @@
   <p>You can use the terminal emulator mode to run arbitrary
   terminal-based programs from within Emacs. You open a terminal
   emulator buffer using M-x term, with an extra carriage return to
-  accept the default shell (such as bash). (Incidentally,
-  don&rsquo;t confuse this command with M-x terminal-emulator,
-  which starts an older terminal emulator mode not supported by
-  Emacspeak.)</p>
+  accept the default shell (such as bash). (Incidentally, don’t
+  confuse this command with M-x terminal-emulator, which starts an
+  older terminal emulator mode not supported by Emacspeak.)</p>
 
   <p>Three kinds of commands are used within the terminal emulator.
   Normal term commands use a prefix of C-c. The emacspeak commands
@@ -110,10 +109,10 @@
 
   <p>There are two sub-modes of term mode: char sub-mode and line
   sub-mode. In char sub-mode, emacspeak will only speak the final
-  chunk of output &ndash;typically the last line displayed. Each
-  character typed (except &lsquo;term-escape-char&lsquo;) is sent
-  immediately. Use char sub-mode for screen oriented programs like
-  vi or pine.</p>
+  chunk of output –typically the last line displayed. Each
+  character typed (except ‘term-escape-char‘) is sent immediately.
+  Use char sub-mode for screen oriented programs like vi or
+  pine.</p>
 
   <p>In line sub-mode, program output is spoken if user option
   <code>eterm-autospeak</code> is turned on. When you type a return
@@ -148,12 +147,12 @@
   this mode.</p>
 
   <dl compact="compact">
-    <dt>&lsquo;<samp>C-c C-j</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-j</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dj" id=
     "index-C_002dc-C_002dj"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-line-mode</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-line-mode</samp>’</dt>
 
     <dd>
       <a name="index-M_002dx-term_002dline_002dmode" id=
@@ -162,11 +161,11 @@
       <p>Switch to line sub-mode of term mode.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c o</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c o</samp>’</dt>
 
     <dd><a name="index-C_002dc-o" id="index-C_002dc-o"></a></dd>
 
-    <dt>&lsquo;<samp>M-x other-window</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x other-window</samp>’</dt>
 
     <dd>
       <p>Select the next window on this frame. All windows on
@@ -175,93 +174,93 @@
       windows, this command does nothing.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-f</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-f</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002df" id=
     "index-C_002dc-C_002df"></a></dd>
 
-    <dt>&lsquo;<samp>M-x find-file</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x find-file</samp>’</dt>
 
     <dd>
       <p>Switch to a buffer visiting a file, creating one if none
       already exists.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c 0</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c 0</samp>’</dt>
 
     <dd><a name="index-C_002dc-0" id="index-C_002dc-0"></a></dd>
 
-    <dt>&lsquo;<samp>M-x delete-window</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x delete-window</samp>’</dt>
 
     <dd>
       <p>Remove current window from the display.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c k</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c k</samp>’</dt>
 
     <dd><a name="index-C_002dc-k" id="index-C_002dc-k"></a></dd>
 
-    <dt>&lsquo;<samp>M-x kill-buffer</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x kill-buffer</samp>’</dt>
 
     <dd>
       <p>Kill the current buffer.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-x C-c</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-x C-c</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dx-C_002dc" id=
     "index-C_002dc-C_002dx-C_002dc"></a></dd>
 
-    <dt>&lsquo;<samp>M-x save-buffers-kill-emacs</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x save-buffers-kill-emacs</samp>’</dt>
 
     <dd>
       <p>Offer to save each buffer, then kill this Emacs
       process.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-d</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-d</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dd" id=
     "index-C_002dc-C_002dd"></a></dd>
 
-    <dt>&lsquo;<samp>M-x list-directory</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x list-directory</samp>’</dt>
 
     <dd>
-      <p>Display a list of files in or matching DIRNAME, a la
-      &lsquo;ls&rsquo;. DIRNAME is globbed by the shell if
-      necessary. Prefix arg (C-u) means supply -l switch to
-      &lsquo;ls&rsquo;. The list appears in a second window.</p>
+      <p>Display a list of files in or matching DIRNAME, a la ‘ls’.
+      DIRNAME is globbed by the shell if necessary. Prefix arg
+      (C-u) means supply -l switch to ‘ls’. The list appears in a
+      second window.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c 1</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c 1</samp>’</dt>
 
     <dd><a name="index-C_002dc-1" id="index-C_002dc-1"></a></dd>
 
-    <dt>&lsquo;<samp>M-x delete-other-windows</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x delete-other-windows</samp>’</dt>
 
     <dd>
       <p>Delete all other windows in the frame, making the current
       window fill its frame.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-c</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-c</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dc" id=
     "index-C_002dc-C_002dc"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-send-raw</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-send-raw</samp>’</dt>
 
     <dd>
       <p>Send the last character typed through the
       terminal-emulator without any interpretation.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c (</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c (</samp>’</dt>
 
     <dd><a name="index-C_002dc-_0028" id=
     "index-C_002dc-_0028"></a></dd>
 
-    <dt>&lsquo;<samp>M-x start-kbd-macro</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x start-kbd-macro</samp>’</dt>
 
     <dd>
       <p>Record subsequent keyboard input, defining a keyboard
@@ -273,12 +272,12 @@
       again.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c )</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c )</samp>’</dt>
 
     <dd><a name="index-C_002dc-_0029" id=
     "index-C_002dc-_0029"></a></dd>
 
-    <dt>&lsquo;<samp>M-x end-kbd-macro</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x end-kbd-macro</samp>’</dt>
 
     <dd>
       <p>Finish defining a keyboard macro. The definition was
@@ -287,11 +286,11 @@
       then invoked under that name.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c e</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c e</samp>’</dt>
 
     <dd><a name="index-C_002dc-e" id="index-C_002dc-e"></a></dd>
 
-    <dt>&lsquo;<samp>M-x call-last-kbd-macro</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x call-last-kbd-macro</samp>’</dt>
 
     <dd>
       <p>Call the last keyboard macro that you defined with C-c (.
@@ -318,23 +317,23 @@
   a buffer, C-x f to find a file, and so forth).</p>
 
   <dl compact="compact">
-    <dt>&lsquo;<samp>C-c C-k</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-k</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dk" id=
     "index-C_002dc-C_002dk"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-char-mode</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-char-mode</samp>’</dt>
 
     <dd>
       <p>Switch to char sub-mode of term mode.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-z</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-z</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dz" id=
     "index-C_002dc-C_002dz"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-stop-subjob</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-stop-subjob</samp>’</dt>
 
     <dd>
       <p>Stop the current subjob. Resume the subjob in the
@@ -347,75 +346,75 @@
       ignore this signal.)</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-\</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-\</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002d_005c" id=
     "index-C_002dc-C_002d_005c"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-quit-subjob</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-quit-subjob</samp>’</dt>
 
     <dd>
       <p>Send quit signal to the current subjob.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-c</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-c</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dc-1" id=
     "index-C_002dc-C_002dc-1"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-interrupt-subjob</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-interrupt-subjob</samp>’</dt>
 
     <dd>
       <p>Interrupt the current subjob.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-w</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-w</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dw" id=
     "index-C_002dc-C_002dw"></a></dd>
 
-    <dt>&lsquo;<samp>M-x backward-kill-word</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x backward-kill-word</samp>’</dt>
 
     <dd>
       <p>Kill characters backward until encountering the end of a
       word.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-u</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-u</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002du" id=
     "index-C_002dc-C_002du"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-kill-input</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-kill-input</samp>’</dt>
 
     <dd>
       <p>Kill all text from last stuff output by interpreter to
       point.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-a</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-a</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002da" id=
     "index-C_002dc-C_002da"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-bol</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-bol</samp>’</dt>
 
     <dd>
       <p>Goes to the beginning of line, then skips past the prompt,
       if any. If a prefix argument is given (C-u), then no prompt
-      skip &ndash; go straight to column 0.</p>
+      skip – go straight to column 0.</p>
     </dd>
 
-    <dt>&lsquo;<samp>C-c C-d</samp>&rsquo;</dt>
+    <dt>‘<samp>C-c C-d</samp>’</dt>
 
     <dd><a name="index-C_002dc-C_002dd-1" id=
     "index-C_002dc-C_002dd-1"></a></dd>
 
-    <dt>&lsquo;<samp>M-x term-send-eof</samp>&rsquo;</dt>
+    <dt>‘<samp>M-x term-send-eof</samp>’</dt>
 
     <dd>
       <p>Send an end of file character (EOF) to the current
-      buffer&rsquo;s process.</p>
+      buffer’s process.</p>
     </dd>
   </dl>
 
@@ -428,12 +427,11 @@
   <h3 class="section">10.3 Eterm Mode Commands</h3>
 
   <p>The eterm mode maintains a pointer, which is not necessarily
-  the same as the terminal&rsquo;s cursor. It is intended to be
-  used in eterm&rsquo;s char submode. In char submode, C-t ,
-  (that&rsquo;s control-t followed by comma) will tell you where
-  the eterm pointer is. C-t C-i will tell you where the
-  terminal&rsquo;s cursor is. The top left corner of the window is
-  "row 0 column 0".</p>
+  the same as the terminal’s cursor. It is intended to be used in
+  eterm’s char submode. In char submode, C-t , (that’s control-t
+  followed by comma) will tell you where the eterm pointer is. C-t
+  C-i will tell you where the terminal’s cursor is. The top left
+  corner of the window is "row 0 column 0".</p>
 
   <p>The eterm pointer can be moved with C-t &lt; (to the top of
   the screen), C-t &gt; (to the bottom of the screen), C-t n (to
