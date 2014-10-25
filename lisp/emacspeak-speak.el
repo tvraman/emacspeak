@@ -504,13 +504,12 @@ Also set the mark at the position where point was."
   (goto-char
    (if percent
        (+ (point-min)
-	  (floor (* (- (point-max) (point-min)) 0.01
-		    (max 0 (min 100 (prefix-numeric-value percent))))))
+          (floor (* (- (point-max) (point-min)) 0.01
+                    (max 0 (min 100 (prefix-numeric-value percent))))))
      (point-max)))
   (recenter)
-(emacspeak-auditory-icon 'large-movement)
-(emacspeak-speak-line))
-
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  indentation:

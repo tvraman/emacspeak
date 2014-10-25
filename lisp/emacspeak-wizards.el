@@ -3294,7 +3294,6 @@ Default is to add autoload cookies to current file."
       (when (with-current-buffer buf (derived-mode-p mode))
         (throw 'loop buf)))))
 
-
 (defun emacspeak-wizards-cycle-to-next-buffer()
   "Cycles to next buffer having same mode."
   (interactive)
@@ -3305,7 +3304,7 @@ Default is to add autoload cookies to current file."
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
      (t 
-(error "No next buffer in mode %s" major-mode)))))
+      (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
@@ -3327,8 +3326,6 @@ term if needed."
      (t (error "Confused?")))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-  
 
 ;;}}}
 ;;{{{ Espeak: MultiLingual Wizard
@@ -3525,7 +3522,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-  
+
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
   "Display list of open EWW buffers."

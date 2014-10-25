@@ -121,27 +121,27 @@ Note that some badly formed mime messages  cause trouble."
 (defvar emacspeak-vm-user-login-name  (user-login-name)
   "Login name of this user")
 s(defun emacspeak-vm-yank-header ()
-  "Yank specified header into kill ring."
-  (interactive)
-  (declare (special vm-message-pointer))
-  (cond
-   (vm-message-pointer
-    (dtk-stop)
-    (let*  ((message (car vm-message-pointer ))
-            (from (vm-from-of message ))
-            (subject (vm-subject-of  message ))
-            (to (vm-to-of message ))
-            (header nil))
-      (while (not header)
-        (setq header
-              (case
-                  (read-char "f From s Subject t To")
-                (?s subject)
-                (?f from)
-                (?t to))))
-      (kill-new header)
-      (message "%s" header)))
-   (t (error "No current message." ))))
+   "Yank specified header into kill ring."
+   (interactive)
+   (declare (special vm-message-pointer))
+   (cond
+    (vm-message-pointer
+     (dtk-stop)
+     (let*  ((message (car vm-message-pointer ))
+             (from (vm-from-of message ))
+             (subject (vm-subject-of  message ))
+             (to (vm-to-of message ))
+             (header nil))
+       (while (not header)
+         (setq header
+               (case
+                   (read-char "f From s Subject t To")
+                 (?s subject)
+                 (?f from)
+                 (?t to))))
+       (kill-new header)
+       (message "%s" header)))
+    (t (error "No current message." ))))
 
 (defcustom emacspeak-vm-headers-strip-octals t
   "Specify whether non-ascii chars should be stripped when
