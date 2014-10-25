@@ -199,11 +199,12 @@
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak sexp after moving."
      (if (ems-interactive-p)
-         (let ((start (point)))
+         (let ((start (point))
+               (end (line-end-position)))
            ad-do-it
            (emacspeak-auditory-icon 'large-movement)
            (cond
-            ((ems-same-line-p start (point))
+            ((>= end (point))
              (emacspeak-speak-region start (point)))
             (t (emacspeak-speak-line))))
        ad-do-it)
