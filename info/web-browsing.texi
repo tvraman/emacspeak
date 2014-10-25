@@ -1,5 +1,15 @@
+
 @node Web Browsing
 @section Web Browsing.
+
+Note that there is newer material at 
+http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html.
+For Emacs 24.4 and later, note that the built-in Web browser EWW is also
+the browser of choice for emacspeak. 
+W3 still has its place, especially when working out with fill-out forms.
+
+
+--T. V. Raman, October 2014.
 
 This document, ``The State of Web Browsing in Emacspeak'' describes
 the primary web browsers in use under emacspeak and ways they might be

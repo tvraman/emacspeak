@@ -115,10 +115,6 @@ send to the device are stored away in a hash-table keyed by the above symbol.
 Finally, @samp{voice-bolden} is assigned the above symbol.
 @end itemize
 
-@menu
-* What this gives.::
-@end menu
-
 @node What this gives.
 @section What this gives 
 

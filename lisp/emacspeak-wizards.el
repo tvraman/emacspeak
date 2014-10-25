@@ -3304,7 +3304,8 @@ Default is to add autoload cookies to current file."
      (next (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
-     (t (message "No next buffer in mode %s" major-mode)))))
+     (t 
+(error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
@@ -3505,6 +3506,31 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (kill-new (format "export PATH=\"%s\"" p))
     (message (setenv "PATH" p))))
 
+;;}}}
+;;{{{ Filtered buffer lists:
+;;;###autoload
+(defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
+  "Display list of buffers filtered by specified mode."
+  (interactive "SMode: ")
+  (let ((buffer-list
+         (remove-if-not
+          #'(lambda (b) (with-current-buffer b (eq major-mode mode)))
+          (buffer-list)))
+        (old-buffer (current-buffer))
+        (buffer (get-buffer-create (format "*%s: Buffer Menu" mode))))
+    (with-current-buffer buffer
+      (Buffer-menu-mode)
+      (list-buffers--refresh  buffer-list old-buffer)
+      (tabulated-list-print))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+  
+;;;###autoload
+(defun emacspeak-wizards-eww-buffer-list ()
+  "Display list of open EWW buffers."
+  (interactive)
+  (funcall-interactively 'emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
