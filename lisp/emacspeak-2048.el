@@ -180,16 +180,16 @@
 ;;}}}
 ;;{{{ Randomize game
 
-(defun emacspeak-2048-randomize-game ()
+(defun emacspeak-2048-randomize-game (&optional count)
   "Puts game in a randomized new state."
-  (interactive)
+  (interactive "nCount: ")
   (loop
    for i from 0 to 15 do
    (cond
-    ((< i 10)
-     (aset *2048-board* i (lsh 2 (random 10))))
+    ((< i  count)
+     (aset *2048-board* i (lsh 2 (random count))))
     (t (aset *2048-board* i 0))))
-(emacspeak-2048-speak-board))
+  (emacspeak-2048-speak-board))
 
 ;;}}}
 (provide 'emacspeak-2048)
