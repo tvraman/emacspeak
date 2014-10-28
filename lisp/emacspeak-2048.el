@@ -148,6 +148,7 @@
   (define-key 2048-mode-map [delete]  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map  "="'emacspeak-2048-score)
+(define-key 2048-mode-map  "R"'emacspeak-2048-randomize-game)
   (define-key 2048-mode-map  [?\C- ] 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate 
@@ -175,6 +176,20 @@
 (defadvice 2048-game (after count-moves pre act comp)
   "Reset move count."
   (setq emacspeak-2048-move-count 0))
+
+;;}}}
+;;{{{ Randomize game
+
+(defun emacspeak-2048-randomize-game ()
+  "Puts game in a randomized new state."
+  (interactive)
+  (loop
+   for i from 0 to 15 do
+   (cond
+    ((< i 10)
+     (aset *2048-board* i (lsh 2 (random 10))))
+    (t (aset *2048-board* i 0))))
+(emacspeak-2048-speak-board))
 
 ;;}}}
 (provide 'emacspeak-2048)
