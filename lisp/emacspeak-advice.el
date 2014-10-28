@@ -631,7 +631,7 @@ icon."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     (when eldoc-last-message
-      (dtk-speak eldoc-last-message))
+      (dtk-speak-and-echo eldoc-last-message))
     ad-return-value))
 
 (defvar emacspeak-ange-ftp-last-percent nil
