@@ -187,7 +187,8 @@
    for i from 0 to 15 do
    (cond
     ((< i  count)
-     (aset *2048-board* i (lsh 2 (random count))))
+     (aset *2048-board* i 
+           (lsh 2 (random (random count)))))
     (t (aset *2048-board* i 0))))
   (emacspeak-2048-speak-board))
 
