@@ -112,7 +112,7 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-calendar-speak-date)))
 
-(declaim (special diary-display-hook))
+
 
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
