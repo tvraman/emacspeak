@@ -84,6 +84,146 @@
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
 
 ;;}}}
+;;{{{ Setup EWW Initialization:
+
+;;; Inform emacspeak-webutils about EWW:
+
+(add-hook
+ 'eww-mode-hook
+ #'(lambda ()
+     (setq
+      emacspeak-webutils-document-title
+      #'(lambda ()
+          (declare (special  eww-current-title))
+          eww-current-title)
+      emacspeak-webutils-url-at-point
+      #'(lambda ()
+          (let ((url (get-text-property (point) 'help-echo)))
+            (cond
+             ((and url
+                   (stringp url)
+                   (string-prefix-p
+                    (emacspeak-google-result-url-prefix) url))
+              (emacspeak-google-canonicalize-result-url url))
+             ((and url (stringp url))url)
+             (t (error "No URL under point.")))))
+      emacspeak-webutils-current-url
+      #'(lambda ()
+          (declare (special eww-current-url))
+          eww-current-url))))
+
+(defvar emacspeak-eww-masquerade t
+  "Says if we masquerade as a mainstream browser.")
+
+(defun emacspeak-eww-masquerade ()
+  "Toggle masquerade state."
+  (interactive)
+  (declare (special emacspeak-eww-masquerade))
+  (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
+  (message "Turned %s masquerade"
+           (if emacspeak-eww-masquerade "on" "off"))
+  (emacspeak-auditory-icon
+   (if emacspeak-eww-masquerade 'on 'off)))
+
+(defcustom  emacspeak-eww-masquerade-as
+  (format "User-Agent: %s %s %s\r\n"
+          "Mozilla/5.0 (X11; Linux x86_64)"
+          "AppleWebKit/537.36 (KHTML, like Gecko)"
+          "Chrome/36.0.1964.2 Safari/537.36")
+  "User Agent string that is  sent when masquerading is on."
+  :type 'string
+  :group 'emacspeak-eww)
+;;; Advice note: Setting ad-return-value in one arm of the cond appears to perculate to both arms.
+
+(defadvice url-http-user-agent-string (around emacspeak pre act comp)
+  "Respond to user  asking us to masquerade."
+  (cond
+   ((and emacspeak-eww-masquerade
+         (eq browse-url-browser-function 'eww-browse-url))
+    (setq ad-return-value emacspeak-eww-masquerade-as))
+   (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
+
+(defun emacspeak-eww-setup ()
+  "Setup keymaps etc."
+  (declare (special eww-mode-map eww-link-keymap
+                    shr-inhibit-images
+                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                    emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
+                                        ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
+  (when emacspeak-pronounce-load-pronunciations-on-startup
+    (emacspeak-pronounce-augment-pronunciations
+     'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+    (emacspeak-pronounce-add-dictionary-entry
+     'eww-mode
+     emacspeak-speak-rfc-3339-datetime-pattern
+     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
+;;; turn off images
+  (setq shr-inhibit-images t)
+                                        ; remove "I" "o" from
+                                        ; eww-link-keymap
+  (loop
+   for c in
+   '(?I ?o)
+   do
+   (when (assoc  c eww-link-keymap)
+     (delete (assoc  c eww-link-keymap) eww-link-keymap)))
+
+  (define-key eww-link-keymap  "k" 'shr-copy-url)
+  (loop
+   for binding  in
+   '(
+     ("\d" emacspeak-eww-restore)
+     ( "\C-t" emacspeak-google-command)
+     ("'" emacspeak-speak-rest-of-buffer)
+     ("*" eww-add-bookmark)
+     ("," emacspeak-eww-previous-h)
+     ("." emacspeak-eww-next-h)
+     ("=" dtk-toggle-punctuation-mode)
+     ("/" search-forward)
+     ("1" emacspeak-eww-next-h1)
+     ("2" emacspeak-eww-next-h2)
+     ("3" emacspeak-eww-next-h3)
+     ("?" emacspeak-webutils-google-similar-to-this-page)
+     ("A" eww-view-dom-having-attribute)
+     ("C" eww-view-dom-having-class)
+     ("E" eww-view-dom-having-elements)
+     ("G" emacspeak-google-command)
+     ("I" eww-view-dom-having-id)
+     ("J" emacspeak-eww-next-element-like-this)
+     ("K" emacspeak-eww-previous-element-like-this)
+     ("N" emacspeak-eww-next-element-from-history)
+     ("O" emacspeak-eww-previous-li)
+     ("P" emacspeak-eww-previous-element-from-history)
+     ("Q" emacspeak-kill-buffer-quietly)
+     ("R" eww-view-dom-having-role)
+     ("T" emacspeak-eww-previous-table)
+     ("[" emacspeak-eww-previous-p)
+     ("\C-e" emacspeak-prefix-command)
+     ("\M-1" emacspeak-eww-previous-h1)
+     ("\M-2" emacspeak-eww-previous-h2)
+     ("\M-3" emacspeak-eww-previous-h3)
+     ("\;" emacspeak-webutils-play-media-at-point)
+     ("\M-a" eww-view-dom-not-having-attribute)
+     ("\M-c" eww-view-dom-not-having-class)
+     ("\M-e" eww-view-dom-not-having-element-list)
+     ("\M-i" eww-view-dom-not-having-id)
+     ("\M-r" eww-view-dom-not-having-role)
+     ("]" emacspeak-eww-next-p)
+     ("b" shr-previous-link)
+     ("e" emacspeak-we-xsl-map)
+     ("f" shr-next-link)
+     ("k" eww-copy-page-url)
+     ("n" emacspeak-eww-next-element)
+     ("o" emacspeak-eww-next-li)
+     ("p" emacspeak-eww-previous-element)
+     ("t" emacspeak-eww-next-table)
+     )
+   do
+   (emacspeak-keymap-update eww-mode-map binding)))
+
+(when (boundp 'eww-mode-map) (emacspeak-eww-setup))
+
+;;}}}
 ;;{{{ Map Faces To Voices:
 
 (voice-setup-add-map
@@ -312,146 +452,6 @@ If we came from a url-template, reload that template."
        emacspeak-we-xsl-transform (point) (point-max)
        emacspeak-we-xsl-params))
     (goto-char orig)))
-
-;;}}}
-;;{{{ Setup EWW Initialization:
-
-;;; Inform emacspeak-webutils about EWW:
-
-(add-hook
- 'eww-mode-hook
- #'(lambda ()
-     (setq
-      emacspeak-webutils-document-title
-      #'(lambda ()
-          (declare (special  eww-current-title))
-          eww-current-title)
-      emacspeak-webutils-url-at-point
-      #'(lambda ()
-          (let ((url (get-text-property (point) 'help-echo)))
-            (cond
-             ((and url
-                   (stringp url)
-                   (string-prefix-p
-                    (emacspeak-google-result-url-prefix) url))
-              (emacspeak-google-canonicalize-result-url url))
-             ((and url (stringp url))url)
-             (t (error "No URL under point.")))))
-      emacspeak-webutils-current-url
-      #'(lambda ()
-          (declare (special eww-current-url))
-          eww-current-url))))
-
-(defvar emacspeak-eww-masquerade t
-  "Says if we masquerade as a mainstream browser.")
-
-(defun emacspeak-eww-masquerade ()
-  "Toggle masquerade state."
-  (interactive)
-  (declare (special emacspeak-eww-masquerade))
-  (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
-  (message "Turned %s masquerade"
-           (if emacspeak-eww-masquerade "on" "off"))
-  (emacspeak-auditory-icon
-   (if emacspeak-eww-masquerade 'on 'off)))
-
-(defcustom  emacspeak-eww-masquerade-as
-  (format "User-Agent: %s %s %s\r\n"
-          "Mozilla/5.0 (X11; Linux x86_64)"
-          "AppleWebKit/537.36 (KHTML, like Gecko)"
-          "Chrome/36.0.1964.2 Safari/537.36")
-  "User Agent string that is  sent when masquerading is on."
-  :type 'string
-  :group 'emacspeak-eww)
-;;; Advice note: Setting ad-return-value in one arm of the cond appears to perculate to both arms.
-
-(defadvice url-http-user-agent-string (around emacspeak pre act comp)
-  "Respond to user  asking us to masquerade."
-  (cond
-   ((and emacspeak-eww-masquerade
-         (eq browse-url-browser-function 'eww-browse-url))
-    (setq ad-return-value emacspeak-eww-masquerade-as))
-   (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
-
-(defun emacspeak-eww-setup ()
-  "Setup keymaps etc."
-  (declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images
-                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                    emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
-                                        ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
-  (when emacspeak-pronounce-load-pronunciations-on-startup
-    (emacspeak-pronounce-augment-pronunciations
-     'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
-    (emacspeak-pronounce-add-dictionary-entry
-     'eww-mode
-     emacspeak-speak-rfc-3339-datetime-pattern
-     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
-;;; turn off images
-  (setq shr-inhibit-images t)
-                                        ; remove "I" "o" from
-                                        ; eww-link-keymap
-  (loop
-   for c in
-   '(?I ?o)
-   do
-   (when (assoc  c eww-link-keymap)
-     (delete (assoc  c eww-link-keymap) eww-link-keymap)))
-
-  (define-key eww-link-keymap  "k" 'shr-copy-url)
-  (loop
-   for binding  in
-   '(
-     ("\d" emacspeak-eww-restore)
-     ( "\C-t" emacspeak-google-command)
-     ("'" emacspeak-speak-rest-of-buffer)
-     ("*" eww-add-bookmark)
-     ("," emacspeak-eww-previous-h)
-     ("." emacspeak-eww-next-h)
-     ("=" dtk-toggle-punctuation-mode)
-     ("/" search-forward)
-     ("1" emacspeak-eww-next-h1)
-     ("2" emacspeak-eww-next-h2)
-     ("3" emacspeak-eww-next-h3)
-     ("?" emacspeak-webutils-google-similar-to-this-page)
-     ("A" eww-view-dom-having-attribute)
-     ("C" eww-view-dom-having-class)
-     ("E" eww-view-dom-having-elements)
-     ("G" emacspeak-google-command)
-     ("I" eww-view-dom-having-id)
-     ("J" emacspeak-eww-next-element-like-this)
-     ("K" emacspeak-eww-previous-element-like-this)
-     ("N" emacspeak-eww-next-element-from-history)
-     ("O" emacspeak-eww-previous-li)
-     ("P" emacspeak-eww-previous-element-from-history)
-     ("Q" emacspeak-kill-buffer-quietly)
-     ("R" eww-view-dom-having-role)
-     ("T" emacspeak-eww-previous-table)
-     ("[" emacspeak-eww-previous-p)
-     ("\C-e" emacspeak-prefix-command)
-     ("\M-1" emacspeak-eww-previous-h1)
-     ("\M-2" emacspeak-eww-previous-h2)
-     ("\M-3" emacspeak-eww-previous-h3)
-     ("\;" emacspeak-webutils-play-media-at-point)
-     ("\M-a" eww-view-dom-not-having-attribute)
-     ("\M-c" eww-view-dom-not-having-class)
-     ("\M-e" eww-view-dom-not-having-element-list)
-     ("\M-i" eww-view-dom-not-having-id)
-     ("\M-r" eww-view-dom-not-having-role)
-     ("]" emacspeak-eww-next-p)
-     ("b" shr-previous-link)
-     ("e" emacspeak-we-xsl-map)
-     ("f" shr-next-link)
-     ("k" eww-copy-page-url)
-     ("n" emacspeak-eww-next-element)
-     ("o" emacspeak-eww-next-li)
-     ("p" emacspeak-eww-previous-element)
-     ("t" emacspeak-eww-next-table)
-     )
-   do
-   (emacspeak-keymap-update eww-mode-map binding)))
-
-(when (boundp 'eww-mode-map) (emacspeak-eww-setup))
 
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:
