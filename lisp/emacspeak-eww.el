@@ -302,6 +302,18 @@ If we came from a url-template, reload that template."
    (t ad-do-it)))
 
 ;;}}}
+;;{{{ xslt transform on request:
+
+(defadvice eww-display-html (before emacspeak pre act comp)
+  "Apply XSLT transform if requested."
+  (let ((orig (point)))
+    (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
+      (emacspeak-xslt-region
+       emacspeak-we-xsl-transform (point) (point-max)
+       emacspeak-we-xsl-params))
+    (goto-char orig)))
+
+;;}}}
 ;;{{{ Setup EWW Initialization:
 
 ;;; Inform emacspeak-webutils about EWW:
@@ -440,6 +452,44 @@ If we came from a url-template, reload that template."
    (emacspeak-keymap-update eww-mode-map binding)))
 
 (when (boundp 'eww-mode-map) (emacspeak-eww-setup))
+
+;;}}}
+;;{{{ DOM Structure In Rendered Buffer:
+
+(loop
+ for  tag in
+ '(h1 h2 h3 div                    ; sectioning
+      ul ol dl                     ; Lists
+      li dt dd p                   ; block-level: bullets, paras
+      form blockquote              ; block-level
+      a b it em span               ; in-line
+      br hr                        ; separators
+      th tr table )
+ do
+ (eval
+  `
+  (defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
+    (let ((start (point)))
+      ad-do-it
+      (let ((start (if (char-equal (following-char) ?\n)
+                       (min (point-max) (1+ start) )start))
+            (end (if (> (point) start) (1- (point)) (point))))
+        (put-text-property start end
+                           (quote ,tag) 'eww-tag)
+        (when (memq (quote ,tag) '(h1 h2 h3))
+          (put-text-property start end 'h t)))))))
+
+;;}}}
+;;{{{  Customize image loading:
+
+(defcustom emacspeak-eww-silence-images t
+  "Set to nil if you want EWW to load images."
+  :type 'boolean
+  :group 'emacspeak-eww)
+
+(defadvice eww-display-image (around emacspeak pre act comp)
+  "Dont load images if asked to silence them."
+  (unless emacspeak-eww-silence-images ad-do-it))
 
 ;;}}}
 ;;{{{ element, class, role, id caches:
@@ -818,56 +868,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (eww-restore-history(elt eww-history eww-history-position))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
-
-;;}}}
-;;{{{  Customize image loading:
-
-(defcustom emacspeak-eww-silence-images t
-  "Set to nil if you want EWW to load images."
-  :type 'boolean
-  :group 'emacspeak-eww)
-
-(defadvice eww-display-image (around emacspeak pre act comp)
-  "Dont load images if asked to silence them."
-  (unless emacspeak-eww-silence-images ad-do-it))
-
-;;}}}
-;;{{{ xslt transform on request:
-
-(defadvice eww-display-html (before emacspeak pre act comp)
-  "Apply XSLT transform if requested."
-  (let ((orig (point)))
-    (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
-      (emacspeak-xslt-region
-       emacspeak-we-xsl-transform (point) (point-max)
-       emacspeak-we-xsl-params))
-    (goto-char orig)))
-
-;;}}}
-;;{{{ DOM Structure In Rendered Buffer:
-
-(loop
- for  tag in
- '(h1 h2 h3 div                    ; sectioning
-      ul ol dl                     ; Lists
-      li dt dd p                   ; block-level: bullets, paras
-      form blockquote              ; block-level
-      a b it em span               ; in-line
-      br hr                        ; separators
-      th tr table )
- do
- (eval
-  `
-  (defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
-    (let ((start (point)))
-      ad-do-it
-      (let ((start (if (char-equal (following-char) ?\n)
-                       (min (point-max) (1+ start) )start))
-            (end (if (> (point) start) (1- (point)) (point))))
-        (put-text-property start end
-                           (quote ,tag) 'eww-tag)
-        (when (memq (quote ,tag) '(h1 h2 h3))
-          (put-text-property start end 'h t)))))))
 
 ;;}}}
 ;;{{{ Element Navigation:
