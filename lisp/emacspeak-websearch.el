@@ -775,27 +775,30 @@ Optional second arg as-html processes the results as HTML rather than data."
   (setq emacspeak-google-query ad-return-value))
 
 ;;;###autoload
-(defun emacspeak-websearch-google (query &optional lucky)
+(defun emacspeak-websearch-google (query &optional flag)
   "Perform a Google search.
-Optional interactive prefix arg `lucky' is equivalent to hitting the
-I'm Feeling Lucky button on Google.
-Uses  customizable option `emacspeak-websearch-google-results-only' to determine if we show just results."
+First optional interactive prefix arg `flag' prompts for
+additional search options. Second interactive prefix arg is
+equivalent to hitting the I'm Feeling Lucky button on
+Google. Uses customizable option
+`emacspeak-websearch-google-results-only' to determine if we show
+just results."
   (interactive
    (list
     (gweb-google-autocomplete)
     current-prefix-arg))
   (declare (special emacspeak-google-query emacspeak-google-toolbelt
                     emacspeak-websearch-google-results-only
-                    emacspeak-websearch-google-options
-                    emacspeak-websearch-google-number-of-results))
-  (let ((toolbelt (emacspeak-google-toolbelt)))
+                    emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
+  (let ((toolbelt (emacspeak-google-toolbelt))
+        (options (and flag  (listp flag) (= 4 (car flag))))
+        (lucky (and flag  (listp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky
         (emacspeak-webutils-autospeak)
       (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
-    (let ((emacspeak-w3-tidy-html t)
-          (search-url
+    (let ((search-url
            (concat
             (emacspeak-websearch-google-uri)
             query
