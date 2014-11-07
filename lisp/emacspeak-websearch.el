@@ -791,7 +791,7 @@ just results."
                     emacspeak-websearch-google-results-only
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (let ((toolbelt (emacspeak-google-toolbelt))
-        (options (and flag  (listp flag) (= 4 (car flag))))
+        (add-toolbelt (and flag  (listp flag) (= 4 (car flag))))
         (lucky (and flag  (listp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
@@ -810,6 +810,7 @@ just results."
                "&btnI="
                (emacspeak-url-encode "I'm Feeling Lucky"))))))
       (cond
+       (add-toolbelt (emacspeak-google-toolbelt-change))
        (lucky (browse-url search-url))
        (emacspeak-websearch-google-results-only
         (emacspeak-we-extract-by-id-list
@@ -845,10 +846,12 @@ Optional prefix arg prompts for toolbelt options."
         (toolbelt (emacspeak-google-toolbelt)))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
-    (emacspeak-we-extract-by-id
+    (cond
+     (options (emacspeak-google-toolbelt-change))
+    (t (emacspeak-we-extract-by-id
      "center_col"
      (format emacspeak-websearch-accessible-google-url query)
-     'speak)))
+     'speak)))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
