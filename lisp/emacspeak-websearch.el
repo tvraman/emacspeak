@@ -833,11 +833,13 @@ just results."
   "Using experimental Google Lite.")
 
 ;;;###autoload
-(defun emacspeak-websearch-accessible-google(query)
-  "Use Google Lite (Experimental)."
+(defun emacspeak-websearch-accessible-google(query &optional options)
+  "Use Google Lite (Experimental).
+Optional prefix arg prompts for toolbelt options."
   (interactive
    (list
-    (gweb-google-autocomplete "AGoogle: ")))
+    (gweb-google-autocomplete "AGoogle: ")
+    current-prefix-arg))
   (declare (special emacspeak-websearch-accessible-google-url))
   (let ((emacspeak-eww-masquerade nil)
         (toolbelt (emacspeak-google-toolbelt)))
