@@ -458,8 +458,16 @@ This variable is buffer-local.")
             (loop
              for b in emacspeak-google-toolbelt
              collect (emacspeak-google-tool-name b)))))
+
+
+(defsubst emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
+  "Return list of names in toolbelt."
+  (loop
+   for b in toolbelt
+   collect (emacspeak-google-tool-name b)))
+
 (defun emacspeak-google-toolbelt-change ()
-  "Command to change values in the toolbelt."
+  "Command to change values in the toolbelt and execute the query."
   (interactive)
   (call-interactively
    (read
