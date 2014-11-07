@@ -466,7 +466,7 @@ This variable is buffer-local.")
     (format  "emacspeak-google-toolbelt-change-%s"
              (completing-read
               "Toolbelt: "
-              (emacspeak-google-toolbelt-names)))))                                    )
+              (emacspeak-google-toolbelt-names))))))
 
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."

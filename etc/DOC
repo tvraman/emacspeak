@@ -5349,6 +5349,10 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-view-buffers-filtered-by-this-mode Buffer menu filtered by  mode of current-buffer. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-view-url Open a new buffer containing the contents of URL. 
 
 ------------------------------------------------------------

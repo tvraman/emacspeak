@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 619 user customizable
+This chapter documents a total of 618 user customizable
   options.
 
 @menu
@@ -2566,14 +2566,6 @@ Automatically generated documentation
 for options defined in module  voice-setup.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} global-voice-lock-mode
-Non-nil if Global-Voice-Lock mode is enabled.
-See the command `global-voice-lock-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `global-voice-lock-mode'.
-@end defvar
-
 @defvar {User Option} voice-animate-extra-settings
 Adds extra animation  current voice.
 @end defvar
@@ -3738,7 +3730,7 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-variable-pitch-voice
