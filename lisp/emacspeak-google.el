@@ -442,6 +442,7 @@ This variable is buffer-local.")
                   (concat
                    (emacspeak-google-toolbelt-to-tbs belt)
                    (emacspeak-google-toolbelt-to-tbm belt))))
+              (emacspeak-webutils-cache-google-toolbelt belt)
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
