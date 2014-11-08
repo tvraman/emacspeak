@@ -790,6 +790,7 @@ just results."
   (declare (special emacspeak-google-query emacspeak-google-toolbelt
                     emacspeak-websearch-google-results-only
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
+  (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
         (add-toolbelt (and flag  (listp flag) (= 4 (car flag))))
         (lucky (and flag  (listp flag) (= 16 (car flag)))))
@@ -841,7 +842,8 @@ Optional prefix arg prompts for toolbelt options."
    (list
     (gweb-google-autocomplete "AGoogle: ")
     current-prefix-arg))
-  (declare (special emacspeak-websearch-accessible-google-url))
+  (declare (special emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
+  (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade nil)
         (toolbelt (emacspeak-google-toolbelt)))
     (emacspeak-webutils-cache-google-query query)
