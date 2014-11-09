@@ -866,7 +866,7 @@ Optional prefix arg prompts for toolbelt options."
   (interactive
    (list
     (gweb-google-autocomplete "Google Lucky Search: ")))
-  (emacspeak-websearch-google query 'lucky))
+  (emacspeak-websearch-google query '(16)))
 
 (emacspeak-websearch-set-searcher 'google-specialize
                                   'emacspeak-websearch-google-specialize)
