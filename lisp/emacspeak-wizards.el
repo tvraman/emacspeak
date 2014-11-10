@@ -1017,27 +1017,27 @@ Warning! Contents of file commands.texi will be overwritten."
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
-        (module nil))
-    (save-current-buffer
-      (set-buffer buffer)
+        (module nil)
+        (commands (emacspeak-list-emacspeak-commands)))
+    (with-current-buffer buffer
       (erase-buffer)
-      (insert
-       "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
+      (insert "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
        (format
         "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation.
-This chapter documents a total of %d commands.\n\n"
-        (length (emacspeak-list-emacspeak-commands))))
+documentation. This chapter documents a total of %d
+commands.\n\n"
+        (length commands)))
       (mapcar
        #'(lambda (f)
            (condition-case nil
-               (let ((key (where-is-internal f))
-                     (key-description "")
-                     (commentary nil)
-                     (this-module (symbol-file f))
-                     (source-file nil))
+               (let
+                   ((key (where-is-internal f))
+                    (key-description "")
+                    (commentary nil)
+                    (this-module (symbol-file f))
+                    (source-file nil))
                  (when this-module
                    (setq source-file (locate-library this-module ))
                    (if (char-equal (aref source-file (1- (length source-file))) ?c)
@@ -1087,8 +1087,8 @@ for commands defined in module  %s.\n\n"
                     "Not Documented"))
                  (insert "\n@end deffn\n\n"))
              (error (insert
-                     (format "Caught %s\n" f)))))
-       (emacspeak-list-emacspeak-commands))
+                     (format "\n@C Caught %s\n" f)))))
+       commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (shell-command-on-region
