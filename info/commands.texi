@@ -3,8 +3,8 @@
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation.
-This chapter documents a total of 966 commands.
+documentation. This chapter documents a total of 966
+commands.
 
 @menu
 * cd-tool::
@@ -110,7 +110,7 @@ cdda2wav is a cd to wav convertor.
 Automatically generated documentation
 for commands defined in module  cd-tool.
 
-Caught cd-tool
+@c Caught cd-tool
 
 @node dectalk-voices
 @section dectalk-voices
@@ -122,7 +122,7 @@ This module is Dectalk specific.
 Automatically generated documentation
 for commands defined in module  dectalk-voices.
 
-Caught dtk-exp
+@c Caught dtk-exp
 
 @node dtk-speak
 @section dtk-speak
@@ -133,34 +133,61 @@ Defines the TTS interface.
 Automatically generated documentation
 for commands defined in module  dtk-speak.
 
-Caught dtk-add-cleanup-pattern
-Caught dtk-async-server
-Caught dtk-local-server
-Caught dtk-pause
-Caught dtk-reset-state
-Caught dtk-resume
-Caught dtk-select-server
-Caught dtk-set-character-scale
-Caught dtk-set-chunk-separator-syntax
-Caught dtk-set-language
-Caught dtk-set-next-language
-Caught dtk-set-predefined-speech-rate
-Caught dtk-set-preferred-language
-Caught dtk-set-previous-language
-Caught dtk-set-punctuations
-Caught dtk-set-punctuations-to-all
-Caught dtk-set-punctuations-to-some
-Caught dtk-set-rate
-Caught dtk-stop
-Caught dtk-toggle-allcaps-beep
-Caught dtk-toggle-capitalization
-Caught dtk-toggle-debug
-Caught dtk-toggle-punctuation-mode
-Caught dtk-toggle-quiet
-Caught dtk-toggle-speak-nonprinting-chars
-Caught dtk-toggle-split-caps
-Caught dtk-toggle-splitting-on-white-space
-Caught dtk-toggle-strip-octals
+@c Caught dtk-add-cleanup-pattern
+
+@c Caught dtk-async-server
+
+@c Caught dtk-local-server
+
+@c Caught dtk-pause
+
+@c Caught dtk-reset-state
+
+@c Caught dtk-resume
+
+@c Caught dtk-select-server
+
+@c Caught dtk-set-character-scale
+
+@c Caught dtk-set-chunk-separator-syntax
+
+@c Caught dtk-set-language
+
+@c Caught dtk-set-next-language
+
+@c Caught dtk-set-predefined-speech-rate
+
+@c Caught dtk-set-preferred-language
+
+@c Caught dtk-set-previous-language
+
+@c Caught dtk-set-punctuations
+
+@c Caught dtk-set-punctuations-to-all
+
+@c Caught dtk-set-punctuations-to-some
+
+@c Caught dtk-set-rate
+
+@c Caught dtk-stop
+
+@c Caught dtk-toggle-allcaps-beep
+
+@c Caught dtk-toggle-capitalization
+
+@c Caught dtk-toggle-debug
+
+@c Caught dtk-toggle-punctuation-mode
+
+@c Caught dtk-toggle-quiet
+
+@c Caught dtk-toggle-speak-nonprinting-chars
+
+@c Caught dtk-toggle-split-caps
+
+@c Caught dtk-toggle-splitting-on-white-space
+
+@c Caught dtk-toggle-strip-octals
 
 @node dtk-unicode
 @section dtk-unicode
@@ -172,8 +199,9 @@ This  Provides Unicode support to the speech layer.
 Automatically generated documentation
 for commands defined in module  dtk-unicode.
 
-Caught dtk-unicode-customize-char
-Caught dtk-unicode-uncustomize-char
+@c Caught dtk-unicode-customize-char
+
+@c Caught dtk-unicode-uncustomize-char
 
 @node emacspeak-alsaplayer
 @section emacspeak-alsaplayer
@@ -186,37 +214,67 @@ alsaplayer navigation commands  work via single keystrokes.
 Automatically generated documentation
 for commands defined in module  emacspeak-alsaplayer.
 
-Caught emacspeak-alsaplayer-add-to-queue
-Caught emacspeak-alsaplayer-amark-add
-Caught emacspeak-alsaplayer-amark-jump
-Caught emacspeak-alsaplayer-backward-10-seconds
-Caught emacspeak-alsaplayer-backward-minute
-Caught emacspeak-alsaplayer-backward-ten-minutes
-Caught emacspeak-alsaplayer-cd
-Caught emacspeak-alsaplayer-clear
-Caught emacspeak-alsaplayer-clip
-Caught emacspeak-alsaplayer-find-and-add-to-queue
-Caught emacspeak-alsaplayer-forward-10-seconds
-Caught emacspeak-alsaplayer-forward-minute
-Caught emacspeak-alsaplayer-forward-ten-minutes
-Caught emacspeak-alsaplayer-info
-Caught emacspeak-alsaplayer-jump
-Caught emacspeak-alsaplayer-launch
-Caught emacspeak-alsaplayer-mark-position
-Caught emacspeak-alsaplayer-mode
-Caught emacspeak-alsaplayer-next
-Caught emacspeak-alsaplayer-pause
-Caught emacspeak-alsaplayer-previous
-Caught emacspeak-alsaplayer-quit
-Caught emacspeak-alsaplayer-relative
-Caught emacspeak-alsaplayer-replace-queue
-Caught emacspeak-alsaplayer-seek
-Caught emacspeak-alsaplayer-speed
-Caught emacspeak-alsaplayer-start
-Caught emacspeak-alsaplayer-status
-Caught emacspeak-alsaplayer-stop
-Caught emacspeak-alsaplayer-volume
-Caught emacspeak-alsaplayer-where
+@c Caught emacspeak-alsaplayer-add-to-queue
+
+@c Caught emacspeak-alsaplayer-amark-add
+
+@c Caught emacspeak-alsaplayer-amark-jump
+
+@c Caught emacspeak-alsaplayer-backward-10-seconds
+
+@c Caught emacspeak-alsaplayer-backward-minute
+
+@c Caught emacspeak-alsaplayer-backward-ten-minutes
+
+@c Caught emacspeak-alsaplayer-cd
+
+@c Caught emacspeak-alsaplayer-clear
+
+@c Caught emacspeak-alsaplayer-clip
+
+@c Caught emacspeak-alsaplayer-find-and-add-to-queue
+
+@c Caught emacspeak-alsaplayer-forward-10-seconds
+
+@c Caught emacspeak-alsaplayer-forward-minute
+
+@c Caught emacspeak-alsaplayer-forward-ten-minutes
+
+@c Caught emacspeak-alsaplayer-info
+
+@c Caught emacspeak-alsaplayer-jump
+
+@c Caught emacspeak-alsaplayer-launch
+
+@c Caught emacspeak-alsaplayer-mark-position
+
+@c Caught emacspeak-alsaplayer-mode
+
+@c Caught emacspeak-alsaplayer-next
+
+@c Caught emacspeak-alsaplayer-pause
+
+@c Caught emacspeak-alsaplayer-previous
+
+@c Caught emacspeak-alsaplayer-quit
+
+@c Caught emacspeak-alsaplayer-relative
+
+@c Caught emacspeak-alsaplayer-replace-queue
+
+@c Caught emacspeak-alsaplayer-seek
+
+@c Caught emacspeak-alsaplayer-speed
+
+@c Caught emacspeak-alsaplayer-start
+
+@c Caught emacspeak-alsaplayer-status
+
+@c Caught emacspeak-alsaplayer-stop
+
+@c Caught emacspeak-alsaplayer-volume
+
+@c Caught emacspeak-alsaplayer-where
 
 @node emacspeak-amark
 @section emacspeak-amark
@@ -233,10 +291,13 @@ emacspeak-alsaplayer and friends to set and jump to bookmarks.
 Automatically generated documentation
 for commands defined in module  emacspeak-amark.
 
-Caught emacspeak-amark-add
-Caught emacspeak-amark-find
-Caught emacspeak-amark-load
-Caught emacspeak-amark-save
+@c Caught emacspeak-amark-add
+
+@c Caught emacspeak-amark-find
+
+@c Caught emacspeak-amark-load
+
+@c Caught emacspeak-amark-save
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -246,10 +307,13 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-arc.
 
-Caught emacspeak-arc-speak-file-modification-time
-Caught emacspeak-arc-speak-file-name
-Caught emacspeak-arc-speak-file-permissions
-Caught emacspeak-arc-speak-file-size
+@c Caught emacspeak-arc-speak-file-modification-time
+
+@c Caught emacspeak-arc-speak-file-name
+
+@c Caught emacspeak-arc-speak-file-permissions
+
+@c Caught emacspeak-arc-speak-file-size
 
 @node emacspeak-aumix
 @section emacspeak-aumix
@@ -261,12 +325,17 @@ This module is presently Linux specific
 Automatically generated documentation
 for commands defined in module  emacspeak-aumix.
 
-Caught emacspeak-aumix-edit
-Caught emacspeak-aumix-reset
-Caught emacspeak-aumix-volume-decrease
-Caught emacspeak-aumix-volume-increase
-Caught emacspeak-aumix-wave-decrease
-Caught emacspeak-aumix-wave-increase
+@c Caught emacspeak-aumix-edit
+
+@c Caught emacspeak-aumix-reset
+
+@c Caught emacspeak-aumix-volume-decrease
+
+@c Caught emacspeak-aumix-volume-increase
+
+@c Caught emacspeak-aumix-wave-decrease
+
+@c Caught emacspeak-aumix-wave-increase
 
 @node emacspeak-bookshare
 @section emacspeak-bookshare
@@ -280,45 +349,83 @@ For now, users will need to get their own API key
 Automatically generated documentation
 for commands defined in module  emacspeak-bookshare.
 
-Caught emacspeak-bookshare
-Caught emacspeak-bookshare-action
-Caught emacspeak-bookshare-author-search
-Caught emacspeak-bookshare-browse
-Caught emacspeak-bookshare-browse-latest
-Caught emacspeak-bookshare-browse-popular
-Caught emacspeak-bookshare-download-brf
-Caught emacspeak-bookshare-download-brf-at-point
-Caught emacspeak-bookshare-download-daisy
-Caught emacspeak-bookshare-download-daisy-at-point
-Caught emacspeak-bookshare-download-internal
-Caught emacspeak-bookshare-eww
-Caught emacspeak-bookshare-expand-at-point
-Caught emacspeak-bookshare-extract-and-view
-Caught emacspeak-bookshare-extract-xml
-Caught emacspeak-bookshare-flush-lines
-Caught emacspeak-bookshare-fulltext
-Caught emacspeak-bookshare-fulltext-search
-Caught emacspeak-bookshare-get-more-results
-Caught emacspeak-bookshare-id-search
-Caught emacspeak-bookshare-isbn-search
-Caught emacspeak-bookshare-list-preferences
-Caught emacspeak-bookshare-mode
-Caught emacspeak-bookshare-next-result
-Caught emacspeak-bookshare-periodical-list
-Caught emacspeak-bookshare-previous-result
-Caught emacspeak-bookshare-set-preference
-Caught emacspeak-bookshare-sign-out
-Caught emacspeak-bookshare-since-search
-Caught emacspeak-bookshare-title-search
-Caught emacspeak-bookshare-title/author-search
-Caught emacspeak-bookshare-toc
-Caught emacspeak-bookshare-toc-at-point
-Caught emacspeak-bookshare-unpack-at-point
-Caught emacspeak-bookshare-url-executor
-Caught emacspeak-bookshare-version-handler
-Caught emacspeak-bookshare-view
-Caught emacspeak-bookshare-view-at-point
-Caught emacspeak-bookshare-view-page-range
+@c Caught emacspeak-bookshare
+
+@c Caught emacspeak-bookshare-action
+
+@c Caught emacspeak-bookshare-author-search
+
+@c Caught emacspeak-bookshare-browse
+
+@c Caught emacspeak-bookshare-browse-latest
+
+@c Caught emacspeak-bookshare-browse-popular
+
+@c Caught emacspeak-bookshare-download-brf
+
+@c Caught emacspeak-bookshare-download-brf-at-point
+
+@c Caught emacspeak-bookshare-download-daisy
+
+@c Caught emacspeak-bookshare-download-daisy-at-point
+
+@c Caught emacspeak-bookshare-download-internal
+
+@c Caught emacspeak-bookshare-eww
+
+@c Caught emacspeak-bookshare-expand-at-point
+
+@c Caught emacspeak-bookshare-extract-and-view
+
+@c Caught emacspeak-bookshare-extract-xml
+
+@c Caught emacspeak-bookshare-flush-lines
+
+@c Caught emacspeak-bookshare-fulltext
+
+@c Caught emacspeak-bookshare-fulltext-search
+
+@c Caught emacspeak-bookshare-get-more-results
+
+@c Caught emacspeak-bookshare-id-search
+
+@c Caught emacspeak-bookshare-isbn-search
+
+@c Caught emacspeak-bookshare-list-preferences
+
+@c Caught emacspeak-bookshare-mode
+
+@c Caught emacspeak-bookshare-next-result
+
+@c Caught emacspeak-bookshare-periodical-list
+
+@c Caught emacspeak-bookshare-previous-result
+
+@c Caught emacspeak-bookshare-set-preference
+
+@c Caught emacspeak-bookshare-sign-out
+
+@c Caught emacspeak-bookshare-since-search
+
+@c Caught emacspeak-bookshare-title-search
+
+@c Caught emacspeak-bookshare-title/author-search
+
+@c Caught emacspeak-bookshare-toc
+
+@c Caught emacspeak-bookshare-toc-at-point
+
+@c Caught emacspeak-bookshare-unpack-at-point
+
+@c Caught emacspeak-bookshare-url-executor
+
+@c Caught emacspeak-bookshare-version-handler
+
+@c Caught emacspeak-bookshare-view
+
+@c Caught emacspeak-bookshare-view-at-point
+
+@c Caught emacspeak-bookshare-view-page-range
 
 @node emacspeak-bs
 @section emacspeak-bs
@@ -329,7 +436,7 @@ speech-enable bs.el -- an alternative to Emacs' default  list-buffers
 Automatically generated documentation
 for commands defined in module  emacspeak-bs.
 
-Caught emacspeak-bs-speak-buffer-line
+@c Caught emacspeak-bs-speak-buffer-line
 
 @node emacspeak-buff-menu
 @section emacspeak-buff-menu
@@ -339,10 +446,13 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-buff-menu.
 
-Caught emacspeak-list-buffers-next-line
-Caught emacspeak-list-buffers-previous-line
-Caught emacspeak-list-buffers-speak-buffer-line
-Caught emacspeak-list-buffers-speak-buffer-name
+@c Caught emacspeak-list-buffers-next-line
+
+@c Caught emacspeak-list-buffers-previous-line
+
+@c Caught emacspeak-list-buffers-speak-buffer-line
+
+@c Caught emacspeak-list-buffers-speak-buffer-name
 
 @node emacspeak-c
 @section emacspeak-c
@@ -355,7 +465,7 @@ and the excellent cc-mode
 Automatically generated documentation
 for commands defined in module  emacspeak-c.
 
-Caught emacspeak-c-speak-semantics
+@c Caught emacspeak-c-speak-semantics
 
 @node emacspeak-calendar
 @section emacspeak-calendar
@@ -365,9 +475,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-calendar.
 
-Caught emacspeak-appt-repeat-announcement
-Caught emacspeak-calendar-setup-sunrise-sunset
-Caught emacspeak-calendar-speak-date
+@c Caught emacspeak-appt-repeat-announcement
+
+@c Caught emacspeak-calendar-setup-sunrise-sunset
+
+@c Caught emacspeak-calendar-speak-date
 
 @node emacspeak-compile
 @section emacspeak-compile
@@ -379,7 +491,7 @@ It is an example of how a little amount of code can make Emacspeak even better.
 Automatically generated documentation
 for commands defined in module  emacspeak-compile.
 
-Caught emacspeak-compilation-speak-error
+@c Caught emacspeak-compilation-speak-error
 
 @node emacspeak-custom
 @section emacspeak-custom
@@ -389,8 +501,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-custom.
 
-Caught emacspeak-custom-goto-group
-Caught emacspeak-custom-goto-toolbar
+@c Caught emacspeak-custom-goto-group
+
+@c Caught emacspeak-custom-goto-toolbar
 
 @node emacspeak-dired
 @section emacspeak-dired
@@ -404,14 +517,21 @@ Voicification is used to indicate directories, marked files etc.
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
 
-Caught emacspeak-dired-label-fields
-Caught emacspeak-dired-show-file-type
-Caught emacspeak-dired-speak-file-access-time
-Caught emacspeak-dired-speak-file-modification-time
-Caught emacspeak-dired-speak-file-permissions
-Caught emacspeak-dired-speak-file-size
-Caught emacspeak-dired-speak-header-line
-Caught emacspeak-dired-speak-symlink-target
+@c Caught emacspeak-dired-label-fields
+
+@c Caught emacspeak-dired-show-file-type
+
+@c Caught emacspeak-dired-speak-file-access-time
+
+@c Caught emacspeak-dired-speak-file-modification-time
+
+@c Caught emacspeak-dired-speak-file-permissions
+
+@c Caught emacspeak-dired-speak-file-size
+
+@c Caught emacspeak-dired-speak-header-line
+
+@c Caught emacspeak-dired-speak-symlink-target
 
 @node emacspeak-dismal
 @section emacspeak-dismal
@@ -421,20 +541,33 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-dismal.
 
-Caught emacspeak-dismal-backward-col-and-summarize
-Caught emacspeak-dismal-backward-row-and-summarize
-Caught emacspeak-dismal-col-summarize
-Caught emacspeak-dismal-display-cell-expression
-Caught emacspeak-dismal-display-cell-value
-Caught emacspeak-dismal-display-cell-with-col-header
-Caught emacspeak-dismal-display-cell-with-row-header
-Caught emacspeak-dismal-forward-col-and-summarize
-Caught emacspeak-dismal-forward-row-and-summarize
-Caught emacspeak-dismal-row-summarize
-Caught emacspeak-dismal-set-col-summarizer-list
-Caught emacspeak-dismal-set-row-summarizer-list
-Caught emacspeak-dismal-set-sheet-summarizer-list
-Caught emacspeak-dismal-sheet-summarize
+@c Caught emacspeak-dismal-backward-col-and-summarize
+
+@c Caught emacspeak-dismal-backward-row-and-summarize
+
+@c Caught emacspeak-dismal-col-summarize
+
+@c Caught emacspeak-dismal-display-cell-expression
+
+@c Caught emacspeak-dismal-display-cell-value
+
+@c Caught emacspeak-dismal-display-cell-with-col-header
+
+@c Caught emacspeak-dismal-display-cell-with-row-header
+
+@c Caught emacspeak-dismal-forward-col-and-summarize
+
+@c Caught emacspeak-dismal-forward-row-and-summarize
+
+@c Caught emacspeak-dismal-row-summarize
+
+@c Caught emacspeak-dismal-set-col-summarizer-list
+
+@c Caught emacspeak-dismal-set-row-summarizer-list
+
+@c Caught emacspeak-dismal-set-sheet-summarizer-list
+
+@c Caught emacspeak-dismal-sheet-summarize
 
 @node emacspeak-ecb
 @section emacspeak-ecb
@@ -444,14 +577,21 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-ecb.
 
-Caught emacspeak-ecb-speak-window-directories
-Caught emacspeak-ecb-speak-window-history
-Caught emacspeak-ecb-speak-window-methods
-Caught emacspeak-ecb-speak-window-sources
-Caught emacspeak-ecb-tree-backspace
-Caught emacspeak-ecb-tree-clear
-Caught emacspeak-ecb-tree-expand-common-prefix
-Caught emacspeak-ecb-tree-shift-return
+@c Caught emacspeak-ecb-speak-window-directories
+
+@c Caught emacspeak-ecb-speak-window-history
+
+@c Caught emacspeak-ecb-speak-window-methods
+
+@c Caught emacspeak-ecb-speak-window-sources
+
+@c Caught emacspeak-ecb-tree-backspace
+
+@c Caught emacspeak-ecb-tree-clear
+
+@c Caught emacspeak-ecb-tree-expand-common-prefix
+
+@c Caught emacspeak-ecb-tree-shift-return
 
 @node emacspeak-ediff
 @section emacspeak-ediff
@@ -470,7 +610,7 @@ and later.
 Automatically generated documentation
 for commands defined in module  emacspeak-ediff.
 
-Caught emacspeak-ediff-speak-current-difference
+@c Caught emacspeak-ediff-speak-current-difference
 
 @node emacspeak-emms
 @section emacspeak-emms
@@ -486,7 +626,7 @@ M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
 Automatically generated documentation
 for commands defined in module  emacspeak-emms.
 
-Caught emacspeak-emms-speak-current-track
+@c Caught emacspeak-emms-speak-current-track
 
 @node emacspeak-enriched
 @section emacspeak-enriched
@@ -496,7 +636,7 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-enriched.
 
-Caught emacspeak-enriched-voiceify-faces
+@c Caught emacspeak-enriched-voiceify-faces
 
 @node emacspeak-entertain
 @section emacspeak-entertain
@@ -507,8 +647,9 @@ Auditory interface to misc games
 Automatically generated documentation
 for commands defined in module  emacspeak-entertain.
 
-Caught emacspeak-hangman-speak-guess
-Caught emacspeak-hangman-speak-statistics
+@c Caught emacspeak-hangman-speak-guess
+
+@c Caught emacspeak-hangman-speak-statistics
 
 @node emacspeak-eperiodic
 @section emacspeak-eperiodic
@@ -518,11 +659,15 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-eperiodic.
 
-Caught emacspeak-eperiodic-goto-property-section
-Caught emacspeak-eperiodic-next-line
-Caught emacspeak-eperiodic-play-description
-Caught emacspeak-eperiodic-previous-line
-Caught emacspeak-eperiodic-speak-current-element
+@c Caught emacspeak-eperiodic-goto-property-section
+
+@c Caught emacspeak-eperiodic-next-line
+
+@c Caught emacspeak-eperiodic-play-description
+
+@c Caught emacspeak-eperiodic-previous-line
+
+@c Caught emacspeak-eperiodic-speak-current-element
 
 @node emacspeak-epub
 @section emacspeak-epub
@@ -542,37 +687,67 @@ As we move to epub-3, this module will bring back audio layers etc., perhaps via
 Automatically generated documentation
 for commands defined in module  emacspeak-epub.
 
-Caught emacspeak-calibre-mode
-Caught emacspeak-epub
-Caught emacspeak-epub-bookshelf-add-directory
-Caught emacspeak-epub-bookshelf-add-epub
-Caught emacspeak-epub-bookshelf-calibre-author
-Caught emacspeak-epub-bookshelf-calibre-search
-Caught emacspeak-epub-bookshelf-calibre-title
-Caught emacspeak-epub-bookshelf-clear
-Caught emacspeak-epub-bookshelf-load
-Caught emacspeak-epub-bookshelf-open
-Caught emacspeak-epub-bookshelf-open-epub
-Caught emacspeak-epub-bookshelf-redraw
-Caught emacspeak-epub-bookshelf-refresh
-Caught emacspeak-epub-bookshelf-remove-directory
-Caught emacspeak-epub-bookshelf-remove-this-book
-Caught emacspeak-epub-bookshelf-rename
-Caught emacspeak-epub-bookshelf-save
-Caught emacspeak-epub-browse-files
-Caught emacspeak-epub-calibre-dired-at-point
-Caught emacspeak-epub-calibre-results
-Caught emacspeak-epub-delete
-Caught emacspeak-epub-eww
-Caught emacspeak-epub-fulltext
-Caught emacspeak-epub-google
-Caught emacspeak-epub-gutenberg-catalog
-Caught emacspeak-epub-gutenberg-download
-Caught emacspeak-epub-mode
-Caught emacspeak-epub-next
-Caught emacspeak-epub-open
-Caught emacspeak-epub-previous
-Caught emacspeak-epub-url-executor
+@c Caught emacspeak-calibre-mode
+
+@c Caught emacspeak-epub
+
+@c Caught emacspeak-epub-bookshelf-add-directory
+
+@c Caught emacspeak-epub-bookshelf-add-epub
+
+@c Caught emacspeak-epub-bookshelf-calibre-author
+
+@c Caught emacspeak-epub-bookshelf-calibre-search
+
+@c Caught emacspeak-epub-bookshelf-calibre-title
+
+@c Caught emacspeak-epub-bookshelf-clear
+
+@c Caught emacspeak-epub-bookshelf-load
+
+@c Caught emacspeak-epub-bookshelf-open
+
+@c Caught emacspeak-epub-bookshelf-open-epub
+
+@c Caught emacspeak-epub-bookshelf-redraw
+
+@c Caught emacspeak-epub-bookshelf-refresh
+
+@c Caught emacspeak-epub-bookshelf-remove-directory
+
+@c Caught emacspeak-epub-bookshelf-remove-this-book
+
+@c Caught emacspeak-epub-bookshelf-rename
+
+@c Caught emacspeak-epub-bookshelf-save
+
+@c Caught emacspeak-epub-browse-files
+
+@c Caught emacspeak-epub-calibre-dired-at-point
+
+@c Caught emacspeak-epub-calibre-results
+
+@c Caught emacspeak-epub-delete
+
+@c Caught emacspeak-epub-eww
+
+@c Caught emacspeak-epub-fulltext
+
+@c Caught emacspeak-epub-google
+
+@c Caught emacspeak-epub-gutenberg-catalog
+
+@c Caught emacspeak-epub-gutenberg-download
+
+@c Caught emacspeak-epub-mode
+
+@c Caught emacspeak-epub-next
+
+@c Caught emacspeak-epub-open
+
+@c Caught emacspeak-epub-previous
+
+@c Caught emacspeak-epub-url-executor
 
 @node emacspeak-erc
 @section emacspeak-erc
@@ -586,12 +761,17 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 Automatically generated documentation
 for commands defined in module  emacspeak-erc.
 
-Caught emacspeak-erc-add-name-to-monitor
-Caught emacspeak-erc-delete-name-from-monitor
-Caught emacspeak-erc-setup-cricket-rules
-Caught emacspeak-erc-toggle-my-monitor
-Caught emacspeak-erc-toggle-room-monitor
-Caught emacspeak-erc-toggle-speak-all-participants
+@c Caught emacspeak-erc-add-name-to-monitor
+
+@c Caught emacspeak-erc-delete-name-from-monitor
+
+@c Caught emacspeak-erc-setup-cricket-rules
+
+@c Caught emacspeak-erc-toggle-my-monitor
+
+@c Caught emacspeak-erc-toggle-room-monitor
+
+@c Caught emacspeak-erc-toggle-speak-all-participants
 
 @node emacspeak-eterm
 @section emacspeak-eterm
@@ -607,46 +787,85 @@ To move around the terminal and have different parts spoken.
 Automatically generated documentation
 for commands defined in module  emacspeak-eterm.
 
-Caught emacspeak-eterm-copy-region-to-register
-Caught emacspeak-eterm-define-window
-Caught emacspeak-eterm-describe-window
-Caught emacspeak-eterm-goto-line
-Caught emacspeak-eterm-kill-ring-save-region
-Caught emacspeak-eterm-maybe-send-raw
-Caught emacspeak-eterm-paste-register
-Caught emacspeak-eterm-pointer-backward-word
-Caught emacspeak-eterm-pointer-down
-Caught emacspeak-eterm-pointer-forward-word
-Caught emacspeak-eterm-pointer-left
-Caught emacspeak-eterm-pointer-right
-Caught emacspeak-eterm-pointer-to-bottom
-Caught emacspeak-eterm-pointer-to-cursor
-Caught emacspeak-eterm-pointer-to-left-edge
-Caught emacspeak-eterm-pointer-to-next-color-change
-Caught emacspeak-eterm-pointer-to-previous-color-change
-Caught emacspeak-eterm-pointer-to-right-edge
-Caught emacspeak-eterm-pointer-to-top
-Caught emacspeak-eterm-pointer-up
-Caught emacspeak-eterm-remote-term
-Caught emacspeak-eterm-search-backward
-Caught emacspeak-eterm-search-forward
-Caught emacspeak-eterm-set-filter-window
-Caught emacspeak-eterm-set-focus-window
-Caught emacspeak-eterm-set-marker
-Caught emacspeak-eterm-speak-cursor
-Caught emacspeak-eterm-speak-pointer
-Caught emacspeak-eterm-speak-pointer-char
-Caught emacspeak-eterm-speak-pointer-line
-Caught emacspeak-eterm-speak-pointer-word
-Caught emacspeak-eterm-speak-predefined-window
-Caught emacspeak-eterm-speak-screen
-Caught emacspeak-eterm-speak-window
-Caught emacspeak-eterm-toggle-filter-window
-Caught emacspeak-eterm-toggle-focus-window
-Caught emacspeak-eterm-toggle-pointer-mode
-Caught emacspeak-eterm-toggle-review
-Caught emacspeak-eterm-yank-window
-Caught emacspeak-toggle-eterm-autospeak
+@c Caught emacspeak-eterm-copy-region-to-register
+
+@c Caught emacspeak-eterm-define-window
+
+@c Caught emacspeak-eterm-describe-window
+
+@c Caught emacspeak-eterm-goto-line
+
+@c Caught emacspeak-eterm-kill-ring-save-region
+
+@c Caught emacspeak-eterm-maybe-send-raw
+
+@c Caught emacspeak-eterm-paste-register
+
+@c Caught emacspeak-eterm-pointer-backward-word
+
+@c Caught emacspeak-eterm-pointer-down
+
+@c Caught emacspeak-eterm-pointer-forward-word
+
+@c Caught emacspeak-eterm-pointer-left
+
+@c Caught emacspeak-eterm-pointer-right
+
+@c Caught emacspeak-eterm-pointer-to-bottom
+
+@c Caught emacspeak-eterm-pointer-to-cursor
+
+@c Caught emacspeak-eterm-pointer-to-left-edge
+
+@c Caught emacspeak-eterm-pointer-to-next-color-change
+
+@c Caught emacspeak-eterm-pointer-to-previous-color-change
+
+@c Caught emacspeak-eterm-pointer-to-right-edge
+
+@c Caught emacspeak-eterm-pointer-to-top
+
+@c Caught emacspeak-eterm-pointer-up
+
+@c Caught emacspeak-eterm-remote-term
+
+@c Caught emacspeak-eterm-search-backward
+
+@c Caught emacspeak-eterm-search-forward
+
+@c Caught emacspeak-eterm-set-filter-window
+
+@c Caught emacspeak-eterm-set-focus-window
+
+@c Caught emacspeak-eterm-set-marker
+
+@c Caught emacspeak-eterm-speak-cursor
+
+@c Caught emacspeak-eterm-speak-pointer
+
+@c Caught emacspeak-eterm-speak-pointer-char
+
+@c Caught emacspeak-eterm-speak-pointer-line
+
+@c Caught emacspeak-eterm-speak-pointer-word
+
+@c Caught emacspeak-eterm-speak-predefined-window
+
+@c Caught emacspeak-eterm-speak-screen
+
+@c Caught emacspeak-eterm-speak-window
+
+@c Caught emacspeak-eterm-toggle-filter-window
+
+@c Caught emacspeak-eterm-toggle-focus-window
+
+@c Caught emacspeak-eterm-toggle-pointer-mode
+
+@c Caught emacspeak-eterm-toggle-review
+
+@c Caught emacspeak-eterm-yank-window
+
+@c Caught emacspeak-toggle-eterm-autospeak
 
 @node emacspeak-eudc
 @section emacspeak-eudc
@@ -660,7 +879,7 @@ this module speech enables eudc
 Automatically generated documentation
 for commands defined in module  emacspeak-eudc.
 
-Caught emacspeak-eudc-send-mail
+@c Caught emacspeak-eudc-send-mail
 
 @node emacspeak-feeds
 @section emacspeak-feeds
@@ -671,16 +890,25 @@ This module provides Feeds support for Emacspeak
 Automatically generated documentation
 for commands defined in module  emacspeak-feeds.
 
-Caught emacspeak-feeds-add-feed
-Caught emacspeak-feeds-archive-feeds
-Caught emacspeak-feeds-atom-display
-Caught emacspeak-feeds-browse
-Caught emacspeak-feeds-fastload-feeds
-Caught emacspeak-feeds-find-feeds
-Caught emacspeak-feeds-lookup-and-view
-Caught emacspeak-feeds-opml-display
-Caught emacspeak-feeds-restoere-feeds
-Caught emacspeak-feeds-rss-display
+@c Caught emacspeak-feeds-add-feed
+
+@c Caught emacspeak-feeds-archive-feeds
+
+@c Caught emacspeak-feeds-atom-display
+
+@c Caught emacspeak-feeds-browse
+
+@c Caught emacspeak-feeds-fastload-feeds
+
+@c Caught emacspeak-feeds-find-feeds
+
+@c Caught emacspeak-feeds-lookup-and-view
+
+@c Caught emacspeak-feeds-opml-display
+
+@c Caught emacspeak-feeds-restoere-feeds
+
+@c Caught emacspeak-feeds-rss-display
 
 @node emacspeak-filtertext
 @section emacspeak-filtertext
@@ -690,9 +918,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-filtertext.
 
-Caught emacspeak-filtertext
-Caught emacspeak-filtertext-mode
-Caught emacspeak-filtertext-revert
+@c Caught emacspeak-filtertext
+
+@c Caught emacspeak-filtertext-mode
+
+@c Caught emacspeak-filtertext-revert
 
 @node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
@@ -702,8 +932,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-fix-interactive.
 
-Caught emacspeak-fix-all-recent-commands
-Caught emacspeak-fix-commands-loaded-from
+@c Caught emacspeak-fix-all-recent-commands
+
+@c Caught emacspeak-fix-commands-loaded-from
 
 @node emacspeak-forms
 @section emacspeak-forms
@@ -713,12 +944,17 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-forms.
 
-Caught emacspeak-forms-find-file
-Caught emacspeak-forms-flush-unwanted-records
-Caught emacspeak-forms-rerun-filter
-Caught emacspeak-forms-speak-field
-Caught emacspeak-forms-summarize-current-position
-Caught emacspeak-forms-summarize-current-record
+@c Caught emacspeak-forms-find-file
+
+@c Caught emacspeak-forms-flush-unwanted-records
+
+@c Caught emacspeak-forms-rerun-filter
+
+@c Caught emacspeak-forms-speak-field
+
+@c Caught emacspeak-forms-summarize-current-position
+
+@c Caught emacspeak-forms-summarize-current-record
 
 @node emacspeak-gnus
 @section emacspeak-gnus
@@ -728,9 +964,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-gnus.
 
-Caught emacspeak-gnus-summary-catchup-quietly-and-exit
-Caught emacspeak-gnus-summary-hide-all-headers
-Caught emacspeak-gnus-summary-show-some-headers
+@c Caught emacspeak-gnus-summary-catchup-quietly-and-exit
+
+@c Caught emacspeak-gnus-summary-hide-all-headers
+
+@c Caught emacspeak-gnus-summary-show-some-headers
 
 @node emacspeak-gomoku
 @section emacspeak-gomoku
@@ -740,16 +978,25 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-gomoku.
 
-Caught emacspeak-gomoku-display-statistics
-Caught emacspeak-gomoku-goto-x-y
-Caught emacspeak-gomoku-show-current-column
-Caught emacspeak-gomoku-show-current-negative-diagonal
-Caught emacspeak-gomoku-show-current-positive-diagonal
-Caught emacspeak-gomoku-show-current-row
-Caught emacspeak-gomoku-speak-emacs-previous-move
-Caught emacspeak-gomoku-speak-humans-previous-move
-Caught emacspeak-gomoku-speak-number-of-moves
-Caught emacspeak-gomoku-speak-square
+@c Caught emacspeak-gomoku-display-statistics
+
+@c Caught emacspeak-gomoku-goto-x-y
+
+@c Caught emacspeak-gomoku-show-current-column
+
+@c Caught emacspeak-gomoku-show-current-negative-diagonal
+
+@c Caught emacspeak-gomoku-show-current-positive-diagonal
+
+@c Caught emacspeak-gomoku-show-current-row
+
+@c Caught emacspeak-gomoku-speak-emacs-previous-move
+
+@c Caught emacspeak-gomoku-speak-humans-previous-move
+
+@c Caught emacspeak-gomoku-speak-number-of-moves
+
+@c Caught emacspeak-gomoku-speak-square
 
 @node emacspeak-google
 @section emacspeak-google
@@ -766,40 +1013,73 @@ Now, some specialized searches, e.g. blog search are tbm=
 Automatically generated documentation
 for commands defined in module  emacspeak-google.
 
-Caught emacspeak-google-show-toolbelt
-Caught emacspeak-google-sign-in
-Caught emacspeak-google-sign-out
-Caught emacspeak-google-toolbelt-change
-Caught emacspeak-google-toolbelt-change-Shopping
-Caught emacspeak-google-toolbelt-change-blog
-Caught emacspeak-google-toolbelt-change-books
-Caught emacspeak-google-toolbelt-change-books-format
-Caught emacspeak-google-toolbelt-change-books-type
-Caught emacspeak-google-toolbelt-change-books-viewability
-Caught emacspeak-google-toolbelt-change-commercial
-Caught emacspeak-google-toolbelt-change-commercial-prices
-Caught emacspeak-google-toolbelt-change-date-filter
-Caught emacspeak-google-toolbelt-change-discussions
-Caught emacspeak-google-toolbelt-change-duration
-Caught emacspeak-google-toolbelt-change-forums
-Caught emacspeak-google-toolbelt-change-images
-Caught emacspeak-google-toolbelt-change-literal
-Caught emacspeak-google-toolbelt-change-news
-Caught emacspeak-google-toolbelt-change-non-commercial
-Caught emacspeak-google-toolbelt-change-patents
-Caught emacspeak-google-toolbelt-change-places
-Caught emacspeak-google-toolbelt-change-recent
-Caught emacspeak-google-toolbelt-change-recipes
-Caught emacspeak-google-toolbelt-change-reviews
-Caught emacspeak-google-toolbelt-change-social
-Caught emacspeak-google-toolbelt-change-sort-by-date
-Caught emacspeak-google-toolbelt-change-structured-snippets
-Caught emacspeak-google-toolbelt-change-timeline
-Caught emacspeak-google-toolbelt-change-timeline-high
-Caught emacspeak-google-toolbelt-change-timeline-low
-Caught emacspeak-google-toolbelt-change-video
-Caught emacspeak-google-toolbelt-change-web-history-not-visited
-Caught emacspeak-google-toolbelt-change-web-history-visited
+@c Caught emacspeak-google-show-toolbelt
+
+@c Caught emacspeak-google-sign-in
+
+@c Caught emacspeak-google-sign-out
+
+@c Caught emacspeak-google-toolbelt-change
+
+@c Caught emacspeak-google-toolbelt-change-Shopping
+
+@c Caught emacspeak-google-toolbelt-change-blog
+
+@c Caught emacspeak-google-toolbelt-change-books
+
+@c Caught emacspeak-google-toolbelt-change-books-format
+
+@c Caught emacspeak-google-toolbelt-change-books-type
+
+@c Caught emacspeak-google-toolbelt-change-books-viewability
+
+@c Caught emacspeak-google-toolbelt-change-commercial
+
+@c Caught emacspeak-google-toolbelt-change-commercial-prices
+
+@c Caught emacspeak-google-toolbelt-change-date-filter
+
+@c Caught emacspeak-google-toolbelt-change-discussions
+
+@c Caught emacspeak-google-toolbelt-change-duration
+
+@c Caught emacspeak-google-toolbelt-change-forums
+
+@c Caught emacspeak-google-toolbelt-change-images
+
+@c Caught emacspeak-google-toolbelt-change-literal
+
+@c Caught emacspeak-google-toolbelt-change-news
+
+@c Caught emacspeak-google-toolbelt-change-non-commercial
+
+@c Caught emacspeak-google-toolbelt-change-patents
+
+@c Caught emacspeak-google-toolbelt-change-places
+
+@c Caught emacspeak-google-toolbelt-change-recent
+
+@c Caught emacspeak-google-toolbelt-change-recipes
+
+@c Caught emacspeak-google-toolbelt-change-reviews
+
+@c Caught emacspeak-google-toolbelt-change-social
+
+@c Caught emacspeak-google-toolbelt-change-sort-by-date
+
+@c Caught emacspeak-google-toolbelt-change-structured-snippets
+
+@c Caught emacspeak-google-toolbelt-change-timeline
+
+@c Caught emacspeak-google-toolbelt-change-timeline-high
+
+@c Caught emacspeak-google-toolbelt-change-timeline-low
+
+@c Caught emacspeak-google-toolbelt-change-video
+
+@c Caught emacspeak-google-toolbelt-change-web-history-not-visited
+
+@c Caught emacspeak-google-toolbelt-change-web-history-visited
 
 @node emacspeak-gridtext
 @section emacspeak-gridtext
@@ -825,9 +1105,11 @@ It's also useful for handling multicolumn text.
 Automatically generated documentation
 for commands defined in module  emacspeak-gridtext.
 
-Caught emacspeak-gridtext-apply
-Caught emacspeak-gridtext-load
-Caught emacspeak-gridtext-save
+@c Caught emacspeak-gridtext-apply
+
+@c Caught emacspeak-gridtext-load
+
+@c Caught emacspeak-gridtext-save
 
 @node emacspeak-hide
 @section emacspeak-hide
@@ -843,9 +1125,11 @@ the prefix parsing is inspired by filladapt.el
 Automatically generated documentation
 for commands defined in module  emacspeak-hide.
 
-Caught emacspeak-hide-or-expose-all-blocks
-Caught emacspeak-hide-or-expose-block
-Caught emacspeak-hide-speak-block-sans-prefix
+@c Caught emacspeak-hide-or-expose-all-blocks
+
+@c Caught emacspeak-hide-or-expose-block
+
+@c Caught emacspeak-hide-speak-block-sans-prefix
 
 @node emacspeak-ibuffer
 @section emacspeak-ibuffer
@@ -857,7 +1141,7 @@ this is an alternative to buffer-menu
 Automatically generated documentation
 for commands defined in module  emacspeak-ibuffer.
 
-Caught emacspeak-ibuffer-speak-buffer-line
+@c Caught emacspeak-ibuffer-speak-buffer-line
 
 @node emacspeak-imenu
 @section emacspeak-imenu
@@ -867,9 +1151,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-imenu.
 
-Caught emacspeak-imenu-goto-next-index-position
-Caught emacspeak-imenu-goto-previous-index-position
-Caught emacspeak-imenu-speak-this-section
+@c Caught emacspeak-imenu-goto-next-index-position
+
+@c Caught emacspeak-imenu-goto-previous-index-position
+
+@c Caught emacspeak-imenu-speak-this-section
 
 @node emacspeak-info
 @section emacspeak-info
@@ -879,8 +1165,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-info.
 
-Caught emacspeak-info-speak-header
-Caught emacspeak-info-wizard
+@c Caught emacspeak-info-speak-header
+
+@c Caught emacspeak-info-wizard
 
 @node emacspeak-jabber
 @section emacspeak-jabber
@@ -893,10 +1180,13 @@ I use emacs-jabber with my gmail.com account
 Automatically generated documentation
 for commands defined in module  emacspeak-jabber.
 
-Caught emacspeak-jabber-chat-next-message
-Caught emacspeak-jabber-chat-previous-message
-Caught emacspeak-jabber-chat-speak-this-message
-Caught emacspeak-jabber-popup-roster
+@c Caught emacspeak-jabber-chat-next-message
+
+@c Caught emacspeak-jabber-chat-previous-message
+
+@c Caught emacspeak-jabber-chat-speak-this-message
+
+@c Caught emacspeak-jabber-popup-roster
 
 @node emacspeak-keymap
 @section emacspeak-keymap
@@ -906,7 +1196,7 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-keymap.
 
-Caught emacspeak-keymap-choose-new-emacspeak-prefix
+@c Caught emacspeak-keymap-choose-new-emacspeak-prefix
 
 @node emacspeak-librivox
 @section emacspeak-librivox
@@ -919,15 +1209,23 @@ This module implements an Emacspeak Librivox client.
 Automatically generated documentation
 for commands defined in module  emacspeak-librivox.
 
-Caught emacspeak-librivox
-Caught emacspeak-librivox-fetch-catalog
-Caught emacspeak-librivox-mode
-Caught emacspeak-librivox-open-rss
-Caught emacspeak-librivox-open-url
-Caught emacspeak-librivox-play
-Caught emacspeak-librivox-search-author
-Caught emacspeak-librivox-search-genre
-Caught emacspeak-librivox-search-title
+@c Caught emacspeak-librivox
+
+@c Caught emacspeak-librivox-fetch-catalog
+
+@c Caught emacspeak-librivox-mode
+
+@c Caught emacspeak-librivox-open-rss
+
+@c Caught emacspeak-librivox-open-url
+
+@c Caught emacspeak-librivox-play
+
+@c Caught emacspeak-librivox-search-author
+
+@c Caught emacspeak-librivox-search-genre
+
+@c Caught emacspeak-librivox-search-title
 
 @node emacspeak-loaddefs
 @section emacspeak-loaddefs
@@ -937,8 +1235,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-loaddefs.
 
-Caught emacspeak-mark-forward-mark
-Caught emacspeak-toggle-comint-output-monitor
+@c Caught emacspeak-mark-forward-mark
+
+@c Caught emacspeak-toggle-comint-output-monitor
 
 @node emacspeak-m-player
 @section emacspeak-m-player
@@ -961,54 +1260,101 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
-Caught emacspeak-m-player-add-equalizer
-Caught emacspeak-m-player-add-filter
-Caught emacspeak-m-player-alt-src-step
-Caught emacspeak-m-player-backward-10min
-Caught emacspeak-m-player-backward-10s
-Caught emacspeak-m-player-backward-1min
-Caught emacspeak-m-player-balance
-Caught emacspeak-m-player-beginning-of-track
-Caught emacspeak-m-player-bind-accelerator
-Caught emacspeak-m-player-command
-Caught emacspeak-m-player-customize-options
-Caught emacspeak-m-player-display-position
-Caught emacspeak-m-player-double-speed
-Caught emacspeak-m-player-end-of-track
-Caught emacspeak-m-player-equalizer-control
-Caught emacspeak-m-player-faster
-Caught emacspeak-m-player-forward-10min
-Caught emacspeak-m-player-forward-10s
-Caught emacspeak-m-player-forward-1min
-Caught emacspeak-m-player-get-length
-Caught emacspeak-m-player-half-speed
-Caught emacspeak-m-player-load
-Caught emacspeak-m-player-load-file
-Caught emacspeak-m-player-load-playlist
-Caught emacspeak-m-player-mode
-Caught emacspeak-m-player-next-track
-Caught emacspeak-m-player-pause
-Caught emacspeak-m-player-play-tracks-jump
-Caught emacspeak-m-player-play-tree-up
-Caught emacspeak-m-player-previous-track
-Caught emacspeak-m-player-quit
-Caught emacspeak-m-player-reset-options
-Caught emacspeak-m-player-reset-speed
-Caught emacspeak-m-player-resume
-Caught emacspeak-m-player-scale-speed
-Caught emacspeak-m-player-seek-absolute
-Caught emacspeak-m-player-seek-relative
-Caught emacspeak-m-player-shuffle
-Caught emacspeak-m-player-slave-command
-Caught emacspeak-m-player-slower
-Caught emacspeak-m-player-speak-current-info
-Caught emacspeak-m-player-speak-mode-line
-Caught emacspeak-m-player-url
-Caught emacspeak-m-player-volume-change
-Caught emacspeak-m-player-volume-down
-Caught emacspeak-m-player-volume-up
-Caught emacspeak-m-player-youtube-player
-Caught emacspeak-multimedia
+@c Caught emacspeak-m-player-add-equalizer
+
+@c Caught emacspeak-m-player-add-filter
+
+@c Caught emacspeak-m-player-alt-src-step
+
+@c Caught emacspeak-m-player-backward-10min
+
+@c Caught emacspeak-m-player-backward-10s
+
+@c Caught emacspeak-m-player-backward-1min
+
+@c Caught emacspeak-m-player-balance
+
+@c Caught emacspeak-m-player-beginning-of-track
+
+@c Caught emacspeak-m-player-bind-accelerator
+
+@c Caught emacspeak-m-player-command
+
+@c Caught emacspeak-m-player-customize-options
+
+@c Caught emacspeak-m-player-display-position
+
+@c Caught emacspeak-m-player-double-speed
+
+@c Caught emacspeak-m-player-end-of-track
+
+@c Caught emacspeak-m-player-equalizer-control
+
+@c Caught emacspeak-m-player-faster
+
+@c Caught emacspeak-m-player-forward-10min
+
+@c Caught emacspeak-m-player-forward-10s
+
+@c Caught emacspeak-m-player-forward-1min
+
+@c Caught emacspeak-m-player-get-length
+
+@c Caught emacspeak-m-player-half-speed
+
+@c Caught emacspeak-m-player-load
+
+@c Caught emacspeak-m-player-load-file
+
+@c Caught emacspeak-m-player-load-playlist
+
+@c Caught emacspeak-m-player-mode
+
+@c Caught emacspeak-m-player-next-track
+
+@c Caught emacspeak-m-player-pause
+
+@c Caught emacspeak-m-player-play-tracks-jump
+
+@c Caught emacspeak-m-player-play-tree-up
+
+@c Caught emacspeak-m-player-previous-track
+
+@c Caught emacspeak-m-player-quit
+
+@c Caught emacspeak-m-player-reset-options
+
+@c Caught emacspeak-m-player-reset-speed
+
+@c Caught emacspeak-m-player-resume
+
+@c Caught emacspeak-m-player-scale-speed
+
+@c Caught emacspeak-m-player-seek-absolute
+
+@c Caught emacspeak-m-player-seek-relative
+
+@c Caught emacspeak-m-player-shuffle
+
+@c Caught emacspeak-m-player-slave-command
+
+@c Caught emacspeak-m-player-slower
+
+@c Caught emacspeak-m-player-speak-current-info
+
+@c Caught emacspeak-m-player-speak-mode-line
+
+@c Caught emacspeak-m-player-url
+
+@c Caught emacspeak-m-player-volume-change
+
+@c Caught emacspeak-m-player-volume-down
+
+@c Caught emacspeak-m-player-volume-up
+
+@c Caught emacspeak-m-player-youtube-player
+
+@c Caught emacspeak-multimedia
 
 @node emacspeak-madplay
 @section emacspeak-madplay
@@ -1021,11 +1367,15 @@ madplay navigation commands  work via single keystrokes.
 Automatically generated documentation
 for commands defined in module  emacspeak-madplay.
 
-Caught emacspeak-aumix
-Caught emacspeak-madplay
-Caught emacspeak-madplay-madplay-call-command
-Caught emacspeak-madplay-madplay-command
-Caught emacspeak-madplay-mode
+@c Caught emacspeak-aumix
+
+@c Caught emacspeak-madplay
+
+@c Caught emacspeak-madplay-madplay-call-command
+
+@c Caught emacspeak-madplay-madplay-command
+
+@c Caught emacspeak-madplay-mode
 
 @node emacspeak-man
 @section emacspeak-man
@@ -1035,8 +1385,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-man.
 
-Caught emacspeak-man-browse-man-page
-Caught emacspeak-man-speak-this-section
+@c Caught emacspeak-man-browse-man-page
+
+@c Caught emacspeak-man-speak-this-section
 
 @node emacspeak-mpg123
 @section emacspeak-mpg123
@@ -1048,15 +1399,23 @@ MPG123 is an MP3 player.
 Automatically generated documentation
 for commands defined in module  emacspeak-mpg123.
 
-Caught emacspeak-mp3-playlist-play
-Caught emacspeak-mp3-playlist-skip
-Caught emacspeak-mp3-playlist-stop
-Caught emacspeak-mpg123-backward-minute
-Caught emacspeak-mpg123-forward-minute
-Caught emacspeak-mpg123-speak-current-time
-Caught emacspeak-mpg123-speak-filename
-Caught emacspeak-mpg123-speak-length
-Caught emacspeak-mpg123-speak-title
+@c Caught emacspeak-mp3-playlist-play
+
+@c Caught emacspeak-mp3-playlist-skip
+
+@c Caught emacspeak-mp3-playlist-stop
+
+@c Caught emacspeak-mpg123-backward-minute
+
+@c Caught emacspeak-mpg123-forward-minute
+
+@c Caught emacspeak-mpg123-speak-current-time
+
+@c Caught emacspeak-mpg123-speak-filename
+
+@c Caught emacspeak-mpg123-speak-length
+
+@c Caught emacspeak-mpg123-speak-title
 
 @node emacspeak-npr
 @section emacspeak-npr
@@ -1071,9 +1430,11 @@ For now, users will need to get their own API key
 Automatically generated documentation
 for commands defined in module  emacspeak-npr.
 
-Caught emacspeak-npr-listing
-Caught emacspeak-npr-listing-url-executor
-Caught emacspeak-npr-view
+@c Caught emacspeak-npr-listing
+
+@c Caught emacspeak-npr-listing-url-executor
+
+@c Caught emacspeak-npr-view
 
 @node emacspeak-ocr
 @section emacspeak-ocr
@@ -1095,24 +1456,41 @@ is named "ocr"
 Automatically generated documentation
 for commands defined in module  emacspeak-ocr.
 
-Caught emacspeak-ocr
-Caught emacspeak-ocr-backward-page
-Caught emacspeak-ocr-customize
-Caught emacspeak-ocr-flipflop-and-recognize-image
-Caught emacspeak-ocr-forward-page
-Caught emacspeak-ocr-mode
-Caught emacspeak-ocr-name-document
-Caught emacspeak-ocr-open-working-directory
-Caught emacspeak-ocr-page
-Caught emacspeak-ocr-read-current-page
-Caught emacspeak-ocr-recognize-image
-Caught emacspeak-ocr-save-current-page
-Caught emacspeak-ocr-scan-and-recognize
-Caught emacspeak-ocr-scan-image
-Caught emacspeak-ocr-scan-photo
-Caught emacspeak-ocr-set-compress-image-options
-Caught emacspeak-ocr-set-scan-image-options
-Caught emacspeak-ocr-write-document
+@c Caught emacspeak-ocr
+
+@c Caught emacspeak-ocr-backward-page
+
+@c Caught emacspeak-ocr-customize
+
+@c Caught emacspeak-ocr-flipflop-and-recognize-image
+
+@c Caught emacspeak-ocr-forward-page
+
+@c Caught emacspeak-ocr-mode
+
+@c Caught emacspeak-ocr-name-document
+
+@c Caught emacspeak-ocr-open-working-directory
+
+@c Caught emacspeak-ocr-page
+
+@c Caught emacspeak-ocr-read-current-page
+
+@c Caught emacspeak-ocr-recognize-image
+
+@c Caught emacspeak-ocr-save-current-page
+
+@c Caught emacspeak-ocr-scan-and-recognize
+
+@c Caught emacspeak-ocr-scan-image
+
+@c Caught emacspeak-ocr-scan-photo
+
+@c Caught emacspeak-ocr-set-compress-image-options
+
+@c Caught emacspeak-ocr-set-scan-image-options
+
+@c Caught emacspeak-ocr-write-document
 
 @node emacspeak-outline
 @section emacspeak-outline
@@ -1123,11 +1501,15 @@ Provide additional advice to outline-mode
 Automatically generated documentation
 for commands defined in module  emacspeak-outline.
 
-Caught emacspeak-outline-speak-backward-heading
-Caught emacspeak-outline-speak-forward-heading
-Caught emacspeak-outline-speak-next-heading
-Caught emacspeak-outline-speak-previous-heading
-Caught emacspeak-outline-speak-this-heading
+@c Caught emacspeak-outline-speak-backward-heading
+
+@c Caught emacspeak-outline-speak-forward-heading
+
+@c Caught emacspeak-outline-speak-next-heading
+
+@c Caught emacspeak-outline-speak-previous-heading
+
+@c Caught emacspeak-outline-speak-this-heading
 
 @node emacspeak-pianobar
 @section emacspeak-pianobar
@@ -1145,10 +1527,13 @@ This module speech-enables Pianobar and enhances it for the Complete Audio Deskt
 Automatically generated documentation
 for commands defined in module  emacspeak-pianobar.
 
-Caught emacspeak-pianobar
-Caught emacspeak-pianobar-command
-Caught emacspeak-pianobar-electric-mode-toggle
-Caught emacspeak-pianobar-switch-to-preset
+@c Caught emacspeak-pianobar
+
+@c Caught emacspeak-pianobar-command
+
+@c Caught emacspeak-pianobar-electric-mode-toggle
+
+@c Caught emacspeak-pianobar-switch-to-preset
 
 @node emacspeak-pronounce
 @section emacspeak-pronounce
@@ -1172,17 +1557,27 @@ lists for a given file.
 Automatically generated documentation
 for commands defined in module  emacspeak-pronounce.
 
-Caught emacspeak-pronounce-clear-dictionaries
-Caught emacspeak-pronounce-define-local-pronunciation
-Caught emacspeak-pronounce-define-pronunciation
-Caught emacspeak-pronounce-define-template-pronunciation
-Caught emacspeak-pronounce-dispatch
-Caught emacspeak-pronounce-edit-pronunciations
-Caught emacspeak-pronounce-load-dictionaries
-Caught emacspeak-pronounce-refresh-pronunciations
-Caught emacspeak-pronounce-save-dictionaries
-Caught emacspeak-pronounce-toggle-use-of-dictionaries
-Caught emacspeak-pronounce-yank-word
+@c Caught emacspeak-pronounce-clear-dictionaries
+
+@c Caught emacspeak-pronounce-define-local-pronunciation
+
+@c Caught emacspeak-pronounce-define-pronunciation
+
+@c Caught emacspeak-pronounce-define-template-pronunciation
+
+@c Caught emacspeak-pronounce-dispatch
+
+@c Caught emacspeak-pronounce-edit-pronunciations
+
+@c Caught emacspeak-pronounce-load-dictionaries
+
+@c Caught emacspeak-pronounce-refresh-pronunciations
+
+@c Caught emacspeak-pronounce-save-dictionaries
+
+@c Caught emacspeak-pronounce-toggle-use-of-dictionaries
+
+@c Caught emacspeak-pronounce-yank-word
 
 @node emacspeak-redefine
 @section emacspeak-redefine
@@ -1192,9 +1587,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
-Caught emacspeak-backward-char
-Caught emacspeak-forward-char
-Caught emacspeak-self-insert-command
+@c Caught emacspeak-backward-char
+
+@c Caught emacspeak-forward-char
+
+@c Caught emacspeak-self-insert-command
 
 @node emacspeak-remote
 @section emacspeak-remote
@@ -1204,12 +1601,17 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-remote.
 
-Caught emacspeak-remote-connect-to-server
-Caught emacspeak-remote-edit-current-remote-hostname
-Caught emacspeak-remote-home
-Caught emacspeak-remote-quick-connect-to-server
-Caught emacspeak-remote-quick-connect-via-ssh
-Caught emacspeak-remote-ssh-to-server
+@c Caught emacspeak-remote-connect-to-server
+
+@c Caught emacspeak-remote-edit-current-remote-hostname
+
+@c Caught emacspeak-remote-home
+
+@c Caught emacspeak-remote-quick-connect-to-server
+
+@c Caught emacspeak-remote-quick-connect-via-ssh
+
+@c Caught emacspeak-remote-ssh-to-server
 
 @node emacspeak-rmail
 @section emacspeak-rmail
@@ -1219,8 +1621,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-rmail.
 
-Caught emacspeak-rmail-speak-current-message-labels
-Caught emacspeak-rmail-summarize-current-message
+@c Caught emacspeak-rmail-speak-current-message-labels
+
+@c Caught emacspeak-rmail-summarize-current-message
 
 @node emacspeak-solitaire
 @section emacspeak-solitaire
@@ -1230,9 +1633,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-solitaire.
 
-Caught emacspeak-solitaire-show-column
-Caught emacspeak-solitaire-show-row
-Caught emacspeak-solitaire-speak-coordinates
+@c Caught emacspeak-solitaire-show-column
+
+@c Caught emacspeak-solitaire-show-row
+
+@c Caught emacspeak-solitaire-speak-coordinates
 
 @node emacspeak-sounds
 @section emacspeak-sounds
@@ -1261,13 +1666,19 @@ appropriate subdirectories of emacspeak-sounds-directory
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
 
-Caught emacspeak-audio-setup
-Caught emacspeak-play-all-icons
-Caught emacspeak-set-auditory-icon-player
-Caught emacspeak-sounds-reset-local-player
-Caught emacspeak-sounds-reset-sound
-Caught emacspeak-sounds-select-theme
-Caught emacspeak-toggle-auditory-icons
+@c Caught emacspeak-audio-setup
+
+@c Caught emacspeak-play-all-icons
+
+@c Caught emacspeak-set-auditory-icon-player
+
+@c Caught emacspeak-sounds-reset-local-player
+
+@c Caught emacspeak-sounds-reset-sound
+
+@c Caught emacspeak-sounds-select-theme
+
+@c Caught emacspeak-toggle-auditory-icons
 
 @node emacspeak-speak
 @section emacspeak-speak
@@ -1281,117 +1692,227 @@ from becoming dependent on the speech server modules
 Automatically generated documentation
 for commands defined in module  emacspeak-speak.
 
-Caught emacspeak-blink-matching-open
-Caught emacspeak-completion-pick-completion
-Caught emacspeak-completions-move-to-completion-group
-Caught emacspeak-dial-dtk
-Caught emacspeak-execute-repeatedly
-Caught emacspeak-goto-percent
-Caught emacspeak-mark-backward-mark
-Caught emacspeak-owindow-next-line
-Caught emacspeak-owindow-previous-line
-Caught emacspeak-owindow-scroll-down
-Caught emacspeak-owindow-scroll-up
-Caught emacspeak-owindow-speak-line
-Caught emacspeak-read-next-line
-Caught emacspeak-read-next-word
-Caught emacspeak-read-previous-line
-Caught emacspeak-read-previous-word
-Caught emacspeak-search
-Caught emacspeak-shell-command
-Caught emacspeak-silence
-Caught emacspeak-speak-and-skip-extent-upto-char
-Caught emacspeak-speak-and-skip-extent-upto-this-char
-Caught emacspeak-speak-browse-buffer
-Caught emacspeak-speak-buffer
-Caught emacspeak-speak-buffer-filename
-Caught emacspeak-speak-buffer-interactively
-Caught emacspeak-speak-char
-Caught emacspeak-speak-char-name
-Caught emacspeak-speak-completions-if-available
-Caught emacspeak-speak-continuously
-Caught emacspeak-speak-current-column
-Caught emacspeak-speak-current-field
-Caught emacspeak-speak-current-kill
-Caught emacspeak-speak-current-mark
-Caught emacspeak-speak-current-percentage
-Caught emacspeak-speak-current-window
-Caught emacspeak-speak-display-char
-Caught emacspeak-speak-face-interval-and-move
-Caught emacspeak-speak-front-of-buffer
-Caught emacspeak-speak-header-line
-Caught emacspeak-speak-help
-Caught emacspeak-speak-help-interactively
-Caught emacspeak-speak-hostname
-Caught emacspeak-speak-line
-Caught emacspeak-speak-line-interactively
-Caught emacspeak-speak-line-number
-Caught emacspeak-speak-line-set-column-filter
-Caught emacspeak-speak-load-directory-settings
-Caught emacspeak-speak-message-again
-Caught emacspeak-speak-message-at-time
-Caught emacspeak-speak-microseconds-since-epoch
-Caught emacspeak-speak-milliseconds-since-epoch
-Caught emacspeak-speak-minibuffer
-Caught emacspeak-speak-minor-mode-line
-Caught emacspeak-speak-mode-line
-Caught emacspeak-speak-next-face-chunk
-Caught emacspeak-speak-next-field
-Caught emacspeak-speak-next-personality-chunk
-Caught emacspeak-speak-next-window
-Caught emacspeak-speak-other-buffer
-Caught emacspeak-speak-other-window
-Caught emacspeak-speak-page
-Caught emacspeak-speak-page-interactively
-Caught emacspeak-speak-paragraph
-Caught emacspeak-speak-paragraph-interactively
-Caught emacspeak-speak-preceding-char
-Caught emacspeak-speak-predefined-window
-Caught emacspeak-speak-previous-face-chunk
-Caught emacspeak-speak-previous-field
-Caught emacspeak-speak-previous-personality-chunk
-Caught emacspeak-speak-previous-window
-Caught emacspeak-speak-rectangle
-Caught emacspeak-speak-region
-Caught emacspeak-speak-rest-of-buffer
-Caught emacspeak-speak-seconds-since-epoch
-Caught emacspeak-speak-sentence
-Caught emacspeak-speak-set-display-table
-Caught emacspeak-speak-set-mode-punctuations
-Caught emacspeak-speak-sexp
-Caught emacspeak-speak-sexp-interactively
-Caught emacspeak-speak-show-active-network-interfaces
-Caught emacspeak-speak-skim-buffer
-Caught emacspeak-speak-skim-next-paragraph
-Caught emacspeak-speak-skim-paragraph
-Caught emacspeak-speak-spaces-at-point
-Caught emacspeak-speak-spell-current-word
-Caught emacspeak-speak-text-range
-Caught emacspeak-speak-this-face-chunk
-Caught emacspeak-speak-this-personality-chunk
-Caught emacspeak-speak-time
-Caught emacspeak-speak-version
-Caught emacspeak-speak-voice-annotate-paragraphs
-Caught emacspeak-speak-window-information
-Caught emacspeak-speak-word
-Caught emacspeak-speak-word-interactively
-Caught emacspeak-speak-world-clock
-Caught emacspeak-switch-to-reference-buffer
-Caught emacspeak-toggle-action-mode
-Caught emacspeak-toggle-audio-indentation
-Caught emacspeak-toggle-character-echo
-Caught emacspeak-toggle-comint-autospeak
-Caught emacspeak-toggle-header-line
-Caught emacspeak-toggle-line-echo
-Caught emacspeak-toggle-mail-alert
-Caught emacspeak-toggle-show-point
-Caught emacspeak-toggle-speak-line-invert-filter
-Caught emacspeak-toggle-speak-messages
-Caught emacspeak-toggle-word-echo
-Caught emacspeak-use-customized-blink-paren
-Caught emacspeak-voiceify-rectangle
-Caught emacspeak-voiceify-region
-Caught emacspeak-zap-tts
+@c Caught emacspeak-blink-matching-open
+
+@c Caught emacspeak-completion-pick-completion
+
+@c Caught emacspeak-completions-move-to-completion-group
+
+@c Caught emacspeak-dial-dtk
+
+@c Caught emacspeak-execute-repeatedly
+
+@c Caught emacspeak-goto-percent
+
+@c Caught emacspeak-mark-backward-mark
+
+@c Caught emacspeak-owindow-next-line
+
+@c Caught emacspeak-owindow-previous-line
+
+@c Caught emacspeak-owindow-scroll-down
+
+@c Caught emacspeak-owindow-scroll-up
+
+@c Caught emacspeak-owindow-speak-line
+
+@c Caught emacspeak-read-next-line
+
+@c Caught emacspeak-read-next-word
+
+@c Caught emacspeak-read-previous-line
+
+@c Caught emacspeak-read-previous-word
+
+@c Caught emacspeak-search
+
+@c Caught emacspeak-shell-command
+
+@c Caught emacspeak-silence
+
+@c Caught emacspeak-speak-and-skip-extent-upto-char
+
+@c Caught emacspeak-speak-and-skip-extent-upto-this-char
+
+@c Caught emacspeak-speak-browse-buffer
+
+@c Caught emacspeak-speak-buffer
+
+@c Caught emacspeak-speak-buffer-filename
+
+@c Caught emacspeak-speak-buffer-interactively
+
+@c Caught emacspeak-speak-char
+
+@c Caught emacspeak-speak-char-name
+
+@c Caught emacspeak-speak-completions-if-available
+
+@c Caught emacspeak-speak-continuously
+
+@c Caught emacspeak-speak-current-column
+
+@c Caught emacspeak-speak-current-field
+
+@c Caught emacspeak-speak-current-kill
+
+@c Caught emacspeak-speak-current-mark
+
+@c Caught emacspeak-speak-current-percentage
+
+@c Caught emacspeak-speak-current-window
+
+@c Caught emacspeak-speak-display-char
+
+@c Caught emacspeak-speak-face-interval-and-move
+
+@c Caught emacspeak-speak-front-of-buffer
+
+@c Caught emacspeak-speak-header-line
+
+@c Caught emacspeak-speak-help
+
+@c Caught emacspeak-speak-help-interactively
+
+@c Caught emacspeak-speak-hostname
+
+@c Caught emacspeak-speak-line
+
+@c Caught emacspeak-speak-line-interactively
+
+@c Caught emacspeak-speak-line-number
+
+@c Caught emacspeak-speak-line-set-column-filter
+
+@c Caught emacspeak-speak-load-directory-settings
+
+@c Caught emacspeak-speak-message-again
+
+@c Caught emacspeak-speak-message-at-time
+
+@c Caught emacspeak-speak-microseconds-since-epoch
+
+@c Caught emacspeak-speak-milliseconds-since-epoch
+
+@c Caught emacspeak-speak-minibuffer
+
+@c Caught emacspeak-speak-minor-mode-line
+
+@c Caught emacspeak-speak-mode-line
+
+@c Caught emacspeak-speak-next-face-chunk
+
+@c Caught emacspeak-speak-next-field
+
+@c Caught emacspeak-speak-next-personality-chunk
+
+@c Caught emacspeak-speak-next-window
+
+@c Caught emacspeak-speak-other-buffer
+
+@c Caught emacspeak-speak-other-window
+
+@c Caught emacspeak-speak-page
+
+@c Caught emacspeak-speak-page-interactively
+
+@c Caught emacspeak-speak-paragraph
+
+@c Caught emacspeak-speak-paragraph-interactively
+
+@c Caught emacspeak-speak-preceding-char
+
+@c Caught emacspeak-speak-predefined-window
+
+@c Caught emacspeak-speak-previous-face-chunk
+
+@c Caught emacspeak-speak-previous-field
+
+@c Caught emacspeak-speak-previous-personality-chunk
+
+@c Caught emacspeak-speak-previous-window
+
+@c Caught emacspeak-speak-rectangle
+
+@c Caught emacspeak-speak-region
+
+@c Caught emacspeak-speak-rest-of-buffer
+
+@c Caught emacspeak-speak-seconds-since-epoch
+
+@c Caught emacspeak-speak-sentence
+
+@c Caught emacspeak-speak-set-display-table
+
+@c Caught emacspeak-speak-set-mode-punctuations
+
+@c Caught emacspeak-speak-sexp
+
+@c Caught emacspeak-speak-sexp-interactively
+
+@c Caught emacspeak-speak-show-active-network-interfaces
+
+@c Caught emacspeak-speak-skim-buffer
+
+@c Caught emacspeak-speak-skim-next-paragraph
+
+@c Caught emacspeak-speak-skim-paragraph
+
+@c Caught emacspeak-speak-spaces-at-point
+
+@c Caught emacspeak-speak-spell-current-word
+
+@c Caught emacspeak-speak-text-range
+
+@c Caught emacspeak-speak-this-face-chunk
+
+@c Caught emacspeak-speak-this-personality-chunk
+
+@c Caught emacspeak-speak-time
+
+@c Caught emacspeak-speak-version
+
+@c Caught emacspeak-speak-voice-annotate-paragraphs
+
+@c Caught emacspeak-speak-window-information
+
+@c Caught emacspeak-speak-word
+
+@c Caught emacspeak-speak-word-interactively
+
+@c Caught emacspeak-speak-world-clock
+
+@c Caught emacspeak-switch-to-reference-buffer
+
+@c Caught emacspeak-toggle-action-mode
+
+@c Caught emacspeak-toggle-audio-indentation
+
+@c Caught emacspeak-toggle-character-echo
+
+@c Caught emacspeak-toggle-comint-autospeak
+
+@c Caught emacspeak-toggle-header-line
+
+@c Caught emacspeak-toggle-line-echo
+
+@c Caught emacspeak-toggle-mail-alert
+
+@c Caught emacspeak-toggle-show-point
+
+@c Caught emacspeak-toggle-speak-line-invert-filter
+
+@c Caught emacspeak-toggle-speak-messages
+
+@c Caught emacspeak-toggle-word-echo
+
+@c Caught emacspeak-use-customized-blink-paren
+
+@c Caught emacspeak-voiceify-rectangle
+
+@c Caught emacspeak-voiceify-region
+
+@c Caught emacspeak-zap-tts
 
 @node emacspeak-speedbar
 @section emacspeak-speedbar
@@ -1409,8 +1930,9 @@ specific entry point to speedbar
 Automatically generated documentation
 for commands defined in module  emacspeak-speedbar.
 
-Caught emacspeak-speedbar-click
-Caught emacspeak-speedbar-goto-speedbar
+@c Caught emacspeak-speedbar-click
+
+@c Caught emacspeak-speedbar-goto-speedbar
 
 @node emacspeak-sudoku
 @section emacspeak-sudoku
@@ -1424,30 +1946,53 @@ See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback
 Automatically generated documentation
 for commands defined in module  emacspeak-sudoku.
 
-Caught emacspeak-sudoku-board-columns-summarize
-Caught emacspeak-sudoku-board-distribution-summarize
-Caught emacspeak-sudoku-board-rows-summarize
-Caught emacspeak-sudoku-board-sub-squares-summarize
-Caught emacspeak-sudoku-board-summarizer
-Caught emacspeak-sudoku-down-sub-square
-Caught emacspeak-sudoku-erase-current-column
-Caught emacspeak-sudoku-erase-current-row
-Caught emacspeak-sudoku-erase-current-sub-square
-Caught emacspeak-sudoku-hint
-Caught emacspeak-sudoku-history-pop
-Caught emacspeak-sudoku-history-push
-Caught emacspeak-sudoku-how-many-remaining
-Caught emacspeak-sudoku-next-sub-square
-Caught emacspeak-sudoku-previous-sub-square
-Caught emacspeak-sudoku-speak-current-cell-coordinates
-Caught emacspeak-sudoku-speak-current-cell-value
-Caught emacspeak-sudoku-speak-current-column
-Caught emacspeak-sudoku-speak-current-row
-Caught emacspeak-sudoku-speak-current-sub-square
-Caught emacspeak-sudoku-speak-remaining-in-column
-Caught emacspeak-sudoku-speak-remaining-in-row
-Caught emacspeak-sudoku-speak-remaining-in-sub-square
-Caught emacspeak-sudoku-up-sub-square
+@c Caught emacspeak-sudoku-board-columns-summarize
+
+@c Caught emacspeak-sudoku-board-distribution-summarize
+
+@c Caught emacspeak-sudoku-board-rows-summarize
+
+@c Caught emacspeak-sudoku-board-sub-squares-summarize
+
+@c Caught emacspeak-sudoku-board-summarizer
+
+@c Caught emacspeak-sudoku-down-sub-square
+
+@c Caught emacspeak-sudoku-erase-current-column
+
+@c Caught emacspeak-sudoku-erase-current-row
+
+@c Caught emacspeak-sudoku-erase-current-sub-square
+
+@c Caught emacspeak-sudoku-hint
+
+@c Caught emacspeak-sudoku-history-pop
+
+@c Caught emacspeak-sudoku-history-push
+
+@c Caught emacspeak-sudoku-how-many-remaining
+
+@c Caught emacspeak-sudoku-next-sub-square
+
+@c Caught emacspeak-sudoku-previous-sub-square
+
+@c Caught emacspeak-sudoku-speak-current-cell-coordinates
+
+@c Caught emacspeak-sudoku-speak-current-cell-value
+
+@c Caught emacspeak-sudoku-speak-current-column
+
+@c Caught emacspeak-sudoku-speak-current-row
+
+@c Caught emacspeak-sudoku-speak-current-sub-square
+
+@c Caught emacspeak-sudoku-speak-remaining-in-column
+
+@c Caught emacspeak-sudoku-speak-remaining-in-row
+
+@c Caught emacspeak-sudoku-speak-remaining-in-sub-square
+
+@c Caught emacspeak-sudoku-up-sub-square
 
 @node emacspeak-table-ui
 @section emacspeak-table-ui
@@ -1457,40 +2002,73 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-table-ui.
 
-Caught emacspeak-table-copy-current-element-to-kill-ring
-Caught emacspeak-table-copy-current-element-to-register
-Caught emacspeak-table-copy-to-clipboard
-Caught emacspeak-table-display-table-in-region
-Caught emacspeak-table-find-csv-file
-Caught emacspeak-table-find-file
-Caught emacspeak-table-get-entry-with-headers
-Caught emacspeak-table-goto
-Caught emacspeak-table-goto-bottom
-Caught emacspeak-table-goto-left
-Caught emacspeak-table-goto-right
-Caught emacspeak-table-goto-top
-Caught emacspeak-table-next-column
-Caught emacspeak-table-next-row
-Caught emacspeak-table-paste-from-clipboard
-Caught emacspeak-table-previous-column
-Caught emacspeak-table-previous-row
-Caught emacspeak-table-search
-Caught emacspeak-table-search-column
-Caught emacspeak-table-search-headers
-Caught emacspeak-table-search-row
-Caught emacspeak-table-select-automatic-speaking-method
-Caught emacspeak-table-sort-on-current-column
-Caught emacspeak-table-speak-both-headers-and-element
-Caught emacspeak-table-speak-column-filtered
-Caught emacspeak-table-speak-column-header-and-element
-Caught emacspeak-table-speak-coordinates
-Caught emacspeak-table-speak-current-element
-Caught emacspeak-table-speak-dimensions
-Caught emacspeak-table-speak-row-filtered
-Caught emacspeak-table-speak-row-header-and-element
-Caught emacspeak-table-ui-filter-load
-Caught emacspeak-table-ui-filter-save
-Caught emacspeak-table-view-csv-buffer
+@c Caught emacspeak-table-copy-current-element-to-kill-ring
+
+@c Caught emacspeak-table-copy-current-element-to-register
+
+@c Caught emacspeak-table-copy-to-clipboard
+
+@c Caught emacspeak-table-display-table-in-region
+
+@c Caught emacspeak-table-find-csv-file
+
+@c Caught emacspeak-table-find-file
+
+@c Caught emacspeak-table-get-entry-with-headers
+
+@c Caught emacspeak-table-goto
+
+@c Caught emacspeak-table-goto-bottom
+
+@c Caught emacspeak-table-goto-left
+
+@c Caught emacspeak-table-goto-right
+
+@c Caught emacspeak-table-goto-top
+
+@c Caught emacspeak-table-next-column
+
+@c Caught emacspeak-table-next-row
+
+@c Caught emacspeak-table-paste-from-clipboard
+
+@c Caught emacspeak-table-previous-column
+
+@c Caught emacspeak-table-previous-row
+
+@c Caught emacspeak-table-search
+
+@c Caught emacspeak-table-search-column
+
+@c Caught emacspeak-table-search-headers
+
+@c Caught emacspeak-table-search-row
+
+@c Caught emacspeak-table-select-automatic-speaking-method
+
+@c Caught emacspeak-table-sort-on-current-column
+
+@c Caught emacspeak-table-speak-both-headers-and-element
+
+@c Caught emacspeak-table-speak-column-filtered
+
+@c Caught emacspeak-table-speak-column-header-and-element
+
+@c Caught emacspeak-table-speak-coordinates
+
+@c Caught emacspeak-table-speak-current-element
+
+@c Caught emacspeak-table-speak-dimensions
+
+@c Caught emacspeak-table-speak-row-filtered
+
+@c Caught emacspeak-table-speak-row-header-and-element
+
+@c Caught emacspeak-table-ui-filter-load
+
+@c Caught emacspeak-table-ui-filter-save
+
+@c Caught emacspeak-table-view-csv-buffer
 
 @node emacspeak-tabulate
 @section emacspeak-tabulate
@@ -1500,7 +2078,7 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-tabulate.
 
-Caught emacspeak-tabulate-region
+@c Caught emacspeak-tabulate-region
 
 @node emacspeak-tapestry
 @section emacspeak-tapestry
@@ -1510,8 +2088,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-tapestry.
 
-Caught emacspeak-tapestry-describe-tapestry
-Caught emacspeak-tapestry-select-window-by-name
+@c Caught emacspeak-tapestry-describe-tapestry
+
+@c Caught emacspeak-tapestry-select-window-by-name
 
 @node emacspeak-tar
 @section emacspeak-tar
@@ -1521,9 +2100,11 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-tar.
 
-Caught emacspeak-tar-speak-file-date
-Caught emacspeak-tar-speak-file-permissions
-Caught emacspeak-tar-speak-file-size
+@c Caught emacspeak-tar-speak-file-date
+
+@c Caught emacspeak-tar-speak-file-permissions
+
+@c Caught emacspeak-tar-speak-file-size
 
 @node emacspeak-tetris
 @section emacspeak-tetris
@@ -1533,17 +2114,27 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-tetris.
 
-Caught emacspeak-tetris-goto-bottom-row
-Caught emacspeak-tetris-goto-top-row
-Caught emacspeak-tetris-speak-column
-Caught emacspeak-tetris-speak-coordinates
-Caught emacspeak-tetris-speak-current-shape
-Caught emacspeak-tetris-speak-current-shape-and-coordinates
-Caught emacspeak-tetris-speak-next-shape
-Caught emacspeak-tetris-speak-row
-Caught emacspeak-tetris-speak-row-number
-Caught emacspeak-tetris-speak-score
-Caught emacspeak-tetris-speak-x-coordinate
+@c Caught emacspeak-tetris-goto-bottom-row
+
+@c Caught emacspeak-tetris-goto-top-row
+
+@c Caught emacspeak-tetris-speak-column
+
+@c Caught emacspeak-tetris-speak-coordinates
+
+@c Caught emacspeak-tetris-speak-current-shape
+
+@c Caught emacspeak-tetris-speak-current-shape-and-coordinates
+
+@c Caught emacspeak-tetris-speak-next-shape
+
+@c Caught emacspeak-tetris-speak-row
+
+@c Caught emacspeak-tetris-speak-row-number
+
+@c Caught emacspeak-tetris-speak-score
+
+@c Caught emacspeak-tetris-speak-x-coordinate
 
 @node emacspeak-tnt
 @section emacspeak-tnt
@@ -1555,7 +2146,7 @@ client
 Automatically generated documentation
 for commands defined in module  emacspeak-tnt.
 
-Caught emacspeak-tnt-toggle-autospeak
+@c Caught emacspeak-tnt-toggle-autospeak
 
 @node emacspeak-url-template
 @section emacspeak-url-template
@@ -1572,10 +2163,13 @@ that are presently defined.
 Automatically generated documentation
 for commands defined in module  emacspeak-url-template.
 
-Caught emacspeak-url-template-fetch
-Caught emacspeak-url-template-help
-Caught emacspeak-url-template-load
-Caught emacspeak-url-template-save
+@c Caught emacspeak-url-template-fetch
+
+@c Caught emacspeak-url-template-help
+
+@c Caught emacspeak-url-template-load
+
+@c Caught emacspeak-url-template-save
 
 @node emacspeak-view
 @section emacspeak-view
@@ -1585,7 +2179,7 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-view.
 
-Caught emacspeak-view-line-to-top
+@c Caught emacspeak-view-line-to-top
 
 @node emacspeak-vm
 @section emacspeak-vm
@@ -1595,14 +2189,21 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-vm.
 
-Caught emacspeak-vm-browse-message
-Caught emacspeak-vm-catch-up-all-messages
-Caught emacspeak-vm-locate-subject-line
-Caught emacspeak-vm-mode-line
-Caught emacspeak-vm-next-button
-Caught emacspeak-vm-speak-labels
-Caught emacspeak-vm-speak-message
-Caught emacspeak-vm-yank-header
+@c Caught emacspeak-vm-browse-message
+
+@c Caught emacspeak-vm-catch-up-all-messages
+
+@c Caught emacspeak-vm-locate-subject-line
+
+@c Caught emacspeak-vm-mode-line
+
+@c Caught emacspeak-vm-next-button
+
+@c Caught emacspeak-vm-speak-labels
+
+@c Caught emacspeak-vm-speak-message
+
+@c Caught emacspeak-vm-yank-header
 
 @node emacspeak-w3
 @section emacspeak-w3
@@ -1616,22 +2217,37 @@ Emacspeak and ACSS
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
-Caught emacspeak-w3-curl-url-under-point
-Caught emacspeak-w3-customize-base-uri-pronunciation
-Caught emacspeak-w3-do-onclick
-Caught emacspeak-w3-javascript-follow-link
-Caught emacspeak-w3-jump-to-submit
-Caught emacspeak-w3-lynx-url-under-point
-Caught emacspeak-w3-next-block
-Caught emacspeak-w3-next-doc-element
-Caught emacspeak-w3-next-parsed-item
-Caught emacspeak-w3-previous-doc-element
-Caught emacspeak-w3-show-anchor-class
-Caught emacspeak-w3-show-http-headers
-Caught emacspeak-w3-speak-next-block
-Caught emacspeak-w3-speak-next-element
-Caught emacspeak-w3-speak-this-element
-Caught emacspeak-w3-toggle-table-borders
+@c Caught emacspeak-w3-curl-url-under-point
+
+@c Caught emacspeak-w3-customize-base-uri-pronunciation
+
+@c Caught emacspeak-w3-do-onclick
+
+@c Caught emacspeak-w3-javascript-follow-link
+
+@c Caught emacspeak-w3-jump-to-submit
+
+@c Caught emacspeak-w3-lynx-url-under-point
+
+@c Caught emacspeak-w3-next-block
+
+@c Caught emacspeak-w3-next-doc-element
+
+@c Caught emacspeak-w3-next-parsed-item
+
+@c Caught emacspeak-w3-previous-doc-element
+
+@c Caught emacspeak-w3-show-anchor-class
+
+@c Caught emacspeak-w3-show-http-headers
+
+@c Caught emacspeak-w3-speak-next-block
+
+@c Caught emacspeak-w3-speak-next-element
+
+@c Caught emacspeak-w3-speak-this-element
+
+@c Caught emacspeak-w3-toggle-table-borders
 
 @node emacspeak-w3m
 @section emacspeak-w3m
@@ -1641,8 +2257,9 @@ Commentary:
 Automatically generated documentation
 for commands defined in module  emacspeak-w3m.
 
-Caught emacspeak-m-player
-Caught emacspeak-w3m-preview-this-buffer
+@c Caught emacspeak-m-player
+
+@c Caught emacspeak-w3m-preview-this-buffer
 
 @node emacspeak-we
 @section emacspeak-we
@@ -1661,44 +2278,81 @@ abstractions not already covered by browse-url
 Automatically generated documentation
 for commands defined in module  emacspeak-we.
 
-Caught emacspeak-we-class-filter-and-follow
-Caught emacspeak-we-class-filter-and-follow-link
-Caught emacspeak-we-count-matches
-Caught emacspeak-we-count-nested-tables
-Caught emacspeak-we-count-tables
-Caught emacspeak-we-extract-by-class
-Caught emacspeak-we-extract-by-class-list
-Caught emacspeak-we-extract-by-id
-Caught emacspeak-we-extract-by-id-list
-Caught emacspeak-we-extract-by-property
-Caught emacspeak-we-extract-by-role
-Caught emacspeak-we-extract-id-list-text
-Caught emacspeak-we-extract-id-text
-Caught emacspeak-we-extract-matching-urls
-Caught emacspeak-we-extract-media-streams
-Caught emacspeak-we-extract-media-streams-under-point
-Caught emacspeak-we-extract-nested-table
-Caught emacspeak-we-extract-nested-table-list
-Caught emacspeak-we-extract-print-streams
-Caught emacspeak-we-extract-table-by-match
-Caught emacspeak-we-extract-table-by-position
-Caught emacspeak-we-extract-tables-by-match-list
-Caught emacspeak-we-extract-tables-by-position-list
-Caught emacspeak-we-follow-and-extract-main
-Caught emacspeak-we-follow-and-filter-by-id
-Caught emacspeak-we-junk-by-class
-Caught emacspeak-we-junk-by-class-list
-Caught emacspeak-we-style-filter
-Caught emacspeak-we-toggle-xsl-keep-result
-Caught emacspeak-we-url-expand-and-execute
-Caught emacspeak-we-url-rewrite-and-follow
-Caught emacspeak-we-xpath-filter-and-follow
-Caught emacspeak-we-xpath-junk-and-follow
-Caught emacspeak-we-xsl-toggle
-Caught emacspeak-we-xslt-apply
-Caught emacspeak-we-xslt-filter
-Caught emacspeak-we-xslt-junk
-Caught emacspeak-we-xslt-select
+@c Caught emacspeak-we-class-filter-and-follow
+
+@c Caught emacspeak-we-class-filter-and-follow-link
+
+@c Caught emacspeak-we-count-matches
+
+@c Caught emacspeak-we-count-nested-tables
+
+@c Caught emacspeak-we-count-tables
+
+@c Caught emacspeak-we-extract-by-class
+
+@c Caught emacspeak-we-extract-by-class-list
+
+@c Caught emacspeak-we-extract-by-id
+
+@c Caught emacspeak-we-extract-by-id-list
+
+@c Caught emacspeak-we-extract-by-property
+
+@c Caught emacspeak-we-extract-by-role
+
+@c Caught emacspeak-we-extract-id-list-text
+
+@c Caught emacspeak-we-extract-id-text
+
+@c Caught emacspeak-we-extract-matching-urls
+
+@c Caught emacspeak-we-extract-media-streams
+
+@c Caught emacspeak-we-extract-media-streams-under-point
+
+@c Caught emacspeak-we-extract-nested-table
+
+@c Caught emacspeak-we-extract-nested-table-list
+
+@c Caught emacspeak-we-extract-print-streams
+
+@c Caught emacspeak-we-extract-table-by-match
+
+@c Caught emacspeak-we-extract-table-by-position
+
+@c Caught emacspeak-we-extract-tables-by-match-list
+
+@c Caught emacspeak-we-extract-tables-by-position-list
+
+@c Caught emacspeak-we-follow-and-extract-main
+
+@c Caught emacspeak-we-follow-and-filter-by-id
+
+@c Caught emacspeak-we-junk-by-class
+
+@c Caught emacspeak-we-junk-by-class-list
+
+@c Caught emacspeak-we-style-filter
+
+@c Caught emacspeak-we-toggle-xsl-keep-result
+
+@c Caught emacspeak-we-url-expand-and-execute
+
+@c Caught emacspeak-we-url-rewrite-and-follow
+
+@c Caught emacspeak-we-xpath-filter-and-follow
+
+@c Caught emacspeak-we-xpath-junk-and-follow
+
+@c Caught emacspeak-we-xsl-toggle
+
+@c Caught emacspeak-we-xslt-apply
+
+@c Caught emacspeak-we-xslt-filter
+
+@c Caught emacspeak-we-xslt-junk
+
+@c Caught emacspeak-we-xslt-select
 
 @node emacspeak-websearch
 @section emacspeak-websearch
@@ -1709,50 +2363,93 @@ This module provides utility functions for searching the WWW
 Automatically generated documentation
 for commands defined in module  emacspeak-websearch.
 
-Caught emacspeak-websearch-accessible-google
-Caught emacspeak-websearch-amazon-search
-Caught emacspeak-websearch-ask-jeeves
-Caught emacspeak-websearch-biblio-search
-Caught emacspeak-websearch-blinkx-search
-Caught emacspeak-websearch-citeseer-search
-Caught emacspeak-websearch-company-news
-Caught emacspeak-websearch-cpan-search
-Caught emacspeak-websearch-ctan-search
-Caught emacspeak-websearch-dispatch
-Caught emacspeak-websearch-display-form
-Caught emacspeak-websearch-ebay-search
-Caught emacspeak-websearch-exchange-rate-convertor
-Caught emacspeak-websearch-foldoc-search
-Caught emacspeak-websearch-freshmeat-search
-Caught emacspeak-websearch-google
-Caught emacspeak-websearch-google-advanced
-Caught emacspeak-websearch-google-feeling-lucky
-Caught emacspeak-websearch-google-mobile
-Caught emacspeak-websearch-google-news
-Caught emacspeak-websearch-google-sak
-Caught emacspeak-websearch-google-search-in-date-range
-Caught emacspeak-websearch-google-specialize
-Caught emacspeak-websearch-google-usenet-advanced
-Caught emacspeak-websearch-gutenberg
-Caught emacspeak-websearch-help
-Caught emacspeak-websearch-map-yahoo-directions-search
-Caught emacspeak-websearch-merriam-webster-search
-Caught emacspeak-websearch-news-yahoo
-Caught emacspeak-websearch-open-directory-search
-Caught emacspeak-websearch-quotes-yahoo-search
-Caught emacspeak-websearch-recorded-books-search
-Caught emacspeak-websearch-rpm-find
-Caught emacspeak-websearch-software-search
-Caught emacspeak-websearch-sourceforge-search
-Caught emacspeak-websearch-swik-search
-Caught emacspeak-websearch-usenet
-Caught emacspeak-websearch-usenet-search
-Caught emacspeak-websearch-w3c-search
-Caught emacspeak-websearch-weather
-Caught emacspeak-websearch-wikipedia-search
-Caught emacspeak-websearch-yahoo
-Caught emacspeak-websearch-yahoo-exchange-rate-convertor
-Caught emacspeak-websearch-yahoo-historical-chart
+@c Caught emacspeak-websearch-accessible-google
+
+@c Caught emacspeak-websearch-amazon-search
+
+@c Caught emacspeak-websearch-ask-jeeves
+
+@c Caught emacspeak-websearch-biblio-search
+
+@c Caught emacspeak-websearch-blinkx-search
+
+@c Caught emacspeak-websearch-citeseer-search
+
+@c Caught emacspeak-websearch-company-news
+
+@c Caught emacspeak-websearch-cpan-search
+
+@c Caught emacspeak-websearch-ctan-search
+
+@c Caught emacspeak-websearch-dispatch
+
+@c Caught emacspeak-websearch-display-form
+
+@c Caught emacspeak-websearch-ebay-search
+
+@c Caught emacspeak-websearch-exchange-rate-convertor
+
+@c Caught emacspeak-websearch-foldoc-search
+
+@c Caught emacspeak-websearch-freshmeat-search
+
+@c Caught emacspeak-websearch-google
+
+@c Caught emacspeak-websearch-google-advanced
+
+@c Caught emacspeak-websearch-google-feeling-lucky
+
+@c Caught emacspeak-websearch-google-mobile
+
+@c Caught emacspeak-websearch-google-news
+
+@c Caught emacspeak-websearch-google-sak
+
+@c Caught emacspeak-websearch-google-search-in-date-range
+
+@c Caught emacspeak-websearch-google-specialize
+
+@c Caught emacspeak-websearch-google-usenet-advanced
+
+@c Caught emacspeak-websearch-gutenberg
+
+@c Caught emacspeak-websearch-help
+
+@c Caught emacspeak-websearch-map-yahoo-directions-search
+
+@c Caught emacspeak-websearch-merriam-webster-search
+
+@c Caught emacspeak-websearch-news-yahoo
+
+@c Caught emacspeak-websearch-open-directory-search
+
+@c Caught emacspeak-websearch-quotes-yahoo-search
+
+@c Caught emacspeak-websearch-recorded-books-search
+
+@c Caught emacspeak-websearch-rpm-find
+
+@c Caught emacspeak-websearch-software-search
+
+@c Caught emacspeak-websearch-sourceforge-search
+
+@c Caught emacspeak-websearch-swik-search
+
+@c Caught emacspeak-websearch-usenet
+
+@c Caught emacspeak-websearch-usenet-search
+
+@c Caught emacspeak-websearch-w3c-search
+
+@c Caught emacspeak-websearch-weather
+
+@c Caught emacspeak-websearch-wikipedia-search
+
+@c Caught emacspeak-websearch-yahoo
+
+@c Caught emacspeak-websearch-yahoo-exchange-rate-convertor
+
+@c Caught emacspeak-websearch-yahoo-historical-chart
 
 @node emacspeak-webspace
 @section emacspeak-webspace
@@ -1763,19 +2460,31 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 Automatically generated documentation
 for commands defined in module  emacspeak-webspace.
 
-Caught emacspeak-webspace-feed-reader
-Caught emacspeak-webspace-filter
-Caught emacspeak-webspace-freebase-search
-Caught emacspeak-webspace-google
-Caught emacspeak-webspace-headlines
-Caught emacspeak-webspace-headlines-browse
-Caught emacspeak-webspace-headlines-update
-Caught emacspeak-webspace-mode
-Caught emacspeak-webspace-open
-Caught emacspeak-webspace-transcode
-Caught emacspeak-webspace-weather
-Caught emacspeak-webspace-weather-update
-Caught emacspeak-webspace-yank-link
+@c Caught emacspeak-webspace-feed-reader
+
+@c Caught emacspeak-webspace-filter
+
+@c Caught emacspeak-webspace-freebase-search
+
+@c Caught emacspeak-webspace-google
+
+@c Caught emacspeak-webspace-headlines
+
+@c Caught emacspeak-webspace-headlines-browse
+
+@c Caught emacspeak-webspace-headlines-update
+
+@c Caught emacspeak-webspace-mode
+
+@c Caught emacspeak-webspace-open
+
+@c Caught emacspeak-webspace-transcode
+
+@c Caught emacspeak-webspace-weather
+
+@c Caught emacspeak-webspace-weather-update
+
+@c Caught emacspeak-webspace-yank-link
 
 @node emacspeak-webutils
 @section emacspeak-webutils
@@ -1788,15 +2497,23 @@ and emacspeak-w3m.el
 Automatically generated documentation
 for commands defined in module  emacspeak-webutils.
 
-Caught emacspeak-webutils-google-extract-from-cache
-Caught emacspeak-webutils-google-on-this-site
-Caught emacspeak-webutils-google-similar-to-this-page
-Caught emacspeak-webutils-google-who-links-to-this-page
-Caught emacspeak-webutils-jump-to-title-in-content
-Caught emacspeak-webutils-open-in-other-browser
-Caught emacspeak-webutils-play-media-at-point
-Caught emacspeak-webutils-transcode-current-url-via-google
-Caught emacspeak-webutils-transcode-via-google
+@c Caught emacspeak-webutils-google-extract-from-cache
+
+@c Caught emacspeak-webutils-google-on-this-site
+
+@c Caught emacspeak-webutils-google-similar-to-this-page
+
+@c Caught emacspeak-webutils-google-who-links-to-this-page
+
+@c Caught emacspeak-webutils-jump-to-title-in-content
+
+@c Caught emacspeak-webutils-open-in-other-browser
+
+@c Caught emacspeak-webutils-play-media-at-point
+
+@c Caught emacspeak-webutils-transcode-current-url-via-google
+
+@c Caught emacspeak-webutils-transcode-via-google
 
 @node emacspeak-widget
 @section emacspeak-widget
@@ -1808,11 +2525,15 @@ widgets.
 Automatically generated documentation
 for commands defined in module  emacspeak-widget.
 
-Caught emacspeak-widget-browse-widget-interactively
-Caught emacspeak-widget-help
-Caught emacspeak-widget-summarize-parent
-Caught emacspeak-widget-summarize-widget-under-point
-Caught emacspeak-widget-update-from-minibuffer
+@c Caught emacspeak-widget-browse-widget-interactively
+
+@c Caught emacspeak-widget-help
+
+@c Caught emacspeak-widget-summarize-parent
+
+@c Caught emacspeak-widget-summarize-widget-under-point
+
+@c Caught emacspeak-widget-update-from-minibuffer
 
 @node emacspeak-wizards
 @section emacspeak-wizards
@@ -1823,146 +2544,285 @@ Contains various wizards for the Emacspeak desktop.
 Automatically generated documentation
 for commands defined in module  emacspeak-wizards.
 
-Caught emacspeak-annotate-add-annotation
-Caught emacspeak-clipboard-copy
-Caught emacspeak-clipboard-paste
-Caught emacspeak-copy-current-file
-Caught emacspeak-curl
-Caught emacspeak-customize
-Caught emacspeak-customize-personal-settings
-Caught emacspeak-cvs-berlios-get-project-snapshot
-Caught emacspeak-cvs-get-anonymous
-Caught emacspeak-cvs-gnu-get-project-snapshot
-Caught emacspeak-cvs-sf-get-project-snapshot
-Caught emacspeak-emergency-tts-restart
-Caught emacspeak-frame-label-or-switch-to-labelled-frame
-Caught emacspeak-frame-read-frame-label
-Caught emacspeak-generate-documentation
-Caught emacspeak-generate-texinfo-command-documentation
-Caught emacspeak-generate-texinfo-option-documentation
-Caught emacspeak-kill-buffer-quietly
-Caught emacspeak-learn-emacs-mode
-Caught emacspeak-link-current-file
-Caught emacspeak-links
-Caught emacspeak-lynx
-Caught emacspeak-next-frame-or-buffer
-Caught emacspeak-previous-frame-or-buffer
-Caught emacspeak-root
-Caught emacspeak-select-this-buffer-next-display
-Caught emacspeak-select-this-buffer-other-window-display
-Caught emacspeak-select-this-buffer-previous-display
-Caught emacspeak-show-personality-at-point
-Caught emacspeak-show-property-at-point
-Caught emacspeak-skip-blank-lines-backward
-Caught emacspeak-skip-blank-lines-forward
-Caught emacspeak-speak-browse-linux-howto
-Caught emacspeak-speak-popup-messages
-Caught emacspeak-speak-run-shell-command
-Caught emacspeak-speak-telephone-directory
-Caught emacspeak-speak-this-buffer-next-display
-Caught emacspeak-speak-this-buffer-other-window-display
-Caught emacspeak-speak-this-buffer-previous-display
-Caught emacspeak-ssh-tts-restart
-Caught emacspeak-sudo
-Caught emacspeak-sudo-edit
-Caught emacspeak-switch-to-previous-buffer
-Caught emacspeak-symlink-current-file
-Caught emacspeak-view-emacspeak-doc
-Caught emacspeak-view-emacspeak-faq
-Caught emacspeak-view-emacspeak-news
-Caught emacspeak-view-emacspeak-tips
-Caught emacspeak-wizards-add-autoload-cookies
-Caught emacspeak-wizards-braille
-Caught emacspeak-wizards-byte-compile-current-buffer
-Caught emacspeak-wizards-cleanup-shell-path
-Caught emacspeak-wizards-comma-at-end-of-word
-Caught emacspeak-wizards-count-slides-in-region
-Caught emacspeak-wizards-cycle-browser
-Caught emacspeak-wizards-cycle-to-next-buffer
-Caught emacspeak-wizards-display-pod-as-manpage
-Caught emacspeak-wizards-dvi-display
-Caught emacspeak-wizards-dvi-mode
-Caught emacspeak-wizards-edit-file-as-root
-Caught emacspeak-wizards-end-of-word
-Caught emacspeak-wizards-enumerate-matching-commands
-Caught emacspeak-wizards-enumerate-matching-faces
-Caught emacspeak-wizards-enumerate-obsolete-faces
-Caught emacspeak-wizards-enumerate-uncovered-commands
-Caught emacspeak-wizards-enumerate-unmapped-faces
-Caught emacspeak-wizards-espeak-region
-Caught emacspeak-wizards-espeak-string
-Caught emacspeak-wizards-eww-buffer-list
-Caught emacspeak-wizards-find-emacspeak-source
-Caught emacspeak-wizards-find-file-as-root
-Caught emacspeak-wizards-find-grep
-Caught emacspeak-wizards-find-longest-line-in-region
-Caught emacspeak-wizards-find-longest-paragraph-in-region
-Caught emacspeak-wizards-find-shortest-line-in-region
-Caught emacspeak-wizards-finder-find
-Caught emacspeak-wizards-finder-mode
-Caught emacspeak-wizards-fix-read-only-text
-Caught emacspeak-wizards-fix-typo
-Caught emacspeak-wizards-generate-finder
-Caught emacspeak-wizards-generate-voice-sampler
-Caught emacspeak-wizards-get-table-content-from-file
-Caught emacspeak-wizards-get-table-content-from-url
-Caught emacspeak-wizards-google-hits
-Caught emacspeak-wizards-google-transcode
-Caught emacspeak-wizards-how-many-matches
-Caught emacspeak-wizards-i810-display-status
-Caught emacspeak-wizards-js
-Caught emacspeak-wizards-lacheck-buffer-file
-Caught emacspeak-wizards-load-current-file
-Caught emacspeak-wizards-move-and-speak
-Caught emacspeak-wizards-next-bullet
-Caught emacspeak-wizards-next-interactive-defun
-Caught emacspeak-wizards-next-shell
-Caught emacspeak-wizards-occur-header-lines
-Caught emacspeak-wizards-pdf-open
-Caught emacspeak-wizards-popup-input-buffer
-Caught emacspeak-wizards-portfolio-quotes
-Caught emacspeak-wizards-ppp-toggle
-Caught emacspeak-wizards-ppt-display
-Caught emacspeak-wizards-ppt-mode
-Caught emacspeak-wizards-previous-bullet
-Caught emacspeak-wizards-previous-shell
-Caught emacspeak-wizards-refresh-shell-history
-Caught emacspeak-wizards-rivo
-Caught emacspeak-wizards-rpm-query-in-dired
-Caught emacspeak-wizards-shell
-Caught emacspeak-wizards-shell-toggle
-Caught emacspeak-wizards-show-commentary
-Caught emacspeak-wizards-show-environment-variable
-Caught emacspeak-wizards-show-eval-result
-Caught emacspeak-wizards-show-face
-Caught emacspeak-wizards-show-memory-used
-Caught emacspeak-wizards-speak-iso-datetime
-Caught emacspeak-wizards-spot-words
-Caught emacspeak-wizards-squeeze-blanks
-Caught emacspeak-wizards-sunrise-sunset
-Caught emacspeak-wizards-switch-shell
-Caught emacspeak-wizards-term
-Caught emacspeak-wizards-terminal
-Caught emacspeak-wizards-tex-tie-current-word
-Caught emacspeak-wizards-thanks-mail-signature
-Caught emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
-Caught emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
-Caught emacspeak-wizards-tpctl-display-status
-Caught emacspeak-wizards-tramp-open-location
-Caught emacspeak-wizards-unhex-uri
-Caught emacspeak-wizards-units
-Caught emacspeak-wizards-vc-n
-Caught emacspeak-wizards-vc-viewer
-Caught emacspeak-wizards-vc-viewer-mode
-Caught emacspeak-wizards-vc-viewer-refresh
-Caught emacspeak-wizards-vi-as-su-file
-Caught emacspeak-wizards-view-buffers-filtered-by-mode
-Caught emacspeak-wizards-view-buffers-filtered-by-this-mode
-Caught emacspeak-wizards-view-url
-Caught emacspeak-wizards-voice-sampler
-Caught emacspeak-wizards-vpn-toggle
-Caught emacspeak-wizards-xl-display
-Caught emacspeak-wizards-xl-mode
+@c Caught emacspeak-annotate-add-annotation
+
+@c Caught emacspeak-clipboard-copy
+
+@c Caught emacspeak-clipboard-paste
+
+@c Caught emacspeak-copy-current-file
+
+@c Caught emacspeak-curl
+
+@c Caught emacspeak-customize
+
+@c Caught emacspeak-customize-personal-settings
+
+@c Caught emacspeak-cvs-berlios-get-project-snapshot
+
+@c Caught emacspeak-cvs-get-anonymous
+
+@c Caught emacspeak-cvs-gnu-get-project-snapshot
+
+@c Caught emacspeak-cvs-sf-get-project-snapshot
+
+@c Caught emacspeak-emergency-tts-restart
+
+@c Caught emacspeak-frame-label-or-switch-to-labelled-frame
+
+@c Caught emacspeak-frame-read-frame-label
+
+@c Caught emacspeak-generate-documentation
+
+@c Caught emacspeak-generate-texinfo-command-documentation
+
+@c Caught emacspeak-generate-texinfo-option-documentation
+
+@c Caught emacspeak-kill-buffer-quietly
+
+@c Caught emacspeak-learn-emacs-mode
+
+@c Caught emacspeak-link-current-file
+
+@c Caught emacspeak-links
+
+@c Caught emacspeak-lynx
+
+@c Caught emacspeak-next-frame-or-buffer
+
+@c Caught emacspeak-previous-frame-or-buffer
+
+@c Caught emacspeak-root
+
+@c Caught emacspeak-select-this-buffer-next-display
+
+@c Caught emacspeak-select-this-buffer-other-window-display
+
+@c Caught emacspeak-select-this-buffer-previous-display
+
+@c Caught emacspeak-show-personality-at-point
+
+@c Caught emacspeak-show-property-at-point
+
+@c Caught emacspeak-skip-blank-lines-backward
+
+@c Caught emacspeak-skip-blank-lines-forward
+
+@c Caught emacspeak-speak-browse-linux-howto
+
+@c Caught emacspeak-speak-popup-messages
+
+@c Caught emacspeak-speak-run-shell-command
+
+@c Caught emacspeak-speak-telephone-directory
+
+@c Caught emacspeak-speak-this-buffer-next-display
+
+@c Caught emacspeak-speak-this-buffer-other-window-display
+
+@c Caught emacspeak-speak-this-buffer-previous-display
+
+@c Caught emacspeak-ssh-tts-restart
+
+@c Caught emacspeak-sudo
+
+@c Caught emacspeak-sudo-edit
+
+@c Caught emacspeak-switch-to-previous-buffer
+
+@c Caught emacspeak-symlink-current-file
+
+@c Caught emacspeak-view-emacspeak-doc
+
+@c Caught emacspeak-view-emacspeak-faq
+
+@c Caught emacspeak-view-emacspeak-news
+
+@c Caught emacspeak-view-emacspeak-tips
+
+@c Caught emacspeak-wizards-add-autoload-cookies
+
+@c Caught emacspeak-wizards-braille
+
+@c Caught emacspeak-wizards-byte-compile-current-buffer
+
+@c Caught emacspeak-wizards-cleanup-shell-path
+
+@c Caught emacspeak-wizards-comma-at-end-of-word
+
+@c Caught emacspeak-wizards-count-slides-in-region
+
+@c Caught emacspeak-wizards-cycle-browser
+
+@c Caught emacspeak-wizards-cycle-to-next-buffer
+
+@c Caught emacspeak-wizards-display-pod-as-manpage
+
+@c Caught emacspeak-wizards-dvi-display
+
+@c Caught emacspeak-wizards-dvi-mode
+
+@c Caught emacspeak-wizards-edit-file-as-root
+
+@c Caught emacspeak-wizards-end-of-word
+
+@c Caught emacspeak-wizards-enumerate-matching-commands
+
+@c Caught emacspeak-wizards-enumerate-matching-faces
+
+@c Caught emacspeak-wizards-enumerate-obsolete-faces
+
+@c Caught emacspeak-wizards-enumerate-uncovered-commands
+
+@c Caught emacspeak-wizards-enumerate-unmapped-faces
+
+@c Caught emacspeak-wizards-espeak-region
+
+@c Caught emacspeak-wizards-espeak-string
+
+@c Caught emacspeak-wizards-eww-buffer-list
+
+@c Caught emacspeak-wizards-find-emacspeak-source
+
+@c Caught emacspeak-wizards-find-file-as-root
+
+@c Caught emacspeak-wizards-find-grep
+
+@c Caught emacspeak-wizards-find-longest-line-in-region
+
+@c Caught emacspeak-wizards-find-longest-paragraph-in-region
+
+@c Caught emacspeak-wizards-find-shortest-line-in-region
+
+@c Caught emacspeak-wizards-finder-find
+
+@c Caught emacspeak-wizards-finder-mode
+
+@c Caught emacspeak-wizards-fix-read-only-text
+
+@c Caught emacspeak-wizards-fix-typo
+
+@c Caught emacspeak-wizards-generate-finder
+
+@c Caught emacspeak-wizards-generate-voice-sampler
+
+@c Caught emacspeak-wizards-get-table-content-from-file
+
+@c Caught emacspeak-wizards-get-table-content-from-url
+
+@c Caught emacspeak-wizards-google-hits
+
+@c Caught emacspeak-wizards-google-transcode
+
+@c Caught emacspeak-wizards-how-many-matches
+
+@c Caught emacspeak-wizards-i810-display-status
+
+@c Caught emacspeak-wizards-js
+
+@c Caught emacspeak-wizards-lacheck-buffer-file
+
+@c Caught emacspeak-wizards-load-current-file
+
+@c Caught emacspeak-wizards-move-and-speak
+
+@c Caught emacspeak-wizards-next-bullet
+
+@c Caught emacspeak-wizards-next-interactive-defun
+
+@c Caught emacspeak-wizards-next-shell
+
+@c Caught emacspeak-wizards-occur-header-lines
+
+@c Caught emacspeak-wizards-pdf-open
+
+@c Caught emacspeak-wizards-popup-input-buffer
+
+@c Caught emacspeak-wizards-portfolio-quotes
+
+@c Caught emacspeak-wizards-ppp-toggle
+
+@c Caught emacspeak-wizards-ppt-display
+
+@c Caught emacspeak-wizards-ppt-mode
+
+@c Caught emacspeak-wizards-previous-bullet
+
+@c Caught emacspeak-wizards-previous-shell
+
+@c Caught emacspeak-wizards-refresh-shell-history
+
+@c Caught emacspeak-wizards-rivo
+
+@c Caught emacspeak-wizards-rpm-query-in-dired
+
+@c Caught emacspeak-wizards-shell
+
+@c Caught emacspeak-wizards-shell-toggle
+
+@c Caught emacspeak-wizards-show-commentary
+
+@c Caught emacspeak-wizards-show-environment-variable
+
+@c Caught emacspeak-wizards-show-eval-result
+
+@c Caught emacspeak-wizards-show-face
+
+@c Caught emacspeak-wizards-show-memory-used
+
+@c Caught emacspeak-wizards-speak-iso-datetime
+
+@c Caught emacspeak-wizards-spot-words
+
+@c Caught emacspeak-wizards-squeeze-blanks
+
+@c Caught emacspeak-wizards-sunrise-sunset
+
+@c Caught emacspeak-wizards-switch-shell
+
+@c Caught emacspeak-wizards-term
+
+@c Caught emacspeak-wizards-terminal
+
+@c Caught emacspeak-wizards-tex-tie-current-word
+
+@c Caught emacspeak-wizards-thanks-mail-signature
+
+@c Caught emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+
+@c Caught emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+
+@c Caught emacspeak-wizards-tpctl-display-status
+
+@c Caught emacspeak-wizards-tramp-open-location
+
+@c Caught emacspeak-wizards-unhex-uri
+
+@c Caught emacspeak-wizards-units
+
+@c Caught emacspeak-wizards-vc-n
+
+@c Caught emacspeak-wizards-vc-viewer
+
+@c Caught emacspeak-wizards-vc-viewer-mode
+
+@c Caught emacspeak-wizards-vc-viewer-refresh
+
+@c Caught emacspeak-wizards-vi-as-su-file
+
+@c Caught emacspeak-wizards-view-buffers-filtered-by-mode
+
+@c Caught emacspeak-wizards-view-buffers-filtered-by-this-mode
+
+@c Caught emacspeak-wizards-view-url
+
+@c Caught emacspeak-wizards-voice-sampler
+
+@c Caught emacspeak-wizards-vpn-toggle
+
+@c Caught emacspeak-wizards-xl-display
+
+@c Caught emacspeak-wizards-xl-mode
 
 @node emacspeak-xml-shell
 @section emacspeak-xml-shell
@@ -1972,14 +2832,21 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-xml-shell.
 
-Caught emacspeak-xml-shell
-Caught emacspeak-xml-shell-browse-current
-Caught emacspeak-xml-shell-browse-result
-Caught emacspeak-xml-shell-goto-children
-Caught emacspeak-xml-shell-goto-next-child
-Caught emacspeak-xml-shell-goto-parent
-Caught emacspeak-xml-shell-goto-previous-child
-Caught emacspeak-xml-shell-mode
+@c Caught emacspeak-xml-shell
+
+@c Caught emacspeak-xml-shell-browse-current
+
+@c Caught emacspeak-xml-shell-browse-result
+
+@c Caught emacspeak-xml-shell-goto-children
+
+@c Caught emacspeak-xml-shell-goto-next-child
+
+@c Caught emacspeak-xml-shell-goto-parent
+
+@c Caught emacspeak-xml-shell-goto-previous-child
+
+@c Caught emacspeak-xml-shell-mode
 
 @node emacspeak-xslt
 @section emacspeak-xslt
@@ -1989,10 +2856,13 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-xslt.
 
-Caught emacspeak-xslt-view
-Caught emacspeak-xslt-view-file
-Caught emacspeak-xslt-view-region
-Caught emacspeak-xslt-view-xml
+@c Caught emacspeak-xslt-view
+
+@c Caught emacspeak-xslt-view-file
+
+@c Caught emacspeak-xslt-view-region
+
+@c Caught emacspeak-xslt-view-xml
 
 @node emacspeak-zinf
 @section emacspeak-zinf
@@ -2006,10 +2876,13 @@ zinf navigation commands then work via single keystrokes.
 Automatically generated documentation
 for commands defined in module  emacspeak-zinf.
 
-Caught emacspeak-zinf
-Caught emacspeak-zinf-mode
-Caught emacspeak-zinf-zinf-call-command
-Caught emacspeak-zinf-zinf-command
+@c Caught emacspeak-zinf
+
+@c Caught emacspeak-zinf-mode
+
+@c Caught emacspeak-zinf-zinf-call-command
+
+@c Caught emacspeak-zinf-zinf-command
 
 @node emacspeak
 @section emacspeak
@@ -2025,8 +2898,9 @@ It loads the various parts of the system.
 Automatically generated documentation
 for commands defined in module  emacspeak.
 
-Caught emacspeak-describe-emacspeak
-Caught emacspeak-submit-bug
+@c Caught emacspeak-describe-emacspeak
+
+@c Caught emacspeak-submit-bug
 
 @node voice-setup
 @section voice-setup
@@ -2075,8 +2949,9 @@ documentation for defvoice.
 Automatically generated documentation
 for commands defined in module  voice-setup.
 
-Caught voice-setup-list-voices
-Caught voice-setup-toggle-silence-personality
+@c Caught voice-setup-list-voices
+
+@c Caught voice-setup-toggle-silence-personality
 
 @node emacspeak-bbc
 @section emacspeak-bbc
@@ -2086,8 +2961,9 @@ No Commentary
 Automatically generated documentation
 for commands defined in module  emacspeak-bbc.
 
-Caught emacspeak-bbc
-Caught emacspeak-bbc-genre
+@c Caught emacspeak-bbc
+
+@c Caught emacspeak-bbc-genre
 
 @node emacspeak-org
 @section emacspeak-org
@@ -2101,19 +2977,24 @@ or http://orgmode.org/
 Automatically generated documentation
 for commands defined in module  emacspeak-org.
 
-Caught emacspeak-org-bookmark
-Caught emacspeak-org-popup-input
-Caught emacspeak-org-table-speak-current-element
+@c Caught emacspeak-org-bookmark
+
+@c Caught emacspeak-org-popup-input
+
+@c Caught emacspeak-org-table-speak-current-element
 
 No Commentary
 
 Automatically generated documentation
 for commands defined in module  nil.
 
-Caught ad-Advice-emacspeak-eterm-copy-region-to-register
-Caught ad-Advice-emacspeak-eterm-paste-register
-Caught emacspeak-py-next-block
-Caught emacspeak-py-previous-block
+@c Caught ad-Advice-emacspeak-eterm-copy-region-to-register
+
+@c Caught ad-Advice-emacspeak-eterm-paste-register
+
+@c Caught emacspeak-py-next-block
+
+@c Caught emacspeak-py-previous-block
 @node URL Templates 
 @section  URL Templates
 
