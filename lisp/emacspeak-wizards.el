@@ -55,7 +55,6 @@
 (require 'desktop)
 (require 'dired)
 (require 'derived)
-(require 'eldo)
 (require 'find-dired)
 (require 'emacspeak-preamble)
 (require 'emacspeak-table-ui)
