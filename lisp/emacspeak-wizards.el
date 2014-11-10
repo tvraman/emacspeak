@@ -1087,7 +1087,7 @@ for commands defined in module  %s.\n\n"
                     "Not Documented"))
                  (insert "\n@end deffn\n\n"))
              (error (insert
-                     (format "\n@C Caught %s\n" f)))))
+                     (format "\n@c Caught %s\n" f)))))
        commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
