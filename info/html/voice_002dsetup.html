@@ -92,7 +92,7 @@
   <hr />
   <a name="voice_002dsetup-1" id="voice_002dsetup-1"></a>
 
-  <h3 class="section">11.81 voice-setup</h3>
+  <h3 class="section">11.82 voice-setup</h3>
 
   <p>Commentary: A voice is to audio as a font is to a visual
   display. A personality is to audio as a face is to a visual
@@ -137,44 +137,8 @@
   <p>Automatically generated documentation for commands defined in
   module voice-setup.</p>
 
-  <dl>
-    <dt><a name="index-voice_002dsetup_002dlist_002dvoices" id=
-    "index-voice_002dsetup_002dlist_002dvoices"></a>Interactive
-    Command: <strong>voice-setup-list-voices</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Show all defined voice-face mappings in a help buffer.
-      Sample text to use comes from variable
-      ‘voice-setup-sample-text’.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality"
-    id=
-    "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></a>Interactive
-    Command:
-    <strong>voice-setup-toggle-silence-personality</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>C-e M-q</kbd></p>
-
-      <p>Toggle audibility of personality under point . If
-      personality at point is currently audible, its
-      face-&gt;personality map is cached in a buffer local
-      variable, and its face-&gt;personality map is replaced by
-      face-&gt;inaudible. If personality at point is inaudible, and
-      there is a cached value, then the original
-      face-&gt;personality mapping is restored. In either case, the
-      buffer is refontified to have the new mapping take
-      effect.</p>
-    </dd>
-  </dl>
+  <p>Caught voice-setup-list-voices Caught
+  voice-setup-toggle-silence-personality</p>
   <hr />
 
   <div class="header">
