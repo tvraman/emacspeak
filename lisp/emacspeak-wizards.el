@@ -1069,7 +1069,9 @@ for commands defined in module  %s.\n\n"
                      module)))
                  (insert (format "\n\n@deffn {Interactive Command} %s %s\n"
                                  f
-                                 (eldoc-function-argstring f)))
+                                 ""
+                                 ;(eldoc-function-argstring f)
+                                 ))
                  (setq key-description
                        (cond
                         (key

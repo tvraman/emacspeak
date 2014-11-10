@@ -104,5 +104,57 @@
 
   <p>Automatically generated documentation for commands defined in
   module emacspeak-hide.</p>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks"
+    id=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dall_002dblocks">
+    </a>Interactive Command:
+    <strong>emacspeak-hide-or-expose-all-blocks</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Hide or expose all blocks in buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dblock" id=
+    "index-emacspeak_002dhide_002dor_002dexpose_002dblock"></a>Interactive
+    Command: <strong>emacspeak-hide-or-expose-block</strong></dt>
+
+    <dd>
+      <p><kbd>C-e j</kbd></p>
+
+      <p>Hide or expose a block of text. This command either hides
+      or exposes a block of text starting on the current line. A
+      block of text is defined as a portion of the buffer in which
+      all lines start with a common PREFIX. Optional interactive
+      prefix arg causes all blocks in current buffer to be hidden
+      or exposed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix"
+    id=
+    "index-emacspeak_002dhide_002dspeak_002dblock_002dsans_002dprefix">
+    </a>Interactive Command:
+    <strong>emacspeak-hide-speak-block-sans-prefix</strong></dt>
+
+    <dd>
+      <p><kbd>C-e C-j</kbd></p>
+
+      <p>Speaks current block after stripping its prefix. If the
+      current block is not hidden, it first hides it. This is
+      useful because as you locate blocks, you can invoke this
+      command to listen to the block, and when you have heard
+      enough navigate easily to move past the block.</p>
+    </dd>
+  </dl>
 </body>
 </html>
