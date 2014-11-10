@@ -1021,7 +1021,6 @@ Warning! Contents of file commands.texi will be overwritten."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (insert"@c $Id$\n")
       (insert
        "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
@@ -1058,7 +1057,7 @@ This chapter documents a total of %d commands.\n\n"
                    (when module
                      (insert
                       (format
-                       "@node %s\n@section %s\n\n\n"
+                       "\n@node %s\n@section %s\n\n\n"
                        module module )))
                    (insert
                     (format "\n\n%s\n\n"
@@ -1088,7 +1087,7 @@ for commands defined in module  %s.\n\n"
                     "Not Documented"))
                  (insert "\n@end deffn\n\n"))
              (error (insert
-                     (format "Caught %s" f)))))
+                     (format "Caught %s\n" f)))))
        (emacspeak-list-emacspeak-commands))
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
@@ -1110,7 +1109,6 @@ Warning! Contents of file filename will be overwritten."
         (module nil))
     (save-current-buffer
       (set-buffer buffer)
-      (set-buffer-multibyte nil)
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
