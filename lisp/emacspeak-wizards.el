@@ -1013,6 +1013,7 @@ end:\n\n")
 commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
   (interactive "FEnter filename to save commands documentation  in: ")
+  (require 'help)
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
@@ -1066,7 +1067,9 @@ commands.\n\n"
                      "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                      module)))
-                 (insert (format "\n\n@deffn {Interactive Command} %s\n" f))
+                 (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
+                                 f
+                                 (help-function-arglist f t)))
                  (setq key-description
                        (cond
                         (key
