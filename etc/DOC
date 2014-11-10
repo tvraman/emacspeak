@@ -1615,7 +1615,7 @@ i.e. sender name, and subject.
 
 ------------------------------------------------------------
 
-** emacspeak-google-toolbelt-change Command to change values in the toolbelt. 
+** emacspeak-google-toolbelt-change Command to change values in the toolbelt and execute the query. 
 
 ------------------------------------------------------------
 
@@ -4196,7 +4196,8 @@ from Web page -- default is the current page being viewed.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-accessible-google Use Google Lite (Experimental). 
+** emacspeak-websearch-accessible-google Use Google Lite (Experimental).
+Optional prefix arg prompts for toolbelt options. 
 
 ------------------------------------------------------------
 
@@ -4261,9 +4262,12 @@ When using supported browsers,  this interface attempts to speak the most releva
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google Perform a Google search.
-Optional interactive prefix arg `lucky' is equivalent to hitting the
-I'm Feeling Lucky button on Google.
-Uses  customizable option `emacspeak-websearch-google-results-only' to determine if we show just results. 
+First optional interactive prefix arg `flag' prompts for
+additional search options. Second interactive prefix arg is
+equivalent to hitting the I'm Feeling Lucky button on
+Google. Uses customizable option
+`emacspeak-websearch-google-results-only' to determine if we show
+just results. 
 
 ------------------------------------------------------------
 
