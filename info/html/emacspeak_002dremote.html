@@ -99,5 +99,101 @@
 
   <p>Automatically generated documentation for commands defined in
   module emacspeak-remote.</p>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dremote_002dconnect_002dto_002dserver" id=
+    "index-emacspeak_002dremote_002dconnect_002dto_002dserver"></a>Interactive
+    Command:
+    <strong>emacspeak-remote-connect-to-server</strong></dt>
+
+    <dd>
+      <p><kbd>C-e M-r</kbd></p>
+
+      <p>Connect to and start using remote speech server running on
+      host host and listening on port port. Host is the hostname of
+      the remote server, typically the desktop machine. Port is the
+      tcp port that that host is listening on for speech
+      requests.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dremote_002dedit_002dcurrent_002dremote_002dhostname"
+    id=
+    "index-emacspeak_002dremote_002dedit_002dcurrent_002dremote_002dhostname">
+    </a>Interactive Command:
+    <strong>emacspeak-remote-edit-current-remote-hostname</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Interactively set up where we came from. Value is
+      persisted for use with ssh servers.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dremote_002dhome" id=
+    "index-emacspeak_002dremote_002dhome"></a>Interactive Command:
+    <strong>emacspeak-remote-home</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open ssh session to where we came from. Uses value
+      returned by
+      ‘emacspeak-remote-get-current-remote-hostname’.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dremote_002dquick_002dconnect_002dto_002dserver"
+    id=
+    "index-emacspeak_002dremote_002dquick_002dconnect_002dto_002dserver">
+    </a>Interactive Command:
+    <strong>emacspeak-remote-quick-connect-to-server</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Connect to remote server. Does not prompt for host or
+      port, but quietly uses the guesses that appear as defaults
+      when prompting. Use this once you are sure the guesses are
+      usually correct.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dremote_002dquick_002dconnect_002dvia_002dssh"
+    id=
+    "index-emacspeak_002dremote_002dquick_002dconnect_002dvia_002dssh">
+    </a>Interactive Command:
+    <strong>emacspeak-remote-quick-connect-via-ssh</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Connect via ssh to remote Emacspeak server. Server is
+      specified via custom option
+      ‘emacspeak-remote-default-ssh-server’.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dremote_002dssh_002dto_002dserver" id=
+    "index-emacspeak_002dremote_002dssh_002dto_002dserver"></a>Interactive
+    Command: <strong>emacspeak-remote-ssh-to-server</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Open ssh session to where we came from.</p>
+    </dd>
+  </dl>
 </body>
 </html>

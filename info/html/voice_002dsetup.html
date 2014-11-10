@@ -136,6 +136,43 @@
 
   <p>Automatically generated documentation for commands defined in
   module voice-setup.</p>
+
+  <dl>
+    <dt><a name="index-voice_002dsetup_002dlist_002dvoices" id=
+    "index-voice_002dsetup_002dlist_002dvoices"></a>Interactive
+    Command: <strong>voice-setup-list-voices</strong></dt>
+
+    <dd>
+      <p><kbd>Not bound to any key.</kbd></p>
+
+      <p>Show all defined voice-face mappings in a help buffer.
+      Sample text to use comes from variable
+      ‘voice-setup-sample-text’.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality"
+    id=
+    "index-voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></a>Interactive
+    Command:
+    <strong>voice-setup-toggle-silence-personality</strong></dt>
+
+    <dd>
+      <p><kbd>C-e M-q</kbd></p>
+
+      <p>Toggle audibility of personality under point . If
+      personality at point is currently audible, its
+      face-&gt;personality map is cached in a buffer local
+      variable, and its face-&gt;personality map is replaced by
+      face-&gt;inaudible. If personality at point is inaudible, and
+      there is a cached value, then the original
+      face-&gt;personality mapping is restored. In either case, the
+      buffer is refontified to have the new mapping take
+      effect.</p>
+    </dd>
+  </dl>
   <hr />
 
   <div class="header">
