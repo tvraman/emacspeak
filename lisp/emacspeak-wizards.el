@@ -55,7 +55,7 @@
 (require 'desktop)
 (require 'dired)
 (require 'derived)
-(require 'eldoc)
+(require 'eldo)
 (require 'find-dired)
 (require 'emacspeak-preamble)
 (require 'emacspeak-table-ui)
@@ -1067,11 +1067,7 @@ commands.\n\n"
                      "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                      module)))
-                 (insert (format "\n\n@deffn {Interactive Command} %s %s\n"
-                                 f
-                                 ""
-                                 ;(eldoc-function-argstring f)
-                                 ))
+                 (insert (format "\n\n@deffn {Interactive Command} %s\n" f))
                  (setq key-description
                        (cond
                         (key
