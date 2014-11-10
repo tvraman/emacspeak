@@ -1437,6 +1437,118 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
+** emacspeak-eww-google-knowledge-card Show just the knowledge card.
+Warning, this is fragile, and depends on a stable id for the
+  knowledge card. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-masquerade Toggle masquerade state. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-element Move forward to the next specified element. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-element-from-history Uses element navigation history to decide where we jump. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-element-like-this Moves to next element like current.
+Prompts if content at point is enclosed by multiple elements. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-h Move forward to the next h 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-h1 Move forward to the next h1 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-h2 Move forward to the next h2 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-h3 Move forward to the next h3 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-li Move forward to the next li 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-ol Move forward to the next ol 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-p Move forward to the next p 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-table Move forward to the next table 
+
+------------------------------------------------------------
+
+** emacspeak-eww-next-ul Move forward to the next ul 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-element Move backward  to the previous  specified element. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-element-from-history Uses element navigation history to decide where we jump. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-element-like-this Moves to next element like current.
+Prompts if content at point is enclosed by multiple elements. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-h Move backward to the next h 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-h1 Move backward to the next h1 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-h2 Move backward to the next h2 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-h3 Move backward to the next h3 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-li Move backward to the next li 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-ol Move backward to the next ol 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-p Move backward to the next p 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-table Move backward to the next table 
+
+------------------------------------------------------------
+
+** emacspeak-eww-previous-ul Move backward to the next ul 
+
+------------------------------------------------------------
+
+** emacspeak-eww-restore Restore buffer to pre-filtered canonical state. 
+
+------------------------------------------------------------
+
 ** emacspeak-feeds-add-feed	Key Sequence:C-e M-u
 
  Add specified feed to our feed store. 

@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 618 user customizable
+This chapter documents a total of 624 user customizable
   options.
 
 @menu
@@ -29,6 +29,7 @@ This chapter documents a total of 618 user customizable
 * emacspeak-erc Options::
 * emacspeak-eterm Options::
 * emacspeak-eudc Options::
+* emacspeak-eww Options::
 * emacspeak-feeds Options::
 * emacspeak-forms Options::
 * emacspeak-gnus Options::
@@ -682,6 +683,26 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-eudc-attribute-value-personality
 Personality t use for voiceifying attribute values. 
+@end defvar
+
+@node emacspeak-eww Options
+@section emacspeak-eww Options
+
+Commentary:
+EWW == Emacs Web Browser
+EWW is a light-weight Web browser built into Emacs 24.4.
+This module speech-enables EWW
+
+Automatically generated documentation
+for options defined in module  emacspeak-eww.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-eww-masquerade-as
+User Agent string that is  sent when masquerading is on.
+@end defvar
+
+@defvar {User Option} emacspeak-eww-silence-images
+Set to nil if you want EWW to load images.
 @end defvar
 
 @node emacspeak-feeds Options
@@ -3101,6 +3122,26 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-erc-underline-personality
 Personality used for erc-underline-face
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eww-form-checkbox-voice
+Personality used for eww-form-checkbox
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eww-form-select-voice
+Personality used for eww-form-select
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eww-form-submit-voice
+Personality used for eww-form-submit
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-eww-form-text-voice
+Personality used for eww-form-text
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-fixed-pitch-voice

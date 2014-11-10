@@ -3,7 +3,7 @@
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation. This chapter documents a total of 966
+documentation. This chapter documents a total of 993
 commands.
 
 @menu
@@ -34,6 +34,7 @@ commands.
 * emacspeak-erc::
 * emacspeak-eterm::
 * emacspeak-eudc::
+* emacspeak-eww::
 * emacspeak-feeds::
 * emacspeak-filtertext::
 * emacspeak-fix-interactive::
@@ -2249,6 +2250,183 @@ for commands defined in module  emacspeak-eudc.
 @kbd{Not bound to any key.}
 
 Send email to the address given by the current record. 
+@end deffn
+
+@node emacspeak-eww
+@section emacspeak-eww
+
+Commentary:
+EWW == Emacs Web Browser
+EWW is a light-weight Web browser built into Emacs 24.4.
+This module speech-enables EWW
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eww.
+
+@deffn {Interactive Command} emacspeak-eww-google-knowledge-card  nil
+@kbd{Not bound to any key.}
+
+Show just the knowledge card.
+Warning, this is fragile, and depends on a stable id for the
+  knowledge card.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-masquerade  nil
+@kbd{Not bound to any key.}
+
+Toggle masquerade state.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-element  (el)
+@kbd{Not bound to any key.}
+
+Move forward to the next specified element.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-element-from-history  nil
+@kbd{Not bound to any key.}
+
+Uses element navigation history to decide where we jump.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-element-like-this  (element)
+@kbd{Not bound to any key.}
+
+Moves to next element like current.
+Prompts if content at point is enclosed by multiple elements.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-h  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next h
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-h1  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next h1
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-h2  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next h2
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-h3  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next h3
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-li  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next li
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-ol  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next ol
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-p  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next p
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-table  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next table
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-next-ul  nil
+@kbd{Not bound to any key.}
+
+Move forward to the next ul
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-element  (el)
+@kbd{Not bound to any key.}
+
+Move backward  to the previous  specified element.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-element-from-history  nil
+@kbd{Not bound to any key.}
+
+Uses element navigation history to decide where we jump.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-element-like-this  (element)
+@kbd{Not bound to any key.}
+
+Moves to next element like current.
+Prompts if content at point is enclosed by multiple elements.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-h  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next h
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-h1  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next h1
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-h2  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next h2
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-h3  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next h3
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-li  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next li
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-ol  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next ol
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-p  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next p
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-table  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next table
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-previous-ul  nil
+@kbd{Not bound to any key.}
+
+Move backward to the next ul
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eww-restore  nil
+@kbd{Not bound to any key.}
+
+Restore buffer to pre-filtered canonical state.
 @end deffn
 
 @node emacspeak-feeds
