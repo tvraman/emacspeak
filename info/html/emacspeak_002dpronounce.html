@@ -96,7 +96,7 @@
   <a name="emacspeak_002dpronounce-1" id=
   "emacspeak_002dpronounce-1"></a>
 
-  <h3 class="section">11.51 emacspeak-pronounce</h3>
+  <h3 class="section">11.52 emacspeak-pronounce</h3>
 
   <p>Commentary: This module implements user customizable
   pronunciation dictionaries for emacspeak. Custom pronunciations
@@ -116,205 +116,16 @@
   <p>Automatically generated documentation for commands defined in
   module emacspeak-pronounce.</p>
 
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002dclear_002ddictionaries" id=
-    "index-emacspeak_002dpronounce_002dclear_002ddictionaries"></a>Interactive
-    Command:
-    <strong>emacspeak-pronounce-clear-dictionaries</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Clear all current pronunciation dictionaries.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation"
-    id=
-    "index-emacspeak_002dpronounce_002ddefine_002dlocal_002dpronunciation">
-    </a>Interactive Command:
-    <strong>emacspeak-pronounce-define-local-pronunciation</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Define buffer local pronunciation. Argument WORD specifies
-      the word which should be pronounced as specified by
-      PRONUNCIATION.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002ddefine_002dpronunciation"
-    id="index-emacspeak_002dpronounce_002ddefine_002dpronunciation">
-    </a>Interactive Command:
-    <strong>emacspeak-pronounce-define-pronunciation</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Interactively define entries in the pronunciation
-      dictionaries. Default term to define is delimited by region.
-      First loads any persistent dictionaries if not already
-      loaded.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation"
-    id=
-    "index-emacspeak_002dpronounce_002ddefine_002dtemplate_002dpronunciation">
-    </a>Interactive Command:
-    <strong>emacspeak-pronounce-define-template-pronunciation</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Interactively define template entries in the pronunciation
-      dictionaries. Default term to define is delimited by region.
-      First loads any persistent dictionaries if not already
-      loaded.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dpronounce_002ddispatch" id=
-    "index-emacspeak_002dpronounce_002ddispatch"></a>Interactive
-    Command: <strong>emacspeak-pronounce-dispatch</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>C-e M-d</kbd></p>
-
-      <p>Provides the user interface front-end to Emacspeak’s
-      pronunciation dictionaries.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002dedit_002dpronunciations" id=
-    "index-emacspeak_002dpronounce_002dedit_002dpronunciations"></a>Interactive
-    Command:
-    <strong>emacspeak-pronounce-edit-pronunciations</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Prompt for and launch a pronunciation editor on the
-      specified pronunciation dictionary key.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002dload_002ddictionaries" id=
-    "index-emacspeak_002dpronounce_002dload_002ddictionaries"></a>Interactive
-    Command: <strong>emacspeak-pronounce-load-dictionaries</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Load pronunciation dictionaries. Optional argument
-      FILENAME specifies the dictionary file.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002drefresh_002dpronunciations"
-    id=
-    "index-emacspeak_002dpronounce_002drefresh_002dpronunciations"></a>Interactive
-    Command:
-    <strong>emacspeak-pronounce-refresh-pronunciations</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Refresh pronunciation table for current buffer. Activates
-      pronunciation dictionaries if not already active.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002dsave_002ddictionaries" id=
-    "index-emacspeak_002dpronounce_002dsave_002ddictionaries"></a>Interactive
-    Command: <strong>emacspeak-pronounce-save-dictionaries</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Writes out the persistent emacspeak pronunciation
-      dictionaries.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries"
-    id=
-    "index-emacspeak_002dpronounce_002dtoggle_002duse_002dof_002ddictionaries">
-    </a>Interactive Command:
-    <strong>emacspeak-pronounce-toggle-use-of-dictionaries</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Toggle use of pronunciation dictionaries in current
-      buffer. Pronunciations can be defined on a per file, per
-      directory and/or per mode basis. Pronunciations are activated
-      on a per buffer basis. Turning on the use of pronunciation
-      dictionaries results in emacspeak composing a pronunciation
-      table based on the currently defined pronunciation
-      dictionaries. After this, the pronunciations will be applied
-      whenever text in the buffer is spoken. Optional argument
-      state can be used from Lisp programs to explicitly turn
-      pronunciations on or off.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dpronounce_002dyank_002dword"
-    id=
-    "index-emacspeak_002dpronounce_002dyank_002dword"></a>Interactive
-    Command: <strong>emacspeak-pronounce-yank-word</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Yank word at point into minibuffer.</p>
-    </dd>
-  </dl>
-  <hr />
-
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002dredefine.html#emacspeak_002dredefine" accesskey=
-    "n" rel="next">emacspeak-redefine</a>, Previous: <a href=
-    "emacspeak_002dpianobar.html#emacspeak_002dpianobar" accesskey=
-    "p" rel="prev">emacspeak-pianobar</a>, Up: <a href=
-    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
-    "up">Emacspeak Commands</a> &nbsp; [<a href=
-    "index.html#SEC_Contents" title="Table of contents" rel=
-    "contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
+  <p>Caught emacspeak-pronounce-clear-dictionaries Caught
+  emacspeak-pronounce-define-local-pronunciation Caught
+  emacspeak-pronounce-define-pronunciation Caught
+  emacspeak-pronounce-define-template-pronunciation Caught
+  emacspeak-pronounce-dispatch Caught
+  emacspeak-pronounce-edit-pronunciations Caught
+  emacspeak-pronounce-load-dictionaries Caught
+  emacspeak-pronounce-refresh-pronunciations Caught
+  emacspeak-pronounce-save-dictionaries Caught
+  emacspeak-pronounce-toggle-use-of-dictionaries Caught
+  emacspeak-pronounce-yank-word</p>
 </body>
 </html>
