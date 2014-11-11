@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   emacspeak-wizards</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-wizards" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-wizards" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -96,7 +96,7 @@
   <a name="emacspeak_002dwizards-1" id=
   "emacspeak_002dwizards-1"></a>
 
-  <h3 class="section">11.78 emacspeak-wizards</h3>
+  <h3 class="section">11.77 emacspeak-wizards</h3>
 
   <p>Commentary: Contains various wizards for the Emacspeak
   desktop.</p>
@@ -116,10 +116,10 @@
 
       <p>Add annotation to the annotation working buffer. Prompt
       for annotation buffer if not already set. Interactive prefix
-      arg ‘reset’ prompts for the annotation buffer even if one is
-      already set. Annotation is entered in a temporary buffer and
-      the annotation is inserted into the working buffer when
-      complete.</p>
+      arg &lsquo;reset&rsquo; prompts for the annotation buffer
+      even if one is already set. Annotation is entered in a
+      temporary buffer and the annotation is inserted into the
+      working buffer when complete.</p>
     </dd>
   </dl>
 
@@ -137,12 +137,12 @@
       Emacspeak clipboard is a convenient way of sharing
       information between independent Emacspeak sessions running on
       the same or different machines. Do not use this for sharing
-      information within an Emacs session –Emacs’ register commands
-      are far more efficient and light-weight. Optional interactive
-      prefix arg results in Emacspeak prompting for the clipboard
-      file to use. Argument START and END specifies region.
-      Optional argument PROMPT specifies whether we prompt for the
-      name of a clipboard file.</p>
+      information within an Emacs session &ndash;Emacs&rsquo;
+      register commands are far more efficient and light-weight.
+      Optional interactive prefix arg results in Emacspeak
+      prompting for the clipboard file to use. Argument START and
+      END specifies region. Optional argument PROMPT specifies
+      whether we prompt for the name of a clipboard file.</p>
     </dd>
   </dl>
 
@@ -159,10 +159,10 @@
       Emacspeak clipboard is a convenient way of sharing
       information between independent Emacspeak sessions running on
       the same or different machines. Do not use this for sharing
-      information within an Emacs session –Emacs’ register commands
-      are far more efficient and light-weight. Optional interactive
-      prefix arg pastes from the emacspeak table clipboard
-      instead.</p>
+      information within an Emacs session &ndash;Emacs&rsquo;
+      register commands are far more efficient and light-weight.
+      Optional interactive prefix arg pastes from the emacspeak
+      table clipboard instead.</p>
     </dd>
   </dl>
 
@@ -468,7 +468,7 @@
       <p><kbd>&lt;C-right&gt;</kbd></p>
 
       <p>Move to next buffer. With optional interactive prefix arg
-      ‘frame’, move to next frame instead.</p>
+      &lsquo;frame&rsquo;, move to next frame instead.</p>
     </dd>
   </dl>
 
@@ -483,7 +483,7 @@
       <p><kbd>&lt;C-left&gt;</kbd></p>
 
       <p>Move to previous buffer. With optional interactive prefix
-      arg ‘frame’, move to previous frame instead.</p>
+      arg &lsquo;frame&rsquo;, move to previous frame instead.</p>
     </dd>
   </dl>
 
@@ -497,7 +497,7 @@
       <p><kbd>C-e C-r</kbd></p>
 
       <p>Start a root shell or switch to one that already exists.
-      Optional interactive prefix arg ‘cd’ executes cd
+      Optional interactive prefix arg &lsquo;cd&rsquo; executes cd
       default-directory after switching.</p>
     </dd>
   </dl>
@@ -514,10 +514,10 @@
     <dd>
       <p><kbd>C-e &lt;C-right&gt;</kbd></p>
 
-      <p>Select this buffer as displayed in a ‘next’ frame. See
-      documentation for command
-      ‘emacspeak-select-this-buffer-other-window-display’ for the
-      meaning of ‘next’.</p>
+      <p>Select this buffer as displayed in a &lsquo;next&rsquo;
+      frame. See documentation for command
+      &lsquo;emacspeak-select-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;next&rsquo;.</p>
     </dd>
   </dl>
 
@@ -559,10 +559,10 @@
     <dd>
       <p><kbd>C-e &lt;C-left&gt;</kbd></p>
 
-      <p>Select this buffer as displayed in a ‘previous’ window.
-      See documentation for command
-      ‘emacspeak-select-this-buffer-other-window-display’ for the
-      meaning of ‘previous’.</p>
+      <p>Select this buffer as displayed in a
+      &lsquo;previous&rsquo; window. See documentation for command
+      &lsquo;emacspeak-select-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;previous&rsquo;.</p>
     </dd>
   </dl>
 
@@ -669,15 +669,15 @@
       <p><kbd>C-e !</kbd></p>
 
       <p>Invoke shell COMMAND and display its output as a table.
-      The results are placed in a buffer in Emacspeak’s table
+      The results are placed in a buffer in Emacspeak&rsquo;s table
       browsing mode. Optional interactive prefix arg read-as-csv
       interprets the result as csv. . Use this for running shell
       commands that produce tabulated output. This command should
       be used for shell commands that produce tabulated output that
-      works with Emacspeak’s table recognizer. Verify this first by
-      running the command in a shell and executing command
-      ‘emacspeak-table-display-table-in-region’ normally bound to
-      C-e TAB.</p>
+      works with Emacspeak&rsquo;s table recognizer. Verify this
+      first by running the command in a shell and executing command
+      &lsquo;emacspeak-table-display-table-in-region&rsquo;
+      normally bound to C-e TAB.</p>
     </dd>
   </dl>
 
@@ -708,10 +708,10 @@
     <dd>
       <p><kbd>C-e &lt;right&gt;</kbd></p>
 
-      <p>Speak this buffer as displayed in a ‘previous’ window. See
-      documentation for command
-      ‘emacspeak-speak-this-buffer-other-window-display’ for the
-      meaning of ‘next’.</p>
+      <p>Speak this buffer as displayed in a &lsquo;previous&rsquo;
+      window. See documentation for command
+      &lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;next&rsquo;.</p>
     </dd>
   </dl>
 
@@ -753,10 +753,10 @@
     <dd>
       <p><kbd>C-e &lt;left&gt;</kbd></p>
 
-      <p>Speak this buffer as displayed in a ‘previous’ window. See
-      documentation for command
-      ‘emacspeak-speak-this-buffer-other-window-display’ for the
-      meaning of ‘previous’.</p>
+      <p>Speak this buffer as displayed in a &lsquo;previous&rsquo;
+      window. See documentation for command
+      &lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;previous&rsquo;.</p>
     </dd>
   </dl>
 
@@ -781,7 +781,7 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>SUDo command –run command as super user.</p>
+      <p>SUDo command &ndash;run command as super user.</p>
     </dd>
   </dl>
 
@@ -809,7 +809,7 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Switch to most recently used interesting buffer. Obsoleted
-      by ‘previous-buffer’ in Emacs 22</p>
+      by &lsquo;previous-buffer&rsquo; in Emacs 22</p>
     </dd>
   </dl>
 
@@ -1057,10 +1057,11 @@
       <p>DVI files are converted to text and previewed using text
       mode.</p>
 
-      <p>This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’,
-      as the final step during initialization.</p>
+      <p>This mode runs the hook
+      &lsquo;emacspeak-wizards-dvi-mode-hook&rsquo;, as the final
+      step during initialization.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
     </dd>
   </dl>
 
@@ -1076,8 +1077,8 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Like ‘ido-find-file, but automatically edit the file with
-      root-privileges (using tramp/sudo), if the file is not
+      <p>Like &lsquo;ido-find-file, but automatically edit the file
+      with root-privileges (using tramp/sudo), if the file is not
       writable by user.</p>
     </dd>
   </dl>
@@ -1203,7 +1204,8 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Speak string in lang via ESpeak. Lang is obtained from
-      property ‘lang’ on string, or via an interactive prompt.</p>
+      property &lsquo;lang&rsquo; on string, or via an interactive
+      prompt.</p>
     </dd>
   </dl>
 
@@ -1250,8 +1252,8 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Like ‘ido-find-file, but automatically edit the file with
-      root-privileges (using tramp/sudo), if the file is not
+      <p>Like &lsquo;ido-find-file, but automatically edit the file
+      with root-privileges (using tramp/sudo), if the file is not
       writable by user.</p>
     </dd>
   </dl>
@@ -1349,10 +1351,10 @@
       <p>Emacspeak Finder</p>
 
       <p>This mode runs the hook
-      ‘emacspeak-wizards-finder-mode-hook’, as the final step
-      during initialization.</p>
+      &lsquo;emacspeak-wizards-finder-mode-hook&rsquo;, as the
+      final step during initialization.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
     </dd>
   </dl>
 
@@ -1382,8 +1384,8 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Search and replace recursively in all files with extension
-      ‘ext’ for ‘word’ and replace it with correction. Use with
-      caution.</p>
+      &lsquo;ext&rsquo; for &lsquo;word&rsquo; and replace it with
+      correction. Use with caution.</p>
     </dd>
   </dl>
 
@@ -1493,11 +1495,11 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>If you define a file local variable called
-      ‘emacspeak-occur-pattern’ that holds a regular expression
-      that matches lines of interest, you can use this command to
-      conveniently run ‘how-many’ to count matching header lines.
-      With interactive prefix arg, prompts for and remembers the
-      file local pattern.</p>
+      &lsquo;emacspeak-occur-pattern&rsquo; that holds a regular
+      expression that matches lines of interest, you can use this
+      command to conveniently run &lsquo;how-many&rsquo; to count
+      matching header lines. With interactive prefix arg, prompts
+      for and remembers the file local pattern.</p>
     </dd>
   </dl>
 
@@ -1586,7 +1588,7 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Navigate to and speak next ‘bullet’.</p>
+      <p>Navigate to and speak next &lsquo;bullet&rsquo;.</p>
     </dd>
   </dl>
 
@@ -1631,11 +1633,11 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>If you define a file local variable called
-      ‘emacspeak-occur-pattern’ that holds a regular expression
-      that matches header lines, you can use this command to
-      conveniently run ‘occur’ to find matching header lines. With
-      prefix arg, prompts for and sets value of the file local
-      pattern.</p>
+      &lsquo;emacspeak-occur-pattern&rsquo; that holds a regular
+      expression that matches header lines, you can use this
+      command to conveniently run &lsquo;occur&rsquo; to find
+      matching header lines. With prefix arg, prompts for and sets
+      value of the file local pattern.</p>
     </dd>
   </dl>
 
@@ -1726,12 +1728,12 @@
       <p>PPT files are converted to HTML and previewed using a
       browser.</p>
 
-      <p>In addition to any hooks its parent mode ‘text-mode’ might
-      have run, this mode runs the hook
-      ‘emacspeak-wizards-ppt-mode-hook’, as the final step during
-      initialization.</p>
+      <p>In addition to any hooks its parent mode
+      &lsquo;text-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-wizards-ppt-mode-hook&rsquo;, as the
+      final step during initialization.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
     </dd>
   </dl>
 
@@ -1745,7 +1747,7 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Navigate to and speak previous ‘bullet’.</p>
+      <p>Navigate to and speak previous &lsquo;bullet&rsquo;.</p>
     </dd>
   </dl>
 
@@ -1792,9 +1794,9 @@
 
       <p>Rivo wizard. Prompts for relevant information and
       schedules a rivo job using UNIX At scheduling facility. RIVO
-      is implemented by rivo.pl — a Perl script that can be used to
-      launch streaming media and record streaming media for a
-      specified duration.</p>
+      is implemented by rivo.pl &mdash; a Perl script that can be
+      used to launch streaming media and record streaming media for
+      a specified duration.</p>
     </dd>
   </dl>
 
@@ -1823,9 +1825,10 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Run Emacs built-in ‘shell’ command when not in a shell
-      buffer, or when called with a prefix argument. When called
-      from a shell buffer, switches to ‘next’ shell buffer.</p>
+      <p>Run Emacs built-in &lsquo;shell&rsquo; command when not in
+      a shell buffer, or when called with a prefix argument. When
+      called from a shell buffer, switches to &lsquo;next&rsquo;
+      shell buffer.</p>
     </dd>
   </dl>
 
@@ -1942,8 +1945,9 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Searches recursively in all files with extension ‘ext’ for
-      ‘word’ and displays hits in a compilation buffer.</p>
+      <p>Searches recursively in all files with extension
+      &lsquo;ext&rsquo; for &lsquo;word&rsquo; and displays hits in
+      a compilation buffer.</p>
     </dd>
   </dl>
 
@@ -2045,7 +2049,8 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>insert thanks , –Raman at the end of mail message</p>
+      <p>insert thanks , &ndash;Raman at the end of mail
+      message</p>
     </dd>
   </dl>
 
@@ -2178,13 +2183,13 @@
       <p>Major mode for interactively viewing virtual console
       contents.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
 
       <p>C-l emacspeak-wizards-vc-viewer-refresh</p>
 
       <p>This mode runs the hook
-      ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
-      during initialization.</p>
+      &lsquo;emacspeak-wizards-vc-viewer-mode-hook&rsquo;, as the
+      final step during initialization.</p>
     </dd>
   </dl>
 
@@ -2198,7 +2203,7 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Refresh view of VC we’re viewing.</p>
+      <p>Refresh view of VC we&rsquo;re viewing.</p>
     </dd>
   </dl>
 
@@ -2317,12 +2322,12 @@
       <p>XL Sheets are converted to HTML and previewed using a
       browser.</p>
 
-      <p>In addition to any hooks its parent mode ‘text-mode’ might
-      have run, this mode runs the hook
-      ‘emacspeak-wizards-xl-mode-hook’, as the final step during
-      initialization.</p>
+      <p>In addition to any hooks its parent mode
+      &lsquo;text-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-wizards-xl-mode-hook&rsquo;, as the
+      final step during initialization.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
     </dd>
   </dl>
   <hr />
