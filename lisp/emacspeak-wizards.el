@@ -1101,7 +1101,8 @@ Warning! Contents of file filename will be overwritten."
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
         (module nil))
-    (with-current- buffer buffer
+    (save-excursion
+      (set-buffer buffer)
                    (erase-buffer)
                    (insert
                     (format
@@ -1125,34 +1126,34 @@ This chapter documents a total of %d user customizable
                                    (file-name-sans-extension this-module))))
                           (unless (string-equal module this-module)
                                         ; cache module and generate new section
-                          (setq module this-module)
-                          (when module
-                            (setq commentary (lm-commentary source-file))
-                            (when commentary
-                              (setq commentary (ems-cleanup-commentary commentary)))
+                            (setq module this-module)
+                            (when module
+                              (setq commentary (lm-commentary source-file))
+                              (when commentary
+                                (setq commentary (ems-cleanup-commentary commentary)))
+                              (insert
+                               (format
+                                "@node %s Options\n@section %s Options\n\n\n"
+                                module module )))
+                            (insert
+                             (format "\n\n%s\n\n"
+                                     (or commentary "")))
                             (insert
                              (format
-                              "@node %s Options\n@section %s Options\n\n\n"
-                              module module )))
-                          (insert
-                           (format "\n\n%s\n\n"
-                                   (or commentary "")))
-                          (insert
-                           (format
-                            "Automatically generated documentation
+                              "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-                            module)))
-                        (insert (format "\n\n@defvar {User Option} %s\n"
-                                        o))
-                        (insert
-                         (or
-                          (when
-                              (documentation-property  o 'variable-documentation)
-                            (ems-texinfo-escape
-                             (documentation-property  o 'variable-documentation)))
-                          "Not Documented"))
-                        (insert "\n@end defvar\n\n")))
+                              module)))
+                          (insert (format "\n\n@defvar {User Option} %s\n"
+                                          o))
+                          (insert
+                           (or
+                            (when
+                                (documentation-property  o 'variable-documentation)
+                              (ems-texinfo-escape
+                               (documentation-property  o 'variable-documentation)))
+                            "Not Documented"))
+                          (insert "\n@end defvar\n\n")))
                     options)
                    (texinfo-all-menus-update)
                    (shell-command-on-region (point-min) (point-max)
