@@ -148,7 +148,7 @@
   (define-key 2048-mode-map [delete]  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map  "="'emacspeak-2048-score)
-(define-key 2048-mode-map  "R"'emacspeak-2048-randomize-game)
+  (define-key 2048-mode-map  "R"'emacspeak-2048-randomize-game)
   (define-key 2048-mode-map  [?\C- ] 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate 

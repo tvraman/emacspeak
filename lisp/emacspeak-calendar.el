@@ -112,8 +112,6 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-calendar-speak-date)))
 
-
-
 (add-hook 'calendar-mode-hook
           'gcal-emacs-calendar-setup)
 (add-hook 'calendar-mode-hook

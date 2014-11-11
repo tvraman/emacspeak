@@ -850,10 +850,10 @@ Optional prefix arg prompts for toolbelt options."
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (cond
      (options (emacspeak-google-toolbelt-change))
-    (t (emacspeak-we-extract-by-id
-     "center_col"
-     (format emacspeak-websearch-accessible-google-url query)
-     'speak)))))
+     (t (emacspeak-we-extract-by-id
+         "center_col"
+         (format emacspeak-websearch-accessible-google-url query)
+         'speak)))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)

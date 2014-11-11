@@ -460,7 +460,6 @@ This variable is buffer-local.")
              for b in emacspeak-google-toolbelt
              collect (emacspeak-google-tool-name b)))))
 
-
 (defsubst emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
   "Return list of names in toolbelt."
   (loop

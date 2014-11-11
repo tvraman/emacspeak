@@ -1103,64 +1103,64 @@ Warning! Contents of file filename will be overwritten."
         (module nil))
     (save-excursion
       (set-buffer buffer)
-                   (erase-buffer)
-                   (insert
-                    (format
-                     "@node Emacspeak Customizations\n
+      (erase-buffer)
+      (insert
+       (format
+        "@node Emacspeak Customizations\n
 @chapter Emacspeak Customizations \n\n
         This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d user customizable
   options.\n\n"
-                     (length options)))
-                   (mapcar
-                    #'(lambda (o)
-                        (let ((this-module (ems-variable-symbol-file  o))
-                              (commentary nil)
-                              (source-file nil))
-                          (when this-module
-                            (setq source-file (locate-library this-module ))
-                            (setq this-module
-                                  (file-name-nondirectory
-                                   (file-name-sans-extension this-module))))
-                          (unless (string-equal module this-module)
+        (length options)))
+      (mapcar
+       #'(lambda (o)
+           (let ((this-module (ems-variable-symbol-file  o))
+                 (commentary nil)
+                 (source-file nil))
+             (when this-module
+               (setq source-file (locate-library this-module ))
+               (setq this-module
+                     (file-name-nondirectory
+                      (file-name-sans-extension this-module))))
+             (unless (string-equal module this-module)
                                         ; cache module and generate new section
-                            (setq module this-module)
-                            (when module
-                              (setq commentary (lm-commentary source-file))
-                              (when commentary
-                                (setq commentary (ems-cleanup-commentary commentary)))
-                              (insert
-                               (format
-                                "@node %s Options\n@section %s Options\n\n\n"
-                                module module )))
-                            (insert
-                             (format "\n\n%s\n\n"
-                                     (or commentary "")))
-                            (insert
-                             (format
-                              "Automatically generated documentation
+               (setq module this-module)
+               (when module
+                 (setq commentary (lm-commentary source-file))
+                 (when commentary
+                   (setq commentary (ems-cleanup-commentary commentary)))
+                 (insert
+                  (format
+                   "@node %s Options\n@section %s Options\n\n\n"
+                   module module )))
+               (insert
+                (format "\n\n%s\n\n"
+                        (or commentary "")))
+               (insert
+                (format
+                 "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-                              module)))
-                          (insert (format "\n\n@defvar {User Option} %s\n"
-                                          o))
-                          (insert
-                           (or
-                            (when
-                                (documentation-property  o 'variable-documentation)
-                              (ems-texinfo-escape
-                               (documentation-property  o 'variable-documentation)))
-                            "Not Documented"))
-                          (insert "\n@end defvar\n\n")))
-                    options)
-                   (texinfo-all-menus-update)
-                   (shell-command-on-region (point-min) (point-max)
-                                            "cat -s"
-                                            (current-buffer)
-                                            'replace)
-                   (save-buffer))))
+                 module)))
+             (insert (format "\n\n@defvar {User Option} %s\n"
+                             o))
+             (insert
+              (or
+               (when
+                   (documentation-property  o 'variable-documentation)
+                 (ems-texinfo-escape
+                  (documentation-property  o 'variable-documentation)))
+               "Not Documented"))
+             (insert "\n@end defvar\n\n")))
+       options)
+      (texinfo-all-menus-update)
+      (shell-command-on-region (point-min) (point-max)
+                               "cat -s"
+                               (current-buffer)
+                               'replace)
+      (save-buffer))))
 
 ;;}}}
 ;;{{{ labelled frames
