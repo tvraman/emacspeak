@@ -1122,8 +1122,8 @@ This chapter documents a total of %d user customizable
                             (setq source-file (locate-library this-module ))
                             (setq this-module
                                   (file-name-nondirectory
-                                   (file-name-sans-extension this-module)))))
-                        (unless (string-equal module this-module)
+                                   (file-name-sans-extension this-module))))
+                          (unless (string-equal module this-module)
                                         ; cache module and generate new section
                           (setq module this-module)
                           (when module
@@ -1152,7 +1152,7 @@ These options are customizable via Emacs' Custom interface.\n\n"
                             (ems-texinfo-escape
                              (documentation-property  o 'variable-documentation)))
                           "Not Documented"))
-                        (insert "\n@end defvar\n\n"))
+                        (insert "\n@end defvar\n\n")))
                     options)
                    (texinfo-all-menus-update)
                    (shell-command-on-region (point-min) (point-max)
