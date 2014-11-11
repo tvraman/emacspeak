@@ -878,7 +878,7 @@ To leave, press \\[keyboard-quit]."
 ;;{{{  Generate documentation:
 (defsubst ems-variable-symbol-file (o)
   "Locate file that defines a variable."
-      (find-lisp-object-file-name  o 'defvar))
+  (find-lisp-object-file-name  o 'defvar))
 
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
@@ -914,18 +914,18 @@ To leave, press \\[keyboard-quit]."
   (let ((commands nil ))
     (mapatoms
      #'(lambda (f)
-        (when
-            (and (fboundp f)
-                 (commandp f)
-                 (not (string-match "ad-Advice" (symbol-name f)))
-                 (not (string-match "ad-Orig" (symbol-name f)))
-                 (not (eq f 'emacspeak))
-                 (or (string-match "emacspeak" (symbol-name f))
-                     (string-match "cd-tool" (symbol-name f))
-                     (string-match "dtk" (symbol-name f))
-                     (string-match "voice-setup" (symbol-name f))
-                     (string-match "dtk" (symbol-name f))))
-          (push f commands))))
+         (when
+             (and (fboundp f)
+                  (commandp f)
+                  (not (string-match "ad-Advice" (symbol-name f)))
+                  (not (string-match "ad-Orig" (symbol-name f)))
+                  (not (eq f 'emacspeak))
+                  (or (string-match "emacspeak" (symbol-name f))
+                      (string-match "cd-tool" (symbol-name f))
+                      (string-match "dtk" (symbol-name f))
+                      (string-match "voice-setup" (symbol-name f))
+                      (string-match "dtk" (symbol-name f))))
+           (push f commands))))
     (setq commands
           (sort commands
                 #'(lambda (a b )
@@ -1039,13 +1039,11 @@ commands.\n\n"
                     (source-file nil))
                  (when this-module
                    (setq source-file (locate-library this-module ))
-                   (if (char-equal (aref source-file (1- (length source-file))) ?c)
-                       (setq source-file (substring  source-file 0 -1)))
-                   (setq this-module 
-                         (file-name-nondirectory 
+                   (setq this-module
+                         (file-name-nondirectory
                           (file-name-sans-extension this-module))))
-                 (unless (string-equal module this-module) 
-                                        ; cache module name and produce section start 
+                 (unless (string-equal module this-module)
+                                        ; cache module name and produce section start
                    (setq module this-module)
                    (setq commentary (lm-commentary source-file))
                    (when commentary
@@ -1062,7 +1060,7 @@ commands.\n\n"
                      "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                      module)))
-                                        ; generate command documentation 
+                                        ; generate command documentation
                  (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
                                  f (help-function-arglist f t)))
                  (setq key-description
@@ -1081,12 +1079,12 @@ for commands defined in module  %s.\n\n"
                       (ems-texinfo-escape (documentation f))
                     "Not Documented"))
                  (insert "\n@end deffn\n\n"))
-             (error 
+             (error
               (insert (format "\n@c Caught %s\n" f)))))
        commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
-      (shell-command-on-region          ; squeeze blanks 
+      (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
       (save-buffer)))
@@ -1099,76 +1097,69 @@ options  into file filename.
 Warning! Contents of file filename will be overwritten."
   (interactive "FEnter filename to save options documentation in: ")
   (let ((emacspeak-speak-messages nil)
+        (options (emacspeak-list-emacspeak-options))
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
         (module nil))
-    (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (insert"@c $Id$\n")
-      (insert
-       "@node Emacspeak Customizations\n@chapter Emacspeak Customizations \n\n")
-      (insert
-       (format
-        "This chapter is generated automatically from the source-level documentation.
+    (with-current- buffer buffer
+                   (erase-buffer)
+                   (insert
+                    (format
+                     "@node Emacspeak Customizations\n
+@chapter Emacspeak Customizations \n\n
+        This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d user customizable
   options.\n\n"
-        (length (emacspeak-list-emacspeak-options))))
-      (mapcar
-       #'(lambda (o)
-           (let ((this-module (ems-variable-symbol-file  o))
-                 (commentary nil)
-                 (source-file nil))
-             (when this-module
-               (setq source-file (locate-library this-module ))
-               (if (char-equal (aref source-file (1- (length source-file))) ?c)
-                   (setq source-file (substring  source-file 0 -1)))
-               (setq commentary (lm-commentary source-file))
-               (setq this-module
-                     (file-name-sans-extension this-module))
-               (when commentary
-                 (setq commentary
-                       (ems-cleanup-commentary commentary)))
-               (setq this-module
-                     (file-name-nondirectory this-module)))
-             (unless (string-equal module this-module)
-               (if this-module
-                   (setq module this-module)
-                 (setq module nil))
-               (when module
-                 (insert
-                  (format
-                   "@node %s Options\n@section %s Options\n\n\n"
-                   module module )))
-               (insert
-                (format "\n\n%s\n\n"
-                        (or commentary "")))
-               (insert
-                (format
-                 "Automatically generated documentation
+                     (length options)))
+                   (mapcar
+                    #'(lambda (o)
+                        (let ((this-module (ems-variable-symbol-file  o))
+                              (commentary nil)
+                              (source-file nil))
+                          (when this-module
+                            (setq source-file (locate-library this-module ))
+                            (setq this-module
+                                  (file-name-nondirectory
+                                   (file-name-sans-extension this-module)))))
+                        (unless (string-equal module this-module)
+                                        ; cache module and generate new section
+                          (setq module this-module)
+                          (when module
+                            (setq commentary (lm-commentary source-file))
+                            (when commentary
+                              (setq commentary (ems-cleanup-commentary commentary)))
+                            (insert
+                             (format
+                              "@node %s Options\n@section %s Options\n\n\n"
+                              module module )))
+                          (insert
+                           (format "\n\n%s\n\n"
+                                   (or commentary "")))
+                          (insert
+                           (format
+                            "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-                 module)))
-             (insert (format "\n\n@defvar {User Option} %s\n"
-                             o))
-             (insert
-              (or
-               (when
-                   (documentation-property  o 'variable-documentation)
-                 (ems-texinfo-escape
-                  (documentation-property  o 'variable-documentation)))
-               "Not Documented"))
-             (insert "\n@end defvar\n\n")))
-       (emacspeak-list-emacspeak-options))
-      (texinfo-all-menus-update)
-      (shell-command-on-region (point-min) (point-max)
-                               "cat -s"
-                               (current-buffer)
-                               'replace)
-      (save-buffer)))
-  (emacspeak-auditory-icon 'task-done))
+                            module)))
+                        (insert (format "\n\n@defvar {User Option} %s\n"
+                                        o))
+                        (insert
+                         (or
+                          (when
+                              (documentation-property  o 'variable-documentation)
+                            (ems-texinfo-escape
+                             (documentation-property  o 'variable-documentation)))
+                          "Not Documented"))
+                        (insert "\n@end defvar\n\n"))
+                    options)
+                   (texinfo-all-menus-update)
+                   (shell-command-on-region (point-min) (point-max)
+                                            "cat -s"
+                                            (current-buffer)
+                                            'replace)
+                   (save-buffer))))
 
 ;;}}}
 ;;{{{ labelled frames
@@ -2234,7 +2225,7 @@ emacspeak-wizards-personal-portfolio."
     (setq emacspeak-table-speak-row-filter emacspeak-wizards-quote-row-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (setq tab-width 12)
-    
+
     (rename-buffer "Portfolio" 'unique)
     (goto-char (point-min))
     (call-interactively 'emacspeak-table-next-row)
@@ -3084,7 +3075,7 @@ This is for use in conjunction with bash to allow multiple emacs
 ;;{{{ Next/Previous shell:
 (defsubst emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
-  (remove-if-not 
+  (remove-if-not
    #'(lambda (buffer)
        (with-current-buffer   buffer (eq major-mode 'shell-mode)))
    (buffer-list)))
@@ -3121,7 +3112,7 @@ Direction specifies previous/next."
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
-  "Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument. 
+  "Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument.
 When called from a shell buffer, switches to `next' shell buffer."
   (interactive "P")
   (cond
@@ -3296,7 +3287,7 @@ Default is to add autoload cookies to current file."
      (next (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
-     (t 
+     (t
       (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
@@ -3313,7 +3304,7 @@ term if needed."
   (let ((next (or create  (emacspeak-wizards-buffer-cycle-next 'term-mode))))
     (cond
      ((or create  (not next)) (ansi-term explicit-shell-file-name))
-     (next 
+     (next
       (when (derived-mode-p 'term-mode) (bury-buffer))
       (switch-to-buffer  next))
      (t (error "Confused?")))
@@ -3389,7 +3380,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Prompt for a string pattern and return list of commands whose names match pattern."
   (interactive "sPattern: ")
   (let ((result nil))
-    (mapatoms 
+    (mapatoms
      #'(lambda (s)
          (when (and (commandp s)
                     (string-match pattern  (symbol-name s)))
@@ -3418,9 +3409,9 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Enumerate unmapped faces matching pattern."
   (interactive "sPattern:")
   (or pattern (setq pattern "."))
-  (let ((result 
+  (let ((result
          (delq
-          nil 
+          nil
           (mapcar
            #'(lambda (s)
                (let ((name (symbol-name s)))
@@ -3445,9 +3436,9 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-enumerate-matching-faces (pattern)
   "Enumerate  faces matching pattern."
   (interactive "sPattern:")
-  (let ((result 
+  (let ((result
          (delq
-          nil 
+          nil
           (mapcar
            #'(lambda (s)
                (let ((name (symbol-name s)))
@@ -3490,7 +3481,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
         (h (make-hash-table :test #'equal)))
     (loop  for e in p do (puthash e 1 h ))
     (setq p
-          (mapconcat #'identity 
+          (mapconcat #'identity
                      (loop  for k being the hash-keys of h collect k)
                      ":"))
     (kill-new (format "export PATH=\"%s\"" p))
