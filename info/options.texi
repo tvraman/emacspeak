@@ -1,8 +1,8 @@
-@c $Id$
 @node Emacspeak Customizations
+
 @chapter Emacspeak Customizations 
 
-This chapter is generated automatically from the source-level documentation.
+        This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of 624 user customizable
