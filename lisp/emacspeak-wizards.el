@@ -919,6 +919,7 @@ To leave, press \\[keyboard-quit]."
         (when
             (and (fboundp f)
                  (commandp f)
+                 (not (string-match "ad-Advice" (symbol-name f)))
                  (not (string-match "ad-Orig" (symbol-name f)))
                  (not (eq f 'emacspeak))
                  (or (string-match "emacspeak" (symbol-name f))

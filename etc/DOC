@@ -943,10 +943,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voiceifying rich text. 
 
@@ -5686,15 +5682,6 @@ Automatically defined advice to speak interactive prompts.
 
 ** ad-Advice-emacspeak-eterm-paste-register Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts.  
-
-------------------------------------------------------------
-
-** emacspeak-py-next-block Move forward to the beginning of the next block. 
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-block Move backward to the beginning of the current block.
-If already at the beginning then move to previous block. 
 
   
 
