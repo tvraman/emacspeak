@@ -51,6 +51,7 @@ commands.
 * emacspeak-librivox::
 * emacspeak-loaddefs::
 * emacspeak-m-player::
+* emacspeak-aumix::
 * emacspeak-madplay::
 * emacspeak-man::
 * emacspeak-mpg123::
@@ -77,6 +78,7 @@ commands.
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
+* emacspeak-m-player::
 * emacspeak-w3m::
 * emacspeak-we::
 * emacspeak-websearch::
@@ -146,8 +148,6 @@ Automatically generated documentation
 for commands defined in module  dectalk-voices.
 
 @deffn {Interactive Command} dtk-exp  nil
-@kbd{Not bound to any key.}
-
 Select Dectalk TTS server.
 @end deffn
 
@@ -194,8 +194,6 @@ Port  defaults to  dtk-local-server-port
 @end deffn
 
 @deffn {Interactive Command} dtk-pause  nil
-@kbd{Not bound to any key.}
-
 Temporarily pause / resume speech.
 @end deffn
 
@@ -207,8 +205,6 @@ Typically used after the Dectalk has been power   cycled.
 @end deffn
 
 @deffn {Interactive Command} dtk-resume  nil
-@kbd{Not bound to any key.}
-
 Resume paused speech.
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to M-x dtk-pause.
@@ -268,8 +264,6 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-preferred-language  (alias lang)
-@kbd{Not bound to any key.}
-
 Set the alias of the preferred language:
 For example if alias="en" lang="en_GB",
 then the following call:
@@ -294,15 +288,11 @@ current local  value to the result.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-punctuations-to-all  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-punctuations-to-some  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally.
 @end deffn
@@ -423,16 +413,12 @@ Automatically generated documentation
 for commands defined in module  dtk-unicode.
 
 @deffn {Interactive Command} dtk-unicode-customize-char  (char replacement)
-@kbd{Not bound to any key.}
-
 Add a custom replacement string for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
 @end deffn
 
 @deffn {Interactive Command} dtk-unicode-uncustomize-char  (char)
-@kbd{Not bound to any key.}
-
 Delete custom replacement for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
@@ -450,114 +436,78 @@ Automatically generated documentation
 for commands defined in module  emacspeak-alsaplayer.
 
 @deffn {Interactive Command} emacspeak-alsaplayer-add-to-queue  (resource)
-@kbd{Not bound to any key.}
-
 Add specified resource to queue.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-amark-add  (name &optional prompt-position)
-@kbd{Not bound to any key.}
-
 Set AMark `name' at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-amark-jump  nil
-@kbd{Not bound to any key.}
-
 Jump to specified AMark.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-backward-10-seconds  nil
-@kbd{Not bound to any key.}
-
 Skip backward by  10 seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-backward-minute  (minutes)
-@kbd{Not bound to any key.}
-
 Skip backwards by  minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-backward-ten-minutes  (minutes)
-@kbd{Not bound to any key.}
-
 Skip backwards by  chunks of minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-cd  (directory)
-@kbd{Not bound to any key.}
-
 Change default directory, and silence its pronunciation.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-clear  nil
-@kbd{Not bound to any key.}
-
 Clear or resume alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-clip  (path start end)
-@kbd{Not bound to any key.}
-
 Invoke mp3splt to clip selected range.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-find-and-add-to-queue  (pattern)
-@kbd{Not bound to any key.}
-
 Find  specified resource and add to queue.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-forward-10-seconds  nil
-@kbd{Not bound to any key.}
-
 Skip forward by  seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-forward-minute  (minutes)
-@kbd{Not bound to any key.}
-
 Skip forward by  minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-forward-ten-minutes  (minutes)
-@kbd{Not bound to any key.}
-
 Skip forward by  chunks of ten minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-info  nil
-@kbd{Not bound to any key.}
-
 Speak current path and copy it to kill ring.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-jump  (track)
-@kbd{Not bound to any key.}
-
 Jump to specified track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-launch  nil
-@kbd{Not bound to any key.}
-
 Launch Alsaplayer.
 user is placed in a buffer associated with the newly created
 Alsaplayer session.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-mark-position  nil
-@kbd{Not bound to any key.}
-
 Mark currently displayed position.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for alsaplayer interaction. 
 
 key             binding
@@ -606,80 +556,54 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-next  nil
-@kbd{Not bound to any key.}
-
 Next  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-pause  nil
-@kbd{Not bound to any key.}
-
 Pause or resume alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-previous  nil
-@kbd{Not bound to any key.}
-
 Previous  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-quit  nil
-@kbd{Not bound to any key.}
-
 Quit  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-relative  (offset)
-@kbd{Not bound to any key.}
-
 Relative seek  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-replace-queue  (resource)
-@kbd{Not bound to any key.}
-
 Replace currently playing music.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-seek  (offset)
-@kbd{Not bound to any key.}
-
 Absolute seek  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-speed  (setting)
-@kbd{Not bound to any key.}
-
 Set speed in alsaplayer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-start  nil
-@kbd{Not bound to any key.}
-
 Start  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-status  nil
-@kbd{Not bound to any key.}
-
 Show alsaplayer status
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-stop  nil
-@kbd{Not bound to any key.}
-
 Stop  alsaplayer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-volume  (setting)
-@kbd{Not bound to any key.}
-
 Set volume.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-where  nil
-@kbd{Not bound to any key.}
-
 Speak current position and copy it to kill ring.
 @end deffn
 
@@ -699,27 +623,19 @@ Automatically generated documentation
 for commands defined in module  emacspeak-amark.
 
 @deffn {Interactive Command} emacspeak-amark-add  (path name position)
-@kbd{Not bound to any key.}
-
 Add an AMark to the buffer local list of AMarks.
 AMarks are bookmarks in audio content.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-amark-find  (name)
-@kbd{Not bound to any key.}
-
 Return matching AMark if found in buffer-local AMark list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-amark-load  nil
-@kbd{Not bound to any key.}
-
 Locate AMarks file from current directory, and load it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-amark-save  nil
-@kbd{Not bound to any key.}
-
 Save buffer-local AMarks in current directory.
 @end deffn
 
@@ -732,26 +648,18 @@ Automatically generated documentation
 for commands defined in module  emacspeak-arc.
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-modification-time  nil
-@kbd{Not bound to any key.}
-
 Speak modification time of the file on current line
 @end deffn
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-name  nil
-@kbd{Not bound to any key.}
-
 Speak the name of the file on current line
 @end deffn
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-permissions  nil
-@kbd{Not bound to any key.}
-
 Speak permissions of file current entry 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-size  nil
-@kbd{Not bound to any key.}
-
 Speak the size of the file on current line
 @end deffn
 
@@ -766,40 +674,28 @@ Automatically generated documentation
 for commands defined in module  emacspeak-aumix.
 
 @deffn {Interactive Command} emacspeak-aumix-edit  nil
-@kbd{Not bound to any key.}
-
 Edit aumix settings interactively. 
 Run command M-x emacspeak-aumix-reset
 after saving the settings to have them take effect.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-reset  nil
-@kbd{Not bound to any key.}
-
 Reset to default audio settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-volume-decrease  (&optional gain)
-@kbd{Not bound to any key.}
-
 Decrease overall volume. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-volume-increase  (&optional gain)
-@kbd{Not bound to any key.}
-
 Increase overall volume. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-wave-decrease  (&optional gain)
-@kbd{Not bound to any key.}
-
 Decrease volume of wave output. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-aumix-wave-increase  (&optional gain)
-@kbd{Not bound to any key.}
-
 Increase volume of wave output. 
 @end deffn
 
@@ -822,140 +718,96 @@ Bookshare  Interaction.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-action  nil
-@kbd{Not bound to any key.}
-
 Call action specified by  invoking key.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-author-search  (query &optional category)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare author search.
 Interactive prefix arg filters search by category.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-browse  nil
-@kbd{Not bound to any key.}
-
 Browse Bookshare.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-browse-latest  nil
-@kbd{Not bound to any key.}
-
 Return latest books.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-browse-popular  (&optional category)
-@kbd{Not bound to any key.}
-
 Browse popular books.
 Optional interactive prefix arg prompts for a category to use as a filter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-download-brf  (id target)
-@kbd{Not bound to any key.}
-
 Download Daisy format of specified book to target location.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-download-brf-at-point  nil
-@kbd{Not bound to any key.}
-
 Download Braille version of book under point.
 Target location is generated from author and title.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-download-daisy  (id target)
-@kbd{Not bound to any key.}
-
 Download Daisy format of specified book to target location.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-download-daisy-at-point  nil
-@kbd{Not bound to any key.}
-
 Download Daisy version of book under point.
 Target location is generated from author and title.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-download-internal  (url target)
-@kbd{Not bound to any key.}
-
 Download content  to target location.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-eww  (directory)
-@kbd{Not bound to any key.}
-
 Render complete book using EWW if available.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-expand-at-point  nil
-@kbd{Not bound to any key.}
-
 Expand entry at point by retrieving metadata.
 Once retrieved, memoize to avoid multiple retrievals.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-extract-and-view  (url)
-@kbd{Not bound to any key.}
-
 Extract content referred to by link under point, and render via the browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-extract-xml  (url)
-@kbd{Not bound to any key.}
-
 Extract content referred to by link under point, and return an XML buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-flush-lines  (regexp)
-@kbd{Not bound to any key.}
-
 Flush lines matching regexp in Bookshare buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-fulltext  (directory)
-@kbd{Not bound to any key.}
-
 Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-fulltext-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare fulltext search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-get-more-results  nil
-@kbd{Not bound to any key.}
-
 Get next page of results for last query.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-id-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare id search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-isbn-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare isbn search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-list-preferences  nil
-@kbd{Not bound to any key.}
-
 Return preference list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-mode  nil
-@kbd{Not bound to any key.}
-
 A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
@@ -1022,83 +874,57 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-next-result  nil
-@kbd{Not bound to any key.}
-
 Move to next result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-periodical-list  nil
-@kbd{Not bound to any key.}
-
 Return list of periodicals.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-previous-result  nil
-@kbd{Not bound to any key.}
-
 Move to previous result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-set-preference  (preference-id value)
-@kbd{Not bound to any key.}
-
 Set preference preference-id to value.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-sign-out  nil
-@kbd{Not bound to any key.}
-
 Sign out, clearing password.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-since-search  (query &optional category)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare date  search.
 Optional interactive prefix arg filters by category.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-title-search  (query &optional category)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare title search.
 Interactive prefix arg filters search by category.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-title/author-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a Bookshare title/author  search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-toc  (directory)
-@kbd{Not bound to any key.}
-
 View TOC for book in specified directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-toc-at-point  nil
-@kbd{Not bound to any key.}
-
 View TOC for book at point.
 Make sure it's downloaded and unpacked first.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-unpack-at-point  nil
-@kbd{Not bound to any key.}
-
 Unpack downloaded content if necessary.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-url-executor  (url)
-@kbd{Not bound to any key.}
-
 Custom URL executor for use in Bookshare TOC.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-version-handler  (&rest ignore)
-@kbd{Not bound to any key.}
-
 Do nothing and return nil.
 This function accepts any number of arguments, but ignores them.
 
@@ -1106,21 +932,15 @@ This function accepts any number of arguments, but ignores them.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-view  (directory)
-@kbd{Not bound to any key.}
-
 View book in specified directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-view-at-point  nil
-@kbd{Not bound to any key.}
-
 View book at point.
 Make sure it's downloaded and unpacked first.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bookshare-view-page-range  (url)
-@kbd{Not bound to any key.}
-
 Play pages in specified page range from URL.
 @end deffn
 
@@ -1134,8 +954,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-bs.
 
 @deffn {Interactive Command} emacspeak-bs-speak-buffer-line  nil
-@kbd{Not bound to any key.}
-
 Speak information about this buffer
 @end deffn
 
@@ -1148,26 +966,18 @@ Automatically generated documentation
 for commands defined in module  emacspeak-buff-menu.
 
 @deffn {Interactive Command} emacspeak-list-buffers-next-line  (count)
-@kbd{Not bound to any key.}
-
 Speech enabled buffer menu navigation
 @end deffn
 
 @deffn {Interactive Command} emacspeak-list-buffers-previous-line  (count)
-@kbd{Not bound to any key.}
-
 Speech enabled buffer menu navigation
 @end deffn
 
 @deffn {Interactive Command} emacspeak-list-buffers-speak-buffer-line  nil
-@kbd{Not bound to any key.}
-
 Speak information about this buffer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-list-buffers-speak-buffer-name  nil
-@kbd{Not bound to any key.}
-
 Speak the name of the buffer on this line
 @end deffn
 
@@ -1183,8 +993,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-c.
 
 @deffn {Interactive Command} emacspeak-c-speak-semantics  nil
-@kbd{Not bound to any key.}
-
 Speak the C semantics of this line. 
 @end deffn
 
@@ -1203,15 +1011,11 @@ Speaks the most recently displayed appointment message if any.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-calendar-setup-sunrise-sunset  nil
-@kbd{Not bound to any key.}
-
 Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-calendar-speak-date  nil
-@kbd{Not bound to any key.}
-
 Speak the date under point when called in Calendar Mode. 
 @end deffn
 
@@ -1226,8 +1030,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-compile.
 
 @deffn {Interactive Command} emacspeak-compilation-speak-error  nil
-@kbd{Not bound to any key.}
-
 Speech feedback about the compilation error. 
 @end deffn
 
@@ -1240,14 +1042,10 @@ Automatically generated documentation
 for commands defined in module  emacspeak-custom.
 
 @deffn {Interactive Command} emacspeak-custom-goto-group  nil
-@kbd{Not bound to any key.}
-
 Jump to custom group when in a customization buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-custom-goto-toolbar  nil
-@kbd{Not bound to any key.}
-
 Jump to custom toolbar when in a customization buffer.
 @end deffn
 
@@ -1264,55 +1062,39 @@ Automatically generated documentation
 for commands defined in module  emacspeak-dired.
 
 @deffn {Interactive Command} emacspeak-dired-label-fields  nil
-@kbd{Not bound to any key.}
-
 Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
 unless `dired-listing-switches' contains -l
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-show-file-type  (&optional file deref-symlinks)
-@kbd{Not bound to any key.}
-
 Displays type of current file by running command file.
 Like Emacs' built-in dired-show-file-type but allows user to customize
 options passed to command `file'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-file-access-time  nil
-@kbd{Not bound to any key.}
-
 Speak access time  of the current file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-file-modification-time  nil
-@kbd{Not bound to any key.}
-
 Speak modification time  of the current file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-file-permissions  nil
-@kbd{Not bound to any key.}
-
 Speak the permissions of the current file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-file-size  nil
-@kbd{Not bound to any key.}
-
 Speak the size of the current file.
 On a directory line, run du -s on the directory to speak its size.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-header-line  nil
-@kbd{Not bound to any key.}
-
 Speak the header line of the dired buffer. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-symlink-target  nil
-@kbd{Not bound to any key.}
-
 Speaks the target of the symlink on the current line.
 @end deffn
 
@@ -1325,94 +1107,66 @@ Automatically generated documentation
 for commands defined in module  emacspeak-dismal.
 
 @deffn {Interactive Command} emacspeak-dismal-backward-col-and-summarize  (cols)
-@kbd{Not bound to any key.}
-
 Move backward by arg columns
  (the previous column by default)and summarize it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-backward-row-and-summarize  (rows)
-@kbd{Not bound to any key.}
-
 Move backward by arg rows
  (the previous row by default)and summarize it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-col-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarizes a col using the specification in list
 emacspeak-dismal-col-summarizer-list
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-display-cell-expression  nil
-@kbd{Not bound to any key.}
-
 Display the expression in the message area
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-display-cell-value  nil
-@kbd{Not bound to any key.}
-
 Display the cell value in the message area
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-display-cell-with-col-header  nil
-@kbd{Not bound to any key.}
-
 Display current cell along with its column header.
 The `column header' is the entry in row 0.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-display-cell-with-row-header  nil
-@kbd{Not bound to any key.}
-
 Displays current cell along with its row header.
 The `row header' is the entry in column 0.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-forward-col-and-summarize  (cols)
-@kbd{Not bound to any key.}
-
 Move forward by arg columns
  (the next column by default)and summarize it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-forward-row-and-summarize  (rows)
-@kbd{Not bound to any key.}
-
 Move forward by arg rows
  (the next row by default)and summarize it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-row-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarizes a row using the specification in list
 emacspeak-dismal-row-summarizer-list
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-set-col-summarizer-list  nil
-@kbd{Not bound to any key.}
-
 Specify or reset col summarizer list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-set-row-summarizer-list  nil
-@kbd{Not bound to any key.}
-
 Specify or reset row summarizer list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-set-sheet-summarizer-list  nil
-@kbd{Not bound to any key.}
-
 Specify or reset sheet summarizer list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dismal-sheet-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 @end deffn
@@ -1426,50 +1180,34 @@ Automatically generated documentation
 for commands defined in module  emacspeak-ecb.
 
 @deffn {Interactive Command} emacspeak-ecb-speak-window-directories  nil
-@kbd{Not bound to any key.}
-
 Speak contents of directories window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-speak-window-history  nil
-@kbd{Not bound to any key.}
-
 Speak contents of history window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-speak-window-methods  nil
-@kbd{Not bound to any key.}
-
 Speak contents of methods window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-speak-window-sources  nil
-@kbd{Not bound to any key.}
-
 Speak contents of sources window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-tree-backspace  nil
-@kbd{Not bound to any key.}
-
 Back up during incremental search in tree buffers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-tree-clear  nil
-@kbd{Not bound to any key.}
-
 Clear search pattern during incremental search in tree buffers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-tree-expand-common-prefix  nil
-@kbd{Not bound to any key.}
-
 Expand to longest common prefix in tree buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ecb-tree-shift-return  nil
-@kbd{Not bound to any key.}
-
 Do shift return in ECB tree browser.
 @end deffn
 
@@ -1491,8 +1229,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference  nil
-@kbd{Not bound to any key.}
-
 Speak the current difference
 @end deffn
 
@@ -1505,8 +1241,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-enriched.
 
 @deffn {Interactive Command} emacspeak-enriched-voiceify-faces  (start end)
-@kbd{Not bound to any key.}
-
 Map base fonts to voices.
 Useful in voiceifying rich text.
 @end deffn
@@ -1521,14 +1255,10 @@ Automatically generated documentation
 for commands defined in module  emacspeak-entertain.
 
 @deffn {Interactive Command} emacspeak-hangman-speak-guess  nil
-@kbd{Not bound to any key.}
-
 Speak current guessed string. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-hangman-speak-statistics  nil
-@kbd{Not bound to any key.}
-
 Speak statistics.
 @end deffn
 
@@ -1541,32 +1271,22 @@ Automatically generated documentation
 for commands defined in module  emacspeak-eperiodic.
 
 @deffn {Interactive Command} emacspeak-eperiodic-goto-property-section  nil
-@kbd{Not bound to any key.}
-
 Mark position and jump to properties section.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eperiodic-next-line  nil
-@kbd{Not bound to any key.}
-
 Move to next row and speak element.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eperiodic-play-description  nil
-@kbd{Not bound to any key.}
-
 Play audio description from WebElements.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eperiodic-previous-line  nil
-@kbd{Not bound to any key.}
-
 Move to next row and speak element.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eperiodic-speak-current-element  nil
-@kbd{Not bound to any key.}
-
 Speak element at point.
 @end deffn
 
@@ -1589,8 +1309,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-epub.
 
 @deffn {Interactive Command} emacspeak-calibre-mode  nil
-@kbd{Not bound to any key.}
-
 A Calibre Front-end.
 Letters do not insert themselves; instead, they are commands.
 
@@ -1613,162 +1331,112 @@ For detailed documentation, see M-x emacspeak-epub-mode
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-add-directory  (directory &optional recursive)
-@kbd{Not bound to any key.}
-
 Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-add-epub  (epub-file)
-@kbd{Not bound to any key.}
-
 Add epub file to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-author  (pattern)
-@kbd{Not bound to any key.}
-
 Add results of an author search to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-search  (pattern)
-@kbd{Not bound to any key.}
-
 Add results of an title/author search to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-calibre-title  (pattern)
-@kbd{Not bound to any key.}
-
 Add results of an title search to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-clear  nil
-@kbd{Not bound to any key.}
-
 Clear all books from bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-load  nil
-@kbd{Not bound to any key.}
-
 Load bookshelf metadata from disk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-open  (bookshelf)
-@kbd{Not bound to any key.}
-
 Load bookshelf metadata from specified bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-open-epub  (epub-file)
-@kbd{Not bound to any key.}
-
 Open epub file and add it to current bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-redraw  (&optional author-first)
-@kbd{Not bound to any key.}
-
 Redraw Bookshelf.
 Optional interactive prefix arg author-first prints author at the
   left.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-refresh  nil
-@kbd{Not bound to any key.}
-
 Refresh and redraw bookshelf.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-remove-directory  (directory &optional recursive)
-@kbd{Not bound to any key.}
-
 Remove EPubs found in specified directory from the bookshelf.
 Interactive prefix arg searches recursively in directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-remove-this-book  nil
-@kbd{Not bound to any key.}
-
 Remove the book on current line from this bookshelf.
 No book files are deleted.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-rename  (name &optional overwrite)
-@kbd{Not bound to any key.}
-
 Saves current bookshelf to  specified name.
 Interactive prefix arg `overwrite' will overwrite existing file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-bookshelf-save  nil
-@kbd{Not bound to any key.}
-
 Save bookshelf metadata.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-browse-files  (epub)
-@kbd{Not bound to any key.}
-
 Browse list of HTML files in an EPub.
 Useful if table of contents in toc.ncx is empty.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-calibre-dired-at-point  nil
-@kbd{Not bound to any key.}
-
 Open directory containing current result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-calibre-results  nil
-@kbd{Not bound to any key.}
-
 Show most recent Calibre search results.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-delete  nil
-@kbd{Not bound to any key.}
-
 Delete EPub under point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-eww  (epub-file)
-@kbd{Not bound to any key.}
-
 Display entire book  using EWW from EPub in a buffer.
 Suitable for text searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-fulltext  (epub-file)
-@kbd{Not bound to any key.}
-
 Display fulltext from EPub in a buffer.
 Suitable for text searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-google  (query)
-@kbd{Not bound to any key.}
-
 Search for Epubs from Gooble Books.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-gutenberg-catalog  (&optional refresh)
-@kbd{Not bound to any key.}
-
 Open Gutenberg catalog.
 Fetch if needed, or if refresh is T.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-gutenberg-download  (book-id)
-@kbd{Not bound to any key.}
-
 Download specified EBook to local cache
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-mode  nil
-@kbd{Not bound to any key.}
-
 An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 
@@ -1814,27 +1482,19 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-next  nil
-@kbd{Not bound to any key.}
-
 Move to next book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-open  (epub-file)
-@kbd{Not bound to any key.}
-
 Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-previous  nil
-@kbd{Not bound to any key.}
-
 Move to previous book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-url-executor  (url)
-@kbd{Not bound to any key.}
-
 Custom URL executor for use in EPub Mode.
 @end deffn
 
@@ -1851,36 +1511,26 @@ Automatically generated documentation
 for commands defined in module  emacspeak-erc.
 
 @deffn {Interactive Command} emacspeak-erc-add-name-to-monitor  (name &optional quiten-pronunciation)
-@kbd{Not bound to any key.}
-
 Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-delete-name-from-monitor  (name)
-@kbd{Not bound to any key.}
-
 Remove name to monitor in this room.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-setup-cricket-rules  nil
-@kbd{Not bound to any key.}
-
 Set up #cricket channels.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-toggle-my-monitor  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle state of ERC  monitor of my messages.
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-toggle-room-monitor  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
@@ -1888,8 +1538,6 @@ set the current local value to the result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-toggle-speak-all-participants  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle state of ERC speak all participants..
 Interactive 
 PREFIX arg means toggle the global default value, and then
@@ -1911,8 +1559,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-eterm.
 
 @deffn {Interactive Command} emacspeak-eterm-copy-region-to-register  (&rest rest)
-@kbd{Not bound to any key.}
-
 :around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
 
 Copy text from terminal to an Emacs REGISTER.
@@ -1924,8 +1570,6 @@ emacspeak eterm pointer to a register.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window  (id)
-@kbd{Not bound to any key.}
-
 Prompt for a window ID.
 The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
@@ -1934,21 +1578,15 @@ eterm.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-describe-window  (id)
-@kbd{Not bound to any key.}
-
 Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-goto-line  (line)
-@kbd{Not bound to any key.}
-
 Move emacspeak eterm pointer to a specified LINE.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-kill-ring-save-region  nil
-@kbd{Not bound to any key.}
-
 Copy text from terminal to kill ring.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
@@ -1956,16 +1594,12 @@ emacspeak eterm pointer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-maybe-send-raw  nil
-@kbd{Not bound to any key.}
-
 Send a raw character through if in the terminal buffer.
 Execute end of line if
 in a non eterm buffer if executed via C-e C-e
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-paste-register  (&rest rest)
-@kbd{Not bound to any key.}
-
 :around advice: `ad-Advice-emacspeak-eterm-paste-register'
 
 Paste contents of REGISTER at current location.
@@ -1976,91 +1610,65 @@ sent to the terminal as if it were typed by the user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer backward  by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-down  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-forward-word  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer forward by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-left  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer left.
 Argument COUNT specifies number of columns by which to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-right  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer right.
 Argument COUNT specifies number of columns by which to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-bottom  nil
-@kbd{Not bound to any key.}
-
 Move the pointer to the bottom  of the screen.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-cursor  nil
-@kbd{Not bound to any key.}
-
 Move the pointer to the cursor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-left-edge  nil
-@kbd{Not bound to any key.}
-
 Move the pointer to the right edge.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-next-color-change  (&optional count)
-@kbd{Not bound to any key.}
-
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-previous-color-change  (&optional count)
-@kbd{Not bound to any key.}
-
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-right-edge  nil
-@kbd{Not bound to any key.}
-
 Move the pointer to the right edge.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-to-top  nil
-@kbd{Not bound to any key.}
-
 Move the pointer to the top of the screen.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-up  (count)
-@kbd{Not bound to any key.}
-
 Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move.
 @end deffn
@@ -2072,20 +1680,14 @@ Start a terminal-emulator in a new buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-search-backward  nil
-@kbd{Not bound to any key.}
-
 Search backward on the terminal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-search-forward  nil
-@kbd{Not bound to any key.}
-
 Search forward on the terminal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-set-filter-window  (flag)
-@kbd{Not bound to any key.}
-
 Prompt for the id of a predefined window,
 and set the `filter' window to it.
 Non-nil interactive prefix arg `unsets' the filter window;
@@ -2096,8 +1698,6 @@ activity within the filter window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-set-focus-window  (flag)
-@kbd{Not bound to any key.}
-
 Prompt for the id of a predefined window,
 and set the `focus' window to it.
 Non-nil interactive prefix arg `unsets' the focus window;
@@ -2108,80 +1708,56 @@ and speaking that window upon seeing screen activity.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-set-marker  nil
-@kbd{Not bound to any key.}
-
 Set Emacspeak eterm marker.
 This sets  the emacspeak eterm marker to the position pointed 
 to by the emacspeak eterm pointer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-cursor  nil
-@kbd{Not bound to any key.}
-
 Speak cursor position.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-pointer  nil
-@kbd{Not bound to any key.}
-
 Speak current pointer position.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-pointer-char  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-pointer-line  nil
-@kbd{Not bound to any key.}
-
 Speak the line the pointer is on.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-pointer-word  nil
-@kbd{Not bound to any key.}
-
 Speak the word  the pointer is on.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-predefined-window  nil
-@kbd{Not bound to any key.}
-
 Speak a predefined eterm window between 1 and 10.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-screen  (&optional flag)
-@kbd{Not bound to any key.}
-
 Speak the screen.  Default is to speak from the emacspeak pointer  to point.
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-speak-window  (id)
-@kbd{Not bound to any key.}
-
 Speak an eterm window.
 Argument ID specifies the window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-filter-window  nil
-@kbd{Not bound to any key.}
-
 Toggle active state of filter window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-focus-window  nil
-@kbd{Not bound to any key.}
-
 Toggle active state of focus window.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-pointer-mode  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
@@ -2190,22 +1766,16 @@ there is terminal activity.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-review  nil
-@kbd{Not bound to any key.}
-
 Toggle state of eterm review. 
 In review mode, you can move around the terminal and listen to the contnets 
 without sending input to the terminal itself.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-yank-window  (id)
-@kbd{Not bound to any key.}
-
 Yank contents of  an eterm window at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-toggle-eterm-autospeak  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
@@ -2226,8 +1796,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-eudc.
 
 @deffn {Interactive Command} emacspeak-eudc-send-mail  nil
-@kbd{Not bound to any key.}
-
 Send email to the address given by the current record. 
 @end deffn
 
@@ -2243,168 +1811,114 @@ Automatically generated documentation
 for commands defined in module  emacspeak-eww.
 
 @deffn {Interactive Command} emacspeak-eww-google-knowledge-card  nil
-@kbd{Not bound to any key.}
-
 Show just the knowledge card.
 Warning, this is fragile, and depends on a stable id for the
   knowledge card.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-masquerade  nil
-@kbd{Not bound to any key.}
-
 Toggle masquerade state.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-element  (el)
-@kbd{Not bound to any key.}
-
 Move forward to the next specified element.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-element-from-history  nil
-@kbd{Not bound to any key.}
-
 Uses element navigation history to decide where we jump.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-element-like-this  (element)
-@kbd{Not bound to any key.}
-
 Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-h  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next h
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-h1  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next h1
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-h2  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next h2
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-h3  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next h3
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-li  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next li
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-ol  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next ol
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-p  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next p
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-table  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next table
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-next-ul  nil
-@kbd{Not bound to any key.}
-
 Move forward to the next ul
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-element  (el)
-@kbd{Not bound to any key.}
-
 Move backward  to the previous  specified element.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-element-from-history  nil
-@kbd{Not bound to any key.}
-
 Uses element navigation history to decide where we jump.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-element-like-this  (element)
-@kbd{Not bound to any key.}
-
 Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-h  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next h
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-h1  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next h1
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-h2  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next h2
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-h3  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next h3
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-li  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next li
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-ol  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next ol
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-p  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next p
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-table  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next table
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-previous-ul  nil
-@kbd{Not bound to any key.}
-
 Move backward to the next ul
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eww-restore  nil
-@kbd{Not bound to any key.}
-
 Restore buffer to pre-filtered canonical state.
 @end deffn
 
@@ -2424,15 +1938,11 @@ Add specified feed to our feed store.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-archive-feeds  nil
-@kbd{Not bound to any key.}
-
 Archive list of subscribed fees to personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-atom-display  (feed-url)
-@kbd{Not bound to any key.}
-
 Display ATOM feed.
 @end deffn
 
@@ -2443,40 +1953,28 @@ Browse specified  feed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-fastload-feeds  nil
-@kbd{Not bound to any key.}
-
 Fast load list of feeds from archive.
 This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-find-feeds  (query)
-@kbd{Not bound to any key.}
-
 Browse feeds matching specified query.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-lookup-and-view  (site)
-@kbd{Not bound to any key.}
-
 Lookup feed URL for a site and browse result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-opml-display  (feed-url)
-@kbd{Not bound to any key.}
-
 Display OPML feed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-restoere-feeds  nil
-@kbd{Not bound to any key.}
-
 Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-feeds-rss-display  (feed-url)
-@kbd{Not bound to any key.}
-
 Display RSS feed.
 @end deffn
 
@@ -2496,8 +1994,6 @@ preparation for interactively filtering text.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-filtertext-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for FilterText interaction. 
 
 key             binding
@@ -2513,8 +2009,6 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-filtertext-revert  nil
-@kbd{Not bound to any key.}
-
 Revert to original text.
 @end deffn
 
@@ -2527,16 +2021,12 @@ Automatically generated documentation
 for commands defined in module  emacspeak-fix-interactive.
 
 @deffn {Interactive Command} emacspeak-fix-all-recent-commands  nil
-@kbd{Not bound to any key.}
-
 Fix recently loaded interactive commands.
 This command looks through `load-history' and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-fix-commands-loaded-from  (module)
-@kbd{Not bound to any key.}
-
 Fix all commands loaded from a specified module.
 @end deffn
 
@@ -2549,39 +2039,27 @@ Automatically generated documentation
 for commands defined in module  emacspeak-forms.
 
 @deffn {Interactive Command} emacspeak-forms-find-file  (filename)
-@kbd{Not bound to any key.}
-
 Visit a forms file
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forms-flush-unwanted-records  nil
-@kbd{Not bound to any key.}
-
 Prompt for pattern and flush matching lines
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forms-rerun-filter  nil
-@kbd{Not bound to any key.}
-
 Rerun  filter --allows us to nuke more matching records
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forms-speak-field  nil
-@kbd{Not bound to any key.}
-
 Speak current form field name and value.
 Assumes that point is at the front of a field value.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forms-summarize-current-position  nil
-@kbd{Not bound to any key.}
-
 Summarize current position in list of records
 @end deffn
 
 @deffn {Interactive Command} emacspeak-forms-summarize-current-record  nil
-@kbd{Not bound to any key.}
-
 Summarize current record
 @end deffn
 
@@ -2594,22 +2072,16 @@ Automatically generated documentation
 for commands defined in module  emacspeak-gnus.
 
 @deffn {Interactive Command} emacspeak-gnus-summary-catchup-quietly-and-exit  nil
-@kbd{Not bound to any key.}
-
 Catch up on all articles in current group.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gnus-summary-hide-all-headers  nil
-@kbd{Not bound to any key.}
-
 Hide all headers in the article.
 Use this command if you don't want to listen to any article headers when
 reading news.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gnus-summary-show-some-headers  nil
-@kbd{Not bound to any key.}
-
 Show only the important article headers,
 i.e. sender name, and subject.
 @end deffn
@@ -2623,62 +2095,42 @@ Automatically generated documentation
 for commands defined in module  emacspeak-gomoku.
 
 @deffn {Interactive Command} emacspeak-gomoku-display-statistics  nil
-@kbd{Not bound to any key.}
-
 Display statistics from previous games
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-goto-x-y  (x y)
-@kbd{Not bound to any key.}
-
 Prompt for and go to that square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-show-current-column  nil
-@kbd{Not bound to any key.}
-
 Aurally display current column
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-show-current-negative-diagonal  nil
-@kbd{Not bound to any key.}
-
 Aurally display current negative sloped diagonal 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-show-current-positive-diagonal  nil
-@kbd{Not bound to any key.}
-
 Aurally display current positively sloped diagonal
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-show-current-row  nil
-@kbd{Not bound to any key.}
-
 Aurally display current row
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-speak-emacs-previous-move  nil
-@kbd{Not bound to any key.}
-
 Speak emacs' previous move
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-speak-humans-previous-move  nil
-@kbd{Not bound to any key.}
-
 Speak human' previous move
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-speak-number-of-moves  nil
-@kbd{Not bound to any key.}
-
 Speak number of moves so far
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gomoku-speak-square  nil
-@kbd{Not bound to any key.}
-
 Speak coordinates and state of square at point
 @end deffn
 
@@ -2698,206 +2150,138 @@ Automatically generated documentation
 for commands defined in module  emacspeak-google.
 
 @deffn {Interactive Command} emacspeak-google-show-toolbelt  nil
-@kbd{Not bound to any key.}
-
 Reload search page with toolbelt showing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-sign-in  nil
-@kbd{Not bound to any key.}
-
 Sign in to Google.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-sign-out  nil
-@kbd{Not bound to any key.}
-
 Sign out to Google.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change  nil
-@kbd{Not bound to any key.}
-
 Command to change values in the toolbelt and execute the query.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-Shopping  nil
-@kbd{Not bound to any key.}
-
 Change  Shopping in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-blog  nil
-@kbd{Not bound to any key.}
-
 Change  blog in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-books  nil
-@kbd{Not bound to any key.}
-
 Change  books in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-books-format  nil
-@kbd{Not bound to any key.}
-
 Change  books-format in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-books-type  nil
-@kbd{Not bound to any key.}
-
 Change  books-type in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-books-viewability  nil
-@kbd{Not bound to any key.}
-
 Change  books-viewability in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-commercial  nil
-@kbd{Not bound to any key.}
-
 Change  commercial in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-commercial-prices  nil
-@kbd{Not bound to any key.}
-
 Change  commercial-prices in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-date-filter  nil
-@kbd{Not bound to any key.}
-
 Change  date-filter in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-discussions  nil
-@kbd{Not bound to any key.}
-
 Change  discussions in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-duration  nil
-@kbd{Not bound to any key.}
-
 Change  duration in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-forums  nil
-@kbd{Not bound to any key.}
-
 Change  forums in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-images  nil
-@kbd{Not bound to any key.}
-
 Change  images in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-literal  nil
-@kbd{Not bound to any key.}
-
 Change  literal in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-news  nil
-@kbd{Not bound to any key.}
-
 Change  news in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-non-commercial  nil
-@kbd{Not bound to any key.}
-
 Change  non-commercial in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-patents  nil
-@kbd{Not bound to any key.}
-
 Change  patents in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-places  nil
-@kbd{Not bound to any key.}
-
 Change  places in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-recent  nil
-@kbd{Not bound to any key.}
-
 Change  recent in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-recipes  nil
-@kbd{Not bound to any key.}
-
 Change  recipes in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-reviews  nil
-@kbd{Not bound to any key.}
-
 Change  reviews in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-social  nil
-@kbd{Not bound to any key.}
-
 Change  social in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-sort-by-date  nil
-@kbd{Not bound to any key.}
-
 Change  sort-by-date in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-structured-snippets  nil
-@kbd{Not bound to any key.}
-
 Change  structured-snippets in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline  nil
-@kbd{Not bound to any key.}
-
 Change  timeline in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline-high  nil
-@kbd{Not bound to any key.}
-
 Change  timeline-high in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-timeline-low  nil
-@kbd{Not bound to any key.}
-
 Change  timeline-low in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-video  nil
-@kbd{Not bound to any key.}
-
 Change  video in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-web-history-not-visited  nil
-@kbd{Not bound to any key.}
-
 Change  web-history-not-visited in the currently active toolbelt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-google-toolbelt-change-web-history-visited  nil
-@kbd{Not bound to any key.}
-
 Change  web-history-visited in the currently active toolbelt.
 @end deffn
 
@@ -2958,8 +2342,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-hide.
 
 @deffn {Interactive Command} emacspeak-hide-or-expose-all-blocks  nil
-@kbd{Not bound to any key.}
-
 Hide or expose all blocks in buffer.
 @end deffn
 
@@ -2995,8 +2377,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-ibuffer.
 
 @deffn {Interactive Command} emacspeak-ibuffer-speak-buffer-line  nil
-@kbd{Not bound to any key.}
-
 Speak information about this buffer
 @end deffn
 
@@ -3009,20 +2389,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-imenu.
 
 @deffn {Interactive Command} emacspeak-imenu-goto-next-index-position  nil
-@kbd{Not bound to any key.}
-
 Goto the next index position in current buffer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-imenu-goto-previous-index-position  nil
-@kbd{Not bound to any key.}
-
 Goto the previous index position in current buffer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-imenu-speak-this-section  nil
-@kbd{Not bound to any key.}
-
 Speak upto start of next index entry
 @end deffn
 
@@ -3035,8 +2409,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-info.
 
 @deffn {Interactive Command} emacspeak-info-speak-header  nil
-@kbd{Not bound to any key.}
-
 Speak info header line.
 @end deffn
 
@@ -3061,30 +2433,22 @@ Automatically generated documentation
 for commands defined in module  emacspeak-jabber.
 
 @deffn {Interactive Command} emacspeak-jabber-chat-next-message  nil
-@kbd{Not bound to any key.}
-
 Move forward to and speak the next message in this chat
 session.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-jabber-chat-previous-message  nil
-@kbd{Not bound to any key.}
-
 Move backward to and speak the previous message in this chat
 session.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-jabber-chat-speak-this-message  nil
-@kbd{Not bound to any key.}
-
 Speaks message starting on current line.
 Assumes point is at the front of the message.
 Returns a cons (start . end) that delimits the message.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-jabber-popup-roster  nil
-@kbd{Not bound to any key.}
-
 Pop to Jabber roster.
 @end deffn
 
@@ -3097,8 +2461,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-keymap.
 
 @deffn {Interactive Command} emacspeak-keymap-choose-new-emacspeak-prefix  (prefix-key)
-@kbd{Not bound to any key.}
-
 Interactively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command
 lets you switch the prefix to something else.  This is a useful thing
@@ -3120,20 +2482,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-librivox.
 
 @deffn {Interactive Command} emacspeak-librivox  nil
-@kbd{Not bound to any key.}
-
 Librivox Library Of Free Audio Books.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-fetch-catalog  nil
-@kbd{Not bound to any key.}
-
 Fetch catalog to our cache location.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-mode  nil
-@kbd{Not bound to any key.}
-
 A Librivox front-end for the Emacspeak Audio Desktop.
 
 In addition to any hooks its parent mode `emacspeak-table-mode' might have run,
@@ -3157,38 +2513,26 @@ S t		emacspeak-librivox-search-title
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-open-rss  nil
-@kbd{Not bound to any key.}
-
 Open RSS  link for current Librivox book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-open-url  nil
-@kbd{Not bound to any key.}
-
 Open Librivox URL  for current Librivox book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-play  nil
-@kbd{Not bound to any key.}
-
 Play current book as a playlist.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-search-author  (pattern)
-@kbd{Not bound to any key.}
-
 Search in catalog for Author 1.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-search-genre  (pattern)
-@kbd{Not bound to any key.}
-
 Search in catalog for genre.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-librivox-search-title  (pattern)
-@kbd{Not bound to any key.}
-
 Search in catalog for title.
 @end deffn
 
@@ -3238,8 +2582,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer  nil
-@kbd{Not bound to any key.}
-
 Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -3251,147 +2593,99 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-add-filter  nil
-@kbd{Not bound to any key.}
-
 Adds specified filter  to use for the next invocation of MPlayer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-alt-src-step  (step)
-@kbd{Not bound to any key.}
-
 Move within an ASF playlist.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-backward-10min  nil
-@kbd{Not bound to any key.}
-
 Move backward by ten minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-backward-10s  nil
-@kbd{Not bound to any key.}
-
 Move back by 10 seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-backward-1min  nil
-@kbd{Not bound to any key.}
-
 Move back by 1 minute.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-balance  nil
-@kbd{Not bound to any key.}
-
 Set left/right balance.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-beginning-of-track  nil
-@kbd{Not bound to any key.}
-
 Move to beginning of track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-bind-accelerator  (directory key)
-@kbd{Not bound to any key.}
-
 Binds key to invoke m-player  on specified directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-command  (key)
-@kbd{Not bound to any key.}
-
 Invoke MPlayer commands.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-customize-options  nil
-@kbd{Not bound to any key.}
-
 Use Customize to manipulate MPlayer options.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-display-position  nil
-@kbd{Not bound to any key.}
-
 Display current position in track and its length.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-double-speed  nil
-@kbd{Not bound to any key.}
-
 Scale speed by 2.0
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-end-of-track  nil
-@kbd{Not bound to any key.}
-
 Move to beginning of track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-equalizer-control  (v)
-@kbd{Not bound to any key.}
-
 Manipulate values in specified vector using minibuffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-faster  nil
-@kbd{Not bound to any key.}
-
 Speed up  playback.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-forward-10min  nil
-@kbd{Not bound to any key.}
-
 Move forward by ten minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-forward-10s  nil
-@kbd{Not bound to any key.}
-
 Move forward by 10 seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-forward-1min  nil
-@kbd{Not bound to any key.}
-
 Move forward by 1 minute.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-get-length  nil
-@kbd{Not bound to any key.}
-
 Display length of track in seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-half-speed  nil
-@kbd{Not bound to any key.}
-
 Scale speed by 0.5.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-load  (resource &optional append)
-@kbd{Not bound to any key.}
-
 Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-load-file  (f)
-@kbd{Not bound to any key.}
-
 Load specified file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-load-playlist  (f)
-@kbd{Not bound to any key.}
-
 Load specified playlist file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for m-player interaction. 
 
 key             binding
@@ -3453,75 +2747,51 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-next-track  nil
-@kbd{Not bound to any key.}
-
 Move to next track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-pause  nil
-@kbd{Not bound to any key.}
-
 Pause or unpause media player.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-play-tracks-jump  (step)
-@kbd{Not bound to any key.}
-
 Move within the play tree.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-play-tree-up  (step)
-@kbd{Not bound to any key.}
-
 Move within the play tree.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-previous-track  nil
-@kbd{Not bound to any key.}
-
 Move to previous track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-quit  nil
-@kbd{Not bound to any key.}
-
 Quit media player.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-reset-options  nil
-@kbd{Not bound to any key.}
-
 Reset MPlayer options to initial defaults.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-reset-speed  nil
-@kbd{Not bound to any key.}
-
 Reset playing speed to normal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-resume  nil
-@kbd{Not bound to any key.}
-
 Resume M-Player where it was stopped if possible.
 Only works for local media sources, not Internet streams.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-scale-speed  (factor)
-@kbd{Not bound to any key.}
-
 Scale speed by specified factor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-seek-absolute  (position)
-@kbd{Not bound to any key.}
-
 Seek  to absolute specified position.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-seek-relative  (offset)
-@kbd{Not bound to any key.}
-
 Seek  by offset into stream from current position.
 @end deffn
 
@@ -3532,58 +2802,40 @@ Launch M-Player with shuffle turned on.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-slave-command  nil
-@kbd{Not bound to any key.}
-
 Dispatch slave command read from minibuffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-slower  nil
-@kbd{Not bound to any key.}
-
 Slow down playback.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-speak-current-info  nil
-@kbd{Not bound to any key.}
-
 Speak cached  info about currently playing file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-speak-mode-line  nil
-@kbd{Not bound to any key.}
-
 Speak mode line
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-url  (url)
-@kbd{Not bound to any key.}
-
 Call emacspeak-m-player with specified URL.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-volume-change  (offset)
-@kbd{Not bound to any key.}
-
 Change volume.
 A value of <number> changes volume by specified offset.
 A string of the form `<number> 1' sets volume as an absolute.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-volume-down  nil
-@kbd{Not bound to any key.}
-
 Decrease volume.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-volume-up  nil
-@kbd{Not bound to any key.}
-
 Increase volume.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-youtube-player  (url)
-@kbd{Not bound to any key.}
-
 Use youtube-dl and mplayer to stream YouTube content.
 @end deffn
 
@@ -3591,6 +2843,24 @@ Use youtube-dl and mplayer to stream YouTube content.
 @kbd{C-e ;}
 
 Start or control Emacspeak multimedia player.
+@end deffn
+
+@node emacspeak-aumix
+@section emacspeak-aumix
+
+Commentary:
+Provides an AUI to setting up the auditory display via AUMIX
+This module is presently Linux specific
+
+Automatically generated documentation
+for commands defined in module  emacspeak-aumix.
+
+@deffn {Interactive Command} emacspeak-aumix  nil
+Setup output parameters of the auditory display.
+ Launch this tool while you have auditory output on
+multiple channels playing so you can
+adjust the settings to your preference.  Hit q to quit when
+you are done.
 @end deffn
 
 @node emacspeak-madplay
@@ -3604,39 +2874,21 @@ madplay navigation commands  work via single keystrokes.
 Automatically generated documentation
 for commands defined in module  emacspeak-madplay.
 
-@deffn {Interactive Command} emacspeak-aumix  nil
-@kbd{Not bound to any key.}
-
-Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-madplay  (resource)
-@kbd{Not bound to any key.}
-
 Play specified resource using madplay.
 Resource is an  MP3 file or directory containing mp3 files.
 The player is placed in a buffer in emacspeak-madplay-mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-madplay-madplay-call-command  nil
-@kbd{Not bound to any key.}
-
 Call appropriate madplay command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-madplay-madplay-command  (char)
-@kbd{Not bound to any key.}
-
 Execute Madplay command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-madplay-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for madplay interaction. 
 
 key             binding
@@ -3666,14 +2918,10 @@ Automatically generated documentation
 for commands defined in module  emacspeak-man.
 
 @deffn {Interactive Command} emacspeak-man-browse-man-page  nil
-@kbd{Not bound to any key.}
-
 Browse the man page --read it a paragraph at a time
 @end deffn
 
 @deffn {Interactive Command} emacspeak-man-speak-this-section  nil
-@kbd{Not bound to any key.}
-
 Speak current section
 @end deffn
 
@@ -3688,8 +2936,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-mpg123.
 
 @deffn {Interactive Command} emacspeak-mp3-playlist-play  (playlist &optional dont-shuffle)
-@kbd{Not bound to any key.}
-
 Play a playlist. 
 Optional interactive prefix arg says not to shuffle  the list. 
 Use command M-x emacspeak-mp3-playlist-skip 
@@ -3697,50 +2943,34 @@ to skip to the next track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mp3-playlist-skip  nil
-@kbd{Not bound to any key.}
-
 Skip currently playing track. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mp3-playlist-stop  nil
-@kbd{Not bound to any key.}
-
 Kill currently playing playlist. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-backward-minute  (arg)
-@kbd{Not bound to any key.}
-
 Move back by specified number of minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-forward-minute  (arg)
-@kbd{Not bound to any key.}
-
 Forward by ARG minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-speak-current-time  nil
-@kbd{Not bound to any key.}
-
 Speak time in current track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-speak-filename  nil
-@kbd{Not bound to any key.}
-
 Speak filename of the current song.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-speak-length  nil
-@kbd{Not bound to any key.}
-
 Speak duration of the current song.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-speak-title  nil
-@kbd{Not bound to any key.}
-
 Speak title of the current song.
 @end deffn
 
@@ -3758,20 +2988,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-npr.
 
 @deffn {Interactive Command} emacspeak-npr-listing  nil
-@kbd{Not bound to any key.}
-
 Display specified listing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-npr-listing-url-executor  (url)
-@kbd{Not bound to any key.}
-
 Special executor for use in NPR  listings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-npr-view  (operation operand)
-@kbd{Not bound to any key.}
-
 View results as Atom.
 @end deffn
 
@@ -3811,20 +3035,14 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-backward-page  (&optional count-ignored)
-@kbd{Not bound to any key.}
-
 Like backward page, but tracks page number of current document.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-customize  nil
-@kbd{Not bound to any key.}
-
 Customize OCR settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-flipflop-and-recognize-image  nil
-@kbd{Not bound to any key.}
-
 Run OCR engine on current image after flip-flopping it.
 Useful if you've scanned a page upside down and are using an engine that does not automatically flip the image for you.
 You need the imagemagik family of tools --- we use mogrify to transform the image.
@@ -3833,14 +3051,10 @@ Prompts for image file if file corresponding to the expected
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-forward-page  (&optional count-ignored)
-@kbd{Not bound to any key.}
-
 Like forward page, but tracks page number of current document.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-mode  nil
-@kbd{Not bound to any key.}
-
  An OCR front-end for the Emacspeak desktop.
 
 Pre-requisites:
@@ -3925,48 +3139,34 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-name-document  (name)
-@kbd{Not bound to any key.}
-
 Name document being scanned in the current OCR buffer.
 Pick a short but meaningful name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-open-working-directory  nil
-@kbd{Not bound to any key.}
-
 Launch dired on OCR working directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-page  nil
-@kbd{Not bound to any key.}
-
 Move to specified page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-read-current-page  nil
-@kbd{Not bound to any key.}
-
 Speaks current page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-recognize-image  nil
-@kbd{Not bound to any key.}
-
 Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
 `current page' is not found.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-save-current-page  nil
-@kbd{Not bound to any key.}
-
 Writes out recognized text from current page
 to an appropriately named file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-scan-and-recognize  nil
-@kbd{Not bound to any key.}
-
 Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
 steps of acquiring an image and running the OCR engine work
@@ -3974,37 +3174,27 @@ correctly by themselves.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-scan-image  nil
-@kbd{Not bound to any key.}
-
 Acquire page image.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-scan-photo  (&optional metadata)
-@kbd{Not bound to any key.}
-
 Scan in a photograph.
 The scanned image is converted to JPEG.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-set-compress-image-options  (setting)
-@kbd{Not bound to any key.}
-
 Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-set-scan-image-options  (setting)
-@kbd{Not bound to any key.}
-
 Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-write-document  nil
-@kbd{Not bound to any key.}
-
 Writes out recognized text from all pages in current document.
 @end deffn
 
@@ -4018,36 +3208,26 @@ Automatically generated documentation
 for commands defined in module  emacspeak-outline.
 
 @deffn {Interactive Command} emacspeak-outline-speak-backward-heading  nil
-@kbd{Not bound to any key.}
-
 Analogous to outline-backward-same-level
 except that the outline section is  spoken
 @end deffn
 
 @deffn {Interactive Command} emacspeak-outline-speak-forward-heading  nil
-@kbd{Not bound to any key.}
-
 Analogous to outline-forward-same-level,
 except that the outline section is  spoken
 @end deffn
 
 @deffn {Interactive Command} emacspeak-outline-speak-next-heading  nil
-@kbd{Not bound to any key.}
-
 Analogous to outline-next-visible-heading,
 except that the outline section is  spoken
 @end deffn
 
 @deffn {Interactive Command} emacspeak-outline-speak-previous-heading  nil
-@kbd{Not bound to any key.}
-
 Analogous to outline-previous-visible-heading,
 except that the outline section is  spoken
 @end deffn
 
 @deffn {Interactive Command} emacspeak-outline-speak-this-heading  nil
-@kbd{Not bound to any key.}
-
 Speak current outline section starting from point
 @end deffn
 
@@ -4074,21 +3254,15 @@ Start or control Emacspeak Pianobar player.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pianobar-command  (key)
-@kbd{Not bound to any key.}
-
 Invoke Pianobar  commands.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pianobar-electric-mode-toggle  nil
-@kbd{Not bound to any key.}
-
 Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pianobar-switch-to-preset  nil
-@kbd{Not bound to any key.}
-
 Switch to one of the  presets.
 @end deffn
 
@@ -4115,29 +3289,21 @@ Automatically generated documentation
 for commands defined in module  emacspeak-pronounce.
 
 @deffn {Interactive Command} emacspeak-pronounce-clear-dictionaries  nil
-@kbd{Not bound to any key.}
-
 Clear all current pronunciation dictionaries.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-define-local-pronunciation  (word pronunciation)
-@kbd{Not bound to any key.}
-
 Define buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-define-pronunciation  nil
-@kbd{Not bound to any key.}
-
 Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-define-template-pronunciation  nil
-@kbd{Not bound to any key.}
-
 Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
@@ -4150,35 +3316,25 @@ Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-edit-pronunciations  (key)
-@kbd{Not bound to any key.}
-
 Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-load-dictionaries  (&optional filename)
-@kbd{Not bound to any key.}
-
 Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-refresh-pronunciations  nil
-@kbd{Not bound to any key.}
-
 Refresh pronunciation table for current buffer.
 Activates pronunciation dictionaries if not already active.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-save-dictionaries  nil
-@kbd{Not bound to any key.}
-
 Writes out the persistent emacspeak pronunciation dictionaries.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-toggle-use-of-dictionaries  (&optional state)
-@kbd{Not bound to any key.}
-
 Toggle use of pronunciation dictionaries in current buffer.
 Pronunciations can be defined on a per file, per directory and/or per
 mode basis.
@@ -4193,8 +3349,6 @@ explicitly turn pronunciations on or off.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-yank-word  nil
-@kbd{Not bound to any key.}
-
 Yank word at point into minibuffer.
 @end deffn
 
@@ -4246,22 +3400,16 @@ port that that host is listening on for speech requests.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-edit-current-remote-hostname  nil
-@kbd{Not bound to any key.}
-
 Interactively set up where we came from.
 Value is persisted for use with ssh servers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-home  nil
-@kbd{Not bound to any key.}
-
 Open ssh session to where we came from.
 Uses value returned by `emacspeak-remote-get-current-remote-hostname'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-quick-connect-to-server  nil
-@kbd{Not bound to any key.}
-
 Connect to remote server.
 Does not prompt for host or port, but quietly uses the guesses
 that appear as defaults when prompting. Use this once you are
@@ -4269,15 +3417,11 @@ sure the guesses are usually correct.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-quick-connect-via-ssh  nil
-@kbd{Not bound to any key.}
-
 Connect via ssh to remote Emacspeak server.
 Server is specified via custom option `emacspeak-remote-default-ssh-server'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-remote-ssh-to-server  (login host port)
-@kbd{Not bound to any key.}
-
 Open ssh session to where we came from.
 @end deffn
 
@@ -4290,14 +3434,10 @@ Automatically generated documentation
 for commands defined in module  emacspeak-rmail.
 
 @deffn {Interactive Command} emacspeak-rmail-speak-current-message-labels  nil
-@kbd{Not bound to any key.}
-
 Speak labels of current message
 @end deffn
 
 @deffn {Interactive Command} emacspeak-rmail-summarize-current-message  nil
-@kbd{Not bound to any key.}
-
 Summarize current message
 @end deffn
 
@@ -4310,20 +3450,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-solitaire.
 
 @deffn {Interactive Command} emacspeak-solitaire-show-column  nil
-@kbd{Not bound to any key.}
-
 Display current row auditorallly
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-show-row  nil
-@kbd{Not bound to any key.}
-
 Display current row auditorallly
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-speak-coordinates  nil
-@kbd{Not bound to any key.}
-
 Speak coordinates of current position
 @end deffn
 
@@ -4361,8 +3495,6 @@ Call appropriate audio environment set command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-play-all-icons  nil
-@kbd{Not bound to any key.}
-
 Plays all defined icons and speaks their names.
 @end deffn
 
@@ -4377,8 +3509,6 @@ emacspeak-queue-auditory-icon when using software TTS.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sounds-reset-local-player  nil
-@kbd{Not bound to any key.}
-
 Ask Emacspeak to use a local audio player.
 This lets me have Emacspeak switch to using audioplay on
 solaris after I've used it for a while from a remote session
@@ -4387,8 +3517,6 @@ audio player.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sounds-reset-sound  nil
-@kbd{Not bound to any key.}
-
 Reload sound drivers.
 @end deffn
 
@@ -4418,21 +3546,15 @@ Automatically generated documentation
 for commands defined in module  emacspeak-speak.
 
 @deffn {Interactive Command} emacspeak-blink-matching-open  nil
-@kbd{Not bound to any key.}
-
 Move cursor momentarily to the beginning of the sexp before point.
 Also display match context in minibuffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-completion-pick-completion  nil
-@kbd{Not bound to any key.}
-
 Pick completion and return safely where we came from.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-completions-move-to-completion-group  nil
-@kbd{Not bound to any key.}
-
 Move to group of choices beginning with character last
 typed. If no such group exists, then we try to search for that
 char, or dont move. 
@@ -4445,8 +3567,6 @@ Prompt for and dial a phone NUMBER with the Dectalk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-execute-repeatedly  (command)
-@kbd{Not bound to any key.}
-
 Execute COMMAND repeatedly.
 @end deffn
 
@@ -4506,8 +3626,6 @@ Default is to read the next line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-read-next-word  (&optional arg)
-@kbd{Not bound to any key.}
-
 Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. 
 @end deffn
@@ -4520,8 +3638,6 @@ Default is to read the previous line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-read-previous-word  (&optional arg)
-@kbd{Not bound to any key.}
-
 Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
 @end deffn
@@ -4533,8 +3649,6 @@ Call search defined in <search>.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-shell-command  (command)
-@kbd{Not bound to any key.}
-
 Run shell command and speak its output.
 @end deffn
 
@@ -4548,15 +3662,11 @@ which media players get silenced or paused/resumed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-char  (char)
-@kbd{Not bound to any key.}
-
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-this-char  nil
-@kbd{Not bound to any key.}
-
 Speak extent delimited by point and last character typed.
 @end deffn
 
@@ -4607,14 +3717,10 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-char-name  (char)
-@kbd{Not bound to any key.}
-
 tell me what this is
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-completions-if-available  nil
-@kbd{Not bound to any key.}
-
 Speak completions if available.
 @end deffn
 
@@ -4674,15 +3780,11 @@ Announce the percentage into the current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-current-window  nil
-@kbd{Not bound to any key.}
-
 Speak contents of current window.
 Speaks entire window irrespective of point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-display-char  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Display char under point using current speech display table.
 Behavior is the same as command `emacspeak-speak-char'
 bound to C-e c
@@ -4691,14 +3793,10 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-face-interval-and-move  nil
-@kbd{Not bound to any key.}
-
 Speaks region delimited by text in current face, and moves past the chunk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-front-of-buffer  nil
-@kbd{Not bound to any key.}
-
 Speak   the buffer from start to   point
 @end deffn
 
@@ -4717,8 +3815,6 @@ Negative prefix arg speaks from start of buffer to point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-help-interactively  nil
-@kbd{Not bound to any key.}
-
 Speak the start of, rest of, or the entire help.
 's' to speak the start.
 'r' to speak the rest.
@@ -4777,8 +3873,6 @@ the sense of the filter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-load-directory-settings  (&optional directory)
-@kbd{Not bound to any key.}
-
 Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
@@ -4802,20 +3896,14 @@ See documentation for command run-at-time for details on time-spec.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-microseconds-since-epoch  (ms)
-@kbd{Not bound to any key.}
-
 Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-milliseconds-since-epoch  (ms)
-@kbd{Not bound to any key.}
-
 Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-minibuffer  (&optional arg)
-@kbd{Not bound to any key.}
-
 Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
@@ -4836,8 +3924,6 @@ Interactive prefix arg speaks buffer info.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-next-face-chunk  nil
-@kbd{Not bound to any key.}
-
 Moves to the front of next chunk having current face.
 Speak that chunk after moving.
 @end deffn
@@ -4849,8 +3935,6 @@ Move to and speak next field.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-next-personality-chunk  nil
-@kbd{Not bound to any key.}
-
 Moves to the front of next chunk having current personality.
 Speak that chunk after moving.
 @end deffn
@@ -4869,8 +3953,6 @@ Useful to listen to a buffer without switching  contexts.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-other-window  (&optional arg)
-@kbd{Not bound to any key.}
-
 Speak contents of `other' window.
 Speaks entire window irrespective of point.
 Semantics  of `other' is the same as for the builtin Emacs command
@@ -4915,8 +3997,6 @@ any other key to speak entire paragraph.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-preceding-char  nil
-@kbd{Not bound to any key.}
-
 Speak character before point.
 @end deffn
 
@@ -4933,8 +4013,6 @@ Semantics  of `other' is the same as for the builtin Emacs command
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-previous-face-chunk  nil
-@kbd{Not bound to any key.}
-
 Moves to the front of previous chunk having current face.
 Speak that chunk after moving.
 @end deffn
@@ -4946,8 +4024,6 @@ Move to previous field and speak it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-previous-personality-chunk  nil
-@kbd{Not bound to any key.}
-
 Moves to the front of previous chunk having current personality.
 Speak that chunk after moving.
 @end deffn
@@ -4981,22 +4057,16 @@ Speak remainder of the buffer starting at point
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-seconds-since-epoch  (seconds)
-@kbd{Not bound to any key.}
-
 Speaks time value specified as seconds  since epoch, e.g. as from float-time.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-sentence  (&optional arg)
-@kbd{Not bound to any key.}
-
 Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-set-display-table  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
@@ -5009,8 +4079,6 @@ Set punctuation mode for all buffers in current mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-sexp  (&optional arg)
-@kbd{Not bound to any key.}
-
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
@@ -5036,20 +4104,14 @@ also copied to the kill ring for convenient yanking.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-skim-buffer  nil
-@kbd{Not bound to any key.}
-
 Skim the current buffer  a paragraph at a time.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-skim-next-paragraph  nil
-@kbd{Not bound to any key.}
-
 Skim next paragraph.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-skim-paragraph  nil
-@kbd{Not bound to any key.}
-
 Skim paragraph.
 Skimming a paragraph results in the speech speeding up after
 the first clause.
@@ -5063,26 +4125,18 @@ Speak the white space at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-spell-current-word  nil
-@kbd{Not bound to any key.}
-
 Spell word at  point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-text-range  (property)
-@kbd{Not bound to any key.}
-
 Speak text range identified by this PROPERTY.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-this-face-chunk  nil
-@kbd{Not bound to any key.}
-
 Speak chunk of text around point that has current face.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-this-personality-chunk  nil
-@kbd{Not bound to any key.}
-
 Speak chunk of text around point that has current
 personality.
 @end deffn
@@ -5103,8 +4157,6 @@ Announce version information for running emacspeak.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs  nil
-@kbd{Not bound to any key.}
-
 Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer.
@@ -5127,8 +4179,6 @@ spelt instead of being spoken.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-word-interactively  nil
-@kbd{Not bound to any key.}
-
 Speak the start of, rest of, or the entire word.
 's' to speak the start.
 'r' to speak the rest.
@@ -5136,21 +4186,15 @@ any other key to speak entire word.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-world-clock  (zone &optional set)
-@kbd{Not bound to any key.}
-
 Display current date and time  for specified zone.
 Optional second arg `set' sets the TZ environment variable as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-switch-to-reference-buffer  nil
-@kbd{Not bound to any key.}
-
 Switch back to buffer that generated completions.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-toggle-action-mode  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
@@ -5187,8 +4231,6 @@ set the current local value to the result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-toggle-header-line  nil
-@kbd{Not bound to any key.}
-
 Toggle Emacspeak's default header line.
 @end deffn
 
@@ -5241,16 +4283,12 @@ current local  value to the result.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-use-customized-blink-paren  nil
-@kbd{Not bound to any key.}
-
 A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-voiceify-rectangle  (start end &optional personality)
-@kbd{Not bound to any key.}
-
 Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
@@ -5258,8 +4296,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-voiceify-region  (start end &optional personality)
-@kbd{Not bound to any key.}
-
 Voicify the current region.
 When calling from a program,arguments are
 START END personality.
@@ -5289,14 +4325,10 @@ Automatically generated documentation
 for commands defined in module  emacspeak-speedbar.
 
 @deffn {Interactive Command} emacspeak-speedbar-click  nil
-@kbd{Not bound to any key.}
-
 Does the equivalent of the mouse click from the keyboard
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speedbar-goto-speedbar  nil
-@kbd{Not bound to any key.}
-
 Switch to the speedbar
 @end deffn
 
@@ -5313,32 +4345,22 @@ Automatically generated documentation
 for commands defined in module  emacspeak-sudoku.
 
 @deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarize columns --- speaks number of remaining cells.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize  nil
-@kbd{Not bound to any key.}
-
 Shows distribution of filled numbers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarize rows --- speaks number of remaining cells.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize  nil
-@kbd{Not bound to any key.}
-
 Summarize sub-squares --- speaks number of remaining cells.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-board-summarizer  nil
-@kbd{Not bound to any key.}
-
 Dispatch to  appropriate summarizer.
 
 d   Number Distribution
@@ -5349,116 +4371,78 @@ s   Sub-square Distribution.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-down-sub-square  nil
-@kbd{Not bound to any key.}
-
 Move to top-left corner of  sub-square below current one.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-erase-current-column  nil
-@kbd{Not bound to any key.}
-
 Erase current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-erase-current-row  nil
-@kbd{Not bound to any key.}
-
 Erase current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square  nil
-@kbd{Not bound to any key.}
-
 Erase current sub-square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-hint  nil
-@kbd{Not bound to any key.}
-
 Provide hint for current cell.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-history-pop  nil
-@kbd{Not bound to any key.}
-
 Pop saved state off stack and redraw board.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-history-push  nil
-@kbd{Not bound to any key.}
-
 Push current state on to history stack.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-how-many-remaining  nil
-@kbd{Not bound to any key.}
-
 Speak number of remaining squares to fill.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-next-sub-square  nil
-@kbd{Not bound to any key.}
-
 Move to top-left corner of next sub-square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-previous-sub-square  nil
-@kbd{Not bound to any key.}
-
 Move to top-left corner of previous sub-square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates  nil
-@kbd{Not bound to any key.}
-
 speak current cell coordinates.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value  nil
-@kbd{Not bound to any key.}
-
 Speak value in current cell.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-current-column  nil
-@kbd{Not bound to any key.}
-
 Speak current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-current-row  nil
-@kbd{Not bound to any key.}
-
 Speak current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square  nil
-@kbd{Not bound to any key.}
-
 Speak current sub-square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column  nil
-@kbd{Not bound to any key.}
-
 Speaks number of remaining cells in current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row  nil
-@kbd{Not bound to any key.}
-
 Speaks number of remaining cells in current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square  nil
-@kbd{Not bound to any key.}
-
 Speaks number of remaining cells in current sub-square.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-up-sub-square  nil
-@kbd{Not bound to any key.}
-
 Move to top-left corner of  sub-square above current one.
 @end deffn
 
@@ -5471,20 +4455,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-table-ui.
 
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-kill-ring  nil
-@kbd{Not bound to any key.}
-
 Copy current table element to kill ring.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-register  (register)
-@kbd{Not bound to any key.}
-
 Copy current table element to specified register.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-copy-to-clipboard  nil
-@kbd{Not bound to any key.}
-
 Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode.
 @end deffn
@@ -5504,8 +4482,6 @@ the documentation on the table browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-find-csv-file  (filename)
-@kbd{Not bound to any key.}
-
 Process a csv (comma separated values) file.
 The processed  data and presented using emacspeak table navigation. 
 @end deffn
@@ -5524,76 +4500,52 @@ the documentation on the table browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
-@kbd{Not bound to any key.}
-
 Return   both row and column header and table element
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto  (row column)
-@kbd{Not bound to any key.}
-
 Prompt for a table cell coordinates and jump to it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto-bottom  nil
-@kbd{Not bound to any key.}
-
 Goes to the bottom of the current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto-left  nil
-@kbd{Not bound to any key.}
-
 Goes to the left of the current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto-right  nil
-@kbd{Not bound to any key.}
-
 Goes to the right of the current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto-top  nil
-@kbd{Not bound to any key.}
-
 Goes to the top of the current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-next-column  (&optional count)
-@kbd{Not bound to any key.}
-
 Move to the next column if possible
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-next-row  (&optional count)
-@kbd{Not bound to any key.}
-
 Move to the next row if possible
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-paste-from-clipboard  nil
-@kbd{Not bound to any key.}
-
 Paste the emacspeak table clipboard into the current buffer.
 Use the major  mode of this buffer to  decide what kind of table
 markup to use.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-previous-column  (&optional count)
-@kbd{Not bound to any key.}
-
 Move to the previous column  if possible
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-previous-row  (&optional count)
-@kbd{Not bound to any key.}
-
 Move to the previous row if possible
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-search  (&optional what)
-@kbd{Not bound to any key.}
-
 Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, `what' can
@@ -5601,103 +4553,71 @@ the matching cell current. When called from a program, `what' can
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-search-column  nil
-@kbd{Not bound to any key.}
-
 Search in current table column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-search-headers  nil
-@kbd{Not bound to any key.}
-
 Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-search-row  nil
-@kbd{Not bound to any key.}
-
 Search in current table row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-select-automatic-speaking-method  nil
-@kbd{Not bound to any key.}
-
 Interactively select the kind of automatic speech to produce when
 browsing table elements
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-sort-on-current-column  nil
-@kbd{Not bound to any key.}
-
 Sort table on current column. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-both-headers-and-element  nil
-@kbd{Not bound to any key.}
-
 Speak  both row and column header and table element
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-column-filtered  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-column-header-and-element  nil
-@kbd{Not bound to any key.}
-
 Speak  column header and table element
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-coordinates  nil
-@kbd{Not bound to any key.}
-
 Speak current table coordinates.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-current-element  nil
-@kbd{Not bound to any key.}
-
 Speak current table element
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-dimensions  nil
-@kbd{Not bound to any key.}
-
 Speak current table dimensions.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-row-filtered  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-speak-row-header-and-element  nil
-@kbd{Not bound to any key.}
-
 Speak  row header and table element
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-ui-filter-load  (file)
-@kbd{Not bound to any key.}
-
 Load saved filter settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-ui-filter-save  (file)
-@kbd{Not bound to any key.}
-
 Save out filter settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-view-csv-buffer  (&optional buffer-name)
-@kbd{Not bound to any key.}
-
 Process a csv (comma separated values) data.
 The processed  data and presented using emacspeak table navigation. 
 @end deffn
@@ -5752,20 +4672,14 @@ Automatically generated documentation
 for commands defined in module  emacspeak-tar.
 
 @deffn {Interactive Command} emacspeak-tar-speak-file-date  nil
-@kbd{Not bound to any key.}
-
 Speak date of file current entry 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tar-speak-file-permissions  nil
-@kbd{Not bound to any key.}
-
 Speak permissions of file current entry 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tar-speak-file-size  nil
-@kbd{Not bound to any key.}
-
 Speak size of file current entry 
 @end deffn
 
@@ -5778,68 +4692,46 @@ Automatically generated documentation
 for commands defined in module  emacspeak-tetris.
 
 @deffn {Interactive Command} emacspeak-tetris-goto-bottom-row  nil
-@kbd{Not bound to any key.}
-
 Move to and speak bottom row
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-goto-top-row  nil
-@kbd{Not bound to any key.}
-
 Move to and speak the top row
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-column  (&optional x)
-@kbd{Not bound to any key.}
-
 Speak  column --default is to speak current column
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-coordinates  nil
-@kbd{Not bound to any key.}
-
 Speak current position
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-current-shape  nil
-@kbd{Not bound to any key.}
-
 Speak current shape
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-current-shape-and-coordinates  nil
-@kbd{Not bound to any key.}
-
 Speak shape orientation and coordinates
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-next-shape  nil
-@kbd{Not bound to any key.}
-
 Speak next shape
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-row  nil
-@kbd{Not bound to any key.}
-
 Speak current tetris row
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-row-number  nil
-@kbd{Not bound to any key.}
-
 Speak where on the tetris board we are
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-score  nil
-@kbd{Not bound to any key.}
-
 Speak the score
 @end deffn
 
 @deffn {Interactive Command} emacspeak-tetris-speak-x-coordinate  nil
-@kbd{Not bound to any key.}
-
 Speak current position
 @end deffn
 
@@ -5854,8 +4746,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-tnt.
 
 @deffn {Interactive Command} emacspeak-tnt-toggle-autospeak  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Toggle TNT autospeak for this chat session.
 @end deffn
 
@@ -5885,22 +4775,16 @@ Optional interactive prefix arg displays documentation for specified resource.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-url-template-help  nil
-@kbd{Not bound to any key.}
-
 Display documentation for  a URL template.
 Use Emacs completion to obtain a list of available
 resources.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-url-template-load  (file)
-@kbd{Not bound to any key.}
-
 Load URL template resources from specified location.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-url-template-save  (file)
-@kbd{Not bound to any key.}
-
 Save out url templates.
 @end deffn
 
@@ -5913,8 +4797,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-view.
 
 @deffn {Interactive Command} emacspeak-view-line-to-top  nil
-@kbd{Not bound to any key.}
-
 Moves current line to top of window
 @end deffn
 
@@ -5927,53 +4809,37 @@ Automatically generated documentation
 for commands defined in module  emacspeak-vm.
 
 @deffn {Interactive Command} emacspeak-vm-browse-message  nil
-@kbd{Not bound to any key.}
-
 Browse an email message --read it paragraph at a time. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-catch-up-all-messages  nil
-@kbd{Not bound to any key.}
-
 Mark all messages in folder to be deleted. Use with caution.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-locate-subject-line  nil
-@kbd{Not bound to any key.}
-
 Locates the subject line in a message being read.
 Useful when you're reading a message
 that has been forwarded multiple times.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-mode-line  nil
-@kbd{Not bound to any key.}
-
 VM mode line information. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-next-button  (n)
-@kbd{Not bound to any key.}
-
 Move point to N buttons forward.
 If N is negative, move backward instead.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-speak-labels  nil
-@kbd{Not bound to any key.}
-
 Speak a message's labels
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-speak-message  nil
-@kbd{Not bound to any key.}
-
 Move point to the message body.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-vm-yank-header  nil
-@kbd{Not bound to any key.}
-
 Yank specified header into kill ring.
 @end deffn
 
@@ -5990,39 +4856,27 @@ Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
 @deffn {Interactive Command} emacspeak-w3-curl-url-under-point  nil
-@kbd{Not bound to any key.}
-
 Display contents of URL under point using Curl and W3.  The
 document is displayed in a separate buffer. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-customize-base-uri-pronunciation  nil
-@kbd{Not bound to any key.}
-
 Defines custom buffer local pronunciation for base URI.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-do-onclick  nil
-@kbd{Not bound to any key.}
-
 Do  onclick action.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-javascript-follow-link  nil
-@kbd{Not bound to any key.}
-
 Follow URL hidden inside a javascript link
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-jump-to-submit  nil
-@kbd{Not bound to any key.}
-
 Jump to next available submit button.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-lynx-url-under-point  nil
-@kbd{Not bound to any key.}
-
 Display contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
 hyperlinks in that display are not active-- this facility is
@@ -6031,68 +4885,76 @@ the table structure extraction code in W3.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-block  nil
-@kbd{Not bound to any key.}
-
 Move by block level displays.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-doc-element  (&optional count)
-@kbd{Not bound to any key.}
-
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-parsed-item  nil
-@kbd{Not bound to any key.}
-
 Move to and speak next parsed item.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-previous-doc-element  (&optional count)
-@kbd{Not bound to any key.}
-
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class  nil
-@kbd{Not bound to any key.}
-
 Display any class attributes set on corresponding anchor
 element. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-http-headers  nil
-@kbd{Not bound to any key.}
-
 Show HTTP headers using lwp-request
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-speak-next-block  nil
-@kbd{Not bound to any key.}
-
 Move to next block and speak it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-speak-next-element  nil
-@kbd{Not bound to any key.}
-
 Speak next document element.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-speak-this-element  nil
-@kbd{Not bound to any key.}
-
 Speak document element under point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-toggle-table-borders  nil
-@kbd{Not bound to any key.}
-
 Toggle drawing of W3 table borders
+@end deffn
+
+@node emacspeak-m-player
+@section emacspeak-m-player
+
+Commentary:
+Defines a simple derived mode for interacting with mplayer.
+mplayer  is a versatile media player capable of playing many
+streaming formats  and is especially useful for playing windows
+media (WMA) and streaming windows media (ASF) files.
+mplayer is available  on the WWW:
+RPM package
+http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
+You may need the  win32 codecs which can be downloaded from 
+http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
+Mplayer FAQ at
+http://www.mplayerhq.hu/DOCS/faq.html
+Mplayer docs at 
+http://www.mplayerhq.hu/DOCS/
+
+Automatically generated documentation
+for commands defined in module  emacspeak-m-player.
+
+@deffn {Interactive Command} emacspeak-m-player  (resource &optional play-list)
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
 @end deffn
 
 @node emacspeak-w3m
@@ -6103,18 +4965,7 @@ Commentary:
 Automatically generated documentation
 for commands defined in module  emacspeak-w3m.
 
-@deffn {Interactive Command} emacspeak-m-player  (resource &optional play-list)
-@kbd{Not bound to any key.}
-
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-w3m-preview-this-buffer  nil
-@kbd{Not bound to any key.}
-
 Preview this buffer in w3m.
 @end deffn
 
@@ -6136,8 +4987,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-we.
 
 @deffn {Interactive Command} emacspeak-we-class-filter-and-follow  (class url)
-@kbd{Not bound to any key.}
-
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -6145,8 +4994,6 @@ used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-class-filter-and-follow-link  (&optional prompt)
-@kbd{Not bound to any key.}
-
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -6154,34 +5001,24 @@ used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-count-matches  (url locator)
-@kbd{Not bound to any key.}
-
 Count matches for locator  in Web page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-count-nested-tables  (url)
-@kbd{Not bound to any key.}
-
 Count nested tables in Web page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-count-tables  (url)
-@kbd{Not bound to any key.}
-
 Count  tables in Web page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-class  (class url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-class-list  (classes url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
@@ -6189,8 +5026,6 @@ values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-id  (id url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
@@ -6198,39 +5033,29 @@ Interactive use provides list of id values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-id-list  (ids url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-property  (url &optional speak)
-@kbd{Not bound to any key.}
-
 Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-by-role  (role url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements having specified role attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of role values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-id-list-text  (ids url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract text nodes from elements having id specified in list `ids' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-id-text  (id url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract text nodes from elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
@@ -6238,14 +5063,10 @@ Interactive use provides list of id values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-matching-urls  (pattern url &optional speak)
-@kbd{Not bound to any key.}
-
 Extracts links whose URL matches pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-media-streams  (url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg `speak' specifies if the result
@@ -6253,14 +5074,10 @@ operate on current web page when in a browser buffer; otherwise
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-media-streams-under-point  nil
-@kbd{Not bound to any key.}
-
 In browser buffers, extract media streams from url under point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-nested-table  (index url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a browser buffer; otherwise
 prompt for URL. Optional arg `speak' specifies if the result should be
@@ -6268,14 +5085,10 @@ spoken automatically.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-nested-table-list  (tables url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract specified list of tables from a Web page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-print-streams  (url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg `speak' specifies if the result
@@ -6283,44 +5096,32 @@ operate on current web page when in a browser buffer; otherwise
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-table-by-match  (match url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract table containing  specified match.
  Optional arg url specifies the page to extract content from.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-table-by-position  (position url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract table at specified position.
 Default is to extract from current page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-tables-by-match-list  (match-list url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract specified  tables from a WWW page.
 Tables are specified by containing  match pattern
  found in the match list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-extract-tables-by-position-list  (positions url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-follow-and-extract-main  (&optional speak)
-@kbd{Not bound to any key.}
-
 Follow URL, then extract role=main.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-follow-and-filter-by-id  (id)
-@kbd{Not bound to any key.}
-
 Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -6328,16 +5129,12 @@ used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-junk-by-class  (class url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements not having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-junk-by-class-list  (classes url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements not having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
@@ -6345,8 +5142,6 @@ values as completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-style-filter  (style url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -6354,20 +5149,14 @@ specifies the page to extract contents  from.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-toggle-xsl-keep-result  nil
-@kbd{Not bound to any key.}
-
 Toggle xsl keep result flag.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-url-expand-and-execute  nil
-@kbd{Not bound to any key.}
-
 Applies buffer-specific URL expander/executor function.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-url-rewrite-and-follow  (&optional prompt)
-@kbd{Not bound to any key.}
-
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -6380,8 +5169,6 @@ a rewrite rule even if one is already defined.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xpath-filter-and-follow  (&optional prompt)
-@kbd{Not bound to any key.}
-
 Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -6389,8 +5176,6 @@ used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xpath-junk-and-follow  (&optional prompt)
-@kbd{Not bound to any key.}
-
 Follow url and point, and filter the result by junking
 elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
@@ -6399,33 +5184,23 @@ used as well.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xsl-toggle  nil
-@kbd{Not bound to any key.}
-
 Toggle  application of XSL transformations.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xslt-apply  (xsl)
-@kbd{Not bound to any key.}
-
 Apply specified transformation to current Web page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xslt-filter  (path url &optional speak)
-@kbd{Not bound to any key.}
-
 Extract elements matching specified XPath path locator
 from Web page -- default is the current page being viewed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xslt-junk  (path url &optional speak)
-@kbd{Not bound to any key.}
-
 Junk elements matching specified locator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-we-xslt-select  (xsl)
-@kbd{Not bound to any key.}
-
 Select XSL transformation applied to Web pages before they are displayed .
 @end deffn
 
@@ -6439,58 +5214,40 @@ Automatically generated documentation
 for commands defined in module  emacspeak-websearch.
 
 @deffn {Interactive Command} emacspeak-websearch-accessible-google  (query &optional options)
-@kbd{Not bound to any key.}
-
 Use Google Lite (Experimental).
 Optional prefix arg prompts for toolbelt options.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-amazon-search  nil
-@kbd{Not bound to any key.}
-
 Amazon search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-ask-jeeves  (query)
-@kbd{Not bound to any key.}
-
 Ask Jeeves for the answer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-biblio-search  (query)
-@kbd{Not bound to any key.}
-
 Search Computer Science Bibliographies.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-blinkx-search  (query)
-@kbd{Not bound to any key.}
-
 BlinkX RSS Generator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-citeseer-search  (term)
-@kbd{Not bound to any key.}
-
 Perform a CiteSeer search. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-company-news  (ticker &optional prefix)
-@kbd{Not bound to any key.}
-
 Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-cpan-search  (query)
-@kbd{Not bound to any key.}
-
 Search CPAN  Comprehensive Perl Archive Network   Site. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-ctan-search  (query)
-@kbd{Not bound to any key.}
-
 Search CTAN Comprehensive TeX Archive Network   Site. 
 @end deffn
 
@@ -6502,38 +5259,26 @@ When using supported browsers,  this interface attempts to speak the most releva
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-display-form  (form-markup)
-@kbd{Not bound to any key.}
-
 Display form specified by form-markup.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-ebay-search  nil
-@kbd{Not bound to any key.}
-
 Ebay search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor  (conversion-spec)
-@kbd{Not bound to any key.}
-
 Currency convertor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-foldoc-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a FolDoc search. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-freshmeat-search  (query)
-@kbd{Not bound to any key.}
-
 Search Freshmeat  Site. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google  (query &optional flag)
-@kbd{Not bound to any key.}
-
 Perform a Google search.
 First optional interactive prefix arg `flag' prompts for
 additional search options. Second interactive prefix arg is
@@ -6544,96 +5289,66 @@ just results.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-advanced  nil
-@kbd{Not bound to any key.}
-
 Present Google advanced search form simplified for speech interaction.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky  (query)
-@kbd{Not bound to any key.}
-
 Do a I'm Feeling Lucky Google search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-mobile  (query)
-@kbd{Not bound to any key.}
-
 Google mobile search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-news  nil
-@kbd{Not bound to any key.}
-
 Invoke Google News url template.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-sak  (engine query)
-@kbd{Not bound to any key.}
-
 Perform a Google query against a specific index.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range  nil
-@kbd{Not bound to any key.}
-
 Use this from inside the calendar to do Google date-range searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-specialize  (specialize query)
-@kbd{Not bound to any key.}
-
 Perform a specialized Google search. See the Google site for
   what is possible here:
 https://www.google.com/options/specialsearches.html 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-usenet-advanced  nil
-@kbd{Not bound to any key.}
-
 Present Google Usenet advanced search form simplified for speech interaction.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-gutenberg  (type query)
-@kbd{Not bound to any key.}
-
 Perform an Gutenberg search
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-help  nil
-@kbd{Not bound to any key.}
-
 Displays key mapping used by Emacspeak Websearch.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-map-yahoo-directions-search  (query &optional map)
-@kbd{Not bound to any key.}
-
 Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-merriam-webster-search  (query)
-@kbd{Not bound to any key.}
-
 Search the Merriam Webster Dictionary.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-news-yahoo  (query &optional no-rss)
-@kbd{Not bound to any key.}
-
 Perform an Yahoo News search.
 Optional prefix arg no-rss scrapes information from HTML.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-open-directory-search  (query)
-@kbd{Not bound to any key.}
-
 Perform an Open Directory search
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search  (query &optional prefix)
-@kbd{Not bound to any key.}
-
 Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
 emacspeak-wizards-personal-portfolio.
@@ -6645,32 +5360,22 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-recorded-books-search  nil
-@kbd{Not bound to any key.}
-
 Present advanced search form for recorded books.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-rpm-find  (query)
-@kbd{Not bound to any key.}
-
 Search RPM  catalog  site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-software-search  nil
-@kbd{Not bound to any key.}
-
 Search SourceForge, Freshmeat and other sites. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-sourceforge-search  (query)
-@kbd{Not bound to any key.}
-
 Search SourceForge Site. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-swik-search  (query)
-@kbd{Not bound to any key.}
-
 Search swik software community site.
 @end deffn
 
@@ -6682,44 +5387,30 @@ Optional interactive prefix arg results in prompting for a search term.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-usenet-search  (group)
-@kbd{Not bound to any key.}
-
 Search a Usenet newsgroup.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-w3c-search  (query)
-@kbd{Not bound to any key.}
-
 Search the W3C Site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-weather  (query)
-@kbd{Not bound to any key.}
-
 Get weather forecast for specified zip code.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-wikipedia-search  (query)
-@kbd{Not bound to any key.}
-
 Search Wikipedia using Google.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo  (query)
-@kbd{Not bound to any key.}
-
 Perform an Yahoo  search
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-convertor  (conversion-spec)
-@kbd{Not bound to any key.}
-
 Currency convertor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo-historical-chart  (ticker &optional as-html)
-@kbd{Not bound to any key.}
-
 Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data.
 @end deffn
@@ -6734,27 +5425,19 @@ Automatically generated documentation
 for commands defined in module  emacspeak-webspace.
 
 @deffn {Interactive Command} emacspeak-webspace-feed-reader  (&optional refresh)
-@kbd{Not bound to any key.}
-
 Display Feed Reader Feed list in a WebSpace buffer.
 Optional interactive prefix arg forces a refresh.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-filter  nil
-@kbd{Not bound to any key.}
-
 Open headline at point by following its link property and filter for content.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-freebase-search  (query)
-@kbd{Not bound to any key.}
-
 Perform a Freebase search and display results.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-google  nil
-@kbd{Not bound to any key.}
-
 Display Google Search in a WebSpace buffer.
 @end deffn
 
@@ -6771,15 +5454,11 @@ Display buffer of browsable headlines.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-headlines-update  nil
-@kbd{Not bound to any key.}
-
 Setup news updates.
 Updated headlines found in emacspeak-webspace-headlines.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for Webspace interaction.
 
 key             binding
@@ -6807,14 +5486,10 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-open  nil
-@kbd{Not bound to any key.}
-
 Open headline at point by following its link property.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-transcode  nil
-@kbd{Not bound to any key.}
-
 Transcode headline at point by following its link property.
 @end deffn
 
@@ -6825,15 +5500,11 @@ Speak current weather.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-weather-update  nil
-@kbd{Not bound to any key.}
-
 Setup periodic weather updates.
 Updated weather is found in `emacspeak-webspace-current-weather'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webspace-yank-link  nil
-@kbd{Not bound to any key.}
-
 Yank link under point into kill ring.
 @end deffn
 
@@ -6849,34 +5520,24 @@ Automatically generated documentation
 for commands defined in module  emacspeak-webutils.
 
 @deffn {Interactive Command} emacspeak-webutils-google-extract-from-cache  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Extract current  page from the Google cache.
 With a prefix argument, extracts url under point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-google-on-this-site  nil
-@kbd{Not bound to any key.}
-
 Perform a google search restricted to the current WWW site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-google-similar-to-this-page  (url)
-@kbd{Not bound to any key.}
-
 Ask Google to find documents similar to this one.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-google-who-links-to-this-page  nil
-@kbd{Not bound to any key.}
-
 Perform a google search to locate documents that link to the
 current page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-jump-to-title-in-content  nil
-@kbd{Not bound to any key.}
-
 Jumps to the title in web document.
 The first time it is called, it jumps to the first
 instance  of the title.  Repeated calls jump to further
@@ -6884,8 +5545,6 @@ instances.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-open-in-other-browser  nil
-@kbd{Not bound to any key.}
-
 Opens link in alternate browser.
 @end deffn
 
@@ -6897,15 +5556,11 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-transcode-current-url-via-google  (&optional untranscode)
-@kbd{Not bound to any key.}
-
 Transcode current URL via Google.
   Reverse effect with prefix arg.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-webutils-transcode-via-google  (&optional untranscode)
-@kbd{Not bound to any key.}
-
 Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page.
 @end deffn
@@ -6921,34 +5576,24 @@ Automatically generated documentation
 for commands defined in module  emacspeak-widget.
 
 @deffn {Interactive Command} emacspeak-widget-browse-widget-interactively  nil
-@kbd{Not bound to any key.}
-
 Allows you to browse a widget
 @end deffn
 
 @deffn {Interactive Command} emacspeak-widget-help  nil
-@kbd{Not bound to any key.}
-
 Speak help for widget under point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-widget-summarize-parent  nil
-@kbd{Not bound to any key.}
-
 Summarize parent of widget at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-widget-summarize-widget-under-point  (&optional level)
-@kbd{Not bound to any key.}
-
 Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-widget-update-from-minibuffer  (point)
-@kbd{Not bound to any key.}
-
 Sets widget at point by invoking its prompter.
 @end deffn
 
@@ -6962,8 +5607,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-wizards.
 
 @deffn {Interactive Command} emacspeak-annotate-add-annotation  (&optional reset)
-@kbd{Not bound to any key.}
-
 Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
 Interactive prefix arg `reset' prompts for the annotation
@@ -7012,8 +5655,6 @@ Prompts for the new location and preserves modification time
 @end deffn
 
 @deffn {Interactive Command} emacspeak-curl  (url)
-@kbd{Not bound to any key.}
-
 Grab URL using Curl, and preview it with a browser .
 @end deffn
 
@@ -7024,35 +5665,25 @@ Customize Emacspeak.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-customize-personal-settings  (file)
-@kbd{Not bound to any key.}
-
 Create a customization buffer for browsing and updating
 personal customizations.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-cvs-berlios-get-project-snapshot  (project &optional module)
-@kbd{Not bound to any key.}
-
 Grab CVS snapshot  of specified project from berlios.de.
 Ask for module name if prefix argument is given
 @end deffn
 
 @deffn {Interactive Command} emacspeak-cvs-get-anonymous  nil
-@kbd{Not bound to any key.}
-
 Get latest cvs snapshot of emacspeak.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-cvs-gnu-get-project-snapshot  (project &optional module)
-@kbd{Not bound to any key.}
-
 Grab CVS snapshot  of specified project from gnu.
 Ask for module name if prefix argument is given
 @end deffn
 
 @deffn {Interactive Command} emacspeak-cvs-sf-get-project-snapshot  (project &optional module)
-@kbd{Not bound to any key.}
-
 Grab CVS snapshot  of specified project from sf.
 Ask for module name if prefix argument is given
 @end deffn
@@ -7073,38 +5704,28 @@ With optional PREFIX argument, label current frame.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-frame-read-frame-label  nil
-@kbd{Not bound to any key.}
-
 Read a frame label with completion.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-generate-documentation  (filename)
-@kbd{Not bound to any key.}
-
 Generate docs for all emacspeak commands.
 Prompts for FILENAME in which to save the documentation.
 Warning! Contents of file filename will be overwritten.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-generate-texinfo-command-documentation  (filename)
-@kbd{Not bound to any key.}
-
 Generate texinfo documentation  for all emacspeak
 commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-generate-texinfo-option-documentation  (filename)
-@kbd{Not bound to any key.}
-
 Generate texinfo documentation  for all emacspeak
 options  into file filename.
 Warning! Contents of file filename will be overwritten.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-kill-buffer-quietly  nil
-@kbd{Not bound to any key.}
-
 Kill current buffer without asking for confirmation.
 @end deffn
 
@@ -7127,14 +5748,10 @@ Prompts for the new location and preserves modification time
 @end deffn
 
 @deffn {Interactive Command} emacspeak-links  (url)
-@kbd{Not bound to any key.}
-
 Launch links on  specified URL in a new terminal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-lynx  (url)
-@kbd{Not bound to any key.}
-
 Launch lynx on  specified URL in a new terminal.
 @end deffn
 
@@ -7170,8 +5787,6 @@ meaning of `next'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-select-this-buffer-other-window-display  (&optional arg)
-@kbd{Not bound to any key.}
-
 Switch  to this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
@@ -7202,8 +5817,6 @@ at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-show-property-at-point  (&optional property)
-@kbd{Not bound to any key.}
-
 Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
@@ -7256,8 +5869,6 @@ normally bound to C-e TAB.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-telephone-directory  (&optional edit)
-@kbd{Not bound to any key.}
-
 Lookup and display a phone number.
 With prefix arg, opens the phone book for editing.
 @end deffn
@@ -7303,20 +5914,14 @@ Restart specified ssh tts server.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudo  (command)
-@kbd{Not bound to any key.}
-
 SUDo command --run command as super user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudo-edit  (&optional arg)
-@kbd{Not bound to any key.}
-
 Edit file as Root.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-switch-to-previous-buffer  nil
-@kbd{Not bound to any key.}
-
 Switch to most recently used interesting buffer.
 Obsoleted by `previous-buffer' in Emacs 22
 @end deffn
@@ -7333,8 +5938,6 @@ Prompts for the new location and preserves modification time
 @end deffn
 
 @deffn {Interactive Command} emacspeak-view-emacspeak-doc  nil
-@kbd{Not bound to any key.}
-
 Display a summary of all Emacspeak commands.
 @end deffn
 
@@ -7357,63 +5960,43 @@ Browse  Emacspeak productivity tips.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-add-autoload-cookies  (&optional f)
-@kbd{Not bound to any key.}
-
 Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-braille  (s)
-@kbd{Not bound to any key.}
-
 Insert Braille string at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-byte-compile-current-buffer  nil
-@kbd{Not bound to any key.}
-
 byte compile current buffer
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-cleanup-shell-path  nil
-@kbd{Not bound to any key.}
-
 Cleans up duplicates in shell path env variable.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-comma-at-end-of-word  nil
-@kbd{Not bound to any key.}
-
 Move to the end of current word and add a comma.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-count-slides-in-region  (start end)
-@kbd{Not bound to any key.}
-
 Count slides starting from point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-cycle-browser  nil
-@kbd{Not bound to any key.}
-
 Cycles through available browsers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-cycle-to-next-buffer  nil
-@kbd{Not bound to any key.}
-
 Cycles to next buffer having same mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-display-pod-as-manpage  (filename)
-@kbd{Not bound to any key.}
-
 Create a virtual manpage in Emacs from the Perl Online Documentation.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-dvi-display  nil
-@kbd{Not bound to any key.}
-
 Called to set up preview of an DVI file.
 Assumes we are in a buffer visiting a .DVI file.
 Previews those contents as text and nukes the buffer
@@ -7421,8 +6004,6 @@ visiting the DVI file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-dvi-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for browsing DVI files.
 
 DVI files  are converted to text and previewed using text mode.
@@ -7436,120 +6017,84 @@ key             binding
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-edit-file-as-root  nil
-@kbd{Not bound to any key.}
-
 Like `ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-end-of-word  (arg)
-@kbd{Not bound to any key.}
-
 move to end of word
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-enumerate-matching-commands  (pattern)
-@kbd{Not bound to any key.}
-
 Prompt for a string pattern and return list of commands whose names match pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-enumerate-matching-faces  (pattern)
-@kbd{Not bound to any key.}
-
 Enumerate  faces matching pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-enumerate-obsolete-faces  nil
-@kbd{Not bound to any key.}
-
 utility function to enumerate old, obsolete maps that we have still  mapped to voices.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern)
-@kbd{Not bound to any key.}
-
 Enumerate unadvised commands matching pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-enumerate-unmapped-faces  (&optional pattern)
-@kbd{Not bound to any key.}
-
 Enumerate unmapped faces matching pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-espeak-region  (start end)
-@kbd{Not bound to any key.}
-
 Speak region using ESpeak polyglot wizard.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-espeak-string  (string)
-@kbd{Not bound to any key.}
-
 Speak string in lang via ESpeak.
 Lang is obtained from property `lang' on string, or  via an interactive prompt.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-eww-buffer-list  nil
-@kbd{Not bound to any key.}
-
 Display list of open EWW buffers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-emacspeak-source  nil
-@kbd{Not bound to any key.}
-
 Like find-file, but binds default-directory to emacspeak-directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-file-as-root  nil
-@kbd{Not bound to any key.}
-
 Like `ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-grep  (glob pattern)
-@kbd{Not bound to any key.}
-
 Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-longest-line-in-region  (start end)
-@kbd{Not bound to any key.}
-
 Find longest line in region.
 Moves to the longest line when called interactively.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-longest-paragraph-in-region  (start end)
-@kbd{Not bound to any key.}
-
 Find longest paragraph in region.
 Moves to the longest paragraph when called interactively.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-find-shortest-line-in-region  (start end)
-@kbd{Not bound to any key.}
-
 Find shortest line in region.
 Moves to the shortest line when called interactively.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-finder-find  (directory)
-@kbd{Not bound to any key.}
-
 Run find-dired on specified switches after prompting for the
 directory to where find is to be launched.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-finder-mode  nil
-@kbd{Not bound to any key.}
-
 Emacspeak Finder
 
 This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
@@ -7561,64 +6106,46 @@ key             binding
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-fix-read-only-text  (start end)
-@kbd{Not bound to any key.}
-
 Nuke read-only property on text range.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-fix-typo  (ext word correction)
-@kbd{Not bound to any key.}
-
 Search and replace  recursively in all files with extension `ext'
 for `word' and replace it with correction.
 Use with caution.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-generate-finder  nil
-@kbd{Not bound to any key.}
-
 Generate a widget-enabled finder wizard.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-generate-voice-sampler  (step)
-@kbd{Not bound to any key.}
-
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-get-table-content-from-file  (file depth count)
-@kbd{Not bound to any key.}
-
 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is sent to STDOUT.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-get-table-content-from-url  (url depth count)
-@kbd{Not bound to any key.}
-
 Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-google-hits  nil
-@kbd{Not bound to any key.}
-
 Filter Google results after performing search to show just the
 hits.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-google-transcode  nil
-@kbd{Not bound to any key.}
-
 View Web through Google Transcoder.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-how-many-matches  (start end &optional prefix)
-@kbd{Not bound to any key.}
-
 If you define a file local variable
 called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
@@ -7627,32 +6154,22 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-i810-display-status  nil
-@kbd{Not bound to any key.}
-
 Show display status on thinkpads using i810switch.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-js  nil
-@kbd{Not bound to any key.}
-
 Run JS in a comint sub-process.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-lacheck-buffer-file  nil
-@kbd{Not bound to any key.}
-
 Run Lacheck on current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-load-current-file  nil
-@kbd{Not bound to any key.}
-
 load file into emacs
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-move-and-speak  (command count)
-@kbd{Not bound to any key.}
-
 Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
@@ -7662,26 +6179,18 @@ command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-next-bullet  nil
-@kbd{Not bound to any key.}
-
 Navigate to and speak next `bullet'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-next-interactive-defun  nil
-@kbd{Not bound to any key.}
-
 Move point to the next interactive defun
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-next-shell  nil
-@kbd{Not bound to any key.}
-
 Switch to next shell.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-occur-header-lines  (prefix)
-@kbd{Not bound to any key.}
-
 If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
 matches header lines, you can use this command to conveniently
@@ -7690,34 +6199,24 @@ prompts for and sets value of the file local pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-pdf-open  (filename &optional ask-pwd)
-@kbd{Not bound to any key.}
-
 Open pdf file as text.
 Optional interactive prefix arg ask-pwd prompts for password.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-popup-input-buffer  (mode)
-@kbd{Not bound to any key.}
-
 Provide an input buffer in a specified mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-portfolio-quotes  nil
-@kbd{Not bound to any key.}
-
 Bring up detailed stock quotes for portfolio specified by
 emacspeak-wizards-personal-portfolio.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-ppp-toggle  nil
-@kbd{Not bound to any key.}
-
 Bring up or bring down ppp.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-ppt-display  nil
-@kbd{Not bound to any key.}
-
 Called to set up preview of an PPT file.
 Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
@@ -7725,8 +6224,6 @@ visiting the ppt file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-ppt-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for browsing PPT slides.
 
 PPT files  are converted to HTML and previewed using a browser.
@@ -7741,28 +6238,20 @@ key             binding
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-previous-bullet  nil
-@kbd{Not bound to any key.}
-
 Navigate to and speak previous `bullet'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-previous-shell  nil
-@kbd{Not bound to any key.}
-
 Switch to previous shell.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-refresh-shell-history  nil
-@kbd{Not bound to any key.}
-
 Refresh shell history from disk.
 This is for use in conjunction with bash to allow multiple emacs
   shell buffers to   share history information.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-rivo  (when channel stop-time output directory)
-@kbd{Not bound to any key.}
-
 Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
   UNIX At scheduling facility.
@@ -7772,14 +6261,10 @@ RIVO is implemented by rivo.pl ---
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-rpm-query-in-dired  nil
-@kbd{Not bound to any key.}
-
 Run rpm -qi on current dired entry.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-shell  (&optional prefix)
-@kbd{Not bound to any key.}
-
 Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument. 
 When called from a shell buffer, switches to `next' shell buffer.
 @end deffn
@@ -7792,14 +6277,10 @@ Switch to the shell buffer and cd to
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-show-commentary  (&optional file)
-@kbd{Not bound to any key.}
-
 Display commentary. Default is to display commentary from current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-show-environment-variable  (v)
-@kbd{Not bound to any key.}
-
 Display value of specified environment variable.
 @end deffn
 
@@ -7810,52 +6291,36 @@ Convenience command to pretty-print and view Lisp evaluation results.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-show-face  (face)
-@kbd{Not bound to any key.}
-
 Show salient properties of specified face.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-show-memory-used  nil
-@kbd{Not bound to any key.}
-
 Convenience command to view state of memory used in this session so far.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-speak-iso-datetime  (iso)
-@kbd{Not bound to any key.}
-
 Make ISO date-time speech friendly.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-spot-words  (ext word)
-@kbd{Not bound to any key.}
-
 Searches recursively in all files with extension `ext'
 for `word' and displays hits in a compilation buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-squeeze-blanks  (start end)
-@kbd{Not bound to any key.}
-
 Squeeze multiple blank lines in current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-sunrise-sunset  (address &optional arg)
-@kbd{Not bound to any key.}
-
 Display sunrise/sunset for specified address.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-switch-shell  (direction)
-@kbd{Not bound to any key.}
-
 Switch to next/previous shell buffer.
 Direction specifies previous/next.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-term  (create)
-@kbd{Not bound to any key.}
-
 Switch to an ansi-term buffer or create one.
 With prefix arg, always creates a new terminal.
 Otherwise cycles through existing terminals, creating the first
@@ -7863,75 +6328,51 @@ term if needed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-terminal  (program)
-@kbd{Not bound to any key.}
-
 Launch terminal and rename buffer appropriately.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-tex-tie-current-word  (n)
-@kbd{Not bound to any key.}
-
 Tie the next n  words.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-thanks-mail-signature  nil
-@kbd{Not bound to any key.}
-
 insert thanks , --Raman at the end of mail message
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer  nil
-@kbd{Not bound to any key.}
-
 Toggle pronunciation of mm-dd-yyyy dates.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-toggle-yyyymmdd-date-pronouncer  nil
-@kbd{Not bound to any key.}
-
 Toggle pronunciation of yyyymmdd  dates.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-tpctl-display-status  nil
-@kbd{Not bound to any key.}
-
 Show display status on thinkpads using tpctl.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-tramp-open-location  (name)
-@kbd{Not bound to any key.}
-
 Open specified tramp location.
 Location is specified by name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-unhex-uri  (uri)
-@kbd{Not bound to any key.}
-
 UnEscape URI
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-units  nil
-@kbd{Not bound to any key.}
-
 Run units in a comint sub-process.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vc-n  nil
-@kbd{Not bound to any key.}
-
 Accelerator for VC viewer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vc-viewer  (console)
-@kbd{Not bound to any key.}
-
 View contents of specified virtual console.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vc-viewer-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for interactively viewing virtual console contents.
 
 key             binding
@@ -7944,50 +6385,34 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vc-viewer-refresh  nil
-@kbd{Not bound to any key.}
-
 Refresh view of VC we're viewing.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vi-as-su-file  (file)
-@kbd{Not bound to any key.}
-
 Launch sudo vi on specified file in a terminal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-view-buffers-filtered-by-mode  (mode)
-@kbd{Not bound to any key.}
-
 Display list of buffers filtered by specified mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-view-buffers-filtered-by-this-mode  nil
-@kbd{Not bound to any key.}
-
 Buffer menu filtered by  mode of current-buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-view-url  nil
-@kbd{Not bound to any key.}
-
 Open a new buffer containing the contents of URL.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-voice-sampler  (personality)
-@kbd{Not bound to any key.}
-
 Read a personality  and apply it to the current line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-vpn-toggle  nil
-@kbd{Not bound to any key.}
-
 Bring up or bring down vpn.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-xl-display  nil
-@kbd{Not bound to any key.}
-
 Called to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
 Previews those contents as HTML and nukes the buffer
@@ -7995,8 +6420,6 @@ visiting the xls file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-xl-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for browsing XL spreadsheets.
 
 XL Sheets are converted to HTML and previewed using a browser.
@@ -8019,50 +6442,34 @@ Automatically generated documentation
 for commands defined in module  emacspeak-xml-shell.
 
 @deffn {Interactive Command} emacspeak-xml-shell  (system-id)
-@kbd{Not bound to any key.}
-
 Start Xml-Shell on contents of system-id.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-browse-current  nil
-@kbd{Not bound to any key.}
-
 Display current node.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-browse-result  (xpath)
-@kbd{Not bound to any key.}
-
 Display XPath  and display its result using W3.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-goto-children  nil
-@kbd{Not bound to any key.}
-
 Navigate down to the children of current node.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-goto-next-child  nil
-@kbd{Not bound to any key.}
-
 Navigate forward  to the next child  of current node.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-goto-parent  nil
-@kbd{Not bound to any key.}
-
 Navigate up to the parent of current node.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-goto-previous-child  nil
-@kbd{Not bound to any key.}
-
 Navigate backward  to the previous child  of current node.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-mode  nil
-@kbd{Not bound to any key.}
-
 XML Shell
 
 Interactive XML browser.
@@ -8092,26 +6499,18 @@ Automatically generated documentation
 for commands defined in module  emacspeak-xslt.
 
 @deffn {Interactive Command} emacspeak-xslt-view  (style url)
-@kbd{Not bound to any key.}
-
 Browse URL with specified XSL style.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xslt-view-file  (style file)
-@kbd{Not bound to any key.}
-
 Transform `file' using `style' and preview via browse-url.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xslt-view-region  (style start end &optional unescape-charent)
-@kbd{Not bound to any key.}
-
 Browse XML region with specified XSL style.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xslt-view-xml  (style url &optional unescape-charent)
-@kbd{Not bound to any key.}
-
 Browse XML URL with specified XSL style.
 @end deffn
 
@@ -8128,16 +6527,12 @@ Automatically generated documentation
 for commands defined in module  emacspeak-zinf.
 
 @deffn {Interactive Command} emacspeak-zinf  (resource)
-@kbd{Not bound to any key.}
-
 Play specified resource using zinf.
 Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-zinf-mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-zinf-mode  nil
-@kbd{Not bound to any key.}
-
 Major mode for zinf interaction. 
 
 key             binding
@@ -8164,14 +6559,10 @@ during initialization.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-zinf-zinf-call-command  nil
-@kbd{Not bound to any key.}
-
 Call appropriate zinf command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-zinf-zinf-command  (char)
-@kbd{Not bound to any key.}
-
 Execute Zinf command.
 @end deffn
 
@@ -8249,8 +6640,6 @@ Automatically generated documentation
 for commands defined in module  voice-setup.
 
 @deffn {Interactive Command} voice-setup-list-voices  (pattern)
-@kbd{Not bound to any key.}
-
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   `voice-setup-sample-text'. 
@@ -8278,8 +6667,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-bbc.
 
 @deffn {Interactive Command} emacspeak-bbc  [Arg list not available until function definition is loaded.]
-@kbd{Not bound to any key.}
-
 Launch BBC Interaction.
 See http://www.bbc.co.uk/radio/stations for full list of stations.
 See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
@@ -8289,8 +6676,6 @@ Interactive prefix arg filters  content by genre.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-bbc-genre  [Arg list not available until function definition is loaded.]
-@kbd{Not bound to any key.}
-
 Launch BBC Interaction for specified Genre.
 
 (fn)
@@ -8309,24 +6694,18 @@ Automatically generated documentation
 for commands defined in module  emacspeak-org.
 
 @deffn {Interactive Command} emacspeak-org-bookmark  [Arg list not available until function definition is loaded.]
-@kbd{Not bound to any key.}
-
 Bookmark from org.
 
 (fn &optional GOTO)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-org-popup-input  [Arg list not available until function definition is loaded.]
-@kbd{Not bound to any key.}
-
 Pops up an org input area.
 
 (fn)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-org-table-speak-current-element  [Arg list not available until function definition is loaded.]
-@kbd{Not bound to any key.}
-
 echoes current table element
 
 (fn)
