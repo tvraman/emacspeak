@@ -1076,7 +1076,7 @@ for commands defined in module  %s.\n\n"
                         (key
                          (ems-texinfo-escape
                           (mapconcat 'key-description key " ")))
-                        (t "Not bound to any key.")))
+                        (t "")))
                  (when key-description
                    (insert
                     (format "@kbd{%s}\n\n"
