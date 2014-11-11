@@ -1718,8 +1718,7 @@ resources."
 ;;{{{ Generate texinfo documentation for all defined url
 
 (defun emacspeak-url-template-generate-texinfo-documentation (buffer)
-  "Generates texinfo section documenting all defined URL
-  templates."
+  "Generates texinfo section documenting all defined URL templates."
   (declare (special emacspeak-url-template-table))
   (insert
    "@node URL Templates \n@section  URL Templates\n\n")
@@ -1745,9 +1744,8 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates that enable access to map directions
-prompt for address and automatically
-speak the relevant results.\n\n"
+As an example, the URL templates for weather forecasts 
+prompts for a location and speaks the forecast. \n\n"
     (mapconcat #'key-description
                (where-is-internal
                 'emacspeak-url-template-fetch)
