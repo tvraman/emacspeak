@@ -1022,10 +1022,10 @@ Warning! Contents of file commands.texi will be overwritten."
         (commands (emacspeak-list-emacspeak-commands)))
     (with-current-buffer buffer
       (erase-buffer)
-      (insert "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
        (format
-        "This chapter is generated automatically from the source-level documentation.
+        "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n
+This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation. This chapter documents a total of %d
 commands.\n\n"
@@ -1037,29 +1037,25 @@ commands.\n\n"
                    ((key (where-is-internal f))
                     (key-description "")
                     (commentary nil)
-                    (this-module (symbol-file f))
+                    (this-module (symbol-file f 'defun))
                     (source-file nil))
                  (when this-module
                    (setq source-file (locate-library this-module ))
                    (if (char-equal (aref source-file (1- (length source-file))) ?c)
                        (setq source-file (substring  source-file 0 -1)))
+                   (setq this-module 
+                         (file-name-nondirectory 
+                          (file-name-sans-extension this-module))))
+                 (unless (string-equal module this-module) 
+                                        ; cache module name and produce section start 
+                   (setq module this-module)
                    (setq commentary (lm-commentary source-file))
-                   (setq this-module
-                         (file-name-sans-extension this-module))
                    (when commentary
-                     (setq commentary
-                           (ems-cleanup-commentary commentary)))
-                   (setq this-module
-                         (file-name-nondirectory this-module)))
-                 (unless (string-equal module this-module)
-                   (if this-module
-                       (setq module this-module)
-                     (setq module nil))
-                   (when module
-                     (insert
-                      (format
-                       "\n@node %s\n@section %s\n\n\n"
-                       module module )))
+                     (setq commentary (ems-cleanup-commentary commentary)))
+                   (insert
+                    (format
+                     "\n@node %s\n@section %s\n\n\n"
+                     module module ))
                    (insert
                     (format "\n\n%s\n\n"
                             (or commentary "No Commentary")))
@@ -1068,16 +1064,16 @@ commands.\n\n"
                      "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                      module)))
+                                        ; generate command documentation 
                  (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
-                                 f
-                                 (help-function-arglist f t)))
+                                 f (help-function-arglist f t)))
                  (setq key-description
                        (cond
                         (key
                          (ems-texinfo-escape
                           (mapconcat 'key-description key " ")))
                         (t "")))
-                 (when key-description
+                 (when key
                    (insert
                     (format "@kbd{%s}\n\n"
                             key-description)))
@@ -1087,12 +1083,12 @@ for commands defined in module  %s.\n\n"
                       (ems-texinfo-escape (documentation f))
                     "Not Documented"))
                  (insert "\n@end deffn\n\n"))
-             (error (insert
-                     (format "\n@c Caught %s\n" f)))))
+             (error 
+              (insert (format "\n@c Caught %s\n" f)))))
        commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
-      (shell-command-on-region
+      (shell-command-on-region          ; squeeze blanks 
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
       (save-buffer)))
