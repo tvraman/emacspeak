@@ -493,6 +493,14 @@ AMarks are bookmarks in audio content.
 
 ------------------------------------------------------------
 
+** emacspeak-aumix Setup output parameters of the auditory display.
+ Launch this tool while you have auditory output on
+multiple channels playing so you can
+adjust the settings to your preference.  Hit q to quit when
+you are done. 
+
+------------------------------------------------------------
+
 ** emacspeak-aumix-edit Edit aumix settings interactively. 
 Run command M-x emacspeak-aumix-reset
 after saving the settings to have them take effect. 
@@ -940,6 +948,10 @@ emacspeak-dismal-sheet-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
+
+------------------------------------------------------------
+
+** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -2005,19 +2017,10 @@ S t		emacspeak-librivox-search-title
 
 ------------------------------------------------------------
 
-** emacspeak-mark-forward-mark	Key Sequence:<C-down>
-
-   
-
-------------------------------------------------------------
-
-** emacspeak-toggle-comint-output-monitor	Key Sequence:C-e o
-
- Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result. 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
@@ -2285,14 +2288,6 @@ A string of the form `<number> 1' sets volume as an absolute.
 ** emacspeak-multimedia	Key Sequence:C-e ;
 
  Start or control Emacspeak multimedia player. 
-
-------------------------------------------------------------
-
-** emacspeak-aumix Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done. 
 
 ------------------------------------------------------------
 
@@ -2848,6 +2843,12 @@ Also set the mark at the position where point was.
 ** emacspeak-mark-backward-mark	Key Sequence:<C-up>
 
  Cycle backward through the mark ring. 
+
+------------------------------------------------------------
+
+** emacspeak-mark-forward-mark	Key Sequence:<C-down>
+
+   
 
 ------------------------------------------------------------
 
@@ -3497,6 +3498,16 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-toggle-comint-output-monitor	Key Sequence:C-e o
+
+ Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result. 
+
+------------------------------------------------------------
+
 ** emacspeak-toggle-header-line Toggle Emacspeak's default header line. 
 
 ------------------------------------------------------------
@@ -4072,13 +4083,6 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-w3-toggle-table-borders Toggle drawing of W3 table borders 
-
-------------------------------------------------------------
-
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
@@ -5672,6 +5676,15 @@ Interactive prefix arg filters  content by genre.
 ** emacspeak-org-table-speak-current-element echoes current table element
 
 (fn) 
+
+------------------------------------------------------------
+
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
 
   
 

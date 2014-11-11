@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-we</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-we" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-we" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -97,12 +97,11 @@
   <h3 class="section">11.72 emacspeak-we</h3>
 
   <p>Commentary: we is for webedit Invoke XSLT to edit/transform
-  Web pages before they get rendered. we makes emacspeak&rsquo;s
-  webedit layer independent of a given Emacs web browser like W3 or
-  W3M This module will use the abstraction provided by browse-url
-  to handle Web pages. Module emacspeak-webutils provides the
-  needed additional abstractions not already covered by
-  browse-url</p>
+  Web pages before they get rendered. we makes emacspeak’s webedit
+  layer independent of a given Emacs web browser like W3 or W3M
+  This module will use the abstraction provided by browse-url to
+  handle Web pages. Module emacspeak-webutils provides the needed
+  additional abstractions not already covered by browse-url</p>
 
   <p>Automatically generated documentation for commands defined in
   module emacspeak-we.</p>
@@ -117,8 +116,6 @@
     <em>(class url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow url and point, and filter the result by specified
       class. Class can be set locally for a buffer, and overridden
       with an interactive prefix arg. If there is a known rewrite
@@ -136,8 +133,6 @@
     <em>(&amp;optional prompt)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow url and point, and filter the result by specified
       class. Class can be set locally for a buffer, and overridden
       with an interactive prefix arg. If there is a known rewrite
@@ -152,8 +147,6 @@
     locator)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Count matches for locator in Web page.</p>
     </dd>
   </dl>
@@ -166,8 +159,6 @@
     <em>(url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Count nested tables in Web page.</p>
     </dd>
   </dl>
@@ -179,8 +170,6 @@
     <em>(url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Count tables in Web page.</p>
     </dd>
   </dl>
@@ -193,8 +182,6 @@
     <em>(class url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements having specified class attribute from
       HTML. Extracts specified elements from current WWW page and
       displays it in a separate buffer. Interactive use provides
@@ -211,13 +198,10 @@
     <em>(classes url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Extract elements having class specified in list
-      &lsquo;classes&rsquo; from HTML. Extracts specified elements
-      from current WWW page and displays it in a separate buffer.
-      Interactive use provides list of class values as
-      completion.</p>
+      <p>Extract elements having class specified in list ‘classes’
+      from HTML. Extracts specified elements from current WWW page
+      and displays it in a separate buffer. Interactive use
+      provides list of class values as completion.</p>
     </dd>
   </dl>
 
@@ -229,8 +213,6 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements having specified id attribute from HTML.
       Extracts specified elements from current WWW page and
       displays it in a separate buffer. Interactive use provides
@@ -246,12 +228,10 @@
     <em>(ids url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Extract elements having id specified in list
-      &lsquo;ids&rsquo; from HTML. Extracts specified elements from
-      current WWW page and displays it in a separate buffer.
-      Interactive use provides list of id values as completion.</p>
+      <p>Extract elements having id specified in list ‘ids’ from
+      HTML. Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Interactive use provides
+      list of id values as completion.</p>
     </dd>
   </dl>
 
@@ -263,8 +243,6 @@
     <em>(url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Interactively prompt for an HTML property, e.g. id or
       class, and provide a completion list of applicable property
       values. Filter document by property that is specified.</p>
@@ -279,8 +257,6 @@
     <em>(role url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements having specified role attribute from
       HTML. Extracts specified elements from current WWW page and
       displays it in a separate buffer. Interactive use provides
@@ -297,11 +273,9 @@
     <em>(ids url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract text nodes from elements having id specified in
-      list &lsquo;ids&rsquo; from HTML. Extracts specified elements
-      from current WWW page and displays it in a separate buffer.
+      list ‘ids’ from HTML. Extracts specified elements from
+      current WWW page and displays it in a separate buffer.
       Interactive use provides list of id values as completion.</p>
     </dd>
   </dl>
@@ -314,8 +288,6 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract text nodes from elements having specified id
       attribute from HTML. Extracts specified elements from current
       WWW page and displays it in a separate buffer. Interactive
@@ -331,8 +303,6 @@
     <em>(pattern url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extracts links whose URL matches pattern.</p>
     </dd>
   </dl>
@@ -345,12 +315,10 @@
     <em>(url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract links to media streams. operate on current web
       page when in a browser buffer; otherwise prompt for url.
-      Optional arg &lsquo;speak&rsquo; specifies if the result
-      should be spoken automatically.</p>
+      Optional arg ‘speak’ specifies if the result should be spoken
+      automatically.</p>
     </dd>
   </dl>
 
@@ -364,8 +332,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>In browser buffers, extract media streams from url under
       point.</p>
     </dd>
@@ -379,13 +345,10 @@
     <em>(index url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Extract nested table specified by
-      &lsquo;table-index&rsquo;. Default is to operate on current
-      web page when in a browser buffer; otherwise prompt for URL.
-      Optional arg &lsquo;speak&rsquo; specifies if the result
-      should be spoken automatically.</p>
+      <p>Extract nested table specified by ‘table-index’. Default
+      is to operate on current web page when in a browser buffer;
+      otherwise prompt for URL. Optional arg ‘speak’ specifies if
+      the result should be spoken automatically.</p>
     </dd>
   </dl>
 
@@ -399,8 +362,6 @@
     <em>(tables url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract specified list of tables from a Web page.</p>
     </dd>
   </dl>
@@ -413,12 +374,10 @@
     <em>(url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract links to printable streams. operate on current web
       page when in a browser buffer; otherwise prompt for url.
-      Optional arg &lsquo;speak&rsquo; specifies if the result
-      should be spoken automatically.</p>
+      Optional arg ‘speak’ specifies if the result should be spoken
+      automatically.</p>
     </dd>
   </dl>
 
@@ -432,8 +391,6 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract table containing specified match. Optional arg url
       specifies the page to extract content from.</p>
     </dd>
@@ -449,8 +406,6 @@
     <em>(position url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract table at specified position. Default is to extract
       from current page.</p>
     </dd>
@@ -466,8 +421,6 @@
     <em>(match-list url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract specified tables from a WWW page. Tables are
       specified by containing match pattern found in the match
       list.</p>
@@ -484,8 +437,6 @@
     <em>(positions url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract specified list of nested tables from a WWW page.
       Tables are specified by their position in the list of nested
       tables found in the page.</p>
@@ -502,8 +453,6 @@
     <em>(&amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow URL, then extract role=main.</p>
     </dd>
   </dl>
@@ -518,8 +467,6 @@
     <em>(id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow url and point, and filter the result by specified
       id. Id can be set locally for a buffer, and overridden with
       an interactive prefix arg. If there is a known rewrite url
@@ -535,8 +482,6 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements not having specified class attribute from
       HTML. Extracts specified elements from current WWW page and
       displays it in a separate buffer. Interactive use provides
@@ -552,13 +497,10 @@
     <em>(classes url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements not having class specified in list
-      &lsquo;classes&rsquo; from HTML. Extracts specified elements
-      from current WWW page and displays it in a separate buffer.
-      Interactive use provides list of class values as
-      completion.</p>
+      ‘classes’ from HTML. Extracts specified elements from current
+      WWW page and displays it in a separate buffer. Interactive
+      use provides list of class values as completion.</p>
     </dd>
   </dl>
 
@@ -569,8 +511,6 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements matching specified style from HTML.
       Extracts specified elements from current WWW page and
       displays it in a separate buffer. Optional arg url specifies
@@ -588,8 +528,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle xsl keep result flag.</p>
     </dd>
   </dl>
@@ -604,8 +542,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Applies buffer-specific URL expander/executor
       function.</p>
     </dd>
@@ -621,18 +557,16 @@
     <em>(&amp;optional prompt)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Apply a url rewrite rule as specified in the current
       buffer before following link under point. If no rewrite rule
       is defined, first prompt for one. Rewrite rules are of the
-      form &lsquo;(from to)&rsquo; where from and to are strings.
-      Typically, the rewrite rule is automatically set up by
-      Emacspeak tools like websearch where a rewrite rule is known.
-      Rewrite rules are useful in jumping directly to the printer
-      friendly version of an article for example. Optional
-      interactive prefix arg prompts for a rewrite rule even if one
-      is already defined.</p>
+      form ‘(from to)’ where from and to are strings. Typically,
+      the rewrite rule is automatically set up by Emacspeak tools
+      like websearch where a rewrite rule is known. Rewrite rules
+      are useful in jumping directly to the printer friendly
+      version of an article for example. Optional interactive
+      prefix arg prompts for a rewrite rule even if one is already
+      defined.</p>
     </dd>
   </dl>
 
@@ -646,8 +580,6 @@
     <em>(&amp;optional prompt)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow url and point, and filter the result by specified
       xpath. XPath can be set locally for a buffer, and overridden
       with an interactive prefix arg. If there is a known rewrite
@@ -664,8 +596,6 @@
     <em>(&amp;optional prompt)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Follow url and point, and filter the result by junking
       elements specified by xpath. XPath can be set locally for a
       buffer, and overridden with an interactive prefix arg. If
@@ -680,8 +610,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle application of XSL transformations.</p>
     </dd>
   </dl>
@@ -693,8 +621,6 @@
     <em>(xsl)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Apply specified transformation to current Web page.</p>
     </dd>
   </dl>
@@ -706,11 +632,8 @@
     url &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Extract elements matching specified XPath path locator
-      from Web page &ndash; default is the current page being
-      viewed.</p>
+      from Web page – default is the current page being viewed.</p>
     </dd>
   </dl>
 
@@ -721,8 +644,6 @@
     &amp;optional speak)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Junk elements matching specified locator.</p>
     </dd>
   </dl>
@@ -734,8 +655,6 @@
     <em>(xsl)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Select XSL transformation applied to Web pages before they
       are displayed .</p>
     </dd>
