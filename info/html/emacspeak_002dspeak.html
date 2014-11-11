@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   emacspeak-speak</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-speak" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-speak" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -94,7 +94,7 @@
   <hr />
   <a name="emacspeak_002dspeak-1" id="emacspeak_002dspeak-1"></a>
 
-  <h3 class="section">11.59 emacspeak-speak</h3>
+  <h3 class="section">11.58 emacspeak-speak</h3>
 
   <p>Commentary: This module defines the core speech services used
   by emacspeak. It depends on the speech server interface modules
@@ -245,8 +245,9 @@
     <dd>
       <p><kbd>ESC &lt;prior&gt;</kbd></p>
 
-      <p>Scroll down the window that command ‘other-window’ would
-      move to. Speak the window contents after scrolling.</p>
+      <p>Scroll down the window that command
+      &lsquo;other-window&rsquo; would move to. Speak the window
+      contents after scrolling.</p>
     </dd>
   </dl>
 
@@ -260,8 +261,9 @@
     <dd>
       <p><kbd>ESC &lt;next&gt;</kbd></p>
 
-      <p>Scroll up the window that command ‘other-window’ would
-      move to. Speak the window contents after scrolling.</p>
+      <p>Scroll up the window that command
+      &lsquo;other-window&rsquo; would move to. Speak the window
+      contents after scrolling.</p>
     </dd>
   </dl>
 
@@ -369,8 +371,8 @@
       <p><kbd>&lt;silence&gt;</kbd></p>
 
       <p>Silence is golden. Stop speech, and pause/resume any media
-      streams. Runs ‘emacspeak-silence-hook’ which can be used to
-      configure which media players get silenced or
+      streams. Runs &lsquo;emacspeak-silence-hook&rsquo; which can
+      be used to configure which media players get silenced or
       paused/resumed.</p>
     </dd>
   </dl>
@@ -420,9 +422,9 @@
       <p><kbd>C-e ,</kbd></p>
 
       <p>Browse current buffer. Default is to speak chunk having
-      current personality. Interactive prefix arg ‘browse’
-      repeatedly browses through chunks having same personality as
-      the current text chunk.</p>
+      current personality. Interactive prefix arg
+      &lsquo;browse&rsquo; repeatedly browses through chunks having
+      same personality as the current text chunk.</p>
     </dd>
   </dl>
 
@@ -439,7 +441,8 @@
       rest of the buffer from point. Negative prefix arg speaks
       from start of buffer to point. If voice lock mode is on, the
       paragraphs in the buffer are voice annotated first, see
-      command ‘emacspeak-speak-voice-annotate-paragraphs’.</p>
+      command
+      &lsquo;emacspeak-speak-voice-annotate-paragraphs&rsquo;.</p>
     </dd>
   </dl>
 
@@ -456,8 +459,8 @@
       <p>Speak name of file being visited in current buffer. Speak
       default directory if invoked in a dired buffer, or when the
       buffer is not visiting any file. Interactive prefix arg
-      ‘filename’ speaks only the final path component. The result
-      is put in the kill ring for convenience.</p>
+      &lsquo;filename&rsquo; speaks only the final path component.
+      The result is put in the kill ring for convenience.</p>
     </dd>
   </dl>
 
@@ -471,9 +474,9 @@
     <dd>
       <p><kbd>C-e B</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire buffer. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire buffer.</p>
+      <p>Speak the start of, rest of, or the entire buffer.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire buffer.</p>
     </dd>
   </dl>
 
@@ -596,13 +599,14 @@
       <p><kbd>C-e C-@</kbd></p>
 
       <p>Speak the line containing the mark. With no argument,
-      speaks the line containing the mark–this is where
-      ‘exchange-point-and-mark’ C-x C-x would jump. Numeric prefix
-      arg ’COUNT’ speaks line containing mark ’n’ where ’n’ is one
-      less than the number of times one has to jump using
-      ‘set-mark-command’ to get to this marked position. The
-      location of the mark is indicated by an aural highlight
-      achieved by a change in voice personality.</p>
+      speaks the line containing the mark&ndash;this is where
+      &lsquo;exchange-point-and-mark&rsquo; C-x C-x would jump.
+      Numeric prefix arg &rsquo;COUNT&rsquo; speaks line containing
+      mark &rsquo;n&rsquo; where &rsquo;n&rsquo; is one less than
+      the number of times one has to jump using
+      &lsquo;set-mark-command&rsquo; to get to this marked
+      position. The location of the mark is indicated by an aural
+      highlight achieved by a change in voice personality.</p>
     </dd>
   </dl>
 
@@ -645,9 +649,10 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Display char under point using current speech display
-      table. Behavior is the same as command ‘emacspeak-speak-char’
-      bound to C-e c for characters in the range 0–127. Optional
-      argument PREFIX specifies that the character should be spoken
+      table. Behavior is the same as command
+      &lsquo;emacspeak-speak-char&rsquo; bound to C-e c for
+      characters in the range 0&ndash;127. Optional argument PREFIX
+      specifies that the character should be spoken
       phonetically.</p>
     </dd>
   </dl>
@@ -721,9 +726,9 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire help. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire help.</p>
+      <p>Speak the start of, rest of, or the entire help.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire help.</p>
     </dd>
   </dl>
 
@@ -751,15 +756,16 @@
 
       <p>Speaks current line. With prefix ARG, speaks the rest of
       the line from point. Negative prefix optional arg speaks from
-      start of line to point. Voicifies if option ‘voice-lock-mode’
-      is on. Indicates indentation with a tone if audio indentation
-      is in use. Indicates position of point with an aural
-      highlight if option ‘emacspeak-show-point’ is turned on –see
-      command ‘emacspeak-show-point’ bound to M-x
+      start of line to point. Voicifies if option
+      &lsquo;voice-lock-mode&rsquo; is on. Indicates indentation
+      with a tone if audio indentation is in use. Indicates
+      position of point with an aural highlight if option
+      &lsquo;emacspeak-show-point&rsquo; is turned on &ndash;see
+      command &lsquo;emacspeak-show-point&rsquo; bound to M-x
       emacspeak-show-point. Lines that start hidden blocks of text,
       e.g. outline header lines, or header lines of blocks created
-      by command ‘emacspeak-hide-or-expose-block’ are indicated
-      with auditory icon ellipses.</p>
+      by command &lsquo;emacspeak-hide-or-expose-block&rsquo; are
+      indicated with auditory icon ellipses.</p>
     </dd>
   </dl>
 
@@ -773,9 +779,9 @@
     <dd>
       <p><kbd>C-e L</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire line. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire line.</p>
+      <p>Speak the start of, rest of, or the entire line.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire line.</p>
     </dd>
   </dl>
 
@@ -808,11 +814,11 @@
 
       <p>Set up filter for selectively speaking or ignoring
       portions of lines. The filter is specified as a list of
-      pairs. For example, to filter columns 1 – 10 and 20 – 25,
-      specify filter as ((0 9) (20 25)). Filter settings are
-      persisted across sessions. A persisted filter is used as the
-      default when prompting for a filter. This allows one to
-      accumulate a set of filters for specific files like
+      pairs. For example, to filter columns 1 &ndash; 10 and 20
+      &ndash; 25, specify filter as ((0 9) (20 25)). Filter
+      settings are persisted across sessions. A persisted filter is
+      used as the default when prompting for a filter. This allows
+      one to accumulate a set of filters for specific files like
       /var/adm/messages and /var/adm/maillog over time. Option
       emacspeak-speak-line-invert-filter determines the sense of
       the filter.</p>
@@ -850,8 +856,8 @@
 
       <p>Speak the last message from Emacs once again. The message
       is also placed in the kill ring for convenient yanking if
-      ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is
-      set.</p>
+      &lsquo;emacspeak-speak-message-again-should-copy-to-kill-ring&rsquo;
+      is set.</p>
     </dd>
   </dl>
 
@@ -1033,10 +1039,11 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Speak contents of ‘other’ window. Speaks entire window
-      irrespective of point. Semantics of ‘other’ is the same as
-      for the builtin Emacs command ‘other-window’. Optional
-      argument ARG specifies ‘other’ window to speak.</p>
+      <p>Speak contents of &lsquo;other&rsquo; window. Speaks
+      entire window irrespective of point. Semantics of
+      &lsquo;other&rsquo; is the same as for the builtin Emacs
+      command &lsquo;other-window&rsquo;. Optional argument ARG
+      specifies &lsquo;other&rsquo; window to speak.</p>
     </dd>
   </dl>
 
@@ -1051,8 +1058,8 @@
 
       <p>Speak a page. With prefix ARG, speaks rest of current
       page. Negative prefix arg will read from start of current
-      page to point. If option ‘voice-lock-mode’ is on, then it
-      will use any defined personality.</p>
+      page to point. If option &lsquo;voice-lock-mode&rsquo; is on,
+      then it will use any defined personality.</p>
     </dd>
   </dl>
 
@@ -1066,9 +1073,9 @@
     <dd>
       <p><kbd>C-e ]</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire page. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire page.</p>
+      <p>Speak the start of, rest of, or the entire page.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire page.</p>
     </dd>
   </dl>
 
@@ -1099,9 +1106,9 @@
     <dd>
       <p><kbd>C-e P</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire paragraph. ’s’
-      to speak the start. ’r’ to speak the rest. any other key to
-      speak entire paragraph.</p>
+      <p>Speak the start of, rest of, or the entire paragraph.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire paragraph.</p>
     </dd>
   </dl>
 
@@ -1131,11 +1138,11 @@
       C-e 0</kbd></p>
 
       <p>Speak one of the first 10 windows on the screen. Speaks
-      entire window irrespective of point. In general, you’ll never
-      have Emacs split the screen into more than two or three.
-      Argument ARG determines the ’other’ window to speak.
-      Semantics of ‘other’ is the same as for the builtin Emacs
-      command ‘other-window’.</p>
+      entire window irrespective of point. In general, you&rsquo;ll
+      never have Emacs split the screen into more than two or
+      three. Argument ARG determines the &rsquo;other&rsquo; window
+      to speak. Semantics of &lsquo;other&rsquo; is the same as for
+      the builtin Emacs command &lsquo;other-window&rsquo;.</p>
     </dd>
   </dl>
 
@@ -1314,8 +1321,8 @@
 
       <p>Speak current sexp. With prefix ARG, speaks the rest of
       the sexp from point. Negative prefix arg speaks from start of
-      sexp to point. If option ‘voice-lock-mode’ is on, then uses
-      the personality.</p>
+      sexp to point. If option &lsquo;voice-lock-mode&rsquo; is on,
+      then uses the personality.</p>
     </dd>
   </dl>
 
@@ -1329,9 +1336,9 @@
     <dd>
       <p><kbd>C-e "</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire sexp. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire sexp.</p>
+      <p>Speak the start of, rest of, or the entire sexp.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire sexp.</p>
     </dd>
   </dl>
 
@@ -1480,9 +1487,9 @@
       <p><kbd>C-e t</kbd></p>
 
       <p>Speak the time. Optional interactive prefix arg
-      ‘C-u’invokes world clock. Timezone is specified using
-      minibuffer completion. Second interactive prefix sets clock
-      to new timezone.</p>
+      &lsquo;C-u&rsquo;invokes world clock. Timezone is specified
+      using minibuffer completion. Second interactive prefix sets
+      clock to new timezone.</p>
     </dd>
   </dl>
 
@@ -1558,9 +1565,9 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire word. ’s’ to
-      speak the start. ’r’ to speak the rest. any other key to
-      speak entire word.</p>
+      <p>Speak the start of, rest of, or the entire word.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire word.</p>
     </dd>
   </dl>
 
@@ -1574,8 +1581,8 @@
       <p><kbd>Not bound to any key.</kbd></p>
 
       <p>Display current date and time for specified zone. Optional
-      second arg ‘set’ sets the TZ environment variable as
-      well.</p>
+      second arg &lsquo;set&rsquo; sets the TZ environment variable
+      as well.</p>
     </dd>
   </dl>
 
@@ -1622,10 +1629,10 @@
       <p>Toggle state of Emacspeak audio indentation. Interactive
       PREFIX arg means toggle the global default value, and then
       set the current local value to the result. Specifying the
-      method of indentation as ‘tones’ results in the Dectalk
-      producing a tone whose length is a function of the line’s
-      indentation. Specifying ‘speak’ results in the number of
-      initial spaces being spoken.</p>
+      method of indentation as &lsquo;tones&rsquo; results in the
+      Dectalk producing a tone whose length is a function of the
+      line&rsquo;s indentation. Specifying &lsquo;speak&rsquo;
+      results in the number of initial spaces being spoken.</p>
     </dd>
   </dl>
 
@@ -1672,7 +1679,7 @@
     <dd>
       <p><kbd>Not bound to any key.</kbd></p>
 
-      <p>Toggle Emacspeak’s default header line.</p>
+      <p>Toggle Emacspeak&rsquo;s default header line.</p>
     </dd>
   </dl>
 

@@ -5673,16 +5673,6 @@ Interactive prefix arg filters  content by genre.
 
 (fn) 
 
-------------------------------------------------------------
-
-** ad-Advice-emacspeak-eterm-copy-region-to-register Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
-
-------------------------------------------------------------
-
-** ad-Advice-emacspeak-eterm-paste-register Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts.  
-
   
 
 Local variables:
