@@ -41,7 +41,6 @@ This chapter documents a total of 624 user customizable
 * emacspeak-jss Options::
 * emacspeak-keymap Options::
 * emacspeak-kite Options::
-* emacspeak-loaddefs Options::
 * emacspeak-m-player Options::
 * emacspeak-madplay Options::
 * emacspeak-make-mode Options::
@@ -69,7 +68,7 @@ This chapter documents a total of 624 user customizable
 * emacspeak-w3m Options::
 * emacspeak-we Options::
 * emacspeak-websearch Options::
-* emacspeak-webspace Options::
+* emacspeak-webutils Options::
 * emacspeak-wizards Options::
 * emacspeak-xml-shell Options::
 * emacspeak-xslt Options::
@@ -181,8 +180,17 @@ Automatically generated documentation
 for options defined in module  dtk-unicode.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} dtk-unicode-character-replacement-alist
+Explicit replacements for some characters.
+@end defvar
+
 @defvar {User Option} dtk-unicode-name-transformation-rules-alist
 Alist of character name transformation rules.
+@end defvar
+
+@defvar {User Option} dtk-unicode-process-utf8
+Turn this off when working with TTS  engines that handle UTF8
+themselves, e.g., when using an Asian language.
 @end defvar
 
 @defvar {User Option} dtk-unicode-untouched-charsets
@@ -719,6 +727,10 @@ These options are customizable via Emacs' Custom interface.
 XSL stylesheet used for viewing Atom Feeds.
 @end defvar
 
+@defvar {User Option} emacspeak-feeds
+Table of RSS feeds.
+@end defvar
+
 @defvar {User Option} emacspeak-opml-view-xsl
 XSL stylesheet used for viewing OPML  Feeds.
 @end defvar
@@ -1207,74 +1219,6 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-kite-undefined-voice
 Personality used for kite-undefined
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-@end defvar
-
-@node emacspeak-loaddefs Options
-@section emacspeak-loaddefs Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-loaddefs.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} dtk-unicode-character-replacement-alist
-Explicit replacements for some characters.
-@end defvar
-
-@defvar {User Option} dtk-unicode-process-utf8
-Turn this off when working with TTS  engines that handle UTF8
-themselves, e.g., when using an Asian language.
-@end defvar
-
-@defvar {User Option} emacspeak-character-echo
-If t, then emacspeak echoes characters  as you type.
-You can
-use C-e d k to toggle this
-setting.
-@end defvar
-
-@defvar {User Option} emacspeak-line-echo
-If t, then emacspeak echoes lines as you type.
-You can use C-e d l to set this
-option.
-@end defvar
-
-@defvar {User Option} emacspeak-play-program
-Name of executable that plays sound files. 
-@end defvar
-
-@defvar {User Option} emacspeak-silence-hook
-Functions run after emacspeak-silence is called.
-@end defvar
-
-@defvar {User Option} emacspeak-sounds-default-theme
-Default theme for auditory icons. 
-@end defvar
-
-@defvar {User Option} emacspeak-speak-embedded-url-pattern
-Pattern to recognize embedded URLs.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-messages
-*Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-`emacspeak-toggle-speak-messages' bound to
-C-e q.
-@end defvar
-
-@defvar {User Option} emacspeak-use-header-line
-Use default header line defined  by Emacspeak for buffers that
-dont customize the header.
-@end defvar
-
-@defvar {User Option} emacspeak-webutils-charent-alist
-Entities to unescape when treating badly escaped XML.
-@end defvar
-
-@defvar {User Option} emacspeak-word-echo
-If t, then emacspeak echoes words as you type.
-You can use C-e d w to toggle this
-option.
 @end defvar
 
 @node emacspeak-m-player Options
@@ -1832,6 +1776,14 @@ These options are customizable via Emacs' Custom interface.
 Set this to nil if using paplay from pulseaudio.
 @end defvar
 
+@defvar {User Option} emacspeak-play-program
+Name of executable that plays sound files. 
+@end defvar
+
+@defvar {User Option} emacspeak-sounds-default-theme
+Default theme for auditory icons. 
+@end defvar
+
 @defvar {User Option} emacspeak-sounds-reset-snd-module-command
 Command to reset sound module.
 @end defvar
@@ -1864,6 +1816,13 @@ indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
 @end defvar
 
+@defvar {User Option} emacspeak-character-echo
+If t, then emacspeak echoes characters  as you type.
+You can
+use C-e d k to toggle this
+setting.
+@end defvar
+
 @defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
 You can use
@@ -1880,6 +1839,12 @@ decorative ascii.
 @defvar {User Option} emacspeak-horizontal-rule
 *Regular expression to match horizontal rules in ascii
 text.
+@end defvar
+
+@defvar {User Option} emacspeak-line-echo
+If t, then emacspeak echoes lines as you type.
+You can use C-e d l to set this
+option.
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert
@@ -1910,8 +1875,16 @@ arrived mail.
 Default search engine.
 @end defvar
 
+@defvar {User Option} emacspeak-silence-hook
+Functions run after emacspeak-silence is called.
+@end defvar
+
 @defvar {User Option} emacspeak-speak-directory-settings
 *Name of file that holds directory specific settings.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-embedded-url-pattern
+Pattern to recognize embedded URLs.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-filter-persistent-store
@@ -1950,6 +1923,14 @@ with a long string of gibberish.
 If set, asking for last message will copy it to the kill ring.
 @end defvar
 
+@defvar {User Option} emacspeak-speak-messages
+*Option indicating if messages are spoken.  If nil,
+emacspeak will not speak messages as they are echoed to the
+message area.  You can use command
+`emacspeak-toggle-speak-messages' bound to
+C-e q.
+@end defvar
+
 @defvar {User Option} emacspeak-speak-paragraph-personality
 *Personality used to mark start of paragraph.
 @end defvar
@@ -1976,9 +1957,20 @@ instead of speaking such lines when punctuation mode is set
 to some.
 @end defvar
 
+@defvar {User Option} emacspeak-use-header-line
+Use default header line defined  by Emacspeak for buffers that
+dont customize the header.
+@end defvar
+
 @defvar {User Option} emacspeak-voicemail-spool-file
 Mail spool file examined  to alert you about newly
 arrived voicemail.
+@end defvar
+
+@defvar {User Option} emacspeak-word-echo
+If t, then emacspeak echoes words as you type.
+You can use C-e d w to toggle this
+option.
 @end defvar
 
 @node emacspeak-speedbar Options
@@ -2303,18 +2295,20 @@ Specify if we show just results or the complete Google page.
 Specify whether we use secure connections for Google search.
 @end defvar
 
-@node emacspeak-webspace Options
-@section emacspeak-webspace Options
+@node emacspeak-webutils Options
+@section emacspeak-webutils Options
 
 Commentary:
-WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
+This module provides common Web utilities for emacspeak.
+This is to avoid duplication of code between emacspeak-w3.el
+and emacspeak-w3m.el
 
 Automatically generated documentation
-for options defined in module  emacspeak-webspace.
+for options defined in module  emacspeak-webutils.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-feeds
-Table of RSS feeds.
+@defvar {User Option} emacspeak-webutils-charent-alist
+Entities to unescape when treating badly escaped XML.
 @end defvar
 
 @node emacspeak-wizards Options

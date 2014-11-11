@@ -3,7 +3,7 @@
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation. This chapter documents a total of 988
+documentation. This chapter documents a total of 991
 commands.
 
 @menu
@@ -26,6 +26,7 @@ commands.
 * emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
+* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -49,9 +50,7 @@ commands.
 * emacspeak-jabber::
 * emacspeak-keymap::
 * emacspeak-librivox::
-* emacspeak-loaddefs::
 * emacspeak-m-player::
-* emacspeak-aumix::
 * emacspeak-madplay::
 * emacspeak-man::
 * emacspeak-mpg123::
@@ -78,7 +77,6 @@ commands.
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
-* emacspeak-m-player::
 * emacspeak-w3m::
 * emacspeak-we::
 * emacspeak-websearch::
@@ -91,8 +89,7 @@ commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
-* emacspeak-bbc::
-* emacspeak-org::
+* nil::
 * URL Templates ::
 @end menu
 
@@ -673,6 +670,14 @@ This module is presently Linux specific
 Automatically generated documentation
 for commands defined in module  emacspeak-aumix.
 
+@deffn {Interactive Command} emacspeak-aumix  nil
+Setup output parameters of the auditory display.
+ Launch this tool while you have auditory output on
+multiple channels playing so you can
+adjust the settings to your preference.  Hit q to quit when
+you are done.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-aumix-edit  nil
 Edit aumix settings interactively. 
 Run command M-x emacspeak-aumix-reset
@@ -1230,6 +1235,24 @@ for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference  nil
 Speak the current difference
+@end deffn
+
+@node emacspeak-emms
+@section emacspeak-emms
+
+Commentary:
+Speech-enables EMMS --- the Emacs equivalent of XMMS
+See
+http://savannah.gnu.org/project/emms
+EMMS is under active development,
+to get the current CVS version, use Emacspeak command
+M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+Automatically generated documentation
+for commands defined in module  emacspeak-emms.
+
+@deffn {Interactive Command} emacspeak-emms-speak-current-track  nil
+Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -2536,30 +2559,6 @@ Search in catalog for genre.
 Search in catalog for title.
 @end deffn
 
-@node emacspeak-loaddefs
-@section emacspeak-loaddefs
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  emacspeak-loaddefs.
-
-@deffn {Interactive Command} emacspeak-mark-forward-mark  (&rest rest)
-@kbd{<C-down>}
-
-Not Documented
-@end deffn
-
-@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
-@kbd{C-e o}
-
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end deffn
-
 @node emacspeak-m-player
 @section emacspeak-m-player
 
@@ -2580,6 +2579,13 @@ http://www.mplayerhq.hu/DOCS/
 
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
+
+@deffn {Interactive Command} emacspeak-m-player  (resource &optional play-list)
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer  nil
 Add equalizer for next MPlayer invocation.
@@ -2843,24 +2849,6 @@ Use youtube-dl and mplayer to stream YouTube content.
 @kbd{C-e ;}
 
 Start or control Emacspeak multimedia player.
-@end deffn
-
-@node emacspeak-aumix
-@section emacspeak-aumix
-
-Commentary:
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
-
-Automatically generated documentation
-for commands defined in module  emacspeak-aumix.
-
-@deffn {Interactive Command} emacspeak-aumix  nil
-Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done.
 @end deffn
 
 @node emacspeak-madplay
@@ -3584,6 +3572,12 @@ Also set the mark at the position where point was.
 Cycle backward through the mark ring.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-mark-forward-mark  (&rest rest)
+@kbd{<C-down>}
+
+Not Documented
+@end deffn
+
 @deffn {Interactive Command} emacspeak-owindow-next-line  (count)
 @kbd{ESC <down>}
 
@@ -4224,6 +4218,16 @@ current local  value to the result.
 @kbd{C-e C-q}
 
 Toggle state of Emacspeak comint autospeak.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
+@kbd{C-e o}
+
+Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -4927,34 +4931,6 @@ Speak document element under point.
 
 @deffn {Interactive Command} emacspeak-w3-toggle-table-borders  nil
 Toggle drawing of W3 table borders
-@end deffn
-
-@node emacspeak-m-player
-@section emacspeak-m-player
-
-Commentary:
-Defines a simple derived mode for interacting with mplayer.
-mplayer  is a versatile media player capable of playing many
-streaming formats  and is especially useful for playing windows
-media (WMA) and streaming windows media (ASF) files.
-mplayer is available  on the WWW:
-RPM package
-http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
-You may need the  win32 codecs which can be downloaded from 
-http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
-Mplayer FAQ at
-http://www.mplayerhq.hu/DOCS/faq.html
-Mplayer docs at 
-http://www.mplayerhq.hu/DOCS/
-
-Automatically generated documentation
-for commands defined in module  emacspeak-m-player.
-
-@deffn {Interactive Command} emacspeak-m-player  (resource &optional play-list)
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
 @end deffn
 
 @node emacspeak-w3m
@@ -6658,13 +6634,13 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node emacspeak-bbc
-@section emacspeak-bbc
+@node nil
+@section nil
 
 No Commentary
 
 Automatically generated documentation
-for commands defined in module  emacspeak-bbc.
+for commands defined in module  nil.
 
 @deffn {Interactive Command} emacspeak-bbc  [Arg list not available until function definition is loaded.]
 Launch BBC Interaction.
@@ -6680,18 +6656,6 @@ Launch BBC Interaction for specified Genre.
 
 (fn)
 @end deffn
-
-@node emacspeak-org
-@section emacspeak-org
-
-Commentary:
-Speech-enable org ---
- Org allows you to keep organized notes and todo lists.
-Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
-or http://orgmode.org/
-
-Automatically generated documentation
-for commands defined in module  emacspeak-org.
 
 @deffn {Interactive Command} emacspeak-org-bookmark  [Arg list not available until function definition is loaded.]
 Bookmark from org.
@@ -6709,6 +6673,15 @@ Pops up an org input area.
 echoes current table element
 
 (fn)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-next-block  nil
+Move forward to the beginning of the next block.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-previous-block  nil
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
 @end deffn
 
 @node URL Templates 

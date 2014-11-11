@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-m-player</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-m-player" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-m-player" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -30,8 +30,8 @@
   title="Emacspeak Commands" />
   <link href="emacspeak_002dmadplay.html#emacspeak_002dmadplay"
   rel="next" title="emacspeak-madplay" />
-  <link href="emacspeak_002dloaddefs.html#emacspeak_002dloaddefs"
-  rel="prev" title="emacspeak-loaddefs" />
+  <link href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox"
+  rel="prev" title="emacspeak-librivox" />
   <style type="text/css">
 /*<![CDATA[*/
   <!--
@@ -83,8 +83,8 @@
     <p>Next: <a href=
     "emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey=
     "n" rel="next">emacspeak-madplay</a>, Previous: <a href=
-    "emacspeak_002dloaddefs.html#emacspeak_002dloaddefs" accesskey=
-    "p" rel="prev">emacspeak-loaddefs</a>, Up: <a href=
+    "emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey=
+    "p" rel="prev">emacspeak-librivox</a>, Up: <a href=
     "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
     "up">Emacspeak Commands</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
@@ -113,6 +113,21 @@
   module emacspeak-m-player.</p>
 
   <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer" id=
+    "index-emacspeak_002dm_002dplayer"></a>Interactive Command:
+    <strong>emacspeak-m-player</strong> <em>(resource &amp;optional
+    play-list)</em></dt>
+
+    <dd>
+      <p>Play specified resource using m-player. Optional prefix
+      argument play-list interprets resource as a play-list.
+      Resource is a media resource or playlist containing media
+      resources. The player is placed in a buffer in
+      emacspeak-m-player-mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer"></a>Interactive
@@ -120,16 +135,14 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add equalizer for next MPlayer invocation.</p>
 
       <p>Use arrow keys, page-up, page-down, home and end keys to
       manipulate the values. Hit enter to finish setting the
       equalizer values.</p>
 
-      <p>The Mplayer equalizer provides 10 bands, G0 &ndash; G9,
-      see the MPlayer man page for details.</p>
+      <p>The Mplayer equalizer provides 10 bands, G0 – G9, see the
+      MPlayer man page for details.</p>
     </dd>
   </dl>
 
@@ -141,8 +154,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Adds specified filter to use for the next invocation of
       MPlayer.</p>
     </dd>
@@ -156,8 +167,6 @@
     <em>(step)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move within an ASF playlist.</p>
     </dd>
   </dl>
@@ -170,8 +179,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move backward by ten minutes.</p>
     </dd>
   </dl>
@@ -184,8 +191,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move back by 10 seconds.</p>
     </dd>
   </dl>
@@ -198,8 +203,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move back by 1 minute.</p>
     </dd>
   </dl>
@@ -211,8 +214,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Set left/right balance.</p>
     </dd>
   </dl>
@@ -227,8 +228,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to beginning of track.</p>
     </dd>
   </dl>
@@ -241,8 +240,6 @@
     <em>(directory key)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Binds key to invoke m-player on specified directory.</p>
     </dd>
   </dl>
@@ -254,8 +251,6 @@
     <em>(key)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Invoke MPlayer commands.</p>
     </dd>
   </dl>
@@ -269,8 +264,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Use Customize to manipulate MPlayer options.</p>
     </dd>
   </dl>
@@ -283,8 +276,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display current position in track and its length.</p>
     </dd>
   </dl>
@@ -297,8 +288,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Scale speed by 2.0</p>
     </dd>
   </dl>
@@ -311,8 +300,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to beginning of track.</p>
     </dd>
   </dl>
@@ -326,8 +313,6 @@
     <em>(v)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Manipulate values in specified vector using
       minibuffer.</p>
     </dd>
@@ -340,8 +325,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speed up playback.</p>
     </dd>
   </dl>
@@ -354,8 +337,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move forward by ten minutes.</p>
     </dd>
   </dl>
@@ -368,8 +349,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move forward by 10 seconds.</p>
     </dd>
   </dl>
@@ -382,8 +361,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move forward by 1 minute.</p>
     </dd>
   </dl>
@@ -396,8 +373,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display length of track in seconds.</p>
     </dd>
   </dl>
@@ -410,8 +385,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Scale speed by 0.5.</p>
     </dd>
   </dl>
@@ -423,8 +396,6 @@
     &amp;optional append)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load specified resource into a running m-player.
       Interactive prefix arg appends the new resource to what is
       playing.</p>
@@ -439,8 +410,6 @@
     <em>(f)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load specified file.</p>
     </dd>
   </dl>
@@ -453,8 +422,6 @@
     <em>(f)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load specified playlist file.</p>
     </dd>
   </dl>
@@ -466,11 +433,9 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Major mode for m-player interaction.</p>
 
-      <p>key binding &mdash; &mdash;&mdash;-</p>
+      <p>key binding — ——-</p>
 
       <p>C-e Prefix Command RET emacspeak-m-player-load ESC Prefix
       Command SPC emacspeak-m-player-pause +
@@ -516,10 +481,10 @@
 
       <p>M-l emacspeak-m-player-load-playlist</p>
 
-      <p>In addition to any hooks its parent mode
-      &lsquo;comint-mode&rsquo; might have run, this mode runs the
-      hook &lsquo;emacspeak-m-player-mode-hook&rsquo;, as the final
-      step during initialization.</p>
+      <p>In addition to any hooks its parent mode ‘comint-mode’
+      might have run, this mode runs the hook
+      ‘emacspeak-m-player-mode-hook’, as the final step during
+      initialization.</p>
     </dd>
   </dl>
 
@@ -531,8 +496,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to next track.</p>
     </dd>
   </dl>
@@ -544,8 +507,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Pause or unpause media player.</p>
     </dd>
   </dl>
@@ -560,8 +521,6 @@
     <em>(step)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move within the play tree.</p>
     </dd>
   </dl>
@@ -574,8 +533,6 @@
     <em>(step)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move within the play tree.</p>
     </dd>
   </dl>
@@ -588,8 +545,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to previous track.</p>
     </dd>
   </dl>
@@ -601,8 +556,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Quit media player.</p>
     </dd>
   </dl>
@@ -615,8 +568,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Reset MPlayer options to initial defaults.</p>
     </dd>
   </dl>
@@ -629,8 +580,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Reset playing speed to normal.</p>
     </dd>
   </dl>
@@ -642,8 +591,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Resume M-Player where it was stopped if possible. Only
       works for local media sources, not Internet streams.</p>
     </dd>
@@ -657,8 +604,6 @@
     <em>(factor)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Scale speed by specified factor.</p>
     </dd>
   </dl>
@@ -671,8 +616,6 @@
     <em>(position)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Seek to absolute specified position.</p>
     </dd>
   </dl>
@@ -685,8 +628,6 @@
     <em>(offset)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Seek by offset into stream from current position.</p>
     </dd>
   </dl>
@@ -712,8 +653,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Dispatch slave command read from minibuffer.</p>
     </dd>
   </dl>
@@ -725,8 +664,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Slow down playback.</p>
     </dd>
   </dl>
@@ -741,8 +678,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak cached info about currently playing file.</p>
     </dd>
   </dl>
@@ -756,8 +691,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak mode line</p>
     </dd>
   </dl>
@@ -769,8 +702,6 @@
     <em>(url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Call emacspeak-m-player with specified URL.</p>
     </dd>
   </dl>
@@ -783,11 +714,9 @@
     <em>(offset)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Change volume. A value of &lt;number&gt; changes volume by
-      specified offset. A string of the form &lsquo;&lt;number&gt;
-      1&rsquo; sets volume as an absolute.</p>
+      specified offset. A string of the form ‘&lt;number&gt; 1’
+      sets volume as an absolute.</p>
     </dd>
   </dl>
 
@@ -799,8 +728,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Decrease volume.</p>
     </dd>
   </dl>
@@ -813,8 +740,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Increase volume.</p>
     </dd>
   </dl>
@@ -827,8 +752,6 @@
     <em>(url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Use youtube-dl and mplayer to stream YouTube content.</p>
     </dd>
   </dl>
@@ -850,8 +773,8 @@
     <p>Next: <a href=
     "emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey=
     "n" rel="next">emacspeak-madplay</a>, Previous: <a href=
-    "emacspeak_002dloaddefs.html#emacspeak_002dloaddefs" accesskey=
-    "p" rel="prev">emacspeak-loaddefs</a>, Up: <a href=
+    "emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey=
+    "p" rel="prev">emacspeak-librivox</a>, Up: <a href=
     "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
     "up">Emacspeak Commands</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=

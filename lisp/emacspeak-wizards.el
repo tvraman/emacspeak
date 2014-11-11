@@ -878,8 +878,7 @@ To leave, press \\[keyboard-quit]."
 ;;{{{  Generate documentation:
 (defsubst ems-variable-symbol-file (o)
   "Locate file that defines a variable."
-  (or (symbol-file o)
-      (symbol-file (cons 'defvar o))))
+      (find-lisp-object-file-name  o 'defvar))
 
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
@@ -914,8 +913,7 @@ To leave, press \\[keyboard-quit]."
   "List all Emacspeak commands."
   (let ((commands nil ))
     (mapatoms
-     (function
-      (lambda (f)
+     #'(lambda (f)
         (when
             (and (fboundp f)
                  (commandp f)
@@ -927,17 +925,17 @@ To leave, press \\[keyboard-quit]."
                      (string-match "dtk" (symbol-name f))
                      (string-match "voice-setup" (symbol-name f))
                      (string-match "dtk" (symbol-name f))))
-          (push f commands)))))
+          (push f commands))))
     (setq commands
           (sort commands
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-                       (symbol-file a)
-                       (symbol-file b))
+                       (find-lisp-object-file-name a 'defun)
+                       (find-lisp-object-file-name b 'defun))
                       t)
-                     ((string-equal (symbol-file a)
-                                    (symbol-file b))
+                     ((string-equal (find-lisp-object-file-name a 'defun)
+                                    (find-lisp-object-file-name b 'defun))
                       (string-lessp a b))
                      (t nil)))))
     commands))
@@ -1037,7 +1035,7 @@ commands.\n\n"
                    ((key (where-is-internal f))
                     (key-description "")
                     (commentary nil)
-                    (this-module (symbol-file f 'defun))
+                    (this-module (find-lisp-object-file-name f 'defun))
                     (source-file nil))
                  (when this-module
                    (setq source-file (locate-library this-module ))

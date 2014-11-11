@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-speak</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-speak" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-speak" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -112,8 +112,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move cursor momentarily to the beginning of the sexp
       before point. Also display match context in minibuffer.</p>
     </dd>
@@ -127,8 +125,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Pick completion and return safely where we came from.</p>
     </dd>
   </dl>
@@ -143,8 +139,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to group of choices beginning with character last
       typed. If no such group exists, then we try to search for
       that char, or dont move.</p>
@@ -170,8 +164,6 @@
     <em>(command)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Execute COMMAND repeatedly.</p>
     </dd>
   </dl>
@@ -200,6 +192,19 @@
       <p><kbd>&lt;C-up&gt;</kbd></p>
 
       <p>Cycle backward through the mark ring.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmark_002dforward_002dmark" id=
+    "index-emacspeak_002dmark_002dforward_002dmark"></a>Interactive
+    Command: <strong>emacspeak-mark-forward-mark</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p><kbd>&lt;C-down&gt;</kbd></p>
+
+      <p>Not Documented</p>
     </dd>
   </dl>
 
@@ -245,9 +250,8 @@
     <dd>
       <p><kbd>ESC &lt;prior&gt;</kbd></p>
 
-      <p>Scroll down the window that command
-      &lsquo;other-window&rsquo; would move to. Speak the window
-      contents after scrolling.</p>
+      <p>Scroll down the window that command ‘other-window’ would
+      move to. Speak the window contents after scrolling.</p>
     </dd>
   </dl>
 
@@ -261,9 +265,8 @@
     <dd>
       <p><kbd>ESC &lt;next&gt;</kbd></p>
 
-      <p>Scroll up the window that command
-      &lsquo;other-window&rsquo; would move to. Speak the window
-      contents after scrolling.</p>
+      <p>Scroll up the window that command ‘other-window’ would
+      move to. Speak the window contents after scrolling.</p>
     </dd>
   </dl>
 
@@ -301,8 +304,6 @@
     <em>(&amp;optional arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Read next word, specified as a numeric arg, without
       moving. Default is to read the next word.</p>
     </dd>
@@ -330,8 +331,6 @@
     <em>(&amp;optional arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Read previous word, specified as a prefix arg, without
       moving. Default is to read the previous word.</p>
     </dd>
@@ -356,8 +355,6 @@
     <em>(command)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Run shell command and speak its output.</p>
     </dd>
   </dl>
@@ -371,8 +368,8 @@
       <p><kbd>&lt;silence&gt;</kbd></p>
 
       <p>Silence is golden. Stop speech, and pause/resume any media
-      streams. Runs &lsquo;emacspeak-silence-hook&rsquo; which can
-      be used to configure which media players get silenced or
+      streams. Runs ‘emacspeak-silence-hook’ which can be used to
+      configure which media players get silenced or
       paused/resumed.</p>
     </dd>
   </dl>
@@ -387,8 +384,6 @@
     <em>(char)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Search forward from point until we hit char. Speak text
       between point and the char we hit.</p>
     </dd>
@@ -404,8 +399,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak extent delimited by point and last character
       typed.</p>
     </dd>
@@ -422,9 +415,9 @@
       <p><kbd>C-e ,</kbd></p>
 
       <p>Browse current buffer. Default is to speak chunk having
-      current personality. Interactive prefix arg
-      &lsquo;browse&rsquo; repeatedly browses through chunks having
-      same personality as the current text chunk.</p>
+      current personality. Interactive prefix arg ‘browse’
+      repeatedly browses through chunks having same personality as
+      the current text chunk.</p>
     </dd>
   </dl>
 
@@ -441,8 +434,7 @@
       rest of the buffer from point. Negative prefix arg speaks
       from start of buffer to point. If voice lock mode is on, the
       paragraphs in the buffer are voice annotated first, see
-      command
-      &lsquo;emacspeak-speak-voice-annotate-paragraphs&rsquo;.</p>
+      command ‘emacspeak-speak-voice-annotate-paragraphs’.</p>
     </dd>
   </dl>
 
@@ -459,8 +451,8 @@
       <p>Speak name of file being visited in current buffer. Speak
       default directory if invoked in a dired buffer, or when the
       buffer is not visiting any file. Interactive prefix arg
-      &lsquo;filename&rsquo; speaks only the final path component.
-      The result is put in the kill ring for convenience.</p>
+      ‘filename’ speaks only the final path component. The result
+      is put in the kill ring for convenience.</p>
     </dd>
   </dl>
 
@@ -474,9 +466,9 @@
     <dd>
       <p><kbd>C-e B</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire buffer.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire buffer.</p>
+      <p>Speak the start of, rest of, or the entire buffer. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire buffer.</p>
     </dd>
   </dl>
 
@@ -501,8 +493,6 @@
     <em>(char)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>tell me what this is</p>
     </dd>
   </dl>
@@ -517,8 +507,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak completions if available.</p>
     </dd>
   </dl>
@@ -599,14 +587,13 @@
       <p><kbd>C-e C-@</kbd></p>
 
       <p>Speak the line containing the mark. With no argument,
-      speaks the line containing the mark&ndash;this is where
-      &lsquo;exchange-point-and-mark&rsquo; C-x C-x would jump.
-      Numeric prefix arg &rsquo;COUNT&rsquo; speaks line containing
-      mark &rsquo;n&rsquo; where &rsquo;n&rsquo; is one less than
-      the number of times one has to jump using
-      &lsquo;set-mark-command&rsquo; to get to this marked
-      position. The location of the mark is indicated by an aural
-      highlight achieved by a change in voice personality.</p>
+      speaks the line containing the mark–this is where
+      ‘exchange-point-and-mark’ C-x C-x would jump. Numeric prefix
+      arg ’COUNT’ speaks line containing mark ’n’ where ’n’ is one
+      less than the number of times one has to jump using
+      ‘set-mark-command’ to get to this marked position. The
+      location of the mark is indicated by an aural highlight
+      achieved by a change in voice personality.</p>
     </dd>
   </dl>
 
@@ -632,8 +619,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak contents of current window. Speaks entire window
       irrespective of point.</p>
     </dd>
@@ -646,13 +631,10 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display char under point using current speech display
-      table. Behavior is the same as command
-      &lsquo;emacspeak-speak-char&rsquo; bound to C-e c for
-      characters in the range 0&ndash;127. Optional argument PREFIX
-      specifies that the character should be spoken
+      table. Behavior is the same as command ‘emacspeak-speak-char’
+      bound to C-e c for characters in the range 0–127. Optional
+      argument PREFIX specifies that the character should be spoken
       phonetically.</p>
     </dd>
   </dl>
@@ -667,8 +649,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speaks region delimited by text in current face, and moves
       past the chunk.</p>
     </dd>
@@ -682,8 +662,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak the buffer from start to point</p>
     </dd>
   </dl>
@@ -724,11 +702,9 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Speak the start of, rest of, or the entire help.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire help.</p>
+      <p>Speak the start of, rest of, or the entire help. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire help.</p>
     </dd>
   </dl>
 
@@ -756,16 +732,15 @@
 
       <p>Speaks current line. With prefix ARG, speaks the rest of
       the line from point. Negative prefix optional arg speaks from
-      start of line to point. Voicifies if option
-      &lsquo;voice-lock-mode&rsquo; is on. Indicates indentation
-      with a tone if audio indentation is in use. Indicates
-      position of point with an aural highlight if option
-      &lsquo;emacspeak-show-point&rsquo; is turned on &ndash;see
-      command &lsquo;emacspeak-show-point&rsquo; bound to M-x
+      start of line to point. Voicifies if option ‘voice-lock-mode’
+      is on. Indicates indentation with a tone if audio indentation
+      is in use. Indicates position of point with an aural
+      highlight if option ‘emacspeak-show-point’ is turned on –see
+      command ‘emacspeak-show-point’ bound to M-x
       emacspeak-show-point. Lines that start hidden blocks of text,
       e.g. outline header lines, or header lines of blocks created
-      by command &lsquo;emacspeak-hide-or-expose-block&rsquo; are
-      indicated with auditory icon ellipses.</p>
+      by command ‘emacspeak-hide-or-expose-block’ are indicated
+      with auditory icon ellipses.</p>
     </dd>
   </dl>
 
@@ -779,9 +754,9 @@
     <dd>
       <p><kbd>C-e L</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire line.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire line.</p>
+      <p>Speak the start of, rest of, or the entire line. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire line.</p>
     </dd>
   </dl>
 
@@ -814,11 +789,11 @@
 
       <p>Set up filter for selectively speaking or ignoring
       portions of lines. The filter is specified as a list of
-      pairs. For example, to filter columns 1 &ndash; 10 and 20
-      &ndash; 25, specify filter as ((0 9) (20 25)). Filter
-      settings are persisted across sessions. A persisted filter is
-      used as the default when prompting for a filter. This allows
-      one to accumulate a set of filters for specific files like
+      pairs. For example, to filter columns 1 – 10 and 20 – 25,
+      specify filter as ((0 9) (20 25)). Filter settings are
+      persisted across sessions. A persisted filter is used as the
+      default when prompting for a filter. This allows one to
+      accumulate a set of filters for specific files like
       /var/adm/messages and /var/adm/maillog over time. Option
       emacspeak-speak-line-invert-filter determines the sense of
       the filter.</p>
@@ -835,8 +810,6 @@
     <em>(&amp;optional directory)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load a directory specific Emacspeak settings file. This is
       typically used to load up settings that are specific to an
       electronic book consisting of many files in the same
@@ -856,8 +829,8 @@
 
       <p>Speak the last message from Emacs once again. The message
       is also placed in the kill ring for convenient yanking if
-      &lsquo;emacspeak-speak-message-again-should-copy-to-kill-ring&rsquo;
-      is set.</p>
+      ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is
+      set.</p>
     </dd>
   </dl>
 
@@ -888,8 +861,6 @@
     <em>(ms)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speaks time value specified as microseconds since epoch,
       e.g. as from float-time.</p>
     </dd>
@@ -905,8 +876,6 @@
     <em>(ms)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speaks time value specified as milliseconds since epoch,
       e.g. as from float-time.</p>
     </dd>
@@ -919,8 +888,6 @@
     <em>(&amp;optional arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak the minibuffer contents With prefix arg, speaks the
       rest of the buffer from point. Negative prefix arg speaks
       from start of buffer to point.</p>
@@ -964,8 +931,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Moves to the front of next chunk having current face.
       Speak that chunk after moving.</p>
     </dd>
@@ -994,8 +959,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Moves to the front of next chunk having current
       personality. Speak that chunk after moving.</p>
     </dd>
@@ -1037,13 +1000,10 @@
     <em>(&amp;optional arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Speak contents of &lsquo;other&rsquo; window. Speaks
-      entire window irrespective of point. Semantics of
-      &lsquo;other&rsquo; is the same as for the builtin Emacs
-      command &lsquo;other-window&rsquo;. Optional argument ARG
-      specifies &lsquo;other&rsquo; window to speak.</p>
+      <p>Speak contents of ‘other’ window. Speaks entire window
+      irrespective of point. Semantics of ‘other’ is the same as
+      for the builtin Emacs command ‘other-window’. Optional
+      argument ARG specifies ‘other’ window to speak.</p>
     </dd>
   </dl>
 
@@ -1058,8 +1018,8 @@
 
       <p>Speak a page. With prefix ARG, speaks rest of current
       page. Negative prefix arg will read from start of current
-      page to point. If option &lsquo;voice-lock-mode&rsquo; is on,
-      then it will use any defined personality.</p>
+      page to point. If option ‘voice-lock-mode’ is on, then it
+      will use any defined personality.</p>
     </dd>
   </dl>
 
@@ -1073,9 +1033,9 @@
     <dd>
       <p><kbd>C-e ]</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire page.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire page.</p>
+      <p>Speak the start of, rest of, or the entire page. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire page.</p>
     </dd>
   </dl>
 
@@ -1106,9 +1066,9 @@
     <dd>
       <p><kbd>C-e P</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire paragraph.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire paragraph.</p>
+      <p>Speak the start of, rest of, or the entire paragraph. ’s’
+      to speak the start. ’r’ to speak the rest. any other key to
+      speak entire paragraph.</p>
     </dd>
   </dl>
 
@@ -1120,8 +1080,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak character before point.</p>
     </dd>
   </dl>
@@ -1138,11 +1096,11 @@
       C-e 0</kbd></p>
 
       <p>Speak one of the first 10 windows on the screen. Speaks
-      entire window irrespective of point. In general, you&rsquo;ll
-      never have Emacs split the screen into more than two or
-      three. Argument ARG determines the &rsquo;other&rsquo; window
-      to speak. Semantics of &lsquo;other&rsquo; is the same as for
-      the builtin Emacs command &lsquo;other-window&rsquo;.</p>
+      entire window irrespective of point. In general, you’ll never
+      have Emacs split the screen into more than two or three.
+      Argument ARG determines the ’other’ window to speak.
+      Semantics of ‘other’ is the same as for the builtin Emacs
+      command ‘other-window’.</p>
     </dd>
   </dl>
 
@@ -1154,8 +1112,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Moves to the front of previous chunk having current face.
       Speak that chunk after moving.</p>
     </dd>
@@ -1185,8 +1141,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Moves to the front of previous chunk having current
       personality. Speak that chunk after moving.</p>
     </dd>
@@ -1257,8 +1211,6 @@
     <em>(seconds)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speaks time value specified as seconds since epoch, e.g.
       as from float-time.</p>
     </dd>
@@ -1271,8 +1223,6 @@
     <em>(&amp;optional arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak current sentence. With prefix ARG, speaks the rest
       of the sentence from point. Negative prefix arg speaks from
       start of sentence to point.</p>
@@ -1287,8 +1237,6 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Sets up buffer specific speech display table that controls
       how special characters are spoken. Interactive prefix
       argument causes setting to be global.</p>
@@ -1317,12 +1265,10 @@
     arg)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak current sexp. With prefix ARG, speaks the rest of
       the sexp from point. Negative prefix arg speaks from start of
-      sexp to point. If option &lsquo;voice-lock-mode&rsquo; is on,
-      then uses the personality.</p>
+      sexp to point. If option ‘voice-lock-mode’ is on, then uses
+      the personality.</p>
     </dd>
   </dl>
 
@@ -1336,9 +1282,9 @@
     <dd>
       <p><kbd>C-e "</kbd></p>
 
-      <p>Speak the start of, rest of, or the entire sexp.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire sexp.</p>
+      <p>Speak the start of, rest of, or the entire sexp. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire sexp.</p>
     </dd>
   </dl>
 
@@ -1368,8 +1314,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Skim the current buffer a paragraph at a time.</p>
     </dd>
   </dl>
@@ -1382,8 +1326,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Skim next paragraph.</p>
     </dd>
   </dl>
@@ -1396,8 +1338,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Skim paragraph. Skimming a paragraph results in the speech
       speeding up after the first clause. Speech is scaled by the
       value of dtk-speak-skim-scale</p>
@@ -1426,8 +1366,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Spell word at point.</p>
     </dd>
   </dl>
@@ -1439,8 +1377,6 @@
     <em>(property)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak text range identified by this PROPERTY.</p>
     </dd>
   </dl>
@@ -1453,8 +1389,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak chunk of text around point that has current
       face.</p>
     </dd>
@@ -1470,8 +1404,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak chunk of text around point that has current
       personality.</p>
     </dd>
@@ -1487,9 +1419,9 @@
       <p><kbd>C-e t</kbd></p>
 
       <p>Speak the time. Optional interactive prefix arg
-      &lsquo;C-u&rsquo;invokes world clock. Timezone is specified
-      using minibuffer completion. Second interactive prefix sets
-      clock to new timezone.</p>
+      ‘C-u’invokes world clock. Timezone is specified using
+      minibuffer completion. Second interactive prefix sets clock
+      to new timezone.</p>
     </dd>
   </dl>
 
@@ -1516,8 +1448,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Locate paragraphs and voice annotate the first word. Here,
       paragraph is taken to mean a chunk of text preceded by a
       blank line. Useful to do this before you listen to an entire
@@ -1563,11 +1493,9 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Speak the start of, rest of, or the entire word.
-      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
-      the rest. any other key to speak entire word.</p>
+      <p>Speak the start of, rest of, or the entire word. ’s’ to
+      speak the start. ’r’ to speak the rest. any other key to
+      speak entire word.</p>
     </dd>
   </dl>
 
@@ -1578,11 +1506,9 @@
     &amp;optional set)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display current date and time for specified zone. Optional
-      second arg &lsquo;set&rsquo; sets the TZ environment variable
-      as well.</p>
+      second arg ‘set’ sets the TZ environment variable as
+      well.</p>
     </dd>
   </dl>
 
@@ -1595,8 +1521,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Switch back to buffer that generated completions.</p>
     </dd>
   </dl>
@@ -1608,8 +1532,6 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle state of Emacspeak action mode. Interactive PREFIX
       arg means toggle the global default value, and then set the
       current local value to the result.</p>
@@ -1629,10 +1551,10 @@
       <p>Toggle state of Emacspeak audio indentation. Interactive
       PREFIX arg means toggle the global default value, and then
       set the current local value to the result. Specifying the
-      method of indentation as &lsquo;tones&rsquo; results in the
-      Dectalk producing a tone whose length is a function of the
-      line&rsquo;s indentation. Specifying &lsquo;speak&rsquo;
-      results in the number of initial spaces being spoken.</p>
+      method of indentation as ‘tones’ results in the Dectalk
+      producing a tone whose length is a function of the line’s
+      indentation. Specifying ‘speak’ results in the number of
+      initial spaces being spoken.</p>
     </dd>
   </dl>
 
@@ -1671,15 +1593,33 @@
   </dl>
 
   <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"
+    id=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></a>Interactive
+    Command:
+    <strong>emacspeak-toggle-comint-output-monitor</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e o</kbd></p>
+
+      <p>Toggle state of Emacspeak comint monitor. When turned on,
+      comint output is automatically spoken. Turn this on if you
+      want your shell to speak its results. Interactive PREFIX arg
+      means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dheader_002dline"
     id="index-emacspeak_002dtoggle_002dheader_002dline"></a>Interactive
     Command: <strong>emacspeak-toggle-header-line</strong>
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
-      <p>Toggle Emacspeak&rsquo;s default header line.</p>
+      <p>Toggle Emacspeak’s default header line.</p>
     </dd>
   </dl>
 
@@ -1786,8 +1726,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>A customized blink-paren to speak matching opening paren.
       We need to call this in case Emacs is anal and loads its own
       builtin blink-paren function which does not talk.</p>
@@ -1801,8 +1739,6 @@
     <em>(start end &amp;optional personality)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Voicify the current rectangle. When calling from a
       program,arguments are START END personality Prompts for
       PERSONALITY with completion when called interactively.</p>
@@ -1816,8 +1752,6 @@
     end &amp;optional personality)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Voicify the current region. When calling from a
       program,arguments are START END personality. Prompts for
       PERSONALITY with completion when called interactively.</p>

@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-eterm</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-eterm" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-eterm" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -93,7 +93,7 @@
   <hr />
   <a name="emacspeak_002determ-1" id="emacspeak_002determ-1"></a>
 
-  <h3 class="section">11.25 emacspeak-eterm</h3>
+  <h3 class="section">11.26 emacspeak-eterm</h3>
 
   <p>Commentary: This module makes eterm talk. Eterm is the new
   terminal emulator for Emacs. Use of emacspeak with eterm really
@@ -115,10 +115,8 @@
     <em>(&amp;rest rest)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>:around advice:
-      &lsquo;ad-Advice-emacspeak-eterm-copy-region-to-register&rsquo;</p>
+      ‘ad-Advice-emacspeak-eterm-copy-region-to-register’</p>
 
       <p>Copy text from terminal to an Emacs REGISTER. This copies
       region delimited by the emacspeak eterm marker set by command
@@ -137,8 +135,6 @@
     <em>(id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Prompt for a window ID. The window is then define to be
       the rectangle delimited by point and eterm mark. This is to
       be used when emacspeak is set to review mode inside an
@@ -154,8 +150,6 @@
     <em>(id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Describe an eterm window. Description indicates eterm
       window coordinates and whether it is stretchable</p>
     </dd>
@@ -168,8 +162,6 @@
     <em>(line)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move emacspeak eterm pointer to a specified LINE.</p>
     </dd>
   </dl>
@@ -184,8 +176,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Copy text from terminal to kill ring. This copies region
       delimited by the emacspeak eterm marker set by command M-x
       emacspeak-eterm-set-marker and the emacspeak eterm
@@ -201,8 +191,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Send a raw character through if in the terminal buffer.
       Execute end of line if in a non eterm buffer if executed via
       C-e C-e</p>
@@ -217,10 +205,8 @@
     <em>(&amp;rest rest)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>:around advice:
-      &lsquo;ad-Advice-emacspeak-eterm-paste-register&rsquo;</p>
+      ‘ad-Advice-emacspeak-eterm-paste-register’</p>
 
       <p>Paste contents of REGISTER at current location. If the
       specified register contains text, then that text is sent to
@@ -239,8 +225,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer backward by words. Interactive numeric
       prefix arg specifies number of words to move. Argument COUNT
       specifies number of words by which to move.</p>
@@ -254,8 +238,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer down a line. Argument COUNT specifies
       number of lines by which to move.</p>
     </dd>
@@ -270,8 +252,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer forward by words. Interactive numeric
       prefix arg specifies number of words to move. Argument COUNT
       specifies number of words by which to move.</p>
@@ -285,8 +265,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer left. Argument COUNT specifies number of
       columns by which to move.</p>
     </dd>
@@ -300,8 +278,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer right. Argument COUNT specifies number of
       columns by which to move.</p>
     </dd>
@@ -315,8 +291,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer to the bottom of the screen.</p>
     </dd>
   </dl>
@@ -329,8 +303,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer to the cursor.</p>
     </dd>
   </dl>
@@ -345,8 +317,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer to the right edge.</p>
     </dd>
   </dl>
@@ -361,8 +331,6 @@
     <em>(&amp;optional count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the eterm pointer to the next color change. This
       allows you to move between highlighted regions of the screen.
       Optional argument COUNT specifies how many changes to
@@ -380,8 +348,6 @@
     <em>(&amp;optional count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the eterm pointer to the next color change. This
       allows you to move between highlighted regions of the screen.
       Optional argument COUNT specifies how many changes to
@@ -399,8 +365,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer to the right edge.</p>
     </dd>
   </dl>
@@ -413,8 +377,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer to the top of the screen.</p>
     </dd>
   </dl>
@@ -426,8 +388,6 @@
     <em>(count)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move the pointer up a line. Argument COUNT .specifies
       number of lines by which to move.</p>
     </dd>
@@ -454,8 +414,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Search backward on the terminal.</p>
     </dd>
   </dl>
@@ -468,8 +426,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Search forward on the terminal.</p>
     </dd>
   </dl>
@@ -482,15 +438,13 @@
     <em>(flag)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Prompt for the id of a predefined window, and set the
-      &lsquo;filter&rsquo; window to it. Non-nil interactive prefix
-      arg &lsquo;unsets&rsquo; the filter window; this is
-      equivalent to having the entire terminal as the filter window
-      (this is what eterm starts up with). Setting the filter
-      window results in emacspeak only monitoring screen activity
-      within the filter window.</p>
+      ‘filter’ window to it. Non-nil interactive prefix arg
+      ‘unsets’ the filter window; this is equivalent to having the
+      entire terminal as the filter window (this is what eterm
+      starts up with). Setting the filter window results in
+      emacspeak only monitoring screen activity within the filter
+      window.</p>
     </dd>
   </dl>
 
@@ -502,15 +456,13 @@
     <em>(flag)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Prompt for the id of a predefined window, and set the
-      &lsquo;focus&rsquo; window to it. Non-nil interactive prefix
-      arg &lsquo;unsets&rsquo; the focus window; this is equivalent
-      to having the entire terminal as the focus window (this is
-      what eterm starts up with). Setting the focus window results
-      in emacspeak monitoring screen and speaking that window upon
-      seeing screen activity.</p>
+      ‘focus’ window to it. Non-nil interactive prefix arg ‘unsets’
+      the focus window; this is equivalent to having the entire
+      terminal as the focus window (this is what eterm starts up
+      with). Setting the focus window results in emacspeak
+      monitoring screen and speaking that window upon seeing screen
+      activity.</p>
     </dd>
   </dl>
 
@@ -521,8 +473,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Set Emacspeak eterm marker. This sets the emacspeak eterm
       marker to the position pointed to by the emacspeak eterm
       pointer.</p>
@@ -536,8 +486,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak cursor position.</p>
     </dd>
   </dl>
@@ -550,8 +498,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak current pointer position.</p>
     </dd>
   </dl>
@@ -564,8 +510,6 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak char under eterm pointer. Pronounces character
       phonetically unless called with a PREFIX arg.</p>
     </dd>
@@ -579,8 +523,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak the line the pointer is on.</p>
     </dd>
   </dl>
@@ -593,8 +535,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak the word the pointer is on.</p>
     </dd>
   </dl>
@@ -609,8 +549,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak a predefined eterm window between 1 and 10.</p>
     </dd>
   </dl>
@@ -622,8 +560,6 @@
     <em>(&amp;optional flag)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak the screen. Default is to speak from the emacspeak
       pointer to point. Optional prefix arg FLAG causes region
       above the Emacspeak pointer to be spoken.</p>
@@ -637,8 +573,6 @@
     <em>(id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Speak an eterm window. Argument ID specifies the
       window.</p>
     </dd>
@@ -653,8 +587,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle active state of filter window.</p>
     </dd>
   </dl>
@@ -667,8 +599,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle active state of focus window.</p>
     </dd>
   </dl>
@@ -681,8 +611,6 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle emacspeak eterm pointer mode. With optional
       interactive prefix arg, turn it on. When emacspeak eterm is
       in pointer mode, the eterm read pointer stays where it is
@@ -699,8 +627,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle state of eterm review. In review mode, you can move
       around the terminal and listen to the contnets without
       sending input to the terminal itself.</p>
@@ -714,8 +640,6 @@
     <em>(id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Yank contents of an eterm window at point.</p>
     </dd>
   </dl>
@@ -728,8 +652,6 @@
     <em>(&amp;optional prefix)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Toggle state of eterm autospeak. When eterm autospeak is
       turned on and the terminal is in line mode, all output to the
       terminal is automatically spoken. Interactive prefix arg

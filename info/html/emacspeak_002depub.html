@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-epub</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-epub" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-epub" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -93,17 +93,17 @@
   <hr />
   <a name="emacspeak_002depub-1" id="emacspeak_002depub-1"></a>
 
-  <h3 class="section">11.23 emacspeak-epub</h3>
+  <h3 class="section">11.24 emacspeak-epub</h3>
 
   <p>Commentary: In celebration of a million books and more to read
   from Google Books The EPubs format is slightly simpler than full
-  Daisy &mdash; (see) emacspeak-daisy.el Since it only needs one
-  level of indirection (no audio, therefore no smil). This module
-  is consequently simpler than emacspeak-daisy.el. This module will
-  eventually implement the Google Books API &mdash; probably by
-  invoking the yet-to-be-written gbooks.el in emacs-g-client As we
-  move to epub-3, this module will bring back audio layers etc.,
-  perhaps via a simplified smil implementation.</p>
+  Daisy — (see) emacspeak-daisy.el Since it only needs one level of
+  indirection (no audio, therefore no smil). This module is
+  consequently simpler than emacspeak-daisy.el. This module will
+  eventually implement the Google Books API — probably by invoking
+  the yet-to-be-written gbooks.el in emacs-g-client As we move to
+  epub-3, this module will bring back audio layers etc., perhaps
+  via a simplified smil implementation.</p>
 
   <p>Automatically generated documentation for commands defined in
   module emacspeak-epub.</p>
@@ -114,20 +114,18 @@
     <strong>emacspeak-calibre-mode</strong> <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>A Calibre Front-end. Letters do not insert themselves;
       instead, they are commands.</p>
 
-      <p>key binding &mdash; &mdash;&mdash;-</p>
+      <p>key binding — ——-</p>
 
       <p>RET emacspeak-epub-calibre-dired-at-point &lt;Return&gt;
       emacspeak-epub-calibre-dired-at-point</p>
 
-      <p>In addition to any hooks its parent mode
-      &lsquo;special-mode&rsquo; might have run, this mode runs the
-      hook &lsquo;emacspeak-calibre-mode-hook&rsquo;, as the final
-      step during initialization.</p>
+      <p>In addition to any hooks its parent mode ‘special-mode’
+      might have run, this mode runs the hook
+      ‘emacspeak-calibre-mode-hook’, as the final step during
+      initialization.</p>
     </dd>
   </dl>
 
@@ -154,8 +152,6 @@
     <em>(directory &amp;optional recursive)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add EPubs found in specified directory to the bookshelf.
       Interactive prefix arg searches recursively in directory.</p>
     </dd>
@@ -169,8 +165,6 @@
     <em>(epub-file)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add epub file to current bookshelf.</p>
     </dd>
   </dl>
@@ -185,8 +179,6 @@
     <em>(pattern)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add results of an author search to current bookshelf.</p>
     </dd>
   </dl>
@@ -201,8 +193,6 @@
     <em>(pattern)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add results of an title/author search to current
       bookshelf.</p>
     </dd>
@@ -218,8 +208,6 @@
     <em>(pattern)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Add results of an title search to current bookshelf.</p>
     </dd>
   </dl>
@@ -232,8 +220,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Clear all books from bookshelf.</p>
     </dd>
   </dl>
@@ -246,8 +232,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load bookshelf metadata from disk.</p>
     </dd>
   </dl>
@@ -260,8 +244,6 @@
     <em>(bookshelf)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Load bookshelf metadata from specified bookshelf.</p>
     </dd>
   </dl>
@@ -274,8 +256,6 @@
     <em>(epub-file)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Open epub file and add it to current bookshelf.</p>
     </dd>
   </dl>
@@ -288,8 +268,6 @@
     <em>(&amp;optional author-first)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Redraw Bookshelf. Optional interactive prefix arg
       author-first prints author at the left.</p>
     </dd>
@@ -303,8 +281,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Refresh and redraw bookshelf.</p>
     </dd>
   </dl>
@@ -319,8 +295,6 @@
     <em>(directory &amp;optional recursive)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Remove EPubs found in specified directory from the
       bookshelf. Interactive prefix arg searches recursively in
       directory.</p>
@@ -337,8 +311,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Remove the book on current line from this bookshelf. No
       book files are deleted.</p>
     </dd>
@@ -352,11 +324,8 @@
     <em>(name &amp;optional overwrite)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Saves current bookshelf to specified name. Interactive
-      prefix arg &lsquo;overwrite&rsquo; will overwrite existing
-      file.</p>
+      prefix arg ‘overwrite’ will overwrite existing file.</p>
     </dd>
   </dl>
 
@@ -368,8 +337,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Save bookshelf metadata.</p>
     </dd>
   </dl>
@@ -381,8 +348,6 @@
     <em>(epub)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Browse list of HTML files in an EPub. Useful if table of
       contents in toc.ncx is empty.</p>
     </dd>
@@ -398,8 +363,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Open directory containing current result.</p>
     </dd>
   </dl>
@@ -412,8 +375,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Show most recent Calibre search results.</p>
     </dd>
   </dl>
@@ -424,8 +385,6 @@
     <strong>emacspeak-epub-delete</strong> <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Delete EPub under point.</p>
     </dd>
   </dl>
@@ -436,8 +395,6 @@
     <strong>emacspeak-epub-eww</strong> <em>(epub-file)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display entire book using EWW from EPub in a buffer.
       Suitable for text searches.</p>
     </dd>
@@ -450,8 +407,6 @@
     <em>(epub-file)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Display fulltext from EPub in a buffer. Suitable for text
       searches.</p>
     </dd>
@@ -463,8 +418,6 @@
     <strong>emacspeak-epub-google</strong> <em>(query)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Search for Epubs from Gooble Books.</p>
     </dd>
   </dl>
@@ -477,8 +430,6 @@
     <em>(&amp;optional refresh)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Open Gutenberg catalog. Fetch if needed, or if refresh is
       T.</p>
     </dd>
@@ -492,8 +443,6 @@
     <em>(book-id)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Download specified EBook to local cache</p>
     </dd>
   </dl>
@@ -504,12 +453,10 @@
     <strong>emacspeak-epub-mode</strong> <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>An EPub Front-end. Letters do not insert themselves;
       instead, they are commands.</p>
 
-      <p>key binding &mdash; &mdash;&mdash;-</p>
+      <p>key binding — ——-</p>
 
       <p>C-a emacspeak-epub-bookshelf-add-directory C-d
       emacspeak-epub-bookshelf-remove-directory C-k
@@ -537,10 +484,10 @@
       <p>C-x C-q emacspeak-epub-bookshelf-refresh C-x C-s
       emacspeak-epub-bookshelf-save</p>
 
-      <p>In addition to any hooks its parent mode
-      &lsquo;special-mode&rsquo; might have run, this mode runs the
-      hook &lsquo;emacspeak-epub-mode-hook&rsquo;, as the final
-      step during initialization.</p>
+      <p>In addition to any hooks its parent mode ‘special-mode’
+      might have run, this mode runs the hook
+      ‘emacspeak-epub-mode-hook’, as the final step during
+      initialization.</p>
     </dd>
   </dl>
 
@@ -550,8 +497,6 @@
     <strong>emacspeak-epub-next</strong> <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to next book.</p>
     </dd>
   </dl>
@@ -562,8 +507,6 @@
     <strong>emacspeak-epub-open</strong> <em>(epub-file)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Open specified Epub. Filename may need to be shell-quoted
       when called from Lisp.</p>
     </dd>
@@ -576,8 +519,6 @@
     <em>nil</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Move to previous book.</p>
     </dd>
   </dl>
@@ -589,8 +530,6 @@
     <em>(url)</em></dt>
 
     <dd>
-      <p><kbd>Not bound to any key.</kbd></p>
-
       <p>Custom URL executor for use in EPub Mode.</p>
     </dd>
   </dl>
