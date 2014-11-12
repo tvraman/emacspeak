@@ -348,13 +348,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "BBC PodCast Directory"
  #'emacspeak-feeds-opml-display)
 
-(emacspeak-url-template-define
- "Mobile BBC"
- "http://www.bbc.co.uk/mobile/radio/listen/"
- nil
- nil
- "BBC Mobile Streams.")
-
 ;;}}}
 ;;{{{ html5irc 
 
