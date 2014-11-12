@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   emacspeak-ocr</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ocr" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ocr" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ocr" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ocr" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -28,8 +28,8 @@
   "Table of Contents" />
   <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
   title="Emacspeak Commands" />
-  <link href="emacspeak_002doutline.html#emacspeak_002doutline"
-  rel="next" title="emacspeak-outline" />
+  <link href="emacspeak_002dorg.html#emacspeak_002dorg" rel="next"
+  title="emacspeak-org" />
   <link href="emacspeak_002dnpr.html#emacspeak_002dnpr" rel="prev"
   title="emacspeak-npr" />
   <style type="text/css">
@@ -79,9 +79,8 @@
   <a name="emacspeak_002docr" id="emacspeak_002docr"></a>
 
   <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002doutline.html#emacspeak_002doutline" accesskey=
-    "n" rel="next">emacspeak-outline</a>, Previous: <a href=
+    <p>Next: <a href="emacspeak_002dorg.html#emacspeak_002dorg"
+    accesskey="n" rel="next">emacspeak-org</a>, Previous: <a href=
     "emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel=
     "prev">emacspeak-npr</a>, Up: <a href=
     "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
@@ -124,8 +123,9 @@
       suitable for browsing the results.</p>
 
       <p>For detailed help, invoke command emacspeak-ocr bound to
-      C-e C-o to launch emacspeak-ocr-mode, and press ‘?’ to
-      display mode-specific help for emacspeak-ocr-mode.</p>
+      C-e C-o to launch emacspeak-ocr-mode, and press
+      &lsquo;?&rsquo; to display mode-specific help for
+      emacspeak-ocr-mode.</p>
     </dd>
   </dl>
 
@@ -163,12 +163,12 @@
 
     <dd>
       <p>Run OCR engine on current image after flip-flopping it.
-      Useful if you’ve scanned a page upside down and are using an
-      engine that does not automatically flip the image for you.
-      You need the imagemagik family of tools — we use mogrify to
-      transform the image. Prompts for image file if file
-      corresponding to the expected ‘current page’ is not
-      found.</p>
+      Useful if you&rsquo;ve scanned a page upside down and are
+      using an engine that does not automatically flip the image
+      for you. You need the imagemagik family of tools &mdash; we
+      use mogrify to transform the image. Prompts for image file if
+      file corresponding to the expected &lsquo;current page&rsquo;
+      is not found.</p>
     </dd>
   </dl>
 
@@ -202,14 +202,14 @@
       have the utilities to scan a document and acquire an image as
       a tiff file. Then set variable
       emacspeak-ocr-scan-image-program to point at this utility. By
-      default, this is set to ‘scanimage’ which is the image
-      scanning utility provided by SANE.</p>
+      default, this is set to &lsquo;scanimage&rsquo; which is the
+      image scanning utility provided by SANE.</p>
 
       <p>By default, this front-end attempts to compress the
       acquired tiff image; make sure you have a utility like
       tiffcp. Variable emacspeak-ocr-compress-image is set to
-      ‘tiffcp’ by default; if you use something else, you should
-      customize this variable.</p>
+      &lsquo;tiffcp&rsquo; by default; if you use something else,
+      you should customize this variable.</p>
 
       <p>2: Next, make sure you have an OCR engine installed and
       working. By default this front-end assumes that OCR is
@@ -224,9 +224,9 @@
       emacspeak-ocr bound to C-e C-o.</p>
 
       <p>This command switches to a special buffer that has OCR
-      commands bounds to single keystrokes– see the key-binding
-      list at the end of this description. Use Emacs online help
-      facility to look up help on these commands.</p>
+      commands bounds to single keystrokes&ndash; see the
+      key-binding list at the end of this description. Use Emacs
+      online help facility to look up help on these commands.</p>
 
       <p>emacspeak-ocr-mode provides the necessary functionality to
       scan, OCR, read and save documents. By default, scanned
@@ -237,14 +237,14 @@
       directory.</p>
 
       <p>By default, the document being scanned is named
-      ‘untitled’. You can name the document by using command
-      emacspeak-ocr-name-document bound to M-x
+      &lsquo;untitled&rsquo;. You can name the document by using
+      command emacspeak-ocr-name-document bound to M-x
       emacspeak-ocr-name-document. The document name is used in
       constructing the name of the image and text files.</p>
 
       <p>Key Bindings:</p>
 
-      <p>See key binding — ——-</p>
+      <p>See key binding &mdash; &mdash;&mdash;-</p>
 
       <p>RET emacspeak-ocr-scan-and-recognize SPC
       emacspeak-ocr-read-current-page 1 .. 9 emacspeak-ocr-page ?
@@ -262,9 +262,10 @@
 
       <p>.</p>
 
-      <p>In addition to any hooks its parent mode ‘text-mode’ might
-      have run, this mode runs the hook ‘emacspeak-ocr-mode-hook’,
-      as the final step during initialization.</p>
+      <p>In addition to any hooks its parent mode
+      &lsquo;text-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-ocr-mode-hook&rsquo;, as the final step
+      during initialization.</p>
     </dd>
   </dl>
 
@@ -324,8 +325,8 @@
 
     <dd>
       <p>Run OCR engine on current image. Prompts for image file if
-      file corresponding to the expected ‘current page’ is not
-      found.</p>
+      file corresponding to the expected &lsquo;current page&rsquo;
+      is not found.</p>
     </dd>
   </dl>
 
@@ -351,9 +352,9 @@
 
     <dd>
       <p>Scan in a page and run OCR engine on it. Use this command
-      once you’ve verified that the separate steps of acquiring an
-      image and running the OCR engine work correctly by
-      themselves.</p>
+      once you&rsquo;ve verified that the separate steps of
+      acquiring an image and running the OCR engine work correctly
+      by themselves.</p>
     </dd>
   </dl>
 
@@ -426,9 +427,8 @@
   <hr />
 
   <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002doutline.html#emacspeak_002doutline" accesskey=
-    "n" rel="next">emacspeak-outline</a>, Previous: <a href=
+    <p>Next: <a href="emacspeak_002dorg.html#emacspeak_002dorg"
+    accesskey="n" rel="next">emacspeak-org</a>, Previous: <a href=
     "emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel=
     "prev">emacspeak-npr</a>, Up: <a href=
     "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=

@@ -3,7 +3,7 @@
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation. This chapter documents a total of 991
+documentation. This chapter documents a total of 988
 commands.
 
 @menu
@@ -15,6 +15,7 @@ commands.
 * emacspeak-amark::
 * emacspeak-arc::
 * emacspeak-aumix::
+* emacspeak-bbc::
 * emacspeak-bookshare::
 * emacspeak-bs::
 * emacspeak-buff-menu::
@@ -26,7 +27,6 @@ commands.
 * emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
-* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -56,6 +56,7 @@ commands.
 * emacspeak-mpg123::
 * emacspeak-npr::
 * emacspeak-ocr::
+* emacspeak-org::
 * emacspeak-outline::
 * emacspeak-pianobar::
 * emacspeak-pronounce::
@@ -89,7 +90,6 @@ commands.
 * emacspeak-zinf::
 * emacspeak::
 * voice-setup::
-* nil::
 * URL Templates ::
 @end menu
 
@@ -704,6 +704,25 @@ Decrease volume of wave output.
 Increase volume of wave output. 
 @end deffn
 
+@node emacspeak-bbc
+@section emacspeak-bbc
+
+No Commentary
+
+Automatically generated documentation
+for commands defined in module  emacspeak-bbc.
+
+@deffn {Interactive Command} emacspeak-bbc  (&optional genre)
+Launch BBC Interaction.
+See http://www.bbc.co.uk/radio/stations for full list of stations.
+See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
+Interactive prefix arg filters  content by genre.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-bbc-genre  nil
+Launch BBC Interaction for specified Genre.
+@end deffn
+
 @node emacspeak-bookshare
 @section emacspeak-bookshare
 
@@ -1235,24 +1254,6 @@ for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference  nil
 Speak the current difference
-@end deffn
-
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track  nil
-Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -3184,6 +3185,30 @@ Setting persists for current Emacs session.
 
 @deffn {Interactive Command} emacspeak-ocr-write-document  nil
 Writes out recognized text from all pages in current document.
+@end deffn
+
+@node emacspeak-org
+@section emacspeak-org
+
+Commentary:
+Speech-enable org ---
+ Org allows you to keep organized notes and todo lists.
+Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
+or http://orgmode.org/
+
+Automatically generated documentation
+for commands defined in module  emacspeak-org.
+
+@deffn {Interactive Command} emacspeak-org-bookmark  (&optional goto)
+Bookmark from org.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-org-popup-input  nil
+Pops up an org input area.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-org-table-speak-current-element  nil
+echoes current table element
 @end deffn
 
 @node emacspeak-outline
@@ -6634,56 +6659,6 @@ either case, the buffer is refontified to have the new mapping
 take effect.
 @end deffn
 
-@node nil
-@section nil
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-bbc  [Arg list not available until function definition is loaded.]
-Launch BBC Interaction.
-See http://www.bbc.co.uk/radio/stations for full list of stations.
-See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-Interactive prefix arg filters  content by genre.
-
-(fn &optional GENRE)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-bbc-genre  [Arg list not available until function definition is loaded.]
-Launch BBC Interaction for specified Genre.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-org-bookmark  [Arg list not available until function definition is loaded.]
-Bookmark from org.
-
-(fn &optional GOTO)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-org-popup-input  [Arg list not available until function definition is loaded.]
-Pops up an org input area.
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-org-table-speak-current-element  [Arg list not available until function definition is loaded.]
-echoes current table element
-
-(fn)
-@end deffn
-
-@deffn {Interactive Command} emacspeak-py-next-block  nil
-Move forward to the beginning of the next block.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-py-previous-block  nil
-Move backward to the beginning of the current block.
-If already at the beginning then move to previous block.
-@end deffn
-
 @node URL Templates 
 @section  URL Templates
 
@@ -6705,9 +6680,8 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates that enable access to map directions
-prompt for address and automatically
-speak the relevant results.
+As an example, the URL templates for weather forecasts 
+prompts for a location and speaks the forecast. 
 
 @kbd{Air Traffic Control}
 
