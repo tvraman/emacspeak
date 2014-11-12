@@ -71,6 +71,7 @@
     ("emacspeak-aumix" . nil)
     ("emacspeak-babel" . ("babel"))
     ("emacspeak-bbdb". ("bbdb-prepare"))
+    ("emacspeak-bbc" . nil)
     ("emacspeak-bibtex" . ("bibtex"))
     ("emacspeak-bookmark" . ("bookmark"))
     ("emacspeak-jss" . nil)
