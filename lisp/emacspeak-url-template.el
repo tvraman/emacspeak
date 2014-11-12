@@ -382,33 +382,11 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ google CSE and Google Reader:
-(defcustom emacspeak-url-template-reading-list-opml nil
-  "OPML feed location to use for our Custom Search."
-  :type '(choice
-          (const :tag "None" nil)
-          (string :tag "URL"))
-  :group 'emacspeak-url-template)
 
-(defsubst emacspeak-url-template-make-cse (meta-url)
-  "Builds up a CSE url for specified meta-url."
-  (format
-   "http://www.google.com/cse/tools/makecse?url=%s"
-   meta-url))
 
-(emacspeak-url-template-define
- "Reader Subscription Search"
- "http://www.google.com/cse?q=%s&loading=1&cref=%s"
- (list
-  "Reader Search: "
-  #'(lambda nil
-      (declare
-       (special emacspeak-url-template-reading-list-opml))
-      (emacspeak-url-template-make-cse
-       (emacspeak-url-encode emacspeak-url-template-reading-list-opml))))
- nil
- "Search within feeds subscribed to in Google Reader."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "g" url 'speak)))
+
+
+
 
 (emacspeak-url-template-define
  "Official GoogleBlog Search"
@@ -422,6 +400,13 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search within all official Google blogs."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "g" url 'speak)))
+
+
+(defsubst emacspeak-url-template-make-cse (meta-url)
+  "Builds up a CSE url for specified meta-url."
+  (format
+   "http://www.google.com/cse/tools/makecse?url=%s"
+   meta-url))
 
 (emacspeak-url-template-define
  "On The Fly CSE"
@@ -561,17 +546,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
      (setq emacspeak-we-url-executor
            'emacspeak-m-player-youtube-player))
  "YouTube Search Via Feeds"
- #'emacspeak-feeds-atom-display)
-
-;;}}}
-;;{{{ Google Reader:
-
-(emacspeak-url-template-define
- "Google Reader"
- "http://www.google.com/reader/public/atom/feed/%s?n=100"
- (list 'emacspeak-webutils-read-this-url )
- nil
- "Google Reader"
  #'emacspeak-feeds-atom-display)
 
 ;;}}}
