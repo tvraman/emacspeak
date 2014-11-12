@@ -527,6 +527,17 @@ after saving the settings to have them take effect.
 
 ------------------------------------------------------------
 
+** emacspeak-bbc Launch BBC Interaction.
+See http://www.bbc.co.uk/radio/stations for full list of stations.
+See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
+Interactive prefix arg filters  content by genre. 
+
+------------------------------------------------------------
+
+** emacspeak-bbc-genre Launch BBC Interaction for specified Genre. 
+
+------------------------------------------------------------
+
 ** emacspeak-bookshare	Key Sequence:C-e C-b
 
  Bookshare  Interaction. 
@@ -948,10 +959,6 @@ emacspeak-dismal-sheet-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-difference Speak the current difference 
-
-------------------------------------------------------------
-
-** emacspeak-emms-speak-current-track Speak current track. 
 
 ------------------------------------------------------------
 
@@ -2565,6 +2572,18 @@ Setting persists for current Emacs session.
 ------------------------------------------------------------
 
 ** emacspeak-ocr-write-document Writes out recognized text from all pages in current document. 
+
+------------------------------------------------------------
+
+** emacspeak-org-bookmark Bookmark from org. 
+
+------------------------------------------------------------
+
+** emacspeak-org-popup-input Pops up an org input area. 
+
+------------------------------------------------------------
+
+** emacspeak-org-table-speak-current-element echoes current table element 
 
 ------------------------------------------------------------
 
@@ -5643,48 +5662,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-bbc Launch BBC Interaction.
-See http://www.bbc.co.uk/radio/stations for full list of stations.
-See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-Interactive prefix arg filters  content by genre.
-
-(fn &optional GENRE) 
-
-------------------------------------------------------------
-
-** emacspeak-bbc-genre Launch BBC Interaction for specified Genre.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-org-bookmark Bookmark from org.
-
-(fn &optional GOTO) 
-
-------------------------------------------------------------
-
-** emacspeak-org-popup-input Pops up an org input area.
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-org-table-speak-current-element echoes current table element
-
-(fn) 
-
-------------------------------------------------------------
-
-** emacspeak-py-next-block Move forward to the beginning of the next block. 
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-block Move backward to the beginning of the current block.
-If already at the beginning then move to previous block. 
 
   
 

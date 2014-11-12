@@ -153,6 +153,7 @@
     ("emacspeak-net-utils"  . nil )
     ("emacspeak-nxml-mode" . ("nxml-prepare"))
     ("emacspeak-ocr"  . nil )
+("emacspeak-org" . ("org"))
     ("emacspeak-oo-browser"  . nil )
     ("emacspeak-outline"  . nil )
     ("emacspeak-pcl-cvs"  . nil )
