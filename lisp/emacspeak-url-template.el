@@ -403,7 +403,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "On The Fly CSE"
- "http://www.google.com/cse?q=%s&loading=1&cref=%s"
+ "http://www.google.com/cse?q=%s&loading=1&cref=%s&nojs=1"
  (list
   "Search This CSE: "
   #'(lambda nil
