@@ -754,18 +754,6 @@ from English to German.")
 
 ;;}}}
 ;;{{{  google filters
-(emacspeak-url-template-define
- "Google WebQuotes"
- "http://labs.google.com/cgi-bin/webquotes?num_quotes=3&q=%s&btnG=Google+WebQuotes+Search&show_titles=1&bold_links=1&snippet_threshold=3"
- (list "Query: ")
- nil
- "Google WebQuotes.")
-(emacspeak-url-template-define
- "Google Glossary"
- "http://labs.google.com/glossary?q=%s"
- (list "Term: ")
- nil
- "Google Glossary lookup.")
 
 (emacspeak-url-template-define
  "Google Results"
@@ -894,16 +882,6 @@ from English to German.")
  nil
  "Display specified news feed."
  #'emacspeak-feeds-atom-display)
-
-(emacspeak-url-template-define
- "Google Feeds"
- "http://news.google.com/intl/en_us/news_feed_terms.html"
- nil
- nil
- "List  Google news Feeds."
- #'(lambda (url)
-     (emacspeak-we-extract-table-by-match "Sports"
-                                          url 'speak)))
 
 ;;}}}
 ;;{{{ Google Archive Search
@@ -1158,15 +1136,6 @@ name of the list.")
  "Filter down to CNN  content area."
  #'(lambda (url)
      (emacspeak-we-extract-by-id "cnn_maincntnr"url 'speak)))
-
-(emacspeak-url-template-define
- "CNN headlines "
- "http://www.cnn.com"
- nil
- nil
- "Retrieve and speak headline news from CNN."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "cnnMainT1" url 'speak)))
 
 (emacspeak-url-template-define
  "CNN technology "
@@ -1445,20 +1414,7 @@ name of the list.")
 Set up URL rewrite rule to get print page."
  )
 
-(emacspeak-url-template-define
- "Cartoon You Said It By Laxman"
- "http://www1.indiatimes.com/cartoon/%scart%s.htm"
- (list
-  (lambda ()
-    (read-from-minibuffer "Month: "
-                          (downcase
-                           (format-time-string "%h"))))
-  (lambda ()
-    (read-from-minibuffer "Date: "
-                          (format-time-string "%d"))))
- 'emacspeak-speak-buffer
- "Retrieve Cartoon Times Of India."
- )
+
 
 ;;}}}
 ;;{{{ weather underground
