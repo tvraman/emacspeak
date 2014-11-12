@@ -730,17 +730,6 @@ from English to German.")
 ;;{{{  google filters
 
 (emacspeak-url-template-define
- "Google Results"
- "http://www.google.com/search?q=%s&num=25"
- (list 'gweb-google-autocomplete)
- nil
- "Show just results and nav bar."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id-list
-      (list "subform_ctrl" "res" "nav")
-      url 'speak)))
-
-(emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
  (list 'gweb-google-autocomplete
