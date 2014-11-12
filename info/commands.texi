@@ -6665,7 +6665,7 @@ take effect.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 113 URL Templates.
+This section documents a total of 104 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -6763,10 +6763,6 @@ CNN Content
 
 CNN Money
 
-@kbd{CNN headlines }
-
-Retrieve and speak headline news from CNN.
-
 @kbd{CNN technology }
 
 CNN Technology news.
@@ -6778,10 +6774,6 @@ Filter down to CNN  content area.
 @kbd{CNNPodCasts}
 
 List CNN Podcast media links.
-
-@kbd{Cartoon You Said It By Laxman}
-
-Retrieve Cartoon Times Of India.
 
 @kbd{Dictionary Lookup}
 
@@ -6807,6 +6799,9 @@ Display content from Google Finance.
 
 Display content from Google Finance.
 
+@kbd{G3 Sourcer URL}
+
+Return Sourcerer URL.
 
 @kbd{GCalendar Mobile}
 
@@ -6827,14 +6822,6 @@ Search Google APIDocs
 @kbd{Google Books}
 
 Google Books Search with text when available
-
-@kbd{Google Feeds}
-
-List  Google news Feeds.
-
-@kbd{Google Glossary}
-
-Google Glossary lookup.
 
 @kbd{Google Hits}
 
@@ -6864,17 +6851,9 @@ Retrieve and speak Google News Overview.
 
 Google Print Search
 
-@kbd{Google Reader}
-
-Google Reader
-
 @kbd{Google Recent News Search}
 
 Search Google news.
-
-@kbd{Google Results}
-
-Show just results and nav bar.
 
 @kbd{Google Scholar}
 
@@ -6887,10 +6866,6 @@ Do a Google search and get a timeline view of results.
 @kbd{Google Transcoder}
 
 Transcode site via Google.
-
-@kbd{Google WebQuotes}
-
-Google WebQuotes.
 
 @kbd{Google Webmaster Page Analysis}
 
@@ -6919,10 +6894,6 @@ Show MLB Scorecard.
 @kbd{Market summary from Google}
 
 Display financial market summary.
-
-@kbd{Mobile BBC}
-
-BBC Mobile Streams.
 
 @kbd{Mobile Finance Google Search}
 
@@ -6974,10 +6945,6 @@ Perform patent search via Google
 @kbd{PodCast CNet}
 
 Play Podcast from CNET
-
-@kbd{Reader Subscription Search}
-
-Search within feeds subscribed to in Google Reader.
 
 @kbd{Recent BlogSearch Google}
 

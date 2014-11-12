@@ -5,7 +5,7 @@
         This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 692 user customizable
+This chapter documents a total of 691 user customizable
   options.
 
 @menu
@@ -2117,10 +2117,6 @@ These options are customizable via Emacs' Custom interface.
 URI for accessing mobile version of Google Calendar.
 Google Apps users should set this to
 http://www.google.com/calendar/a/<my-corp>/m?output=xhtml
-@end defvar
-
-@defvar {User Option} emacspeak-url-template-reading-list-opml
-OPML feed location to use for our Custom Search.
 @end defvar
 
 @defvar {User Option} emacspeak-url-template-weather-city-state
