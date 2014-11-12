@@ -6807,9 +6807,6 @@ Display content from Google Finance.
 
 Display content from Google Finance.
 
-@kbd{G3 Sourcer URL}
-
-Return Sourcerer URL.
 
 @kbd{GCalendar Mobile}
 
