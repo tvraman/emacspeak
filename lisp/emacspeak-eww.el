@@ -67,6 +67,32 @@
 
 (require 'xml)
 ;;}}}
+;;{{{ Compatibility Helpers:
+
+;;; For compatibility between Emacs 24 and Emacs 25
+(loop
+ for name in
+ '(title url source dom)
+ do
+ (cond
+ ((boundp 'eww-data)
+  (eval
+   `(defsubst
+      ,(intern (format "emacspeak-eww-current-%s" name)) ()
+      , (format "Return eww-current-%s." name)
+        (declare (special eww-data))
+        (plist-get eww-data
+                   ,(intern (format ":%s" name))))))
+ (t
+  (eval
+  `(defsubst
+    ,(intern (format "emacspeak-eww-current-%s" name))
+     ()
+     , (format "Return eww-current-%s." name)
+      ,(intern (format "eww-current-%s" name)))))))
+  
+
+;;}}}
 ;;{{{ Inline Helpers:
 
 (defsubst emacspeak-eww-prepare-eww ()
