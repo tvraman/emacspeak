@@ -104,7 +104,7 @@ Note that the Web browser should reset this hook after using it.")
     (condition-case nil
         (let ((inhibit-read-only t))
           (run-hooks  'emacspeak-web-post-process-hook))
-      (error  (message "Caught error  in post-process hook.")
+      ((debug error)  (message "Caught error  in post-process hook.")
               (setq emacspeak-web-post-process-hook nil)))
     (setq emacspeak-web-post-process-hook nil)))
 
