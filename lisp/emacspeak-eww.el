@@ -71,11 +71,11 @@
 
 (defsubst emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer that is well set up."
-  (declare (special major-mode eww-current-dom eww-cache-updated))
+  (declare (special major-mode eww-current-dom emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (and (boundp 'eww-current-dom) eww-current-dom)
     (error "No DOM to filter!"))
-  (unless eww-cache-updated (eww-update-cache eww-current-dom)) )
+  (unless emacspeak-eww-cache-updated (eww-update-cache eww-current-dom)) )
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
@@ -343,7 +343,7 @@ Retain previously set punctuations  mode."
   "Setup Emacspeak for rendered buffer.
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template."
-  (declare (special eww-cache-updated emacspeak-eww-buffer-hash))
+  (declare (special emacspeak-eww-cache-updated emacspeak-eww-buffer-hash))
   (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
   (when emacspeak-eww-rename-result-buffer (rename-buffer eww-current-title 'unique))
   (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
@@ -494,16 +494,16 @@ If we came from a url-template, reload that template."
 ;;}}}
 ;;{{{ element, class, role, id caches:
 
-(defvar eww-cache-updated nil
+(defvar emacspeak-eww-cache-updated nil
   "Records if caches are updated.")
 
-(make-variable-buffer-local 'eww-cache-updated)
+(make-variable-buffer-local 'emacspeak-eww-cache-updated)
 
 ;;; Mark cache to be dirty if we restore history:
 
 (defadvice eww-restore-history (after emacspeak pre act comp)
   "mark cache dirty."
-  (setq eww-cache-updated nil)
+  (setq emacspeak-eww-cache-updated nil)
   (emacspeak-eww-prepare-eww))
 
 (defvar eww-id-cache nil
@@ -529,7 +529,7 @@ If we came from a url-template, reload that template."
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
   (declare (special eww-element-cache eww-id-cache
-                    eww-role-cache eww-class-cache eww-cache-updated))
+                    eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom) ; build cache
     (let ((id (xml-get-attribute-or-nil dom 'id))
           (class (xml-get-attribute-or-nil dom 'class))
@@ -541,7 +541,7 @@ If we came from a url-template, reload that template."
       (when role (pushnew role eww-role-cache))
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
-    (setq eww-cache-updated t)))
+    (setq emacspeak-eww-cache-updated t)))
 
 ;;}}}
 ;;{{{ Filter DOM:
