@@ -3116,7 +3116,7 @@ char, or dont move. "
 
 ;;;###autoload
 
-(defalias 'emacspeak-mark-forward-mark 'pop-to-mark-command)
+
 ;;;###autoload
 (defun emacspeak-mark-backward-mark ()
   "Cycle backward through the mark ring."

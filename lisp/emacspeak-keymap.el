@@ -473,7 +473,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key [(control right)] 'emacspeak-next-frame-or-buffer)
                                         ;(global-set-key [pause] 'tts-cycle-device)   
-(global-set-key [(control down)] 'emacspeak-mark-forward-mark)
+(global-set-key [(control down)] 'pop-to-mark-command)
 (global-set-key [(control up)] 'emacspeak-mark-backward-mark)
 (global-set-key [(shift up)] 'emacspeak-skip-blank-lines-backward)
 (global-set-key [(shift down)] 'emacspeak-skip-blank-lines-forward)
