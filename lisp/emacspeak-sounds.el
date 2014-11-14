@@ -269,27 +269,21 @@ Do not set this by hand;
 ;;;###autoload
 (defun emacspeak-native-auditory-icon (sound-name)
   "Play auditory icon using native Emacs player."
-  (declare (special emacspeak-use-auditory-icons))
-  (when emacspeak-use-auditory-icons
-    (play-sound
+  (play-sound
      (list 'sound :file
            (format "%s"
-                   (emacspeak-get-sound-filename sound-name ))))))
+                   (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
 
 ;;;###autoload
 (defun emacspeak-serve-auditory-icon (sound-name)
-  "Serve auditory icon SOUND-NAME.
-Sound is served only if `emacspeak-use-auditory-icons' is true.
-See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
-  (declare (special dtk-speaker-process
-                    emacspeak-use-auditory-icons))
-  (when emacspeak-use-auditory-icons
-    (process-send-string dtk-speaker-process
+  "Serve auditory icon SOUND-NAME."
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process
                          (format "p %s\n"
-                                 (emacspeak-get-sound-filename sound-name )))))
+                                 (emacspeak-get-sound-filename sound-name ))))
 
 ;;}}}
 ;;{{{  Play an icon
@@ -300,28 +294,27 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   :group 'emacspeak-sounds)
 
 (defun emacspeak-play-auditory-icon (sound-name)
-  "Produce auditory icon SOUND-NAME.
-Sound is produced only if `emacspeak-use-auditory-icons' is true.
-See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
-  (declare (special  emacspeak-use-auditory-icons
-                     emacspeak-play-program
-                     emacspeak-play-args))
-  (and emacspeak-use-auditory-icons
-       (let ((process-connection-type nil))
-         (condition-case err
+  "Produce auditory icon SOUND-NAME."
+  (declare (special emacspeak-play-program emacspeak-play-args))
+  (let ((process-connection-type nil))
              (start-process
               emacspeak-play-program nil emacspeak-play-program
               emacspeak-play-args
               (emacspeak-get-sound-filename sound-name)
               "&")
            (error
-            (message (error-message-string err)))))))
+            (message (error-message-string err)))))
 
 ;;}}}
 ;;{{{  setup play function
 
-(defcustom emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon
-  "*Function that plays auditory icons."
+(defcustom emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
+  "*Function that plays auditory icons.
+play : Launches play-program to play.
+Serve: Send a command to the speech-server to play.
+Queue : Add auditory icon to speech queue.
+Native : Use Emacs' builtin sound support.
+Use Serve when working with remote speech servers."
   :group 'emacspeak-sounds
   :type '(choice
           (const emacspeak-play-auditory-icon)
