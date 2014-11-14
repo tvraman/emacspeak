@@ -99,9 +99,8 @@
   "Ensure that we are in an EWW buffer that is well set up."
   (declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
-  (unless (emacspeak-eww-current-dom)
-    (error "No DOM to filter!"))
-  (unless emacspeak-eww-cache-updated (eww-update-cache (emacspeak-eww-current-dom))) )
+  (unless (emacspeak-eww-current-dom) (error "No DOM!"))
+  (unless emacspeak-eww-cache-updated (eww-update-cache (emacspeak-eww-current-dom))))
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
