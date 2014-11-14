@@ -116,9 +116,7 @@
  'eww-mode-hook
  #'(lambda ()
      (setq
-      emacspeak-webutils-document-title
-      #'(lambda ()
-          (emacspeak-eww-current-title))
+      emacspeak-webutils-document-title (emacspeak-eww-current-title)
       emacspeak-webutils-url-at-point
       #'(lambda ()
           (let ((url (get-text-property (point) 'help-echo)))
@@ -130,9 +128,7 @@
               (emacspeak-google-canonicalize-result-url url))
              ((and url (stringp url))url)
              (t (error "No URL under point.")))))
-      emacspeak-webutils-current-url
-      #'(lambda ()
-          (emacspeak-eww-current-url)))))
+      emacspeak-webutils-current-url (emacspeak-eww-current-url))))
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
@@ -155,6 +151,7 @@
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
+
 ;;; Advice note: Setting ad-return-value in one arm of the cond appears to perculate to both arms.
 
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
@@ -168,10 +165,8 @@
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images
-                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                    shr-inhibit-images emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
-                                        ;(unless emacspeak-eww-masquerade (emacspeak-eww-masquerade))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
