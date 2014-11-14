@@ -97,11 +97,11 @@
 
 (defsubst emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer that is well set up."
-  (declare (special major-mode eww-current-dom emacspeak-eww-cache-updated))
+  (declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
-  (unless (and (boundp 'eww-current-dom) eww-current-dom)
+  (unless (emacspeak-eww-current-dom)
     (error "No DOM to filter!"))
-  (unless emacspeak-eww-cache-updated (eww-update-cache eww-current-dom)) )
+  (unless emacspeak-eww-cache-updated (eww-update-cache (emacspeak-eww-current-dom))) )
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
@@ -120,8 +120,7 @@
      (setq
       emacspeak-webutils-document-title
       #'(lambda ()
-          (declare (special  eww-current-title))
-          eww-current-title)
+          (emacspeak-eww-current-title))
       emacspeak-webutils-url-at-point
       #'(lambda ()
           (let ((url (get-text-property (point) 'help-echo)))
@@ -135,8 +134,7 @@
              (t (error "No URL under point.")))))
       emacspeak-webutils-current-url
       #'(lambda ()
-          (declare (special eww-current-url))
-          eww-current-url))))
+          (emacspeak-eww-current-url)))))
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
@@ -274,7 +272,7 @@
     "Provide auditory feedback"
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)
-      (dtk-speak eww-current-title)))))
+      (dtk-speak (emacspeak-eww-current-title))))))
 
 (defvar emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
@@ -316,14 +314,14 @@ If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
   (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
   (cond
-   ((and eww-current-url
+   ((and (emacspeak-eww-current-url)
          emacspeak-eww-feed
          emacspeak-eww-style)
                                         ; this is a displayed feed
     (lexical-let
         ((p dtk-punctuation-mode)
          (r dtk-speech-rate)
-         (u eww-current-url )
+         (u (emacspeak-eww-current-url) )
          (s emacspeak-eww-style))
       (kill-buffer)
       (add-hook
@@ -334,7 +332,7 @@ Retain previously set punctuations  mode."
            (emacspeak-dtk-sync))
        'at-end)
       (emacspeak-feeds-feed-display u s 'speak)))
-   ((and eww-current-url emacspeak-eww-url-template)
+   ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
     (lexical-let
         ((n emacspeak-eww-url-template)
@@ -370,9 +368,8 @@ Retain previously set punctuations  mode."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template."
   (declare (special emacspeak-eww-cache-updated emacspeak-eww-buffer-hash))
-  (when (eq eww-current-title "") (setq eww-current-title "Untitled"))
-  (when emacspeak-eww-rename-result-buffer (rename-buffer eww-current-title 'unique))
-  (puthash  eww-current-url (current-buffer)emacspeak-eww-buffer-hash)
+  (when emacspeak-eww-rename-result-buffer (rename-buffer (emacspeak-eww-current-title) 'unique))
+  (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
   (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
   (emacspeak-webutils-run-post-process-hook)
   (when (eq major-mode 'eww-mode) (eww-update-header-line-format)))
@@ -684,12 +681,11 @@ for use as a DOM filter."
   "Display DOM filtered by specified id=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let
       ((dom
         (eww-dom-keep-if
-         eww-current-dom
+         (emacspeak-eww-current-dom)
          (eww-attribute-list-tester
           (if multi
               (loop
@@ -702,11 +698,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified nodes not passing  id=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (loop
@@ -741,11 +736,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified attribute=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
@@ -756,11 +750,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified nodes not passing  attribute=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special   eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
@@ -778,11 +771,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified class=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special    eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (loop
@@ -795,11 +787,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified nodes not passing   class=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (loop
@@ -819,11 +810,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-current-dom))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (loop
@@ -836,11 +826,11 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions eww-current-dom))
+  (declare (special  eww-shr-render-functions ))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
                (loop
@@ -859,11 +849,10 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified elements.
 Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
-  (declare (special  eww-current-dom ))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-elements-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
@@ -876,11 +865,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   "Display DOM filtered by specified nodes not passing   el list.
 Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
-  (declare (special  eww-current-dom ))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          eww-current-dom
+          (emacspeak-eww-current-dom)
           (eww-elements-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
@@ -1049,8 +1037,7 @@ Prompts if content at point is enclosed by multiple elements."
 Warning, this is fragile, and depends on a stable id for the
   knowledge card."
   (interactive)
-  (declare (special eww-shr-render-functions eww-current-dom
-                    emacspeak-eww-masquerade))
+  (declare (special eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Repeat search after turning on masquerade mode to see knowledge cards."))
   (unless (eq major-mode 'eww-mode)
@@ -1064,7 +1051,7 @@ Warning, this is fragile, and depends on a stable id for the
        (inhibit-read-only t)
        (dom
         (eww-dom-remove-if
-         (eww-dom-keep-if eww-current-dom (eww-attribute-tester 'id value))
+         (eww-dom-keep-if (emacspeak-eww-current-dom) (eww-attribute-tester 'id value))
          (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (cond
