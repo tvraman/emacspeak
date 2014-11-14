@@ -104,7 +104,6 @@
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
-
   (emacspeak-eww-prepare-eww)
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
 
