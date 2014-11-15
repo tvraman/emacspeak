@@ -287,7 +287,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  Play an icon
 
-(defcustom emacspeak-play-args "-N"
+(defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
   :type 'string
   :group 'emacspeak-sounds)
