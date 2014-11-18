@@ -162,6 +162,7 @@
     ("emacspeak-pronounce"  . nil )
     ("emacspeak-psgml"  . ("psgml-prepare"))
     ("emacspeak-python"  . ("python-mode"))
+("emacspeak-py"  . ("python-mode"))
     ("emacspeak-re-builder"  . nil )
     ("emacspeak-redefine"  . nil )
     ("emacspeak-reftex"  . nil )
