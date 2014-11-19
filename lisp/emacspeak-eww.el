@@ -900,6 +900,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (next
       (goto-char next)
+      (delq element emacspeak-eww-element-navigation-history)
+      (push  element emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
@@ -916,12 +918,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let* ((start
           (or
            (when (get-text-property  (point) el)
-           (previous-single-property-change (1+ (point)) el ))
+             (previous-single-property-change (1+ (point)) el ))
            (point)))
          (previous (previous-single-property-change  start  el)))
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
+      (delq element emacspeak-eww-element-navigation-history)
+      (push  element emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
