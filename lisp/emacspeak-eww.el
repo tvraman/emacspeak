@@ -70,6 +70,10 @@
 ;;{{{ Compatibility Helpers:
 
 ;;; For compatibility between Emacs 24 and Emacs 25
+;;; eww in emacs-24 used eww-current-title etc as variables.
+;;; eww in emacs 25 groups these as properties on eww-data.
+;;; Emacspeak-eww defines wrapper functions to hide this difference.
+
 (loop
  for name in
  '(title url source dom)
@@ -90,7 +94,6 @@
      ()
      , (format "Return eww-current-%s." name)
       ,(intern (format "eww-current-%s" name)))))))
-  
 
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -189,17 +192,16 @@
   (loop
    for binding  in
    '(
-     ("\d" emacspeak-eww-restore)
      ( "\C-t" emacspeak-google-command)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
      ("," emacspeak-eww-previous-h)
      ("." emacspeak-eww-next-h)
-     ("=" dtk-toggle-punctuation-mode)
      ("/" search-forward)
      ("1" emacspeak-eww-next-h1)
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
+     ("=" dtk-toggle-punctuation-mode)
      ("?" emacspeak-webutils-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
@@ -215,16 +217,17 @@
      ("R" eww-view-dom-having-role)
      ("T" emacspeak-eww-previous-table)
      ("[" emacspeak-eww-previous-p)
+     ("\;" emacspeak-webutils-play-media-at-point)
      ("\C-e" emacspeak-prefix-command)
      ("\M-1" emacspeak-eww-previous-h1)
      ("\M-2" emacspeak-eww-previous-h2)
      ("\M-3" emacspeak-eww-previous-h3)
-     ("\;" emacspeak-webutils-play-media-at-point)
      ("\M-a" eww-view-dom-not-having-attribute)
      ("\M-c" eww-view-dom-not-having-class)
      ("\M-e" eww-view-dom-not-having-element-list)
      ("\M-i" eww-view-dom-not-having-id)
      ("\M-r" eww-view-dom-not-having-role)
+     ("\d" emacspeak-eww-restore)
      ("]" emacspeak-eww-next-p)
      ("b" shr-previous-link)
      ("e" emacspeak-we-xsl-map)
@@ -260,8 +263,7 @@
               eww-back-url eww-forward-url)
  do
  (eval
-  `
-  (defadvice ,f (after emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
     "Provide auditory feedback"
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)
@@ -347,8 +349,7 @@ Retain previously set punctuations  mode."
  '(eww eww-reload eww-open-file)
  do
  (eval
-  `
-  (defadvice ,f (after emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
     "Provide auditory feedback"
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'open-object)))))
@@ -404,8 +405,7 @@ If we came from a url-template, reload that template."
  '(eww-next-bookmark eww-previous-bookmark)
  do
  (eval
-  `
-  (defadvice ,f(after emacspeak pre act comp)
+  `(defadvice ,f(after emacspeak pre act comp)
     "Provide auditory feedback."
     (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
     (emacspeak-speak-line))))
@@ -421,8 +421,7 @@ If we came from a url-template, reload that template."
    eww-submit)
  do
  (eval
-  `
-  (defadvice ,f (after emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
     "Provide auditory feedback."
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'button)))))
@@ -432,8 +431,7 @@ If we came from a url-template, reload that template."
  '(shr-next-link shr-previous-link)
  do
  (eval
-  `
-  (defadvice ,f (around emacspeak pre act comp)
+  `(defadvice ,f (around emacspeak pre act comp)
     "Provide auditory feedback."
     (let ((emacspeak-speak-messages nil))
       ad-do-it
@@ -901,8 +899,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (next
       (goto-char next)
-      (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-speak-region next (next-single-property-change next el)))
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-speak-region next (next-single-property-change next el))))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -923,8 +922,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-      (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-speak-region (point) previous))
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'large-movement)
+        (emacspeak-speak-region (point) previous)))
      (t (message "No previous  %s" el)))))
 
 (defun emacspeak-eww-next-element-from-history ()
