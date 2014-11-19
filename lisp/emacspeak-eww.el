@@ -952,13 +952,15 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag )
      collect (nth i eww-tags))))
 
-(defsubst emacspeak-eww-read-tags-like-this()
+(defsubst emacspeak-eww-read-tags-like-this(&optional prompt)
   "Read tag for like-this navigation."
   (let ((tags (emacspeak-eww-here-tags)))
     (cond
      ((null tags) (error "No enclosing element here."))
      ((= 1 (length tags))  (first tags))
-     (t (intern (completing-read "Jump to: " tags))))))
+     (t (intern (completing-read
+                 (or prompt "Jump to: ")
+                 tags))))))
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
@@ -978,7 +980,7 @@ Prompts if content at point is enclosed by multiple elements."
   "Speaks  to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
-   (list (emacspeak-eww-read-tags-like-this)))
+   (list (emacspeak-eww-read-tags-like-this "Read: ")))
   (let ((start (point)))
     (save-excursion
       (emacspeak-eww-next-element  element)
