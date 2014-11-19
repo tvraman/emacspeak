@@ -97,10 +97,7 @@ short *waveBuffer = NULL;
  * installed.
  */
 
-typedef enum {
-  eciDataNotProcessed,
-  eciDataProcessed
-} ECICallbackReturn;
+typedef enum { eciDataNotProcessed, eciDataProcessed } ECICallbackReturn;
 
 typedef enum {
   eciWaveformBuffer,
@@ -141,10 +138,10 @@ static int (*_eciGetVoiceParam)(void *, int, int);
 static int (*_eciSetVoiceParam)(void *, int, int, int);
 static int (*_eciSetOutputBuffer)(void *, int, short *);
 static int (*_eciSetOutputDevice)(void *, int);
-static void (*_eciRegisterCallback)(void *, int(*)(void *, int, long, void *),
+static void (*_eciRegisterCallback)(void *, int (*)(void *, int, long, void *),
                                     void *);
 static int alsa_init();
-static void alsa_reset(); // drop handle and reset
+static void alsa_reset();  // drop handle and reset
 static size_t alsa_configure(void);
 
 extern "C" int Atcleci_Init(Tcl_Interp *interp);
@@ -235,7 +232,7 @@ static size_t alsa_configure(void) {
   //< If DEBUG: SW Params Configure transfer:
   //>
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
-  bits_per_frame = bits_per_sample * 1; // mono
+  bits_per_frame = bits_per_sample * 1;  // mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
   return chunk_bytes;
 }
@@ -245,14 +242,14 @@ static size_t alsa_configure(void) {
 
 #ifndef timersub
 
-#define timersub(a, b, result)                                                 \
-  do {                                                                         \
-    (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;                              \
-    (result)->tv_usec = (a)->tv_usec - (b)->tv_usec;                           \
-    if ((result)->tv_usec < 0) {                                               \
-      --(result)->tv_sec;                                                      \
-      (result)->tv_usec += 1000000;                                            \
-    }                                                                          \
+#define timersub(a, b, result)                       \
+  do {                                               \
+    (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;    \
+    (result)->tv_usec = (a)->tv_usec - (b)->tv_usec; \
+    if ((result)->tv_usec < 0) {                     \
+      --(result)->tv_sec;                            \
+      (result)->tv_usec += 1000000;                  \
+    }                                                \
   } while (0)
 #endif
 
@@ -276,8 +273,8 @@ static void xrun(void) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
       exit(EXIT_FAILURE);
     }
-    return; // ok, data should be accepted
-            // again
+    return;  // ok, data should be accepted
+             // again
   }
 
   fprintf(stderr, "read/write error, state = %s",
@@ -294,7 +291,6 @@ static void suspend(void) {
     sleep(1); /* wait until suspend flag is * * released
                */
   if (res < 0) {
-
     fprintf(stderr, "Failed. Restarting stream. ");
     fflush(stderr);
     if ((res = snd_pcm_prepare(AHandle)) < 0) {
@@ -314,7 +310,7 @@ static ssize_t pcm_write(short *data, size_t count) {
   ssize_t result = 0;
   while (count > 0) {
     r = snd_pcm_writei(AHandle, data, count);
-    if (r == -EAGAIN || (r >= 0 && (size_t) r < count)) {
+    if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
       snd_pcm_wait(AHandle, 1000);
     } else if (r == -EPIPE) {
       xrun();
@@ -393,40 +389,39 @@ int Atcleci_Init(Tcl_Interp *interp) {
     return TCL_ERROR;
   }
 
-  _eciVersion = (void(*)(char *))(unsigned long) dlsym(eciLib, "eciVersion");
-  _eciGetAvailableLanguages =
-      (int(*)(enum ECILanguageDialect *, int *))(unsigned long)
-      dlsym(eciLib, "eciGetAvailableLanguages");
-  _eciNewEx = (void * (*)(enum ECILanguageDialect))(unsigned long)
-      dlsym(eciLib, "eciNewEx");
-  _eciDelete = (void(*)(void *))(unsigned long) dlsym(eciLib, "eciDelete");
-  _eciReset = (int(*)(void *))(unsigned long) dlsym(eciLib, "eciReset");
-  _eciStop = (int(*)(void *))(unsigned long) dlsym(eciLib, "eciStop");
+  _eciVersion = (void (*)(char *))(unsigned long)dlsym(eciLib, "eciVersion");
+  _eciGetAvailableLanguages = (int (*)(enum ECILanguageDialect *, int *))(
+      unsigned long)dlsym(eciLib, "eciGetAvailableLanguages");
+  _eciNewEx = (void *(*)(enum ECILanguageDialect))(unsigned long)dlsym(
+      eciLib, "eciNewEx");
+  _eciDelete = (void (*)(void *))(unsigned long)dlsym(eciLib, "eciDelete");
+  _eciReset = (int (*)(void *))(unsigned long)dlsym(eciLib, "eciReset");
+  _eciStop = (int (*)(void *))(unsigned long)dlsym(eciLib, "eciStop");
   _eciClearInput =
-      (int(*)(void *))(unsigned long) dlsym(eciLib, "eciClearInput");
-  _eciPause = (int(*)(void *, int))(unsigned long) dlsym(eciLib, "eciPause");
+      (int (*)(void *))(unsigned long)dlsym(eciLib, "eciClearInput");
+  _eciPause = (int (*)(void *, int))(unsigned long)dlsym(eciLib, "eciPause");
   _eciSynthesize =
-      (int(*)(void *))(unsigned long) dlsym(eciLib, "eciSynthesize");
+      (int (*)(void *))(unsigned long)dlsym(eciLib, "eciSynthesize");
   _eciSynchronize =
-      (int(*)(void *))(unsigned long) dlsym(eciLib, "eciSynchronize");
-  _eciSpeaking = (int(*)(void *))(unsigned long) dlsym(eciLib, "eciSpeaking");
+      (int (*)(void *))(unsigned long)dlsym(eciLib, "eciSynchronize");
+  _eciSpeaking = (int (*)(void *))(unsigned long)dlsym(eciLib, "eciSpeaking");
   _eciInsertIndex =
-      (int(*)(void *, int))(unsigned long) dlsym(eciLib, "eciInsertIndex");
+      (int (*)(void *, int))(unsigned long)dlsym(eciLib, "eciInsertIndex");
   _eciAddText =
-      (int(*)(void *, char *))(unsigned long) dlsym(eciLib, "eciAddText");
+      (int (*)(void *, char *))(unsigned long)dlsym(eciLib, "eciAddText");
   _eciSetParam =
-      (int(*)(void *, int, int))(unsigned long) dlsym(eciLib, "eciSetParam");
-  _eciGetVoiceParam = (int(*)(void *, int, int))(unsigned long)
-      dlsym(eciLib, "eciGetVoiceParam");
-  _eciSetVoiceParam = (int(*)(void *, int, int, int))(unsigned long)
-      dlsym(eciLib, "eciSetVoiceParam");
+      (int (*)(void *, int, int))(unsigned long)dlsym(eciLib, "eciSetParam");
+  _eciGetVoiceParam = (int (*)(void *, int, int))(unsigned long)dlsym(
+      eciLib, "eciGetVoiceParam");
+  _eciSetVoiceParam = (int (*)(void *, int, int, int))(unsigned long)dlsym(
+      eciLib, "eciSetVoiceParam");
   _eciRegisterCallback =
-      (void(*)(void *, int(*)(void *, int, long, void *), void *))(
-          unsigned long) dlsym(eciLib, "eciRegisterCallback");
-  _eciSetOutputBuffer = (int(*)(void *, int, short *))(unsigned long)
-      dlsym(eciLib, "eciSetOutputBuffer");
+      (void (*)(void *, int (*)(void *, int, long, void *), void *))(
+          unsigned long)dlsym(eciLib, "eciRegisterCallback");
+  _eciSetOutputBuffer = (int (*)(void *, int, short *))(unsigned long)dlsym(
+      eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
-      (int(*)(void *, int))(unsigned long) dlsym(eciLib, "eciSetOutputDevice");
+      (int (*)(void *, int))(unsigned long)dlsym(eciLib, "eciSetOutputDevice");
 
   //>
   //< check for needed symbols
@@ -537,7 +532,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
   chunk_bytes = alsa_init();
   //<Finally, allocate waveBuffer
 
-  fprintf(stderr, "allocating %d samples\n", (int) chunk_bytes);
+  fprintf(stderr, "allocating %d samples\n", (int)chunk_bytes);
   waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
@@ -571,37 +566,37 @@ int Atcleci_Init(Tcl_Interp *interp) {
     return TCL_ERROR;
   }
   fprintf(stderr, "output buffered to waveBuffer with size %d\n",
-          (int) chunk_bytes);
+          (int)chunk_bytes);
 
   //>
   //<register tcl commands
 
-  Tcl_CreateObjCommand(interp, "setRate", SetRate, (ClientData) eciHandle,
+  Tcl_CreateObjCommand(interp, "setRate", SetRate, (ClientData)eciHandle,
                        TclEciFree);
-  Tcl_CreateObjCommand(interp, "getRate", GetRate, (ClientData) eciHandle,
+  Tcl_CreateObjCommand(interp, "getRate", GetRate, (ClientData)eciHandle,
                        TclEciFree);
   Tcl_CreateObjCommand(interp, "ttsVersion", getTTSVersion,
-                       (ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand(interp, "alsaState", showAlsaState, (ClientData) NULL,
+                       (ClientData)eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "alsaState", showAlsaState, (ClientData)NULL,
                        TclEciFree);
-  Tcl_CreateObjCommand(interp, "say", Say, (ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand(interp, "synth", Say, (ClientData) eciHandle, NULL);
+  Tcl_CreateObjCommand(interp, "say", Say, (ClientData)eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "synth", Say, (ClientData)eciHandle, NULL);
   Tcl_CreateObjCommand(interp, "synchronize", Synchronize,
-                       (ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand(interp, "stop", Stop, (ClientData) eciHandle,
+                       (ClientData)eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "stop", Stop, (ClientData)eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "speakingP", SpeakingP, (ClientData)eciHandle,
                        TclEciFree);
-  Tcl_CreateObjCommand(interp, "speakingP", SpeakingP, (ClientData) eciHandle,
+  Tcl_CreateObjCommand(interp, "pause", Pause, (ClientData)eciHandle,
                        TclEciFree);
-  Tcl_CreateObjCommand(interp, "pause", Pause, (ClientData) eciHandle,
-                       TclEciFree);
-  Tcl_CreateObjCommand(interp, "resume", Resume, (ClientData) eciHandle,
+  Tcl_CreateObjCommand(interp, "resume", Resume, (ClientData)eciHandle,
                        TclEciFree);
   Tcl_CreateObjCommand(interp, "setLanguage", SetLanguage,
-                       (ClientData) eciHandle, TclEciFree);
+                       (ClientData)eciHandle, TclEciFree);
   //>
   //<set up index processing
 
-  rc = Tcl_Eval(interp, "proc index x {global tts; \
+  rc = Tcl_Eval(interp,
+                "proc index x {global tts; \
 set tts(last_index) $x}");
 
   //>
@@ -625,8 +620,7 @@ int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
     char buffer[128];
     snprintf(buffer, 128, "index %ld", lparam);
     int rc = Tcl_Eval(interp, buffer);
-    if (rc != TCL_OK)
-      Tcl_BackgroundError(interp);
+    if (rc != TCL_OK) Tcl_BackgroundError(interp);
   } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
     playTTS(lparam);
   }
@@ -644,8 +638,7 @@ int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK)
-    return rc;
+  if (rc != TCL_OK) return rc;
   rate = _eciGetVoiceParam(eciHandle, voice, 6 /* eciSpeed */);
   Tcl_SetObjResult(interp, Tcl_NewIntObj(rate));
   return TCL_OK;
@@ -660,11 +653,9 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
-  if (rc != TCL_OK)
-    return rc;
+  if (rc != TCL_OK) return rc;
   rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
-  if (rc != TCL_OK)
-    return rc;
+  if (rc != TCL_OK) return rc;
   rc = _eciSetVoiceParam(eciHandle, voice, 6 /* eciSpeed */, rate);
   if (rc == -1) {
     Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
@@ -700,8 +691,7 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc,
         return TCL_ERROR;
       }
       rc = Tcl_GetIntFromObj(interp, objv[i], &index);
-      if (rc != TCL_OK)
-        return rc;
+      if (rc != TCL_OK) return rc;
       rc = _eciInsertIndex(eciHandle, index);
       if (!rc) {
         Tcl_AppendResult(interp, "Could not insert index", TCL_STATIC);
@@ -773,8 +763,7 @@ int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc,
 
 int Pause(ClientData eciHandle, Tcl_Interp *interp, int objc,
           Tcl_Obj *CONST objv[]) {
-  if (_eciPause(eciHandle, 1))
-    return TCL_OK;
+  if (_eciPause(eciHandle, 1)) return TCL_OK;
   Tcl_SetResult(interp, const_cast<char *>("Could not pause synthesis"),
                 TCL_STATIC);
   return TCL_ERROR;
@@ -782,8 +771,7 @@ int Pause(ClientData eciHandle, Tcl_Interp *interp, int objc,
 
 int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc,
            Tcl_Obj *CONST objv[]) {
-  if (_eciPause(eciHandle, 0))
-    return TCL_OK;
+  if (_eciPause(eciHandle, 0)) return TCL_OK;
   Tcl_SetResult(interp, const_cast<char *>("Could not resume synthesis"),
                 TCL_STATIC);
   return TCL_ERROR;
