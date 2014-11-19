@@ -985,23 +985,26 @@ Prompts if content at point is enclosed by multiple elements."
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start (point)))))
 
-
 (loop
  for  f in
  '(h h1 h2 h3 li table ol ul p)
  do
  (eval
-  `
-  (defun ,(intern (format "emacspeak-eww-next-%s" f)) ()
-    ,(format "Move forward to the next %s" f)
-    (interactive)
-    (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))))
+  `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
+    ,(format "Move forward to the next %s
+Optional interactive prefix arg speaks the structural unit." f)
+    (interactive "P")
+    (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
+    (when speak 
+  (emacspeak-eww-speak-element-like-this f))))
  (eval
-  `
-  (defun ,(intern (format "emacspeak-eww-previous-%s" f)) ()
-    ,(format "Move backward to the next %s" f)
-    (interactive)
-    (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
+  `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
+    ,(format "Move backward to the next %s.
+Optional interactive prefix arg speaks the structural unit." f)
+    (interactive "P")
+    (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f)))
+    (when speak 
+      (emacspeak-eww-speak-element-like-this f)))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
