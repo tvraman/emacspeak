@@ -939,8 +939,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive)
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
-   ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
-    (emacspeak-eww-next-element (intern (car emacspeak-eww-element-navigation-history))))
+   (emacspeak-eww-element-navigation-history 
+    (emacspeak-eww-next-element  (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
@@ -948,8 +948,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive)
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
-   ((and emacspeak-eww-element-navigation-history (car emacspeak-eww-element-navigation-history))
-    (emacspeak-eww-previous-element (intern (car emacspeak-eww-element-navigation-history))))
+   (emacspeak-eww-element-navigation-history 
+    (emacspeak-eww-previous-element  (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defsubst emacspeak-eww-here-tags ()
@@ -966,7 +966,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      ((null tags) (error "No enclosing element here."))
      ((= 1 (length tags))  (first tags))
-     (t (intern (completing-read
+     (t (intern
+         (completing-read
                  (or prompt "Jump to: ")
                  tags))))))
 
