@@ -1005,6 +1005,59 @@ end:\n\n")
         (replace-match "@\\&"))
       (buffer-string))))
 
+
+(defun emacspeak-generate-command-documentation (f)
+  "Generate Texinfo documentation for command `f'. "
+      (condition-case nil
+          (let
+              ((key (where-is-internal f))
+               (key-description "")
+               (commentary nil)
+               (this-module (find-lisp-object-file-name f 'defun))
+               (source-file nil))
+            (when this-module
+              (setq source-file (locate-library this-module ))
+              (setq this-module
+                    (file-name-nondirectory
+                     (file-name-sans-extension this-module)))
+              (unless (string-equal module this-module)
+                                        ; cache module name and produce section start
+                (setq module this-module)
+                (setq commentary (lm-commentary source-file))
+                (when commentary
+                  (setq commentary (ems-cleanup-commentary commentary)))
+                (insert
+                 (format
+                  "\n@node %s\n@section %s\n\n\n"
+                  module module ))
+                (insert
+                 (format "\n\n%s\n\n"
+                         (or commentary "No Commentary")))
+                (insert
+                 (format
+                  "Automatically generated documentation
+for commands defined in module  %s.\n\n"
+                  module)))
+                                        ; generate command documentation
+              (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
+                              f (help-function-arglist f t)))
+              (setq key-description
+                    (cond
+                     (key
+                      (ems-texinfo-escape
+                       (mapconcat 'key-description key " ")))
+                     (t "")))
+              (when key
+                (insert
+                 (format "@kbd{%s}\n\n"
+                         key-description)))
+              (insert
+               (if
+                   (documentation f)
+                   (ems-texinfo-escape (documentation f))
+                 "Not Documented"))
+              (insert "\n@end deffn\n\n")))
+        (error (insert (format "\n@c Caught %s\n" f)))))
 ;;;###autoload
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
@@ -1027,59 +1080,7 @@ Any errors or corrections should be made to the source-level
 documentation. This chapter documents a total of %d
 commands.\n\n"
         (length commands)))
-      (mapcar
-       #'(lambda (f)
-           (condition-case nil
-               (let
-                   ((key (where-is-internal f))
-                    (key-description "")
-                    (commentary nil)
-                    (this-module (find-lisp-object-file-name f 'defun))
-                    (source-file nil))
-                 (when this-module
-                   (setq source-file (locate-library this-module ))
-                   (setq this-module
-                         (file-name-nondirectory
-                          (file-name-sans-extension this-module)))
-                   (unless (string-equal module this-module)
-                                        ; cache module name and produce section start
-                   (setq module this-module)
-                   (setq commentary (lm-commentary source-file))
-                   (when commentary
-                     (setq commentary (ems-cleanup-commentary commentary)))
-                   (insert
-                    (format
-                     "\n@node %s\n@section %s\n\n\n"
-                     module module ))
-                   (insert
-                    (format "\n\n%s\n\n"
-                            (or commentary "No Commentary")))
-                   (insert
-                    (format
-                     "Automatically generated documentation
-for commands defined in module  %s.\n\n"
-                     module)))
-                                        ; generate command documentation
-                 (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
-                                 f (help-function-arglist f t)))
-                 (setq key-description
-                       (cond
-                        (key
-                         (ems-texinfo-escape
-                          (mapconcat 'key-description key " ")))
-                        (t "")))
-                 (when key
-                   (insert
-                    (format "@kbd{%s}\n\n"
-                            key-description)))
-                 (insert
-                  (if
-                      (documentation f)
-                      (ems-texinfo-escape (documentation f))
-                    "Not Documented"))
-                 (insert "\n@end deffn\n\n")))
-             (error (insert (format "\n@c Caught %s\n" f)))))
-       commands)
+      (mapcar #'emacspeak-generate-command-documentation commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (shell-command-on-region          ; squeeze blanks
