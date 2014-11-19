@@ -535,6 +535,7 @@ If we came from a url-template, reload that template."
   "Cache of role values. Is buffer-local.")
 
 (make-variable-buffer-local 'eww-role-cache)
+;;; Holds element names as strings.
 
 (defvar eww-element-cache nil
   "Cache of element names. Is buffer-local.")
@@ -877,6 +878,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 ;;}}}
 ;;{{{ Element Navigation:
+;;; Try only storing symbols, not strings.
 
 (defvar emacspeak-eww-element-navigation-history nil
   "History for element navigation.")
@@ -887,8 +889,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (intern (completing-read "Element: " eww-element-cache nil 'must-match
-                               nil 'emacspeak-eww-element-navigation-history)))))
+      (intern
+       (completing-read "Element: "
+                        eww-element-cache nil 'must-match
+                        nil 'emacspeak-eww-element-navigation-history)))))
   (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
   (let*
       ((start
