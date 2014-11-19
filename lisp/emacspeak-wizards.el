@@ -1040,8 +1040,8 @@ commands.\n\n"
                    (setq source-file (locate-library this-module ))
                    (setq this-module
                          (file-name-nondirectory
-                          (file-name-sans-extension this-module))))
-                 (unless (string-equal module this-module)
+                          (file-name-sans-extension this-module)))
+                   (unless (string-equal module this-module)
                                         ; cache module name and produce section start
                    (setq module this-module)
                    (setq commentary (lm-commentary source-file))
@@ -1077,17 +1077,15 @@ for commands defined in module  %s.\n\n"
                       (documentation f)
                       (ems-texinfo-escape (documentation f))
                     "Not Documented"))
-                 (insert "\n@end deffn\n\n"))
-             (error
-              (insert (format "\n@c Caught %s\n" f)))))
+                 (insert "\n@end deffn\n\n")))
+             (error (insert (format "\n@c Caught %s\n" f)))))
        commands)
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
-      (save-buffer)))
-  (emacspeak-auditory-icon 'task-done))
+      (save-buffer))))
 
 ;;;###autoload
 (defun emacspeak-generate-texinfo-option-documentation (filename)

@@ -92,7 +92,6 @@ commands.
 * emacspeak::
 * flite-voices::
 * voice-setup::
-* nil::
 * URL Templates ::
 @end menu
 
@@ -6906,23 +6905,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect.
-@end deffn
-
-@node nil
-@section nil
-
-No Commentary
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-py-next-block  nil
-Move forward to the beginning of the next block.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-py-previous-block  nil
-Move backward to the beginning of the current block.
-If already at the beginning then move to previous block.
 @end deffn
 
 @node URL Templates 
