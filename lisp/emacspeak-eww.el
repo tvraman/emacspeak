@@ -219,6 +219,7 @@
      ("[" emacspeak-eww-previous-p)
      ("\;" emacspeak-webutils-play-media-at-point)
      ("\C-e" emacspeak-prefix-command)
+     ("\M- " emacspeak-eww-speak-element-like-this)
      ("\M-1" emacspeak-eww-previous-h1)
      ("\M-2" emacspeak-eww-previous-h2)
      ("\M-3" emacspeak-eww-previous-h3)
@@ -899,9 +900,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (next
       (goto-char next)
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region next (next-single-property-change next el))))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -916,15 +916,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let* ((start
           (or
            (when (get-text-property  (point) el)
-             (previous-single-property-change (1+ (point)) el ))
+           (previous-single-property-change (1+ (point)) el ))
            (point)))
          (previous (previous-single-property-change  start  el)))
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region (point) previous)))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
 
 (defun emacspeak-eww-next-element-from-history ()
@@ -974,6 +973,18 @@ Prompts if content at point is enclosed by multiple elements."
   (interactive
    (list (emacspeak-eww-read-tags-like-this)))
   (emacspeak-eww-previous-element  element))
+
+(defun emacspeak-eww-speak-element-like-this (element)
+  "Speaks  to next element like current.
+Prompts if content at point is enclosed by multiple elements."
+  (interactive
+   (list (emacspeak-eww-read-tags-like-this)))
+  (let ((start (point)))
+    (save-excursion
+      (emacspeak-eww-next-element  element)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-region start (point)))))
+
 
 (loop
  for  f in
