@@ -79,21 +79,21 @@
  '(title url source dom)
  do
  (cond
- ((boundp 'eww-data)
-  (eval
-   `(defsubst
-      ,(intern (format "emacspeak-eww-current-%s" name)) ()
-      , (format "Return eww-current-%s." name)
-        (declare (special eww-data))
-        (plist-get eww-data
-                   ,(intern (format ":%s" name))))))
- (t
-  (eval
-  `(defsubst
-    ,(intern (format "emacspeak-eww-current-%s" name))
-     ()
-     , (format "Return eww-current-%s." name)
-      ,(intern (format "eww-current-%s" name)))))))
+  ((boundp 'eww-data)
+   (eval
+    `(defsubst
+       ,(intern (format "emacspeak-eww-current-%s" name)) ()
+       , (format "Return eww-current-%s." name)
+         (declare (special eww-data))
+         (plist-get eww-data
+                    ,(intern (format ":%s" name))))))
+  (t
+   (eval
+    `(defsubst
+       ,(intern (format "emacspeak-eww-current-%s" name))
+       ()
+       , (format "Return eww-current-%s." name)
+         ,(intern (format "eww-current-%s" name)))))))
 
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -219,7 +219,7 @@
      ("[" emacspeak-eww-previous-p)
      ("\;" emacspeak-webutils-play-media-at-point)
      ("\C-e" emacspeak-prefix-command)
-     ("\M- " emacspeak-eww-speak-element-like-this)
+     ("\M- " emacspeak-eww-speak-this-element)
      ("\M-1" emacspeak-eww-previous-h1)
      ("\M-2" emacspeak-eww-previous-h2)
      ("\M-3" emacspeak-eww-previous-h3)
@@ -265,10 +265,10 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback"
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'open-object)
-      (dtk-speak (emacspeak-eww-current-title))))))
+     "Provide auditory feedback"
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (dtk-speak (emacspeak-eww-current-title))))))
 
 (defvar emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
@@ -351,9 +351,9 @@ Retain previously set punctuations  mode."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback"
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'open-object)))))
+     "Provide auditory feedback"
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)))))
 
 (defvar emacspeak-eww-rename-result-buffer t
   "Result buffer is renamed to document title.")
@@ -407,9 +407,9 @@ If we came from a url-template, reload that template."
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
-    (emacspeak-speak-line))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object))
+     (emacspeak-speak-line))))
 
 (defadvice eww-quit(after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -423,9 +423,9 @@ If we came from a url-template, reload that template."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'button)))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)))))
 
 (loop
  for f in
@@ -433,14 +433,14 @@ If we came from a url-template, reload that template."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-    "Provide auditory feedback."
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'large-movement)
-        (emacspeak-speak-region
-         (point)
-         (next-single-property-change (point) 'help-echo  nil (point-max))))))))
+     "Provide auditory feedback."
+     (let ((emacspeak-speak-messages nil))
+       ad-do-it
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-region
+          (point)
+          (next-single-property-change (point) 'help-echo  nil (point-max))))))))
 
 ;;; Handle emacspeak-we-url-executor
 
@@ -492,7 +492,7 @@ If we came from a url-template, reload that template."
         (put-text-property start end
                            (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3))
-          (put-text-property start end 'h t)))))))
+          (put-text-property start end 'h 'eww-tag)))))))
 
 ;;}}}
 ;;{{{  Customize image loading:
@@ -904,8 +904,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (next
       (goto-char next)
-      (delq element emacspeak-eww-element-navigation-history)
-      (push  element emacspeak-eww-element-navigation-history)
+      (setq emacspeak-eww-element-navigation-history (delq el emacspeak-eww-element-navigation-history))
+      (push  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
@@ -928,8 +928,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-      (delq element emacspeak-eww-element-navigation-history)
-      (push  element emacspeak-eww-element-navigation-history)
+      (setq emacspeak-eww-element-navigation-history (delq el emacspeak-eww-element-navigation-history))
+      (push  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
@@ -939,7 +939,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive)
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
-   (emacspeak-eww-element-navigation-history 
+   (emacspeak-eww-element-navigation-history
     (emacspeak-eww-next-element  (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
@@ -948,7 +948,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive)
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
-   (emacspeak-eww-element-navigation-history 
+   (emacspeak-eww-element-navigation-history
     (emacspeak-eww-previous-element  (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
@@ -968,8 +968,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      ((= 1 (length tags))  (first tags))
      (t (intern
          (completing-read
-                 (or prompt "Jump to: ")
-                 tags))))))
+          (or prompt "Jump to: ")
+          (mapcar #'symbol-name tags)
+          nil t
+          nil emacspeak-eww-element-navigation-history))))))
 
 (defun emacspeak-eww-next-element-like-this (element)
   "Moves to next element like current.
@@ -985,11 +987,14 @@ Prompts if content at point is enclosed by multiple elements."
    (list (emacspeak-eww-read-tags-like-this)))
   (emacspeak-eww-previous-element  element))
 
-(defun emacspeak-eww-speak-element-like-this (element)
+(defun emacspeak-eww-speak-this-element (element)
   "Speaks  to next element like current.
-Prompts if content at point is enclosed by multiple elements."
+Uses most recently navigated structural unit.
+Otherwise, prompts if content at point is enclosed by multiple elements."
   (interactive
-   (list (emacspeak-eww-read-tags-like-this "Read: ")))
+   (list
+    (or (car emacspeak-eww-element-navigation-history)
+    (emacspeak-eww-read-tags-like-this "Read: "))))
   (let ((start (point)))
     (save-excursion
       (emacspeak-eww-next-element  element)
@@ -1002,20 +1007,20 @@ Prompts if content at point is enclosed by multiple elements."
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
-    ,(format "Move forward to the next %s
+     ,(format "Move forward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
-    (interactive "P")
-    (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
-    (when speak 
-  (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f))))))
+     (interactive "P")
+     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
+     (when speak
+       (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f))))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
-    ,(format "Move backward to the next %s.
+     ,(format "Move backward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
-    (interactive "P")
-    (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f)))
-    (when speak 
-      (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f)))))))
+     (interactive "P")
+     (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f)))
+     (when speak
+       (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f)))))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
