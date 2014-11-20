@@ -43,6 +43,7 @@ Note that special releases are marked with an '*'.
 | 38.0 | May 2013       | FreeDog        |
 | 39.0 | November 2013  | BigDog         |
 | 40.0 | May 2014       | WowDog         |
+| 41.0 | November 14    | NiceDog        |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt
