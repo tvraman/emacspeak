@@ -363,9 +363,12 @@ Retain previously set punctuations  mode."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template."
   (declare (special emacspeak-eww-cache-updated emacspeak-eww-buffer-hash))
-  (when emacspeak-eww-rename-result-buffer (rename-buffer (emacspeak-eww-current-title) 'unique))
-  (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
-  (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
+  (let ((title (emacspeak-eww-current-title)))
+    (when emacspeak-eww-rename-result-buffer
+      (when (= 0 (length title)) (setq title "EWW: Untitled"))
+      (rename-buffer title 'unique)))
+    (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
+    (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
   (emacspeak-webutils-run-post-process-hook)
   (when (eq major-mode 'eww-mode) (eww-update-header-line-format)))
 
