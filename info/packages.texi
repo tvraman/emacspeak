@@ -27,7 +27,6 @@ packages that have been speech-enabled.
 
 @include documents.texi
 @include structure.texi
-
 @node Browsing Structure
 @section Browsing Structured Information
 

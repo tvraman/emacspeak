@@ -23,7 +23,7 @@ Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
 @menu
 * Intro::               Why this document and what it is about
 * emacs-w3m::           Browsing the web with emacs-w3m
-* emacs/w3::            Browsing the web with emacs/w3
+* emacs-w3::            Browsing the web with emacs/w3
 * Add-ons::             Add-ons to make life better
 * Conclusion::          Wrapping it up
 @end menu
@@ -309,8 +309,8 @@ that they find it helpful to have the url spoken and, if they want the
 text of the link spoken they use @kbd{C-e l}.  As with everything else
 in emacs, it is completely up to you to decide what is best.
 
-@node  emacs/w3
-@subsection emacs/w3
+@node  emacs-w3
+@subsection emacs-w3
 
 emacs/w3 is a web browser written completely in emacs lisp.  It has
 some really nice features applicable to the emacspeak community such
