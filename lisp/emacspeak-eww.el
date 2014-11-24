@@ -358,9 +358,7 @@ Retain previously set punctuations  mode."
 (defvar emacspeak-eww-rename-result-buffer t
   "Result buffer is renamed to document title.")
 (defun emacspeak-eww-after-render-hook ()
-  "Setup Emacspeak for rendered buffer.
-If buffer was result of displaying a feed, reload feed.
-If we came from a url-template, reload that template."
+  "Setup Emacspeak for rendered buffer. "
   (declare (special emacspeak-eww-cache-updated emacspeak-eww-buffer-hash))
   (let ((title (emacspeak-eww-current-title)))
     (when emacspeak-eww-rename-result-buffer
@@ -374,9 +372,7 @@ If we came from a url-template, reload that template."
 
 (unless (boundp  'eww-after-render-hook)
   (defadvice eww-render (after emacspeak pre act comp)
-  "Setup Emacspeak for rendered buffer.
-If buffer was result of displaying a feed, reload feed.
-If we came from a url-template, reload that template."
+  "Setup Emacspeak for rendered buffer."
   (emacspeak-eww-after-render-hook)))
   
     
