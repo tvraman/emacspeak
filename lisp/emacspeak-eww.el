@@ -371,14 +371,20 @@ Retain previously set punctuations  mode."
   (when (eq major-mode 'eww-mode)
     (eww-update-header-line-format)))
 
-(unless (boundp  'eww-after-render-hook)
+(cond
+ ((boundp  'eww-after-render-hook) ; emacs 25
+  ; temporary solution since eww-after-render-hook is called too early by EWW
+  (defadvice shr-insert-document (after emacspeak pre act comp)
+    (emacspeak-eww-after-render-hook))
+  )
+ (t
   (defadvice eww-render (after emacspeak pre act comp)
-  "Setup Emacspeak for rendered buffer."
-  (emacspeak-eww-after-render-hook)))
+    "Setup Emacspeak for rendered buffer."
+    (emacspeak-eww-after-render-hook))))
     
-(when (symbolp 'eww-after-render-hook)
-  (add-hook 'eww-after-render-hook
-            'emacspeak-eww-after-render-hook))
+;;(when (symbolp 'eww-after-render-hook)
+  ;(add-hook 'eww-after-render-hook
+            ;'emacspeak-eww-after-render-hook)))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
