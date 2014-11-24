@@ -372,7 +372,7 @@ If we came from a url-template, reload that template."
   (when (eq major-mode 'eww-mode)
     (eww-update-header-line-format)))
 
-(unless (bbboundps  'eww-after-render-hook)
+(unless (boundp  'eww-after-render-hook)
   (defadvice eww-render (after emacspeak pre act comp)
   "Setup Emacspeak for rendered buffer.
 If buffer was result of displaying a feed, reload feed.
