@@ -357,8 +357,7 @@ Retain previously set punctuations  mode."
 
 (defvar emacspeak-eww-rename-result-buffer t
   "Result buffer is renamed to document title.")
-
-(defadvice eww-render (after emacspeak pre act comp)
+(defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer.
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template."
@@ -367,10 +366,27 @@ If we came from a url-template, reload that template."
     (when emacspeak-eww-rename-result-buffer
       (when (= 0 (length title)) (setq title "EWW: Untitled"))
       (rename-buffer title 'unique)))
-    (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
-    (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
+  (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
+  (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
   (emacspeak-webutils-run-post-process-hook)
-  (when (eq major-mode 'eww-mode) (eww-update-header-line-format)))
+  (when (eq major-mode 'eww-mode)
+    (eww-update-header-line-format)))
+
+(unless (symbolp  'eww-after-render-hook)
+  (defadvice eww-render (after emacspeak pre act comp)
+  "Setup Emacspeak for rendered buffer.
+If buffer was result of displaying a feed, reload feed.
+If we came from a url-template, reload that template."
+  (emacspeak-eww-after-render-hook)))
+  
+    
+    
+  
+  
+
+(when (symbolp 'eww-after-render-hook)
+  (add-hook 'eww-after-render-hook
+            'emacspeak-eww-after-render-hook))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
