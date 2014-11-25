@@ -42,7 +42,3 @@ Updated, enhanced URL templates and search wizards.
 # local variables:
 # mode: org
 # end:
-* Emacspeak And Flycheck 
-
-Module emacspeak-flycheck speech-enables flycheck for on-the-fly
-syntax checking.
