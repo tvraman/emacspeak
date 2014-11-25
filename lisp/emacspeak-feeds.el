@@ -305,8 +305,7 @@ Argument `feed' is a feed structure (label url type)."
   (interactive
    (list
     (let ((completion-ignore-case t))
-      (completing-read "Feed:"
-                       emacspeak-feeds))))
+      (completing-read "Feed:" emacspeak-feeds))))
   (emacspeak-feeds-browse-feed
    (assoc feed emacspeak-feeds)
    'speak))
