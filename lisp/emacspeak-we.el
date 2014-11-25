@@ -968,8 +968,7 @@ used as well."
              'emacspeak-we-xpath-filter-history
              emacspeak-we-recent-xpath-filter))
       (pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history)
-      (setq emacspeak-we-recent-xpath-filter
-            emacspeak-we-xpath-filter))
+      (setq emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter))
     (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
                               (or redirect url)
                               'speak)))
