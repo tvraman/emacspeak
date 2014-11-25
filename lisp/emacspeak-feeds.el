@@ -84,6 +84,17 @@
   :group 'emacspeak-xsl)
 
 ;;;###autoload
+(defvar emacspeak-feeds-feeds-table (make-hash-table :test #'equal)
+  "Hash table to enable efficient feed look up when adding feeds.")
+
+(defun emacspeak-feeds-cache-feeds ()
+  "Cache feeds in emacspeak-feeds in a hash table."
+  (declare (special emacspeak-feeds))
+    (loop
+   for f in emacspeak-feeds
+   do
+   (puthash (second f) f emacspeak-feeds-feeds-table)))
+
 (defcustom emacspeak-feeds
   '(
     ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf"  rss)
@@ -91,7 +102,7 @@
     ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
     ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
-  "Table of RSS feeds."
+  "Table of RSS/Atom feeds."
   :type '(repeat
           (list :tag "Feed"
                 (string :tag "Title")
@@ -106,8 +117,14 @@
       (set-default
        sym
        (sort val #'(lambda (a b)
-                     (string-lessp (first a) (first b))))))
+                     (string-lessp (first a) (first b)))))
+       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
+   
+(defsubst emacspeak-feeds-added-p (feed-url)
+  "Check if this feed has been added before."
+  (declare (special emacspeak-feeds-feeds-table))
+  (gethash feed-url emacspeak-feeds-feeds-table))
 
 (defun emacspeak-feeds-add-feed (title url type)
   "Add specified feed to our feed store."
@@ -120,8 +137,7 @@
       (?o 'opml)
       (?r 'rss))))
   (declare (special emacspeak-feeds))
-  (let ((found
-         (find-if #'(lambda (f) (string= url (second f))) emacspeak-feeds)))
+  (let ((found (emacspeak-feeds-added-p url)))
     (cond
      (found
       (message "Feed already present  as %s" (first found)))
