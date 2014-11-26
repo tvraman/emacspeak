@@ -39,6 +39,7 @@ the evolving service-oriented social Web cloud.
   - emacspeak-url-templates: Smart Web access. ♅
   - emacspeak-websearch.el Find things fast. ♁
   - emacspeak-google.el: Improved Google integration. ⁈
+  - Calibre integration for searching and viewing epub 📚
   - Complete anything via company integration  🗜
   - Speech-enabled 2048 🂠
   - Emacspeak At Twenty -Historical Overview ⛬
@@ -114,7 +115,7 @@ emacspeak-request@cs.vassar.edu. The
 [[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good source
  for news about recent enhancements and how to use them.
 The WowDog release is at 
-[[http://emacspeak.googlecode.com/svn/wiki/downloads/emacspeak-40.0.tar.bz2]].
+[[http://emacspeak.googlecode.com/svn/wiki/downloads/emacspeak-41.0.tar.bz2]].
 The latest development snapshot of Emacspeak is always available via
 Subversion from Google Code  at 
 http://emacspeak.googlecode.com/svn/trunk/
