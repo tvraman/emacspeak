@@ -376,9 +376,9 @@ displayed in the messages area."
         (put-text-property start end
                            'personality nil object)))))
 
-;;; deactivate these for now
-(ad-deactivate 'remove-list-of-text-properties)
-(ad-deactivate 'remove-text-properties)
+;;; deactivate these for js2-mode:
+;(ad-deactivate 'remove-list-of-text-properties)
+;(ad-deactivate 'remove-text-properties)
 
 ;;}}}
 ;;{{{ advice overlay-put
