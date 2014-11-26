@@ -98,13 +98,13 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "WowDog"
+  "NiceDog"
   "Code name of present release.")
 
 ;;;###autoload
 (defconst emacspeak-version
   (format
-   "40.0 %s:  %s"
+   "41.0 %s:  %s"
    emacspeak-codename
    (cond
     ((file-exists-p emacspeak-readme-file)
