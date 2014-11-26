@@ -56,6 +56,8 @@
 
 ;;; Notes:
 ;;; This implementation below appears to work for 99% of emacspeak.
+;;; Updating  the advice on call-interactively to remember the state of our flag
+;;; catches cases where the minibuffer is called recursively.
 
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
