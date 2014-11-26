@@ -63,7 +63,7 @@
       (eval
        `(defadvice ,f  (after emacspeak pre act comp)
           "Speak current line"
-          (when t ; (ems-interactive-p )
+          (when  (ems-interactive-p )
             (emacspeak-auditory-icon 'open-object)
             (emacspeak-dtk-sync)
             (dtk-speak

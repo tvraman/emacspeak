@@ -147,7 +147,7 @@
 
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when  t ;(ems-interactive-p )
+  (when  (ems-interactive-p )
     (emacspeak-eperiodic-speak-current-element)
     (emacspeak-auditory-icon 'large-movement)))
 

@@ -296,36 +296,7 @@ instead of the modeline."
 
 ;;}}}
 ;;{{{  advice interactive commands:
-;;{{{  commenting out for now:
 
-;; (defadvice w3m-goto-url (around emacspeak pre act)
-;;   "Speech-enable W3M."
-;;   (cond
-;;    ((ems-interactive-p )
-;;     (emacspeak-auditory-icon 'select-object)
-;;     (let ((emacspeak-speak-messages nil))
-;;       ad-do-it))
-;;    (t ad-do-it))ad-return-value)
-
-;; (defadvice w3m-redisplay-this-page (around emacspeak pre act)
-;;   "Speech-enable W3M."
-;;   (cond
-;;    ((ems-interactive-p )
-;;     (emacspeak-auditory-icon 'select-object)
-;;     (let ((emacspeak-speak-messages nil))
-;;       ad-do-it))
-;;    (t ad-do-it))ad-return-value)
-
-;; (defadvice w3m-reload-this-page (around emacspeak pre act)
-;;   "Speech-enable W3M."
-;;   (cond
-;;    ((ems-interactive-p )
-;;     (emacspeak-auditory-icon 'select-object)
-;;     (let ((emacspeak-speak-messages nil))
-;;       ad-do-it))
-;;    (t ad-do-it))ad-return-value)
-
-;;}}}
 (loop for f in
       '(w3m-print-current-url  w3m-print-this-url
                                w3m-search

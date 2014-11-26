@@ -95,7 +95,7 @@
 
 (defadvice imenu (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when t ;(ems-interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
 (defadvice imenu-go-find-at-position (around emacspeak pre act comp)

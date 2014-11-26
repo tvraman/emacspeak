@@ -1622,7 +1622,7 @@ Indicate change of selection with an auditory icon
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the help."
-     (when t ;(ems-interactive-p )
+     (when  (ems-interactive-p )
        (emacspeak-auditory-icon 'help)
        (emacspeak-speak-help )))))
 
@@ -1728,7 +1728,7 @@ the newly created blank line."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Also speaks the result of evaluation."
-     (when t ;(ems-interactive-p)
+     (when (ems-interactive-p)
        (let ((dtk-chunk-separator-syntax " .<>()$\"\'"))
          (tts-with-punctuations 'all
                                 (dtk-speak
@@ -2389,7 +2389,7 @@ Produce auditory icons if possible."
 
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
-  (when t ;(ems-interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-speak-message-again)))
 
 ;;}}}
@@ -2401,12 +2401,12 @@ Produce auditory icons if possible."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide an auditory icon."
-     (when t ;(ems-interactive-p )
+     (when (ems-interactive-p )
        (emacspeak-auditory-icon 'help)))))
 
 (defadvice apropos-follow (after emacspeak pre act comp)
   "Speak the help you displayed."
-  (when t ;(ems-interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-help)))
 

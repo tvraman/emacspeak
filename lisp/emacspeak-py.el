@@ -148,7 +148,7 @@
 
 (defadvice py-newline-and-indent(after emacspeak pre act comp)
   "Speak line so we know current indentation"
-  (when t;(ems-interactive-p )
+  (when (ems-interactive-p )
     (dtk-speak-using-voice voice-annotate
                            (format
                             "indent %s"
