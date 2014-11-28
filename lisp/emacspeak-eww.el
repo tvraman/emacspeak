@@ -285,23 +285,7 @@
 
 (make-variable-buffer-local 'emacspeak-eww-url-template)
 
-(defvar emacspeak-eww-buffer-hash (make-hash-table  :test #'equal )
-  "Table storing eww buffer handles hashed by URL.")
-
 ;;;Check cache if URL already open, otherwise cache.
-
-(defadvice eww (around emacspeak pre act comp)
-  "Check cache, if already open, switch to existing buffer.
-Otherwise proceed  and cache the buffer at the end of eww-render. "
-  (let* ((this-url (ad-get-arg 1))
-         (handle  (gethash  this-url emacspeak-eww-buffer-hash)))
-    (cond
-     ((and handle (buffer-live-p handle))
-      (switch-to-buffer handle))
-     (t                                ; proceed
-      (emacspeak-webutils-autospeak)
-      ad-do-it))
-    ad-return-value))
 
 (defadvice eww-reload (around emacspeak pre act comp)
   "Check buffer local settings for feed buffers.
@@ -360,31 +344,28 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
-  (declare (special emacspeak-eww-cache-updated emacspeak-eww-buffer-hash))
+  (declare (special emacspeak-eww-cache-updated ))
   (let ((title (emacspeak-eww-current-title)))
-    (when emacspeak-eww-rename-result-buffer
-      (when (= 0 (length title)) (setq title "EWW: Untitled"))
-      (rename-buffer title 'unique)))
-  (puthash  (emacspeak-eww-current-url) (current-buffer)emacspeak-eww-buffer-hash)
-  (unless emacspeak-web-post-process-hook (emacspeak-speak-mode-line))
-  (emacspeak-webutils-run-post-process-hook)
-  (when (eq major-mode 'eww-mode)
-    (eww-update-header-line-format)))
+    (when (= 0 (length title)) (setq title "EWW: Untitled"))
+    (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique)))
+  (cond
+   (emacspeak-web-post-process-hook (emacspeak-webutils-run-post-process-hook))
+   (t (emacspeak-speak-mode-line))))
 
 (cond
  ((boundp  'eww-after-render-hook) ; emacs 25
   ; temporary solution since eww-after-render-hook is called too early by EWW
-  (defadvice shr-insert-document (after emacspeak pre act comp)
-    (emacspeak-eww-after-render-hook))
+  ;(defadvice shr-insert-document (after emacspeak pre act comp)
+    ;(emacspeak-eww-after-render-hook))
   )
  (t
   (defadvice eww-render (after emacspeak pre act comp)
     "Setup Emacspeak for rendered buffer."
     (emacspeak-eww-after-render-hook))))
     
-;;(when (symbolp 'eww-after-render-hook)
-  ;(add-hook 'eww-after-render-hook
-            ;'emacspeak-eww-after-render-hook)))
+(when (symbolp 'eww-after-render-hook)
+                                        (add-hook 'eww-after-render-hook
+            'emacspeak-eww-after-render-hook))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
