@@ -792,8 +792,8 @@ just results."
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
-        (add-toolbelt (and flag  (listp flag) (= 4 (car flag))))
-        (lucky (and flag  (listp flag) (= 16 (car flag)))))
+        (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
+        (lucky (and flag  (consp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky
