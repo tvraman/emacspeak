@@ -344,28 +344,27 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
-  (declare (special emacspeak-eww-cache-updated ))
   (let ((title (emacspeak-eww-current-title)))
     (when (= 0 (length title)) (setq title "EWW: Untitled"))
-    (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique)))
-  (cond
-   (emacspeak-web-post-process-hook (emacspeak-webutils-run-post-process-hook))
-   (t (emacspeak-speak-mode-line))))
+    (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique))
+    (cond
+     (emacspeak-web-post-process-hook (emacspeak-webutils-run-post-process-hook))
+     (t (emacspeak-speak-mode-line)))))
 
 (cond
  ((boundp  'eww-after-render-hook) ; emacs 25
   ; temporary solution since eww-after-render-hook is called too early by EWW
-  ;(defadvice shr-insert-document (after emacspeak pre act comp)
-    ;(emacspeak-eww-after-render-hook))
+  (defadvice shr-insert-document (after emacspeak pre act comp)
+                                        (emacspeak-eww-after-render-hook))
   )
  (t
   (defadvice eww-render (after emacspeak pre act comp)
     "Setup Emacspeak for rendered buffer."
     (emacspeak-eww-after-render-hook))))
     
-(when (symbolp 'eww-after-render-hook)
-                                        (add-hook 'eww-after-render-hook
-            'emacspeak-eww-after-render-hook))
+;(when (boundp 'eww-after-render-hook)
+ ;(add-hook 'eww-after-render-hook
+            ;'emacspeak-eww-after-render-hook))
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
