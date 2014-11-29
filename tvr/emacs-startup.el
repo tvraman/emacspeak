@@ -126,7 +126,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-
+    (package-initialize)
     (mapc
      #'load-library-if-available
      '(
