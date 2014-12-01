@@ -1250,7 +1250,7 @@ Useful for fulltext search in a book."
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
-      (eww-display-html 'utf-8 (format "file://%s" directory))
+      (browse-url-of-buffer)
       (kill-buffer buffer))))
 
 (defun emacspeak-bookshare-sign-out ()
