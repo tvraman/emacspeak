@@ -7,31 +7,21 @@
 (set-prefix-key (kbd "C-\\"))
 
 ;;; }
-;;; {Lock screen C-\ D
+;;; {Lock screen C-t D
 
 (defparameter *my-lock-command*
   "exec ~/bin/xlock")
-;;; Lock command is the following  shell script:
-
-;; /usr/bin/xlock -mode goop +sound \
-;; -startCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-logout.ogg  &' \
-;; -endCmd '/usr/bin/ogg123 /usr/share/sounds/ubuntu/stereo/service-login.ogg  &'
-
 
 (defcommand lock-screen () ()
   "Lock my screen."
   (eval-command *my-lock-command*))
 
-
-;;; Muscle memory: like power detaching your screen:
-
 (define-key *root-map* (kbd "D") "lock-screen")
-(define-key *root-map* (kbd "Q") "quit")
 
 ;;; }
 ;;; {TTS
 
-(load "/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
+(load "/usr/local/google/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
 (setq *tts-engine* *tts-32-outloud*)
 (tts-say "TTS: Ready to talk! ")
 
@@ -64,6 +54,10 @@
 
 ;;; }
 ;;; {emacs  is emacsclient 
+;;; Dont allow raise requests:
+;;; This avoids emacs  getting raised when there is activity in the Emacs window.
+
+(setf stumpwm:*deny-map-request* t)
 (defcommand emacs () ()
   "Start emacs unless it is already running, in which case focus it."
   (run-or-raise "emacsclient -c" '(:class "Emacs")))
@@ -74,7 +68,7 @@
 ;;; Load this at the end so our earlier setting sgo into the main thread:
 
 ;; Load swank.
-(load "/home/raman/emacs/lisp/slime/swank-loader.lisp")
+(load "/usr/local/google/home/raman/emacs/lisp/slime/swank-loader.lisp")
 (swank-loader:init)
 (defcommand swank ()()
   "Start Swank"
@@ -86,7 +80,6 @@
                "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
 
 (swank)
-(tts-say "Swank: Ready To Repl")
 
 ;;; }
 ;;; {Emacs local variables
