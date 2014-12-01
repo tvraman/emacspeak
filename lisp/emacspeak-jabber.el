@@ -85,7 +85,10 @@
 
 ;;}}}
 ;;{{{ silence keepalive
-
+(defadvice jabber-fsm-handle-sentinel (around emacspeak pre act comp)
+  "silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 (loop for f in
       '(jabber-keepalive-do
         jabber-process-roster
