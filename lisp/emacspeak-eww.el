@@ -245,10 +245,10 @@
 (when (boundp 'eww-mode-map) (emacspeak-eww-setup))
 ;;; Use browse-url-new-window-flag
 (defadvice eww-browse-url (before emacspeak pre act comp)
-"Respect `browse-url-new-window-flag'."
-(interactive 
-(list url 
-(or new-window browse-url-new-window-flag))))
+  "Respect `browse-url-new-window-flag'."
+  (interactive
+   (list url
+         (or new-window browse-url-new-window-flag))))
 ;;}}}
 ;;{{{ Map Faces To Voices:
 
@@ -357,19 +357,13 @@ Retain previously set punctuations  mode."
      (t (emacspeak-speak-mode-line)))))
 
 (cond
- ((boundp  'eww-after-render-hook) ; emacs 25
-  ; temporary solution since eww-after-render-hook is called too early by EWW
-  (defadvice shr-insert-document (after emacspeak pre act comp)
-                                        (emacspeak-eww-after-render-hook))
-  )
+ ((boundp  'eww-after-render-hook)      ; emacs 25
+  (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook))
  (t
   (defadvice eww-render (after emacspeak pre act comp)
     "Setup Emacspeak for rendered buffer."
     (emacspeak-eww-after-render-hook))))
-    
-;(when (boundp 'eww-after-render-hook)
- ;(add-hook 'eww-after-render-hook
-            ;'emacspeak-eww-after-render-hook))
+
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -996,7 +990,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
   (interactive
    (list
     (or (car emacspeak-eww-element-navigation-history)
-    (emacspeak-eww-read-tags-like-this "Read: "))))
+        (emacspeak-eww-read-tags-like-this "Read: "))))
   (let ((start (point)))
     (save-excursion
       (emacspeak-eww-next-element  element)
