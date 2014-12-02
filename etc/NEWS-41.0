@@ -1,0 +1,44 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+* Emacspeak 41 -- Emacspeak 40 User Visible Changes 
+
+** Emacspeak And Company
+
+Module [[http://emacspeak.blogspot.com/2014/05/emacspeak-and-company-complete-anything.html][Emacspeak-Company]] adds a Complete-Anything Company front-end for
+emacspeak.  Works with Company extensions including YCM
+(YouCompleteMe) support.
+
+** EWW Web Support: Emacspeak-eww
+
+Enhanced support for EWW, including structured navigation.
+
+** Emacspeak And 2048:
+
+Speech-enables the popular 2048 Game.
+
+** Emacspeak At 20:
+
+Includes a detailed article reviewing   Emacspeak over 20 years
+of development, along with a high-level architectural overview
+for the various design decisions that have gone into the system.
+
+** Google Search Tools:
+
+Includes improved support for Google Search power-tools, as well
+as one-click access to Google-Lite, a lighter-weight search
+interface.
+
+** Emacs 24.4 Support
+
+Fully supports the newly released Emacs 24.4.
+
+** Updated URL Templates And Search Wizards 
+
+Updated, enhanced URL templates and search wizards.
+
+
+# local variables:
+# mode: org
+# end:
