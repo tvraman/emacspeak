@@ -565,7 +565,8 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  for f in
  '(
    next-history-element previous-history-element
-                        previous-matching-history-element next-matching-history-element)
+   next-line-or-history-element previous-line-or-history-element
+   previous-matching-history-element next-matching-history-element)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
