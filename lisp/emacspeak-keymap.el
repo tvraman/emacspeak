@@ -292,6 +292,7 @@ field in the customization buffer.  You can use the notation
         ( "\M-v" find-variable)
         ("\C-e"   emacspeak-describe-emacspeak)
         ("\C-i" emacspeak-info-wizard)
+        ("\M-i" info-display-manual)
         ("\C-l" emacspeak-learn-emacs-mode)
         ("\C-m" man)
         ("\C-s" customize-saved)
