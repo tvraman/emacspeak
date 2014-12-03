@@ -138,7 +138,7 @@
       ,(concat "Speech-enabled Key menu for " (symbol-name group))
       (dtk-speak
        (save-current-buffer
-         (set-buffer magit-key-mode-buf-name)
+         (set-buffer ,(format magit-key-mode-buf-name group))
          (buffer-string))))))
 ;;; load the magit-key-mode file so the above advice gets applied:
 
