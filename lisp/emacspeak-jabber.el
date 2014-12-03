@@ -85,6 +85,12 @@
 
 ;;}}}
 ;;{{{ silence keepalive
+
+(defadvice jabber-xml-resolve-namespace-prefixes(after emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages  nil))
+    ad-do-it))
+
 (defadvice jabber-fsm-handle-sentinel (around emacspeak pre act comp)
   "silence messages."
   (let ((emacspeak-speak-messages nil))
