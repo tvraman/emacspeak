@@ -197,7 +197,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-(defadvice magit-quit-window (after emacspeak pre act  comp)
+(defadvice magit-mode-quit-window (after emacspeak pre act  comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)
