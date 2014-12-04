@@ -61,6 +61,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-amark)
 (require 'emacspeak-webutils)
 (require 'dired)
 (require 'comint)
@@ -357,6 +358,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                    emacspeak-m-player-program options))
       (set-buffer buffer)
       (emacspeak-m-player-mode)
+      (emacspeak-amark-load)
       (message "MPlayer opened  %s" resource))))
 
 ;;;###autoload
