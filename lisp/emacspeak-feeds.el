@@ -93,7 +93,9 @@
     (loop
    for f in emacspeak-feeds
    do
-   (puthash (second f) f emacspeak-feeds-feeds-table)))
+   (puthash
+    (format "%s" (second f)) ; strip props 
+    f emacspeak-feeds-feeds-table)))
 
 (defcustom emacspeak-feeds
   '(
