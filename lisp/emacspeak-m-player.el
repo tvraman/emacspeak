@@ -805,6 +805,8 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         (" " emacspeak-m-player-pause)
         ("q" bury-buffer)
         ("v" emacspeak-m-player-volume-change)
+        ("a" emacspeak-m-player-amark-add)
+        ("j" emacspeak-m-player-amark-jump)
         ("c" emacspeak-m-player-slave-command)
         ("-" emacspeak-m-player-volume-down)
         ("=" emacspeak-m-player-volume-up)
