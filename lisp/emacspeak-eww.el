@@ -237,6 +237,7 @@
      ("n" emacspeak-eww-next-element)
      ("o" emacspeak-eww-next-li)
      ("p" emacspeak-eww-previous-element)
+     ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
      )
    do
