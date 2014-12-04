@@ -314,14 +314,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions default-directory
-                    emacspeak-media-directory-regexp
+ido-work-directory-list emacspeak-media-directory-regexp
                     emacspeak-m-player-current-directory
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
-  (unless (string-match "^[a-z]+:"  resource)
+  (unless (string-match "^[a-z]+:"  resource) ; not a URL
     (setq resource (expand-file-name resource))
-    (setq emacspeak-m-player-current-directory (file-name-directory resource))
-    (setq default-directory emacspeak-m-player-current-directory))
+    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -357,6 +356,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
       (set-buffer buffer)
+      (cd emacspeak-m-player-current-directory)
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
       (message "MPlayer opened  %s" resource))))
@@ -639,7 +639,7 @@ A string of the form `<number> 1' sets volume as an absolute."
              collect (second (split-string l "=")))))
       (list 
             (format "%s" (first fields)) ; position 
-            (shell-quote-argument (substring (second  fields) 1 -1))))))
+             (substring (second  fields) 1 -1)))))
 
     
 
@@ -881,9 +881,14 @@ As the default, use current position."
   "Jump to specified AMark."
   (interactive)
   (let ((amark (call-interactively 'emacspeak-amark-find)))
-    (emacspeak-m-player-dispatch 
-     (format "loadfile %s" (emacspeak-amark-path amark)))
-    (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark))))
+    (with-current-buffer (process-buffer emacspeak-m-player-process)
+      (emacspeak-m-player-dispatch 
+     (format "loadfile \"%s\""
+ (shell-quote-argument 
+(expand-file-name 
+ (emacspeak-amark-path amark)default-directory))))
+      (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))))
+  
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
