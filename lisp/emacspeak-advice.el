@@ -1698,7 +1698,8 @@ Auditory highlight indicates position of point."
       (emacspeak-speak-line))))
 (loop
  for f in
- '(newline newline-and-indent)
+ '(newline newline-and-indent
+           electric-newline-and-maybe-indent)
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
