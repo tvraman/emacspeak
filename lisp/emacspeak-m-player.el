@@ -623,6 +623,24 @@ A string of the form `<number> 1' sets volume as an absolute."
   (interactive)
   (emacspeak-m-player-dispatch "get_time_length")
   (accept-process-output))
+
+(defsubst emacspeak-m-player-get-position ()
+  "Return list suitable to use as an amark. --- see emacspeak-amark.el."
+  (declare (special emacspeak-m-player-process))
+  (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\n")
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (let* ((output  (buffer-substring-no-properties (point-min) (point-max)))
+           (lines (split-string output "\n" 'omit-nulls))
+           (fields 
+            (loop 
+             for l in lines 
+             collect (second (split-string l "=")))))
+      (list 
+            (format "%s" (first fields)) ; position 
+            (shell-quote-argument (substring (second  fields) 1 -1))))))
+
+    
+
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
   (interactive)
@@ -835,6 +853,32 @@ emacspeak-silence-hook."
     (emacspeak-m-player-pause)))
 (add-hook 'emacspeak-silence-hook 'emacspeak-m-player-pause-or-resume)
 
+;;}}}
+;;{{{ AMarks:
+
+;;;###autoload
+(defun emacspeak-m-player-amark-add (name &optional prompt-position)
+  "Set AMark `name' at current position in current audio stream.
+Interactive prefix arg prompts for position.
+As the default, use current position."
+  (interactive "sAMark Name:\nP")
+  (let ((position (emacspeak-m-player-get-position)))
+    (emacspeak-amark-add
+     (second position)
+     name
+     (cond
+      (prompt-position (read-number "Position: "))
+      (t (first position))))
+    (message "Added Amark %s" name)))
+
+;;;###autoload
+(defun emacspeak-m-player-amark-jump ()
+  "Jump to specified AMark."
+  (interactive)
+  (let ((amark (call-interactively 'emacspeak-amark-find)))
+    (emacspeak-m-player-dispatch 
+     (format "loadfile %s" (emacspeak-amark-path amark)))
+    (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark))))
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
