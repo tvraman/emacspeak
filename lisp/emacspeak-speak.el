@@ -1064,6 +1064,9 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive "P")
   (let ((char  (following-char ))
         (display (get-char-property (point) 'display)))
+    (when display
+      (emacspeak-auditory-icon 'ellipses)
+      (and (listp display)  (message "%s" (car display ))))
     (when char
       (cond
        ((stringp display) (dtk-speak display))
