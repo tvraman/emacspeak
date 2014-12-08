@@ -337,11 +337,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (when (file-directory-p resource)
-      (setq file-list (directory-files
-                       (expand-file-name resource)
-                       'full
-                       emacspeak-media-extensions))
-            (setq  emacspeak-m-player-current-file-list file-list))
+      (setq file-list
+            (directory-files (expand-file-name resource)
+                             'full emacspeak-media-extensions)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
@@ -363,6 +361,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (cd emacspeak-m-player-current-directory)
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
+      (setq  emacspeak-m-player-current-file-list file-list)
       (message "MPlayer opened  %s" resource))))
 
 ;;;###autoload
