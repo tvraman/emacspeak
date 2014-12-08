@@ -492,6 +492,15 @@ Retain previously set punctuations  mode."
           (put-text-property start end 'h 'eww-tag)))))))
 
 ;;}}}
+;;{{{ Advice readable
+(defadvice eww-readable (after emacspeak pre act comp)
+  "Speak contents."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-buffer)))
+
+;;}}}
+
 ;;{{{  Customize image loading:
 
 (defcustom emacspeak-eww-silence-images t

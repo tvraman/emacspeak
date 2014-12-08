@@ -291,6 +291,9 @@ Only works for local media sources, not Internet streams."
     (sit-for 0.5)
     (emacspeak-m-player-seek-absolute (second emacspeak-m-player-info-cache)))
    (t ( message "Cannot resume previously stopped track."))))
+(defvar emacspeak-m-player-current-file-list nil
+  "List  that records list of files being played.")
+(make-variable-buffer-local 'emacspeak-m-player-current-file-list)
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -314,8 +317,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions default-directory
-ido-work-directory-list emacspeak-media-directory-regexp
-                    emacspeak-m-player-current-directory
+                    emacspeak-m-player-current-file-list emacspeak-m-player-current-directory
+                    ido-work-directory-list emacspeak-media-directory-regexp
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource) ; not a URL
@@ -331,7 +334,14 @@ ido-work-directory-list emacspeak-media-directory-regexp
         (playlist-p
          (or play-list
              (emacspeak-m-player-playlist-p resource)))
-        (options (copy-sequence emacspeak-m-player-options)))
+        (options (copy-sequence emacspeak-m-player-options))
+        (file-list nil))
+    (when (file-directory-p resource)
+      (setq file-list (directory-files
+                       (expand-file-name resource)
+                       'full
+                       emacspeak-media-extensions))
+            (setq  emacspeak-m-player-current-file-list file-list))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
@@ -342,13 +352,7 @@ ido-work-directory-list emacspeak-media-directory-regexp
           (cond
            (playlist-p
             (nconc options (list "-playlist" resource)))
-           ((file-directory-p resource)
-            (nconc
-             options
-             (directory-files
-              (expand-file-name resource)
-              'full
-              emacspeak-media-extensions)))
+           (file-list (nconc options file-list))
            (t
             (nconc options (list resource)))))
     (save-current-buffer
