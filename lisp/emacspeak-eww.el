@@ -496,8 +496,8 @@ Retain previously set punctuations  mode."
 (defadvice eww-readable (after emacspeak pre act comp)
   "Speak contents."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-buffer)))
+    
+    (run-hooks 'eww-after-render-hook)))
 
 ;;}}}
 
