@@ -291,9 +291,9 @@ Only works for local media sources, not Internet streams."
     (sit-for 0.5)
     (emacspeak-m-player-seek-absolute (second emacspeak-m-player-info-cache)))
    (t ( message "Cannot resume previously stopped track."))))
-(defvar emacspeak-m-player-current-file-list nil
+(defvar emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
-(make-variable-buffer-local 'emacspeak-m-player-current-file-list)
+(make-variable-buffer-local 'emacspeak-m-player-file-list)
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -317,7 +317,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions default-directory
-                    emacspeak-m-player-current-file-list emacspeak-m-player-current-directory
+                    emacspeak-m-player-file-list emacspeak-m-player-current-directory
                     ido-work-directory-list emacspeak-media-directory-regexp
                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
@@ -361,7 +361,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (cd emacspeak-m-player-current-directory)
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
-      (setq  emacspeak-m-player-current-file-list file-list)
+      (setq  emacspeak-m-player-file-list file-list)
       (message "MPlayer opened  %s" resource))))
 
 ;;;###autoload
@@ -878,18 +878,29 @@ As the default, use current position."
       (prompt-position (read-number "Position: "))
       (t (first position))))
     (message "Added Amark %s" name)))
+(defsubst ems-file-index (name file-list)
+  "Return index of name in file-list."
+  (position (expand-file-name name) file-list :test #'string=))
 
 ;;;###autoload
 (defun emacspeak-m-player-amark-jump ()
   "Jump to specified AMark."
   (interactive)
-  (let ((amark (call-interactively 'emacspeak-amark-find)))
-    (with-current-buffer (process-buffer emacspeak-m-player-process)
-      (emacspeak-m-player-dispatch 
-     (format "loadfile \"%s\""
- (shell-quote-argument 
-(expand-file-name 
- (emacspeak-amark-path amark)default-directory))))
+  (declare (special emacspeak-m-player-file-list))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (let* ((amark (call-interactively 'emacspeak-amark-find))
+           (files emacspeak-m-player-file-list)
+           (current
+            (ems-file-index (second (emacspeak-m-player-get-position)) files))
+           (new (ems-file-index (emacspeak-amark-path  amark) files)))
+      (cond ; move to marked file if found, otherwise load
+       ((and current new)
+        (emacspeak-m-player-play-tracks-jump (- new current)))
+       (t (emacspeak-m-player-dispatch 
+           (format "loadfile \"%s\""
+                   (shell-quote-argument 
+                    (expand-file-name (emacspeak-amark-path amark)))))))
+                                        ; now jump to marked position 
       (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))))
   
 ;;}}}
