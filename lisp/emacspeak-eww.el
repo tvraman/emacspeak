@@ -493,11 +493,11 @@ Retain previously set punctuations  mode."
 
 ;;}}}
 ;;{{{ Advice readable
-(defadvice eww-readable (after emacspeak pre act comp)
+(defadvice eww-readable (around emacspeak pre act comp)
   "Speak contents."
-  (when (ems-interactive-p)
-    
-    (run-hooks 'eww-after-render-hook)))
+  (let ((inhibit-read-only t))
+    ad-do-it
+    (emacspeak-eww-after-render-hook)))
 
 ;;}}}
 
