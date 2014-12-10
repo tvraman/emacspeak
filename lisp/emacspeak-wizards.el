@@ -3476,7 +3476,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-cleanup-shell-path ()
   "Cleans up duplicates in shell path env variable."
   (interactive)
-  (let ((p (split-string (getenv "PATH") ":"))
+  (let ((p (parse-colon-path (getenv "PATH")))
         (h (make-hash-table :test #'equal)))
     (loop  for e in p do (puthash e 1 h ))
     (setq p
