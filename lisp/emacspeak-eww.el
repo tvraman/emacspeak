@@ -497,7 +497,8 @@ Retain previously set punctuations  mode."
   "Speak contents."
   (let ((inhibit-read-only t))
     ad-do-it
-    (emacspeak-eww-after-render-hook)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-buffer)))
 
 ;;}}}
 

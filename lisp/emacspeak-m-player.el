@@ -294,6 +294,14 @@ Only works for local media sources, not Internet streams."
 (defvar emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
 (make-variable-buffer-local 'emacspeak-m-player-file-list)
+(defsubst emacspeak-m-player-file-list (directory)
+  "Return media files in directory.
+Searches recursively if `directory-files-recursively' is available (Emacs 25)."
+  (declare (special emacspeak-media-extensions))
+  (cond
+   ((fboundp 'directory-files-recursively)
+    (directory-files-recursively resource emacspeak-media-extensions))
+   (t (directory-files  resource 'full emacspeak-media-extensions))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -316,11 +324,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        (emacspeak-m-player-guess-directory)
        (when (eq major-mode 'dired-mode) (dired-get-filename))))
     current-prefix-arg))
-  (declare (special emacspeak-media-extensions default-directory
-                    emacspeak-m-player-file-list emacspeak-m-player-current-directory
-                    ido-work-directory-list emacspeak-media-directory-regexp
-                    emacspeak-media-shortcuts-directory emacspeak-m-player-process
-                    emacspeak-m-player-program emacspeak-m-player-options))
+  (declare (special  default-directory
+                     emacspeak-m-player-file-list emacspeak-m-player-current-directory
+                     ido-work-directory-list emacspeak-media-directory-regexp
+                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
+                     emacspeak-m-player-program emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource) ; not a URL
     (setq resource (expand-file-name resource))
     (setq emacspeak-m-player-current-directory (file-name-directory resource)))
@@ -337,9 +345,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (when (file-directory-p resource)
-      (setq file-list
-            (directory-files (expand-file-name resource)
-                             'full emacspeak-media-extensions)))
+      (setq file-list (emacspeak-m-player-directory-files resource)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
