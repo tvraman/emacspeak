@@ -345,7 +345,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (when (file-directory-p resource)
-      (setq file-list (emacspeak-m-player-directory-files resource)))
+      (setq file-list (emacspeak-m-player-file-list resource)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
