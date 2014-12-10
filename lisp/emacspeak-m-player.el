@@ -294,7 +294,7 @@ Only works for local media sources, not Internet streams."
 (defvar emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
 (make-variable-buffer-local 'emacspeak-m-player-file-list)
-(defsubst emacspeak-m-player-file-list (directory)
+(defsubst emacspeak-m-player-directory-files (directory)
   "Return media files in directory.
 Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (declare (special emacspeak-media-extensions))
@@ -345,7 +345,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (when (file-directory-p resource)
-      (setq file-list (emacspeak-m-player-file-list resource)))
+      (setq file-list (emacspeak-m-player-directory-files resource)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
