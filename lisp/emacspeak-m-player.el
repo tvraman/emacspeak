@@ -96,23 +96,12 @@ This is set to nil when playing Internet  streams.")
 
 
 
-(defun emacspeak-m-player-current-info ()
-  "Return filename ,  position and directory of current track as a list."
-  (declare (special emacspeak-m-player-info-cache))
-  (let ((file (emacspeak-m-player-dispatch "get_file_name\n"))
-        (pos (emacspeak-m-player-dispatch "get_percent_pos\n")))
-    (when (and file pos)
-      (setq
-       file
-       (substring (second (split-string file "=")) 1 -1)
-       pos (second (split-string pos "="))))
-    (setq emacspeak-m-player-info-cache
-          (list file pos emacspeak-m-player-current-directory))))
+
 
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
-  (let ((info (emacspeak-m-player-current-info)))
-    (format "%s: %s%%"
+  (let ((info (emacspeak-m-player-get-position)))
+    (format "%s: %s"
             (first info)
             (second info))))
 
@@ -542,7 +531,6 @@ necessary."
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
-  (emacspeak-m-player-current-info)
   (emacspeak-m-player-dispatch "pause"))
 
 (defun emacspeak-m-player-quit ()
