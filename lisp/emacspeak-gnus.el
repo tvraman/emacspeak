@@ -666,9 +666,10 @@ Produce an auditory icon if possible."
 (defadvice gnus-summary-show-article (after emacspeak pre act)
   "Start speaking the article. "
   (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-hide-all-blocks-in-buffer)
-    (emacspeak-gnus-speak-article-body)))
+    (with-current-buffer gnus-article-buffer
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-hide-all-blocks-in-buffer)
+    (emacspeak-gnus-speak-article-body))))
 
 (defadvice gnus-summary-next-page (after emacspeak pre act)
   "Speak the next pageful "
