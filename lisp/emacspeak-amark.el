@@ -81,11 +81,15 @@ Automatically becomes buffer-local when set.")
 AMarks are bookmarks in audio content."
   (interactive "fPath\nsName\nnPosition")
   (declare (special emacspeak-amark-list))
-  (push
-   (make-emacspeak-amark :path path
-                         :name name
-                         :position position )
-   emacspeak-amark-list))
+  (let ((amark (emacspeak-amark-find name)))
+    (cond
+     (amark                             ; exists, reposition
+      (setf (emacspeak-amark-path amark) path
+            (emacspeak-amark-position amark) position))
+     (t 
+      (push
+       (make-emacspeak-amark :path path :name name :position position )
+       emacspeak-amark-list)))))
 
 (defun emacspeak-amark-find (name)
   "Return matching AMark if found in buffer-local AMark list."

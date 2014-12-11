@@ -536,9 +536,13 @@ necessary."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
+  (declare (special emacspeak-amark-list emacspeak-m-player-quit-amark-name))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
+        (when emacspeak-amark-list
+          (emacspeak-m-player-amark-add emacspeak-m-player-quit-amark-name)
+          (emacspeak-amark-save))
         (emacspeak-m-player-dispatch "quit")
         (emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
@@ -831,6 +835,11 @@ emacspeak-silence-hook."
 ;;}}}
 ;;{{{ AMarks:
 
+(defcustom emacspeak-m-player-quit-amark-name "Quit"
+  "Name used to  mark position where we quit a stream."
+  :type 'string
+  :group 'emacspeak-m-player)
+
 ;;;###autoload
 (defun emacspeak-m-player-amark-add (name &optional prompt-position)
   "Set AMark `name' at current position in current audio stream.
@@ -870,7 +879,7 @@ As the default, use current position."
                     (expand-file-name (emacspeak-amark-path amark)))))))
                                         ; now jump to marked position 
       (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))))
-  
+
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
