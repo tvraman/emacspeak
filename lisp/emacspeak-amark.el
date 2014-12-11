@@ -75,10 +75,21 @@ Automatically becomes buffer-local when set.")
 
 ;;}}}
 ;;{{{ AMark Functions:
+(defsubst emacspeak-amark-names ()
+  "Return list of  amark names."
+  (declare (special emacspeak-amark-list))
+  (loop for a in emacspeak-amark-list collect (emacspeak-amark-name a)))
+
+(defsubst emacspeak-amark-find (name)
+  "Return matching AMark if found in buffer-local AMark list."
+  (interactive (list (completing-read "Name: " (emacspeak-amark-names))))
+  (declare (special emacspeak-amark-list))
+  (find name emacspeak-amark-list :test #'string= :key #'emacspeak-amark-name))
 
 (defun emacspeak-amark-add (path name position)
-  "Add an AMark to the buffer local list of AMarks.
-AMarks are bookmarks in audio content."
+  "Add an AMark to the buffer local list of AMarks. AMarks are
+bookmarks in audio content. If there is an existing amark of the
+given name, it is updated with path and position."
   (interactive "fPath\nsName\nnPosition")
   (declare (special emacspeak-amark-list))
   (let ((amark (emacspeak-amark-find name)))
@@ -90,17 +101,6 @@ AMarks are bookmarks in audio content."
       (push
        (make-emacspeak-amark :path path :name name :position position )
        emacspeak-amark-list)))))
-
-(defun emacspeak-amark-find (name)
-  "Return matching AMark if found in buffer-local AMark list."
-  (interactive
-   (list
-    (completing-read
-     "Name: "
-     (loop for a in emacspeak-amark-list
-           collect (emacspeak-amark-name a)))))
-  (declare (special emacspeak-amark-list))
-  (find name emacspeak-amark-list :test #'string= :key #'emacspeak-amark-name))
 
 (defvar emacspeak-amark-file ".amarks.el"
   "Name of file used to save AMarks.")
