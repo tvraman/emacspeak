@@ -80,10 +80,10 @@ property 'emacspeak on the function."
 (defadvice call-interactively (around emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an advice."
   (let ((f  (ad-get-arg 0))
-		(ems-called-interactively-p ems-called-interactively-p))
+        (ems-called-interactively-p ems-called-interactively-p))
     (when (ems-record-interactive-p f)
-	  (setq ems-called-interactively-p f))
-	ad-do-it))
+      (setq ems-called-interactively-p f))
+    ad-do-it))
 
 (defsubst ems-interactive-p ()
   "Check our interactive flag.

@@ -376,11 +376,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ google CSE and Google Reader:
 
-
-
-
-
-
 (emacspeak-url-template-define
  "Official GoogleBlog Search"
  "http://www.google.com/cse?q=%s&loading=1&cref=%s"
@@ -393,7 +388,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search within all official Google blogs."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "g" url 'speak)))
-
 
 (defsubst emacspeak-url-template-make-cse (meta-url)
   "Builds up a CSE url for specified meta-url."
@@ -1369,8 +1363,6 @@ name of the list.")
  "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
  )
-
-
 
 ;;}}}
 ;;{{{ weather underground

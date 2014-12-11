@@ -3119,7 +3119,6 @@ char, or dont move. "
 
 ;;;###autoload
 
-
 ;;;###autoload
 (defun emacspeak-mark-backward-mark ()
   "Cycle backward through the mark ring."

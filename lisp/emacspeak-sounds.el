@@ -281,8 +281,8 @@ Do not set this by hand;
   "Serve auditory icon SOUND-NAME."
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                         (format "p %s\n"
-                                 (emacspeak-get-sound-filename sound-name ))))
+                       (format "p %s\n"
+                               (emacspeak-get-sound-filename sound-name ))))
 
 ;;}}}
 ;;{{{  Play an icon
@@ -296,13 +296,13 @@ Do not set this by hand;
   "Produce auditory icon SOUND-NAME."
   (declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
-             (start-process
-              emacspeak-play-program nil emacspeak-play-program
-              emacspeak-play-args
-              (emacspeak-get-sound-filename sound-name)
-              "&")
-           (error
-            (message (error-message-string err)))))
+    (start-process
+     emacspeak-play-program nil emacspeak-play-program
+     emacspeak-play-args
+     (emacspeak-get-sound-filename sound-name)
+     "&")
+    (error
+     (message (error-message-string err)))))
 
 ;;}}}
 ;;{{{  setup play function

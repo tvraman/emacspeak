@@ -90,7 +90,7 @@
 (defun emacspeak-feeds-cache-feeds ()
   "Cache feeds in emacspeak-feeds in a hash table."
   (declare (special emacspeak-feeds))
-    (loop
+  (loop
    for f in emacspeak-feeds
    do
    (puthash
@@ -120,9 +120,9 @@
        sym
        (sort val #'(lambda (a b)
                      (string-lessp (first a) (first b)))))
-       (emacspeak-feeds-cache-feeds))
+      (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
-   
+
 (defsubst emacspeak-feeds-added-p (feed-url)
   "Check if this feed has been added before."
   (declare (special emacspeak-feeds-feeds-table))

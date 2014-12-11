@@ -365,7 +365,6 @@ Retain previously set punctuations  mode."
     "Setup Emacspeak for rendered buffer."
     (emacspeak-eww-after-render-hook))))
 
-
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'mark-object)))

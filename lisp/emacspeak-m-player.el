@@ -89,15 +89,6 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
-
-
-
-
-
-
-
-
-
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
   (let ((info (emacspeak-m-player-get-position)))
@@ -613,10 +604,8 @@ A string of the form `<number> 1' sets volume as an absolute."
              for l in lines 
              collect (second (split-string l "=")))))
       (list 
-            (format "%s" (first fields)) ; position 
-             (substring (second  fields) 1 -1)))))
-
-    
+       (format "%s" (first fields)) ; position 
+       (substring (second  fields) 1 -1)))))
 
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
