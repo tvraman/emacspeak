@@ -80,7 +80,6 @@
 
 (defun emacspeak-url-template-url (ut)
   "Instantiate URL identified by URL template."
-  
   (let ((url 
          (apply 'format
                 ( emacspeak-url-template-template ut)
@@ -192,39 +191,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;; template resources
-;;{{{ twitter:
-
-(emacspeak-url-template-define
- "Twitter Search"
- "http://search.twitter.com/search.atom?q=%s"
- (list "Twitter Search: ")
- nil
- "Twitter search and display results feed."
- 'emacspeak-feeds-atom-display)
-
-;;}}}
-;;{{{  powerset
-
-;;}}}
-;;{{{ Mozilla MDC
-
-(emacspeak-url-template-define
- "Mozilla Developers Corner"
- "http://developer.mozilla.org/en/docs/%s"
- (list "MDC: ")
- nil
- "Pull specified resource from MDC.")
-
-(emacspeak-url-template-define
- "MDC Search"
- "http://developer.mozilla.org/en/docs/Special:Nutch?language=en&start=0&hitsPerPage=10&query=%s&fulltext=Search"
- (list "MDC: ")
- nil
- "Search MDC Wiki."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "content" url 'speak)))
-
-;;}}}
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
@@ -244,14 +210,17 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ amazon
+
 (emacspeak-url-template-define
  "Amazon Product Details By ASIN"
  "http://amazon.com/o/dt/upda-1.0-i/tg/aa/upda/item/-/%s"
  (list "ASIN Or ISBN: ")
  nil
  "Retrieve product details from Amazon by either ISBN or ASIN.")
+
 ;;}}}
 ;;{{{  old time radio
+
 (emacspeak-url-template-define
  "Old Time Radio"
  "http://www.oldtimeradioprograms.com"
@@ -262,6 +231,7 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-nested-table-list
       (list 2 3 )
       url)))
+
 ;;}}}
 ;;{{{ BBC iPlayer 
 ;;; convertor is here:
@@ -359,7 +329,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Show HTML5 IRC log.")
 
 ;;}}}
-
 ;;{{{ market summary from google finance
 
 (emacspeak-url-template-define
@@ -374,7 +343,7 @@ dont-url-encode if true then url arguments are not url-encoded "
         "id-summary-chart" url 'speak))))
 
 ;;}}}
-;;{{{ google CSE and Google Reader:
+;;{{{ google CSE :
 
 (emacspeak-url-template-define
  "Official GoogleBlog Search"
@@ -388,7 +357,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search within all official Google blogs."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "g" url 'speak)))
-
 (defsubst emacspeak-url-template-make-cse (meta-url)
   "Builds up a CSE url for specified meta-url."
   (format
@@ -426,31 +394,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  (list "URL To Analyze: ")
  nil
  "Page Analysis From Google Webmaster tools.")
-
-;;}}}
-;;{{{ Google views
-
-(emacspeak-url-template-define
- "Google TimeLine View"
- "http://www.google.com/search?hl=en&tbo=1&tbs=tl:1&q=%s"
- (list
-  'gweb-google-autocomplete)
- #'(lambda nil
-     (goto-char (point-min))
-     (re-search-forward " ^About" nil t)
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
- "Do a Google search and get a timeline view of results.")
-(emacspeak-url-template-define
- "Google Info View"
- "http://www.google.com/views?q=%s+view:info&sa=N&ct=infoview"
- (list
-  'gweb-google-autocomplete)
- #'(lambda nil
-     (re-search-forward "Info View" nil t)
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
- "Do a Google search and get a Info view of results.")
 
 ;;}}}
 ;;{{{ Anonimize google search
@@ -655,25 +598,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
       (browse-url url))))
 
 ;;}}}
-;;{{{ googl blogsearch
-
-(emacspeak-url-template-define
- "BlogSearch Google"
- "http://www.google.com/search?q=%s&hl=en&tbm=blg&output=atom"
- (list "Google Blog Search: ")
- nil
- "Google Blog Search"
- #'emacspeak-feeds-atom-display)
-
-(emacspeak-url-template-define
- "Recent BlogSearch Google"
- "http://www.google.com/search?q=%s&hl=en&tbm=blg&scoring=d&output=atom"
- (list "Google Blog Search: ")
- nil
- "Google Blog Search"
- #'emacspeak-feeds-atom-display)
-
-;;}}}
 ;;{{{ google translation service
 
 (emacspeak-url-template-define
@@ -712,22 +636,6 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-webutils-without-xsl
       (browse-url url))))
-
-;;}}}
-;;{{{  google filters
-
-(emacspeak-url-template-define
- "Google Hits"
- "http://www.google.com/search?q=%s&num=%s"
- (list 'gweb-google-autocomplete
-       #'(lambda nil
-           (declare (special  emacspeak-websearch-google-number-of-results))
-           emacspeak-websearch-google-number-of-results))
- nil
- "Only show Google hits."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "res"
-                                 url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times
@@ -1141,6 +1049,7 @@ name of the list.")
 
 ;;}}}
 ;;{{{  The Linux Show
+
 (emacspeak-url-template-define
  "Geek Linux Daily"
  "http://thelinuxdaily.com/shows/%s.m3u"
