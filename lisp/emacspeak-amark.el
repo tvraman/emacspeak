@@ -100,9 +100,7 @@ AMarks are bookmarks in audio content."
      (loop for a in emacspeak-amark-list
            collect (emacspeak-amark-name a)))))
   (declare (special emacspeak-amark-list))
-  (find name emacspeak-amark-list
-        :test #'(lambda (name item)
-                  (string= name (emacspeak-amark-name item)))))
+  (find name emacspeak-amark-list :test #'string= :key #'emacspeak-amark-name))
 
 (defvar emacspeak-amark-file ".amarks.el"
   "Name of file used to save AMarks.")
