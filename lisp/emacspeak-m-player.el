@@ -878,12 +878,13 @@ As the default, use current position."
   (interactive "sAMark Name:\nP")
   (let ((position (emacspeak-m-player-get-position)))
     (emacspeak-amark-add
-     (second position)
-     name
+     (second position) ;file-name
+     name; mark name
      (cond
       (prompt-position (read-number "Position: "))
       (t (first position))))
     (message "Added Amark %s" name)))
+
 (defsubst ems-file-index (name file-list)
   "Return index of name in file-list."
   (position (expand-file-name name) file-list :test #'string=))
@@ -900,7 +901,7 @@ As the default, use current position."
             (ems-file-index (second (emacspeak-m-player-get-position)) files))
            (new (ems-file-index (emacspeak-amark-path  amark) files)))
       (cond ; move to marked file if found, otherwise load
-       ((and current new)
+       ((and current new) ;skip in current play list 
         (emacspeak-m-player-play-tracks-jump (- new current)))
        (t (emacspeak-m-player-dispatch 
            (format "loadfile \"%s\""
