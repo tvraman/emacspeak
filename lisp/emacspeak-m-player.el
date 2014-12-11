@@ -816,7 +816,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
     -1)))
 
 ;;}}}
-;;{{{ pause/resume if needed
+;;{{{ pause/resume 
 
 ;;;###autoload
 (defun emacspeak-m-player-pause-or-resume ()
