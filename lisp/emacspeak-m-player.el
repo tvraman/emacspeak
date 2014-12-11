@@ -89,11 +89,12 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
-(defvar emacspeak-m-player-info-ring (make-ring 20)
-  "Stores info cache entries each time we quit m-player.")
 
-(defvar emacspeak-m-player-info-cache nil
-  "Cache currently playing info.")
+
+
+
+
+
 
 (defun emacspeak-m-player-current-info ()
   "Return filename ,  position and directory of current track as a list."
@@ -107,15 +108,6 @@ This is set to nil when playing Internet  streams.")
        pos (second (split-string pos "="))))
     (setq emacspeak-m-player-info-cache
           (list file pos emacspeak-m-player-current-directory))))
-
-(defun emacspeak-m-player-speak-current-info ()
-  "Speak cached  info about currently playing file."
-  (interactive)
-  (declare (special emacspeak-m-player-info-cache))
-  (message
-   "%s%% in %s"
-   (second emacspeak-m-player-info-cache)
-   (first emacspeak-m-player-info-cache)))
 
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
@@ -277,20 +269,7 @@ on a specific directory."
   (interactive "sURL: ")
   (emacspeak-m-player url))
 ;;;###autoload
-(defun emacspeak-m-player-resume ()
-  "Resume M-Player where it was stopped if possible.
-Only works for local media sources, not Internet streams."
-  (interactive)
-  (cond
-   ((and emacspeak-m-player-info-cache
-         emacspeak-m-player-current-directory
-         (not (eq 'run (process-status emacspeak-m-player-process))))
-    (emacspeak-m-player
-     (expand-file-name (car emacspeak-m-player-info-cache)
-                       emacspeak-m-player-current-directory))
-    (sit-for 0.5)
-    (emacspeak-m-player-seek-absolute (second emacspeak-m-player-info-cache)))
-   (t ( message "Cannot resume previously stopped track."))))
+
 (defvar emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
 (make-variable-buffer-local 'emacspeak-m-player-file-list)
@@ -300,8 +279,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (declare (special emacspeak-media-extensions))
   (cond
    ((fboundp 'directory-files-recursively)
-    (directory-files-recursively resource emacspeak-media-extensions))
-   (t (directory-files  resource 'full emacspeak-media-extensions))))
+    (directory-files-recursively directory emacspeak-media-extensions))
+   (t (directory-files  directory 'full emacspeak-media-extensions))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -569,14 +548,9 @@ necessary."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
-  (declare (special emacspeak-m-player-info-ring
-                    emacspeak-m-player-info-cache))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
-        (emacspeak-m-player-current-info)
-        (when emacspeak-m-player-info-cache
-          (ring-insert emacspeak-m-player-info-ring emacspeak-m-player-info-cache))
         (emacspeak-m-player-dispatch "quit")
         (emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
