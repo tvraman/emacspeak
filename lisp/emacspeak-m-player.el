@@ -288,9 +288,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                      ido-work-directory-list emacspeak-media-directory-regexp
                      emacspeak-media-shortcuts-directory emacspeak-m-player-process
                      emacspeak-m-player-program emacspeak-m-player-options))
-  (unless (string-match "^[a-z]+:"  resource) ; not a URL
-    (setq resource (expand-file-name resource))
-    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -303,6 +300,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
+    (unless (string-match "^[a-z]+:"  resource) ; not a URL
+    (setq resource (expand-file-name resource))
+    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
     (when (file-directory-p resource)
       (setq file-list (emacspeak-m-player-directory-files resource)))
     (when (getenv "ALSA_DEFAULT")
@@ -318,11 +318,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (file-list (nconc options file-list))
            (t
             (nconc options (list resource)))))
-    (save-current-buffer
+    (with-current-buffer buffer
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
-      (set-buffer buffer)
       (when emacspeak-m-player-current-directory (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
