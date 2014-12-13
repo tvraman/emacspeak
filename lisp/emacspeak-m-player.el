@@ -293,7 +293,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
-  (let ((buffer "*M-Player*")
+  (let ((buffer (get-buffer-create "*M-Player*"))
         (process-connection-type nil)
         (playlist-p
          (or play-list
