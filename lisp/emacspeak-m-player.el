@@ -323,7 +323,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
       (set-buffer buffer)
-      (cd emacspeak-m-player-current-directory)
+      (when emacspeak-m-player-current-directory (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
