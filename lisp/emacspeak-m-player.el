@@ -603,8 +603,10 @@ A string of the form `<number> 1' sets volume as an absolute."
              for l in lines 
              collect (second (split-string l "=")))))
       (list 
-       (format "%s" (first fields)) ; position 
-       (substring (second  fields) 1 -1)))))
+       (format "%s" (first fields))     ; position 
+       (if (second fields)
+           (substring (second  fields) 1 -1)
+         "")))))
 
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
