@@ -158,7 +158,7 @@ on a specific directory."
             val)
            (set-default sym val)))
 (defvar emacspeak-media-directory-regexp
-  "\\(mp3\\)\\|\\(audio\\)"
+  (regexp-opt '("mp3" "audio"))
   "Pattern matching locations where we store media.")
 
 ;;;###autoload
@@ -240,9 +240,11 @@ on a specific directory."
     (emacspeak-speak-mode-line)))
 (defsubst emacspeak-m-player-guess-directory ()
   "Guess default directory."
-  (if (string-match "\\(mp3\\)\\|\\(audio\\)"  default-directory)
+  (declare (special emacspeak-media-directory-regexp))
+  (if (string-match emacspeak-media-directory-regexp  default-directory)
       default-directory
     emacspeak-media-shortcuts-directory))
+
 ;;;###autoload 
 (defun emacspeak-m-player-url (url)
   "Call emacspeak-m-player with specified URL."
