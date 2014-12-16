@@ -283,7 +283,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (read-file-name
        "MP3 Resource: "
        (emacspeak-m-player-guess-directory)
-       (when (eq major-mode 'dired-mode) (dired-get-filename))))
+       (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))))
     current-prefix-arg))
   (declare (special  default-directory
                      emacspeak-m-player-file-list emacspeak-m-player-current-directory
