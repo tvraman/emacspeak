@@ -263,7 +263,20 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    ((fboundp 'directory-files-recursively)
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
-
+(defsubst emacspeak-m-player-read-resource ()
+  "Read resource from minibuffer with contextual smarts."
+  (let ((completion-ignore-case t)
+        (emacspeak-speak-messages nil)
+        (read-file-name-completion-ignore-case t)
+        (ido-work-directory-list
+         (remove-if-not 
+          #'(lambda (d)
+              (string-match  emacspeak-media-directory-regexp  d))
+          ido-work-directory-list)))
+    (read-file-name
+     "MP3 Resource: "
+     (emacspeak-m-player-guess-directory)
+     (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error)))))
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
@@ -272,18 +285,7 @@ Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (let ((completion-ignore-case t)
-          (emacspeak-speak-messages nil)
-          (read-file-name-completion-ignore-case t)
-          (ido-work-directory-list
-           (remove-if-not 
-            #'(lambda (d)
-                (string-match  emacspeak-media-directory-regexp  d))
-            ido-work-directory-list)))
-      (read-file-name
-       "MP3 Resource: "
-       (emacspeak-m-player-guess-directory)
-       (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))))
+    (emacspeak-m-player-read-resource)
     current-prefix-arg))
   (declare (special  default-directory
                      emacspeak-m-player-file-list emacspeak-m-player-current-directory
