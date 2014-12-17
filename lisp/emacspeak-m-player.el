@@ -276,7 +276,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (read-file-name
      "MP3 Resource: "
      (emacspeak-m-player-guess-directory)
-     (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error)))))
+     (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
+     'must-match)))
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
