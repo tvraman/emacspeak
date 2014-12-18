@@ -108,24 +108,18 @@ given name, it is updated with path and position."
 (defun emacspeak-amark-save ()
   "Save buffer-local AMarks in current directory."
   (interactive)
-  (declare (special emacspeak-amark-file))
-  (let ((l emacspeak-amark-list)
+  (declare (special  emacspeak-amark-file))
+  (let ((l  emacspeak-amark-list)
         (print-length nil)
-        (buff
-         (find-file-noselect
-          (expand-file-name emacspeak-amark-file default-directory))))
-    (save-current-buffer
-      (set-buffer buff)
+        (buff (find-file-noselect (expand-file-name emacspeak-amark-file))))
+    (with-current-buffer buff
       (setq buffer-undo-list t)
       (erase-buffer)
-      (print  l buff) 
+      (cl-prettyprint  l) 
       (save-buffer buff)
       (kill-buffer buff)
-      (when (ems-interactive-p )
-        (message "Saved AMarks in %s"
-                 default-directory)
-        (emacspeak-auditory-icon 'save-object)))))
-
+      (message "Saved AMarks in %s" emacspeak-amark-file)
+      (emacspeak-auditory-icon 'save-object))))
 (defun emacspeak-amark-load ()
   "Locate AMarks file from current directory, and load it."
   (interactive)
