@@ -248,8 +248,9 @@ on a specific directory."
 ;;;###autoload 
 (defun emacspeak-m-player-url (url)
   "Call emacspeak-m-player with specified URL."
-  (interactive "sURL: ")
+  (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (emacspeak-m-player url))
+  
 ;;;###autoload
 
 (defvar emacspeak-m-player-file-list nil
