@@ -202,9 +202,7 @@ or URL read from minibuffer."
   (declare (special emacspeak-webutils-url-at-point))
   (if (functionp  emacspeak-webutils-url-at-point)
       (funcall emacspeak-webutils-url-at-point)
-    (read-from-minibuffer "URL: "
-                          (or (browse-url-url-at-point)
-                              "http://"))))
+    (car (browse-url-interactive-arg "URL: "))))
 
 ;;;  Helper: rename result buffer
 (defsubst emacspeak-webutils-rename-buffer (key)
