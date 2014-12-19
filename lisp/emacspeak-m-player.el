@@ -241,9 +241,11 @@ on a specific directory."
 (defsubst emacspeak-m-player-guess-directory ()
   "Guess default directory."
   (declare (special emacspeak-media-directory-regexp))
-  (if (string-match emacspeak-media-directory-regexp  default-directory)
-      default-directory
-    emacspeak-media-shortcuts-directory))
+  (cond
+   ((or (string-match emacspeak-media-directory-regexp  default-directory) ;pattern match
+        (directory-files default-directory   nil emacspeak-media-extensions))
+      default-directory)
+   (t emacspeak-media-shortcuts-directory)))
 
 ;;;###autoload 
 (defun emacspeak-m-player-url (url)
