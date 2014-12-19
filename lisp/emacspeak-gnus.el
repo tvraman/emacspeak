@@ -669,7 +669,7 @@ Produce an auditory icon if possible."
     (with-current-buffer gnus-article-buffer
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-hide-all-blocks-in-buffer)
-    (emacspeak-gnus-speak-article-body))))
+      (emacspeak-gnus-speak-article-body))))
 
 (defadvice gnus-summary-next-page (after emacspeak pre act)
   "Speak the next pageful "

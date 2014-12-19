@@ -250,7 +250,7 @@ on a specific directory."
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (emacspeak-m-player url))
-  
+
 ;;;###autoload
 
 (defvar emacspeak-m-player-file-list nil
@@ -307,8 +307,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
     (unless (string-match "^[a-z]+:"  resource) ; not a URL
-    (setq resource (expand-file-name resource))
-    (setq emacspeak-m-player-current-directory (file-name-directory resource)))
+      (setq resource (expand-file-name resource))
+      (setq emacspeak-m-player-current-directory (file-name-directory resource)))
     (when (file-directory-p resource)
       (setq file-list (emacspeak-m-player-directory-files resource)))
     (when (getenv "ALSA_DEFAULT")
