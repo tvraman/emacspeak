@@ -576,15 +576,15 @@ A string of the form `<number> 1' sets volume as an absolute."
   (emacspeak-m-player-dispatch
    (format "balance %s"
            (read-from-minibuffer "Balance: "))))
-
+;;; Would be nice to be able to pass in args in a non-interactive call.
 ;;;###autoload
-(defun emacspeak-m-player-slave-command ()
+(defun emacspeak-m-player-slave-command (command)
   "Dispatch slave command read from minibuffer."
-  (interactive)
+  (interactive
+   (list
+    (completing-read "Slave Command: " (emacspeak-m-player-command-list))))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (let* ((command (completing-read "Slave Command: " (emacspeak-m-player-command-list)))
-           (args
-            (when (cdr (assoc command emacspeak-m-player-command-list))
+    (let* ((args (when (cdr (assoc command emacspeak-m-player-command-list))
               (read-from-minibuffer
                (mapconcat #'identity
                           (cdr (assoc command emacspeak-m-player-command-list))
@@ -592,6 +592,11 @@ A string of the form `<number> 1' sets volume as an absolute."
       (message  "%s"
                 (emacspeak-m-player-dispatch (format "%s %s" command args))))))
 
+;;;###autoload
+(defun emacspeak-m-player-display-percent ()
+  "Display current percentage."
+  (interactive)
+  (emacspeak-m-player-slave-command "get_percent_pos"))
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
@@ -619,8 +624,9 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-display-position ()
   "Display current position in track and its length."
   (interactive)
-  (emacspeak-m-player-dispatch
-   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n")
+  (message "%s"
+           (emacspeak-m-player-dispatch
+            "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)))
 
@@ -747,6 +753,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("=" emacspeak-m-player-volume-up)
         (">" emacspeak-m-player-forward-1min)
         ("?" emacspeak-m-player-display-position)
+        ("%" emacspeak-m-player-display-percent)
         ("L" emacspeak-m-player-load-file)
         ("O" emacspeak-m-player-reset-options)
         ("Q" emacspeak-m-player-quit)
