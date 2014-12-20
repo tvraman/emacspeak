@@ -584,13 +584,15 @@ A string of the form `<number> 1' sets volume as an absolute."
    (list
     (completing-read "Slave Command: " (emacspeak-m-player-command-list))))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (let* ((args (when (cdr (assoc command emacspeak-m-player-command-list))
+    (let* ((args
+            (when (cdr (assoc command emacspeak-m-player-command-list))
               (read-from-minibuffer
                (mapconcat #'identity
                           (cdr (assoc command emacspeak-m-player-command-list))
-                          " ")))))
-      (message  "%s"
-                (emacspeak-m-player-dispatch (format "%s %s" command args))))))
+                          " "))))
+           (result (emacspeak-m-player-dispatch (format "%s %s" command args))))
+      (setq result (replace-regexp-in-string  "ans_" "" result))
+      (message   result))))
 
 ;;;###autoload
 (defun emacspeak-m-player-display-percent ()
