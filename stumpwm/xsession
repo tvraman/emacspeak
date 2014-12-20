@@ -1,0 +1,9 @@
+#!/bin/sh
+xmodmap $HOME/.Xmodmap
+xrdb -merge $HOME/.Xresources &
+xautolock -time 30 -locker  "i3lock -b" & 
+
+xterm &
+export LISP=sbcl
+exec ck-launch-session /usr/local/bin/stumpwm
+

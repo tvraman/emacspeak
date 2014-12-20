@@ -1,0 +1,22 @@
+! XFT and Font settings
+Xft*dpi:       96
+Xft*antialias: true
+Xft*hinting:   true
+Xft*hintstyle: hintfull
+Xft*rgba:      rgb
+! *font: -*-terminus-medium-*-*-*-17-120-*-*-*-*-iso10646-1
+! *font: -*-proggyclean-*-*-*-*-*-80-*-*-*-*-*-*
+
+XTerm*Foreground: white
+XTerm*Background: black
+XTerm*faceName: xft:Inconsolata:pixelsize=14
+XTerm*eightBitInput: false
+XTerm*metaSendsEscape: true
+
+URxvt.font: xft:Inconsolata:pixelsize=14
+URxvt.background: black
+URxvt.foreground: white
+URxvt.scrollBar: false
+Rxvt*background:	black
+Rxvt*foreground:	white
+emacs.menuBar:		off
