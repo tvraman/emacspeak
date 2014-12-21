@@ -965,13 +965,13 @@ Produce an auditory icon if possible."
  (cons 're-search-forward
        'emacspeak-pronounce-uuid))
 (loop for mode in
-      '(conf-space-mode conf-unix-mode)
+      '(conf-space-mode conf-unix-mode conf-mode)
       do
-(emacspeak-pronounce-add-dictionary-entry
- mode
- emacspeak-pronounce-uuid-pattern
- (cons 're-search-forward
-       'emacspeak-pronounce-uuid)))
+      (emacspeak-pronounce-add-dictionary-entry
+       mode
+       emacspeak-pronounce-uuid-pattern
+       (cons 're-search-forward
+             'emacspeak-pronounce-uuid)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
