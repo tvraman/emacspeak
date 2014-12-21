@@ -815,6 +815,24 @@ specified pronunciation dictionary key."
        (string-match "[0-9a-f]+" sha))
     (format "sha: %s " (substring sha 0 5))))
 
+(defvar emacspeak-pronounce-uuid-pattern
+  (concat 
+   "[0-9a-f]\\{8\\}" "-"
+"[0-9a-f]\\{4\\}" "-"
+"[0-9a-f]\\{4\\}" "-"
+"[0-9a-f]\\{4\\}" "-"
+"[0-9a-f]\\{12\\}" )
+  "Regexp pattern that matches hex-encoded, human-readable UUID.")
+
+(defun emacspeak-pronounce-uuid (uuid)
+  "Return pronunciation for human-readable UUID."
+  (declare (special emacspeak-pronounce-uuid-pattern))
+  (when (and (= 36 (length uuid))
+             (string-match emacspeak-pronounce-uuid-pattern uuid))
+    (format "uid: %s..%s "
+            (substring uuid 0 2)
+            (substring uuid -2 nil))))
+ 
 ;;}}}
 
 ;;}}}
