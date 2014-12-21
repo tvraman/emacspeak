@@ -957,6 +957,22 @@ Produce an auditory icon if possible."
  (cons 're-search-forward
        'emacspeak-pronounce-sha-checksum))
 
+(declaim (special emacspeak-pronounce-uuid-pattern))
+
+(emacspeak-pronounce-add-dictionary-entry
+ 'comint-mode
+ emacspeak-pronounce-uuid-pattern
+ (cons 're-search-forward
+       'emacspeak-pronounce-uuid))
+(loop for mode in
+      '(conf-space-mode conf-unix-mode)
+      do
+(emacspeak-pronounce-add-dictionary-entry
+ mode
+ emacspeak-pronounce-uuid-pattern
+ (cons 're-search-forward
+       'emacspeak-pronounce-uuid)))
+
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
 (loop for f in
