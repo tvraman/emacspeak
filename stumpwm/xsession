@@ -5,5 +5,5 @@ xautolock -time 30 -locker  "i3lock -b" &
 
 xterm &
 export LISP=sbcl
-exec ck-launch-session /usr/local/bin/stumpwm
+exec ck-launch-session /usr/bin/stumpwm
 
