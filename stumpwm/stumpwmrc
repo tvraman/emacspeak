@@ -21,7 +21,7 @@
 ;;; }
 ;;; {TTS
 
-(load "/usr/local/google/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
+(load "/home/raman/emacs/lisp/emacspeak/stumpwm/tts.lisp")
 (setq *tts-engine* *tts-32-outloud*)
 (tts-say "TTS: Ready to talk! ")
 
