@@ -115,11 +115,12 @@ given name, it is updated with path and position."
     (with-current-buffer buff
       (setq buffer-undo-list t)
       (erase-buffer)
-      (print  l (current-buffer)) 
+      (prin1  l (current-buffer)) 
       (save-buffer buff)
       (kill-buffer buff)
       (message "Saved AMarks in %s" emacspeak-amark-file)
       (emacspeak-auditory-icon 'save-object))))
+
 (defun emacspeak-amark-load ()
   "Locate AMarks file from current directory, and load it."
   (interactive)
