@@ -1,4 +1,7 @@
 <CsoundSynthesizer>
+<C  sOptions>
+  -odac -d -B4096 -b1024
+</CsOptions>
 <CsInstruments>
 sr		=		44100
 kr		=		441
