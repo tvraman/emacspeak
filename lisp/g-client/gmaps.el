@@ -91,7 +91,7 @@
 Optional argument `raw-p' returns complete JSON  object."
   (let ((result 
          (g-json-get-result
-          (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
+          (format "%s --max-time 8 --connect-timeout 10 %s '%s'"
                   g-curl-program g-curl-common-options
                   (gmaps-geocoder-url (g-url-encode address))))))
     (unless (string= "OK" (g-json-get 'status result))
