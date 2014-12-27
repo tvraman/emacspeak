@@ -35,6 +35,6 @@ endin
 ;i1 0 1 2000
 ;i1 1 1 1000
 i1 0 1  500
-;i1 0 1  250
+i1 0 1  250
 </CsScore>
 </CsoundSynthesizer>
