@@ -226,6 +226,7 @@ on a specific directory."
           `(defun 
                ,(intern (format "emacspeak-m-player-accelerator-%s" (gensym)))
                ()
+             ,(format "Launch media from directory %s" directory)
              (interactive)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)))
