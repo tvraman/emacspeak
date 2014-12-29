@@ -507,7 +507,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     ad-do-it
     (when (ems-interactive-p )
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'complete))
+      (emacspeak-auditory-icon 'help))
     ad-return-value))
 
 ;;}}}
@@ -722,7 +722,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p )
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'complete))
+      (emacspeak-auditory-icon 'help))
     ad-return-value))
 
 ;;}}}
@@ -1136,7 +1136,7 @@ Produce an auditory icon if possible."
       (if (> (point) prior)
           (tts-with-punctuations
            'all
-           (emacspeak-auditory-icon 'complete)
+           (emacspeak-auditory-icon 'help)
            (dtk-speak (buffer-substring prior (point ))))
         (emacspeak-speak-completions-if-available))))
    (t ad-do-it))
