@@ -202,7 +202,9 @@ afilt 	reson 	asig, kfreqenv, kfreqenv/8
 
 aout 	balance 	afilt, asig
 
-		outs		10*aout, 10*(1-aout)
+		outs		aout, aout
+ 
+
 		endin
  
 
@@ -219,7 +221,7 @@ asig 	pluck 	p4, kptchenv, 50, 2, 4, .8, 3
 
 aout 	=		kampenv4*asig
 
-		outs 	aout, aout
+		outs 	10*aout, 10*(1-aout)
  
 
 		endin
@@ -317,10 +319,12 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;	Dur Drum PanL PanR
 
+;i4 0 .33 8000 21 22 23 24
 
- i6 0  0.25 8000 
-
- 
+ i6 0 0.21 18000
+i6 0.2 0.22 20000
+;i2 0.1 0.25 8000 25 26 27 28
+; i1 0 6 8000 29 30 31 32
 
 ; s
 
@@ -328,7 +332,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ; s
 
- ;i2 .2 .2 20000
+; i2 .2 .2 20000
 
 ; i2 + .2 20000
 
