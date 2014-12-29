@@ -226,10 +226,8 @@ Do not set this by hand;
   (interactive
    (list
     (expand-file-name
-     (read-directory-name "Theme: "
-                          emacspeak-sounds-directory))))
-  (declare (special emacspeak-sounds-current-theme
-                    emacspeak-sounds-themes-table))
+     (read-directory-name "Theme: " emacspeak-sounds-directory))))
+  (declare (special emacspeak-sounds-current-theme emacspeak-sounds-themes-table))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
   (unless (file-directory-p theme)
     (setq theme  (file-name-directory theme)))
