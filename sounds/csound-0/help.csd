@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
- -odac 
+ -o help.wav
 </CsOptions>
 <CsInstruments>
 
@@ -12,7 +12,7 @@ nchnls = 2
 ; Instrument #1: An example of sleighbells.
 instr 1
    a1 sleighbells 20000, 0.1
-a2 sleighbells 20000, 0.1
+a2 sleighbells 16000, 0.9
   outs a1, a2
 endin
 
@@ -21,8 +21,8 @@ endin
 <CsScore>
 t 0 120
 i 1 0.00 0.25
-i 1 + 0.2
-i 1 + 0.15
+i 1 + 0.12
+i 1 + 0.1
 i 1 + 0.1
 i 1 + 0.1
 e
