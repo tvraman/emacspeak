@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
-<C  sOptions>
-  -o working.wav
+<CsOptions>
+-o working.wav
 </CsOptions>
 <CsInstruments>
 sr		=		44100
