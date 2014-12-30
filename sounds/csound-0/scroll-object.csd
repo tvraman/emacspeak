@@ -28,6 +28,7 @@ endin
 
 </CsInstruments>
 <CsScore>
+t 0 120 
 i 1 0 .5
 e
 </CsScore>
