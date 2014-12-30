@@ -2494,17 +2494,6 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ provide auditory icon when window config changes
 
-(defun emacspeak-window-resize (ignore)
-  "Play window resize icon."
-  (emacspeak-auditory-icon 'window-resize))
-
-(defvar emacspeak-sounds-icon-on-window-resize nil
-  "If T then window resize will produce an auditory icon.")
-
-(when emacspeak-sounds-icon-on-window-resize
-  (add-hook 'window-size-change-functions
-            'emacspeak-window-resize))
-
 ;;}}}
 ;;{{{ advice load to speech-enable new commands
 
