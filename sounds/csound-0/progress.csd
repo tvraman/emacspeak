@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o network-down.wav
+-o progress.wav
 </CsOptions>
 <CsInstruments>
 
@@ -19,15 +19,15 @@ ifreq2    = p7
 ;low amplitude
 adrp dripwater .1, 0.09, 10, .9, imaxshake, ifreq, ifreq1, ifreq2 
 asig clip adrp, 2, 0.9	; avoid drips that drip too loud
-     outs asig, 0*asig
+     outs asig, asig
 
 endin
 </CsInstruments>
 <CsScore>
 
-{2 CNT 
+{1 CNT 
 
-i1 [0.1 * $CNT] 0.5 0.5 430 1000 800 
+i1 [0.25 * $CNT] 0.25 0.75 1630 1000 1200 
 
 } 
 
