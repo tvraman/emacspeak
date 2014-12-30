@@ -1,0 +1,6 @@
+This auditory icon theme was generated using  CSound.
+The source files *.csd  were generated from various CSound example files and compositions.
+They can be found in ./src/*.csd
+Use the command 
+csound -o file.wav file.csd  
+to generate the wav files.
