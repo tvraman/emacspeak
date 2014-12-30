@@ -1558,8 +1558,7 @@ Produce an auditory icon if possible."
     (emacspeak-speak-mode-line)))
 (loop
  for f in
- '(kill-buffer delete-frame quit-window
-               delete-other-windows delete-other-frames)
+ '(kill-buffer  quit-window)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -1567,6 +1566,22 @@ Produce an auditory icon if possible."
      (when (ems-interactive-p )
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
+
+(loop
+ for f in
+ '(
+   delete-other-windows delete-other-frames delete-windows-on
+   delete-window delete-completion-window
+   split-window-below split-window-right
+   split-window-vertically split-window-horizontally)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speech-enabled by emacspeak."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'window-resize)
+       (emacspeak-speak-mode-line)))))
+
 (loop
  for f in
  '(
