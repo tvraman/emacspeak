@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o progress.wav
+-o search-hit.wav
 </CsOptions>
 <CsInstruments>
 
@@ -25,10 +25,7 @@ endin
 </CsInstruments>
 <CsScore>
 
-{1 CNT 
-
-i1 [0.25 * $CNT] 0.25 0.75 1630 1000 1200 
-
+i1 0 0.25 0.1 1600 2000 2400
 } 
 
 e
