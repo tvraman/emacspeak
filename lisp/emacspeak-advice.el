@@ -495,7 +495,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   "Provide auditory feedback."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-auditory-icon 'complete)))
 
 (defadvice pcomplete-show-completions (around emacspeak pre act comp)
   (let ((emacspeak-speak-messages nil))
@@ -507,7 +507,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     ad-do-it
     (when (ems-interactive-p )
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'help))
+      (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
 ;;}}}
@@ -722,7 +722,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p )
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'help))
+      (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
 ;;}}}
@@ -1136,7 +1136,7 @@ Produce an auditory icon if possible."
       (if (> (point) prior)
           (tts-with-punctuations
            'all
-           (emacspeak-auditory-icon 'help)
+           (emacspeak-auditory-icon 'complete)
            (dtk-speak (buffer-substring prior (point ))))
         (emacspeak-speak-completions-if-available))))
    (t ad-do-it))
