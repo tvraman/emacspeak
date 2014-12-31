@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
-<C  sOptions>
-  -odac -d -B4096 -b1024
+<CsOptions>
+  -odac warn-user.wav
 </CsOptions>
 <CsInstruments>
 sr		=		44100
@@ -322,7 +322,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;i1 0 1 8000 21 22 23 24
 
- i1 0 0.25 12000 24 26 28 30
+ i1 0 0.25 5000 24 26 28 30
 
 ; i1 0 6 8000 29 30 31 32
 
