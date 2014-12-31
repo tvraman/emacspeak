@@ -552,7 +552,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char ))))
 
-;;;###autoload
+
 (defvar emacspeak-speak-read-events t
   "Set to nil to silence read-event.")
 
