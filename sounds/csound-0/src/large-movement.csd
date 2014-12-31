@@ -12,7 +12,7 @@ nchnls = 2
 instr 1 
 
 kcps    expon p5, p3, p4
-asig	oscil3 0.3, kcps, 1
+asig	oscil3 0.1, kcps, 1
 krvt =  3.5
 ilpt =  0.1
 aleft	combinv asig, krvt, ilpt
