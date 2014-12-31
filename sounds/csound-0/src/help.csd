@@ -11,8 +11,8 @@ nchnls = 2
 
 ; Instrument #1: An example of sleighbells.
 instr 1
-   a1 sleighbells 15000, 0.5, 0, 0.1
-a2 sleighbells 12000, 0.1, 0, 0.1
+   a1 sleighbells 15000, 0.1, 8
+a2 sleighbells 12000, 0.1, 8
   outs a1, a2
 endin
 
