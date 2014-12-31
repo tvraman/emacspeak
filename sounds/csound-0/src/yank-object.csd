@@ -3,7 +3,6 @@
 -o yank-object.wav
 </CsOptions>
 <CsInstruments>
-
 sr = 44100
 ksmps = 32
 nchnls = 2
@@ -27,9 +26,8 @@ endin
 
 
 t 0 120 ;
-{10 CNT 
-
-i1 [0.05 * $CNT] 0.5 1 800 1600 2000 
+{5 CNT 
+i1 [0.05 * $CNT] 0.5 .5 800 1600 2000 
 } 
 
 e
