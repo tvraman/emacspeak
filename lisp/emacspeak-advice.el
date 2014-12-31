@@ -1569,8 +1569,7 @@ Produce an auditory icon if possible."
 
 (loop
  for f in
- '(
-   delete-other-windows delete-other-frames delete-windows-on
+ '(delete-windows-on delete-other-frames
    delete-window delete-completion-window
    split-window-below split-window-right
    split-window-vertically split-window-horizontally)
@@ -1867,6 +1866,7 @@ Provide an auditory icon if possible."
   "Provide spoken feedback."
   (when (ems-interactive-p )
     (message "Deleted all other windows")
+    (emacspeak-auditory-icon 'window-resize)
     (emacspeak-speak-mode-line)))
 
 (defadvice split-window-vertically (after emacspeak pre act comp)
