@@ -1,4 +1,7 @@
 <CsoundSynthesizer>
+<CsOptions>
+-o close-object.wav
+</CsOptions>
 <CsInstruments>
 ;rene.nyffenegger@adp-gmbh.ch
 
@@ -35,7 +38,7 @@ endin
 ;i1 0 1 2000
 ;i1 1 1 1000
 t 0 120
-i1 0 1  500
+i1 0 .1  100
 i1 0 1  250
 </CsScore>
 </CsoundSynthesizer>
