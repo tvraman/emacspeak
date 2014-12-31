@@ -1,4 +1,7 @@
 <CsoundSynthesizer>
+<CsOptions>
+-o deselect-object.wav
+</CsOptions>
 <CsInstruments>
 sr		=		44100
 kr		=		441
@@ -319,7 +322,7 @@ f32 0 8 -2 1 1	1	1	1	0	1	1
 
 ;	Dur Drum PanL PanR
 
-i1 0 .25 8000 21 23    23 24
+i1 0 .3 2000 21 23    23 24
 ;i1 + .25 8000 21 21    23 24
  ;i2 0 0.25 8000 25 26 27 28
 
