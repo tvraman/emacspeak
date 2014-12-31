@@ -1308,6 +1308,7 @@ Negative prefix arg speaks from start of buffer to point."
   (let ((help-buffer (get-buffer "*Help*")))
     (cond
      (help-buffer
+      (emacspeak-auditory-icon 'help)
       (save-current-buffer
         (set-buffer help-buffer)
         (emacspeak-speak-buffer arg )))
