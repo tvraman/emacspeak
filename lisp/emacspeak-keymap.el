@@ -310,6 +310,7 @@ field in the customization buffer.  You can use the notation
         ("!" emacspeak-speak-run-shell-command)
         ("'" emacspeak-speak-sexp)
         ("#" emacspeak-gridtext)
+        ("$" emacspeak-wizards-shell-command-on-current-file)
         ("%" emacspeak-speak-current-percentage)
         ("(" emacspeak-audio-setup)
         (")" emacspeak-sounds-select-theme)

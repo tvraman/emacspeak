@@ -3487,12 +3487,12 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;{{{ Run shell command on current file:
 
 ;;;###autoload
-(defun emacspeak-wizards-shell-command-on-current-file ()
+(defun emacspeak-wizards-shell-command-on-current-file (command)
   "Prompts for and runs shell command on current file."
-  (interactive)
+  (interactive (list (read-shell-command "Command: ")))
   (compile
    (format "%s %s"
-           (read-shell-command "Command: ")
+           command
            (buffer-file-name ))))
 
 ;;}}}
