@@ -3490,10 +3490,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-shell-command-on-current-file (command)
   "Prompts for and runs shell command on current file."
   (interactive (list (read-shell-command "Command: ")))
-  (compile
-   (format "%s %s"
-           command
-           (buffer-file-name ))))
+  (shell-command (format "%s %s" command (buffer-file-name ))))
 
 ;;}}}
 ;;{{{ Filtered buffer lists:
