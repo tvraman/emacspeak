@@ -1747,6 +1747,7 @@ Displays name of current buffer.")
   (declare (special header-line-format))
   (cond
    (header-line-format
+    (emacspeak-auditory-icon 'item)
     (dtk-speak (format-mode-line header-line-format)))
    (t (dtk-speak "No header line."))))
 
