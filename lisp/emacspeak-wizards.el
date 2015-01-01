@@ -3484,6 +3484,18 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (message (setenv "PATH" result))))
 
 ;;}}}
+;;{{{ Run shell command on current file:
+
+;;;###autoload
+(defun emacspeak-wizards-shell-command-on-current-file ()
+  "Prompts for and runs shell command on current file."
+  (interactive)
+  (compile
+   (format "%s %s"
+           (read-shell-command "Command: ")
+           (buffer-file-name ))))
+
+;;}}}
 ;;{{{ Filtered buffer lists:
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)

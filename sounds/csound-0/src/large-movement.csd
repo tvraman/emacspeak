@@ -23,7 +23,7 @@ endin
 </CsInstruments>
 <CsScore>
 f1 0 4096 10 1
-i 1 0 .25  60 4000
+i 1 0 .25  60 1000
 ;i 1 + .2 25 2000
 e
 
