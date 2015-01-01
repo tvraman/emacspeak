@@ -22,7 +22,7 @@ endin
 
 </CsInstruments>
 <CsScore>
-i 2 0 0.25   7.00	; scales to duration
+i 2 0 0.2   7.00	; scales to duration
 
 e
 </CsScore>
