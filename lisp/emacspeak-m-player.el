@@ -224,7 +224,7 @@ on a specific directory."
   (let ((command
          (eval 
           `(defun 
-               ,(intern (format "emacspeak-m-player-accelerator-%s"
+               ,(intern (format "emacspeak-media-%s"
                                 (file-name-base (directory-file-name directory))))
                ()
              ,(format "Launch media from directory %s" directory)
