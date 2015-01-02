@@ -13,9 +13,10 @@ gasig  init 0
 gidel  = 1		;delay time in seconds
                                                              
 instr 1
-	
-ain  pluck .7, 440, 1000, 0, 1
-     outs ain, ain
+	kline	linseg 1, 0.5*p3, 0, 0.5*p3, 1 
+  ain       pluck     .7, 440, 1000, 0, 1
+aL, aR pan2 ain, kline
+     outs aL,aR
 
 vincr gasig, ain	;send to global delay
 endin
