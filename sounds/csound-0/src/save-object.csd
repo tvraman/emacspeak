@@ -14,7 +14,7 @@ giSine ftgen 0, 0, 2^10, 10, 1
 instr 2	; scaling to duration
 
 kcps = cpspch(p4)
-kenv linseg 0, p3*0.25, p3*0.5, 1, 0.5*p3, p3*0.75, 0
+kenv linseg 0, p3*0.25,  1,  p3*0.75, 0
 asig poscil kenv, kcps, giSine
      outs asig, asig
 
