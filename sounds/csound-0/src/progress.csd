@@ -9,8 +9,6 @@ ksmps = 32
 nchnls = 2
 0dbfs  = 1
 
-giSine ftgen 0, 0, 2^10, 10, 1
-
 instr 1
 
 imaxshake = p4
