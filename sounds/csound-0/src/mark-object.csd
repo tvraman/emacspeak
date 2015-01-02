@@ -17,7 +17,7 @@ gasrc init 0
 
 instr 10	;uses output from instr1 as source
 
- kaz	linseg 0, p3, 180		;2 full rotations
+ kaz	linseg 0, p3, 360		;2 full rotations
 
  aleft,aright hrtfmove gasrc, kaz,0, "hrtf-44100-left.dat","hrtf-44100-right.dat"
 
