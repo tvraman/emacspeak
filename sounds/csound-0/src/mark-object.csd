@@ -19,7 +19,7 @@ instr 10	;uses output from instr1 as source
 
  kaz	linseg 0, p3, 360		;2 full rotations
 
- aleft,aright hrtfmove gasrc, kaz,0, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+ aleft,aright hrtfmove2 gasrc, kaz,0, "hrtf-44100-left.dat","hrtf-44100-right.dat"
 
  outs	aleft, aright
   
@@ -38,7 +38,7 @@ endin
 </CsInstruments>
 <CsScore>
 
-i 1 0 .25
+i 1 0 .3
 i10 0 0.25
 e
 </CsScore>
