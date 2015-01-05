@@ -143,6 +143,7 @@ This is set to nil when playing Internet  streams.")
   "*Map specific key sequences to launching MPlayer accelerators 
 on a specific directory."
   :group 'emacspeak-m-player
+  :group 'emacspeak-media 
   :type '(repeat :tag "Emacspeak Media Locations"
                  (cons  :tag "KeyBinding"
                         (string :tag "Key")
