@@ -188,14 +188,16 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
-;;;In-Depth Article
-(make-emacspeak-google-tool
+        ;;;In-Depth Article
+        (make-emacspeak-google-tool
          :name "in-depth"
          :param "ida"
          :range '(0 1)
          :default 0
          :value 0
          :type 'tbs)
+
+
 
 ;;; Blog mode
         (make-emacspeak-google-tool
