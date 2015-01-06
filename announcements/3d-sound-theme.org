@@ -1,0 +1,33 @@
+
+
+* Auditory Icon Theme: 3d 
+
+[[http://www.csounds.com/][CSound]] is a sophisticated music sound synthesis system with a
+strong community of developers.  I've played off and on with
+CSound ever since the early 90's  and have always been intrigued
+by the possibility of   algorithmically creating new auditory icon themes for
+Emacspeak  using CSound.
+
+Over the holidays last December, I finally got around to creating
+my first complete CSound-generated auditory icon theme -- it is
+now checked into Emacspeak SVN as theme [[http://emacspeak.googlecode.com/svn/trunk/sounds/3d/][3d]]. This theme is best
+experienced with headphones --- many of the generated icons use
+spatial audio to good effect.
+
+
+
+#+TITLE: Using CSound To Generate Auditory Icons 
+#+DATE: <2015-01-06 Tue>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
