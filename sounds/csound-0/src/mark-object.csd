@@ -19,7 +19,7 @@ instr 10	;uses output from instr1 as source
 
  kaz	expon 225, p3, 45		;1 half rotation 
 
- aleft,aright hrtfmove2 gasrc, kaz,75, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+ aleft,aright hrtfmove2 gasrc, kaz,-20, "hrtf-44100-left.dat","hrtf-44100-right.dat"
 
  outs	aleft, aright
   
