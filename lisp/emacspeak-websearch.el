@@ -736,8 +736,9 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?g 'google)
-(emacspeak-websearch-set-key ?i 'google)
-
+(emacspeak-websearch-set-key ?i 'google-with-toolbelt)
+(emacspeak-websearch-set-searcher 'google-with-toolbelt
+                                  'emacspeak-websearch-google-with-toolbelt)
 ;;;###autoload
 (defcustom emacspeak-websearch-google-number-of-results 25
   "Number of results to return from google search."
@@ -856,6 +857,11 @@ Optional prefix arg prompts for toolbelt options."
          (format emacspeak-websearch-accessible-google-url query)
          'speak)))))
 
+;;;###autoload 
+(defun emacspeak-websearch-google-with-toolbelt (query)
+  "Launch Google search with toolbelt."
+  (interactive (list (gweb-google-autocomplete "AGoogle: ")))
+  (funcall-interactively #'emacspeak-websearch-accessible-google query 'use-toolbelt))
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
 
