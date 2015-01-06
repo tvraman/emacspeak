@@ -76,7 +76,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (emacspeak-sounds-select-theme "chimes-stereo/")
+      (emacspeak-sounds-select-theme "3d/")
       (emacspeak-tts-startup-hook))
 
     ;;}}}
