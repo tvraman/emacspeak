@@ -9,33 +9,23 @@ ksmps = 32
 nchnls = 2
 0dbfs = 1   
 
-gasig  init 0   
-gidel  = 1		;delay time in seconds
+;gasig  init 0   
+;gidel  = 1		;delay time in seconds
                                                              
 instr 1
-	
-ain  pluck .7, 440, 1000, 0, 1
-     outs ain, ain
+kaz	expon 225, p3, 45		
+  ain       pluck     .7, 440, 1000, 0, 1
+aleft,aright hrtfmove2 ain, kaz,30, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
+     outs aleft, aright
 
-vincr gasig, ain	;send to global delay
 endin
 
                                                              
-instr 2
-	
-ain  pluck .7, 880, 1000, 0, 1
-     outs ain, ain
-
-vincr gasig, ain	;send to global delay
-endin
 
 </CsInstruments>
 <CsScore>
 i 1 0 .2
   i 1 + 0.15
-
-;i 2 0 3  0	;no feedback
-
 e
 </CsScore>
 </CsoundSynthesizer>
