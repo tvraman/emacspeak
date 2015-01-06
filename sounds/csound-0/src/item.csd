@@ -20,17 +20,18 @@ kc1 = p5
 kc2 = p6
 kvdepth = 0.5
 kvrate = 8
-
+kaz	expon 225, p3, 45		;1 half rotation 
   asig      fmbell   kamp, kfreq, kc1, kc2, kvdepth, kvrate
-     outs asig, asig
+aleft,aright hrtfmove2 asig, kaz,-20, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+     outs aleft, aright
 endin
 </CsInstruments>
 <CsScore>
 ; sine wave.
 f 1 0 32768 10 1
 
-t 0 120
-i 1 0 .25 .1  1 1 
+
+i 1 0 .15 .15  1 8
 e
 </CsScore>
 </CsoundSynthesizer>
