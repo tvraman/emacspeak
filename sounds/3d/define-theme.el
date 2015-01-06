@@ -1,5 +1,5 @@
-;;; Wave icons using chimes as a theme 
+;;; Sound theme generated using CSound to produce  spatially located icons.
 
 (emacspeak-sounds-define-theme
- (expand-file-name "csound-0/" emacspeak-sounds-directory)
+ (expand-file-name "3d/" emacspeak-sounds-directory)
  ".wav")
