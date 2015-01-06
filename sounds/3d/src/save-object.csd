@@ -1,29 +1,33 @@
 <CsoundSynthesizer>
 <CsOptions>
--o save-object.wav
+-o modified-object.wav
 </CsOptions>
 <CsInstruments>
 
 sr = 44100
 ksmps = 32
 nchnls = 2
-0dbfs  = 1
+0dbfs = 1   
 
-giSine ftgen 0, 0, 2^10, 10, 1
 
-instr 2	; scaling to duration
 
-kcps = cpspch(p4)
-kenv linseg 0, p3*0.25,  1,  p3*0.75, 0
-asig poscil kenv, kcps, giSine
-     outs asig, asig
+                                                             
+instr 1
+kaz	expon 225, p3, 45		
+  ain       pluck     .7, 660, 440, 0, 3
+aleft,aright hrtfmove2 ain, kaz, -30, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
+     outs aleft, aright
 
 endin
 
+                                                             
+
 </CsInstruments>
 <CsScore>
-i 2 0 0.3   7.00	; scales to duration
 
+{20 CNT 
+  i1 [0.01 * $CNT] 0.25 
+}
 e
 </CsScore>
 </CsoundSynthesizer>
