@@ -20,7 +20,7 @@ endin
 
 </CsInstruments>
 <CsScore>
-{20 CNT 
+{15 CNT 
   i1 [0.01 * $CNT] 0.25  30 -[3 * $CNT]
 }
 e
