@@ -124,7 +124,7 @@ This variable is buffer-local.")
               (mapconcat #'identity settings ",")))))
 (defvar emacspeak-google-toolbelt-names  nil
   "Cache of available toolbelt names.")
-
+(make-variable-buffer-local 'emacspeak-google-toolbelt-names)
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
   (declare (special emacspeak-google-toolbelt ))
@@ -188,6 +188,15 @@ This variable is buffer-local.")
          :default 0
          :value 0
          :type 'tbm)
+;;;In-Depth Article
+(make-emacspeak-google-tool
+         :name "in-depth"
+         :param "ida"
+         :range '(0 1)
+         :default 0
+         :value 0
+         :type 'tbs)
+
 ;;; Blog mode
         (make-emacspeak-google-tool
          :name "blog"
@@ -447,9 +456,8 @@ This variable is buffer-local.")
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
-(defvar emacspeak-google-toolbelt-names nil
-  "Cache of tool names.")
-(make-variable-buffer-local 'emacspeak-google-toolbelt-names)
+
+
 
 (defsubst emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
