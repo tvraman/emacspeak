@@ -17,7 +17,7 @@ aleft,aright hrtfmove2 ain, kaz, kelev, "hrtf-44100-left.dat","hrtf-44100-right.
 
 endin
 </CsInstruments>
-<CsScore>
+<CsScore>i 1 0 0.2 -40
 {5 CNT 
   i1 [0.05 * $CNT] 0.25  20 -[5 * $CNT]
 }
