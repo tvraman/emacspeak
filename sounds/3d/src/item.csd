@@ -15,13 +15,14 @@ nchnls = 2
 instr 1
 
 kamp = p4
+kenv linen kamp, 0.05, p3, 0.05
 kfreq = 880
 kc1 = p5
 kc2 = p6
 kvdepth = 0.5
 kvrate = 8
 kaz	expon 200, p3, 70		
-  asig      fmbell   kamp, kfreq, kc1, kc2, kvdepth, kvrate
+  asig      fmbell   kenv, kfreq, kc1, kc2, kvdepth, kvrate
 aleft,aright hrtfmove2 asig, kaz,-20, "hrtf-44100-left.dat","hrtf-44100-right.dat"
      outs aleft, aright
 endin
