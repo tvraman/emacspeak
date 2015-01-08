@@ -20,9 +20,9 @@ outs aleft, aright
 endin
 </CsInstruments>
 <CsScore>
-i 1 0 0.2 -40 0.1 0.05
+i 1 0 0.2 -40 0.07 0.05
 {5 CNT 
-  i1 [0.05 * $CNT] 0.25  20 -[5 * $CNT]  0.1 0.05
+  i1 [0.05 * $CNT] 0.25  20 -[5 * $CNT]  0.07 0.05
 }
 e
 </CsScore>
