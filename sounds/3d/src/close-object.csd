@@ -6,7 +6,7 @@
 ;rene.nyffenegger@adp-gmbh.ch
 
 sr    = 44100
-kr    = 441
+;
 nchnls=2
 instr 1
   iamp     = p4

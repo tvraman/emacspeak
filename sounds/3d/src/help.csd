@@ -5,7 +5,7 @@
 <CsInstruments>
 
 sr = 44100
-kr = 4410
+kr
 ksmps = 10
 nchnls = 2
 

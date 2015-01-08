@@ -17,8 +17,8 @@
 ; csound -d -o dac cyclicBells.csd
 
 sr        =         44100
-kr        =         441
-ksmps     =         100
+;
+ksmps=10
 nchnls=2
 
 gi_hit_probability	= 0.20
