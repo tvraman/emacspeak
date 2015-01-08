@@ -26,8 +26,8 @@ instr 10	;uses output from instr1 as source
 endin
 
 instr 1
-	
-  ain       pluck     .7, 440, 1000, 0, 1
+kenv linen .7, 0.05, p3, 0.05
+  ain       pluck     kenv, 440, 1000, 0, 1
 
      gasrc = ain
 
