@@ -4,8 +4,8 @@
 </CsOptions>
 <CsInstruments>
 sr		=		44100
-kr		=		441
-ksmps	=		100
+;
+ksmps=10
 nchnls	=		2
 ; button: extracted from Electric Drum Kit.
 ; DRUM MACHINE

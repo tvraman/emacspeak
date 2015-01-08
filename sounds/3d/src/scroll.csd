@@ -4,7 +4,7 @@
 </CsOptions>
 <CsInstruments>
 sr = 44100
-ksmps = 32
+ksmps = 10
 nchnls = 8
 0dbfs = 1
 
