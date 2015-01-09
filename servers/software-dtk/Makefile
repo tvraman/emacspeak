@@ -2,7 +2,7 @@
 #
 LABEL=1.1
 DIST=software-dtk-$(LABEL)
-TCL_VERSION=8.4
+TCL_VERSION=8.6
 CFLAGS+=-O3 -fpic -pedantic -ansi -Wall -I/usr/include/tcl$(TCL_VERSION)
 CPPFLAGS+=-DSTDC_HEADERS=1 -Dclock_t=long -DRETSIGTYPE=void 
 INSTALL=install
