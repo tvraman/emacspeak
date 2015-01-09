@@ -13,5 +13,13 @@ kp line p4, p3, p5
   ain       pluck     kenv,kp, 440, 0, 3
 outs ain, ain 
 endin
+
+instr 2
+kenv  linen   .7, p6, p3, p7
+kp expon p4, p3, p5
+  ain       pluck     kenv,kp, 440, 0, 3
+outs ain, ain 
+endin
+
 </CsInstruments>
 </CsoundSynthesizer>
