@@ -222,7 +222,7 @@ Uses specified corpus for prompting and suggest selection."
       (error "No  suggest handler for corpus %s" corpus))
     (setq query
           (completing-read
-           corpus
+           (format "%s: " corpus)
            completer                   ; collection
            nil nil                     ; predicate required-match
            word                        ; initial input
