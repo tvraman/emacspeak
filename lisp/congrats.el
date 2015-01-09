@@ -95,7 +95,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
   (setq duration  (number-to-string duration))
   (when (arrayp  data) (setq data (append data nil)))
   (setq data (mapcar #'number-to-string data))
-  (apply 'call-process "aoss" nil t nil "tones" duration data))
+  (apply 'call-process  "tones" nil t nil  duration data))
 
 ;;}}}
 ;;{{{ Sample Tests:

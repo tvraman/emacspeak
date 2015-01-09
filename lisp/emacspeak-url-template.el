@@ -987,13 +987,13 @@ name of the list.")
       'speak )))
 
 (emacspeak-url-template-define
- "CNNContent"
+ "CNN Content"
  "http://www.cnn.com/"
  nil
  nil
  "Filter down to CNN  content area."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id "cnn_maincntnr"url 'speak)))
+     (emacspeak-we-extract-by-class "column" url 'speak)))
 
 (emacspeak-url-template-define
  "CNN technology "
@@ -1022,18 +1022,6 @@ name of the list.")
      (emacspeak-we-extract-by-id
       "cnnBody" ;"wsod_marketsOverview" 
       url 'speak)))
-
-(emacspeak-url-template-define
- "CNN Content "
- "http://www.cnn.com/"
- nil
- nil
- "CNN Content"
- #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "cnn_maincntnr"
-      url
-      'speak)))
 
 (emacspeak-url-template-define
  "Money Content "
