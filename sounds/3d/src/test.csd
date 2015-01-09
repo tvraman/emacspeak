@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--odac -L stdin 
+-odac -L stdin  -+rtaudio=ALSA
 </CsOptions>
 <CsInstruments>sr = 44100
 ksmps = 10
