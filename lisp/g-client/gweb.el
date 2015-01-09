@@ -108,11 +108,10 @@
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
   (unless (> (length input) 0) (setq input minibuffer-default))
+  (unless corpus (setq corpus "psy"))
   (g-using-scratch
    (let ((js nil)
-         (url
-          (format gweb-suggest-url (or corpus "psy")
-                  (g-url-encode input))))
+         (url (format gweb-suggest-url corpus (g-url-encode input))))
      (call-process
       g-curl-program
       nil t nil
@@ -124,7 +123,10 @@
            collect
            (replace-regexp-in-string
             "</?b>" ""
-            (aref e 0))))))
+            ;;; note: psy is different:
+            (if (string= corpus "psy")
+                (aref e 0)
+              e))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
