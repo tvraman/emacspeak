@@ -56,7 +56,7 @@
 ;;; {emacs  is emacsclient 
 ;;; Dont allow raise requests:
 ;;; This avoids emacs  getting raised when there is activity in the Emacs window.
-
+(setf stumpwm:*deny-raise-request* t)
 (setf stumpwm:*deny-map-request* t)
 (defcommand emacs () ()
   "Start emacs unless it is already running, in which case focus it."
