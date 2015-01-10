@@ -565,15 +565,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 ;;{{{ google scholar
 
 (emacspeak-url-template-define
- "Google Books"
- "http://books.google.com/books?q=%s&btnG=Search+Books&hl=en&output=html_text"
- (list "Google Book Search: ")
- #'(lambda nil
-     (emacspeak-imenu-goto-next-index-position)
-     (emacspeak-speak-rest-of-buffer))
- "Google Books Search with text when available")
-
-(emacspeak-url-template-define
  "Google Scholar"
  "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s"
  (list "Google Scholar Search: ")
