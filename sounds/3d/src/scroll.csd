@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--o scroll-object.wav 
+-o scroll.wav 
 </CsOptions>
 <CsInstruments>
 sr = 44100
@@ -9,21 +9,12 @@ nchnls = 8
 0dbfs = 1
 
 instr 1 
+kaz	linseg -90, p3, 270
 ; generate pink noise
 anoise pinkish 1
-        
-; one half  turn 
-kalpha line 0, p3, 180
-kbeta = 0
-        
-; generate B format
-aw, ax, ay, az, ar, as, at, au, av bformenc1 anoise, kalpha, kbeta
-        
-; decode B format for 8 channel circle loudspeaker setup
-a1, a2, a3, a4, a5, a6, a7, a8 bformdec1 4, aw, ax, ay, az, ar, as, at, au, av        
-
+aleft,aright hrtfmove2 anoise, kaz, 0, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
 ; write audio out
-outo a1, a2, a3, a4, a5, a6, a7, a8
+outs  aleft, aright
 endin
 
 </CsInstruments>
