@@ -234,6 +234,7 @@ proc tts_reset {} {
         [:tsr off ]
         [:power interval 900 ]
         [:power sleep 900]
+        [:enable]
         [:np]
         Restoring sanity to the Dectalk Express.
         [:sync :power speak]
