@@ -12,7 +12,7 @@ instr 1
 kelev = p4 
 ; p5, p6 are attack and decay 
 kenv  linen   .5, p5, p3, p6
-kaz	expon 270, p3, 90		
+kaz	expon 225, p3, 45		
   ain       pluck     kenv, 1010, 1010, 0, 3
 aleft,aright hrtfmove2 ain, kaz, kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
 outs aleft, aright

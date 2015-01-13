@@ -1312,7 +1312,8 @@ Negative prefix arg speaks from start of buffer to point."
       (save-current-buffer
         (set-buffer help-buffer)
         (emacspeak-speak-buffer arg )))
-     (t (dtk-speak "First ask for help" )))))
+     (t (emacspeak-auditory-icon 'button)
+        (dtk-speak "First ask for help" )))))
 
 ;;;###autoload
 
