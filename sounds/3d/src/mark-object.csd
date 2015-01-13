@@ -27,7 +27,7 @@ endin
 
 instr 1
 kenv linen .7, 0.05, p3, 0.05
-  ain       pluck     kenv, 440, 1000, 0, 1
+  ain       pluck     kenv, 440, 440, 0, 1
 
      gasrc = ain
 
