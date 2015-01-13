@@ -1,32 +1,29 @@
 <CsoundSynthesizer>
 <CsOptions>
- -o help.wav
+-o help.wav
 </CsOptions>
-<CsInstruments>
-
-sr = 44100
-kr
+<CsInstruments>sr = 44100
 ksmps = 10
 nchnls = 2
+0dbfs = 1   
 
-; Instrument #1: An example of sleighbells.
 instr 1
-   a1 sleighbells 15000, 0.1, 8
-a2 sleighbells 12000, 0.1, 8
-  outs a1, a2
+; p4 is elevation 
+kelev = p4 
+; p5, p6 are attack and decay 
+kenv  linen   .7, p5, p3, p6
+kaz	expon 270, p3, 90		
+  ain       pluck     kenv, 1010, 1010, 0, 3
+aleft,aright hrtfmove2 ain, kaz, kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
+outs aleft, aright
+
 endin
-
-
 </CsInstruments>
 <CsScore>
-t 0 180
-i 1 0 0.12
-i 1 + 0.11
-i 1 + 0.1
-i 1 + 0.09
-i 1 + 0.08
+i 1 0 0.2 25 0.07 0.05
+{7 CNT 
+  i1 [0.05 * $CNT] 0.25  25 -[5 * $CNT]  0.07 0.17
+}
 e
-
-
 </CsScore>
 </CsoundSynthesizer>
