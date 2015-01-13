@@ -9,7 +9,7 @@ nchnls = 2
 0dbfs = 1
 
 instr 1 
-kaz1 	linseg -90, p3, 270
+kaz1 	linseg -90, p3, 90
 kaz2 	linseg 45, p3, 225
 kenv linseg 1, p3, 0.1
 ; generate pink noise
