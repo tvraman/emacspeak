@@ -1,8 +1,9 @@
 <CsoundSynthesizer>
 <CsOptions>
--o yank-object.wav
+-o      yank-object.wav
 </CsOptions>
 <CsInstruments>
+
 sr = 44100
 ksmps = 10
 nchnls = 2
@@ -23,12 +24,10 @@ asig clip adrp, 2, 0.9	; avoid drips that drip too loud
 endin
 </CsInstruments>
 <CsScore>
+i 1 0 0.25   .75 1800 1900  2000 
+i 1 0.1  0.25   .75 1800 1900 2000 
 
 
-t 0 120 ;
-{5 CNT 
-i1 [0.05 * $CNT] 0.5 .5 800 1600 2000 
-} 
 
 e
 </CsScore>
