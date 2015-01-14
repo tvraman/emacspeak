@@ -5,32 +5,27 @@
 <CsInstruments>
 sr = 44100
 ksmps = 10
-nchnls = 8
+nchnls = 2
 0dbfs = 1
 
 instr 1 
+kaz1 	linseg -360, p3, 0
+kaz2 	linseg 0, p3, 360
+kenv linseg 0.5, p3, 0.1
 ; generate pink noise
-anoise pinkish 1
-        
-; one half  turn 
-kalpha line 0, p3, 180
-kbeta = 0
-        
-; generate B format
-aw, ax, ay, az, ar, as, at, au, av bformenc1 anoise, kalpha, kbeta
-        
-; decode B format for 8 channel circle loudspeaker setup
-a1, a2, a3, a4, a5, a6, a7, a8 bformdec1 4, aw, ax, ay, az, ar, as, at, au, av        
-
+an1  pinkish 1
+an2  pinkish  0.15
+al1, ar1 hrtfmove2 an1, kaz1, -40, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
+al2, ar2 hrtfmove2 an2, kaz2, 40, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
 ; write audio out
-outo a1, a2, a3, a4, a5, a6, a7, a8
+outs    kenv*(al1+al2), kenv*(ar1+ar2)
 endin
 
 </CsInstruments>
 <CsScore>
-t 0 120 
-i 1 0 .5
-i 1 + .25
+i 1 0 .25
+i 1 0.075 0.275
+i 1 0.175 0.3
 e
 </CsScore>
 </CsoundSynthesizer>
