@@ -1,16 +1,18 @@
 <CsoundSynthesizer>
 <CsOptions>
-; XO
-;-+rtmidi=alsa  --midi-device=hw:1,0 -+rtaudio=alsa -odac -r16000 -k160 ;-O stdout
-; Mac
--odac -r44100 -k441
+-odac  delete-object.wav
 </CsOptions>
 <CsInstruments>
+sr = 44100
+ksmps = 10
+nchnls = 2
+
+
 ;THIS ORCHESTRA IS AN ATTEMPT AT REALISING PITCH AND ONSET-TIME
 ;USING MARKOV PROCESSES.  THE CURRENT PROBLEM HAS TO DO
 ;WITH CLICKING OF ENVELOPES    A.D. HANNA
 ;MODIFIED ENVELOPES TO REDUCE POPPING M VIGORITO
-nchnls    =         2 
+
 ga1       init      0
           instr     1
 itablesize =        32 ;PITCH TABLES 2 AND 3 ARE INDEXED FROM 0 TO 31
