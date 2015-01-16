@@ -1,0 +1,15 @@
+#!/bin/bash
+# Users who need setup scripts to run after X11 was started and after
+# a local user logs in should place those scripts into
+#   /etc/lightdm/post-login.d
+# These scripts are run with the session-setup-script System Hook
+# Please note that any failure of such scripts will not stop the user
+# from logging in. The script names are restricted in how they can be
+# named, please check the run-parts manpage for details
+
+# The "|| true" below is because the user would fail to login
+# completely if this script fails. We therefore ignore errors.
+# TODO(smu): Expose errors to user
+run-parts --verbose /etc/lightdm/post-login.d \
+  >> /var/log/lightdm/post-login.log 2>&1 \
+  || true

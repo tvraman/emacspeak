@@ -1,0 +1,16 @@
+#!/bin/bash
+# Users who need setup scripts to run after X11 was started and before
+# the user logs in or the greeter is run should place those scripts into
+#   /etc/lightdm/pre-login.d
+# These scripts are run with the display-setup-script System Hook
+# This is for configuring anything special in the X server
+# Please note that any failure of such scripts will not stop lightdm
+# from starting. The script names are restricted in how they can be
+# named, please check the run-parts manpage for details
+
+# The "|| true" below is because lightdm would fail to start
+# completely if this script fails. We therefore ignore errors.
+# TODO(smu): Expose errors to user
+run-parts --verbose /etc/lightdm/pre-login.d \
+  >> /var/log/lightdm/pre-login.log 2>&1 \
+  || true

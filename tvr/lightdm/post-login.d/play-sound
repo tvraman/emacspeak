@@ -1,0 +1,2 @@
+#!/bin/sh
+ogg123 -q /usr/share/sounds/ubuntu/stereo/desktop-login.ogg  &
