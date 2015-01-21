@@ -21,7 +21,7 @@ kc1 = p5
 kc2 = p6
 kvdepth = 0.5
 kvrate = 8
-kaz	expon 200, p3, 70		
+kaz	linseg -90, p3, 90
   asig      fmbell   kenv, kfreq, kc1, kc2, kvdepth, kvrate
 aleft,aright hrtfmove2 asig, kaz,-20, "hrtf-44100-left.dat","hrtf-44100-right.dat"
      outs aleft, aright
