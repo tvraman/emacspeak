@@ -981,11 +981,8 @@ Produce an auditory icon if possible."
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Silence messages"
-          (cond
-           ((ems-interactive-p )
-            ad-do-it)
-           (t (let ((emacspeak-speak-messages nil))
-                ad-do-it))))))
+          (let ((emacspeak-speak-messages nil))
+                ad-do-it))))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
