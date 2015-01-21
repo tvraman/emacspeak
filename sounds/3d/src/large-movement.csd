@@ -29,8 +29,9 @@ ipch2	= p5
 ipch 	= (ipch < 15 ? cpspch(ipch) : ipch);
 ipch2 	= (ipch2 < 15 ? cpspch(ipch2) : ipch2);
 kpchline 	line ipch, p3, ipch2
+kaz linseg 45, p3, 315 
 iamp 	= ampdb(p6)
-iSpace	= p7
+;iSpace	= p7
 ienvType	= p8
 itable	= 4
 kenv 	init 	0
@@ -59,13 +60,14 @@ ifn3 = 1
 ifn4 = 1
 ivfn = 1
 aout	fmbell	iamp, kpchline, kc1, kc2, kvdepth, kvrate, ifn1, ifn2, ifn3, ifn4, ivfn
-; PANNING CODE
-iSpace 	= (iSpace-.5) * 3.14159265359
-krtl     	= sqrt(2) / 2 * (cos(iSpace) + sin(iSpace)) ; CONSTANT POWER PANNING
-krtr     	= sqrt(2) / 2 * (cos(iSpace) - sin(iSpace))	; FROM C.ROADS "CM TUTORIAL" pp460
-aLeft 	=	aout * krtl
-aRight	=	aout * krtr
-	outs aLeft, aRight
+; PANNING CODE -- use hrtf instead 
+;iSpace 	= (iSpace-.5) * 3.14159265359
+;krtl     	= sqrt(2) / 2 * (cos(iSpace) + sin(iSpace)) ; CONSTANT POWER PANNING
+;krtr     	= sqrt(2) / 2 * (cos(iSpace) - sin(iSpace))	; FROM C.ROADS "CM TUTORIAL" pp460
+;aLeft 	=	aout * krtl
+;aRight	=	aout * krtr
+aleft,aright hrtfmove2 aout , kaz,40, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+	outs aleft, aright
 ;ga1 = ga1 + aLeft
 ;ga2 = ga2 + aRight 
 	endin
