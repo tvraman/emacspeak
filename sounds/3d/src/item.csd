@@ -19,7 +19,7 @@ kenv linen kamp, 0.05, p3, 0.05
 kfreq = 880
 kc1 = p5
 kc2 = p6
-kvdepth = 0.5
+kvdepth = 0.005
 kvrate = 8
 kaz	linseg -90, p3, 90
   asig      fmbell   kenv, kfreq, kc1, kc2, kvdepth, kvrate
