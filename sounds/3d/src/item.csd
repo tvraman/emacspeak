@@ -1,37 +1,25 @@
 <CsoundSynthesizer>
 <CsOptions>
-; Select audio/midi flags here according to platform
-;-odac     ;;;realtime audio out
-;-iadc    ;;;uncomment -iadc if realtime audio input is needed too
-; For Non-realtime ouput leave only the line below:
- -o fmbell.wav -W ;;; for file output any platform
+-o item.wav
 </CsOptions>
 <CsInstruments>
 sr = 44100
-ksmps = 10  
+ksmps = 10
 nchnls = 2
-0dbfs  = 1
-
+0dbfs = 1   
+; p4 p5 are start and end frequency
+; p6 p7 are envelope attach/decay 
 instr 1
-
-kamp = p4
-kenv linen kamp, 0.05, p3, 0.05
-kfreq = 880
-kc1 = p5
-kc2 = p6
-kvdepth = 0.005
-kvrate = 8
-kaz	linseg -90, p3, 90
-  asig      fmbell   kenv, kfreq, kc1, kc2, kvdepth, kvrate
-aleft,aright hrtfmove2 asig, kaz,-20, "hrtf-44100-left.dat","hrtf-44100-right.dat"
-     outs aleft, aright
+kaz	linseg 180, p3, 45		;1 half rotation 
+kelev linseg 90, p3, -40
+kenv  linen   1, p6, p3, p7 ; amplitude envelope 
+kp line p4, p3, p5 ; frequency range
+  ain       pluck     kenv,kp, 440, 0, 3
+aleft,aright hrtfmove2 ain, kaz,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+outs aleft, aright
 endin
 </CsInstruments>
 <CsScore>
-; sine wave.
-f 1 0 32768 10 1
-
-i 1 0 .25 .15  1 8
-e
+i 1 0 0.25 17000 19000 0 0 
 </CsScore>
 </CsoundSynthesizer>
