@@ -10,7 +10,7 @@ kampenv 	expseg 	.0001, .01, p4, .04, .01
 asig 	rand 	kampenv
 afilt 	reson 	asig, 1000, 100
 aout 	balance 	afilt, asig
-aleft,aright hrtfmove2 aout, 15,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
+aleft,aright hrtfmove2 8*aout, 15,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
 		outs 	aleft, aright
 		endin
 </CsInstruments>
