@@ -11,7 +11,7 @@ asig 	rand 	kampenv
 afilt 	reson 	asig, 1000, 100
 aout 	balance 	afilt, asig
 aleft,aright hrtfmove2 aout, 15,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
-		outs 	aout, aout
+		outs 	aleft, aright
 		endin
 </CsInstruments>
 <CsScore>
