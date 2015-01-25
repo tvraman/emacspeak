@@ -26,8 +26,10 @@ instr 10	;uses output from instr1 as source
 endin
 
 instr 1
+kcps = cpspch(8.03)
+icps = cpspch(8.03)
 kenv linen .7, 0.05, p3, 0.05
-  ain       pluck     kenv, 440, 440, 0, 1
+  ain       pluck     kenv, kcps, icps, 0, 1
 
      gasrc = ain
 
