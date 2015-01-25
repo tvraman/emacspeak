@@ -10,7 +10,6 @@ nchnls = 2
 0dbfs  = 1
 
 instr 1
-
 imaxshake = p4
 ifreq     = p5
 ifreq1    = p6
@@ -26,8 +25,5 @@ endin
 <CsScore>
 
 i1 0 0.25 0.1 1600 2000 2400
-} 
-
-e
 </CsScore>
 </CsoundSynthesizer>
