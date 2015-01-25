@@ -4,7 +4,6 @@
 </CsOptions>
 <CsInstruments>
 sr		=		44100
-;
 ksmps=10
 nchnls	=		2
 
@@ -17,7 +16,7 @@ afilt 	reson 	asig, 1000, 100
 aout 	balance 	afilt, asig
 aleft,aright hrtfmove2 8*aout, -2*gi,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
 		outs 	aleft, aright
-        gi = gi -20
+        gi = gi -10
 		endin
 
 </CsInstruments>
