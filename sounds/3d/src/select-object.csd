@@ -7,12 +7,8 @@ sr		=		44100
 ;
 ksmps=10
 nchnls	=		2
-; button: extracted from Electric Drum Kit.
-; DRUM MACHINE
-
 		instr 1
 kstep 	init 	0
- 
 ; SEQUENCER SECTION
 
 ;------------------------------------------------------------------------- 
@@ -164,114 +160,6 @@ cont1:
  
 
 		endin
- 
-
-; FIGURE OUT YOUR DRUMS DOWN HERE. THEN MOVE ENVELOPES INTO THE ENVELOPE 
-
-; SECTION AND THE REST INTO THE SWITCH SECTION OF THE DRUM MACHINE. 
- 
-
-		instr 2
- 
-
-; DUMB DRUM 1
-
-kampenv 	expseg 	.0001, .01, p4, .04, .01
-
-asig 	rand 	kampenv
-
-afilt 	reson 	asig, 1000, 100
-
-aout 	balance 	afilt, asig
-
-		outs 	5*aout, 5*aout
-		endin
- 
-
-		instr 3
- 
-
-; DUMB BASS DRUM
-
-kfreqenv 	expseg 	50, .01, 200, .08, 50
-
-kampenv 	expseg 	.0001, .01, p4, .08, .01
-
-asig 	rand 	kampenv
-
-afilt 	reson 	asig, kfreqenv, kfreqenv/8
-
-aout 	balance 	afilt, asig
-
-		outs		aout, aout
- 
-
-		endin
- 
-
-		instr 4
- 
-
-; KS SNARE DRUM
-
-kampenv4 	linseg 	0, .001, 1, p3-.021, 1, .02, 0 
-
-kptchenv 	linseg 	100, .01, 300, .2, 200, .01, 200 
-
-asig 	pluck 	p4, kptchenv, 50, 2, 4, .8, 3
-
-aout 	=		kampenv4*asig
-
-		outs 	aout, aout
- 
-
-		endin
- 
-
-		instr 5
- 
-
-; SORTA COOL KNOCK SWEEP DRUM
-
-kfreqenv41 expseg 	50, .01, 200, .08, 50
-
-kfreqenv42 linseg 	150, .01, 1000, .08, 250 
-
-kampenv4	linseg 	0, .01, p4, .08, 0, .01, 0 
-
-asig 	rand 	kampenv4
-
-afilt1 	reson 	asig, kfreqenv41, kfreqenv41/8 
-
-afilt2 	reson 	asig, kfreqenv42, kfreqenv42/4 
-
-aout1	balance 	afilt1, asig
-
-aout2	balance 	afilt2, asig
-
-		outs 	(aout1+aout2)/2, (aout1+aout2)/2
- 
-
-		endin
- 
-
-		instr 6
- 
-
-; FM METAL BOINK DRUM
-
-kampenv61 expseg 	.01, .01, p4, .2, p4/100, .1, .001 
-
-kampenv62 linseg 	1, .1, 10, .1, .5, .01, 1 
- 
-
-asig 	foscil 	kampenv61, 30, 1, 6.726, kampenv62, 1
-
-		outs 	asig, asig
- 
-
-		endin
-
 </CsInstruments>
 <CsScore>
 ; Score
@@ -314,14 +202,6 @@ f28 0 8 -2 0 1	0	0	1	1	0	1
 f31 0 8 -2 0 0	0	0	0	1	1	0
 
 f32 0 8 -2 1 1	1	1	1	0	1	1
- 
-
-; Sta Dur Amp	Tables
-
-;	Dur Drum PanL PanR
-
-;i1 0 1 8000 21 22 23 24
-
  i1 0 0.25 10000   32 31 30 29
 </CsScore>
 </CsoundSynthesizer>
