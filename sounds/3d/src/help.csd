@@ -16,7 +16,7 @@ kaz	line gi, p3, 135
   ain       pluck     kenv, 1010, 1010, 0, 3
 aleft,aright hrtfmove2 ain, kaz, kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"	
 outs aleft, aright
-gi = gi +20
+gi = gi +40
 endin
 </CsInstruments>
 <CsScore>
