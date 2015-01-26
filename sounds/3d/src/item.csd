@@ -16,7 +16,7 @@ kenv  linen   1, p6, p3, p7 ; amplitude envelope
 kp line p4, p3, p5 ; frequency range
   ain       pluck     kenv,kp, 440, 0, 3
 aleft,aright hrtfmove2 ain, kaz,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
-outs aleft, aright
+outs 2*aleft, 2*aright
 endin
 </CsInstruments>
 <CsScore>
