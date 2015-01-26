@@ -7,19 +7,18 @@ sr = 44100
 ksmps = 10
 nchnls = 2
 0dbfs = 1   
-; p4 p5 are start and end frequency
-; p6 p7 are envelope attach/decay 
+
+; p4 is note
 instr 1
-kaz	linseg 180, p3, 45		;1 half rotation 
-kelev linseg 90, p3, -40
-kenv  linen   1, p6, p3, p7 ; amplitude envelope 
-kp line p4, p3, p5 ; frequency range
-  ain       pluck     kenv,kp, 440, 0, 3
+kaz	linseg -90, p3, 180
+kelev linseg 90, p3, 0
+ip1 = cpspch(p4)
+  ain       pluck     .6,ip1, ip1, 0, 1
 aleft,aright hrtfmove2 ain, kaz,kelev, "hrtf-44100-left.dat","hrtf-44100-right.dat"
-outs 2*aleft, 2*aright
+outs aleft, aright
 endin
 </CsInstruments>
 <CsScore>
-i 1 0 0.25 17000 19000 0 0 
+i 1 0 0.25 10.11 
 </CsScore>
 </CsoundSynthesizer>
