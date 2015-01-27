@@ -809,13 +809,12 @@ start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
-  (declare
-   (special voice-animate voice-indent
-            dtk-quiet dtk-stop-immediately dtk-punctuation-mode
-            emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
-            emacspeak-speak-maximum-line-length emacspeak-show-point
-            emacspeak-decoration-rule emacspeak-horizontal-rule
-            emacspeak-unspeakable-rule emacspeak-audio-indentation))
+  (declare (special voice-animate voice-indent
+                    dtk-quiet dtk-stop-immediately dtk-punctuation-mode
+                    emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
+                    emacspeak-speak-maximum-line-length emacspeak-show-point
+                    emacspeak-decoration-rule emacspeak-horizontal-rule
+                    emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (unless dtk-quiet 
     (when dtk-stop-immediately (dtk-stop))
     (when (listp arg) (setq arg (car arg )))
