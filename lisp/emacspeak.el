@@ -265,6 +265,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "tar-mode" 'emacspeak-tar)
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
 (emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
+(emacspeak-do-package-setup "xref" 'emacspeak-xref)
 (emacspeak-do-package-setup "xslide" 'emacspeak-xslide)
 (emacspeak-do-package-setup "xslt-process" 'emacspeak-xslt-process)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
