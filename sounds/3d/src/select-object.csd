@@ -12,7 +12,8 @@ gasig  init 0
 gidel  = 0.05		;delay time in seconds
 
 instr 1
-ain  pluck .5, 440, 1000, 0, 1
+kamp line 0.3, p3, 0.8
+ain  pluck kamp, 440, 1000, 0, 1
      outs ain, ain
 
 vincr gasig, ain	;send to global delay
