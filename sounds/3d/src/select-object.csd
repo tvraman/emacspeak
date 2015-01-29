@@ -1,207 +1,46 @@
 <CsoundSynthesizer>
-<C  sOptions>
-  -o select-object.wav
+<CsOptions>
+-o select-object.wav
 </CsOptions>
 <CsInstruments>
-sr		=		44100
-;
-ksmps=10
-nchnls	=		2
-		instr 1
-kstep 	init 	0
-; SEQUENCER SECTION
+sr = 44100
+ksmps = 1
+nchnls = 2
+0dbfs = 1   
 
-;------------------------------------------------------------------------- 
+gasig  init 0   
+gidel  = 0.05		;delay time in seconds
 
-loop1:
+instr 1
+ain  pluck .5, 440, 1000, 0, 1
+     outs ain, ain
 
-; READ ALL OF THE TABLE VALUES.
+vincr gasig, ain	;send to global delay
+endin
 
-kdur 	table 	kstep, p5
-kdrnum 	table 	kstep, p6
-kleft 	table 	kstep, p7
-kright 	table 	kstep, p8
-kdur1 	=		kdur/8				; MAKE THE STEP SMALLER.
+instr 2	
 
-						
-; ALL OF THE ENVELOPES WANT TO BE OUTSIDE OF THE IF FOR SOME REASON. 
+ifeedback = p4	
 
-kampenv1 	linseg 	0, .01, p4/2, .04, 0, .01, 0 
+abuf2	delayr	gidel
+adelL 	deltapn	44100		;first tap (on left channel)
+adelM 	deltapn	44100		;second tap (on middle channel)
+	delayw	gasig + (adelL * ifeedback)
 
-kampenv2 	expseg 	.0001, .01, p4, .04, .01 
+abuf3	delayr	gidel
+kdel	line    50, p3, 1	;vary delay time
+adelR 	deltapn  100 * kdel	;one pitch changing tap (on the right chn.)
+	delayw	gasig + (adelR * ifeedback)*0.5
+;make a mix of all deayed signals	
+	outs	adelL + adelM, adelR + adelM
 
-kfreqenv 	expseg 	50, .01, 200, .08, 50
+clear	gasig
+endin
 
-kampenv3 	expseg 	.0001, .01, p4*2, .08, .01 
-
-kampenv4 	linseg 	0, .001, 1, i(kdur1)-.021, 1, .02, 0 
-
-kfreqenv51 expseg 	50, .01, 200, .08, 50
-
-kfreqenv52 linseg 	150, .01, 1000, .08, 250, .01, 250 
-
-kampenv5 	linseg 	0, .01, p4, .08, 0, .01, 0 
-
-kptchenv 	linseg 	100, .01, 300, .2, 200, .01, 200 
- 
-
-kampenv61	expseg 	.01, .01, p4, .2, p4/100, .1, .001 
-
-kampenv62 linseg 	1, .1, 10, .1, .5, .01, 1 
- 
-
-; SOME OF THE SIGNAL GENERATORS MUST BE OUTSIDE OF THE IF'S 
-
-asig4	pluck 	p4/2, kptchenv, 50, 2, 4, .8, 3
-
-asig5	foscil 	kampenv61, 30, 1, 6.726, kampenv62, 1
- 
-
-; SWITCH BETWEEN THE DIFFERENT DRUMS
-
-		if		(kdrnum != 0) goto next1
-
-; HIHAT
-
-aout 	rand 	kampenv1
-
-		goto 	endswitch
- 
-
-next1:
-
-		if		(kdrnum != 1) goto next2
-
-; DUMB DRUM
-
-asig 	rand	 	kampenv2
-
-afilt 	reson 	asig, 1000, 100
-
-aout 	balance 	afilt, asig
-
-		goto 	endswitch
- 
-
-next2:
-
-		if		(kdrnum != 2) goto next3
-
-; DUMB BASS DRUM
-
-asig 	rand 	kampenv3
-
-afilt	 reson 	asig, kfreqenv, kfreqenv/8
-
-aout 	balance 	afilt, asig
-
-		goto 	endswitch
- 
-
-next3:
-
-		if 		(kdrnum != 3) goto next4
-
-; KS SNARE
-
-aout 	=		kampenv4*asig4
-
-		goto 	endswitch
- 
-
-next4:
-
-		if		(kdrnum != 4) goto next5
-
-; SORTA COOL KNOCK SWEEP DRUM
-
-asig 	rand 	kampenv5
-
-afilt1 	reson 	asig, kfreqenv51, kfreqenv51/8 
-
-afilt2 	reson 	asig, kfreqenv52, kfreqenv52/4 
-
-aout1 	balance 	afilt1, asig
-
-aout2 	balance 	afilt2, asig
-
-aout 	=		(aout1+aout2)/2
-
-		goto 	endswitch
- 
-
-next5:
-
-		if		(kdrnum != 5) goto endswitch
-
-; FM METAL BOINK DRUM
-
-aout 	= 		asig5
- 
- 
-
-endswitch:
-
-; WHEN THE TIME RUNS OUT GO TO THE NEXT STEP 
-
-; OF THE SEQUENCE AND REINITIALIZE THE ENVELOPES.
-
-		timout 	0, i(kdur1), cont1
-
-kstep 	= 		frac((kstep + 1)/8)*8
-
-		reinit 	loop1
- 
-
-cont1:
- 
-
-		outs 	aout*kleft, aout*kright
- 
-
-		endin
 </CsInstruments>
 <CsScore>
-; Score
-
-f1 0 8192 10 1
-
-f2 0 1024 7 1 1024 1
- 
-
-; Duration
-
-f21 0 8 -2 1	1	1	1	1	1	1	1
-
-f25 0 8 -2 4	1	1	2	4	1	1	2
-
-f29 0 8 -2 4	1	1	1	1	4	2	2
- 
-
-; Drums : 0=HiHat, 1=Tap, 2=Bass, 3=KS Snare, 4=Sweep, 5=FMBoink 
-
-f22 0 8 -2 0	1	0	1	2	1	0	1
-
-f26 0 8 -2 4	3	3	2	4	2	3	4
-
-f30 0 8 -2 4	2	1	5	4	5	5	4
- 
-
-; Panning
-
-f23 0 8 -2 1 0	1	0	1	0	1	1
-
-f24 0 8 -2 0 1	0	1	1	1	1	0
- 
-
-f27 0 8 -2 1 0	1	1	0	1	1	0
-
-f28 0 8 -2 0 1	0	0	1	1	0	1
- 
-
-f31 0 8 -2 0 0	0	0	0	1	1	0
-
-f32 0 8 -2 1 1	1	1	1	0	1	1
- i1 0 0.25 10000   32 31 30 29
+i 1 0 0.25
+i 2 0.01 0.26
+e
 </CsScore>
 </CsoundSynthesizer>
