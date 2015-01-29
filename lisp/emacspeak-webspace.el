@@ -185,7 +185,8 @@ We use module gfeeds to efficiently fetch feed contents using the
          (last-update (get-text-property 0 'last-update feed))
          (gfeeds-freshness-internal
           (if last-update
-              emacspeak-webspace-headlines-period gfeeds-freshness-internal))
+              emacspeak-webspace-headlines-period
+            gfeeds-freshness-internal))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when                ; check if we need to add from this feed
         (or (null last-update)        ;  at most every half hour
