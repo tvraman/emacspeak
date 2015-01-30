@@ -9,7 +9,7 @@ nchnls	=		2
 
 		instr 2
 kelev line 90, p3, -30
-kampenv 	expseg 	.0001, .01, p4, .04, .01, .0001
+kampenv 	expseg 	.0001, .01, p4, .04, p3, .0001
 asig 	rand 	kampenv
 afilt 	reson 	asig, 1000, 5
 aout 	balance 	afilt, asig
