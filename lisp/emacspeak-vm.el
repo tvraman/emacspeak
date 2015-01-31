@@ -188,11 +188,11 @@ s(defun emacspeak-vm-yank-header ()
       (cond
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others
-        (emacspeak-auditory-icon 'item))
+        (emacspeak-auditory-icon 'select-object))
        (self-p                       ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
        (t                       ;got it because of a mailing list
-        (emacspeak-auditory-icon 'select-object ))))))
+        (emacspeak-auditory-icon 'item ))))))
 
 (defun emacspeak-vm-speak-labels ()
   "Speak a message's labels"
