@@ -150,7 +150,7 @@ This variable is buffer-local.")
          :type 'tbs)
 ;;; Duration restrict for video
         (make-emacspeak-google-tool
-         :name "duration"
+         :name "video-duration"
          :param "dur"
          :range '("m" "s" "l")
          :default "m"
@@ -182,7 +182,7 @@ This variable is buffer-local.")
          :type 'tbm)
 ;;; discussions/forums
         (make-emacspeak-google-tool
-         :name "discussions"
+         :name "group-discussions"
          :param "dsc"
          :range '(0 1)
          :default 0
