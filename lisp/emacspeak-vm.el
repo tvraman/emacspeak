@@ -161,24 +161,18 @@ s(defun emacspeak-vm-yank-header ()
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
-  (declare (special vm-message-pointer
-                    smtpmail-local-domain
-                    emacspeak-vm-headers-strip-octals
-                    emacspeak-vm-user-full-name emacspeak-vm-user-login-name))
+  (declare (special vm-message-pointer smtpmail-local-domain
+                    emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer ))
             (number (emacspeak-vm-number-of  message))
-            (from
-             (or (vm-su-full-name message) (vm-su-from message )))
+            (from (or (vm-su-full-name message) (vm-su-from message )))
             (subject (vm-su-subject message ))
-            (to
-             (or (vm-su-to-names message) (vm-su-to message )))
+            (to (or (vm-su-to-names message) (vm-su-to message )))
             (self-p
-             (or (string-match emacspeak-vm-user-full-name to)
-                 (string-match  (user-login-name) to)
-                 (string-match (format "%s@%s" (user-login-name)
-                                       smtpmail-local-domain)
-                               to)))
+             (or (string-match user-mail-address to)
+                 (string-match (user-full-name) to)
+                 (string-match  (user-login-name) to)))
             (lines (vm-su-line-count message)))
       (dtk-speak
        (vm-decode-mime-encoded-words-in-string
