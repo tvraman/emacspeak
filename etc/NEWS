@@ -5,7 +5,12 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 42 -- Emacspeak 40 User Visible Changes 
 
 
-  
+** emacspeak-xref.el: Speech-Enable xref.el  
+
+Navigating cross-references in source code.
+
+
+
 ** EWW Web Support: Emacspeak-eww
    
 Enhanced support for EWW, including structured navigation.

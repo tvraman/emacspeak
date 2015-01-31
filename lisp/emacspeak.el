@@ -240,6 +240,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "outline" 'emacspeak-outline)
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
 (emacspeak-do-package-setup "php-mode" 'emacspeak-php-mode)
+(emacspeak-do-package-setup "package"'emacspeak-package)
 (emacspeak-do-package-setup "pcl-cvs" 'emacspeak-pcl-cvs)
 (emacspeak-do-package-setup "pcvs" 'emacspeak-pcl-cvs)
 (emacspeak-do-package-setup "psgml" 'emacspeak-psgml)
