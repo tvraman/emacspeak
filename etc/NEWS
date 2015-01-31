@@ -10,6 +10,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 Navigating cross-references in source code.
 
 
+** emacspeak-package.el
+
+Enhancements for package.el
 
 ** EWW Web Support: Emacspeak-eww
    
