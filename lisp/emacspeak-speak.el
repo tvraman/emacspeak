@@ -1884,7 +1884,8 @@ Second interactive prefix sets clock to new timezone."
                             (propertize
                              (format-time-string
                               emacspeak-speak-time-format-string)
-                             'personality voice-punctuations-some))))))
+                             'personality voice-punctuations-some)))))
+  (emacspeak-auditory-icon 'progress))
 
 ;;;###autoload
 (defun emacspeak-speak-seconds-since-epoch (seconds)
