@@ -33,23 +33,23 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
-	(cons
-	 (cons ext mode)
-	 auto-mode-alist)))
+        (cons
+         (cons ext mode)
+         auto-mode-alist)))
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (let ((emacspeak-speak-messages nil))
     (condition-case nil
-	(cond
-	 ((locate-library lib)
-	  (load-library lib)
-	  (message "Loaded %s" lib)
-	  t)
-	 (t (message "Could not locate library %s" lib)
-	    nil))
+        (cond
+         ((locate-library lib)
+          (load-library lib)
+          (message "Loaded %s" lib)
+          t)
+         (t (message "Could not locate library %s" lib)
+            nil))
       (error (message
-	      "Error loading %s"
-	      lib)))))
+              "Error loading %s"
+              lib)))))
 ;;}}}
 ;;{{{ customize custom
 
@@ -82,28 +82,28 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{  set up terminal codes and global keys
 
     (mapc #'load-library-if-available
-	  '("console" "screen"))
+          '("console" "screen"))
     (when (eq window-system 'x)
       (load-library-if-available "x"))
 
     (loop for  key in
-	  '(
+          '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
-            ;("\M-s" save-buffer)
+                                        ;("\M-s" save-buffer)
             ("\M--" undo)
-	    ([delete]dtk-toggle-punctuation-mode)
-	    ( [f8]emacspeak-remote-quick-connect-to-server)
-	    ([f11]shell)
-	    ([f12]vm)
-	    ( "\C-xc"compile)
-	    (  "\C-x%"comment-region)
-	    ( "\M-r"replace-string)
-	    ( "\M-e"end-of-word)
-	    ( "\M-\C-j"imenu)
-	    ( "\M-\C-c"calendar))
-	  do
-	  (global-set-key (first key) (second key)))
+            ([delete]dtk-toggle-punctuation-mode)
+            ( [f8]emacspeak-remote-quick-connect-to-server)
+            ([f11]shell)
+            ([f12]vm)
+            ( "\C-xc"compile)
+            (  "\C-x%"comment-region)
+            ( "\M-r"replace-string)
+            ( "\M-e"end-of-word)
+            ( "\M-\C-j"imenu)
+            ( "\M-\C-c"calendar))
+          do
+          (global-set-key (first key) (second key)))
     
     ;;}}}
     ;;{{{  initial stuff
@@ -124,8 +124,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (eval-after-load "shell"
       '(progn
-	 (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-	 (define-key shell-mode-map "\C-ch"
+         (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
+         (define-key shell-mode-map "\C-ch"
            'emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
@@ -135,12 +135,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
 ;;; personal functions and advice
-        "my-functions"
+       "my-functions"
 ;;; Mail readers:
        "vm-prepare"
        "gnus-prepare"
        "bbdb-prepare"
- 
+       
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" ;"w3m-prepare" 
@@ -148,10 +148,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "folding-prepare"
        "calc-prepare" 
        "tcl-prepare" 
-					; jde and ecb will pull in cedet.
-					;"jde-prepare" "ecb-prepare"
+                                        ; jde and ecb will pull in cedet.
+                                        ;"jde-prepare" "ecb-prepare"
        "mspools-prepare"
-        "org-prepare"
+       "org-prepare"
        "erc-prepare" "jabber-prepare"
        "twittering-prepare"
        "tramp-prepare"
