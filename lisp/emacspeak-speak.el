@@ -1918,6 +1918,15 @@ Second interactive prefix sets clock to new timezone."
     (emacspeak-speak-seconds-since-epoch seconds)))
 
 ;;;###autoload
+(defun emacspeak-speak-date-as-seconds (time)
+  "Read time value as a human-readable string, return seconds."
+  (interactive "sTime: ")
+  (let ((result (float-time (apply 'encode-time (parse-time-string time)))))
+    (message "%s" result)
+    result))
+)
+
+;;;###autoload
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
   (interactive)
