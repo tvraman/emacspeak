@@ -1919,10 +1919,12 @@ Second interactive prefix sets clock to new timezone."
 
 ;;;###autoload
 (defun emacspeak-speak-date-as-seconds (time)
-  "Read time value as a human-readable string, return seconds."
+  "Read time value as a human-readable string, return seconds.
+Seconds value is also placed in the kill-ring."
   (interactive "sTime: ")
   (let ((result (float-time (apply 'encode-time (parse-time-string time)))))
     (message "%s" result)
+    (kill-new result)
     result))
 
 ;;;###autoload
