@@ -1010,8 +1010,8 @@ name of the list.")
  nil
  "CNN Money"
  #'(lambda (url)
-     (emacspeak-we-extract-by-id
-      "cnnBody" ;"wsod_marketsOverview" 
+     (emacspeak-we-extract-by-role
+      "main" ;"wsod_marketsOverview" 
       url 'speak)))
 
 (emacspeak-url-template-define
