@@ -1924,7 +1924,6 @@ Second interactive prefix sets clock to new timezone."
   (let ((result (float-time (apply 'encode-time (parse-time-string time)))))
     (message "%s" result)
     result))
-)
 
 ;;;###autoload
 (defun emacspeak-speak-version ()
