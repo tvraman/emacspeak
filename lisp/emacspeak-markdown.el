@@ -53,7 +53,36 @@
 
 ;;}}}
 ;;{{{ Map faces to voices:
-
+(voice-setup-add-map
+ '(
+   (markdown-italic-face  voice-animate)
+   (markdown-bold-face voice-bolden)
+   (markdown-header-rule-face voice-bolden-medium)
+   (markdown-header-delimiter-face voice-lighten)
+   (markdown-header-face voice-bolden)
+   (markdown-header-face-1 voice-bolden-medium)
+   (markdown-header-face-2 voice-bolden-and-animate)
+   (markdown-header-face-3 voice-bolden-extra)
+   (markdown-header-face-4 voice-smoothen)
+   (markdown-header-face-5 voice-lighten-extra)
+   (markdown-header-face-6 voice-monotone)
+   (markdown-inline-code-face voice-monotone)
+   (markdown-list-face voice-animate)
+   (markdown-blockquote-face voice-lighten)
+   (markdown-pre-face
+   (markdown-language-keyword-face
+   (markdown-link-face
+   (markdown-missing-link-face
+   (markdown-reference-face
+   (markdown-footnote-face
+   (markdown-url-face
+   (markdown-link-title-face
+   (markdown-line-break-face
+   (markdown-comment-face
+   (markdown-math-face
+   (markdown-metadata-key-face
+   (markdown-metadata-value-face
+   ))
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
