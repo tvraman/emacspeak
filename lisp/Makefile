@@ -185,6 +185,7 @@ emacspeak-madplay.elc \
 emacspeak-magit.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
+emacspeak-markdown.elc \
 emacspeak-man.elc \
 emacspeak-message.elc \
 emacspeak-metapost.elc \
@@ -423,6 +424,7 @@ emacspeak-madplay.elc: emacspeak-madplay.el dtk-speak.elc voice-setup.elc
 emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc voice-setup.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc voice-setup.elc
+emacspeak-markdown.elc: emacspeak-markdown.el dtk-speak.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc voice-setup.elc
 emacspeak-metapost.elc: emacspeak-metapost.el dtk-speak.elc voice-setup.elc

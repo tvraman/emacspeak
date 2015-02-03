@@ -4,6 +4,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 42 -- Emacspeak 40 User Visible Changes 
 
+** emacspeak-markdown.el:
+
+Speech-enable markdown-mode.
 
 ** emacspeak-xref.el: Speech-Enable xref.el  
 
