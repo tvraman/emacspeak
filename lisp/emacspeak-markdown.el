@@ -69,23 +69,106 @@
    (markdown-inline-code-face voice-monotone)
    (markdown-list-face voice-animate)
    (markdown-blockquote-face voice-lighten)
-   (markdown-pre-face
-   (markdown-language-keyword-face
-   (markdown-link-face
-   (markdown-missing-link-face
-   (markdown-reference-face
-   (markdown-footnote-face
-   (markdown-url-face
-   (markdown-link-title-face
-   (markdown-line-break-face
-   (markdown-comment-face
-   (markdown-math-face
-   (markdown-metadata-key-face
-   (markdown-metadata-value-face
+   (markdown-pre-face voice-monotone)
+   (markdown-language-keyword-face voice-smoothen)
+   (markdown-link-face voice-bolden)
+   (markdown-missing-link-face voice-animate)
+   (markdown-reference-face voice-lighten)
+   (markdown-footnote-face voice-smoothen)
+   (markdown-url-face voice-bolden-and-animate)
+   (markdown-link-title-face voice-lighten)
+   (markdown-line-break-face voice-monotone)
+   (markdown-comment-face voice-monotone)
+   (markdown-math-face voice-animate)
+   (markdown-metadata-key-face voice-smoothen)
+   (markdown-metadata-value-face voice-smoothen-medium)
    ))
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+(loop
+ for f in
+ '(markdown-backward-paragraph
+   markdown-beginning-of-block
+   markdown-beginning-of-defun
+   markdown-demote markdown-demote-list-item
+   markdown-end-of-block markdown-end-of-block-element
+   markdown-insert-footnote markdown-insert-code
+   markdown-insert-bold markdown-insert-blockquote
+   markdown-forward-paragraph markdown-footnote-goto-text
+   markdown-end-of-defun
+   markdown-insert-gfm-code-block
+   markdown-insert-header
+   markdown-insert-header-atx-1
+   markdown-insert-header-atx-2
+   markdown-insert-header-atx-3
+   markdown-insert-header-atx-4
+   markdown-insert-header-atx-5
+   markdown-insert-header-atx-6
+   markdown-insert-header-dwim
+   markdown-insert-header-setext-1
+   markdown-insert-header-setext-2
+   markdown-insert-header-setext-dwim
+   markdown-insert-hr
+   markdown-insert-image
+   markdown-insert-italic
+   markdown-insert-link
+   markdown-insert-list-item
+   markdown-insert-pre
+   markdown-insert-reference-image
+   markdown-insert-reference-link-dwim
+   markdown-insert-uri
+   markdown-insert-wiki-link
+   markdown-jump
+   markdown-move-down markdown-move-list-item-down
+   markdown-move-list-item-up markdown-move-up
+   markdown-next-link markdown-previous-link
+   markdown-promote markdown-promote-list-item
+   markdown-reference-goto-definition
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
+ ;; (markdown-blockquote-region
+ ;;  markdown-check-change-for-wiki-link
+ ;;  markdown-check-refs
+ ;;  markdown-cleanup-list-numbers
+ ;;  markdown-complete
+ ;;  markdown-complete-at-point
+ ;;  markdown-complete-buffer
+ ;;  markdown-complete-region
+ ;;  markdown-cycle
+ ;;  markdown-enable-math
+ ;;  markdown-enter-key
+ ;;  markdown-exdent-or-delete
+ ;;  markdown-exdent-region
+ ;;  markdown-export
+ ;;  markdown-export-and-preview
+ ;;  markdown-follow-link-at-point
+ ;;  markdown-follow-thing-at-point
+ ;;  markdown-follow-wiki-link-at-point
+ ;;  markdown-fontify-buffer-wiki-links
+ ;;  markdown-footnote-kill
+ ;;  markdown-footnote-return
+ ;;  markdown-indent-line
+ ;;  markdown-indent-region
+ ;;  markdown-kill-ring-save
+ ;;  markdown-kill-thing-at-point
+ ;;  markdown-mode
+ ;;  markdown-mode-menu
+ ;;  markdown-open
+ ;;  markdown-other-window
+ ;;  markdown-pre-region
+ ;;  markdown-preview
+ ;;  markdown-reload-extensions
+ ;;  markdown-remove-header
+ ;;  markdown-shifttab
+ ;;  markdown-standalone
+ ;;  markdown-unfontify-region-wiki-links)
 ;;}}}
 (provide 'emacspeak-markdown)
 ;;{{{ end of file
