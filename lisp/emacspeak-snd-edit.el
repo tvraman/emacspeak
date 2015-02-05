@@ -59,24 +59,28 @@
 ;;}}}
 ;;{{{ Define Special Mode
 
-(define-derived-mode emacspeak-snd-edit-mode special-mode
-  "Interactively manipulate audio files."
-  "An audio workbench for the Emacspeak desktop."
+(defun emacspeak-snd-edit-redraw ()
+  "Redraws snd-edit buffer."
   (declare (special emacspeak-snd-edit-context))
   (let ((inhibit-read-only t)
-        (start (point)))
-    (goto-char (point-min))
-    (erase-buffer)
-    (unless emacspeak-snd-edit-context
-      (setq emacspeak-snd-edit-context (make-emacspeak-snd-edit-context)))
-    (insert
-     (format "Audio File:  %s"
-             (if emacspeak-snd-edit-context
-                 (emacspeak-snd-edit-context-file emacspeak-snd-edit-context)
-               "")))
+        (start (point-min)))
+    (goto-char start)
+    (erase-buffer)    
+    (insert "Audio File:  ")
     (put-text-property start (point) 'face font-lock-doc-face)
-    (setq buffer-read-only t)
-    (setq header-line-format "Audio Workbench")))
+    (setq start (point))
+    (when  (emacspeak-snd-edit-context-file emacspeak-snd-edit-context)
+      (insert  (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
+      (put-text-property start (point) 'face font-lock-keyword-face))))
+(define-derived-mode emacspeak-snd-edit-mode special-mode
+                     "Interactively manipulate audio files."
+  "An audio workbench for the Emacspeak desktop."
+  (declare (special emacspeak-snd-edit-context))
+  (unless emacspeak-snd-edit-context
+    (setq emacspeak-snd-edit-context (make-emacspeak-snd-edit-context)))
+  (emacspeak-snd-edit-redraw)
+  (setq buffer-read-only t)
+  (setq header-line-format "Audio Workbench"))
 
 (defvar emacspeak-snd-edit-buffer "Audio WorkBench"
   "Buffer name of workbench.")
@@ -90,10 +94,10 @@
     (let ((buffer (get-buffer-create emacspeak-snd-edit-buffer)))
     (with-current-buffer buffer
       (emacspeak-snd-edit-mode)
-      (emacspeak-snd-edit-setup-keys)))
-    (switch-to-buffer emacspeak-snd-edit-buffer)
+      (emacspeak-snd-edit-setup-keys))))
+  (switch-to-buffer emacspeak-snd-edit-buffer)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-header-line)))
+    (emacspeak-speak-header-line))
     
     
 (defgroup emacspeak-snd-edit nil
@@ -102,15 +106,17 @@
 
 (defun emacspeak-snd-edit-setup-keys ()
   "Set up snd-edit keymap."
-  (declare (special emacspeak-snd-edit-mode-map)))
-(loop
+  (declare (special emacspeak-snd-edit-mode-map))
+  (loop
  for k in
  '(
    ("f" emacspeak-snd-edit-file)
+   ("[" emacspeak-snd-edit-set-start)
+   ("]" emacspeak-snd-edit-set-end)
    )
         do
-        (emacspeak-keymap-update  emacspeak-snd-edit-mode-map k))
- 
+        (emacspeak-keymap-update  emacspeak-snd-edit-mode-map k)))
+
 ;;}}}
 ;;{{{ Top-level Context:
 
