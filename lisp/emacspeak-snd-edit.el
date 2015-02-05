@@ -66,10 +66,15 @@
   (let ((inhibit-read-only t)
         (start (point)))
     (goto-char (point-min))
-    (insert "Manipulate Audio Files")
-    (put-text-property start (point)
-                       'face font-lock-doc-face)
-    (setq emacspeak-snd-edit-context (make-emacspeak-snd-edit-context))
+    (erase-buffer)
+    (unless emacspeak-snd-edit-context
+      (setq emacspeak-snd-edit-context (make-emacspeak-snd-edit-context)))
+    (insert
+     (format "Audio File:  %s"
+             (if emacspeak-snd-edit-context
+                 (emacspeak-snd-edit-context-file emacspeak-snd-edit-context)
+               "")))
+    (put-text-property start (point) 'face font-lock-doc-face)
     (setq buffer-read-only t)
     (setq header-line-format "Audio Workbench")))
 
@@ -81,10 +86,11 @@
   "Create a new Audio Workbench or switch to an existing workbench."
   (interactive)
   (declare (special emacspeak-snd-edit-buffer))
-  (let ((buffer (get-buffer-create emacspeak-snd-edit-buffer)))
+  (unless (get-buffer emacspeak-snd-edit-buffer)
+    (let ((buffer (get-buffer-create emacspeak-snd-edit-buffer)))
     (with-current-buffer buffer
       (emacspeak-snd-edit-mode)
-      (emacspeak-snd-edit-setup-keys))
+      (emacspeak-snd-edit-setup-keys)))
     (switch-to-buffer emacspeak-snd-edit-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-header-line)))
@@ -133,6 +139,8 @@
   (let ((case-fold-search t))
     (cond
      ((string-match  "\\.mp3$" snd-file) 'mp3)
+     ((string-match  "\\.mp3$" snd-file) 'mp3)
+     ((string-match "\\.au$" snd-file) 'au)
      ((string-match "\\.wav$" snd-file) 'wave)
      (t nil))))
 
@@ -140,11 +148,18 @@
   "Open specified snd-file on the Audio Workbench."
   (interactive "fSound File: ")
   (declare (special emacspeak-snd-edit-context))
+  (unless (emacspeak-snd-edit-sound-p snd-file)
+    (error "%s does not look like a sound file." snd-file))
   (unless emacspeak-snd-edit-context
     (error "Audio Workbench not initialized."))
-  (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
+  (let ((inhibit-read-only t))
+    (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
+  (goto-char (point-min))
+  (goto-char (1+ (search-forward ":")))
+  (delete-region (point) (line-end-position))
+  (insert snd-file)
   (message "Selected file %s" snd-file)
-  (emacspeak-auditory-icon 'select-object))
+  (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{  SOX for Wave files :
