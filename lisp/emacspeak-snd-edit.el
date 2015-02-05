@@ -63,15 +63,22 @@
   "Redraws snd-edit buffer."
   (declare (special emacspeak-snd-edit-context))
   (let ((inhibit-read-only t)
-        (start (point-min)))
+        (start (point-min))
+        (file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
+        (start-time (emacspeak-snd-edit-context-start emacspeak-snd-edit-context))
+        (end-time (emacspeak-snd-edit-context-end emacspeak-snd-edit-context)))
     (goto-char start)
     (erase-buffer)    
     (insert "Audio File:  ")
     (put-text-property start (point) 'face font-lock-doc-face)
     (setq start (point))
-    (when  (emacspeak-snd-edit-context-file emacspeak-snd-edit-context)
-      (insert  (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
-      (put-text-property start (point) 'face font-lock-keyword-face))))
+    (when  file
+      (insert  file)
+      (put-text-property start (point) 'face font-lock-keyword-face))
+    (insert "\n")
+    (when start-time (insert (format "Start: %s" start-time)))
+    (when end-time (insert (format "End: %s" end-time)))))
+
 (define-derived-mode emacspeak-snd-edit-mode special-mode
                      "Interactively manipulate audio files."
   "An audio workbench for the Emacspeak desktop."
@@ -127,7 +134,7 @@
 
 (defstruct emacspeak-snd-edit-context
   file ; file being manipulated 
-  start-time end-time ; clipping params
+  start end ; clipping params
   effects ; list of effects with params 
 )
 
@@ -160,10 +167,10 @@
     (error "Audio Workbench not initialized."))
   (let ((inhibit-read-only t))
     (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
-  (goto-char (point-min))
-  (goto-char (1+ (search-forward ":")))
-  (delete-region (point) (line-end-position))
-  (insert snd-file)
+  (emacspeak-snd-edit-redraw)
+  
+  
+  
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object)))
 
@@ -182,7 +189,8 @@
   (interactive
    (list
     (emacspeak-snd-edit-read-timestamp "Start: ")))
-  (setf (emacspeak-snd-edit-context-start-time emacspeak-snd-edit-context) timestamp)
+  (setf (emacspeak-snd-edit-context-start emacspeak-snd-edit-context) timestamp)
+  (emacspeak-snd-edit-redraw)
   (message "Set start to %s" timestamp))
 
 (defun emacspeak-snd-edit-set-end (timestamp)
@@ -190,7 +198,8 @@
   (interactive
    (list
     (emacspeak-snd-edit-read-timestamp "End: ")))
-  (setf (emacspeak-snd-edit-context-end-time emacspeak-snd-edit-context) timestamp)
+  (setf (emacspeak-snd-edit-context-end emacspeak-snd-edit-context) timestamp)
+  (emacspeak-snd-edit-redraw)
   (message "Set end to %s" timestamp))
 
 ;;}}}
