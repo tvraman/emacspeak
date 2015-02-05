@@ -83,7 +83,8 @@
   (declare (special emacspeak-snd-edit-buffer))
   (let ((buffer (get-buffer-create emacspeak-snd-edit-buffer)))
     (with-current-buffer buffer
-      (emacspeak-snd-edit-mode))
+      (emacspeak-snd-edit-mode)
+      (emacspeak-snd-edit-setup-keys))
     (switch-to-buffer emacspeak-snd-edit-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-header-line)))
@@ -93,6 +94,17 @@
   "Audio workbench for the Emacspeak Audio Desktop."
   :group 'emacspeak)
 
+(defun emacspeak-snd-edit-setup-keys ()
+  "Set up snd-edit keymap."
+  (declare (special emacspeak-snd-edit-mode-map)))
+(loop
+ for k in
+ '(
+   ("f" emacspeak-snd-edit-file)
+   )
+        do
+        (emacspeak-keymap-update  emacspeak-snd-edit-mode-map k))
+ 
 ;;}}}
 ;;{{{ Top-level Context:
 
@@ -115,6 +127,7 @@
 
 ;;}}}
 ;;{{{ Common Commands 
+
 (defsubst emacspeak-snd-edit-sound-p (snd-file)
   "Predicate to test if we can edit this file."
   (let ((case-fold-search t))
@@ -125,17 +138,14 @@
 
 (defun emacspeak-snd-edit-file (snd-file)
   "Open specified snd-file on the Audio Workbench."
-  (interactive
-   (list (read-file-name "Sound File: "
-                         nil nil  t nil
-                         #'emacspeak-snd-edit-sound-p)))
+  (interactive "fSound File: ")
   (declare (special emacspeak-snd-edit-context))
   (unless emacspeak-snd-edit-context
     (error "Audio Workbench not initialized."))
   (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
-  
+
 ;;}}}
 ;;{{{  SOX for Wave files :
 
@@ -145,7 +155,7 @@
   :type 'file)
 
 ;;}}}
-;;{{{ Wave edit commands 
+;;{{{ SoX for Wave edit commands 
 
 ;;}}}
 ;;{{{ mp3cut for mp3 files:
@@ -159,7 +169,6 @@
 ;;{{{  mp3 edit commands:
 
 ;;}}}
-
 (provide 'emacspeak-snd-edit)
 ;;{{{ end of file
 
