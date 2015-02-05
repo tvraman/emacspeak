@@ -161,6 +161,32 @@
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object)))
 
+(defun emacspeak-snd-edit-read-timestamp (prompt)
+  "Read timestamp hh:mm:ss.sss."
+  (declare (special emacspeak-snd-edit-context))
+  (let ((timestamp (read-from-minibuffer  prompt)))
+    (unless emacspeak-snd-edit-context
+      (error "Audio Workbench not initialized."))
+    (unless (string-match "[0-9:.]+" timestamp)
+      (error "%s does not look like a valid timestamp." timestamp))
+    timestamp))
+
+(defun emacspeak-snd-edit-set-start (timestamp)
+  "Set start time."
+  (interactive
+   (list
+    (emacspeak-snd-edit-read-timestamp "Start: ")))
+  (setf (emacspeak-snd-edit-context-start-time emacspeak-snd-edit-context) timestamp)
+  (message "Set start to %s" timestamp))
+
+(defun emacspeak-snd-edit-set-end (timestamp)
+  "Set end time."
+  (interactive
+   (list
+    (emacspeak-snd-edit-read-timestamp "End: ")))
+  (setf (emacspeak-snd-edit-context-end-time emacspeak-snd-edit-context) timestamp)
+  (message "Set end to %s" timestamp))
+
 ;;}}}
 ;;{{{  SOX for Wave files :
 
