@@ -224,7 +224,7 @@ emacspeak-sh-script.elc \
 emacspeak-sigbegone.elc \
 emacspeak-solitaire.elc \
 emacspeak-speedbar.elc \
-emacspeak-snd-edit.elc \
+emacspeak-sox.elc \
 emacspeak-sql.elc \
 emacspeak-supercite.elc \
 emacspeak-sudoku.elc \
@@ -470,7 +470,7 @@ emacspeak-sounds.elc: emacspeak-sounds.el
 emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
-emacspeak-snd-edit.elc: emacspeak-snd-edit.el dtk-speak.elc 
+emacspeak-sox.elc: emacspeak-sox.el dtk-speak.elc 
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
 emacspeak-sudoku.elc: emacspeak-sudoku.el dtk-speak.elc
 emacspeak-swbuff.elc: emacspeak-swbuff.el dtk-speak.elc voice-setup.elc
