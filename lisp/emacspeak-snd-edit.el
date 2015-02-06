@@ -273,17 +273,12 @@
   "Set effect."
   (interactive
    (list (completing-read "SoX Effect: " emacspeak-snd-edit-effects)))
-  (declare (special emacspeak-snd-edit-context emacspeak-snd-edit-effects))
-  (let ((effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context))
-        (e
-         (funcall (intern (format  "emacspeak-snd-edit-get-%s-effect"  name)))))
-    (cond
-     (effects
-      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (push   e effects)))
-     (t
-      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
+  (declare (special emacspeak-snd-edit-context  emacspeak-snd-edit-effects))
+      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context)
+            (list  (funcall (intern (format  "emacspeak-snd-edit-get-%s-effect"  name)))))
     (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
-  (message "Added effect  %s" name)))
+  (message "Set effect  %s" name))
+
 
 
 
@@ -292,16 +287,22 @@
 and return a suitable effect structure."
   (make-emacspeak-snd-edit-effect
    :name "trim"
-   :params 
-   `(("start" ,(read-from-minibuffer "Start Time: "))
-     ("end" ,(read-from-minibuffer "End Time: ")))))
+   :params
+   (let ((s (read-from-minibuffer "Time Offset: "))
+         (params nil))
+     (while (string-match "[0-9:.]+" s)
+       (push  (list "skip" s) params)
+       (setq s (read-from-minibuffer "Offset Time: ")))
+     (nreverse params))))
+     
+   
 
 (defun emacspeak-snd-edit-get-trim-options   (effect)
-  "Construct options  portion of commandline for this effect."
+  "Construct options  portion of commandline for this trim effect."
   (let ((params (emacspeak-snd-edit-effect-params effect)))
-    (format "trim %s =%s"
-          (cadr (first params))
-          (cadr (second params)))))
+    (format "trim %s"
+            (mapconcat #'second params " "))))
+    
           
 
 ;;}}}
