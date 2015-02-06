@@ -118,6 +118,7 @@
   (loop
    for k in
    '(
+     ("E" emacspeak-sox-add-effect)
      ("e" emacspeak-sox-set-effect)
      ("f" emacspeak-sox-open-file)
      ("p" emacspeak-sox-play)
@@ -177,6 +178,7 @@
   (emacspeak-sox-redraw emacspeak-sox-context)
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
+
 (defun emacspeak-sox-play ()
   "Play sound from current context."
   (interactive)
@@ -201,7 +203,8 @@
     (setq options (mapconcat #'identity  options " "))
     (setq command
           (format "%s %s %s &" action file options))
-    (call-process shell-file-name nil nil nil shell-command-switch command)))
+    (call-process shell-file-name nil nil nil shell-command-switch command)
+    command))
 
 (defun emacspeak-sox-save(save-file)
   "Save context to  file after prompting."
@@ -226,8 +229,7 @@
     (call-process shell-file-name nil nil nil shell-command-switch command)))
 
 (defconst emacspeak-sox-effects
-  '("trim"
-    "echo"
+  '("trim" "bass" "treble"
     )
   "Table of implemented effects.")
 
@@ -241,6 +243,23 @@
          (funcall (intern (format  "emacspeak-sox-get-%s-effect"  name)))))
   (emacspeak-sox-redraw emacspeak-sox-context)
   (message "Set effect  %s" name))
+
+(defun emacspeak-sox-add-effect (name)
+  "Adds  effect at the end of the effect list"
+  (interactive
+   (list (completing-read "Add SoX Effect: "  emacspeak-sox-effects nil t)))
+  (declare (special emacspeak-sox-context  emacspeak-sox-effects))
+  (setf (emacspeak-sox-context-effects emacspeak-sox-context)
+        (append
+         (emacspeak-sox-context-effects emacspeak-sox-context)
+         (list
+          (funcall (intern (format  "emacspeak-sox-get-%s-effect"  name))))))
+  (emacspeak-sox-redraw emacspeak-sox-context)
+  (message "Set effect  %s" name))
+
+;;}}}
+;;; Effects:
+;;{{{ Trim:
 
 (defun emacspeak-sox-get-trim-effect ()
   "Read needed params for effect trim,
@@ -259,6 +278,42 @@ and return a suitable effect structure."
   "Construct options  portion of commandline for this trim effect."
   (let ((params (emacspeak-sox-effect-params effect)))
     (format "trim %s"
+            (mapconcat #'second params " "))))
+
+;;}}}
+;;{{{ Bass:
+
+(defun emacspeak-sox-get-bass-effect ()
+  "Read needed params for effect bass,
+and return a suitable effect structure."
+  (make-emacspeak-sox-effect
+   :name "bass"
+   :params
+   `(
+     ("gain" ,(read-from-minibuffer "Gain: ")))))
+
+(defun emacspeak-sox-get-bass-options   (effect)
+  "Construct options  portion of commandline for this bass effect."
+  (let ((params (emacspeak-sox-effect-params effect)))
+    (format "bass %s"
+            (mapconcat #'second params " "))))
+
+;;}}}
+;;{{{ Treble:
+
+(defun emacspeak-sox-get-treble-effect ()
+  "Read needed params for effect treble,
+and return a suitable effect structure."
+  (make-emacspeak-sox-effect
+   :name "treble"
+   :params
+   `(
+     ("gain" ,(read-from-minibuffer "Gain: ")))))
+
+(defun emacspeak-sox-get-treble-options   (effect)
+  "Construct options  portion of commandline for this treble effect."
+  (let ((params (emacspeak-sox-effect-params effect)))
+    (format "treble %s"
             (mapconcat #'second params " "))))
 
 ;;}}}
