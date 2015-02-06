@@ -118,8 +118,8 @@ proc tts_pause {} {
 
 proc s {} {
     global tts
-    queue_clear
     if {$tts(not_stopped) == 1} {
+        queue_clear
         set tts(not_stopped) 0
         stop
     } else {
