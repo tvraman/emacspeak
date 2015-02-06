@@ -129,13 +129,14 @@
 
 (defstruct emacspeak-snd-edit-effect
   name ; effect name
-  params ; list of effect params 
-)
+  params ; list of effect params
+  )
 
 (defstruct emacspeak-snd-edit-context
   file ; file being manipulated 
   start end ; clipping params
-  effects ; list of effects with params 
+  effects ; list of effects with params
+  tool ; sox or mp3cut
 )
 
 (defvar emacspeak-snd-edit-context
@@ -143,6 +144,11 @@
   "Buffer-local handle to snd-edit context.")
 
 (make-variable-buffer-local 'emacspeak-snd-edit-context)
+(defvar emacspeak-snd-edit-tools
+  '(
+    ('wave emacspeak-snd-edit-wave)
+    '(mp3 emacspeak-snd-edit-mp3))
+  "Alist of sound edit tools for file types.")
 
 ;;}}}
 ;;{{{ Common Commands 
@@ -152,8 +158,7 @@
   (let ((case-fold-search t))
     (cond
      ((string-match  "\\.mp3$" snd-file) 'mp3)
-     ((string-match  "\\.mp3$" snd-file) 'mp3)
-     ((string-match "\\.au$" snd-file) 'au)
+     ((string-match "\\.au$" snd-file) 'wave)
      ((string-match "\\.wav$" snd-file) 'wave)
      (t nil))))
 
@@ -161,18 +166,17 @@
   "Open specified snd-file on the Audio Workbench."
   (interactive "fSound File: ")
   (declare (special emacspeak-snd-edit-context))
-  (unless (emacspeak-snd-edit-sound-p snd-file)
-    (error "%s does not look like a sound file." snd-file))
   (unless emacspeak-snd-edit-context
     (error "Audio Workbench not initialized."))
-  (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t)
+        (type (emacspeak-snd-edit-sound-p snd-file)))
+    (unless type (error "%s does not look like a sound file." snd-file))
     (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
+    (setf (emacspeak-snd-edit-context-tool emacspeak-snd-edit-context)
+          (cadr (assq  type emacspeak-snd-edit-tools))))
   (emacspeak-snd-edit-redraw)
-  
-  
-  
   (message "Selected file %s" snd-file)
-  (emacspeak-auditory-icon 'select-object)))
+  (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-snd-edit-read-timestamp (prompt)
   "Read timestamp hh:mm:ss.sss."
