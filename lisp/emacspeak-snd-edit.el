@@ -160,7 +160,7 @@
   "Location of SoX utility."
   :type 'file)
 
-(defcustom emacspeak-snd-edit-wave-play 
+(defcustom emacspeak-snd-edit-play 
   (executable-find "play")
   "Location of play from SoX utility."
   :type 'file)
@@ -175,11 +175,11 @@
 (defsubst emacspeak-snd-edit-sound-p (snd-file)
   "Predicate to test if we can edit this file."
   (let ((case-fold-search t))
-    (cond
-     ((string-match  "\\.mp3$" snd-file) 'mp3)
-     ((string-match "\\.au$" snd-file) 'wave)
-     ((string-match "\\.wav$" snd-file) 'wave)
-     (t nil))))
+    (or 
+     (string-match  "\\.mp3$" snd-file)
+     (string-match "\\.au$" snd-file)
+     (string-match "\\.wav$" snd-file))))
+     
 
 (defun emacspeak-snd-edit-file (snd-file)
   "Open specified snd-file on the Audio Workbench."
@@ -226,10 +226,13 @@
 
      
 
-(defun emacspeak-snd-edit-play (c)
+(defun emacspeak-snd-edit-play ()
   "Play wave file from specified context."
-  (declare (special emacspeak-snd-edit-wave-play))
-  (let ((file (emacspeak-snd-edit-context-file c))
+  (interactive )
+  (declare (special emacspeak-snd-edit-context
+            emacspeak-snd-edit-play))
+  (let* ((c emacspeak-snd-edit-context)
+         (file (emacspeak-snd-edit-context-file c))
         (effects (emacspeak-snd-edit-context-effects c))
         (command nil)
         (options nil))
@@ -243,7 +246,7 @@
     (setq options (mapconcat #'identity  options " "))
     (setq command
           (format "%s %s %s"
-                          emacspeak-snd-edit-wave-play file options))
+                          emacspeak-snd-edit-play file options))
     (call-process shell-file-name nil nil nil shell-command-switch command)
     command))
     
