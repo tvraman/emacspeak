@@ -67,7 +67,7 @@ proc queue_length {} {
 proc queue_clear {} {
     global tts queue
     if {$tts(debug)} {
-    puts -nonewline  $tts(write) "$tts(q_head) e\013"
+    puts -nonewline  $tts(write) "$tts(q_head) \013"
     }
     if {[info exists q]} unset q
     set queue(-1) "" 
