@@ -302,6 +302,21 @@ Do not set this by hand;
     (error
      (message (error-message-string err)))))
 
+;;;###autoload
+(defcustom emacspeak-soxplay-command 
+  (when(executable-find "play")
+    (format "%s -v 2 %%s earwax &" (executable-find "play")))
+  "Name of play executable from SoX"
+  :group 'emacspeak-sounds
+  :type 'string)
+(defun emacspeak-soxplay-auditory-icon (sound-name)
+  "Produce auditory icon SOUND-NAME.
+This uses SoX play and is specifically for use with headphones."
+  (declare (special emacspeak-soxplay-command))
+  (let ((icon (emacspeak-get-sound-filename sound-name)))
+    (call-process shell-file-name nil nil nil shell-command-switch
+        (format emacspeak-soxplay-command icon))))
+
 ;;}}}
 ;;{{{  setup play function
 
@@ -310,6 +325,7 @@ Do not set this by hand;
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
+soxplay: Use sox to apply effect earwax for headphones.
 Native : Use Emacs' builtin sound support.
 Use Serve when working with remote speech servers."
   :group 'emacspeak-sounds
@@ -318,6 +334,7 @@ Use Serve when working with remote speech servers."
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
+(const emacspeak-soxplay-auditory-icon)
 
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)
