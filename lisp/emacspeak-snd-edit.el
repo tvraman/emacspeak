@@ -66,7 +66,8 @@
         (start (point-min))
         (file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
         (start-time (emacspeak-snd-edit-context-start emacspeak-snd-edit-context))
-        (end-time (emacspeak-snd-edit-context-end emacspeak-snd-edit-context)))
+        (end-time (emacspeak-snd-edit-context-end emacspeak-snd-edit-context))
+        (effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context)))
     (goto-char start)
     (erase-buffer)    
     (insert "Audio File:  ")
@@ -77,7 +78,14 @@
       (put-text-property start (point) 'face font-lock-keyword-face))
     (insert "\n")
     (when start-time (insert (format "Start: %s" start-time)))
-    (when end-time (insert (format "End: %s" end-time)))))
+    (when end-time (insert (format "End: %s" end-time)))
+    (when effects
+      (mapcar
+       #'(lambda (e)
+           (insert
+            (format "Effect: %s"
+                    (emacspeak-snd-edit-effect-name e))))
+       effects))))
 
 (define-derived-mode emacspeak-snd-edit-mode special-mode
                      "Interactively manipulate audio files."
@@ -117,7 +125,9 @@
   (loop
  for k in
  '(
+   ("e" emacspeak-snd-edit-set-effect)
    ("f" emacspeak-snd-edit-file)
+   ("p" emacspeak-snd-edit-play)
    ("[" emacspeak-snd-edit-set-start)
    ("]" emacspeak-snd-edit-set-end)
    )
@@ -145,9 +155,9 @@
 
 (make-variable-buffer-local 'emacspeak-snd-edit-context)
 (defvar emacspeak-snd-edit-tools
-  '(
-    ('wave emacspeak-snd-edit-wave)
-    '(mp3 emacspeak-snd-edit-mp3))
+  `(
+    (wave ,emacspeak-snd-edit-wave)
+    (mp3 ,emacspeak-snd-edit-mp3))
   "Alist of sound edit tools for file types.")
 
 ;;}}}
@@ -206,12 +216,69 @@
   (emacspeak-snd-edit-redraw)
   (message "Set end to %s" timestamp))
 
+(defun emacspeak-snd-edit-set-effect (effect)
+  "Set effect."
+  (interactive "sEffect: ")
+  (declare (special emacspeak-snd-edit-context))
+  (let ((effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context))
+        (e (make-emacspeak-snd-edit-effect :name effect)))
+    (cond
+     (effects (push e effects))
+     (t
+      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
+  (emacspeak-snd-edit-redraw)
+  (message "Set effect to %s" effect)))
+(defun emacspeak-snd-edit-play ()
+  "Play with current effects applied."
+  (interactive)
+  (declare (special emacspeak-snd-edit-context))
+  (unless emacspeak-snd-edit-context
+    (error "Audio workbench not initialized."))
+  (let* ((file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
+         (type (emacspeak-snd-edit-sound-p file)))
+    (cond
+     ((eq type 'wave)
+      (emacspeak-snd-edit-play-wave emacspeak-snd-edit-context))
+     ((eq type 'mp3)
+      (emacspeak-snd-edit-play-mp3 emacspeak-snd-edit-context))
+      (t (error "unhandled type %s" type)))))
+     
+
+(defun emacspeak-snd-edit-play-wave (c)
+  "Play wave file from specified context."
+  (declare (special emacspeak-snd-edit-wave-play))
+  (let ((file (emacspeak-snd-edit-context-file c))
+        (start (emacspeak-snd-edit-context-start c))
+        (end  (emacspeak-snd-edit-context-end c))
+        (effects (emacspeak-snd-edit-context-effects c))
+        (command emacspeak-snd-edit-wave-play)
+        (options nil))
+    (setq options                       ; temporary hack
+          (mapconcat
+           #'(lambda (e)
+               (emacspeak-snd-edit-effect-name e))
+           effects " "))
+    (shell-command
+     (format "%s %s %s %s =%s"
+             emacspeak-snd-edit-wave-play
+             file options start end)))
+              
+  )
+        
+        
+        
+  
+  )
 ;;}}}
 ;;{{{  SOX for Wave files :
 
 (defcustom emacspeak-snd-edit-wave
   (executable-find "sox")
   "Location of SoX utility."
+  :type 'file)
+(defcustom emacspeak-snd-edit-wave-play 
+  (executable-find "play")
+  "Location of play from SoX utility."
   :type 'file)
 
 ;;}}}
