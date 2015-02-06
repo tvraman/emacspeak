@@ -230,8 +230,13 @@
     (call-process shell-file-name nil nil nil shell-command-switch command)))
 
 (defconst emacspeak-sox-effects
-  '("trim" "bass" "treble "chorus""
-    )
+  '(
+    "bass"
+    "chorus"
+    "reverb"
+    "treble"
+    "trim")
+
   "Table of implemented effects.")
 
 (defun emacspeak-sox-set-effect (name)
@@ -347,11 +352,35 @@ and return a suitable effect structure."
    :name "chorus"
    :params (emacspeak-sox-read-effect-params emacspeak-sox-chorus-params)))
 
-
 (defun emacspeak-sox-get-chorus-options   (effect)
   "Construct options  portion of commandline for this chorus effect."
   (let ((params (emacspeak-sox-effect-params effect)))
     (format "chorus %s"
+            (mapconcat #'second params " "))))
+
+;;}}}
+;;{{{ Reverb:
+
+;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
+;;; [room-scale (100%) [stereo-depth (100%)
+;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
+
+(defconst emacspeak-sox-reverb-params
+  nil
+  "Parameters for effect reverb.")
+
+(defun emacspeak-sox-get-reverb-effect  ()
+  "Read needed params for effect reverb
+and return a suitable effect structure."
+  (declare (special emacspeak-sox-reverb-params))
+  (make-emacspeak-sox-effect
+   :name "reverb"
+   :params (emacspeak-sox-read-effect-params emacspeak-sox-reverb-params)))
+
+(defun emacspeak-sox-get-reverb-options   (effect)
+  "Construct options  portion of commandline for this reverb effect."
+  (let ((params (emacspeak-sox-effect-params effect)))
+    (format "reverb %s"
             (mapconcat #'second params " "))))
 
 ;;}}}
