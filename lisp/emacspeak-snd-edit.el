@@ -42,9 +42,7 @@
 
 ;;; Commentary: This module defines a convenient speech-enabled
 ;;; interface for editting mp3 and wav files. It uses
-;;; command-line tools like sox and mp3cut (from package
-;;; poc-streamer) mp3split from package mp3splt and possibly
-;;; mpgtx from package mpgtx under the covers.
+;;; command-line tools  sox and 
 ;;; Launching this module creates a special interaction buffer 
 ;;; that provides single keystroke commands for editing and applying effects to a selected sound file.
 
@@ -59,32 +57,36 @@
 ;;}}}
 ;;{{{ Define Special Mode
 
+(defun emacspeak-snd-edit-draw-effect (effect)
+  "Insert a representation of specified effect at point."
+  (let ((name (emacspeak-snd-edit-effect-name effect))
+        (params (emacspeak-snd-edit-effect-params effect)))
+    (insert (propertize  name 'face  'font-lock-keyword-face))
+    (loop
+     for p in params do
+     (insert (propertize (first p) 'face 'font-lock-string-face))
+     (insert ": ")
+             (insert (propertize (second p) 'face 'bold)))
+    (insert "\n")))
+     
+     
+
+
 (defun emacspeak-snd-edit-redraw (context)
   "Redraws snd-edit buffer."
   (let ((inhibit-read-only t)
         (orig (point-min))
-        (file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
-        (start (emacspeak-snd-edit-context-start emacspeak-snd-edit-context))
-        (end (emacspeak-snd-edit-context-end emacspeak-snd-edit-context))
-        (effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context)))
+        (file (emacspeak-snd-edit-context-file context))
+        (start (emacspeak-snd-edit-context-start context))
+        (end (emacspeak-snd-edit-context-end context))
+        (effects (emacspeak-snd-edit-context-effects context)))
     (goto-char orig)
     (erase-buffer)    
-    (insert "Audio File:  ")
-    (put-text-property orig (point) 'face font-lock-doc-face)
-    (setq orig (point))
+    (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file
-      (insert  file)
-      (put-text-property orig (point) 'face font-lock-keyword-face))
+      (insert  (propertize file 'face font-lock-keyword-face)))
     (insert "\n")
-    (when start (insert (format "Start: %s" start)))
-    (when end (insert (format "End: %s" end)))
-    (when effects
-      (mapcar
-       #'(lambda (e)
-           (insert
-            (format "Effect: %s"
-                    (emacspeak-snd-edit-effect-name e))))
-       effects))))
+    (when effects (mapc #'emacspeak-snd-edit-draw-effect effects))))
 
 (define-derived-mode emacspeak-snd-edit-mode special-mode
                      "Interactively manipulate audio files."
@@ -145,7 +147,6 @@
   file ; file being manipulated 
   start end ; clipping params
   effects ; list of effects with params
-  tool ; sox or mp3cut
 )
 
 (defvar emacspeak-snd-edit-context
@@ -153,11 +154,20 @@
   "Buffer-local handle to snd-edit context.")
 
 (make-variable-buffer-local 'emacspeak-snd-edit-context)
-(defvar emacspeak-snd-edit-tools
-  `(
-    (wave ,emacspeak-snd-edit-wave)
-    (mp3 ,emacspeak-snd-edit-mp3))
-  "Alist of sound edit tools for file types.")
+
+(defcustom emacspeak-snd-edit-wave
+  (executable-find "sox")
+  "Location of SoX utility."
+  :type 'file)
+
+(defcustom emacspeak-snd-edit-wave-play 
+  (executable-find "play")
+  "Location of play from SoX utility."
+  :type 'file)
+
+
+
+
 
 ;;}}}
 ;;{{{ Common Commands 
@@ -180,9 +190,7 @@
   (let ((inhibit-read-only t)
         (type (emacspeak-snd-edit-sound-p snd-file)))
     (unless type (error "%s does not look like a sound file." snd-file))
-    (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
-    (setf (emacspeak-snd-edit-context-tool emacspeak-snd-edit-context)
-          (cadr (assq  type emacspeak-snd-edit-tools))))
+    (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file))
   (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
@@ -215,55 +223,38 @@
   (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set end to %s" timestamp))
 
-(defun emacspeak-snd-edit-play ()
-  "Play with current effects applied."
-  (interactive)
-  (declare (special emacspeak-snd-edit-context))
-  (unless emacspeak-snd-edit-context
-    (error "Audio workbench not initialized."))
-  (let* ((file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
-         (type (emacspeak-snd-edit-sound-p file)))
-    (cond
-     ((eq type 'wave)
-      (emacspeak-snd-edit-play-wave emacspeak-snd-edit-context))
-     ((eq type 'mp3)
-      (emacspeak-snd-edit-play-mp3 emacspeak-snd-edit-context))
-      (t (error "unhandled type %s" type)))))
+
      
 
-(defun emacspeak-snd-edit-play-wave (c)
+(defun emacspeak-snd-edit-play (c)
   "Play wave file from specified context."
   (declare (special emacspeak-snd-edit-wave-play))
   (let ((file (emacspeak-snd-edit-context-file c))
-        (start (emacspeak-snd-edit-context-start c))
-        (end  (emacspeak-snd-edit-context-end c))
         (effects (emacspeak-snd-edit-context-effects c))
-        (command emacspeak-snd-edit-wave-play)
+        (command nil)
         (options nil))
-    (setq options                       ; temporary hack
-          (mapconcat
-           #'(lambda (e)
-               (emacspeak-snd-edit-effect-name e))
-           effects " "))
-    (shell-command
-     (format "%s %s %s %s =%s"
-             emacspeak-snd-edit-wave-play
-             file options start end)))
-              
-  )
+    (loop
+     for e in effects  do
+     (push 
+      (funcall
+       (intern (format "emacspeak-snd-edit-get-%s-options" (emacspeak-snd-edit-effect-name e)))
+       e)
+      options))
+    (setq options (mapconcat #'identity  options " "))
+    (setq command
+          (format "%s %s %s"
+                          emacspeak-snd-edit-wave-play file options))
+    (call-process shell-file-name nil nil nil shell-command-switch command)
+    command))
+    
+  
   
 ;;}}}
 ;;{{{  SOX for Wave files :
 
-(defcustom emacspeak-snd-edit-wave
-  (executable-find "sox")
-  "Location of SoX utility."
-  :type 'file)
 
-(defcustom emacspeak-snd-edit-wave-play 
-  (executable-find "play")
-  "Location of play from SoX utility."
-  :type 'file)
+
+
 
 ;;}}}
 ;;{{{ SoX Commands:
@@ -275,33 +266,43 @@
   "Table of implemented effects.")
 
 
-(defun emacspeak-snd-edit-set-effect (effect)
+(defun emacspeak-snd-edit-set-effect (name)
   "Set effect."
   (interactive
-   (list
-    (completing-read "SoX Effect: " emacspeak-snd-edit-effects)))
+   (list (completing-read "SoX Effect: " emacspeak-snd-edit-effects)))
   (declare (special emacspeak-snd-edit-context emacspeak-snd-edit-effects))
   (let ((effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context))
-        (e (make-emacspeak-snd-edit-effect :name effect)))
+        (e
+         (funcall (intern (format  "emacspeak-snd-edit-get-%s-effect"  name)))))
     (cond
-     (effects (push e effects))
+     (effects
+      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (push   e effects)))
      (t
       (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
     (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
-  (message "Added effect  %s" effect)))
+  (message "Added effect  %s" name)))
+
+
+
+(defun emacspeak-snd-edit-get-trim-effect ()
+  "Read needed params for effect trim,
+and return a suitable effect structure."
+  (make-emacspeak-snd-edit-effect
+   :name "trim"
+   :params 
+   `(("start" ,(read-from-minibuffer "Start Time: "))
+     ("end" ,(read-from-minibuffer "End Time: ")))))
+
+(defun emacspeak-snd-edit-get-trim-options   (effect)
+  "Construct options  portion of commandline for this effect."
+  (let ((params (emacspeak-snd-edit-effect-params effect)))
+    (format "trim %s =%s"
+          (cadr (first params))
+          (cadr (second params)))))
+          
 
 ;;}}}
-;;{{{ mp3cut for mp3 files:
 
-(defcustom emacspeak-snd-edit-mp3
-  (executable-find "mp3cut")
-  "Location of mp3cut utility from the poc-streamer package."
-  :type 'file)
-
-;;}}}
-;;{{{  mp3 edit commands:
-
-;;}}}
 (provide 'emacspeak-snd-edit)
 ;;{{{ end of file
 
