@@ -333,8 +333,9 @@ Use Serve when working with remote speech servers."
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
+          (const emacspeak-soxplay-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
-(const emacspeak-soxplay-auditory-icon)
+
 
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)

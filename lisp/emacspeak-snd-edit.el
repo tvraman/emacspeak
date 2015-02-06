@@ -59,26 +59,25 @@
 ;;}}}
 ;;{{{ Define Special Mode
 
-(defun emacspeak-snd-edit-redraw ()
+(defun emacspeak-snd-edit-redraw (context)
   "Redraws snd-edit buffer."
-  (declare (special emacspeak-snd-edit-context))
   (let ((inhibit-read-only t)
-        (start (point-min))
+        (orig (point-min))
         (file (emacspeak-snd-edit-context-file emacspeak-snd-edit-context))
-        (start-time (emacspeak-snd-edit-context-start emacspeak-snd-edit-context))
-        (end-time (emacspeak-snd-edit-context-end emacspeak-snd-edit-context))
+        (start (emacspeak-snd-edit-context-start emacspeak-snd-edit-context))
+        (end (emacspeak-snd-edit-context-end emacspeak-snd-edit-context))
         (effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context)))
-    (goto-char start)
+    (goto-char orig)
     (erase-buffer)    
     (insert "Audio File:  ")
-    (put-text-property start (point) 'face font-lock-doc-face)
-    (setq start (point))
+    (put-text-property orig (point) 'face font-lock-doc-face)
+    (setq orig (point))
     (when  file
       (insert  file)
-      (put-text-property start (point) 'face font-lock-keyword-face))
+      (put-text-property orig (point) 'face font-lock-keyword-face))
     (insert "\n")
-    (when start-time (insert (format "Start: %s" start-time)))
-    (when end-time (insert (format "End: %s" end-time)))
+    (when start (insert (format "Start: %s" start)))
+    (when end (insert (format "End: %s" end)))
     (when effects
       (mapcar
        #'(lambda (e)
@@ -93,7 +92,7 @@
   (declare (special emacspeak-snd-edit-context))
   (unless emacspeak-snd-edit-context
     (setq emacspeak-snd-edit-context (make-emacspeak-snd-edit-context)))
-  (emacspeak-snd-edit-redraw)
+  (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (setq buffer-read-only t)
   (setq header-line-format "Audio Workbench"))
 
@@ -184,7 +183,7 @@
     (setf (emacspeak-snd-edit-context-file emacspeak-snd-edit-context) snd-file)
     (setf (emacspeak-snd-edit-context-tool emacspeak-snd-edit-context)
           (cadr (assq  type emacspeak-snd-edit-tools))))
-  (emacspeak-snd-edit-redraw)
+  (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
 
@@ -204,7 +203,7 @@
    (list
     (emacspeak-snd-edit-read-timestamp "Start: ")))
   (setf (emacspeak-snd-edit-context-start emacspeak-snd-edit-context) timestamp)
-  (emacspeak-snd-edit-redraw)
+  (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set start to %s" timestamp))
 
 (defun emacspeak-snd-edit-set-end (timestamp)
@@ -213,7 +212,7 @@
    (list
     (emacspeak-snd-edit-read-timestamp "End: ")))
   (setf (emacspeak-snd-edit-context-end emacspeak-snd-edit-context) timestamp)
-  (emacspeak-snd-edit-redraw)
+  (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set end to %s" timestamp))
 
 (defun emacspeak-snd-edit-set-effect (effect)
@@ -226,7 +225,7 @@
      (effects (push e effects))
      (t
       (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
-  (emacspeak-snd-edit-redraw)
+    (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set effect to %s" effect)))
 (defun emacspeak-snd-edit-play ()
   "Play with current effects applied."
