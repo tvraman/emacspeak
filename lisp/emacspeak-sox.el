@@ -156,6 +156,7 @@
 
 ;;}}}
 ;;{{{ Commands:
+
 (defvar emacspeak-sox-sound-regexp
   (regexp-opt  '(".mp3" ".wav" ".au"))
   "Regexp matching sound files.")
@@ -229,7 +230,7 @@
     (call-process shell-file-name nil nil nil shell-command-switch command)))
 
 (defconst emacspeak-sox-effects
-  '("trim" "bass" "treble"
+  '("trim" "bass" "treble "chorus""
     )
   "Table of implemented effects.")
 
@@ -256,6 +257,12 @@
           (funcall (intern (format  "emacspeak-sox-get-%s-effect"  name))))))
   (emacspeak-sox-redraw emacspeak-sox-context)
   (message "Set effect  %s" name))
+(defun emacspeak-sox-read-effect-params (param-desc)
+  "Read list of effect  params."
+  (mapcar
+   #'(lambda (p)
+       (list p (read-from-minibuffer (capitalize p))))
+   param-desc))
 
 ;;}}}
 ;;; Effects:
@@ -283,14 +290,18 @@ and return a suitable effect structure."
 ;;}}}
 ;;{{{ Bass:
 
+;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
+(defvar emacspeak-sox-bass-params
+  '("gain" "frequency" "width")
+  "Params accepted by bass.")
+
 (defun emacspeak-sox-get-bass-effect ()
   "Read needed params for effect bass,
 and return a suitable effect structure."
+  (declare (special emacspeak-sox-bass-params))
   (make-emacspeak-sox-effect
    :name "bass"
-   :params
-   `(
-     ("gain" ,(read-from-minibuffer "Gain: ")))))
+   :params (emacspeak-sox-read-effect-params emacspeak-sox-bass-params)))
 
 (defun emacspeak-sox-get-bass-options   (effect)
   "Construct options  portion of commandline for this bass effect."
@@ -301,19 +312,46 @@ and return a suitable effect structure."
 ;;}}}
 ;;{{{ Treble:
 
+;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
+(defvar emacspeak-sox-treble-params
+  '("gain" "frequency" "width")
+  "Params accepted by treble.")
+
 (defun emacspeak-sox-get-treble-effect ()
   "Read needed params for effect treble,
 and return a suitable effect structure."
+  (declare (special emacspeak-sox-treble-params))
   (make-emacspeak-sox-effect
    :name "treble"
-   :params
-   `(
-     ("gain" ,(read-from-minibuffer "Gain: ")))))
+   :params (emacspeak-sox-read-effect-params emacspeak-sox-treble-params) ))
 
 (defun emacspeak-sox-get-treble-options   (effect)
   "Construct options  portion of commandline for this treble effect."
   (let ((params (emacspeak-sox-effect-params effect)))
     (format "treble %s"
+            (mapconcat #'second params " "))))
+
+;;}}}
+;;{{{ Chorus:
+
+;;;  chorus gain-in gain-out <delay decay speed depth -s|-t>
+(defvar emacspeak-sox-chorus-params
+  '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
+  "Parameters for effect chorus.")
+
+(defun emacspeak-sox-get-chorus-effect  ()
+  "Read needed params for effect chorus
+and return a suitable effect structure."
+  (declare (special emacspeak-sox-chorus-params))
+  (make-emacspeak-sox-effect
+   :name "chorus"
+   :params (emacspeak-sox-read-effect-params emacspeak-sox-chorus-params)))
+
+
+(defun emacspeak-sox-get-chorus-options   (effect)
+  "Construct options  portion of commandline for this chorus effect."
+  (let ((params (emacspeak-sox-effect-params effect)))
+    (format "chorus %s"
             (mapconcat #'second params " "))))
 
 ;;}}}
