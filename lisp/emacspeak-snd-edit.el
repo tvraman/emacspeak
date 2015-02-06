@@ -138,7 +138,7 @@
 
 (defstruct emacspeak-snd-edit-effect
   name ; effect name
-  params ; list of effect params
+  params ; list of effect param/value pairs 
   )
 
 (defstruct emacspeak-snd-edit-context
@@ -215,18 +215,6 @@
   (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set end to %s" timestamp))
 
-(defun emacspeak-snd-edit-set-effect (effect)
-  "Set effect."
-  (interactive "sEffect: ")
-  (declare (special emacspeak-snd-edit-context))
-  (let ((effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context))
-        (e (make-emacspeak-snd-edit-effect :name effect)))
-    (cond
-     (effects (push e effects))
-     (t
-      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
-    (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
-  (message "Set effect to %s" effect)))
 (defun emacspeak-snd-edit-play ()
   "Play with current effects applied."
   (interactive)
@@ -271,13 +259,36 @@
   (executable-find "sox")
   "Location of SoX utility."
   :type 'file)
+
 (defcustom emacspeak-snd-edit-wave-play 
   (executable-find "play")
   "Location of play from SoX utility."
   :type 'file)
 
 ;;}}}
-;;{{{ SoX for Wave edit commands 
+;;{{{ SoX Commands:
+
+(defconst emacspeak-snd-edit-effects
+  '("trim"
+    "echo"
+    )
+  "Table of implemented effects.")
+
+
+(defun emacspeak-snd-edit-set-effect (effect)
+  "Set effect."
+  (interactive
+   (list
+    (completing-read "SoX Effect: " emacspeak-snd-edit-effects)))
+  (declare (special emacspeak-snd-edit-context emacspeak-snd-edit-effects))
+  (let ((effects (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context))
+        (e (make-emacspeak-snd-edit-effect :name effect)))
+    (cond
+     (effects (push e effects))
+     (t
+      (setf (emacspeak-snd-edit-context-effects emacspeak-snd-edit-context) (list  e))))
+    (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
+  (message "Added effect  %s" effect)))
 
 ;;}}}
 ;;{{{ mp3cut for mp3 files:
