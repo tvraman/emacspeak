@@ -65,7 +65,7 @@
     (loop
      for p in params do
      (insert (propertize (first p) 'face 'font-lock-string-face))
-     (insert ": ")
+     (insert " ")
              (insert (propertize (second p) 'face 'bold)))
     (insert "\n")))
      
@@ -145,7 +145,6 @@
 
 (defstruct emacspeak-snd-edit-context
   file ; file being manipulated 
-  start end ; clipping params
   effects ; list of effects with params
 )
 
@@ -245,7 +244,7 @@
       options))
     (setq options (mapconcat #'identity  options " "))
     (setq command
-          (format "%s %s %s"
+          (format "%s %s %s &"
                           emacspeak-snd-edit-play file options))
     (call-process shell-file-name nil nil nil shell-command-switch command)
     command))
@@ -279,9 +278,6 @@
     (emacspeak-snd-edit-redraw emacspeak-snd-edit-context)
   (message "Set effect  %s" name))
 
-
-
-
 (defun emacspeak-snd-edit-get-trim-effect ()
   "Read needed params for effect trim,
 and return a suitable effect structure."
@@ -291,7 +287,7 @@ and return a suitable effect structure."
    (let ((s (read-from-minibuffer "Time Offset: "))
          (params nil))
      (while (string-match "[0-9:.]+" s)
-       (push  (list "skip" s) params)
+       (push  (list "|" s) params)
        (setq s (read-from-minibuffer "Offset Time: ")))
      (nreverse params))))
      
