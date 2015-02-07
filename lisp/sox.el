@@ -45,8 +45,8 @@
 ;;; this module creates a special interaction buffer that
 ;;; provides single keystroke commands for editing and applying
 ;;; effects to a selected sound file.
-;;; For adding mp3 support to sox, install 
-;;; sudo apt-get libsox-fmt-mp3 install 
+;;; For adding mp3 support to sox, install
+;;; sudo apt-get libsox-fmt-mp3 install
 ;;}}}
 ;;{{{  Required modules
 
@@ -112,7 +112,7 @@
 (defgroup sox nil
   "Audio workbench for the Emacspeak Audio Desktop."
   :group 'emacspeak
-:group 'applications)
+  :group 'applications)
 
 (defun sox-setup-keys ()
   "Set up sox keymap."
@@ -140,6 +140,8 @@
 (defstruct sox-context
   file ; file being manipulated
   effects ; list of effects with params
+  start-time ; play start time
+  play ; play process handle
   )
 
 (defvar sox-context nil
@@ -184,13 +186,7 @@
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
 
-(defun sox-play ()
-  "Play sound from current context."
-  (interactive)
-  (declare (special sox-context sox-play))
-  (sox-action sox-context sox-play))
-
-(defun sox-action (context action)
+(defun sox-action (context action &optional save-file)
   "Apply action to    current context."
   (let ((file (sox-context-file context))
         (effects (sox-context-effects context))
@@ -198,37 +194,27 @@
         (options nil))
     (loop
      for e in effects  do
-     (push
-      (format "%s %s"
-              (sox-effect-name e)
-              (mapconcat #'second(sox-effect-params e)  " "))
-      options))    (setq options (nreverse options))
-      (setq options (mapconcat #'identity  options " "))
-      (setq command
-            (format "%s %s %s &" action file options))
-      (call-process shell-file-name nil nil nil shell-command-switch command)
-      command))
+     (push (sox-effect-name e) options)
+     (loop
+      for  p in (sox-effect-params e) do
+      (push (second p)  options)))
+    (setq options (nreverse options))
+    (when (string= action sox-edit) (push save-file options))
+    (apply #'start-process
+           sox-play "*SOX*" action file options)))
+
+(defun sox-play ()
+  "Play sound from current context."
+  (interactive)
+  (declare (special sox-context sox-play))
+  (setf (sox-context-start-time sox-context) (current-time))
+  (setf (sox-context-play sox-context)(sox-action sox-context sox-play)))
 
 (defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
-  (declare (special sox-context
-                    sox-edit))
-  (let ((file (sox-context-file sox-context))
-        (effects (sox-context-effects sox-context))
-        (command nil)
-        (options nil))
-    (loop
-     for e in effects  do
-     (push
-      (format "%s %s"
-              (sox-effect-name e)
-              (mapconcat #'second  (sox-effect-params e) " "))
-      options))
-    (setq options (mapconcat #'identity  options " "))
-    (setq command
-          (format "%s %s %s %s &" sox-edit  file save-file options))
-    (call-process shell-file-name nil nil nil shell-command-switch command)))
+  (declare (special sox-context sox-edit))
+  (sox-action sox-context sox-edit save-file))
 
 (defconst sox-effects
   '(
