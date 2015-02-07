@@ -305,7 +305,7 @@ Do not set this by hand;
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 
   (when(executable-find "play")
-    (format "%s -v 2 %%s reverb earwax &" (executable-find "play")))
+    (format "%s -v 2 %%s  earwax &" (executable-find "play")))
   "Name of play executable from SoX"
   :group 'emacspeak-sounds
   :type 'string)
