@@ -188,24 +188,22 @@
 
 (defun emacspeak-sox-action (context action)
   "Apply action to    current context."
-  (let (
-        (file (emacspeak-sox-context-file context))
+  (let ((file (emacspeak-sox-context-file context))
         (effects (emacspeak-sox-context-effects context))
         (command nil)
         (options nil))
     (loop
      for e in effects  do
      (push
-      (funcall
-       (intern
-        (format "emacspeak-sox-get-%s-options" (emacspeak-sox-effect-name e)))
-       e)
-      options))
-    (setq options (mapconcat #'identity  options " "))
-    (setq command
-          (format "%s %s %s &" action file options))
-    (call-process shell-file-name nil nil nil shell-command-switch command)
-    command))
+      (format "%s %s"
+              (emacspeak-sox-effect-name e)
+              (mapconcat #'second(emacspeak-sox-effect-params e)  " "))
+      options))    (setq options (nreverse options))
+      (setq options (mapconcat #'identity  options " "))
+      (setq command
+            (format "%s %s %s &" action file options))
+      (call-process shell-file-name nil nil nil shell-command-switch command)
+      command))
 
 (defun emacspeak-sox-save(save-file)
   "Save context to  file after prompting."
@@ -219,10 +217,9 @@
     (loop
      for e in effects  do
      (push
-      (funcall
-       (intern
-        (format "emacspeak-sox-get-%s-options" (emacspeak-sox-effect-name e)))
-       e)
+      (format "%s %s"
+              (emacspeak-sox-effect-name e)
+              (mapconcat #'second  (emacspeak-sox-effect-params e) " "))
       options))
     (setq options (mapconcat #'identity  options " "))
     (setq command
@@ -286,12 +283,6 @@ and return a suitable effect structure."
        (setq s (read-from-minibuffer "Offset Time: ")))
      (nreverse params))))
 
-(defun emacspeak-sox-get-trim-options   (effect)
-  "Construct options  portion of commandline for this trim effect."
-  (let ((params (emacspeak-sox-effect-params effect)))
-    (format "trim %s"
-            (mapconcat #'second params " "))))
-
 ;;}}}
 ;;{{{ Bass:
 
@@ -307,12 +298,6 @@ and return a suitable effect structure."
   (make-emacspeak-sox-effect
    :name "bass"
    :params (emacspeak-sox-read-effect-params emacspeak-sox-bass-params)))
-
-(defun emacspeak-sox-get-bass-options   (effect)
-  "Construct options  portion of commandline for this bass effect."
-  (let ((params (emacspeak-sox-effect-params effect)))
-    (format "bass %s"
-            (mapconcat #'second params " "))))
 
 ;;}}}
 ;;{{{ Treble:
@@ -330,12 +315,6 @@ and return a suitable effect structure."
    :name "treble"
    :params (emacspeak-sox-read-effect-params emacspeak-sox-treble-params) ))
 
-(defun emacspeak-sox-get-treble-options   (effect)
-  "Construct options  portion of commandline for this treble effect."
-  (let ((params (emacspeak-sox-effect-params effect)))
-    (format "treble %s"
-            (mapconcat #'second params " "))))
-
 ;;}}}
 ;;{{{ Chorus:
 
@@ -351,12 +330,6 @@ and return a suitable effect structure."
   (make-emacspeak-sox-effect
    :name "chorus"
    :params (emacspeak-sox-read-effect-params emacspeak-sox-chorus-params)))
-
-(defun emacspeak-sox-get-chorus-options   (effect)
-  "Construct options  portion of commandline for this chorus effect."
-  (let ((params (emacspeak-sox-effect-params effect)))
-    (format "chorus %s"
-            (mapconcat #'second params " "))))
 
 ;;}}}
 ;;{{{ Reverb:
@@ -376,12 +349,6 @@ and return a suitable effect structure."
   (make-emacspeak-sox-effect
    :name "reverb"
    :params (emacspeak-sox-read-effect-params emacspeak-sox-reverb-params)))
-
-(defun emacspeak-sox-get-reverb-options   (effect)
-  "Construct options  portion of commandline for this reverb effect."
-  (let ((params (emacspeak-sox-effect-params effect)))
-    (format "reverb %s"
-            (mapconcat #'second params " "))))
 
 ;;}}}
 (provide 'emacspeak-sox)
