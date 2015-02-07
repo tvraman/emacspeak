@@ -141,6 +141,7 @@
   file ; file being manipulated
   effects ; list of effects with params
   start-time ; play start time
+  stop-time ; play stop time
   play ; play process handle
   )
 
@@ -208,7 +209,17 @@
   (interactive)
   (declare (special sox-context sox-play))
   (setf (sox-context-start-time sox-context) (current-time))
-  (setf (sox-context-play sox-context)(sox-action sox-context sox-play)))
+  (setf (sox-context-play sox-context)(sox-action sox-context
+                                                  sox-play)))
+
+(defun sox-stop ()
+  "Stop currently playing  sound from current context."
+  (interactive)
+  (declare (special sox-context))
+  (setf (sox-context-stop-time sox-context) (current-time))
+  (delete-process (sox-context-play sox-context))
+  (message "%s"
+           (time-to-seconds (time-subtract (sox-context-stop-time sox-context) (sox-context-start-time sox-context)))))
 
 (defun sox-save(save-file)
   "Save context to  file after prompting."
