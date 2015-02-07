@@ -1,5 +1,5 @@
-;;; emacspeak-sox.el --- Speech-enable SOX
-;;; $Id: emacspeak-sox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; sox.el --- Audio WorkBench Using SoX
+;;; $Id: sox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SOX An Emacs Interface to sox
 ;;; Keywords: Emacspeak,  Audio Desktop sox
@@ -45,7 +45,8 @@
 ;;; this module creates a special interaction buffer that
 ;;; provides single keystroke commands for editing and applying
 ;;; effects to a selected sound file.
-
+;;; For adding mp3 support to sox, install 
+;;; sudo apt-get libsox-fmt-mp3 install 
 ;;}}}
 ;;{{{  Required modules
 
@@ -57,10 +58,10 @@
 ;;}}}
 ;;{{{ Define Special Mode
 
-(defun emacspeak-sox-draw-effect (effect)
+(defun sox-draw-effect (effect)
   "Insert a representation of specified effect at point."
-  (let ((name (emacspeak-sox-effect-name effect))
-        (params (emacspeak-sox-effect-params effect)))
+  (let ((name (sox-effect-name effect))
+        (params (sox-effect-params effect)))
     (insert (propertize  name 'face  'font-lock-keyword-face))
     (loop
      for p in params do
@@ -69,137 +70,138 @@
      (insert (propertize (second p) 'face 'bold)))
     (insert "\n")))
 
-(defun emacspeak-sox-redraw (context)
+(defun sox-redraw (context)
   "Redraws sox buffer."
   (let ((inhibit-read-only t)
         (orig (point-min))
-        (file (emacspeak-sox-context-file context))
-        (effects (emacspeak-sox-context-effects context)))
+        (file (sox-context-file context))
+        (effects (sox-context-effects context)))
     (goto-char orig)
     (erase-buffer)
     (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file (insert  (propertize file 'face font-lock-keyword-face)))
     (insert "\n")
-    (when effects (mapc #'emacspeak-sox-draw-effect effects))))
+    (when effects (mapc #'sox-draw-effect effects))))
 
-(define-derived-mode emacspeak-sox-mode special-mode
+(define-derived-mode sox-mode special-mode
   "Interactively manipulate audio files."
   "An audio workbench for the Emacspeak desktop."
-  (declare (special emacspeak-sox-context))
-  (setq emacspeak-sox-context (make-emacspeak-sox-context))
-  (emacspeak-sox-redraw emacspeak-sox-context)
+  (declare (special sox-context))
+  (setq sox-context (make-sox-context))
+  (sox-redraw sox-context)
   (setq buffer-read-only t)
   (setq header-line-format "Audio Workbench"))
 
-(defvar emacspeak-sox-buffer "Audio WorkBench"
+(defvar sox-buffer "Audio WorkBench"
   "Buffer name of workbench.")
 
 ;;;###autoload
-(defun emacspeak-sox ()
+(defun sox ()
   "Create a new Audio Workbench or switch to an existing workbench."
   (interactive)
-  (declare (special emacspeak-sox-buffer))
-  (unless (get-buffer emacspeak-sox-buffer)
-    (let ((buffer (get-buffer-create emacspeak-sox-buffer)))
+  (declare (special sox-buffer))
+  (unless (get-buffer sox-buffer)
+    (let ((buffer (get-buffer-create sox-buffer)))
       (with-current-buffer buffer
-        (emacspeak-sox-mode)
-        (emacspeak-sox-setup-keys))))
-  (switch-to-buffer emacspeak-sox-buffer)
+        (sox-mode)
+        (sox-setup-keys))))
+  (switch-to-buffer sox-buffer)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-header-line))
 
-(defgroup emacspeak-sox nil
+(defgroup sox nil
   "Audio workbench for the Emacspeak Audio Desktop."
-  :group 'emacspeak)
+  :group 'emacspeak
+:group 'applications)
 
-(defun emacspeak-sox-setup-keys ()
+(defun sox-setup-keys ()
   "Set up sox keymap."
-  (declare (special emacspeak-sox-mode-map))
+  (declare (special sox-mode-map))
   (loop
    for k in
    '(
-     ("E" emacspeak-sox-add-effect)
-     ("e" emacspeak-sox-set-effect)
-     ("f" emacspeak-sox-open-file)
-     ("p" emacspeak-sox-play)
-     ("s" emacspeak-sox-save)
+     ("E" sox-add-effect)
+     ("e" sox-set-effect)
+     ("f" sox-open-file)
+     ("p" sox-play)
+     ("s" sox-save)
      )
    do
-   (emacspeak-keymap-update  emacspeak-sox-mode-map k)))
+   (emacspeak-keymap-update  sox-mode-map k)))
 
 ;;}}}
 ;;{{{ Top-level Context:
 
-(defstruct emacspeak-sox-effect
+(defstruct sox-effect
   name ; effect name
   params ; list of effect name/value pairs
   )
 
-(defstruct emacspeak-sox-context
+(defstruct sox-context
   file ; file being manipulated
   effects ; list of effects with params
   )
 
-(defvar emacspeak-sox-context nil
+(defvar sox-context nil
   "Buffer-local handle to sox context.")
 
-(make-variable-buffer-local 'emacspeak-sox-context)
+(make-variable-buffer-local 'sox-context)
 
-(defcustom emacspeak-sox-edit
+(defcustom sox-edit
   (executable-find "sox")
   "Location of SoX utility."
   :type 'file)
 
-(defcustom emacspeak-sox-play (executable-find "play")
+(defcustom sox-play (executable-find "play")
   "Location of play from SoX utility."
   :type 'file)
 
 ;;}}}
 ;;{{{ Commands:
 
-(defvar emacspeak-sox-sound-regexp
+(defvar sox-sound-regexp
   (regexp-opt  '(".mp3" ".wav" ".au"))
   "Regexp matching sound files.")
 
-(defsubst emacspeak-sox-sound-p (snd-file)
+(defsubst sox-sound-p (snd-file)
   "Predicate to test if we can edit this file."
-  (declare (special emacspeak-sox-sound-regexp))
+  (declare (special sox-sound-regexp))
   (let ((case-fold-search t))
-    (string-match  emacspeak-sox-sound-regexp snd-file)))
+    (string-match  sox-sound-regexp snd-file)))
 
-(defun emacspeak-sox-open-file (snd-file)
+(defun sox-open-file (snd-file)
   "Open specified snd-file on the Audio Workbench."
   (interactive "fSound File: ")
-  (declare (special emacspeak-sox-context))
-  (unless emacspeak-sox-context (error "Audio Workbench not initialized."))
+  (declare (special sox-context))
+  (unless sox-context (error "Audio Workbench not initialized."))
   (let ((inhibit-read-only t)
-        (type (emacspeak-sox-sound-p snd-file)))
+        (type (sox-sound-p snd-file)))
     (unless type (error "%s does not look like a sound file." snd-file))
-    (setf (emacspeak-sox-context-file emacspeak-sox-context)
+    (setf (sox-context-file sox-context)
           snd-file))
   (cd(file-name-directory snd-file))
-  (emacspeak-sox-redraw emacspeak-sox-context)
+  (sox-redraw sox-context)
   (message "Selected file %s" snd-file)
   (emacspeak-auditory-icon 'select-object))
 
-(defun emacspeak-sox-play ()
+(defun sox-play ()
   "Play sound from current context."
   (interactive)
-  (declare (special emacspeak-sox-context emacspeak-sox-play))
-  (emacspeak-sox-action emacspeak-sox-context emacspeak-sox-play))
+  (declare (special sox-context sox-play))
+  (sox-action sox-context sox-play))
 
-(defun emacspeak-sox-action (context action)
+(defun sox-action (context action)
   "Apply action to    current context."
-  (let ((file (emacspeak-sox-context-file context))
-        (effects (emacspeak-sox-context-effects context))
+  (let ((file (sox-context-file context))
+        (effects (sox-context-effects context))
         (command nil)
         (options nil))
     (loop
      for e in effects  do
      (push
       (format "%s %s"
-              (emacspeak-sox-effect-name e)
-              (mapconcat #'second(emacspeak-sox-effect-params e)  " "))
+              (sox-effect-name e)
+              (mapconcat #'second(sox-effect-params e)  " "))
       options))    (setq options (nreverse options))
       (setq options (mapconcat #'identity  options " "))
       (setq command
@@ -207,28 +209,28 @@
       (call-process shell-file-name nil nil nil shell-command-switch command)
       command))
 
-(defun emacspeak-sox-save(save-file)
+(defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
-  (declare (special emacspeak-sox-context
-                    emacspeak-sox-edit))
-  (let ((file (emacspeak-sox-context-file emacspeak-sox-context))
-        (effects (emacspeak-sox-context-effects emacspeak-sox-context))
+  (declare (special sox-context
+                    sox-edit))
+  (let ((file (sox-context-file sox-context))
+        (effects (sox-context-effects sox-context))
         (command nil)
         (options nil))
     (loop
      for e in effects  do
      (push
       (format "%s %s"
-              (emacspeak-sox-effect-name e)
-              (mapconcat #'second  (emacspeak-sox-effect-params e) " "))
+              (sox-effect-name e)
+              (mapconcat #'second  (sox-effect-params e) " "))
       options))
     (setq options (mapconcat #'identity  options " "))
     (setq command
-          (format "%s %s %s %s &" emacspeak-sox-edit  file save-file options))
+          (format "%s %s %s %s &" sox-edit  file save-file options))
     (call-process shell-file-name nil nil nil shell-command-switch command)))
 
-(defconst emacspeak-sox-effects
+(defconst sox-effects
   '(
     "bass"
     "chorus"
@@ -238,30 +240,30 @@
 
   "Table of implemented effects.")
 
-(defun emacspeak-sox-set-effect (name)
+(defun sox-set-effect (name)
   "Set effect."
   (interactive
-   (list (completing-read "SoX Effect: " emacspeak-sox-effects nil t)))
-  (declare (special emacspeak-sox-context  emacspeak-sox-effects))
-  (setf (emacspeak-sox-context-effects emacspeak-sox-context)
+   (list (completing-read "SoX Effect: " sox-effects nil t)))
+  (declare (special sox-context  sox-effects))
+  (setf (sox-context-effects sox-context)
         (list
-         (funcall (intern (format  "emacspeak-sox-get-%s-effect"  name)))))
-  (emacspeak-sox-redraw emacspeak-sox-context)
+         (funcall (intern (format  "sox-get-%s-effect"  name)))))
+  (sox-redraw sox-context)
   (message "Set effect  %s" name))
 
-(defun emacspeak-sox-add-effect (name)
+(defun sox-add-effect (name)
   "Adds  effect at the end of the effect list"
   (interactive
-   (list (completing-read "Add SoX Effect: "  emacspeak-sox-effects nil t)))
-  (declare (special emacspeak-sox-context  emacspeak-sox-effects))
-  (setf (emacspeak-sox-context-effects emacspeak-sox-context)
+   (list (completing-read "Add SoX Effect: "  sox-effects nil t)))
+  (declare (special sox-context  sox-effects))
+  (setf (sox-context-effects sox-context)
         (append
-         (emacspeak-sox-context-effects emacspeak-sox-context)
+         (sox-context-effects sox-context)
          (list
-          (funcall (intern (format  "emacspeak-sox-get-%s-effect"  name))))))
-  (emacspeak-sox-redraw emacspeak-sox-context)
+          (funcall (intern (format  "sox-get-%s-effect"  name))))))
+  (sox-redraw sox-context)
   (message "Set effect  %s" name))
-(defun emacspeak-sox-read-effect-params (param-desc)
+(defun sox-read-effect-params (param-desc)
   "Read list of effect  params."
   (mapcar
    #'(lambda (p)
@@ -272,10 +274,10 @@
 ;;; Effects:
 ;;{{{ Trim:
 
-(defun emacspeak-sox-get-trim-effect ()
+(defun sox-get-trim-effect ()
   "Read needed params for effect trim,
 and return a suitable effect structure."
-  (make-emacspeak-sox-effect
+  (make-sox-effect
    :name "trim"
    :params
    (let ((s (read-from-minibuffer "Time Offset: "))
@@ -289,49 +291,49 @@ and return a suitable effect structure."
 ;;{{{ Bass:
 
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(defvar emacspeak-sox-bass-params
+(defvar sox-bass-params
   '("gain" "frequency" "width")
   "Params accepted by bass.")
 
-(defun emacspeak-sox-get-bass-effect ()
+(defun sox-get-bass-effect ()
   "Read needed params for effect bass,
 and return a suitable effect structure."
-  (declare (special emacspeak-sox-bass-params))
-  (make-emacspeak-sox-effect
+  (declare (special sox-bass-params))
+  (make-sox-effect
    :name "bass"
-   :params (emacspeak-sox-read-effect-params emacspeak-sox-bass-params)))
+   :params (sox-read-effect-params sox-bass-params)))
 
 ;;}}}
 ;;{{{ Treble:
 
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(defvar emacspeak-sox-treble-params
+(defvar sox-treble-params
   '("gain" "frequency" "width")
   "Params accepted by treble.")
 
-(defun emacspeak-sox-get-treble-effect ()
+(defun sox-get-treble-effect ()
   "Read needed params for effect treble,
 and return a suitable effect structure."
-  (declare (special emacspeak-sox-treble-params))
-  (make-emacspeak-sox-effect
+  (declare (special sox-treble-params))
+  (make-sox-effect
    :name "treble"
-   :params (emacspeak-sox-read-effect-params emacspeak-sox-treble-params) ))
+   :params (sox-read-effect-params sox-treble-params) ))
 
 ;;}}}
 ;;{{{ Chorus:
 
 ;;;  chorus gain-in gain-out <delay decay speed depth -s|-t>
-(defvar emacspeak-sox-chorus-params
+(defvar sox-chorus-params
   '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
   "Parameters for effect chorus.")
 
-(defun emacspeak-sox-get-chorus-effect  ()
+(defun sox-get-chorus-effect  ()
   "Read needed params for effect chorus
 and return a suitable effect structure."
-  (declare (special emacspeak-sox-chorus-params))
-  (make-emacspeak-sox-effect
+  (declare (special sox-chorus-params))
+  (make-sox-effect
    :name "chorus"
-   :params (emacspeak-sox-read-effect-params emacspeak-sox-chorus-params)))
+   :params (sox-read-effect-params sox-chorus-params)))
 
 ;;}}}
 ;;{{{ Reverb:
@@ -340,20 +342,20 @@ and return a suitable effect structure."
 ;;; [room-scale (100%) [stereo-depth (100%)
 ;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
 
-(defconst emacspeak-sox-reverb-params
+(defconst sox-reverb-params
   nil
   "Parameters for effect reverb.")
 
-(defun emacspeak-sox-get-reverb-effect  ()
+(defun sox-get-reverb-effect  ()
   "Read needed params for effect reverb
 and return a suitable effect structure."
-  (declare (special emacspeak-sox-reverb-params))
-  (make-emacspeak-sox-effect
+  (declare (special sox-reverb-params))
+  (make-sox-effect
    :name "reverb"
-   :params (emacspeak-sox-read-effect-params emacspeak-sox-reverb-params)))
+   :params (sox-read-effect-params sox-reverb-params)))
 
 ;;}}}
-(provide 'emacspeak-sox)
+(provide 'sox)
 ;;{{{ end of file
 
 ;;; local variables:
