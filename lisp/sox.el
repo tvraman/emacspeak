@@ -41,18 +41,22 @@
 ;;{{{  introduction
 
 ;;; Commentary: This module defines a convenient speech-enabled
-;;; interface for editting mp3 and wav files using SoX. Launching
-;;; this module creates a special interaction buffer that
-;;; provides single keystroke commands for editing and applying
-;;; effects to a selected sound file.
-;;; For adding mp3 support to sox, install
-;;; sudo apt-get libsox-fmt-mp3 install
+;;; interface for editting mp3 and wav files using SoX. 
+;;; 
+;;; Launching this module creates a special interaction buffer
+;;; that provides single keystroke commands for editing and
+;;; applying effects to a selected sound file. For adding mp3
+;;; support to sox, 
+;;; 
+ ;;; sudo apt-get libsox-fmt-mp3 install
+;;;
+;;; This module can be used independent of Emacspeak.
+
 ;;}}}
 ;;{{{  Required modules
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
 (require 'derived)
 
 ;;}}}
@@ -105,9 +109,7 @@
       (with-current-buffer buffer
         (sox-mode)
         (sox-setup-keys))))
-  (switch-to-buffer sox-buffer)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-header-line))
+  (funcall-interactively #'switch-to-buffer sox-buffer))
 
 (defgroup sox nil
   "Audio workbench for the Emacspeak Audio Desktop."
@@ -184,8 +186,7 @@
           snd-file))
   (cd(file-name-directory snd-file))
   (sox-redraw sox-context)
-  (message "Selected file %s" snd-file)
-  (emacspeak-auditory-icon 'select-object))
+  (message "Selected file %s" snd-file))
 
 (defun sox-action (context action &optional save-file)
   "Apply action to    current context."
@@ -353,6 +354,12 @@ and return a suitable effect structure."
 
 ;;}}}
 (provide 'sox)
+;;{{{ Add Emacspeak Support
+
+;;; Code here can be factored out to emacspeak-sox.el 
+(require 'emacspeak-preamble)
+
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:

@@ -298,9 +298,7 @@ Do not set this by hand;
      emacspeak-play-program nil emacspeak-play-program
      emacspeak-play-args
      (emacspeak-get-sound-filename sound-name)
-     "&")
-    (error
-     (message (error-message-string err)))))
+     "&")))
 
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 
