@@ -359,6 +359,15 @@ and return a suitable effect structure."
 ;;; Code here can be factored out to emacspeak-sox.el 
 (require 'emacspeak-preamble)
 
+(defadvice sox (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-header-line)))
+
+(defadvice sox-open-file(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 ;;}}}
 ;;{{{ end of file
 
