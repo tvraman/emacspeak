@@ -1,4 +1,3 @@
-;;; sox.el --- Audio WorkBench Using SoX
 ;;; $Id: sox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SOX An Emacs Interface to sox
@@ -82,11 +81,7 @@
   "Return effect at  point."
   (get-text-property (or pos (point)) 'sox-effect))
 
-(defsubst sox-effect-index-at-point (&optional pos)
-  "Return effect index at  point."
-  (get-text-property (or pos (point)) 'sox-effect-index))
-
-(defun sox-draw-effect (effect index)
+(defun sox-draw-effect (effect)
   "Insert a representation of specified effect at point."
   (let ((name (sox-effect-name effect))
         (params (sox-effect-params effect))
@@ -95,12 +90,12 @@
     (insert ":\t")
     (loop
      for p in params do
-     (when (second p) (insert (propertize (first p) 'italic ))
+     (when (second p) (insert (propertize (first p) 'face 'italic ))
            (insert "\t")
            (insert (propertize (second p) 'face 'bold))
            (insert "\t")))
     (put-text-property orig (point) 'sox-effect effect)
-    (put-text-property orig (point) 'sox-effect-index index))
+    )
   (insert "\n"))
 
 (defun sox-redraw (context)
@@ -114,10 +109,14 @@
     (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file (insert  (propertize file 'face font-lock-keyword-face)))
     (insert "\n")
-    (when effects
-      (loop
-       for i from 0 to (1- (length effects)) do
-       (sox-draw-effect (elt  effects i) i)))))
+    (when effects (mapc #'sox-draw-effect  effects))
+    (goto-char (point))))
+
+(defun sox-refresh ()
+  "Redraw Audio Workbench."
+  (interactive)
+  (declare (special sox-context))
+  (sox-redraw sox-context))
 
 (define-derived-mode sox-mode special-mode
   "Interactively manipulate audio files."
@@ -153,9 +152,11 @@
      ("E" sox-add-effect)
      ("e" sox-set-effect)
      ("f" sox-open-file)
+     ("g" sox-refresh)
      ("p" sox-play)
      ("s" sox-save)
      ("k" sox-stop)
+     ("\C-k" sox-delete-effect-at-point)
      ([(kbd "\r")] sox-edit-effect-at-point)
      )
    do
@@ -257,7 +258,6 @@
   (interactive)
   (let ((inhibit-read-only  t)
         (effect (get-text-property (point) 'sox-effect))
-        (index (get-text-property (point) 'sox-effect-index))
         (desc nil)
         (repeat nil))
     (unless effect (error "No effect at point."))
@@ -266,8 +266,19 @@
     (setf (sox-effect-params effect)
           (sox-read-effect-params (eval desc) repeat ))
     (delete-region (line-beginning-position) (line-end-position))
-    (sox-draw-effect effect index)
+    (sox-draw-effect effect)
     (flush-lines "^ *$" (point-min) (point-max))))
+
+(defun sox-delete-effect-at-point ()
+  "Delete effect at point."
+  (interactive)
+  (declare (special sox-context))
+  (let ((inhibit-read-only  t)
+        (e (sox-effect-at-point)))
+    (unless e (error "No effect at point."))
+    (setf  (sox-context-effects sox-context) (remove e (sox-context-effects sox-context)))
+    (message "Deleted effect %s at point. " (sox-effect-name e ))
+  (sox-redraw sox-context)))
 
 (defun sox-set-effect (name)
   "Set effect."
@@ -431,6 +442,16 @@ and return a suitable effect structure."
     (emacspeak-auditory-icon 'select-object)))
 
 (provide 'emacspeak-sox)
+(defadvice sox-refresh (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+
+(defadvice sox-delete-effect-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
 
 ;;}}}
 ;;{{{ end of file
