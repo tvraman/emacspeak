@@ -60,6 +60,23 @@
 (require 'derived)
 
 ;;}}}
+;;{{{ Customizations: 
+
+(defgroup sox nil
+  "Audio workbench for the Emacspeak Audio Desktop."
+  :group 'emacspeak
+  :group 'applications)
+
+(defcustom sox-edit
+  (executable-find "sox")
+  "Location of SoX utility."
+  :type 'file)
+
+(defcustom sox-play (executable-find "play")
+  "Location of play from SoX utility."
+  :type 'file)
+
+;;}}}
 ;;{{{ Define Special Mode
 
 (defun sox-draw-effect (effect)
@@ -116,10 +133,7 @@
         (sox-setup-keys))))
   (funcall-interactively #'switch-to-buffer sox-buffer))
 
-(defgroup sox nil
-  "Audio workbench for the Emacspeak Audio Desktop."
-  :group 'emacspeak
-  :group 'applications)
+
 
 (defun sox-setup-keys ()
   "Set up sox keymap."
@@ -159,14 +173,9 @@
 
 (make-variable-buffer-local 'sox-context)
 
-(defcustom sox-edit
-  (executable-find "sox")
-  "Location of SoX utility."
-  :type 'file)
 
-(defcustom sox-play (executable-find "play")
-  "Location of play from SoX utility."
-  :type 'file)
+
+
 
 ;;}}}
 ;;{{{ Commands:
@@ -253,15 +262,7 @@
      (sox-read-effect-params (eval param-desc) repeat ))
     (sox-redraw sox-context)))
 
-(defconst sox-effects
-  '(
-    "bass"
-    "chorus"
-    "reverb"
-    "treble"
-    "trim")
 
-  "Table of implemented effects.")
 
 (defun sox-set-effect (name)
   "Set effect."
@@ -305,6 +306,14 @@
 
 ;;}}}
 ;;; Effects:
+(defconst sox-effects
+  '(
+    "bass"
+    "chorus"
+    "reverb"
+    "treble"
+    "trim")
+  "Table of implemented effects.")
 ;;{{{ Trim:
 (defvar sox-trim-params '("|")
   "Parameter spec for effect trim.")
