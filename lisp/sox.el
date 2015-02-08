@@ -354,7 +354,7 @@ and return a suitable effect structure."
 (defvar sox-chorus-params
   '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
   "Parameters for effect chorus.")
-
+(put 'sox-chorus-params 'repeat t)
 (defun sox-get-chorus-effect  ()
   "Read needed params for effect chorus
 and return a suitable effect structure."
@@ -370,8 +370,14 @@ and return a suitable effect structure."
 ;;; [room-scale (100%) [stereo-depth (100%)
 ;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
 
+;; reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
+;;               [room-scale (100%) [stereo-depth (100%)
+;;               [pre-delay (0ms) [wet-gain (0dB)]]]]]]
+
 (defconst sox-reverb-params
-  nil
+  '("-w"  "reverb" "hf-damp"
+    "room-scale" "stereo-depth"
+    "pre-delay"  "wet-gain")
   "Parameters for effect reverb.")
 
 (defun sox-get-reverb-effect  ()
