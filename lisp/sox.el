@@ -415,6 +415,9 @@ and return a suitable effect structure."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
+
+(provide 'emacspeak-sox)
+
 ;;}}}
 ;;{{{ end of file
 
