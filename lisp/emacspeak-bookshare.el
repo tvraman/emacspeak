@@ -71,7 +71,9 @@
   :group 'emacspeak)
 
 (defcustom emacspeak-bookshare-api-key nil
-  "Web API  key for this application."
+  "Web API  key for this application.
+See http://developer.bookshare.org/docs for details on how to get
+  an API key. "
   :type
   '(choice :tag "Key: "
            (const :tag "Unspecified" nil)
