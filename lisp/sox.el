@@ -60,7 +60,7 @@
 (require 'derived)
 
 ;;}}}
-;;{{{ Customizations: 
+;;{{{ Customizations:
 
 (defgroup sox nil
   "Audio workbench for the Emacspeak Audio Desktop."
@@ -133,8 +133,6 @@
         (sox-setup-keys))))
   (funcall-interactively #'switch-to-buffer sox-buffer))
 
-
-
 (defun sox-setup-keys ()
   "Set up sox keymap."
   (declare (special sox-mode-map))
@@ -172,10 +170,6 @@
   "Buffer-local handle to sox context.")
 
 (make-variable-buffer-local 'sox-context)
-
-
-
-
 
 ;;}}}
 ;;{{{ Commands:
@@ -262,8 +256,6 @@
      (sox-read-effect-params (eval param-desc) repeat ))
     (sox-redraw sox-context)))
 
-
-
 (defun sox-set-effect (name)
   "Set effect."
   (interactive
@@ -287,25 +279,30 @@
           (funcall (intern (format  "sox-get-%s-effect"  name))))))
   (sox-redraw sox-context)
   (message "Set effect  %s" name))
+
+(defsubst sox-read-effect-params-per-desk (p)
+  "Read sox effect param per spec."
+  (let ((result (read-from-minibuffer (capitalize p))))
+    (when (>  (length result) 0) (list p result ))))
+
 (defun sox-read-effect-params (param-desc &optional repeat)
   "Read list of effect  params."
-  (let ((result
-         (delq
-          nil
-          (mapcar
-           #'(lambda (p)
-               (let ((result (read-from-minibuffer (capitalize p))))
-                 (when (>  (length result) 0) (list p result ))))
-           param-desc))))
+  (let ((r (delq nil (mapcar #'sox-read-effect-params-per-desk param-desc))))
     ;;; Now handle repeat
     (cond
-     ((null repeat ) result) ; base case
-     ((null result) result) ; all done
-     (t (append result ; recur till done
-                (sox-read-effect-params param-desc 'repeat))))))
+     ((null repeat ) r) ; base case
+     ((null r) r) ; all done
+     (t ; recur till done
+      (append r (sox-read-effect-params param-desc 'repeat))))))
 
 ;;}}}
-;;; Effects:
+;;{{{  Effects Infrastructure:
+
+;;; To define support for an effect,:
+;;; 1. Add it to the effect table below.
+;;; 2. Clone the code from one of the previously implemented effects,
+;;; And update per the SoX man page.
+
 (defconst sox-effects
   '(
     "bass"
@@ -314,10 +311,14 @@
     "treble"
     "trim")
   "Table of implemented effects.")
+
+;;}}}
 ;;{{{ Trim:
+
 (defvar sox-trim-params '("|")
   "Parameter spec for effect trim.")
 (put 'sox-trim-params 'repeat t)
+
 (defun sox-get-trim-effect ()
   "Read needed params for effect trim,
 and return a suitable effect structure."
