@@ -84,15 +84,14 @@
   (let ((name (sox-effect-name effect))
         (params (sox-effect-params effect))
         (orig (point)))
-    (insert (propertize  name 'face  'font-lock-keyword-face))
-    (insert ": ")
+    (insert (propertize  name 'face  'fixed-pitch))
+    (insert ":\t")
     (loop
      for p in params do
-     (when (second p)
-       (insert (propertize (first p) 'face 'font-lock-string-face))
-       (insert " ")
-       (insert (propertize (second p) 'face 'bold))
-       (insert " ")))
+     (when (second p) (insert (propertize (first p) 'italic 'font-lock-string-face))
+           (insert "\t")
+           (insert (propertize (second p) 'face 'bold))
+           (insert "\t")))
     (put-text-property orig (point) 'sox-effect effect)
     (insert "\n")))
 
@@ -116,6 +115,7 @@
   (setq sox-context (make-sox-context))
   (sox-redraw sox-context)
   (setq buffer-read-only t)
+  (setq tab-width 8)
   (setq header-line-format "Audio Workbench"))
 
 (defvar sox-buffer "Audio WorkBench"
@@ -145,7 +145,7 @@
      ("p" sox-play)
      ("s" sox-save)
      ("k" sox-stop)
-     ((kbd "RET")sox-edit-effect-at-point)
+     ([(kbd "\r")] sox-edit-effect-at-point)
      )
    do
    (define-key sox-mode-map (first k) (second k))))
@@ -244,17 +244,18 @@
 (defun sox-edit-effect-at-point ()
   "Edit effect at point."
   (interactive)
-  (let ((effect (get-text-property (point) 'sox-effect))
-        (param-desc nil)
+  (let ((inhibit-read-only  t)
+        (effect (get-text-property (point) 'sox-effect))
+        (desc nil)
         (repeat nil))
     (unless effect (error "No effect at point."))
-    (setq param-desc
-          (intern (format "sox-%s-params" (sox-effect-name effect))))
-    (setq repeat (get param-desc 'repeat))
-    (setf
-     (sox-effect-params effect)
-     (sox-read-effect-params (eval param-desc) repeat ))
-    (sox-redraw sox-context)))
+    (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
+    (setq repeat (get desc 'repeat))
+    (setf (sox-effect-params effect)
+          (sox-read-effect-params (eval desc) repeat ))
+    (delete-region (line-beginning-position) (line-end-position))
+    (sox-draw-effect effect)
+    (flush-lines "^ *$" (point-min) (point-max))))
 
 (defun sox-set-effect (name)
   "Set effect."
