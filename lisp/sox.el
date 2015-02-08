@@ -41,13 +41,13 @@
 ;;{{{  introduction
 
 ;;; Commentary: This module defines a convenient speech-enabled
-;;; interface for editting mp3 and wav files using SoX. 
-;;; 
+;;; interface for editting mp3 and wav files using SoX.
+;;;
 ;;; Launching this module creates a special interaction buffer
 ;;; that provides single keystroke commands for editing and
 ;;; applying effects to a selected sound file. For adding mp3
-;;; support to sox, 
-;;; 
+;;; support to sox,
+;;;
  ;;; sudo apt-get libsox-fmt-mp3 install
 ;;;
 ;;; This module can be used independent of Emacspeak.
@@ -65,13 +65,18 @@
 (defun sox-draw-effect (effect)
   "Insert a representation of specified effect at point."
   (let ((name (sox-effect-name effect))
-        (params (sox-effect-params effect)))
+        (params (sox-effect-params effect))
+        (orig (point)))
     (insert (propertize  name 'face  'font-lock-keyword-face))
+    (insert ": ")
     (loop
      for p in params do
-     (insert (propertize (first p) 'face 'font-lock-string-face))
-     (insert " ")
-     (insert (propertize (second p) 'face 'bold)))
+     (when (second p)
+       (insert (propertize (first p) 'face 'font-lock-string-face))
+       (insert " ")
+       (insert (propertize (second p) 'face 'bold))
+       (insert " ")))
+    (put-text-property orig (point) 'sox-effect effect)
     (insert "\n")))
 
 (defun sox-redraw (context)
@@ -127,6 +132,8 @@
      ("f" sox-open-file)
      ("p" sox-play)
      ("s" sox-save)
+     ("k" sox-stop)
+     ((kbd "RET")sox-edit-effect-at-point)
      )
    do
    (define-key sox-mode-map (first k) (second k))))
@@ -199,8 +206,8 @@
      (push (sox-effect-name e) options)
      (loop
       for  p in (sox-effect-params e) do
-      (push (second p)  options)))
-    (setq options (nreverse options))
+      (when (second p)(push (second p)  options))))
+    (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
     (apply #'start-process
            sox-play "*SOX*" action file options)))
@@ -219,14 +226,31 @@
   (declare (special sox-context))
   (setf (sox-context-stop-time sox-context) (current-time))
   (delete-process (sox-context-play sox-context))
-  (message "%s"
-           (time-to-seconds (time-subtract (sox-context-stop-time sox-context) (sox-context-start-time sox-context)))))
+  (message
+   "%s"
+   (time-to-seconds
+    (time-subtract
+     (sox-context-stop-time sox-context)
+     (sox-context-start-time sox-context)))))
 
 (defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
   (declare (special sox-context sox-edit))
   (sox-action sox-context sox-edit save-file))
+(defun sox-edit-effect-at-point ()
+  "Edit effect at point."
+  (interactive)
+  (let ((effect (get-text-property (point) 'sox-effect))
+        (param-desc nil)
+        (repeat nil))
+    (unless effect (error "No effect at point."))
+    (setq param-desc  (intern (format "sox-%s-params" (sox-effect-name effect))))
+    (setq repeat (get param-desc 'repeat))
+    (setf
+     (sox-effect-params effect)
+     (sox-read-effect-params (eval param-desc) repeat ))
+    (sox-redraw sox-context)))
 
 (defconst sox-effects
   '(
@@ -261,29 +285,35 @@
           (funcall (intern (format  "sox-get-%s-effect"  name))))))
   (sox-redraw sox-context)
   (message "Set effect  %s" name))
-(defun sox-read-effect-params (param-desc)
+(defun sox-read-effect-params (param-desc &optional repeat)
   "Read list of effect  params."
-  (mapcar
-   #'(lambda (p)
-       (list p (read-from-minibuffer (capitalize p))))
-   param-desc))
+  (let ((result
+         (delq
+          nil
+          (mapcar
+           #'(lambda (p)
+               (let ((result (read-from-minibuffer (capitalize p))))
+                 (when (>  (length result) 0) (list p result ))))
+           param-desc))))
+    (cond
+     ((null repeat ) result)
+     ((null result) result)
+     (t (append result
+                (sox-read-effect-params param-desc 'repeat))))))
 
 ;;}}}
 ;;; Effects:
 ;;{{{ Trim:
-
+(defvar sox-trim-params '("|")
+  "Parameter spec for effect trim.")
+(put 'sox-trim-params 'repeat t)
 (defun sox-get-trim-effect ()
   "Read needed params for effect trim,
 and return a suitable effect structure."
   (make-sox-effect
    :name "trim"
    :params
-   (let ((s (read-from-minibuffer "Time Offset: "))
-         (params nil))
-     (while (string-match "[0-9:.]+" s)
-       (push  (list "|" s) params)
-       (setq s (read-from-minibuffer "Offset Time: ")))
-     (nreverse params))))
+   (sox-read-effect-params sox-trim-params 'repeat)))
 
 ;;}}}
 ;;{{{ Bass:
@@ -356,7 +386,7 @@ and return a suitable effect structure."
 (provide 'sox)
 ;;{{{ Add Emacspeak Support
 
-;;; Code here can be factored out to emacspeak-sox.el 
+;;; Code here can be factored out to emacspeak-sox.el
 (require 'emacspeak-preamble)
 
 (defadvice sox (after emacspeak pre act comp)
