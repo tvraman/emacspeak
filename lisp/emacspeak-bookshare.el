@@ -69,7 +69,7 @@
 (defgroup emacspeak-bookshare nil
   "Bookshare Access on the Complete Audio Desktop."
   :group 'emacspeak)
-
+;;;###autoload 
 (defcustom emacspeak-bookshare-api-key nil
   "Web API  key for this application.
 See http://developer.bookshare.org/docs for details on how to get
