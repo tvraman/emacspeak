@@ -78,8 +78,15 @@
 
 ;;}}}
 ;;{{{ Define Special Mode
+(defsubst sox-effect-at-point (&optional pos)
+  "Return effect at  point."
+  (get-text-property (or pos (point)) 'sox-effect))
 
-(defun sox-draw-effect (effect)
+(defsubst sox-effect-index-at-point (&optional pos)
+  "Return effect index at  point."
+  (get-text-property (or pos (point)) 'sox-effect-index))
+
+(defun sox-draw-effect (effect index)
   "Insert a representation of specified effect at point."
   (let ((name (sox-effect-name effect))
         (params (sox-effect-params effect))
@@ -88,12 +95,13 @@
     (insert ":\t")
     (loop
      for p in params do
-     (when (second p) (insert (propertize (first p) 'italic 'font-lock-string-face))
+     (when (second p) (insert (propertize (first p) 'italic ))
            (insert "\t")
            (insert (propertize (second p) 'face 'bold))
            (insert "\t")))
     (put-text-property orig (point) 'sox-effect effect)
-    (insert "\n")))
+    (put-text-property orig (point) 'sox-effect-index index))
+  (insert "\n"))
 
 (defun sox-redraw (context)
   "Redraws sox buffer."
@@ -106,7 +114,10 @@
     (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file (insert  (propertize file 'face font-lock-keyword-face)))
     (insert "\n")
-    (when effects (mapc #'sox-draw-effect effects))))
+    (when effects
+      (loop
+       for i from 0 to (1- (length effects)) do
+       (sox-draw-effect (elt  effects i) i)))))
 
 (define-derived-mode sox-mode special-mode
   "Interactively manipulate audio files."
@@ -246,6 +257,7 @@
   (interactive)
   (let ((inhibit-read-only  t)
         (effect (get-text-property (point) 'sox-effect))
+        (index (get-text-property (point) 'sox-effect-index))
         (desc nil)
         (repeat nil))
     (unless effect (error "No effect at point."))
@@ -254,7 +266,7 @@
     (setf (sox-effect-params effect)
           (sox-read-effect-params (eval desc) repeat ))
     (delete-region (line-beginning-position) (line-end-position))
-    (sox-draw-effect effect)
+    (sox-draw-effect effect index)
     (flush-lines "^ *$" (point-min) (point-max))))
 
 (defun sox-set-effect (name)
