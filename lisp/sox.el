@@ -245,7 +245,8 @@
         (param-desc nil)
         (repeat nil))
     (unless effect (error "No effect at point."))
-    (setq param-desc  (intern (format "sox-%s-params" (sox-effect-name effect))))
+    (setq param-desc
+          (intern (format "sox-%s-params" (sox-effect-name effect))))
     (setq repeat (get param-desc 'repeat))
     (setf
      (sox-effect-params effect)
@@ -295,10 +296,11 @@
                (let ((result (read-from-minibuffer (capitalize p))))
                  (when (>  (length result) 0) (list p result ))))
            param-desc))))
+    ;;; Now handle repeat
     (cond
-     ((null repeat ) result)
-     ((null result) result)
-     (t (append result
+     ((null repeat ) result) ; base case
+     ((null result) result) ; all done
+     (t (append result ; recur till done
                 (sox-read-effect-params param-desc 'repeat))))))
 
 ;;}}}
