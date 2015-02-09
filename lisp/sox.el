@@ -102,9 +102,10 @@
   "Redraws sox buffer."
   (let ((inhibit-read-only t)
         (orig (point-min))
-        (file (sox-context-file context))
+        (file  (sox-context-file context))
         (effects (sox-context-effects context)))
     (goto-char orig)
+    (when file (setq file (abbreviate-file-name file )))
     (erase-buffer)
     (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file (insert  (propertize file 'face font-lock-keyword-face)))
@@ -117,6 +118,16 @@
   (interactive)
   (declare (special sox-context))
   (sox-redraw sox-context))
+(defconst sox-header-line-format
+  '((:eval
+     (format
+      "%s: %s"
+      (propertize "Audacious" 'face 'bold)
+      (propertize
+       (abbreviate-file-name
+       (or (and sox-context (sox-context-file sox-context)) "")))
+       'face 'font-lock-keyword-face)))
+  "Header line format for SoX buffers.")
 
 (define-derived-mode sox-mode special-mode
   "Interactively manipulate audio files."
@@ -126,7 +137,10 @@
   (sox-redraw sox-context)
   (setq buffer-read-only t)
   (setq tab-width 8)
-  (setq header-line-format "Audio Workbench"))
+  (setq header-line-format sox-header-line-format))
+                 
+                      
+                 
 
 (defvar sox-buffer "Audio WorkBench"
   "Buffer name of workbench.")
