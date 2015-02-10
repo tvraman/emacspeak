@@ -104,8 +104,8 @@ field in the customization buffer.  You can use the notation
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Personal Keymap"
                  (cons  :tag "Key Binding"
-                        (string :tag "Key")
-                        (symbol :tag "Command")))
+                        (key-sequence :tag "Key")
+                        (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -152,8 +152,8 @@ field in the customization buffer.  You can use the notation
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Super Keymap"
                  (cons  :tag "Key Binding"
-                        (string :tag "Key")
-                        (symbol :tag "Command")))
+                        (key-sequence :tag "Key")
+                        (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -201,18 +201,18 @@ field in the customization buffer.  You can use the notation
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Alt Keymap"
                  (cons  :tag "Key Binding"
-                        (string :tag "Key")
-                        (symbol :tag "Command")))
+                        (key-sequence :tag "Key")
+                        (function :tag "Command")))
   :set '(lambda (sym val)
-  (mapc
-   (lambda (binding)
-     (let ((key (car binding))
-           (command (cdr binding )))
-       (when (string-match "\\[.+]" key)
-         (setq key (car (read-from-string key))))
-       (define-key emacspeak-alt-keymap key command)))
-   val)
-  (set-default sym val)))
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-alt-keymap key command)))
+           val)
+          (set-default sym val)))
 
 (global-set-key "\C-x@a"
                 'emacspeak-alt-keymap)
@@ -250,8 +250,8 @@ field in the customization buffer.  You can use the notation
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Hyper Keys"
                  (cons  :tag "Key Binding"
-                        (string :tag "Key")
-                        (symbol :tag "Command")))
+                        (key-sequence :tag "Key")
+                        (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
