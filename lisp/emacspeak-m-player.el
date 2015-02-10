@@ -902,7 +902,7 @@ As the default, use current position."
 The final  value `8' here is the reverb preset,
 and that is the only value you should really change."
   :type 'string
-  :group 'eamcspeak-m-player)
+  :group 'emacspeak-m-player)
 
 (defcustom emacspeak-m-player-tap-reverb-filter
   '("ladspa=tap_reverb:tap_reverb" 2500 0 0 1 1 1 1 8)
@@ -926,6 +926,10 @@ and that is the only value you should really change."
             (const :tag "On" :value 1)
             (const :tag "Off" :value 0))
     (integer :tag "Reverb Preset" :value 1))
+  :set
+  #'(lambda (sym val)
+      (setq sym 
+            (mapconcat #'(lambda  (v) (format "%s" v)) val ":")))
   :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player-add-reverb ()
