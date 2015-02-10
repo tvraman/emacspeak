@@ -762,6 +762,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("L" emacspeak-m-player-load-file)
         ("O" emacspeak-m-player-reset-options)
         ("Q" emacspeak-m-player-quit)
+        ("R" emacspeak-m-player-add-reverb)
         ("S" emacspeak-amark-save)
         ("[" emacspeak-m-player-slower)
         ("\C-em" emacspeak-m-player-speak-mode-line)
@@ -889,6 +890,34 @@ As the default, use current position."
                     (expand-file-name (emacspeak-amark-path amark)))))))
                                         ; now jump to marked position 
       (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))))
+
+;;}}}
+;;{{{ Adding specific Ladspa filters:
+
+;;; tap_reverb filter
+
+(defcustom emacspeak-m-player-reverb-filter
+  "ladspa=tap_reverb:tap_reverb:0:0:1:1:1:1:1:8"
+  "Settings for tap_reverb ladspa effect.
+The final  value `8' here is the reverb preset,
+and that is the only value you should really change."
+  :type 'string
+  :group 'eamcspeak-m-player)
+
+(defun emacspeak-m-player-add-reverb ()
+  "Add ladspa reverb filter.
+See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+You need to use mplayer built with ladspa support, and have package 
+tap-reverb already installed."
+  (interactive)
+  (declare (special emacspeak-m-player-reverb-filter))
+  (let ((ladspa (getenv "LADSPA_PATH"))
+        (filter nil))
+    (unless ladspa (error "Environment variable LADSPA_PATH not set."))
+    (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
+      (error "Package tap_reverb not installed."))
+    (setq filter (read-from-minibuffer "Reverb: " emacspeak-m-player-reverb-filter))
+    (emacspeak-m-player-dispatch (format "af_add %s" filter))))
 
 ;;}}}
 (provide 'emacspeak-m-player)
