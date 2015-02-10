@@ -897,12 +897,36 @@ As the default, use current position."
 ;;; tap_reverb filter
 
 (defcustom emacspeak-m-player-reverb-filter
-  "ladspa=tap_reverb:tap_reverb:0:0:1:1:1:1:1:8"
+  "ladspa=tap_reverb:tap_reverb:2500:0:0:1:1:1:1:8"
   "Settings for tap_reverb ladspa effect.
 The final  value `8' here is the reverb preset,
 and that is the only value you should really change."
   :type 'string
   :group 'eamcspeak-m-player)
+
+(defcustom emacspeak-m-player-tap-reverb-filter
+  '("ladspa=tap_reverb:tap_reverb" 2500 0 0 1 1 1 1 8)
+  "Tap Reverb Settings."
+  :type
+  '(list
+    (const :tag "Ladspa Tap Reverb" :value "ladspa=tap_reverb:tap_reverb")
+    (integer :tag "Decay MS" :value 2500)
+    (integer :tag "Dry-Level" :value 0)
+    (integer :tag "Wet-Level" :value 0)
+    (choice :tag "Comb Filter"
+            (const :tag "On" :value 1)
+            (const :tag "Off" :value 0))
+    (choice :tag "Allpass Filter"
+            (const :tag "On" :value 1)
+            (const :tag "Off" :value 0))
+    (choice :tag "Bandpass Filter"
+            (const :tag "On" :value 1)
+            (const :tag "Off" :value 0))
+    (choice :tag "Enhanced Stereo"
+            (const :tag "On" :value 1)
+            (const :tag "Off" :value 0))
+    (integer :tag "Reverb Preset" :value 1))
+  :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player-add-reverb ()
   "Add ladspa reverb filter.
