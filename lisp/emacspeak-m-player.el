@@ -964,13 +964,12 @@ As the default, use current position."
             (const :tag "Warehouse - HD" :value 42)))
   :group 'emacspeak-m-player)
 
-(defun emacspeak-m-player-add-reverb (&optional edit )
+(defun emacspeak-m-player-add-reverb ()
   "Add ladspa reverb filter.
-Optional interactive prefix arg  elts you edit the preset before applying it.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package 
 tap-reverb already installed."
-  (interactive "P")
+  (interactive)
   (declare (special emacspeak-m-player-reverb-filter))
   (let ((ladspa (getenv "LADSPA_PATH"))
         (filter nil)
@@ -981,9 +980,7 @@ tap-reverb already installed."
     (unless ladspa (error "Environment variable LADSPA_PATH not set."))
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
-    (setq filter
-          (when edit (read-from-minibuffer "Reverb: " orig-filter))
-          orig-filter)
+    (setq filter (read-from-minibuffer "Reverb: " orig-filter))
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
 
