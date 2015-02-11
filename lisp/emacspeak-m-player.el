@@ -667,6 +667,14 @@ A string of the form `<number> 1' sets volume as an absolute."
           (append emacspeak-m-player-options
                   (list "-af" filter-name)))))
 
+(defun emacspeak-m-player-clear-filters ()
+  "Clear all active filters"
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (when (process-live-p emacspeak-m-player-process)
+    (emacspeak-m-player-dispatch "af_clr")
+    (emacspeak-auditory-icon 'delete-object)))
+
 (defun emacspeak-m-player-customize-options ()
   "Use Customize to manipulate MPlayer options."
   (interactive)
@@ -759,6 +767,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         (">" emacspeak-m-player-forward-1min)
         ("?" emacspeak-m-player-display-position)
         ("%" emacspeak-m-player-display-percent)
+        ("C" emacspeak-m-player-clear-filters)
         ("L" emacspeak-m-player-load-file)
         ("O" emacspeak-m-player-reset-options)
         ("P" emacspeak-m-player-apply-reverb-preset)
