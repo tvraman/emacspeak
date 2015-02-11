@@ -226,7 +226,7 @@ will be placed."
 (declaim (special emacspeak-ocr-mode-map))
 
 (define-derived-mode emacspeak-ocr-mode text-mode 
-  "Major mode for document scanning and  OCR.\n"
+                     "Major mode for document scanning and  OCR.\n"
   " An OCR front-end for the Emacspeak desktop.
 
 Pre-requisites:

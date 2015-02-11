@@ -67,7 +67,7 @@
   'emacspeak-madplay-mode-map)
 
 (define-derived-mode emacspeak-madplay-mode special-mode 
-  "Madplay Interaction"
+                     "Madplay Interaction"
   "Major mode for madplay interaction. \n\n
 \\{emacspeak-madplay-mode-map}"
   (setq emacspeak-madplay-process (get-buffer-process (current-buffer))))

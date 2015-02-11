@@ -80,7 +80,7 @@ grep path:")))
      (t "New Session"))))
 
 (define-derived-mode emacspeak-alsaplayer-mode special-mode 
-  "Alsaplayer Interaction"
+                     "Alsaplayer Interaction"
   "Major mode for alsaplayer interaction. \n\n
 \\{emacspeak-alsaplayer-mode-map}"
   (setq header-line-format '((:eval

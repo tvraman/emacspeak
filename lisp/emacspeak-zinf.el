@@ -64,7 +64,7 @@
   'emacspeak-zinf-mode-map)
 
 (define-derived-mode emacspeak-zinf-mode fundamental-mode 
-  "Zinf Interaction"
+                     "Zinf Interaction"
   "Major mode for zinf interaction. \n\n
 \\{emacspeak-zinf-mode-map}"
   (setq emacspeak-zinf-process (get-buffer-process (current-buffer))))

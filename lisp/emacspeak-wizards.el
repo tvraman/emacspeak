@@ -1963,7 +1963,7 @@ annotation is inserted into the working buffer when complete."
 ;;;
 
 (define-derived-mode emacspeak-wizards-xl-mode text-mode
-  "Browsing XL Files."
+                     "Browsing XL Files."
   "Major mode for browsing XL spreadsheets.\n\n
 XL Sheets are converted to HTML and previewed using a browser."
   (emacspeak-wizards-xl-display))
@@ -2069,7 +2069,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
 
 (require 'derived)
 (define-derived-mode emacspeak-wizards-ppt-mode text-mode
-  "Browsing PPT Files."
+                     "Browsing PPT Files."
   "Major mode for browsing PPT slides.\n\n
 PPT files  are converted to HTML and previewed using a browser."
   (emacspeak-wizards-ppt-display))
@@ -2121,7 +2121,7 @@ visiting the ppt file."
 ;;{{{ DVI wizard
 
 (define-derived-mode emacspeak-wizards-dvi-mode fundamental-mode
-  "Browsing DVI Files."
+                     "Browsing DVI Files."
   "Major mode for browsing DVI files.\n\n
 DVI files  are converted to text and previewed using text mode."
   (emacspeak-wizards-dvi-display))
@@ -2233,7 +2233,7 @@ emacspeak-wizards-personal-portfolio."
 ;;{{{ find wizard
 
 (define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode
-  "Emacspeak Finder"
+                     "Emacspeak Finder"
   "Emacspeak Finder\n\n"
   )
 
@@ -2612,7 +2612,7 @@ Use with caution."
   :group 'emacspeak-wizards)
 
 (define-derived-mode emacspeak-wizards-vc-viewer-mode  fundamental-mode
-  "VC Viewer  Interaction"
+                     "VC Viewer  Interaction"
   "Major mode for interactively viewing virtual console contents.\n\n
 \\{emacspeak-wizards-vc-viewer-mode-map}")
 

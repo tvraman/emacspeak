@@ -62,7 +62,7 @@
   (interactive)
   (let ((desc (get-text-property (point) 'tabulated-list-entry)))
     (emacspeak-auditory-icon 'item)
-  (dtk-speak-and-echo (aref  desc 4))))
+    (dtk-speak-and-echo (aref  desc 4))))
 
 (defun emacspeak-package-mode-hook ()
   "Emacspeak setup hook for package-mode."

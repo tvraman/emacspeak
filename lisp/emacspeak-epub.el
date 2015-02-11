@@ -790,7 +790,7 @@ Optional interactive prefix arg author-first prints author at the
   (emacspeak-auditory-icon 'task-done))
 
 (define-derived-mode emacspeak-epub-mode special-mode
-  "EPub Interaction On The Emacspeak Audio Desktop"
+                     "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-epub-mode-map>
@@ -1072,7 +1072,7 @@ Searches for matches in both  Title and Author."
     (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
 (define-derived-mode emacspeak-calibre-mode special-mode
-  "Calibre Interaction On The Emacspeak Audio Desktop"
+                     "Calibre Interaction On The Emacspeak Audio Desktop"
   "A Calibre Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-calibre-mode-map>

@@ -125,12 +125,12 @@
       (propertize "Audacious" 'face 'bold)
       (propertize
        (abbreviate-file-name
-       (or (and sox-context (sox-context-file sox-context)) "")))
-       'face 'font-lock-keyword-face)))
+        (or (and sox-context (sox-context-file sox-context)) "")))
+      'face 'font-lock-keyword-face)))
   "Header line format for SoX buffers.")
 
 (define-derived-mode sox-mode special-mode
-  "Interactively manipulate audio files."
+                     "Interactively manipulate audio files."
   "An audio workbench for the Emacspeak desktop."
   (declare (special sox-context))
   (setq sox-context (make-sox-context))
@@ -138,9 +138,6 @@
   (setq buffer-read-only t)
   (setq tab-width 8)
   (setq header-line-format sox-header-line-format))
-                 
-                      
-                 
 
 (defvar sox-buffer "Audio WorkBench"
   "Buffer name of workbench.")
@@ -292,7 +289,7 @@
     (unless e (error "No effect at point."))
     (setf  (sox-context-effects sox-context) (remove e (sox-context-effects sox-context)))
     (message "Deleted effect %s at point. " (sox-effect-name e ))
-  (sox-redraw sox-context)))
+    (sox-redraw sox-context)))
 
 (defun sox-set-effect (name)
   "Set effect."
@@ -460,7 +457,6 @@ and return a suitable effect structure."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-
 
 (defadvice sox-delete-effect-at-point (after emacspeak pre act comp)
   "Provide auditory feedback."

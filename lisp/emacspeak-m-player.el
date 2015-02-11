@@ -104,7 +104,7 @@ This is set to nil when playing Internet  streams.")
    (dtk-speak (emacspeak-m-player-mode-line))))
 
 (define-derived-mode emacspeak-m-player-mode comint-mode 
-  "M-Player Interaction"
+                     "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
@@ -247,7 +247,7 @@ on a specific directory."
   (cond
    ((or (string-match emacspeak-media-directory-regexp  default-directory) ;pattern match
         (directory-files default-directory   nil emacspeak-media-extensions))
-      default-directory)
+    default-directory)
    (t emacspeak-media-shortcuts-directory)))
 
 ;;;###autoload 
@@ -595,7 +595,7 @@ A string of the form `<number> 1' sets volume as an absolute."
                           " "))))
            (result (emacspeak-m-player-dispatch (format "%s %s" command args))))
       (when result 
-      (setq result (replace-regexp-in-string  "^ans_" "" result)))
+        (setq result (replace-regexp-in-string  "^ans_" "" result)))
       (message   result))))
 
 ;;;###autoload
@@ -920,48 +920,48 @@ As the default, use current position."
             (const :tag "Off" :value 0))
     (choice :tag "Reverb Preset"
             (const :tag "AfterBurn" :value 0)
- (const :tag "AfterBurn (Long)" :value 1)
- (const :tag "Ambience" :value 2)
- (const :tag "Ambience (Thick)" :value 3)
- (const :tag "Ambience (Thick) - HD" :value 4)
- (const :tag "Cathedral" :value 5)
- (const :tag "Cathedral - HD" :value 6)
- (const :tag "Drum Chamber" :value 7)
- (const :tag "Garage" :value 8)
- (const :tag "Garage (Bright)" :value 9)
- (const :tag "Gymnasium" :value 10)
- (const :tag "Gymnasium (Bright)" :value 11)
- (const :tag "Gymnasium (Bright) - HD" :value 12)
- (const :tag "Hall (Small)" :value 13)
- (const :tag "Hall (Medium)" :value 14)
- (const :tag "Hall (Large)" :value 15)
- (const :tag "Hall (Large) - HD" :value 16)
- (const :tag "Plate (Small)" :value 17)
- (const :tag "Plate (Medium)" :value 18)
- (const :tag "Plate (Large)" :value 19)
- (const :tag "Plate (Large) - HD" :value 20)
- (const :tag "Pulse Chamber" :value 21)
- (const :tag "Pulse Chamber (Reverse)" :value 22)
- (const :tag "Resonator (96 ms)" :value 23)
- (const :tag "Resonator (152 ms)" :value 24)
- (const :tag "Resonator (28 ms)" :value 25)
- (const :tag "Room (Small)" :value 26)
- (const :tag "Room (Medium)" :value 27)
- (const :tag "Room (Large)" :value 28)
- (const :tag "Room (Large) - HD" :value 29)
- (const :tag "Slap Chamber" :value 30)
- (const :tag "Slap Chamber - HD" :value 31)
- (const :tag "Slap Chamber (Bright)" :value 32)
- (const :tag "Slap Chamber (Bright) - HD" :value 33)
- (const :tag "Smooth Hall (Small)" :value 34)
- (const :tag "Smooth Hall (Medium)" :value 35)
- (const :tag "Smooth Hall (Large)" :value 36)
- (const :tag "Smooth Hall (Large) - HD" :value 37)
- (const :tag "Vocal Plate" :value 38)
- (const :tag "Vocal Plate - HD" :value 39)
- (const :tag "Warble Chamber" :value 40)
- (const :tag "Warehouse" :value 41)
- (const :tag "Warehouse - HD" :value 42)))
+            (const :tag "AfterBurn (Long)" :value 1)
+            (const :tag "Ambience" :value 2)
+            (const :tag "Ambience (Thick)" :value 3)
+            (const :tag "Ambience (Thick) - HD" :value 4)
+            (const :tag "Cathedral" :value 5)
+            (const :tag "Cathedral - HD" :value 6)
+            (const :tag "Drum Chamber" :value 7)
+            (const :tag "Garage" :value 8)
+            (const :tag "Garage (Bright)" :value 9)
+            (const :tag "Gymnasium" :value 10)
+            (const :tag "Gymnasium (Bright)" :value 11)
+            (const :tag "Gymnasium (Bright) - HD" :value 12)
+            (const :tag "Hall (Small)" :value 13)
+            (const :tag "Hall (Medium)" :value 14)
+            (const :tag "Hall (Large)" :value 15)
+            (const :tag "Hall (Large) - HD" :value 16)
+            (const :tag "Plate (Small)" :value 17)
+            (const :tag "Plate (Medium)" :value 18)
+            (const :tag "Plate (Large)" :value 19)
+            (const :tag "Plate (Large) - HD" :value 20)
+            (const :tag "Pulse Chamber" :value 21)
+            (const :tag "Pulse Chamber (Reverse)" :value 22)
+            (const :tag "Resonator (96 ms)" :value 23)
+            (const :tag "Resonator (152 ms)" :value 24)
+            (const :tag "Resonator (28 ms)" :value 25)
+            (const :tag "Room (Small)" :value 26)
+            (const :tag "Room (Medium)" :value 27)
+            (const :tag "Room (Large)" :value 28)
+            (const :tag "Room (Large) - HD" :value 29)
+            (const :tag "Slap Chamber" :value 30)
+            (const :tag "Slap Chamber - HD" :value 31)
+            (const :tag "Slap Chamber (Bright)" :value 32)
+            (const :tag "Slap Chamber (Bright) - HD" :value 33)
+            (const :tag "Smooth Hall (Small)" :value 34)
+            (const :tag "Smooth Hall (Medium)" :value 35)
+            (const :tag "Smooth Hall (Large)" :value 36)
+            (const :tag "Smooth Hall (Large) - HD" :value 37)
+            (const :tag "Vocal Plate" :value 38)
+            (const :tag "Vocal Plate - HD" :value 39)
+            (const :tag "Warble Chamber" :value 40)
+            (const :tag "Warehouse" :value 41)
+            (const :tag "Warehouse - HD" :value 42)))
   :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player-add-reverb (&optional edit )
@@ -982,11 +982,10 @@ tap-reverb already installed."
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
     (setq filter
-    (when edit (read-from-minibuffer "Reverb: " orig-filter))
-    orig-filter)
+          (when edit (read-from-minibuffer "Reverb: " orig-filter))
+          orig-filter)
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
-
 
 (defconst emacspeak-m-player-reverb-preset-table
   '(
@@ -1091,8 +1090,8 @@ tap-reverb already installed."
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (completing-read "Preset: "
-                     emacspeak-m-player-tap-reverb-presets nil 'must-match))))
+      (completing-read "Preset: "
+                       emacspeak-m-player-tap-reverb-presets nil 'must-match))))
   (declare (special emacspeak-m-player-tap-reverb-presets
                     emacspeak-m-player-reverb-preset-table
                     emacspeak-m-player-process emacspeak-m-player-reverb-filter))
@@ -1106,20 +1105,17 @@ tap-reverb already installed."
       (error "Package tap_reverb not installed."))
     (setq filter-spec
           `("ladspa=tap_reverb:tap_reverb"
-             ,(second setting)          ;  delay 
-               0 -8                    ; dry and wet db
-             1 1 1 1 
-             ,(cadr (assoc (first setting) emacspeak-m-player-reverb-preset-table)) ; preset name
-             ))
+            ,(second setting)          ;  delay 
+            0 -8                    ; dry and wet db
+            1 1 1 1 
+            ,(cadr (assoc (first setting) emacspeak-m-player-reverb-preset-table)) ; preset name
+            ))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
     
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
-   
-        
-    
-    
+
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 

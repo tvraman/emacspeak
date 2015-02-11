@@ -552,7 +552,6 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char ))))
 
-
 (defvar emacspeak-speak-read-events t
   "Set to nil to silence read-event.")
 
@@ -982,7 +981,7 @@ Produce an auditory icon if possible."
        `(defadvice ,f (around emacspeak pre act comp)
           "Silence messages"
           (let ((emacspeak-speak-messages nil))
-                ad-do-it))))
+            ad-do-it))))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
@@ -1567,9 +1566,9 @@ Produce an auditory icon if possible."
 (loop
  for f in
  '(delete-windows-on delete-other-frames
-   delete-window delete-completion-window
-   split-window-below split-window-right
-   split-window-vertically split-window-horizontally)
+                     delete-window delete-completion-window
+                     split-window-below split-window-right
+                     split-window-vertically split-window-horizontally)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

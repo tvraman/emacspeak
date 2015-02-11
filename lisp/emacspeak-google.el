@@ -197,8 +197,6 @@ This variable is buffer-local.")
          :value 0
          :type 'tbs)
 
-
-
 ;;; Blog mode
         (make-emacspeak-google-tool
          :name "blog"
@@ -457,9 +455,6 @@ This variable is buffer-local.")
               (emacspeak-websearch-google
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
-
-
-
 
 (defsubst emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."

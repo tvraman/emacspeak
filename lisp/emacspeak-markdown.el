@@ -133,42 +133,42 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
- ;; (markdown-blockquote-region
- ;;  markdown-check-change-for-wiki-link
- ;;  markdown-check-refs
- ;;  markdown-cleanup-list-numbers
- ;;  markdown-complete
- ;;  markdown-complete-at-point
- ;;  markdown-complete-buffer
- ;;  markdown-complete-region
- ;;  markdown-cycle
- ;;  markdown-enable-math
- ;;  markdown-enter-key
- ;;  markdown-exdent-or-delete
- ;;  markdown-exdent-region
- ;;  markdown-export
- ;;  markdown-export-and-preview
- ;;  markdown-follow-link-at-point
- ;;  markdown-follow-thing-at-point
- ;;  markdown-follow-wiki-link-at-point
- ;;  markdown-fontify-buffer-wiki-links
- ;;  markdown-footnote-kill
- ;;  markdown-footnote-return
- ;;  markdown-indent-line
- ;;  markdown-indent-region
- ;;  markdown-kill-ring-save
- ;;  markdown-kill-thing-at-point
- ;;  markdown-mode
- ;;  markdown-mode-menu
- ;;  markdown-open
- ;;  markdown-other-window
- ;;  markdown-pre-region
- ;;  markdown-preview
- ;;  markdown-reload-extensions
- ;;  markdown-remove-header
- ;;  markdown-shifttab
- ;;  markdown-standalone
- ;;  markdown-unfontify-region-wiki-links)
+;; (markdown-blockquote-region
+;;  markdown-check-change-for-wiki-link
+;;  markdown-check-refs
+;;  markdown-cleanup-list-numbers
+;;  markdown-complete
+;;  markdown-complete-at-point
+;;  markdown-complete-buffer
+;;  markdown-complete-region
+;;  markdown-cycle
+;;  markdown-enable-math
+;;  markdown-enter-key
+;;  markdown-exdent-or-delete
+;;  markdown-exdent-region
+;;  markdown-export
+;;  markdown-export-and-preview
+;;  markdown-follow-link-at-point
+;;  markdown-follow-thing-at-point
+;;  markdown-follow-wiki-link-at-point
+;;  markdown-fontify-buffer-wiki-links
+;;  markdown-footnote-kill
+;;  markdown-footnote-return
+;;  markdown-indent-line
+;;  markdown-indent-region
+;;  markdown-kill-ring-save
+;;  markdown-kill-thing-at-point
+;;  markdown-mode
+;;  markdown-mode-menu
+;;  markdown-open
+;;  markdown-other-window
+;;  markdown-pre-region
+;;  markdown-preview
+;;  markdown-reload-extensions
+;;  markdown-remove-header
+;;  markdown-shifttab
+;;  markdown-standalone
+;;  markdown-unfontify-region-wiki-links)
 ;;}}}
 (provide 'emacspeak-markdown)
 ;;{{{ end of file

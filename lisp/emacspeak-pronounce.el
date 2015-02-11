@@ -818,10 +818,10 @@ specified pronunciation dictionary key."
 (defvar emacspeak-pronounce-uuid-pattern
   (concat 
    "[0-9a-f]\\{8\\}" "-"
-"[0-9a-f]\\{4\\}" "-"
-"[0-9a-f]\\{4\\}" "-"
-"[0-9a-f]\\{4\\}" "-"
-"[0-9a-f]\\{12\\}" )
+   "[0-9a-f]\\{4\\}" "-"
+   "[0-9a-f]\\{4\\}" "-"
+   "[0-9a-f]\\{4\\}" "-"
+   "[0-9a-f]\\{12\\}" )
   "Regexp pattern that matches hex-encoded, human-readable UUID.")
 
 (defun emacspeak-pronounce-uuid (uuid)
@@ -832,7 +832,7 @@ specified pronunciation dictionary key."
     (format "uid: %s..%s "
             (substring uuid 0 2)
             (substring uuid -2 nil))))
- 
+
 ;;}}}
 
 ;;}}}

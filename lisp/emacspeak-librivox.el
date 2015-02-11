@@ -113,7 +113,7 @@
 ;;{{{ Librivox Mode:
 
 (define-derived-mode emacspeak-librivox-mode emacspeak-table-mode
-  "Librivox Library Of Free Audio Books"
+                     "Librivox Library Of Free Audio Books"
   "A Librivox front-end for the Emacspeak Audio Desktop."
   (progn
     (declare (special emacspeak-table-speak-row-filter))

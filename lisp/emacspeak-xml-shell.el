@@ -79,7 +79,7 @@ customize the default to be xsh."
 ;;{{{ xml browse mode
 
 (define-derived-mode emacspeak-xml-shell-mode comint-mode 
-  "XML Shell "
+                     "XML Shell "
   "XML Shell\n\n
 Interactive XML browser.
 \\{emacspeak-xml-shell-mode-map}")

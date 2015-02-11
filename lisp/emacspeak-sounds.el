@@ -313,7 +313,7 @@ This uses SoX play and is specifically for use with headphones."
   (declare (special emacspeak-soxplay-command))
   (let ((icon (emacspeak-get-sound-filename sound-name)))
     (call-process shell-file-name nil nil nil shell-command-switch
-        (format emacspeak-soxplay-command icon))))
+                  (format emacspeak-soxplay-command icon))))
 
 ;;}}}
 ;;{{{  setup play function
@@ -333,7 +333,6 @@ Use Serve when working with remote speech servers."
           (const emacspeak-native-auditory-icon)
           (const emacspeak-soxplay-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
-
 
 ;;;###autoload
 (defun emacspeak-auditory-icon (icon)

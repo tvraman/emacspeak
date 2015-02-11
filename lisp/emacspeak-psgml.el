@@ -387,7 +387,7 @@ shortref- short reference")
 ;;; documents.
 
 (define-derived-mode emacspeak-xml-browse-mode xml-mode
-  "Browsing XML documents. "
+                     "Browsing XML documents. "
   "Mode for browsing XML documents.\n\n
 \\{emacspeak-xml-browse-mode}")
 
