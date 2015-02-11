@@ -897,7 +897,7 @@ As the default, use current position."
 ;;; tap_reverb filter
 
 (defcustom emacspeak-m-player-reverb-filter
-  '("ladspa=tap_reverb:tap_reverb" 25 0 0 1 1 1 1 8)
+  '("ladspa=tap_reverb:tap_reverb" 100 0 0 1 1 1 1 8)
   "Tap Reverb Settings."
   :type
   '(list
