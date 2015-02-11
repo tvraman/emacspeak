@@ -761,6 +761,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("%" emacspeak-m-player-display-percent)
         ("L" emacspeak-m-player-load-file)
         ("O" emacspeak-m-player-reset-options)
+        ("P" emacspeak-m-player-apply-reverb-preset)
         ("Q" emacspeak-m-player-quit)
         ("R" emacspeak-m-player-add-reverb)
         ("S" emacspeak-amark-save)
@@ -963,8 +964,9 @@ As the default, use current position."
  (const :tag "Warehouse - HD" :value 42)))
   :group 'emacspeak-m-player)
 
-(defun emacspeak-m-player-add-reverb ()
+(defun emacspeak-m-player-add-reverb (&optional edit )
   "Add ladspa reverb filter.
+Optional interactive prefix arg  elts you edit the preset before applying it.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package 
 tap-reverb already installed."
@@ -979,9 +981,93 @@ tap-reverb already installed."
     (unless ladspa (error "Environment variable LADSPA_PATH not set."))
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
-    (setq filter (read-from-minibuffer "Reverb: " orig-filter))
+    (setq filter
+    (when edit (read-from-minibuffer "Reverb: " orig-filter))
+    orig-filter)
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
 
+(defconst emacspeak-m-player-tap-reverb-presets
+  '(
+
+    ("AfterBurn" "2.8")
+    ("AfterBurn (Long)" "4.8")
+    ("Ambience" "1.1")
+    ("Ambience (Thick)" "1.2")
+    ("Ambience (Thick) - HD" "1.2")
+    ("Cathedral" "10")
+    ("Cathedral - HD" "10")
+    ("Drum Chamber" "3.6")
+    ("Garage" "2.3")
+    ("Garage (Bright)" "2.3")
+    ("Gymnasium" "5.9")
+    ("Gymnasium (Bright)" "5.9")
+    ("Gymnasium (Bright) - HD" "5.9")
+    ("Hall (Small)" "2.0")
+    ("Hall (Medium)" "3.0")
+    ("Hall (Large)" "5.1")
+    ("Hall (Large) - HD" "5.1")
+    ("Plate (Small)" "1.7")
+    ("Plate (Medium)" "2.6")
+    ("Plate (Large)" "5.7")
+    ("Plate (Large) - HD" "5.7")
+    ("Pulse Chamber" "3.1")
+    ("Pulse Chamber (Reverse)" "3.1")
+    ("Resonator (96 ms)" "4.0")
+    ("Resonator (152 ms)" "4.2")
+    ("Resonator (208 ms)" "5.1")
+    ("Room (Small)" "1.9")
+    ("Room (Medium)" "2.8")
+    ("Room (Large)" "4.4")
+    ("Room (Large) - HD" "4.4")
+    ("Slap Chamber" "2.3")
+    ("Slap Chamber - HD" "2.9")
+    ("Slap Chamber (Bright)" "3.4")
+    ("Slap Chamber (Bright) - HD" "3.7")
+    ("Smooth Hall (Small)" "1.8")
+    ("Smooth Hall (Medium)" "3.0")
+    ("Smooth Hall (Large)" "5.9")
+    ("Smooth Hall (Large) - HD" "5.9")
+    ("Vocal Plate" "3.1")
+    ("Vocal Plate - HD" "3.1")
+    ("Warble Chamber" "4.0")
+    ("Warehouse" "6.0")
+    ("Warehouse - HD" "6.0")
+    )
+  "Table of tap-reverb presets along with recommended decay values.")
+
+(defun emacspeak-m-player-apply-reverb-preset (preset)
+  "Prompt for a predefined reverb preset and apply it if there is media playing.
+You need to use mplayer built with ladspa support, and have package 
+tap-reverb already installed."
+  (interactive
+   (list
+    (completing-read "Preset: "
+                     emacspeak-m-player-tap-reverb-presets nil 'must-match)))
+  (declare (special emacspeak-m-player-tap-reverb-presets))
+  (let ((completion-ignore-case  t)
+        (setting (assoc preset emacspeak-m-player-tap-reverb-presets))
+        (ladspa (getenv "LADSPA_PATH"))
+        (filter nil))
+    (unless (process-live-p emacspeak-m-player-process)
+      (error "No media playing  currently."))
+    (unless ladspa (error "Environment variable LADSPA_PATH not set."))
+    (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
+      (error "Package tap_reverb not installed."))
+    (setq filter
+          (mapconcat
+           #'(lambda (v) (format "%s" v))
+           `("ladspa=tap_reverb:tap_reverb"
+             ,(second setting)          ;  delay 
+             -3  -10                    ; dry and wet db
+             1 1 1 1 
+             ,(first setting)           ; preset name
+             ) ":"))
+    (emacspeak-m-player-dispatch "af_clr")
+      (emacspeak-m-player-dispatch (format "af_add %s" filter))))
+   
+        
+    
+    
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
