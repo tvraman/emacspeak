@@ -161,6 +161,22 @@
 
   <dl>
     <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dreverb" id=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dreverb"></a>Interactive
+    Command: <strong>emacspeak-m-player-add-reverb</strong>
+    <em>(&amp;optional edit)</em></dt>
+
+    <dd>
+      <p>Add ladspa reverb filter. Optional interactive prefix arg
+      elts you edit the preset before applying it. See option
+      emacspeak-m-player-reverb-filter to customize reverb filter
+      values. You need to use mplayer built with ladspa support,
+      and have package tap-reverb already installed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep" id=
     "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"></a>Interactive
     Command: <strong>emacspeak-m-player-alt-src-step</strong>
@@ -168,6 +184,49 @@
 
     <dd>
       <p>Move within an ASF playlist.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002damark_002dadd" id=
+    "index-emacspeak_002dm_002dplayer_002damark_002dadd"></a>Interactive
+    Command: <strong>emacspeak-m-player-amark-add</strong>
+    <em>(name &amp;optional prompt-position)</em></dt>
+
+    <dd>
+      <p>Set AMark ‘name’ at current position in current audio
+      stream. Interactive prefix arg prompts for position. As the
+      default, use current position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002damark_002djump" id=
+    "index-emacspeak_002dm_002dplayer_002damark_002djump"></a>Interactive
+    Command: <strong>emacspeak-m-player-amark-jump</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Jump to specified AMark.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-apply-reverb-preset</strong>
+    <em>(preset)</em></dt>
+
+    <dd>
+      <p>Prompt for a predefined reverb preset and apply it if
+      there is media playing. You need to use mplayer built with
+      ladspa support, and have package tap-reverb already
+      installed.</p>
     </dd>
   </dl>
 
@@ -265,6 +324,18 @@
 
     <dd>
       <p>Use Customize to manipulate MPlayer options.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent" id=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent"></a>Interactive
+    Command: <strong>emacspeak-m-player-display-percent</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Display current percentage.</p>
     </dd>
   </dl>
 
@@ -438,7 +509,8 @@
       <p>key binding — ——-</p>
 
       <p>C-e Prefix Command RET emacspeak-m-player-load ESC Prefix
-      Command SPC emacspeak-m-player-pause +
+      Command SPC emacspeak-m-player-pause %
+      emacspeak-m-player-display-percent +
       emacspeak-m-player-volume-up ,
       emacspeak-m-player-backward-10s -
       emacspeak-m-player-volume-down .
@@ -448,12 +520,16 @@
       emacspeak-m-player-forward-1min ?
       emacspeak-m-player-display-position L
       emacspeak-m-player-load-file O
-      emacspeak-m-player-reset-options Q emacspeak-m-player-quit [
-      emacspeak-m-player-slower ] emacspeak-m-player-faster b
+      emacspeak-m-player-reset-options P
+      emacspeak-m-player-apply-reverb-preset Q
+      emacspeak-m-player-quit R emacspeak-m-player-add-reverb S
+      emacspeak-amark-save [ emacspeak-m-player-slower ]
+      emacspeak-m-player-faster a emacspeak-m-player-amark-add b
       emacspeak-m-player-balance c emacspeak-m-player-slave-command
       e emacspeak-m-player-add-equalizer f
       emacspeak-m-player-add-filter g
-      emacspeak-m-player-seek-absolute k
+      emacspeak-m-player-seek-absolute j
+      emacspeak-m-player-amark-jump k
       emacspeak-m-player-bind-accelerator l
       emacspeak-m-player-get-length m
       emacspeak-m-player-speak-mode-line n
@@ -463,8 +539,7 @@
       emacspeak-m-player-seek-relative s
       emacspeak-m-player-scale-speed t
       emacspeak-m-player-play-tracks-jump v
-      emacspeak-m-player-volume-change w
-      emacspeak-m-player-speak-current-info {
+      emacspeak-m-player-volume-change {
       emacspeak-m-player-half-speed }
       emacspeak-m-player-double-speed DEL
       emacspeak-m-player-reset-speed &lt;down&gt;
@@ -477,9 +552,9 @@
       emacspeak-m-player-forward-10s &lt;up&gt;
       emacspeak-m-player-backward-1min</p>
 
-      <p>C-e m emacspeak-m-player-speak-mode-line</p>
-
       <p>M-l emacspeak-m-player-load-playlist</p>
+
+      <p>C-e m emacspeak-m-player-speak-mode-line</p>
 
       <p>In addition to any hooks its parent mode ‘comint-mode’
       might have run, this mode runs the hook
@@ -585,18 +660,6 @@
   </dl>
 
   <dl>
-    <dt><a name="index-emacspeak_002dm_002dplayer_002dresume" id=
-    "index-emacspeak_002dm_002dplayer_002dresume"></a>Interactive
-    Command: <strong>emacspeak-m-player-resume</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p>Resume M-Player where it was stopped if possible. Only
-      works for local media sources, not Internet streams.</p>
-    </dd>
-  </dl>
-
-  <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dscale_002dspeed" id=
     "index-emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>Interactive
@@ -650,7 +713,7 @@
     "index-emacspeak_002dm_002dplayer_002dslave_002dcommand" id=
     "index-emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>Interactive
     Command: <strong>emacspeak-m-player-slave-command</strong>
-    <em>nil</em></dt>
+    <em>(command)</em></dt>
 
     <dd>
       <p>Dispatch slave command read from minibuffer.</p>
@@ -665,20 +728,6 @@
 
     <dd>
       <p>Slow down playback.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dm_002dplayer_002dspeak_002dcurrent_002dinfo"
-    id=
-    "index-emacspeak_002dm_002dplayer_002dspeak_002dcurrent_002dinfo">
-    </a>Interactive Command:
-    <strong>emacspeak-m-player-speak-current-info</strong>
-    <em>nil</em></dt>
-
-    <dd>
-      <p>Speak cached info about currently playing file.</p>
     </dd>
   </dl>
 

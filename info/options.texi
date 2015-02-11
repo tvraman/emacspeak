@@ -5,7 +5,7 @@
         This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 707 user customizable
+This chapter documents a total of 710 user customizable
   options.
 
 @menu
@@ -416,6 +416,8 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-bookshare-api-key
 Web API  key for this application.
+See http://developer.bookshare.org/docs for details on how to get
+  an API key. 
 @end defvar
 
 @defvar {User Option} emacspeak-bookshare-browser-function
@@ -820,7 +822,7 @@ XSL stylesheet used for viewing Atom Feeds.
 @end defvar
 
 @defvar {User Option} emacspeak-feeds
-Table of RSS feeds.
+Table of RSS/Atom feeds.
 @end defvar
 
 @defvar {User Option} emacspeak-opml-view-xsl
@@ -1341,6 +1343,14 @@ Options passed to mplayer.
 
 @defvar {User Option} emacspeak-m-player-program
 Media player program.
+@end defvar
+
+@defvar {User Option} emacspeak-m-player-recent-amark-name
+Name used to  mark position where we quit a stream.
+@end defvar
+
+@defvar {User Option} emacspeak-m-player-reverb-filter
+Tap Reverb Settings.
 @end defvar
 
 @defvar {User Option} emacspeak-m-player-youtube-dl
@@ -1882,6 +1892,7 @@ These options are customizable via Emacs' Custom interface.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
+soxplay: Use sox to apply effect earwax for headphones.
 Native : Use Emacs' builtin sound support.
 Use Serve when working with remote speech servers.
 @end defvar
@@ -1900,6 +1911,10 @@ Default theme for auditory icons.
 
 @defvar {User Option} emacspeak-sounds-reset-snd-module-command
 Command to reset sound module.
+@end defvar
+
+@defvar {User Option} emacspeak-soxplay-command
+Name of play executable from SoX
 @end defvar
 
 @node emacspeak-speak Options

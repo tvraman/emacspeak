@@ -483,8 +483,9 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-amark-add Add an AMark to the buffer local list of AMarks.
-AMarks are bookmarks in audio content. 
+** emacspeak-amark-add Add an AMark to the buffer local list of AMarks. AMarks are
+bookmarks in audio content. If there is an existing amark of the
+given name, it is updated with path and position. 
 
 ------------------------------------------------------------
 
@@ -1502,39 +1503,48 @@ Prompts if content at point is enclosed by multiple elements.
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-h Move forward to the next h 
+** emacspeak-eww-next-h Move forward to the next h.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-h1 Move forward to the next h1 
+** emacspeak-eww-next-h1 Move forward to the next h1.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-h2 Move forward to the next h2 
+** emacspeak-eww-next-h2 Move forward to the next h2.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-h3 Move forward to the next h3 
+** emacspeak-eww-next-h3 Move forward to the next h3.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-li Move forward to the next li 
+** emacspeak-eww-next-li Move forward to the next li.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-ol Move forward to the next ol 
+** emacspeak-eww-next-ol Move forward to the next ol.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-p Move forward to the next p 
+** emacspeak-eww-next-p Move forward to the next p.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-table Move forward to the next table 
+** emacspeak-eww-next-table Move forward to the next table.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-next-ul Move forward to the next ul 
+** emacspeak-eww-next-ul Move forward to the next ul.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
@@ -1551,43 +1561,58 @@ Prompts if content at point is enclosed by multiple elements.
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-h Move backward to the next h 
+** emacspeak-eww-previous-h Move backward to the next h.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-h1 Move backward to the next h1 
+** emacspeak-eww-previous-h1 Move backward to the next h1.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-h2 Move backward to the next h2 
+** emacspeak-eww-previous-h2 Move backward to the next h2.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-h3 Move backward to the next h3 
+** emacspeak-eww-previous-h3 Move backward to the next h3.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-li Move backward to the next li 
+** emacspeak-eww-previous-li Move backward to the next li.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-ol Move backward to the next ol 
+** emacspeak-eww-previous-ol Move backward to the next ol.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-p Move backward to the next p 
+** emacspeak-eww-previous-p Move backward to the next p.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-table Move backward to the next table 
+** emacspeak-eww-previous-table Move backward to the next table.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
-** emacspeak-eww-previous-ul Move backward to the next ul 
+** emacspeak-eww-previous-ul Move backward to the next ul.
+Optional interactive prefix arg speaks the structural unit. 
 
 ------------------------------------------------------------
 
 ** emacspeak-eww-restore Restore buffer to pre-filtered canonical state. 
+
+------------------------------------------------------------
+
+** emacspeak-eww-speak-this-element Speaks  to next element like current.
+Uses most recently navigated structural unit.
+Otherwise, prompts if content at point is enclosed by multiple elements. 
 
 ------------------------------------------------------------
 
@@ -1809,19 +1834,19 @@ i.e. sender name, and subject.
 
 ------------------------------------------------------------
 
-** emacspeak-google-toolbelt-change-discussions Change  discussions in the currently active toolbelt. 
-
-------------------------------------------------------------
-
-** emacspeak-google-toolbelt-change-duration Change  duration in the currently active toolbelt. 
-
-------------------------------------------------------------
-
 ** emacspeak-google-toolbelt-change-forums Change  forums in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
+** emacspeak-google-toolbelt-change-group-discussions Change  group-discussions in the currently active toolbelt. 
+
+------------------------------------------------------------
+
 ** emacspeak-google-toolbelt-change-images Change  images in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-in-depth Change  in-depth in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
@@ -1882,6 +1907,10 @@ i.e. sender name, and subject.
 ------------------------------------------------------------
 
 ** emacspeak-google-toolbelt-change-video Change  video in the currently active toolbelt. 
+
+------------------------------------------------------------
+
+** emacspeak-google-toolbelt-change-video-duration Change  video-duration in the currently active toolbelt. 
 
 ------------------------------------------------------------
 
@@ -2073,7 +2102,31 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-add-reverb Add ladspa reverb filter.
+Optional interactive prefix arg  elts you edit the preset before applying it.
+See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+You need to use mplayer built with ladspa support, and have package 
+tap-reverb already installed. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-alt-src-step Move within an ASF playlist. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-amark-add Set AMark `name' at current position in current audio stream.
+Interactive prefix arg prompts for position.
+As the default, use current position. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-amark-jump Jump to specified AMark. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-apply-reverb-preset Prompt for a predefined reverb preset and apply it if there is media playing.
+You need to use mplayer built with ladspa support, and have package 
+tap-reverb already installed. 
 
 ------------------------------------------------------------
 
@@ -2106,6 +2159,10 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 ------------------------------------------------------------
 
 ** emacspeak-m-player-customize-options Use Customize to manipulate MPlayer options. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-display-percent Display current percentage. 
 
 ------------------------------------------------------------
 
@@ -2172,6 +2229,7 @@ C-e		Prefix Command
 RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
+%		emacspeak-m-player-display-percent
 +		emacspeak-m-player-volume-up
 ,		emacspeak-m-player-backward-10s
 -		emacspeak-m-player-volume-down
@@ -2182,14 +2240,19 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
+P		emacspeak-m-player-apply-reverb-preset
 Q		emacspeak-m-player-quit
+R		emacspeak-m-player-add-reverb
+S		emacspeak-amark-save
 [		emacspeak-m-player-slower
 ]		emacspeak-m-player-faster
+a		emacspeak-m-player-amark-add
 b		emacspeak-m-player-balance
 c		emacspeak-m-player-slave-command
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
+j		emacspeak-m-player-amark-jump
 k		emacspeak-m-player-bind-accelerator
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
@@ -2201,7 +2264,6 @@ r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
 v		emacspeak-m-player-volume-change
-w		emacspeak-m-player-speak-current-info
 {		emacspeak-m-player-half-speed
 }		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
@@ -2214,9 +2276,9 @@ DEL		emacspeak-m-player-reset-speed
 <right>		emacspeak-m-player-forward-10s
 <up>		emacspeak-m-player-backward-1min
 
-C-e m		emacspeak-m-player-speak-mode-line
-
 M-l		emacspeak-m-player-load-playlist
+
+C-e m		emacspeak-m-player-speak-mode-line
 
 
 
@@ -2258,11 +2320,6 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-resume Resume M-Player where it was stopped if possible.
-Only works for local media sources, not Internet streams. 
-
-------------------------------------------------------------
-
 ** emacspeak-m-player-scale-speed Scale speed by specified factor. 
 
 ------------------------------------------------------------
@@ -2286,10 +2343,6 @@ Only works for local media sources, not Internet streams.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-slower Slow down playback. 
-
-------------------------------------------------------------
-
-** emacspeak-m-player-speak-current-info Speak cached  info about currently playing file. 
 
 ------------------------------------------------------------
 
@@ -2648,6 +2701,10 @@ except that the outline section is  spoken
 
 ------------------------------------------------------------
 
+** emacspeak-package-summarize-line Succinct Summary. 
+
+------------------------------------------------------------
+
 ** emacspeak-pianobar	Key Sequence:C-e '
 
  Start or control Emacspeak Pianobar player. 
@@ -2892,10 +2949,6 @@ Also set the mark at the position where point was.
 
 ------------------------------------------------------------
 
-** emacspeak-mark-forward-mark   
-
-------------------------------------------------------------
-
 ** emacspeak-owindow-next-line	Key Sequence:ESC <down>
 
  Move to the next line in the other window and speak it.
@@ -3093,6 +3146,11 @@ achieved by a change in voice personality.
 
 ** emacspeak-speak-current-window Speak contents of current window.
 Speaks entire window irrespective of point. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-date-as-seconds Read time value as a human-readable string, return seconds.
+Seconds value is also placed in the kill-ring. 
 
 ------------------------------------------------------------
 
@@ -4461,6 +4519,10 @@ https://www.google.com/options/specialsearches.html
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-google-with-toolbelt Launch Google search with toolbelt. 
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-gutenberg Perform an Gutenberg search 
 
 ------------------------------------------------------------
@@ -5379,6 +5441,12 @@ When called from a shell buffer, switches to `next' shell buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-shell-command-on-current-file	Key Sequence:C-e &
+
+ Prompts for and runs shell command on current file. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-shell-toggle	Key Sequence:C-e <f11>
 
  Switch to the shell buffer and cd to
@@ -5712,6 +5780,7 @@ SPC		emacspeak-speak-header-line
 "		emacspeak-speak-sexp-interactively
 #		emacspeak-gridtext
 %		emacspeak-speak-current-percentage
+&		emacspeak-wizards-shell-command-on-current-file
 '		emacspeak-pianobar
 (		emacspeak-audio-setup
 )		emacspeak-sounds-select-theme
@@ -5888,15 +5957,6 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
-
-------------------------------------------------------------
-
-** emacspeak-py-next-block Move forward to the beginning of the next block. 
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-block Move backward to the beginning of the current block.
-If already at the beginning then move to previous block. 
 
   
 

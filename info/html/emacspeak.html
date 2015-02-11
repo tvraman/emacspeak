@@ -92,7 +92,7 @@
   <hr />
   <a name="emacspeak-1" id="emacspeak-1"></a>
 
-  <h3 class="section">11.83 emacspeak</h3>
+  <h3 class="section">11.84 emacspeak</h3>
 
   <p>Commentary: The complete audio desktop.</p>
 
@@ -148,10 +148,12 @@
       emacspeak-speak-header-line !
       emacspeak-speak-run-shell-command "
       emacspeak-speak-sexp-interactively # emacspeak-gridtext %
-      emacspeak-speak-current-percentage ’ emacspeak-pianobar (
-      emacspeak-audio-setup ) emacspeak-sounds-select-theme ,
-      emacspeak-speak-browse-buffer . emacspeak-speak-current-field
-      / emacspeak-speak-this-buffer-other-window-display 0 .. 9
+      emacspeak-speak-current-percentage &amp;
+      emacspeak-wizards-shell-command-on-current-file ’
+      emacspeak-pianobar ( emacspeak-audio-setup )
+      emacspeak-sounds-select-theme , emacspeak-speak-browse-buffer
+      . emacspeak-speak-current-field /
+      emacspeak-speak-this-buffer-other-window-display 0 .. 9
       emacspeak-speak-predefined-window :
       emacspeak-m-player-shuffle ; emacspeak-multimedia &lt;
       emacspeak-speak-previous-field =
