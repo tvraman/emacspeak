@@ -3,6 +3,13 @@ $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 42 -- Emacspeak 40 User Visible Changes 
+** sox.el Audacious --- Audio WorkBench For Emacspeak 
+
+Module sox.el implements a light-weight Emacs UI to create Audacious --- An Audio Workbench for  the Emacspeak Desktop.
+
+** emacspeak-m-player.el
+
+Provides a large number of reverb presets using  Ladspa plugin tap-reverb.
 
 ** emacspeak-markdown.el:
 
