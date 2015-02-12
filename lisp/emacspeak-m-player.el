@@ -1108,7 +1108,7 @@ tap-reverb already installed."
       (error "Package tap_reverb not installed."))
     (setq filter-spec
           `("ladspa=tap_reverb:tap_reverb"
-            ,(second setting)          ;  delay 
+            ,(* 1000 (second setting))          ;  delay  in ms 
             0 0                    ; dry and wet db
             1 1 1 1 
             ,(cadr (assoc (first setting) emacspeak-m-player-reverb-preset-table)) ; preset name
