@@ -660,12 +660,12 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-add-filter ()
   "Adds specified filter  to use for the next invocation of MPlayer."
   (interactive)
+  (declare (special emacspeak-m-player-process))
   (let ((filter-name
          (completing-read "Filter:"
                           emacspeak-m-player-filters)))
-    (setq emacspeak-m-player-options
-          (append emacspeak-m-player-options
-                  (list "-af" filter-name)))))
+    (when (process-live-p  emacspeak-m-player-process)
+      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-clear-filters ()
   "Clear all active filters"
