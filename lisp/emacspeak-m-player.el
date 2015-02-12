@@ -649,12 +649,9 @@ A string of the form `<number> 1' sets volume as an absolute."
    (format "loadlist %s"
            (expand-file-name f))))
 
-(defvar emacspeak-m-player-filters
-  '(("hrtf" . "hrtf")
-    ("sweep". "sweep")
-    ("extrastereo" . "extrastereo")
-    ("volnorm" . "volnorm")
-    ("surround" . "surround"))
+(defconst emacspeak-m-player-filters
+  '("hrtf" "sweep" "extrastereo" "volnorm" "surround"
+ "bs2b=cmoy" "bs2b=jmeier" "bs2b")  
   "Table of useful MPlayer filters.")
 
 (defun emacspeak-m-player-add-filter ()
