@@ -1114,7 +1114,8 @@ tap-reverb already installed."
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
     
     (emacspeak-m-player-dispatch "af_clr")
-    (emacspeak-m-player-dispatch (format "af_add %s" filter))))
+    (emacspeak-m-player-dispatch (format "af_add %s" filter))
+    (emacspeak-auditory-icon 'button)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
