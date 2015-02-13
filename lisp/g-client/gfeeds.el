@@ -226,6 +226,7 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
       (g-using-scratch
        (insert html)
        (browse-url-of-buffer))
+      (kill-new feed-url)
       (message "%s" feed-url)))))
 
 
