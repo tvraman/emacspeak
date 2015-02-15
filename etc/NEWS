@@ -14,6 +14,10 @@ Provides a large number of reverb presets using  Ladspa plugin tap-reverb.
 ** emacspeak-markdown.el:
 
 Speech-enable markdown-mode.
+** realaudio/radio 
+
+Updated all BBC  playlists to mp3/m3u files 
+Note that Windows Media (.asx) is no longer supported by the BBC  after Dec 31, 2014.
 
 ** emacspeak-xref.el: Speech-Enable xref.el  
 
