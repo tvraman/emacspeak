@@ -248,7 +248,7 @@ on a specific directory."
    ((or (string-match emacspeak-media-directory-regexp  default-directory) ;pattern match
         (directory-files default-directory   nil emacspeak-media-extensions))
     default-directory)
-   (t emacspeak-media-shortcuts-directory)))
+   (t (expand-file-name "radio" emacspeak-media-shortcuts-directory))))
 
 ;;;###autoload 
 (defun emacspeak-m-player-url (url)
