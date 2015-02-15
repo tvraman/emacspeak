@@ -725,9 +725,9 @@ can be used to conveniently play Windows Media streams.</para>
             distribution comes with such a collection of
             streams I listen to on a frequent basis.  You can
             access these by using standard Emacs completion
-            when prompted for a <computeroutput>RealAudio
+            when prompted for a <computeroutput>media
               Resource</computeroutput> by command
-            <command>emacspeak-realaudio</command>. </para>
+            <command>emacspeak-m-player</command>. </para>
         </answer>
       </qandaentry>
       <qandaentry>
