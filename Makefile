@@ -147,7 +147,7 @@ UGUIDE=user-guide/*.html user-guide/*.sgml
 IGUIDE=install-guide/*.html install-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
-REALAUDIO=realaudio
+MEDIA=media
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
 PYLIB=servers/python
@@ -240,7 +240,7 @@ EXCLUDES=--exclude='*/CVS' --exclude='*/.svn' \
 tar:
 	make ${ID}
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-			 ${TABLE_SAMPLES} ${REALAUDIO}  ${FORMS} \
+			 ${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
 	${SOUNDS}
 
 dist: $(DISTFILES)
@@ -297,8 +297,8 @@ install:
 	cp   ${MISC}   $(DESTDIR)$(libdir)/etc
 	$(CP) -r $(SOUNDS) $(DESTDIR)$(libdir)/sounds
 	chmod -R go+rX  $(DESTDIR)$(libdir)/sounds
-	$(CP) -r $(REALAUDIO) $(DESTDIR)$(libdir)
-	chmod -R go+rX  $(DESTDIR)$(libdir)/realaudio
+	$(CP) -r $(MEDIA) $(DESTDIR)$(libdir)
+	chmod -R go+rX  $(DESTDIR)$(libdir)/media
 	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/forms
 	$(INSTALL)  -m 0644 $(FORMS) $(DESTDIR)$(libdir)/etc/forms
 	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/tables
