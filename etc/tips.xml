@@ -674,30 +674,28 @@ Thus, one can organize electronic texts by placing  files for a given
       </qandaentry>
       <qandaentry>
         <question>
-          <para>Playing Realaudio Streams</para>
+          <para>Playing Media Streams</para>
         </question>
         <answer>
           <para>
-            Install <application>real player</application>
-            --this is Real Networks' Real Media player.
-            Next, install  command-line interface
-            <application>trplayer</application>.
+            Install <application>mplayer</application>
+            -- this is an open source media player.
             Once you have this installed and configured, you can use
             Emacspeak's built-in 
-            RealMedia front-end provided by module
-            <application>emacspeak-realaudio.el</application>
+            Media Player  front-end provided by module
+            <application>emacspeak-m-player.el</application>
             to conveniently play streaming media from anywhere on the
             audio desktop --see command
-            <command>emacspeak-realaudio</command>.
+            <command>emacspeak-multimedia</command>.
             Note that when playing a stream, you can use all the
             single-keystroke navigation commands provided by
-            <application>trplayer</application>
+            <application>emacspeak-m-player</application>
             by prefixing them with <keysym>C-e ;</keysym>
             from anywhere on the audio desktop; alternatively,
             you can use <keysym>C-e ;;</keysym> to switch to a special
             Emacs buffer that contains
-            <application>trplayer</application>
-            and then execute <application>trplayer</application>
+            <application>mplayer</application>
+            and then execute <application>mplayer</application>
             commands directly.
           </para>
         </answer>
