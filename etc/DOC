@@ -986,10 +986,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
-** emacspeak-emms-speak-current-track Speak current track. 
-
-------------------------------------------------------------
-
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voiceifying rich text. 
 
@@ -2103,7 +2099,6 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 ------------------------------------------------------------
 
 ** emacspeak-m-player-add-reverb Add ladspa reverb filter.
-Optional interactive prefix arg  elts you edit the preset before applying it.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package 
 tap-reverb already installed. 
@@ -2151,6 +2146,10 @@ tap-reverb already installed.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-bind-accelerator Binds key to invoke m-player  on specified directory. 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-clear-filters Clear all active filters 
 
 ------------------------------------------------------------
 
@@ -2238,6 +2237,7 @@ SPC		emacspeak-m-player-pause
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
 ?		emacspeak-m-player-display-position
+C		emacspeak-m-player-clear-filters
 L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset

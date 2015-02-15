@@ -27,7 +27,6 @@ commands.
 * emacspeak-dismal::
 * emacspeak-ecb::
 * emacspeak-ediff::
-* emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
 * emacspeak-eperiodic::
@@ -1281,24 +1280,6 @@ for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference  nil
 Speak the current difference
-@end deffn
-
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track  nil
-Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -2676,9 +2657,8 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 Adds specified filter  to use for the next invocation of MPlayer.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-m-player-add-reverb  (&optional edit)
+@deffn {Interactive Command} emacspeak-m-player-add-reverb  nil
 Add ladspa reverb filter.
-Optional interactive prefix arg  elts you edit the preset before applying it.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package 
 tap-reverb already installed.
@@ -2726,6 +2706,10 @@ Move to beginning of track.
 
 @deffn {Interactive Command} emacspeak-m-player-bind-accelerator  (directory key)
 Binds key to invoke m-player  on specified directory.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-clear-filters  nil
+Clear all active filters
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-command  (key)
@@ -2812,6 +2796,7 @@ SPC		emacspeak-m-player-pause
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
 ?		emacspeak-m-player-display-position
+C		emacspeak-m-player-clear-filters
 L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
