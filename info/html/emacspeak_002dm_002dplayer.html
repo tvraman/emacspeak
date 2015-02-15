@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   emacspeak-m-player</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-m-player" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-m-player" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -96,7 +96,7 @@
   <a name="emacspeak_002dm_002dplayer-1" id=
   "emacspeak_002dm_002dplayer-1"></a>
 
-  <h3 class="section">11.45 emacspeak-m-player</h3>
+  <h3 class="section">11.44 emacspeak-m-player</h3>
 
   <p>Commentary: Defines a simple derived mode for interacting with
   mplayer. mplayer is a versatile media player capable of playing
@@ -141,8 +141,8 @@
       manipulate the values. Hit enter to finish setting the
       equalizer values.</p>
 
-      <p>The Mplayer equalizer provides 10 bands, G0 – G9, see the
-      MPlayer man page for details.</p>
+      <p>The Mplayer equalizer provides 10 bands, G0 &ndash; G9,
+      see the MPlayer man page for details.</p>
     </dd>
   </dl>
 
@@ -164,11 +164,10 @@
     "index-emacspeak_002dm_002dplayer_002dadd_002dreverb" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dreverb"></a>Interactive
     Command: <strong>emacspeak-m-player-add-reverb</strong>
-    <em>(&amp;optional edit)</em></dt>
+    <em>nil</em></dt>
 
     <dd>
-      <p>Add ladspa reverb filter. Optional interactive prefix arg
-      elts you edit the preset before applying it. See option
+      <p>Add ladspa reverb filter. See option
       emacspeak-m-player-reverb-filter to customize reverb filter
       values. You need to use mplayer built with ladspa support,
       and have package tap-reverb already installed.</p>
@@ -195,9 +194,9 @@
     <em>(name &amp;optional prompt-position)</em></dt>
 
     <dd>
-      <p>Set AMark ‘name’ at current position in current audio
-      stream. Interactive prefix arg prompts for position. As the
-      default, use current position.</p>
+      <p>Set AMark &lsquo;name&rsquo; at current position in
+      current audio stream. Interactive prefix arg prompts for
+      position. As the default, use current position.</p>
     </dd>
   </dl>
 
@@ -300,6 +299,18 @@
 
     <dd>
       <p>Binds key to invoke m-player on specified directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dclear_002dfilters" id=
+    "index-emacspeak_002dm_002dplayer_002dclear_002dfilters"></a>Interactive
+    Command: <strong>emacspeak-m-player-clear-filters</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Clear all active filters</p>
     </dd>
   </dl>
 
@@ -506,7 +517,7 @@
     <dd>
       <p>Major mode for m-player interaction.</p>
 
-      <p>key binding — ——-</p>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
 
       <p>C-e Prefix Command RET emacspeak-m-player-load ESC Prefix
       Command SPC emacspeak-m-player-pause %
@@ -518,7 +529,8 @@
       emacspeak-m-player-backward-1min =
       emacspeak-m-player-volume-up &gt;
       emacspeak-m-player-forward-1min ?
-      emacspeak-m-player-display-position L
+      emacspeak-m-player-display-position C
+      emacspeak-m-player-clear-filters L
       emacspeak-m-player-load-file O
       emacspeak-m-player-reset-options P
       emacspeak-m-player-apply-reverb-preset Q
@@ -556,10 +568,10 @@
 
       <p>C-e m emacspeak-m-player-speak-mode-line</p>
 
-      <p>In addition to any hooks its parent mode ‘comint-mode’
-      might have run, this mode runs the hook
-      ‘emacspeak-m-player-mode-hook’, as the final step during
-      initialization.</p>
+      <p>In addition to any hooks its parent mode
+      &lsquo;comint-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-m-player-mode-hook&rsquo;, as the final
+      step during initialization.</p>
     </dd>
   </dl>
 
@@ -764,8 +776,8 @@
 
     <dd>
       <p>Change volume. A value of &lt;number&gt; changes volume by
-      specified offset. A string of the form ‘&lt;number&gt; 1’
-      sets volume as an absolute.</p>
+      specified offset. A string of the form &lsquo;&lt;number&gt;
+      1&rsquo; sets volume as an absolute.</p>
     </dd>
   </dl>
 
