@@ -1431,6 +1431,20 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  "Perform a GitHub Search.")
 
 ;;}}}
+;;{{{ TuneIn: streamId->URL
+; "http://stream.radiotime.com/listen.stream?streamIds=4299203"wget  -O t 
+(emacspeak-url-template-define
+ "TuneIn Radio"
+ "http://stream.radiotime.com/listen.stream?streamIds=%s"
+ (list "StreamId: ")
+ nil
+ "Translate StreamId to playable stream."
+ #'(lambda (url)
+     (kill-new url)
+     (message "%s" url))
+ "TuneIn Helper.")
+
+;;}}}
 ;;{{{ Interactive commands
 
 ;;;###autoload
