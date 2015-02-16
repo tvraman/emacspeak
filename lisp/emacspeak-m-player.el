@@ -288,6 +288,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
+Second interactive prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
@@ -324,8 +325,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                                  (getenv "ALSA_DEFAULT"))))))
     (setq options
           (cond
-           (playlist-p
+           ((and playlist-p (= 4 (car play-list)))
             (nconc options (list "-playlist" resource)))
+           ((and playlist-p (< 4   (car play-list)))
+            (nconc options (list "-allow-dangerous-playlist-parsing" "-playlist" resource)))
            (file-list (nconc options file-list))
            (t
             (nconc options (list resource)))))

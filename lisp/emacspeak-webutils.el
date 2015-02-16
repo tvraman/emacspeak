@@ -457,7 +457,8 @@ instances."
 ;;;###autoload
 (defun emacspeak-webutils-play-media-at-point (&optional  playlist-p)
   "Play media url under point.
-Optional interactive prefix arg `playlist-p' says to treat the link as a playlist. "
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
+ A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P" )
   (let ((url
          (if emacspeak-webutils-url-at-point
