@@ -275,7 +275,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   'emacspeak-speak-read-date-year/month/date)
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
-     (setq emacspeak-we-url-executor
+      (setq emacspeak-we-url-executor
            'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
  #'(lambda (url)
@@ -1447,21 +1447,22 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 (emacspeak-url-template-define
  "RadioTime  Browser"
  "http://opml.radiotime.com/"
- nil nil
+ nil
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor 'emacspeak-feeds-opml-display))
  "RadioTime Entry point."
- #'(lambda (url)
-    (emacspeak-xslt-view (expand-file-name "opml.xsl" emacspeak-xslt-directory)
-                         url )))
+ #'emacspeak-feeds-opml-display)
 
 (emacspeak-url-template-define
  "RadioTime  Search"
  "http://opml.radiotime.com/Search.ashx?query=%s"
  (list "Search: ")
- nil
+ #'(lambda ()
+     (declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor 'emacspeak-feeds-opml-display))
  "RadioTime Search."
- #'(lambda (url)
-     (emacspeak-xslt-view (expand-file-name "opml.xsl" emacspeak-xslt-directory)
-                          url )))
+ #'emacspeak-feeds-opml-display)
 
 ;;}}}
 ;;{{{ Interactive commands
