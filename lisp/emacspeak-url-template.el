@@ -1449,6 +1449,14 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  "http://opml.radiotime.com/"
  nil nil
  "RadioTime Entry point.")
+
+(emacspeak-url-template-define
+ "RadioTime  Search"
+ "http://opml.radiotime.com/Search.ashx?query=%s"
+(list "Search: ")
+  nil
+ "RadioTime Search.")
+
 ;;}}}
 ;;{{{ Interactive commands
 
