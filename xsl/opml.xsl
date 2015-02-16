@@ -30,16 +30,19 @@ View OPML feeds as XHTML
     </body>
   </xsl:template>
   <xsl:template match="outline">
-    <xsl:if test="@xmlUrl|@xmlurl">
+
+    <xsl:if test="@xmlUrl|@xmlurl|@URL">
       <li><xsl:element name="a">
         <xsl:attribute name="href">
-          <xsl:value-of select="@xmlUrl|@xmlurl"/>
+          <xsl:value-of select="@xmlUrl|@xmlurl|@URL"/>
         </xsl:attribute>
         <xsl:value-of select="@title|@text"/>
       </xsl:element>
-      <xsl:value-of select="@description"/>
+      <xsl:value-of select="@description|@subtext"/>
       </li>
     </xsl:if>
+
+
   </xsl:template>
   
 </xsl:stylesheet>
