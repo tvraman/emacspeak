@@ -1448,14 +1448,20 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
  "RadioTime  Browser"
  "http://opml.radiotime.com/"
  nil nil
- "RadioTime Entry point.")
+ "RadioTime Entry point."
+ #'(lambda (url)
+    (emacspeak-xslt-view (expand-file-name "opml.xsl" emacspeak-xslt-directory)
+                         url )))
 
 (emacspeak-url-template-define
  "RadioTime  Search"
  "http://opml.radiotime.com/Search.ashx?query=%s"
-(list "Search: ")
-  nil
- "RadioTime Search.")
+ (list "Search: ")
+ nil
+ "RadioTime Search."
+ #'(lambda (url)
+     (emacspeak-xslt-view (expand-file-name "opml.xsl" emacspeak-xslt-directory)
+                          url )))
 
 ;;}}}
 ;;{{{ Interactive commands
