@@ -1444,6 +1444,11 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
      (message "%s" url))
  "TuneIn Helper.")
 
+(emacspeak-url-template-define
+ "RadioTime  Browser"
+ "http://opml.radiotime.com/"
+ nil nil
+ "RadioTime Entry point.")
 ;;}}}
 ;;{{{ Interactive commands
 
