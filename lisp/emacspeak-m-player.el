@@ -1,15 +1,15 @@
 ;;; emacspeak-m-player.el --- Control mplayer from Emacs
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
-;;; Description: Controlling mplayer from emacs 
-;;; Keywords: Emacspeak, m-player streaming media 
-;;{{{  LCD Archive entry: 
+;;; Description: Controlling mplayer from emacs
+;;; Keywords: Emacspeak, m-player streaming media
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2008-06-29 17:58:19 -0700 (Sun, 29 Jun 2008) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2011, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -49,11 +49,11 @@
 ;;;mplayer is available  on the WWW:
 ;;; RPM package
 ;;;http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
-;;;You may need the  win32 codecs which can be downloaded from 
+;;;You may need the  win32 codecs which can be downloaded from
 ;;;http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
 ;;;Mplayer FAQ at
 ;;;http://www.mplayerhq.hu/DOCS/faq.html
-;;; Mplayer docs at 
+;;; Mplayer docs at
 ;;; http://www.mplayerhq.hu/DOCS/
 ;;; Code:
 
@@ -67,8 +67,8 @@
 (require 'comint)
 
 ;;}}}
-;;{{{ define a derived mode for m-player interaction 
-(defconst  emacspeak-media-shortcuts-directory 
+;;{{{ define a derived mode for m-player interaction
+(defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/" emacspeak-directory)
   "*Directory where we organize  mp3  libraries and media shortcuts. ")
 
@@ -103,7 +103,7 @@ This is set to nil when playing Internet  streams.")
    'all
    (dtk-speak (emacspeak-m-player-mode-line))))
 
-(define-derived-mode emacspeak-m-player-mode comint-mode 
+(define-derived-mode emacspeak-m-player-mode comint-mode
                      "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
@@ -132,7 +132,7 @@ This is set to nil when playing Internet  streams.")
 (defvar emacspeak-m-player-default-options
   (list "-slave"  "-nortc""-softvol" "-softvol-max" "200" "-quiet")
   "Default options for MPlayer.")
-(defcustom emacspeak-m-player-options 
+(defcustom emacspeak-m-player-options
   (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer."
   :type  '(repeat
@@ -140,10 +140,10 @@ This is set to nil when playing Internet  streams.")
   :group 'emacspeak-m-player)
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
-  "*Map specific key sequences to launching MPlayer accelerators 
+  "*Map specific key sequences to launching MPlayer accelerators
 on a specific directory."
   :group 'emacspeak-m-player
-  :group 'emacspeak-media 
+  :group 'emacspeak-media
   :type '(repeat :tag "Emacspeak Media Locations"
                  (cons  :tag "KeyBinding"
                         (string :tag "Key")
@@ -166,7 +166,8 @@ on a specific directory."
 (defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player."
   (interactive )
-  (declare (special emacspeak-m-player-process))
+  (declare (special emacspeak-media-shortcuts-directory
+                    emacspeak-m-player-process))
   (cond
    ((and emacspeak-m-player-process
          (eq 'run (process-status emacspeak-m-player-process))
@@ -223,8 +224,8 @@ on a specific directory."
     (read-directory-name"Media Directory: ")
     (read-key-sequence "Key: ")))
   (let ((command
-         (eval 
-          `(defun 
+         (eval
+          `(defun
                ,(intern (format "emacspeak-media-%s"
                                 (file-name-base (directory-file-name directory))))
                ()
@@ -236,11 +237,13 @@ on a specific directory."
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
-  (let ((emacspeak-media-shortcuts-directory (expand-file-name directory)))
+  (let ((ido-case-fold t)
+        (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
+
 (defsubst emacspeak-m-player-guess-directory ()
   "Guess default directory."
   (declare (special emacspeak-media-directory-regexp))
@@ -248,9 +251,9 @@ on a specific directory."
    ((or (string-match emacspeak-media-directory-regexp  default-directory) ;pattern match
         (directory-files default-directory   nil emacspeak-media-extensions))
     default-directory)
-   (t (expand-file-name "radio" emacspeak-media-shortcuts-directory))))
+   (t (expand-file-name  emacspeak-media-shortcuts-directory))))
 
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-m-player-url (url)
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
@@ -275,7 +278,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
         (ido-work-directory-list
-         (remove-if-not 
+         (remove-if-not
           #'(lambda (d)
               (string-match  emacspeak-media-directory-regexp  d))
           ido-work-directory-list)))
@@ -374,7 +377,7 @@ Interactive prefix arg appends the new resource to what is playing."
                     emacspeak-media-shortcuts-directory))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
-  (emacspeak-m-player-dispatch 
+  (emacspeak-m-player-dispatch
    (format "loadfile %s %s" resource
            (if append 1 ""))))
 
@@ -392,7 +395,7 @@ necessary."
    (emacspeak-m-player-command-list emacspeak-m-player-command-list)
    (t
     (let ((commands
-           (split-string 
+           (split-string
             (shell-command-to-string
              (format "%s -input cmdlist"
                      emacspeak-m-player-program))
@@ -403,7 +406,7 @@ necessary."
                    (split-string c " " 'omit-nulls)))))))
 
 ;;}}}
-;;{{{ commands 
+;;{{{ commands
 
 (defsubst emacspeak-m-player-current-filename ()
   "Return filename of currently playing track."
@@ -597,7 +600,7 @@ A string of the form `<number> 1' sets volume as an absolute."
                           (cdr (assoc command emacspeak-m-player-command-list))
                           " "))))
            (result (emacspeak-m-player-dispatch (format "%s %s" command args))))
-      (when result 
+      (when result
         (setq result (replace-regexp-in-string  "^ans_" "" result)))
       (message   result))))
 
@@ -620,12 +623,12 @@ A string of the form `<number> 1' sets volume as an absolute."
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (let* ((output  (buffer-substring-no-properties (point-min) (point-max)))
            (lines (split-string output "\n" 'omit-nulls))
-           (fields 
-            (loop 
-             for l in lines 
+           (fields
+            (loop
+             for l in lines
              collect (second (split-string l "=")))))
-      (list 
-       (format "%s" (first fields))     ; position 
+      (list
+       (format "%s" (first fields))     ; position
        (if (second fields)
            (substring (second  fields) 1 -1)
          "")))))
@@ -654,7 +657,7 @@ A string of the form `<number> 1' sets volume as an absolute."
 
 (defconst emacspeak-m-player-filters
   '("hrtf" "sweep" "extrastereo" "volnorm" "surround"
- "bs2b=cmoy" "bs2b=jmeier" "bs2b")  
+    "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
 
 (defun emacspeak-m-player-add-filter ()
@@ -683,7 +686,7 @@ A string of the form `<number> 1' sets volume as an absolute."
   (search-forward "INS"))
 
 ;;}}}
-;;{{{ equalizer 
+;;{{{ equalizer
 
 (defvar emacspeak-m-player-equalizer (make-vector 10 12)
   "Vector holding equalizer settings.")
@@ -755,7 +758,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 ;;{{{ keys
 
 (declaim (special emacspeak-m-player-mode-map))
-(loop for k in 
+(loop for k in
       '(
         (" " emacspeak-m-player-pause)
         ("+" emacspeak-m-player-volume-up)
@@ -841,7 +844,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
     -1)))
 
 ;;}}}
-;;{{{ pause/resume 
+;;{{{ pause/resume
 
 ;;;###autoload
 (defun emacspeak-m-player-pause-or-resume ()
@@ -892,13 +895,13 @@ As the default, use current position."
             (ems-file-index (second (emacspeak-m-player-get-position)) files))
            (new (ems-file-index (emacspeak-amark-path  amark) files)))
       (cond ; move to marked file if found, otherwise load
-       ((and current new) ;skip in current play list 
+       ((and current new) ;skip in current play list
         (emacspeak-m-player-play-tracks-jump (- new current)))
-       (t (emacspeak-m-player-dispatch 
+       (t (emacspeak-m-player-dispatch
            (format "loadfile \"%s\""
-                   (shell-quote-argument 
+                   (shell-quote-argument
                     (expand-file-name (emacspeak-amark-path amark)))))))
-                                        ; now jump to marked position 
+                                        ; now jump to marked position
       (emacspeak-m-player-seek-absolute (emacspeak-amark-position amark)))))
 
 ;;}}}
@@ -976,7 +979,7 @@ As the default, use current position."
 (defun emacspeak-m-player-add-reverb ()
   "Add ladspa reverb filter.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
-You need to use mplayer built with ladspa support, and have package 
+You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
   (interactive)
   (declare (special emacspeak-m-player-reverb-filter))
@@ -1042,53 +1045,53 @@ tap-reverb already installed."
 
 (defconst emacspeak-m-player-tap-reverb-presets
   '(("AfterBurn" 2.8)
- ("AfterBurn (Long)" 4.8)
- ("Ambience" 1.1)
- ("Ambience (Thick)" 1.2)
- ("Ambience (Thick) - HD" 1.2)
- ("Cathedral" 10)
- ("Cathedral - HD" 10)
- ("Drum Chamber" 3.6)
- ("Garage" 2.3)
- ("Garage (Bright)" 2.3)
- ("Gymnasium" 5.9)
- ("Gymnasium (Bright)" 5.9)
- ("Gymnasium (Bright) - HD" 5.9)
- ("Hall (Small)" 2.0)
- ("Hall (Medium)" 3.0)
- ("Hall (Large)" 5.1)
- ("Hall (Large) - HD" 5.1)
- ("Plate (Small)" 1.7)
- ("Plate (Medium)" 2.6)
- ("Plate (Large)" 5.7)
- ("Plate (Large) - HD" 5.7)
- ("Pulse Chamber" 3.1)
- ("Pulse Chamber (Reverse)" 3.1)
- ("Resonator (96 ms)" 4.0)
- ("Resonator (152 ms)" 4.2)
- ("Resonator (208 ms)" 5.1)
- ("Room (Small)" 1.9)
- ("Room (Medium)" 2.8)
- ("Room (Large)" 4.4)
- ("Room (Large) - HD" 4.4)
- ("Slap Chamber" 2.3)
- ("Slap Chamber - HD" 2.9)
- ("Slap Chamber (Bright)" 3.4)
- ("Slap Chamber (Bright) - HD" 3.7)
- ("Smooth Hall (Small)" 1.8)
- ("Smooth Hall (Medium)" 3.0)
- ("Smooth Hall (Large)" 5.9)
- ("Smooth Hall (Large) - HD" 5.9)
- ("Vocal Plate" 3.1)
- ("Vocal Plate - HD" 3.1)
- ("Warble Chamber" 4.0)
- ("Warehouse" 6.0)
- ("Warehouse - HD" 6.0))
+    ("AfterBurn (Long)" 4.8)
+    ("Ambience" 1.1)
+    ("Ambience (Thick)" 1.2)
+    ("Ambience (Thick) - HD" 1.2)
+    ("Cathedral" 10)
+    ("Cathedral - HD" 10)
+    ("Drum Chamber" 3.6)
+    ("Garage" 2.3)
+    ("Garage (Bright)" 2.3)
+    ("Gymnasium" 5.9)
+    ("Gymnasium (Bright)" 5.9)
+    ("Gymnasium (Bright) - HD" 5.9)
+    ("Hall (Small)" 2.0)
+    ("Hall (Medium)" 3.0)
+    ("Hall (Large)" 5.1)
+    ("Hall (Large) - HD" 5.1)
+    ("Plate (Small)" 1.7)
+    ("Plate (Medium)" 2.6)
+    ("Plate (Large)" 5.7)
+    ("Plate (Large) - HD" 5.7)
+    ("Pulse Chamber" 3.1)
+    ("Pulse Chamber (Reverse)" 3.1)
+    ("Resonator (96 ms)" 4.0)
+    ("Resonator (152 ms)" 4.2)
+    ("Resonator (208 ms)" 5.1)
+    ("Room (Small)" 1.9)
+    ("Room (Medium)" 2.8)
+    ("Room (Large)" 4.4)
+    ("Room (Large) - HD" 4.4)
+    ("Slap Chamber" 2.3)
+    ("Slap Chamber - HD" 2.9)
+    ("Slap Chamber (Bright)" 3.4)
+    ("Slap Chamber (Bright) - HD" 3.7)
+    ("Smooth Hall (Small)" 1.8)
+    ("Smooth Hall (Medium)" 3.0)
+    ("Smooth Hall (Large)" 5.9)
+    ("Smooth Hall (Large) - HD" 5.9)
+    ("Vocal Plate" 3.1)
+    ("Vocal Plate - HD" 3.1)
+    ("Warble Chamber" 4.0)
+    ("Warehouse" 6.0)
+    ("Warehouse - HD" 6.0))
   "Table of tap-reverb presets along with recommended decay values.")
 
 (defun emacspeak-m-player-apply-reverb-preset (preset)
   "Prompt for a predefined reverb preset and apply it if there is media playing.
-You need to use mplayer built with ladspa support, and have package 
+You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
   (interactive
    (list
@@ -1103,30 +1106,31 @@ tap-reverb already installed."
         (filter nil))
     (unless (process-live-p emacspeak-m-player-process)
       (error "No media playing  currently."))
-    (unless ladspa (error "Environment variable LADSPA_PATH not set."))
+    (unless ladspa
+      (setq ladspa (setenv "LADSPA_PATH" "/usr/lib/ladspa")))
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
     (setq filter-spec
           `("ladspa=tap_reverb:tap_reverb"
-            ,(round (* 1000 (second setting)))          ;  delay  in ms 
-            0 -7                    ; dry and wet db
-            1 1 1 1 
+            ,(round (* 1000 (second setting))) ;  delay  in ms
+            0 -7                               ; dry and wet db
+            1 1 1 1
             ,(cadr (assoc (first setting) emacspeak-m-player-reverb-preset-table)) ; preset name
             ))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
-    
+
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))
     (emacspeak-auditory-icon 'button)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: nil
-;;; end: 
+;;; end:
 
 ;;}}}

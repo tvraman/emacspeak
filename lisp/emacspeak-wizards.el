@@ -3532,6 +3532,26 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive)
   (funcall-interactively 'emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
 ;;}}}
+;;{{{ TuneIn:
+
+;;;###autoload
+(defun emacspeak-wizards-tune-in-radio-browse  ()
+  "Browse Tune-In Radio."
+  (interactive)
+  (require 'emacspeak-url-template)
+  (let ((name   "RadioTime  Browser"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+
+;;;###autoload
+(defun emacspeak-wizards-tune-in-radio-search  ()
+  "Search Tune-In Radio."
+  (interactive)
+  (require 'emacspeak-url-template)
+  (let ((name   "RadioTime  Search"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
