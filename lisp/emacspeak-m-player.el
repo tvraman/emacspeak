@@ -325,10 +325,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                                  (getenv "ALSA_DEFAULT"))))))
     (setq options
           (cond
-           ((and playlist-p (= 4 (car play-list)))
-            (nconc options (list "-playlist" resource)))
-           ((and playlist-p (< 4   (car play-list)))
+           ((and play-list  (< 4   (car play-list)))
             (nconc options (list "-allow-dangerous-playlist-parsing" "-playlist" resource)))
+           ( playlist-p
+            (nconc options (list "-playlist" resource)))
            (file-list (nconc options file-list))
            (t
             (nconc options (list resource)))))
