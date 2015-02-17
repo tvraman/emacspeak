@@ -37,6 +37,7 @@ View OPML feeds as XHTML
           <xsl:value-of select="@xmlUrl|@xmlurl|@URL"/>
         </xsl:attribute>
         <xsl:value-of select="@title|@text"/>
+(<xsl:value-of select="@type"/>)
       </xsl:element>
       <xsl:value-of select="@description|@subtext"/>
       </li>
