@@ -775,7 +775,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("O" emacspeak-m-player-reset-options)
         ("P" emacspeak-m-player-apply-reverb-preset)
         ("Q" emacspeak-m-player-quit)
-        ("R" emacspeak-m-player-add-reverb)
+        ("R" emacspeak-m-player-edit-reverb)
         ("S" emacspeak-amark-save)
         ("[" emacspeak-m-player-slower)
         ("\C-em" emacspeak-m-player-speak-mode-line)
@@ -976,7 +976,7 @@ As the default, use current position."
             (const :tag "Warehouse - HD" :value 42)))
   :group 'emacspeak-m-player)
 
-(defun emacspeak-m-player-add-reverb ()
+(defun emacspeak-m-player-edit-reverb ()
   "Add ladspa reverb filter.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package
