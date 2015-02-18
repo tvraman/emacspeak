@@ -257,7 +257,7 @@ on a specific directory."
 (defun emacspeak-m-player-url (url)
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (emacspeak-m-player url))
+  (emacspeak-m-player url 'playlist))
 
 ;;;###autoload
 
@@ -328,7 +328,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                                  (getenv "ALSA_DEFAULT"))))))
     (setq options
           (cond
-           ((and play-list  (< 4   (car play-list)))
+           ((and play-list  (listp play-list)(< 4   (car play-list)))
             (nconc options (list "-allow-dangerous-playlist-parsing" "-playlist" resource)))
            ( playlist-p
             (nconc options (list "-playlist" resource)))
