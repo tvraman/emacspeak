@@ -10,10 +10,15 @@ Module sox.el implements a light-weight Emacs UI to create Audacious --- An Audi
 ** emacspeak-m-player.el
 
 Provides a large number of reverb presets using  Ladspa plugin tap-reverb.
+
 ** Directory realaudio renamed to  media 
 
 Directory realaudio -- the directory containing streaming media presets has now been renamed to _media_.
 Realaudio is now legacy and all code in Emacspeak had been updated a few years ago to use _mplayer_ to play media streams; this renaming is purely cosmetic.
+** Tune-In: Search And Browse Radio Stations
+
+emacspeak-url-template now defines templates for searching and browsing tune-in radio stations. Interactive commands 
+emacspeak-wizards-tune-in-radio-browse and emacspeak-wizards-tune-in-radio-search can be bound to convenient shortcut keys to invoke this functionality.
 
 ** emacspeak-markdown.el:
 
