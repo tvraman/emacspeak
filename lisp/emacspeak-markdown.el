@@ -85,6 +85,17 @@
    ))
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
+(defadvice markdown-exdent-or-delete (around emacspeak pre act)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p  )
+    (dtk-tone 500 30 'force)
+    (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
 (loop
  for f in
  '(markdown-backward-paragraph
@@ -144,7 +155,6 @@
 ;;  markdown-cycle
 ;;  markdown-enable-math
 ;;  markdown-enter-key
-;;  markdown-exdent-or-delete
 ;;  markdown-exdent-region
 ;;  markdown-export
 ;;  markdown-export-and-preview
@@ -169,6 +179,7 @@
 ;;  markdown-shifttab
 ;;  markdown-standalone
 ;;  markdown-unfontify-region-wiki-links)
+
 ;;}}}
 (provide 'emacspeak-markdown)
 ;;{{{ end of file
