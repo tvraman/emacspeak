@@ -98,7 +98,9 @@
 
 (loop
  for f in
- '(markdown-backward-paragraph
+ '(
+   markdown-backward-paragraph markdown-cycle
+   markdown-enter-key
    markdown-beginning-of-block
    markdown-beginning-of-defun
    markdown-demote markdown-demote-list-item
@@ -144,20 +146,50 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-;; (markdown-blockquote-region
-;;  markdown-check-change-for-wiki-link
-;;  markdown-check-refs
-;;  markdown-cleanup-list-numbers
-;;  markdown-complete
-;;  markdown-complete-at-point
-;;  markdown-complete-buffer
-;;  markdown-complete-region
-;;  markdown-cycle
+
+(loop
+ for f in
+ '(
+   markdown-check-refs markdown-check-change-for-wiki-link
+   markdown-export markdown-export-and-preview
+                   markdown-indent-region markdown-blockquote-region)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
+
+
+
+(loop
+ for f in
+ '(
+   markdown-complete-region markdown-complete-buffer
+                            markdown-complete-at-point markdown-complete)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'complete)
+       (emacspeak-speak-line)))))
+
+;; (
+;;  
+;;  
+;;  
+;;  
+;;  
+;;  
+;;  
+
 ;;  markdown-enable-math
-;;  markdown-enter-key
+
 ;;  markdown-exdent-region
-;;  markdown-export
-;;  markdown-export-and-preview
+;;  
+;;  
 ;;  markdown-follow-link-at-point
 ;;  markdown-follow-thing-at-point
 ;;  markdown-follow-wiki-link-at-point
@@ -166,14 +198,14 @@
 ;;  markdown-footnote-return
 ;;  markdown-indent-line
 ;;  markdown-indent-region
-;;  markdown-kill-ring-save
+;;  
 ;;  markdown-kill-thing-at-point
 ;;  markdown-mode
 ;;  markdown-mode-menu
 ;;  markdown-open
 ;;  markdown-other-window
 ;;  markdown-pre-region
-;;  markdown-preview
+;;  
 ;;  markdown-reload-extensions
 ;;  markdown-remove-header
 ;;  markdown-shifttab
