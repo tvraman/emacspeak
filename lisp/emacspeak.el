@@ -373,7 +373,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
    (list
     'prog-mode-hook'c-mode-common-hook
     'conf-unix-mode-hook
-    'prolog-mode-hook
+    'prolog-mode-hook 'markdown-mode-hook
     'lisp-mode-hook
     'emacs-lisp-mode-hook
     'lisp-interaction-mode-hook
