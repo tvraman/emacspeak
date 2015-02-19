@@ -602,7 +602,8 @@ A string of the form `<number> 1' sets volume as an absolute."
            (result (emacspeak-m-player-dispatch (format "%s %s" command args))))
       (when result
         (setq result (replace-regexp-in-string  "^ans_" "" result)))
-      (message   result))))
+      (message   "%s"
+                 (or result "Waiting")))))
 
 ;;;###autoload
 (defun emacspeak-m-player-display-percent ()
