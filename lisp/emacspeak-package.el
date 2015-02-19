@@ -60,13 +60,39 @@
 (defun emacspeak-package-summarize-line ()
   "Succinct Summary."
   (interactive)
-  (let ((desc (get-text-property (point) 'tabulated-list-entry)))
-    (emacspeak-auditory-icon 'item)
-    (dtk-speak-and-echo (aref  desc 4))))
+  (let* ((entry (get-text-property (point) 'tabulated-list-entry))
+         (name (first (aref entry 0)))
+         (desc (aref entry 4))
+         (state (aref entry 2)))
+    (cond
+     ((string= state "installed")
+      (emacspeak-auditory-icon 'select-object))
+     ((string= state "obsolete")
+      (emacspeak-auditory-icon 'deselect-object))
+     (t (emacspeak-auditory-icon 'item)))
+    (put-text-property 0 (length name)
+                           'personality voice-bolden-medium name)
+    (dtk-speak-and-echo  (concat name ": "desc))))
+
+(defun emacspeak-package-next-line ()
+  "Move to next line and speak it."
+  (interactive)
+  (next-line)
+  (emacspeak-package-summarize-line))
+
+(defun emacspeak-package-previous-line ()
+  "Move to next line and speak it."
+  (interactive)
+  (previous-line)
+  (emacspeak-package-summarize-line))
 
 (defun emacspeak-package-mode-hook ()
   "Emacspeak setup hook for package-mode."
   (define-key package-menu-mode-map " " 'emacspeak-package-summarize-line)
+  (define-key package-menu-mode-map "n" 'emacspeak-package-next-line)
+  (define-key package-menu-mode-map "p" 'emacspeak-package-previous-line)
+  (unless emacspeak-wizards-yyyymmdd-date-pronounce
+    (emacspeak-wizards-toggle-yyyymmdd-date-pronouncer))
   (unless emacspeak-wizards-yyyymmdd-date-pronounce
     (emacspeak-wizards-toggle-yyyymmdd-date-pronouncer)))
 
