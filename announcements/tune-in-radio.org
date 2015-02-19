@@ -1,0 +1,60 @@
+* Internet Radio: Tune-In For Emacspeak 
+
+
+I just checked in  the  ability to browse, search and play
+radio-stations from TuneIn  on the Emacspeak Audio Desktop.
+
+** Pre-Requisites 
+
+  1. xsltproc for xsl stylesheet processing.
+  2. Linux mplayer for playing streams, preferably the latest version
+
+
+* Simple Usage Summary
+
+  - M-x emacspeak-wizards-tune-in-radio-browse brings up  the
+    browse interface.
+  - M-x emacspeak-wizards-tune-in-radio-search prompts for a
+    query and brings up search results.
+  - Both /browse/ and /search/ get the results back as an _OPML_
+    feed, which gets displayed as a simple Web page within the
+    Emacs Web Browser (EWW if using 24.4).
+  - Items identified as (link) are themselves _OPML_ feeds and
+    can be opened via command emacspeak-feeds-opml-display.
+  - The initial browse buffer is set up to use opml-display
+    when you click on link items.
+  - You can play (audio) links by invoking command
+    _emacspeak-webutils-play-media-at-point --- this command is
+    bound to _;_ in  EWW.
+  - You need to provide an interactive prefix argument to the
+    above command to indicate that it is a playlist --- so you
+    actually press _C-u ;_ on audio links.
+  - Many of the audio links do not return a playlist -- they
+    instead return a link that is a pointer to a playlist. Newer
+    versions of _mplayer_ will throw a security error --- you can
+    tell _mplayer_ to follow them by invoking the earlier command
+    with two prefix args so _C-u C-u ;_.
+  - All this works about 90% of the time. In some cases --
+    depending on whether the server failed to generate the right
+mimetype for the play URL etc, you may need to run
+: curl --silent <url> 
+ where <url> is the URL of the audio link, then  pass that
+ resulting URL to command _emacspeak-m-player-url_.
+
+Share And Enjoy!
+
+#+TITLE: Internet Radio: Tune-In For Emacspeak
+#+DATE: <2015-02-17 Tue>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
