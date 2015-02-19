@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Enhanced Audio On The Emacspeak Desktop</title>
+<!-- 2015-02-17 Tue 17:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Enhanced Audio On The Emacspeak Desktop</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Enhanced Audio On The Emacspeak Desktop</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I recently added a set of modules to Emacspeak to leverage some
+of the high-end audio functionality available   on Linux machines
+on modern hardware. As an example, applying effects such as 3D
+spatialization, high-end reverb effects etc. once consumed
+CPU cycles to the extent where it was not possible to play with
+these in realtime. All these now take less than 1&#x2013;5% of the CPU,
+and that when my laptop is running in power-save mode!
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> An Audio Workbench Using SoX</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Sound Exchange (SoX), described as the Swiss army knife of sound
+processing, has been around since the time I was a graduate
+student. Today it provides a versatile set of tools for editing
+and manipulating both wave and mp3 files. Module sox.el
+implements a simple Audio Workbench for the Emacspeak desktop.
+</p>
+</div>
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Pre-Requisites</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+SoX with all available auxillary packages for adding support for
+various filetypes such as mp3.
+The various Ladspa related packages for installing additional
+audio effect filters. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Usage Instructions For SoX.el</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>Launch the Audio Workbench via  by  executing <span class="underline">M-x sox</span>.
+</li>
+<li>Use <span class="underline">f</span> to open a wave or mp3 file you wish to manipulate.
+</li>
+<li>Add any of the supported effects using <span class="underline">e</span>.
+</li>
+<li>Use upper-case <span class="underline">E</span> to add more than one effect.
+</li>
+<li>Hit <span class="underline">p</span> to play the result, <span class="underline">s</span> to save the result to a new
+file.
+</li>
+</ul>
+
+<p>
+At present sox.el supports a few effects such as  <span class="underline">trim</span> for
+clipping files, <span class="underline">reverb</span> for adding a reverb etc., with more to
+come as I use it.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Adding High-End Reverb When Playing Media Streams</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+I use <span class="underline">mplayer</span> to play both local and network media
+streams. MPlayer can apply a wide range of filters to the audio
+stream; more interestingly it can also apply effects implemented
+as Ladspa plugins.   Package <span class="underline">tap-plugins</span> implements a large
+number of high-quality Ladspa filters, including a versatile
+<span class="underline">Reverb</span> filter.
+</p>
+
+<p>
+Once you have package <span class="underline">tap-plugins</span> and its dependencies
+installed, and a relatively new version of MPlayer (with support
+for Ladspa plugins), you can now apply various <i>Reverb Presets</i>
+to your media streams via Emacspeak MPlayer command
+<span class="underline">emacspeak-m-player-apply-reverb-preset</span> bound to <span class="underline">P</span> in
+Emacspeak MPlayer. Package <span class="underline">tap-plugins</span> defines a total of 42
+Reverb Presets, experiment with these when wearing headsets.
+Once you have applied a Reverb Preset, you can edit its current
+settings via command emacspeak-m-player-edit-reverb  bound to <span class="underline">R</span>
+in Emacspeak MPlayer.
+Alternatively, you can pick a default effect to use via Emacs'
+custom interface; see option  <span class="underline">emacspeak-m-player-reverb-filter</span>.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Defining Convenient MPLayer Shortcuts</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Finally, You can now bind shortcut keys for launching Emacspeak
+MPlayer   from specific locations where you store media, e.g.,
+you can have separate shortcuts for <i>Music</i> vs <i>Audio Books</i> &#x2013;
+see command <span class="underline">emacspeak-m-player-accelerator</span>.
+This is best used by customizing Emacspeak option
+<span class="underline">emacspeak-media-location-bindings</span> &#x2014; just use the Customize
+interface to specify  pairs of shortcut keys and media locations.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-02-17 Tue&gt;</span></span></p>
+<p class="author">Author: raman</p>
+<p class="date">Created: 2015-02-17 Tue 17:37</p>
+<p class="creator">Emacs 25.0.50.1 (Org mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

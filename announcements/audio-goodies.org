@@ -1,0 +1,87 @@
+* Enhanced Audio On The Emacspeak Desktop
+
+I recently added a set of modules to Emacspeak to leverage some
+of the high-end audio functionality available   on Linux machines
+on modern hardware. As an example, applying effects such as 3D
+spatialization, high-end reverb effects etc. once consumed
+CPU cycles to the extent where it was not possible to play with
+these in realtime. All these now take less than 1--5% of the CPU,
+and that when my laptop is running in power-save mode!
+
+** An Audio Workbench Using SoX
+
+Sound Exchange (SoX), described as the Swiss army knife of sound
+processing, has been around since the time I was a graduate
+student. Today it provides a versatile set of tools for editing
+and manipulating both wave and mp3 files. Module sox.el
+implements a simple Audio Workbench for the Emacspeak desktop.
+*** Pre-Requisites 
+
+SoX with all available auxillary packages for adding support for
+various filetypes such as mp3.
+The various Ladspa related packages for installing additional
+audio effect filters. 
+
+*** Usage Instructions For SoX.el
+
+  - Launch the Audio Workbench via  by  executing _M-x sox_.
+  - Use _f_ to open a wave or mp3 file you wish to manipulate.
+  - Add any of the supported effects using _e_.
+  - Use upper-case _E_ to add more than one effect.
+  - Hit _p_ to play the result, _s_ to save the result to a new
+    file.
+
+At present sox.el supports a few effects such as  _trim_ for
+clipping files, _reverb_ for adding a reverb etc., with more to
+come as I use it.
+
+
+** Adding High-End Reverb When Playing Media Streams
+
+I use _mplayer_ to play both local and network media
+streams. MPlayer can apply a wide range of filters to the audio
+stream; more interestingly it can also apply effects implemented
+as Ladspa plugins.   Package _tap-plugins_ implements a large
+number of high-quality Ladspa filters, including a versatile
+_Reverb_ filter.
+
+Once you have package _tap-plugins_ and its dependencies
+installed, and a relatively new version of MPlayer (with support
+for Ladspa plugins), you can now apply various /Reverb Presets/
+to your media streams via Emacspeak MPlayer command
+_emacspeak-m-player-apply-reverb-preset_ bound to _P_ in
+Emacspeak MPlayer. Package _tap-plugins_ defines a total of 42
+Reverb Presets, experiment with these when wearing headsets.
+Once you have applied a Reverb Preset, you can edit its current
+settings via command emacspeak-m-player-edit-reverb  bound to _R_
+in Emacspeak MPlayer.
+Alternatively, you can pick a default effect to use via Emacs'
+custom interface; see option  _emacspeak-m-player-reverb-filter_.
+
+
+
+** Defining Convenient MPLayer Shortcuts 
+
+Finally, You can now bind shortcut keys for launching Emacspeak
+MPlayer   from specific locations where you store media, e.g.,
+you can have separate shortcuts for /Music/ vs /Audio Books/ --
+see command _emacspeak-m-player-accelerator_.
+This is best used by customizing Emacspeak option
+_emacspeak-media-location-bindings_ --- just use the Customize
+interface to specify  pairs of shortcut keys and media locations.
+
+#+TITLE: Enhanced Audio On The Emacspeak Desktop
+#+DATE: <2015-02-17 Tue>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t
+#+OPTIONS: |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
