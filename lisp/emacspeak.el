@@ -190,6 +190,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "ess" 'emacspeak-ess)
 (emacspeak-do-package-setup "eclim" 'emacspeak-eclim)
 (emacspeak-do-package-setup "eww" 'emacspeak-eww)
+(emacspeak-do-package-setup "elfeed" 'emacspeak-elfeed)
 (emacspeak-do-package-setup "enriched" 'emacspeak-enriched)
 (emacspeak-do-package-setup "facemenu" 'emacspeak-facemenu)
 (emacspeak-do-package-setup "find-dired" 'emacspeak-find-dired)

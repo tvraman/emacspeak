@@ -136,6 +136,7 @@ emacspeak-ediff.elc \
 emacspeak-eww.elc \
 flite-voices.elc \
 emacspeak-eclim.elc \
+emacspeak-elfeed.elc \
 emacspeak-enriched.elc \
 emacspeak-xkcd.elc \
 emacspeak-emms.elc \
@@ -372,6 +373,7 @@ emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
 emacspeak-xkcd.elc: emacspeak-xkcd.el dtk-speak.elc
 flite-voices.elc: flite-voices.el
 emacspeak-eclim.elc: emacspeak-eclim.el dtk-speak.elc voice-setup.elc
+emacspeak-elfeed.elc: emacspeak-elfeed.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
 emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
