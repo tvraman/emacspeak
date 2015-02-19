@@ -3,6 +3,11 @@ $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 42 -- Emacspeak 40 User Visible Changes 
+** emacspeak-elfeed.el:
+
+Speech-enables package elfeed, a powerful feed-reader for Emacs.
+
+
 ** sox.el Audacious --- Audio WorkBench For Emacspeak 
 
 Module sox.el implements a light-weight Emacs UI to create Audacious --- An Audio Workbench for  the Emacspeak Desktop.
