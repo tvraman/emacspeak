@@ -154,17 +154,18 @@ field in the customization buffer.  You can use the notation
                  (cons  :tag "Key Binding"
                         (key-sequence :tag "Key")
                         (function :tag "Command")))
-  :set '(lambda (sym val)
-          (mapc
-           #'(lambda (binding)
-             (let ((key (car binding))
-                   (command (cdr binding )))
-               (when (string-match "\\[.+]" key)
-                 (setq key (car (read-from-string key))))
-(when (commandp command)
-               (define-key emacspeak-super-keymap key command))))
-           val)
-          (set-default sym val)))
+  :set #'(lambda (sym val)
+           (mapc
+            #'(
+               lambda (binding)
+               (let ((key (car binding))
+                     (command (cdr binding )))
+                 (when (or (keymapp command)(commandp command)) ;else skip 
+                   (when (string-match "\\[.+]" key)
+                     (setq key (car (read-from-string key))))
+                   (define-key emacspeak-super-keymap key command))))
+            val)
+           (set-default sym val)))
 
 (global-set-key "\C-x@s"
                 'emacspeak-super-keymap)
@@ -204,15 +205,15 @@ field in the customization buffer.  You can use the notation
                  (cons  :tag "Key Binding"
                         (key-sequence :tag "Key")
                         (function :tag "Command")))
-  :set '(lambda (sym val)
+  :set #'(lambda (sym val)
           (mapc
            #'(lambda (binding)
-             (let ((key (car binding))
-                   (command (cdr binding )))
-               (when (string-match "\\[.+]" key)
-                 (setq key (car (read-from-string key))))
-(when (commandp command)
-               (define-key emacspeak-alt-keymap key command))))
+               (let ((key (car binding))
+                     (command (cdr binding )))
+                 (when (or (keymapp command)(commandp command))
+                   (when (string-match "\\[.+]" key)
+                     (setq key (car (read-from-string key))))
+                   (define-key emacspeak-alt-keymap key command))))
            val)
           (set-default sym val)))
 
@@ -254,17 +255,18 @@ field in the customization buffer.  You can use the notation
                  (cons  :tag "Key Binding"
                         (key-sequence :tag "Key")
                         (function :tag "Command")))
-  :set '(lambda (sym val)
+  :set #'(lambda (sym val)
           (mapc
            #'(lambda (binding)
              (let ((key (car binding))
                    (command (cdr binding )))
+(when (or (keymapp command)(commandp command)) ; else skip
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
-               (when (commandp command)
                  (define-key emacspeak-hyper-keymap key command))))
            val)
           (set-default sym val)))
+
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)

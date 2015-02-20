@@ -77,6 +77,7 @@
 
 ;;}}}
 ;;{{{ keymap: web-prefix
+;;;###autoload
 (define-prefix-command 'emacspeak-web-prefix)
 
 (declaim (special emacspeak-web-prefix))
