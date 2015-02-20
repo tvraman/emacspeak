@@ -262,10 +262,9 @@ field in the customization buffer.  You can use the notation
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
                (when (commandp command)
-                 (define-key emacspeak-hyper-keymap key command)))))
+                 (define-key emacspeak-hyper-keymap key command))))
            val)
           (set-default sym val)))
-
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
