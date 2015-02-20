@@ -226,6 +226,10 @@ Google Maps (V2) API  client, that enables Maps exploration.
       Usenet news and email client
       with support for exotic information backends such as
     Slashdot etc.</application>
+<application name="elfeed">
+      Feed reader  for Emacs
+      
+    </application>
     <application name="newsticker">
       Speech-enabled NewsTicker, a native Emacs RSS reader.
     </application>
@@ -339,6 +343,12 @@ Google Maps (V2) API  client, that enables Maps exploration.
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="sox">
+      Audio workbench for the Emacspeak desktop.
+    </application>
+<application name="tune-in">
+      Search, Browse and play Internet radio stations
+    </application>
     <application name="pianobar">
       Play Pandora radio using the Open Source <em>Pianobar</em>
       command-line client.
@@ -430,6 +440,11 @@ API  client for listening to free Librivox audio books.</application>
       Emacs as <code>text/org.el</code>.
       It is built on top of <code>outline mode</code> and is a useful
     way to keep organized notes.</application>
+<application name="markdown">
+      Speech-enabled markdown mode. 
+</application>  
+      
+    
     <application name="remember">
       Package <code>remember.el</code>
       in conjunction with <code>org mode</code> for keeping notes is a
