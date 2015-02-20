@@ -130,11 +130,12 @@
   (let* ((e (emacspeak-elfeed-entry-at-point))
          (title (elfeed-entry-title e))
          (tags (elfeed-entry-tags e)))
-  (dtk-speak title)
-  (cond
-   ((memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
-   ((memq 'read tags) (emacspeak-auditory-icon 'select-object))
-   (t (emacspeak-auditory-icon 'mark-object)))))
+    (dtk-speak title)
+    (when (memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
+    (when (memq 'read tags) (emacspeak-auditory-icon 'select-object))
+    (when (memq 'seen  tags) (emacspeak-auditory-icon 'modified-object))
+    (when (memq 'unread  tags) (emacspeak-auditory-icon 'iten))
+    (elfeed-tag e 'seen)))
 
 ;;}}}
 ;;{{{ Define additional interactive commands:
@@ -184,7 +185,8 @@
   (define-key elfeed-search-mode-map "n" 'emacspeak-elfeed-next-entry)
   (define-key elfeed-search-mode-map "p" 'emacspeak-elfeed-previous-entry)
   (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
-  (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point))
+  (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point)
+  (define-key elfeed-search-mode-map " "'emacspeak-elfeed-speak-entry-at-point))
 
 ;;}}}
 (provide 'emacspeak-elfeed)
