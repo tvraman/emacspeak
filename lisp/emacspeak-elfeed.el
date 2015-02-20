@@ -114,10 +114,77 @@
      (emacspeak-auditory-icon 'yank-object)))   
 
 ;;}}}
+;;{{{ Helpers:
+
+(defsubst emacspeak-elfeed-entry-at-point ()
+  "Return entry at point."
+  (declare (special  elfeed-search--offset elfeed-search-entries))
+  (let ((index  (- (line-number-at-pos (point)) elfeed-search--offset)))
+    (cond
+     ((>= index 0) (nth index elfeed-search-entries))
+     (t (error "No entry at point.")))))    
+
+(defun emacspeak-elfeed-speak-entry-at-point ()
+  "Speak entry at point."
+  (interactive)
+  (let* ((e (emacspeak-elfeed-entry-at-point))
+         (title (elfeed-entry-title e))
+         (tags (elfeed-entry-tags e)))
+  (dtk-speak title)
+  (cond
+   ((memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
+   ((memq 'read tags) (emacspeak-auditory-icon 'select-object))
+   (t (emacspeak-auditory-icon 'mark-object)))))
+
+;;}}}
 ;;{{{ Define additional interactive commands:
+
+(defun emacspeak-elfeed-next-entry ()
+  "Move to next entry and speak it."
+  (interactive)
+  (next-line)
+  (emacspeak-elfeed-speak-entry-at-point))
+
+(defun emacspeak-elfeed-previous-entry ()
+  "Move to previous entry and speak it."
+  (interactive)
+  (previous-line)
+  (emacspeak-elfeed-speak-entry-at-point))
+
+(defun emacspeak-elfeed-filter-entry-at-point ()
+  "Display current article after filtering."
+  (interactive)
+  (declare (special emacspeak-we-recent-xpath-filter))
+  (let* ((entry (emacspeak-elfeed-entry-at-point))
+         (link(elfeed-entry-link entry)))
+    (cond
+     (entry (elfeed-untag  entry 'unread)
+            (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
+     (t (message "No link under point.")))))
+
+(defun emacspeak-elfeed-eww-entry-at-point ()
+  "Display current article in EWW."
+  (interactive)
+  (let* ((entry (emacspeak-elfeed-entry-at-point))
+         (link(elfeed-entry-link entry)))
+    (cond
+     (entry (elfeed-untag  entry 'unread)
+            (eww link))
+     (t (message "No link under point.")))))
+  
+
+;;}}}
 
 ;;}}}
 ;;{{{ Set things up
+
+(defadvice elfeed-search-mode (after emacspeak pre act comp)
+  "Set up Emacspeak commands."
+  (declare (special elfeed-search-mode-map))
+  (define-key elfeed-search-mode-map "n" 'emacspeak-elfeed-next-entry)
+  (define-key elfeed-search-mode-map "p" 'emacspeak-elfeed-previous-entry)
+  (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
+  (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point))
 
 ;;}}}
 (provide 'emacspeak-elfeed)
