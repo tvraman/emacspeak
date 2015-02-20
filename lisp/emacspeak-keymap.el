@@ -156,12 +156,13 @@ field in the customization buffer.  You can use the notation
                         (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
-           (lambda (binding)
+           #'(lambda (binding)
              (let ((key (car binding))
                    (command (cdr binding )))
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
-               (define-key emacspeak-super-keymap key command)))
+(when (commandp command)
+               (define-key emacspeak-super-keymap key command))))
            val)
           (set-default sym val)))
 
@@ -205,12 +206,13 @@ field in the customization buffer.  You can use the notation
                         (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
-           (lambda (binding)
+           #'(lambda (binding)
              (let ((key (car binding))
                    (command (cdr binding )))
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
-               (define-key emacspeak-alt-keymap key command)))
+(when (commandp command)
+               (define-key emacspeak-alt-keymap key command))))
            val)
           (set-default sym val)))
 
@@ -254,12 +256,13 @@ field in the customization buffer.  You can use the notation
                         (function :tag "Command")))
   :set '(lambda (sym val)
           (mapc
-           (lambda (binding)
+           #'(lambda (binding)
              (let ((key (car binding))
                    (command (cdr binding )))
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
-               (define-key emacspeak-hyper-keymap key command)))
+               (when (commandp command)
+                 (define-key emacspeak-hyper-keymap key command)))))
            val)
           (set-default sym val)))
 
