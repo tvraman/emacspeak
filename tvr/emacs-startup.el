@@ -146,6 +146,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "w3-prepare" ;"w3m-prepare" 
        "auctex-prepare" "nxml-prepare"
        "folding-prepare"
+"elfeed-prepare"
        "calc-prepare" 
        "tcl-prepare" 
                                         ; jde and ecb will pull in cedet.
