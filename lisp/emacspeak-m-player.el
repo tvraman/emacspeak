@@ -609,7 +609,7 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defun emacspeak-m-player-display-percent ()
   "Display current percentage."
   (interactive)
-  (emacspeak-m-player-slave-command "get_percent_pos"))
+  (dtk-speak (emacspeak-m-player-slave-command "get_percent_pos")))
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
