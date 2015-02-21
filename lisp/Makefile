@@ -239,7 +239,6 @@ emacspeak-tempo.elc \
 emacspeak-tetris.elc \
 emacspeak-2048.elc \
 emacspeak-texinfo.elc \
-emacspeak-tnt.elc \
 emacspeak-todo-mode.elc \
 emacspeak-twittering.elc \
 emacspeak-url-template.elc \
@@ -489,7 +488,6 @@ emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc voice-setup.elc
 emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
 emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
-emacspeak-tnt.elc: emacspeak-tnt.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc emacspeak-we.elc

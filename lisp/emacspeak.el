@@ -272,7 +272,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "xslide" 'emacspeak-xslide)
 (emacspeak-do-package-setup "xslt-process" 'emacspeak-xslt-process)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
-(emacspeak-do-package-setup "tnt" 'emacspeak-tnt)
 (emacspeak-do-package-setup "term" 'emacspeak-eterm )
 (emacspeak-do-package-setup "eudc" 'emacspeak-eudc )
 (emacspeak-do-package-setup "tetris" 'emacspeak-tetris)
