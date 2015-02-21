@@ -129,18 +129,19 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat
-:tag "Emacspeak Personal Keymap"
-                 (cons  :tag "Key Binding"
-                        (key-sequence :tag "Key")
-                        (ems-interactive-command :tag "Command")))
-  :set '(lambda (sym val)
+          :tag "Emacspeak Personal Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
           (mapc
-           (lambda (binding)
-             (let ((key (car binding))
-                   (command (cdr binding )))
-               (when (string-match "\\[.+]" key)
-                 (setq key  (car (read-from-string key))))
-               (define-key emacspeak-personal-keymap  key command)))
+           #'(lambda (binding)
+               (let ((key (car binding))
+                     (command (cdr binding )))
+                 (when (string-match "\\[.+]" key)
+                   (setq key  (car (read-from-string key))))
+                 (define-key emacspeak-personal-keymap  key command)))
            val)
           (set-default sym val)))
 
