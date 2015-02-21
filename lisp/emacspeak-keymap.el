@@ -70,13 +70,12 @@
   :action 'widget-field-action
   :match-alternatives '(emacspeak-keymap-command-p)
   :validate (lambda (widget)
-	      (unless (emacspeak-keymap-command-p (widget-value widget))
-		(widget-put widget :error (format "Invalid interactive command : %S"
-						  (widget-value widget)))
-		widget))
+              (unless (emacspeak-keymap-command-p (widget-value widget))
+                (widget-put widget :error (format "Invalid interactive command : %S"
+                                                  (widget-value widget)))
+                widget))
   :value 'ignore
   :tag "Interactive Command")
-
 ;;}}}
 ;;{{{  variables:
 
@@ -508,7 +507,7 @@ function keys. "
 (global-set-key [(shift right)] 'next-buffer)
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key [(control right)] 'emacspeak-next-frame-or-buffer)
-                                        ;(global-set-key [pause] 'tts-cycle-device)   
+                                        ;(global-set-key [pause] 'tts-cycle-device)
 (global-set-key [(control down)] 'pop-to-mark-command)
 (global-set-key [(control up)] 'emacspeak-mark-backward-mark)
 (global-set-key [(shift up)] 'emacspeak-skip-blank-lines-backward)
