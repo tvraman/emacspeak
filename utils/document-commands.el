@@ -6,7 +6,7 @@
 (require 'cl)
 (defvar emacs-site-lisp-directory
   (expand-file-name "../../site-lisp"
-                                     (file-name-directory load-file-name))
+                    (file-name-directory load-file-name))
   "Directory where we keep personal libraries")
 
 (defsubst augment-load-path (path &optional library whence at-end)
@@ -15,40 +15,40 @@
   (declare (special emacs-site-lisp-directory))
   (cond
    ((and library
-	 (locate-library library))
-					;do nothing
+         (locate-library library))
+                                        ;do nothing
     )
    (t (setq path (expand-file-name path
-				   (or whence
-				       (and (boundp
-					     'emacs-site-lisp-directory)
-					    emacs-site-lisp-directory))))
+                                   (or whence
+                                       (and (boundp
+                                             'emacs-site-lisp-directory)
+                                            emacs-site-lisp-directory))))
       (if at-end
-	  (setq load-path (append (delete path load-path) (list path))
-		(debug-on-error t))
-	(setq load-path (cons path (delete path load-path)))))))
+          (setq load-path (append (delete path load-path) (list path))
+                (debug-on-error t))
+        (setq load-path (cons path (delete path load-path)))))))
 
 (defsubst augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
-	(cons
-	 (cons ext mode)
-	 auto-mode-alist)))
+        (cons
+         (cons ext mode)
+         auto-mode-alist)))
 
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (condition-case nil
       (cond
        ((locate-library lib)
-	(load-library lib)
-	(message "Loaded %s" lib)
-	t)
+        (load-library lib)
+        (message "Loaded %s" lib)
+        t)
        (t (message "Could not locate library %s" lib)
-	  nil))
+          nil))
     (error (message
-	    "Error loading %s"
-	    lib))))
+            "Error loading %s"
+            lib))))
 (require 'parse-time)
 (defvar emacspeak-modules-dependency-alist
   '(
@@ -153,7 +153,7 @@
     ("emacspeak-net-utils"  . nil )
     ("emacspeak-nxml-mode" . ("nxml-prepare"))
     ("emacspeak-ocr"  . nil )
-("emacspeak-org" . ("org"))
+    ("emacspeak-org" . ("org"))
     ("emacspeak-oo-browser"  . nil )
     ("emacspeak-outline"  . nil )
     ("emacspeak-pcl-cvs"  . nil )
@@ -162,7 +162,7 @@
     ("emacspeak-pronounce"  . nil )
     ("emacspeak-psgml"  . ("psgml-prepare"))
     ("emacspeak-python"  . ("python-mode"))
-("emacspeak-py"  . ("python-mode"))
+    ("emacspeak-py"  . ("python-mode"))
     ("emacspeak-re-builder"  . nil )
     ("emacspeak-redefine"  . nil )
     ("emacspeak-reftex"  . nil )
@@ -190,9 +190,11 @@
     ("emacspeak-tetris"  . ("tetris"))
     ("emacspeak-sudoku"  . ("sudoku"))
     ("emacspeak-texinfo"  . ("texinfo"))
-    ("emacspeak-tnt"  . ("tnt-prepare"))
     ("emacspeak-jabber"  . nil)
     ("emacspeak-url-template"  . nil )
+    ("emacspeak-elfeed" . nil)
+    ("sox" . nil)
+    ("emacspeak-markdown" . nil)
     ("emacspeak-view"  . nil )
     ("emacspeak-vm"  . ("vm-prepare"))
     ("emacspeak-eww" . ("eww"))
@@ -206,7 +208,7 @@
     ("emacspeak-winring"  . nil )
     ("emacspeak-woman" . nil)
     ("emacspeak-wizards"  . nil )
-					;("emacspeak-wrolo"  . ("wrolo"))
+                                        ;("emacspeak-wrolo"  . ("wrolo"))
     ("emacspeak-xml-shell"  . nil )
     ("emacspeak-xslt-process"  . nil )
     ("outloud-voices"  . nil )
@@ -215,18 +217,18 @@
     ("emacspeak-etable" . "table")
     ("voice-setup"  . nil )
     ("emacspeak-add-log" . nil)
-("emacspeak-analog" . (list "analog-prepare" "analog"))
-("emacspeak-desktop" . nil)
-("emacspeak-ediary" . nil)
-("emacspeak-eperiodic" . ("eperiodic"))
-("emacspeak-m-player" . nil)
-("emacspeak-personality" . nil)
-("emacspeak-rpm-spec" . nil)
-("emacspeak-swbuff" . nil)
-("emacspeak-todo-mode" . nil)
-("emacspeak-w3m" . ("w3m-prepare"))
-("emacspeak-wdired"  . nil)
-("emacspeak-xslt" .  nil)
+    ("emacspeak-analog" . (list "analog-prepare" "analog"))
+    ("emacspeak-desktop" . nil)
+    ("emacspeak-ediary" . nil)
+    ("emacspeak-eperiodic" . ("eperiodic"))
+    ("emacspeak-m-player" . nil)
+    ("emacspeak-personality" . nil)
+    ("emacspeak-rpm-spec" . nil)
+    ("emacspeak-swbuff" . nil)
+    ("emacspeak-todo-mode" . nil)
+    ("emacspeak-w3m" . ("w3m-prepare"))
+    ("emacspeak-wdired"  . nil)
+    ("emacspeak-xslt" .  nil)
     )
   "Association list that specifies dependency relations.
 This helps pull in all emacspeak modules cleanly.")
@@ -252,7 +254,7 @@ This helps pull in all emacspeak modules cleanly.")
                (mapcar #'load-library (cdr pair))
                (load-library (car pair)))
            (error nil))
-	 (message "%s\n" (car pair)))
+         (message "%s\n" (car pair)))
      emacspeak-modules-dependency-alist)
     (emacspeak-generate-texinfo-command-documentation
      "commands.texi")
