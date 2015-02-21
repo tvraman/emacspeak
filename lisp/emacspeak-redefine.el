@@ -135,7 +135,7 @@ eech flushes as you type."
           (emacspeak-speak-word)))
        (emacspeak-character-echo
         (emacspeak-speak-this-char (preceding-char)))))))
-(when (= 24 emacs-major-version)  
+(when (<= 24 emacs-major-version)  
   (add-hook 'post-self-insert-hook
             'emacspeak-post-self-insert-hook)
   (unless (boundp 'command-error-function)
