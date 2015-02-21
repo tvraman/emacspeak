@@ -195,7 +195,7 @@ eech flushes as you type."
 rather than through their function cell.
 They have to be redefined and rebound to make them talk in versions older than Emacs 24. " )
 
-(unless (= 24 emacs-major-version)
+(unless (<=   24 emacs-major-version)
   (push 'backward-char emacspeak-functions-that-bypass-function-cell)
   (push 'forward-char emacspeak-functions-that-bypass-function-cell)
   (push 'self-insert-command emacspeak-functions-that-bypass-function-cell))
