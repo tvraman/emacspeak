@@ -144,10 +144,12 @@ This is set to nil when playing Internet  streams.")
 on a specific directory."
   :group 'emacspeak-m-player
   :group 'emacspeak-media
-  :type '(repeat :tag "Emacspeak Media Locations"
-                 (cons  :tag "KeyBinding"
-                        (string :tag "Key")
-                        (directory :tag "Directory")))
+  :type '(repeat
+          :tag "Emacspeak Media Locations"
+          (cons
+           :tag "KeyBinding"
+           (string :tag "Key")
+           (directory :tag "Directory")))
   :set #'(lambda (sym val)
            (mapc
             (lambda (binding)
@@ -158,6 +160,7 @@ on a specific directory."
                 (emacspeak-m-player-bind-accelerator directory key)))
             val)
            (set-default sym val)))
+
 (defvar emacspeak-media-directory-regexp
   (regexp-opt '("mp3" "audio"))
   "Pattern matching locations where we store media.")
