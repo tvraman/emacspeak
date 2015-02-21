@@ -5,7 +5,7 @@
         This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 710 user customizable
+This chapter documents a total of 741 user customizable
   options.
 
 @menu
@@ -24,6 +24,7 @@ This chapter documents a total of 710 user customizable
 * emacspeak-diff-mode Options::
 * emacspeak-dired Options::
 * emacspeak-dismal Options::
+* emacspeak-elfeed Options::
 * emacspeak-entertain Options::
 * emacspeak-eperiodic Options::
 * emacspeak-epub Options::
@@ -45,6 +46,7 @@ This chapter documents a total of 710 user customizable
 * emacspeak-m-player Options::
 * emacspeak-madplay Options::
 * emacspeak-make-mode Options::
+* emacspeak-markdown Options::
 * emacspeak-message Options::
 * emacspeak-muse Options::
 * emacspeak-npr Options::
@@ -626,6 +628,38 @@ These options are customizable via Emacs' Custom interface.
 Personality used for speaking cell values in summaries.
 @end defvar
 
+@node emacspeak-elfeed Options
+@section emacspeak-elfeed Options
+
+Commentary:
+ELFEED ==  Feed Reader for Emacs.
+Install from elpa
+M-x package-install  elfeed
+
+Automatically generated documentation
+for options defined in module  emacspeak-elfeed.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-elfeed-search-date-personality
+Personality used for elfeed-search-date-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-elfeed-search-feed-personality
+Personality used for elfeed-search-feed-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-elfeed-search-tag-personality
+Personality used for elfeed-search-tag-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-elfeed-search-title-personality
+Personality used for elfeed-search-title-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
 @node emacspeak-entertain Options
 @section emacspeak-entertain Options
 
@@ -1128,24 +1162,23 @@ field in the customization buffer.  You can use the notation
 @end defvar
 
 @defvar {User Option} emacspeak-hyper-keys
-*Specifies hyper key bindings for the audio desktop.
-Emacs can use the `hyper' key as a modifier key.
-You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
-on Linux by having it emit the sequence `C-x@@h'.
+*Specifies hyper key bindings for the audio desktop. Emacs can
+use the `hyper' key as a modifier key. You can turn the `windows'
+keys on your Linux PC keyboard into a `hyper' key on Linux by
+having it emit the sequence `C-x@@h'.
 
-Bindings specified here are available on prefix key  `hyper'
-for example, if you bind
-`b' to command `bbdb '
-then that command will be available on key `hyper b'.
+Bindings specified here are available on prefix key `hyper' for
+example, if you bind `b' to command `bbdb ' then that command
+will be available on key `hyper b'.
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. 
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes. To enter a
+key with a modifier, type C-q followed by the desired modified
+keystroke. For example, to enter C-s (Control s) as the key to be
+bound, type C-q C-s in the key field in the customization
+buffer. You can use the notation [f1], [f2], etc., to specify
+function keys. 
 @end defvar
 
 @defvar {User Option} emacspeak-personal-keys
@@ -1326,11 +1359,11 @@ media (WMA) and streaming windows media (ASF) files.
 mplayer is available  on the WWW:
 RPM package
 http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
-You may need the  win32 codecs which can be downloaded from 
+You may need the  win32 codecs which can be downloaded from
 http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
 Mplayer FAQ at
 http://www.mplayerhq.hu/DOCS/faq.html
-Mplayer docs at 
+Mplayer docs at
 http://www.mplayerhq.hu/DOCS/
 
 Automatically generated documentation
@@ -1358,7 +1391,7 @@ YouTube download tool
 @end defvar
 
 @defvar {User Option} emacspeak-media-location-bindings
-*Map specific key sequences to launching MPlayer accelerators 
+*Map specific key sequences to launching MPlayer accelerators
 on a specific directory.
 @end defvar
 
@@ -1413,6 +1446,152 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-makefile-targets-voice
 Personality used for makefile-targets
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@node emacspeak-markdown Options
+@section emacspeak-markdown Options
+
+Commentary:
+MARKDOWN ==  Light-weight markup.
+This module speech-enables markdown.el
+
+Automatically generated documentation
+for options defined in module  emacspeak-markdown.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-markdown-blockquote-personality
+Personality used for markdown-blockquote-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-bold-personality
+Personality used for markdown-bold-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-comment-personality
+Personality used for markdown-comment-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-footnote-personality
+Personality used for markdown-footnote-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-delimiter-personality
+Personality used for markdown-header-delimiter-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-1-voice
+Personality used for markdown-header-face-1
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-2-voice
+Personality used for markdown-header-face-2
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-3-voice
+Personality used for markdown-header-face-3
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-4-voice
+Personality used for markdown-header-face-4
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-5-voice
+Personality used for markdown-header-face-5
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-face-6-voice
+Personality used for markdown-header-face-6
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-personality
+Personality used for markdown-header-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-header-rule-personality
+Personality used for markdown-header-rule-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-inline-code-personality
+Personality used for markdown-inline-code-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-italic-personality
+Personality used for markdown-italic-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-language-keyword-personality
+Personality used for markdown-language-keyword-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-line-break-personality
+Personality used for markdown-line-break-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-link-personality
+Personality used for markdown-link-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-link-title-personality
+Personality used for markdown-link-title-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-list-personality
+Personality used for markdown-list-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-math-personality
+Personality used for markdown-math-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-metadata-key-personality
+Personality used for markdown-metadata-key-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-metadata-value-personality
+Personality used for markdown-metadata-value-face
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-missing-link-personality
+Personality used for markdown-missing-link-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-pre-personality
+Personality used for markdown-pre-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-reference-personality
+Personality used for markdown-reference-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-markdown-url-personality
+Personality used for markdown-url-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 @end defvar
 
 @node emacspeak-message Options
