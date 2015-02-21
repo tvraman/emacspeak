@@ -46,9 +46,36 @@
 
 ;;}}}
 ;;{{{ requires
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'wid-edit)
+
+;;}}}
+;;{{{ Custom Widget Types:
+
+(defun emacspeak-keymap-command-p (s)
+  "Check if `s' is suitable to be bound to a key."
+  (or (commandp s) (keymapp s)))
+
+(define-widget 'ems-interactive-command 'restricted-sexp
+  "An interactive command."
+  :completions
+  (apply-partially #'completion-table-with-predicate obarray 'emacspeak-keymap-command-p 'strict)
+  :prompt-value 'widget-field-prompt-value
+  :prompt-internal 'widget-symbol-prompt-internal
+  :prompt-match 'emacspeak-keymap-command-p
+  :prompt-history 'widget-function-prompt-value-history
+  :action 'widget-field-action
+  :match-alternatives '(emacspeak-keymap-command-p)
+  :validate (lambda (widget)
+	      (unless (emacspeak-keymap-command-p (widget-value widget))
+		(widget-put widget :error (format "Invalid interactive command : %S"
+						  (widget-value widget)))
+		widget))
+  :value 'ignore
+  :tag "Interactive Command")
 
 ;;}}}
 ;;{{{  variables:
@@ -102,10 +129,11 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat :tag "Emacspeak Personal Keymap"
+  :type '(repeat
+:tag "Emacspeak Personal Keymap"
                  (cons  :tag "Key Binding"
                         (key-sequence :tag "Key")
-                        (function :tag "Command")))
+                        (ems-interactive-command :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -150,20 +178,21 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat :tag "Emacspeak Super Keymap"
-                 (cons  :tag "Key Binding"
-                        (key-sequence :tag "Key")
-                        (function :tag "Command")))
+  :type '(repeat
+          :tag "Emacspeak Super Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (mapc
             #'(
                lambda (binding)
                (let ((key (car binding))
                      (command (cdr binding )))
-                 (when (or (keymapp command)(commandp command)) ;else skip 
-                   (when (string-match "\\[.+]" key)
-                     (setq key (car (read-from-string key))))
-                   (define-key emacspeak-super-keymap key command))))
+                 (when (string-match "\\[.+]" key)
+                   (setq key (car (read-from-string key))))
+                 (define-key emacspeak-super-keymap key command)))
             val)
            (set-default sym val)))
 
@@ -201,19 +230,20 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat :tag "Emacspeak Alt Keymap"
-                 (cons  :tag "Key Binding"
-                        (key-sequence :tag "Key")
-                        (function :tag "Command")))
+  :type '(repeat
+          :tag "Emacspeak Alt Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
           (mapc
            #'(lambda (binding)
                (let ((key (car binding))
                      (command (cdr binding )))
-                 (when (or (keymapp command)(commandp command))
                    (when (string-match "\\[.+]" key)
                      (setq key (car (read-from-string key))))
-                   (define-key emacspeak-alt-keymap key command))))
+                   (define-key emacspeak-alt-keymap key command)))
            val)
           (set-default sym val)))
 
@@ -232,40 +262,40 @@ field in the customization buffer.  You can use the notation
 (define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
 ;;;###autoload
 (defcustom emacspeak-hyper-keys nil
-  "*Specifies hyper key bindings for the audio desktop.
-Emacs can use the `hyper' key as a modifier key.
-You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
-on Linux by having it emit the sequence `C-x@h'.
+  "*Specifies hyper key bindings for the audio desktop. Emacs can
+use the `hyper' key as a modifier key. You can turn the `windows'
+keys on your Linux PC keyboard into a `hyper' key on Linux by
+having it emit the sequence `C-x@h'.
 
-Bindings specified here are available on prefix key  `hyper'
-for example, if you bind
-`b' to command `bbdb '
-then that command will be available on key `hyper b'.
+Bindings specified here are available on prefix key `hyper' for
+example, if you bind `b' to command `bbdb ' then that command
+will be available on key `hyper b'.
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes. To enter a
+key with a modifier, type C-q followed by the desired modified
+keystroke. For example, to enter C-s (Control s) as the key to be
+bound, type C-q C-s in the key field in the customization
+buffer. You can use the notation [f1], [f2], etc., to specify
+function keys. "
   :group 'emacspeak
-  :type '(repeat :tag "Emacspeak Hyper Keys"
-                 (cons  :tag "Key Binding"
-                        (key-sequence :tag "Key")
-                        (function :tag "Command")))
+  :type '(repeat
+          :tag "Emacspeak Hyper Keys"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
-          (mapc
-           #'(lambda (binding)
-             (let ((key (car binding))
-                   (command (cdr binding )))
-(when (or (keymapp command)(commandp command)) ; else skip
-               (when (string-match "\\[.+]" key)
-                 (setq key (car (read-from-string key))))
-                 (define-key emacspeak-hyper-keymap key command))))
-           val)
-          (set-default sym val)))
+           (mapc
+            #'(lambda (binding)
+                (let ((key (car binding))
+                      (command (cdr binding )))
+                  (when (string-match "\\[.+]" key)
+                    (setq key (car (read-from-string key))))
+                  (define-key emacspeak-hyper-keymap key command)))
+            val)
+           (set-default sym val)))
 
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
