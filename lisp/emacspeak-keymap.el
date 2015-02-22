@@ -307,6 +307,13 @@ function keys. "
   "Update keymap with specified binding."
   (define-key keymap (first binding) (second binding)))
 
+;;;###autoload
+(defun emacspeak-keymap-bindings-update (keymap bindings)
+  "Update keymap with specified list of bindings."
+  (loop
+   for binding in bindings
+        do
+  (define-key keymap (first binding) (second binding))))
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
