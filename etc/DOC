@@ -4070,10 +4070,6 @@ but quickly switch to a window by name.
 
 ------------------------------------------------------------
 
-** emacspeak-tnt-toggle-autospeak Toggle TNT autospeak for this chat session. 
-
-------------------------------------------------------------
-
 ** emacspeak-url-template-fetch	Key Sequence:C-e u
 
  Fetch a pre-defined resource.

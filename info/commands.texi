@@ -3,7 +3,7 @@
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation. This chapter documents a total of 1012
+documentation. This chapter documents a total of 1011
 commands.
 
 @menu
@@ -75,7 +75,6 @@ commands.
 * emacspeak-tapestry::
 * emacspeak-tar::
 * emacspeak-tetris::
-* emacspeak-tnt::
 * emacspeak-url-template::
 * emacspeak-view::
 * emacspeak-vm::
@@ -4893,20 +4892,6 @@ Speak the score
 
 @deffn {Interactive Command} emacspeak-tetris-speak-x-coordinate  nil
 Speak current position
-@end deffn
-
-@node emacspeak-tnt
-@section emacspeak-tnt
-
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-tnt.
-
-@deffn {Interactive Command} emacspeak-tnt-toggle-autospeak  (&optional prefix)
-Toggle TNT autospeak for this chat session.
 @end deffn
 
 @node emacspeak-url-template

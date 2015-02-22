@@ -5,7 +5,7 @@
         This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 741 user customizable
+This chapter documents a total of 734 user customizable
   options.
 
 @menu
@@ -65,7 +65,6 @@ This chapter documents a total of 741 user customizable
 * emacspeak-speak Options::
 * emacspeak-speedbar Options::
 * emacspeak-table-ui Options::
-* emacspeak-tnt Options::
 * emacspeak-url-template Options::
 * emacspeak-vm Options::
 * emacspeak-w3 Options::
@@ -2339,52 +2338,6 @@ personality for speaking column headers.
 
 @defvar {User Option} emacspeak-table-row-header-personality
 Personality for speaking row headers
-@end defvar
-
-@node emacspeak-tnt Options
-@section emacspeak-tnt Options
-
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
-Automatically generated documentation
-for options defined in module  emacspeak-tnt.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-tnt-autospeak
-True means messages in this chat session will be spoken
-automatically.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-active-personality
-Personality used for tnt-buddy-list-active-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-away-personality
-Personality used for tnt-buddy-list-away-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-idle-personality
-Personality used for tnt-buddy-list-idle-face
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-inactive-personality
-Personality used for tnt-buddy-list-inactive-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-buddy-list-pounce-personality
-Personality used for tnt-buddy-list-pounce-face
-This personality uses  (quote ursula) whose  effect can be changed globally by customizing (quote ursula)-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-tnt-my-name-personality
-Personality used for tnt-my-name-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @node emacspeak-url-template Options
