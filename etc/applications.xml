@@ -246,10 +246,6 @@ Google Maps (V2) API  client, that enables Maps exploration.
     within other applications.</application>
     <application name="supercite">
     Enables flexible citations when composing  email.</application>
-    <application name="tnt">
-      Instant Messenger (AIM) client,
-      with support for multiple parallel chat
-    sessions.</application>
     <application name="erc">
       Internet Relay Chat (IRC) client
       with  voice locking support and parallel chat
